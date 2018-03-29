@@ -1,29 +1,39 @@
 
-> @talend/react-components@0.171.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.172.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
 src/DataMapper/DataMapper.scss
-   57:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   69:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  138:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  139:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  145:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  146:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  151:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  152:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  160:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  161:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  168:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
-  177:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  179:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  183:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  184:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  188:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  193:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  198:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  211:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  262:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   58:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   70:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  139:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  140:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  146:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  147:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  152:15  error  Quotes around URLs are required                                           url-quotes
+  156:15  error  Quotes around URLs are required                                           url-quotes
+  160:15  error  Quotes around URLs are required                                           url-quotes
+  164:15  error  Quotes around URLs are required                                           url-quotes
+  168:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  173:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  178:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  183:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  188:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  193:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  198:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  199:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  207:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  208:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  215:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
+  224:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  226:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  230:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  231:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  235:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  240:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  245:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  259:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  310:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -31,5 +41,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 22 problems (20 errors, 2 warnings)
+✖ 32 problems (30 errors, 2 warnings)
 

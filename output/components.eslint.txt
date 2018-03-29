@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.171.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.172.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -47,6 +47,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/List/Row.js
   62:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/ConnectionSVG.js
+  11:3  error  Unexpected lexical declaration in case block  no-case-declarations
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.js
+  167:15  error  Expected 'this' to be used by class method 'getVisibility'  class-methods-use-this
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   60:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   61:3  error  Component should be written as a pure function                                                 react/prefer-stateless-function
@@ -59,8 +65,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   217:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingSVG.js
-  120:10  error  'getLineParams' is defined but never used                                                      no-unused-vars
-  344:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  124:10  error  'getLineParams' is defined but never used                                                      no-unused-vars
+  377:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/Filter.js
   29:8   error  Expected 'this' to be used by class method 'select'  class-methods-use-this
@@ -108,5 +114,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 58 problems (57 errors, 1 warning)
+✖ 60 problems (59 errors, 1 warning)
 
