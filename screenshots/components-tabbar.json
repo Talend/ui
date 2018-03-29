@@ -1,0 +1,8 @@
+{
+  "components/iframe.html?selectedKind=TabBar&selectedStory=default": [
+    {
+      "name": "tabbar-default",
+      "selector": "#default"
+    }
+  ]
+}
