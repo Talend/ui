@@ -1,845 +1,313 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Actions should render actions 1`] = `
-<div
-  className="tc-actions btn-group"
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
 >
-  <button
-    className="btn btn-primary"
-    disabled={false}
+  <Action
+    bsStyle="primary"
+    hideLabel={false}
+    icon="fa fa-asterisk"
+    label="Preparations"
+    link={false}
     onClick={[Function]}
-    onMouseDown={[Function]}
-    role={null}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-asterisk"
-      focusable="false"
-      title={null}
-    />
-    <span>
-      Preparations
-    </span>
-  </button>
-  <button
-    className="btn btn-default"
-    disabled={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    hideLabel={false}
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    link={false}
     onClick={[Function]}
-    onMouseDown={[Function]}
-    role={null}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-file-excel-o"
-      focusable="false"
-      title={null}
-    />
-    <span>
-      Datasets
-    </span>
-  </button>
-  <button
-    className="btn btn-default"
-    disabled={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    hideLabel={false}
+    icon="fa fa-star"
+    label="Favorites"
+    link={false}
     onClick={[Function]}
-    onMouseDown={[Function]}
-    role={null}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-star"
-      focusable="false"
-      title={null}
-    />
-    <span>
-      Favorites
-    </span>
-  </button>
-  <div
-    className="dropdown btn-group btn-group-default"
-  >
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
-      disabled={false}
-      id="dropdown-id"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      type="button"
-    >
-      <span
-        className="tc-dropdown-button-title"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          focusable="false"
-          title={null}
-        />
-        <span
-          className="tc-dropdown-button-title-label"
-        >
-          related items
-        </span>
-      </span>
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 2
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="dropdown btn-group"
-  >
-    <button
-      className="theme-tc-split-dropdown btn btn-default"
-      disabled={false}
-      hideLabel={false}
-      link={false}
-      onClick={[Function]}
-      tooltipPlacement={undefined}
-      type="button"
-    >
-      <span>
-        <span>
-          add file
-        </span>
-      </span>
-    </button>
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      aria-label={
-        <span>
-          <span>
-            add file
-          </span>
-        </span>
-      }
-      className="dropdown-toggle btn btn-default"
-      disabled={false}
-      id="split-dropdown-id"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      type="button"
-    >
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="split-dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 2
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+    tooltipPlacement={undefined}
+  />
+  <Action
+    displayMode="dropdown"
+    hideLabel={false}
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="related items"
+    link={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    displayMode="splitDropdown"
+    hideLabel={false}
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="add file"
+    link={false}
+    onClick={[Function]}
+    tooltipPlacement={undefined}
+  />
+</ButtonGroup>
 `;
 
 exports[`Actions should render actions with "link" theme 1`] = `
-<div
-  className="tc-actions btn-group"
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
 >
-  <button
-    className="btn btn-link"
-    disabled={false}
+  <Action
+    bsStyle="primary"
+    hideLabel={false}
+    icon="fa fa-asterisk"
+    label="Preparations"
+    link={true}
     onClick={[Function]}
-    onMouseDown={[Function]}
-    role="link"
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-asterisk"
-      focusable="false"
-      title={null}
-    />
-    <span>
-      Preparations
-    </span>
-  </button>
-  <button
-    className="btn btn-link"
-    disabled={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    hideLabel={false}
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    link={true}
     onClick={[Function]}
-    onMouseDown={[Function]}
-    role="link"
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-file-excel-o"
-      focusable="false"
-      title={null}
-    />
-    <span>
-      Datasets
-    </span>
-  </button>
-  <button
-    className="btn btn-link"
-    disabled={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    hideLabel={false}
+    icon="fa fa-star"
+    label="Favorites"
+    link={true}
     onClick={[Function]}
-    onMouseDown={[Function]}
-    role="link"
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-star"
-      focusable="false"
-      title={null}
-    />
-    <span>
-      Favorites
-    </span>
-  </button>
-  <div
-    className="dropdown btn-group btn-group-link"
-  >
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-      disabled={false}
-      id="dropdown-id"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      type="button"
-    >
-      <span
-        className="tc-dropdown-button-title"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          focusable="false"
-          title={null}
-        />
-        <span
-          className="tc-dropdown-button-title-label"
-        >
-          related items
-        </span>
-      </span>
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 2
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="dropdown btn-group"
-  >
-    <button
-      className="theme-tc-split-dropdown btn btn-default"
-      disabled={false}
-      hideLabel={false}
-      link={true}
-      onClick={[Function]}
-      tooltipPlacement={undefined}
-      type="button"
-    >
-      <span>
-        <span>
-          add file
-        </span>
-      </span>
-    </button>
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      aria-label={
-        <span>
-          <span>
-            add file
-          </span>
-        </span>
-      }
-      className="dropdown-toggle btn btn-default"
-      disabled={false}
-      id="split-dropdown-id"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      type="button"
-    >
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="split-dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 2
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+    tooltipPlacement={undefined}
+  />
+  <Action
+    displayMode="dropdown"
+    hideLabel={false}
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="related items"
+    link={true}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    displayMode="splitDropdown"
+    hideLabel={false}
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="add file"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement={undefined}
+  />
+</ButtonGroup>
 `;
 
 exports[`Actions should render actions with defined tooltip placement 1`] = `
-<div
-  className="tc-actions btn-group"
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
 >
-  <button
-    className="btn btn-link"
-    disabled={false}
+  <Action
+    bsStyle="primary"
+    hideLabel={true}
+    icon="fa fa-asterisk"
+    label="Preparations"
+    link={true}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role="link"
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-asterisk"
-      focusable="false"
-      title={null}
-    />
-  </button>
-  <button
-    className="btn btn-link"
-    disabled={false}
+    tooltipPlacement="right"
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    link={true}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role="link"
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-file-excel-o"
-      focusable="false"
-      title={null}
-    />
-  </button>
-  <button
-    className="btn btn-link"
-    disabled={false}
+    tooltipPlacement="right"
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-star"
+    label="Favorites"
+    link={true}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role="link"
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-star"
-      focusable="false"
-      title={null}
-    />
-  </button>
-  <div
-    className="dropdown btn-group btn-group-link"
-  >
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-      disabled={false}
-      id="dropdown-id"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onMouseOver={[Function]}
-      role="button"
-      type="button"
-    >
-      <span
-        className="tc-dropdown-button-title"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          focusable="false"
-          title={null}
-        />
-      </span>
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 2
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="dropdown btn-group"
-  >
-    <button
-      className="theme-tc-split-dropdown btn btn-default"
-      disabled={false}
-      hideLabel={true}
-      link={true}
-      onClick={[Function]}
-      tooltipPlacement="right"
-      type="button"
-    >
-      <span>
-        <span>
-          add file
-        </span>
-      </span>
-    </button>
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      aria-label={
-        <span>
-          <span>
-            add file
-          </span>
-        </span>
-      }
-      className="dropdown-toggle btn btn-default"
-      disabled={false}
-      id="split-dropdown-id"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      type="button"
-    >
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="split-dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 2
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+    tooltipPlacement="right"
+  />
+  <Action
+    displayMode="dropdown"
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="related items"
+    link={true}
+    tooltipPlacement="right"
+  />
+  <Action
+    displayMode="splitDropdown"
+    hideLabel={true}
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="add file"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="right"
+  />
+</ButtonGroup>
 `;
 
 exports[`Actions should render actions with hidden labels and tooltips 1`] = `
-<div
-  className="tc-actions btn-group"
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
 >
-  <button
-    className="btn btn-primary"
-    disabled={false}
+  <Action
+    bsStyle="primary"
+    hideLabel={true}
+    icon="fa fa-asterisk"
+    label="Preparations"
+    link={false}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role={null}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-asterisk"
-      focusable="false"
-      title={null}
-    />
-  </button>
-  <button
-    className="btn btn-default"
-    disabled={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    link={false}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role={null}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-file-excel-o"
-      focusable="false"
-      title={null}
-    />
-  </button>
-  <button
-    className="btn btn-default"
-    disabled={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-star"
+    label="Favorites"
+    link={false}
     onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseOver={[Function]}
-    role={null}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-star"
-      focusable="false"
-      title={null}
-    />
-  </button>
-  <div
-    className="dropdown btn-group btn-group-default"
-  >
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
-      disabled={false}
-      id="dropdown-id"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onMouseOver={[Function]}
-      role="button"
-      type="button"
-    >
-      <span
-        className="tc-dropdown-button-title"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-file-excel-o"
-          focusable="false"
-          title={null}
-        />
-      </span>
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="document 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          document 2
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="dropdown btn-group"
-  >
-    <button
-      className="theme-tc-split-dropdown btn btn-default"
-      disabled={false}
-      hideLabel={true}
-      link={false}
-      onClick={[Function]}
-      tooltipPlacement={undefined}
-      type="button"
-    >
-      <span>
-        <span>
-          add file
-        </span>
-      </span>
-    </button>
-    <button
-      aria-expanded={false}
-      aria-haspopup={true}
-      aria-label={
-        <span>
-          <span>
-            add file
-          </span>
-        </span>
-      }
-      className="dropdown-toggle btn btn-default"
-      disabled={false}
-      id="split-dropdown-id"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      type="button"
-    >
-       
-      <span
-        className="caret"
-      />
-    </button>
-    <ul
-      aria-labelledby="split-dropdown-id"
-      className="dropdown-menu"
-      role="menu"
-    >
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 1"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 1
-        </a>
-      </li>
-      <li
-        className=""
-        role="presentation"
-        style={undefined}
-      >
-        <a
-          href="#"
-          label="file 2"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          file 2
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+    tooltipPlacement={undefined}
+  />
+  <Action
+    displayMode="dropdown"
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="related items"
+    link={false}
+    tooltipPlacement={undefined}
+  />
+  <Action
+    displayMode="splitDropdown"
+    hideLabel={true}
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [Function],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [Function],
+        },
+      ]
+    }
+    label="add file"
+    link={false}
+    onClick={[Function]}
+    tooltipPlacement={undefined}
+  />
+</ButtonGroup>
 `;

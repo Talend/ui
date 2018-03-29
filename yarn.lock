@@ -392,15 +392,15 @@ add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
 
-ag-grid-react@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-16.0.0.tgz#885c89eafb856f2b715576e954af8eaaf036ecc4"
+ag-grid-react@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-17.0.0.tgz#363d78b95b9be3bb2124284d2baf70056808f287"
   dependencies:
     prop-types "15.6.0"
 
-ag-grid@^16.0.0:
-  version "16.0.1"
-  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-16.0.1.tgz#f9b5562fff6c70b38a20ffb1708800006c902c1a"
+ag-grid@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-17.0.0.tgz#b8c82268c1785e04425a3149ca53cc526376029b"
 
 agent-base@^4.1.0:
   version "4.2.0"
@@ -5911,20 +5911,6 @@ https-proxy-agent@^2.1.0:
 hyphenate-style-name@^1.0.1, hyphenate-style-name@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
-
-i18next-parser@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/i18next-parser/-/i18next-parser-0.12.0.tgz#39b7b598e1563f54fdf77313a86a844ba5b1d245"
-  dependencies:
-    colors "~1.1.2"
-    commander "~2.9.0"
-    concat-stream "~1.6.0"
-    gulp-util "~3.0.7"
-    lodash "~4.17.3"
-    mkdirp "~0.5.1"
-    readdirp "~2.1.0"
-    through2 "~2.0.3"
-    vinyl "~2.0.1"
 
 i18next-parser@^0.13.0:
   version "0.13.0"
