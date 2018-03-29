@@ -1,4 +1,8 @@
+// import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { action } from '@storybook/addon-actions';
+import talendIcons from '@talend/icons/dist/react';
+import { IconsProvider } from '@talend/react-components';
 import AvroViewer from '../src/AvroViewer';
 
 const icons = {
@@ -435,8 +439,10 @@ const props = {
 const ExampleAvroViewer = {
 	default: () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<AvroViewer {...props} />
 		</div>
 	),
 };
+
+export default ExampleAvroViewer;

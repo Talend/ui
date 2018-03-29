@@ -18,6 +18,7 @@ import SliderExample from './ExampleSlider';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
+import AvroViewerExample from './ExampleAvroViewer';
 
 export default {
 	ActionExample,
@@ -26,6 +27,7 @@ export default {
 	ActionIconToggle,
 	ActionSplitDropdown,
 	ActionsExample,
+	AvroViewerExample,
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,

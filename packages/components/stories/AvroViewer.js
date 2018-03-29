@@ -454,7 +454,6 @@ function ToggleManager(Component) {
 			} else {
 				itemOpened = itemOpened.concat(options.jsonpath);
 			}
-
 			this.setState({
 				isSingle: index === 'default',
 				opened: {
@@ -462,7 +461,6 @@ function ToggleManager(Component) {
 					[index]: itemOpened,
 				},
 			});
-
 			if (this.props.onToggle) {
 				this.props.onToggle(event, options, index);
 			}
