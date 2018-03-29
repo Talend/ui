@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButton from './ActionButton.component';
+import { ActionButton } from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',

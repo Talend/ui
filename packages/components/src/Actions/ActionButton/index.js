@@ -1,3 +1,3 @@
-import ActionButton from './ActionButton.component';
+import TranslatedActionButton from './ActionButton.component';
 
-export default ActionButton;
+export default TranslatedActionButton;
