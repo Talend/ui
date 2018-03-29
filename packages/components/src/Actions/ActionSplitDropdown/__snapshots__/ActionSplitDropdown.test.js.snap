@@ -2,6 +2,7 @@
 
 exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
 <SplitButton
+  aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
@@ -16,6 +17,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
       </span>
     </span>
   }
+  toggleLabel="Open \\"{{label}}\\" menu"
 >
   <MenuItem
     bsClass="dropdown"
@@ -30,6 +32,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
 
 exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 <SplitButton
+  aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
@@ -44,6 +47,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
       </span>
     </span>
   }
+  toggleLabel="Open \\"{{label}}\\" menu"
 >
   <MenuItem
     bsClass="dropdown"
@@ -72,6 +76,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 
 exports[`ActionSplitDropdown should render a button with label 1`] = `
 <SplitButton
+  aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
@@ -83,6 +88,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
       </span>
     </span>
   }
+  toggleLabel="Open \\"{{label}}\\" menu"
 >
   <MenuItem
     bsClass="dropdown"
@@ -111,6 +117,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
 
 exports[`ActionSplitDropdown should render items with icons 1`] = `
 <SplitButton
+  aria-label="Add File"
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
@@ -125,6 +132,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
       </span>
     </span>
   }
+  toggleLabel="Open \\"{{label}}\\" menu"
 >
   <MenuItem
     bsClass="dropdown"

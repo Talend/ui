@@ -40,6 +40,7 @@ exports[`Item should display value with three buttons 1`] = `
     className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
   >
     <button
+      aria-label="Edit"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -50,6 +51,7 @@ exports[`Item should display value with three buttons 1`] = `
       type="button"
     />
     <button
+      aria-label="Delete"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}

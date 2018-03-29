@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -9,6 +10,8 @@ import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -85,7 +88,7 @@ function noOp() {}
 };
  <Action {...props} />
  */
-function ActionButton(props) {
+export function ActionButton(props) {
 	const {
 		bsStyle,
 		inProgress,
@@ -103,6 +106,7 @@ function ActionButton(props) {
 		tooltip,
 		tooltipLabel,
 		available,
+		t,
 		...rest
 	} = props;
 
@@ -140,6 +144,17 @@ function ActionButton(props) {
 		buttonProps.className = classNames(buttonProps.className, theme['btn-disabled']);
 	}
 
+	let ariaLabel = tooltipLabel || label;
+	if (inProgress) {
+		ariaLabel = t('ACTION_IN_PROGRESS', {
+			defaultValue: '{{label}} (in progress)',
+			label: ariaLabel,
+		});
+	}
+	if (loading) {
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
+	}
+
 	let btn = (
 		<Button
 			onMouseDown={rMouseDown}
@@ -147,6 +162,7 @@ function ActionButton(props) {
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
+			aria-label={ariaLabel}
 			{...buttonProps}
 		>
 			{buttonContent}
@@ -194,6 +210,7 @@ ActionButton.propTypes = {
 	overlayComponent: PropTypes.element,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
 };
@@ -205,7 +222,8 @@ ActionButton.defaultProps = {
 	inProgress: false,
 	loading: false,
 	disabled: false,
+	t: getDefaultTranslate,
 };
 
 ActionButton.displayName = 'ActionButton';
-export default ActionButton;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(ActionButton);
