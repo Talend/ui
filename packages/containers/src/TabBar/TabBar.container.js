@@ -21,11 +21,6 @@ class TabBar extends React.Component {
 		actionCreatorSelect: PropTypes.string,
 	};
 
-	static contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-	};
-
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
