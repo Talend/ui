@@ -194,30 +194,29 @@ class Datalist extends Component {
 	 */
 	updateValue(event, value, persist) {
 		const previousValue = persist ? value : this.state.previousValue;
-
+		const newValue = typeof value === 'object' ? value.title : value;
 		this.setState({
 			// setting the filtered value so it needs to be actual value
-			value: typeof value === 'object' ? value.title : value,
+			value: newValue,
 		});
 		if (persist) {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
 			if (this.props.multiSection) {
 				const groups = this.props.titleMap;
 				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value.title);
+					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === newValue);
 					if (itemObj) {
 						enumValue = itemObj;
 						break;
 					}
 				}
 			}
-			const payload = { value: get(enumValue, 'value') };
-			if (payload.value || !this.props.restricted) {
+			const selectedEnumValue = get(enumValue, 'value');
+			if (selectedEnumValue || !this.props.restricted) {
 				this.props.onChange(
 					event,
-					payload.value ? payload : { value: get(enumValue, 'value', value) },
+					{ value: selectedEnumValue || value },
 				);
-				// setting the previous value to current only if the current value exists
 				this.setState({
 					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
 				});
