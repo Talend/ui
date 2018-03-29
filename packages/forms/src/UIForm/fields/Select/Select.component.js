@@ -44,12 +44,14 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 					const event = {
 						target: {
 							value: multiple ? undefined : payload.value,
-							options: multiple ? options.map(option => Object.assign(
-								{
-									value: option.value,
-									selected: selectedValue.find(v => v.value === option.value) !== undefined,
-								}
-							)) : undefined,
+							options: multiple
+								? options.map(option =>
+										Object.assign({
+											value: option.value,
+											selected: selectedValue.find(v => v.value === option.value) !== undefined,
+										}),
+								  )
+								: undefined,
 						},
 					};
 					onChange(event, payload);

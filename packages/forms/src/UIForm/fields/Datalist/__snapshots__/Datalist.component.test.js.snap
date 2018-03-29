@@ -17,6 +17,7 @@ exports[`Datalist component should render typeahead 1`] = `
     onChange={[Function]}
     placeholder="Type here"
     readOnly={false}
+    restricted={false}
     titleMap={
       Array [
         Object {
