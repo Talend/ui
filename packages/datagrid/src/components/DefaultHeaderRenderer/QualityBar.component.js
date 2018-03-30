@@ -24,9 +24,10 @@ export function QualityBar(props) {
 					className={classNames(theme['td-quality-bar-invalid'], 'td-quality-bar-invalid')}
 					style={{ width: `${props.invalid.percentage}%`, minWidth: `${QUALITY_BAR_MIN_WIDTH}%` }}
 					title={props.t('QUALITY_BAR_INVALID', {
-						count: formatNumber(props.invalid.total),
+						count: props.invalid.total,
+						defaultValue: '{{total}} invalid values ({{percentage}}%)',
 						percentage: props.invalid.percentage,
-						defaultValue: '{{count}} invalid values ({{percentage}}%)',
+						total: formatNumber(props.invalid.total),
 					})}
 				/>
 			)}
@@ -35,9 +36,10 @@ export function QualityBar(props) {
 					className={classNames(theme['td-quality-bar-empty'], 'td-quality-bar-empty')}
 					style={{ width: `${props.empty.percentage}%`, minWidth: `${QUALITY_BAR_MIN_WIDTH}%` }}
 					title={props.t('QUALITY_BAR_EMPTY', {
-						count: formatNumber(props.empty.total),
+						count: props.empty.total,
+						defaultValue: '{{total}} empty values ({{percentage}}%)',
 						percentage: props.empty.percentage,
-						defaultValue: '{{count}} empty values ({{percentage}}%)',
+						total: formatNumber(props.empty.total),
 					})}
 				/>
 			)}
@@ -46,9 +48,10 @@ export function QualityBar(props) {
 					className={classNames(theme['td-quality-bar-valid'], 'td-quality-bar-valid')}
 					style={{ width: `${props.valid.percentage}%`, minWidth: `${QUALITY_BAR_MIN_WIDTH}%` }}
 					title={props.t('QUALITY_BAR_VALID', {
-						count: formatNumber(props.valid.total),
+						count: props.valid.total,
+						total: formatNumber(props.valid.total),
 						percentage: props.valid.percentage,
-						defaultValue: '{{count}} valid values ({{percentage}}%)',
+						defaultValue: '{{total}} valid values ({{percentage}}%)',
 					})}
 				/>
 			)}
