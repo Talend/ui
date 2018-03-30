@@ -194,26 +194,32 @@ class Datalist extends Component {
 	 */
 	updateValue(event, value, persist) {
 		const previousValue = persist ? value : this.state.previousValue;
-
+		const newValue = typeof value === 'object' ? value.title : value;
 		this.setState({
 			// setting the filtered value so it needs to be actual value
-			value: typeof value === 'object' ? value.title : value,
-			previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
+			value: newValue,
 		});
 		if (persist) {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
 			if (this.props.multiSection) {
 				const groups = this.props.titleMap;
 				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value.title);
+					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === newValue);
 					if (itemObj) {
 						enumValue = itemObj;
 						break;
 					}
 				}
 			}
-			const payload = { value: get(enumValue, 'value', value) };
-			this.props.onChange(event, payload);
+			const selectedEnumValue = get(enumValue, 'value');
+			if (selectedEnumValue || !this.props.restricted) {
+				this.props.onChange(event, { value: selectedEnumValue || value });
+				this.setState({
+					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
+				});
+			} else {
+				this.resetValue();
+			}
 		}
 	}
 
@@ -321,6 +327,7 @@ class Datalist extends Component {
 Datalist.displayName = 'Datalist component';
 Datalist.defaultProps = {
 	value: '',
+	restricted: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -332,6 +339,7 @@ if (process.env.NODE_ENV !== 'production') {
 		multiSection: PropTypes.bool.isRequired,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
+		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
 			PropTypes.oneOfType([
 				PropTypes.shape({
