@@ -9,6 +9,7 @@ import {
 } from '../../constants';
 
 import DefaultHeaderRenderer from './DefaultHeaderRenderer.component';
+// eslint-disable-next-line import/no-named-as-default
 import QualityBar from './QualityBar.component';
 
 describe('#DefaultHeaderGrid', () => {
