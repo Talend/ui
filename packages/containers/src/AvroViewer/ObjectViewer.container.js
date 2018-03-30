@@ -8,22 +8,29 @@ import { componentState } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	edited: new List(), // Array of JSONPath
-	opened: new List(), // Array of JSONPath
+	// opened: new List(), // Array of JSONPath
 	selectedJsonpath: '', // Selected JSONPath
 	modified: new Map(), // Store the onChange
+	opened: new Map(),
 });
 
-export function open(path, state) {
-	return state.set('opened', state.get('opened').push(path));
+export function open(path, state, index) {
+	// console.log('opened push', state.get('opened').push(path));
+	// return state.set('opened', state.get('opened').push(path));
+	console.log('index', index, path);
+	const opened = state.get('opened');
+	const paths = opened.get(index, new List());
+	return state.set('opened', opened.set(index, paths.push(path)));
 }
 
 export function select(path, state) {
 	return state.set('selectedJsonpath', path);
 }
 
-export function close(path, state) {
+export function close(path, state, index) {
 	const opened = state.get('opened');
-	return state.set('opened', opened.delete(opened.indexOf(path)));
+	// return state.set('opened', opened.delete(opened.indexOf(path)));
+	return state.set('opened', opened.delete(index));
 }
 
 export function edit(path, state) {
@@ -34,14 +41,13 @@ export function change(path, state, value) {
 	return state.set('modified', state.get('modified').set(path, value));
 }
 
-export function toggleState(prevState, data) {
+export function toggleState(prevState, data, index = 'default') {
 	if (data.isOpened) {
-		return close(data.jsonpath, prevState.state);
+		return close(data.jsonpath, prevState.state, index);
 	} else if (data.isOpened === false) {
 		// we don't want to match on undefined as false
-		return open(data.jsonpath, prevState.state);
+		return open(data.jsonpath, prevState.state, index);
 	}
-
 	return prevState;
 }
 
@@ -75,8 +81,8 @@ class ObjectViewer extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 	}
 
-	onToggle(event, data) {
-		this.props.setState(prevState => toggleState(prevState, data));
+	onToggle(event, data, index) {
+		this.props.setState(prevState => toggleState(prevState, data, index));
 	}
 
 	onEdit(event, data) {
@@ -84,9 +90,7 @@ class ObjectViewer extends React.Component {
 	}
 
 	onChange(event, data) {
-		this.props.setState(prevState =>
-			change(data.jsonpath, prevState.state, event.target.value),
-		);
+		this.props.setState(prevState => change(data.jsonpath, prevState.state, event.target.value));
 	}
 
 	onSelect(event, data) {
@@ -98,6 +102,8 @@ class ObjectViewer extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const opened = (this.props.state || DEFAULT_STATE).get('opened');
+		console.log('object viewer opened', opened.toJS());
 		// TODO: add support for mutate the data using modified state
 		// We need for that a better JSONPath support.
 		return (
@@ -108,8 +114,8 @@ class ObjectViewer extends React.Component {
 				onEdit={this.onEdit}
 				onToggle={this.onToggle}
 				selectedJsonpath={state.selectedJsonpath}
-				opened={state.opened}
-				edited={state.edited}
+				opened={opened.toJS()}
+				edited={(this.props.state || DEFAULT_STATE).toJS()}
 			/>
 		);
 	}

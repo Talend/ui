@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ObjectViewer } from '@talend/react-components';
 import ObjectViewerCtn from './ObjectViewer.connect';
 
+/*
 function ToggleManager(Component) {
 	return class ToggledComponentWrapper extends React.Component {
 		static displayName = `ToggleManager(${Component.displayName})`;
@@ -43,6 +44,7 @@ function ToggleManager(Component) {
 		}
 	};
 }
+*/
 
 export default class AvroViewer extends React.Component {
 	constructor(props) {
@@ -52,7 +54,6 @@ export default class AvroViewer extends React.Component {
 	}
 
 	onSelect(event, jsonpath) {
-		console.log('jsonpath', jsonpath);
 		const adaptedJsonPath = jsonpath
 			.replace(/[-[{}()*+?.,\\^$|#\s]/g, '\\$&')
 			.replace(/\[]/g, '[[0-9]+]');

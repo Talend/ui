@@ -241,6 +241,7 @@ function Item(props) {
 	const isRoot = level === 0;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
 	const isOpened = (isRoot && noRoot) || opened.indexOf(jsonpath) !== -1;
+	// const isOpened = false;
 	const itemType = getDataType(value);
 
 	const spaceAdjustment = { paddingLeft: paddingLeft * level };

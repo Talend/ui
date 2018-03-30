@@ -25,12 +25,16 @@ export default class ModelViewer extends React.Component {
 	}
 
 	render() {
+		console.log('this.props.opened', this.props.opened);
+		const opened = this.props.opened['default'];
+		console.log('opened', opened);
 		return (
 			<GenericViewer
 				{...this.props}
 				{...genericViewerConfiguration}
 				className={theme.model}
 				getItemMenu={this.getItemMenu}
+				opened={opened ? opened : []}
 				noRoot
 			/>
 		);
