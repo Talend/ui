@@ -93,9 +93,6 @@ exports[`#DefaultCellRenderer should render the default cell on loading state 1`
 <div
   className="theme-td-cell td-cell"
 >
-  <Skeleton
-    size="medium"
-    type="text"
-  />
+  <Translate(Skeleton) />
 </div>
 `;
