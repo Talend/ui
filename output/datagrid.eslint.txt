@@ -4,11 +4,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultHeaderRenderer/DefaultHeaderRenderer.component.js
-  5:8  error  Using exported name 'QualityBar' as identifier for default export  import/no-named-as-default
-
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultHeaderRenderer/DefaultHeaderRenderer.test.js
   12:8  error  Using exported name 'QualityBar' as identifier for default export  import/no-named-as-default
 
-✖ 2 problems (2 errors, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
