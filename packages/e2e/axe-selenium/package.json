@@ -1,0 +1,12 @@
+{
+  "name": "@talend/axe-selenium",
+  "version": "0.1.0",
+  "description": "This is only a configuration file to fetch axe-core module. DO NOT DEPLOY ANYTHING",
+  "license": "Apache-2.0",
+  "scripts": {
+    "update-axe-core": "yarn && cp ./node_modules/axe-core/axe.min.js ./src/main/resources/org/talend/axeselenium/axe/"
+  },
+  "dependencies": {
+    "axe-core": "^3.0.0"
+  }
+}
