@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_DATAGRID, { DEFAULT_I18N } from '../../I18N';
+import I18N_DOMAIN_DATAGRID from '../../constant';
+import DEFAULT_I18N from '../../translate';
 
 import theme from './QualityBar.scss';
 
