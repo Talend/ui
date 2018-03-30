@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import QualityBar from './QualityBar.component';
+import { QualityBar, formatNumber } from './QualityBar.component';
 
 function quality(total, percentage) {
 	return {
@@ -41,5 +41,11 @@ describe('#QualityBar', () => {
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+});
+
+describe('#formatNumber', () => {
+	it('should format like 1 000.00001', () => {
+		expect(formatNumber(1000.00001)).toBe('1 000.00001');
 	});
 });
