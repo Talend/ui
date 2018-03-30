@@ -11,7 +11,7 @@ function Tab({ item, onClick, isSelected }) {
 	};
 	return (
 		<li className={classNames(['tc-tab-bar-action', isSelected && 'active'])}>
-			<Action bsStyle="link" id={item.id} label={item.label} onClick={onSelect} />
+			<Action bsStyle="link" onClick={onSelect} {...item} />
 		</li>
 	);
 }
@@ -46,13 +46,7 @@ function TabBar({ items, onSelect, selectedKey, className }) {
 TabBar.displayName = 'TabBar';
 
 TabBar.propTypes = {
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.string,
-			key: PropTypes.string.isRequired,
-			label: PropTypes.string.isRequired,
-		}),
-	).isRequired,
+	items: PropTypes.arrayOf(Tab.propTypes).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedKey: PropTypes.string,
 	className: PropTypes.string,

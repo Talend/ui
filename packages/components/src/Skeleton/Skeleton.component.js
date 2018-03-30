@@ -7,6 +7,35 @@ import theme from './Skeleton.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { DEFAULT_I18N } from '../translate';
 
+const TYPES = {
+	icon: 'icon',
+	text: 'text',
+	button: 'button',
+	circle: 'circle',
+};
+
+const SIZES = {
+	xlarge: 'xlarge',
+	large: 'large',
+	medium: 'medium',
+	small: 'small',
+};
+
+function getTranslatedType(t, type) {
+	switch (type) {
+		case TYPES.button:
+			return t('SKELETON_TYPE_BUTTON', { defaultValue: 'button' });
+		case TYPES.circle:
+			return t('SKELETON_TYPE_CIRCLE', { defaultValue: 'circle' });
+		case TYPES.icon:
+			return t('SKELETON_TYPE_ICON', { defaultValue: 'icon' });
+		case TYPES.text:
+			return t('SKELETON_TYPE_TEXT', { defaultValue: 'text' });
+		default:
+			return type;
+	}
+}
+
 /**
  * This component show some skeleton stuff
  * @param {object} props the react props
@@ -27,10 +56,9 @@ function Skeleton({ type, size, width, height, name, className, t }) {
 		className,
 	);
 
-	const translatedType = t(`SKELETON_TYPE_${type}`, { defaultValue: type });
 	const ariaLabel = t('SKELETON_LOADING', {
 		defaultValue: ' {{type}} (loading)',
-		type: translatedType,
+		type: getTranslatedType(t, type),
 	});
 
 	if (type === 'icon') {
@@ -39,19 +67,9 @@ function Skeleton({ type, size, width, height, name, className, t }) {
 	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;
 }
 
-Skeleton.TYPES = {
-	icon: 'icon',
-	text: 'text',
-	button: 'button',
-	circle: 'circle',
-};
+Skeleton.TYPES = TYPES;
 
-Skeleton.SIZES = {
-	xlarge: 'xlarge',
-	large: 'large',
-	medium: 'medium',
-	small: 'small',
-};
+Skeleton.SIZES = SIZES;
 
 Skeleton.propTypes = {
 	type: PropTypes.oneOf([
