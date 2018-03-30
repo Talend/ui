@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
+// eslint-disable-next-line import/no-named-as-default
 import QualityBar from './QualityBar.component';
 import theme from './DefaultHeaderRenderer.scss';
 import {

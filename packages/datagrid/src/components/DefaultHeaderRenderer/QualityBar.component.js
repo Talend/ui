@@ -55,10 +55,15 @@ export function QualityBar(props) {
 	);
 }
 
+const QUALITY_PROPTYPE = {
+	total: PropTypes.number,
+	percentage: PropTypes.number,
+};
+
 QualityBar.propTypes = {
-	valid: PropTypes.number,
-	empty: PropTypes.number,
-	invalid: PropTypes.number,
+	valid: PropTypes.shape(QUALITY_PROPTYPE),
+	empty: PropTypes.shape(QUALITY_PROPTYPE),
+	invalid: PropTypes.shape(QUALITY_PROPTYPE),
 	t: PropTypes.func,
 };
 
