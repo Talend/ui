@@ -74,7 +74,7 @@
         },
         "toolbar": {
           "filter": {
-            "placeholder": "Find a datastore"
+            "placeholder": "Find a connection"
           },
           "sort": {
             "options": [
