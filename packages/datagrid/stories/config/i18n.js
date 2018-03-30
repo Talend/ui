@@ -1,6 +1,6 @@
 import React from 'react';
 import i18n from 'i18next';
-import I18N_DOMAIN_DATAGRID from '../../src/I18N';
+import I18N_DOMAIN_DATAGRID from '../../src/constant';
 
 i18n.init({
 	lng: 'en',
