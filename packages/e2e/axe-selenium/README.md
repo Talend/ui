@@ -144,7 +144,7 @@ mvn clean install -Dmaven.test.skip
 ```
 
 We skip the test to build it because they are selenium tests that need a test server.
-See [How to test section](#how-to-test}
+See [How to test section](#how-to-test)
 
 ### How to update axe-core library
 
