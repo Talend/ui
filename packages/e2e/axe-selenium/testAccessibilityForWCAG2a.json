@@ -1,0 +1,2255 @@
+{
+  "incomplete": [],
+  "passes": [
+    {
+      "help": "aria-hidden='true' must not be present on the document body",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<body>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-hidden-body",
+              "message": "No aria-hidden attribute is present on document body"
+            }
+          ],
+          "target": [
+            "body"
+          ]
+        }
+      ],
+      "description": "Ensures aria-hidden='true' is not present on the document body.",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-hidden-body?application=axeAPI",
+      "id": "aria-hidden-body",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412"
+      ]
+    },
+    {
+      "help": "Required ARIA attributes must be provided",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">0<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Betty's Cafe<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(2) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Club category mixology hipster<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">4<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">2647<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(6) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">true<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">quiet<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-attr",
+              "message": "All required ARIA attributes are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        }
+      ],
+      "description": "Ensures elements with ARIA roles have all required ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-required-attr?application=axeAPI",
+      "id": "aria-required-attr",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag411",
+        "wcag412"
+      ]
+    },
+    {
+      "help": "Certain ARIA roles must contain particular children",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">0<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Betty's Cafe<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(2) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Club category mixology hipster<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">4<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">2647<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(6) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">true<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">quiet<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-children",
+              "message": "Required ARIA children are present"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        }
+      ],
+      "description": "Ensures elements with an ARIA role that require child roles contain them",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-required-children?application=axeAPI",
+      "id": "aria-required-children",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "Certain ARIA roles must be contained by particular parents",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">0<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Betty's Cafe<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(2) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Club category mixology hipster<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">4<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">2647<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(6) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">true<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">quiet<\/span>",
+          "none": [],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "aria-required-parent",
+              "message": "Required ARIA parent role present"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        }
+      ],
+      "description": "Ensures elements with an ARIA role that require parent roles are contained by them",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-required-parent?application=axeAPI",
+      "id": "aria-required-parent",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "ARIA roles used must conform to valid values",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">0<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(1) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Betty's Cafe<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(2) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Club category mixology hipster<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">4<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">2647<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(6) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">true<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">quiet<\/span>",
+          "none": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "invalidrole",
+              "message": "ARIA role is valid"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "abstractrole",
+              "message": "Abstract roles are not used"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        }
+      ],
+      "description": "Ensures all elements with a role attribute use a valid value",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-roles?application=axeAPI",
+      "id": "aria-roles",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag131",
+        "wcag411",
+        "wcag412"
+      ]
+    },
+    {
+      "help": "Buttons must have discernible text",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">0<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "0",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Betty's Cafe<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "Betty's Cafe",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(2) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Club category mixology hipster<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "Club category mixology hipster",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">4<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "4",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">2647<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "2647",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(6) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">true<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "true",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">quiet<\/span>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "quiet",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4) > .JSONLike__line___3RlBO > .JSONLike__line-value___EVMXs[role=\"button\"]"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<button type=\"button\" style=\"font-family: sans-serif; font-size: 12px; display: block; position: fixed; border: none; background: rgb(34, 136, 204); color: rgb(255, 255, 255); padding: 5px 15px; cursor: pointer; top: 0px; right: 0px; border-radius: 0px 0px 0px 5px;\">Show Info<\/button>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "any": [
+            {
+              "data": "Show Info",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element has inner text that is visible to screen readers"
+            }
+          ],
+          "target": [
+            "div[data-reactroot=\"\"] > button[type=\"button\"]"
+          ]
+        }
+      ],
+      "impact": "critical",
+      "description": "Ensures buttons have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/button-name?application=axeAPI",
+      "id": "button-name",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "Documents must have <title> element to aid in navigation",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<html>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "doc-has-title",
+              "message": "Document has a non-empty <title> element"
+            }
+          ],
+          "target": [
+            "html"
+          ]
+        }
+      ],
+      "description": "Ensures each HTML document contains a non-empty <title> element",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/document-title?application=axeAPI",
+      "id": "document-title",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag242"
+      ]
+    },
+    {
+      "help": "id attribute value must be unique",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<div id=\"root\">",
+          "none": [],
+          "any": [
+            {
+              "data": "root",
+              "impact": "moderate",
+              "relatedNodes": [],
+              "id": "duplicate-id",
+              "message": "Document has no elements that share the same id attribute"
+            }
+          ],
+          "target": [
+            "#root"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<symbol id=\"talend-caret-down\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path d=\"M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z\"><\/path><\/svg><\/symbol>",
+          "none": [],
+          "any": [
+            {
+              "data": "talend-caret-down",
+              "impact": "moderate",
+              "relatedNodes": [],
+              "id": "duplicate-id",
+              "message": "Document has no elements that share the same id attribute"
+            }
+          ],
+          "target": [
+            "#talend-caret-down"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<symbol id=\"talend-chevron-left\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path d=\"M10.914 15.936L2.979 8 10.914.064l2.107 2.108L7.193 8l5.828 5.828-2.107 2.108z\"><\/path><\/svg><\/symbol>",
+          "none": [],
+          "any": [
+            {
+              "data": "talend-chevron-left",
+              "impact": "moderate",
+              "relatedNodes": [],
+              "id": "duplicate-id",
+              "message": "Document has no elements that share the same id attribute"
+            }
+          ],
+          "target": [
+            "#talend-chevron-left"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<div id=\"error-display\"><\/div>",
+          "none": [],
+          "any": [
+            {
+              "data": "error-display",
+              "impact": "moderate",
+              "relatedNodes": [],
+              "id": "duplicate-id",
+              "message": "Document has no elements that share the same id attribute"
+            }
+          ],
+          "target": [
+            "#error-display"
+          ]
+        }
+      ],
+      "description": "Ensures every id attribute value is unique",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/duplicate-id?application=axeAPI",
+      "id": "duplicate-id",
+      "tags": [
+        "cat.parsing",
+        "wcag2a",
+        "wcag411"
+      ]
+    },
+    {
+      "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<ul class=\"JSONLike__vertical-line___1tjON\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "only-listitems",
+              "message": "List element only has direct children that are allowed inside <li> elements"
+            }
+          ],
+          "any": [],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<ul class=\"JSONLike__vertical-line___1tjON\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "only-listitems",
+              "message": "List element only has direct children that are allowed inside <li> elements"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<ul class=\"JSONLike__vertical-line___1tjON\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "only-listitems",
+              "message": "List element only has direct children that are allowed inside <li> elements"
+            }
+          ],
+          "any": [],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul"
+          ]
+        }
+      ],
+      "description": "Ensures that lists are structured correctly",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/list?application=axeAPI",
+      "id": "list",
+      "tags": [
+        "cat.structure",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "<li> elements must be contained in a <ul> or <ol>",
+      "nodes": [
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(1)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">business_id<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">0<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(1)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">name<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Betty's Cafe<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(2)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">category<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">Club category mixology hipster<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">rating<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">4<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(1) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">null_value<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "span:nth-child(2) > ul > li:nth-child(5)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">num_of_reviews<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">2647<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(6)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(7)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(1)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(2)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">take_reservations<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">true<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(3)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li><span class=\"JSONLike__line___3RlBO\"><span class=\"JSONLike__name___3byWI JSONLike__line-key___1wNHx\">noise_level<\/span><span class=\"JSONLike__line-value___EVMXs\" role=\"button\" tabindex=\"0\">quiet<\/span><\/span><\/li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .JSONLike__line___3RlBO > span:nth-child(2) > ul > li:nth-child(4)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "li:nth-child(8)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(2)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(3)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(4)"
+          ]
+        },
+        {
+          "all": [],
+          "html": "<li>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "listitem",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(5)"
+          ]
+        }
+      ],
+      "description": "Ensures <li> elements are used semantically",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/listitem?application=axeAPI",
+      "id": "listitem",
+      "tags": [
+        "cat.structure",
+        "wcag2a",
+        "wcag131"
+      ]
+    }
+  ],
+  "violations": [
+    {
+      "help": "Buttons must have discernible text",
+      "nodes": [
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\"><svg class=\"Icon__tc-svg-icon___2W0B2 tc-svg-icon JSONLike__wider-icon-selection___DH1iV\" focusable=\"false\" aria-hidden=\"true\"><use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#talend-caret-down\"><\/use><\/svg><\/button>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "form > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\"><svg class=\"Icon__tc-svg-icon___2W0B2 tc-svg-icon JSONLike__wider-icon-selection___DH1iV\" focusable=\"false\" aria-hidden=\"true\"><use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#talend-caret-down\"><\/use><\/svg><\/button>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(1) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\"><svg class=\"Icon__tc-svg-icon___2W0B2 tc-svg-icon JSONLike__wider-icon-selection___DH1iV\" focusable=\"false\" aria-hidden=\"true\"><use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#talend-caret-down\"><\/use><\/svg><\/button>",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "li:nth-child(7) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "span:nth-child(2) > ul > li:nth-child(1) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "span:nth-child(2) > ul > li:nth-child(2) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "li:nth-child(8) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "form > div > .JSONLike__line___3RlBO > span > ul > li:nth-child(2) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "li:nth-child(3) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "li:nth-child(4) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        },
+        {
+          "all": [],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute or the value attribute is empty\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+          "impact": "critical",
+          "html": "<button class=\"tc-svg-anchor Icon__link___19QXm\">",
+          "none": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "focusable-no-name",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "any": [
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-if-present",
+              "message": "Element has a value attribute and the value attribute is empty"
+            },
+            {
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "non-empty-value",
+              "message": "Element has no value attribute or the value attribute is empty"
+            },
+            {
+              "data": "",
+              "impact": "critical",
+              "relatedNodes": [],
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible"
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-presentation",
+              "message": "Element's default semantics were not overridden with role=\"presentation\""
+            },
+            {
+              "impact": "minor",
+              "relatedNodes": [],
+              "id": "role-none",
+              "message": "Element's default semantics were not overridden with role=\"none\""
+            }
+          ],
+          "target": [
+            "li:nth-child(5) > div > .tc-svg-anchor.Icon__link___19QXm"
+          ]
+        }
+      ],
+      "impact": "critical",
+      "description": "Ensures buttons have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/button-name?application=axeAPI",
+      "id": "button-name",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "<html> element must have a lang attribute",
+      "nodes": [
+        {
+          "all": [],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+          "impact": "serious",
+          "html": "<html>",
+          "none": [],
+          "any": [
+            {
+              "impact": "serious",
+              "relatedNodes": [],
+              "id": "has-lang",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "target": [
+            "html"
+          ]
+        }
+      ],
+      "impact": "serious",
+      "description": "Ensures every HTML document has a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/html-has-lang?application=axeAPI",
+      "id": "html-has-lang",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311"
+      ]
+    }
+  ],
+  "inapplicable": [
+    {
+      "help": "accesskey attribute value must be unique",
+      "nodes": [],
+      "description": "Ensures every accesskey attribute value is unique",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/accesskeys?application=axeAPI",
+      "id": "accesskeys",
+      "tags": [
+        "wcag2a",
+        "wcag211",
+        "cat.keyboard"
+      ]
+    },
+    {
+      "help": "Active <area> elements must have alternate text",
+      "nodes": [],
+      "description": "Ensures <area> elements of image maps have alternate text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/area-alt?application=axeAPI",
+      "id": "area-alt",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag111",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "Elements must only use allowed ARIA attributes",
+      "nodes": [],
+      "description": "Ensures ARIA attributes are allowed for an element's role",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-allowed-attr?application=axeAPI",
+      "id": "aria-allowed-attr",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag411",
+        "wcag412"
+      ]
+    },
+    {
+      "help": "Unsupported DPUB ARIA roles should be used on elements with implicit fallback roles",
+      "nodes": [],
+      "description": "Ensures unsupported DPUB roles are only used on elements with implicit fallback roles",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-dpub-role-fallback?application=axeAPI",
+      "id": "aria-dpub-role-fallback",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "ARIA attributes must conform to valid values",
+      "nodes": [],
+      "description": "Ensures all ARIA attributes have valid values",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-valid-attr-value?application=axeAPI",
+      "id": "aria-valid-attr-value",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag131",
+        "wcag411",
+        "wcag412"
+      ]
+    },
+    {
+      "help": "ARIA attributes must conform to valid names",
+      "nodes": [],
+      "description": "Ensures attributes that begin with aria- are valid ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/aria-valid-attr?application=axeAPI",
+      "id": "aria-valid-attr",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag411"
+      ]
+    },
+    {
+      "help": "<audio> elements must have a captions track",
+      "nodes": [],
+      "description": "Ensures <audio> elements have captions",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/audio-caption?application=axeAPI",
+      "id": "audio-caption",
+      "tags": [
+        "cat.time-and-media",
+        "wcag2a",
+        "wcag121",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "<blink> elements are deprecated and must not be used",
+      "nodes": [],
+      "description": "Ensures <blink> elements are not used",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/blink?application=axeAPI",
+      "id": "blink",
+      "tags": [
+        "cat.time-and-media",
+        "wcag2a",
+        "wcag222",
+        "section508",
+        "section508.22.j"
+      ]
+    },
+    {
+      "help": "Page must have means to bypass repeated blocks",
+      "nodes": [],
+      "description": "Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/bypass?application=axeAPI",
+      "id": "bypass",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag241",
+        "section508",
+        "section508.22.o"
+      ]
+    },
+    {
+      "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script> or <template> elements",
+      "nodes": [],
+      "description": "Ensures <dl> elements are structured correctly",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/definition-list?application=axeAPI",
+      "id": "definition-list",
+      "tags": [
+        "cat.structure",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "<dt> and <dd> elements must be contained by a <dl>",
+      "nodes": [],
+      "description": "Ensures <dt> and <dd> elements are contained by a <dl>",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/dlitem?application=axeAPI",
+      "id": "dlitem",
+      "tags": [
+        "cat.structure",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "Frames must have title attribute",
+      "nodes": [],
+      "description": "Ensures <iframe> and <frame> elements contain a non-empty title attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/frame-title?application=axeAPI",
+      "id": "frame-title",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag241",
+        "section508",
+        "section508.22.i"
+      ]
+    },
+    {
+      "help": "<html> element must have a valid value for the lang attribute",
+      "nodes": [],
+      "description": "Ensures the lang attribute of the <html> element has a valid value",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/html-lang-valid?application=axeAPI",
+      "id": "html-lang-valid",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311"
+      ]
+    },
+    {
+      "help": "Images must have alternate text",
+      "nodes": [],
+      "description": "Ensures <img> elements have alternate text or a role of none or presentation",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/image-alt?application=axeAPI",
+      "id": "image-alt",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag111",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "Image buttons must have alternate text",
+      "nodes": [],
+      "description": "Ensures <input type=\"image\"> elements have alternate text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/input-image-alt?application=axeAPI",
+      "id": "input-image-alt",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag111",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "Form elements must have labels",
+      "nodes": [],
+      "description": "Ensures every form element has a label",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/label?application=axeAPI",
+      "id": "label",
+      "tags": [
+        "cat.forms",
+        "wcag2a",
+        "wcag332",
+        "wcag131",
+        "section508",
+        "section508.22.n"
+      ]
+    },
+    {
+      "help": "Layout tables must not use data table elements",
+      "nodes": [],
+      "description": "Ensures presentational <table> elements do not use <th>, <caption> elements or the summary attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/layout-table?application=axeAPI",
+      "id": "layout-table",
+      "tags": [
+        "cat.semantics",
+        "wcag2a",
+        "wcag131"
+      ]
+    },
+    {
+      "help": "Links must have discernible text",
+      "nodes": [],
+      "description": "Ensures links have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/link-name?application=axeAPI",
+      "id": "link-name",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag111",
+        "wcag412",
+        "wcag244",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "<marquee> elements are deprecated and must not be used",
+      "nodes": [],
+      "description": "Ensures <marquee> elements are not used",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/marquee?application=axeAPI",
+      "id": "marquee",
+      "tags": [
+        "cat.parsing",
+        "wcag2a",
+        "wcag222"
+      ]
+    },
+    {
+      "help": "Timed refresh must not exist",
+      "nodes": [],
+      "description": "Ensures <meta http-equiv=\"refresh\"> is not used",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/meta-refresh?application=axeAPI",
+      "id": "meta-refresh",
+      "tags": [
+        "cat.time",
+        "wcag2a",
+        "wcag2aaa",
+        "wcag221",
+        "wcag224",
+        "wcag325"
+      ]
+    },
+    {
+      "help": "<object> elements must have alternate text",
+      "nodes": [],
+      "description": "Ensures <object> elements have alternate text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/object-alt?application=axeAPI",
+      "id": "object-alt",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag111",
+        "section508",
+        "section508.22.a"
+      ]
+    },
+    {
+      "help": "Server-side image maps must not be used",
+      "nodes": [],
+      "description": "Ensures that server-side image maps are not used",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/server-side-image-map?application=axeAPI",
+      "id": "server-side-image-map",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag211",
+        "section508",
+        "section508.22.f"
+      ]
+    },
+    {
+      "help": "All cells in a table element that use the headers attribute must only refer to other cells of that same table",
+      "nodes": [],
+      "description": "Ensure that each cell in a table using the headers refers to another cell in that table",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/td-headers-attr?application=axeAPI",
+      "id": "td-headers-attr",
+      "tags": [
+        "cat.tables",
+        "wcag2a",
+        "wcag131",
+        "section508",
+        "section508.22.g"
+      ]
+    },
+    {
+      "help": "All th elements and elements with role=columnheader/rowheader must have data cells they describe",
+      "nodes": [],
+      "description": "Ensure that each table header in a data table refers to data cells",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/th-has-data-cells?application=axeAPI",
+      "id": "th-has-data-cells",
+      "tags": [
+        "cat.tables",
+        "wcag2a",
+        "wcag131",
+        "section508",
+        "section508.22.g"
+      ]
+    },
+    {
+      "help": "<video> elements must have captions",
+      "nodes": [],
+      "description": "Ensures <video> elements have captions",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/video-caption?application=axeAPI",
+      "id": "video-caption",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag122",
+        "wcag123",
+        "section508",
+        "section508.22.a"
+      ]
+    }
+  ],
+  "url": "http://talend.surge.sh/components/iframe.html?selectedKind=ObjectViewer&selectedStory=tree%20default",
+  "timestamp": "2018-03-30T10:28:16.517Z"
+}

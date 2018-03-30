@@ -55,7 +55,7 @@ public class Options {
         return new Builder();
     }
 
-    private static class Builder {
+    public static class Builder {
         private String runOnlyType;
         private String[] runOnlyValues;
 

@@ -103,22 +103,8 @@ public class Reporter {
      *               violations array it contains.
      */
     public void writeResults(final String name, final Object output) {
-        Writer writer = null;
-
-        try {
-            writer = new BufferedWriter(
-                new OutputStreamWriter(
-                    new FileOutputStream(name + ".json"),
-                    "utf-8"
-                )
-            );
-
-            writer.write(output.toString());
-        } catch (IOException ignored) {
-        } finally {
-            try {
-                writer.close();
-            } catch (Exception ignored) {}
-        }
+        try (PrintWriter out = new PrintWriter(name + ".json")) {
+            out.println(output.toString());
+        } catch (final IOException ignored) {}
     }
 }
