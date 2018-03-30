@@ -1,17 +1,13 @@
 package org.talend.axeselenium;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Script {
     private static final String lineSeparator = System.getProperty("line.separator");
@@ -52,33 +48,7 @@ public class Script {
     }
 
     /**
-     * Recursively find frames and inject a script into them.
-     * @param script Script to inject
-     * @param parents A list of all toplevel frames
-     */
-//    private void injectIntoFrames(final String script, final List<WebElement> parents) {
-//        final JavascriptExecutor js = (JavascriptExecutor) driver;
-//        final List<WebElement> frames = driver.findElements(By.tagName("iframe"));
-//
-//        for (WebElement frame : frames) {
-//            driver.switchTo().defaultContent();
-//
-//            if (parents != null) {
-//                for (WebElement parent : parents) {
-//                    driver.switchTo().frame(parent);
-//                }
-//            }
-//
-//            driver.switchTo().frame(frame);
-//            js.executeScript(script);
-//
-//            parents.add(frame);
-//            injectIntoFrames(script, parents);
-//        }
-//    }
-
-    /**
-     * Recursively injects a script to the top level document
+     * Execute the axe script in the driver js executor
      */
     public void runAxeScript() {
         final String script = getContent();

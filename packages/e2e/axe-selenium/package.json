@@ -4,7 +4,8 @@
   "description": "This is only a configuration file to fetch axe-core module. DO NOT DEPLOY ANYTHING",
   "license": "Apache-2.0",
   "scripts": {
-    "update-axe-core": "yarn && cp ./node_modules/axe-core/axe*.js ./src/main/resources/org/talend/axeselenium/axe/"
+    "update-axe-core": "yarn && cp ./node_modules/axe-core/axe*.js ./src/main/resources/org/talend/axeselenium/axe/",
+    "test-server": "node ./src/test/resources/test-server.js"
   },
   "dependencies": {
     "axe-core": "^3.0.0"
