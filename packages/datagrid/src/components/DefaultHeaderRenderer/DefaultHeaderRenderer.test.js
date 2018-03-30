@@ -9,8 +9,7 @@ import {
 } from '../../constants';
 
 import DefaultHeaderRenderer from './DefaultHeaderRenderer.component';
-// eslint-disable-next-line import/no-named-as-default
-import QualityBar from './QualityBar.component';
+import TranslatedQualityBar from './QualityBar.component';
 
 describe('#DefaultHeaderGrid', () => {
 	it('should render DefaultHeaderGrid', () => {
@@ -58,6 +57,6 @@ describe('#DefaultHeaderGrid', () => {
 			/>,
 		);
 
-		expect(wrapper.find(QualityBar).length).toBe(0);
+		expect(wrapper.find(TranslatedQualityBar).length).toBe(0);
 	});
 });
