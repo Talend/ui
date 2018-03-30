@@ -82,6 +82,22 @@ public class AxeTest {
     }
 
     @Test
+    public void invalid_WCAG2aa_HTML_should_return_violation() {
+        // given
+        driver.get("http://localhost:5005?valid=false");
+
+        // when
+        final JSONObject scanResult = axe.runWCAG2aa();
+
+        // then
+        final JSONArray violations = scanResult.getJSONArray("violations");
+        assertThat(violations.length(), is(3));
+        assertThat(violations.getJSONObject(0).getString("id"), is("color-contrast"));
+        assertThat(violations.getJSONObject(1).getString("id"), is("html-has-lang"));
+        assertThat(violations.getJSONObject(2).getString("id"), is("image-alt"));
+    }
+
+    @Test
     public void invalid_WCAG2a_element_should_return_violation() {
         // given
         driver.get("http://localhost:5005?valid=false");
@@ -109,5 +125,19 @@ public class AxeTest {
         final JSONArray violations = scanResult.getJSONArray("violations");
         assertThat(violations.length(), is(1));
         assertThat(violations.getJSONObject(0).getString("id"), is("color-contrast"));
+    }
+
+    @Test
+    public void invalid_WCAG2aa_should_return_non_text_content_violations() {
+        // given
+        driver.get("http://localhost:5005?valid=false");
+
+        // when
+        final JSONObject scanResult = axe.runNonTextContent();
+
+        // then
+        final JSONArray violations = scanResult.getJSONArray("violations");
+        assertThat(violations.length(), is(1));
+        assertThat(violations.getJSONObject(0).getString("id"), is("image-alt"));
     }
 }

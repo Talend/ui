@@ -9,8 +9,11 @@ import org.talend.axeselenium.Reporter;
 import org.talend.axeselenium.Script;
 
 import java.io.File;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class Axe {
     private WebDriver driver;
@@ -35,7 +38,8 @@ public class Axe {
      * @return the scan result JSON object.
      */
     public JSONObject runWCAG2a(final WebElement element) {
-        final Options options = Options.builder().runOnly("tags", "wcag2a").build();
+        final Options options = Options.builder().runOnly("tag", "wcag2a").build();
+        runAxeScript();
         return run(element, options);
     }
 
@@ -48,11 +52,41 @@ public class Axe {
     }
 
     /**
-     * Run WCAG 2.0 Level AA scan on a specific element
+     * Run WCAG 2.0 Level AA scan on a specific element.
      * @return the scan result JSON object.
      */
     public JSONObject runWCAG2aa(final WebElement element) {
-        final Options options = Options.builder().runOnly("tags", "wcag2a", "wcag2aa").build();
+        final Options options = Options.builder().runOnly("tag", "wcag2a", "wcag2aa").build();
+        runAxeScript();
+        return run(element, options);
+    }
+
+    /**
+     * Run text-alternative category scan.
+     * @return the scan result JSON object.
+     */
+    public JSONObject runNonTextContent() {
+        return runNonTextContent(null);
+    }
+
+    /**
+     * Run text-alternative category scan on a specific element.
+     * @return the scan result JSON object.
+     */
+    public JSONObject runNonTextContent(final WebElement element) {
+        runAxeScript();
+
+        final Set<String> rules = new HashSet<>();
+        rules.add("label");
+        rules.add("button-name");
+        rules.add("link-name");
+        rules.add("hidden-content");
+        rules.addAll(getRules("cat.name-role-value"));
+        rules.addAll(getRules("cat.text-alternatives"));
+
+        final Options options = Options.builder()
+                .runOnly("rule", rules.toArray(new String[rules.size()]))
+                .build();
         return run(element, options);
     }
 
@@ -63,9 +97,6 @@ public class Axe {
      * @return the scan result JSON object.
      */
     public JSONObject run(final WebElement element, final Options options) {
-        this.driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
-        this.script.runAxeScript();
-
         final String axeOptions = options == null ? "{}" : options.toString();
         final String command = String.format(
                 "const done = arguments[arguments.length - 1];\n" +
@@ -95,5 +126,19 @@ public class Axe {
             return reporter.report(violations);
         }
         return null;
+    }
+
+    private void runAxeScript() {
+        this.driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+        this.script.runAxeScript();
+    }
+
+    private List<String> getRules(final String tag) {
+        final String command = String.format("return axe.getRules(['%s'])", tag);
+        final Object response = ((JavascriptExecutor) this.driver).executeScript(command);
+        return ((List<Map>)response)
+                .stream()
+                .map(rule -> new JSONObject(rule).getString("ruleId"))
+                .collect(toList());
     }
 }
