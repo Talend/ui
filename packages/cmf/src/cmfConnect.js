@@ -295,9 +295,9 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const { toOmit, spreadCMFState, ...handlers } = this.getOnEventProps();
+				const { toOmit, ...handlers } = this.getOnEventProps();
 				let spreadedState = {};
-				if ((spreadCMFState || this.props.spreadCMFState) && this.props.state) {
+				if (this.props.spreadCMFState && this.props.state) {
 					spreadedState = this.props.state.toJS();
 				}
 				const props = {
