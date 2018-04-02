@@ -56,12 +56,14 @@ export default {
 			<DeleteResource {...props} />;
 		</div>
 	),
-	translated: () => (
-		<div>
-			<LanguageSwitcher />
+	translated: () => {
+		return (
 			<I18nextProvider i18n={i18n}>
-				<DeleteResource {...props} />
+				<div>
+					<LanguageSwitcher />
+					<DeleteResource {...props} />
+				</div>
 			</I18nextProvider>
-		</div>
-	),
+		);
+	},
 };

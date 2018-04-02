@@ -1,10 +1,16 @@
 import React from 'react';
-import { changeLanguage, init } from 'i18next'; // eslint-disable-line import/no-extraneous-dependencies
-import i18n, { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
+import i18n from 'i18next'; // eslint-disable-line import/no-extraneous-dependencies
+import { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
 import I18N_DOMAIN_CONTAINERS from '../../src/constant';
 
-init({
+i18n.init({
+	lng: 'en',
 	resources: {
+		en: {
+			[I18N_DOMAIN_CONTAINERS]: {
+				DELETE_RESOURCE_MESSAGE: 'Are you sure you want to remove the {{resourceLabel}} ',
+			},
+		},
 		fr: {
 			[I18N_DOMAIN_COMPONENTS]: {
 				LIST_TOOLBAR_DISPLAY: 'Affichage :',
@@ -20,7 +26,7 @@ init({
 				VIRTUALIZEDLIST_NO_RESULT: 'Pas de résultat',
 			},
 			[I18N_DOMAIN_CONTAINERS]: {
-				DELETE_RESOURCE_REMOVE: 'Êtes vous sûr de vouloir supprimer {{resourceLabel}} ',
+				DELETE_RESOURCE_MESSAGE: 'Êtes vous sûr de vouloir supprimer {{resourceLabel}} ',
 			},
 		},
 		it: {
@@ -36,6 +42,9 @@ init({
 				LIST_FILTER_TOGGLE: 'Ginocchiera filtro',
 				LIST_FILTER_REMOVE: 'Rimuova il filtro',
 				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
+			},
+			[I18N_DOMAIN_CONTAINERS]: {
+				DELETE_RESOURCE_MESSAGE: 'Sei sicuro di voler eliminare {{resourceLabel}} ',
 			},
 		},
 	},
@@ -54,7 +63,7 @@ export const LanguageSwitcher = () => {
 
 	function renderBtn(locale, isDefault) {
 		return (
-			<button className="btn" onClick={() => changeLanguage(locale)}>
+			<button className="btn" onClick={() => i18n.changeLanguage(locale)}>
 				{locale} {isDefault && '(default)'}
 			</button>
 		);
