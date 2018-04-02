@@ -93,6 +93,7 @@ export class DeleteResource extends React.Component {
 						resourceLabel: resourceInfo.resourceLabel,
 					})}
 					<b>{resourceInfo.label}</b>
+					?
 				</div>
 			</ConfirmDialog>
 		);

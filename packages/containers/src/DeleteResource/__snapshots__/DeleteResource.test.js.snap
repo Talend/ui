@@ -12,6 +12,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           "found": true,
           "id": "myResourceID",
           "label": "myLabel",
+          "resourceLabel": "myResourceType",
           "resourceType": "myResourceType",
           "uri": "/myEndpoint",
         },
@@ -32,6 +33,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           "found": true,
           "id": "myResourceID",
           "label": "myLabel",
+          "resourceLabel": "myResourceType",
           "resourceType": "myResourceType",
           "uri": "/myEndpoint",
         },
@@ -41,7 +43,11 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   }
 >
   <div>
-    myLabel
+    Are you sure you want to remove the myResourceType 
+    <b>
+      myLabel
+    </b>
+    ?
   </div>
 </ConfirmDialog>
 `;
@@ -58,6 +64,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
           "found": false,
           "id": "myResourceID",
           "label": "",
+          "resourceLabel": "unknownResourceType",
           "resourceType": "unknownResourceType",
           "uri": "/myEndpoint",
         },
@@ -78,6 +85,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
           "found": false,
           "id": "myResourceID",
           "label": "",
+          "resourceLabel": "unknownResourceType",
           "resourceType": "unknownResourceType",
           "uri": "/myEndpoint",
         },
@@ -86,6 +94,10 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     }
   }
 >
-  <div />
+  <div>
+    Are you sure you want to remove the unknownResourceType 
+    <b />
+    ?
+  </div>
 </ConfirmDialog>
 `;
