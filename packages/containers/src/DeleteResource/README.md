@@ -69,6 +69,7 @@ Required :
 * **redirectUrl** : is the url to redirect when delete is complete or cancel action is triggered
 
 Optional :
+* **resourceLabel** : is the parameter to show the type to remove if the resourceType is not readable by the user
 * **routerParamAttribute** : is the attribute defined in the route to give the resource id
 * **resourcePath** : array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
