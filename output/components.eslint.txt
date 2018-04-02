@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.172.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.173.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -7,6 +7,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/ActionList/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
+  107:67  error  'getComponent' is missing in props validation  react/prop-types
+  183:2   error  'getComponent' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -29,5 +33,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 13 problems (12 errors, 1 warning)
 
