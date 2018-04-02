@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { componentState } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
+import { translate } from 'react-i18next';
 import { getActionsProps } from '../actionAPI';
 import deleteResourceConst from './deleteResource.constants';
+import DEFAULT_I18N from '../translate';
+import I18N_DOMAIN_CONTAINERS from '../constant';
 
 /**
  * DeleteResource is used to delete a specific resource.
  * When the component is mounted, it opens a confirm dialog.
  * It uses the saga matching pattern to launch a race between the cancel and validate action.
  */
-export default class DeleteResource extends React.Component {
+export class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
 	static propTypes = {
 		...componentState.propTypes,
@@ -23,6 +26,9 @@ export default class DeleteResource extends React.Component {
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
 		store: PropTypes.object.isRequired,
+	};
+	static defaultProps = {
+		t: DEFAULT_I18N.t.bind(DEFAULT_I18N),
 	};
 
 	constructor(props, context) {
@@ -49,6 +55,9 @@ export default class DeleteResource extends React.Component {
 	getResourceInfo() {
 		return {
 			resourceType: this.props.resourceType,
+			resourceLabel: this.props.resourceTypeLabel
+				? this.props.resourceTypeLabel
+				: this.props.resourceType,
 			uri: this.props.uri,
 			...this.getLabel(),
 			id: this.props.params.id,
@@ -77,8 +86,16 @@ export default class DeleteResource extends React.Component {
 				cancelAction={cancelAction}
 				validateAction={validateAction}
 			>
-				<div>{resourceInfo.label}</div>
+				<div>
+					{this.props.t('DELETE_RESOURCE_MESSAGE', {
+						defaultValue: 'Are you sure you want to remove the {{resourceLabel}} ',
+						resourceLabel: resourceInfo.resourceLabel,
+					})}
+					<b>{resourceInfo.label}</b>
+				</div>
 			</ConfirmDialog>
 		);
 	}
 }
+
+export default translate(I18N_DOMAIN_CONTAINERS, { i18n: DEFAULT_I18N })(DeleteResource);

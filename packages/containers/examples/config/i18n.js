@@ -1,7 +1,9 @@
-import i18n from 'i18next';
-import { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
+import React from 'react';
+import { changeLanguage, init } from 'i18next'; // eslint-disable-line import/no-extraneous-dependencies
+import i18n, { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
+import I18N_DOMAIN_CONTAINERS from '../../src/constant';
 
-i18n.init({
+init({
 	resources: {
 		fr: {
 			[I18N_DOMAIN_COMPONENTS]: {
@@ -16,6 +18,9 @@ i18n.init({
 				LIST_FILTER_TOGGLE: 'Afficher le filtre',
 				LIST_FILTER_REMOVE: 'Supprimer le filtre',
 				VIRTUALIZEDLIST_NO_RESULT: 'Pas de résultat',
+			},
+			[I18N_DOMAIN_CONTAINERS]: {
+				DELETE_RESOURCE_REMOVE: 'Êtes vous sûr de vouloir supprimer {{resourceLabel}} ',
 			},
 		},
 		it: {
@@ -37,5 +42,32 @@ i18n.init({
 	debug: false,
 	wait: true, // globally set to wait for loaded translations in translate hoc
 });
+
+export const LanguageSwitcher = () => {
+	const style = {
+		position: 'fixed',
+		bottom: 0,
+		width: '100vw',
+		textAlign: 'center',
+		zIndex: 100000,
+	};
+
+	function renderBtn(locale, isDefault) {
+		return (
+			<button className="btn" onClick={() => changeLanguage(locale)}>
+				{locale} {isDefault && '(default)'}
+			</button>
+		);
+	}
+
+	return (
+		<nav style={style}>
+			<div className="btn-group">
+				{renderBtn('en', true)}
+				{renderBtn('fr')}
+			</div>
+		</nav>
+	);
+};
 
 export default i18n;
