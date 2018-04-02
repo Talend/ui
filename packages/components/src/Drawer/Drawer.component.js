@@ -186,7 +186,7 @@ function Drawer({
 		return null;
 	}
 
-	const TabBarComponent = Inject.getAll(getComponent, 'TabBar', TabBar);
+	const TabBarComponent = Inject.get(getComponent, 'TabBar', TabBar);
 	return (
 		<DrawerContainer
 			stacked={stacked}
