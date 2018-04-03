@@ -8,6 +8,16 @@ import {
 	TALEND_QUALITY_KEY,
 } from '../../constants/';
 
+/**
+ * getType - manage the type from an AVRO type
+ *
+ * @param  {array|object} 	avro type
+ * @return {string}      		return the type showed in the datagrid
+ * @example
+ * 	getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']); // string*
+ * 	getType({ type: 'string', dqType: '', dqTypeKey: '' }); // string
+ * 	getType({ type: 'string', dqType: 'Type', dqTypeKey: '' }); // Type
+ */
 export function getType(type) {
 	if (isArray(type)) {
 		const notNullType = type.find(subType => subType !== 'null');
