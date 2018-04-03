@@ -717,7 +717,7 @@ exports[`ActionBar.Count should render if selected 1`] = `
 <span
   className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
 >
-  ACTION_BAR_COUNT_SELECTED
+  1 ACTION_BAR_COUNT_SELECTED
 </span>
 `;
 
