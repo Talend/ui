@@ -39,6 +39,7 @@ const views = {
 	'cancel-action': 'dialog:delete:cancel',
 	'validate-action': 'dialog:delete:validate',
 	routeParams: { id: 'myID' },
+	female: true,
 };
 
 const params = {
@@ -56,14 +57,12 @@ export default {
 			<DeleteResource {...props} />;
 		</div>
 	),
-	translated: () => {
-		return (
-			<I18nextProvider i18n={i18n}>
-				<div>
-					<LanguageSwitcher />
-					<DeleteResource {...props} />
-				</div>
-			</I18nextProvider>
-		);
-	},
+	translated: () => (
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<LanguageSwitcher />
+				<DeleteResource {...props} />
+			</div>
+		</I18nextProvider>
+	),
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { componentState } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { translate } from 'react-i18next';
+import { translate, Trans } from 'react-i18next';
 import { getActionsProps } from '../actionAPI';
 import deleteResourceConst from './deleteResource.constants';
 import DEFAULT_I18N from '../translate';
@@ -55,7 +55,7 @@ export class DeleteResource extends React.Component {
 	getResourceInfo() {
 		return {
 			resourceType: this.props.resourceType,
-			resourceLabel: this.props.resourceTypeLabel
+			resourceTypeLabel: this.props.resourceTypeLabel
 				? this.props.resourceTypeLabel
 				: this.props.resourceType,
 			uri: this.props.uri,
@@ -76,10 +76,12 @@ export class DeleteResource extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.t('DELETE_RESOURCE_MESSAGE'));
 		const resourceInfo = this.getResourceInfo();
 		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
 		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
+		const i18nKey = this.props.female
+			? 'DELETE_RESOURCE_MESSAGE_female'
+			: 'DELETE_RESOURCE_MESSAGE';
 		return (
 			<ConfirmDialog
 				show
@@ -88,12 +90,10 @@ export class DeleteResource extends React.Component {
 				validateAction={validateAction}
 			>
 				<div>
-					{this.props.t('DELETE_RESOURCE_MESSAGE', {
-						defaultValue: 'Are you sure you want to remove the {{resourceLabel}} ',
-						resourceLabel: resourceInfo.resourceLabel,
-					})}
-					<b>{resourceInfo.label}</b>
-					?
+					<Trans i18nKey={i18nKey}>
+						Are you sure you want to remove the {{ resourceLabel: resourceInfo.resourceTypeLabel }}
+						<strong> {{ resourceName: resourceInfo.label }} </strong> ?
+					</Trans>
 				</div>
 			</ConfirmDialog>
 		);
