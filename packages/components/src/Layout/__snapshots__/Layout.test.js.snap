@@ -233,7 +233,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         null,
-        <ActionBar
+        <Translate(ActionBar)
           className="theme-tc-subheader-navbar tc-subheader-navbar"
 >
           <SubHeaderBarActions
@@ -256,7 +256,7 @@ ShallowWrapper {
                               title="defaultTitle"
                     />
           </SubHeaderBarActions>
-</ActionBar>,
+</Translate(ActionBar)>,
         null,
       ],
       "className": "theme-tc-subheader tc-subheader",
@@ -267,7 +267,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": Array [
             null,
@@ -392,7 +392,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           null,
-          <ActionBar
+          <Translate(ActionBar)
             className="theme-tc-subheader-navbar tc-subheader-navbar"
 >
             <SubHeaderBarActions
@@ -415,7 +415,7 @@ ShallowWrapper {
                                     title="defaultTitle"
                         />
             </SubHeaderBarActions>
-</ActionBar>,
+</Translate(ActionBar)>,
           null,
         ],
         "className": "theme-tc-subheader tc-subheader",
@@ -426,7 +426,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               null,
