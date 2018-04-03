@@ -46,6 +46,8 @@ export default class Toggle extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		// const opened = state.get('isSingle') ? state.getIn(['opened', 'default'], []) : state.get('opened', []);
-		return <ObjectViewer {...this.props} onToggle={this.onToggle} opened={state.get('opened').toJS()} />;
+		return (
+			<ObjectViewer {...this.props} onToggle={this.onToggle} opened={state.get('opened').toJS()} />
+		);
 	}
 }
