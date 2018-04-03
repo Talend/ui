@@ -73,6 +73,7 @@ Optional :
 * **routerParamAttribute** : is the attribute defined in the route to give the resource id
 * **resourcePath** : array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
+* **female** : Only for i18n, allow to set the i18nkey to tell of the resource type if female or not
 
 example with resourceType only
 ```javascript

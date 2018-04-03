@@ -12,8 +12,8 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           "found": true,
           "id": "myResourceID",
           "label": "myLabel",
-          "resourceLabel": "myResourceType",
           "resourceType": "myResourceType",
+          "resourceTypeLabel": "resourceLabel",
           "uri": "/myEndpoint",
         },
       },
@@ -33,8 +33,8 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           "found": true,
           "id": "myResourceID",
           "label": "myLabel",
-          "resourceLabel": "myResourceType",
           "resourceType": "myResourceType",
+          "resourceTypeLabel": "resourceLabel",
           "uri": "/myEndpoint",
         },
       },
@@ -43,11 +43,23 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   }
 >
   <div>
-    Are you sure you want to remove the myResourceType 
-    <b>
-      myLabel
-    </b>
-    ?
+    <Trans
+      i18nKey="DELETE_RESOURCE_MESSAGE_female"
+      parent="div"
+    >
+      Are you sure you want to remove the 
+      Object {
+        "resourceLabel": "resourceLabel",
+      }
+      <strong>
+         
+        Object {
+          "resourceName": "myLabel",
+        }
+         
+      </strong>
+       ?
+    </Trans>
   </div>
 </ConfirmDialog>
 `;
@@ -64,8 +76,8 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
           "found": false,
           "id": "myResourceID",
           "label": "",
-          "resourceLabel": "unknownResourceType",
           "resourceType": "unknownResourceType",
+          "resourceTypeLabel": "unknownResourceType",
           "uri": "/myEndpoint",
         },
       },
@@ -85,8 +97,8 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
           "found": false,
           "id": "myResourceID",
           "label": "",
-          "resourceLabel": "unknownResourceType",
           "resourceType": "unknownResourceType",
+          "resourceTypeLabel": "unknownResourceType",
           "uri": "/myEndpoint",
         },
       },
@@ -95,9 +107,23 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   }
 >
   <div>
-    Are you sure you want to remove the unknownResourceType 
-    <b />
-    ?
+    <Trans
+      i18nKey="DELETE_RESOURCE_MESSAGE"
+      parent="div"
+    >
+      Are you sure you want to remove the 
+      Object {
+        "resourceLabel": "unknownResourceType",
+      }
+      <strong>
+         
+        Object {
+          "resourceName": "",
+        }
+         
+      </strong>
+       ?
+    </Trans>
   </div>
 </ConfirmDialog>
 `;

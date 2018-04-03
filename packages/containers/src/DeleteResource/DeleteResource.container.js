@@ -22,6 +22,8 @@ export class DeleteResource extends React.Component {
 		header: PropTypes.string,
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
+		resourceTypeLabel: PropTypes.string,
+		female: PropTypes.string,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,

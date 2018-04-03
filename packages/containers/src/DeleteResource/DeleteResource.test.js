@@ -40,6 +40,8 @@ describe('Container DeleteResource', () => {
 			resource: new Immutable.Map({ label: 'myLabel' }),
 			header: 'My header title',
 			params: { id: 'myResourceID' },
+			resourceTypeLabel: 'resourceLabel',
+			female: true,
 			'validate-action': 'dialog:delete:validate',
 			'cancel-action': 'dialog:delete:cancel',
 		};
