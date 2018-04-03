@@ -40,11 +40,13 @@ function CellTitleSelector(props) {
 				{...columnData}
 				{...rowData}
 				id={id && `${id}-btn`}
+				icon={undefined}
 				className={className}
 				onClick={event => onClick(event, rowData)}
 				role="link"
 				bsStyle="link"
 				label={cellData}
+				type="button"
 			/>
 		);
 	}
