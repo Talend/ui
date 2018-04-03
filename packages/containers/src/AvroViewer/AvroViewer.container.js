@@ -1,17 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Map, List } from 'immutable';
-// import { ObjectViewer } from '@talend/react-components';
-// import ObjectViewerCtn from './ObjectViewer.connect';
+import Component from '@talend/react-components';
 import Toggle from './Toggle.connect';
-
 export const DEFAULT_STATE = Map({
-	// edited: new List(), // Array of JSONPath
-	// opened: new List(), // Array of JSONPath
-	// selectedJsonpath: '', // Selected JSONPath
-	// modified: new Map(), // Store the onChange
 	highlighted: List(),
-	// isSingle: false,
 });
 
 export default class AvroViewer extends React.Component {
@@ -19,7 +12,6 @@ export default class AvroViewer extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { highlighted: [] };
 		this.onSelect = this.onSelect.bind(this);
 	}
 
@@ -28,27 +20,28 @@ export default class AvroViewer extends React.Component {
 		const adaptedJsonPath = jsonpath
 			.replace(/[-[{}()*+?.,\\^$|#\s]/g, '\\$&')
 			.replace(/\[]/g, '[[0-9]+]');
-		this.setState({
-			highlighted: [new RegExp(`^${adaptedJsonPath}$`)],
-		});
 		this.props.setState({
 			highlighted: state.get('highlighted').set(0, new RegExp(`^${adaptedJsonPath}$`)),
 		});
 	}
 
 	render() {
+		const highlighted = this.props.state.get('highlighted', DEFAULT_STATE.get('highlighted')).toJS();
+		<Component />
+	}
+	/*
+	render() {
 		const partStyle = {
 			flexGrow: 1,
 			flexShrink: 1,
 			flexBasis: 50,
 		};
-		const state = this.props.state || DEFAULT_STATE;
+		const highlighted = this.props.state.get('highlighted', DEFAULT_STATE.get('highlighted')).toJS();
 		return (
 			<div style={{ display: 'flex', alignItems: 'stretch', height: '1000px' }}>
 				<div style={partStyle}>
 					<Toggle
 						componentId="Model"
-						// component={ObjectViewer}
 						displayMode="model"
 						onSelect={this.onSelect}
 						data={this.props.sample.schema}
@@ -63,18 +56,18 @@ export default class AvroViewer extends React.Component {
 				<div style={partStyle}>
 					<Toggle
 						componentId="Records"
-						// component={ObjectViewer}
+						displayMode="records"
 						avroRenderersIds={
 							this.props.useCustomRenderers ? this.props.customAvroRenderersIds : ''
 						}
-						displayMode={'records'}
 						data={this.props.sample.data}
 						getComponent={this.props.getComponent}
-						highlighted={state.get('highlighted').toJS()}
+						highlighted={highlighted}
 						schema={this.props.sample.schema}
 					/>
 				</div>
 			</div>
 		);
 	}
+	*/
 }

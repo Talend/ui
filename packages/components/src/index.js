@@ -11,6 +11,7 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import ActionList from './ActionList';
+import AvroViewer from './AvroViewer';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
@@ -125,6 +126,7 @@ export {
 	ActionFile,
 	ActionIconToggle,
 	ActionSplitDropdown,
+	AvroViewer,
 	Badge,
 	Breadcrumbs,
 	Checkbox,

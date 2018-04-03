@@ -1,0 +1,12 @@
+.tc-avro-layout {
+	display: 'flex';
+	align-items: 'stretch';
+    height: '1000px';
+    
+    &-left,
+    &-right {
+        flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 50;
+    }
+}
