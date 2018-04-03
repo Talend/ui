@@ -72,6 +72,15 @@ function chooseItem2() {
 	};
 }
 
+function selectTab(event, data) {
+	return {
+		type: 'SELECT_TAB',
+		payload: {
+			...data,
+		},
+	};
+}
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
@@ -86,6 +95,8 @@ registerActionCreator('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeade
 registerActionCreator('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
 registerActionCreator('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
 registerActionCreator('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
+
+registerActionCreator('tabbar:select', selectTab);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);

@@ -2,12 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ActionFile from './ActionFile.component';
 
-// jest.mock('react-dom');
-
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onChange: jest.fn(),
+	'data-feature': 'action.feature',
 };
 
 describe('ActionFile', () => {

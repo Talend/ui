@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButton from './ActionButton.component';
+import { ActionButton } from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
+	title: 'Title to describe click me button',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
+	'data-feature': 'action.feature',
 };
 
 const mouseDownAction = {
@@ -18,6 +20,22 @@ describe('Action', () => {
 	it('should render a button', () => {
 		// when
 		const wrapper = shallow(<ActionButton {...myAction} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton loading />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a link button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton link loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

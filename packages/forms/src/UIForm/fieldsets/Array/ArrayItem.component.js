@@ -4,7 +4,7 @@ import Icon from '@talend/react-components/lib/Icon';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_FORMS from '../../../constants';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
 
 import theme from './ArrayItem.scss';

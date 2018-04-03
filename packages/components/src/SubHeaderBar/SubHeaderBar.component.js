@@ -105,7 +105,7 @@ function SubHeaderBar({
 				{injected('center')}
 				{Array.isArray(center) &&
 					center.map((item, index) => (
-						<SubHeaderBarActions center hasRight={hasRight}>
+						<SubHeaderBarActions center hasRight={hasRight} key={index}>
 							<Renderer.Action key={index} {...item} />
 						</SubHeaderBarActions>
 					))}
@@ -117,6 +117,7 @@ function SubHeaderBar({
 								theme['tc-subheader-navbar-right'],
 								'tc-subheader-navbar-right',
 							)}
+							key={index}
 							right
 						>
 							<Renderer.Action key={index} {...item} />
@@ -138,6 +139,7 @@ SubHeaderBar.propTypes = {
 	left: PropTypes.array,
 	right: PropTypes.array,
 	center: PropTypes.array,
+	inProgress: PropTypes.bool,
 	...Inject.PropTypes,
 };
 

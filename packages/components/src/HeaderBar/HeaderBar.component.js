@@ -151,16 +151,7 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 
 	function getDisplayName(params) {
 		if (params.firstName && params.lastName) {
-			return (
-				<span className={classNames(theme['user-name'], 'user-name')}>
-					<span className={classNames(theme['user-firstname'], 'user-firstname')}>
-						{params.firstName}
-					</span>
-					<span className={classNames(theme['user-lastname'], 'user-lastname')}>
-						{params.lastName}
-					</span>
-				</span>
-			);
+			return `${params.firstName} ${params.lastName}`;
 		}
 		return params.name;
 	}
@@ -327,7 +318,7 @@ if (process.env.NODE_ENV !== 'production') {
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
-		notification: PropTypes.shape(AppNotification.propTypes, 't'),
+		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
 		products: PropTypes.shape({
 			items: PropTypes.array,
 			onSelect: PropTypes.func,

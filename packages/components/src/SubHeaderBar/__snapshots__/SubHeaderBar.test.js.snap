@@ -21,6 +21,8 @@ exports[`SubHeaderBar should render without i18n 1`] = `
       />
       <InputTitleSubHeader
         editMode={false}
+        inProgress={false}
+        loading={false}
         t={[Function]}
         title="myTitle"
       />

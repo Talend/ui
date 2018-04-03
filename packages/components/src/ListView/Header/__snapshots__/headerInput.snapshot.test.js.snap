@@ -13,6 +13,7 @@ exports[`Header should render filter header 1`] = `
     type="text"
   />
   <button
+    aria-label="Abort"
     className="btn btn-link"
     disabled={false}
     onClick={[Function]}

@@ -62,6 +62,7 @@ exports[`Enumeration should render with header in add state and list in default 
       value={undefined}
     />
     <button
+      aria-label="Validate"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -83,6 +84,7 @@ exports[`Enumeration should render with header in add state and list in default 
       </svg>
     </button>
     <button
+      aria-label="Abort"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -178,6 +180,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -199,6 +202,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -252,6 +256,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -273,6 +278,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -326,6 +332,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -347,6 +354,7 @@ exports[`Enumeration should render with header in add state and list in default 
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -391,6 +399,7 @@ exports[`Enumeration should render with header in default state and first item i
       className="actions"
     >
       <button
+        aria-label="Add item"
         className="btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -488,6 +497,7 @@ exports[`Enumeration should render with header in default state and first item i
                   onMouseOver={[Function]}
                 >
                   <button
+                    aria-label="Validate"
                     className="theme-btn-disabled btn btn-link"
                     disabled={true}
                     onClick={[Function]}
@@ -508,6 +518,7 @@ exports[`Enumeration should render with header in default state and first item i
                   </button>
                 </span>
                 <button
+                  aria-label="Cancel"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -561,6 +572,7 @@ exports[`Enumeration should render with header in default state and first item i
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -582,6 +594,7 @@ exports[`Enumeration should render with header in default state and first item i
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -635,6 +648,7 @@ exports[`Enumeration should render with header in default state and first item i
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -656,6 +670,7 @@ exports[`Enumeration should render with header in default state and first item i
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -701,6 +716,7 @@ exports[`Enumeration should render with header in default state with custom labe
       className="actions"
     >
       <button
+        aria-label="Add item"
         className="btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -797,6 +813,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -818,6 +835,7 @@ exports[`Enumeration should render with header in default state with custom labe
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -871,6 +889,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -892,6 +911,7 @@ exports[`Enumeration should render with header in default state with custom labe
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -945,6 +965,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -966,6 +987,7 @@ exports[`Enumeration should render with header in default state with custom labe
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1011,6 +1033,7 @@ exports[`Enumeration should render with header in default state, list in default
       className="actions"
     >
       <button
+        aria-label="Add item"
         className="btn btn-link"
         disabled={false}
         onClick={[Function]}
@@ -1107,6 +1130,7 @@ exports[`Enumeration should render with header in default state, list in default
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1128,6 +1152,7 @@ exports[`Enumeration should render with header in default state, list in default
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1181,6 +1206,7 @@ exports[`Enumeration should render with header in default state, list in default
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1202,6 +1228,7 @@ exports[`Enumeration should render with header in default state, list in default
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1255,6 +1282,7 @@ exports[`Enumeration should render with header in default state, list in default
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1276,6 +1304,7 @@ exports[`Enumeration should render with header in default state, list in default
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1322,6 +1351,7 @@ exports[`Enumeration should render with header in search state and list in defau
       value={undefined}
     />
     <button
+      aria-label="Validate"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -1343,6 +1373,7 @@ exports[`Enumeration should render with header in search state and list in defau
       </svg>
     </button>
     <button
+      aria-label="Abort"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -1441,6 +1472,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1462,6 +1494,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1518,6 +1551,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1539,6 +1573,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1595,6 +1630,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1616,6 +1652,7 @@ exports[`Enumeration should render with header in search state and list in defau
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1657,6 +1694,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       2 selected values
     </span>
     <button
+      aria-label="Selected value"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -1741,6 +1779,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1762,6 +1801,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1815,6 +1855,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1836,6 +1877,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1889,6 +1931,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1910,6 +1953,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -1951,6 +1995,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       2 selected values
     </span>
     <button
+      aria-label="Selected value"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -2053,6 +2098,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -2074,6 +2120,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -2145,6 +2192,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -2166,6 +2214,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -2237,6 +2286,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
+                  aria-label="Edit"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -2258,6 +2308,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   </svg>
                 </button>
                 <button
+                  aria-label="Delete"
                   className="btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -2302,6 +2353,7 @@ exports[`Enumeration should render with header without items 1`] = `
       className="actions"
     >
       <button
+        aria-label="Add item"
         className="btn btn-link"
         disabled={false}
         onClick={[Function]}
