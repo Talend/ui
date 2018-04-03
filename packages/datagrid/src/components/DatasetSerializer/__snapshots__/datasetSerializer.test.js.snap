@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#getColumnDefs should returns an empty columns definitions 1`] = `
+Array [
+  Object {
+    "@talend-quality@": Object {
+      "-1": 62,
+      "0": 0,
+      "1": 38,
+    },
+    "avro": Object {
+      "@talend-quality@": Object {
+        "-1": 62,
+        "0": 0,
+        "1": 38,
+      },
+      "doc": "Nom de la gare",
+      "name": "field0",
+      "type": Array [
+        "null",
+        Object {
+          "dqType": "FR Commune",
+          "dqTypeKey": "FR_COMMUNE",
+          "type": "string",
+        },
+      ],
+    },
+    "field": "data.field0",
+    "headerName": "Nom de la gare",
+    "type": "FR Commune*",
+  },
+]
+`;
+
 exports[`#getColumnDefs should returns the columns definitions 1`] = `
 Array [
   Object {

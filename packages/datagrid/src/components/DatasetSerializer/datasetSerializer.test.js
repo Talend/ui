@@ -1,4 +1,10 @@
-import { getColumnDefs, getRowData, getPinnedColumnDefs, getCellValue } from './datasetSerializer';
+import {
+	getCellValue,
+	getColumnDefs,
+	getPinnedColumnDefs,
+	getRowData,
+	getType,
+} from './datasetSerializer';
 
 const sample = {
 	schema: {
@@ -147,6 +153,37 @@ describe('#getColumnDefs', () => {
 
 		expect(columnDefs).toEqual([]);
 	});
+
+	it('should returns an empty columns definitions', () => {
+		const schemaWithOptionalType = {
+			schema: {
+				type: 'record',
+				name: 'StringArrayRecord',
+				fields: [
+					{
+						name: 'field0',
+						doc: 'Nom de la gare',
+						type: [
+							'null',
+							{
+								type: 'string',
+								dqType: 'FR Commune',
+								dqTypeKey: 'FR_COMMUNE',
+							},
+						],
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+						},
+					},
+				],
+			},
+		};
+		const columnDefs = getColumnDefs(schemaWithOptionalType);
+
+		expect(columnDefs).toMatchSnapshot();
+	});
 });
 
 describe('#getRowData', () => {
@@ -195,5 +232,33 @@ describe('#getCellValue', () => {
 		});
 
 		expect(value).toBe('myData');
+	});
+});
+
+describe('#getType', () => {
+	it('should return the optionnal type', () => {
+		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
+
+		expect(type).toBe('string*');
+	});
+
+	it('should return the dqType', () => {
+		const type = getType({
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		});
+
+		expect(type).toBe('FR Commune');
+	});
+
+	it('should return the type', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string');
 	});
 });

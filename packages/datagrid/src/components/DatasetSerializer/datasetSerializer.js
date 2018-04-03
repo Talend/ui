@@ -1,10 +1,24 @@
 import get from 'lodash/get';
+import isArray from 'lodash/isArray';
+
 import {
 	NAMESPACE_INDEX,
 	NAMESPACE_DATA,
 	COLUMN_INDEX,
 	TALEND_QUALITY_KEY,
 } from '../../constants/';
+
+export function getType(type) {
+	if (isArray(type)) {
+		const notNullType = type.find(subType => subType !== 'null');
+		const nullType = type.find(subType => subType === 'null');
+
+		if (notNullType && nullType) {
+			return `${getType(notNullType)}*`;
+		}
+	}
+	return type.dqType || type.type;
+}
 
 export function getColumnDefs(sample) {
 	if (!sample) {
@@ -13,7 +27,7 @@ export function getColumnDefs(sample) {
 
 	return get(sample, 'schema.fields', []).map(avroField => ({
 		headerName: avroField.doc,
-		type: avroField.type.dqType || avroField.type.type,
+		type: getType(avroField.type),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		[TALEND_QUALITY_KEY]: avroField[TALEND_QUALITY_KEY],
 		avro: avroField,
