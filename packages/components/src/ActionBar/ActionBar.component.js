@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import { translate } from 'react-i18next';
+import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
 import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
