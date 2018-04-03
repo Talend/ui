@@ -12,6 +12,7 @@ exports[`Action should apply transformation on icon 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -36,6 +37,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <CircularProgress
     size="small"
@@ -59,6 +61,7 @@ exports[`Action should display a disabled Icon 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -83,6 +86,7 @@ exports[`Action should pass all props to the Button 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -106,6 +110,7 @@ exports[`Action should render a button 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -144,6 +149,7 @@ exports[`Action should render a button with a overlay component 1`] = `
       onClick={null}
       onMouseDown={null}
       role={null}
+      title="Title to describe click me button"
     >
       <Icon
         name="talend-caret-down"
@@ -176,6 +182,7 @@ exports[`Action should render a button without an overlay component if inProgres
   onClick={null}
   onMouseDown={null}
   role={null}
+  title="Title to describe click me button"
 >
   <CircularProgress
     size="small"
@@ -223,6 +230,7 @@ exports[`Action should render action with html property name = props.name if set
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -246,6 +254,7 @@ exports[`Action should reverse icon/label 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <span>
     Click me
