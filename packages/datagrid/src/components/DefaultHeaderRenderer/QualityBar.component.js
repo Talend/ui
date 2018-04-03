@@ -10,6 +10,14 @@ import theme from './QualityBar.scss';
 
 const QUALITY_BAR_MIN_WIDTH = 5;
 
+/**
+ * formatNumber - format a number with a space for the thousand separator
+ *
+ * @param  {number} value number to format
+ * @return {string}       formated number
+ * @example
+ * 	formatNumber(1200); // return 1 200
+ */
 export function formatNumber(value) {
 	const parts = value.toString().split('.');
 	parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
