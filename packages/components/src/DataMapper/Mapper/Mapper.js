@@ -546,12 +546,9 @@ export default class Mapper extends Component {
 			mapping,
 			inputSchema,
 			outputSchema,
-			inputSchemaRenderer,
-			outputSchemaRenderer,
+			schemaConfiguration,
 			clearMapping,
 			clearConnection,
-			inputSchemaColumns,
-			outputSchemaColumns,
 			filters,
 			...commonSchemaProps
 		} = this.props;
@@ -564,42 +561,44 @@ export default class Mapper extends Component {
 			dnd,
 			dndInProgress,
 		} = this.props;
+		const inputSide = Constants.MappingSide.INPUT;
+		const outputSide = Constants.MappingSide.OUTPUT;
 		return (
 			<div id={mapperId}>
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}
 					schema={inputSchema}
-					schemaRenderer={inputSchemaRenderer}
-					side={Constants.MappingSide.INPUT}
+					SchemaRenderer={schemaConfiguration.getRenderer(inputSide)}
+					side={inputSide}
 					onScroll={this.onScroll}
 					revealConnection={this.revealConnection}
-					mappedElements={getMappedElements(dataAccessor, mapping, Constants.MappingSide.INPUT)}
+					mappedElements={getMappedElements(dataAccessor, mapping, inputSide)}
 					focusedElements={getFocusedElements(
 						dataAccessor,
 						mapping,
 						focused,
-						Constants.MappingSide.INPUT,
+						inputSide,
 					)}
-					columnKeys={inputSchemaColumns}
+					columnKeys={schemaConfiguration.getColumns(inputSide)}
 					filters={filters.input}
 				/>
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateOutputSchemaRef}
 					schema={outputSchema}
-					schemaRenderer={outputSchemaRenderer}
-					side={Constants.MappingSide.OUTPUT}
+					SchemaRenderer={schemaConfiguration.getRenderer(outputSide)}
+					side={outputSide}
 					onScroll={this.onScroll}
 					revealConnection={this.revealConnection}
-					mappedElements={getMappedElements(dataAccessor, mapping, Constants.MappingSide.OUTPUT)}
+					mappedElements={getMappedElements(dataAccessor, mapping, outputSide)}
 					focusedElements={getFocusedElements(
 						dataAccessor,
 						mapping,
 						focused,
-						Constants.MappingSide.OUTPUT,
+						outputSide,
 					)}
-					columnKeys={outputSchemaColumns}
+					columnKeys={schemaConfiguration.getColumns(outputSide)}
 					filters={filters.output}
 				/>
 				<GMapping
@@ -630,8 +629,7 @@ Mapper.propTypes = {
 	selection: PropTypes.object,
 	inputSchema: PropTypes.object,
 	outputSchema: PropTypes.object,
-	inputSchemaRenderer: PropTypes.object,
-	outputSchemaRenderer: PropTypes.object,
+	schemaConfiguration: PropTypes.object,
 	performMapping: PropTypes.func,
 	clearMapping: PropTypes.func,
 	clearConnection: PropTypes.func,
@@ -649,8 +647,6 @@ Mapper.propTypes = {
 	canDrop: PropTypes.func,
 	drop: PropTypes.func,
 	endDrag: PropTypes.func,
-	inputSchemaColumns: PropTypes.array,
-	outputSchemaColumns: PropTypes.array,
 	filters: PropTypes.array,
 	filterComponents: PropTypes.object,
 	onFilterChange: PropTypes.func,

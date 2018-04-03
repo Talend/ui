@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SchemaElement from '../SchemaElement/SchemaElement.js';
 import DraggableSchemaElement from '../SchemaElement/DraggableSchemaElement.js';
@@ -95,16 +95,34 @@ renderSchemaElement.propTypes = {
 	isHighlighted: PropTypes.func,
 };
 
-export default class DefaultRenderer {
-	renderContent(props) {
-		const { dataAccessor, schema, onScroll, updateContentNodeRef } = props;
+export default class DefaultRenderer extends Component {
+
+	render() {
+		const {
+			dataAccessor,
+			schema,
+			onScroll,
+			updateContentNodeRef,
+		} = this.props;
 		const content = dataAccessor
 			.getSchemaElements(schema, true)
-			.map(elem => renderSchemaElement(props, elem));
+			.map(elem => renderSchemaElement(this.props, elem));
 		return (
-			<div ref={updateContentNodeRef} className="schema-content" onScroll={onScroll}>
+			<div
+				ref={updateContentNodeRef}
+				className="schema-content"
+				onScroll={onScroll}
+			>
 				{content}
 			</div>
 		);
 	}
+
 }
+
+DefaultRenderer.propTypes = {
+	dataAccessor: PropTypes.object,
+	schema: PropTypes.object,
+	onScroll: PropTypes.func,
+	updateContentNodeRef: PropTypes.func,
+};

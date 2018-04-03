@@ -6,8 +6,8 @@ import { isSelected } from '../src/DataMapper/Schema/Schema';
 import * as Constants from '../src/DataMapper/Constants';
 import DefaultDataAccessor from '../src/DataMapper/DefaultDataAccessor';
 import DataAccessorWrapper from '../src/DataMapper/DataAccessorWrapper';
-import DefaultRenderer from '../src/DataMapper/Schema/SchemaRenderers/DefaultRenderer';
-import ListRenderer from '../src/DataMapper/Schema/SchemaRenderers/ListRenderer';
+import SchemaConfiguration from '../src/DataMapper/Schema/SchemaConfiguration';
+import ListConfiguration from '../src/DataMapper/Schema/ListConfiguration';
 import FilterComponents from '../src/DataMapper/Schema/Filters/FilterComponents';
 import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters/NameFilter';
 import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
@@ -368,22 +368,10 @@ const initialMapping = [
 	},
 ];
 
-const inputListColumns = [
-  Constants.Schema.DATA_KEYS.TYPE,
-	Constants.Schema.DATA_KEYS.NAME,
-];
-
-const outputListColumns = [
-	Constants.Schema.DATA_KEYS.NAME,
-  Constants.Schema.DATA_KEYS.TYPE,
-	Constants.Schema.DATA_KEYS.DESC,
-];
-
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 
-const defaultSchemaRenderer = new DefaultRenderer();
-const inputListRenderer = new ListRenderer(Constants.MappingSide.INPUT);
-const outputListRenderer = new ListRenderer(Constants.MappingSide.OUTPUT);
+const schemaConfiguration = new SchemaConfiguration();
+const listConfiguration = new ListConfiguration();
 
 const filterComponents = new FilterComponents();
 
@@ -1382,10 +1370,7 @@ class ConnectedDataMapper extends React.Component {
 		const {
 			mapperId,
 			mappingRenderer,
-			inputSchemaRenderer,
-			outputSchemaRenderer,
-			inputSchemaColumns,
-			outputSchemaColumns,
+			schemaConfiguration,
 		} = this.props;
 		return (
 			<Mapper
@@ -1393,8 +1378,7 @@ class ConnectedDataMapper extends React.Component {
 				ref={this.updateMapperRef}
 				mapperId={mapperId}
 				mappingRenderer={mappingRenderer}
-				inputSchemaRenderer={inputSchemaRenderer}
-				outputSchemaRenderer={outputSchemaRenderer}
+				schemaConfiguration={schemaConfiguration}
 				inputSchema={this.state.inputSchema}
 				mapping={this.state.mapping}
 				outputSchema={this.state.outputSchema}
@@ -1416,8 +1400,6 @@ class ConnectedDataMapper extends React.Component {
 				canDrop={this.canDrop}
 				drop={this.drop}
 				endDrag={this.endDrag}
-				inputSchemaColumns={inputSchemaColumns}
-				outputSchemaColumns={outputSchemaColumns}
 				filters={this.state.filters}
 				filterComponents={filterComponents}
 				onFilterChange={this.onFilterChange}
@@ -1431,10 +1413,7 @@ ConnectedDataMapper.propTypes = {
 	initialState: PropTypes.object,
 	mapperId: PropTypes.string,
 	mappingRenderer: PropTypes.string,
-	inputSchemaRenderer: PropTypes.object,
-	outputSchemaRenderer: PropTypes.object,
-	inputSchemaColumns: PropTypes.array,
-	outputSchemaColumns: PropTypes.array,
+	schemaConfiguration: PropTypes.object,
 };
 
 const stories = storiesOf('DataMapper', module);
@@ -1454,8 +1433,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getDefaultInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
 	.addWithInfo('empty (canvas)', () => {
@@ -1463,8 +1441,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getEmptyInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
 	.addWithInfo('50-mapped (canvas)', () => {
@@ -1472,8 +1449,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
 	.addWithInfo('default (svg)', () => {
@@ -1481,8 +1457,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getDefaultInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
 	.addWithInfo('50-mapped (svg)', () => {
@@ -1490,8 +1465,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
 	.addWithInfo('default (svg, list)', () => {
@@ -1499,10 +1473,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getDefaultInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={inputListRenderer}
-			outputSchemaRenderer={outputListRenderer}
-			inputSchemaColumns={inputListColumns}
-			outputSchemaColumns={outputListColumns}
+			schemaConfiguration={listConfiguration}
 		/>;
 	})
 	.addWithInfo('50-mapped (svg, list)', () => {
@@ -1510,10 +1481,7 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, alternativePrefs4))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={inputListRenderer}
-			outputSchemaRenderer={outputListRenderer}
-			inputSchemaColumns={inputListColumns}
-			outputSchemaColumns={outputListColumns}
+			schemaConfiguration={listConfiguration}
 		/>;
 	})
 	.addWithInfo('size:100 mapped:50 (svg, list)', () => {
@@ -1521,20 +1489,14 @@ stories
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50, alternativePrefs4))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={inputListRenderer}
-			outputSchemaRenderer={outputListRenderer}
-			inputSchemaColumns={inputListColumns}
-			outputSchemaColumns={outputListColumns}
+			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('UX proto', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getUXInitialState(15, alternativePrefs4))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={inputListRenderer}
-			outputSchemaRenderer={outputListRenderer}
-			inputSchemaColumns={inputListColumns}
-			outputSchemaColumns={outputListColumns}
+			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('Random', () => {
 		return <ConnectedDataMapper
@@ -1562,9 +1524,6 @@ stories
 				)
 			}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
-			inputSchemaRenderer={inputListRenderer}
-			outputSchemaRenderer={outputListRenderer}
-			inputSchemaColumns={inputListColumns}
-			outputSchemaColumns={outputListColumns}
+			schemaConfiguration={listConfiguration}
 		/>;
 	});

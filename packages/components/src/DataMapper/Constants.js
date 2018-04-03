@@ -1,3 +1,6 @@
+/**
+* Defines the type of user interaction event
+*/
 export const Events = {
 	ENTER_ELEM: 'enter-elem',
 	LEAVE_ELEM: 'leave-elem',
@@ -30,19 +33,9 @@ export function switchMappingSide(side) {
 	return MappingSide.INPUT;
 }
 
-export const Types = {
-	STRING: 'string',
-	TEXT: 'text',
-	BOOLEAN: 'boolean',
-	DOUBLE: 'double',
-	DATE: 'date',
-	EMAIL: 'Email',
-	URL: 'URL',
-	ADDRESS: 'address',
-	CITY: 'City',
-	FR_POSTAL_CODE: 'FR Postal Code',
-};
-
+/**
+* Defines style and part of a connection anchor.
+*/
 export const Anchor = {
 	STYLE: {
 		UNMAPPED: 'unmapped',
@@ -56,6 +49,9 @@ export const Anchor = {
 	},
 };
 
+/**
+* Defines parameters of a connection.
+*/
 export const Connection = {
 	RENDERER: {
 		CANVAS: 'canvas',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import List from '../../List/List';
 import RowLabel from '../../List/RowLabel';
 import MandatoryField from '../../List/MandatoryField';
@@ -116,8 +116,10 @@ class RowRenderers {
 	}
 }
 
-export default class ListRenderer {
-	constructor(side) {
+export default class ListRenderer extends Component {
+
+	constructor(props) {
+		super(props);
 		this.select = this.select.bind(this);
 		this.revealConnection = this.revealConnection.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
@@ -125,7 +127,7 @@ export default class ListRenderer {
 		this.classNameProvider = new SchemaClassNameProvider();
 		this.dndListener = new SchemaDndListener();
 		this.rowDataGetter = new RowDataGetter();
-		this.rowRenderers = new RowRenderers(side);
+		this.rowRenderers = new RowRenderers(props.side);
 	}
 
 	getElement(ev) {
@@ -152,12 +154,18 @@ export default class ListRenderer {
 		this.props.onLeaveElement(element, this.props.side);
 	}
 
-	renderContent(props) {
-		this.props = props;
-		this.classNameProvider.updateProps(props);
-		this.dndListener.updateProps(props);
-		this.rowDataGetter.updateProps(props);
-		const { dataAccessor, schema, draggable, onScroll, columnKeys, updateContentNodeRef } = props;
+	render() {
+		this.classNameProvider.updateProps(this.props);
+		this.dndListener.updateProps(this.props);
+		this.rowDataGetter.updateProps(this.props);
+		const {
+			dataAccessor,
+			schema,
+			draggable,
+			onScroll,
+			columnKeys,
+			updateContentNodeRef
+		} = this.props;
 		return (
 			<List
 				classNameProvider={this.classNameProvider}

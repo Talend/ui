@@ -123,7 +123,7 @@ export default class Schema extends Component {
 	}
 
 	render() {
-		const { schemaRenderer, ...tempProps } = this.props;
+		const { SchemaRenderer, ...tempProps } = this.props;
 		const { dataAccessor, schema, side, filters, filterComponents, onFilterChange } = this.props;
 		const contentProps = {
 			...tempProps,
@@ -144,16 +144,20 @@ export default class Schema extends Component {
 					onFilterChange={onFilterChange}
 				/>
 				<div className="separator horizontal" />
-				{schemaRenderer.renderContent(contentProps)}
+				<SchemaRenderer
+					{...contentProps}
+				/>
 			</div>
 		);
 	}
 }
 
+//{schemaRenderer.renderContent(contentProps)}
+
 Schema.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
-	schemaRenderer: PropTypes.object,
+	SchemaRenderer: PropTypes.element,
 	filters: PropTypes.array,
 	filterComponents: PropTypes.object,
 	onFilterChange: PropTypes.func,
