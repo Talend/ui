@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import { Map } from 'immutable';
 import { TabBar as Component } from '@talend/react-components';
 import Connected, { DEFAULT_STATE } from './TabBar.connect';
