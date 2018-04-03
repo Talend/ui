@@ -9,26 +9,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/AvroViewer/AvroViewer.container.js
    2:8   error  'PropTypes' is defined but never used                                      no-unused-vars
-   5:1   error  Expected empty line after import statement not followed by another import  import/newline-after-import
-   5:8   error  'Toggle' is defined but never used                                         no-unused-vars
-  10:16  error  Your render method should have return statement                            react/require-render-return
-  19:28  error  'state' is missing in props validation                                     react/prop-types
-  23:14  error  'setState' is missing in props validation                                  react/prop-types
-  29:9   error  'highlighted' is assigned a value but never used                           no-unused-vars
-  29:34  error  'state' is missing in props validation                                     react/prop-types
-  30:5   error  'state.get' is missing in props validation                                 react/prop-types
-  32:3   error  Expected indentation of 4 tab characters but found 2                       react/jsx-indent
-  32:3   error  Expected an assignment or function call and instead saw an expression      no-unused-expressions
-  41:1   error  Line 41 exceeds the maximum line length of 100                             max-len
-
-/home/travis/build/Talend/ui/packages/containers/src/AvroViewer/Toggle.container.js
-   3:10  error  'List' is defined but never used                no-unused-vars
-  27:28  error  'state' is missing in props validation          react/prop-types
-  34:14  error  'setState' is missing in props validation       react/prop-types
-  36:23  error  'state' is missing in props validation          react/prop-types
-  36:29  error  'state.get' is missing in props validation      react/prop-types
-  47:28  error  'state' is missing in props validation          react/prop-types
-  48:1   error  Line 48 exceeds the maximum line length of 100  max-len
+   4:1   error  Expected empty line after import statement not followed by another import  import/newline-after-import
+  18:28  error  'state' is missing in props validation                                     react/prop-types
+  22:14  error  'setState' is missing in props validation                                  react/prop-types
+  28:28  error  'state' is missing in props validation                                     react/prop-types
+  39:1   error  Line 39 exceeds the maximum line length of 100                             max-len
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
@@ -42,5 +27,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 24 problems (24 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/ToggleManager/ToggleManager.container.js
+  22:28  error  'state' is missing in props validation      react/prop-types
+  29:14  error  'setState' is missing in props validation   react/prop-types
+  31:23  error  'state' is missing in props validation      react/prop-types
+  31:29  error  'state.get' is missing in props validation  react/prop-types
+  42:28  error  'state' is missing in props validation      react/prop-types
+
+✖ 16 problems (16 errors, 0 warnings)
 
