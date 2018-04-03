@@ -70,7 +70,7 @@ function Breadcrumbs(props) {
 						id={id}
 						bsStyle="link"
 						role="link"
-						title={title}
+						title={title || text}
 						label={text}
 						onClick={wrappedOnClick}
 					/>
