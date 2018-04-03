@@ -8,12 +8,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/containers/src/AvroViewer/AvroViewer.container.js
-   2:8   error  'PropTypes' is defined but never used                                      no-unused-vars
-   4:1   error  Expected empty line after import statement not followed by another import  import/newline-after-import
-  18:28  error  'state' is missing in props validation                                     react/prop-types
-  22:14  error  'setState' is missing in props validation                                  react/prop-types
-  28:28  error  'state' is missing in props validation                                     react/prop-types
-  39:1   error  Line 39 exceeds the maximum line length of 100                             max-len
+   2:8   error  'PropTypes' is defined but never used           no-unused-vars
+  19:28  error  'state' is missing in props validation          react/prop-types
+  23:14  error  'setState' is missing in props validation       react/prop-types
+  29:28  error  'state' is missing in props validation          react/prop-types
+  40:1   error  Line 40 exceeds the maximum line length of 100  max-len
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
@@ -28,11 +27,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/ToggleManager/ToggleManager.container.js
-  22:28  error  'state' is missing in props validation      react/prop-types
-  29:14  error  'setState' is missing in props validation   react/prop-types
-  31:23  error  'state' is missing in props validation      react/prop-types
-  31:29  error  'state.get' is missing in props validation  react/prop-types
-  42:28  error  'state' is missing in props validation      react/prop-types
+  22:28  error    'state' is missing in props validation        react/prop-types
+  29:14  error    'setState' is missing in props validation     react/prop-types
+  31:23  error    'state' is missing in props validation        react/prop-types
+  31:29  error    'state.get' is missing in props validation    react/prop-types
+  42:28  error    'state' is missing in props validation        react/prop-types
+  44:3   warning  Unexpected console statement                  no-console
+  44:41  error    'componentId' is missing in props validation  react/prop-types
+  45:3   warning  Unexpected console statement                  no-console
 
-✖ 16 problems (16 errors, 0 warnings)
+✖ 18 problems (16 errors, 2 warnings)
 
