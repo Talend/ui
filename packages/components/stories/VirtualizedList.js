@@ -118,7 +118,6 @@ const collection = [
 	{
 		id: 1,
 		name: 'Title without actions',
-		'data-feature': 'list.item.title_without_actions',
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
