@@ -26,7 +26,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   60:1  error  Line 60 exceeds the maximum line length of 100  max-len
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Model/ModelItemMenu.component.js
-  7:14  error  'onClose' is missing in props validation  react/prop-types
+  8:14  error  'onClose' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Model/ModelViewer.component.js
+  34:24  error  'isSingle' is missing in props validation        react/prop-types
+  34:46  error  'opened' is missing in props validation          react/prop-types
+  34:53  error  'opened.default' is missing in props validation  react/prop-types
+  34:74  error  'opened' is missing in props validation          react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Records/genericViewer.configuration.js
   83:27  error  'value' is missing in props validation             react/prop-types
@@ -44,5 +50,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 18 problems (17 errors, 1 warning)
+✖ 22 problems (21 errors, 1 warning)
 
