@@ -20,6 +20,7 @@ exports[`Storyshots TabBar default 1`] = `
           <button
             aria-label="Tab1"
             className="btn btn-link"
+            data-feature="action.1"
             disabled={false}
             id="tab-bar-action-1"
             onClick={[Function]}
@@ -38,6 +39,7 @@ exports[`Storyshots TabBar default 1`] = `
           <button
             aria-label="Tab2"
             className="btn btn-link"
+            data-feature="action.2"
             disabled={false}
             id="tab-bar-action-2"
             onClick={[Function]}
@@ -56,6 +58,7 @@ exports[`Storyshots TabBar default 1`] = `
           <button
             aria-label="Tab3"
             className="btn btn-link"
+            data-feature="action.3"
             disabled={false}
             id="tab-bar-action-3"
             onClick={[Function]}

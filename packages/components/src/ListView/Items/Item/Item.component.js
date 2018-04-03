@@ -1,9 +1,8 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
-import { Icon } from '../../../index';
+import { Action } from '../../../index';
 
 function itemLabelClasses() {
 	return classNames(theme['tc-listview-item-label'], 'tc-listview-item-label');
@@ -48,9 +47,11 @@ function Item(props) {
 					</label>
 					{props.children && (
 						<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
-							<Button bsStyle="link" onClick={event => item.onExpandToggle(event, item)}>
-								<Icon name="talend-caret-down" />
-							</Button>
+							<Action
+								bsStyle="link"
+								icon="talend-caret-down"
+								onClick={event => item.onExpandToggle(event, item)}
+							/>
 						</div>
 					)}
 					{props.children &&
