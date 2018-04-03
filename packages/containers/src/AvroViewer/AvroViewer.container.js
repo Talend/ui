@@ -28,7 +28,8 @@ export default class AvroViewer extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const highlighted = state.get('highlighted').toJS();
-		return <Component {...this.props} highlighted={highlighted} isHighlight />;
+		console.log('highlighted', highlighted);
+		return <Component {...this.props} onSelect={this.onSelect} highlighted={highlighted} isHighlight />;
 	}
 	/*
 	render() {

@@ -4,17 +4,17 @@ import classNames from 'classnames';
 import Inject from '../Inject';
 import theme from './AvroViewer.scss';
 
-export default function AvroViewer({ getComponent, components, isHighlight, highlighted, sample }) {
+export default function AvroViewer({ getComponent, components, onSelect, isHighlight, highlighted, sample }) {
 	const injected = Inject.all(getComponent, components);
 	return (
 		<div className={classNames(theme['tc-avro-layout'], 'tc-avro-layout')}>
 			{injected('before-left')}
 			<div className={classNames(theme['tc-avro-layout-left'], 'tc-avro-layout-left')}>
-				{injected('left')}
+				{injected('left', { onSelect })}
 			</div>
 			{injected('middle')}
 			<div className={classNames(theme['tc-avro-layout-right'], 'tc-avro-layout-right')}>
-				{isHighlight ? injected('right', highlighted) : injected('right')}
+				{isHighlight ? injected('right', { highlighted }) : injected('right')}
 			</div>
 			{injected('after-right')}
 		</div>

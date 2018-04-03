@@ -436,7 +436,10 @@ const components = {
 		componentId: 'Model',
 		displayMode: 'model',
 		modelItemMenu,
-		qualityMenu,
+		quality: {
+			key: '@talend-quality@',
+			menu: qualityMenu,
+		},
 		data: sample.schema,
 		isSingle: true,
 	},
@@ -452,8 +455,6 @@ const components = {
 const props = {
 	components,
 	sample,
-	// modelItemMenu,
-	// qualityMenu,
 };
 
 const ExampleAvroViewer = {

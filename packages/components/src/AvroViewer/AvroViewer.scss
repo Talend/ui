@@ -1,12 +1,12 @@
 .tc-avro-layout {
 	display: flex;
 	align-items: stretch;
-	height: 1000px;
+	height: 100vh;
 
 	&-left,
 	&-right {
 		flex-grow: 1;
 		flex-shrink: 1;
-		flex-basis: 50;
+		flex-basis: 0;
 	}
 }

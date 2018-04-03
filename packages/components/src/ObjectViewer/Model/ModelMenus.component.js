@@ -28,6 +28,7 @@ export default class ModelMenus extends React.Component {
 
 	render() {
 		const { item, jsonpath, menu, quality } = this.props;
+		console.log('modelMenus', item, quality, jsonpath);
 		return (
 			<div className={theme.menu}>
 				{menu && (
