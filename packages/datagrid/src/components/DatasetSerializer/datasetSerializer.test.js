@@ -1,6 +1,6 @@
 import Immutable, { fromJS } from 'immutable';
 
-import { TALEND_QUALITY_KEY } from '../../constants/';
+import { QUALITY_KEY } from '../../constants/';
 import {
 	convertSample,
 	getCellValue,
@@ -241,7 +241,7 @@ describe('getQuality', () => {
 
 describe('getFieldQuality', () => {
 	it('should enrich the quality', () => {
-		expect(getFieldQuality(sample.schema.fields[0][TALEND_QUALITY_KEY])).toMatchSnapshot();
+		expect(getFieldQuality(sample.schema.fields[0][QUALITY_KEY])).toMatchSnapshot();
 	});
 });
 

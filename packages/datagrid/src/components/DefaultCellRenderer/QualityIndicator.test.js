@@ -1,21 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { QualityIndicator } from './QualityIndicator.component';
-import { TALEND_QUALITY_EMPTY_KEY, TALEND_QUALITY_INVALID_KEY } from '../../constants';
+import { QualityIndicatorComponent } from './QualityIndicator.component';
+import { QUALITY_INVALID_KEY } from '../../constants';
 
 describe('#QualityIndicator', () => {
 	it('should render QualityIndicator', () => {
 		const wrapper = shallow(
-			<QualityIndicator value={TALEND_QUALITY_INVALID_KEY} tooltip="Incorrect value" />,
+			<QualityIndicatorComponent value={QUALITY_INVALID_KEY} tooltip="Incorrect value" />,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should handle when TALEND_QUALITY_INVALID_KEY value', () => {
+	it('should handle when QUALITY_INVALID_KEY value', () => {
 		const wrapper = shallow(
-			<QualityIndicator value={TALEND_QUALITY_INVALID_KEY} tooltip="Incorrect value" />,
+			<QualityIndicatorComponent value={QUALITY_INVALID_KEY} tooltip="Incorrect value" />,
 		);
 
 		expect(wrapper.find('.theme-td-cell-quality-indicator-invalid').length).toBe(1);

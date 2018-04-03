@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_EMPTY_KEY quality cell 1`] = `
+exports[`#DefaultCellRenderer should render DefaultCellRenderer with QUALITY_EMPTY_KEY quality cell 1`] = `
 <div
   className="theme-td-cell td-cell"
 >
@@ -27,11 +27,11 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
 </div>
 `;
 
-exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_INVALID_KEY quality cell 1`] = `
+exports[`#DefaultCellRenderer should render DefaultCellRenderer with QUALITY_INVALID_KEY quality cell 1`] = `
 <div
   className="theme-td-cell td-cell"
 >
-  <Translate(QualityIndicator)
+  <Translate(QualityIndicatorComponent)
     value={-1}
   />
   <AvroRenderer
@@ -57,7 +57,7 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
 </div>
 `;
 
-exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_VALID_KEY quality cell 1`] = `
+exports[`#DefaultCellRenderer should render DefaultCellRenderer with QUALITY_VALID_KEY quality cell 1`] = `
 <div
   className="theme-td-cell td-cell"
 >
