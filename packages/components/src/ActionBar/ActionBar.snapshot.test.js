@@ -164,7 +164,9 @@ describe('ActionBar', () => {
 
 describe('ActionBar.Count', () => {
 	it('should render if selected', () => {
-		const wrapper = shallow(<ActionBar.Count selected={1} t={(key, value) => `${value.selected} ${key}`} />);
+		const wrapper = shallow(
+			<ActionBar.Count selected={1} t={(key, value) => `${value.selected} ${key}`} />,
+		);
 		const noselected = shallow(<ActionBar.Count />);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		expect(noselected.getElement()).toBe(null);
