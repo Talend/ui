@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import TranslatedQualityBar from './QualityBar.component';
+import QualityBar from './QualityBar.component';
 import theme from './DefaultHeaderRenderer.scss';
 import {
 	TALEND_QUALITY_KEY,
@@ -37,7 +37,7 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 				</div>
 			</button>
 			{column.colDef[TALEND_QUALITY_KEY] && (
-				<TranslatedQualityBar
+				<QualityBar
 					invalid={column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_INVALID_KEY]}
 					empty={column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_EMPTY_KEY]}
 					valid={column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_VALID_KEY]}

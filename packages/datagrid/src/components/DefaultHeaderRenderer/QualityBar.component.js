@@ -24,7 +24,7 @@ export function formatNumber(value) {
 	return parts.join('.');
 }
 
-export function QualityBar(props) {
+export function QualityBarComponent(props) {
 	return (
 		<div className={classNames(theme['td-quality-bar'], 'td-quality-bar')}>
 			{!!props.invalid.total && (
@@ -72,15 +72,15 @@ const QUALITY_PROPTYPE = {
 	percentage: PropTypes.number,
 };
 
-QualityBar.propTypes = {
+QualityBarComponent.propTypes = {
 	valid: PropTypes.shape(QUALITY_PROPTYPE),
 	empty: PropTypes.shape(QUALITY_PROPTYPE),
 	invalid: PropTypes.shape(QUALITY_PROPTYPE),
 	t: PropTypes.func,
 };
 
-QualityBar.defaultProps = {
+QualityBarComponent.defaultProps = {
 	t: DEFAULT_I18N.t.bind(DEFAULT_I18N),
 };
 
-export default translate(I18N_DOMAIN_DATAGRID, { i18n: DEFAULT_I18N })(QualityBar);
+export default translate(I18N_DOMAIN_DATAGRID, { i18n: DEFAULT_I18N })(QualityBarComponent);
