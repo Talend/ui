@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import Component from '@talend/react-components';
-export const DEFAULT_STATE = Map({
+import { AvroViewer as Component } from '@talend/react-components';
+
+export const DEFAULT_STATE = Immutable.Map({
 	highlighted: Immutable.List(),
 });
 
@@ -26,8 +27,8 @@ export default class AvroViewer extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const highlighted = state.get('highlighted');
-		return <Component highlighted={highlighted} isHighlight />;
+		const highlighted = state.get('highlighted').toJS();
+		return <Component {...this.props} highlighted={highlighted} isHighlight />;
 	}
 	/*
 	render() {

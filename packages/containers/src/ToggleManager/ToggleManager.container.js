@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { ObjectViewer } from '@talend/react-components';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = Immutable.Map({
 	opened: Immutable.Map(),
 });
 
@@ -41,6 +41,8 @@ export default class ToggleManager extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const opened = state.get('opened').toJS();
+		console.log('componentId', this.props.componentId);
+		console.log('opened', opened);
 		return <ObjectViewer {...this.props} onToggle={this.onToggle} opened={opened} />;
 	}
 }

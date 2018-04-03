@@ -430,10 +430,30 @@ const modelItemMenu = [
 	{ label: 'MDR action', onClick: action('onMdrClick') },
 ];
 
+const components = {
+	left: {
+		component: 'ToggleManager',
+		componentId: 'Model',
+		displayMode: 'model',
+		modelItemMenu,
+		qualityMenu,
+		data: sample.schema,
+		isSingle: true,
+	},
+	right: {
+		component: 'ToggleManager',
+		componentId: 'Records',
+		displayMode: 'records',
+		data: sample.data,
+		schema: sample.schema,
+	},
+};
+
 const props = {
+	components,
 	sample,
-	modelItemMenu,
-	qualityMenu,
+	// modelItemMenu,
+	// qualityMenu,
 };
 
 const ExampleAvroViewer = {
