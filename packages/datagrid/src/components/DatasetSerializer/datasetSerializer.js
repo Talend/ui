@@ -49,7 +49,6 @@ export function getColumnDefs(sample) {
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc,
 		type: avroField.type.dqType || avroField.type.type,
-		[TALEND_QUALITY_KEY]: avroField[TALEND_QUALITY_KEY],
 		[TALEND_QUALITY_KEY]: getFieldQuality(avroField[TALEND_QUALITY_KEY]),
 	}));
 }
