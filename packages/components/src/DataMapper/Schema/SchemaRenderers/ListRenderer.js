@@ -117,7 +117,6 @@ class RowRenderers {
 }
 
 export default class ListRenderer extends Component {
-
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
@@ -164,7 +163,7 @@ export default class ListRenderer extends Component {
 			draggable,
 			onScroll,
 			columnKeys,
-			updateContentNodeRef
+			updateContentNodeRef,
 		} = this.props;
 		return (
 			<List

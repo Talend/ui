@@ -574,12 +574,7 @@ export default class Mapper extends Component {
 					onScroll={this.onScroll}
 					revealConnection={this.revealConnection}
 					mappedElements={getMappedElements(dataAccessor, mapping, inputSide)}
-					focusedElements={getFocusedElements(
-						dataAccessor,
-						mapping,
-						focused,
-						inputSide,
-					)}
+					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
 					columnKeys={schemaConfiguration.getColumns(inputSide)}
 					filters={filters.input}
 				/>
@@ -592,12 +587,7 @@ export default class Mapper extends Component {
 					onScroll={this.onScroll}
 					revealConnection={this.revealConnection}
 					mappedElements={getMappedElements(dataAccessor, mapping, outputSide)}
-					focusedElements={getFocusedElements(
-						dataAccessor,
-						mapping,
-						focused,
-						outputSide,
-					)}
+					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
 					columnKeys={schemaConfiguration.getColumns(outputSide)}
 					filters={filters.output}
 				/>
