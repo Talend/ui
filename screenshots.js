@@ -13,7 +13,7 @@ program
 	.parse(process.argv);
 
 const PR = program.pullrequest;
-const surgeTimeout = program.timeout || 30000;
+const SURGE_TIMEOUT = program.timeout || 30000;
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
@@ -61,10 +61,6 @@ const TMP_CONFIG = { postfix: '.png' };
 		return screenshot;
 	}
 
-	async function timeout(ms) {
-		return new Promise(resolve => setTimeout(resolve, ms));
-	}
-
 	async function goToPage(page, url, isRestart) {
 		if (isRestart) {
 			console.error('retry to access to :');
@@ -75,15 +71,15 @@ const TMP_CONFIG = { postfix: '.png' };
 	}
 
 	async function sleepBeforeRetry(page, url) {
-		await timeout(surgeTimeout);
+		await new Promise(resolve => setTimeout(resolve, SURGE_TIMEOUT));
 		return goToPage(page, url, true);
 	}
 
 	async function isNotFound(page, url) {
-		const element = await page.evaluate(() => document.querySelector('h1').textContent);
-		if (element === 'project not found') {
+		const textContent = await page.evaluate(() => document.querySelector('h1').textContent);
+		if (textContent === 'project not found') {
 			console.error(`this page is not ready yet : ${url}`);
-			console.error(`Waiting surge upload (${surgeTimeout})`);
+			console.error(`Waiting surge upload (${SURGE_TIMEOUT})`);
 			await sleepBeforeRetry(page, url);
 		}
 	}
