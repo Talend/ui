@@ -13,6 +13,7 @@ i18n.init({
 				QUALITY_BAR_EMPTY_plural: '{{count}} empty values ({{percentage}}%)',
 				QUALITY_BAR_VALID: '{{count}} valid value ({{percentage}}%)',
 				QUALITY_BAR_VALID_plural: '{{count}} valid values ({{percentage}}%)',
+				QUALITY_INDICATOR_INVALID_VALUE: 'Invalid value',
 			},
 		},
 		fr: {
@@ -23,6 +24,7 @@ i18n.init({
 				QUALITY_BAR_EMPTY_plural: '{{count}} valeurs vides ({{percentage}}%)',
 				QUALITY_BAR_VALID: '{{count}} valeur valide ({{percentage}}%)',
 				QUALITY_BAR_VALID_plural: '{{count}} valeurs valides ({{percentage}}%)',
+				QUALITY_INDICATOR_INVALID_VALUE: 'Valeur invalide',
 			},
 		},
 	},

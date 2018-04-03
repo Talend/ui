@@ -8,7 +8,7 @@ import {
 } from '../../constants';
 
 import DefaultCellRenderer from './DefaultCellRenderer.component';
-import QualityIndicator from './QualityIndicator.component';
+import TranslatedQualityIndicator from './QualityIndicator.component';
 
 function getComponent() {}
 
@@ -24,7 +24,7 @@ describe('#DefaultCellRenderer', () => {
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find(QualityIndicator).length).toBe(1);
+		expect(wrapper.find(TranslatedQualityIndicator).length).toBe(0);
 	});
 
 	it('should render DefaultCellRenderer with TALEND_QUALITY_INVALID_KEY quality cell', () => {
@@ -38,7 +38,7 @@ describe('#DefaultCellRenderer', () => {
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find(QualityIndicator).length).toBe(1);
+		expect(wrapper.find(TranslatedQualityIndicator).length).toBe(1);
 	});
 
 	it('should render DefaultCellRenderer with TALEND_QUALITY_VALID_KEY quality cell', () => {
@@ -52,6 +52,6 @@ describe('#DefaultCellRenderer', () => {
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find(QualityIndicator).length).toBe(0);
+		expect(wrapper.find(TranslatedQualityIndicator).length).toBe(0);
 	});
 });
