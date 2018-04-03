@@ -1,6 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-
-import Container, { DEFAULT_STATE } from './ObjectViewer.container';
+import Container, { DEFAULT_STATE } from './ToggleManager.container';
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,

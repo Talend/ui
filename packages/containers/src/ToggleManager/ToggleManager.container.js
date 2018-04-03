@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List, Map } from 'immutable';
+import Immutable from 'immutable';
 import { ObjectViewer } from '@talend/react-components';
 
 export const DEFAULT_STATE = new Map({
-	// edited: new List(), // Array of JSONPath
-	// opened: new List(), // Array of JSONPath
-	// selectedJsonpath: '', // Selected JSONPath
-	// modified: new Map(), // Store the onChange
-	opened: new Map(),
-	// isSingle: false,
+	opened: Immutable.Map(),
 });
 
-export default class Toggle extends React.Component {
-	static displayName = 'CMFContainer(Toggle)';
+export default class ToggleManager extends React.Component {
+	static displayName = 'CMFContainer(ToggleManager)';
 	static propTypes = {
 		onToggle: PropTypes.func,
 	};
@@ -45,7 +40,7 @@ export default class Toggle extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		// const opened = state.get('isSingle') ? state.getIn(['opened', 'default'], []) : state.get('opened', []);
-		return <ObjectViewer {...this.props} onToggle={this.onToggle} opened={state.get('opened').toJS()} />;
+		const opened = state.get('opened').toJS();
+		return <ObjectViewer {...this.props} onToggle={this.onToggle} opened={opened} />;
 	}
 }
