@@ -223,9 +223,6 @@ If you want to render some component conditionally, just pass "renderIf" prop (t
 You can also use Expression for this and customize this prop like "renderIfExpression" in
 CMF json configuration files
 
-```
-
-
 How to test
 --
 
