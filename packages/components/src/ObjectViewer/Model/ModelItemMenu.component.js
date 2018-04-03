@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Action } from '../../Actions';
 
 export default class ModelItemMenu extends React.Component {
+	// DEPRECATED REACT 16.3
 	componentWillUnmount() {
 		this.props.onClose();
 	}

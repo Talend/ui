@@ -17,7 +17,6 @@ export const DEFAULT_STATE = new Map({
 export function open(path, state, index) {
 	// console.log('opened push', state.get('opened').push(path));
 	// return state.set('opened', state.get('opened').push(path));
-	console.log('index', index, path);
 	const opened = state.get('opened');
 	const paths = opened.get(index, new List());
 	return state.set('opened', opened.set(index, paths.push(path)));
@@ -103,7 +102,6 @@ class ObjectViewer extends React.Component {
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const opened = (this.props.state || DEFAULT_STATE).get('opened');
-		console.log('object viewer opened', opened.toJS());
 		// TODO: add support for mutate the data using modified state
 		// We need for that a better JSONPath support.
 		return (

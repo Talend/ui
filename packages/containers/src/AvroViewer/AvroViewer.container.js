@@ -1,52 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ObjectViewer } from '@talend/react-components';
-import ObjectViewerCtn from './ObjectViewer.connect';
+import { Map, List } from 'immutable';
+// import { ObjectViewer } from '@talend/react-components';
+// import ObjectViewerCtn from './ObjectViewer.connect';
+import Toggle from './Toggle.connect';
 
-/*
-function ToggleManager(Component) {
-	return class ToggledComponentWrapper extends React.Component {
-		static displayName = `ToggleManager(${Component.displayName})`;
-		static propTypes = {
-			onToggle: PropTypes.func,
-		};
-
-		constructor(props) {
-			super(props);
-			this.state = { opened: [], isSingle: false };
-			this.onToggle = this.onToggle.bind(this);
-		}
-
-		onToggle(event, options, index = 'default') {
-			let itemOpened = (this.state.opened && this.state.opened[index]) || [];
-			if (options.isOpened) {
-				itemOpened = itemOpened.filter(path => path !== options.jsonpath);
-			} else {
-				itemOpened = itemOpened.concat(options.jsonpath);
-			}
-
-			this.setState({
-				isSingle: index === 'default',
-				opened: {
-					...this.state.opened,
-					[index]: itemOpened,
-				},
-			});
-
-			if (this.props.onToggle) {
-				this.props.onToggle(event, options, index);
-			}
-		}
-
-		render() {
-			const opened = this.state.isSingle ? this.state.opened.default : this.state.opened;
-			return <Component {...this.props} onToggle={this.onToggle} opened={opened} />;
-		}
-	};
-}
-*/
+export const DEFAULT_STATE = Map({
+	// edited: new List(), // Array of JSONPath
+	// opened: new List(), // Array of JSONPath
+	// selectedJsonpath: '', // Selected JSONPath
+	// modified: new Map(), // Store the onChange
+	highlighted: List(),
+	// isSingle: false,
+});
 
 export default class AvroViewer extends React.Component {
+	static displayName = 'Container(AvroViewer)';
+
 	constructor(props) {
 		super(props);
 		this.state = { highlighted: [] };
@@ -54,11 +24,15 @@ export default class AvroViewer extends React.Component {
 	}
 
 	onSelect(event, jsonpath) {
+		const state = this.props.state || DEFAULT_STATE;
 		const adaptedJsonPath = jsonpath
 			.replace(/[-[{}()*+?.,\\^$|#\s]/g, '\\$&')
 			.replace(/\[]/g, '[[0-9]+]');
 		this.setState({
 			highlighted: [new RegExp(`^${adaptedJsonPath}$`)],
+		});
+		this.props.setState({
+			highlighted: state.get('highlighted').set(0, new RegExp(`^${adaptedJsonPath}$`)),
 		});
 	}
 
@@ -68,15 +42,13 @@ export default class AvroViewer extends React.Component {
 			flexShrink: 1,
 			flexBasis: 50,
 		};
-		// let avroRenderersIds;
-		// if (this.props.useCustomRenderers) {
-		// 	avroRenderersIds = this.props.customAvroRenderersIds;
-		// }
+		const state = this.props.state || DEFAULT_STATE;
 		return (
 			<div style={{ display: 'flex', alignItems: 'stretch', height: '1000px' }}>
 				<div style={partStyle}>
-					<ObjectViewerCtn
+					<Toggle
 						componentId="Model"
+						// component={ObjectViewer}
 						displayMode="model"
 						onSelect={this.onSelect}
 						data={this.props.sample.schema}
@@ -85,18 +57,20 @@ export default class AvroViewer extends React.Component {
 							key: '@talend-quality@',
 							menu: this.props.qualityMenu,
 						}}
+						isSingle
 					/>
 				</div>
 				<div style={partStyle}>
-					<ObjectViewerCtn
+					<Toggle
 						componentId="Records"
+						// component={ObjectViewer}
 						avroRenderersIds={
 							this.props.useCustomRenderers ? this.props.customAvroRenderersIds : ''
 						}
 						displayMode={'records'}
 						data={this.props.sample.data}
 						getComponent={this.props.getComponent}
-						highlighted={this.state.highlighted}
+						highlighted={state.get('highlighted').toJS()}
 						schema={this.props.sample.schema}
 					/>
 				</div>
