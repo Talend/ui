@@ -38,6 +38,7 @@ function CellTitleSelector(props) {
 		return (
 			<Action
 				{...columnData}
+				{...rowData}
 				id={id && `${id}-btn`}
 				className={className}
 				onClick={event => onClick(event, rowData)}
