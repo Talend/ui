@@ -3,7 +3,7 @@
 This is a library for a11y automated tests, based on [axe-core](https://github.com/dequelabs/axe-core).
 It is inspired from [axe-selenium-java](https://github.com/dequelabs/axe-selenium-java).
 
-Why a new library :
+Why a new library:
 * removed unnecessary code
 * java api to deal with axe-core options instead of using json strings
 * up-to-date axe-core, with a system to update it
@@ -13,7 +13,7 @@ Why a new library :
 
 ### Example
 
-```
+```java
 package org.talend.axeselenium.axe;
 
 import org.json.JSONArray;
