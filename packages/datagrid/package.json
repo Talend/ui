@@ -6,7 +6,8 @@
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
     "start": "start-storybook -p 6010",
-    "test": "jest",
+    "test": "jest --silent",
+    "test:noisy": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:demo": "build-storybook",
