@@ -4,10 +4,6 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
 <div
   className="theme-td-cell td-cell"
 >
-  <QualityIndicator
-    tooltip="Incorrect value"
-    value={0}
-  />
   <AvroRenderer
     avroRenderer={
       Object {
@@ -35,8 +31,7 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
 <div
   className="theme-td-cell td-cell"
 >
-  <QualityIndicator
-    tooltip="Incorrect value"
+  <Translate(QualityIndicator)
     value={-1}
   />
   <AvroRenderer
