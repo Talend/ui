@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
+import { translate } from 'react-i18next';
 import Inject from '../Inject';
+import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import css from './ActionBar.scss';
 
 const DISPLAY_MODES = {
@@ -98,10 +101,10 @@ function getActionsFromRenderers(actions, getComponent) {
 	});
 }
 
-function SwitchActions({ actions, left, right, center, selected, getComponent }) {
+function SwitchActions({ actions, left, right, center, selected, getComponent, t }) {
 	return (
 		<Content left={left} right={right} center={center}>
-			{selected > 0 && left ? <Count selected={selected} /> : null}
+			{selected > 0 && left ? <Count selected={selected} t={t} /> : null}
 			{getActionsFromRenderers(actions, getComponent)}
 		</Content>
 	);
@@ -113,23 +116,26 @@ SwitchActions.propTypes = {
 	center: PropTypes.bool,
 	selected: PropTypes.number,
 	getComponent: PropTypes.func,
+	t: PropTypes.func,
 };
 SwitchActions.defaultProps = {
 	actions: [],
+	t: getDefaultTranslate,
 };
 
-function Count({ selected }) {
+function Count({ selected, t }) {
 	if (!selected) {
 		return null;
 	}
 	return (
 		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
-			{selected} selected
+			{t('ACTION_BAR_COUNT_SELECTED', { defaultValue: '{{selected}} selected', selected })}
 		</span>
 	);
 }
 Count.propTypes = {
 	selected: PropTypes.number,
+	t: PropTypes.func,
 };
 
 function ActionBar(props) {
@@ -149,6 +155,7 @@ function ActionBar(props) {
 					actions={left}
 					selected={props.selected}
 					left
+					t={props.t}
 				/>
 			)}
 			{props.children}
@@ -159,6 +166,7 @@ function ActionBar(props) {
 					actions={center}
 					selected={props.selected}
 					center
+					t={props.t}
 				/>
 			)}
 			{right && (
@@ -168,6 +176,7 @@ function ActionBar(props) {
 					actions={right}
 					selected={props.selected}
 					right
+					t={props.t}
 				/>
 			)}
 		</nav>
@@ -179,6 +188,7 @@ ActionBar.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	getComponent: PropTypes.func,
+	t: PropTypes.func,
 };
 
 ActionBar.displayName = 'ActionBar';
@@ -188,4 +198,4 @@ ActionBar.SwitchActions = SwitchActions;
 ActionBar.getActionsToRender = getActionsToRender;
 ActionBar.Content = Content;
 ActionBar.getContentClassName = getContentClassName;
-export default ActionBar;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(ActionBar);
