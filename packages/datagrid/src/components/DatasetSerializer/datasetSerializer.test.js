@@ -168,7 +168,7 @@ describe('#getColumnDefs', () => {
 		expect(columnDefs).toEqual([]);
 	});
 
-	it('should returns an empty columns definitions', () => {
+	it('should returns the columns definitions with optional', () => {
 		const schemaWithOptionalType = {
 			schema: {
 				type: 'record',
