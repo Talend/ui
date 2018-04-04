@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { AgGridReact } from 'ag-grid-react';
 import keycode from 'keycode';
+import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import { Inject, Skeleton } from '@talend/react-components';
 
@@ -55,9 +55,9 @@ function getAvroRenderer(avroRenderer) {
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
+		getRowDataFn: serializer.getRowData,
 		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
 		getColumnDefsFn: serializer.getColumnDefs,
-		getRowDataFn: serializer.getRowData,
 		getCellValueFn: serializer.getCellValue,
 		headerHeight: HEADER_HEIGHT,
 		columnMinWidth: COLUMN_MIN_WIDTH,
@@ -67,6 +67,8 @@ export default class DataGrid extends React.Component {
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
 		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
+		deltaRowDataMode: true,
+		rowNodeIdentifier: 'index.index',
 	};
 
 	static propTypes = DATAGRID_PROPTYPES;
@@ -83,6 +85,12 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
+	}
+
+	componentDidUpdate() {
+		if (this.gridAPI) {
+			this.gridAPI.redrawRows();
+		}
 	}
 
 	onGridReady({ api }) {
@@ -150,6 +158,11 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
+		let rowData = this.props.rowData;
+		if (typeof this.props.getRowDataFn === 'function') {
+			rowData = this.props.getRowDataFn(this.props.data, this.props.startIndex);
+		}
+
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
@@ -158,7 +171,10 @@ export default class DataGrid extends React.Component {
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData: this.props.getRowDataFn(this.props.data, this.props.startIndex),
+			rowData,
+			deltaRowDataMode: this.props.deltaRowDataMode,
+			rowBuffer: this.props.rowBuffer,
+			getRowNodeId: data => data[this.props.rowNodeIdentifier],
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
