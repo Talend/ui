@@ -27,6 +27,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 		iconKey,
 		onEditCancel,
 		onEditSubmit,
+		...columnDataRest
 	} = columnData;
 	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
 	const titleId = id && `${id}-${rowIndex}-title-cell`;
@@ -44,6 +45,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
+				columnData={columnDataRest}
 			/>
 			<CellTitleActions
 				rowData={rowData}

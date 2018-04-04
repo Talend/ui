@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import uuid from 'uuid';
 
 import theme from './Breadcrumbs.scss';
-import { ActionDropdown } from '../Actions';
+import { Action, ActionDropdown } from '../Actions';
 import Icon from '../Icon';
 
 /**
@@ -67,9 +66,14 @@ function Breadcrumbs(props) {
 		function getItemContent() {
 			if (!isActive && onClick) {
 				return (
-					<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
-						{text}
-					</Button>
+					<Action
+						id={id}
+						bsStyle="link"
+						role="link"
+						title={title || text}
+						label={text}
+						onClick={wrappedOnClick}
+					/>
 				);
 			}
 			return (

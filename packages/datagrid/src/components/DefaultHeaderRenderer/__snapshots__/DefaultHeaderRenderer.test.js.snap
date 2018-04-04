@@ -24,11 +24,12 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
     </div>
     <div
       className="theme-td-header-type td-header-type"
+      title="string"
     >
       string
     </div>
   </button>
-  <QualityBar
+  <Translate(QualityBarComponent)
     empty={33}
     invalid={33}
     valid={34}

@@ -3,6 +3,7 @@
 exports[`Action should apply transformation on icon 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -11,6 +12,7 @@ exports[`Action should apply transformation on icon 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -25,6 +27,7 @@ exports[`Action should apply transformation on icon 1`] = `
 exports[`Action should display a Progress indicator if set 1`] = `
 <Button
   active={false}
+  aria-label="{{label}} (in progress)"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -34,6 +37,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <CircularProgress
     size="small"
@@ -47,6 +51,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
 exports[`Action should display a disabled Icon 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -56,6 +61,7 @@ exports[`Action should display a disabled Icon 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -70,6 +76,7 @@ exports[`Action should display a disabled Icon 1`] = `
 exports[`Action should pass all props to the Button 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -79,6 +86,7 @@ exports[`Action should pass all props to the Button 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -93,6 +101,7 @@ exports[`Action should pass all props to the Button 1`] = `
 exports[`Action should render a button 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -101,6 +110,7 @@ exports[`Action should render a button 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -130,6 +140,7 @@ exports[`Action should render a button with a overlay component 1`] = `
   >
     <Button
       active={false}
+      aria-label="Click me"
       block={false}
       bsClass="btn"
       bsStyle="default"
@@ -138,6 +149,7 @@ exports[`Action should render a button with a overlay component 1`] = `
       onClick={null}
       onMouseDown={null}
       role={null}
+      title="Title to describe click me button"
     >
       <Icon
         name="talend-caret-down"
@@ -152,8 +164,7 @@ exports[`Action should render a button with a overlay component 1`] = `
 `;
 
 exports[`Action should render a button with loading state 1`] = `
-<Skeleton
-  size="medium"
+<Translate(Skeleton)
   type="button"
 />
 `;
@@ -161,6 +172,7 @@ exports[`Action should render a button with loading state 1`] = `
 exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
 <Button
   active={false}
+  aria-label="{{label}} (in progress)"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -170,6 +182,7 @@ exports[`Action should render a button without an overlay component if inProgres
   onClick={null}
   onMouseDown={null}
   role={null}
+  title="Title to describe click me button"
 >
   <CircularProgress
     size="small"
@@ -183,6 +196,7 @@ exports[`Action should render a button without an overlay component if inProgres
 exports[`Action should render a link button with loading state 1`] = `
 <Button
   active={false}
+  aria-label=" {{type}} (loading)"
   block={false}
   bsClass="btn"
   bsStyle="link"
@@ -191,12 +205,12 @@ exports[`Action should render a link button with loading state 1`] = `
   onMouseDown={[Function]}
   role="link"
 >
-  <Skeleton
+  <Translate(Skeleton)
     className="theme-tc-action-button-skeleton-circle tc-action-button-skeleton-circle"
     size="small"
     type="circle"
   />
-  <Skeleton
+  <Translate(Skeleton)
     size="medium"
     type="text"
   />
@@ -206,6 +220,7 @@ exports[`Action should render a link button with loading state 1`] = `
 exports[`Action should render action with html property name = props.name if set 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -215,6 +230,7 @@ exports[`Action should render action with html property name = props.name if set
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -229,6 +245,7 @@ exports[`Action should render action with html property name = props.name if set
 exports[`Action should reverse icon/label 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -237,6 +254,7 @@ exports[`Action should reverse icon/label 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <span>
     Click me

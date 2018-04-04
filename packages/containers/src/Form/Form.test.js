@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { fromJS } from 'immutable';
 
 import Container from './Form.container';
@@ -32,6 +32,59 @@ describe('Container(Form)', () => {
 			/>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with prop uiform = false : Form', () => {
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform={false} />);
+
+		expect(wrapper.find('TalendForm').length).toBe(1);
+		expect(wrapper.find('TalendUIForm').length).toBe(0);
+	});
+
+	it('should render with prop uiform = true : UIForm', () => {
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
+		expect(wrapper.find('TalendForm').length).toBe(1);
+		expect(wrapper.find('TalendUIForm').length).toBe(1);
+	});
+
+	it('should render UIForm with language prop set', () => {
+		const wrapper = mount(
+			<Container
+				formId="test-form"
+				jsonSchema={{}}
+				uiSchema={{}}
+				actions={[]}
+				formProps={{ other: true }}
+				uiform
+				language={{ OBJECT_REQUIRED: 'Field translated' }}
+			/>,
+		).find('TalendUIForm');
+		expect(wrapper.props().language.OBJECT_REQUIRED).toEqual('Field translated');
+	});
+
+	it('should render UIForm with customFormat prop set', () => {
+		// given
+		const notABCRegExp = /[^abc]+/g;
+		const customFormats = {
+			noABC: fieldData => {
+				if (typeof fieldData === 'string' && !notABCRegExp.test(fieldData)) {
+					return 'test custom';
+				}
+				return null;
+			},
+		};
+		const wrapper = mount(
+			<Container
+				formId="test-form"
+				jsonSchema={{}}
+				uiSchema={{}}
+				actions={[]}
+				formProps={{ other: true }}
+				uiform
+				customFormats={customFormats}
+			/>,
+		).find('TalendUIForm');
+		expect(wrapper.props().customFormats).toEqual(customFormats);
 	});
 
 	it('should use props.onSubmit', () => {

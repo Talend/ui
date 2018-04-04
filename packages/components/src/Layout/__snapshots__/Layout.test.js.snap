@@ -233,7 +233,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         null,
-        <ActionBar
+        <Translate(ActionBar)
           className="theme-tc-subheader-navbar tc-subheader-navbar"
 >
           <SubHeaderBarActions
@@ -250,11 +250,13 @@ ShallowWrapper {
                     />
                     <InputTitleSubHeader
                               editMode={false}
+                              inProgress={false}
+                              loading={false}
                               t={[Function]}
                               title="defaultTitle"
                     />
           </SubHeaderBarActions>
-</ActionBar>,
+</Translate(ActionBar)>,
         null,
       ],
       "className": "theme-tc-subheader tc-subheader",
@@ -265,7 +267,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": Array [
             null,
@@ -283,6 +285,8 @@ ShallowWrapper {
               />
               <InputTitleSubHeader
                             editMode={false}
+                            inProgress={false}
+                            loading={false}
                             t={[Function]}
                             title="defaultTitle"
               />
@@ -318,6 +322,8 @@ ShallowWrapper {
                 null,
                 <InputTitleSubHeader
                   editMode={false}
+                  inProgress={false}
+                  loading={false}
                   t={[Function]}
                   title="defaultTitle"
 />,
@@ -352,6 +358,8 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "editMode": false,
+                  "inProgress": false,
+                  "loading": false,
                   "t": [Function],
                   "title": "defaultTitle",
                 },
@@ -384,7 +392,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           null,
-          <ActionBar
+          <Translate(ActionBar)
             className="theme-tc-subheader-navbar tc-subheader-navbar"
 >
             <SubHeaderBarActions
@@ -401,11 +409,13 @@ ShallowWrapper {
                         />
                         <InputTitleSubHeader
                                     editMode={false}
+                                    inProgress={false}
+                                    loading={false}
                                     t={[Function]}
                                     title="defaultTitle"
                         />
             </SubHeaderBarActions>
-</ActionBar>,
+</Translate(ActionBar)>,
           null,
         ],
         "className": "theme-tc-subheader tc-subheader",
@@ -416,7 +426,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               null,
@@ -434,6 +444,8 @@ ShallowWrapper {
                 />
                 <InputTitleSubHeader
                                 editMode={false}
+                                inProgress={false}
+                                loading={false}
                                 t={[Function]}
                                 title="defaultTitle"
                 />
@@ -469,6 +481,8 @@ ShallowWrapper {
                   null,
                   <InputTitleSubHeader
                     editMode={false}
+                    inProgress={false}
+                    loading={false}
                     t={[Function]}
                     title="defaultTitle"
 />,
@@ -503,6 +517,8 @@ ShallowWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "editMode": false,
+                    "inProgress": false,
+                    "loading": false,
                     "t": [Function],
                     "title": "defaultTitle",
                   },
@@ -577,6 +593,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
               className="tc-tab-bar-action"
             >
               <button
+                aria-label="Tab1"
                 className="btn btn-link"
                 disabled={false}
                 id="tab-bar-action-1"
@@ -594,6 +611,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
               className="tc-tab-bar-action active"
             >
               <button
+                aria-label="Tab2"
                 className="btn btn-link"
                 disabled={false}
                 id="tab-bar-action-2"
@@ -611,6 +629,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
               className="tc-tab-bar-action"
             >
               <button
+                aria-label="Tab3"
                 className="btn btn-link"
                 disabled={false}
                 id="tab-bar-action-3"

@@ -200,14 +200,13 @@ exports[`PieChartButton snapshots render should render a Skeleton when the state
   className="theme-tc-pie-chart-loading tc-pie-chart-loading"
   disabled={false}
 >
-  <Skeleton
+  <Translate(Skeleton)
     className="theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
     height={20}
-    size="medium"
     type="circle"
     width={20}
   />
-  <Skeleton
+  <Translate(Skeleton)
     size="small"
     type="text"
   />

@@ -37,19 +37,11 @@ import { connect } from 'react-redux';
 import omit from 'lodash/omit';
 import api from './api';
 import deprecated from './deprecated';
-import CONSTANT from './constant';
-
+import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 
 let newState;
-
-function serializeEvent(event) {
-	if (event.persist) {
-		event.persist();
-	}
-	return event;
-}
 
 export const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
@@ -57,6 +49,8 @@ export const CMF_PROPS = [
 	'view', // view component id in registry
 	'saga',
 	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
+	'initialState',
+	'renderIf',
 ];
 
 export const INJECTED_PROPS = [
@@ -100,12 +94,15 @@ const getCollection = deprecated(
 );
 
 export function getStateToProps({
+	defaultProps,
 	componentId,
 	ownProps,
 	state,
 	mapStateToProps,
 	WrappedComponent,
 }) {
+	const props = Object.assign({}, defaultProps);
+
 	newState = state;
 	const cmfProps = getStateProps(
 		state,
@@ -115,6 +112,8 @@ export function getStateToProps({
 
 	cmfProps.getCollection = getCollection;
 
+	Object.assign(props, cmfProps);
+
 	const viewProps = mapStateToViewProps(
 		state,
 		ownProps,
@@ -122,20 +121,15 @@ export function getStateToProps({
 		getComponentId(componentId, ownProps),
 	);
 
+	Object.assign(props, viewProps);
+
 	let userProps = {};
 	if (mapStateToProps) {
-		userProps = mapStateToProps(state, { ...ownProps, ...viewProps }, cmfProps);
+		userProps = mapStateToProps(state, { ...ownProps, ...props }, cmfProps);
 	}
-
-	const props = {
-		...cmfProps,
-		...viewProps,
-		...userProps,
-	};
-	return {
-		...props,
-		...api.expression.mapStateToProps(state, { ...ownProps, ...props }),
-	};
+	Object.assign(props, userProps);
+	Object.assign(props, api.expression.mapStateToProps(state, { ...ownProps, ...props }));
+	return props;
 }
 
 export function getDispatchToProps({
@@ -228,6 +222,7 @@ export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps 
 export default function cmfConnect({
 	componentId,
 	defaultState,
+	defaultProps,
 	keepComponentState,
 	mapStateToProps,
 	mapDispatchToProps,
@@ -254,8 +249,7 @@ export default function cmfConnect({
 			constructor(props, context) {
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
-				this.onEvent = this.onEvent.bind(this);
-				this.onEventDispatch = this.onEventDispatch.bind(this);
+				this.getOnEventProps = this.getOnEventProps.bind(this);
 			}
 
 			componentDidMount() {
@@ -277,55 +271,23 @@ export default function cmfConnect({
 					this.props.keepComponentState === false ||
 					(this.props.keepComponentState === undefined && !keepComponentState)
 				) {
-					this.props.deleteState();
+					this.props.deleteState(this.props.initialState);
 				}
 				if (this.props.saga) {
 					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
 				}
 			}
 
-			onEvent() {
-				return Object.keys(this.props).reduce(this.onEventDispatch, { toOmit: [] });
-			}
-
-			onEventDispatch(props, key) {
-				if (CONSTANT.IS_HANDLER_DISPATCH_REGEX.test(key)) {
-					const handlerKey = key.replace(CONSTANT.IS_HANDLER_DISPATCH, '');
-					props.toOmit.push(key);
-					// eslint-disable-next-line no-param-reassign
-					props[handlerKey] = (event, data) => {
-						const payload = Object.assign(
-							{
-								event: serializeEvent(event),
-								data,
-							},
-							this.props[key],
-						);
-						this.props.dispatch(payload);
-						if (this.props[handlerKey]) {
-							this.props[handlerKey](event, data);
-						}
-					};
-				} else if (CONSTANT.IS_HANDLER_ACTION_CREATOR_REGEX.test(key)) {
-					props.toOmit.push(key);
-					const handlerKey = key.replace(CONSTANT.IS_HANDLER_ACTION_CREATOR, '');
-					let actionCreator = this.props[key];
-					if (typeof this.props[key] === 'object') {
-						actionCreator = this.props[key].id;
-					}
-					// eslint-disable-next-line no-param-reassign
-					props[handlerKey] = (event, data) => {
-						this.dispatchActionCreator(actionCreator, serializeEvent(event), {
-							props: this.props,
-							...data,
-							...(this.props[key].data || {}),
-						});
-						if (this.props[handlerKey]) {
-							this.props[handlerKey](event, data);
-						}
-					};
-				}
-				return props;
+			getOnEventProps() {
+				return Object.keys(this.props).reduce(
+					(props, key) => {
+						onEvent.addOnEventSupport(onEvent.DISPATCH, this, props, key);
+						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, this, props, key);
+						onEvent.addOnEventSupport(onEvent.SETSTATE, this, props, key);
+						return props;
+					},
+					{ toOmit: [] },
+				);
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
@@ -334,16 +296,23 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const { toOmit, ...handlers } = this.onEvent();
+				if (this.props.renderIf === false) {
+					return null;
+				}
+				const { toOmit, spreadCMFState, ...handlers } = this.getOnEventProps();
+				let spreadedState = {};
+				if ((spreadCMFState || this.props.spreadCMFState) && this.props.state) {
+					spreadedState = this.props.state.toJS();
+				}
 				const props = {
 					...omit(this.props, toOmit),
 					...handlers,
+					...spreadedState,
 					dispatchActionCreator: this.dispatchActionCreator,
 				};
 				if (!props.state && defaultState) {
 					props.state = defaultState;
 				}
-
 				// remove all internal props already used by the container
 				CMF_PROPS.forEach(key => {
 					delete props[key];
@@ -355,6 +324,7 @@ export default function cmfConnect({
 			(state, ownProps) =>
 				getStateToProps({
 					componentId,
+					defaultProps,
 					defaultState,
 					ownProps,
 					state,

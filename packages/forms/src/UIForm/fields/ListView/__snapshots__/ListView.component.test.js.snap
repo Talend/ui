@@ -3723,14 +3723,17 @@ exports[`ListView field render should render no items message 1`] = `
             [Function],
             [Function],
             [Function],
+            [Function],
           ],
           "languageChanged": Array [
             [Function],
             [Function],
             [Function],
             [Function],
+            [Function],
           ],
           "loaded": Array [
+            [Function],
             [Function],
             [Function],
             [Function],
