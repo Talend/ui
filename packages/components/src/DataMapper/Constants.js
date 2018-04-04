@@ -53,10 +53,6 @@ export const Anchor = {
 * Defines parameters of a connection.
 */
 export const Connection = {
-	RENDERER: {
-		CANVAS: 'canvas',
-		SVG: 'svg',
-	},
 	STYLE: {
 		ALL: 'all',
 		CURRENT: 'current',

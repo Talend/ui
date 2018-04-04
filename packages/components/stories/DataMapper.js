@@ -12,6 +12,10 @@ import FilterComponents from '../src/DataMapper/Schema/Filters/FilterComponents'
 import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters/NameFilter';
 import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
 import { IconsProvider } from '../src/';
+import MappingConfiguration from '../src/DataMapper/Mapper/MappingConfiguration.js';
+import MappingArea from '../src/DataMapper/Mapper/MappingArea.js';
+import MappingSVG from '../src/DataMapper/Mapper/MappingSVG.js';
+import MappingActions from '../src/DataMapper/Mapper/MappingActions.js';
 
 const inputSchema1 = {
 	id: 'schema_1',
@@ -372,6 +376,9 @@ const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 
 const schemaConfiguration = new SchemaConfiguration();
 const listConfiguration = new ListConfiguration();
+
+const mappingCanvasConfig = new MappingConfiguration(MappingArea, MappingActions);
+const mappingSVGConfig = new MappingConfiguration(MappingSVG, MappingActions);
 
 const filterComponents = new FilterComponents();
 
@@ -1369,7 +1376,7 @@ class ConnectedDataMapper extends React.Component {
 	render() {
 		const {
 			mapperId,
-			mappingRenderer,
+			mappingConfiguration,
 			schemaConfiguration,
 		} = this.props;
 		return (
@@ -1377,7 +1384,7 @@ class ConnectedDataMapper extends React.Component {
 				dataAccessor={this.state.dataAccessor}
 				ref={this.updateMapperRef}
 				mapperId={mapperId}
-				mappingRenderer={mappingRenderer}
+				mappingConfiguration={mappingConfiguration}
 				schemaConfiguration={schemaConfiguration}
 				inputSchema={this.state.inputSchema}
 				mapping={this.state.mapping}
@@ -1412,7 +1419,7 @@ class ConnectedDataMapper extends React.Component {
 ConnectedDataMapper.propTypes = {
 	initialState: PropTypes.object,
 	mapperId: PropTypes.string,
-	mappingRenderer: PropTypes.string,
+	mappingConfiguration: PropTypes.object,
 	schemaConfiguration: PropTypes.object,
 };
 
@@ -1432,7 +1439,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getDefaultInitialState())}
-			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
+			mappingConfiguration={mappingCanvasConfig}
 			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
@@ -1440,7 +1447,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getEmptyInitialState())}
-			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
+			mappingConfiguration={mappingCanvasConfig}
 			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
@@ -1448,7 +1455,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
-			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
+			mappingConfiguration={mappingCanvasConfig}
 			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
@@ -1456,7 +1463,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getDefaultInitialState())}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
@@ -1464,7 +1471,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={schemaConfiguration}
 		/>;
 	})
@@ -1472,7 +1479,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getDefaultInitialState())}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
 	})
@@ -1480,7 +1487,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, alternativePrefs4))}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
 	})
@@ -1488,14 +1495,14 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50, alternativePrefs4))}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('UX proto', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getUXInitialState(15, alternativePrefs4))}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('Random', () => {
@@ -1523,7 +1530,7 @@ stories
 					)
 				)
 			}
-			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
 	});

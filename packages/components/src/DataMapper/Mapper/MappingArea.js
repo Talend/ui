@@ -79,7 +79,6 @@ class MappingArea extends Component {
 	constructor(props) {
 		super(props);
 		this.updateCanvasRef = this.updateCanvasRef.bind(this);
-		this.updateCanvasParentRef = this.updateCanvasParentRef.bind(this);
 	}
 
 	componentDidMount() {
@@ -106,12 +105,11 @@ class MappingArea extends Component {
 	}
 
 	updateCanvasSize() {
-		this.canvas.width = this.canvasParentElem.clientWidth;
-		this.canvas.height = this.canvasParentElem.clientHeight;
+		this.canvas.width = this.props.width;
+		this.canvas.height = this.props.height;
 	}
 
 	updateCanvas(clear, resetSize, renderDnd) {
-		// console.log('updateCanvas(' + clear + ', ' + resetSize + ', ' + renderDnd + ')');
 		if (clear) {
 			this.clearCanvas();
 		}
@@ -184,14 +182,9 @@ class MappingArea extends Component {
 	}
 
 	drawSingleConnection(x1, y1, x2, y2, params) {
-		// console.log('drawSingleConnection(' + x1 + ', ' + y1 + ', ' + x2 + ', ' + y2 + ')');
 		drawPoint(x1, y1, params.anchorRadius, params.color, this.canvas);
 		drawBezier(x1, y1, x2, y2, params.lineWidth, params.color, params.lineDash, this.canvas);
 		drawArrow(x2, y2, params.arrowWidth, params.arrowHeight, params.color, this.canvas);
-	}
-
-	updateCanvasParentRef(ref) {
-		this.canvasParentElem = ref;
 	}
 
 	updateCanvasRef(ref) {
@@ -201,9 +194,7 @@ class MappingArea extends Component {
 	render() {
 		const { connectDropTarget } = this.props;
 		return connectDropTarget(
-			<div ref={this.updateCanvasParentRef} className="mapping-content">
-				<canvas ref={this.updateCanvasRef} className="mapping-canvas" />
-			</div>,
+			<canvas ref={this.updateCanvasRef} className="mapping-canvas" />
 		);
 	}
 }
@@ -212,6 +203,8 @@ MappingArea.propTypes = {
 	getConnections: PropTypes.func,
 	connectDropTarget: PropTypes.func,
 	dnd: PropTypes.object,
+	width: PropTypes.number,
+	height: PropTypes.number,
 };
 
 export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(

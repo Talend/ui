@@ -1,86 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
-import MappingArea from './MappingArea.js';
-import MappingSVG from './MappingSVG.js';
-import * as Constants from '../Constants';
-import { DEFAULT_I18N } from '../../translate';
-import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { Actions } from '../../Actions/index.js';
 
-function getShowAllButtonLabel(showAll) {
-	return showAll ? 'MAPPING_HIDE' : 'MAPPING_SHOW_ALL';
-}
+export default class GMapping extends Component {
 
-function getShowAllButtonDefaultLabel(showAll) {
-	return showAll ? 'Hide' : 'Show';
-}
-
-function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
-	return [
-		{
-			id: 'show-all',
-			label: t(getShowAllButtonLabel(showAll), {
-				defaultValue: getShowAllButtonDefaultLabel(showAll),
-			}),
-			onClick: onShowAll,
-		},
-		{
-			id: 'clear-connection',
-			label: t('MAPPING_CLEAR', { defaultValue: 'Clear' }),
-			onClick: clearConnection,
-		},
-		{
-			id: 'clear-mapping',
-			label: t('MAPPING_CLEAR_ALL', { defaultValue: 'Clear All' }),
-			onClick: clearMapping,
-		},
-	];
-}
-
-function renderMappingArea(
-	renderer,
-	getConnections,
-	getAnchors,
-	getYPosition,
-	dnd,
-	updateRef,
-	dndInProgress,
-	preferences,
-) {
-	switch (renderer) {
-		case Constants.Connection.RENDERER.CANVAS:
-			return (
-				<MappingArea
-					ref={updateRef}
-					getConnections={getConnections}
-					getYPosition={getYPosition}
-					dnd={dnd}
-					dndInProgress={dndInProgress}
-				/>
-			);
-		case Constants.Connection.RENDERER.SVG:
-			return (
-				<MappingSVG
-					ref={updateRef}
-					getConnections={getConnections}
-					getAnchors={getAnchors}
-					getYPosition={getYPosition}
-					dnd={dnd}
-					dndInProgress={dndInProgress}
-					preferences={preferences}
-				/>
-			);
-		default:
-			return <div>Cannot render mapping area</div>;
-	}
-}
-
-class GMapping extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			width: -1,
+			height: -1,
+		};
 		this.dndInProgress = this.dndInProgress.bind(this);
 		this.updateMappingAreaRef = this.updateMappingAreaRef.bind(this);
+		this.updateMappingContentRef = this.updateMappingContentRef.bind(this);
+		this.checkMappingContentResize = this.checkMappingContentResize.bind(this);
+	}
+
+	checkMappingContentResize() {
+		if (this.mappingContentRef) {
+			const width = this.mappingContentRef.clientWidth;
+			const height = this.mappingContentRef.clientHeight;
+			if (this.state.width !== width || this.state.height !== height) {
+				this.setState({ width, height });
+			}
+		}
+	}
+
+	componentDidMount() {
+		this.intervalRef = setInterval(this.checkMappingContentResize, 250);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.intervalRef);
 	}
 
 	getArea() {
@@ -114,53 +64,41 @@ class GMapping extends Component {
 		this.mappingAreaRef = ref;
 	}
 
+	updateMappingContentRef(ref) {
+		this.mappingContentRef = ref;
+	}
+
 	render() {
 		const {
-			renderer,
-			clearConnection,
-			clearMapping,
+			mappingConfiguration,
 			getConnections,
 			getAnchors,
 			getYPosition,
 			dnd,
-			onShowAll,
 			preferences,
-			t,
 		} = this.props;
+		const MappingActions = mappingConfiguration.getActions();
+		const MappingRenderer = mappingConfiguration.getRenderer();
 		return (
 			<div className="mapping mapper-element">
-				<Actions
-					className="mapping-tools"
-					actions={getActions(t, preferences.showAll, onShowAll, clearConnection, clearMapping)}
+				<MappingActions
+					{...this.props}
 				/>
 				<div className="separator horizontal" />
-				{renderMappingArea(
-					renderer,
-					getConnections,
-					getAnchors,
-					getYPosition,
-					dnd,
-					this.updateMappingAreaRef,
-					this.dndInProgress,
-					preferences,
-				)}
+				<div ref={this.updateMappingContentRef} className="mapping-content">
+					<MappingRenderer
+						{...this.props}
+						ref={this.updateMappingAreaRef}
+						dndInProgress={this.dndInProgress}
+						width={this.state.width}
+						height={this.state.height}
+					/>
+				</div>
 			</div>
 		);
 	}
 }
 
 GMapping.propTypes = {
-	getConnections: PropTypes.func,
-	getAnchors: PropTypes.func,
-	getYPosition: PropTypes.func,
-	clearConnection: PropTypes.func,
-	clearMapping: PropTypes.func,
-	preferences: PropTypes.object,
-	onShowAll: PropTypes.func,
-	dnd: PropTypes.object,
-	dndInProgress: PropTypes.func,
-	t: PropTypes.func,
-	renderer: PropTypes.string,
+	mappingConfiguration: PropTypes.object,
 };
-
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N, withRef: true })(GMapping);

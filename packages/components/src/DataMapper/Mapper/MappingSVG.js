@@ -291,7 +291,6 @@ function renderLinearGradient(preferences) {
 class MappingSVG extends Component {
 	constructor(props) {
 		super(props);
-		this.updateSVGParentRef = this.updateSVGParentRef.bind(this);
 		this.updateSVGRef = this.updateSVGRef.bind(this);
 		this.getWidth = this.getWidth.bind(this);
 		this.getHeight = this.getHeight.bind(this);
@@ -306,25 +305,15 @@ class MappingSVG extends Component {
 	}
 
 	getWidth() {
-		if (this.svgParentElem) {
-			return this.svgParentElem.clientWidth + extraWidth;
-		}
-		return 100;
+		return this.props.width + extraWidth;
 	}
 
 	getHeight() {
-		if (this.svgParentElem) {
-			return this.svgParentElem.clientHeight;
-		}
-		return 100;
+		return this.props.height;
 	}
 
 	update() {
 		this.forceUpdate();
-	}
-
-	updateSVGParentRef(ref) {
-		this.svgParentElem = ref;
 	}
 
 	updateSVGRef(ref) {
@@ -332,14 +321,19 @@ class MappingSVG extends Component {
 	}
 
 	render() {
-		const { connectDropTarget, getConnections, getAnchors, dnd, preferences } = this.props;
+		const {
+			connectDropTarget,
+			getConnections,
+			getAnchors,
+			dnd,
+			preferences,
+			width,
+			height,
+		} = this.props;
 
-		let bounds = null;
-		if (this.svgParentElem != null) {
-			bounds = {
-				left: padding,
-				right: this.svgParentElem.clientWidth - padding + extraWidth,
-			};
+		const bounds = {
+			left: padding,
+			right: width - padding + extraWidth,
 		}
 
 		const connections = getConnections();
@@ -349,19 +343,17 @@ class MappingSVG extends Component {
 		const svgAnchors = buildSVGAnchors(anchors, bounds);
 
 		return connectDropTarget(
-			<div ref={this.updateSVGParentRef} className="mapping-content">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					className="mapping-svg"
-					ref={this.updateSVGRef}
-					width={this.getWidth()}
-					height={this.getHeight()}
-				>
-					{renderLinearGradient(preferences)}
-					{svgAnchors.map(anchor => renderAnchor(anchor))}
-					{svgConnections.map(connection => renderConnection(connection))}
-				</svg>
-			</div>,
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				className="mapping-svg"
+				ref={this.updateSVGRef}
+				width={this.getWidth()}
+				height={this.getHeight()}
+			>
+				{renderLinearGradient(preferences)}
+				{svgAnchors.map(anchor => renderAnchor(anchor))}
+				{svgConnections.map(connection => renderConnection(connection))}
+			</svg>
 		);
 	}
 }
@@ -372,6 +364,8 @@ MappingSVG.propTypes = {
 	connectDropTarget: PropTypes.func,
 	dnd: PropTypes.object,
 	preferences: PropTypes.object,
+	width: PropTypes.number,
+	height: PropTypes.number,
 };
 
 export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(

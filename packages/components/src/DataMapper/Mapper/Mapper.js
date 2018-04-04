@@ -138,9 +138,12 @@ export default class Mapper extends Component {
 			default:
 				break;
 		}
-		const wrappedGMap = this.gMapRef.getWrappedInstance();
-		if (wrappedGMap.update) {
-			wrappedGMap.update();
+		let gMap = this.gMapRef;
+		if (this.gMapRef.getWrappedInstance) {
+			gMap = this.gMapRef.getWrappedInstance();
+		}
+		if (gMap.update) {
+			gMap.update();
 		}
 	}
 
@@ -542,7 +545,7 @@ export default class Mapper extends Component {
 	render() {
 		const {
 			mapperId,
-			mappingRenderer,
+			mappingConfiguration,
 			mapping,
 			inputSchema,
 			outputSchema,
@@ -614,7 +617,7 @@ export default class Mapper extends Component {
 					onShowAll={onShowAll}
 					dnd={dnd}
 					dndInProgress={dndInProgress}
-					renderer={mappingRenderer}
+					mappingConfiguration={mappingConfiguration}
 				/>
 			</div>
 		);
@@ -624,7 +627,7 @@ export default class Mapper extends Component {
 Mapper.propTypes = {
 	dataAccessor: PropTypes.object,
 	mapperId: PropTypes.string,
-	mappingRenderer: PropTypes.string,
+	mappingConfiguration: PropTypes.object,
 	mapping: PropTypes.array,
 	selection: PropTypes.object,
 	inputSchema: PropTypes.object,
