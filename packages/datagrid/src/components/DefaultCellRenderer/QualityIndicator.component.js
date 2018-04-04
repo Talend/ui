@@ -10,19 +10,31 @@ import { QUALITY_INVALID_KEY } from '../../constants';
 
 import theme from './QualityIndicator.scss';
 
+function getTooltip(t, qualityIndex) {
+	if (qualityIndex === QUALITY_INVALID_KEY) {
+		return t('QUALITY_INDICATOR_INVALID_VALUE', { defaultValue: 'Invalid value' });
+	}
+
+	return '';
+}
+
 export function QualityIndicatorComponent(props) {
+	if (props.qualityIndex !== QUALITY_INVALID_KEY) {
+		return false;
+	}
+
 	return (
 		<div
 			className={classNames(theme['td-cell-quality-indicator'], 'td-cell-quality-indicator', {
-				[theme['td-cell-quality-indicator-invalid']]: props.value === QUALITY_INVALID_KEY,
+				[theme['td-cell-quality-indicator-invalid']]: props.qualityIndex === QUALITY_INVALID_KEY,
 			})}
-			title={props.t('QUALITY_INDICATOR_INVALID_VALUE', { defaultValue: 'Invalid value' })}
+			title={getTooltip(props.t, props.qualityIndex)}
 		/>
 	);
 }
 
 QualityIndicatorComponent.propTypes = {
-	value: PropTypes.oneOf([QUALITY_INVALID_KEY]),
+	qualityIndex: PropTypes.oneOf([QUALITY_INVALID_KEY]),
 	t: PropTypes.func,
 };
 
