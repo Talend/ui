@@ -211,8 +211,17 @@ export default cmfConnect({})(SimpleButton);
 		}
 	}
 }
-```
 
+```
+How to render conditionally
+--
+
+Every component that connected with CMF can be rendered conditionally
+
+If you want to render some component conditionally, just pass "renderIf" prop (type boolean) to it
+
+You can also use Expression for this and customize this prop like "renderIfExpression" in
+CMF json configuration files
 
 How to test
 --

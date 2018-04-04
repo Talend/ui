@@ -27,6 +27,12 @@ describe('#DefaultCellRenderer', () => {
 		expect(wrapper.find(QualityIndicator).length).toBe(1);
 	});
 
+	it('should render the default cell on loading state', () => {
+		const wrapper = shallow(<DefaultCellRenderer data={{ loading: true }} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render DefaultCellRenderer with TALEND_QUALITY_INVALID_KEY quality cell', () => {
 		const wrapper = shallow(
 			<DefaultCellRenderer

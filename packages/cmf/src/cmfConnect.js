@@ -50,6 +50,7 @@ export const CMF_PROPS = [
 	'saga',
 	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
 	'initialState',
+	'renderIf',
 ];
 
 export const INJECTED_PROPS = [
@@ -295,6 +296,9 @@ export default function cmfConnect({
 			}
 
 			render() {
+				if (this.props.renderIf === false) {
+					return null;
+				}
 				const { toOmit, spreadCMFState, ...handlers } = this.getOnEventProps();
 				let spreadedState = {};
 				if ((spreadCMFState || this.props.spreadCMFState) && this.props.state) {
