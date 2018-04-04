@@ -36,13 +36,12 @@ export default class AvroViewer extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const leftProps = {
-			data: this.props.sample[this.props.customLeft.dataKey],
+			data: this.props.sample.schema,
 			onSelect: this.onSelect,
-			// onSelect: this.props.customLeft.withSelect ? this.onSelect : undefined,
 		};
 		const rightProps = {
-			data: this.props.sample[this.props.customRight.dataKey],
-			schema: this.props.sample[this.props.customRight.schemaKey],
+			data: this.props.sample.data,
+			schema: this.props.sample.schema,
 			highlighted: state.get('highlighted').toJS(),
 			// highlighted: this.props.customRight.withHighlight ? highlighted : undefined,
 		};

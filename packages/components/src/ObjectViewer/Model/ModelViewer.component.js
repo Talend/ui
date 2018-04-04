@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom';
 import genericViewerConfiguration from './genericViewer.configuration';
 import ModelMenus from './ModelMenus.component';
 import QualityCircles from './QualityCircles.component';
@@ -11,6 +11,16 @@ export default class ModelViewer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.getItemMenu = this.getItemMenu.bind(this);
+		this.onCloseOverlay = this.onCloseOverlay.bind(this);
+		this.onClickItemMenu = this.onClickItemMenu.bind(this);
+	}
+
+	onCloseOverlay(focusedItem) {
+		ReactDOM.findDOMNode(focusedItem).focus(); // eslint-disable-line react/no-find-dom-node
+	}
+
+	onClickItemMenu(clickedItemMenu) {
+		clickedItemMenu.hide();
 	}
 
 	getItemMenu({ value, jsonpath }) {
@@ -20,6 +30,8 @@ export default class ModelViewer extends React.Component {
 				jsonpath={jsonpath}
 				menu={this.props.menu}
 				quality={this.props.quality}
+				onCloseOverlay={this.onCloseOverlay}
+				onClickItemMenu={this.onClickItemMenu}
 			/>
 		);
 	}

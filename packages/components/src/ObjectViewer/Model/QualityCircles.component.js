@@ -27,19 +27,16 @@ function getQualityModels(qualities) {
 class QualityCircle extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onMenuItemClick = this.onMenuItemClick.bind(this);
-		this.onOverlayClose = this.onOverlayClose.bind(this);
+		this.onClickItemMenu = this.onClickItemMenu.bind(this);
+		this.onClose = this.onClose.bind(this);
 	}
 
-	onMenuItemClick() {
+	onClickItemMenu() {
 		this.overlay.hide();
 	}
 
-	/*
-	Accessibility : set focus back on the button when overlay is closed
-	 */
-	onOverlayClose() {
-		ReactDOM.findDOMNode(this.button).focus(); // eslint-disable-line react/no-find-dom-node
+	onClose() {
+		this.props.onCloseOverlay(this.button);
 	}
 
 	render() {
@@ -58,8 +55,8 @@ class QualityCircle extends React.Component {
 				overlayComponent={
 					<ModelItemMenu
 						menuItems={menu[type]}
-						onClose={this.onOverlayClose}
-						onMenuItemClick={this.onMenuItemClick}
+						onClose={this.onClose}
+						onClickItemMenu={this.onClickItemMenu}
 						item={item}
 						jsonpath={jsonpath}
 						type={type}
@@ -86,7 +83,7 @@ QualityCircle.propTypes = {
 	type: PropTypes.oneOf(['invalid', 'empty', 'valid']),
 };
 
-export default function QualityCircles({ item, jsonpath, quality }) {
+export default function QualityCircles({ item, jsonpath, quality, ...rest }) {
 	const { key = '@talend-quality@', onClick, menu } = quality;
 
 	if (!item[key]) {
@@ -104,6 +101,7 @@ export default function QualityCircles({ item, jsonpath, quality }) {
 				jsonpath={jsonpath}
 				model={invalid}
 				type={'invalid'}
+				{...rest}
 			/>
 			<QualityCircle
 				onClick={onClick}
@@ -112,6 +110,7 @@ export default function QualityCircles({ item, jsonpath, quality }) {
 				jsonpath={jsonpath}
 				model={empty}
 				type={'empty'}
+				{...rest}
 			/>
 			<QualityCircle
 				onClick={onClick}
@@ -120,6 +119,7 @@ export default function QualityCircles({ item, jsonpath, quality }) {
 				jsonpath={jsonpath}
 				model={valid}
 				type={'valid'}
+				{...rest}
 			/>
 		</div>
 	);

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import ModelItemMenu from './ModelItemMenu.component';
@@ -11,19 +10,16 @@ import theme from './ModelViewer.scss';
 export default class ModelMenus extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onMenuItemClick = this.onMenuItemClick.bind(this);
-		this.onOverlayClose = this.onOverlayClose.bind(this);
+		this.onClickItemMenu = this.onClickItemMenu.bind(this);
+		this.onClose = this.onClose.bind(this);
 	}
 
-	onMenuItemClick() {
+	onClickItemMenu() {
 		this.overlay.hide();
 	}
 
-	/*
-	Accessibility : set focus back on the button when overlay is closed
-	 */
-	onOverlayClose() {
-		ReactDOM.findDOMNode(this.button).focus(); // eslint-disable-line react/no-find-dom-node
+	onClose() {
+		this.props.onCloseOverlay(this.button);
 	}
 
 	render() {
@@ -44,10 +40,10 @@ export default class ModelMenus extends React.Component {
 						overlayComponent={
 							<ModelItemMenu
 								menuItems={menu}
-								onClose={this.onOverlayClose}
-								onMenuItemClick={this.onMenuItemClick}
 								item={item}
 								jsonpath={jsonpath}
+								onClose={this.onClose}
+								onClickItemMenu={this.onClickItemMenu}
 							/>
 						}
 						overlayRef={overlay => {
@@ -55,7 +51,12 @@ export default class ModelMenus extends React.Component {
 						}}
 					/>
 				)}
-				<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
+				<QualityCircles
+					item={item}
+					quality={quality}
+					jsonpath={jsonpath}
+					onCloseOverlay={this.props.onCloseOverlay}
+				/>
 			</div>
 		);
 	}

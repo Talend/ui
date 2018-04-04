@@ -91,6 +91,7 @@ function noOp() {}
 export function ActionButton(props) {
 	const {
 		bsStyle,
+		buttonRef,
 		inProgress,
 		disabled,
 		hideLabel,
@@ -156,7 +157,6 @@ export function ActionButton(props) {
 	if (loading) {
 		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
 	}
-
 	let btn = (
 		<Button
 			onMouseDown={rMouseDown}
@@ -165,6 +165,7 @@ export function ActionButton(props) {
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
+			ref={buttonRef}
 			{...buttonProps}
 		>
 			{buttonContent}

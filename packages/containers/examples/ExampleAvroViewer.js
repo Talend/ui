@@ -426,8 +426,8 @@ const qualityMenu = {
 };
 
 const modelItemMenu = [
-	{ label: 'LOL action', onClick: action('onLolClick') },
-	{ label: 'MDR action', onClick: action('onMdrClick') },
+	{ label: 'action one', onClick: action('onActionOneClick') },
+	{ label: 'action two', onClick: action('onActionTwoClick') },
 ];
 
 const components = {
@@ -438,7 +438,7 @@ const components = {
 		menu: modelItemMenu,
 		quality: {
 			qualityKey: '@talend-quality@',
-			menu: modelItemMenu,
+			menu: qualityMenu,
 		},
 		isSingle: true,
 	},

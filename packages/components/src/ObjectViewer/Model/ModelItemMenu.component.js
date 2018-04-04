@@ -9,7 +9,7 @@ export default class ModelItemMenu extends React.Component {
 	}
 
 	render() {
-		const { menuItems, onMenuItemClick, ...props } = this.props;
+		const { menuItems, onClickItemMenu, ...props } = this.props;
 		const menuStyle = {
 			listStyle: 'none',
 			padding: 0,
@@ -22,8 +22,8 @@ export default class ModelItemMenu extends React.Component {
 					const onClick =
 						item.onClick &&
 						function onClick(event) {
-							if (onMenuItemClick) {
-								onMenuItemClick(event);
+							if (onClickItemMenu) {
+								onClickItemMenu(event);
 							}
 							item.onClick(event, props);
 						};
@@ -42,5 +42,5 @@ ModelItemMenu.defaultProps = {
 };
 ModelItemMenu.propTypes = {
 	menuItems: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
-	onMenuItemClick: PropTypes.func,
+	onClickItemMenu: PropTypes.func,
 };

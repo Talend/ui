@@ -468,7 +468,6 @@ function ToggleManager(Component) {
 
 		render() {
 			const opened = this.state.isSingle ? this.state.opened.default : this.state.opened;
-			console.log('avro viewer opened', opened);
 			return <Component {...this.props} onToggle={this.onToggle} opened={opened} />;
 		}
 	};
