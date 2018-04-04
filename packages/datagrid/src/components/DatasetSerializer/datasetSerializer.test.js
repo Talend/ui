@@ -259,17 +259,17 @@ describe('#getType', () => {
 	it('should return the optionnal type', () => {
 		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
 
-		expect(type).toBe('string*');
+		expect(type).toBe('string');
 	});
 
-	it('should return the dqType', () => {
+	it('should return the mandatory dqType', () => {
 		const type = getType({
 			type: 'string',
 			dqType: 'FR Commune',
 			dqTypeKey: 'FR_COMMUNE',
 		});
 
-		expect(type).toBe('FR Commune');
+		expect(type).toBe('FR Commune*');
 	});
 
 	it('should return the type', () => {
@@ -279,7 +279,7 @@ describe('#getType', () => {
 			dqTypeKey: '',
 		});
 
-		expect(type).toBe('string');
+		expect(type).toBe('string*');
 	});
 });
 

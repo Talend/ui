@@ -18,20 +18,21 @@ import {
  * @param  {array|object} 	avro type
  * @return {string}      		return the type showed in the datagrid
  * @example
- * 	getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']); // string*
- * 	getType({ type: 'string', dqType: '', dqTypeKey: '' }); // string
- * 	getType({ type: 'string', dqType: 'Type', dqTypeKey: '' }); // Type
+ * 	getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']); // string
+ * 	getType({ type: 'string', dqType: '', dqTypeKey: '' }); // string*
+ * 	getType({ type: 'string', dqType: 'Type', dqTypeKey: '' }); // Type*
  */
-export function getType(type) {
+export function getType(type, mandatory = true) {
 	if (isArray(type)) {
 		const notNullType = type.find(subType => subType !== 'null');
 		const nullType = type.find(subType => subType === 'null');
 
 		if (notNullType && nullType) {
-			return `${getType(notNullType)}*`;
+			return `${getType(notNullType, false)}`;
 		}
 	}
-	return type.dqType || type.type;
+
+	return `${type.dqType || type.type}${mandatory ? '*' : ''}`;
 }
 
 export function getQuality(qualityTotal, rowsTotal) {

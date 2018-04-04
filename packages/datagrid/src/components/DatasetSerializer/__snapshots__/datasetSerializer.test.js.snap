@@ -34,7 +34,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune",
+    "type": "FR Commune*",
   },
   Object {
     "@talend-quality@": Object {
@@ -68,7 +68,7 @@ Array [
     },
     "field": "data.field1",
     "headerName": "Code UIC",
-    "type": "int",
+    "type": "int*",
   },
 ]
 `;
@@ -107,7 +107,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune",
+    "type": "FR Commune*",
   },
   Object {
     "@talend-quality@": Object {
@@ -141,7 +141,7 @@ Array [
     },
     "field": "data.field1",
     "headerName": "Code UIC",
-    "type": "int",
+    "type": "int*",
   },
 ]
 `;
@@ -182,7 +182,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune*",
+    "type": "FR Commune",
   },
 ]
 `;
