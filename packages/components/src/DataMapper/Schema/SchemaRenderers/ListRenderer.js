@@ -79,10 +79,12 @@ class RowDataGetter {
 		this.props = props;
 	}
 
+	getId(element) {
+		return `${this.props.dataAccessor.getElementId(element)}-${this.props.side}`;
+	}
+
 	getData(element, key) {
 		switch (key) {
-			case Constants.Schema.DATA_KEYS.ID:
-				return this.props.dataAccessor.getElementId(element);
 			case Constants.Schema.DATA_KEYS.NAME:
 				return [
 					this.props.dataAccessor.getElementName(element),

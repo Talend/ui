@@ -45,11 +45,68 @@ const elem_out_2 = {
 const singleConnection = {
 	all : [
 		{
-			sourceYPos1 : 15,
-			targetYPos1 : 40,
-			visibility : Constants.Connection.VISIBILITY.FULL
+			sourceYPos: 15,
+			targetYPos: 40,
+			key: 'in_1-out_2',
+			visibility: Constants.Connection.VISIBILITY.FULL,
 		},
 	]
+}
+
+const anchors1 = {
+	unmapped: {
+		input: [
+			{
+				yPos: 15,
+				key: 'in_1',
+			},
+			{
+				yPos: 40,
+				key: 'in_2',
+			},
+		],
+		output: [
+			{
+				yPos: 15,
+				key: 'out_1',
+			},
+			{
+				yPos: 40,
+				key: 'out_2',
+			},
+		],
+	},
+}
+
+const anchors2 = {
+	unmapped: {
+		input: [
+			{
+				yPos: 40,
+				key: 'in_2',
+			},
+		],
+		output: [
+			{
+				yPos: 15,
+				key: 'out_1',
+			},
+		],
+	},
+	mapped: {
+		input: [
+			{
+				yPos: 15,
+				key: 'in_1',
+			},
+		],
+		output: [
+			{
+				yPos: 40,
+				key: 'out_2',
+			},
+		],
+	},
 }
 
 /**
@@ -81,9 +138,41 @@ it('no connections - no anchors', () => {
 	expect(tree).toMatchSnapshot();
 });
 
+it('no connections - unmapped anchors', () => {
+	const getConnections = jest.fn().mockReturnValue({});
+	const getAnchors = jest.fn().mockReturnValue(anchors1);
+	const MappingTestContext = wrapInTestContext(Mapping);
+	// create React tree
+	const tree = renderer.create(
+		<MappingTestContext
+			mappingConfiguration={mappingConfig}
+			preferences={preferences}
+			getConnections={getConnections}
+			getAnchors={getAnchors}
+		/>
+	).toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
 it('single connection [all] - no anchors', () => {
 	const getConnections = jest.fn().mockReturnValue(singleConnection);
 	const getAnchors = jest.fn().mockReturnValue({});
+	const MappingTestContext = wrapInTestContext(Mapping);
+	// create React tree
+	const tree = renderer.create(
+		<MappingTestContext
+			mappingConfiguration={mappingConfig}
+			preferences={preferences}
+			getConnections={getConnections}
+			getAnchors={getAnchors}
+		/>
+	).toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+it('single connection [all] - mapped/unmapped anchors', () => {
+	const getConnections = jest.fn().mockReturnValue(singleConnection);
+	const getAnchors = jest.fn().mockReturnValue(anchors2);
 	const MappingTestContext = wrapInTestContext(Mapping);
 	// create React tree
 	const tree = renderer.create(

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 function renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderers) {
-	const FilterComponent = rowRenderers.getComponent(key);
+	const DataComponent = rowRenderers.getComponent(key);
 	return (
-		<FilterComponent
+		<DataComponent
+			key={`${rowDataGetter.getId(element)}-${key}`}
 			element={element}
 			dataKey={key}
 			rowDataGetter={rowDataGetter}
@@ -64,7 +65,7 @@ export default class Row extends Component {
 				onClick={onClick}
 				onDoubleClick={onDoubleClick}
 				ref={this.updateElementRef}
-				data-id={rowDataGetter.getData(element, 'id')}
+				data-id={rowDataGetter.getId(element)}
 			>
 				{dataKeys.map(key =>
 					renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderers),
@@ -76,9 +77,9 @@ export default class Row extends Component {
 
 Row.propTypes = {
 	element: PropTypes.object,
-	classNameProvider: PropTypes.func,
+	classNameProvider: PropTypes.object,
 	dataKeys: PropTypes.array,
-	rowDataGetter: PropTypes.func,
+	rowDataGetter: PropTypes.object,
 	rowRenderers: PropTypes.object,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,

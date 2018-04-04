@@ -79,7 +79,6 @@ export const Schema = {
 		LIST: 'list',
 	},
 	DATA_KEYS: {
-		ID: 'id',
 		NAME: 'name',
 		TYPE: 'type',
 		DESC: 'desc',

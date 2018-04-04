@@ -18,6 +18,6 @@ export default function MandatoryField({ element, dataKey, rowDataGetter, classN
 MandatoryField.propTypes = {
 	element: PropTypes.object,
 	dataKey: PropTypes.string,
-	classNameProvider: PropTypes.func,
-	rowDataGetter: PropTypes.func,
+	classNameProvider: PropTypes.object,
+	rowDataGetter: PropTypes.object,
 };

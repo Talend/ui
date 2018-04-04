@@ -20,7 +20,7 @@ function renderRow(
 	if (draggable) {
 		return (
 			<DraggableRow
-				key={rowDataGetter.getData(element, 'id')}
+				key={rowDataGetter.getId(element)}
 				element={element}
 				onClick={onClick}
 				onDoubleClick={onDoubleClick}
@@ -36,7 +36,7 @@ function renderRow(
 	}
 	return (
 		<Row
-			key={rowDataGetter.getData(element, 'id')}
+			key={rowDataGetter.getId(element)}
 			element={element}
 			onClick={onClick}
 			onDoubleClick={onDoubleClick}
@@ -95,9 +95,9 @@ export default class List extends Component {
 
 List.propTypes = {
 	elements: PropTypes.array,
-	classNameProvider: PropTypes.func,
+	classNameProvider: PropTypes.object,
 	dataKeys: PropTypes.array,
-	rowDataGetter: PropTypes.func,
+	rowDataGetter: PropTypes.object,
 	rowRenderers: PropTypes.object,
 	onScroll: PropTypes.func,
 	draggable: PropTypes.bool,
@@ -105,6 +105,6 @@ List.propTypes = {
 	onDoubleClick: PropTypes.func,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
-	dndListener: PropTypes.func,
+	dndListener: PropTypes.object,
 	updateListNodeRef: PropTypes.func,
 };

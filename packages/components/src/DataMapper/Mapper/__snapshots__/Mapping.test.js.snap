@@ -58,10 +58,206 @@ exports[`no connections - no anchors 1`] = `
   >
     <svg
       className="mapping-svg"
-      height={-1}
-      width={24}
+      height={1}
+      width={26}
       xmlns="http://www.w3.org/2000/svg"
     />
+  </div>
+</div>
+`;
+
+exports[`no connections - unmapped anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-tools btn-group"
+  >
+    <button
+      aria-label="Show"
+      className="btn btn-default"
+      disabled={false}
+      id="show-all"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Show
+      </span>
+    </button>
+    <button
+      aria-label="Clear"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-connection"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Clear
+      </span>
+    </button>
+    <button
+      aria-label="Clear All"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-mapping"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Clear All
+      </span>
+    </button>
+  </div>
+  <div
+    className="separator horizontal"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={1}
+      width={26}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        className="anchor start unmapped"
+        cx={8}
+        cy={15}
+        r={4}
+      />
+      <circle
+        className="anchor start unmapped"
+        cx={8}
+        cy={40}
+        r={4}
+      />
+      <circle
+        className="anchor end unmapped"
+        cx={18}
+        cy={15}
+        r={4}
+      />
+      <circle
+        className="anchor end unmapped"
+        cx={18}
+        cy={40}
+        r={4}
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`single connection [all] - mapped/unmapped anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-tools btn-group"
+  >
+    <button
+      aria-label="Show"
+      className="btn btn-default"
+      disabled={false}
+      id="show-all"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Show
+      </span>
+    </button>
+    <button
+      aria-label="Clear"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-connection"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Clear
+      </span>
+    </button>
+    <button
+      aria-label="Clear All"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-mapping"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Clear All
+      </span>
+    </button>
+  </div>
+  <div
+    className="separator horizontal"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={1}
+      width={26}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        className="anchor start unmapped"
+        cx={8}
+        cy={40}
+        r={4}
+      />
+      <circle
+        className="anchor end unmapped"
+        cx={18}
+        cy={15}
+        r={4}
+      />
+      <circle
+        className="anchor start mapped"
+        cx={8}
+        cy={15}
+        r={4}
+      />
+      <path
+        className="anchor end mapped"
+        d="M 13 35 L 23 40 L 13 45 Z"
+      />
+      <g>
+        <circle
+          className="connection start all"
+          cx={8}
+          cy={15}
+          r={3}
+        />
+        <path
+          className="connection curve all "
+          d="M 8 15 C 13 15, 13 40, 18 40"
+        />
+        <path
+          className="connection end all"
+          d="M 13 35 L 23 40 L 13 45 Z"
+        />
+      </g>
+    </svg>
   </div>
 </div>
 `;
@@ -124,24 +320,24 @@ exports[`single connection [all] - no anchors 1`] = `
   >
     <svg
       className="mapping-svg"
-      height={-1}
-      width={24}
+      height={1}
+      width={26}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
         <circle
           className="connection start all"
           cx={8}
-          cy={undefined}
+          cy={15}
           r={3}
         />
         <path
           className="connection curve all "
-          d="M 8 undefined C 12 undefined, 12 undefined, 16 undefined"
+          d="M 8 15 C 13 15, 13 40, 18 40"
         />
         <path
           className="connection end all"
-          d="M 11 NaN L 21 undefined L 11 NaN Z"
+          d="M 13 35 L 23 40 L 13 45 Z"
         />
       </g>
     </svg>

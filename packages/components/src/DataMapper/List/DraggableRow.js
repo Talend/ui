@@ -76,9 +76,9 @@ class DraggableRow extends Component {
 
 DraggableRow.propTypes = {
 	element: PropTypes.object,
-	classNameProvider: PropTypes.func,
+	classNameProvider: PropTypes.object,
 	dataKeys: PropTypes.array,
-	rowDataGetter: PropTypes.func,
+	rowDataGetter: PropTypes.object,
 	rowRenderers: PropTypes.object,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,

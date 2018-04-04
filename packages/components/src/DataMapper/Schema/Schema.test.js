@@ -4,45 +4,53 @@ import Schema from './Schema.js';
 import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
 import DefaultRenderer from '../Schema/SchemaRenderers/DefaultRenderer';
+import ListRenderer from '../Schema/SchemaRenderers/ListRenderer';
+import * as Constants from '../Constants';
 
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 
 const emptySchema = {
-	id: 'schema_1',
-	name: 'schema',
+	id: 'empty_schema',
+	name: 'Empty schema',
 	elements: [],
 };
 
 const element1 = {
-	id: '1',
-	name: 'element_1',
+	id: 'elem_1',
+	name: 'element 1',
 	type: 'string',
 	description: 'bla bla bla',
 };
 
 const element2 = {
-	id: '2',
-	name: 'element_2',
+	id: 'elem_2',
+	name: 'element 2',
 	type: 'string',
 	description: 'bla bla bla',
 };
 
 const element3 = {
-	id: '3',
-	name: 'element_3',
+	id: 'elem_3',
+	name: 'element 3',
 	type: 'string',
 	description: 'bla bla bla',
 };
 
 const schema = {
-	id: 'schema_2',
-	name: 'schema',
+	id: 'schema',
+	name: 'Schema',
 	elements: [element1, element2, element3],
 };
 
 const noFilters = [];
 
-it('single-schema', () => {
+const columnKeys = [
+	Constants.Schema.DATA_KEYS.NAME,
+	Constants.Schema.DATA_KEYS.TYPE,
+	Constants.Schema.DATA_KEYS.DESC,
+];
+
+it('single-schema [default renderer]', () => {
 	// create React tree
 	const tree = renderer
 		.create(
@@ -57,7 +65,7 @@ it('single-schema', () => {
 	expect(tree).toMatchSnapshot();
 });
 
-it('empty-schema', () => {
+it('empty-schema [default renderer]', () => {
 	// create React tree
 	const tree = renderer
 		.create(
@@ -66,6 +74,38 @@ it('empty-schema', () => {
 				schema={emptySchema}
 				SchemaRenderer={DefaultRenderer}
 				filters={noFilters}
+			/>,
+		)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+it('single-schema [list renderer]', () => {
+	// create React tree
+	const tree = renderer
+		.create(
+			<Schema
+				dataAccessor={dataAccessor}
+				schema={schema}
+				SchemaRenderer={ListRenderer}
+				filters={noFilters}
+				columnKeys={columnKeys}
+			/>,
+		)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+it('empty-schema [list renderer]', () => {
+	// create React tree
+	const tree = renderer
+		.create(
+			<Schema
+				dataAccessor={dataAccessor}
+				schema={emptySchema}
+				SchemaRenderer={ListRenderer}
+				filters={noFilters}
+				columnKeys={columnKeys}
 			/>,
 		)
 		.toJSON();
