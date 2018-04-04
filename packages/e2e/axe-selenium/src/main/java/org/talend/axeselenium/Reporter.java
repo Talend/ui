@@ -21,7 +21,7 @@ public class Reporter {
                 .append(" accessibility violations:");
 
         for (int i = 0; i < violations.length(); i++) {
-            JSONObject violation = violations.getJSONObject(i);
+            final JSONObject violation = violations.getJSONObject(i);
             sb
                     .append(lineSeparator)
                     .append(i + 1)
@@ -29,15 +29,15 @@ public class Reporter {
                     .append(violation.getString("help"));
 
             if (violation.has("helpUrl")) {
-                String helpUrl = violation.getString("helpUrl");
-                sb.append(": ")
-                        .append(helpUrl);
+                sb
+                        .append(": ")
+                        .append(violation.getString("helpUrl"));
             }
 
-            JSONArray nodes = violation.getJSONArray("nodes");
+            final JSONArray nodes = violation.getJSONArray("nodes");
 
             for (int j = 0; j < nodes.length(); j++) {
-                JSONObject node = nodes.getJSONObject(j);
+                final JSONObject node = nodes.getJSONObject(j);
                 sb
                         .append(lineSeparator)
                         .append("  ")
@@ -46,8 +46,8 @@ public class Reporter {
                         .append(node.getJSONArray("target"))
                         .append(lineSeparator);
 
-                JSONArray all = node.getJSONArray("all");
-                JSONArray none = node.getJSONArray("none");
+                final JSONArray all = node.getJSONArray("all");
+                final JSONArray none = node.getJSONArray("none");
 
                 for (int k = 0; k < none.length(); k++) {
                     all.put(none.getJSONObject(k));
@@ -81,6 +81,11 @@ public class Reporter {
         }
     }
 
+    /**
+     * Get an ordinal composed of letters, from a to z, then aa to az, the  ba to bz, ...
+     * @param number The ordinal index number
+     * @return The ordinal
+     */
     private String getOrdinal(int number) {
         String ordinal = "";
 
