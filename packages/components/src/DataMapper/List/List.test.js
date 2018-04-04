@@ -11,11 +11,11 @@ it('simple-list', () => {
 		.create(
 			<List
 				elements={elements}
-        classNameProvider={TestData.classNameProvider}
-      	dataKeys={TestData.dataKeys}
-      	rowDataGetter={TestData.rowDataGetter}
-      	rowRenderers={TestData.rowRenderers}
-        draggable={false}
+				classNameProvider={TestData.classNameProvider}
+				dataKeys={TestData.dataKeys}
+				rowDataGetter={TestData.rowDataGetter}
+				rowRenderers={TestData.rowRenderers}
+				draggable={false}
 			/>,
 		)
 		.toJSON();

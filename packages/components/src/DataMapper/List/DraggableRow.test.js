@@ -12,11 +12,11 @@ it('single-row', () => {
 	const tree = renderer
 		.create(
 			<OriginalRow
-        element={TestData.element1}
-        classNameProvider={TestData.classNameProvider}
-        dataKeys={TestData.dataKeys}
-        rowDataGetter={TestData.rowDataGetter}
-        rowRenderers={TestData.rowRenderers}
+				element={TestData.element1}
+				classNameProvider={TestData.classNameProvider}
+				dataKeys={TestData.dataKeys}
+				rowDataGetter={TestData.rowDataGetter}
+				rowRenderers={TestData.rowRenderers}
 				connectDragSource={identity}
 				connectDropTarget={identity}
 			/>,
