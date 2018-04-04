@@ -435,26 +435,32 @@ const components = {
 		component: 'ToggleManager',
 		componentId: 'Model',
 		displayMode: 'model',
-		modelItemMenu,
+		menu: modelItemMenu,
 		quality: {
-			key: '@talend-quality@',
-			menu: qualityMenu,
+			qualityKey: '@talend-quality@',
+			menu: modelItemMenu,
 		},
-		data: sample.schema,
 		isSingle: true,
 	},
 	right: {
 		component: 'ToggleManager',
 		componentId: 'Records',
 		displayMode: 'records',
-		data: sample.data,
-		schema: sample.schema,
 	},
 };
 
 const props = {
 	components,
 	sample,
+	customLeft: {
+		withSelect: true,
+		dataKey: 'schema',
+	},
+	customRight: {
+		withHighlight: true,
+		dataKey: 'data',
+		schemaKey: 'schema',
+	},
 };
 
 const ExampleAvroViewer = {
