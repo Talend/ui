@@ -1,6 +1,6 @@
 /**
-* Defines the type of user interaction event
-*/
+ * Defines the type of user interaction event
+ */
 export const Events = {
 	ENTER_ELEM: 'enter-elem',
 	LEAVE_ELEM: 'leave-elem',
@@ -34,8 +34,8 @@ export function switchMappingSide(side) {
 }
 
 /**
-* Defines style and part of a connection anchor.
-*/
+ * Defines style and part of a connection anchor.
+ */
 export const Anchor = {
 	STYLE: {
 		UNMAPPED: 'unmapped',
@@ -50,8 +50,8 @@ export const Anchor = {
 };
 
 /**
-* Defines parameters of a connection.
-*/
+ * Defines parameters of a connection.
+ */
 export const Connection = {
 	STYLE: {
 		ALL: 'all',

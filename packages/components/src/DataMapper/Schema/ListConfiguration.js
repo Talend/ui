@@ -3,20 +3,18 @@ import SchemaConfiguration, { inputColumns, outputColumns } from './SchemaConfig
 import * as Constants from '../Constants';
 
 export default class ListConfiguration extends SchemaConfiguration {
+	getRenderer(side) {
+		return ListRenderer;
+	}
 
-  getRenderer(side) {
-    return ListRenderer;
-  }
-
-  getColumns(side) {
-    switch (side) {
-      case Constants.MappingSide.INPUT:
-        return inputColumns;
-      case Constants.MappingSide.OUTPUT:
-        return outputColumns;
-      default:
-        return [];
-    }
-  }
-
+	getColumns(side) {
+		switch (side) {
+			case Constants.MappingSide.INPUT:
+				return inputColumns;
+			case Constants.MappingSide.OUTPUT:
+				return outputColumns;
+			default:
+				return [];
+		}
+	}
 }

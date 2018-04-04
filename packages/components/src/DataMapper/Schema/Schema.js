@@ -144,9 +144,7 @@ export default class Schema extends Component {
 					onFilterChange={onFilterChange}
 				/>
 				<div className="separator horizontal" />
-				<SchemaRenderer
-					{...contentProps}
-				/>
+				<SchemaRenderer {...contentProps} />
 			</div>
 		);
 	}
