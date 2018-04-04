@@ -256,7 +256,7 @@ describe('#getCellValue', () => {
 });
 
 describe('#getType', () => {
-	it('should return the optionnal type', () => {
+	it('should return the optional type', () => {
 		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
 
 		expect(type).toBe('string');
@@ -273,6 +273,16 @@ describe('#getType', () => {
 	});
 
 	it('should return the type', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
+	});
+
+	it('should return the forced type to optional', () => {
 		const type = getType({
 			type: 'string',
 			dqType: '',
