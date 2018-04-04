@@ -6,7 +6,6 @@ import DataAccessorWrapper from '../DataAccessorWrapper';
 import DefaultRenderer from '../Schema/SchemaRenderers/DefaultRenderer';
 
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
-const defaultSchemaRenderer = new DefaultRenderer();
 
 const emptySchema = {
 	id: 'schema_1',
@@ -50,7 +49,7 @@ it('single-schema', () => {
 			<Schema
 				dataAccessor={dataAccessor}
 				schema={schema}
-				schemaRenderer={defaultSchemaRenderer}
+				SchemaRenderer={DefaultRenderer}
 				filters={noFilters}
 			/>,
 		)
@@ -65,7 +64,7 @@ it('empty-schema', () => {
 			<Schema
 				dataAccessor={dataAccessor}
 				schema={emptySchema}
-				schemaRenderer={defaultSchemaRenderer}
+				SchemaRenderer={DefaultRenderer}
 				filters={noFilters}
 			/>,
 		)

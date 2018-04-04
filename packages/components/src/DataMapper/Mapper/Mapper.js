@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Schema from '../Schema/Schema.js';
-import GMapping from './GMapping.js';
+import Mapping from './Mapping.js';
 import * as Constants from '../Constants';
 
 function getMappedElements(dataAccessor, mapping, side) {
@@ -154,10 +154,20 @@ export default class Mapper extends Component {
 		return this.outputSchemaRef.getYPosition(element);
 	}
 
+	getConnectionKey(sourceElement, targetElement) {
+		const key1 = this.props.dataAccessor.getElementId(sourceElement);
+		const key2 = this.props.dataAccessor.getElementId(targetElement);
+		return `${key1}-${key2}`;
+	}
+
 	getConnection(sourceElement, targetElement) {
 		const sourceYPos = this.getYPosition(sourceElement, Constants.MappingSide.INPUT);
 		const targetYPos = this.getYPosition(targetElement, Constants.MappingSide.OUTPUT);
-		return { sourceYPos, targetYPos };
+		return {
+			sourceYPos,
+			targetYPos,
+			key: this.getConnectionKey(sourceElement, targetElement),
+		};
 	}
 
 	getConnectionFromItem(dataAccessor, item) {
@@ -197,6 +207,7 @@ export default class Mapper extends Component {
 		return {
 			sourceYPos,
 			targetYPos,
+			key: this.getConnectionKey(sourceElement, targetElement),
 			visibility: this.getVisibility(
 				sourceIsVisible,
 				targetIsVisible,
@@ -259,6 +270,18 @@ export default class Mapper extends Component {
 		return this.visibleMapping;
 	}
 
+	getAnchorKey(elem, side) {
+		const key = this.props.dataAccessor.getElementId(elem);
+		return `${side}-${key}`;
+	}
+
+	getAnchor(elem, side) {
+		return {
+			yPos: this.getYPosition(elem, side),
+			key: this.getAnchorKey(elem, side),
+		};
+	}
+
 	// {
 	//	unmapped: {
 	//		input: [ypos1, ypos2, ...],
@@ -297,7 +320,7 @@ export default class Mapper extends Component {
 			);
 			if (unmappedInputElements) {
 				const yPositions = unmappedInputElements.map(elem =>
-					this.getYPosition(elem, Constants.MappingSide.INPUT),
+					this.getAnchor(elem, Constants.MappingSide.INPUT)
 				);
 				anchors.unmapped.input = yPositions;
 			}
@@ -321,7 +344,7 @@ export default class Mapper extends Component {
 			);
 			if (unmappedOutputElements) {
 				const yPositions = unmappedOutputElements.map(elem =>
-					this.getYPosition(elem, Constants.MappingSide.OUTPUT),
+					this.getAnchor(elem, Constants.MappingSide.OUTPUT)
 				);
 				anchors.unmapped.output = yPositions;
 			}
@@ -331,7 +354,7 @@ export default class Mapper extends Component {
 			);
 			if (mappedInputElements) {
 				const yPositions = mappedInputElements.map(elem =>
-					this.getYPosition(elem, Constants.MappingSide.INPUT),
+					this.getAnchor(elem, Constants.MappingSide.INPUT)
 				);
 				anchors.mapped.input = yPositions;
 			}
@@ -341,7 +364,7 @@ export default class Mapper extends Component {
 			);
 			if (mappedOutputElements) {
 				const yPositions = mappedOutputElements.map(elem =>
-					this.getYPosition(elem, Constants.MappingSide.OUTPUT),
+					this.getAnchor(elem, Constants.MappingSide.OUTPUT)
 				);
 				anchors.mapped.output = yPositions;
 			}
@@ -349,11 +372,11 @@ export default class Mapper extends Component {
 			if (selection && !pendingItem) {
 				if (selection.side === Constants.MappingSide.INPUT) {
 					anchors.selected.input = [
-						this.getYPosition(selection.element, Constants.MappingSide.INPUT),
+						this.getAnchor(selection.element, Constants.MappingSide.INPUT)
 					];
 				} else {
 					anchors.selected.output = [
-						this.getYPosition(selection.element, Constants.MappingSide.OUTPUT),
+						this.getAnchor(selection.element, Constants.MappingSide.OUTPUT)
 					];
 				}
 				anchors.selected.mapped = dataAccessor.isElementMapped(
@@ -362,10 +385,12 @@ export default class Mapper extends Component {
 			// FOCUSED Anchor
 			if (focused && (!dnd || !dataAccessor.areEquals(dnd.source.element, focused.element))) {
 				if (focused.side === Constants.MappingSide.INPUT) {
-					anchors.focused.input = [this.getYPosition(focused.element, Constants.MappingSide.INPUT)];
+					anchors.focused.input = [
+						this.getAnchor(focused.element, Constants.MappingSide.INPUT)
+					];
 				} else {
 					anchors.focused.output = [
-						this.getYPosition(focused.element, Constants.MappingSide.OUTPUT),
+						this.getAnchor(focused.element, Constants.MappingSide.OUTPUT)
 					];
 				}
 				anchors.focused.mapped = dataAccessor.isElementMapped(
@@ -612,7 +637,7 @@ export default class Mapper extends Component {
 					columnKeys={schemaConfiguration.getColumns(outputSide)}
 					filters={filters.output}
 				/>
-				<GMapping
+				<Mapping
 					ref={this.updateGMapRef}
 					mapping={mapping}
 					clearConnection={clearConnection}

@@ -13,7 +13,7 @@ import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters
 import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
 import { IconsProvider } from '../src/';
 import MappingConfiguration from '../src/DataMapper/Mapper/MappingConfiguration.js';
-import MappingArea from '../src/DataMapper/Mapper/MappingArea.js';
+import MappingCanvas from '../src/DataMapper/Mapper/MappingCanvas.js';
 import MappingSVG from '../src/DataMapper/Mapper/MappingSVG.js';
 import MappingActions from '../src/DataMapper/Mapper/MappingActions.js';
 
@@ -377,7 +377,7 @@ const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 const schemaConfiguration = new SchemaConfiguration();
 const listConfiguration = new ListConfiguration();
 
-const mappingCanvasConfig = new MappingConfiguration(MappingArea, MappingActions);
+const mappingCanvasConfig = new MappingConfiguration(MappingCanvas, MappingActions);
 const mappingSVGConfig = new MappingConfiguration(MappingSVG, MappingActions);
 
 const filterComponents = new FilterComponents();

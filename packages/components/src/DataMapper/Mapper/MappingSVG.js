@@ -33,6 +33,7 @@ function appendSVGConnection(connection, svgConnections, style, x1, x2) {
 		y2: connection.targetYPos,
 		style,
 		visibility,
+		key: connection.key,
 	};
 	return svgConnections.concat(svgConnection);
 }
@@ -50,7 +51,7 @@ function buildSVGConnections(connections, dnd, bounds) {
 	if (bounds != null && connections != null) {
 		const xLeft = bounds.left;
 		const xRight = bounds.right;
-		if (connections.all != null) {
+		if (connections.all) {
 			svgConnections = appendSVGConnections(
 				connections.all,
 				svgConnections,
@@ -59,7 +60,7 @@ function buildSVGConnections(connections, dnd, bounds) {
 				xRight,
 			);
 		}
-		if (connections.current != null) {
+		if (connections.current) {
 			svgConnections = appendSVGConnections(
 				connections.current,
 				svgConnections,
@@ -68,7 +69,7 @@ function buildSVGConnections(connections, dnd, bounds) {
 				xRight,
 			);
 		}
-		if (connections.pending != null) {
+		if (connections.pending) {
 			svgConnections = appendSVGConnection(
 				connections.pending,
 				svgConnections,
@@ -77,7 +78,7 @@ function buildSVGConnections(connections, dnd, bounds) {
 				xRight,
 			);
 		}
-		if (connections.focused != null) {
+		if (connections.focused) {
 			svgConnections = appendSVGConnections(
 				connections.focused,
 				svgConnections,
@@ -174,13 +175,18 @@ function getBezierParams(connection) {
 }
 
 function renderConnection(connection) {
-	return <Connection params={getBezierParams(connection)} style={connection.style} />;
+	return <Connection
+		key={`${connection.key}-${connection.style}`}
+		params={getBezierParams(connection)}
+		style={connection.style}
+	/>;
 }
 
 function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style, mapped) {
 	const svgAnchor = {
 		x: part === Constants.Anchor.PART.START ? bounds.left : bounds.right,
-		y: anchorYPos,
+		y: anchorYPos.yPos,
+		key: `${anchorYPos.key}-${style}`,
 		part,
 		style,
 		mapped,
@@ -271,7 +277,11 @@ function getAnchorParams(anchor) {
 }
 
 function renderAnchor(anchor) {
-	return <Anchor anchor={anchor} params={getAnchorParams(anchor)} />;
+	return <Anchor
+		key={anchor.key}
+		anchor={anchor}
+		params={getAnchorParams(anchor)}
+	/>;
 }
 
 function renderGradientStop(stop) {

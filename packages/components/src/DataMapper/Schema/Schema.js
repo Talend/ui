@@ -150,12 +150,10 @@ export default class Schema extends Component {
 	}
 }
 
-//{schemaRenderer.renderContent(contentProps)}
-
 Schema.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
-	SchemaRenderer: PropTypes.element,
+	SchemaRenderer: PropTypes.object,
 	filters: PropTypes.array,
 	filterComponents: PropTypes.object,
 	onFilterChange: PropTypes.func,

@@ -75,7 +75,7 @@ function drawArrow(x, y, width, height, color, canvas) {
 	context.closePath();
 }
 
-class MappingArea extends Component {
+class MappingCanvas extends Component {
 	constructor(props) {
 		super(props);
 		this.updateCanvasRef = this.updateCanvasRef.bind(this);
@@ -197,7 +197,7 @@ class MappingArea extends Component {
 	}
 }
 
-MappingArea.propTypes = {
+MappingCanvas.propTypes = {
 	getConnections: PropTypes.func,
 	connectDropTarget: PropTypes.func,
 	dnd: PropTypes.object,
@@ -206,5 +206,5 @@ MappingArea.propTypes = {
 };
 
 export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(
-	MappingArea,
+	MappingCanvas,
 );

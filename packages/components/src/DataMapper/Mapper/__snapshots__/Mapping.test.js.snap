@@ -1,43 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mapping 1`] = `
+exports[`no connections - no anchors 1`] = `
 <div
   className="mapping mapper-element"
 >
   <div
-    className="mapping-tools"
+    className="tc-actions mapping-tools btn-group"
   >
     <button
-      className="clear-connection"
-      onClick={undefined}
+      aria-label="Show"
+      className="btn btn-default"
+      disabled={false}
+      id="show-all"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      Clear connection
+      <span>
+        Show
+      </span>
     </button>
     <button
-      className="clear-mapping"
-      onClick={undefined}
+      aria-label="Clear"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-connection"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      Clear mapping
+      <span>
+        Clear
+      </span>
+    </button>
+    <button
+      aria-label="Clear All"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-mapping"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        Clear All
+      </span>
     </button>
   </div>
   <div
+    className="separator horizontal"
+  />
+  <div
     className="mapping-content"
   >
-    <div
-      className="mappingItem"
+    <svg
+      className="mapping-svg"
+      height={-1}
+      width={24}
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`single connection [all] - no anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-tools btn-group"
+  >
+    <button
+      aria-label="Show"
+      className="btn btn-default"
+      disabled={false}
+      id="show-all"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      [ elem_in_1 =&gt; elem_out_1 ]
-    </div>
-    <div
-      className="mappingItem"
+      <span>
+        Show
+      </span>
+    </button>
+    <button
+      aria-label="Clear"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-connection"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      [ elem_in_2 =&gt; elem_out_2 ]
-    </div>
-    <div
-      className="mappingItem"
+      <span>
+        Clear
+      </span>
+    </button>
+    <button
+      aria-label="Clear All"
+      className="btn btn-default"
+      disabled={false}
+      id="clear-mapping"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      [ elem_in_3 =&gt; elem_out_3 ]
-    </div>
+      <span>
+        Clear All
+      </span>
+    </button>
+  </div>
+  <div
+    className="separator horizontal"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={-1}
+      width={24}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <circle
+          className="connection start all"
+          cx={8}
+          cy={undefined}
+          r={3}
+        />
+        <path
+          className="connection curve all "
+          d="M 8 undefined C 12 undefined, 12 undefined, 16 undefined"
+        />
+        <path
+          className="connection end all"
+          d="M 11 NaN L 21 undefined L 11 NaN Z"
+        />
+      </g>
+    </svg>
   </div>
 </div>
 `;

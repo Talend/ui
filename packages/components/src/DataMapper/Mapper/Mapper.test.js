@@ -8,10 +8,15 @@ import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaEleme
 import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
 import * as Constants from '../Constants';
-import DefaultRenderer from '../Schema/SchemaRenderers/DefaultRenderer';
+import SchemaConfiguration from '../Schema/schemaConfiguration';
+import MappingConfiguration from './MappingConfiguration.js';
+import MappingSVG from './MappingSVG.js';
+import MappingActions from './MappingActions.js';
+
 
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
-const defaultSchemaRenderer = new DefaultRenderer();
+const schemaConfiguration = new SchemaConfiguration();
+const mappingConfig = new MappingConfiguration(MappingSVG, MappingActions);
 
 const element1 = {
 	id: '1',
@@ -85,8 +90,8 @@ it('clear-mapping', () => {
 			outputSchema={outputSchema}
 			performMapping={performMapping}
 			clearMapping={clearMapping}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
+			mappingConfiguration={mappingConfig}
 			filters={noFilters}
 			preferences={preferences}
 		/>
@@ -130,8 +135,8 @@ it('perform-mapping', () => {
 			drop={drop}
 			endDrag={endDrag}
 			draggable={draggable}
-			inputSchemaRenderer={defaultSchemaRenderer}
-			outputSchemaRenderer={defaultSchemaRenderer}
+			schemaConfiguration={schemaConfiguration}
+			mappingConfiguration={mappingConfig}
 			filters={noFilters}
 			preferences={preferences}
 		/>
