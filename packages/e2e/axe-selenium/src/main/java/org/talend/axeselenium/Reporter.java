@@ -107,4 +107,16 @@ public class Reporter {
             out.println(output.toString());
         } catch (final IOException ignored) {}
     }
+
+    /**
+     * Writes a string report out to a text file with the specified name.
+     *
+     * @param name   Desired filename, sans extension
+     * @param output Report to write
+     */
+    public void writeResults(final String name, final String output) {
+        try (PrintWriter out = new PrintWriter(name + ".txt")) {
+            out.println(output);
+        } catch (final IOException ignored) {}
+    }
 }

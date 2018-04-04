@@ -122,8 +122,10 @@ public class Axe {
         new File(reportFolder).mkdirs();
         final JSONArray violations = result.getJSONArray("violations");
         if (violations.length() > 0) {
+            final String formattedViolations = reporter.report(violations);
             reporter.writeResults(reportFolder + '/' + name, result);
-            return reporter.report(violations);
+            reporter.writeResults(reportFolder + '/' + name, formattedViolations);
+            return formattedViolations;
         }
         return null;
     }
