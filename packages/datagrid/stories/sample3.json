@@ -14,8 +14,7 @@
         "@talend-quality@": {
           "0": 0,
           "1": 38,
-          "-1": 62,
-          "total": 100
+          "-1": 62
         }
       }
     ]
@@ -46,7 +45,16 @@
           "quality": 0
         }
       }
-    }
+    },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true },
+    { "value": {}, "loading": true }
   ],
   "encoding": "JSON",
   "@talend-quality@": {

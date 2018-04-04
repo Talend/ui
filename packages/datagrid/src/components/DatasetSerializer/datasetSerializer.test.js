@@ -1,9 +1,15 @@
+import Immutable, { fromJS } from 'immutable';
+
+import { TALEND_QUALITY_KEY } from '../../constants/';
 import {
+	convertSample,
 	getCellValue,
 	getColumnDefs,
+	getFieldQuality,
 	getPinnedColumnDefs,
+	getQuality,
 	getRowData,
-	getType,
+  getType,
 } from './datasetSerializer';
 
 const sample = {
@@ -23,6 +29,7 @@ const sample = {
 					0: 0,
 					1: 38,
 					'-1': 62,
+					total: 100,
 				},
 			},
 			{
@@ -37,6 +44,7 @@ const sample = {
 					0: 0,
 					1: 100,
 					'-1': 0,
+					total: 100,
 				},
 			},
 		],
@@ -148,6 +156,12 @@ describe('#getColumnDefs', () => {
 		expect(columnDefs).toMatchSnapshot();
 	});
 
+	it('should returns the columns definitions from immutable', () => {
+		const columnDefs = getColumnDefs(fromJS(sample));
+
+		expect(columnDefs).toMatchSnapshot();
+	});
+
 	it('should returns an empty columns definitions', () => {
 		const columnDefs = getColumnDefs();
 
@@ -189,6 +203,12 @@ describe('#getColumnDefs', () => {
 describe('#getRowData', () => {
 	it('should returns the row data', () => {
 		const rowData = getRowData(sample);
+
+		expect(rowData).toMatchSnapshot();
+	});
+
+	it('should returns the row data', () => {
+		const rowData = getRowData(fromJS(sample));
 
 		expect(rowData).toMatchSnapshot();
 	});
@@ -260,5 +280,43 @@ describe('#getType', () => {
 		});
 
 		expect(type).toBe('string');
+	});
+});
+
+describe('getQuality', () => {
+	it('should get the calculated quality', () => {
+		expect(getQuality(7, 13)).toEqual({
+			percentage: 54,
+			total: 7,
+		});
+	});
+
+	it('should prevent zero division', () => {
+		expect(getQuality(0, 0)).toEqual({
+			percentage: 0,
+			total: 0,
+		});
+	});
+});
+
+describe('getFieldQuality', () => {
+	it('should enrich the quality', () => {
+		expect(getFieldQuality(sample.schema.fields[0][TALEND_QUALITY_KEY])).toMatchSnapshot();
+	});
+});
+
+describe('convertSample', () => {
+	it('should return a plain sample from immutable', () => {
+		const sampleData = {
+			id: 42,
+		};
+		expect(convertSample(Immutable.Map(sampleData))).toEqual(sampleData);
+	});
+
+	it('should return the sample', () => {
+		const sampleData = {
+			id: 42,
+		};
+		expect(convertSample(sampleData)).toBe(sampleData);
 	});
 });

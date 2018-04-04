@@ -5,6 +5,7 @@ exports[`#DataGridContainer should render DataGridContainer 1`] = `
   cellRenderer="DefaultCellRenderer"
   columnMinWidth={30}
   data={Object {}}
+  deltaRowDataMode={true}
   enableColResize={true}
   getCellValueFn={[Function]}
   getColumnDefsFn={[Function]}
@@ -14,6 +15,7 @@ exports[`#DataGridContainer should render DataGridContainer 1`] = `
   headerRenderer="DefaultHeaderRenderer"
   pinHeaderRenderer="DefaultPinHeaderRenderer"
   rowHeight={39}
+  rowNodeIdentifier="index.index"
   rowSelection="single"
   startIndex={0}
 />
