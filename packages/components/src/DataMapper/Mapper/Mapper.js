@@ -320,7 +320,7 @@ export default class Mapper extends Component {
 			);
 			if (unmappedInputElements) {
 				const yPositions = unmappedInputElements.map(elem =>
-					this.getAnchor(elem, Constants.MappingSide.INPUT)
+					this.getAnchor(elem, Constants.MappingSide.INPUT),
 				);
 				anchors.unmapped.input = yPositions;
 			}
@@ -342,7 +342,7 @@ export default class Mapper extends Component {
 			);
 			if (unmappedOutputElements) {
 				const yPositions = unmappedOutputElements.map(elem =>
-					this.getAnchor(elem, Constants.MappingSide.OUTPUT)
+					this.getAnchor(elem, Constants.MappingSide.OUTPUT),
 				);
 				anchors.unmapped.output = yPositions;
 			}
@@ -352,7 +352,7 @@ export default class Mapper extends Component {
 			);
 			if (mappedInputElements) {
 				const yPositions = mappedInputElements.map(elem =>
-					this.getAnchor(elem, Constants.MappingSide.INPUT)
+					this.getAnchor(elem, Constants.MappingSide.INPUT),
 				);
 				anchors.mapped.input = yPositions;
 			}
@@ -362,19 +362,17 @@ export default class Mapper extends Component {
 			);
 			if (mappedOutputElements) {
 				const yPositions = mappedOutputElements.map(elem =>
-					this.getAnchor(elem, Constants.MappingSide.OUTPUT)
+					this.getAnchor(elem, Constants.MappingSide.OUTPUT),
 				);
 				anchors.mapped.output = yPositions;
 			}
 			// selected Anchor
 			if (selection && !pendingItem) {
 				if (selection.side === Constants.MappingSide.INPUT) {
-					anchors.selected.input = [
-						this.getAnchor(selection.element, Constants.MappingSide.INPUT)
-					];
+					anchors.selected.input = [this.getAnchor(selection.element, Constants.MappingSide.INPUT)];
 				} else {
 					anchors.selected.output = [
-						this.getAnchor(selection.element, Constants.MappingSide.OUTPUT)
+						this.getAnchor(selection.element, Constants.MappingSide.OUTPUT),
 					];
 				}
 				anchors.selected.mapped = dataAccessor.isElementMapped(
@@ -386,13 +384,9 @@ export default class Mapper extends Component {
 			// FOCUSED Anchor
 			if (focused && (!dnd || !dataAccessor.areEquals(dnd.source.element, focused.element))) {
 				if (focused.side === Constants.MappingSide.INPUT) {
-					anchors.focused.input = [
-						this.getAnchor(focused.element, Constants.MappingSide.INPUT)
-					];
+					anchors.focused.input = [this.getAnchor(focused.element, Constants.MappingSide.INPUT)];
 				} else {
-					anchors.focused.output = [
-						this.getAnchor(focused.element, Constants.MappingSide.OUTPUT)
-					];
+					anchors.focused.output = [this.getAnchor(focused.element, Constants.MappingSide.OUTPUT)];
 				}
 				anchors.focused.mapped = dataAccessor.isElementMapped(
 					visibleMapping,

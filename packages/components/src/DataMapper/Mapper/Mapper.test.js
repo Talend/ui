@@ -13,7 +13,6 @@ import MappingConfiguration from './MappingConfiguration.js';
 import MappingSVG from './MappingSVG.js';
 import MappingActions from './MappingActions.js';
 
-
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 const schemaConfiguration = new SchemaConfiguration();
 const mappingConfig = new MappingConfiguration(MappingSVG, MappingActions);

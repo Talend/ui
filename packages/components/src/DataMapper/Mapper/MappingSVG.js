@@ -175,11 +175,13 @@ function getBezierParams(connection) {
 }
 
 function renderConnection(connection) {
-	return <Connection
-		key={`${connection.key}-${connection.style}`}
-		params={getBezierParams(connection)}
-		style={connection.style}
-	/>;
+	return (
+		<Connection
+			key={`${connection.key}-${connection.style}`}
+			params={getBezierParams(connection)}
+			style={connection.style}
+		/>
+	);
 }
 
 function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style, mapped) {
@@ -289,11 +291,7 @@ function getAnchorParams(anchor) {
 }
 
 function renderAnchor(anchor) {
-	return <Anchor
-		key={anchor.key}
-		anchor={anchor}
-		params={getAnchorParams(anchor)}
-	/>;
+	return <Anchor key={anchor.key} anchor={anchor} params={getAnchorParams(anchor)} />;
 }
 
 function renderGradientStop(stop) {
