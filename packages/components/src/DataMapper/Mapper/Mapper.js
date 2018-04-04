@@ -303,21 +303,19 @@ export default class Mapper extends Component {
 			}
 			// then get output elements which are not mapped
 			const unmappedOutputElements = outputVisibleElements.filter(
-				elem => (
-					!dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.OUTPUT)
-					&& (!pendingItem
-						|| pendingItem.side === Constants.MappingSide.INPUT
-						|| !dataAccessor.areEquals(pendingItem.element, elem))
-					&& (!selection
-						|| selection.side === Constants.MappingSide.INPUT
-						|| !dataAccessor.areEquals(selection.element, elem))
-					&& (!dnd
-						|| (dnd.source.side === Constants.MappingSide.INPUT &&
-							(!dnd.target || !dataAccessor.areEquals(dnd.target.element, elem)))
-						|| (dnd.source.side === Constants.MappingSide.OUTPUT
-							&& !dataAccessor.areEquals(dnd.source.element, elem))
-					)
-				)
+				elem =>
+					!dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.OUTPUT) &&
+					(!pendingItem ||
+						pendingItem.side === Constants.MappingSide.INPUT ||
+						!dataAccessor.areEquals(pendingItem.element, elem)) &&
+					(!selection ||
+						selection.side === Constants.MappingSide.INPUT ||
+						!dataAccessor.areEquals(selection.element, elem)) &&
+					(!dnd ||
+						(dnd.source.side === Constants.MappingSide.INPUT &&
+							(!dnd.target || !dataAccessor.areEquals(dnd.target.element, elem))) ||
+						(dnd.source.side === Constants.MappingSide.OUTPUT &&
+							!dataAccessor.areEquals(dnd.source.element, elem))),
 			);
 			if (unmappedOutputElements) {
 				const yPositions = unmappedOutputElements.map(elem =>
@@ -357,7 +355,10 @@ export default class Mapper extends Component {
 					];
 				}
 				anchors.selected.mapped = dataAccessor.isElementMapped(
-					visibleMapping, selection.element, selection.side);
+					visibleMapping,
+					selection.element,
+					selection.side,
+				);
 			}
 			// FOCUSED Anchor
 			if (focused && (!dnd || !dataAccessor.areEquals(dnd.source.element, focused.element))) {
@@ -369,7 +370,10 @@ export default class Mapper extends Component {
 					];
 				}
 				anchors.focused.mapped = dataAccessor.isElementMapped(
-					visibleMapping, focused.element, focused.side);
+					visibleMapping,
+					focused.element,
+					focused.side,
+				);
 			}
 		}
 		return anchors;

@@ -200,11 +200,23 @@ function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style, mapped) {
 	let result = svgAnchors.slice();
 	if (anchors.input) {
 		result = appendSVGAnchors(
-			anchors.input, result, Constants.Anchor.PART.START, style, bounds, mapped);
+			anchors.input,
+			result,
+			Constants.Anchor.PART.START,
+			style,
+			bounds,
+			mapped,
+		);
 	}
 	if (anchors.output) {
 		result = appendSVGAnchors(
-			anchors.output, result, Constants.Anchor.PART.END, style, bounds, mapped);
+			anchors.output,
+			result,
+			Constants.Anchor.PART.END,
+			style,
+			bounds,
+			mapped,
+		);
 	}
 	return result;
 }
