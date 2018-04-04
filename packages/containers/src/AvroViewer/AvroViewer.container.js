@@ -11,8 +11,7 @@ export default class AvroViewer extends React.Component {
 	static displayName = 'Container(AvroViewer)';
 	static propTypes = {
 		sample: PropTypes.object,
-	}
-
+	};
 
 	constructor(props) {
 		super(props);
