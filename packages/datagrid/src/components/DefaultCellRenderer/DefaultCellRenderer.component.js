@@ -12,25 +12,23 @@ import theme from './DefaultCell.scss';
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
 export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
-	if (data.loading) {
-		return (
-			<div className={classNames(theme['td-cell'], 'td-cell')}>
-				<Skeleton />
-			</div>
-		);
-	}
+	let content;
 
-	return (
-		<div className={classNames(theme['td-cell'], 'td-cell')}>
-			<QualityIndicator qualityIndex={value.quality} />
+	if (data.loading) {
+		content = <Skeleton />;
+	} else {
+		content = [
+			<QualityIndicator qualityIndex={value.quality} />,
 			<AvroRenderer
 				colDef={colDef}
 				data={value}
 				avroRenderer={avroRenderer}
 				getComponent={getComponent}
-			/>
-		</div>
-	);
+			/>,
+		];
+	}
+
+	return <div className={classNames(theme['td-cell'], 'td-cell')}>{content}</div>;
 }
 
 DefaultCellRenderer.defaultProps = {

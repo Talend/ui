@@ -7,7 +7,6 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer 1`] = `
   <Translate(QualityIndicatorComponent)
     qualityIndex={0}
   />
-  }
   <AvroRenderer
     avroRenderer={
       Object {
@@ -38,4 +37,3 @@ exports[`#DefaultCellRenderer should render the default cell on loading state 1`
   <Translate(Skeleton) />
 </div>
 `;
-
