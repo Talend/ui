@@ -43,15 +43,15 @@ const elem_out_2 = {
 };
 
 const singleConnection = {
-	all : [
+	all: [
 		{
 			sourceYPos: 15,
 			targetYPos: 40,
 			key: 'in_1-out_2',
 			visibility: Constants.Connection.VISIBILITY.FULL,
 		},
-	]
-}
+	],
+};
 
 const anchors1 = {
 	unmapped: {
@@ -127,14 +127,16 @@ it('no connections - no anchors', () => {
 	const getAnchors = jest.fn().mockReturnValue({});
 	const MappingTestContext = wrapInTestContext(Mapping);
 	// create React tree
-	const tree = renderer.create(
-		<MappingTestContext
-			mappingConfiguration={mappingConfig}
-			preferences={preferences}
-			getConnections={getConnections}
-			getAnchors={getAnchors}
-		/>
-	).toJSON();
+	const tree = renderer
+		.create(
+			<MappingTestContext
+				mappingConfiguration={mappingConfig}
+				preferences={preferences}
+				getConnections={getConnections}
+				getAnchors={getAnchors}
+			/>,
+		)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
@@ -159,14 +161,16 @@ it('single connection [all] - no anchors', () => {
 	const getAnchors = jest.fn().mockReturnValue({});
 	const MappingTestContext = wrapInTestContext(Mapping);
 	// create React tree
-	const tree = renderer.create(
-		<MappingTestContext
-			mappingConfiguration={mappingConfig}
-			preferences={preferences}
-			getConnections={getConnections}
-			getAnchors={getAnchors}
-		/>
-	).toJSON();
+	const tree = renderer
+		.create(
+			<MappingTestContext
+				mappingConfiguration={mappingConfig}
+				preferences={preferences}
+				getConnections={getConnections}
+				getAnchors={getAnchors}
+			/>,
+		)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
