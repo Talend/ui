@@ -68,6 +68,7 @@ public class AxeTest {
 Run a scan with customisable options.
 
 | Argument | Class | Description |
+|---|---|---|
 | element | org.openqa.selenium.WebElement | The element (and its children) to scan.<br/>If `null` is provided, the whole document is scanned. |
 | options | org.talend.axeselenium.axe.Option | Axe-core options subset that we support.<br/>Use `Options.Builder` to customise the scan. |
 
@@ -80,6 +81,7 @@ Run a scan on whole document using the WCAG 2.0 Level A set of rules.
 Same as previous but on a specific element.
 
 | Argument | Class | Description |
+|---|---|---|
 | element | org.openqa.selenium.WebElement | The element (and its children) to scan. |
 
 #### Axe.runWCAG2aa()
@@ -91,6 +93,7 @@ Run a scan on whole document using the WCAG 2.0 Level AA set of rules.
 Same as previous but on a specific element.
 
 | Argument | Class | Description |
+|---|---|---|
 | element | org.openqa.selenium.WebElement | The element (and its children) to scan. |
 
 #### Axe.runNonTextContent()
@@ -102,6 +105,7 @@ Run a scan on whole document using a selection of rules about non-text content.
 Same as previous but on a specific element.
 
 | Argument | Class | Description |
+|---|---|---|
 | element | org.openqa.selenium.WebElement | The element (and its children) to scan. |
 
 #### Axe.reportViolations(final String reportFolder, final String name, final JSONObject result)
@@ -109,6 +113,7 @@ Same as previous but on a specific element.
 Save scan result in ${reportFolder}/${name}.json, build/save/return a formatted violation report.
 
 | Argument | Class | Description |
+|---|---|---|
 | reportFolder | String | The folder path where to store the scan result. |
 | name | String | The scan result name. |
 | result | org.json.JSONObject | The scan result. |
@@ -118,6 +123,7 @@ Save scan result in ${reportFolder}/${name}.json, build/save/return a formatted 
 Configure the scan using [tags or rules ids](https://github.com/dequelabs/axe-core/blob/master/doc/API.md#options-parameter-examples)
 
 | Argument | Class | Description |
+|---|---|---|
 | type | String | The type of value tu use: `tag` or `rule` |
 | values | String[] | The rules of tags to set. |
 
@@ -126,6 +132,7 @@ Configure the scan using [tags or rules ids](https://github.com/dequelabs/axe-co
 Enable a specific [rule](https://github.com/dequelabs/axe-core/tree/master/lib/rules)
 
 | Argument | Class | Description |
+|---|---|---|
 | rule | String | The rule id. |
 
 #### Options.Builder.disableRule(final String rule)
@@ -133,6 +140,7 @@ Enable a specific [rule](https://github.com/dequelabs/axe-core/tree/master/lib/r
 Disable a specific [rule](https://github.com/dequelabs/axe-core/tree/master/lib/rules)
 
 | Argument | Class | Description |
+|---|---|---|
 | rule | String | The rule id. |
 
 ## Contribution
