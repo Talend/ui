@@ -83,8 +83,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingSVG.js
   124:10  error  'getLineParams' is defined but never used                                                      no-unused-vars
-  331:4   error  'height' is assigned a value but never used                                                    no-unused-vars
-  371:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  355:4   error  'height' is assigned a value but never used                                                    no-unused-vars
+  395:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/Filter.js
   29:8   error  Expected 'this' to be used by class method 'select'  class-methods-use-this
