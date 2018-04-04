@@ -32,7 +32,10 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 					</span>
 					<span>...</span>
 				</div>
-				<div className={classNames(theme['td-header-type'], 'td-header-type')}>
+				<div
+					className={classNames(theme['td-header-type'], 'td-header-type')}
+					title={column.colDef.type}
+				>
 					{column.colDef.type}
 				</div>
 			</button>
