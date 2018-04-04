@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.173.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.174.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -50,8 +50,22 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/ConnectionSVG.js
   11:3  error  Unexpected lexical declaration in case block  no-case-declarations
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/GMapping.js
+  17:2   error  checkMappingContentResize should be placed after getArea  react/sort-comp
+  59:14  error  'dndInProgress' is missing in props validation            react/prop-types
+  73:4   error  'getConnections' is assigned a value but never used       no-unused-vars
+  73:4   error  'getConnections' is missing in props validation           react/prop-types
+  74:4   error  'getAnchors' is assigned a value but never used           no-unused-vars
+  74:4   error  'getAnchors' is missing in props validation               react/prop-types
+  75:4   error  'getYPosition' is assigned a value but never used         no-unused-vars
+  75:4   error  'getYPosition' is missing in props validation             react/prop-types
+  76:4   error  'dnd' is assigned a value but never used                  no-unused-vars
+  76:4   error  'dnd' is missing in props validation                      react/prop-types
+  77:4   error  'preferences' is assigned a value but never used          no-unused-vars
+  77:4   error  'preferences' is missing in props validation              react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.js
-  167:15  error  Expected 'this' to be used by class method 'getVisibility'  class-methods-use-this
+  170:15  error  Expected 'this' to be used by class method 'getVisibility'  class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   60:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -60,13 +74,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MapperWithDnd.js
   5:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingActions.js
+  38:1  error  Component should be written as a pure function  react/prefer-stateless-function
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingArea.js
    20:10  error  'drawLine' is defined but never used                                                           no-unused-vars
-  217:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  208:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingSVG.js
   124:10  error  'getLineParams' is defined but never used                                                      no-unused-vars
-  377:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  331:4   error  'height' is assigned a value but never used                                                    no-unused-vars
+  371:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/Filter.js
   29:8   error  Expected 'this' to be used by class method 'select'  class-methods-use-this
@@ -144,5 +162,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 86 problems (85 errors, 1 warning)
+✖ 100 problems (99 errors, 1 warning)
 

@@ -4,6 +4,7 @@ import { ActionButton } from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
+	title: 'Title to describe click me button',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
 	'data-feature': 'action.feature',

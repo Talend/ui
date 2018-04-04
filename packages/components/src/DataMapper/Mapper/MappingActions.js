@@ -36,23 +36,15 @@ function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 }
 
 class MappingActions extends Component {
-
-  render() {
-    const {
-			clearConnection,
-			clearMapping,
-			onShowAll,
-			preferences,
-			t,
-		} = this.props;
+	render() {
+		const { clearConnection, clearMapping, onShowAll, preferences, t } = this.props;
 		return (
 			<Actions
 				className="mapping-tools"
 				actions={getActions(t, preferences.showAll, onShowAll, clearConnection, clearMapping)}
 			/>
 		);
-  }
-
+	}
 }
 
 MappingActions.propTypes = {
@@ -63,4 +55,6 @@ MappingActions.propTypes = {
 	t: PropTypes.func,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N, withRef: true })(MappingActions);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N, withRef: true })(
+	MappingActions,
+);
