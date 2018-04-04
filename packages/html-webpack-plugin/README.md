@@ -9,17 +9,18 @@ The plugin support the following options:
 | name | description |
 | -- | -- |
 | loadCSSAsync | Put all CSS in the body and use a trick to not block the rendering of the App |
-| bodyBefore | Usefull to add some assets (script / link) into the body before the app |
-| headerStyles | Usefull to add styles in the HEAD (to display a loader) |
+| appLoaderIcon | This activate the AppLoader from @talend/react-components |
+| versions | This setup the TALEND_APP_INFO global var to add some informations about the versions used |
 
 example:
 
 ```javascript
 const TalendHTML = require('@talend/html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Loader = require('@talend/react-components/lib/AppLoader/constant').default;
 const ICON = "url('data:image/svg+xml;base64,PHN2...')";
-const EXTENSION = process.env.NODE_ENV === ENV.DEV ? 'js' : 'min.js';
+const VERSIONS = {
+	version: require('./package.json').version,
+};
 
 //... plugins
     new HtmlWebpackPlugin({
@@ -27,9 +28,8 @@ const EXTENSION = process.env.NODE_ENV === ENV.DEV ? 'js' : 'min.js';
     }),
     new TalendHTML({
         loadCSSAsync: true,
-        headerStyles: [
-            { tagName: 'style', closeTag: true, innerHTML: Loader.getLoaderStyle(ICON) },
-        ],
+        appLoaderIcon: ICON,
+        versions: VERSIONS,
         bodyBefore: [
             { tagName: 'script', closeTag: true, innerHTML: 'alert("hello");' },
         ],
