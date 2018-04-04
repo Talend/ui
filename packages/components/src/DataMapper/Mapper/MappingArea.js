@@ -193,9 +193,7 @@ class MappingArea extends Component {
 
 	render() {
 		const { connectDropTarget } = this.props;
-		return connectDropTarget(
-			<canvas ref={this.updateCanvasRef} className="mapping-canvas" />
-		);
+		return connectDropTarget(<canvas ref={this.updateCanvasRef} className="mapping-canvas" />);
 	}
 }
 

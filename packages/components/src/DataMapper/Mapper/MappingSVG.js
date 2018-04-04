@@ -334,7 +334,7 @@ class MappingSVG extends Component {
 		const bounds = {
 			left: padding,
 			right: width - padding + extraWidth,
-		}
+		};
 
 		const connections = getConnections();
 		const svgConnections = buildSVGConnections(connections, dnd, bounds);
@@ -353,7 +353,7 @@ class MappingSVG extends Component {
 				{renderLinearGradient(preferences)}
 				{svgAnchors.map(anchor => renderAnchor(anchor))}
 				{svgConnections.map(connection => renderConnection(connection))}
-			</svg>
+			</svg>,
 		);
 	}
 }

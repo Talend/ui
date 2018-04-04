@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class GMapping extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -81,9 +80,7 @@ export default class GMapping extends Component {
 		const MappingRenderer = mappingConfiguration.getRenderer();
 		return (
 			<div className="mapping mapper-element">
-				<MappingActions
-					{...this.props}
-				/>
+				<MappingActions {...this.props} />
 				<div className="separator horizontal" />
 				<div ref={this.updateMappingContentRef} className="mapping-content">
 					<MappingRenderer
