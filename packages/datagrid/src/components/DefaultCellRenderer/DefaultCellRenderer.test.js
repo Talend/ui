@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { QUALITY_EMPTY_KEY, QUALITY_INVALID_KEY, QUALITY_VALID_KEY } from '../../constants';
+import { QUALITY_EMPTY_KEY } from '../../constants';
 
 import DefaultCellRenderer from './DefaultCellRenderer.component';
 
@@ -20,8 +20,8 @@ describe('#DefaultCellRenderer', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-  
-  it('should render the default cell on loading state', () => {
+
+	it('should render the default cell on loading state', () => {
 		const wrapper = shallow(<DefaultCellRenderer data={{ loading: true }} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
