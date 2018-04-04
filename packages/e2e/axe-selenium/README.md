@@ -55,7 +55,7 @@ public class AxeTest {
         final String violations = axe.reportViolations(reportFolder, testName.getMethodName(), scanResult);
 
         if (violations != null) {
-            fail(violations);
+            fail("There are a11y violations, please check " + testName.getMethodName() + ".txt/json for details.");
         }
     }
 }
@@ -106,7 +106,7 @@ Same as previous but on a specific element.
 
 #### Axe.reportViolations(final String reportFolder, final String name, final JSONObject result)
 
-Save scan result in ${reportFolder}/${name}.json and build a formatted violation report.
+Save scan result in ${reportFolder}/${name}.json, build/save/return a formatted violation report.
 
 | Argument | Class | Description |
 | reportFolder | String | The folder path where to store the scan result. |
