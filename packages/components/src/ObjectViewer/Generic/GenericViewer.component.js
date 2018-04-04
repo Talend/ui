@@ -206,7 +206,6 @@ function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props
 						},
 					}),
 				};
-
 				return <Item {...itemProps} />;
 			})}
 		</ul>

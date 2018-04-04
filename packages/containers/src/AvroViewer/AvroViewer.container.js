@@ -11,6 +11,7 @@ export default class AvroViewer extends React.Component {
 	static displayName = 'Container(AvroViewer)';
 	static propTypes = {
 		sample: PropTypes.object,
+		actionCreatorSelect: PropTypes.func,
 	};
 
 	constructor(props) {
@@ -43,7 +44,6 @@ export default class AvroViewer extends React.Component {
 			data: this.props.sample.data,
 			schema: this.props.sample.schema,
 			highlighted: state.get('highlighted').toJS(),
-			// highlighted: this.props.customRight.withHighlight ? highlighted : undefined,
 		};
 		return <Component {...this.props} leftProps={leftProps} rightProps={rightProps} />;
 	}
