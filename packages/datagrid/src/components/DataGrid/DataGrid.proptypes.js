@@ -25,8 +25,12 @@ const DATAGRID_PROPTYPES = {
 	onVerticalScroll: PropTypes.func,
 	pinHeaderRenderer: PropTypes.string,
 	data: PropTypes.object,
+	rowData: PropTypes.array,
 	rowSelection: PropTypes.string,
 	rowHeight: PropTypes.number,
+	deltaRowDataMode: PropTypes.bool,
+	rowBuffer: PropTypes.number,
+	rowNodeIdentifier: PropTypes.string,
 };
 
 export default DATAGRID_PROPTYPES;
