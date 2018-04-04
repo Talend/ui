@@ -9,6 +9,7 @@ import {
 	getPinnedColumnDefs,
 	getQuality,
 	getRowData,
+	getType,
 } from './datasetSerializer';
 
 const sample = {
@@ -166,6 +167,37 @@ describe('#getColumnDefs', () => {
 
 		expect(columnDefs).toEqual([]);
 	});
+
+	it('should returns the columns definitions with optional', () => {
+		const schemaWithOptionalType = {
+			schema: {
+				type: 'record',
+				name: 'StringArrayRecord',
+				fields: [
+					{
+						name: 'field0',
+						doc: 'Nom de la gare',
+						type: [
+							'null',
+							{
+								type: 'string',
+								dqType: 'FR Commune',
+								dqTypeKey: 'FR_COMMUNE',
+							},
+						],
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+						},
+					},
+				],
+			},
+		};
+		const columnDefs = getColumnDefs(schemaWithOptionalType);
+
+		expect(columnDefs).toMatchSnapshot();
+	});
 });
 
 describe('#getRowData', () => {
@@ -220,6 +252,44 @@ describe('#getCellValue', () => {
 		});
 
 		expect(value).toBe('myData');
+	});
+});
+
+describe('#getType', () => {
+	it('should return the optional type', () => {
+		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
+
+		expect(type).toBe('string');
+	});
+
+	it('should return the mandatory dqType', () => {
+		const type = getType({
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		});
+
+		expect(type).toBe('FR Commune*');
+	});
+
+	it('should return the type', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
+	});
+
+	it('should return the forced type to optional', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
 	});
 });
 
