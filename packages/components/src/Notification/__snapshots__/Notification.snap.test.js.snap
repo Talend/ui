@@ -18,6 +18,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
+        aria-label=""
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
@@ -47,6 +48,7 @@ exports[`Notification should render 1`] = `
         >
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
+            aria-label="Haha"
             className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
             disabled={false}
             onClick={[Function]}
@@ -82,6 +84,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
+        aria-label=""
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
@@ -116,6 +119,7 @@ exports[`Notification should render 1`] = `
         >
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
+            aria-label="undo"
             className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
             disabled={false}
             onClick={[Function]}
@@ -148,6 +152,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
+        aria-label=""
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
@@ -195,6 +200,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
+        aria-label=""
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}

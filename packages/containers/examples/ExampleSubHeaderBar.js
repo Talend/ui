@@ -74,6 +74,25 @@ const ExampleSubHeaderBar = {
 			/>
 		</div>
 	),
+	'with-inProgress': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...props}
+				editable
+				inProgress
+			/>
+		</div>
+	),
+	'with-loading': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...props}
+				loading
+			/>
+		</div>
+	),
 	'with-right-actions': () => (
 		<div>
 			<IconsProvider />

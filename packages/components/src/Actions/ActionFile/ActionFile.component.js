@@ -133,7 +133,7 @@ class ActionFile extends React.Component {
 					name={name}
 					id={localId}
 					disabled={inProgress || disabled}
-					className={theme['action-file-label']}
+					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
 				<label htmlFor={localId} className={labelClasses}>
 					{buttonContent}

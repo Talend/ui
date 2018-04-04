@@ -1,0 +1,8 @@
+{
+  "components/iframe.html?selectedKind=SubHeaderBar&selectedStory=with%20default": [
+    {
+      "name": "subheader-default",
+      "selector": ".tc-subheader"
+    }
+  ]
+}

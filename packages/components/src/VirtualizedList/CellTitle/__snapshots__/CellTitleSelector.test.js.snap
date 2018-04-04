@@ -1,19 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellTitleSelector should render the button 1`] = `
-<Button
-  active={false}
-  block={false}
-  bsClass="btn"
+<Action
   bsStyle="link"
   className="my-title-classname"
-  disabled={false}
+  icon={undefined}
   id="my-title-btn"
+  label="my value"
   onClick={[Function]}
   role="link"
->
-  my value
-</Button>
+  type="button"
+/>
 `;
 
 exports[`CellTitleSelector should render the input 1`] = `

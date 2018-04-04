@@ -1,5 +1,5 @@
 
-> @talend/bootstrap-theme@0.169.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> @talend/bootstrap-theme@0.174.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -10,11 +10,13 @@ src/theme/_dropdowns.scss
   22:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-  109:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  125:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  356:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  369:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  459:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   64:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  115:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  130:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  361:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  374:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  463:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -22,5 +24,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 11 problems (8 errors, 3 warnings)
+✖ 13 problems (10 errors, 3 warnings)
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButton from './ActionButton.component';
+import { ActionButton } from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
+	title: 'Title to describe click me button',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
 	'data-feature': 'action.feature',
