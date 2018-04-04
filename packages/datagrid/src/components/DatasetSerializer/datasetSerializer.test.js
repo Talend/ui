@@ -9,7 +9,7 @@ import {
 	getPinnedColumnDefs,
 	getQuality,
 	getRowData,
-  getType,
+	getType,
 } from './datasetSerializer';
 
 const sample = {
