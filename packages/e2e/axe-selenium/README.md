@@ -13,6 +13,16 @@ Why a new library:
 
 ### Example
 
+Pom.xml
+```xml
+<dependency>
+    <groupId>org.talend</groupId>
+    <artifactId>axe-selenium</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
+Test.java
 ```java
 package org.talend.axeselenium.axe;
 
