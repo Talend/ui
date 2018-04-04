@@ -1533,4 +1533,32 @@ stories
 			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
+	}).addWithInfo('1-1', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={
+				initializeCache(
+					getRandomInitialState(
+						{
+							id: 'fgs2525sdf5',
+							name: 'ONE-ELEM-IN',
+							size: 1,
+							a: 1,
+							b: 1,
+						},
+						{
+							id: '62ds5csd5',
+							name: 'ONE-ELEM-OUT',
+							size: 1,
+							a: 1,
+							b: 1,
+						},
+						0,
+						alternativePrefs4,
+					)
+				)
+			}
+			mappingConfiguration={mappingSVGConfig}
+			schemaConfiguration={listConfiguration}
+		/>;
 	});

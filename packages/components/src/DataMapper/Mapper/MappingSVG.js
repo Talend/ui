@@ -6,7 +6,7 @@ import Anchor from './AnchorSVG.js';
 import * as Constants from '../Constants';
 
 const padding = 8;
-const extraWidth = 26;
+const extraWidth = 25;
 
 const elementTarget = {
 	canDrop(props, monitor) {
@@ -177,31 +177,34 @@ function renderConnection(connection) {
 	return <Connection params={getBezierParams(connection)} style={connection.style} />;
 }
 
-function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style) {
+function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style, mapped) {
 	const svgAnchor = {
 		x: part === Constants.Anchor.PART.START ? bounds.left : bounds.right,
 		y: anchorYPos,
 		part,
 		style,
+		mapped,
 	};
 	return svgAnchors.concat(svgAnchor);
 }
 
-function appendSVGAnchors(anchorYPositions, svgAnchors, part, style, bounds) {
+function appendSVGAnchors(anchorYPositions, svgAnchors, part, style, bounds, mapped) {
 	let svga = svgAnchors.slice();
 	for (let i = 0; i < anchorYPositions.length; i += 1) {
-		svga = appendSVGAnchor(anchorYPositions[i], svga, bounds, part, style);
+		svga = appendSVGAnchor(anchorYPositions[i], svga, bounds, part, style, mapped);
 	}
 	return svga;
 }
 
-function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style) {
+function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style, mapped) {
 	let result = svgAnchors.slice();
 	if (anchors.input) {
-		result = appendSVGAnchors(anchors.input, result, Constants.Anchor.PART.START, style, bounds);
+		result = appendSVGAnchors(
+			anchors.input, result, Constants.Anchor.PART.START, style, bounds, mapped);
 	}
 	if (anchors.output) {
-		result = appendSVGAnchors(anchors.output, result, Constants.Anchor.PART.END, style, bounds);
+		result = appendSVGAnchors(
+			anchors.output, result, Constants.Anchor.PART.END, style, bounds, mapped);
 	}
 	return result;
 }
@@ -214,6 +217,7 @@ function buildSVGAnchors(anchors, bounds) {
 			anchors.unmapped,
 			bounds,
 			Constants.Anchor.STYLE.UNMAPPED,
+			false,
 		);
 	}
 	if (anchors.selected) {
@@ -222,6 +226,7 @@ function buildSVGAnchors(anchors, bounds) {
 			anchors.selected,
 			bounds,
 			Constants.Anchor.STYLE.SELECTED,
+			anchors.selected.mapped,
 		);
 	}
 	if (anchors.focused) {
@@ -230,6 +235,7 @@ function buildSVGAnchors(anchors, bounds) {
 			anchors.focused,
 			bounds,
 			Constants.Anchor.STYLE.FOCUSED,
+			anchors.focused.mapped,
 		);
 	}
 	if (anchors.mapped) {
@@ -238,6 +244,7 @@ function buildSVGAnchors(anchors, bounds) {
 			anchors.mapped,
 			bounds,
 			Constants.Anchor.STYLE.MAPPED,
+			true,
 		);
 	}
 	return svgAnchors;
@@ -247,11 +254,16 @@ function getAnchorParams(anchor) {
 	switch (anchor.part) {
 		case Constants.Anchor.PART.START:
 			return {
-				r: 3,
+				r: 4,
 			};
 		case Constants.Anchor.PART.END:
+			if (anchor.mapped) {
+				return {
+					arrow: buildArrowPath(anchor.x, anchor.y),
+				};
+			}
 			return {
-				arrow: buildArrowPath(anchor.x, anchor.y),
+				r: 4,
 			};
 		default:
 			return null;

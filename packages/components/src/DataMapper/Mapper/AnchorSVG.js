@@ -19,7 +19,10 @@ function renderAnchor(anchor, params) {
 		case Constants.Anchor.PART.START:
 			return renderCircle(anchor, params);
 		case Constants.Anchor.PART.END:
-			return renderArrow(anchor, params);
+			if (anchor.mapped) {
+				return renderArrow(anchor, params);
+			}
+			return renderCircle(anchor, params);
 		default:
 			return <div>Cannot render anchor</div>;
 	}
