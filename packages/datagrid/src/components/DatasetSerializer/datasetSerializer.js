@@ -6,10 +6,10 @@ import {
 	NAMESPACE_INDEX,
 	NAMESPACE_DATA,
 	COLUMN_INDEX,
-	TALEND_QUALITY_KEY,
-	TALEND_QUALITY_INVALID_KEY,
-	TALEND_QUALITY_EMPTY_KEY,
-	TALEND_QUALITY_VALID_KEY,
+	QUALITY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_EMPTY_KEY,
+	QUALITY_VALID_KEY,
 } from '../../constants/';
 
 /**
@@ -47,9 +47,9 @@ export function getFieldQuality(quality) {
 	}
 
 	return {
-		[TALEND_QUALITY_INVALID_KEY]: getQuality(quality[TALEND_QUALITY_INVALID_KEY], quality.total),
-		[TALEND_QUALITY_EMPTY_KEY]: getQuality(quality[TALEND_QUALITY_EMPTY_KEY], quality.total),
-		[TALEND_QUALITY_VALID_KEY]: getQuality(quality[TALEND_QUALITY_VALID_KEY], quality.total),
+		[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
+		[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
+		[QUALITY_VALID_KEY]: getQuality(quality[QUALITY_VALID_KEY], quality.total),
 	};
 }
 
@@ -73,7 +73,7 @@ export function getColumnDefs(sample) {
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc,
 		type: getType(avroField.type),
-		[TALEND_QUALITY_KEY]: getFieldQuality(avroField[TALEND_QUALITY_KEY]),
+		[QUALITY_KEY]: getFieldQuality(avroField[QUALITY_KEY]),
 	}));
 }
 
