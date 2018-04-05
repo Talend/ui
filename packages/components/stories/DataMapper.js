@@ -1361,7 +1361,11 @@ class ConnectedDataMapper extends React.Component {
 			this.state.dataAccessor.filterSchema(this.state.outputSchema, filter.getId());
 		}
 		this.setState(prevState => ({
-			trigger: null,
+			trigger: {
+				code: Constants.Events.FILTERING,
+				filterId: filter.getId(),
+				side,
+			},
 			pendingItem: null,
 			dnd: null,
 			selection: filterSelection(prevState, prevState.selection),
