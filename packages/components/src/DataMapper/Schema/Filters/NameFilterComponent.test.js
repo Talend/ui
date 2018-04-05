@@ -11,15 +11,9 @@ import NameFilter from './NameFilter';
 //const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 
 it('name-filter-component', () => {
-  const filter = new NameFilter(false);
+	const filter = new NameFilter(false);
 	// create React tree
-	const tree = renderer
-		.create(
-			<NameFilterComponent
-				filter={filter}
-			/>,
-		)
-		.toJSON();
+	const tree = renderer.create(<NameFilterComponent filter={filter} />).toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
