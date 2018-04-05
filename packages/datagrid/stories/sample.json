@@ -5,11 +5,14 @@
         "fields": [{
             "name": "field0",
             "doc": "Nom de la gare",
-            "type": {
+            "type": [
+              "null",
+              {
                 "type": "string",
                 "dqType": "FR Commune",
                 "dqTypeKey": "FR_COMMUNE"
-            },
+              }
+            ],
             "@talend-quality@": {
                 "0": 0,
                 "1": 38,

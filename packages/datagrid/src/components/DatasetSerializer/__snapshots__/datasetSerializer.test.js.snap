@@ -34,7 +34,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune",
+    "type": "FR Commune*",
   },
   Object {
     "@talend-quality@": Object {
@@ -68,7 +68,7 @@ Array [
     },
     "field": "data.field1",
     "headerName": "Code UIC",
-    "type": "int",
+    "type": "int*",
   },
 ]
 `;
@@ -107,7 +107,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune",
+    "type": "FR Commune*",
   },
   Object {
     "@talend-quality@": Object {
@@ -141,7 +141,48 @@ Array [
     },
     "field": "data.field1",
     "headerName": "Code UIC",
-    "type": "int",
+    "type": "int*",
+  },
+]
+`;
+
+exports[`#getColumnDefs should returns the columns definitions with optional 1`] = `
+Array [
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 0,
+        "total": 62,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 0,
+        "total": 38,
+      },
+    },
+    "avro": Object {
+      "@talend-quality@": Object {
+        "-1": 62,
+        "0": 0,
+        "1": 38,
+      },
+      "doc": "Nom de la gare",
+      "name": "field0",
+      "type": Array [
+        "null",
+        Object {
+          "dqType": "FR Commune",
+          "dqTypeKey": "FR_COMMUNE",
+          "type": "string",
+        },
+      ],
+    },
+    "field": "data.field0",
+    "headerName": "Nom de la gare",
+    "type": "FR Commune",
   },
 ]
 `;
@@ -219,6 +260,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 0,
+    "loading": false,
   },
   Object {
     "data.field0": Object {
@@ -282,6 +324,7 @@ Array [
       "value": "",
     },
     "index.index": 1,
+    "loading": false,
   },
 ]
 `;
@@ -350,6 +393,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 0,
+    "loading": false,
   },
   Object {
     "data.field0": Object {
@@ -413,6 +457,7 @@ Array [
       "value": "",
     },
     "index.index": 1,
+    "loading": false,
   },
 ]
 `;
@@ -481,6 +526,7 @@ Array [
       "value": "10880464",
     },
     "index.index": 10,
+    "loading": false,
   },
   Object {
     "data.field0": Object {
@@ -544,6 +590,7 @@ Array [
       "value": "",
     },
     "index.index": 11,
+    "loading": false,
   },
 ]
 `;

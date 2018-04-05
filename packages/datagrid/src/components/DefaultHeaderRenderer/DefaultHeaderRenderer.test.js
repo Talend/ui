@@ -2,10 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import {
-	TALEND_QUALITY_KEY,
-	TALEND_QUALITY_EMPTY_KEY,
-	TALEND_QUALITY_INVALID_KEY,
-	TALEND_QUALITY_VALID_KEY,
+	QUALITY_KEY,
+	QUALITY_EMPTY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_VALID_KEY,
 } from '../../constants';
 
 import DefaultHeaderRenderer from './DefaultHeaderRenderer.component';
@@ -24,10 +24,10 @@ describe('#DefaultHeaderGrid', () => {
 					colId: 'colId',
 					colDef: {
 						type: 'string',
-						[TALEND_QUALITY_KEY]: {
-							[TALEND_QUALITY_INVALID_KEY]: 33,
-							[TALEND_QUALITY_EMPTY_KEY]: 33,
-							[TALEND_QUALITY_VALID_KEY]: 34,
+						[QUALITY_KEY]: {
+							[QUALITY_INVALID_KEY]: 33,
+							[QUALITY_EMPTY_KEY]: 33,
+							[QUALITY_VALID_KEY]: 34,
 						},
 					},
 				}}

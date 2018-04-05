@@ -1,14 +1,39 @@
 import get from 'lodash/get';
+import isArray from 'lodash/isArray';
 import round from 'lodash/round';
+
 import {
 	NAMESPACE_INDEX,
 	NAMESPACE_DATA,
 	COLUMN_INDEX,
-	TALEND_QUALITY_KEY,
-	TALEND_QUALITY_INVALID_KEY,
-	TALEND_QUALITY_EMPTY_KEY,
-	TALEND_QUALITY_VALID_KEY,
+	QUALITY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_EMPTY_KEY,
+	QUALITY_VALID_KEY,
 } from '../../constants/';
+
+/**
+ * getType - manage the type from an AVRO type
+ *
+ * @param  {array|object} 	avro type
+ * @return {string}      		return the type showed in the datagrid
+ * @example
+ * 	getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']); // string
+ * 	getType({ type: 'string', dqType: '', dqTypeKey: '' }); // string*
+ * 	getType({ type: 'string', dqType: 'Type', dqTypeKey: '' }); // Type*
+ */
+export function getType(type, mandatory = true) {
+	if (isArray(type)) {
+		const notNullType = type.find(subType => subType !== 'null');
+		const nullType = type.find(subType => subType === 'null');
+
+		if (notNullType && nullType) {
+			return `${getType(notNullType, false)}`;
+		}
+	}
+
+	return `${type.dqType || type.type}${mandatory ? '*' : ''}`;
+}
 
 export function getQuality(qualityTotal, rowsTotal) {
 	return {
@@ -23,9 +48,9 @@ export function getFieldQuality(quality) {
 	}
 
 	return {
-		[TALEND_QUALITY_INVALID_KEY]: getQuality(quality[TALEND_QUALITY_INVALID_KEY], quality.total),
-		[TALEND_QUALITY_EMPTY_KEY]: getQuality(quality[TALEND_QUALITY_EMPTY_KEY], quality.total),
-		[TALEND_QUALITY_VALID_KEY]: getQuality(quality[TALEND_QUALITY_VALID_KEY], quality.total),
+		[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
+		[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
+		[QUALITY_VALID_KEY]: getQuality(quality[QUALITY_VALID_KEY], quality.total),
 	};
 }
 
@@ -48,8 +73,8 @@ export function getColumnDefs(sample) {
 		avro: avroField,
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc,
-		type: avroField.type.dqType || avroField.type.type,
-		[TALEND_QUALITY_KEY]: getFieldQuality(avroField[TALEND_QUALITY_KEY]),
+		type: getType(avroField.type),
+		[QUALITY_KEY]: getFieldQuality(avroField[QUALITY_KEY]),
 	}));
 }
 
@@ -73,6 +98,7 @@ export function getRowData(sample, startIndex = 0) {
 			}),
 			{
 				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
+				loading: !!row.loading,
 			},
 		),
 	);
