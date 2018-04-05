@@ -76,7 +76,7 @@ const anchors1 = {
 			},
 		],
 	},
-}
+};
 
 const anchors2 = {
 	unmapped: {
@@ -107,7 +107,7 @@ const anchors2 = {
 			},
 		],
 	},
-}
+};
 
 /**
  * Wraps a component into a DragDropContext that uses the TestBackend.
@@ -145,14 +145,16 @@ it('no connections - unmapped anchors', () => {
 	const getAnchors = jest.fn().mockReturnValue(anchors1);
 	const MappingTestContext = wrapInTestContext(Mapping);
 	// create React tree
-	const tree = renderer.create(
-		<MappingTestContext
-			mappingConfiguration={mappingConfig}
-			preferences={preferences}
-			getConnections={getConnections}
-			getAnchors={getAnchors}
-		/>
-	).toJSON();
+	const tree = renderer
+		.create(
+			<MappingTestContext
+				mappingConfiguration={mappingConfig}
+				preferences={preferences}
+				getConnections={getConnections}
+				getAnchors={getAnchors}
+			/>,
+		)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
@@ -179,13 +181,15 @@ it('single connection [all] - mapped/unmapped anchors', () => {
 	const getAnchors = jest.fn().mockReturnValue(anchors2);
 	const MappingTestContext = wrapInTestContext(Mapping);
 	// create React tree
-	const tree = renderer.create(
-		<MappingTestContext
-			mappingConfiguration={mappingConfig}
-			preferences={preferences}
-			getConnections={getConnections}
-			getAnchors={getAnchors}
-		/>
-	).toJSON();
+	const tree = renderer
+		.create(
+			<MappingTestContext
+				mappingConfiguration={mappingConfig}
+				preferences={preferences}
+				getConnections={getConnections}
+				getAnchors={getAnchors}
+			/>,
+		)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

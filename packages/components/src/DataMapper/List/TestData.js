@@ -6,7 +6,7 @@ export const element1 = {
 	name: 'element 1',
 	type: 'string',
 	description: 'bla bla bla',
-  mandatory: false,
+	mandatory: false,
 };
 
 export const element2 = {
@@ -14,35 +14,34 @@ export const element2 = {
 	name: 'element 2',
 	type: 'string',
 	description: 'This element is mandatory',
-  mandatory: true,
+	mandatory: true,
 };
 
 export const KEYS = {
-  NAME: 'name',
-  TYPE: 'type',
-  DESC: 'desc',
+	NAME: 'name',
+	TYPE: 'type',
+	DESC: 'desc',
 };
 
 export const dataKeys = [KEYS.NAME, KEYS.TYPE, KEYS.DESC];
 
 export const classNameProvider = {
-  get(element, key) {
-    if (element && key) {
+	get(element, key) {
+		if (element && key) {
 			return `classname-of-(${element.id},${key})`;
 		} else if (element) {
 			return `classname-of-(${element.id})`;
 		}
 		return `classname-of-list`;
-  },
-  onDragOver(status) {
-  },
+	},
+	onDragOver(status) {},
 };
 
 export const rowDataGetter = {
-  getId(element) {
-    return element.id;
-  },
-  getData(element, key) {
+	getId(element) {
+		return element.id;
+	},
+	getData(element, key) {
 		switch (key) {
 			case KEYS.NAME:
 				return {
@@ -60,7 +59,7 @@ export const rowDataGetter = {
 };
 
 export const rowRenderers = {
-  getComponent(key) {
+	getComponent(key) {
 		switch (key) {
 			case KEYS.NAME:
 				return MandatoryField;

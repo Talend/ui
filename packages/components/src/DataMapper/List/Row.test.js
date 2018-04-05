@@ -9,10 +9,10 @@ it('single-row', () => {
 		.create(
 			<Row
 				element={TestData.element1}
-        classNameProvider={TestData.classNameProvider}
-      	dataKeys={TestData.dataKeys}
-      	rowDataGetter={TestData.rowDataGetter}
-      	rowRenderers={TestData.rowRenderers}
+				classNameProvider={TestData.classNameProvider}
+				dataKeys={TestData.dataKeys}
+				rowDataGetter={TestData.rowDataGetter}
+				rowRenderers={TestData.rowRenderers}
 			/>,
 		)
 		.toJSON();
@@ -25,10 +25,10 @@ it('single-row mandatory', () => {
 		.create(
 			<Row
 				element={TestData.element2}
-        classNameProvider={TestData.classNameProvider}
-      	dataKeys={TestData.dataKeys}
-      	rowDataGetter={TestData.rowDataGetter}
-      	rowRenderers={TestData.rowRenderers}
+				classNameProvider={TestData.classNameProvider}
+				dataKeys={TestData.dataKeys}
+				rowDataGetter={TestData.rowDataGetter}
+				rowRenderers={TestData.rowRenderers}
 			/>,
 		)
 		.toJSON();
