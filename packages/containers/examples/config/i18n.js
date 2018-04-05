@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from 'i18next'; // eslint-disable-line import/no-extraneous-dependencies
+import i18n from 'i18next';
 import { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
 import I18N_DOMAIN_CONTAINERS from '../../src/constant';
 
