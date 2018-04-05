@@ -5,9 +5,9 @@ import Row from './Row.js';
 import DraggableRow from './DraggableRow.js';
 
 /**
-* This function is responsible for rendering an element in the list.
-* A row can be draggable or not (depending on the draggable property).
-*/
+ * This function is responsible for rendering an element in the list.
+ * A row can be draggable or not (depending on the draggable property).
+ */
 function renderRow(
 	element,
 	classNameProvider,
@@ -55,13 +55,13 @@ function renderRow(
 }
 
 /**
-* This component displays a list of elements.
-* Elements are provided as array.
-* An element is displayed in a row and is divided in multiple data.
-* The rowDataGetter object provides the data for each element.
-* The dataKeys array provides the column keys. These keys are used to get the element data.
-* The rowRenderers object provides the components used to display the element data.
-*/
+ * This component displays a list of elements.
+ * Elements are provided as array.
+ * An element is displayed in a row and is divided in multiple data.
+ * The rowDataGetter object provides the data for each element.
+ * The dataKeys array provides the column keys. These keys are used to get the element data.
+ * The rowRenderers object provides the components used to display the element data.
+ */
 export default class List extends Component {
 	render() {
 		const {
