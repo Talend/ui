@@ -4,7 +4,7 @@ const { getPreset } = require('../utils/preset');
 
 const jest = resolveBin('jest');
 
-module.exports = function test(env, presetApi) {
+module.exports = function test(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], 'talend');
 	const preset = getPreset(presetName);
 	const jestConfigPath = preset.getJestConfigurationPath(presetApi);
@@ -14,7 +14,7 @@ module.exports = function test(env, presetApi) {
 		[
 			'--config', jestConfigPath,
 			'--no-cache',
-		],
+		].concat(options),
 		{ stdio: 'inherit', env }
 	);
 };

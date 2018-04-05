@@ -8,7 +8,8 @@ const { getPresetApi } = require('./utils/preset');
 printSeparator('CONFIGURATION');
 
 const command = process.argv[2];
-console.log(`Running command: ${command}`);
+const options = process.argv.slice(3);
+console.log(`Running command: ${command} with options: ${options}`);
 const mode = command === 'start' ? 'development' : 'production';
 console.log(`Talend scripts mode : ${mode}`);
 
@@ -36,7 +37,7 @@ switch (command) {
 		result = require('./scripts/lint-es')(env, presetApi);
 		break;
 	case 'test':
-		result = require('./scripts/test')(env, presetApi);
+		result = require('./scripts/test')(env, presetApi, options);
 		break;
 	default:
 		console.log(`Command ${command} not found.`);
