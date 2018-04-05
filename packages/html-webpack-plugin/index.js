@@ -24,7 +24,6 @@ TalendHTMLOptimize.prototype.apply = function myapply(compiler) {
 					head.attributes.media = 'none';
 					// eslint-disable-next-line no-param-reassign
 					head.attributes.onload = `media='${media}'`;
-					// data.body.splice(index, 0, head);
 					return head;
 				});
 			}
