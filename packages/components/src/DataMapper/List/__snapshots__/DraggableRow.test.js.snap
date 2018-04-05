@@ -3,7 +3,7 @@
 exports[`single-row 1`] = `
 <div>
   <div
-    className="comp-list-row classname-of-(elem_1,undefined)"
+    className="comp-list-row classname-of-(elem_1)"
     data-id="elem_1"
     onClick={undefined}
     onDoubleClick={undefined}

@@ -681,7 +681,7 @@ Mapper.propTypes = {
 	canDrop: PropTypes.func,
 	drop: PropTypes.func,
 	endDrag: PropTypes.func,
-	filters: PropTypes.array,
+	filters: PropTypes.object,
 	filterComponents: PropTypes.object,
 	onFilterChange: PropTypes.func,
 	trigger: PropTypes.object,

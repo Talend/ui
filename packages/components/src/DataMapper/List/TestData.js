@@ -45,10 +45,10 @@ export const rowDataGetter = {
   getData(element, key) {
 		switch (key) {
 			case KEYS.NAME:
-				return [
-					element.name,
-					element.mandatory,
-				];
+				return {
+					value: element.name,
+					mandatory: element.mandatory,
+				};
 			case KEYS.TYPE:
 				return element.type;
 			case KEYS.DESC:

@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SchemaName from './SchemaName';
 
-function renderFilter(filter, filterComponents, onFilterChange) {
+function renderFilter(filter, filterComponents, onFilterChange, side) {
 	const FilterComponent = filterComponents.get(filter.getId());
 	if (FilterComponent) {
-		return <FilterComponent filter={filter} onFilterChange={onFilterChange} />;
+		return (
+			<FilterComponent
+				key={`${filter.getId()}-${side}`}
+				filter={filter}
+				onFilterChange={onFilterChange}
+			/>
+		);
 	}
 	return <div>{`Filter ${filter.getId()} cannot be rendered`}</div>;
 }
@@ -25,7 +31,10 @@ export default class SchemaHeader extends Component {
 		return (
 			<div className={`schema-header ${side}`}>
 				<SchemaName dataAccessor={dataAccessor} schema={schema} side={side} />
-				{filters.map(filter => renderFilter(filter, filterComponents, this.onFilterChange))}
+				{
+					filters.map(filter =>
+						renderFilter(filter, filterComponents, this.onFilterChange, side))
+				}
 			</div>
 		);
 	}

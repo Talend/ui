@@ -80,16 +80,19 @@ class RowDataGetter {
 	}
 
 	getId(element) {
-		return `${this.props.dataAccessor.getElementId(element)}-${this.props.side}`;
+		return this.props.dataAccessor.getElementId(element);
 	}
 
 	getData(element, key) {
 		switch (key) {
 			case Constants.Schema.DATA_KEYS.NAME:
-				return [
-					this.props.dataAccessor.getElementName(element),
-					this.props.dataAccessor.isElementMandatory(element),
-				];
+				if (this.props.side === Constants.MappingSide.INPUT) {
+					return this.props.dataAccessor.getElementName(element);
+				}
+				return {
+					value: this.props.dataAccessor.getElementName(element),
+					mandatory: this.props.dataAccessor.isElementMandatory(element),
+				};
 			case Constants.Schema.DATA_KEYS.TYPE:
 				return this.props.dataAccessor.getElementType(element);
 			case Constants.Schema.DATA_KEYS.DESC:

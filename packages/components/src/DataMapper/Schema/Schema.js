@@ -153,7 +153,7 @@ export default class Schema extends Component {
 Schema.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
-	SchemaRenderer: PropTypes.function,
+	SchemaRenderer: PropTypes.func,
 	filters: PropTypes.array,
 	filterComponents: PropTypes.object,
 	onFilterChange: PropTypes.func,

@@ -2,19 +2,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+/**
+* This function is responsible for rendering a piece of data for an element.
+*/
 function renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderers) {
 	const DataComponent = rowRenderers.getComponent(key);
+	const data = rowDataGetter.getData(element, key);
+	const className = classnames(classNameProvider.get(element, key));
 	return (
 		<DataComponent
 			key={`${rowDataGetter.getId(element)}-${key}`}
 			element={element}
-			dataKey={key}
-			rowDataGetter={rowDataGetter}
-			classNameProvider={classNameProvider}
+			data={data}
+			className={className}
 		/>
 	);
 }
 
+/**
+* This component displays the data of an element in a list.
+* A row is divided in columns, each column displaying an element data.
+*/
 export default class Row extends Component {
 	constructor(props) {
 		super(props);

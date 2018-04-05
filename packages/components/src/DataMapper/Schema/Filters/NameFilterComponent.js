@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FilterBar from '../../../FilterBar';
 
+/**
+* Component used with the NameFilter filter. It displays a FilterBar component.
+*/
 export default class NameFilterComponent extends Component {
 	constructor(props) {
 		super(props);

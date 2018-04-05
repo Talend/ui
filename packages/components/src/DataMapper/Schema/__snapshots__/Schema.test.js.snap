@@ -116,7 +116,7 @@ exports[`single-schema [list renderer] 1`] = `
   >
     <div
       className="comp-list-row schema-element"
-      data-id="elem_1-undefined"
+      data-id="elem_1"
       onClick={[Function]}
       onDoubleClick={[Function]}
     >
@@ -147,7 +147,7 @@ exports[`single-schema [list renderer] 1`] = `
     </div>
     <div
       className="comp-list-row schema-element"
-      data-id="elem_2-undefined"
+      data-id="elem_2"
       onClick={[Function]}
       onDoubleClick={[Function]}
     >
@@ -178,7 +178,7 @@ exports[`single-schema [list renderer] 1`] = `
     </div>
     <div
       className="comp-list-row schema-element"
-      data-id="elem_3-undefined"
+      data-id="elem_3"
       onClick={[Function]}
       onDoubleClick={[Function]}
     >

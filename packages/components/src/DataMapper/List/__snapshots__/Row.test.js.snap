@@ -2,7 +2,7 @@
 
 exports[`single-row 1`] = `
 <div
-  className="comp-list-row classname-of-(elem_1,undefined)"
+  className="comp-list-row classname-of-(elem_1)"
   data-id="elem_1"
   onClick={undefined}
   onDoubleClick={undefined}
@@ -36,7 +36,7 @@ exports[`single-row 1`] = `
 
 exports[`single-row mandatory 1`] = `
 <div
-  className="comp-list-row classname-of-(elem_2,undefined)"
+  className="comp-list-row classname-of-(elem_2)"
   data-id="elem_2"
   onClick={undefined}
   onDoubleClick={undefined}

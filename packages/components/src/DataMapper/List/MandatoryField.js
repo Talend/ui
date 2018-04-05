@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
-export default function MandatoryField({ element, dataKey, rowDataGetter, classNameProvider }) {
-	const data = rowDataGetter.getData(element, dataKey);
-	const label = data[0];
-	const mandatory = data[1];
-	const className = classnames(classNameProvider.get(element, dataKey));
+/**
+* This component displays a data as a label with mandatory info.
+* The data must be an object { value: string, mandatory: boolean }.
+*/
+export default function MandatoryField({ element, data, className }) {
+	const label = data.value;
+	const mandatory = data.mandatory;
 	return (
 		<div className={`comp-list-row-data mandatory-field ${className}`}>
 			<div className={`mandatory-field-label`}>{label}</div>
@@ -17,7 +18,6 @@ export default function MandatoryField({ element, dataKey, rowDataGetter, classN
 
 MandatoryField.propTypes = {
 	element: PropTypes.object,
-	dataKey: PropTypes.string,
-	classNameProvider: PropTypes.object,
-	rowDataGetter: PropTypes.object,
+	data: PropTypes.object,
+	className: PropTypes.string,
 };

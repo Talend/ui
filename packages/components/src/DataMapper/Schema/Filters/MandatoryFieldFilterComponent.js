@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Toggle from '../../../Toggle';
 
+/**
+* Component used for the MandatoryFieldFilter filter.
+* It displays a toggle button with a label.
+*/
 export default class MandatoryFieldFilterComponent extends Component {
 	constructor(props) {
 		super(props);

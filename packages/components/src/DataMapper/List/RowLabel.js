@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
-export default function RowLabel({ element, dataKey, rowDataGetter, classNameProvider }) {
-	const data = rowDataGetter.getData(element, dataKey);
+/**
+* This component displays a data as a simple label. The data must be a string.
+*/
+export default function RowLabel({ element, data, className }) {
 	return (
 		<div
-			className={`comp-list-row-data row-label ${classnames(
-				classNameProvider.get(element, dataKey),
-			)}`}
+			className={`comp-list-row-data row-label ${className}`}
 		>
 			{data}
 		</div>
@@ -17,7 +16,6 @@ export default function RowLabel({ element, dataKey, rowDataGetter, classNamePro
 
 RowLabel.propTypes = {
 	element: PropTypes.object,
-	dataKey: PropTypes.string,
-	classNameProvider: PropTypes.object,
-	rowDataGetter: PropTypes.object,
+	data: PropTypes.string,
+	className: PropTypes.string,
 };
