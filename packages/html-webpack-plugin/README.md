@@ -11,6 +11,7 @@ The plugin support the following options:
 | loadCSSAsync | Put all CSS in the body and use a trick to not block the rendering of the App |
 | appLoaderIcon | This activate the AppLoader from @talend/react-components |
 | versions | This setup the TALEND_APP_INFO global var to add some informations about the versions used |
+| bodyBefore | Array of assets to add before the scripts |
 
 example:
 

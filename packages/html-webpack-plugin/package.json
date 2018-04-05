@@ -10,17 +10,13 @@
     "url": "github:Talend/ui"
   },
   "devDependencies": {
-    "babel-core": "6.13.2",
-    "babel-eslint": "6.1.2",
-    "babel-loader": "6.2.4",
-    "babel-preset-env": "1.6.0",
     "eslint": "3.4.0",
     "eslint-config-airbnb": "10.0.1",
     "eslint-plugin-import": "1.14.0",
-    "eslint-plugin-jsx-a11y": "2.2.0",
-    "eslint-plugin-react": "6.2.0",
     "jest-cli": "20.0.3",
     "webpack": "1.13.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@talend/react-components": "^0.175.0"
+  }
 }
