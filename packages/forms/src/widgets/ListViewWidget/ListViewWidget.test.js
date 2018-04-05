@@ -58,9 +58,7 @@ describe('ListViewWidget', () => {
 		const values = ['A', 'B', 'C', 'D'];
 		const nextValues = ['E', 'F', 'G', 'H'];
 		let wrapper = mount(
-			<ListViewWidget.WrappedComponent
-				{...generateProps(values, values.slice(0, 2))}
-			/>,
+			<ListViewWidget.WrappedComponent {...generateProps(values, values.slice(0, 2))} />,
 		);
 		const items = wrapper.state('items');
 		expect(wrapper.state('items').length).toEqual(4);
