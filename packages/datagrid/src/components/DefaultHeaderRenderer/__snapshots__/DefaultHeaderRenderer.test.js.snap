@@ -24,6 +24,7 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
     </div>
     <div
       className="theme-td-header-type td-header-type"
+      title="string"
     >
       string
     </div>
