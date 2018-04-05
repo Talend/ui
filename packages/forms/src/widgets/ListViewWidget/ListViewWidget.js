@@ -19,6 +19,18 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
 
+function areOptionsEqual(options, nextOptions) {
+	if (options.enumOptions.length !== nextOptions.enumOptions.length) {
+		return false;
+	}
+	for (let index = 0; index < options.enumOptions.length; index += 1) {
+		if (options.enumOptions[index].value !== nextOptions.enumOptions[index].value) {
+			return false;
+		}
+	}
+	return true;
+}
+
 function getItems(options, value, instance) {
 	return options.enumOptions.map((option, index) => ({
 		index,
@@ -80,9 +92,14 @@ class ListViewWidget extends React.Component {
 	componentWillReceiveProps(nextProps) {
 		const options = this.props.options || {};
 		const nextOptions = nextProps.options || {};
-		if (options.enumOptions !== nextOptions.enumOptions) {
-			const items = getItems(nextOptions, nextProps.value, this);
-			this.setState({ items, displayedItems: items });
+		if (!areOptionsEqual(options, nextOptions)) {
+			const items = getItems(nextOptions, this.props.value, this);
+			this.setState({
+				items,
+				displayedItems: items,
+				searchCriteria: null,
+				toggleAllChecked: items.length === items.filter(i => i.checked).length,
+			});
 		}
 	}
 
