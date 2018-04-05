@@ -76,14 +76,14 @@ class ListViewWidget extends React.Component {
 	componentWillReceiveProps(nextProps) {
 		const options = this.props.options || {};
 		const nextOptions = nextProps.options || {};
-		const items = nextOptions.enumOptions.map((option, index) => ({
-			index,
-			checked: nextProps.value.indexOf(option.value) !== -1,
-			label: option.label,
-			value: option.value,
-			onChange: onItemChange.bind(this),
-		}));
 		if (options.enumOptions !== nextOptions.enumOptions) {
+			const items = nextOptions.enumOptions.map((option, index) => ({
+				index,
+				checked: nextProps.value.indexOf(option.value) !== -1,
+				label: option.label,
+				value: option.value,
+				onChange: onItemChange.bind(this),
+			}));
 			this.setState({ items, displayedItems: items });
 		}
 	}
