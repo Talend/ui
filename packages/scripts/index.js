@@ -35,6 +35,9 @@ switch (command) {
 	case 'lint:es':
 		result = require('./scripts/lint-es')(env, presetApi);
 		break;
+	case 'test':
+		result = require('./scripts/test')(env, presetApi);
+		break;
 	default:
 		console.log(`Command ${command} not found.`);
 		process.exit(-1);
