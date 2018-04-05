@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
-* This component displays a data as a label with mandatory info.
-* The data must be an object { value: string, mandatory: boolean }.
-*/
+ * This component displays a data as a label with mandatory info.
+ * The data must be an object { value: string, mandatory: boolean }.
+ */
 export default function MandatoryField({ element, data, className }) {
 	const label = data.value;
 	const mandatory = data.mandatory;

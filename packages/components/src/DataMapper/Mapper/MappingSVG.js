@@ -291,13 +291,7 @@ function getAnchorParams(anchor) {
 }
 
 function renderAnchor(anchor) {
-	return (
-		<Anchor
-			key={anchor.key}
-			anchor={anchor}
-			params={getAnchorParams(anchor)}
-		/>
-	);
+	return <Anchor key={anchor.key} anchor={anchor} params={getAnchorParams(anchor)} />;
 }
 
 function renderGradientStop(stop) {

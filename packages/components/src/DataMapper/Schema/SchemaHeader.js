@@ -31,10 +31,7 @@ export default class SchemaHeader extends Component {
 		return (
 			<div className={`schema-header ${side}`}>
 				<SchemaName dataAccessor={dataAccessor} schema={schema} side={side} />
-				{
-					filters.map(filter =>
-						renderFilter(filter, filterComponents, this.onFilterChange, side))
-				}
+				{filters.map(filter => renderFilter(filter, filterComponents, this.onFilterChange, side))}
 			</div>
 		);
 	}
