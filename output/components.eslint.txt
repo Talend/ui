@@ -117,6 +117,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/NameFilter.js
   17:9  error  Expected 'this' to be used by class method 'getName'  class-methods-use-this
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/NameFilterComponent.test.js
+   1:1  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+   4:1  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+  11:1  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/ListConfiguration.js
    6:13  error  Expected 'this' to be used by class method 'getRenderer'  class-methods-use-this
    6:14  error  'side' is defined but never used                          no-unused-vars
@@ -182,5 +187,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 114 problems (113 errors, 1 warning)
+✖ 117 problems (116 errors, 1 warning)
 
