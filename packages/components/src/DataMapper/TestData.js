@@ -1,4 +1,3 @@
-
 export const element1 = {
 	id: 'elem_1',
 	name: 'Firstname',
