@@ -90,8 +90,8 @@ class ListViewWidget extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const options = this.props.options || {};
-		const nextOptions = nextProps.options || {};
+		const options = this.props.options;
+		const nextOptions = nextProps.options;
 		if (!areOptionsEqual(options, nextOptions)) {
 			const items = getItems(nextOptions, this.props.value, this);
 			this.setState({
