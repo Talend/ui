@@ -36,7 +36,7 @@ export const element4 = {
 };
 
 export const schema = {
-  id: '5df4g6ds4df564s',
-  name: 'schema',
-  elements: [ element1, element2, element3, element4 ],
+	id: '5df4g6ds4df564s',
+	name: 'schema',
+	elements: [element1, element2, element3, element4],
 };
