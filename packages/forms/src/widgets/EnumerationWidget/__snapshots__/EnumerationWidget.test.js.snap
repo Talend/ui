@@ -10263,7 +10263,10 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
 <EnumerationForm
   schema={
     Object {
+      "addFromFileDataFeature": "file.add",
       "allowImport": true,
+      "importFileDataFeature": "file.import",
+      "overwriteExistingDataFeature": "file.overwrite",
     }
   }
   t={[Function]}
@@ -10286,16 +10289,19 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
             "onClick": [Function],
           },
           Object {
+            "data-feature": "file.import",
             "displayMode": "dropdown",
             "icon": "talend-download",
             "id": "upload",
             "items": Array [
               Object {
+                "data-feature": "file.add",
                 "id": "append-uploding",
                 "label": "Add values from a file",
                 "onClick": [Function],
               },
               Object {
+                "data-feature": "file.overwrite",
                 "id": "append-uploding",
                 "label": "Overwrite existing values",
                 "onClick": [Function],
@@ -10410,16 +10416,19 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
               "onClick": [Function],
             },
             Object {
+              "data-feature": "file.import",
               "displayMode": "dropdown",
               "icon": "talend-download",
               "id": "upload",
               "items": Array [
                 Object {
+                  "data-feature": "file.add",
                   "id": "append-uploding",
                   "label": "Add values from a file",
                   "onClick": [Function],
                 },
                 Object {
+                  "data-feature": "file.overwrite",
                   "id": "append-uploding",
                   "label": "Overwrite existing values",
                   "onClick": [Function],
@@ -10540,16 +10549,19 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "data-feature": "file.import",
                   "displayMode": "dropdown",
                   "icon": "talend-download",
                   "id": "upload",
                   "items": Array [
                     Object {
+                      "data-feature": "file.add",
                       "id": "append-uploding",
                       "label": "Add values from a file",
                       "onClick": [Function],
                     },
                     Object {
+                      "data-feature": "file.overwrite",
                       "id": "append-uploding",
                       "label": "Overwrite existing values",
                       "onClick": [Function],
@@ -10666,16 +10678,19 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "data-feature": "file.import",
                     "displayMode": "dropdown",
                     "icon": "talend-download",
                     "id": "upload",
                     "items": Array [
                       Object {
+                        "data-feature": "file.add",
                         "id": "append-uploding",
                         "label": "Add values from a file",
                         "onClick": [Function],
                       },
                       Object {
+                        "data-feature": "file.overwrite",
                         "id": "append-uploding",
                         "label": "Overwrite existing values",
                         "onClick": [Function],
@@ -10795,11 +10810,13 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                     items={
                       Array [
                         Object {
+                          "data-feature": "file.add",
                           "id": "append-uploding",
                           "label": "Add values from a file",
                           "onClick": [Function],
                         },
                         Object {
+                          "data-feature": "file.overwrite",
                           "id": "append-uploding",
                           "label": "Overwrite existing values",
                           "onClick": [Function],
@@ -10954,10 +10971,12 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                                     >
                                       <MenuItem
                                         bsClass="dropdown"
+                                        data-feature="file.add"
                                         disabled={false}
                                         divider={false}
                                         eventKey={
                                           Object {
+                                            "data-feature": "file.add",
                                             "id": "append-uploding",
                                             "label": "Add values from a file",
                                             "onClick": [Function],
@@ -10977,6 +10996,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                                         >
                                           <SafeAnchor
                                             componentClass="a"
+                                            data-feature="file.add"
                                             id="append-uploding"
                                             label="Add values from a file"
                                             onClick={[Function]}
@@ -10985,6 +11005,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                                             tabIndex="-1"
                                           >
                                             <a
+                                              data-feature="file.add"
                                               href="#"
                                               id="append-uploding"
                                               label="Add values from a file"
@@ -11000,10 +11021,12 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                                       </MenuItem>
                                       <MenuItem
                                         bsClass="dropdown"
+                                        data-feature="file.overwrite"
                                         disabled={false}
                                         divider={false}
                                         eventKey={
                                           Object {
+                                            "data-feature": "file.overwrite",
                                             "id": "append-uploding",
                                             "label": "Overwrite existing values",
                                             "onClick": [Function],
@@ -11023,6 +11046,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                                         >
                                           <SafeAnchor
                                             componentClass="a"
+                                            data-feature="file.overwrite"
                                             id="append-uploding"
                                             label="Overwrite existing values"
                                             onClick={[Function]}
@@ -11031,6 +11055,7 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                                             tabIndex="-1"
                                           >
                                             <a
+                                              data-feature="file.overwrite"
                                               href="#"
                                               id="append-uploding"
                                               label="Overwrite existing values"
@@ -11153,16 +11178,19 @@ exports[`EnumerationWidget upload file should add a upload icon 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "data-feature": "file.import",
                   "displayMode": "dropdown",
                   "icon": "talend-download",
                   "id": "upload",
                   "items": Array [
                     Object {
+                      "data-feature": "file.add",
                       "id": "append-uploding",
                       "label": "Add values from a file",
                       "onClick": [Function],
                     },
                     Object {
+                      "data-feature": "file.overwrite",
                       "id": "append-uploding",
                       "label": "Overwrite existing values",
                       "onClick": [Function],
@@ -11316,7 +11344,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
   }
   schema={
     Object {
+      "addFromFileDataFeature": "file.add",
       "allowImport": true,
+      "importFileDataFeature": "file.import",
+      "overwriteExistingDataFeature": "file.overwrite",
     }
   }
   t={[Function]}
@@ -12727,7 +12758,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
   }
   schema={
     Object {
+      "addFromFileDataFeature": "file.add",
       "allowImport": true,
+      "importFileDataFeature": "file.import",
+      "overwriteExistingDataFeature": "file.overwrite",
     }
   }
   t={[Function]}
@@ -12750,16 +12784,19 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             "onClick": [Function],
           },
           Object {
+            "data-feature": "file.import",
             "displayMode": "dropdown",
             "icon": "talend-download",
             "id": "upload",
             "items": Array [
               Object {
+                "data-feature": "file.add",
                 "id": "append-uploding",
                 "label": "Add values from a file",
                 "onClick": [Function],
               },
               Object {
+                "data-feature": "file.overwrite",
                 "id": "append-uploding",
                 "label": "Overwrite existing values",
                 "onClick": [Function],
@@ -12891,16 +12928,19 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               "onClick": [Function],
             },
             Object {
+              "data-feature": "file.import",
               "displayMode": "dropdown",
               "icon": "talend-download",
               "id": "upload",
               "items": Array [
                 Object {
+                  "data-feature": "file.add",
                   "id": "append-uploding",
                   "label": "Add values from a file",
                   "onClick": [Function],
                 },
                 Object {
+                  "data-feature": "file.overwrite",
                   "id": "append-uploding",
                   "label": "Overwrite existing values",
                   "onClick": [Function],
@@ -13038,16 +13078,19 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onClick": [Function],
                 },
                 Object {
+                  "data-feature": "file.import",
                   "displayMode": "dropdown",
                   "icon": "talend-download",
                   "id": "upload",
                   "items": Array [
                     Object {
+                      "data-feature": "file.add",
                       "id": "append-uploding",
                       "label": "Add values from a file",
                       "onClick": [Function],
                     },
                     Object {
+                      "data-feature": "file.overwrite",
                       "id": "append-uploding",
                       "label": "Overwrite existing values",
                       "onClick": [Function],
@@ -13181,16 +13224,19 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     "onClick": [Function],
                   },
                   Object {
+                    "data-feature": "file.import",
                     "displayMode": "dropdown",
                     "icon": "talend-download",
                     "id": "upload",
                     "items": Array [
                       Object {
+                        "data-feature": "file.add",
                         "id": "append-uploding",
                         "label": "Add values from a file",
                         "onClick": [Function],
                       },
                       Object {
+                        "data-feature": "file.overwrite",
                         "id": "append-uploding",
                         "label": "Overwrite existing values",
                         "onClick": [Function],
@@ -13310,11 +13356,13 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     items={
                       Array [
                         Object {
+                          "data-feature": "file.add",
                           "id": "append-uploding",
                           "label": "Add values from a file",
                           "onClick": [Function],
                         },
                         Object {
+                          "data-feature": "file.overwrite",
                           "id": "append-uploding",
                           "label": "Overwrite existing values",
                           "onClick": [Function],
@@ -13469,10 +13517,12 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     >
                                       <MenuItem
                                         bsClass="dropdown"
+                                        data-feature="file.add"
                                         disabled={false}
                                         divider={false}
                                         eventKey={
                                           Object {
+                                            "data-feature": "file.add",
                                             "id": "append-uploding",
                                             "label": "Add values from a file",
                                             "onClick": [Function],
@@ -13492,6 +13542,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         >
                                           <SafeAnchor
                                             componentClass="a"
+                                            data-feature="file.add"
                                             id="append-uploding"
                                             label="Add values from a file"
                                             onClick={[Function]}
@@ -13500,6 +13551,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             tabIndex="-1"
                                           >
                                             <a
+                                              data-feature="file.add"
                                               href="#"
                                               id="append-uploding"
                                               label="Add values from a file"
@@ -13515,10 +13567,12 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       </MenuItem>
                                       <MenuItem
                                         bsClass="dropdown"
+                                        data-feature="file.overwrite"
                                         disabled={false}
                                         divider={false}
                                         eventKey={
                                           Object {
+                                            "data-feature": "file.overwrite",
                                             "id": "append-uploding",
                                             "label": "Overwrite existing values",
                                             "onClick": [Function],
@@ -13538,6 +13592,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         >
                                           <SafeAnchor
                                             componentClass="a"
+                                            data-feature="file.overwrite"
                                             id="append-uploding"
                                             label="Overwrite existing values"
                                             onClick={[Function]}
@@ -13546,6 +13601,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             tabIndex="-1"
                                           >
                                             <a
+                                              data-feature="file.overwrite"
                                               href="#"
                                               id="append-uploding"
                                               label="Overwrite existing values"
@@ -13668,16 +13724,19 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onClick": [Function],
                 },
                 Object {
+                  "data-feature": "file.import",
                   "displayMode": "dropdown",
                   "icon": "talend-download",
                   "id": "upload",
                   "items": Array [
                     Object {
+                      "data-feature": "file.add",
                       "id": "append-uploding",
                       "label": "Add values from a file",
                       "onClick": [Function],
                     },
                     Object {
+                      "data-feature": "file.overwrite",
                       "id": "append-uploding",
                       "label": "Overwrite existing values",
                       "onClick": [Function],

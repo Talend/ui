@@ -15,6 +15,7 @@ describe('Header', () => {
 				icon: 'talend-plus',
 				id: 'add',
 				onClick: jest.fn(), // provided click callback
+				'data-feature': 'item.add',
 				items: [{
 					label: 'Add values from a file',
 					id: 'append-uploding',

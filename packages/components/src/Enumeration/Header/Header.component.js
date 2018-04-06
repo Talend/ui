@@ -33,6 +33,7 @@ function getAction(action, index) {
 				hideLabel
 				pullRight
 				link
+				data-feature={action['data-feature']}
 			/>
 		);
 	}

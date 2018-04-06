@@ -233,6 +233,9 @@ describe('EnumerationWidget', () => {
 				<EnumerationWidget
 					schema={{
 						allowImport: true,
+						overwriteExistingDataFeature: 'file.overwrite',
+						addFromFileDataFeature: 'file.add',
+						importFileDataFeature: 'file.import',
 					}}
 				/>,
 			);
@@ -419,6 +422,9 @@ describe('EnumerationWidget', () => {
 						id="enumeration"
 						schema={{
 							allowImport: true,
+							overwriteExistingDataFeature: 'file.overwrite',
+							addFromFileDataFeature: 'file.add',
+							importFileDataFeature: 'file.import'
 						}}
 						registry={registry}
 						formData={[
