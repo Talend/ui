@@ -70,17 +70,17 @@ function renderBezierCurve(params, style, connectionId) {
 					attributeType="CSS"
 					attributeName="stroke-width"
 					from="3"
-					to="6"
-					dur="0.15s"
+					to="7"
+					dur="0.2s"
 					begin="indefinite"
 				/>
 				<animate
 					attributeType="CSS"
 					attributeName="stroke-width"
-					from="6"
+					from="7"
 					to="3"
-					dur="0.15s"
-					begin={`anim-${connectionId}.begin + 0.15s`}
+					dur="0.2s"
+					begin={`anim-${connectionId}.begin + 0.2s`}
 				/>
 			</path>
 			<path
