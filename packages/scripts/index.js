@@ -9,7 +9,7 @@ printSeparator('CONFIGURATION');
 
 const command = process.argv[2];
 const options = process.argv.slice(3);
-console.log(`Running command: ${command} with options: ${options}`);
+console.log(`Running command: ${command}`, `With options: ${options}`);
 const mode = command === 'start' ? 'development' : 'production';
 console.log(`Talend scripts mode : ${mode}`);
 
