@@ -20,7 +20,7 @@ import classNames from 'classnames';
 function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, className, ...rest }) {
 	let dataFeature = rest['data-feature'];
 	if (dataFeature) {
-		dataFeature += (checked ? '.disable' : '.enable');
+		dataFeature += checked ? '.disable' : '.enable';
 	}
 	return (
 		<div className={classNames('checkbox tc-toggle', className)}>
