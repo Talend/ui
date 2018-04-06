@@ -6,10 +6,3 @@ exports[`Redirect should dispatch a redirect action 1`] = `
   Redirect ...
 </div>
 `;
-
-exports[`Redirect should dispatch a redirect action if to props given 1`] = `
-<div>
-  <CircularProgress />
-  Redirect ...
-</div>
-`;

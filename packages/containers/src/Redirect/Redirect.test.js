@@ -23,6 +23,5 @@ describe('Redirect', () => {
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
 		expect(action.cmf.routerReplace).toBe('/to');
-		expect(result).toMatchSnapshot();
 	});
 });
