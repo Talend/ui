@@ -424,7 +424,7 @@ describe('EnumerationWidget', () => {
 							allowImport: true,
 							overwriteExistingDataFeature: 'file.overwrite',
 							addFromFileDataFeature: 'file.add',
-							importFileDataFeature: 'file.import'
+							importFileDataFeature: 'file.import',
 						}}
 						registry={registry}
 						formData={[
