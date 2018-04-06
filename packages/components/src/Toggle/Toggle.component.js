@@ -17,10 +17,17 @@ import classNames from 'classnames';
  *
  * @return XML(JSX) React pure component
  * **/
-function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, className }) {
+function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, className, ...rest }) {
+	let dataFeature = rest['data-feature'];
+	if (dataFeature) {
+		dataFeature += (checked ? '.enable' : '.disable');
+	}
 	return (
 		<div className={classNames('checkbox tc-toggle', className)}>
-			<label htmlFor={id}>
+			<label
+				htmlFor={id}
+				data-feature={dataFeature}
+			>
 				<input
 					type="checkbox"
 					id={id}

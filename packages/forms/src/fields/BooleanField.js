@@ -59,6 +59,7 @@ function BooleanField(props) {
 		readonly,
 		registry,
 		formContext,
+		'data-feature': schema['data-feature'],
 	};
 	if (widget) {
 		const Widget = getWidget(schema, widget, widgets);
