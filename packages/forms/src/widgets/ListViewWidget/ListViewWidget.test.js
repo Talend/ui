@@ -54,6 +54,25 @@ function simulateSearch(wrapper, value) {
 }
 
 describe('ListViewWidget', () => {
+	it('should detect props change to update state.items', () => {
+		const values = ['A', 'B', 'C', 'D'];
+		const nextValues = ['E', 'F', 'G', 'H'];
+		let wrapper = mount(
+			<ListViewWidget.WrappedComponent {...generateProps(values, values.slice(0, 2))} />,
+		);
+		const items = wrapper.state('items');
+		expect(wrapper.state('items').length).toEqual(4);
+		expect(wrapper.state('items')[0].label).toEqual('A');
+
+		// when
+		wrapper = wrapper.setProps(generateProps(nextValues, nextValues.slice(0, 2)));
+		// then
+
+		expect(items).not.toEqual(wrapper.state('items'));
+		expect(wrapper.state('items').length).toEqual(4);
+		expect(wrapper.state('items')[0].label).toEqual('E');
+	});
+
 	describe('toggleAll', () => {
 		it('should check every items', () => {
 			// given

@@ -584,7 +584,7 @@ export default class Mapper extends Component {
 		}
 	}
 
-	revealConnection(source, target) {		
+	revealConnection(source, target) {
 		this.inputSchemaRef.reveal(source);
 		this.outputSchemaRef.reveal(target);
 		let gMap = this.getMappingComponent();
