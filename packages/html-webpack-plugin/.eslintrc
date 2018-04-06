@@ -2,11 +2,10 @@
   "extends": "airbnb",
   "rules": {
     "arrow-parens": [2, "as-needed"],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
     "no-mixed-operators": "off",
     "no-tabs": "off",
-    "no-param-reassign": "off",
+    "no-param-reassign": "off"
   },
   "env": {
     "es6": true,

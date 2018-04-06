@@ -14,16 +14,12 @@ const DATA = {
 	],
 };
 
-const OPTIONS = {
-	bodyBefore: [],
-};
-
 describe('@talend/html-webpack-plugin', () => {
 	let plugin;
 	let compiler;
 	let compilation;
-	let fnc;
-	let callback;
+	let pluginExecFn;
+	let pluginExecCallback;
 
 	function refresh(options) {
 		plugin = new Plugin(options);
@@ -33,55 +29,53 @@ describe('@talend/html-webpack-plugin', () => {
 		plugin.apply(compiler);
 		compilation = compiler.plugin.mock.calls[0][1];
 		compilation(compiler);
-		fnc = compiler.plugin.mock.calls[1][1];
-		callback = jest.fn();
+		pluginExecFn = compiler.plugin.mock.calls[1][1];
+		pluginExecCallback = jest.fn();
 	}
-
-	beforeEach(() => {
-		refresh();
-	});
 
 	it('should support options', () => {
 		refresh({ foo: 'bar' });
 		expect(plugin.options.foo).toBe('bar');
 	});
 	it('should apply call compiler/plugin function', () => {
+		refresh();
 		expect(compiler.plugin).toHaveBeenCalled();
 		expect(compiler.plugin.mock.calls[0][0]).toBe('compilation');
 		expect(compiler.plugin.mock.calls[1][0]).toBe('html-webpack-plugin-alter-asset-tags');
-		expect(typeof fnc).toBe('function');
+		expect(typeof pluginExecFn).toBe('function');
 	});
-	it('should call with DATA without options do not modify them', () => {
-		fnc(DATA, callback);
-		expect(callback).toHaveBeenCalledWith(null, DATA);
+	it('should not modify data when no option is provided', () => {
+		refresh();
+		pluginExecFn(DATA, pluginExecCallback);
+		expect(pluginExecCallback).toHaveBeenCalledWith(null, DATA);
 	});
-	it('should call with option bodyBefore add it to the content', () => {
+	it('should add data before content based on bodyBefore option', () => {
 		const item = { foo: 'bar' };
 		refresh({ bodyBefore: [item] });
-		fnc(DATA, callback);
-		expect(callback.mock.calls[0][1].body[0]).toBe(item);
+		pluginExecFn(DATA, pluginExecCallback);
+		expect(pluginExecCallback.mock.calls[0][1].body[0]).toBe(item);
 	});
-	it('should call with option loadCSSAsync modify media', () => {
+	it('hould modify <link> media with loadCSSAsync option', () => {
 		refresh({ loadCSSAsync: true });
-		fnc(DATA, callback);
-		expect(callback.mock.calls[0][1].head[0].attributes).toMatchObject({
+		pluginExecFn(DATA, pluginExecCallback);
+		expect(pluginExecCallback.mock.calls[0][1].head[0].attributes).toMatchObject({
 			media: 'none',
 			onload: 'media=\'all\'',
 		});
 	});
-	it('should call with option versions to add TALEND_APP_INFO global', () => {
+	it('should add TALEND_APP_INFO global var with versions option', () => {
 		refresh({ versions: { '@talend/my-app': '1.2.3' } });
-		fnc(DATA, callback);
-		expect(callback.mock.calls[0][1].body[0]).toMatchObject({
+		pluginExecFn(DATA, pluginExecCallback);
+		expect(pluginExecCallback.mock.calls[0][1].body[0]).toMatchObject({
 			tagName: 'script',
-			innerHTML: 'TALEND_APP_INFO={\"@talend/my-app\":\"1.2.3\"}',
+			innerHTML: 'TALEND_APP_INFO={"@talend/my-app":"1.2.3"}',
 		});
 	});
-	it('should call with option appLoaderIcon to add inline style in head', () => {
+	it('should inline style in head with appLoaderIcon option', () => {
 		const options = { appLoaderIcon: "url('data:image/svg+xml;base64,PHN2...')" };
 		refresh(options);
-		fnc(DATA, callback);
-		expect(callback.mock.calls[0][1].head[0].innerHTML).toBe(
+		pluginExecFn(DATA, pluginExecCallback);
+		expect(pluginExecCallback.mock.calls[0][1].head[0].innerHTML).toBe(
 			AppLoader.getLoaderStyle(options.appLoaderIcon)
 		);
 	});
