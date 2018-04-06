@@ -101,7 +101,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
-    data-feature="toggle.enable"
+    data-feature="toggle.disable"
     htmlFor="id"
   >
     <input
@@ -125,7 +125,7 @@ exports[`Toggle should render a disabled Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
-    data-feature="toggle.disable"
+    data-feature="toggle.enable"
     htmlFor="id"
   >
     <input
