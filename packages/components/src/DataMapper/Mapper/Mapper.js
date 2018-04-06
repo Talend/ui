@@ -86,7 +86,7 @@ export default class Mapper extends Component {
 		this.getConnections = this.getConnections.bind(this);
 		this.getYPosition = this.getYPosition.bind(this);
 		this.onScroll = this.onScroll.bind(this);
-		this.revealConnection = this.revealConnection.bind(this);
+		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.updateInputSchemaRef = this.updateInputSchemaRef.bind(this);
 		this.updateOutputSchemaRef = this.updateOutputSchemaRef.bind(this);
 		this.updateGMapRef = this.updateGMapRef.bind(this);
@@ -109,6 +109,14 @@ export default class Mapper extends Component {
 			this.visibleOutputElements = null;
 			this.outputFilterVersion = nextProps.dataAccessor.getFilterVersion(this.props.outputSchema);
 		}
+	}
+
+	getMappingComponent() {
+		let comp = this.gMapRef;
+		if (this.gMapRef.getWrappedInstance) {
+			comp = this.gMapRef.getWrappedInstance();
+		}
+		return comp;
 	}
 
 	onScroll(side) {
@@ -138,10 +146,7 @@ export default class Mapper extends Component {
 			default:
 				break;
 		}
-		let gMap = this.gMapRef;
-		if (this.gMapRef.getWrappedInstance) {
-			gMap = this.gMapRef.getWrappedInstance();
-		}
+		let gMap = this.getMappingComponent();
 		if (gMap.update) {
 			gMap.update();
 		}
@@ -545,7 +550,7 @@ export default class Mapper extends Component {
 		};
 	}
 
-	reveal(selection) {
+	revealSelection(selection) {
 		if (!selection) return;
 		if (selection.side === Constants.MappingSide.INPUT) {
 			this.inputSchemaRef.reveal(selection.element);
@@ -554,7 +559,7 @@ export default class Mapper extends Component {
 		}
 	}
 
-	revealConnection(element, side) {
+	revealConnectedElement(element, side) {
 		const dataAccessor = this.props.dataAccessor;
 		const mappingItems = dataAccessor.getMappingItemsWithElement(this.props.mapping, element, side);
 		if (mappingItems && mappingItems.length > 0) {
@@ -568,6 +573,24 @@ export default class Mapper extends Component {
 					dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
 				);
 			}
+		}
+	}
+
+	revealElement(element, side) {
+		if (side === Constants.MappingSide.INPUT) {
+			this.inputSchemaRef.reveal(element);
+		} else {
+			this.outputSchemaRef.reveal(element);
+		}
+	}
+
+	revealConnection(source, target) {		
+		this.inputSchemaRef.reveal(source);
+		this.outputSchemaRef.reveal(target);
+		let gMap = this.getMappingComponent();
+		if (gMap.reveal) {
+			const connectionKey = this.getConnectionKey(source, target);
+			gMap.reveal(connectionKey);
 		}
 	}
 
@@ -616,7 +639,7 @@ export default class Mapper extends Component {
 					SchemaRenderer={schemaConfiguration.getRenderer(inputSide)}
 					side={inputSide}
 					onScroll={this.onScroll}
-					revealConnection={this.revealConnection}
+					revealConnectedElement={this.revealConnectedElement}
 					mappedElements={getMappedElements(dataAccessor, mapping, inputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
 					columnKeys={schemaConfiguration.getColumns(inputSide)}
@@ -629,7 +652,7 @@ export default class Mapper extends Component {
 					SchemaRenderer={schemaConfiguration.getRenderer(outputSide)}
 					side={outputSide}
 					onScroll={this.onScroll}
-					revealConnection={this.revealConnection}
+					revealConnectedElement={this.revealConnectedElement}
 					mappedElements={getMappedElements(dataAccessor, mapping, outputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
 					columnKeys={schemaConfiguration.getColumns(outputSide)}

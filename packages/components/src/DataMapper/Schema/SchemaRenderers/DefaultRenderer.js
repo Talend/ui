@@ -20,7 +20,7 @@ function renderSchemaElement(props, element) {
 		canDrop,
 		drop,
 		endDrag,
-		revealConnection,
+		revealConnectedElement,
 		isMapped,
 		isSelected,
 		isHighlighted,
@@ -53,7 +53,7 @@ function renderSchemaElement(props, element) {
 				canDrop={canDrop}
 				drop={drop}
 				endDrag={endDrag}
-				revealConnection={revealConnection}
+				revealConnectedElement={revealConnectedElement}
 			/>
 		);
 	}
@@ -68,7 +68,7 @@ function renderSchemaElement(props, element) {
 			onSelect={onSelect}
 			onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
-			revealConnection={revealConnection}
+			revealConnectedElement={revealConnectedElement}
 		/>
 	);
 }
@@ -89,7 +89,7 @@ renderSchemaElement.propTypes = {
 	canDrop: PropTypes.func,
 	drop: PropTypes.func,
 	endDrag: PropTypes.func,
-	revealConnection: PropTypes.func,
+	revealConnectedElement: PropTypes.func,
 	isMapped: PropTypes.func,
 	isSelected: PropTypes.func,
 	isHighlighted: PropTypes.func,

@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as Constants from '../Constants';
 
-function renderLine(params, style) {
-	return <line className={style} x1={params.x1} y1={params.y1} x2={params.x2} y2={params.y2} />;
+function renderLine(params, style, connectionId) {
+	return (
+		<line
+			id={connectionId}
+			className={style}
+			x1={params.x1}
+			y1={params.y1}
+			x2={params.x2}
+			y2={params.y2}
+		/>
+	);
 }
 
 function getClassname(part, params, style) {
@@ -43,9 +52,9 @@ function getRadius(style) {
 	}
 }
 
-function renderBezierCurve(params, style) {
+function renderBezierCurve(params, style, connectionId) {
 	return (
-		<g>
+		<g id={connectionId}>
 			<circle
 				className={getClassname(Constants.Connection.PART.START, params, style)}
 				cx={params.x1}
@@ -55,7 +64,25 @@ function renderBezierCurve(params, style) {
 			<path
 				className={getClassname(Constants.Connection.PART.CURVE, params, style)}
 				d={params.path}
-			/>
+			>
+				<animate
+					id={`anim-${connectionId}`}
+					attributeType="CSS"
+					attributeName="stroke-width"
+					from="3"
+					to="6"
+					dur="0.15s"
+					begin="indefinite"
+				/>
+				<animate
+					attributeType="CSS"
+					attributeName="stroke-width"
+					from="6"
+					to="3"
+					dur="0.15s"
+					begin={`anim-${connectionId}.begin + 0.15s`}
+				/>
+			</path>
 			<path
 				className={getClassname(Constants.Connection.PART.END, params, style)}
 				d={params.arrow}
@@ -64,12 +91,12 @@ function renderBezierCurve(params, style) {
 	);
 }
 
-function renderConnection(params, style) {
+function renderConnection(params, style, connectionId) {
 	switch (params.kind) {
 		case 'line':
-			return renderLine(params, style);
+			return renderLine(params, style, connectionId);
 		case 'bezier':
-			return renderBezierCurve(params, style);
+			return renderBezierCurve(params, style, connectionId);
 		default:
 			return <div>Cannot render connection</div>;
 	}
@@ -77,12 +104,13 @@ function renderConnection(params, style) {
 
 export default class ConnectionSVG extends Component {
 	render() {
-		const { params, style } = this.props;
-		return renderConnection(params, style);
+		const { params, style, connectionId } = this.props;
+		return renderConnection(params, style, connectionId);
 	}
 }
 
 ConnectionSVG.propTypes = {
 	params: PropTypes.object,
 	style: PropTypes.string,
+	connectionId: PropTypes.string,
 };

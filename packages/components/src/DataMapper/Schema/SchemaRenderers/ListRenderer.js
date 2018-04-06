@@ -125,7 +125,7 @@ export default class ListRenderer extends Component {
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
-		this.revealConnection = this.revealConnection.bind(this);
+		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
 		this.onLeaveElement = this.onLeaveElement.bind(this);
 		this.classNameProvider = new SchemaClassNameProvider();
@@ -145,9 +145,9 @@ export default class ListRenderer extends Component {
 		this.props.onSelect(ev.ctrlKey, element, this.props.side);
 	}
 
-	revealConnection(ev) {
+	revealConnectedElement(ev) {
 		const element = this.getElement(ev);
-		this.props.revealConnection(element, this.props.side);
+		this.props.revealConnectedElement(element, this.props.side);
 	}
 
 	onEnterElement(element) {
@@ -181,7 +181,7 @@ export default class ListRenderer extends Component {
 				draggable={draggable}
 				dndListener={this.dndListener}
 				onClick={this.select}
-				onDoubleClick={this.revealConnection}
+				onDoubleClick={this.revealConnectedElement}
 				updateListNodeRef={updateContentNodeRef}
 				onEnterElement={this.onEnterElement}
 				onLeaveElement={this.onLeaveElement}

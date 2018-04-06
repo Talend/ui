@@ -175,9 +175,11 @@ function getBezierParams(connection) {
 }
 
 function renderConnection(connection) {
+	const connectionId = `${connection.key}-${connection.style}`;
 	return (
 		<Connection
-			key={`${connection.key}-${connection.style}`}
+			connectionId={connectionId}
+			key={connectionId}
 			params={getBezierParams(connection)}
 			style={connection.style}
 		/>
@@ -346,6 +348,18 @@ class MappingSVG extends Component {
 
 	update() {
 		this.forceUpdate();
+	}
+
+	reveal(connectionKey) {
+		const styleKeys = Object.keys(Constants.Connection.STYLE);
+		for (let i = 0; i < styleKeys.length; i += 1) {
+			const style = Constants.Connection.STYLE[styleKeys[i]];
+			const animationId = `anim-${connectionKey}-${style}`;
+			const animation = document.getElementById(animationId);
+			if (animation && animation.beginElement) {
+				animation.beginElement();
+			}
+		}
 	}
 
 	updateSVGRef(ref) {

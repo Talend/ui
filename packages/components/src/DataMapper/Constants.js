@@ -5,6 +5,14 @@ export const Events = {
 	ENTER_ELEM: 'enter-elem',
 	LEAVE_ELEM: 'leave-elem',
 	FILTERING: 'filtering',
+	UNDO: 'undo',
+	REDO: 'redo',
+};
+
+export const Commands = {
+	ADD_MAPPING: 'add-mapping',
+	REMOVE_MAPPING: 'remove-mapping',
+	CLEAR_MAPPING: 'clear-mapping',
 };
 
 /**
@@ -98,6 +106,8 @@ export const Keys = {
 	ENTER: 13,
 	ESCAPE: 27,
 	DELETE: 46,
+	REDO: 89,
+	UNDO: 90,
 };
 
 export const Configs = {

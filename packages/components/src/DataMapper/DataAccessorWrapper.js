@@ -5,15 +5,17 @@ export default class DataAccessorWrapper {
 		this.dataAccessor = dataAccessor;
 		this.filters = {};
 		this.cache = {};
+		this.schema2side = {};
 		this.mappingVersion = 0;
 	}
 
-	populateCache(schema) {
+	populateCache(schema, side) {
 		const key = this.getSchemaId(schema);
-		this.cache[key] = {};
+		this.schema2side[key] = side;
+		this.cache[side] = {};
 		const elements = this.getSchemaElements(schema, false);
 		for (let i = 0; i < elements.length; i += 1) {
-			this.cache[key][this.getElementId(elements[i])] = elements[i];
+			this.cache[side][this.getElementId(elements[i])] = elements[i];
 		}
 	}
 
@@ -21,8 +23,12 @@ export default class DataAccessorWrapper {
 		return this.cache;
 	}
 
-	getElementFromCache(schema, id) {
-		return this.cache[this.getSchemaId(schema)][id];
+	getSchemaElementFromCache(schema, id) {
+		return this.cache[this.schema2side[this.getSchemaId(schema)]][id];
+	}
+
+	getElementFromCache(side, id) {
+		return this.cache[side][id];
 	}
 
 	addFilter(schema, filter) {
@@ -202,7 +208,7 @@ export default class DataAccessorWrapper {
 
 	getSchemaElementFromId(schema, id) {
 		if (this.isCacheInitialized()) {
-			return this.getElementFromCache(schema, id);
+			return this.getSchemaElementFromCache(schema, id);
 		}
 		if (this.dataAccessor.getSchemaElementFromId) {
 			return this.dataAccessor.getSchemaElementFromId(schema, id);
@@ -303,6 +309,16 @@ export default class DataAccessorWrapper {
 	addMapping(mapping, source, target) {
 		this.mappingVersion += 1;
 		return this.dataAccessor.addMapping(mapping, source, target);
+	}
+
+	addMappingItems(mapping, mappingItems) {
+		let updatedMapping = mapping;
+		for (let i = 0; i < mappingItems.length; i += 1) {
+			const item = mappingItems[i];
+			updatedMapping = this.dataAccessor.addMapping(updatedMapping, item.source, item.target);
+		}
+		this.mappingVersion += 1;
+		return updatedMapping;
 	}
 
 	/**

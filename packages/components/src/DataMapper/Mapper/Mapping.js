@@ -44,6 +44,9 @@ export default class Mapping extends Component {
 			update() {
 				// LOG
 			},
+			reveal(key) {
+				// LOG
+			},
 			getMousePos(offset) {
 				return offset;
 			},
@@ -52,6 +55,10 @@ export default class Mapping extends Component {
 
 	update() {
 		this.getArea().update();
+	}
+
+	reveal(connectionKey) {		
+		this.getArea().reveal(connectionKey);
 	}
 
 	dndInProgress(offset) {
