@@ -32,6 +32,7 @@ exports[`Header should render header input with error 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-check"
       title={null}
     >
       <use
@@ -54,6 +55,7 @@ exports[`Header should render header input with error 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
@@ -91,6 +93,7 @@ exports[`Header should render header input with two buttons 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-check"
       title={null}
     >
       <use
@@ -113,6 +116,7 @@ exports[`Header should render header input with two buttons 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
