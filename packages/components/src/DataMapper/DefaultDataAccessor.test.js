@@ -5,7 +5,6 @@ import DefaultDataAccessor from './DefaultDataAccessor';
 const dataAccessor = new DefaultDataAccessor();
 
 it('data-accessor-schema', () => {
-	const schema = TestData.schema;
 
   const schema = TestData.schema1;
 
@@ -15,7 +14,6 @@ it('data-accessor-schema', () => {
 });
 
 it('data-accessor-element', () => {
-	const schema = TestData.schema;
 
   const schema = TestData.schema1;
 
@@ -30,7 +28,6 @@ it('data-accessor-element', () => {
 });
 
 it('data-accessor-elements', () => {
-	const schema = TestData.schema;
 
   const schema = TestData.schema1;
 
