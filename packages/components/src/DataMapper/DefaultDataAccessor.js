@@ -166,7 +166,7 @@ export default class DefaultDataAccessor {
 	includes(elements, element) {
 		const result = elements.find(elem => this.areEquals(elem, element));
 		if (result) {
-			return result;
+			return true;
 		}
 		return false;
 	}
