@@ -116,7 +116,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		:global(.caret) {
 			border-top-color: $white;
 			border-right-color: $white;
-			box-shadow: 1px -1px 0 $white;
+			box-shadow: none;
 			margin-left: $padding-small;
 		}
 
