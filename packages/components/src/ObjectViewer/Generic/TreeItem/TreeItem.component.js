@@ -14,7 +14,7 @@ const paddingLeft = 30;
 export default function TreeItem(props) {
 	const {
 		getDataType,
-		getFields,
+		// getFields,
 		highlighted,
 		jsonpath,
 		level,
@@ -25,36 +25,30 @@ export default function TreeItem(props) {
 	} = props;
 	const isRoot = level === 0;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
-	const isOpened = (isRoot && noRoot) || opened.indexOf(jsonpath) !== -1;
 	const itemType = getDataType(value);
-
-	const spaceAdjustment = { paddingLeft: paddingLeft * level };
-	const onClick = onSelect && (event => onSelect(event, jsonpath, value));
-
-	const isBranch = itemType === 'array' || itemType === 'object';
 	const itemContentClassName = classNames(theme.content, 'tc-object-viewer-content', {
-		'tc-object-viewer-root': level === 0,
+		'tc-object-viewer-root': isRoot,
 		[theme['no-root']]: isRoot && noRoot,
 		[theme.highlight]: isHighlighted,
 	});
-
-	const tmpProps = Object.assign(
+	const renderProps = Object.assign(
 		{ ...props },
 		{
 			className: itemContentClassName,
-			onClick,
+			onClick: onSelect && (event => onSelect(event, jsonpath, value)),
 			isHighlighted,
-			isOpened,
-			style: spaceAdjustment,
+			isOpened: (isRoot && noRoot) || opened.indexOf(jsonpath) !== -1,
+			style: { paddingLeft: paddingLeft * level },
 			type: itemType,
+			value,
 		},
 	);
 	return (
 		<li className={classNames(theme.item, 'tc-object-viewer-item')}>
-			{isBranch ? (
-				<DefaultBranch {...tmpProps} fields={getFields(value, itemType)} />
+			{itemType === 'array' || itemType === 'object' ? (
+				<DefaultBranch {...renderProps} />
 			) : (
-				<DefaultLeaf {...tmpProps} />
+				<DefaultLeaf {...renderProps} />
 			)}
 		</li>
 	);
@@ -69,7 +63,7 @@ TreeItem.defaultProps = {
 };
 TreeItem.propTypes = {
 	getDataType: PropTypes.func,
-	getFields: PropTypes.func,
+	// getFields: PropTypes.func,
 	highlighted: PropTypes.array,
 	jsonpath: PropTypes.string,
 	level: PropTypes.number,

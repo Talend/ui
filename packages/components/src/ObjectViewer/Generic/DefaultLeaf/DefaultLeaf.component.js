@@ -3,31 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from '../GenericViewer.scss';
 import {
-	// defaultGetDataType,
 	defaultGetDisplayKey,
 	defaultGetDisplayValue,
-	// defaultGetFields,
-	// defaultGetIcon,
-	// defaultGetJSONPath,
 	defaultGetQuality,
 } from '../genericViewer.configuration';
 
-export default function DefaultLeaf(props) {
-	const {
-		className,
-		dataKey,
-		getDisplayKey,
-		getQuality,
-		getItemMenu,
-		getDisplayValue,
-		jsonpath,
-		onClick,
-		style,
-	} = props;
-	const quality = getQuality(props);
-	const formattedKey = getDisplayKey(props);
-	const formattedValue = getDisplayValue(props);
-	const content = [
+function getLeafContent(quality, formattedKey, formattedValue) {
+	return [
 		quality === -1 && (
 			<div
 				key={'quality'}
@@ -45,16 +27,33 @@ export default function DefaultLeaf(props) {
 			</span>
 		</div>,
 	];
+}
+
+export default function DefaultLeaf(props) {
+	const {
+		className,
+		dataKey,
+		getDisplayKey,
+		getQuality,
+		getItemMenu,
+		getDisplayValue,
+		jsonpath,
+		onClick,
+		style,
+	} = props;
+	const quality = getQuality(props);
+	const formattedKey = getDisplayKey(props);
+	const formattedValue = getDisplayValue(props);
 	if (onClick) {
 		return (
 			<div className={className} style={style}>
 				<button
-					key={'main'}
+					key="main"
 					aria-label={`Select ${dataKey} (${jsonpath})`}
 					onClick={onClick}
 					className={theme.main}
 				>
-					{content}
+					{getLeafContent(quality, formattedKey, formattedValue)}
 				</button>
 				{getItemMenu && getItemMenu(props)}
 			</div>
@@ -62,7 +61,7 @@ export default function DefaultLeaf(props) {
 	}
 	return (
 		<div className={className} style={style}>
-			{content}
+			{getLeafContent(quality, formattedKey, formattedValue)}
 		</div>
 	);
 }

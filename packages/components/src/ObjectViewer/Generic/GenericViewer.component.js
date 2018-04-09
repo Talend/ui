@@ -16,7 +16,11 @@ import theme from './GenericViewer.scss';
 export default function GenericViewer({ className, style, title, ...props }) {
 	/*
 		Could we used inject to add custom leaf and branch ?
-		if components.leaf => Inject.get(getComponent, components.leaf, components.props) ?
+		if components.leaf => Inject.get(getComponent, components.leaf, components.props)
+		: defaultLeaf ?
+	*/
+	/*
+		Add withItemMenu / withQuality / withBadge boolean ?
 	*/
 	const cn = classNames(theme['tc-viewer'], 'tc-object-viewer', className);
 	return (

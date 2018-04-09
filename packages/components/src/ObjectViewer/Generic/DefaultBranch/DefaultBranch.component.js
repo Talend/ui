@@ -47,6 +47,14 @@ function getButton(onClick, dataKey, jsonpath, content) {
 	);
 }
 
+function getBranchContent({ getDisplayKey, type, isOpened, getQuality, ...props }, length) {
+	return [
+		<span key={'datakey'}>{getDisplayKey(props)}</span>,
+		type === 'array' && getLengthBadge(length),
+		!isOpened && getQuality(props) === -1 && getQualityDot(),
+	];
+}
+
 function DefaultBranchChildren({
 	dataKey,
 	branchChildren,
@@ -96,10 +104,10 @@ export default function DefaultBranch(props) {
 	const {
 		className,
 		data,
-		fields,
+		// fields,
 		getIcon,
-		getDisplayKey,
-		getQuality,
+		// getDisplayKey,
+		// getQuality,
 		isOpened,
 		jsonpath,
 		dataKey,
@@ -107,21 +115,16 @@ export default function DefaultBranch(props) {
 		onToggle,
 		style,
 		type,
+		value,
+		getFields,
 	} = props;
-
-	const content = (
-		<span key={'datakey'}>
-			{getDisplayKey(props)}
-			{type === 'array' && getLengthBadge(fields.length)}
-			{!isOpened && getQuality(props) === -1 && getQualityDot()}
-		</span>
-	);
-
+	// TODO getCount instead of getFields
 	const icon = getIcon(props);
+	const content = getBranchContent(props, getFields(value, type).length);
+
 	function onIconClick(event) {
 		onToggle(event, { data, isOpened, jsonpath });
 	}
-
 	return (
 		<div>
 			<div className={className} style={style}>
@@ -141,7 +144,9 @@ export default function DefaultBranch(props) {
 					</span>
 				)}
 			</div>
-			{isOpened && <DefaultBranchChildren {...props} type={type} branchChildren={fields} />}
+			{isOpened && (
+				<DefaultBranchChildren {...props} type={type} branchChildren={getFields(value, type)} />
+			)}
 		</div>
 	);
 }
@@ -154,10 +159,10 @@ DefaultBranch.defaultProps = {
 DefaultBranch.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.any,
-	fields: PropTypes.array,
-	getDisplayKey: PropTypes.func,
+	// fields: PropTypes.array,
+	// getDisplayKey: PropTypes.func,
 	getIcon: PropTypes.func,
-	getQuality: PropTypes.func,
+	// getQuality: PropTypes.func,
 	isOpened: PropTypes.bool,
 	jsonpath: PropTypes.string,
 	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
