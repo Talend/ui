@@ -129,6 +129,7 @@ DrawerTitle.propTypes = {
 	subtitle: PropTypes.string,
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
+	getComponent: PropTypes.func,
 };
 
 function DrawerContent({ children, className, ...rest }) {
@@ -234,6 +235,7 @@ Drawer.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
+	getComponent: PropTypes.func,
 };
 
 Drawer.defaultProps = {
