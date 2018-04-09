@@ -24,7 +24,7 @@ function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, cla
 	}
 	return (
 		<div className={classNames('checkbox tc-toggle', className)}>
-			<label htmlFor={id} data-feature={ disabled === true ? undefined : dataFeature}>
+			<label htmlFor={id} data-feature={disabled === true ? undefined : dataFeature}>
 				<input
 					type="checkbox"
 					id={id}
