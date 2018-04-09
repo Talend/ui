@@ -75,155 +75,149 @@ it('data-accessor-wrapper-mapping', () => {
 });
 
 it('data-accessor-wrapper-mandatory-field-filter', () => {
+	const schema = TestData.schema1;
+	const mandatoryFieldFilter = new MandatoryFieldFilter(false);
 
-  const schema = TestData.schema1;
-  const mandatoryFieldFilter = new MandatoryFieldFilter(false);
+	expect(dataAccessor.hasFilters(schema)).toBe(false);
+	expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
 
-  expect(dataAccessor.hasFilters(schema)).toBe(false);
-  expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
-  expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
+	dataAccessor.addFilter(schema, mandatoryFieldFilter);
 
-  dataAccessor.addFilter(schema, mandatoryFieldFilter);
+	expect(dataAccessor.hasFilters(schema)).toBe(true);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(0);
+	expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
 
-  expect(dataAccessor.hasFilters(schema)).toBe(true);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-  expect(dataAccessor.getFilterVersion(schema)).toBe(0);
-  expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
+	mandatoryFieldFilter.setActive(true);
+	dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
 
-  mandatoryFieldFilter.setActive(true);
-  dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
+	expect(dataAccessor.hasFiltersActive(schema)).toBe(true);
 
-  expect(dataAccessor.hasFiltersActive(schema)).toBe(true);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
+	expect(dataAccessor.getSchemaSize(schema, false)).toBe(4);
 
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
-  expect(dataAccessor.getSchemaSize(schema, false)).toBe(4);
+	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(true);
+	expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
 
-  expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(true);
-  expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(1);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(1);
+	mandatoryFieldFilter.setActive(false);
+	dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
 
-  mandatoryFieldFilter.setActive(false);
-  dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
+	expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(false);
 
-  expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-  expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(false);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(2);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(2);
+	dataAccessor.removeFilter(schema, mandatoryFieldFilter);
 
-  dataAccessor.removeFilter(schema, mandatoryFieldFilter);
-
-  expect(dataAccessor.hasFilters(schema)).toBe(false);
-  expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
-
+	expect(dataAccessor.hasFilters(schema)).toBe(false);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
 });
 
 it('data-accessor-wrapper-name-filter', () => {
+	const schema = TestData.schema1;
+	const nameFilter = new NameFilter(false);
 
-  const schema = TestData.schema1;
-  const nameFilter = new NameFilter(false);
+	dataAccessor.addFilter(schema, nameFilter);
+	nameFilter.setActive(true);
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  dataAccessor.addFilter(schema, nameFilter);
-  nameFilter.setActive(true);
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getFilterVersion(schema)).toBe(1);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(1);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	nameFilter.setName('name');
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  nameFilter.setName('name');
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getFilterVersion(schema)).toBe(2);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
+	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(false);
+	expect(dataAccessor.isFiltered(schema, TestData.element3)).toBe(true);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(2);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
-  expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(false);
-  expect(dataAccessor.isFiltered(schema, TestData.element3)).toBe(true);
+	nameFilter.setName('');
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  nameFilter.setName('');
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getFilterVersion(schema)).toBe(3);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(3);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	nameFilter.setName('DAY');
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  nameFilter.setName('DAY');
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getFilterVersion(schema)).toBe(4);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
+	expect(dataAccessor.isFiltered(schema, TestData.element3)).toBe(false);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(4);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
-  expect(dataAccessor.isFiltered(schema, TestData.element3)).toBe(false);
+	nameFilter.setActive(false);
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  nameFilter.setActive(false);
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getFilterVersion(schema)).toBe(5);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(5);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	nameFilter.setActive(true);
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  nameFilter.setActive(true);
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getFilterVersion(schema)).toBe(6);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(6);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
+	dataAccessor.removeFilter(schema, nameFilter);
 
-  dataAccessor.removeFilter(schema, nameFilter);
-
-  expect(dataAccessor.hasFilters(schema)).toBe(false);
-  expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
-
+	expect(dataAccessor.hasFilters(schema)).toBe(false);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
 });
 
 it('data-accessor-wrapper-all-filters', () => {
+	const schema = TestData.schema1;
+	const mandatoryFieldFilter = new MandatoryFieldFilter(false);
+	const nameFilter = new NameFilter(false);
 
-  const schema = TestData.schema1;
-  const mandatoryFieldFilter = new MandatoryFieldFilter(false);
-  const nameFilter = new NameFilter(false);
+	dataAccessor.addFilter(schema, mandatoryFieldFilter);
+	dataAccessor.addFilter(schema, nameFilter);
 
-  dataAccessor.addFilter(schema, mandatoryFieldFilter);
-  dataAccessor.addFilter(schema, nameFilter);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(0);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(0);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	mandatoryFieldFilter.setActive(true);
+	dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
 
-  mandatoryFieldFilter.setActive(true);
-  dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
+	expect(dataAccessor.hasFiltersActive(schema)).toBe(true);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
 
-  expect(dataAccessor.hasFiltersActive(schema)).toBe(true);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
+	nameFilter.setActive(true);
+	nameFilter.setName('name');
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  nameFilter.setActive(true);
-  nameFilter.setName('name');
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
+	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(true);
+	expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
 
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
-  expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(true);
-  expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
+	mandatoryFieldFilter.setActive(false);
+	dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
+	nameFilter.setActive(false);
+	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-  mandatoryFieldFilter.setActive(false);
-  dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
-  nameFilter.setActive(false);
-  dataAccessor.filterSchema(schema, nameFilter.getId());
+	expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	mandatoryFieldFilter.setActive(true);
+	nameFilter.setActive(true);
+	dataAccessor.filterAll(schema);
 
-  mandatoryFieldFilter.setActive(true);
-  nameFilter.setActive(true);
-  dataAccessor.filterAll(schema);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(5);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
+	expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(5);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
-  expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
+	mandatoryFieldFilter.setActive(false);
+	nameFilter.setActive(false);
+	dataAccessor.filterAll(schema);
 
-  mandatoryFieldFilter.setActive(false);
-  nameFilter.setActive(false);
-  dataAccessor.filterAll(schema);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(6);
+	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  expect(dataAccessor.getFilterVersion(schema)).toBe(6);
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
+	dataAccessor.removeFilter(schema, mandatoryFieldFilter);
+	dataAccessor.removeFilter(schema, nameFilter);
 
-  dataAccessor.removeFilter(schema, mandatoryFieldFilter);
-  dataAccessor.removeFilter(schema, nameFilter);
-
-  expect(dataAccessor.hasFilters(schema)).toBe(false);
-  expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
-
+	expect(dataAccessor.hasFilters(schema)).toBe(false);
+	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
 });

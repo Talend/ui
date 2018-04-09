@@ -17,13 +17,8 @@ it('single-element', () => {
 it('mapped-element', () => {
 	// create React tree
 	const tree = renderer
-		.create(
-			<SchemaElement
-				dataAccessor={dataAccessor}
-				element="Mapped_element"
-				mapped={true}
-			/>
-		).toJSON();
+		.create(<SchemaElement dataAccessor={dataAccessor} element="Mapped_element" mapped={true} />)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 

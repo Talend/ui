@@ -57,10 +57,12 @@ export default class Schema extends Component {
 			(nextProps.trigger.code === Constants.Events.ENTER_ELEM ||
 				nextProps.trigger.code === Constants.Events.LEAVE_ELEM)
 		) {
-			if (this.props.dataAccessor.haveSameContent(
-				this.props.focusedElements,
-				nextProps.focusedElements
-			)) {
+			if (
+				this.props.dataAccessor.haveSameContent(
+					this.props.focusedElements,
+					nextProps.focusedElements,
+				)
+			) {
 				needUpdate = false;
 			}
 		}

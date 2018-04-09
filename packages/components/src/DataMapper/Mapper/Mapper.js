@@ -387,7 +387,10 @@ export default class Mapper extends Component {
 				);
 			}
 			// FOCUSED Anchor
-			if (focused && (!dnd || !dataAccessor.areElementsEqual(dnd.source.element, focused.element))) {
+			if (
+				focused &&
+				(!dnd || !dataAccessor.areElementsEqual(dnd.source.element, focused.element))
+			) {
 				if (focused.side === Constants.MappingSide.INPUT) {
 					anchors.focused.input = [this.getAnchor(focused.element, Constants.MappingSide.INPUT)];
 				} else {

@@ -11,20 +11,20 @@ function mergeFilterResults(result1, result2) {
 }
 
 function isObjectEmpty(object) {
-  let isEmpty = true;
-  for (let keys in object) {
-     isEmpty = false;
-     break; // exiting since we found that the object is not empty
-  }
-  return isEmpty;
+	let isEmpty = true;
+	for (let keys in object) {
+		isEmpty = false;
+		break; // exiting since we found that the object is not empty
+	}
+	return isEmpty;
 }
 
 /**
-* This class wraps a data accessor and provides some convenient methods to
-* manipulate data.
-* It uses a cache to store the schema elements.
-* It manages the filtering of the data.
-*/
+ * This class wraps a data accessor and provides some convenient methods to
+ * manipulate data.
+ * It uses a cache to store the schema elements.
+ * It manages the filtering of the data.
+ */
 export default class DataAccessorWrapper {
 	constructor(dataAccessor) {
 		this.dataAccessor = dataAccessor;
