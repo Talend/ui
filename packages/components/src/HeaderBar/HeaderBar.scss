@@ -114,13 +114,16 @@ $background-color-on-hover: shade($brand-primary, 30);
 		height: 100%;
 
 		:global(.caret) {
-			border-top-color: $white;
-			border-right-color: $white;
-			box-shadow: none;
+			box-shadow: 2px -2px 0 $white;
+			border: none;
 			margin-left: $padding-small;
+			margin-bottom: $padding-smaller;
 		}
 
 		&:global(.open) {
+			:global(.caret) {
+				margin-top: $padding-small;
+			}
 			:global(.btn):global(.btn-link) {
 				background-color: $background-color-on-hover;
 			}
