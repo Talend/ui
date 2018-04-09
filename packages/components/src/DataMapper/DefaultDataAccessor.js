@@ -1,6 +1,6 @@
 import * as Constants from './Constants';
 
-function areElementsEqual(element1, element2) {
+function areEqual(element1, element2) {
 	return element1.id === element2.id;
 }
 
@@ -9,7 +9,7 @@ function areElementsEqual(element1, element2) {
  */
 function getMappingItemIndex(mapping, source, target) {
 	return mapping.findIndex(
-		item => areElementsEqual(item.source, source) && areElementsEqual(item.target, target),
+		item => areEqual(item.source, source) && areEqual(item.target, target),
 	);
 }
 
@@ -27,8 +27,9 @@ function removeMappingItem(mapping, index) {
  * schema and mapping data.
  */
 export default class DefaultDataAccessor {
-	areEquals(element1, element2) {
-		return areElementsEqual(element1, element2);
+
+	areElementsEqual(element1, element2) {
+		return areEqual(element1, element2);
 	}
 
 	/**
@@ -71,7 +72,7 @@ export default class DefaultDataAccessor {
 	 * returns -1 if it is not in the schema.
 	 */
 	getSchemaElementIndex(schema, element) {
-		return schema.elements.findIndex(elem => areElementsEqual(elem, element));
+		return schema.elements.findIndex(elem => areEqual(elem, element));
 	}
 
 	/**
@@ -164,7 +165,7 @@ export default class DefaultDataAccessor {
 	 * Returns true if the array of elements contains the specified element.
 	 */
 	includes(elements, element) {
-		const result = elements.find(elem => this.areEquals(elem, element));
+		const result = elements.find(elem => areEqual(elem, element));
 		if (result) {
 			return true;
 		}

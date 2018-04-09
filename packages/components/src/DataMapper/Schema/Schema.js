@@ -14,7 +14,7 @@ function isMapped(dataAccessor, element, mappedElements) {
 export function isSelected(dataAccessor, selection, element, side) {
 	return (
 		selection != null &&
-		dataAccessor.areEquals(selection.element, element) &&
+		dataAccessor.areElementsEqual(selection.element, element) &&
 		selection.side === side
 	);
 }
@@ -29,7 +29,7 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 	const pending =
 		pendingItem != null &&
 		pendingItem.side === side &&
-		dataAccessor.areEquals(pendingItem.element, element);
+		dataAccessor.areElementsEqual(pendingItem.element, element);
 	const focused = focusedElements != null && dataAccessor.includes(focusedElements, element);
 	return connected || pending || focused;
 }
@@ -57,7 +57,10 @@ export default class Schema extends Component {
 			(nextProps.trigger.code === Constants.Events.ENTER_ELEM ||
 				nextProps.trigger.code === Constants.Events.LEAVE_ELEM)
 		) {
-			if (this.props.dataAccessor.areEqual(this.props.focusedElements, nextProps.focusedElements)) {
+			if (this.props.dataAccessor.haveSameContent(
+				this.props.focusedElements,
+				nextProps.focusedElements
+			)) {
 				needUpdate = false;
 			}
 		}

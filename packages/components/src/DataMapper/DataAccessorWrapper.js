@@ -1,5 +1,30 @@
 import * as Constants from './Constants';
 
+function mergeFilterResults(result1, result2) {
+	let mergedResult = [];
+	for (let i = 0; i < result2.length; i += 1) {
+		if (result1.includes(result2[i])) {
+			mergedResult = mergedResult.concat(result2[i]);
+		}
+	}
+	return mergedResult;
+}
+
+function isObjectEmpty(object) {
+  let isEmpty = true;
+  for (let keys in object) {
+     isEmpty = false;
+     break; // exiting since we found that the object is not empty
+  }
+  return isEmpty;
+}
+
+/**
+* This class wraps a data accessor and provides some convenient methods to
+* manipulate data.
+* It uses a cache to store the schema elements.
+* It manages the filtering of the data.
+*/
 export default class DataAccessorWrapper {
 	constructor(dataAccessor) {
 		this.dataAccessor = dataAccessor;
@@ -34,7 +59,11 @@ export default class DataAccessorWrapper {
 	addFilter(schema, filter) {
 		const schemaId = this.getSchemaId(schema);
 		if (!this.filters[schemaId]) {
-			this.filters[schemaId] = {};
+			this.filters[schemaId] = {
+				result: [],
+				active: false,
+				version: 0,
+			};
 		}
 		const schemaFilters = this.filters[schemaId];
 		if (!schemaFilters.filters) {
@@ -52,10 +81,24 @@ export default class DataAccessorWrapper {
 	}
 
 	removeFilter(schema, filter) {
-		// TODO
+		const schemaId = this.getSchemaId(schema);
+		if (!this.filters[schemaId]) {
+			return;
+		}
+		const filterKey = filter.getId();
+		const schemaFilters = this.filters[schemaId];
+		if (!schemaFilters.filters || !schemaFilters.filters[filterKey]) {
+			return;
+		}
+		delete schemaFilters.filters[filterKey];
+		if (isObjectEmpty(schemaFilters.filters)) {
+			delete this.filters[schemaId];
+		} else {
+			this.mergeFilters(schemaId);
+		}
 	}
 
-	filterSchema(schema, filterKey) {
+	computeFilter(schema, filterKey) {
 		const schemaId = this.getSchemaId(schema);
 		const filter = this.filters[schemaId].filters[filterKey].filter;
 		// reset result
@@ -66,22 +109,30 @@ export default class DataAccessorWrapper {
 			const result = elements.filter(elem => filter.select(this, schema, elem));
 			this.filters[schemaId].filters[filterKey].result = result;
 		}
+	}
+
+	filterSchema(schema, filterKey) {
+		const schemaId = this.getSchemaId(schema);
+		if (!this.filters[schemaId] || !this.filters[schemaId].filters[filterKey]) {
+			return;
+		}
+		// compute filter
+		this.computeFilter(schema, filterKey);
 		// finally merge all results
 		this.mergeFilters(schemaId);
 	}
 
 	filterAll(schema) {
-		// TODO
-	}
-
-	mergeFilterResults(result1, result2) {
-		let mergedResult = [];
-		for (let i = 0; i < result2.length; i += 1) {
-			if (result1.includes(result2[i])) {
-				mergedResult = mergedResult.concat(result2[i]);
-			}
+		const schemaId = this.getSchemaId(schema);
+		if (!this.filters[schemaId]) {
+			return;
 		}
-		return mergedResult;
+		// compute all filters
+		for (var filterKey in this.filters[schemaId].filters) {
+			this.computeFilter(schema, filterKey);
+		}
+		// finally merge all results
+		this.mergeFilters(schemaId);
 	}
 
 	mergeFilters(schemaId) {
@@ -102,7 +153,7 @@ export default class DataAccessorWrapper {
 							first = false;
 						} else {
 							// merge results
-							result = this.mergeFilterResults(result, filterResult);
+							result = mergeFilterResults(result, filterResult);
 						}
 					}
 				}
@@ -113,8 +164,18 @@ export default class DataAccessorWrapper {
 		}
 	}
 
+	hasFilters(schema) {
+		const schemaId = this.getSchemaId(schema);
+		return this.filters[schemaId] ? true : false;
+	}
+
+	hasFiltersActive(schema) {
+		const schemaId = this.getSchemaId(schema);
+		return this.filtersActive(schemaId);
+	}
+
 	filtersActive(schemaId) {
-		return this.filters[schemaId] && this.filters[schemaId].active;
+		return this.filters[schemaId] && this.filters[schemaId].active ? true : false;
 	}
 
 	isFiltered(schema, element) {
@@ -129,9 +190,9 @@ export default class DataAccessorWrapper {
 	 * Returns true if the two elements are equals.
 	 * Default implementation is based on element id.
 	 */
-	areEquals(element1, element2) {
-		if (this.dataAccessor.areEquals) {
-			return this.dataAccessor.areEquals(element1, element2);
+	areElementsEqual(element1, element2) {
+		if (this.dataAccessor.areElementsEqual) {
+			return this.dataAccessor.areElementsEqual(element1, element2);
 		}
 		return this.getElementId(element1) === this.getElementId(element2);
 	}
@@ -194,14 +255,14 @@ export default class DataAccessorWrapper {
 	getSchemaElementIndex(schema, element, withFilters) {
 		const key = this.getSchemaId(schema);
 		if (withFilters && this.filtersActive(key)) {
-			return this.filters[key].result.findIndex(elem => this.areEquals(elem, element));
+			return this.filters[key].result.findIndex(elem => this.areElementsEqual(elem, element));
 		}
 		if (this.dataAccessor.getSchemaElementIndex) {
 			return this.dataAccessor.getSchemaElementIndex(schema, element);
 		}
 		const elements = this.getSchemaElements(schema, withFilters);
 		if (elements) {
-			return elements.findIndex(elem => this.areEquals(elem, element));
+			return elements.findIndex(elem => this.areElementsEqual(elem, element));
 		}
 		return -1;
 	}
@@ -236,7 +297,7 @@ export default class DataAccessorWrapper {
 			return this.dataAccessor.includes(elements, element);
 		}
 		for (let i = 0; i < elements.length; i += 1) {
-			if (this.areEquals(elements[i], element)) {
+			if (this.areElementsEqual(elements[i], element)) {
 				return true;
 			}
 		}
@@ -343,7 +404,7 @@ export default class DataAccessorWrapper {
 
 	isElementInMappingItem(mappingItem, element, side) {
 		const mappedElement = this.getMappedElement(mappingItem, side);
-		return this.areEquals(mappedElement, element);
+		return this.areElementsEqual(mappedElement, element);
 	}
 
 	/**
@@ -385,7 +446,7 @@ export default class DataAccessorWrapper {
 		return null;
 	}
 
-	areEqual(elements1, elements2) {
+	haveSameContent(elements1, elements2) {
 		if (elements1 && elements2) {
 			if (elements1.length === elements2.length) {
 				for (let i = 0; i < elements1.length; i += 1) {

@@ -27,9 +27,9 @@ it('data-accessor-with-undo-redo', () => {
   let cmd = dataAccessor.getACopyOfUndoCommand();
   expect(cmd.code).toBe(Constants.Commands.ADD_MAPPING);
   let source = dataAccessor.getSchemaElementFromId(inputSchema, cmd.sourceId);
-  expect(dataAccessor.areEquals(source, TestData.element3)).toBe(true);
+  expect(dataAccessor.areElementsEqual(source, TestData.element3)).toBe(true);
   let target = dataAccessor.getSchemaElementFromId(outputSchema, cmd.targetId);
-  expect(dataAccessor.areEquals(target, TestData.element7)).toBe(true);
+  expect(dataAccessor.areElementsEqual(target, TestData.element7)).toBe(true);
 
   mapping = dataAccessor.undo(mapping);
   expect(dataAccessor.canUndo()).toBe(false);
@@ -55,9 +55,9 @@ it('data-accessor-with-undo-redo', () => {
   cmd = dataAccessor.getACopyOfUndoCommand();
   expect(cmd.code).toBe(Constants.Commands.REMOVE_MAPPING);
   source = dataAccessor.getSchemaElementFromId(inputSchema, cmd.sourceId);
-  expect(dataAccessor.areEquals(source, TestData.element3)).toBe(true);
+  expect(dataAccessor.areElementsEqual(source, TestData.element3)).toBe(true);
   target = dataAccessor.getSchemaElementFromId(outputSchema, cmd.targetId);
-  expect(dataAccessor.areEquals(target, TestData.element7)).toBe(true);
+  expect(dataAccessor.areElementsEqual(target, TestData.element7)).toBe(true);
 
   mapping = dataAccessor.undo(mapping);
   expect(dataAccessor.canUndo()).toBe(true);

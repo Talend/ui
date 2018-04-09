@@ -35,7 +35,7 @@ it('data-accessor-elements', () => {
 
 	for (let i = 0; i < size; i += 1) {
 		const element = dataAccessor.getSchemaElement(schema, i);
-		expect(dataAccessor.areEquals(element, elements[i])).toBe(true);
+		expect(dataAccessor.areElementsEqual(element, elements[i])).toBe(true);
 		expect(dataAccessor.includes(elements, element)).toBe(true);
 	}
 });
@@ -50,8 +50,8 @@ it('data-accessor-mapping', () => {
 	const item = mappingItems[0];
 	const source = dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT);
 	const target = dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT);
-	expect(dataAccessor.areEquals(source, TestData.element2)).toBe(true);
-	expect(dataAccessor.areEquals(target, TestData.element5)).toBe(true);
+	expect(dataAccessor.areElementsEqual(source, TestData.element2)).toBe(true);
+	expect(dataAccessor.areElementsEqual(target, TestData.element5)).toBe(true);
 
 	mapping = dataAccessor.addMapping(mapping, TestData.element3, TestData.element7);
 	mappingItems = dataAccessor.getMappingItems(mapping);

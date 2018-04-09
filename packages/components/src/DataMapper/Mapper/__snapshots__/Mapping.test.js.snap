@@ -241,7 +241,9 @@ exports[`single connection [all] - mapped/unmapped anchors 1`] = `
         className="anchor end mapped"
         d="M 13 35 L 23 40 L 13 45 Z"
       />
-      <g>
+      <g
+        id="in_1-out_2-all"
+      >
         <circle
           className="connection start all"
           cx={8}
@@ -251,7 +253,25 @@ exports[`single connection [all] - mapped/unmapped anchors 1`] = `
         <path
           className="connection curve all "
           d="M 8 15 C 13 15, 13 40, 18 40"
-        />
+        >
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="indefinite"
+            dur="0.2s"
+            from="3"
+            id="anim-in_1-out_2-all"
+            to="7"
+          />
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="anim-in_1-out_2-all.begin + 0.2s"
+            dur="0.2s"
+            from="7"
+            to="3"
+          />
+        </path>
         <path
           className="connection end all"
           d="M 13 35 L 23 40 L 13 45 Z"
@@ -324,7 +344,9 @@ exports[`single connection [all] - no anchors 1`] = `
       width={26}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g>
+      <g
+        id="in_1-out_2-all"
+      >
         <circle
           className="connection start all"
           cx={8}
@@ -334,7 +356,25 @@ exports[`single connection [all] - no anchors 1`] = `
         <path
           className="connection curve all "
           d="M 8 15 C 13 15, 13 40, 18 40"
-        />
+        >
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="indefinite"
+            dur="0.2s"
+            from="3"
+            id="anim-in_1-out_2-all"
+            to="7"
+          />
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="anim-in_1-out_2-all.begin + 0.2s"
+            dur="0.2s"
+            from="7"
+            to="3"
+          />
+        </path>
         <path
           className="connection end all"
           d="M 13 35 L 23 40 L 13 45 Z"

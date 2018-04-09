@@ -36,7 +36,7 @@ it('mapped-element', () => {
 			<OriginalSchemaElement
 				dataAccessor={dataAccessor}
 				element="Mapped_element"
-				mapped="true"
+				mapped={true}
 				connectDragSource={identity}
 				connectDropTarget={identity}
 			/>,
@@ -56,7 +56,7 @@ it('drag-over-element', () => {
 			<OriginalSchemaElement
 				dataAccessor={dataAccessor}
 				element="Drag_over_element"
-				dragOver="true"
+				dragOver={true}
 				connectDragSource={identity}
 				connectDropTarget={identity}
 			/>,

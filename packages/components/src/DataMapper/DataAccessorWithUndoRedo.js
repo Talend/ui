@@ -91,11 +91,13 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		if (this.canUndo()) {
 			const cmd = this.undoStack.pop();
 			this.redoStack.push(cmd);
+			let source = null;
+			let target = null;
 			switch (cmd.code) {
 				case Constants.Commands.ADD_MAPPING:
 					// remove mapping
-					let source = this.getElementFromCache(Constants.MappingSide.INPUT, cmd.sourceId);
-					let target = this.getElementFromCache(Constants.MappingSide.OUTPUT, cmd.targetId);
+					source = this.getElementFromCache(Constants.MappingSide.INPUT, cmd.sourceId);
+					target = this.getElementFromCache(Constants.MappingSide.OUTPUT, cmd.targetId);
 					return super.removeMapping(mapping, source, target);
 				case Constants.Commands.REMOVE_MAPPING:
 					// add mapping
@@ -136,11 +138,13 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		if (this.canRedo()) {
 			const cmd = this.redoStack.pop();
 			this.undoStack.push(cmd);
+			let source = null;
+			let target = null;
 			switch (cmd.code) {
 				case Constants.Commands.ADD_MAPPING:
 					// add mapping
-					let source = this.getElementFromCache(Constants.MappingSide.INPUT, cmd.sourceId);
-					let target = this.getElementFromCache(Constants.MappingSide.OUTPUT, cmd.targetId);
+					source = this.getElementFromCache(Constants.MappingSide.INPUT, cmd.sourceId);
+					target = this.getElementFromCache(Constants.MappingSide.OUTPUT, cmd.targetId);
 					return super.addMapping(mapping, source, target);
 				case Constants.Commands.REMOVE_MAPPING:
 					// remove mapping
