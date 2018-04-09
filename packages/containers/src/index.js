@@ -29,7 +29,6 @@ import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
-import ToggleManager from './ToggleManager';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
@@ -65,7 +64,6 @@ export {
 	SidePanel,
 	SubHeaderBar,
 	TabBar,
-	ToggleManager,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
