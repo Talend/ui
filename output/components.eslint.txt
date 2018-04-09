@@ -9,39 +9,41 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DataAccessorWithUndoRedo.js
-   95:5  error  Unexpected lexical declaration in case block  no-case-declarations
-   95:5  error  Unexpected lexical declaration in case block  no-case-declarations
-  105:5  error  Unexpected lexical declaration in case block  no-case-declarations
-  140:5  error  Unexpected lexical declaration in case block  no-case-declarations
-  140:5  error  Unexpected lexical declaration in case block  no-case-declarations
+  107:5  error  Unexpected lexical declaration in case block  no-case-declarations
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DataAccessorWrapper.js
-  54:14  error  Expected 'this' to be used by class method 'removeFilter'        class-methods-use-this
-  54:23  error  'filter' is defined but never used                               no-unused-vars
-  73:11  error  Expected 'this' to be used by class method 'filterAll'           class-methods-use-this
-  73:12  error  'schema' is defined but never used                               no-unused-vars
-  77:20  error  Expected 'this' to be used by class method 'mergeFilterResults'  class-methods-use-this
+   15:2   error  The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+   15:2   error  Using 'ForInStatement' is not allowed                                                                       no-restricted-syntax
+   15:11  error  'keys' is assigned a value but never used                                                                   no-unused-vars
+   15:11  error  'keys' is never reassigned. Use 'const' instead                                                             prefer-const
+  131:3   error  The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+  131:3   error  Using 'ForInStatement' is not allowed                                                                       no-restricted-syntax
+  131:8   error  All 'var' declarations must be at the top of the function scope                                             vars-on-top
+  131:8   error  Unexpected var, use let or const instead                                                                    no-var
+  169:35  error  Unnecessary use of boolean literals in conditional expression                                               no-unneeded-ternary
+  178:68  error  Unnecessary use of boolean literals in conditional expression                                               no-unneeded-ternary
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DefaultDataAccessor.js
-   30:11  error  Expected 'this' to be used by class method 'areEquals'              class-methods-use-this
-   37:13  error  Expected 'this' to be used by class method 'getSchemaId'            class-methods-use-this
-   44:15  error  Expected 'this' to be used by class method 'getSchemaName'          class-methods-use-this
-   51:15  error  Expected 'this' to be used by class method 'getSchemaSize'          class-methods-use-this
-   58:19  error  Expected 'this' to be used by class method 'getSchemaElements'      class-methods-use-this
-   65:18  error  Expected 'this' to be used by class method 'getSchemaElement'       class-methods-use-this
-   73:23  error  Expected 'this' to be used by class method 'getSchemaElementIndex'  class-methods-use-this
-   81:14  error  Expected 'this' to be used by class method 'getElementId'           class-methods-use-this
-   88:16  error  Expected 'this' to be used by class method 'getElementName'         class-methods-use-this
-   95:16  error  Expected 'this' to be used by class method 'getElementType'         class-methods-use-this
-  102:23  error  Expected 'this' to be used by class method 'getElementDescription'  class-methods-use-this
-  106:20  error  Expected 'this' to be used by class method 'isElementMandatory'     class-methods-use-this
-  114:17  error  Expected 'this' to be used by class method 'getMappingItems'        class-methods-use-this
-  121:18  error  Expected 'this' to be used by class method 'getMappedElement'       class-methods-use-this
-  132:12  error  Expected 'this' to be used by class method 'addMapping'             class-methods-use-this
-  140:15  error  Expected 'this' to be used by class method 'removeMapping'          class-methods-use-this
-  152:14  error  Expected 'this' to be used by class method 'clearMapping'           class-methods-use-this
-  152:15  error  'mapping' is defined but never used                                 no-unused-vars
-  159:16  error  Expected 'this' to be used by class method 'isMappingEmpty'         class-methods-use-this
+   28:18  error  Expected 'this' to be used by class method 'areElementsEqual'       class-methods-use-this
+   35:13  error  Expected 'this' to be used by class method 'getSchemaId'            class-methods-use-this
+   42:15  error  Expected 'this' to be used by class method 'getSchemaName'          class-methods-use-this
+   49:15  error  Expected 'this' to be used by class method 'getSchemaSize'          class-methods-use-this
+   56:19  error  Expected 'this' to be used by class method 'getSchemaElements'      class-methods-use-this
+   63:18  error  Expected 'this' to be used by class method 'getSchemaElement'       class-methods-use-this
+   71:23  error  Expected 'this' to be used by class method 'getSchemaElementIndex'  class-methods-use-this
+   79:14  error  Expected 'this' to be used by class method 'getElementId'           class-methods-use-this
+   86:16  error  Expected 'this' to be used by class method 'getElementName'         class-methods-use-this
+   93:16  error  Expected 'this' to be used by class method 'getElementType'         class-methods-use-this
+  100:23  error  Expected 'this' to be used by class method 'getElementDescription'  class-methods-use-this
+  104:20  error  Expected 'this' to be used by class method 'isElementMandatory'     class-methods-use-this
+  112:17  error  Expected 'this' to be used by class method 'getMappingItems'        class-methods-use-this
+  119:18  error  Expected 'this' to be used by class method 'getMappedElement'       class-methods-use-this
+  130:12  error  Expected 'this' to be used by class method 'addMapping'             class-methods-use-this
+  138:15  error  Expected 'this' to be used by class method 'removeMapping'          class-methods-use-this
+  150:14  error  Expected 'this' to be used by class method 'clearMapping'           class-methods-use-this
+  150:15  error  'mapping' is defined but never used                                 no-unused-vars
+  157:16  error  Expected 'this' to be used by class method 'isMappingEmpty'         class-methods-use-this
+  164:10  error  Expected 'this' to be used by class method 'includes'               class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/List/DraggableRow.js
   96:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -69,7 +71,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   114:2   error  getMappingComponent should be placed after onScroll         react/sort-comp
   149:7   error  'gMap' is never reassigned. Use 'const' instead             prefer-const
   185:15  error  Expected 'this' to be used by class method 'getVisibility'  class-methods-use-this
-  590:7   error  'gMap' is never reassigned. Use 'const' instead             prefer-const
+  593:7   error  'gMap' is never reassigned. Use 'const' instead             prefer-const
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   11:33  error  Unable to resolve path to module '../Schema/schemaConfiguration'                               import/no-unresolved
@@ -142,7 +144,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.js
   27:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
   28:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
-  67:2  error  getNode should be placed after onContentScroll  react/sort-comp
+  72:2  error  getNode should be placed after onContentScroll  react/sort-comp
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaConfiguration.js
   13:13  error  Expected 'this' to be used by class method 'getRenderer'  class-methods-use-this
@@ -154,8 +156,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   103:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   104:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/DraggableSchemaElement.test.js
+  39:5  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  59:5  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.js
   73:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.test.js
+  20:79  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+  32:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaRenderers/ListRenderer.js
   134:46  error  'side' is missing in props validation                                 react/prop-types
@@ -199,5 +209,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 127 problems (126 errors, 1 warning)
+✖ 133 problems (132 errors, 1 warning)
 
