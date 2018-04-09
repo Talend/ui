@@ -23,13 +23,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  175:26  error  'uiSchema' is missing in props validation                               react/prop-types
-  175:32  error  'uiSchema.importFileDataFeature' is missing in props validation         react/prop-types
-  184:28  error  'uiSchema' is missing in props validation                               react/prop-types
-  184:34  error  'uiSchema.addFromFileDataFeature' is missing in props validation        react/prop-types
-  192:28  error  'uiSchema' is missing in props validation                               react/prop-types
-  192:34  error  'uiSchema.overwriteExistingDataFeature' is missing in props validation  react/prop-types
-
-✖ 15 problems (15 errors, 0 warnings)
+✖ 9 problems (9 errors, 0 warnings)
 
