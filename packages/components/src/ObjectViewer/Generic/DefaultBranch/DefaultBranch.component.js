@@ -58,13 +58,13 @@ function DefaultBranchChildren({
 }) {
 	return (
 		<ul className={'tc-object-viewer-nested'}>
-			{branchChildren.map((branchChild, index) => {
-				const branchChildProps = {
-					...props,
-					...branchChild,
-					key: index,
-					level: level + 1,
-					jsonpath: props.getJSONPath({
+			{branchChildren.map((branchChild, index) => (
+				<TreeItem
+					{...props}
+					{...branchChild}
+					key={index}
+					level={level + 1}
+					jsonpath={props.getJSONPath({
 						dataKey: branchChild.dataKey,
 						parent: {
 							dataKey,
@@ -72,10 +72,9 @@ function DefaultBranchChildren({
 							type,
 							value,
 						},
-					}),
-				};
-				return <TreeItem {...branchChildProps} />;
-			})}
+					})}
+				/>
+			))}
 		</ul>
 	);
 }
