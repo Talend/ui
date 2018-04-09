@@ -119,6 +119,7 @@
     "react": "^15.6.2",
     "react-bootstrap": "0.31.5",
     "react-redux": "5.0.5",
+    "redux-saga": "0.15.4",
     "reselect": "^2.5.4"
   },
   "jest": {

@@ -31,13 +31,11 @@ AppLoaderContainer.propTypes = {
  * @param {object} ownProps the component props
  */
 export function mapStateToProps(state, ownProps) {
-	const newProps = { loading: false };
-	get(ownProps, 'hasCollections', []).forEach(collectionName => {
-		if (!state.cmf.collections.has(collectionName)) {
-			newProps.loading = true;
-		}
-	});
-	return newProps;
+	return {
+		loading: !get(ownProps, 'hasCollections', []).every(collectionName =>
+			state.cmf.collections.has(collectionName),
+		),
+	};
 }
 
 const connected = cmfConnect({
