@@ -19,6 +19,16 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
 
+function getItems(options, value, instance) {
+	return options.enumOptions.map((option, index) => ({
+		index,
+		checked: value.indexOf(option.value) !== -1,
+		label: option.label,
+		value: option.value,
+		onChange: onItemChange.bind(instance),
+	}));
+}
+
 class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
@@ -47,13 +57,7 @@ class ListViewWidget extends React.Component {
 			defaultDisplayMode = props.schema.displayMode;
 		}
 
-		const items = options.enumOptions.map((option, index) => ({
-			index,
-			checked: value.indexOf(option.value) !== -1,
-			label: option.label,
-			value: option.value,
-			onChange: onItemChange.bind(this),
-		}));
+		const items = getItems(options, value, this);
 
 		this.state = {
 			displayMode: defaultDisplayMode,
@@ -71,6 +75,15 @@ class ListViewWidget extends React.Component {
 			items,
 			displayedItems: items,
 		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const options = this.props.options || {};
+		const nextOptions = nextProps.options || {};
+		if (options.enumOptions !== nextOptions.enumOptions) {
+			const items = getItems(nextOptions, nextProps.value, this);
+			this.setState({ items, displayedItems: items });
+		}
 	}
 
 	setFormData() {
