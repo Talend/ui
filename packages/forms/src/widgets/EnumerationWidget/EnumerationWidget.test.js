@@ -235,9 +235,11 @@ describe('EnumerationWidget', () => {
 						allowImport: true,
 					}}
 					uiSchema={{
-						overwriteExistingDataFeature: 'file.overwrite',
-						addFromFileDataFeature: 'file.add',
-						importFileDataFeature: 'file.import',
+						'data-feature' : {
+							overwriteExisting: 'file.overwrite',
+							addFromFile: 'file.add',
+							importFile: 'file.import',
+						}
 					}}
 				/>,
 			);

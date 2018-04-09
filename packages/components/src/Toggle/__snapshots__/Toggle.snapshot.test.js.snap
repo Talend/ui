@@ -125,7 +125,7 @@ exports[`Toggle should render a disabled Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
-    data-feature="toggle.enable"
+    data-feature={undefined}
     htmlFor="id"
   >
     <input

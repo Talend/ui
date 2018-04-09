@@ -22,18 +22,14 @@ function getAction(action, index) {
 	if (action.displayMode === 'dropdown') {
 		return (
 			<ActionDropdown
+				{...action}
 				noCaret
 				key={`${index}-enum-header-action`}
-				label={action.label}
-				icon={action.icon}
 				onClick={onClick}
 				btooltipPlacement="bottom"
-				inProgress={action.inProgress}
-				items={action.items}
 				hideLabel
 				pullRight
 				link
-				data-feature={action['data-feature']}
 			/>
 		);
 	}

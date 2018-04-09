@@ -165,6 +165,7 @@ class EnumerationForm extends React.Component {
 		];
 
 		if (this.allowImport) {
+			const dataFeature = this.props.uiSchema['data-feature'];
 			this.defaultHeaderActions.push({
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', {
 					defaultValue: 'Import values from a file',
@@ -172,7 +173,7 @@ class EnumerationForm extends React.Component {
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.onImportButtonClick.bind(this),
-				'data-feature': this.props.uiSchema.importFileDataFeature,
+				'data-feature': dataFeature ? dataFeature.importFile : undefined,
 				displayMode: 'dropdown',
 				items: [
 					{
@@ -181,7 +182,7 @@ class EnumerationForm extends React.Component {
 						}),
 						id: 'append-uploding',
 						onClick: this.onImportAppendClick.bind(this),
-						'data-feature': this.props.uiSchema.addFromFileDataFeature,
+						'data-feature': dataFeature ? dataFeature.addFromFile : undefined,
 					},
 					{
 						label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', {
@@ -189,7 +190,7 @@ class EnumerationForm extends React.Component {
 						}),
 						id: 'append-uploding',
 						onClick: this.onImportOverwriteClick.bind(this),
-						'data-feature': this.props.uiSchema.overwriteExistingDataFeature,
+						'data-feature': dataFeature ? dataFeature.overwriteExisting : undefined,
 					},
 				],
 			});

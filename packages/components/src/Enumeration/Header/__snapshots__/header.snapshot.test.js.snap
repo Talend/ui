@@ -94,8 +94,8 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         data-feature="item.add"
         disabled={false}
-        id={undefined}
-        inProgress={undefined}
+        displayMode="dropdown"
+        id="add"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -119,7 +119,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         </span>
       </button>
       <ul
-        aria-labelledby={undefined}
+        aria-labelledby="add"
         className="dropdown-menu dropdown-menu-right"
         role="menu"
       >
