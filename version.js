@@ -81,7 +81,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'bson-objectid': '1.1.5',
 	classnames: '2.2.5',
 	'd3-shape': '1.2.0',
-	keycode: '2.1.9',
+	keycode: '2.2.0',
 	lodash: '4.17.4',
 	immutable: '3.8.1',
 	invariant: '2.2.2',
