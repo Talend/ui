@@ -25,8 +25,8 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 }
 
 .tc-app-loader {
-	width: 16.5rem;
-	height: 16.5rem;
+	width: 165px;
+	height: 165px;
 	margin: auto;
 }
 
@@ -37,11 +37,11 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	content: '';
 	display: block;
 	position: absolute;
-	width: 16.5rem;
-	height: 16.5rem;
+	width: 165px;
+	height: 165px;
 	border: 4.5px solid #ababab;
 	border-radius: 50%;
-	margin: -0.7rem 0 0 -0.7rem;
+	margin: -7px 0 0 -7px;
 	border-color: #ababab transparent transparent transparent;
 }
 
@@ -58,8 +58,8 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	background-image: ICON_BASE_64;
 	content: '';
 	position: absolute;
-	width: 15rem;
-	height: 15rem;
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 }`;
 
