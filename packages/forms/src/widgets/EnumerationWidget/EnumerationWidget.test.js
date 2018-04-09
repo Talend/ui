@@ -228,11 +228,13 @@ describe('EnumerationWidget', () => {
 	});
 
 	describe('upload file', () => {
-		it('should add a upload icon', () => {
+		it('should add a upload icon and set data-feature', () => {
 			const wrapper = mount(
 				<EnumerationWidget
 					schema={{
 						allowImport: true,
+					}}
+					uiSchema={{
 						overwriteExistingDataFeature: 'file.overwrite',
 						addFromFileDataFeature: 'file.add',
 						importFileDataFeature: 'file.import',
@@ -256,6 +258,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -292,6 +295,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -327,6 +331,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -360,6 +365,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -387,6 +393,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 			wrapper.instance().inputFile.click = jest.fn();
@@ -422,10 +429,8 @@ describe('EnumerationWidget', () => {
 						id="enumeration"
 						schema={{
 							allowImport: true,
-							overwriteExistingDataFeature: 'file.overwrite',
-							addFromFileDataFeature: 'file.add',
-							importFileDataFeature: 'file.import',
 						}}
+						uiSchema={{}}
 						registry={registry}
 						formData={[
 							{ id: '111', values: ['titi', 'tata'] },
