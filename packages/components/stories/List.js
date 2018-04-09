@@ -50,12 +50,14 @@ const actions = [
 		label: 'edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
+		hideLabel: true,
 	},
 	{
 		id: 'delete',
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
+		hideLabel: true,
 	},
 	{
 		id: 'related',

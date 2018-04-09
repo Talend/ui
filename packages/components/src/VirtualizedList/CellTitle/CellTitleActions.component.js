@@ -1,18 +1,41 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Actions } from '../../Actions';
+import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 
 import theme from './CellTitleActions.scss';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
-function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsKey }) {
+function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsKey, id }) {
 	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
-		actions.push(<Actions key={actions.length} actions={rowData[actionsKey]} hideLabel link />);
+		const isDropdown = actionDef => actionDef.displayMode === 'dropdown';
+		const actionDefinitions =
+			rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
+		const dropdownDefinitions =
+			rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
+
+		actions.push(
+			<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
+				{actionDefinitions && <ActionDropdown
+					id={id}
+					className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
+					items={actionDefinitions}
+					aria-label={'TODO translate me'}
+					link
+					noCaret
+				/>}
+				{dropdownDefinitions && <Actions
+					key={'dropdown-actions'}
+					actions={dropdownDefinitions}
+					hideLabel
+					link
+				/>}
+			</div>
+		);
 		actions.push(
 			<Actions
 				key={actions.length}
@@ -33,6 +56,7 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 
 CellTitleActions.displayName = 'VirtualizedList(CellTitleActions)';
 CellTitleActions.propTypes = {
+	id: PropTypes.string,
 	// The actions property key. Actions = props.rowData[props.actionsKey]
 	actionsKey: PropTypes.string,
 	// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
