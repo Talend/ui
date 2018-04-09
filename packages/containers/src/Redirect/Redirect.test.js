@@ -18,7 +18,8 @@ describe('Redirect', () => {
 
 	it('should dispatch a redirect action if to props given', () => {
 		const dispatch = jest.fn();
-		const result = new RedirectContainer({ path: '/to' }, { store: { dispatch } });
+		// eslint-disable-next-line new-cap
+		RedirectContainer({ path: '/to' }, { store: { dispatch } });
 		expect(dispatch.mock.calls.length).toBe(1);
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
