@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-
 import Header from './Header.component';
 
 describe('Header', () => {
@@ -9,28 +8,32 @@ describe('Header', () => {
 		// given
 		const props = {
 			label: 'Values',
-			headerDefault: [{
-				displayMode: 'dropdown',
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // provided click callback
-				items: [{
-					label: 'Add values from a file',
-					id: 'append-uploding',
-					onClick: jest.fn(),
-				}, {
-					label: 'Overwrite existing values',
-					id: 'append-uploding',
-					onClick: jest.fn(),
-				}],
-			}],
+			headerDefault: [
+				{
+					displayMode: 'dropdown',
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(), // provided click callback
+					'data-feature': 'item.add',
+					items: [
+						{
+							label: 'Add values from a file',
+							id: 'append-uploding',
+							onClick: jest.fn(),
+						},
+						{
+							label: 'Overwrite existing values',
+							id: 'append-uploding',
+							onClick: jest.fn(),
+						},
+					],
+				},
+			],
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Header {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Header {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -40,18 +43,18 @@ describe('Header', () => {
 		// given
 		const props = {
 			label: 'Values',
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // provided click callback
-			}],
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Header {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Header {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -62,18 +65,18 @@ describe('Header', () => {
 		const props = {
 			label: 'Values',
 			required: true,
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // provided click callback
-			}],
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Header {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Header {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
