@@ -12,24 +12,6 @@ body {
 	overflow: hidden;
 }
 
-@keyframes app-loader-spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes app-loader-fadeIn {
-	0%,
-	100% {
-		opacity: 0.5;
-	}
-	50% {
-		opacity: 1;
-	}
-}
 
 .tc-app-loader-container {
 	display: flex;
@@ -44,27 +26,55 @@ body {
 	margin: auto;
 }
 
-.tc-app-loader:before,
-.tc-app-loader:after {
-	animation: app-loader-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-	box-sizing: border-box;
-	content: '';
-	display: block;
+.tc-app-loader-animate {
+	width: 205px;
+	height: 205px;
 	position: absolute;
-	width: 165px;
-	height: 165px;
-	border: 4.5px solid #ababab;
-	border-radius: 50%;
+	margin: -27px 0 0 -27px;
+	animation: rotate 2s linear infinite;
+}
+
+.tc-app-loader-path {
+	stroke-dasharray: 12.5664; 
+	stroke-dashoffset: 0;
+	stroke: #ababab;
+	stroke-linecap: round;
+	stroke-width: 1.5px;
+	animation: dash 1.3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes dash {
+	0% {
 	margin: -7px 0 0 -7px;
-	border-color: #ababab transparent transparent transparent;
+		stroke-dasharray: 1, 150;
+		stroke-dashoffset: 0;
+	}
+
+	50% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -35;
+	}
+
+	100% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -124;
+	}
 }
 
-.tc-app-loader:before {
-	animation-delay: -0.3s;
-}
-
-.tc-app-loader:after {
-	animation-delay: -0.15s;
+@keyframes app-loader-fadeIn {
+	0%,
+	100% {
+		opacity: 0.5;
+	}
+	50% {
+		opacity: 1;
+	}
 }
 
 .tc-app-loader-icon:before {
@@ -72,14 +82,17 @@ body {
 	background-image: ICON_BASE_64;
 	content: '';
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 151px;
+	height: 151px;
 	border-radius: 50%;
 }`;
 
-const APP_LOADER = `<div class="tc-app-loader-container">
+const APP_LOADER = `<div class="tc-app-loader-container" aria-atomic="true" aria-busy="true">
 	<div class="tc-app-loader">
-		<div class="tc-app-loader-icon"></div>
+		<svg focusable="false" class="tc-app-loader-animate" viewBox="0 0 50 50">
+			<circle class="tc-app-loader-path" r="20" cx="25" cy="25" fill="none"></circle>
+		</svg>
+		<div class="tc-app-loader-icon" />
 	</div>
 </div>
 `;
