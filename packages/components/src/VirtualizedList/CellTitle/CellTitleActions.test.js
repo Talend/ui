@@ -76,11 +76,17 @@ describe('CellTitleActions', () => {
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_INPUT}
 				rowData={{ actions: simpleActions }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.find(CellTitleActionsComponent).dive().find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find(CellTitleActionsComponent)
+				.dive()
+				.find('.main-title-actions-group')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render a menu containing simple actions', () => {
@@ -90,11 +96,17 @@ describe('CellTitleActions', () => {
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ actions: simpleActions }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.find(CellTitleActionsComponent).dive().find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find(CellTitleActionsComponent)
+				.dive()
+				.find('.main-title-actions-group')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should extract and render each dropdown actions', () => {
@@ -104,11 +116,17 @@ describe('CellTitleActions', () => {
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ actions: dropdownActions.concat(simpleActions) }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.find(CellTitleActionsComponent).dive().find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find(CellTitleActionsComponent)
+				.dive()
+				.find('.main-title-actions-group')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render persistent actions', () => {
@@ -118,10 +136,16 @@ describe('CellTitleActions', () => {
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ persistentActions }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.find(CellTitleActionsComponent).dive().find('.main-title-actions-group').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find(CellTitleActionsComponent)
+				.dive()
+				.find('.main-title-actions-group')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 });

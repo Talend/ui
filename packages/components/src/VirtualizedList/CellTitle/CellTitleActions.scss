@@ -10,9 +10,9 @@ $tc-list-title-actions-color: $brand-primary-darker !default;
 
 	.cell-title-actions {
 		background: linear-gradient(
-						to right,
-						rgba(255, 255, 255, 0),
-						$tc-list-row-hover-bg $padding-large
+			to right,
+			rgba(255, 255, 255, 0),
+			$tc-list-row-hover-bg $padding-large
 		);
 		opacity: 0;
 		visibility: hidden;

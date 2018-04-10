@@ -11,42 +11,39 @@ import theme from './CellTitleActions.scss';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
-export function CellTitleActionsComponent(
-	{
-		rowData,
-		actionsKey,
-		displayMode,
-		persistentActionsKey,
-		id,
-		t,
-	}) {
+export function CellTitleActionsComponent({
+	rowData,
+	actionsKey,
+	displayMode,
+	persistentActionsKey,
+	id,
+	t,
+}) {
 	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
 		const isDropdown = actionDef => actionDef.displayMode === 'dropdown';
 		const actionDefinitions =
 			rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
-		const dropdownDefinitions =
-			rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
+		const dropdownDefinitions = rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
 
 		actions.push(
 			<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
-				{actionDefinitions && <ActionDropdown
-					id={id}
-					className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
-					items={actionDefinitions}
-					label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
-					hideLabel
-					link
-					noCaret
-				/>}
-				{dropdownDefinitions && <Actions
-					key={'dropdown-actions'}
-					actions={dropdownDefinitions}
-					hideLabel
-					link
-				/>}
-			</div>
+				{actionDefinitions && (
+					<ActionDropdown
+						id={id}
+						className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
+						items={actionDefinitions}
+						label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
+						hideLabel
+						link
+						noCaret
+					/>
+				)}
+				{dropdownDefinitions && (
+					<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
+				)}
+			</div>,
 		);
 		actions.push(
 			<Actions
