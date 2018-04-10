@@ -6,7 +6,7 @@ exports[`Filter container should render 1`] = `
   className=""
   collectionToFilter="myCollectionToFilter"
   dockable={true}
-  docked={true}
+  docked={false}
   focus={false}
   iconAlwaysVisible={false}
   navbar={true}
@@ -14,6 +14,6 @@ exports[`Filter container should render 1`] = `
   onToggle={[Function]}
   placeholder="Filter"
   t={[Function]}
-  value=""
+  value="a filter"
 />
 `;
