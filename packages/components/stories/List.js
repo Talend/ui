@@ -431,7 +431,7 @@ storiesOf('List', module)
 				You just need to pass the props displayMode.
 				<pre>&lt;List displayMode="large" ... &gt;</pre>
 			</p>
-			<List {...props} displayMode="large" />
+			<List {...props} rowHeight={140} displayMode="large" />
 		</div>
 	))
 	.add('Large display with icons', () => {
@@ -446,7 +446,7 @@ storiesOf('List', module)
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
-				<List {...customProps} displayMode="large" />
+				<List {...customProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -549,7 +549,7 @@ storiesOf('List', module)
 				<h2>Table</h2>
 				<List {...selectedItemsProps} />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} displayMode="large" />
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})

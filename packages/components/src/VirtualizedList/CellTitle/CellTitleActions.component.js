@@ -24,7 +24,8 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 					id={id}
 					className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 					items={actionDefinitions}
-					aria-label={'TODO translate me'}
+					label={'TODO translate me : Open menu'}
+					hideLabel
 					link
 					noCaret
 				/>}
