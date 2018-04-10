@@ -51,7 +51,6 @@ body {
 
 @keyframes dash {
 	0% {
-	margin: -7px 0 0 -7px;
 		stroke-dasharray: 1, 150;
 		stroke-dashoffset: 0;
 	}
