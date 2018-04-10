@@ -207,7 +207,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
-            title={undefined}
+            title="Text A"
           >
             Text A
           </a>
@@ -225,7 +225,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
-            title={undefined}
+            title="Text B"
           >
             Text B
           </a>
@@ -243,7 +243,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
-            title={undefined}
+            title="Text C"
           >
             Text C
           </a>
@@ -366,7 +366,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
-            title={undefined}
+            title="Text A"
           >
             Text A
           </a>
@@ -514,7 +514,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
-            title={undefined}
+            title="Text A"
           >
             Text A
           </a>

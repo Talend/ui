@@ -10995,6 +10995,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       role="menu"
                                     >
                                       <MenuItem
+                                        aria-label="Add values from a file"
                                         bsClass="dropdown"
                                         data-feature="file.add"
                                         disabled={false}
@@ -11014,12 +11015,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
+                                        title="Add values from a file"
                                       >
                                         <li
                                           className=""
                                           role="presentation"
                                         >
                                           <SafeAnchor
+                                            aria-label="Add values from a file"
                                             componentClass="a"
                                             data-feature="file.add"
                                             id="append-uploding"
@@ -11028,8 +11031,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                             onKeyDown={[Function]}
                                             role="menuitem"
                                             tabIndex="-1"
+                                            title="Add values from a file"
                                           >
                                             <a
+                                              aria-label="Add values from a file"
                                               data-feature="file.add"
                                               href="#"
                                               id="append-uploding"
@@ -11038,6 +11043,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Add values from a file"
                                             >
                                               Add values from a file
                                             </a>
@@ -11045,6 +11051,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         </li>
                                       </MenuItem>
                                       <MenuItem
+                                        aria-label="Overwrite existing values"
                                         bsClass="dropdown"
                                         data-feature="file.overwrite"
                                         disabled={false}
@@ -11064,12 +11071,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
+                                        title="Overwrite existing values"
                                       >
                                         <li
                                           className=""
                                           role="presentation"
                                         >
                                           <SafeAnchor
+                                            aria-label="Overwrite existing values"
                                             componentClass="a"
                                             data-feature="file.overwrite"
                                             id="append-uploding"
@@ -11078,8 +11087,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                             onKeyDown={[Function]}
                                             role="menuitem"
                                             tabIndex="-1"
+                                            title="Overwrite existing values"
                                           >
                                             <a
+                                              aria-label="Overwrite existing values"
                                               data-feature="file.overwrite"
                                               href="#"
                                               id="append-uploding"
@@ -11088,6 +11099,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Overwrite existing values"
                                             >
                                               Overwrite existing values
                                             </a>
@@ -13551,6 +13563,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       role="menu"
                                     >
                                       <MenuItem
+                                        aria-label="Add values from a file"
                                         bsClass="dropdown"
                                         disabled={false}
                                         divider={false}
@@ -13569,12 +13582,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
+                                        title="Add values from a file"
                                       >
                                         <li
                                           className=""
                                           role="presentation"
                                         >
                                           <SafeAnchor
+                                            aria-label="Add values from a file"
                                             componentClass="a"
                                             id="append-uploding"
                                             label="Add values from a file"
@@ -13582,8 +13597,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             onKeyDown={[Function]}
                                             role="menuitem"
                                             tabIndex="-1"
+                                            title="Add values from a file"
                                           >
                                             <a
+                                              aria-label="Add values from a file"
                                               href="#"
                                               id="append-uploding"
                                               label="Add values from a file"
@@ -13591,6 +13608,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Add values from a file"
                                             >
                                               Add values from a file
                                             </a>
@@ -13598,6 +13616,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         </li>
                                       </MenuItem>
                                       <MenuItem
+                                        aria-label="Overwrite existing values"
                                         bsClass="dropdown"
                                         disabled={false}
                                         divider={false}
@@ -13616,12 +13635,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
+                                        title="Overwrite existing values"
                                       >
                                         <li
                                           className=""
                                           role="presentation"
                                         >
                                           <SafeAnchor
+                                            aria-label="Overwrite existing values"
                                             componentClass="a"
                                             id="append-uploding"
                                             label="Overwrite existing values"
@@ -13629,8 +13650,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             onKeyDown={[Function]}
                                             role="menuitem"
                                             tabIndex="-1"
+                                            title="Overwrite existing values"
                                           >
                                             <a
+                                              aria-label="Overwrite existing values"
                                               href="#"
                                               id="append-uploding"
                                               label="Overwrite existing values"
@@ -13638,6 +13661,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Overwrite existing values"
                                             >
                                               Overwrite existing values
                                             </a>

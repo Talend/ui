@@ -36,6 +36,7 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {
@@ -84,6 +85,7 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
   <VirtualizedList(CellTitleActions)
     actionsKey="actions"
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {
@@ -132,6 +134,7 @@ exports[`CellTitle actions should render the actions 1`] = `
   <VirtualizedList(CellTitleActions)
     actionsKey="actions"
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {
@@ -180,6 +183,7 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {
@@ -217,6 +221,7 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {
@@ -258,6 +263,7 @@ exports[`CellTitle icon should render the icon 1`] = `
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {
@@ -296,6 +302,7 @@ exports[`CellTitle should render title selector component 1`] = `
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
+    id="my-title-1-title-actions"
     persistentActionsKey={undefined}
     rowData={
       Object {

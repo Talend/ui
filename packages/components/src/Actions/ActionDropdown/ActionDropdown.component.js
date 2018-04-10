@@ -63,7 +63,6 @@ function renderMutableMenuItem(item, index, getComponent) {
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
-			aria-label={item.label}
 			title={item.label}
 		>
 			{item.icon && <Icon name={item.icon} />}
