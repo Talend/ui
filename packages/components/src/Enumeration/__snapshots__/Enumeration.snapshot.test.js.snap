@@ -2119,6 +2119,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
                 >
                   <label
+                    data-feature={undefined}
                     htmlFor={undefined}
                   >
                     <input
@@ -2215,6 +2216,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
                 >
                   <label
+                    data-feature={undefined}
                     htmlFor={undefined}
                   >
                     <input
@@ -2311,6 +2313,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                   className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
                 >
                   <label
+                    data-feature={undefined}
                     htmlFor={undefined}
                   >
                     <input

@@ -24,6 +24,7 @@ describe('Toggle', () => {
 		const props = {
 			...defaultProps,
 			checked: true,
+			'data-feature': 'toggle',
 		};
 
 		// when
@@ -38,6 +39,7 @@ describe('Toggle', () => {
 		const props = {
 			...defaultProps,
 			disabled: true,
+			'data-feature': 'toggle',
 		};
 
 		// when

@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
+import Inject from '../Inject';
 
 import theme from './Drawer.scss';
 
@@ -79,10 +80,12 @@ DrawerContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-export function cancelActionComponent(onCancelAction) {
+export function cancelActionComponent(onCancelAction, getComponent) {
 	if (!onCancelAction) {
 		return null;
 	}
+
+	const ActionComponent = Inject.get(getComponent, 'Action', Action);
 	const enhancedCancelAction = Object.assign(
 		{
 			icon: 'talend-cross',
@@ -91,7 +94,7 @@ export function cancelActionComponent(onCancelAction) {
 		},
 		onCancelAction,
 	);
-	return <Action className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />;
+	return <ActionComponent className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />;
 }
 
 export function subtitleComponent(subtitle) {
@@ -101,7 +104,7 @@ export function subtitleComponent(subtitle) {
 	return <h2 title={subtitle}>{subtitle}</h2>;
 }
 
-function DrawerTitle({ title, subtitle, children, onCancelAction }) {
+function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }) {
 	if (!title) {
 		return null;
 	}
@@ -110,7 +113,7 @@ function DrawerTitle({ title, subtitle, children, onCancelAction }) {
 			<div className={classnames('tc-drawer-header-title', theme['tc-drawer-header-title'])}>
 				<h1 title={title}>{title}</h1>
 				{subtitleComponent(subtitle)}
-				{cancelActionComponent(onCancelAction)}
+				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
 			<div
 				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
@@ -126,6 +129,7 @@ DrawerTitle.propTypes = {
 	subtitle: PropTypes.string,
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
+	getComponent: PropTypes.func,
 };
 
 function DrawerContent({ children, className, ...rest }) {
@@ -177,10 +181,13 @@ function Drawer({
 	onCancelAction,
 	tabs,
 	withTransition,
+	getComponent,
 }) {
 	if (!children) {
 		return null;
 	}
+
+	const TabBarComponent = Inject.get(getComponent, 'TabBar', TabBar);
 	return (
 		<DrawerContainer
 			stacked={stacked}
@@ -188,10 +195,13 @@ function Drawer({
 			style={style}
 			withTransition={withTransition}
 		>
-			<DrawerTitle title={title} onCancelAction={onCancelAction} />
+			<DrawerTitle title={title} onCancelAction={onCancelAction} getComponent={getComponent} />
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
-					<TabBar {...tabs} className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])} />
+					<TabBarComponent
+						{...tabs}
+						className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])}
+					/>
 				</div>
 			)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
@@ -225,6 +235,7 @@ Drawer.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
+	getComponent: PropTypes.func,
 };
 
 Drawer.defaultProps = {
