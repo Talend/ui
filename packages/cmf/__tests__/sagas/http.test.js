@@ -271,13 +271,13 @@ describe('#httpFetch', () => {
 	});
 });
 
-it('should wrap the request and mute generic http error if silent option is set to true ', () => {
+it('should wrap the request and not notify with generic http error if silent option is set to true ', () => {
 	const url = '/foo';
 	const config = {
 		'Content-Type': 'application/json',
 	};
 	const options = {
-		'silent': true,
+		silent: true,
 	};
 
 	const payload = {
@@ -296,18 +296,6 @@ it('should wrap the request and mute generic http error if silent option is set 
 	const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload, options);
 
 	expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
-	/*expect(gen.next(httpError).value).toEqual(
-		put({
-			error: {
-				message: 'Error occured',
-				stack: {
-					status: HTTP_STATUS.FORBIDDEN,
-				},
-			},
-			type: ACTION_TYPE_HTTP_ERRORS,
-		}),
-	);
-	expect(gen.next().value).toEqual(httpError);*/
 	expect(gen.next(httpError).value).toEqual(httpError);
 	expect(gen.next().done).toBe(true);
 });
@@ -567,7 +555,7 @@ describe('http module with instance created with no CSRF handling configuration'
 		expect(gen.next().value).toEqual(call(httpGet, url, expectedConfig, {}));
 	});
 
-	it(`check that httpGet is called with only an url, config object
+	it(`check that httpGet is called with only an url, a config object and an empty options object
     when http.get is called with an url and config object`, () => {
 		// given
 		const url = '/url';
