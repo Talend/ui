@@ -59,6 +59,7 @@ exports[`Icon should support extra props 1`] = `
 <svg
   aria-hidden="true"
   className="theme-tc-svg-icon tc-svg-icon custom-class"
+  data-custom="hello"
   focusable="false"
   name="svg-dd"
   title={null}

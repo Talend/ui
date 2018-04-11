@@ -34,7 +34,7 @@ describe('Icon', () => {
 	});
 
 	it('should support extra props', () => {
-		const wrapper = shallow(<Icon name="svg-dd" className="custom-class" />);
+		const wrapper = shallow(<Icon name="svg-dd" className="custom-class" data-custom="hello" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
