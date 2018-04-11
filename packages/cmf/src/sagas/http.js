@@ -119,6 +119,7 @@ export function httpFetch(url, config, method, payload) {
  * @param  {object} config                    option that you want apply to the request
  * @param  {string} method = HTTP_METHODS.GET method to apply
  * @param  {object} payload                   payload to send with the request
+ * @param  {object} options                   options to deal with cmf automatically
  * @return {object}                           the response of the request
  */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
@@ -140,6 +141,7 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, opti
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -155,6 +157,7 @@ export function* httpPost(url, payload, config, options) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -170,6 +173,7 @@ export function* httpPatch(url, payload, config, options) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -184,6 +188,7 @@ export function* httpPut(url, payload, config, options) {
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -198,6 +203,7 @@ export function* httpDelete(url, config, options) {
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
