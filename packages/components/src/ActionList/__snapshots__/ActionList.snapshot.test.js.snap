@@ -117,6 +117,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-clock"
             title={null}
           >
             <use
@@ -148,6 +149,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -179,6 +181,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-badge"
             title={null}
           >
             <use
@@ -210,6 +213,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-expanded"
             title={null}
           >
             <use
@@ -241,6 +245,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-folder"
             title={null}
           >
             <use
@@ -272,6 +277,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-tdp-negative"
             title={null}
           >
             <use
@@ -405,6 +411,7 @@ exports[`Storyshots ActionList single 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -571,6 +578,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-clock"
               title={null}
             >
               <use
@@ -602,6 +610,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-star"
               title={null}
             >
               <use
@@ -633,6 +642,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-badge"
               title={null}
             >
               <use
@@ -664,6 +674,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-expanded"
               title={null}
             >
               <use
@@ -695,6 +706,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-folder"
               title={null}
             >
               <use
@@ -726,6 +738,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-tdp-negative"
               title={null}
             >
               <use
