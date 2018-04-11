@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from '../GenericViewer.scss';
 import {
-	defaultGetDisplayKey,
 	defaultGetIcon,
 	defaultGetJSONPath,
 	defaultGetQuality,
+	defaultGetDisplayKey,
+	defaultGetFieldsCount,
 } from '../genericViewer.configuration';
 import Icon from '../../../Icon';
 import HierarchicTree from '../HierarchicTree';
@@ -49,101 +50,54 @@ function getButton(onClick, dataKey, jsonpath, content) {
 
 function getBranchContent({ getDisplayKey, type, isOpened, getQuality, ...props }, length) {
 	return [
-		<span key={'datakey'}>{getDisplayKey(props)}</span>,
+		<span key="datakey">{getDisplayKey(props)}</span>,
 		type === 'array' && getLengthBadge(length),
 		!isOpened && getQuality(props) === -1 && getQualityDot(),
 	];
 }
 
-function DefaultBranchChildren({
-	dataKey,
-	branchChildren,
-	jsonpath,
-	level,
-	type,
-	value,
-	getJSONPath,
-	...props
-}) {
-	return (
-		<ul className={'tc-object-viewer-nested'}>
-			{branchChildren.map((branchChild, index) => (
-				<Tree
-					{...props}
-					{...branchChild}
-					key={index}
-					level={level + 1}
-					jsonpath={getJSONPath({
-						dataKey: branchChild.dataKey,
-						parent: {
-							dataKey,
-							jsonpath,
-							type,
-							value,
-						},
-					})}
-				/>
-			))}
-		</ul>
-	);
-}
-DefaultBranchChildren.defaultProps = {
-	branchChildren: [],
-	getJSONPath: defaultGetJSONPath,
-};
-DefaultBranchChildren.propTypes = {
-	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	branchChildren: PropTypes.array,
-	getJSONPath: PropTypes.func,
-	jsonpath: PropTypes.string,
-	level: PropTypes.number,
-	type: PropTypes.string,
-	value: PropTypes.any,
-};
-
 export default function DefaultBranch(props) {
 	const {
 		className,
-		data,
-		// fields,
-		getIcon,
-		// getDisplayKey,
-		// getQuality,
 		isOpened,
-		jsonpath,
-		dataKey,
 		onClick,
 		onToggle,
+		dataKey,
+		jsonpath,
+		// data,
 		style,
 		type,
 		value,
-		getFields,
-		getJSONPath,
 		level,
+		getIcon,
+		getFields,
+		getFieldsCount,
 	} = props;
-	// TODO getCount instead of getFields
 	const icon = getIcon(props);
-	const content = getBranchContent(props, getFields(value, type).length);
+	const content = getBranchContent(props, getFieldsCount(value, type));
 
 	function onIconClick(event) {
-		onToggle(event, { data, isOpened, jsonpath });
+		onToggle(event, { value, isOpened, jsonpath });
 	}
-
 	return (
 		<div>
 			<div className={className} style={style}>
-				<Icon
-					key={'icon'}
-					title={isOpened ? `Collapse ${dataKey} (${jsonpath})` : `Expand ${dataKey} (${jsonpath})`}
-					name={icon.name}
-					transform={icon.transform}
-					className={classNames(theme.caret, icon.className)}
-					onClick={onIconClick}
-				/>
+				{icon && (
+					<Icon
+						key="Icon"
+						title={
+							isOpened ? `Collapse ${dataKey} (${jsonpath})` : `Expand ${dataKey} (${jsonpath})`
+						}
+						name={icon.name}
+						transform={icon.transform}
+						className={classNames(theme.caret, icon.className)}
+						onClick={onIconClick}
+					/>
+				)}
 				{onClick ? (
 					getButton(onClick, dataKey, jsonpath, content)
 				) : (
-					<span key={'main-text'} className={theme.main}>
+					<span key="main-text" className={theme.main}>
 						{content}
 					</span>
 				)}
@@ -162,23 +116,25 @@ export default function DefaultBranch(props) {
 }
 DefaultBranch.defaultProps = {
 	getIcon: defaultGetIcon,
-	getDisplayKey: defaultGetDisplayKey,
 	getQuality: defaultGetQuality,
 	getJSONPath: defaultGetJSONPath,
+	getDisplayKey: defaultGetDisplayKey,
+	getFieldsCount: defaultGetFieldsCount,
 	fields: [],
 };
 DefaultBranch.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.any,
-	// fields: PropTypes.array,
-	// getDisplayKey: PropTypes.func,
+	value: PropTypes.any,
 	getIcon: PropTypes.func,
-	// getQuality: PropTypes.func,
+	getFields: PropTypes.func,
+	getFieldsCount: PropTypes.func,
+	onClick: PropTypes.func,
+	onToggle: PropTypes.func,
+	level: PropTypes.number,
 	isOpened: PropTypes.bool,
 	jsonpath: PropTypes.string,
 	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	onClick: PropTypes.func,
-	onToggle: PropTypes.func,
 	style: PropTypes.object,
 	type: PropTypes.string,
 };

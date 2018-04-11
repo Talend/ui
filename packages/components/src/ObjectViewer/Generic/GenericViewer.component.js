@@ -7,13 +7,7 @@ import theme from './GenericViewer.scss';
 export default function GenericViewer({ className, title, ...props }) {
 	return (
 		<div className={classNames(theme['tc-hierarchic'], 'tc-hierarchic', className)}>
-			<HierarchicTree
-				{...props}
-				dataKey={title}
-				jsonpath={'$'}
-				value={props.data}
-				level={0}
-			/>
+			<HierarchicTree {...props} dataKey={title} jsonpath={'$'} value={props.data} level={0} />
 		</div>
 	);
 }

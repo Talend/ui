@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import getJSONPathUtils from '../jsonPath';
 
 export function defaultGetDataType(data) {
@@ -14,6 +15,13 @@ export function defaultGetFields(data, type) {
 		return Object.keys(data).map(dataKey => ({ dataKey, value: data[dataKey] }));
 	}
 	return data.map((datum, index) => ({ dataKey: index, value: datum }));
+}
+
+export function defaultGetFieldsCount(data, type) {
+	if (type === 'object') {
+		return Object.keys(data).length;
+	}
+	return get(data, 'data.value', []).length;
 }
 
 export function defaultGetDisplayKey({ dataKey }) {
