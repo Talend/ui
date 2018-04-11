@@ -57,6 +57,7 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
@@ -99,6 +100,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
@@ -166,6 +168,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-cross"
         title={null}
       >
         <use
@@ -209,6 +212,7 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
