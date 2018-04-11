@@ -18,7 +18,7 @@
     "eslint-plugin-import": "1.14.0",
     "jest-cli": "20.0.3"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@talend/react-components": "^0.175.0"
   }
 }
