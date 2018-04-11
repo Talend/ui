@@ -9,6 +9,19 @@ exports[`AppLoader should render 1`] = `
   <div
     className="tc-app-loader"
   >
+    <svg
+      className="tc-app-loader-animate"
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className="tc-app-loader-path"
+        cx="25"
+        cy="25"
+        fill="none"
+        r="20"
+      />
+    </svg>
     <div
       className="tc-app-loader-icon"
     />
