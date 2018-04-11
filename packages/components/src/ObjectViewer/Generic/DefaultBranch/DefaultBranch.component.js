@@ -9,7 +9,7 @@ import {
 	defaultGetQuality,
 } from '../genericViewer.configuration';
 import Icon from '../../../Icon';
-import TreeItem from '../TreeItem';
+import HierarchicTree from '../HierarchicTree';
 
 function getLengthBadge(badgeValue) {
 	return (
@@ -62,17 +62,18 @@ function DefaultBranchChildren({
 	level,
 	type,
 	value,
+	getJSONPath,
 	...props
 }) {
 	return (
 		<ul className={'tc-object-viewer-nested'}>
 			{branchChildren.map((branchChild, index) => (
-				<TreeItem
+				<Tree
 					{...props}
 					{...branchChild}
 					key={index}
 					level={level + 1}
-					jsonpath={props.getJSONPath({
+					jsonpath={getJSONPath({
 						dataKey: branchChild.dataKey,
 						parent: {
 							dataKey,
@@ -117,6 +118,8 @@ export default function DefaultBranch(props) {
 		type,
 		value,
 		getFields,
+		getJSONPath,
+		level,
 	} = props;
 	// TODO getCount instead of getFields
 	const icon = getIcon(props);
@@ -125,6 +128,7 @@ export default function DefaultBranch(props) {
 	function onIconClick(event) {
 		onToggle(event, { data, isOpened, jsonpath });
 	}
+
 	return (
 		<div>
 			<div className={className} style={style}>
@@ -145,7 +149,13 @@ export default function DefaultBranch(props) {
 				)}
 			</div>
 			{isOpened && (
-				<DefaultBranchChildren {...props} type={type} branchChildren={getFields(value, type)} />
+				<HierarchicTree
+					{...props}
+					jsonpath={jsonpath}
+					treeItems={getFields(value, type)}
+					level={level}
+					value={value}
+				/>
 			)}
 		</div>
 	);
@@ -154,6 +164,7 @@ DefaultBranch.defaultProps = {
 	getIcon: defaultGetIcon,
 	getDisplayKey: defaultGetDisplayKey,
 	getQuality: defaultGetQuality,
+	getJSONPath: defaultGetJSONPath,
 	fields: [],
 };
 DefaultBranch.propTypes = {

@@ -45,6 +45,8 @@ export default class ModelViewer extends React.Component {
 				getItemMenu={this.getItemMenu}
 				opened={this.props.isSingle ? this.props.opened.default : this.props.opened}
 				noRoot
+				isRoot
+				withItemClick
 			/>
 		);
 	}

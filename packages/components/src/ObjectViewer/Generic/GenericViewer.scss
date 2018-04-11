@@ -1,11 +1,9 @@
-.tc-viewer {
+.tc-hierarchic {
 	font-family: 'Inconsolata';
 	font-size: 1.4rem;
 	letter-spacing: 0.6px;
 	padding: $padding-smaller 0;
-
-	&,
-	ul {
+	&-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;

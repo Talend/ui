@@ -13,6 +13,7 @@ export default function Record(props) {
 			{...genericViewerConfiguration}
 			className={theme.record}
 			data={data}
+			isRoot
 		/>
 	);
 }

@@ -4,14 +4,11 @@ import classNames from 'classnames';
 import DefaultLeaf from '../DefaultLeaf';
 import DefaultBranch from '../DefaultBranch';
 import theme from '../GenericViewer.scss';
-import {
-	defaultGetDataType,
-	defaultGetFields,
-} from '../genericViewer.configuration';
+import { defaultGetDataType, defaultGetFields, defaultGetJSONPath } from '../genericViewer.configuration';
 
 const paddingLeft = 30;
 
-export default function TreeItem(props) {
+function TreeItem(props) {
 	const {
 		getDataType,
 		// getFields,
@@ -22,6 +19,7 @@ export default function TreeItem(props) {
 		onSelect,
 		opened,
 		value,
+		// isRoot,
 	} = props;
 	const isRoot = level === 0;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
@@ -71,4 +69,38 @@ TreeItem.propTypes = {
 	onSelect: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),
 	value: PropTypes.any,
+};
+
+export default function HierarchicTree({ level, jsonpath, value, treeItems, ...props }) {
+	const cn = classNames(theme['tc-hierarchic-list'], 'tc-hierarchic-list');
+	if (treeItems && treeItems.length) {
+		return (
+			<ul className={cn}>
+				{treeItems.map((item, index) => (
+					<TreeItem
+						{...props}
+						{...item}
+						key={index}
+						level={level + 1}
+						jsonpath={props.getJSONPath({
+							dataKey: item.dataKey,
+							parent: {
+								jsonpath,
+								value,
+							},
+						})}
+					/>
+				))}
+			</ul>
+		);
+	}
+	return (
+		<ul className={cn}>
+			<TreeItem {...props} jsonpath={jsonpath} value={value} level={level} />
+		</ul>
+	);
+}
+
+HierarchicTree.defaultProps = {
+	getJSONPath: defaultGetJSONPath,
 };
