@@ -42,7 +42,6 @@ function collectForDropTarget(connect, monitor) {
  * This component adds the draggable behaviour to the Row component.
  */
 class DraggableRow extends Component {
-
 	render() {
 		const {
 			element,

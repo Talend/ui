@@ -140,9 +140,7 @@ export default class Schema extends Component {
 			onScroll: this.onContentScroll,
 		};
 		return (
-			<div
-				className={`schema mapper-element ${side}`}
-			>
+			<div className={`schema mapper-element ${side}`}>
 				<SchemaHeader
 					dataAccessor={dataAccessor}
 					schema={schema}

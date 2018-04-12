@@ -19,14 +19,13 @@ export const StateStatus = {
 	PREFERENCES: 1 << 6,
 };
 
-export const MAPPING_STATE_STATUS = StateStatus.MAPPING | StateStatus.SELECTION |
-	StateStatus.PENDING | StateStatus.DND;
+export const MAPPING_STATE_STATUS =
+	StateStatus.MAPPING | StateStatus.SELECTION | StateStatus.PENDING | StateStatus.DND;
 
-export const FILTERING_STATE_STATUS = StateStatus.FOCUSED | StateStatus.SELECTION |
-	StateStatus.PENDING | StateStatus.DND;
+export const FILTERING_STATE_STATUS =
+	StateStatus.FOCUSED | StateStatus.SELECTION | StateStatus.PENDING | StateStatus.DND;
 
-export const UNDO_REDO_STATE_STATUS = StateStatus.MAPPING |
-		StateStatus.PENDING | StateStatus.DND;
+export const UNDO_REDO_STATE_STATUS = StateStatus.MAPPING | StateStatus.PENDING | StateStatus.DND;
 
 export const Commands = {
 	ADD_MAPPING: 'add-mapping',

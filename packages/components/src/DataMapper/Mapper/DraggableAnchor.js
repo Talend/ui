@@ -29,7 +29,7 @@ const elementTarget = {
 function collectForDragSource(connect, monitor) {
 	return {
 		connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging(),
+		isDragging: monitor.isDragging(),
 	};
 }
 
@@ -40,53 +40,44 @@ function collectForDropTarget(connect, monitor) {
 }
 
 class DraggableAnchor extends Component {
+	constructor(props) {
+		super(props);
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+		this.updateElementRef = this.updateElementRef.bind(this);
+	}
 
-  constructor(props) {
-    super(props);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.updateElementRef = this.updateElementRef.bind(this);
-  }
+	componentDidMount() {
+		if (this.elementRef != null) {
+			this.elementRef.addEventListener('mouseenter', this.handleMouseEnter);
+			this.elementRef.addEventListener('mouseleave', this.handleMouseLeave);
+		}
+	}
 
-  componentDidMount() {
-    if (this.elementRef != null) {
-      this.elementRef.addEventListener('mouseenter', this.handleMouseEnter);
-      this.elementRef.addEventListener('mouseleave', this.handleMouseLeave);
-    }
-  }
+	componentWillUnmount() {
+		if (this.elementRef != null) {
+			this.elementRef.removeEventListener('mouseenter', this.handleMouseEnter);
+			this.elementRef.removeEventListener('mouseleave', this.handleMouseLeave);
+		}
+	}
 
-  componentWillUnmount() {
-    if (this.elementRef != null) {
-      this.elementRef.removeEventListener('mouseenter', this.handleMouseEnter);
-      this.elementRef.removeEventListener('mouseleave', this.handleMouseLeave);
-    }
-  }
+	handleMouseEnter() {
+		this.props.onEnterAnchor(this.props.anchor.element, this.props.anchor.side);
+	}
 
-  handleMouseEnter() {
-    this.props.onEnterAnchor(this.props.anchor.element, this.props.anchor.side);
-  }
+	handleMouseLeave() {
+		this.props.onLeaveAnchor(this.props.anchor.element, this.props.anchor.side);
+	}
 
-  handleMouseLeave() {
-    this.props.onLeaveAnchor(this.props.anchor.element, this.props.anchor.side);
-  }
-
-  updateElementRef(ref) {
-    this.elementRef = ref;
-  }
+	updateElementRef(ref) {
+		this.elementRef = ref;
+	}
 
 	render() {
-		const {
-			anchorStyle,
-      connectDragSource,
-      connectDropTarget,
-		} = this.props;
+		const { anchorStyle, connectDragSource, connectDropTarget } = this.props;
 		return connectDragSource(
 			connectDropTarget(
-        <div
-          ref={this.updateElementRef}
-          className="draggable-anchor"
-          style={anchorStyle}
-        />
+				<div ref={this.updateElementRef} className="draggable-anchor" style={anchorStyle} />,
 			),
 		);
 	}
@@ -94,10 +85,10 @@ class DraggableAnchor extends Component {
 
 DraggableAnchor.propTypes = {
 	anchor: PropTypes.object,
-  anchorStyle: PropTypes.object,
+	anchorStyle: PropTypes.object,
 	onEnterAnchor: PropTypes.func,
 	onLeaveAnchor: PropTypes.func,
-  dndListener: PropTypes.object,
+	dndListener: PropTypes.object,
 };
 
 export default flow(

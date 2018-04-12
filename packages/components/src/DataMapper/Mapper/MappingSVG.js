@@ -234,18 +234,10 @@ function appendSVGAnchors(svgAnchors, anchors, bounds) {
 function buildSVGAnchors(anchors, bounds) {
 	let svgAnchors = [];
 	if (anchors.input) {
-		svgAnchors = appendSVGAnchors(
-			svgAnchors,
-			anchors.input,
-			bounds,
-		);
+		svgAnchors = appendSVGAnchors(svgAnchors, anchors.input, bounds);
 	}
 	if (anchors.output) {
-		svgAnchors = appendSVGAnchors(
-			svgAnchors,
-			anchors.output,
-			bounds,
-		);
+		svgAnchors = appendSVGAnchors(svgAnchors, anchors.output, bounds);
 	}
 	return svgAnchors;
 }
@@ -271,13 +263,7 @@ function getAnchorParams(anchor) {
 }
 
 function renderAnchor(anchor) {
-	return (
-		<Anchor
-			key={anchor.key}
-			anchor={anchor}
-			params={getAnchorParams(anchor)}
-		/>
-	);
+	return <Anchor key={anchor.key} anchor={anchor} params={getAnchorParams(anchor)} />;
 }
 
 function renderDraggableAnchor(anchor, onEnterAnchor, onLeaveAnchor, dndListener) {
@@ -335,7 +321,6 @@ function boundsAreEqual(bounds1, bounds2) {
 }
 
 class MappingSVG extends Component {
-
 	constructor(props) {
 		super(props);
 		this.updateSVGRef = this.updateSVGRef.bind(this);
@@ -379,7 +364,11 @@ class MappingSVG extends Component {
 	}
 
 	getSVGAnchors(anchors, bounds) {
-		if (!this.svgAnchors || this.svgAnchorsVersion !== anchors.version || !boundsAreEqual(this.bounds, bounds)) {
+		if (
+			!this.svgAnchors ||
+			this.svgAnchorsVersion !== anchors.version ||
+			!boundsAreEqual(this.bounds, bounds)
+		) {
 			this.svgAnchors = buildSVGAnchors(anchors, bounds);
 			this.svgAnchorsVersion = anchors.version;
 			this.bounds = {
@@ -433,10 +422,10 @@ class MappingSVG extends Component {
 					{svgAnchors.map(anchor => renderAnchor(anchor))}
 					{svgConnections.map(connection => renderConnection(connection))}
 				</svg>
-				{svgAnchors.map(
-					anchor => renderDraggableAnchor(anchor, onEnterAnchor, onLeaveAnchor, dndListener)
+				{svgAnchors.map(anchor =>
+					renderDraggableAnchor(anchor, onEnterAnchor, onLeaveAnchor, dndListener),
 				)}
-			</div>
+			</div>,
 		);
 	}
 }

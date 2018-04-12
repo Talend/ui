@@ -90,10 +90,7 @@ export default class Mapping extends Component {
 	}
 
 	render() {
-		const {
-			dndListener,
-			...mappingProps
-		} = this.props;
+		const { dndListener, ...mappingProps } = this.props;
 		const {
 			mappingConfiguration,
 			getConnections,

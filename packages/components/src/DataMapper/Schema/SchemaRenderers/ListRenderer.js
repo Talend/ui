@@ -6,7 +6,6 @@ import MandatoryField from '../../List/MandatoryField';
 import * as Constants from '../../Constants';
 
 class SchemaClassNameProvider {
-
 	updateProps(props) {
 		this.props = props;
 	}
@@ -29,8 +28,15 @@ class SchemaClassNameProvider {
 		} else if (element) {
 			return {
 				'schema-element': true,
-				highlighted:
-					isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements, dnd),
+				highlighted: isHighlighted(
+					dataAccessor,
+					element,
+					selection,
+					side,
+					pendingItem,
+					focusedElements,
+					dnd,
+				),
 				mapped: isMapped(dataAccessor, element, mappedElements),
 				selected: isSelected(dataAccessor, selection, element, side),
 				input: side === Constants.MappingSide.INPUT,

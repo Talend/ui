@@ -19,7 +19,7 @@ function getFocusedElements(dataAccessor, mapping, focused, side) {
 		);
 		if (focusedItems) {
 			focusedElements = focusedElements.concat(
-				focusedItems.map(item => dataAccessor.getMappedElement(item, side))
+				focusedItems.map(item => dataAccessor.getMappedElement(item, side)),
 			);
 		}
 		if (focused.side === side && !dataAccessor.includes(focusedElements, focused.element)) {
@@ -333,27 +333,14 @@ export default class Mapper extends Component {
 		};
 	}
 
-	updatePropertyValue(
-		dataAccessor,
-		item,
-		visibleElements,
-		anchors,
-		property,
-		value,
-	) {
+	updatePropertyValue(dataAccessor, item, visibleElements, anchors, property, value) {
 		const elemId = dataAccessor.getElementId(item.element);
 		if (dataAccessor.includes(visibleElements[item.side], item.element)) {
 			anchors[item.side][elemId][property] = value;
 		}
 	}
 
-	populateAnchors(
-		dataAccessor,
-		anchors,
-		visibleElements,
-		side,
-		visibleMapping,
-	) {
+	populateAnchors(dataAccessor, anchors, visibleElements, side, visibleMapping) {
 		for (let i = 0; i < visibleElements[side].length; i += 1) {
 			const elem = visibleElements[side][i];
 			const elemId = dataAccessor.getElementId(elem);
@@ -391,11 +378,30 @@ export default class Mapper extends Component {
 			};
 			const visibleMapping = this.getVisibleMapping();
 
-			this.populateAnchors(dataAccessor, anchors, visibleElements, Constants.MappingSide.INPUT, visibleMapping);
-			this.populateAnchors(dataAccessor, anchors, visibleElements, Constants.MappingSide.OUTPUT, visibleMapping);
+			this.populateAnchors(
+				dataAccessor,
+				anchors,
+				visibleElements,
+				Constants.MappingSide.INPUT,
+				visibleMapping,
+			);
+			this.populateAnchors(
+				dataAccessor,
+				anchors,
+				visibleElements,
+				Constants.MappingSide.OUTPUT,
+				visibleMapping,
+			);
 
 			if (selection) {
-				this.updatePropertyValue(dataAccessor, selection, visibleElements, anchors, 'selected', true);
+				this.updatePropertyValue(
+					dataAccessor,
+					selection,
+					visibleElements,
+					anchors,
+					'selected',
+					true,
+				);
 			}
 
 			if (focused) {
@@ -403,9 +409,23 @@ export default class Mapper extends Component {
 			}
 
 			if (pendingItem) {
-				this.updatePropertyValue(dataAccessor, pendingItem, visibleElements, anchors, 'visible', false);
+				this.updatePropertyValue(
+					dataAccessor,
+					pendingItem,
+					visibleElements,
+					anchors,
+					'visible',
+					false,
+				);
 				if (selection) {
-					this.updatePropertyValue(dataAccessor, selection, visibleElements, anchors, 'visible', false);
+					this.updatePropertyValue(
+						dataAccessor,
+						selection,
+						visibleElements,
+						anchors,
+						'visible',
+						false,
+					);
 				}
 			}
 
@@ -416,7 +436,6 @@ export default class Mapper extends Component {
 			// 		this.updatePropertyValue(dataAccessor, dnd.target, visibleElements, anchors, 'visible', false);
 			// 	}
 			// }
-
 		}
 		return anchors;
 	}

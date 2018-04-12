@@ -101,7 +101,6 @@ it('clear-mapping', () => {
 		.simulate('click');
 
 	expect(clearMapping).toBeCalled();
-
 });
 
 it('perform-mapping', () => {
