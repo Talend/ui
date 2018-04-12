@@ -33,7 +33,7 @@ export const classNameProvider = {
 			return `classname-of-(${element.id})`;
 		}
 		return 'classname-of-list';
-	},	
+	},
 };
 
 export const rowDataGetter = {
