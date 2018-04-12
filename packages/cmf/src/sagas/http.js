@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import curry from 'lodash/curry';
 import get from 'lodash/get';
+import { api } from '../api';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -10,6 +11,14 @@ import {
 	HTTP_STATUS,
 	testHTTPCode,
 } from '../middlewares/http/constants';
+import {
+	onRequest,
+	onResponse as onHttpResponse,
+	onError as onHttpError,
+	onActionResponse,
+	onActionError,
+	onJSError,
+} from '../actions/http';
 
 export class HTTPError extends Error {
 	constructor({ data, response }) {
@@ -111,6 +120,45 @@ export function httpFetch(url, config, method, payload) {
 		.then(handleHttpResponse)
 		.catch(handleError);
 }
+export function cloneError(initialError, resultError) {
+	const errorToEnrich = Object.assign({}, resultError);
+	return initialError.stack.response
+		.clone()
+		.text()
+		.then(response => {
+			try {
+				errorToEnrich.stack.response = response;
+				errorToEnrich.stack.messageObject = JSON.parse(response);
+				return Promise.resolve(errorToEnrich);
+			} catch (exception) {
+				errorToEnrich.stack.messageObject = 'Parsing response error';
+				return Promise.reject(errorToEnrich);
+			}
+		});
+}
+export function* errorProcessing(error, httpAction) {
+	const errorObject = {
+		name: error.name,
+		message: error.description || error.message,
+		number: error.number,
+		stack: error.stack,
+	};
+	const clone = get(error, 'stack.response.clone');
+	if (!clone) {
+		yield put(onJSError(errorObject, httpAction));
+	} else {
+		// clone the response object else the next call to text or json
+		// triggers an exception Already use
+		const clonedError = cloneError(error);
+		if (httpAction.onError) {
+			yield put(onActionError(httpAction, clonedError));
+		}
+
+		if (typeof httpAction.onError !== 'function') {
+			yield put(onHttpError(httpAction, clonedError));
+		}
+	}
+}
 
 /**
  * function - wrap the fetch request with the actions errors
@@ -122,17 +170,48 @@ export function httpFetch(url, config, method, payload) {
  * @param  {object} options                   options to deal with cmf automatically
  * @return {object}                           the response of the request
  */
-export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
+export function* wrapFetch(
+	url,
+	config,
+	method = HTTP_METHODS.GET,
+	payload,
+	{ silent, onSend, onResponse, onError, transform, collectionId },
+) {
+	if (!silent) {
+		yield put(onRequest(url, config));
+	}
+	if (onSend) {
+		yield put({ type: onSend });
+	}
 	const answer = yield call(httpFetch, url, config, method, payload);
 
-	if (!get(options, 'silent') && answer instanceof Error) {
-		yield put({
-			error: { message: answer.data.message, stack: { status: answer.response.status } },
-			type: ACTION_TYPE_HTTP_ERRORS,
-		});
+	if (!silent) {
+		if (answer instanceof Error) {
+			yield put(
+				onHttpError({
+					error: {
+						message: answer.data.message,
+						stack: { status: answer.response.status },
+					},
+				}),
+			);
+		} else {
+			yield put(onHttpResponse(answer));
+		}
+	}
+	if (answer instanceof Error) {
+		yield call(errorProcessing, answer, { onError });
+	}
+	const transformedData = transform ? transform(answer) : answer;
+
+	if (collectionId) {
+		yield put(api.actions.collections.addOrReplace(collectionId, transformedData));
+	}
+	if (onResponse) {
+		yield put(onActionResponse({ onResponse }, transformedData));
 	}
 
-	return answer;
+	return transformedData;
 }
 
 /**

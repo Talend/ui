@@ -11,14 +11,14 @@ export const DEFAULT_HTTP_HEADERS = {
 	'Content-Type': 'application/json',
 };
 
-function onError(error) {
+export function onError(error) {
 	return {
 		type: ACTION_TYPE_HTTP_ERRORS,
 		error,
 	};
 }
 
-function onRequest(url, config) {
+export function onRequest(url, config) {
 	return {
 		type: ACTION_TYPE_HTTP_REQUEST,
 		url,
@@ -26,7 +26,7 @@ function onRequest(url, config) {
 	};
 }
 
-function onJSError(error, action) {
+export function onJSError(error, action) {
 	console.error(error); // eslint-disable-line no-console
 	return {
 		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
@@ -35,14 +35,14 @@ function onJSError(error, action) {
 	};
 }
 
-function onResponse(response) {
+export function onResponse(response) {
 	return {
 		type: ACTION_TYPE_HTTP_RESPONSE,
 		data: response,
 	};
 }
 
-function onActionResponse(action, response) {
+export function onActionResponse(action, response) {
 	if (typeof action.onResponse === 'function') {
 		return action.onResponse(response);
 	}
@@ -52,7 +52,7 @@ function onActionResponse(action, response) {
 	};
 }
 
-function onActionError(action, error) {
+export function onActionError(action, error) {
 	if (typeof action.onError === 'function') {
 		return action.onError(error);
 	}
