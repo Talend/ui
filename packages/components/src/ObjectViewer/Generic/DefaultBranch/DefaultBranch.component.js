@@ -75,12 +75,11 @@ export default function DefaultBranch(props) {
 	} = props;
 	const icon = getIcon(props);
 	const content = getBranchContent(props, getFieldsCount(value, type));
-
 	function onIconClick(event) {
 		onToggle(event, { value, isOpened, jsonpath });
 	}
 	return (
-		<div>
+		<div className={classNames(theme.item)}>
 			<div className={className} style={style}>
 				{icon && (
 					<Icon

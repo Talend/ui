@@ -1,5 +1,5 @@
 .model {
-	&:global(.tc-object-viewer .tc-object-viewer-item .tc-object-viewer-content) {
+	&:global(.tc-hierarchic .tc-hierarchic-list .tc-hierarchic-item) {
 		&:focus,
 		&:focus-within,
 		&:hover {

@@ -38,7 +38,7 @@ export function defaultGetDisplayValue({ value }) {
 }
 
 export function defaultGetJSONPath({ dataKey, parent }) {
-	return getJSONPathUtils(dataKey, parent.jsonpath, parent.type);
+	return getJSONPathUtils(dataKey, parent.jsonpath, parent.type);	
 }
 
 export function defaultGetQuality() {
@@ -48,6 +48,5 @@ export function defaultGetQuality() {
 export function defaultGetIcon({ isOpened }) {
 	const name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const transform = isOpened ? null : 'rotate-180';
-
 	return { name, transform };
 }

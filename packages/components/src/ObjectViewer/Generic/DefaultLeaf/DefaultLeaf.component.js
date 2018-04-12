@@ -46,7 +46,7 @@ export default function DefaultLeaf(props) {
 	const formattedValue = getDisplayValue(props);
 	if (onClick) {
 		return (
-			<div className={className} style={style}>
+			<div className={classNames(className, theme.item)} style={style}>
 				<button
 					key="main"
 					aria-label={`Select ${dataKey} (${jsonpath})`}

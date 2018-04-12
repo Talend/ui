@@ -518,6 +518,7 @@ class AvroViewer extends React.Component {
 		if (this.props.useCustomRenderers) {
 			avroRenderersIds = customAvroRenderersIds;
 		}
+
 		return (
 			<div style={{ display: 'flex', alignItems: 'stretch', height: '100%' }}>
 				<div style={partStyle}>
