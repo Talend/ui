@@ -8,7 +8,7 @@ import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaEleme
 import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
 import * as Constants from '../Constants';
-import SchemaConfiguration from '../Schema/schemaConfiguration';
+import SchemaConfiguration from '../Schema/SchemaConfiguration';
 import MappingConfiguration from './MappingConfiguration.js';
 import MappingSVG from './MappingSVG.js';
 import MappingActions from './MappingActions.js';
@@ -74,7 +74,6 @@ const clearMapping = jest.fn();
 
 const preferences = {
 	showAll: false,
-	withGradient: false,
 };
 
 it('clear-mapping', () => {

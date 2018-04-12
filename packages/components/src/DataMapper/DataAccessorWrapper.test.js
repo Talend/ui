@@ -1,11 +1,23 @@
 import * as TestData from './TestData';
 import * as Constants from './Constants';
 import DefaultDataAccessor from './DefaultDataAccessor';
-import DataAccessorWrapper from './DataAccessorWrapper';
+import DataAccessorWrapper, { isObjectEmpty } from './DataAccessorWrapper';
 import MandatoryFieldFilter from './Schema/Filters/MandatoryFieldFilter';
 import NameFilter from './Schema/Filters/NameFilter';
 
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
+
+it('data-accessor-wrapper-utils', () => {
+
+	const obj1 = {
+		val: 'toto',
+	};
+
+	expect(isObjectEmpty(null)).toBe(true);
+	expect(isObjectEmpty({})).toBe(true);
+	expect(isObjectEmpty(obj1)).toBe(false);
+
+});
 
 it('data-accessor-wrapper-schema', () => {
 	const schema = TestData.schema1;

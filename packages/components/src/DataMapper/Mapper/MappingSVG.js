@@ -16,7 +16,7 @@ const elementTarget = {
 			props.dndListener.dndInProgress(monitor.getClientOffset());
 		}
 	},
-	canDrop(props, monitor) {
+	canDrop(props) {
 		return false;
 	},
 };
@@ -127,17 +127,6 @@ function buildSVGConnections(connections, dnd, bounds) {
 	return svgConnections;
 }
 
-function getLineParams(connection) {
-	return {
-		kind: 'line',
-		x1: connection.x1,
-		y1: connection.y1,
-		x2: connection.x2,
-		y2: connection.y2,
-		style: connection.style,
-	};
-}
-
 function buildBezierPath(connection) {
 	const x = (connection.x2 - connection.x1) / 2 + connection.x1;
 	const start = `M ${connection.x1} ${connection.y1} `;
@@ -222,8 +211,9 @@ function appendSVGAnchor(svgAnchors, anchor, bounds) {
 
 function appendSVGAnchors(svgAnchors, anchors, bounds) {
 	let svga = svgAnchors.slice();
-	for (let elemId in anchors) {
-		const anchor = anchors[elemId];
+	const anchorKeys = Object.keys(anchors);
+	for (let i = 0; i < anchorKeys.length; i += 1) {
+		const anchor = anchors[anchorKeys[i]];
 		if (anchor.visible) {
 			svga = appendSVGAnchor(svga, anchor, bounds);
 		}
@@ -291,21 +281,21 @@ function renderGradientStop(stop) {
 	return <stop id={`grad-stop-${stop.key}`} offset={`${stop.offset}%`} />;
 }
 
-function renderLinearGradient(preferences) {
-	if (preferences.withGradient) {
+function renderLinearGradients(gradientStops, key) {
+	if (gradientStops) {
 		return (
 			<defs>
-				<linearGradient id="grad-left-top" x1="0%" y1="0%" x2="100%" y2="100%">
-					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				<linearGradient id={`grad-left-top-${key}`} x1="0%" y1="0%" x2="100%" y2="100%">
+					{gradientStops.map(stop => renderGradientStop(stop))}
 				</linearGradient>
-				<linearGradient id="grad-left-bottom" x1="0%" y1="100%" x2="100%" y2="0%">
-					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				<linearGradient id={`grad-left-bottom-${key}`} x1="0%" y1="100%" x2="100%" y2="0%">
+					{gradientStops.map(stop => renderGradientStop(stop))}
 				</linearGradient>
-				<linearGradient id="grad-right-top" x1="100%" y1="0%" x2="0%" y2="100%">
-					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				<linearGradient id={`grad-right-top-${key}`} x1="100%" y1="0%" x2="0%" y2="100%">
+					{gradientStops.map(stop => renderGradientStop(stop))}
 				</linearGradient>
-				<linearGradient id="grad-right-bottom" x1="100%" y1="100%" x2="0%" y2="0%">
-					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				<linearGradient id={`grad-right-bottom-${key}`} x1="100%" y1="100%" x2="0%" y2="0%">
+					{gradientStops.map(stop => renderGradientStop(stop))}
 				</linearGradient>
 			</defs>
 		);
@@ -347,10 +337,6 @@ class MappingSVG extends Component {
 		return this.props.height;
 	}
 
-	update() {
-		this.forceUpdate();
-	}
-
 	reveal(connectionKey) {
 		const styleKeys = Object.keys(Constants.Connection.STYLE);
 		for (let i = 0; i < styleKeys.length; i += 1) {
@@ -379,6 +365,10 @@ class MappingSVG extends Component {
 		return this.svgAnchors;
 	}
 
+	update() {
+		this.forceUpdate();
+	}
+
 	updateSVGRef(ref) {
 		this.svg = ref;
 	}
@@ -388,12 +378,10 @@ class MappingSVG extends Component {
 			connectDropTarget,
 			getConnections,
 			getAnchors,
-			draggable,
 			dnd,
 			dndListener,
 			preferences,
 			width,
-			height,
 			onEnterAnchor,
 			onLeaveAnchor,
 		} = this.props;
@@ -418,7 +406,8 @@ class MappingSVG extends Component {
 					width={this.getWidth()}
 					height={this.getHeight()}
 				>
-					{renderLinearGradient(preferences)}
+					{renderLinearGradients(preferences.gradientStops50, '50')}
+					{renderLinearGradients(preferences.gradientStops100, '100')}
 					{svgAnchors.map(anchor => renderAnchor(anchor))}
 					{svgConnections.map(connection => renderConnection(connection))}
 				</svg>
@@ -434,12 +423,10 @@ MappingSVG.propTypes = {
 	getConnections: PropTypes.func,
 	getAnchors: PropTypes.func,
 	connectDropTarget: PropTypes.func,
-	draggable: PropTypes.bool,
 	dnd: PropTypes.object,
 	dndListener: PropTypes.object,
 	preferences: PropTypes.object,
 	width: PropTypes.number,
-	height: PropTypes.number,
 	onEnterAnchor: PropTypes.func,
 	onLeaveAnchor: PropTypes.func,
 };

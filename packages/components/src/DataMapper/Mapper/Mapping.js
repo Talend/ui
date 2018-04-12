@@ -13,16 +13,6 @@ export default class Mapping extends Component {
 		this.checkMappingContentResize = this.checkMappingContentResize.bind(this);
 	}
 
-	checkMappingContentResize() {
-		if (this.mappingContentRef) {
-			const width = this.mappingContentRef.clientWidth;
-			const height = this.mappingContentRef.clientHeight;
-			if (this.state.width !== width || this.state.height !== height) {
-				this.setState({ width, height });
-			}
-		}
-	}
-
 	componentDidMount() {
 		this.intervalRef = setInterval(this.checkMappingContentResize, 250);
 	}
@@ -43,13 +33,23 @@ export default class Mapping extends Component {
 			update() {
 				// LOG
 			},
-			reveal(key) {
+			reveal() {
 				// LOG
 			},
 			getMousePos(offset) {
 				return offset;
 			},
 		};
+	}
+
+	checkMappingContentResize() {
+		if (this.mappingContentRef) {
+			const width = this.mappingContentRef.clientWidth;
+			const height = this.mappingContentRef.clientHeight;
+			if (this.state.width !== width || this.state.height !== height) {
+				this.setState({ width, height });
+			}
+		}
 	}
 
 	update() {
@@ -93,11 +93,6 @@ export default class Mapping extends Component {
 		const { dndListener, ...mappingProps } = this.props;
 		const {
 			mappingConfiguration,
-			getConnections,
-			getAnchors,
-			getYPosition,
-			dnd,
-			preferences,
 		} = this.props;
 		const MappingActions = mappingConfiguration.getActions();
 		const MappingRenderer = mappingConfiguration.getRenderer();
@@ -121,4 +116,5 @@ export default class Mapping extends Component {
 
 Mapping.propTypes = {
 	mappingConfiguration: PropTypes.object,
+	dndListener: PropTypes.object,
 };

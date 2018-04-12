@@ -10,13 +10,12 @@ function mergeFilterResults(result1, result2) {
 	return mergedResult;
 }
 
-function isObjectEmpty(object) {
-	let isEmpty = true;
-	for (let keys in object) {
-		isEmpty = false;
-		break; // exiting since we found that the object is not empty
+export function isObjectEmpty(object) {
+	if (object) {
+		const keys = Object.keys(object);
+		return keys.length === 0;
 	}
-	return isEmpty;
+	return true;
 }
 
 /**
@@ -124,12 +123,13 @@ export default class DataAccessorWrapper {
 
 	filterAll(schema) {
 		const schemaId = this.getSchemaId(schema);
-		if (!this.filters[schemaId]) {
+		if (!this.filters[schemaId] || !this.filters[schemaId].filters) {
 			return;
 		}
 		// compute all filters
-		for (var filterKey in this.filters[schemaId].filters) {
-			this.computeFilter(schema, filterKey);
+		const filterKeys = Object.keys(this.filters[schemaId].filters);
+		for (let i = 0; i < filterKeys.length; i += 1) {
+			this.computeFilter(schema, filterKeys[i]);
 		}
 		// finally merge all results
 		this.mergeFilters(schemaId);
@@ -166,7 +166,7 @@ export default class DataAccessorWrapper {
 
 	hasFilters(schema) {
 		const schemaId = this.getSchemaId(schema);
-		return this.filters[schemaId] ? true : false;
+		return Boolean(this.filters[schemaId]);
 	}
 
 	hasFiltersActive(schema) {
@@ -175,7 +175,7 @@ export default class DataAccessorWrapper {
 	}
 
 	filtersActive(schemaId) {
-		return this.filters[schemaId] && this.filters[schemaId].active ? true : false;
+		return Boolean(this.filters[schemaId] && this.filters[schemaId].active);
 	}
 
 	isFiltered(schema, element) {

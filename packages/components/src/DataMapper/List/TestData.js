@@ -32,9 +32,8 @@ export const classNameProvider = {
 		} else if (element) {
 			return `classname-of-(${element.id})`;
 		}
-		return `classname-of-list`;
-	},
-	onDragOver(status) {},
+		return 'classname-of-list';
+	},	
 };
 
 export const rowDataGetter = {

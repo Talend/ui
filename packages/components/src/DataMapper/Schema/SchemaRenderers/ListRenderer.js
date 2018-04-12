@@ -131,6 +131,14 @@ export default class ListRenderer extends Component {
 		this.rowRenderers = new RowRenderers(props.side);
 	}
 
+	onEnterElement(element) {
+		this.props.onEnterElement(element, this.props.side);
+	}
+
+	onLeaveElement(element) {
+		this.props.onLeaveElement(element, this.props.side);
+	}
+
 	getElement(ev) {
 		const node = ev.currentTarget;
 		const elementId = node.dataset.id;
@@ -145,14 +153,6 @@ export default class ListRenderer extends Component {
 	revealConnectedElement(ev) {
 		const element = this.getElement(ev);
 		this.props.revealConnectedElement(element, this.props.side);
-	}
-
-	onEnterElement(element) {
-		this.props.onEnterElement(element, this.props.side);
-	}
-
-	onLeaveElement(element) {
-		this.props.onLeaveElement(element, this.props.side);
 	}
 
 	render() {
@@ -194,4 +194,9 @@ ListRenderer.propTypes = {
 	onScroll: PropTypes.func,
 	columnKeys: PropTypes.array,
 	updateContentNodeRef: PropTypes.func,
+	side: PropTypes.string,
+	onSelect: PropTypes.func,
+	revealConnectedElement: PropTypes.func,
+	onEnterElement: PropTypes.func,
+	onLeaveElement: PropTypes.func,
 };

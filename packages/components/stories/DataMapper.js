@@ -581,91 +581,74 @@ function initializeFilters(dataAccessor, schema, keys) {
 	return filters;
 }
 
-function prefs(showAll, withGradient, gradientStops, gradientMargin) {
-	return { showAll, withGradient, gradientStops, gradientMargin };
+function prefs(showAll, gradientStops50, gradientStops100) {
+	return { showAll, gradientStops50, gradientStops100 };
 }
 
 function getDefaultPreferences() {
-	return prefs(false, false, [], 0);
+	return prefs(false, null, null);
 }
 
 const defaultGradientStops = [
 	{
-		key: 1,
+		key: 51,
 		offset: 0,
 	},
 	{
-		key: 2,
-		offset: 20,
-	},
-];
-
-const gradientStops3 = [
-	{
-		key: 11,
-		offset: 0,
-	},
-	{
-		key: 11,
-		offset: 10,
-	},
-	{
-		key: 13,
-		offset: 15,
-	},
-];
-
-const gradientStops4 = [
-	{
-		key: 61,
-		offset: 0,
-	},
-	{
-		key: 61,
-		offset: 5,
-	},
-	{
-		key: 66,
-		offset: 10,
-	},
-	{
-		key: 66,
+		key: 51,
 		offset: 100,
 	},
 ];
 
-const gradientStops6 = [
+const defaultGradientStops50 = [
 	{
-		key: 61,
+		key: 51,
 		offset: 0,
 	},
 	{
-		key: 61,
+		key: 51,
+		offset: 3,
+	},
+	{
+		key: 52,
+		offset: 6,
+	},
+	{
+		key: 52,
+		offset: 100,
+	},
+];
+
+const defaultGradientStops100 = [
+	{
+		key: 101,
+		offset: 0,
+	},
+	{
+		key: 101,
 		offset: 10,
 	},
 	{
-		key: 66,
+		key: 102,
 		offset: 20,
 	},
 	{
-		key: 66,
+		key: 102,
 		offset: 80,
 	},
 	{
-		key: 61,
+		key: 101,
 		offset: 90,
 	},
 	{
-		key: 61,
+		key: 101,
 		offset: 100,
 	},
 ];
 
-const showAllPrefs = prefs(true, false, [], 0);
-const fullPrefs = prefs(true, true, defaultGradientStops, 50);
-const alternativePrefs3 = prefs(true, true, gradientStops3, 150);
-const alternativePrefs4 = prefs(true, true, gradientStops4, 100);
-const alternativePrefs6 = prefs(true, true, gradientStops6, 150);
+const showAllPrefs = prefs(true, null, null);
+const alternativePrefs = prefs(true, defaultGradientStops50, defaultGradientStops100);
+const alternativePrefs2 = prefs(true, defaultGradientStops50, defaultGradientStops);
 
 function getUndoRedoActions(dataAccessor, onUndo, onRedo) {
 	return [
@@ -1355,9 +1338,8 @@ class ConnectedDataMapper extends React.Component {
 			trigger: null,
 			preferences : {
 				showAll: !prevState.preferences.showAll,
-				withGradient: prevState.preferences.withGradient,
-				gradientStops: prevState.preferences.gradientStops,
-				gradientMargin: prevState.preferences.gradientMargin,
+				gradientStops50: prevState.preferences.gradientStops50,
+				gradientStops100: prevState.preferences.gradientStops100,
 			},
 			status: Constants.StateStatus.PREFERENCES,
 		}));
@@ -1629,7 +1611,7 @@ stories
 	.addWithInfo('50-mapped (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, alternativePrefs4))}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, alternativePrefs))}
 			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
@@ -1637,14 +1619,14 @@ stories
 	.addWithInfo('size:100 mapped:50 (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50, alternativePrefs4))}
+			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50, alternativePrefs))}
 			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('UX proto', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getUXInitialState(0, alternativePrefs4))}
+			initialState={initializeCache(getUXInitialState(0, alternativePrefs))}
 			mappingConfiguration={mappingSVGConfig}
 			schemaConfiguration={listConfiguration}
 		/>;
@@ -1666,8 +1648,8 @@ stories
 							size: 50,
 							mandatoryParams: oneMandatoryFieldOfThree,
 						},
-						20,
-						alternativePrefs4,
+						50,
+						alternativePrefs,
 					)
 				)
 			}
@@ -1693,7 +1675,7 @@ stories
 							mandatoryParams: noMandatoryFields,
 						},
 						0,
-						alternativePrefs4,
+						alternativePrefs,
 					)
 				)
 			}

@@ -93,6 +93,7 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 			this.redoStack.push(cmd);
 			let source = null;
 			let target = null;
+			let restoredMapping = null;
 			switch (cmd.code) {
 				case Constants.Commands.ADD_MAPPING:
 					// remove mapping
@@ -106,7 +107,7 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 					return super.addMapping(mapping, source, target);
 				case Constants.Commands.CLEAR_MAPPING:
 					// restore mapping
-					const restoredMapping = restoreMapping(this, cmd.storedMapping);
+					restoredMapping = restoreMapping(this, cmd.storedMapping);
 					return super.addMappingItems(mapping, restoredMapping);
 				default:
 					// unknown command!

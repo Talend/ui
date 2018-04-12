@@ -152,14 +152,6 @@ export default class Mapper extends Component {
 		}
 	}
 
-	getMappingComponent() {
-		let comp = this.gMapRef;
-		if (this.gMapRef.getWrappedInstance) {
-			comp = this.gMapRef.getWrappedInstance();
-		}
-		return comp;
-	}
-
 	onScroll(side) {
 		this.anchors = resetAnchors(this.anchors);
 		switch (side) {
@@ -188,10 +180,18 @@ export default class Mapper extends Component {
 			default:
 				break;
 		}
-		let gMap = this.getMappingComponent();
+		const gMap = this.getMappingComponent();
 		if (gMap.update) {
 			gMap.update();
 		}
+	}
+
+	getMappingComponent() {
+		let comp = this.gMapRef;
+		if (this.gMapRef.getWrappedInstance) {
+			comp = this.gMapRef.getWrappedInstance();
+		}
+		return comp;
 	}
 
 	getYPosition(element, side) {
@@ -224,19 +224,12 @@ export default class Mapper extends Component {
 		);
 	}
 
-	getVisibility(sourceIsVisible, targetIsVisible, sourceYPos, targetYPos, gradientMargin) {
-		const delta = Math.abs(sourceYPos - targetYPos);
+	getVisibility(sourceIsVisible, targetIsVisible, sourceYPos, targetYPos) {
 		if (sourceIsVisible && targetIsVisible) {
 			return Constants.Connection.VISIBILITY.FULL;
 		} else if (sourceIsVisible) {
-			if (delta <= gradientMargin) {
-				return Constants.Connection.VISIBILITY.FULL;
-			}
 			return Constants.Connection.VISIBILITY.LEFT;
 		} else if (targetIsVisible) {
-			if (delta <= gradientMargin) {
-				return Constants.Connection.VISIBILITY.FULL;
-			}
 			return Constants.Connection.VISIBILITY.RIGHT;
 		}
 		return Constants.Connection.VISIBILITY.NONE;
@@ -247,7 +240,6 @@ export default class Mapper extends Component {
 		targetElement,
 		sourceIsVisible,
 		targetIsVisible,
-		gradientMargin,
 	) {
 		const sourceYPos = this.getYPosition(sourceElement, Constants.MappingSide.INPUT);
 		const targetYPos = this.getYPosition(targetElement, Constants.MappingSide.OUTPUT);
@@ -260,7 +252,6 @@ export default class Mapper extends Component {
 				targetIsVisible,
 				sourceYPos,
 				targetYPos,
-				gradientMargin,
 			),
 		};
 	}
@@ -270,7 +261,6 @@ export default class Mapper extends Component {
 		item,
 		visibleInputElements,
 		visibleOutputElements,
-		gradientMargin,
 	) {
 		const sourceElement = dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT);
 		const targetElement = dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT);
@@ -279,7 +269,6 @@ export default class Mapper extends Component {
 			targetElement,
 			dataAccessor.includes(visibleInputElements, sourceElement),
 			dataAccessor.includes(visibleOutputElements, targetElement),
-			gradientMargin,
 		);
 	}
 
@@ -364,7 +353,7 @@ export default class Mapper extends Component {
 	}
 
 	computeAnchors(version) {
-		const { dataAccessor, focused, selection, pendingItem, dnd } = this.props;
+		const { dataAccessor, focused, selection, pendingItem } = this.props;
 		const anchors = {
 			input: {},
 			output: {},
@@ -431,9 +420,11 @@ export default class Mapper extends Component {
 
 			// TODO
 			// if (dnd) {
-			// 	this.updatePropertyValue(dataAccessor, dnd.source, visibleElements, anchors, 'visible', false);
+			// 	this.updatePropertyValue(dataAccessor, dnd.source, visibleElements, anchors,
+			// 'visible', false);
 			// 	if (dnd.target) {
-			// 		this.updatePropertyValue(dataAccessor, dnd.target, visibleElements, anchors, 'visible', false);
+			// 		this.updatePropertyValue(dataAccessor, dnd.target, visibleElements, anchors,
+			// 'visible', false);
 			// 	}
 			// }
 		}
@@ -483,14 +474,14 @@ export default class Mapper extends Component {
 			);
 			// then build connections
 			if (filteredMappingItems) {
-				if (preferences.withGradient) {
+				if (preferences.gradientStops50 || preferences.gradientStops100) {
+					// build connections with visibility informations
 					allConnections = filteredMappingItems.map(item =>
 						this.getConnectionWithVisibilityFromItem(
 							dataAccessor,
 							item,
 							inputVisibleElements,
 							outputVisibleElements,
-							preferences.gradientMargin,
 						),
 					);
 				} else {
@@ -626,7 +617,7 @@ export default class Mapper extends Component {
 	revealConnection(source, target) {
 		this.inputSchemaRef.reveal(source);
 		this.outputSchemaRef.reveal(target);
-		let gMap = this.getMappingComponent();
+		const gMap = this.getMappingComponent();
 		if (gMap.reveal) {
 			const connectionKey = this.getConnectionKey(source, target);
 			gMap.reveal(connectionKey);
@@ -668,8 +659,7 @@ export default class Mapper extends Component {
 			dndListener,
 			onEnterElement,
 			onLeaveElement,
-			draggable,
-			status,
+			draggable,			
 		} = this.props;
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;

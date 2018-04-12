@@ -61,7 +61,7 @@
 	}
 
 	.comp-list-row-data-desc {
-		color: #aaaaaa;
+		color: #aaa;
 		font-style: italic;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -73,7 +73,7 @@
 	}
 
 	.mandatory-field-info {
-		color: #ff0000;
+		color: #f00;
 		font-weight: bold;
 		margin-left: 1px;
 	}
@@ -140,67 +140,73 @@
 	}
 
 	.connection {
-		stroke: #000000;
-		fill: #000000;
+		stroke: #000;
+		fill: #000;
 		stroke-width: 4;
 		stroke-linecap: butt;
 	}
 
 	.connection.all {
-		stroke: #aaaaaa;
-		fill: #aaaaaa;
+		stroke: #aaa;
+		fill: #aaa;
 		stroke-width: 3;
 	}
 
-	.connection.all.grad-left-top {
-		stroke: url(#grad-left-top);
+	.connection.all.grad-left-top-50 {
+		stroke: url(#grad-left-top-50);
 	}
 
-	.connection.all.grad-left-bottom {
-		stroke: url(#grad-left-bottom);
+	.connection.all.grad-left-bottom-50 {
+		stroke: url(#grad-left-bottom-50);
 	}
 
-	.connection.all.grad-right-top {
-		stroke: url(#grad-right-top);
+	.connection.all.grad-right-top-50 {
+		stroke: url(#grad-right-top-50);
 	}
 
-	.connection.all.grad-right-bottom {
-		stroke: url(#grad-right-bottom);
+	.connection.all.grad-right-bottom-50 {
+		stroke: url(#grad-right-bottom-50);
 	}
 
-	#grad-stop-1 {
-		stop-color: #aaaaaa;
+	.connection.all.grad-left-top-100 {
+		stroke: url(#grad-left-top-100);
+	}
+
+	.connection.all.grad-left-bottom-100 {
+		stroke: url(#grad-left-bottom-100);
+	}
+
+	.connection.all.grad-right-top-100 {
+		stroke: url(#grad-right-top-100);
+	}
+
+	.connection.all.grad-right-bottom-100 {
+		stroke: url(#grad-right-bottom-100);
+	}
+
+	#grad-stop-51 {
+		stop-color: #aaa;
 		stop-opacity: 1;
 	}
 
-	#grad-stop-2 {
-		stop-color: #ffffff;
-		stop-opacity: 0;
+	#grad-stop-52 {
+		stop-color: #aaa;
+		stop-opacity: 0.07;
 	}
 
-	#grad-stop-11 {
-		stop-color: #aaaaaa;
+	#grad-stop-101 {
+		stop-color: #aaa;
 		stop-opacity: 1;
 	}
 
-	#grad-stop-13 {
-		stop-color: #ffffff;
-		stop-opacity: 0;
-	}
-
-	#grad-stop-61 {
-		stop-color: #aaaaaa;
-		stop-opacity: 1;
-	}
-
-	#grad-stop-66 {
-		stop-color: #aaaaaa;
-		stop-opacity: 0.1;
+	#grad-stop-102 {
+		stop-color: #aaa;
+		stop-opacity: 0.35;
 	}
 
 	.connection.pending {
-		stroke: #111111;
-		fill: #111111;
+		stroke: #111;
+		fill: #111;
 	}
 
 	.connection.curve.pending {
@@ -208,8 +214,8 @@
 	}
 
 	.connection.focused {
-		stroke: #777777;
-		fill: #777777;
+		stroke: #777;
+		fill: #777;
 	}
 
 	.connection.curve {
@@ -217,9 +223,9 @@
 	}
 
 	.anchor {
-		stroke: #aaaaaa;
+		stroke: #aaa;
 		stroke-width: 2;
-		fill: #ffffff;
+		fill: #fff;
 		pointer-events: all;
 	}
 
@@ -228,17 +234,17 @@
 	}
 
 	.anchor.mapped {
-		stroke: #aaaaaa;
-		fill: #aaaaaa;
+		stroke: #aaa;
+		fill: #aaa;
 	}
 
 	.anchor.selected {
-		stroke: #777777;
+		stroke: #777;
 		stroke-width: 3;
 	}
 
 	.anchor.focused {
-		stroke: #aaaaaa;
+		stroke: #aaa;
 		stroke-width: 3;
 	}
 
@@ -248,7 +254,7 @@
 	}
 
 	.schema {
-		background-color: #ffffff;
+		background-color: #fff;
 		padding: 8px;
 		margin: 2px;
 		width: 100%;
@@ -262,7 +268,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #ffffff;
+		background-color: #fff;
 		font-weight: bold;
 		font-size: 1.2em;
 		padding: 4px;
@@ -308,7 +314,7 @@
 	}
 
 	.selected {
-		background-color: #dddddd;
+		background-color: #ddd;
 	}
 
 	.btn span {

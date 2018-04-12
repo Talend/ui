@@ -209,7 +209,7 @@ exports[`single connection [all] - mapped/unmapped anchors 1`] = `
             r={3}
           />
           <path
-            className="connection curve all "
+            className="connection curve all grad-left-top-100"
             d="M 8 15 C 12.5 15, 12.5 40, 17 40"
           >
             <animate
@@ -314,7 +314,7 @@ exports[`single connection [all] - no anchors 1`] = `
             r={3}
           />
           <path
-            className="connection curve all "
+            className="connection curve all grad-left-top-100"
             d="M 8 15 C 12.5 15, 12.5 40, 17 40"
           >
             <animate

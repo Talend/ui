@@ -147,7 +147,7 @@ export default class DefaultDataAccessor {
 	 * Remove all the mapping items.
 	 * Returns the updated mapping.
 	 */
-	clearMapping(mapping) {
+	clearMapping() {
 		return [];
 	}
 

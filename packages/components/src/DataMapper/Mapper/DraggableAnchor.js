@@ -33,7 +33,7 @@ function collectForDragSource(connect, monitor) {
 	};
 }
 
-function collectForDropTarget(connect, monitor) {
+function collectForDropTarget(connect) {
 	return {
 		connectDropTarget: connect.dropTarget(),
 	};
@@ -88,7 +88,8 @@ DraggableAnchor.propTypes = {
 	anchorStyle: PropTypes.object,
 	onEnterAnchor: PropTypes.func,
 	onLeaveAnchor: PropTypes.func,
-	dndListener: PropTypes.object,
+	connectDragSource: PropTypes.func,
+	connectDropTarget: PropTypes.func,
 };
 
 export default flow(

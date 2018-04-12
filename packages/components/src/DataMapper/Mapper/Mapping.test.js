@@ -14,34 +14,6 @@ const preferences = {
 	showAll: false,
 };
 
-const elem_in_1 = {
-	id: 'in_1',
-	name: 'elem_in_1',
-	type: 'string',
-	description: 'bla bla bla',
-};
-
-const elem_in_2 = {
-	id: 'in_2',
-	name: 'elem_in_2',
-	type: 'string',
-	description: 'bla bla bla',
-};
-
-const elem_out_1 = {
-	id: 'out_1',
-	name: 'elem_out_1',
-	type: 'string',
-	description: 'bla bla bla',
-};
-
-const elem_out_2 = {
-	id: 'out_2',
-	name: 'elem_out_2',
-	type: 'string',
-	description: 'bla bla bla',
-};
-
 const singleConnection = {
 	all: [
 		{

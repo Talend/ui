@@ -16,22 +16,29 @@ function renderLine(params, style, connectionId) {
 }
 
 function getClassname(part, params, style) {
+	let gradClassName = '';
 	switch (part) {
 		case Constants.Connection.PART.CURVE:
-			let gradClassName = '';
 			switch (params.visibility) {
 				case Constants.Connection.VISIBILITY.LEFT:
 					if (params.y1 < params.y2) {
-						gradClassName = 'grad-left-top';
+						gradClassName = 'grad-left-top-50';
 					} else {
-						gradClassName = 'grad-left-bottom';
+						gradClassName = 'grad-left-bottom-50';
 					}
 					break;
 				case Constants.Connection.VISIBILITY.RIGHT:
 					if (params.y1 < params.y2) {
-						gradClassName = 'grad-right-bottom';
+						gradClassName = 'grad-right-bottom-50';
 					} else {
-						gradClassName = 'grad-right-top';
+						gradClassName = 'grad-right-top-50';
+					}
+					break;
+				case Constants.Connection.VISIBILITY.FULL:
+					if (params.y1 < params.y2) {
+						gradClassName = 'grad-left-top-100';
+					} else {
+						gradClassName = 'grad-left-bottom-100';
 					}
 					break;
 				default:

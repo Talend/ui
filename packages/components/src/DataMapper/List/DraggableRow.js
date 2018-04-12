@@ -34,7 +34,6 @@ function collectForDragSource(connect, monitor) {
 function collectForDropTarget(connect, monitor) {
 	return {
 		connectDropTarget: connect.dropTarget(),
-		dragOver: monitor.isOver(),
 	};
 }
 
@@ -88,7 +87,6 @@ DraggableRow.propTypes = {
 	onLeaveElement: PropTypes.func,
 	connectDragSource: PropTypes.func,
 	connectDropTarget: PropTypes.func,
-	dragOver: PropTypes.bool,
 };
 
 export default flow(
