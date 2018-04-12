@@ -1,4 +1,18 @@
-const LOADER_STYLE = `@keyframes app-loader-spin {
+const LOADER_STYLE = `html {
+	font-size: 10px;
+	text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+@keyframes app-loader-spin {
 	0% {
 		transform: rotate(0deg);
 	}
