@@ -2,35 +2,14 @@
 
 
 src/DataMapper/DataMapper.scss
-   64:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   76:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  143:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  144:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  150:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  151:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  156:15  error  Quotes around URLs are required                                           url-quotes
-  160:15  error  Quotes around URLs are required                                           url-quotes
-  164:15  error  Quotes around URLs are required                                           url-quotes
-  168:15  error  Quotes around URLs are required                                           url-quotes
-  172:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  177:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  182:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  187:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  192:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  197:15  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  202:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  203:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  211:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  212:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  220:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  222:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  231:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  232:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  236:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  241:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  251:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  265:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  311:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  156:15  error  Quotes around URLs are required  url-quotes
+  160:15  error  Quotes around URLs are required  url-quotes
+  164:15  error  Quotes around URLs are required  url-quotes
+  168:15  error  Quotes around URLs are required  url-quotes
+  172:15  error  Quotes around URLs are required  url-quotes
+  176:15  error  Quotes around URLs are required  url-quotes
+  180:15  error  Quotes around URLs are required  url-quotes
+  184:15  error  Quotes around URLs are required  url-quotes
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -38,5 +17,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 31 problems (29 errors, 2 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 

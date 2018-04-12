@@ -235,24 +235,14 @@ export default class Mapper extends Component {
 		return Constants.Connection.VISIBILITY.NONE;
 	}
 
-	getConnectionWithVisibility(
-		sourceElement,
-		targetElement,
-		sourceIsVisible,
-		targetIsVisible,
-	) {
+	getConnectionWithVisibility(sourceElement, targetElement, sourceIsVisible, targetIsVisible) {
 		const sourceYPos = this.getYPosition(sourceElement, Constants.MappingSide.INPUT);
 		const targetYPos = this.getYPosition(targetElement, Constants.MappingSide.OUTPUT);
 		return {
 			sourceYPos,
 			targetYPos,
 			key: this.getConnectionKey(sourceElement, targetElement),
-			visibility: this.getVisibility(
-				sourceIsVisible,
-				targetIsVisible,
-				sourceYPos,
-				targetYPos,
-			),
+			visibility: this.getVisibility(sourceIsVisible, targetIsVisible, sourceYPos, targetYPos),
 		};
 	}
 
@@ -659,7 +649,7 @@ export default class Mapper extends Component {
 			dndListener,
 			onEnterElement,
 			onLeaveElement,
-			draggable,			
+			draggable,
 		} = this.props;
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;

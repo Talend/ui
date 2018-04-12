@@ -91,9 +91,7 @@ export default class Mapping extends Component {
 
 	render() {
 		const { dndListener, ...mappingProps } = this.props;
-		const {
-			mappingConfiguration,
-		} = this.props;
+		const { mappingConfiguration } = this.props;
 		const MappingActions = mappingConfiguration.getActions();
 		const MappingRenderer = mappingConfiguration.getRenderer();
 		return (

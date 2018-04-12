@@ -8,7 +8,6 @@ import NameFilter from './Schema/Filters/NameFilter';
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 
 it('data-accessor-wrapper-utils', () => {
-
 	const obj1 = {
 		val: 'toto',
 	};
@@ -16,7 +15,6 @@ it('data-accessor-wrapper-utils', () => {
 	expect(isObjectEmpty(null)).toBe(true);
 	expect(isObjectEmpty({})).toBe(true);
 	expect(isObjectEmpty(obj1)).toBe(false);
-
 });
 
 it('data-accessor-wrapper-schema', () => {
