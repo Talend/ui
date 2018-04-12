@@ -18,19 +18,38 @@ export function isObjectEmpty(object) {
 	return true;
 }
 
+class Comparator {
+	constructor(dataAccessor) {
+		this.dataAccessor = dataAccessor;
+		this.compare = this.compare.bind(this);
+	}
+
+	compare(element1, element2) {
+		return this.sorter.compare(this.dataAccessor, element1, element2);
+	}
+
+	sort(elements, sorter) {
+		this.sorter = sorter;
+		elements.sort(this.compare);
+	}
+
+}
+
 /**
  * This class wraps a data accessor and provides some convenient methods to
  * manipulate data.
  * It uses a cache to store the schema elements.
- * It manages the filtering of the data.
+ * It manages the filtering and sorting of the data.
  */
 export default class DataAccessorWrapper {
 	constructor(dataAccessor) {
 		this.dataAccessor = dataAccessor;
 		this.filters = {};
+		this.sorters = {};
 		this.cache = {};
 		this.schema2side = {};
 		this.mappingVersion = 0;
+		this.comparator = new Comparator(dataAccessor);
 	}
 
 	populateCache(schema, side) {
@@ -93,7 +112,7 @@ export default class DataAccessorWrapper {
 		if (isObjectEmpty(schemaFilters.filters)) {
 			delete this.filters[schemaId];
 		} else {
-			this.mergeFilters(schemaId);
+			this.mergeSchemaFilters(schema);
 		}
 	}
 
@@ -118,7 +137,7 @@ export default class DataAccessorWrapper {
 		// compute filter
 		this.computeFilter(schema, filterKey);
 		// finally merge all results
-		this.mergeFilters(schemaId);
+		this.mergeSchemaFilters(schema);
 	}
 
 	filterAll(schema) {
@@ -132,7 +151,15 @@ export default class DataAccessorWrapper {
 			this.computeFilter(schema, filterKeys[i]);
 		}
 		// finally merge all results
+		this.mergeSchemaFilters(schema);
+	}
+
+	mergeSchemaFilters(schema) {
+		const schemaId = this.getSchemaId(schema);
 		this.mergeFilters(schemaId);
+		if (this.isSorterActive(schemaId)) {
+			this.sortElements(schemaId, this.getFilteredSchemaElements(schema));
+		}
 	}
 
 	mergeFilters(schemaId) {
@@ -186,6 +213,50 @@ export default class DataAccessorWrapper {
 		return false;
 	}
 
+	setSorter(schema, sorter) {
+		const schemaId = this.getSchemaId(schema);
+		this.sorters[schemaId] = {};
+		this.sorters[schemaId].sorter = sorter;
+		this.sorters[schemaId].result = null;
+		if (this.filtersActive(schemaId)) {
+			this.sorters[schemaId].result = this.filters[schemaId].result.slice();
+		}
+	}
+
+	hasSorter(schema) {
+		return Boolean(this.sorters[this.getSchemaId(schema)]);
+	}
+
+	clearSorter(schema) {
+		const schemaId = this.getSchemaId(schema);
+		this.sorters[schemaId] = null;
+	}
+
+	isSorterActive(schemaId) {
+		return this.sorters[schemaId] && this.sorters[schemaId].sorter && this.sorters[schemaId].sorter.isActive();
+	}
+
+	isSorterActiveOnSchema(schema) {
+		const schemaId = this.getSchemaId(schema);
+		return this.isSorterActive(schemaId);
+	}
+
+	sort(schema) {
+		const schemaId = this.getSchemaId(schema);
+		if (this.isSorterActive(schemaId)) {
+			this.sortElements(schemaId, this.getFilteredSchemaElements(schema));
+		}
+	}
+
+	sortElements(schemaId, elements) {
+		//console.log('sortElements(' + schemaId + ', ' + JSON.stringify(elements) + ')');
+		let result = elements.slice();
+		// console.log(JSON.stringify(this.sorters[schemaId].sorter));
+		//this.comparator.setSorter(this.sorters[schemaId].sorter);
+		this.comparator.sort(result, this.sorters[schemaId].sorter);
+		this.sorters[schemaId].result = result;
+	}
+
 	/**
 	 * Returns true if the two elements are equals.
 	 * Default implementation is based on element id.
@@ -208,24 +279,42 @@ export default class DataAccessorWrapper {
 		return this.dataAccessor.getSchemaName(schema);
 	}
 
+	areFiltersOrSorterActive(schemaId) {
+		return this.filtersActive(schemaId) || this.isSorterActive(schemaId);
+	}
+
 	/**
 	 * Returns the number of elements in the schema.
 	 */
-	getSchemaSize(schema, withFilters) {
-		const key = this.getSchemaId(schema);
-		if (withFilters && this.filtersActive(key)) {
-			return this.filters[key].result.length;
+	getSchemaSize(schema, current) {
+		const schemaId = this.getSchemaId(schema);
+		if (current && this.areFiltersOrSorterActive(schemaId)) {
+			if (this.isSorterActive(schemaId)) {
+				return this.sorters[schemaId].result.length;
+			}
+			return this.filters[schemaId].result.length;
 		}
 		return this.dataAccessor.getSchemaSize(schema);
+	}
+
+	getFilteredSchemaElements(schema) {
+		const schemaId = this.getSchemaId(schema);
+		if (this.filtersActive(schemaId)) {
+			return this.filters[schemaId].result;
+		}
+		return this.dataAccessor.getSchemaElements(schema);
 	}
 
 	/**
 	 * Returns all the elements of the schema in an array.
 	 */
-	getSchemaElements(schema, withFilters) {
-		const key = this.getSchemaId(schema);
-		if (withFilters && this.filtersActive(key)) {
-			return this.filters[key].result;
+	getSchemaElements(schema, current) {
+		const schemaId = this.getSchemaId(schema);
+		if (current && this.areFiltersOrSorterActive(schemaId)) {
+			if (this.isSorterActive(schemaId)) {
+				return this.sorters[schemaId].result;
+			}
+			return this.filters[schemaId].result;
 		}
 		return this.dataAccessor.getSchemaElements(schema);
 	}
@@ -233,15 +322,18 @@ export default class DataAccessorWrapper {
 	/**
 	 * Returns the nth element of the schema.
 	 */
-	getSchemaElement(schema, index, withFilters) {
-		const key = this.getSchemaId(schema);
-		if (withFilters && this.filtersActive(key)) {
-			return this.filters[key].result[index];
+	getSchemaElement(schema, index, current) {
+		const schemaId = this.getSchemaId(schema);
+		if (current && this.areFiltersOrSorterActive(schemaId)) {
+			if (this.isSorterActive(schemaId)) {
+				return this.sorters[schemaId].result[index];
+			}
+			return this.filters[schemaId].result[index];
 		}
 		if (this.dataAccessor.getSchemaElement) {
 			return this.dataAccessor.getSchemaElement(schema, index);
 		}
-		const elements = this.getSchemaElements(schema, withFilters);
+		const elements = this.getSchemaElements(schema, current);
 		if (elements && elements.length > index) {
 			return elements[index];
 		}
@@ -252,15 +344,18 @@ export default class DataAccessorWrapper {
 	 * Returns the index of the given element,
 	 * returns -1 if it is not in the schema.
 	 */
-	getSchemaElementIndex(schema, element, withFilters) {
-		const key = this.getSchemaId(schema);
-		if (withFilters && this.filtersActive(key)) {
-			return this.filters[key].result.findIndex(elem => this.areElementsEqual(elem, element));
+	getSchemaElementIndex(schema, element, current) {
+		const schemaId = this.getSchemaId(schema);
+		if (current && this.areFiltersOrSorterActive(schemaId)) {
+			if (this.isSorterActive(schemaId)) {
+				return this.sorters[schemaId].result.findIndex(elem => this.areElementsEqual(elem, element));
+			}
+			return this.filters[schemaId].result.findIndex(elem => this.areElementsEqual(elem, element));
 		}
 		if (this.dataAccessor.getSchemaElementIndex) {
 			return this.dataAccessor.getSchemaElementIndex(schema, element);
 		}
-		const elements = this.getSchemaElements(schema, withFilters);
+		const elements = this.getSchemaElements(schema, current);
 		if (elements) {
 			return elements.findIndex(elem => this.areElementsEqual(elem, element));
 		}
