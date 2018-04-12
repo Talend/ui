@@ -32,7 +32,6 @@ class Comparator {
 		this.sorter = sorter;
 		elements.sort(this.compare);
 	}
-
 }
 
 /**
@@ -233,7 +232,11 @@ export default class DataAccessorWrapper {
 	}
 
 	isSorterActive(schemaId) {
-		return this.sorters[schemaId] && this.sorters[schemaId].sorter && this.sorters[schemaId].sorter.isActive();
+		return (
+			this.sorters[schemaId] &&
+			this.sorters[schemaId].sorter &&
+			this.sorters[schemaId].sorter.isActive()
+		);
 	}
 
 	isSorterActiveOnSchema(schema) {
@@ -348,7 +351,9 @@ export default class DataAccessorWrapper {
 		const schemaId = this.getSchemaId(schema);
 		if (current && this.areFiltersOrSorterActive(schemaId)) {
 			if (this.isSorterActive(schemaId)) {
-				return this.sorters[schemaId].result.findIndex(elem => this.areElementsEqual(elem, element));
+				return this.sorters[schemaId].result.findIndex(elem =>
+					this.areElementsEqual(elem, element),
+				);
 			}
 			return this.filters[schemaId].result.findIndex(elem => this.areElementsEqual(elem, element));
 		}
