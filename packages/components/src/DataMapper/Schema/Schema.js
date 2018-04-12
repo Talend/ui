@@ -19,7 +19,7 @@ export function isSelected(dataAccessor, selection, element, side) {
 	);
 }
 
-function isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements) {
+function isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements, dnd) {
 	const connected =
 		selection == null
 			? false
@@ -31,7 +31,8 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 		pendingItem.side === side &&
 		dataAccessor.areElementsEqual(pendingItem.element, element);
 	const focused = focusedElements != null && dataAccessor.includes(focusedElements, element);
-	return connected || pending || focused;
+	const isTarget = dnd && dnd.target && dataAccessor.areElementsEqual(dnd.target.element, element);
+	return connected || pending || focused || isTarget;
 }
 
 export default class Schema extends Component {
@@ -139,7 +140,9 @@ export default class Schema extends Component {
 			onScroll: this.onContentScroll,
 		};
 		return (
-			<div className={`schema mapper-element ${side}`}>
+			<div
+				className={`schema mapper-element ${side}`}
+			>
 				<SchemaHeader
 					dataAccessor={dataAccessor}
 					schema={schema}

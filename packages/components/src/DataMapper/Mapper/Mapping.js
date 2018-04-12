@@ -8,7 +8,6 @@ export default class Mapping extends Component {
 			width: 1,
 			height: 1,
 		};
-		this.dndInProgress = this.dndInProgress.bind(this);
 		this.updateMappingAreaRef = this.updateMappingAreaRef.bind(this);
 		this.updateMappingContentRef = this.updateMappingContentRef.bind(this);
 		this.checkMappingContentResize = this.checkMappingContentResize.bind(this);
@@ -61,9 +60,25 @@ export default class Mapping extends Component {
 		this.getArea().reveal(connectionKey);
 	}
 
+	beginDrag(element, side) {
+		return this.props.dndListener.beginDrag(element, side);
+	}
+
 	dndInProgress(offset) {
 		const pos = this.getArea().getMousePos(offset);
-		this.props.dndInProgress(pos);
+		this.props.dndListener.dndInProgress(pos);
+	}
+
+	canDrop(sourceItem, targetItem) {
+		return this.props.dndListener.canDrop(sourceItem, targetItem);
+	}
+
+	drop(sourceItem, targetItem) {
+		this.props.dndListener.drop(sourceItem, targetItem);
+	}
+
+	endDrag() {
+		this.props.dndListener.endDrag();
 	}
 
 	updateMappingAreaRef(ref) {
@@ -75,6 +90,10 @@ export default class Mapping extends Component {
 	}
 
 	render() {
+		const {
+			dndListener,
+			...mappingProps
+		} = this.props;
 		const {
 			mappingConfiguration,
 			getConnections,
@@ -91,9 +110,9 @@ export default class Mapping extends Component {
 				<div className="separator horizontal" />
 				<div ref={this.updateMappingContentRef} className="mapping-content">
 					<MappingRenderer
-						{...this.props}
+						{...mappingProps}
 						ref={this.updateMappingAreaRef}
-						dndInProgress={this.dndInProgress}
+						dndListener={this}
 						width={this.state.width}
 						height={this.state.height}
 					/>

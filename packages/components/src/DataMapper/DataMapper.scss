@@ -116,7 +116,6 @@
 	}
 
 	.mapping-content {
-		/*background-color: #0000FF;*/
 		position: relative;
 		height: 92%;
 		width: 100%;
@@ -129,7 +128,6 @@
 	}
 
 	.mapping-svg {
-		/*background-color: #0000AA;*/
 		position: absolute;
 		padding: 0;
 		margin: 0;
@@ -218,6 +216,11 @@
 		stroke: #aaaaaa;
 		stroke-width: 2;
 		fill: #ffffff;
+		pointer-events: all;
+	}
+
+	.anchor.unmapped {
+		cursor: grab;
 	}
 
 	.anchor.mapped {
@@ -233,6 +236,11 @@
 	.anchor.focused {
 		stroke: #aaaaaa;
 		stroke-width: 3;
+	}
+
+	.draggable-anchor {
+		opacity: 0;
+		cursor: grab;
 	}
 
 	.schema {
@@ -259,7 +267,6 @@
 	}
 
 	.schema-content {
-		/*background-color: #0000AA;*/
 		height: 92%;
 		overflow: auto;
 		padding: 0;
@@ -302,10 +309,6 @@
 
 	.selected {
 		background-color: #dddddd;
-	}
-
-	.schema-element:hover {
-		background-color: #f2f2f2;
 	}
 
 	.btn span {

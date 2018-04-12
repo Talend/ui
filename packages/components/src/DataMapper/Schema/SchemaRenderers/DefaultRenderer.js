@@ -9,17 +9,13 @@ function renderSchemaElement(props, element) {
 		side,
 		draggable,
 		mappedElements,
-		performMapping,
 		selection,
 		onSelect,
 		pendingItem,
 		onEnterElement,
 		onLeaveElement,
 		focusedElements,
-		beginDrag,
-		canDrop,
-		drop,
-		endDrag,
+		dndListener,
 		revealConnectedElement,
 		isMapped,
 		isSelected,
@@ -43,16 +39,12 @@ function renderSchemaElement(props, element) {
 				element={element}
 				side={side}
 				mapped={isMapped(dataAccessor, element, mappedElements)}
-				performMapping={performMapping}
 				selected={selected}
 				highlighted={highlighted}
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
 				onLeaveElement={onLeaveElement}
-				beginDrag={beginDrag}
-				canDrop={canDrop}
-				drop={drop}
-				endDrag={endDrag}
+				dndListener={dndListener}
 				revealConnectedElement={revealConnectedElement}
 			/>
 		);
@@ -77,7 +69,6 @@ renderSchemaElement.propTypes = {
 	dataAccessor: PropTypes.object,
 	side: PropTypes.string,
 	mappedElements: PropTypes.array,
-	performMapping: PropTypes.func,
 	selection: PropTypes.object,
 	draggable: PropTypes.bool,
 	onSelect: PropTypes.func,
@@ -85,10 +76,7 @@ renderSchemaElement.propTypes = {
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	focusedElements: PropTypes.array,
-	beginDrag: PropTypes.func,
-	canDrop: PropTypes.func,
-	drop: PropTypes.func,
-	endDrag: PropTypes.func,
+	dndListener: PropTypes.object,
 	revealConnectedElement: PropTypes.func,
 	isMapped: PropTypes.func,
 	isSelected: PropTypes.func,

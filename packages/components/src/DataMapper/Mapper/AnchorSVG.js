@@ -2,23 +2,44 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as Constants from '../Constants';
 
+function getStyles(anchor) {
+	let styles = '';
+	for (let i = 0; i < anchor.styles.length; i += 1) {
+		styles += anchor.styles[i];
+		styles += ' ';
+	}
+	return styles;
+}
+
 function getClassname(anchor) {
-	return `anchor ${anchor.part} ${anchor.style}`;
+	return `anchor ${anchor.side} ${getStyles(anchor)}`;
 }
 
 function renderCircle(anchor, params) {
-	return <circle className={getClassname(anchor)} cx={anchor.x} cy={anchor.y} r={params.r} />;
+	return (
+		<circle
+			className={getClassname(anchor)}
+			cx={anchor.x}
+			cy={anchor.y}
+			r={params.r}
+		/>
+	);
 }
 
 function renderArrow(anchor, params) {
-	return <path className={getClassname(anchor)} d={params.arrow} />;
+	return (
+		<path
+			className={getClassname(anchor)}
+			d={params.arrow}
+		/>
+	);
 }
 
 function renderAnchor(anchor, params) {
-	switch (anchor.part) {
-		case Constants.Anchor.PART.START:
+	switch (anchor.side) {
+		case Constants.MappingSide.INPUT:
 			return renderCircle(anchor, params);
-		case Constants.Anchor.PART.END:
+		case Constants.MappingSide.OUTPUT:
 			if (anchor.mapped) {
 				return renderArrow(anchor, params);
 			}

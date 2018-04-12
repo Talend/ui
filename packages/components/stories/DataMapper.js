@@ -373,6 +373,21 @@ const initialMapping = [
 	},
 ];
 
+const noMandatoryFields = {
+	size: 1,
+	val: 1,
+};
+
+const oneMandatoryFieldOfTwo = {
+	size: 2,
+	val: 0,
+}
+
+const oneMandatoryFieldOfThree = {
+	size: 3,
+	val: 1,
+}
+
 function createDataAccessor() {
 	return new DataAccessorWithUndoRedo(new DefaultDataAccessor());
 }
@@ -407,12 +422,12 @@ function randomType() {
 	return types[index];
 }
 
-function randomMandatory(a, b) {
-	return randomInt(b) > a ;
+function randomMandatory(mandatoryParams) {
+	return randomInt(mandatoryParams.size) > mandatoryParams.val ;
 }
 
 function buildMandatory() {
-	return randomMandatory(0, 2);
+	return randomMandatory(oneMandatoryFieldOfTwo);
 }
 
 function randomName() {
@@ -427,20 +442,20 @@ function randomDescription() {
 	return descriptions[index];
 }
 
-function buildRandomElement(index, a, b) {
+function buildRandomElement(index, mandatoryParams) {
 	return {
 		id: `${index}`,
 		name: randomName(),
 		type: randomType(),
 		description: randomDescription(),
-		mandatory: randomMandatory(a, b),
+		mandatory: randomMandatory(mandatoryParams),
 	};
 }
 
-function createRandomSchema(id, name, size, a, b) {
+function createRandomSchema(id, name, size, mandatoryParams) {
 	let elements = [];
 	for (let i = 0; i < size; i += 1) {
-		elements = elements.concat(buildRandomElement(i, a, b));
+		elements = elements.concat(buildRandomElement(i, mandatoryParams));
 	}
 	return { id, name, elements };
 }
@@ -755,15 +770,13 @@ function getRandomInitialState(
 		inputSchemaParams.id,
 		inputSchemaParams.name,
 		inputSchemaParams.size,
-		inputSchemaParams.a,
-		inputSchemaParams.b,
+		inputSchemaParams.mandatoryParams,
 	);
 	const outputSchema = createRandomSchema(
 		outputSchemaParams.id,
 		outputSchemaParams.name,
 		outputSchemaParams.size,
-		outputSchemaParams.a,
-		outputSchemaParams.b,
+		outputSchemaParams.mandatoryParams,
 	);
 	const mapping = createMapping(inputSchema, outputSchema, true, mappingSize);
 	const dataAccessor = createDataAccessor();
@@ -1081,6 +1094,7 @@ class ConnectedDataMapper extends React.Component {
 			this.setState(prevState => ({
 				trigger: null,
 				selection: firstSelect(prevState),
+				status: Constants.StateStatus.SELECTION,
 			}));
 			reveal = true;
 		} else if (this.handleNavigation(ev)) {
@@ -1088,6 +1102,7 @@ class ConnectedDataMapper extends React.Component {
 			this.setState(prevState => ({
 				trigger: null,
 				selection: navigate(prevState, ev.keyCode),
+				status: Constants.StateStatus.SELECTION,
 			}));
 			reveal = true;
 		} else if (this.handleStartConnection(ev)) {
@@ -1099,6 +1114,7 @@ class ConnectedDataMapper extends React.Component {
 					element: prevState.selection.element,
 					side: prevState.selection.side,
 				},
+				status: Constants.StateStatus.SELECTION | Constants.StateStatus.PENDING,
 			}));
 			reveal = true;
 		} else if (this.handleEndConnection(ev)) {
@@ -1121,6 +1137,7 @@ class ConnectedDataMapper extends React.Component {
 				trigger: null,
 				pendingItem: null,
 				selection: select(prevState.dataAccessor, prevState.mapping, fromElement, fromSide),
+				status: Constants.StateStatus.SELECTION | Constants.StateStatus.PENDING,
 			}));
 		} else if (this.handleDelete(ev)) {
 			this.clearConnection();
@@ -1239,6 +1256,7 @@ class ConnectedDataMapper extends React.Component {
 			},
 			pendingItem: null,
 			dnd: null,
+			status: Constants.MAPPING_STATE_STATUS,
 		}));
 	}
 
@@ -1249,6 +1267,7 @@ class ConnectedDataMapper extends React.Component {
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,
 			dnd: null,
+			status: Constants.MAPPING_STATE_STATUS,
 		}));
 	}
 
@@ -1259,6 +1278,7 @@ class ConnectedDataMapper extends React.Component {
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,
 			dnd: null,
+			status: Constants.MAPPING_STATE_STATUS,
 		}));
 	}
 
@@ -1268,6 +1288,7 @@ class ConnectedDataMapper extends React.Component {
 				trigger: null,
 				selection: getSelection(prevState.dataAccessor, ctrl, prevState.mapping,
 					prevState.selection, element, side),
+				status: Constants.StateStatus.SELECTION,
 			}));
 		} else if (this.state.pendingItem.side === side) {
 			// stop the link process
@@ -1276,6 +1297,7 @@ class ConnectedDataMapper extends React.Component {
 				selection: getSelection(prevState.dataAccessor, ctrl, prevState.mapping,
 					prevState.selection, element, side),
 				pendingItem: null,
+				status: Constants.StateStatus.SELECTION | Constants.StateStatus.PENDING,
 			}));
 		} else if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
 			this.performMapping(this.state.pendingItem.element,
@@ -1292,10 +1314,17 @@ class ConnectedDataMapper extends React.Component {
 		this.setState({
 			trigger: null,
 			selection: null,
+			status: Constants.StateStatus.SELECTION,
 		});
 	}
 
 	onEnterElement(element, side) {
+		if (this.state.focused &&
+			this.state.focused.side === side &&
+			this.state.dataAccessor.areElementsEqual(this.state.focused.element, element)
+		) {
+			return;
+		}
 		this.setState({
 			trigger: {
 				code: Constants.Events.ENTER_ELEM,
@@ -1303,18 +1332,22 @@ class ConnectedDataMapper extends React.Component {
 				side,
 			},
 			focused: getFocused(element, side),
+			status: Constants.StateStatus.FOCUSED,
 		});
 	}
 
 	onLeaveElement(element, side) {
-		this.setState({
-			trigger: {
-				code: Constants.Events.LEAVE_ELEM,
-				element,
-				side,
-			},
-			focused: null,
-		});
+		if (this.state.focused) {
+			this.setState({
+				trigger: {
+					code: Constants.Events.LEAVE_ELEM,
+					element,
+					side,
+				},
+				focused: null,
+				status: Constants.StateStatus.FOCUSED,
+			});
+		}
 	}
 
 	onShowAll() {
@@ -1326,6 +1359,7 @@ class ConnectedDataMapper extends React.Component {
 				gradientStops: prevState.preferences.gradientStops,
 				gradientMargin: prevState.preferences.gradientMargin,
 			},
+			status: Constants.StateStatus.PREFERENCES,
 		}));
 	}
 
@@ -1337,6 +1371,7 @@ class ConnectedDataMapper extends React.Component {
 				target: null,
 				pos: null,
 			},
+			status: Constants.StateStatus.DND,
 		});
 		return { element, side };
 	}
@@ -1354,6 +1389,7 @@ class ConnectedDataMapper extends React.Component {
 				target: null,
 				pos,
 			},
+			status: Constants.StateStatus.DND,
 		}));
 	}
 
@@ -1361,7 +1397,7 @@ class ConnectedDataMapper extends React.Component {
 		let update = true;
 		if (this.state.dnd != null) {
 			if (this.state.dnd.target != null
-				&& this.state.dnd.target.element === targetItem.element
+				&& this.state.dataAccessor.areElementsEqual(this.state.dnd.target.element, targetItem.element)
 				&& this.state.dnd.target.side === targetItem.side) {
 					update = false;
 			}
@@ -1377,6 +1413,7 @@ class ConnectedDataMapper extends React.Component {
 					target: targetItem,
 					pos: null,
 				},
+				status: Constants.StateStatus.DND,
 			}));
 		}
 		return targetItem.side !== sourceItem.side
@@ -1391,17 +1428,19 @@ class ConnectedDataMapper extends React.Component {
 			);
 	}
 
-	drop(element) {
-		this.setState({
-			trigger: null,
-			dnd: null,
-		});
+	drop(sourceItem, targetItem) {
+		if (sourceItem.side === Constants.MappingSide.INPUT) {
+			this.performMapping(sourceItem.element, targetItem.element, Constants.MappingSide.OUTPUT);
+		} else {
+			this.performMapping(targetItem.element, sourceItem.element, Constants.MappingSide.INPUT);
+		}
 	}
 
 	endDrag() {
 		this.setState({
 			trigger: null,
 			dnd: null,
+			status: Constants.StateStatus.DND,
 		});
 	}
 
@@ -1421,6 +1460,7 @@ class ConnectedDataMapper extends React.Component {
 			dnd: null,
 			selection: filterSelection(prevState, prevState.selection),
 			focused: filterFocused(prevState, prevState.focused),
+			status: Constants.FILTERING_STATE_STATUS,
 		}));
 	}
 
@@ -1428,8 +1468,6 @@ class ConnectedDataMapper extends React.Component {
 		const source = this.state.dataAccessor.getElementFromCache(Constants.MappingSide.INPUT, sourceId);
 		const target = this.state.dataAccessor.getElementFromCache(Constants.MappingSide.OUTPUT, targetId);
 		const mapperInstance = this.mapper.getDecoratedComponentInstance();
-		//mapperInstance.revealElement(source, Constants.MappingSide.INPUT);
-		//mapperInstance.revealElement(target, Constants.MappingSide.OUTPUT);
 		mapperInstance.revealConnection(source, target);
 	}
 
@@ -1443,6 +1481,7 @@ class ConnectedDataMapper extends React.Component {
 			pendingItem: null,
 			dnd: null,
 			mapping,
+			status: Constants.UNDO_REDO_STATE_STATUS,
 		}), () => {
 			if (cmd.code === Constants.Commands.REMOVE_MAPPING) {
 				// reveal connection
@@ -1461,6 +1500,7 @@ class ConnectedDataMapper extends React.Component {
 			pendingItem: null,
 			dnd: null,
 			mapping,
+			status: Constants.UNDO_REDO_STATE_STATUS,
 		}), () => {
 			if (cmd.code === Constants.Commands.ADD_MAPPING) {
 				// reveal connection
@@ -1507,15 +1547,12 @@ class ConnectedDataMapper extends React.Component {
 					onLeaveElement={this.onLeaveElement}
 					focused={this.state.focused}
 					dnd={this.state.dnd}
-					dndInProgress={this.dndInProgress}
-					beginDrag={this.beginDrag}
-					canDrop={this.canDrop}
-					drop={this.drop}
-					endDrag={this.endDrag}
+					dndListener={this}
 					filters={this.state.filters}
 					filterComponents={filterComponents}
 					onFilterChange={this.onFilterChange}
 					trigger={this.state.trigger}
+					status={this.state.status}
 				/>
 			</div>
 		);
@@ -1621,15 +1658,13 @@ stories
 							id: 'f4d51fg5d1fvg',
 							name: 'CUSTOMERS-25K PREP',
 							size: 50,
-							a: 1,
-							b: 1,
+							mandatoryParams: noMandatoryFields,
 						},
 						{
 							id: 'sdgf5fsdf45',
 							name: 'SALESFORCE.ACCOUNT',
 							size: 50,
-							a: 1,
-							b: 3,
+							mandatoryParams: oneMandatoryFieldOfThree,
 						},
 						20,
 						alternativePrefs4,
@@ -1649,15 +1684,13 @@ stories
 							id: 'fgs2525sdf5',
 							name: 'ONE-ELEM-IN',
 							size: 1,
-							a: 1,
-							b: 1,
+							mandatoryParams: noMandatoryFields,
 						},
 						{
 							id: '62ds5csd5',
 							name: 'ONE-ELEM-OUT',
 							size: 1,
-							a: 1,
-							b: 1,
+							mandatoryParams: noMandatoryFields,
 						},
 						0,
 						alternativePrefs4,

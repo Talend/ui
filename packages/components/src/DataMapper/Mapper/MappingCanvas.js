@@ -6,7 +6,7 @@ import * as Constants from '../Constants';
 const elementTarget = {
 	canDrop(props, monitor) {
 		const clientOffset = monitor.getClientOffset();
-		props.dndInProgress(clientOffset);
+		props.dndListener.dndInProgress(clientOffset);
 		return false;
 	},
 };

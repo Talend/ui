@@ -9,6 +9,25 @@ export const Events = {
 	REDO: 'redo',
 };
 
+export const StateStatus = {
+	FOCUSED: 1,
+	SELECTION: 1 << 1,
+	PENDING: 1 << 2,
+	DND: 1 << 3,
+	FILTERS: 1 << 4,
+	MAPPING: 1 << 5,
+	PREFERENCES: 1 << 6,
+};
+
+export const MAPPING_STATE_STATUS = StateStatus.MAPPING | StateStatus.SELECTION |
+	StateStatus.PENDING | StateStatus.DND;
+
+export const FILTERING_STATE_STATUS = StateStatus.FOCUSED | StateStatus.SELECTION |
+	StateStatus.PENDING | StateStatus.DND;
+
+export const UNDO_REDO_STATE_STATUS = StateStatus.MAPPING |
+		StateStatus.PENDING | StateStatus.DND;
+
 export const Commands = {
 	ADD_MAPPING: 'add-mapping',
 	REMOVE_MAPPING: 'remove-mapping',
@@ -51,10 +70,6 @@ export const Anchor = {
 		MAPPED: 'mapped',
 		FOCUSED: 'focused',
 		SELECTED: 'selected',
-	},
-	PART: {
-		START: 'start',
-		END: 'end',
 	},
 };
 

@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
-import Connection from './ConnectionSVG.js';
-import Anchor from './AnchorSVG.js';
+import Connection from './ConnectionSVG';
+import Anchor from './AnchorSVG';
+import DraggableAnchor from './DraggableAnchor';
 import * as Constants from '../Constants';
 
 const padding = 8;
-const extraWidth = 25;
+const extraWidth = 24;
 
 const elementTarget = {
+	hover(props, monitor) {
+		// verify whether a child, or just the current drop target is being hovered
+		if (monitor.isOver({ shallow: true })) {
+			props.dndListener.dndInProgress(monitor.getClientOffset());
+		}
+	},
 	canDrop(props, monitor) {
-		const clientOffset = monitor.getClientOffset();
-		props.dndInProgress(clientOffset);
 		return false;
 	},
 };
@@ -186,99 +191,72 @@ function renderConnection(connection) {
 	);
 }
 
-function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style, mapped) {
+function getStyles(anchor) {
+	let styles = [];
+	if (anchor.focused) {
+		styles = styles.concat(Constants.Anchor.STYLE.FOCUSED);
+	} else if (anchor.selected) {
+		styles = styles.concat(Constants.Anchor.STYLE.SELECTED);
+	}
+	if (anchor.mapped) {
+		styles = styles.concat(Constants.Anchor.STYLE.MAPPED);
+	} else {
+		styles = styles.concat(Constants.Anchor.STYLE.UNMAPPED);
+	}
+	return styles;
+}
+
+function appendSVGAnchor(svgAnchors, anchor, bounds) {
+	const styles = getStyles(anchor);
 	const svgAnchor = {
-		x: part === Constants.Anchor.PART.START ? bounds.left : bounds.right,
-		y: anchorYPos.yPos,
-		key: `${anchorYPos.key}-${style}`,
-		part,
-		style,
-		mapped,
+		x: anchor.side === Constants.MappingSide.INPUT ? bounds.left : bounds.right,
+		y: anchor.yPos,
+		element: anchor.element,
+		side: anchor.side,
+		key: anchor.key,
+		styles,
+		mapped: anchor.mapped,
 	};
 	return svgAnchors.concat(svgAnchor);
 }
 
-function appendSVGAnchors(anchorYPositions, svgAnchors, part, style, bounds, mapped) {
+function appendSVGAnchors(svgAnchors, anchors, bounds) {
 	let svga = svgAnchors.slice();
-	for (let i = 0; i < anchorYPositions.length; i += 1) {
-		svga = appendSVGAnchor(anchorYPositions[i], svga, bounds, part, style, mapped);
+	for (let elemId in anchors) {
+		const anchor = anchors[elemId];
+		if (anchor.visible) {
+			svga = appendSVGAnchor(svga, anchor, bounds);
+		}
 	}
 	return svga;
 }
 
-function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style, mapped) {
-	let result = svgAnchors.slice();
+function buildSVGAnchors(anchors, bounds) {
+	let svgAnchors = [];
 	if (anchors.input) {
-		result = appendSVGAnchors(
+		svgAnchors = appendSVGAnchors(
+			svgAnchors,
 			anchors.input,
-			result,
-			Constants.Anchor.PART.START,
-			style,
 			bounds,
-			mapped,
 		);
 	}
 	if (anchors.output) {
-		result = appendSVGAnchors(
+		svgAnchors = appendSVGAnchors(
+			svgAnchors,
 			anchors.output,
-			result,
-			Constants.Anchor.PART.END,
-			style,
 			bounds,
-			mapped,
-		);
-	}
-	return result;
-}
-
-function buildSVGAnchors(anchors, bounds) {
-	let svgAnchors = [];
-	if (anchors.unmapped) {
-		svgAnchors = appendStyledSVGAnchors(
-			svgAnchors,
-			anchors.unmapped,
-			bounds,
-			Constants.Anchor.STYLE.UNMAPPED,
-			false,
-		);
-	}
-	if (anchors.selected) {
-		svgAnchors = appendStyledSVGAnchors(
-			svgAnchors,
-			anchors.selected,
-			bounds,
-			Constants.Anchor.STYLE.SELECTED,
-			anchors.selected.mapped,
-		);
-	}
-	if (anchors.focused) {
-		svgAnchors = appendStyledSVGAnchors(
-			svgAnchors,
-			anchors.focused,
-			bounds,
-			Constants.Anchor.STYLE.FOCUSED,
-			anchors.focused.mapped,
-		);
-	}
-	if (anchors.mapped) {
-		svgAnchors = appendStyledSVGAnchors(
-			svgAnchors,
-			anchors.mapped,
-			bounds,
-			Constants.Anchor.STYLE.MAPPED,
-			true,
 		);
 	}
 	return svgAnchors;
 }
 
 function getAnchorParams(anchor) {
-	switch (anchor.part) {
-		case Constants.Anchor.PART.START:
+	switch (anchor.side) {
+		case Constants.MappingSide.INPUT:
 			return {
 				r: 4,
 			};
-		case Constants.Anchor.PART.END:
+		case Constants.MappingSide.OUTPUT:
 			if (anchor.mapped) {
 				return {
 					arrow: buildArrowPath(anchor.x, anchor.y),
@@ -293,7 +271,34 @@ function getAnchorParams(anchor) {
 }
 
 function renderAnchor(anchor) {
-	return <Anchor key={anchor.key} anchor={anchor} params={getAnchorParams(anchor)} />;
+	return (
+		<Anchor
+			key={anchor.key}
+			anchor={anchor}
+			params={getAnchorParams(anchor)}
+		/>
+	);
+}
+
+function renderDraggableAnchor(anchor, onEnterAnchor, onLeaveAnchor, dndListener) {
+	const size = 22;
+	const anchorStyle = {
+		position: 'absolute',
+		top: anchor.y - size / 2,
+		left: anchor.x - size - 1,
+		width: size,
+		height: size,
+	};
+	return (
+		<DraggableAnchor
+			key={anchor.key}
+			anchor={anchor}
+			anchorStyle={anchorStyle}
+			onEnterAnchor={onEnterAnchor}
+			onLeaveAnchor={onLeaveAnchor}
+			dndListener={dndListener}
+		/>
+	);
 }
 
 function renderGradientStop(stop) {
@@ -322,12 +327,23 @@ function renderLinearGradient(preferences) {
 	return null;
 }
 
+function boundsAreEqual(bounds1, bounds2) {
+	if (bounds1 && bounds2) {
+		return bounds1.left === bounds2.left && bounds1.right === bounds2.right;
+	}
+	return false;
+}
+
 class MappingSVG extends Component {
+
 	constructor(props) {
 		super(props);
 		this.updateSVGRef = this.updateSVGRef.bind(this);
 		this.getWidth = this.getWidth.bind(this);
 		this.getHeight = this.getHeight.bind(this);
+		this.bounds = null;
+		this.svgAnchors = null;
+		this.svgAnchorsVersion = -1;
 	}
 
 	getMousePos(offset) {
@@ -362,6 +378,18 @@ class MappingSVG extends Component {
 		}
 	}
 
+	getSVGAnchors(anchors, bounds) {
+		if (!this.svgAnchors || this.svgAnchorsVersion !== anchors.version || !boundsAreEqual(this.bounds, bounds)) {
+			this.svgAnchors = buildSVGAnchors(anchors, bounds);
+			this.svgAnchorsVersion = anchors.version;
+			this.bounds = {
+				left: bounds.left,
+				right: bounds.right,
+			};
+		}
+		return this.svgAnchors;
+	}
+
 	updateSVGRef(ref) {
 		this.svg = ref;
 	}
@@ -371,10 +399,14 @@ class MappingSVG extends Component {
 			connectDropTarget,
 			getConnections,
 			getAnchors,
+			draggable,
 			dnd,
+			dndListener,
 			preferences,
 			width,
 			height,
+			onEnterAnchor,
+			onLeaveAnchor,
 		} = this.props;
 
 		const bounds = {
@@ -386,20 +418,25 @@ class MappingSVG extends Component {
 		const svgConnections = buildSVGConnections(connections, dnd, bounds);
 
 		const anchors = getAnchors();
-		const svgAnchors = buildSVGAnchors(anchors, bounds);
+		const svgAnchors = this.getSVGAnchors(anchors, bounds);
 
 		return connectDropTarget(
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				className="mapping-svg"
-				ref={this.updateSVGRef}
-				width={this.getWidth()}
-				height={this.getHeight()}
-			>
-				{renderLinearGradient(preferences)}
-				{svgAnchors.map(anchor => renderAnchor(anchor))}
-				{svgConnections.map(connection => renderConnection(connection))}
-			</svg>,
+			<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					className="mapping-svg"
+					ref={this.updateSVGRef}
+					width={this.getWidth()}
+					height={this.getHeight()}
+				>
+					{renderLinearGradient(preferences)}
+					{svgAnchors.map(anchor => renderAnchor(anchor))}
+					{svgConnections.map(connection => renderConnection(connection))}
+				</svg>
+				{svgAnchors.map(
+					anchor => renderDraggableAnchor(anchor, onEnterAnchor, onLeaveAnchor, dndListener)
+				)}
+			</div>
 		);
 	}
 }
@@ -408,10 +445,14 @@ MappingSVG.propTypes = {
 	getConnections: PropTypes.func,
 	getAnchors: PropTypes.func,
 	connectDropTarget: PropTypes.func,
+	draggable: PropTypes.bool,
 	dnd: PropTypes.object,
+	dndListener: PropTypes.object,
 	preferences: PropTypes.object,
 	width: PropTypes.number,
 	height: PropTypes.number,
+	onEnterAnchor: PropTypes.func,
+	onLeaveAnchor: PropTypes.func,
 };
 
 export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(

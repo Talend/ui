@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import List from '../../List/List';
 import RowLabel from '../../List/RowLabel';
 import MandatoryField from '../../List/MandatoryField';
 import * as Constants from '../../Constants';
 
 class SchemaClassNameProvider {
+
 	updateProps(props) {
 		this.props = props;
-	}
-
-	onDragOver(status) {
-		this.dragOver = status;
 	}
 
 	get(element, key) {
@@ -19,6 +17,7 @@ class SchemaClassNameProvider {
 			selection,
 			side,
 			pendingItem,
+			dnd,
 			focusedElements,
 			mappedElements,
 			isHighlighted,
@@ -31,8 +30,7 @@ class SchemaClassNameProvider {
 			return {
 				'schema-element': true,
 				highlighted:
-					this.dragOver ||
-					isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements),
+					isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements, dnd),
 				mapped: isMapped(dataAccessor, element, mappedElements),
 				selected: isSelected(dataAccessor, selection, element, side),
 				input: side === Constants.MappingSide.INPUT,
@@ -49,28 +47,21 @@ class SchemaDndListener {
 	}
 
 	beginDrag(element) {
-		return this.props.beginDrag(element, this.props.side);
+		return this.props.dndListener.beginDrag(element, this.props.side);
 	}
 
 	canDrop(sourceItem, targetElement) {
-		const targetItem = {
-			element: targetElement,
-			side: this.props.side,
-		};
-		return this.props.canDrop(sourceItem, targetItem);
+		const targetItem = { element: targetElement, side: this.props.side };
+		return this.props.dndListener.canDrop(sourceItem, targetItem);
 	}
 
 	drop(sourceItem, targetElement) {
-		this.props.drop(targetElement, this.props.side);
-		if (sourceItem.side === Constants.MappingSide.INPUT) {
-			this.props.performMapping(sourceItem.element, targetElement, Constants.MappingSide.OUTPUT);
-		} else {
-			this.props.performMapping(targetElement, sourceItem.element, Constants.MappingSide.INPUT);
-		}
+		const targetItem = { element: targetElement, side: this.props.side };
+		this.props.dndListener.drop(sourceItem, targetItem);
 	}
 
 	endDrag() {
-		this.props.endDrag();
+		this.props.dndListener.endDrag();
 	}
 }
 
@@ -189,3 +180,12 @@ export default class ListRenderer extends Component {
 		);
 	}
 }
+
+ListRenderer.propTypes = {
+	dataAccessor: PropTypes.object,
+	schema: PropTypes.object,
+	draggable: PropTypes.bool,
+	onScroll: PropTypes.func,
+	columnKeys: PropTypes.array,
+	updateContentNodeRef: PropTypes.func,
+};

@@ -56,12 +56,14 @@ exports[`no connections - no anchors 1`] = `
   <div
     className="mapping-content"
   >
-    <svg
-      className="mapping-svg"
-      height={1}
-      width={26}
-      xmlns="http://www.w3.org/2000/svg"
-    />
+    <div>
+      <svg
+        className="mapping-svg"
+        height={1}
+        width={25}
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -122,37 +124,14 @@ exports[`no connections - unmapped anchors 1`] = `
   <div
     className="mapping-content"
   >
-    <svg
-      className="mapping-svg"
-      height={1}
-      width={26}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        className="anchor start unmapped"
-        cx={8}
-        cy={15}
-        r={4}
+    <div>
+      <svg
+        className="mapping-svg"
+        height={1}
+        width={25}
+        xmlns="http://www.w3.org/2000/svg"
       />
-      <circle
-        className="anchor start unmapped"
-        cx={8}
-        cy={40}
-        r={4}
-      />
-      <circle
-        className="anchor end unmapped"
-        cx={18}
-        cy={15}
-        r={4}
-      />
-      <circle
-        className="anchor end unmapped"
-        cx={18}
-        cy={40}
-        r={4}
-      />
-    </svg>
+    </div>
   </div>
 </div>
 `;
@@ -213,71 +192,51 @@ exports[`single connection [all] - mapped/unmapped anchors 1`] = `
   <div
     className="mapping-content"
   >
-    <svg
-      className="mapping-svg"
-      height={1}
-      width={26}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        className="anchor start unmapped"
-        cx={8}
-        cy={40}
-        r={4}
-      />
-      <circle
-        className="anchor end unmapped"
-        cx={18}
-        cy={15}
-        r={4}
-      />
-      <circle
-        className="anchor start mapped"
-        cx={8}
-        cy={15}
-        r={4}
-      />
-      <path
-        className="anchor end mapped"
-        d="M 13 35 L 23 40 L 13 45 Z"
-      />
-      <g
-        id="in_1-out_2-all"
+    <div>
+      <svg
+        className="mapping-svg"
+        height={1}
+        width={25}
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <circle
-          className="connection start all"
-          cx={8}
-          cy={15}
-          r={3}
-        />
-        <path
-          className="connection curve all "
-          d="M 8 15 C 13 15, 13 40, 18 40"
+        <g
+          id="in_1-out_2-all"
         >
-          <animate
-            attributeName="stroke-width"
-            attributeType="CSS"
-            begin="indefinite"
-            dur="0.2s"
-            from="3"
-            id="anim-in_1-out_2-all"
-            to="7"
+          <circle
+            className="connection start all"
+            cx={8}
+            cy={15}
+            r={3}
           />
-          <animate
-            attributeName="stroke-width"
-            attributeType="CSS"
-            begin="anim-in_1-out_2-all.begin + 0.2s"
-            dur="0.2s"
-            from="7"
-            to="3"
+          <path
+            className="connection curve all "
+            d="M 8 15 C 12.5 15, 12.5 40, 17 40"
+          >
+            <animate
+              attributeName="stroke-width"
+              attributeType="CSS"
+              begin="indefinite"
+              dur="0.2s"
+              from="3"
+              id="anim-in_1-out_2-all"
+              to="7"
+            />
+            <animate
+              attributeName="stroke-width"
+              attributeType="CSS"
+              begin="anim-in_1-out_2-all.begin + 0.2s"
+              dur="0.2s"
+              from="7"
+              to="3"
+            />
+          </path>
+          <path
+            className="connection end all"
+            d="M 12 35 L 22 40 L 12 45 Z"
           />
-        </path>
-        <path
-          className="connection end all"
-          d="M 13 35 L 23 40 L 13 45 Z"
-        />
-      </g>
-    </svg>
+        </g>
+      </svg>
+    </div>
   </div>
 </div>
 `;
@@ -338,49 +297,51 @@ exports[`single connection [all] - no anchors 1`] = `
   <div
     className="mapping-content"
   >
-    <svg
-      className="mapping-svg"
-      height={1}
-      width={26}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        id="in_1-out_2-all"
+    <div>
+      <svg
+        className="mapping-svg"
+        height={1}
+        width={25}
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <circle
-          className="connection start all"
-          cx={8}
-          cy={15}
-          r={3}
-        />
-        <path
-          className="connection curve all "
-          d="M 8 15 C 13 15, 13 40, 18 40"
+        <g
+          id="in_1-out_2-all"
         >
-          <animate
-            attributeName="stroke-width"
-            attributeType="CSS"
-            begin="indefinite"
-            dur="0.2s"
-            from="3"
-            id="anim-in_1-out_2-all"
-            to="7"
+          <circle
+            className="connection start all"
+            cx={8}
+            cy={15}
+            r={3}
           />
-          <animate
-            attributeName="stroke-width"
-            attributeType="CSS"
-            begin="anim-in_1-out_2-all.begin + 0.2s"
-            dur="0.2s"
-            from="7"
-            to="3"
+          <path
+            className="connection curve all "
+            d="M 8 15 C 12.5 15, 12.5 40, 17 40"
+          >
+            <animate
+              attributeName="stroke-width"
+              attributeType="CSS"
+              begin="indefinite"
+              dur="0.2s"
+              from="3"
+              id="anim-in_1-out_2-all"
+              to="7"
+            />
+            <animate
+              attributeName="stroke-width"
+              attributeType="CSS"
+              begin="anim-in_1-out_2-all.begin + 0.2s"
+              dur="0.2s"
+              from="7"
+              to="3"
+            />
+          </path>
+          <path
+            className="connection end all"
+            d="M 12 35 L 22 40 L 12 45 Z"
           />
-        </path>
-        <path
-          className="connection end all"
-          d="M 13 35 L 23 40 L 13 45 Z"
-        />
-      </g>
-    </svg>
+        </g>
+      </svg>
+    </div>
   </div>
 </div>
 `;

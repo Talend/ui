@@ -71,7 +71,7 @@ function wrapInTestContext(DecoratedComponent) {
 }
 
 const clearMapping = jest.fn();
-const performMapping = jest.fn();
+
 const preferences = {
 	showAll: false,
 	withGradient: false,
@@ -87,7 +87,6 @@ it('clear-mapping', () => {
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}
-			performMapping={performMapping}
 			clearMapping={clearMapping}
 			schemaConfiguration={schemaConfiguration}
 			mappingConfiguration={mappingConfig}
@@ -102,7 +101,7 @@ it('clear-mapping', () => {
 		.simulate('click');
 
 	expect(clearMapping).toBeCalled();
-	expect(performMapping).not.toBeCalled();
+
 });
 
 it('perform-mapping', () => {
@@ -110,11 +109,13 @@ it('perform-mapping', () => {
 		element: element1,
 		side: Constants.MappingSide.INPUT,
 	};
-	const beginDrag = jest.fn().mockReturnValue(item);
-	const dndInProgress = jest.fn();
-	const canDrop = jest.fn().mockReturnValue(true);
-	const drop = jest.fn();
-	const endDrag = jest.fn();
+	const dndListener = {
+		beginDrag: jest.fn().mockReturnValue(item),
+		dndInProgress: jest.fn(),
+		canDrop: jest.fn().mockReturnValue(true),
+		drop: jest.fn(),
+		endDrag: jest.fn(),
+	};
 	const mapping = [];
 	const draggable = true;
 
@@ -126,13 +127,8 @@ it('perform-mapping', () => {
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}
-			performMapping={performMapping}
 			clearMapping={clearMapping}
-			beginDrag={beginDrag}
-			dndInProgress={dndInProgress}
-			canDrop={canDrop}
-			drop={drop}
-			endDrag={endDrag}
+			dndListener={dndListener}
 			draggable={draggable}
 			schemaConfiguration={schemaConfiguration}
 			mappingConfiguration={mappingConfig}
@@ -164,15 +160,15 @@ it('perform-mapping', () => {
 	// simulate drop the source node on the current target node 'elem_out_1'
 	backend.simulateDrop();
 
-	// performMapping should be called
-	expect(performMapping).toBeCalled();
+	// dndListener.drop should be called
+	expect(dndListener.drop).toBeCalled();
 
-	// The performMapping function is called once
-	expect(performMapping.mock.calls.length).toBe(1);
+	// The dndListener.drop function is called once
+	expect(dndListener.drop.mock.calls.length).toBe(1);
 
 	// The first argument of the first call to the function was 'elem_in_1'
-	expect(performMapping.mock.calls[0][0]).toBe(element1);
+	expect(dndListener.drop.mock.calls[0][0].element).toBe(element1);
 
 	// The second argument of the first call to the function was 'elem_out_1'
-	expect(performMapping.mock.calls[0][1]).toBe(element2);
+	expect(dndListener.drop.mock.calls[0][1].element).toBe(element2);
 });

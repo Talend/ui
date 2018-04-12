@@ -7,27 +7,23 @@ import SchemaElement from './SchemaElement.js';
 
 const elementSource = {
 	beginDrag(props) {
-		return props.beginDrag(props.element, props.side);
+		return props.dndListener.beginDrag(props.element, props.side);
 	},
 	endDrag(props) {
-		props.endDrag();
+		props.dndListener.endDrag();
 	},
 };
 
 const elementTarget = {
 	drop(props, monitor) {
-		props.drop(props.element, props.side);
 		const sourceItem = monitor.getItem();
-		if (sourceItem.side === MappingSide.INPUT) {
-			props.performMapping(sourceItem.element, props.element, MappingSide.OUTPUT);
-		} else {
-			props.performMapping(props.element, sourceItem.element, MappingSide.INPUT);
-		}
+		const targetItem = { element: props.element, side: props.side };
+		props.dndListener.drop(sourceItem, targetItem);
 	},
 	canDrop(props, monitor) {
-		const targetItem = { element: props.element, side: props.side };
 		const sourceItem = monitor.getItem();
-		return props.canDrop(sourceItem, targetItem);
+		const targetItem = { element: props.element, side: props.side };
+		return props.dndListener.canDrop(sourceItem, targetItem);
 	},
 };
 
