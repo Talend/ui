@@ -147,6 +147,7 @@ exports[`Storyshots SidePanel default 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-opener"
           title={null}
         >
           <use
@@ -181,6 +182,7 @@ exports[`Storyshots SidePanel default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -211,6 +213,7 @@ exports[`Storyshots SidePanel default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -241,6 +244,7 @@ exports[`Storyshots SidePanel default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -404,6 +408,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-opener"
           title={null}
         >
           <use
@@ -438,6 +443,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -468,6 +474,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -498,6 +505,7 @@ exports[`Storyshots SidePanel docked 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -661,6 +669,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-opener"
           title={null}
         >
           <use
@@ -695,6 +704,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -725,6 +735,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -755,6 +766,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -918,6 +930,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-opener"
           title={null}
         >
           <use
@@ -951,6 +964,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -982,6 +996,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -1012,6 +1027,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -1175,6 +1191,7 @@ exports[`Storyshots SidePanel links 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-opener"
           title={null}
         >
           <use
@@ -1209,6 +1226,7 @@ exports[`Storyshots SidePanel links 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -1239,6 +1257,7 @@ exports[`Storyshots SidePanel links 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -1269,6 +1288,7 @@ exports[`Storyshots SidePanel links 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -1435,6 +1455,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -1466,6 +1487,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -1496,6 +1518,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -1659,6 +1682,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-opener"
           title={null}
         >
           <use
@@ -1692,6 +1716,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-dataprep"
             title={null}
           >
             <use
@@ -1723,6 +1748,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-download"
             title={null}
           >
             <use
@@ -1753,6 +1779,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -1926,6 +1953,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-opener"
                 title={null}
               >
                 <use
@@ -1959,6 +1987,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-dataprep"
                   title={null}
                 >
                   <use
@@ -1989,6 +2018,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-download"
                   title={null}
                 >
                   <use
@@ -2019,6 +2049,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-star"
                   title={null}
                 >
                   <use
@@ -2049,6 +2080,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-world"
                   title={null}
                 >
                   <use
@@ -2549,6 +2581,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-opener"
                 title={null}
               >
                 <use
@@ -2582,6 +2615,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-dataprep"
                   title={null}
                 >
                   <use
@@ -2612,6 +2646,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-download"
                   title={null}
                 >
                   <use
@@ -2642,6 +2677,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-star"
                   title={null}
                 >
                   <use
@@ -2672,6 +2708,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-world"
                   title={null}
                 >
                   <use
@@ -3173,6 +3210,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -3207,6 +3245,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -3237,6 +3276,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -3267,6 +3307,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use
@@ -3443,6 +3484,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -3477,6 +3519,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -3507,6 +3550,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -3537,6 +3581,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use
@@ -3713,6 +3758,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -3747,6 +3793,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -3777,6 +3824,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -3807,6 +3855,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use
@@ -3983,6 +4032,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -4017,6 +4067,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -4047,6 +4098,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -4077,6 +4129,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use
@@ -4253,6 +4306,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -4287,6 +4341,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -4317,6 +4372,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -4347,6 +4403,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use
@@ -4523,6 +4580,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -4557,6 +4615,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -4587,6 +4646,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -4617,6 +4677,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use
@@ -4793,6 +4854,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-opener"
               title={null}
             >
               <use
@@ -4827,6 +4889,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-dataprep"
                 title={null}
               >
                 <use
@@ -4857,6 +4920,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-download"
                 title={null}
               >
                 <use
@@ -4887,6 +4951,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-star"
                 title={null}
               >
                 <use

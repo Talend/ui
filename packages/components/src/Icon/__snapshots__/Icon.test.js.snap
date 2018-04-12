@@ -32,6 +32,7 @@ exports[`Icon should render from svg 1`] = `
   aria-hidden="true"
   className="theme-tc-svg-icon tc-svg-icon"
   focusable="false"
+  name="svg-dd"
   title={null}
 >
   <use
@@ -45,6 +46,22 @@ exports[`Icon should render with provided className 1`] = `
   aria-hidden="true"
   className="theme-tc-svg-icon tc-svg-icon custom-class"
   focusable="false"
+  name="svg-dd"
+  title={null}
+>
+  <use
+    xlinkHref="#svg-dd"
+  />
+</svg>
+`;
+
+exports[`Icon should support extra props 1`] = `
+<svg
+  aria-hidden="true"
+  className="theme-tc-svg-icon tc-svg-icon custom-class"
+  data-custom="hello"
+  focusable="false"
+  name="svg-dd"
   title={null}
 >
   <use
