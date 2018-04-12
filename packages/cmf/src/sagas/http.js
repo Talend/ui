@@ -1,6 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import curry from 'lodash/curry';
+import get from 'lodash/get';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -118,12 +119,13 @@ export function httpFetch(url, config, method, payload) {
  * @param  {object} config                    option that you want apply to the request
  * @param  {string} method = HTTP_METHODS.GET method to apply
  * @param  {object} payload                   payload to send with the request
+ * @param  {object} options                   options to deal with cmf automatically
  * @return {object}                           the response of the request
  */
-export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
+export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
 	const answer = yield call(httpFetch, url, config, method, payload);
 
-	if (answer instanceof Error) {
+	if (!get(options, 'silent') && answer instanceof Error) {
 		yield put({
 			error: { message: answer.data.message, stack: { status: answer.response.status } },
 			type: ACTION_TYPE_HTTP_ERRORS,
@@ -139,13 +141,14 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.post, '/foo', {foo: 42});
  */
-export function* httpPost(url, payload, config) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.POST, payload);
+export function* httpPost(url, payload, config, options) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
 }
 
 /**
@@ -154,13 +157,14 @@ export function* httpPost(url, payload, config) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.patch, '/foo', {foo: 42});
  */
-export function* httpPatch(url, payload, config) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.PATCH, payload);
+export function* httpPatch(url, payload, config, options) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.PATCH, payload, options);
 }
 
 /**
@@ -169,13 +173,14 @@ export function* httpPatch(url, payload, config) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.put, '/foo', {foo: 42});
  */
-export function* httpPut(url, payload, config) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+export function* httpPut(url, payload, config, options) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.PUT, payload, options);
 }
 
 /**
@@ -183,13 +188,14 @@ export function* httpPut(url, payload, config) {
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.delete, '/foo');
  */
-export function* httpDelete(url, config) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE);
+export function* httpDelete(url, config, options) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE, options);
 }
 
 /**
@@ -197,13 +203,14 @@ export function* httpDelete(url, config) {
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
+ * @param  {object} options options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.get, '/foo');
  */
-export function* httpGet(url, config) {
-	return yield* wrapFetch(url, config);
+export function* httpGet(url, config, options) {
+	return yield* wrapFetch(url, config, options);
 }
 
 export const handleDefaultConfiguration = curry((defaultConfig, config) =>
@@ -219,20 +226,20 @@ export default {
 	create(defaultConfig = {}) {
 		const configEnhancer = handleDefaultConfiguration(defaultConfig);
 		return {
-			delete: function* configuredDelete(url, config = {}) {
-				return yield call(httpDelete, url, configEnhancer(config));
+			delete: function* configuredDelete(url, config = {}, options = {}) {
+				return yield call(httpDelete, url, configEnhancer(config), options);
 			},
-			get: function* configuredGet(url, config = {}) {
-				return yield call(httpGet, url, configEnhancer(config));
+			get: function* configuredGet(url, config = {}, options = {}) {
+				return yield call(httpGet, url, configEnhancer(config), options);
 			},
-			post: function* configuredPost(url, payload, config = {}) {
-				return yield call(httpPost, url, payload, configEnhancer(config));
+			post: function* configuredPost(url, payload, config = {}, options = {}) {
+				return yield call(httpPost, url, payload, configEnhancer(config), options);
 			},
-			put: function* configuredPut(url, payload, config = {}) {
-				return yield call(httpPut, url, payload, configEnhancer(config));
+			put: function* configuredPut(url, payload, config = {}, options = {}) {
+				return yield call(httpPut, url, payload, configEnhancer(config), options);
 			},
-			patch: function* configuredPatch(url, payload, config = {}) {
-				return yield call(httpPatch, url, payload, configEnhancer(config));
+			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
+				return yield call(httpPatch, url, payload, configEnhancer(config), options);
 			},
 		};
 	},
