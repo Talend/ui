@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { store } from '@talend/react-cmf/lib/mock';
+import mock, { store } from '@talend/react-cmf/lib/mock';
 import Immutable from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';
-import Connected from './DeleteResource.connect';
+import Connected, { mapStateToProps } from './DeleteResource.connect';
 
 const state = store.state();
 const settings = {
@@ -25,6 +25,11 @@ const settings = {
 state.cmf = {
 	settings,
 };
+state.cmf.collections = new Immutable.Map({
+	foo: new Immutable.List([
+		new Immutable.Map({ id: '123' }),
+	]),
+});
 
 const context = {
 	store: {
@@ -66,5 +71,20 @@ describe('Connected DeleteResource', () => {
 	it('should connect TestGenerator', () => {
 		expect(Connected.displayName).toBe('Connect(CMF(Translate(Container(DeleteResource))))');
 		expect(Connected.WrappedComponent).toBe(DeleteResource);
+	});
+	describe('mapStateToProps', () => {
+		it('should return empty object if no resourceType', () => {
+			expect(mapStateToProps({}, {})).toEqual({});
+		});
+		it('should return the props.resource corresponding to resourceId', () => {
+			expect(mapStateToProps(state, { resourceType: 'foo', resourceId: '123' }).resource).toBe(
+				state.cmf.collections.get('foo').get(0)
+			);
+		});
+		it('should return the props.resource corresponding to routeParams.id', () => {
+			expect(mapStateToProps(state, { resourceType: 'foo', routeParams: { id: '123' } }).resource).toBe(
+				state.cmf.collections.get('foo').get(0)
+			);
+		});
 	});
 });
