@@ -46,7 +46,7 @@ body {
 
 .tc-app-loader:before,
 .tc-app-loader:after {
-	animation: app-loader-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	animation: app-loader-spin 1.2s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
 	box-sizing: border-box;
 	content: '';
 	display: block;
@@ -72,8 +72,8 @@ body {
 	background-image: ICON_BASE_64;
 	content: '';
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 151px;
+	height: 151px;
 	border-radius: 50%;
 }`;
 
