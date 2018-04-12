@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import curry from 'lodash/curry';
 import get from 'lodash/get';
-import { api } from '../api';
+import api from '../api';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -175,7 +175,7 @@ export function* wrapFetch(
 	config,
 	method = HTTP_METHODS.GET,
 	payload,
-	{ silent, onSend, onResponse, onError, transform, collectionId },
+	{ silent, onSend, onResponse, onError, transform, collectionId, responseSelector },
 ) {
 	if (!silent) {
 		yield put(onRequest(url, config));
@@ -202,9 +202,11 @@ export function* wrapFetch(
 	if (answer instanceof Error) {
 		yield call(errorProcessing, answer, { onError });
 	}
-	const transformedData = transform ? transform(answer) : answer;
+	const extractedData = responseSelector ? get(answer, responseSelector, answer) : answer;
+	const transformedData = transform ? transform(extractedData) : extractedData;
 
 	if (collectionId) {
+		console.log('api', api);
 		yield put(api.actions.collections.addOrReplace(collectionId, transformedData));
 	}
 	if (onResponse) {
@@ -274,7 +276,7 @@ export function* httpPut(url, payload, config, options) {
  * yield call(sagas.http.delete, '/foo');
  */
 export function* httpDelete(url, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE, options);
+	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
 }
 
 /**
@@ -289,7 +291,7 @@ export function* httpDelete(url, config, options) {
  * yield call(sagas.http.get, '/foo');
  */
 export function* httpGet(url, config, options) {
-	return yield* wrapFetch(url, config, options);
+	return yield* wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
 }
 
 export const handleDefaultConfiguration = curry((defaultConfig, config) =>
