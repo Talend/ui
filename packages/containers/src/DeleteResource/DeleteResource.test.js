@@ -26,9 +26,7 @@ state.cmf = {
 	settings,
 };
 state.cmf.collections = new Immutable.Map({
-	foo: new Immutable.List([
-		new Immutable.Map({ id: '123' }),
-	]),
+	foo: new Immutable.List([new Immutable.Map({ id: '123' })]),
 });
 
 const context = {
@@ -78,13 +76,13 @@ describe('Connected DeleteResource', () => {
 		});
 		it('should return the props.resource corresponding to resourceId', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', resourceId: '123' }).resource).toBe(
-				state.cmf.collections.get('foo').get(0)
+				state.cmf.collections.get('foo').get(0),
 			);
 		});
 		it('should return the props.resource corresponding to routeParams.id', () => {
-			expect(mapStateToProps(state, { resourceType: 'foo', routeParams: { id: '123' } }).resource).toBe(
-				state.cmf.collections.get('foo').get(0)
-			);
+			expect(
+				mapStateToProps(state, { resourceType: 'foo', routeParams: { id: '123' } }).resource,
+			).toBe(state.cmf.collections.get('foo').get(0));
 		});
 	});
 });
