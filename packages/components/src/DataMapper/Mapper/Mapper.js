@@ -377,7 +377,6 @@ export default class Mapper extends Component {
 	}
 
 	computeAnchors(version) {
-		console.log('computeAnchors');
 		const { dataAccessor, focused, selection, pendingItem, dnd } = this.props;
 		const anchors = {
 			input: {},

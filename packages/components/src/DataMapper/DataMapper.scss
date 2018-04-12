@@ -39,6 +39,10 @@
 		overflow: hidden;
 	}
 
+	.mapped .comp-list-row-data-name {
+		font-weight: bold;
+	}
+
 	.comp-list-row-data-type {
 		font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
 		font-size: 0.9em;
@@ -297,10 +301,6 @@
 
 	.output {
 		text-align: left;
-	}
-
-	.mapped {
-		font-weight: bold;
 	}
 
 	.highlighted {
