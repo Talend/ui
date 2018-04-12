@@ -56,6 +56,24 @@ importing the saga, allow you to statically call any member function `get, post 
 
 `create` also allow you to provide a configuration object.
 
+```javascript
+import http from '@talend/react-cmf/lib/sagas/http';
+const configuredHttp = http.create();
+const config = {
+	headers: {
+		'X-header': 'my-specific-value'
+	}
+};
+const options = {
+	silent: true
+};
+const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`, config, options);
+```
+The config object allow you to customize your http request, it will be merged recursively against other provided arguments and override those values.
+
+The options object allow you to configure cmf behavior.
+The silent property to ```true``` avoid that cmf dispatch an action of type '@@HTTP/ERRORS', it could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
+
 ## CSRF token handling
 you can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.
 
