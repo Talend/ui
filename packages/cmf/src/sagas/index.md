@@ -69,11 +69,13 @@ const options = {
 };
 const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`, config, options);
 ```
-* The config object allow you to customize your http request, it will be merged recursively against other provided arguments and override those values.
+* The config object allow you to customize your http request
+ + ```headers```, ```credentials```, ```method```, ```body``` will be merged recursively against other provided arguments and override those values.
+ + ```security``` will be resolved and then merged
 
 * The options object allow you to configure cmf behavior.
 
-  + The silent property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
+  + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
   It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
 
 ## CSRF token handling
