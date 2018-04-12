@@ -11,9 +11,9 @@ import { appLoaderSaga } from './AppLoader.saga';
  * @param {boolean} props.loading tell if the app loader should show the loader or the content
  * @param {object} props.children react element to show
  */
-export function AppLoaderContainer({ loading, children }) {
+export function AppLoaderContainer({ loading, children, ...rest }) {
 	if (loading) {
-		return <AppLoader />;
+		return <AppLoader {...rest} />;
 	}
 
 	return children || null;

@@ -36,10 +36,10 @@ This is a sample of configuration :
 },
 ```
 
-### Attributes
-- saga : required cause this is how the action creator are dispatched
-- steps, you can pass objects, this objects can have an attribute ( exclusive ) :
-    - actionCreators : an array of action creator to dispatch in parallel.
-    - waitFor : an array of collection we have in the cmf store to go on next step
-- hasCollections : an array of collections we have in the cmf store to render the children
+### Props
 
+* saga : required cause this is how the action creator are dispatched
+* steps, you can pass objects, this objects can have an attribute ( exclusive ) :
+  * actionCreators : an array of action creator to dispatch in parallel.
+  * waitFor : an array of collection we have in the cmf store to go on next step
+* hasCollections : an array of collections we have in the cmf store to render the children
