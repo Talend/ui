@@ -114,9 +114,7 @@ describe('Component HomeListView', () => {
 	});
 	it('should Inject components.drawer into props.drawers', () => {
 		const components = {
-			drawers: [
-				{ component: 'Foo' },
-			],
+			drawers: [{ component: 'Foo' }],
 		};
 		const getComponent = jest.fn(() => () => 'hello');
 		const wrapper = shallow(
