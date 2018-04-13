@@ -28,15 +28,15 @@ export default class ModelMenus extends React.Component {
 			<div className={theme.menu}>
 				{menu && (
 					<Action
-						aria-label={'Open menu'}
+						aria-label="Open menu"
 						buttonRef={button => {
 							this.button = button;
 						}}
 						className={theme['menu-trigger']}
 						link
-						label={'...'}
+						label="..."
 						overlayId={`tc-object-viewer-model-menu-${jsonpath}`}
-						overlayPlacement={'bottom'}
+						overlayPlacement="bottom"
 						overlayComponent={
 							<ModelItemMenu
 								menuItems={menu}

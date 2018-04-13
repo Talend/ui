@@ -8,8 +8,8 @@ import {
 	defaultGetQuality,
 } from '../genericViewer.configuration';
 
-function getLeafContent(quality, formattedKey, formattedValue) {
-	return [
+function getRenderQuality(quality) {
+	return (
 		quality === -1 && (
 			<div
 				key="quality"
@@ -19,7 +19,13 @@ function getLeafContent(quality, formattedKey, formattedValue) {
 				)}
 				title="Invalid value indicator"
 			/>
-		),
+		)
+	);
+}
+
+function getLeafContent(quality, formattedKey, formattedValue) {
+	return [
+		getRenderQuality(quality),
 		<div
 			key="key-value"
 			className={classNames(
@@ -69,7 +75,15 @@ export default function DefaultLeaf(props) {
 	if (onClick) {
 		return (
 			<div className={className} style={style}>
-				<button className={classNames(theme['tc-hierarchic-item-content-button'], 'tc-hierarchic-item-content-button')} key="main" aria-label={`Select ${dataKey} (${jsonpath})`} onClick={onClick}>
+				<button
+					className={classNames(
+						theme['tc-hierarchic-item-content-button'],
+						'tc-hierarchic-item-content-button',
+					)}
+					key="main"
+					aria-label={`Select ${dataKey} (${jsonpath})`}
+					onClick={onClick}
+				>
 					{getLeafContent(quality, formattedKey, formattedValue)}
 				</button>
 				{getItemMenu && getItemMenu(props)}
