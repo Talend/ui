@@ -307,6 +307,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -374,6 +375,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -401,6 +403,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -428,6 +431,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -468,6 +472,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -495,6 +500,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -532,6 +538,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -573,6 +580,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -882,6 +890,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -949,6 +958,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -976,6 +986,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -1003,6 +1014,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -1117,6 +1129,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -1154,6 +1167,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -1195,6 +1209,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -1504,6 +1519,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -1571,6 +1587,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -1598,6 +1615,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -1625,6 +1643,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -1664,6 +1683,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-environment"
                 title={null}
               >
                 <use
@@ -1732,6 +1752,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -1759,6 +1780,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -1796,6 +1818,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -1837,6 +1860,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -2146,6 +2170,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo"
             title={null}
           >
             <use
@@ -2213,6 +2238,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -2240,6 +2266,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -2267,6 +2294,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -2307,6 +2335,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -2334,6 +2363,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -2371,6 +2401,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -2412,6 +2443,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -2721,6 +2753,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -2788,6 +2821,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -2815,6 +2849,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -2842,6 +2877,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -2882,6 +2918,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -2909,6 +2946,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -2946,6 +2984,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -2987,6 +3026,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -3296,6 +3336,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -3363,6 +3404,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -3390,6 +3432,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -3417,6 +3460,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -3511,6 +3555,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -3548,6 +3593,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -3589,6 +3635,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -3898,6 +3945,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -3965,6 +4013,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -3992,6 +4041,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -4019,6 +4069,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -4059,6 +4110,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -4087,6 +4139,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-bell"
             title={null}
           >
             <use
@@ -4113,6 +4166,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -4150,6 +4204,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -4191,6 +4246,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -4500,6 +4556,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -4567,6 +4624,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -4594,6 +4652,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -4621,6 +4680,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -4709,6 +4769,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -4746,6 +4807,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -4787,6 +4849,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -5096,6 +5159,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -5163,6 +5227,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -5190,6 +5255,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -5217,6 +5283,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -5296,6 +5363,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-filter"
                         title="icon"
                       >
                         <use
@@ -5427,6 +5495,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-star"
                         title="icon"
                       >
                         <use
@@ -5497,6 +5566,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-share-alt"
                         title="icon"
                       >
                         <use
@@ -5635,6 +5705,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -5672,6 +5743,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -5713,6 +5785,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -6022,6 +6095,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -6089,6 +6163,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -6116,6 +6191,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -6143,6 +6219,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -6183,6 +6260,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -6211,6 +6289,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-bell-notification"
             title={null}
           >
             <use
@@ -6237,6 +6316,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -6274,6 +6354,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -6315,6 +6396,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -6624,6 +6706,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo"
             title={null}
           >
             <use
@@ -6682,6 +6765,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -6709,6 +6793,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -6746,6 +6831,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-user-circle"
                 title={null}
               >
                 <use
@@ -6787,6 +6873,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-cog"
                   title={null}
                 >
                   <use
@@ -7096,6 +7183,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-logo-square"
             title={null}
           >
             <use
@@ -7163,6 +7251,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-dp"
                     title={null}
                   >
                     <use
@@ -7190,6 +7279,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-ic"
                     title={null}
                   >
                     <use
@@ -7217,6 +7307,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-logo-mc"
                     title={null}
                   >
                     <use
@@ -7257,6 +7348,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-search"
               title={null}
             >
               <use
@@ -7284,6 +7376,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-question-circle"
             title={null}
           >
             <use
@@ -7324,6 +7417,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 aria-hidden="true"
                 className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
+                name="talend-info-circle"
                 title={null}
               >
                 <use
@@ -7702,6 +7796,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -7769,6 +7864,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -7796,6 +7892,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -7823,6 +7920,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -7863,6 +7961,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -7890,6 +7989,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -7927,6 +8027,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -7968,6 +8069,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use
@@ -8289,6 +8391,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -8356,6 +8459,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -8383,6 +8487,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -8410,6 +8515,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -8450,6 +8556,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -8477,6 +8584,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -8514,6 +8622,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -8555,6 +8664,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use
@@ -8876,6 +8986,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -8943,6 +9054,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -8970,6 +9082,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -8997,6 +9110,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -9037,6 +9151,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -9064,6 +9179,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -9101,6 +9217,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -9142,6 +9259,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use
@@ -9463,6 +9581,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -9530,6 +9649,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -9557,6 +9677,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -9584,6 +9705,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -9624,6 +9746,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -9651,6 +9774,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -9688,6 +9812,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -9729,6 +9854,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use
@@ -10050,6 +10176,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -10117,6 +10244,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -10144,6 +10272,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -10171,6 +10300,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -10211,6 +10341,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -10238,6 +10369,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -10275,6 +10407,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -10316,6 +10449,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use
@@ -10637,6 +10771,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -10704,6 +10839,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -10731,6 +10867,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -10758,6 +10895,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -10798,6 +10936,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -10825,6 +10964,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -10862,6 +11002,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -10903,6 +11044,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use
@@ -11224,6 +11366,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-logo-square"
                   title={null}
                 >
                   <use
@@ -11291,6 +11434,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-dp"
                           title={null}
                         >
                           <use
@@ -11318,6 +11462,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-ic"
                           title={null}
                         >
                           <use
@@ -11345,6 +11490,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                           aria-hidden="true"
                           className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
+                          name="talend-logo-mc"
                           title={null}
                         >
                           <use
@@ -11385,6 +11531,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     aria-hidden="true"
                     className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
+                    name="talend-search"
                     title={null}
                   >
                     <use
@@ -11412,6 +11559,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-question-circle"
                   title={null}
                 >
                   <use
@@ -11449,6 +11597,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       aria-hidden="true"
                       className="theme-tc-svg-icon tc-svg-icon"
                       focusable="false"
+                      name="talend-user-circle"
                       title={null}
                     >
                       <use
@@ -11490,6 +11639,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         aria-hidden="true"
                         className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
+                        name="talend-cog"
                         title={null}
                       >
                         <use

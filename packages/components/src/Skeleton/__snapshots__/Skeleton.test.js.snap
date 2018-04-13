@@ -180,8 +180,10 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
+      aria-label=" icon (loading)"
       className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium"
       focusable="false"
+      name="talend-locked"
       title={null}
     >
       <use
@@ -193,8 +195,10 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
+      aria-label=" icon (loading)"
       className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium theme-skeleton-96x96"
       focusable="false"
+      name="talend-table"
       title={null}
     >
       <use
