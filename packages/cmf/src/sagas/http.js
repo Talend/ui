@@ -175,7 +175,7 @@ export function* wrapFetch(
 	config,
 	method = HTTP_METHODS.GET,
 	payload,
-	{ silent, onSend, onResponse, onError, transform, collectionId, responseSelector },
+	{ silent, onSend, onResponse, onError, transform, collectionId, responseSelector } = {},
 ) {
 	if (!silent) {
 		yield put(onRequest(url, config));
