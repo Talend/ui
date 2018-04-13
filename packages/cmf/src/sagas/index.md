@@ -64,19 +64,23 @@ const config = {
 		'X-header': 'my-specific-value'
 	}
 };
-const options = {
+const cmf = {
 	silent: true
 };
-const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`, config, options);
+const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`, config, cmf);
 ```
 * The config object allow you to customize your http request
  + ```headers```, ```credentials```, ```method```, ```body``` will be merged recursively against other provided arguments and override those values.
  + ```security``` will be resolved and then merged
 
-* The options object allow you to configure cmf behavior.
+* The cmf object allows you to configure cmf behavior.
 
-  + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
-  It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
+  + ```responseSelector``` is lodash.get compatible parameters that allows to select the part of the response that you are interested in.
+  + ```transform``` is a function where you are free to preprocess your data before storing it
+  + ```collectionId``` is the name of the collection where the data will be stored
+  + ```onSend```, ```onResponse```,  ```onError``` can be either a string that will be the type of dispatched action, or a custom function that will be executed
+  + ```silent``` is a boolean to avoid cmf to dispatch automatically ```@@HTTP/REQUEST```, ```@@HTTP/RESPONSE```, ```@@HTTP/ERRORS```<br/>
+  It could be usefull if you want to avoid generic computation of the request error and deal with it within your own saga.
 
 ## CSRF token handling
 you can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.

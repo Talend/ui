@@ -2,11 +2,10 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import curry from 'lodash/curry';
 import get from 'lodash/get';
-import api from '../api';
+import actions from '../actions';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
-	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_METHODS,
 	HTTP_STATUS,
 	testHTTPCode,
@@ -206,8 +205,7 @@ export function* wrapFetch(
 	const transformedData = transform ? transform(extractedData) : extractedData;
 
 	if (collectionId) {
-		console.log('api', api);
-		yield put(api.actions.collections.addOrReplace(collectionId, transformedData));
+		yield put(actions.collections.addOrReplace(collectionId, transformedData));
 	}
 	if (onResponse) {
 		yield put(onActionResponse({ onResponse }, transformedData));

@@ -35,7 +35,8 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
-import api from './api';
+import expression from './expression';
+import actionCreator from './actionCreator';
 import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
@@ -128,7 +129,7 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, { ...ownProps, ...props }, cmfProps);
 	}
 	Object.assign(props, userProps);
-	Object.assign(props, api.expression.mapStateToProps(state, { ...ownProps, ...props }));
+	Object.assign(props, expression.mapStateToProps(state, { ...ownProps, ...props }));
 	return props;
 }
 
@@ -149,7 +150,7 @@ export function getDispatchToProps({
 	cmfProps.dispatch = dispatch;
 	cmfProps.getComponent = api.component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
-		dispatch(api.actionCreator.get(context, actionId)(event, data, context));
+		dispatch(actionCreator.get(context, actionId)(event, data, context));
 	};
 
 	let userProps = {};
@@ -174,15 +175,15 @@ export function getDispatchToProps({
 export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps }) {
 	if (mergeProps) {
 		return mergeProps(
-			api.expression.mergeProps(stateProps),
-			api.expression.mergeProps(dispatchProps),
-			api.expression.mergeProps(ownProps),
+			expression.mergeProps(stateProps),
+			expression.mergeProps(dispatchProps),
+			expression.mergeProps(ownProps),
 		);
 	}
 	return {
-		...api.expression.mergeProps(ownProps),
-		...api.expression.mergeProps(dispatchProps),
-		...api.expression.mergeProps(stateProps),
+		...expression.mergeProps(ownProps),
+		...expression.mergeProps(dispatchProps),
+		...expression.mergeProps(stateProps),
 	};
 }
 
