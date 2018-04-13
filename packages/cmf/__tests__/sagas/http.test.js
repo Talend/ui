@@ -215,6 +215,39 @@ describe('#handleError', () => {
 });
 
 describe('#httpFetch', () => {
+	it('should wrap the request as a GET by default and provide an undefined payload', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a GET when options are given', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const options = {
+			aCmfOption: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
 	it('should wrap the request with action', () => {
 		const url = '/foo';
 		const config = {
