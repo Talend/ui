@@ -5,11 +5,7 @@ import get from 'lodash/get';
 import actions from '../actions';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
-import {
-	HTTP_METHODS,
-	HTTP_STATUS,
-	testHTTPCode,
-} from '../middlewares/http/constants';
+import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from '../middlewares/http/constants';
 import {
 	onRequest,
 	onResponse as onHttpResponse,
