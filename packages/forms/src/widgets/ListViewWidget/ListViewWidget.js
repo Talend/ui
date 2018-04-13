@@ -98,10 +98,7 @@ class ListViewWidget extends React.Component {
 		const options = this.props.options;
 		const nextOptions = nextProps.options;
 		if (areOptionsDifferent(options, nextOptions)) {
-			this.setState(
-				this.getStateFromOptions(nextOptions),
-				() => this.props.onChange([])
-			);
+			this.setState(this.getStateFromOptions(nextOptions), () => this.props.onChange([]));
 		}
 	}
 
