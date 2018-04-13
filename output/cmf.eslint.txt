@@ -2,6 +2,9 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
+  151:26  error  'api' is not defined  no-undef
+
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
 
@@ -27,9 +30,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/cmf/src/sagas/http.js
-    9:2  error    'ACTION_TYPE_HTTP_ERRORS' is defined but never used  no-unused-vars
-  209:3  warning  Unexpected console statement                         no-console
-
-✖ 15 problems (10 errors, 5 warnings)
+✖ 14 problems (10 errors, 4 warnings)
 
