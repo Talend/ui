@@ -195,7 +195,7 @@ export function* httpPut(url, payload, config, options) {
  * yield call(sagas.http.delete, '/foo');
  */
 export function* httpDelete(url, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE, options);
+	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
 }
 
 /**
@@ -210,7 +210,7 @@ export function* httpDelete(url, config, options) {
  * yield call(sagas.http.get, '/foo');
  */
 export function* httpGet(url, config, options) {
-	return yield* wrapFetch(url, config, options);
+	return yield* wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
 }
 
 export const handleDefaultConfiguration = curry((defaultConfig, config) =>
