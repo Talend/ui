@@ -14,6 +14,7 @@ import http, {
 	HTTPError,
 	wrapFetch,
 	httpGet,
+	httpDelete,
 	httpPost,
 	httpPut,
 } from '../../src/sagas/http';
@@ -215,6 +216,39 @@ describe('#handleError', () => {
 });
 
 describe('#httpFetch', () => {
+	it('should wrap the request as a GET by default and provide an undefined payload', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a GET when options are given', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const options = {
+			aCmfOption: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
 	it('should wrap the request with action', () => {
 		const url = '/foo';
 		const config = {
@@ -231,6 +265,40 @@ describe('#httpFetch', () => {
 				data: { ok: true },
 			}).value,
 		).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the DELETE request and an undefined payload', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+
+	it('should wrap the DELETE request when options are given', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const options = {
+			aCmfOption: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
 		expect(gen.next().done).toBe(true);
 	});
 
@@ -428,6 +496,32 @@ describe('#HTTPError', () => {
 	});
 });
 
+describe('Http{Method} calls httpFetch with appropriate method', () => {
+	// given
+	const url = '/url';
+	const config = {
+		'Content-Type': 'application/json',
+	};
+	const options = {
+		silent: true,
+	};
+	it('check that httpFetch is called from httpGet', () => {
+		// when
+		const gen = httpGet(url, config, options);
+		// then
+		expect(gen.next().value).toEqual(
+			call(httpFetch, url, config, HTTP_METHODS.GET, undefined)
+		);
+	});
+	it('check that httpFetch is called from httpDelete', () => {
+		// when
+		const gen = httpDelete(url, config, options);
+		// then
+		expect(gen.next().value).toEqual(
+			call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined)
+		);
+	});
+});
 describe('http module with instance created', () => {
 	it(`check that httpGet is called with only :
 	- an url
