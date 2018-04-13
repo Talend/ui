@@ -1,9 +1,9 @@
 import SagaTester from 'redux-saga-tester';
 import { Map, List } from 'immutable';
 
-import deleteResourceConst from './deleteResource.constants';
-import actions from './deleteResource.actions';
-import deleteResource, { buildHttpDelete } from './deleteResource.sagas';
+import deleteResourceConst from './constants';
+import actions from './actions';
+import deleteResource, { buildHttpDelete } from './sagas';
 
 describe('buildHttpDelete', () => {
 	it('should return an http object with delete method ', () => {

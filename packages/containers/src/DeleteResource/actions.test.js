@@ -1,5 +1,5 @@
-import actions from './deleteResource.actions';
-import deleteResourceConst from './deleteResource.constants';
+import actions from './actions';
+import deleteResourceConst from './constants';
 
 describe('deleteResource actions', () => {
 	describe('deleteResource:open', () => {

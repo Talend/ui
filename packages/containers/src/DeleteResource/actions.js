@@ -1,4 +1,4 @@
-import deleteResourceConst from './deleteResource.constants';
+import deleteResourceConst from './constants';
 
 /**
  * Action called at the dialog opening|mounting.

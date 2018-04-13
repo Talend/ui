@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentState } from '@talend/react-cmf';
-import { ConfirmDialog } from '@talend/react-components';
+import { cmfConnect } from '@talend/react-cmf';
 import { translate, Trans } from 'react-i18next';
-import { getActionsProps } from '../actionAPI';
-import deleteResourceConst from './deleteResource.constants';
+import deleteResourceConst from './constants';
+import ConfirmDialog from '../ConfirmDialog';
 import DEFAULT_I18N from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 
@@ -16,13 +15,14 @@ import I18N_DOMAIN_CONTAINERS from '../constant';
 export class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		'cancel-action': PropTypes.string.isRequired,
 		'validate-action': PropTypes.string.isRequired,
 		header: PropTypes.string,
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
+		resourceId: PropTypes.string,
 		female: PropTypes.string,
 	};
 	static contextTypes = {
@@ -62,25 +62,20 @@ export class DeleteResource extends React.Component {
 				: this.props.resourceType,
 			uri: this.props.uri,
 			...this.getLabel(),
-			id: this.props.params.id,
+			id: this.props.resourceId || this.props.params.id,
 		};
-	}
-
-	/**
-	 * Call the registry to fetch the actions with the resourceInfo data.
-	 * @param {object} resourceInfo data add to the model.
-	 * @return {object} the fetched actions.
-	 */
-	getActions(key, resourceInfo) {
-		return getActionsProps(this.context, this.props[key], {
-			resourceInfo,
-		});
 	}
 
 	render() {
 		const resourceInfo = this.getResourceInfo();
-		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
-		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
+		const validateAction = {
+			actionId: this.props[deleteResourceConst.VALIDATE_ACTION],
+			model: resourceInfo,
+		};
+		const cancelAction = {
+			actionId: this.props[deleteResourceConst.CANCEL_ACTION],
+			model: resourceInfo,
+		};
 		const i18nKey = this.props.female
 			? 'DELETE_RESOURCE_MESSAGE_female'
 			: 'DELETE_RESOURCE_MESSAGE';

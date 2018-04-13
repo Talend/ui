@@ -70,6 +70,7 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
 /**
  * Return a saga for delete resource confirmation dialog box.
  * Race between cancel and confirm deleting the resource.
+ * To be used with the sagaRouter
  * @param {object} sagaParams the params to setup the saga
  * @param {string} sagaParams.uri the uri of the endpoint to make the calls
  * @param {string} sagaParams.resourceType the resource type to call delete endpoint ( at least )
@@ -77,7 +78,7 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
  * @param {Array<String>} sagaParams.resourcePath optional
  * @param {string} sagaParams.routerParamsAttribute optional param in route to get the resource id
  */
-export default function deleteResource({
+export function getDeleteResourceSagaRouter({
 	uri,
 	resourceType,
 	redirectUrl,
@@ -114,3 +115,12 @@ export default function deleteResource({
 		}
 	};
 }
+
+
+function* handle() {
+
+}
+
+export default {
+	'DeleteResource#handle': handle,
+};
