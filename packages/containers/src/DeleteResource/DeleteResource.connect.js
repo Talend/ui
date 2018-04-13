@@ -21,5 +21,8 @@ export function mapStateToProps(state, ownProps) {
 
 export default cmfConnect({
 	componentId: ownProps => ownProps.id || ownProps.componentId,
+	defaultProps: {
+		saga: 'DeleteResource#handle',
+	},
 	mapStateToProps,
 })(Container);

@@ -35,7 +35,6 @@ export class DeleteResource extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
-		this.getActions = this.getActions.bind(this);
 		this.getLabel = this.getLabel.bind(this);
 	}
 
@@ -62,7 +61,7 @@ export class DeleteResource extends React.Component {
 				: this.props.resourceType,
 			uri: this.props.uri,
 			...this.getLabel(),
-			id: this.props.resourceId || this.props.params.id,
+			id: this.props.resourceId || (this.props.params && this.props.params.id),
 		};
 	}
 
@@ -71,10 +70,15 @@ export class DeleteResource extends React.Component {
 		const validateAction = {
 			actionId: this.props[deleteResourceConst.VALIDATE_ACTION],
 			model: resourceInfo,
+			label: 'Yes',
+			bsStyle: 'danger',
+			onClickDispatchActionCreator: 'DeleteResource#validate',
 		};
 		const cancelAction = {
 			actionId: this.props[deleteResourceConst.CANCEL_ACTION],
 			model: resourceInfo,
+			label: 'No',
+			onClickDispatchActionCreator: 'DeleteResource#cancel',
 		};
 		const i18nKey = this.props.female
 			? 'DELETE_RESOURCE_MESSAGE_female'

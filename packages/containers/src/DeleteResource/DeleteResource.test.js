@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock, { store } from '@talend/react-cmf/lib/mock';
+import { store } from '@talend/react-cmf/lib/mock';
 import Immutable from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';

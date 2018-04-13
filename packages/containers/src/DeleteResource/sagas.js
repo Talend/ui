@@ -53,6 +53,7 @@ got ${resourcePath}`,
  * @param {Array<String>} [resourcePath]
  */
 export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath) {
+	debugger;
 	yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
 	const resourceLocator = getResourceLocator(resourceType, resourcePath);
 	const resource = yield select(api.selectors.collections.findListItem, resourceLocator, itemId);
@@ -117,8 +118,30 @@ export function getDeleteResourceSagaRouter({
 }
 
 
-function* handle() {
-
+function* handle(props) {
+	try {
+		yield race({
+			deleteConfirmationValidate: call(
+				deleteResourceValidate,
+				props.api,
+				props.resourceType,
+				props.resourceId,
+				props.resourcePath,
+			),
+			deleteConfirmationCancel: call(function* deleteResourceCancel() {
+				yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
+			}),
+		});
+	} catch (error) {
+		invariant(process.env.NODE_ENV !== 'production', `DeleteResource race failed :${error}`);
+	} finally {
+		yield put({
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			cmf: {
+				routerReplace: props.redirectUrl,
+			},
+		});
+	}
 }
 
 export default {
