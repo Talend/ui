@@ -13,6 +13,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           "id": "myResourceID",
           "label": "myLabel",
           "resourceType": "myResourceType",
+          "resourceTypeLabel": "resourceLabel",
           "uri": "/myEndpoint",
         },
       },
@@ -33,6 +34,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
           "id": "myResourceID",
           "label": "myLabel",
           "resourceType": "myResourceType",
+          "resourceTypeLabel": "resourceLabel",
           "uri": "/myEndpoint",
         },
       },
@@ -41,7 +43,23 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   }
 >
   <div>
-    myLabel
+    <Trans
+      i18nKey="DELETE_RESOURCE_MESSAGE_female"
+      parent="div"
+    >
+      Are you sure you want to remove the 
+      Object {
+        "resourceLabel": "resourceLabel",
+      }
+      <strong>
+         
+        Object {
+          "resourceName": "myLabel",
+        }
+         
+      </strong>
+       ?
+    </Trans>
   </div>
 </ConfirmDialog>
 `;
@@ -59,6 +77,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
           "id": "myResourceID",
           "label": "",
           "resourceType": "unknownResourceType",
+          "resourceTypeLabel": "unknownResourceType",
           "uri": "/myEndpoint",
         },
       },
@@ -79,6 +98,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
           "id": "myResourceID",
           "label": "",
           "resourceType": "unknownResourceType",
+          "resourceTypeLabel": "unknownResourceType",
           "uri": "/myEndpoint",
         },
       },
@@ -86,6 +106,24 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     }
   }
 >
-  <div />
+  <div>
+    <Trans
+      i18nKey="DELETE_RESOURCE_MESSAGE"
+      parent="div"
+    >
+      Are you sure you want to remove the 
+      Object {
+        "resourceLabel": "unknownResourceType",
+      }
+      <strong>
+         
+        Object {
+          "resourceName": "",
+        }
+         
+      </strong>
+       ?
+    </Trans>
+  </div>
 </ConfirmDialog>
 `;

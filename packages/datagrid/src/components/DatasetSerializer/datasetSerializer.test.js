@@ -1,4 +1,16 @@
-import { getColumnDefs, getRowData, getPinnedColumnDefs, getCellValue } from './datasetSerializer';
+import Immutable, { fromJS } from 'immutable';
+
+import { QUALITY_KEY } from '../../constants/';
+import {
+	convertSample,
+	getCellValue,
+	getColumnDefs,
+	getFieldQuality,
+	getPinnedColumnDefs,
+	getQuality,
+	getRowData,
+	getType,
+} from './datasetSerializer';
 
 const sample = {
 	schema: {
@@ -17,6 +29,7 @@ const sample = {
 					0: 0,
 					1: 38,
 					'-1': 62,
+					total: 100,
 				},
 			},
 			{
@@ -31,6 +44,7 @@ const sample = {
 					0: 0,
 					1: 100,
 					'-1': 0,
+					total: 100,
 				},
 			},
 		],
@@ -142,16 +156,59 @@ describe('#getColumnDefs', () => {
 		expect(columnDefs).toMatchSnapshot();
 	});
 
+	it('should returns the columns definitions from immutable', () => {
+		const columnDefs = getColumnDefs(fromJS(sample));
+
+		expect(columnDefs).toMatchSnapshot();
+	});
+
 	it('should returns an empty columns definitions', () => {
 		const columnDefs = getColumnDefs();
 
 		expect(columnDefs).toEqual([]);
+	});
+
+	it('should returns the columns definitions with optional', () => {
+		const schemaWithOptionalType = {
+			schema: {
+				type: 'record',
+				name: 'StringArrayRecord',
+				fields: [
+					{
+						name: 'field0',
+						doc: 'Nom de la gare',
+						type: [
+							'null',
+							{
+								type: 'string',
+								dqType: 'FR Commune',
+								dqTypeKey: 'FR_COMMUNE',
+							},
+						],
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+						},
+					},
+				],
+			},
+		};
+		const columnDefs = getColumnDefs(schemaWithOptionalType);
+
+		expect(columnDefs).toMatchSnapshot();
 	});
 });
 
 describe('#getRowData', () => {
 	it('should returns the row data', () => {
 		const rowData = getRowData(sample);
+
+		expect(rowData).toMatchSnapshot();
+	});
+
+	it('should returns the row data', () => {
+		const rowData = getRowData(fromJS(sample));
 
 		expect(rowData).toMatchSnapshot();
 	});
@@ -195,5 +252,81 @@ describe('#getCellValue', () => {
 		});
 
 		expect(value).toBe('myData');
+	});
+});
+
+describe('#getType', () => {
+	it('should return the optional type', () => {
+		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
+
+		expect(type).toBe('string');
+	});
+
+	it('should return the mandatory dqType', () => {
+		const type = getType({
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		});
+
+		expect(type).toBe('FR Commune*');
+	});
+
+	it('should return the type', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
+	});
+
+	it('should return the forced type to optional', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
+	});
+});
+
+describe('getQuality', () => {
+	it('should get the calculated quality', () => {
+		expect(getQuality(7, 13)).toEqual({
+			percentage: 54,
+			total: 7,
+		});
+	});
+
+	it('should prevent zero division', () => {
+		expect(getQuality(0, 0)).toEqual({
+			percentage: 0,
+			total: 0,
+		});
+	});
+});
+
+describe('getFieldQuality', () => {
+	it('should enrich the quality', () => {
+		expect(getFieldQuality(sample.schema.fields[0][QUALITY_KEY])).toMatchSnapshot();
+	});
+});
+
+describe('convertSample', () => {
+	it('should return a plain sample from immutable', () => {
+		const sampleData = {
+			id: 42,
+		};
+		expect(convertSample(Immutable.Map(sampleData))).toEqual(sampleData);
+	});
+
+	it('should return the sample', () => {
+		const sampleData = {
+			id: 42,
+		};
+		expect(convertSample(sampleData)).toBe(sampleData);
 	});
 });

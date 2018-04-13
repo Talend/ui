@@ -1,4 +1,2 @@
-
-> @talend/react-forms@0.173.0 lint:style /home/travis/build/Talend/ui/packages/forms
 > sass-lint -v -q
 
