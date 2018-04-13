@@ -110,7 +110,7 @@ class ListViewWidget extends React.Component {
 	 * Compute new items
 	 * Reset search and displayedItems
 	 * Update toggleAll status
-	*/
+	 */
 	getStateFromOptions(options) {
 		const items = getItems(options, [], this);
 		return {
