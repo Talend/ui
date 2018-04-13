@@ -19,6 +19,8 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
 
+
+
 function areOptionsEqual(options, nextOptions) {
 	if (options.enumOptions.length !== nextOptions.enumOptions.length) {
 		return false;
@@ -39,6 +41,10 @@ function getItems(options, value, instance) {
 		value: option.value,
 		onChange: onItemChange.bind(instance),
 	}));
+}
+
+function getItemHeight() {
+	return DEFAULT_ITEM_HEIGHT;
 }
 
 class ListViewWidget extends React.Component {
@@ -71,6 +77,12 @@ class ListViewWidget extends React.Component {
 
 		const items = getItems(options, value, this);
 
+		this.onToggleAll = onToggleAll.bind(this);
+		this.onInputChange = onInputChange.bind(this);
+		this.onAddKeyDown = onAddKeyDown.bind(this);
+		this.onAbortHandler = onAbortHandler.bind(this);
+		this.getStateFromOptions = this.getStateFromOptions.bind(this);
+
 		this.state = {
 			displayMode: defaultDisplayMode,
 			required: !!(props.schema && props.schema.required),
@@ -78,12 +90,7 @@ class ListViewWidget extends React.Component {
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
-			onToggleAll: onToggleAll.bind(this),
-			onInputChange: onInputChange.bind(this),
-			onAddKeyDown: onAddKeyDown.bind(this),
-			onAbortHandler: onAbortHandler.bind(this),
 			toggleAllChecked: items.length === items.filter(i => i.checked).length,
-			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
 			items,
 			displayedItems: items,
 		};
@@ -93,14 +100,25 @@ class ListViewWidget extends React.Component {
 		const options = this.props.options;
 		const nextOptions = nextProps.options;
 		if (!areOptionsEqual(options, nextOptions)) {
-			const items = getItems(nextOptions, this.props.value, this);
-			this.setState({
-				items,
-				displayedItems: items,
-				searchCriteria: null,
-				toggleAllChecked: items.length === items.filter(i => i.checked).length,
-			});
+			const state = this.getStateFromOptions(nextOptions);
+			this.setState(state, () => this.props.onChange([]));
 		}
+	}
+
+	/**
+	 * This computes new derived state when options change
+	 * Compute new items
+	 * Reset search and displayedItems
+	 * Update toggleAll status
+	*/
+	getStateFromOptions(options) {
+		const items = getItems(options, [], this);
+		return {
+			items,
+			displayedItems: items,
+			searchCriteria: null,
+			toggleAllChecked: items.every(item => item.checked),
+		};
 	}
 
 	setFormData() {
@@ -136,10 +154,14 @@ class ListViewWidget extends React.Component {
 
 	render() {
 		const listViewProps = {
+			getItemHeight,
+			onToggleAll: this.onToggleAll,
+			onInputChange: this.onInputChange,
+			onAddKeyDown: this.onAddKeyDown,
+			onAbortHandler: this.onAbortHandler,
 			...this.state,
+			...this.props,
 			items: this.state.displayedItems,
-			id: this.props.id,
-			t: this.props.t,
 		};
 		return (
 			<div>

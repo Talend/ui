@@ -57,8 +57,12 @@ describe('ListViewWidget', () => {
 	it('should detect props change to update state.items', () => {
 		const values = ['A', 'B', 'C', 'D'];
 		const nextValues = ['A', 'F', 'G', 'H'];
+		const onChange = jest.fn();
 		let wrapper = mount(
-			<ListViewWidget.WrappedComponent {...generateProps(values, values.slice(0, 2))} />,
+			<ListViewWidget.WrappedComponent
+				{...generateProps(values, values.slice(0, 2))}
+				onChange={onChange}
+			/>,
 		);
 		const items = wrapper.state('items');
 		expect(wrapper.state('items').length).toEqual(4);
@@ -72,7 +76,7 @@ describe('ListViewWidget', () => {
 		expect(items).not.toEqual(newItems);
 		expect(newItems.length).toEqual(4);
 		expect(newItems[0].label).toEqual('A');
-		expect(newItems[0].checked).toBe(true);
+		expect(newItems[0].checked).toBe(false);
 		expect(newItems[1].label).toEqual('F');
 		expect(newItems[1].checked).toBe(false);
 	});
