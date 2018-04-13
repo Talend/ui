@@ -1,3 +1,4 @@
+multipass: true
 full: true
 js2svg:
   pretty: true
@@ -29,7 +30,6 @@ plugins:
   - moveElemsAttrsToGroup
   - moveGroupAttrsToElems
   - collapseGroups
-  - convertPathData
   - convertTransform
   - removeEmptyAttrs
   - removeEmptyContainers
