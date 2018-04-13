@@ -1,31 +1,74 @@
 .tc-hierarchic {
+	height: 100vh;
 	font-family: 'Inconsolata';
 	font-size: 1.4rem;
 	letter-spacing: 0.6px;
 	padding: $padding-smaller 0;
+
 	&-list {
 		list-style: none;
-		margin: 0;
-		padding: 0;
 	}
 
-	button {
-		background: transparent;
-		border: none;
-		display: flex;
-		line-height: unset;
-		padding: 0;
-	}
-
-	.item {
+	&-item {
 		position: relative;
 		width: 100%;
 		text-align: left;
 
-		.content {
+		&-content {
 			display: flex;
+			padding: $padding-smaller 0;
 
-			&.no-root {
+			:global(.tc-svg-anchor),
+			&-button {
+				background: transparent;
+				border: none;
+				display: flex;
+				line-height: unset;
+				padding: 0;
+			}
+
+			&-badge {
+				top: 0;
+				height: 9px;
+				width: 9px;
+				background-color: rgba($brand-primary, 0.3);
+				color: $brand-primary;
+				font-size: 10px;
+				padding: 2px 10px;
+				display: inline-table;
+				margin-left: $padding-small;
+				vertical-align: text-bottom;
+			}
+
+			&-invalid-dot {
+				height: 5px;
+				width: 5px;
+				background-color: #f3c446;
+				border-radius: 50%;
+				margin: 0 $padding-small;
+			}
+
+			&-invalid-value {
+				height: 29px;
+				width: 3px;
+				background: $lightning-yellow;
+				position: absolute;
+				margin-left: -($padding-large + $padding-smaller);
+			}
+
+			&-caret {
+				color: $brand-primary;
+				margin-right: $padding-small;
+				height: $svg-xs-size;
+				width: $svg-xs-size;
+			}
+
+			&-highlight {
+				transition: background-color 0.5s ease-out;
+				background-color: tint($brand-primary, 90);
+			}
+
+			&-no-root {
 				display: none;
 			}
 
@@ -35,30 +78,23 @@
 				background: $gallery;
 			}
 
-			> * {
-				padding: $padding-smaller 0;
-			}
-
-			.main {
-				text-align: left;
-				flex-grow: 1;
-
+			&-myspan {
 				display: flex;
 				align-items: center;
 			}
 
-			.key-value {
+			&-key-value {
 				display: flex;
 				overflow: hidden;
 				position: relative; // enable custom configuration to render component with position relative to this one
 			}
 
-			.key {
+			&-key {
 				display: inline;
 				color: $dove-gray;
 			}
 
-			.value {
+			&-value {
 				color: $brand-primary;
 				margin-left: 4px;
 				overflow: hidden;
@@ -72,45 +108,4 @@
 			}
 		}
 	}
-}
-
-.caret {
-	color: $brand-primary;
-	margin-right: $padding-small;
-	height: $svg-xs-size;
-	width: $svg-xs-size;
-}
-
-.badge {
-	top: 0;
-	height: 9px;
-	width: 9px;
-	background-color: rgba($brand-primary, 0.3);
-	color: $brand-primary;
-	font-size: 10px;
-	padding: 2px 10px;
-	display: inline-table;
-	margin-left: $padding-small;
-	vertical-align: text-bottom;
-}
-
-.invalid-value {
-	height: 29px;
-	width: 3px;
-	background: $lightning-yellow;
-	position: absolute;
-	margin-left: -($padding-large + $padding-smaller);
-}
-
-.invalid-dot {
-	height: 5px;
-	width: 5px;
-	background-color: #f3c446;
-	border-radius: 50%;
-	margin: 0 $padding-small;
-}
-
-.highlight {
-	transition: background-color 0.5s ease-out;
-	background-color: tint($brand-primary, 90);
 }

@@ -298,8 +298,8 @@ const schema = [
 					type: { type: 'record' },
 					fields: [
 						{
-							name: 'poo',
-							doc: 'Poo',
+							name: 'toto',
+							doc: 'Toto',
 							type: {
 								type: 'string',
 								dqType: 'Taste',
@@ -312,8 +312,8 @@ const schema = [
 							},
 						},
 						{
-							name: 'pee',
-							doc: 'Pee',
+							name: 'tata',
+							doc: 'Tata',
 							type: {
 								type: 'string',
 								dqType: 'Taste',
@@ -381,8 +381,8 @@ const data = [
 							nested: {
 								quality: -1,
 								value: {
-									poo: { quality: 1, value: 'good' },
-									pee: { quality: -1, value: 'lol' },
+									toto: { quality: 1, value: 'hello' },
+									tata: { quality: -1, value: 'world' },
 								},
 							},
 						},

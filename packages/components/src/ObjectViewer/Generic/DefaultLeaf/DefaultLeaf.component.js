@@ -12,17 +12,39 @@ function getLeafContent(quality, formattedKey, formattedValue) {
 	return [
 		quality === -1 && (
 			<div
-				key={'quality'}
-				className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')}
-				title={'Invalid value indicator'}
+				key="quality"
+				className={classNames(
+					theme['tc-hierarchic-item-content-invalid-value'],
+					'tc-hierarchic-item-content-invalid-value',
+				)}
+				title="Invalid value indicator"
 			/>
 		),
-		<div key={'key-value'} className={theme['key-value']}>
-			<span key={'key'} className={theme.key}>
+		<div
+			key="key-value"
+			className={classNames(
+				theme['tc-hierarchic-item-content-key-value'],
+				'tc-hierarchic-item-content-key-value',
+			)}
+		>
+			<span
+				key="key"
+				className={classNames(
+					theme['tc-hierarchic-item-content-key'],
+					'tc-hierarchic-item-content-key',
+				)}
+			>
 				{formattedKey}
 			</span>
 			{formattedValue !== undefined && ': '}
-			<span key={'value'} title={formattedValue} className={theme.value}>
+			<span
+				key="value"
+				title={formattedValue}
+				className={classNames(
+					theme['tc-hierarchic-item-content-value'],
+					'tc-hierarchic-item-content-value',
+				)}
+			>
 				{formattedValue}
 			</span>
 		</div>,
@@ -46,13 +68,8 @@ export default function DefaultLeaf(props) {
 	const formattedValue = getDisplayValue(props);
 	if (onClick) {
 		return (
-			<div className={classNames(className, theme.item)} style={style}>
-				<button
-					key="main"
-					aria-label={`Select ${dataKey} (${jsonpath})`}
-					onClick={onClick}
-					className={theme.main}
-				>
+			<div className={className} style={style}>
+				<button className={classNames(theme['tc-hierarchic-item-content-button'], 'tc-hierarchic-item-content-button')} key="main" aria-label={`Select ${dataKey} (${jsonpath})`} onClick={onClick}>
 					{getLeafContent(quality, formattedKey, formattedValue)}
 				</button>
 				{getItemMenu && getItemMenu(props)}

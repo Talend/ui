@@ -13,29 +13,40 @@ import {
 
 const PADDING_LEFT = 30;
 
+function isRoot(level) {
+	return level === 0;
+}
+
+function isBranch(type) {
+	return type === 'array' || type === 'object';
+}
+
+function isOpened(itemIsRoot, itemHasNoRoot, jsonpath, openedPaths) {
+	return (itemIsRoot && itemHasNoRoot) || openedPaths.indexOf(jsonpath) !== -1;
+}
+
 function TreeItem(props) {
-	const { getDataType, highlighted, jsonpath, level, noRoot, onSelect, opened, value } = props;
-	const isRoot = level === 0;
-	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
-	const type = getDataType(value);
-	const itemContentClassName = classNames(theme.content, 'tc-object-viewer-content', {
-		'tc-object-viewer-root': isRoot,
-		[theme['no-root']]: isRoot && noRoot,
-		[theme.highlight]: isHighlighted,
-	});
+	const { jsonpath, level, noRoot, onSelect, opened, value } = props;
+	const itemIsRoot = isRoot(level);
+	const highlightedPath = props.highlighted.find(pattern => jsonpath.match(pattern));
+	const type = props.getDataType(value);
 	const renderProps = Object.assign(
 		{ ...props },
 		{
-			className: itemContentClassName,
+			className: classNames(theme['tc-hierarchic-item-content'], 'tc-hierarchic-item-content', {
+				[theme['tc-hierarchic-item-content-no-root']]: itemIsRoot && noRoot,
+				'tc-hierarchic-item-content-no-root': itemIsRoot && noRoot,
+				[theme['tc-hierarchic-item-content-highlight']]: !!highlightedPath,
+				'tc-hierarchic-item-content-highlight': !!highlightedPath,
+			}),
 			onClick: onSelect && (event => onSelect(event, jsonpath, value)),
-			isHighlighted,
-			isOpened: (isRoot && noRoot) || opened.indexOf(jsonpath) !== -1,
+			isOpened: isOpened(itemIsRoot, noRoot, jsonpath, opened),
 			style: { paddingLeft: PADDING_LEFT * level },
-			type,
 			value,
+			type,
 		},
 	);
-	if (type === 'array' || type === 'object') {
+	if (isBranch(type)) {
 		return <DefaultBranch {...renderProps} />;
 	}
 	return <DefaultLeaf {...renderProps} />;
@@ -60,12 +71,13 @@ TreeItem.propTypes = {
 	value: PropTypes.any,
 };
 
-export default function HierarchicTree({ level, jsonpath, data, value, treeItems, first, ...props }) {
+export default function HierarchicTree({ level, jsonpath, data, value, treeItems, ...props }) {
+	const cn = classNames(theme['tc-hierarchic-item'], 'tc-hierarchic-item');
 	if (isArray(treeItems) && treeItems.length) {
 		return (
 			<ul className={classNames(theme['tc-hierarchic-list'], 'tc-hierarchic-list')}>
 				{treeItems.map((item, index) => (
-					<li className={classNames(theme.item)}>
+					<li className={cn}>
 						<TreeItem
 							{...props}
 							{...item}
@@ -84,11 +96,11 @@ export default function HierarchicTree({ level, jsonpath, data, value, treeItems
 			</ul>
 		);
 	}
-	if (level === 0) {
+	if (isRoot(level)) {
 		return <TreeItem {...props} jsonpath={jsonpath} value={value} level={level} />;
 	}
 	return (
-		<li className={classNames(theme.item)}>
+		<li className={cn}>
 			<TreeItem {...props} jsonpath={jsonpath} value={value} level={level} />
 		</li>
 	);

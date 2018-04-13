@@ -1,5 +1,5 @@
 .model {
-	&:global(.tc-hierarchic .tc-hierarchic-list .tc-hierarchic-item) {
+	&:global(.tc-hierarchic .tc-hierarchic-list .tc-hierarchic-item .tc-hierarchic-item-content) {
 		&:focus,
 		&:focus-within,
 		&:hover {

@@ -14,10 +14,14 @@ import HierarchicTree from '../HierarchicTree';
 
 function getLengthBadge(badgeValue) {
 	return (
-		<span key={'length'}>
+		<span key="length">
 			<sup
-				key={'length-badge'}
-				className={classNames(theme.badge, 'badge', 'tc-object-viewer-badge')}
+				key="length-badge"
+				className={classNames(
+					theme['tc-hierarchic-item-content-badge'],
+					'tc-hierarchic-item-content-badge',
+					'badge',
+				)}
 			>
 				{badgeValue}
 			</sup>
@@ -28,58 +32,80 @@ function getLengthBadge(badgeValue) {
 function getQualityDot() {
 	return (
 		<div
-			key={'quality'}
-			className={classNames(theme['invalid-dot'], 'tc-object-viewer-invalid-dot')}
-			title={'Invalid value indicator'}
+			key="quality"
+			className={classNames(
+				theme['tc-hierarchic-item-content-invalid-dot'],
+				'tc-hierarchic-item-content-invalid-dot',
+			)}
+			title="Invalid value indicator"
 		/>
 	);
 }
 
-function getButton(onClick, dataKey, jsonpath, content) {
-	return (
-		<button
-			key={'main-button'}
-			aria-label={`Select ${dataKey} (${jsonpath})`}
-			onClick={onClick}
-			className={theme.main}
-		>
-			{content}
-		</button>
-	);
-}
-
-function getBranchContent({ getDisplayKey, type, isOpened, getQuality, ...props }, length) {
+function getBranchItemOptions(props) {
+	const { type, value, isOpened, getQuality, getFieldsCount } = props;
 	return [
-		<span key="datakey">{getDisplayKey(props)}</span>,
-		type === 'array' && getLengthBadge(length),
+		type === 'array' && getLengthBadge(getFieldsCount(value, type)),
 		!isOpened && getQuality(props) === -1 && getQualityDot(),
 	];
+}
+
+function getRenderDisplayedKey(value) {
+	return <span key="datakey">{value}</span>;
+}
+
+function getRenderBranchItemContent(props) {
+	const { onClick, dataKey, jsonpath, getDisplayKey } = props;
+	const renderedDisplayedKey = getRenderDisplayedKey(getDisplayKey(props));
+	if (onClick) {
+		return (
+			<button
+				className={classNames(
+					theme['tc-hierarchic-item-content-button'],
+					'tc-hierarchic-item-content-button',
+				)}
+				key="main-button"
+				aria-label={`Select ${dataKey} (${jsonpath})`}
+				onClick={onClick}
+			>
+				{renderedDisplayedKey}
+			</button>
+		);
+	}
+	return (
+		<span
+			key="main-text"
+			className={classNames(
+				theme['tc-hierarchic-item-content-myspan'],
+				'tc-hierarchic-item-content-myspan',
+			)}
+		>
+			{renderedDisplayedKey}
+			{getBranchItemOptions(props)}
+		</span>
+	);
 }
 
 export default function DefaultBranch(props) {
 	const {
 		className,
 		isOpened,
-		onClick,
 		onToggle,
 		dataKey,
 		jsonpath,
-		// data,
 		style,
 		type,
 		value,
 		level,
 		getIcon,
 		getFields,
-		getFieldsCount,
 	} = props;
 	const icon = getIcon(props);
-	const content = getBranchContent(props, getFieldsCount(value, type));
 	function onIconClick(event) {
 		onToggle(event, { value, isOpened, jsonpath });
 	}
 	return (
-		<div className={classNames(theme.item)}>
+		<div>
 			<div className={className} style={style}>
 				{icon && (
 					<Icon
@@ -89,17 +115,15 @@ export default function DefaultBranch(props) {
 						}
 						name={icon.name}
 						transform={icon.transform}
-						className={classNames(theme.caret, icon.className)}
+						className={classNames(
+							theme['tc-hierarchic-item-content-caret'],
+							'tc-hierarchic-item-content-caret',
+							icon.className,
+						)}
 						onClick={onIconClick}
 					/>
 				)}
-				{onClick ? (
-					getButton(onClick, dataKey, jsonpath, content)
-				) : (
-					<span key="main-text" className={theme.main}>
-						{content}
-					</span>
-				)}
+				{getRenderBranchItemContent(props)}
 			</div>
 			{isOpened && (
 				<HierarchicTree
@@ -123,12 +147,9 @@ DefaultBranch.defaultProps = {
 };
 DefaultBranch.propTypes = {
 	className: PropTypes.string,
-	data: PropTypes.any,
 	value: PropTypes.any,
 	getIcon: PropTypes.func,
 	getFields: PropTypes.func,
-	getFieldsCount: PropTypes.func,
-	onClick: PropTypes.func,
 	onToggle: PropTypes.func,
 	level: PropTypes.number,
 	isOpened: PropTypes.bool,
