@@ -19,8 +19,6 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
 
-
-
 function areOptionsEqual(options, nextOptions) {
 	if (options.enumOptions.length !== nextOptions.enumOptions.length) {
 		return false;
@@ -110,7 +108,7 @@ class ListViewWidget extends React.Component {
 	 * Compute new items
 	 * Reset search and displayedItems
 	 * Update toggleAll status
-	*/
+	 */
 	getStateFromOptions(options) {
 		const items = getItems(options, [], this);
 		return {
