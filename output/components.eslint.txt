@@ -22,6 +22,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   28:39  error  Unexpected use of '|'   no-bitwise
   28:39  error  Unexpected use of '|'   no-bitwise
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/DataAccessorWrapper.js
+  255:3  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+  256:7  error  'result' is never reassigned. Use 'const' instead             prefer-const
+  258:3  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DefaultDataAccessor.js
    28:18  error  Expected 'this' to be used by class method 'areElementsEqual'       class-methods-use-this
    35:13  error  Expected 'this' to be used by class method 'getSchemaId'            class-methods-use-this
@@ -135,6 +140,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   20:79  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   32:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Sorters/MandatoryFieldSorter.test.js
+   9:21  error  'dataAccessor' is already declared in the upper scope  no-shadow
+  11:7   error  'element' is never reassigned. Use 'const' instead     prefer-const
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Sorters/NameSorter.js
+  13:19  error  Expected 'this' to be used by class method 'getValueToCompare'  class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Sorters/NameSorter.test.js
+  10:21  error  'dataAccessor' is already declared in the upper scope  no-shadow
+  12:7   error  'element' is never reassigned. Use 'const' instead     prefer-const
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Sorters/Sorter.js
+  49:10  error  Do not nest ternary expressions                                 no-nested-ternary
+  52:19  error  Expected 'this' to be used by class method 'getValueToCompare'  class-methods-use-this
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -156,5 +176,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 94 problems (93 errors, 1 warning)
+✖ 104 problems (103 errors, 1 warning)
 

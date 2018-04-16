@@ -11,8 +11,7 @@ export default class NameSorter extends Sorter {
 		super(ID, 'Sort by name', 'talend-sort-az', order);
 	}
 
-  getValueToCompare(dataAccessor, element) {
-    return dataAccessor.getElementName(element);
-  }
-
+	getValueToCompare(dataAccessor, element) {
+		return dataAccessor.getElementName(element);
+	}
 }
