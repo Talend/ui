@@ -57,7 +57,8 @@ function getDisplayKey({ value }) {
  * 			So we follow with the "record" case, item.items.fields is an array of properties.
  * 			Each property is an avro schema definition.
  *
- * The format that the generic viewer waits for is { dataKey, value }. Each 3 cases produces an array of avro record
+ * The format that the generic viewer waits for is { dataKey, value }. 
+ * Each 3 cases produces an array of avro record
  * definition, that we adapt to this format.
  */
 function getFields(item) {

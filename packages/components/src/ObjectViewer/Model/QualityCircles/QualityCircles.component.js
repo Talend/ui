@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import ModelItemMenu from './ModelItemMenu.component';
-import PieChartButton from '../../PieChartButton';
+import ModelItemMenu from '../ModelMenus/ModelItemMenu.component';
+import PieChartButton from '../../../PieChartButton';
 import theme from './QualityCircles.scss';
 
 function getQualityModels(qualities) {
@@ -93,7 +92,7 @@ export default function QualityCircles({ item, jsonpath, quality, ...rest }) {
 	const { invalid, empty, valid } = getQualityModels(item[key]);
 
 	return (
-		<div className={classNames(theme.quality, 'tc-object-model-quality')}>
+		<div className={classNames(theme['tc-quality'], 'tc-quality')}>
 			<QualityCircle
 				onClick={onClick}
 				menu={menu}

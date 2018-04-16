@@ -7,13 +7,12 @@ import GenericViewer from '../Generic';
 import theme from './RecordViewer.scss';
 
 export default function Record(props) {
-	const data = { schema: props.schema, data: props.data };
 	return (
 		<GenericViewer
 			{...props}
 			{...genericViewerConfiguration}
 			className={classNames(theme['tc-records'], 'tc-records')}
-			data={data}
+			data={{ schema: props.schema, data: props.data }}
 			isRoot
 		/>
 	);

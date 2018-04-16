@@ -44,17 +44,16 @@ MesureObjectViewer.propTypes = {
  * Records cell object viewer renderer.
  */
 export default function RecordRenderer({ index, key, parent, style }) {
-	const cache = parent.props.cache;
-	const highlighted = parent.props.highlighted;
-	const onToggle = parent.props.onRowItemToggle;
+	const {
+		cache,
+		highlighted,
+		onRowItemToggle,
+		schema,
+		getComponent,
+		avroRenderersIds,
+	} = parent.props;
 	const opened = parent.props.opened[index];
-
-	const schema = parent.props.schema;
 	const datum = parent.props.data[index];
-
-	const getComponent = parent.props.getComponent;
-	const avroRenderersIds = parent.props.avroRenderersIds;
-
 	return (
 		<CellMeasurer cache={cache} columnIndex={0} key={key} parent={parent} rowIndex={index}>
 			{({ measure }) => (
@@ -66,7 +65,7 @@ export default function RecordRenderer({ index, key, parent, style }) {
 						getComponent={getComponent}
 						highlighted={highlighted}
 						measure={measure}
-						onToggle={(event, options) => onToggle(event, options, index)}
+						onToggle={(event, options) => onRowItemToggle(event, options, index)}
 						opened={opened}
 						schema={schema}
 						title={index}

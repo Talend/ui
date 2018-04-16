@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Action } from '../../Actions';
-import theme from './ModelViewer.scss';
+import { Action } from '../../../Actions';
+import theme from '../ModelViewer.scss';
 
 export default class ModelItemMenu extends React.Component {
 	componentWillUnmount() {

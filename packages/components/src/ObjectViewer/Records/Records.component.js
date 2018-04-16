@@ -1,15 +1,16 @@
 import React from 'react';
 import { AutoSizer, CellMeasurerCache, List } from 'react-virtualized';
 import PropTypes from 'prop-types';
-
 import RecordRenderer from './RecordRenderer.component';
+
+const MIN_HEIGHT = 40;
 
 export default class Records extends React.Component {
 	constructor(props) {
 		super(props);
 		this.cache = new CellMeasurerCache({
 			fixedWidth: true,
-			minHeight: 40,
+			minHeight: MIN_HEIGHT,
 		});
 	}
 

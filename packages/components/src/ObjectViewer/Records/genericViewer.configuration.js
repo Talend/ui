@@ -89,7 +89,7 @@ function getDisplayValue(props) {
 
 	return <RendererComponent colDef={{ avro: avroSample.schema }} data={avroSample.data} />;
 }
-getDisplayValue.PropTypes = {
+getDisplayValue.propTypes = {
 	avroRenderersIds: PropTypes.object, // dictionary type/rendererId
 	cellRenderer: PropTypes.string, // top cell renderer id
 	getComponent: PropTypes.func,
@@ -105,18 +105,14 @@ getDisplayValue.PropTypes = {
  * For arrays, we stick to the caret.
  */
 function getIcon({ isOpened, type }) {
-	let name;
-	let transform;
-	let className;
 	if (type === 'object') {
-		name = 'talend-plus-circle'; // TODO we don't have a talend-minus-circle
-		className = theme['tc-records-icon'];
-	} else {
-		name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
-		transform = isOpened ? null : 'rotate-180';
+		// TODO we don't have a talend-minus-circle
+		return { name: 'talend-plus-circle', className: theme['tc-records-icon'] };
 	}
-
-	return { className, name, transform };
+	return {
+		name: isOpened ? 'talend-caret-down' : 'talend-chevron-left',
+		transform: isOpened ? null : 'rotate-180',
+	};
 }
 
 export default {

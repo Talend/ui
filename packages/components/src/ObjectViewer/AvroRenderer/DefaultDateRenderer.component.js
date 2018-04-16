@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function DefaultDateRenderer({ data }) {
-	let value = data.value;
-	if (typeof value === 'number') {
-		const date = new Date(value);
-		value = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+	if (typeof data.value === 'number') {
+		const date = new Date(data.value);
+		return <span>{`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}</span>;
 	}
-	return <span>{value}</span>;
+	return <span>{data.value}</span>;
 }
 
 DefaultDateRenderer.propTypes = {

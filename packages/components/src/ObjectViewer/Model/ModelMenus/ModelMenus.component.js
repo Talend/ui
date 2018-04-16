@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ModelItemMenu from './ModelItemMenu.component';
-import QualityCircles from './QualityCircles.component';
-import { Action } from '../../Actions';
-
-import theme from './ModelViewer.scss';
+import QualityCircles from '../QualityCircles';
+import { Action } from '../../../Actions';
+import theme from '../ModelViewer.scss';
 
 export default class ModelMenus extends React.Component {
 	constructor(props) {

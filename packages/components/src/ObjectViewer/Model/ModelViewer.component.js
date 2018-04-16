@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import genericViewerConfiguration from './genericViewer.configuration';
-import ModelMenus from './ModelMenus.component';
-import QualityCircles from './QualityCircles.component';
+import ModelMenus from './ModelMenus';
+import QualityCircles from './QualityCircles';
 import GenericViewer from '../Generic';
 import theme from './ModelViewer.scss';
 
