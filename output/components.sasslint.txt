@@ -2,14 +2,14 @@
 
 
 src/DataMapper/DataMapper.scss
-  156:15  error  Quotes around URLs are required  url-quotes
-  160:15  error  Quotes around URLs are required  url-quotes
-  164:15  error  Quotes around URLs are required  url-quotes
-  168:15  error  Quotes around URLs are required  url-quotes
-  172:15  error  Quotes around URLs are required  url-quotes
-  176:15  error  Quotes around URLs are required  url-quotes
-  180:15  error  Quotes around URLs are required  url-quotes
-  184:15  error  Quotes around URLs are required  url-quotes
+  163:15  error  Quotes around URLs are required  url-quotes
+  167:15  error  Quotes around URLs are required  url-quotes
+  171:15  error  Quotes around URLs are required  url-quotes
+  175:15  error  Quotes around URLs are required  url-quotes
+  179:15  error  Quotes around URLs are required  url-quotes
+  183:15  error  Quotes around URLs are required  url-quotes
+  187:15  error  Quotes around URLs are required  url-quotes
+  191:15  error  Quotes around URLs are required  url-quotes
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style

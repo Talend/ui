@@ -7,25 +7,24 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Constants.js
-  14:13  error  Unexpected use of '<<'  no-bitwise
-  15:11  error  Unexpected use of '<<'  no-bitwise
-  16:7   error  Unexpected use of '<<'  no-bitwise
-  17:11  error  Unexpected use of '<<'  no-bitwise
-  18:11  error  Unexpected use of '<<'  no-bitwise
-  19:15  error  Unexpected use of '<<'  no-bitwise
-  23:2   error  Unexpected use of '|'   no-bitwise
-  23:2   error  Unexpected use of '|'   no-bitwise
-  23:2   error  Unexpected use of '|'   no-bitwise
-  26:2   error  Unexpected use of '|'   no-bitwise
-  26:2   error  Unexpected use of '|'   no-bitwise
-  26:2   error  Unexpected use of '|'   no-bitwise
-  28:39  error  Unexpected use of '|'   no-bitwise
-  28:39  error  Unexpected use of '|'   no-bitwise
+  18:13  error  Unexpected use of '<<'  no-bitwise
+  19:11  error  Unexpected use of '<<'  no-bitwise
+  20:7   error  Unexpected use of '<<'  no-bitwise
+  21:11  error  Unexpected use of '<<'  no-bitwise
+  22:11  error  Unexpected use of '<<'  no-bitwise
+  23:15  error  Unexpected use of '<<'  no-bitwise
+  24:8   error  Unexpected use of '<<'  no-bitwise
+  28:2   error  Unexpected use of '|'   no-bitwise
+  28:2   error  Unexpected use of '|'   no-bitwise
+  28:2   error  Unexpected use of '|'   no-bitwise
+  31:2   error  Unexpected use of '|'   no-bitwise
+  31:2   error  Unexpected use of '|'   no-bitwise
+  31:2   error  Unexpected use of '|'   no-bitwise
+  33:39  error  Unexpected use of '|'   no-bitwise
+  33:39  error  Unexpected use of '|'   no-bitwise
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DataAccessorWrapper.js
-  255:3  error  Expected exception block, space or tab after '//' in comment  spaced-comment
-  256:7  error  'result' is never reassigned. Use 'const' instead             prefer-const
-  258:3  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+  251:7  error  'result' is never reassigned. Use 'const' instead  prefer-const
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DefaultDataAccessor.js
    28:18  error  Expected 'this' to be used by class method 'areElementsEqual'       class-methods-use-this
@@ -56,6 +55,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/List/Row.js
   71:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/AutoMapping.js
+   2:8   error  'PropTypes' is defined but never used           no-unused-vars
+   6:7   error  'icons' is assigned a value but never used      no-unused-vars
+  22:16  error  Component should be written as a pure function  react/prefer-stateless-function
+  24:11  error  'autoMap' is missing in props validation        react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/DraggableAnchor.js
   96:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   97:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -64,12 +69,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   104:26  error  Unexpected use of '&'                                             no-bitwise
   105:28  error  Unexpected use of '&'                                             no-bitwise
   106:26  error  Unexpected use of '&'                                             no-bitwise
-  227:15  error  Expected 'this' to be used by class method 'getVisibility'        class-methods-use-this
-  227:62  error  'targetYPos' is defined but never used                            no-unused-vars
-  315:2   error  updatePropertyValue should be placed after getConnections         react/sort-comp
-  315:21  error  Expected 'this' to be used by class method 'updatePropertyValue'  class-methods-use-this
-  318:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
-  327:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
+  111:10  error  Unexpected use of '&'                                             no-bitwise
+  252:15  error  Expected 'this' to be used by class method 'getVisibility'        class-methods-use-this
+  252:62  error  'targetYPos' is defined but never used                            no-unused-vars
+  340:2   error  updatePropertyValue should be placed after getConnections         react/sort-comp
+  340:21  error  Expected 'this' to be used by class method 'updatePropertyValue'  class-methods-use-this
+  343:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
+  352:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
+  680:23  error  Unknown property 'tabindex' found, use 'tabIndex' instead         react/no-unknown-property
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   64:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -152,8 +159,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   12:7   error  'element' is never reassigned. Use 'const' instead     prefer-const
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Sorters/Sorter.js
-  49:10  error  Do not nest ternary expressions                                 no-nested-ternary
-  52:19  error  Expected 'this' to be used by class method 'getValueToCompare'  class-methods-use-this
+  50:10  error  Do not nest ternary expressions                                 no-nested-ternary
+  53:19  error  Expected 'this' to be used by class method 'getValueToCompare'  class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -176,5 +183,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 104 problems (103 errors, 1 warning)
+✖ 109 problems (108 errors, 1 warning)
 
