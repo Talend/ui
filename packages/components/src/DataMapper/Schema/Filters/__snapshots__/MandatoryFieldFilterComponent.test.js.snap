@@ -5,6 +5,7 @@ exports[`mandatory-field-filter-component 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="show-mandatory-fields"
   >
     <input

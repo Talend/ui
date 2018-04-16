@@ -19,9 +19,10 @@ function getCoef(order) {
  */
 export default class Sorter {
 
-  constructor(id, active, order) {
+  constructor(id, label, icon, order) {
 		this.id = id;
-		this.active = active;
+    this.label = label;
+    this.icon = icon;
     this.order = order;
     this.coef = getCoef(order);
 	}
@@ -30,13 +31,13 @@ export default class Sorter {
 		return this.id;
 	}
 
-	setActive(active) {
-		this.active = active;
-	}
+  getLabel() {
+    return this.label;
+  }
 
-	isActive() {
-		return this.active;
-	}
+  getIcon() {
+    return this.icon;
+  }
 
   getOrder() {
     return this.order;

@@ -107,6 +107,11 @@ function needResetAnchors(status) {
 	return focusedChanged || selectionChanged || pendingChanged;
 }
 
+
+function sortHasChanged(status) {
+	return (status & Constants.StateStatus.SORT) !== 0;
+}
+
 export default class Mapper extends Component {
 	constructor(props) {
 		super(props);
@@ -130,6 +135,20 @@ export default class Mapper extends Component {
 	componentWillReceiveProps(nextProps) {
 		if (needResetAnchors(nextProps.status)) {
 			this.anchors = resetAnchors(this.anchors);
+		}
+		if (sortHasChanged(nextProps.status)) {
+			this.visibleMapping = null;
+			this.anchors = resetAnchors(this.anchors);
+			switch (nextProps.trigger.side) {
+				case Constants.MappingSide.INPUT:
+					this.visibleInputElements = null;
+					break;
+				case Constants.MappingSide.OUTPUT:
+					this.visibleOutputElements = null;
+					break;
+				default:
+					break;
+			}
 		}
 		if (mappingHasChanged(nextProps.dataAccessor, this.mappingVersion)) {
 			this.visibleMapping = null;
@@ -199,6 +218,13 @@ export default class Mapper extends Component {
 			return this.inputSchemaRef.getYPosition(element);
 		}
 		return this.outputSchemaRef.getYPosition(element);
+	}
+
+	getElementAtPosition(position, side) {
+		if (side === Constants.MappingSide.INPUT) {
+			return this.inputSchemaRef.getElementAtPosition(position);
+		}
+		return this.outputSchemaRef.getElementAtPosition(position);
 	}
 
 	getConnectionKey(sourceElement, targetElement) {
@@ -634,8 +660,6 @@ export default class Mapper extends Component {
 			inputSchema,
 			outputSchema,
 			schemaConfiguration,
-			clearMapping,
-			clearConnection,
 			filters,
 			...commonSchemaProps
 		} = this.props;
@@ -644,17 +668,17 @@ export default class Mapper extends Component {
 			selection,
 			focused,
 			preferences,
-			onShowAll,
 			dnd,
 			dndListener,
 			onEnterElement,
 			onLeaveElement,
 			draggable,
+			autoMap,
 		} = this.props;
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;
 		return (
-			<div id={mapperId}>
+			<div id={mapperId} tabindex="0">
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}
@@ -684,20 +708,18 @@ export default class Mapper extends Component {
 				<Mapping
 					ref={this.updateGMapRef}
 					mapping={mapping}
-					clearConnection={clearConnection}
-					clearMapping={clearMapping}
 					getConnections={this.getConnections}
 					getAnchors={this.getAnchors}
 					getYPosition={this.getYPosition}
 					selection={selection}
 					preferences={preferences}
-					onShowAll={onShowAll}
 					draggable={draggable}
 					dnd={dnd}
 					dndListener={dndListener}
 					mappingConfiguration={mappingConfiguration}
 					onEnterAnchor={onEnterElement}
 					onLeaveAnchor={onLeaveElement}
+					autoMap={autoMap}
 				/>
 			</div>
 		);
@@ -713,8 +735,6 @@ Mapper.propTypes = {
 	inputSchema: PropTypes.object,
 	outputSchema: PropTypes.object,
 	schemaConfiguration: PropTypes.object,
-	clearMapping: PropTypes.func,
-	clearConnection: PropTypes.func,
 	draggable: PropTypes.bool,
 	onSelect: PropTypes.func,
 	pendingItem: PropTypes.object,
@@ -722,7 +742,6 @@ Mapper.propTypes = {
 	onLeaveElement: PropTypes.func,
 	focused: PropTypes.object,
 	preferences: PropTypes.object,
-	onShowAll: PropTypes.func,
 	dnd: PropTypes.object,
 	dndListener: PropTypes.object,
 	filters: PropTypes.object,
@@ -730,4 +749,5 @@ Mapper.propTypes = {
 	onFilterChange: PropTypes.func,
 	trigger: PropTypes.object,
 	status: PropTypes.number,
+	autoMap: PropTypes.func,
 };

@@ -86,6 +86,33 @@ export default class Schema extends Component {
 		return y;
 	}
 
+	getElementAtPosition(position) {
+		let theElement = null;
+		if (this.contentNode) {
+			let previousDist = -1;
+			let currentDist = -1;
+			const contentHeight = this.contentNode.offsetHeight;
+			const elements = this.props.dataAccessor.getSchemaElements(this.props.schema, true);
+			const children = this.contentNode.childNodes;
+			const childrenArray = Array.from(children);
+			for (let i = 0; i < childrenArray.length; i += 1) {
+				previousDist = currentDist;
+				const element = elements[i];
+				const elemYPos = this.getYPosition(element);
+				if (elemYPos > 0 && elemYPos < contentHeight) {
+					currentDist = Math.abs(elemYPos - position);
+					if (previousDist >= 0 && currentDist > previousDist) {
+						break;
+					}
+					theElement = element;
+				} else if (elemYPos > contentHeight) {
+					break;
+				}
+			}
+		}
+		return theElement;
+	}
+
 	onContentScroll() {
 		this.props.onScroll(this.props.side);
 	}

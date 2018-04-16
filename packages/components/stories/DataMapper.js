@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
+import talendIcons from '@talend/icons/dist/react';
 import { DataMapper as Mapper } from '../src/index';
 import { isSelected } from '../src/DataMapper/Schema/Schema';
 import * as Constants from '../src/DataMapper/Constants';
@@ -11,12 +12,15 @@ import ListConfiguration from '../src/DataMapper/Schema/ListConfiguration';
 import FilterComponents from '../src/DataMapper/Schema/Filters/FilterComponents';
 import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters/NameFilter';
 import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
-import { IconsProvider } from '../src/';
+import NameSorter, { ID as NameSorterId } from '../src/DataMapper/Schema/Sorters/NameSorter';
+import MandatoryFieldSorter, { ID as MandatoryFieldSorterId } from '../src/DataMapper/Schema/Sorters/MandatoryFieldSorter';
+import { Order } from '../src/DataMapper/Schema/Sorters/Sorter';
 import MappingConfiguration from '../src/DataMapper/Mapper/MappingConfiguration.js';
 import MappingCanvas from '../src/DataMapper/Mapper/MappingCanvas.js';
 import MappingSVG from '../src/DataMapper/Mapper/MappingSVG.js';
 import MappingActions from '../src/DataMapper/Mapper/MappingActions.js';
-import { Actions } from '../src/Actions/index.js';
+import AutoMapping from '../src/DataMapper/Mapper/AutoMapping.js';
+import { Actions, ActionBar, IconsProvider } from '../src/index';
 
 const inputSchema1 = {
 	id: 'schema_1',
@@ -397,6 +401,7 @@ const listConfiguration = new ListConfiguration();
 
 const mappingCanvasConfig = new MappingConfiguration(MappingCanvas, MappingActions);
 const mappingSVGConfig = new MappingConfiguration(MappingSVG, MappingActions);
+const mappingConfigWithAutoMap = new MappingConfiguration(MappingSVG, AutoMapping);
 
 const filterComponents = new FilterComponents();
 
@@ -581,6 +586,50 @@ function initializeFilters(dataAccessor, schema, keys) {
 	return filters;
 }
 
+function createSorter(sorterId, order) {
+	let sorter = null;
+	switch (sorterId) {
+		case NameSorterId:
+			sorter = new NameSorter(order);
+			break;
+		case MandatoryFieldSorterId:
+			sorter = new MandatoryFieldSorter(order);
+			break;
+		default:
+			break;
+	}
+	return sorter;
+}
+
+function initializeSorters(sorterIds) {
+	let result = {
+		sorters: {},
+		order: Order.ASCENDING,
+	};
+	for (let i = 0; i < sorterIds.length; i += 1) {
+		const sorterId = sorterIds[i];
+		const sorter = createSorter(sorterId, result.order);
+		if (sorter) {
+			result.sorters[sorterId] = sorter;
+		}
+	}
+	return result;
+}
+
+function getSorter(state, sorterId, side) {
+	if (state.sorters[side] && state.sorters[side].sorters && state.sorters[side].sorters[sorterId]) {
+		return state.sorters[side].sorters[sorterId];
+	}
+	return null;
+}
+
+function getSortOrder(state, side) {
+	if (state.sorters[side] && state.sorters[side].order) {
+		return state.sorters[side].order;
+	}
+	return Order.ASCENDING; // default sort order
+}
+
 function prefs(showAll, gradientStops50, gradientStops100) {
 	return { showAll, gradientStops50, gradientStops100 };
 }
@@ -650,25 +699,236 @@ const showAllPrefs = prefs(true, null, null);
 const alternativePrefs = prefs(true, defaultGradientStops50, defaultGradientStops100);
 const alternativePrefs2 = prefs(true, defaultGradientStops50, defaultGradientStops);
 
-function getUndoRedoActions(dataAccessor, onUndo, onRedo) {
-	return [
+const icons = {
+	'talend-cog': talendIcons['talend-cog'],
+	'talend-cross': talendIcons['talend-cross'],
+	'talend-trash': talendIcons['talend-trash'],
+	'talend-undo': talendIcons['talend-undo'],
+	'talend-redo': talendIcons['talend-redo'],
+	'talend-eye': talendIcons['talend-eye'],
+	'talend-eye-slash': talendIcons['talend-eye-slash'],
+	'talend-sort-asc': talendIcons['talend-sort-asc'],
+	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-sort-az': talendIcons['talend-sort-az'],
+};
+
+const MainActions = {
+	UNDO: 'undo',
+	REDO: 'redo',
+	SHOW_ALL: 'show-all',
+	CLEAR: 'clear',
+	CLEAR_ALL: 'clear-all',
+	SORT: 'sort',
+	SORT_ORDER: 'sort-order',
+	CLEAR_SORT: 'clear-sort',
+};
+
+function getShowHideAction(state, getAction) {
+	const action = {
+		id: MainActions.SHOW_ALL,
+		tooltipPlacement: 'bottom',
+		onClick: getAction(MainActions.SHOW_ALL),
+		disabled: false,
+	}
+	if (state.preferences.showAll) {
+		action.icon = 'talend-eye-slash';
+		action.tooltipLabel = 'Hide all connections';
+	} else {
+		action.icon = 'talend-eye';
+		action.tooltipLabel = 'Show all connections';
+	}
+	return action;
+}
+
+function getClearAction(state, getAction) {
+	const action = {
+		id: MainActions.CLEAR,
+		icon: 'talend-cross',
+		tooltipLabel: 'Remove selected connection(s)',
+		tooltipPlacement: 'bottom',
+		onClick: getAction(MainActions.CLEAR),
+	}
+	action.disabled = !state.selection ||
+		!state.dataAccessor.isElementMapped(state.mapping, state.selection.element, state.selection.side);
+	return action;
+}
+
+function getClearAllAction(state, getAction) {
+	const action = {
+		id: MainActions.CLEAR_ALL,
+		icon: 'talend-trash',
+		tooltipLabel: 'Clear all mapping',
+		tooltipPlacement: 'bottom',
+		onClick: getAction(MainActions.CLEAR_ALL),
+	}
+	action.disabled = state.dataAccessor.isMappingEmpty(state.mapping);
+	return action;
+}
+
+function getSortAction(sorterId, order, side, onSort) {
+	function sortAction() {
+		onSort(sorterId, order, side);
+	}
+	return sortAction;
+}
+
+function getClearSortAction(side, clearSort) {
+	function clearSortAction() {
+		clearSort(side);
+	}
+	return clearSortAction;
+}
+
+function getSortItems(dataAccessor, state, sorters, side, getAction) {
+	let items = [];
+	items = items.concat(
 		{
-			id: 'undo',
-			label: 'Undo',
-			tooltipLabel: dataAccessor.getUndoLabel(),
-			tooltipPlacement: 'bottom',
-			onClick: onUndo,
-			disabled: !dataAccessor.canUndo(),
+			label: 'None',
+			onClick: getClearSortAction(side, getAction(MainActions.CLEAR_SORT)),
 		},
-		{
-			id: 'redo',
-			label: 'Redo',
-			tooltipLabel: dataAccessor.getRedoLabel(),
-			tooltipPlacement: 'bottom',
-			onClick: onRedo,
-			disabled: !dataAccessor.canRedo(),
-		},
-	];
+	);
+	const sorterKeys = Object.keys(sorters);
+	const onSort = getAction(MainActions.SORT);
+	for (let i = 0; i < sorterKeys.length; i += 1) {
+		const sorterId = sorterKeys[i];
+		const sorter = sorters[sorterId];
+		items = items.concat(
+			{
+				label: sorter.getLabel(),
+				icon: sorter.getIcon(),
+				onClick: getSortAction(sorterId, getSortOrder(state, side), side, onSort),
+			},
+		);
+	}
+	return items;
+}
+
+function getSortLabel(dataAccessor, state, side) {
+	const schema = getSchema(state, side);
+	if (dataAccessor.hasSorter(schema)) {
+		return dataAccessor.getSorter(schema).getLabel();
+	}
+	return 'None';
+}
+
+function getSortIcon(dataAccessor, state, side) {
+	const schema = getSchema(state, side);
+	if (dataAccessor.hasSorter(schema)) {
+		return dataAccessor.getSorter(schema).getIcon();
+	}
+	return null;
+}
+
+function getSorterActions(state, side, getAction) {
+	if (!state.sorters[side]) {
+		return {};
+	}
+	const dataAccessor = state.dataAccessor;
+	const sorters = state.sorters[side].sorters;
+	const order = state.sorters[side].order;
+	const onSort = getAction(MainActions.SORT);
+	return {
+		displayMode: ActionBar.DISPLAY_MODES.DROPDOWN,
+		label: getSortLabel(dataAccessor, state, side),
+		icon: getSortIcon(dataAccessor, state, side),
+		items: getSortItems(dataAccessor, state, sorters, side, getAction),
+		emptyDropdownLabel: 'No option',
+	};
+}
+
+function getSortOrderLabel(state, side) {
+	return state.sorters[side].order;
+}
+
+function getSortOrderIcon(state, side) {
+	switch (state.sorters[side].order) {
+		case Order.ASCENDING:
+			return 'talend-sort-asc';
+		case Order.DESCENDING:
+			return 'talend-sort-desc';
+		default:
+			return null;
+	}
+}
+
+function getOrderAction(order, side, onChangeOrder) {
+	function orderAction() {
+		onChangeOrder(side, order);
+	}
+	return orderAction;
+}
+
+function getOrderActions(state, side, getAction) {
+	const onChangeOrder = getAction(MainActions.SORT_ORDER);
+	return {
+		displayMode: ActionBar.DISPLAY_MODES.DROPDOWN,
+		label: getSortOrderLabel(state, side),
+		icon: getSortOrderIcon(state, side),
+		items: [
+			{
+				label: Order.ASCENDING,
+				icon: 'talend-sort-asc',
+				onClick: getOrderAction(Order.ASCENDING, side, onChangeOrder),
+			},
+			{
+				label: Order.DESCENDING,
+				icon: 'talend-sort-desc',
+				onClick: getOrderAction(Order.DESCENDING, side, onChangeOrder),
+			},
+		],
+		emptyDropdownLabel: 'No option',
+	};
+}
+
+function getMainActions(state, getAction) {
+	const dataAccessor = state.dataAccessor;
+	return {
+		left: [
+			{
+				displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+				actions: [
+					getSorterActions(state, Constants.MappingSide.INPUT, getAction),
+					getOrderActions(state, Constants.MappingSide.INPUT, getAction),
+				],
+			},
+			{
+				displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+				actions: [
+					{
+						id: MainActions.UNDO,
+						icon: 'talend-undo',
+						tooltipLabel: dataAccessor.getUndoLabel(),
+						tooltipPlacement: 'bottom',
+						onClick: getAction(MainActions.UNDO),
+						disabled: !dataAccessor.canUndo(),
+					},
+					{
+						id: MainActions.REDO,
+						icon: 'talend-redo',
+						tooltipLabel: dataAccessor.getRedoLabel(),
+						tooltipPlacement: 'bottom',
+						onClick: getAction(MainActions.REDO),
+						disabled: !dataAccessor.canRedo(),
+					},
+				],
+			},
+			{
+				displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+				actions: [
+					getShowHideAction(state, getAction),
+					getClearAction(state, getAction),
+					getClearAllAction(state, getAction),
+				],
+			},
+			{
+				displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+				actions: [
+					getSorterActions(state, Constants.MappingSide.OUTPUT, getAction),
+					getOrderActions(state, Constants.MappingSide.OUTPUT, getAction),
+				],
+			},
+		],
+	};
 }
 
 /**
@@ -684,7 +944,15 @@ const emptyState = {
 	focused: null,
 	preferences: getDefaultPreferences(),
 	filters: {},
+	sorters: {},
 };
+
+function getInitialSorters(inputSorters, outputSorters) {
+	return {
+		input: initializeSorters(inputSorters),
+		output: initializeSorters(outputSorters),
+	};
+}
 
 function getDefaultInitialState() {
 	const dataAccessor = createDataAccessor();
@@ -701,6 +969,7 @@ function getDefaultInitialState() {
 			input: initializeFilters(dataAccessor, inputSchema, [NameFilterId]),
 			output: initializeFilters(dataAccessor, outputSchema, [NameFilterId, MandatoryFieldFilterId]),
 		},
+		sorters: getInitialSorters([NameSorterId], [NameSorterId, MandatoryFieldSorterId]),
 	};
 }
 
@@ -718,6 +987,7 @@ function getEmptyInitialState() {
 			input: initializeFilters(dataAccessor, inputSchema, [NameFilterId]),
 			output: initializeFilters(dataAccessor, outputSchema, [NameFilterId, MandatoryFieldFilterId]),
 		},
+		sorters: getInitialSorters([NameSorterId], [NameSorterId, MandatoryFieldSorterId]),
 	};
 }
 
@@ -740,6 +1010,7 @@ function getBigSchemaInitialState(inputSchemaSize, outputSchemaSize, mappingSize
 			input: initializeFilters(dataAccessor, inputSchema, [NameFilterId]),
 			output: initializeFilters(dataAccessor, outputSchema, [NameFilterId, MandatoryFieldFilterId]),
 		},
+		sorters: getInitialSorters([NameSorterId], [NameSorterId, MandatoryFieldSorterId]),
 	};
 }
 
@@ -774,6 +1045,7 @@ function getRandomInitialState(
 			input: initializeFilters(dataAccessor, inputSchema, [NameFilterId]),
 			output: initializeFilters(dataAccessor, outputSchema, [NameFilterId, MandatoryFieldFilterId]),
 		},
+		sorters: getInitialSorters([NameSorterId], [NameSorterId, MandatoryFieldSorterId]),
 	};
 }
 
@@ -793,6 +1065,7 @@ function getUXInitialState(mappingSize, preferences) {
 			input: initializeFilters(dataAccessor, inputSchema, [NameFilterId]),
 			output: initializeFilters(dataAccessor, outputSchema, [NameFilterId, MandatoryFieldFilterId]),
 		},
+		sorters: getInitialSorters([NameSorterId], [NameSorterId, MandatoryFieldSorterId]),
 	};
 }
 
@@ -947,6 +1220,13 @@ function findTargetElement(dataAccessor, schema, selection, mappingInProgress) {
 	);
 }
 
+function findTargetElementByPosition(selection, mapper) {
+	const mapperInstance = mapper.getDecoratedComponentInstance();
+	const sourcePosition = mapperInstance.getYPosition(selection.element, selection.side);
+	const targetSide = Constants.switchMappingSide(selection.side);
+	return mapperInstance.getElementAtPosition(sourcePosition, targetSide);
+}
+
 function findNonConnectedTargetElement(dataAccessor, schema, mapping, side) {
 	for (let i = 0; i < dataAccessor.getSchemaSize(schema, true); i += 1) {
 		const elem = dataAccessor.getSchemaElement(schema, i, true);
@@ -957,20 +1237,25 @@ function findNonConnectedTargetElement(dataAccessor, schema, mapping, side) {
 	return null;
 }
 
-function switchSchema(state, mappingInProgress) {
+function switchSchema(state, mappingInProgress, mapper, usePosition) {
 	const dataAccessor = state.dataAccessor;
   const selection = state.selection;
 	const targetSide = Constants.switchMappingSide(selection.side);
 	let targetElem = null;
   if (!mappingInProgress
 		&& selection.connected != null
-		&& selection.connected.length > 0) {
+		&& selection.connected.length > 0
+		&& !usePosition) {
 		targetElem = selection.connected[0];
   }
 	const targetSchema = getSchema(state, targetSide);
 	if (targetElem == null) {
-  	// try to find an element with the same name
-   	targetElem = findTargetElement(dataAccessor, targetSchema, selection, mappingInProgress);
+		if (usePosition) {
+			targetElem = findTargetElementByPosition(selection, mapper);
+		} else {
+  		// try to find an element with the same name
+   		targetElem = findTargetElement(dataAccessor, targetSchema, selection, mappingInProgress);
+		}
 	}
   if (targetElem == null) {
     // get the first element in target schema
@@ -989,27 +1274,33 @@ function switchSchema(state, mappingInProgress) {
 	};
 }
 
-function firstSelect(state) {
+function firstSelect(state, code) {
 	const dataAccessor = state.dataAccessor;
-	const element = dataAccessor.getSchemaElement(state.inputSchema, 0, true);
+	let side = Constants.MappingSide.INPUT;
+	if (code === Constants.Keys.RIGHT) {
+		side = Constants.MappingSide.OUTPUT;
+	}
+	const schema = getSchema(state, side);
+	const element = dataAccessor.getSchemaElement(schema, 0, true);
 	return {
 		element,
-		connected: dataAccessor.getConnectedElements(state.mapping, element,
-			Constants.MappingSide.INPUT),
-		side: Constants.MappingSide.INPUT,
+		connected: dataAccessor.getConnectedElements(state.mapping, element, side),
+		side,
 	};
 }
 
-function navigate(state, nav) {
+function navigate(state, nav, mapper, usePosition) {
   switch (nav) {
     case Constants.Keys.UP:
       return navigateUpDown(state, nav);
     case Constants.Keys.DOWN:
       return navigateUpDown(state, nav);
-    case Constants.Keys.SWITCH_SCHEMA:
-			return switchSchema(state, false);
+    case Constants.Keys.LEFT:
+			return switchSchema(state, false, mapper, usePosition);
+		case Constants.Keys.RIGHT:
+			return switchSchema(state, false, mapper, usePosition);
 		case Constants.Keys.ENTER:
-      return switchSchema(state, true);
+      return switchSchema(state, true, mapper, usePosition);
 		default:
 			break;
   }
@@ -1044,6 +1335,22 @@ function filterFocused(state, focused) {
 	return null;
 }
 
+function focusElement(elementId) {
+	let activeElemId = null;
+	if (document.activeElement) {
+		activeElemId = document.activeElement.id;
+	}
+	if (!activeElemId || elementId !== activeElemId) {
+		if (document.activeElement) {
+			document.activeElement.blur();
+		}
+	}
+	const element = document.getElementById(elementId);
+	if (element && element.focus) {
+		element.focus();
+	}
+}
+
 class ConnectedDataMapper extends React.Component {
 
 	constructor(props) {
@@ -1067,32 +1374,38 @@ class ConnectedDataMapper extends React.Component {
 		this.updateMapperRef = this.updateMapperRef.bind(this);
 		this.onUndo = this.onUndo.bind(this);
 		this.onRedo = this.onRedo.bind(this);
+		this.onSort = this.onSort.bind(this);
+		this.onChangeSortOrder = this.onChangeSortOrder.bind(this);
+		this.clearSort = this.clearSort.bind(this);
+		this.getMainAction = this.getMainAction.bind(this);
 	}
 
 	handleKeyEvent(ev) {
-		//console.log(ev.keyCode);
 		let reveal = false;
+		let focus = false;
 		if (this.handleFirstSelect(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
 				trigger: null,
-				selection: firstSelect(prevState),
+				selection: firstSelect(prevState, ev.keyCode),
 				status: Constants.StateStatus.SELECTION,
 			}));
 			reveal = true;
+			focus = true;
 		} else if (this.handleNavigation(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
 				trigger: null,
-				selection: navigate(prevState, ev.keyCode),
+				selection: navigate(prevState, ev.keyCode, this.mapper, !ev.altKey),
 				status: Constants.StateStatus.SELECTION,
 			}));
 			reveal = true;
+			focus = true;
 		} else if (this.handleStartConnection(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
 				trigger: null,
-				selection: navigate(prevState, ev.keyCode),
+				selection: navigate(prevState, ev.keyCode, this.mapper, false),
 				pendingItem: {
 					element: prevState.selection.element,
 					side: prevState.selection.side,
@@ -1135,6 +1448,9 @@ class ConnectedDataMapper extends React.Component {
 			// reveal
 			const mapperInstance = this.mapper.getDecoratedComponentInstance();
 			mapperInstance.revealSelection(this.state.selection);
+		}
+		if (focus) {
+			focusElement(this.props.mapperId);
 		}
 	}
 
@@ -1189,14 +1505,15 @@ class ConnectedDataMapper extends React.Component {
 		const key = ev.keyCode;
 		const isValidKey = key === Constants.Keys.UP
 										|| key === Constants.Keys.DOWN;
-		const isValidSwitch = key === Constants.Keys.SWITCH_SCHEMA
+		const isValidSwitch = (key === Constants.Keys.LEFT || key === Constants.Keys.RIGHT)
 			&& this.state.pendingItem == null;
 		return !isSelectionEmpty(this.state.selection)
 			&& (isValidKey || isValidSwitch);
 	}
 
 	handleFirstSelect(ev) {
-		const isValidKey = ev.keyCode === Constants.Keys.SWITCH_SCHEMA;
+		const isValidKey = ev.keyCode === Constants.Keys.LEFT
+			|| ev.keyCode === Constants.Keys.RIGHT;
 		return isValidKey && isSelectionEmpty(this.state.selection);
 	}
 
@@ -1213,7 +1530,7 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	isPreventDefaultNeeded(ev) {
-		return (ev.keyCode === Constants.Keys.SWITCH_SCHEMA
+		return ((ev.keyCode === Constants.Keys.LEFT || ev.keyCode === Constants.Keys.RIGHT)
 			&& this.state.pendingItem != null)
 			|| ev.keyCode === Constants.Keys.ENTER;
 	}
@@ -1365,7 +1682,9 @@ class ConnectedDataMapper extends React.Component {
 			return;
 		}
 		this.setState(prevState => ({
-			trigger: null,
+			trigger: {
+				code: Constants.Events.DND_IN_PROGRESS,
+			},
 			dnd: {
 				source: prevState.dnd.source,
 				target: null,
@@ -1456,7 +1775,7 @@ class ConnectedDataMapper extends React.Component {
 	onUndo() {
 		const cmd = this.state.dataAccessor.getACopyOfUndoCommand();
 		const mapping = this.state.dataAccessor.undo(this.state.mapping);
-		this.setState(prevState => ({
+		this.setState({
 			trigger: {
 				code: Constants.Events.UNDO,
 			},
@@ -1464,7 +1783,7 @@ class ConnectedDataMapper extends React.Component {
 			dnd: null,
 			mapping,
 			status: Constants.UNDO_REDO_STATE_STATUS,
-		}), () => {
+		}, () => {
 			if (cmd.code === Constants.Commands.REMOVE_MAPPING) {
 				// reveal connection
 				this.revealConnection(cmd.sourceId, cmd.targetId);
@@ -1475,7 +1794,7 @@ class ConnectedDataMapper extends React.Component {
 	onRedo() {
 		const cmd = this.state.dataAccessor.getACopyOfRedoCommand();
 		const mapping = this.state.dataAccessor.redo(this.state.mapping);
-		this.setState(prevState => ({
+		this.setState({
 			trigger: {
 				code: Constants.Events.REDO,
 			},
@@ -1483,12 +1802,88 @@ class ConnectedDataMapper extends React.Component {
 			dnd: null,
 			mapping,
 			status: Constants.UNDO_REDO_STATE_STATUS,
-		}), () => {
+		}, () => {
 			if (cmd.code === Constants.Commands.ADD_MAPPING) {
 				// reveal connection
 				this.revealConnection(cmd.sourceId, cmd.targetId);
 			}
 		});
+	}
+
+	onSort(sorterId, order, side) {
+		const dataAccessor = this.state.dataAccessor;
+		const sorter = getSorter(this.state, sorterId, side);
+		if (sorter) {
+			const schema = getSchema(this.state, side);
+			sorter.setOrder(order);
+			if (!dataAccessor.hasSorter(schema) || dataAccessor.getSorter(schema).getId() !== sorterId) {
+				dataAccessor.setSorter(schema, sorter);
+			} else {
+				dataAccessor.sort(schema);
+			}
+			this.setState({
+				trigger: {
+					code: Constants.Events.SORT,
+					sorterId,
+					order,
+					side,
+				},
+				status: Constants.StateStatus.SORT,
+			});
+		}
+	}
+
+	onChangeSortOrder(side, order) {
+		const dataAccessor = this.state.dataAccessor;
+		this.state.sorters[side].order = order;
+		const schema = getSchema(this.state, side);
+		if (dataAccessor.hasSorter(schema)) {
+			const sorter = dataAccessor.getSorter(schema);
+			sorter.setOrder(order);
+			dataAccessor.sort(schema);
+		}
+		this.setState({
+			trigger: {
+				code: Constants.Events.SORT_ORDER,
+				order,
+				side,
+			},
+			status: Constants.StateStatus.SORT,
+		});
+	}
+
+	clearSort(side) {
+		this.state.dataAccessor.clearSorter(getSchema(this.state, side));
+		this.setState({
+			trigger: {
+				code: Constants.Events.CLEAR_SORT,
+				side,
+			},
+			status: Constants.StateStatus.SORT,
+		});
+	}
+
+	getMainAction(actionId) {
+		switch (actionId) {
+			case MainActions.UNDO:
+				return this.onUndo;
+			case MainActions.REDO:
+				return this.onRedo;
+			case MainActions.SHOW_ALL:
+				return this.onShowAll;
+			case MainActions.CLEAR:
+				return this.clearConnection;
+			case MainActions.CLEAR_ALL:
+				return this.clearMapping;
+			case MainActions.SORT:
+				return this.onSort;
+			case MainActions.CLEAR_SORT:
+				return this.clearSort;
+			case MainActions.SORT_ORDER:
+				return this.onChangeSortOrder;
+			default:
+				return null;
+		}
 	}
 
 	updateMapperRef(ref) {
@@ -1503,9 +1898,9 @@ class ConnectedDataMapper extends React.Component {
 		} = this.props;
 		return (
 			<div>
-				<Actions
+				<ActionBar
 					className="main-tools"
-					actions={getUndoRedoActions(this.state.dataAccessor, this.onUndo, this.onRedo)}
+					actions={getMainActions(this.state, this.getMainAction)}
 				/>
 				<Mapper
 					dataAccessor={this.state.dataAccessor}
@@ -1517,14 +1912,11 @@ class ConnectedDataMapper extends React.Component {
 					mapping={this.state.mapping}
 					outputSchema={this.state.outputSchema}
 					performMapping={this.performMapping}
-					clearMapping={this.clearMapping}
-					clearConnection={this.clearConnection}
 					draggable={Constants.Configs.DRAGGABLE}
 					selection={this.state.selection}
 					pendingItem={this.state.pendingItem}
 					onSelect={this.selectElement}
 					preferences={this.state.preferences}
-					onShowAll={this.onShowAll}
 					onEnterElement={this.onEnterElement}
 					onLeaveElement={this.onLeaveElement}
 					focused={this.state.focused}
@@ -1627,7 +2019,7 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getUXInitialState(0, alternativePrefs))}
-			mappingConfiguration={mappingSVGConfig}
+			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('Random', () => {
@@ -1648,12 +2040,12 @@ stories
 							size: 50,
 							mandatoryParams: oneMandatoryFieldOfThree,
 						},
-						50,
+						20,
 						alternativePrefs,
 					)
 				)
 			}
-			mappingConfiguration={mappingSVGConfig}
+			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
 	}).addWithInfo('1-1', () => {
@@ -1679,7 +2071,7 @@ stories
 					)
 				)
 			}
-			mappingConfiguration={mappingSVGConfig}
+			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
 	});

@@ -20,41 +20,23 @@ it('name-sorter', () => {
 
   expect(dataAccessor.hasSorter(schema)).toBe(false);
 
-	const sorter = new NameSorter(false, Order.ASCENDING);
+	const sorter = new NameSorter(Order.ASCENDING);
 	dataAccessor.setSorter(schema, sorter);
 
   expect(dataAccessor.hasSorter(schema)).toBe(true);
-
-  expect(dataAccessor.isSorterActiveOnSchema(schema)).toBe(false);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
-
-  sorter.setActive(true);
-  dataAccessor.sort(schema);
-
-  expect(dataAccessor.isSorterActiveOnSchema(schema)).toBe(true);
-	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-
   checkNames(dataAccessor, schema, ['Address', 'Birthday', 'Firstname', 'Lastname']);
 
   sorter.setOrder(Order.DESCENDING);
   dataAccessor.sort(schema);
 
-  expect(dataAccessor.isSorterActiveOnSchema(schema)).toBe(true);
+  expect(dataAccessor.hasSorter(schema)).toBe(true);
   checkNames(dataAccessor, schema, ['Lastname', 'Firstname', 'Birthday', 'Address']);
-
-  sorter.setActive(false);
-  dataAccessor.sort(schema);
-
-  expect(dataAccessor.isSorterActiveOnSchema(schema)).toBe(false);
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
 
   dataAccessor.clearSorter(schema);
 
   expect(dataAccessor.hasSorter(schema)).toBe(false);
   checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
-
 
 });
 
@@ -62,23 +44,13 @@ it('name-sorter-and-filter', () => {
 
   const schema = TestData.schema;
 
-  const sorter = new NameSorter(false, Order.ASCENDING);
+  const sorter = new NameSorter(Order.ASCENDING);
 	dataAccessor.setSorter(schema, sorter);
 
   const filter = new NameFilter(false);
 	dataAccessor.addFilter(schema, filter);
 
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
-
-  sorter.setActive(true);
-  dataAccessor.sort(schema);
-
   checkNames(dataAccessor, schema, ['Address', 'Birthday', 'Firstname', 'Lastname']);
-
-  sorter.setActive(false);
-  dataAccessor.sort(schema);
-
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
 
   filter.setActive(true);
 	filter.setName('name');
@@ -87,7 +59,6 @@ it('name-sorter-and-filter', () => {
   expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
   checkNames(dataAccessor, schema, ['Firstname', 'Lastname']);
 
-  sorter.setActive(true);
   sorter.setOrder(Order.DESCENDING);
   dataAccessor.sort(schema);
 
@@ -112,20 +83,9 @@ it('name-sorter-and-filter', () => {
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
   checkNames(dataAccessor, schema, ['Address', 'Birthday', 'Firstname', 'Lastname']);
 
-  sorter.setActive(false);
-  dataAccessor.sort(schema);
-
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
-
   dataAccessor.removeFilter(schema, filter);
 
   expect(dataAccessor.hasSorter(schema)).toBe(true);
-
-  sorter.setActive(true);
-  dataAccessor.sort(schema);
-
-  expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-  checkNames(dataAccessor, schema, ['Address', 'Birthday', 'Firstname', 'Lastname']);
 
   dataAccessor.clearSorter(schema);
 

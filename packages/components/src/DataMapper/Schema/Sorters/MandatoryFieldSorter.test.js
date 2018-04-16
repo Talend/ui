@@ -19,26 +19,23 @@ it('mandatory-field-sorter', () => {
 
   expect(dataAccessor.hasSorter(schema)).toBe(false);
 
-	const sorter = new MandatoryFieldSorter(false, Order.ASCENDING);
+	const sorter = new MandatoryFieldSorter(Order.ASCENDING);
 	dataAccessor.setSorter(schema, sorter);
 
   expect(dataAccessor.hasSorter(schema)).toBe(true);
-
-  expect(dataAccessor.isSorterActiveOnSchema(schema)).toBe(false);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
-
-  sorter.setActive(true);
-  dataAccessor.sort(schema);
 
   checkNames(dataAccessor, schema, ['Lastname', 'Address', 'Firstname', 'Birthday']);
 
-  sorter.setActive(false);
+  sorter.setOrder(Order.DESCENDING);
   dataAccessor.sort(schema);
 
-  expect(dataAccessor.hasSorter(schema)).toBe(true);
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
+  checkNames(dataAccessor, schema, ['Firstname', 'Birthday', 'Lastname', 'Address']);
+
+  sorter.setOrder(Order.ASCENDING);
+  dataAccessor.sort(schema);
+
+  checkNames(dataAccessor, schema, ['Lastname', 'Address', 'Firstname', 'Birthday']);
 
   dataAccessor.clearSorter(schema);
 

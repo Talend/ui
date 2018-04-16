@@ -109,7 +109,7 @@
 		order: 2;
 	}
 
-	.mapping-tools {
+	.mapping-tools, .auto-mapping {
 		display: flex;
 		justify-content: space-around;
 		font-weight: bold;
@@ -117,6 +117,12 @@
 		padding: 4px;
 		margin: 4px;
 		height: 35px;
+	}
+
+	#auto-map {
+		color: #fff;
+		background-color: #66bdff;
+		font-weight: bold;		
 	}
 
 	.mapping-content {

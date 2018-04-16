@@ -6,8 +6,8 @@ export const ID = 'mandatory-field-sorter';
  * A sorter which .
  */
 export default class MandatoryFieldSorter extends Sorter {
-	constructor(active, order) {
-		super(ID, active, order);
+	constructor(order) {
+		super(ID, 'Sort by mandatory fields', 'talend-sort-asc', order);
 	}
 
   compare(dataAccessor, element1, element2) {

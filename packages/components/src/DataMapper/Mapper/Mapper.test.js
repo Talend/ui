@@ -11,11 +11,11 @@ import * as Constants from '../Constants';
 import SchemaConfiguration from '../Schema/SchemaConfiguration';
 import MappingConfiguration from './MappingConfiguration.js';
 import MappingSVG from './MappingSVG.js';
-import MappingActions from './MappingActions.js';
+import AutoMapping from './AutoMapping.js';
 
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 const schemaConfiguration = new SchemaConfiguration();
-const mappingConfig = new MappingConfiguration(MappingSVG, MappingActions);
+const mappingConfig = new MappingConfiguration(MappingSVG, AutoMapping);
 
 const element1 = {
 	id: '1',
@@ -70,13 +70,13 @@ function wrapInTestContext(DecoratedComponent) {
 	);
 }
 
-const clearMapping = jest.fn();
+const autoMap = jest.fn();
 
 const preferences = {
 	showAll: false,
 };
 
-it('clear-mapping', () => {
+it('auto-mapping', () => {
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
 	const MapperTestContext = wrapInTestContext(Mapper);
 
@@ -86,7 +86,7 @@ it('clear-mapping', () => {
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}
-			clearMapping={clearMapping}
+			autoMap={autoMap}
 			schemaConfiguration={schemaConfiguration}
 			mappingConfiguration={mappingConfig}
 			filters={noFilters}
@@ -95,11 +95,11 @@ it('clear-mapping', () => {
 	);
 	const wrapper = mount(mapper);
 	wrapper
-		.find('#clear-mapping')
+		.find('#auto-map')
 		.at(0)
 		.simulate('click');
 
-	expect(clearMapping).toBeCalled();
+	expect(autoMap).toBeCalled();
 });
 
 it('perform-mapping', () => {
@@ -125,7 +125,6 @@ it('perform-mapping', () => {
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}
-			clearMapping={clearMapping}
 			dndListener={dndListener}
 			draggable={draggable}
 			schemaConfiguration={schemaConfiguration}

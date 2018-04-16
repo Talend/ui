@@ -7,9 +7,13 @@ export const Events = {
 	FILTERING: 'filtering',
 	UNDO: 'undo',
 	REDO: 'redo',
+	SORT: 'sort',
+	CLEAR_SORT: 'clear-sort',
+	DND_IN_PROGRESS: 'dnd-in-progress',
 };
 
 export const StateStatus = {
+	NONE: 0,
 	FOCUSED: 1,
 	SELECTION: 1 << 1,
 	PENDING: 1 << 2,
@@ -17,6 +21,7 @@ export const StateStatus = {
 	FILTERS: 1 << 4,
 	MAPPING: 1 << 5,
 	PREFERENCES: 1 << 6,
+	SORT: 1 << 7,
 };
 
 export const MAPPING_STATE_STATUS =
@@ -114,9 +119,10 @@ export const Schema = {
 };
 
 export const Keys = {
+	LEFT: 37,
 	UP: 38,
-	DOWN: 40,
-	SWITCH_SCHEMA: 9,
+	RIGHT: 39,
+	DOWN: 40,	
 	ENTER: 13,
 	ESCAPE: 27,
 	DELETE: 46,

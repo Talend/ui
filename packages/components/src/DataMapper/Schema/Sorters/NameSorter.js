@@ -7,8 +7,8 @@ export const ID = 'name-sorter';
  */
 export default class NameSorter extends Sorter {
 
-  constructor(active, order) {
-		super(ID, active, order);
+  constructor(order) {
+		super(ID, 'Sort by name', 'talend-sort-az', order);
 	}
 
   getValueToCompare(dataAccessor, element) {

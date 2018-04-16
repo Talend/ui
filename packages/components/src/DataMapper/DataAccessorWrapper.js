@@ -157,7 +157,7 @@ export default class DataAccessorWrapper {
 	mergeSchemaFilters(schema) {
 		const schemaId = this.getSchemaId(schema);
 		this.mergeFilters(schemaId);
-		if (this.isSorterActive(schemaId)) {
+		if (this.isSorterDefined(schemaId)) {
 			this.sortElements(schemaId, this.getFilteredSchemaElements(schema));
 		}
 	}
@@ -217,14 +217,23 @@ export default class DataAccessorWrapper {
 		const schemaId = this.getSchemaId(schema);
 		this.sorters[schemaId] = {};
 		this.sorters[schemaId].sorter = sorter;
-		this.sorters[schemaId].result = null;
-		if (this.filtersActive(schemaId)) {
-			this.sorters[schemaId].result = this.filters[schemaId].result.slice();
-		}
+		this.sort(schema);
 	}
 
 	hasSorter(schema) {
-		return Boolean(this.sorters[this.getSchemaId(schema)]);
+		const schemaId = this.getSchemaId(schema);
+		return this.isSorterDefined(schemaId);
+	}
+
+	isSorterDefined(schemaId) {
+		return Boolean(this.sorters[schemaId] && this.sorters[schemaId].sorter);
+	}
+
+	getSorter(schema) {
+		if (this.hasSorter(schema)) {
+			return this.sorters[this.getSchemaId(schema)].sorter;
+		}
+		return null;
 	}
 
 	clearSorter(schema) {
@@ -232,27 +241,15 @@ export default class DataAccessorWrapper {
 		this.sorters[schemaId] = null;
 	}
 
-	isSorterActive(schemaId) {
-		return this.sorters[schemaId] && this.sorters[schemaId].sorter && this.sorters[schemaId].sorter.isActive();
-	}
-
-	isSorterActiveOnSchema(schema) {
-		const schemaId = this.getSchemaId(schema);
-		return this.isSorterActive(schemaId);
-	}
-
 	sort(schema) {
 		const schemaId = this.getSchemaId(schema);
-		if (this.isSorterActive(schemaId)) {
+		if (this.isSorterDefined(schemaId)) {
 			this.sortElements(schemaId, this.getFilteredSchemaElements(schema));
 		}
 	}
 
 	sortElements(schemaId, elements) {
-		//console.log('sortElements(' + schemaId + ', ' + JSON.stringify(elements) + ')');
 		let result = elements.slice();
-		// console.log(JSON.stringify(this.sorters[schemaId].sorter));
-		//this.comparator.setSorter(this.sorters[schemaId].sorter);
 		this.comparator.sort(result, this.sorters[schemaId].sorter);
 		this.sorters[schemaId].result = result;
 	}
@@ -280,7 +277,7 @@ export default class DataAccessorWrapper {
 	}
 
 	areFiltersOrSorterActive(schemaId) {
-		return this.filtersActive(schemaId) || this.isSorterActive(schemaId);
+		return this.filtersActive(schemaId) || this.isSorterDefined(schemaId);
 	}
 
 	/**
@@ -289,7 +286,7 @@ export default class DataAccessorWrapper {
 	getSchemaSize(schema, current) {
 		const schemaId = this.getSchemaId(schema);
 		if (current && this.areFiltersOrSorterActive(schemaId)) {
-			if (this.isSorterActive(schemaId)) {
+			if (this.isSorterDefined(schemaId)) {
 				return this.sorters[schemaId].result.length;
 			}
 			return this.filters[schemaId].result.length;
@@ -311,7 +308,7 @@ export default class DataAccessorWrapper {
 	getSchemaElements(schema, current) {
 		const schemaId = this.getSchemaId(schema);
 		if (current && this.areFiltersOrSorterActive(schemaId)) {
-			if (this.isSorterActive(schemaId)) {
+			if (this.isSorterDefined(schemaId)) {
 				return this.sorters[schemaId].result;
 			}
 			return this.filters[schemaId].result;
@@ -325,7 +322,7 @@ export default class DataAccessorWrapper {
 	getSchemaElement(schema, index, current) {
 		const schemaId = this.getSchemaId(schema);
 		if (current && this.areFiltersOrSorterActive(schemaId)) {
-			if (this.isSorterActive(schemaId)) {
+			if (this.isSorterDefined(schemaId)) {
 				return this.sorters[schemaId].result[index];
 			}
 			return this.filters[schemaId].result[index];
@@ -347,7 +344,7 @@ export default class DataAccessorWrapper {
 	getSchemaElementIndex(schema, element, current) {
 		const schemaId = this.getSchemaId(schema);
 		if (current && this.areFiltersOrSorterActive(schemaId)) {
-			if (this.isSorterActive(schemaId)) {
+			if (this.isSorterDefined(schemaId)) {
 				return this.sorters[schemaId].result.findIndex(elem => this.areElementsEqual(elem, element));
 			}
 			return this.filters[schemaId].result.findIndex(elem => this.areElementsEqual(elem, element));
