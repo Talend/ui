@@ -100,10 +100,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingSVG.js
    19:10  error  'props' is defined but never used                                                              no-unused-vars
-  337:21  error  'height' is missing in props validation                                                        react/prop-types
-  340:2   error  reveal should be placed after getSVGAnchors                                                    react/sort-comp
-  340:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
-  434:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  340:21  error  'height' is missing in props validation                                                        react/prop-types
+  343:2   error  reveal should be placed after getSVGAnchors                                                    react/sort-comp
+  343:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
+  437:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/Filter.js
   29:8   error  Expected 'this' to be used by class method 'select'  class-methods-use-this
