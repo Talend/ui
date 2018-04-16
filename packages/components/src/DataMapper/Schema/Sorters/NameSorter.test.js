@@ -42,8 +42,6 @@ it('name-sorter', () => {
 it('name-sorter-and-filter', () => {
 	const schema = TestData.schema;
 
-  const sorter = new NameSorter(false, Order.ASCENDING);
-
   const sorter = new NameSorter(Order.ASCENDING);
 	dataAccessor.setSorter(schema, sorter);
 
