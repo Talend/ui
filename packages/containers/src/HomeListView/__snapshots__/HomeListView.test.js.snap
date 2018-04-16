@@ -29,7 +29,7 @@ exports[`Component HomeListView should be able to render theme 1`] = `
 </Layout>
 `;
 
-exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
+exports[`Component HomeListView should children transformed as array in props.drawers 1`] = `
 Array [
   Object {
     "props": Object {

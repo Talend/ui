@@ -13,4 +13,6 @@ export default {
 	IS_HANDLER_ACTION_CREATOR_REGEX: /^(on).*(ActionCreator)$/,
 	IS_HANDLER_SETSTATE: 'SetState',
 	IS_HANDLER_SETSTATE_REGEX: /^(on).*(SetState)$/,
+	ERROR_ROUTER_DONT_GET_PARAMS:
+		'You can t get params because it will change on every state mutation. Please take one of the params only',
 };
