@@ -49,8 +49,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/List/DraggableRow.js
   34:40  error  'monitor' is defined but never used                                                            no-unused-vars
-  93:2   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-  94:2   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  44:23  error  Expected 'this' to be used by class method 'shouldComponentUpdate'                             class-methods-use-this
+  94:14  error  'needUpdate' PropType is defined but prop is never used                                        react/no-unused-prop-types
+  98:2   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  99:2   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/List/Row.js
   71:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -70,13 +72,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:28  error  Unexpected use of '&'                                             no-bitwise
   106:26  error  Unexpected use of '&'                                             no-bitwise
   111:10  error  Unexpected use of '&'                                             no-bitwise
-  252:15  error  Expected 'this' to be used by class method 'getVisibility'        class-methods-use-this
-  252:62  error  'targetYPos' is defined but never used                            no-unused-vars
-  340:2   error  updatePropertyValue should be placed after getConnections         react/sort-comp
-  340:21  error  Expected 'this' to be used by class method 'updatePropertyValue'  class-methods-use-this
-  343:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
-  352:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
-  680:23  error  Unknown property 'tabindex' found, use 'tabIndex' instead         react/no-unknown-property
+  178:2   error  updateVisibleInfo should be placed after getConnections           react/sort-comp
+  268:15  error  Expected 'this' to be used by class method 'getVisibility'        class-methods-use-this
+  268:62  error  'targetYPos' is defined but never used                            no-unused-vars
+  356:21  error  Expected 'this' to be used by class method 'updatePropertyValue'  class-methods-use-this
+  359:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
+  368:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
+  713:23  error  Unknown property 'tabindex' found, use 'tabIndex' instead         react/no-unknown-property
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   64:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -123,7 +125,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.js
   27:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
   28:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
-  73:2  error  getNode should be placed after onContentScroll  react/sort-comp
+  74:2  error  getNode should be placed after onContentScroll  react/sort-comp
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaConfiguration.js
   13:13  error  Expected 'this' to be used by class method 'getRenderer'  class-methods-use-this
@@ -183,5 +185,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 109 problems (108 errors, 1 warning)
+✖ 111 problems (110 errors, 1 warning)
 
