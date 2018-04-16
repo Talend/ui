@@ -76,8 +76,8 @@ function getRenderBranchItemContent(props) {
 		<span
 			key="main-text"
 			className={classNames(
-				theme['tc-hierarchic-item-content-myspan'],
-				'tc-hierarchic-item-content-myspan',
+				theme['tc-hierarchic-item-content-options'],
+				'tc-hierarchic-item-content-options',
 			)}
 		>
 			{renderedDisplayedKey}

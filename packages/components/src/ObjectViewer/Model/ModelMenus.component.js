@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import ModelItemMenu from './ModelItemMenu.component';
 import QualityCircles from './QualityCircles.component';
 import { Action } from '../../Actions';
@@ -25,14 +25,17 @@ export default class ModelMenus extends React.Component {
 	render() {
 		const { item, jsonpath, menu, quality } = this.props;
 		return (
-			<div className={theme.menu}>
+			<div className={classNames(theme['tc-model-menu'], 'tc-model-menu')}>
 				{menu && (
 					<Action
 						aria-label="Open menu"
 						buttonRef={button => {
 							this.button = button;
 						}}
-						className={theme['menu-trigger']}
+						className={classNames(
+							theme['tc-model-menu-trigger'],
+							'tc-model-menu-trigger',
+						)}
 						link
 						label="..."
 						overlayId={`tc-object-viewer-model-menu-${jsonpath}`}
@@ -66,4 +69,5 @@ ModelMenus.propTypes = {
 	jsonpath: PropTypes.string,
 	menu: ModelItemMenu.propTypes.menuItems,
 	quality: QualityCircles.propTypes.quality,
+	onCloseOverlay: PropTypes.func,
 };

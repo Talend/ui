@@ -430,8 +430,8 @@ const qualityMenu = {
 };
 
 const modelItemMenu = [
-	{ label: 'LOL action', onClick: action('onLolClick') },
-	{ label: 'MDR action', onClick: action('onMdrClick') },
+	{ label: 'first menu action', onClick: action('onLolClick') },
+	{ label: 'second menu action', onClick: action('onMdrClick') },
 ];
 
 function ToggleManager(Component) {

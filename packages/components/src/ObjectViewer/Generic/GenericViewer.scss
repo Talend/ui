@@ -1,3 +1,31 @@
+:global(.tc-hierarchic .tc-hierarchic-list .tc-hierarchic-item .tc-hierarchic-item-content) {
+	&:focus,
+	&:focus-within,
+	&:hover {
+		// reveal node menu on hover or focus on the line
+		.tc-model-menu .tc-model-menu-trigger {
+			opacity: 1;
+		}
+
+		// makes the left line darker on hover to make it visible with the hover background
+		> *:first-child {
+			border-left-color: $silver-chalice;
+		}
+	}
+	// nested nodes have a left solid line
+	> *:first-child {
+		border-left: 1px solid $gallery;
+		padding-left: $padding-larger;
+		margin-left: -$padding-larger;
+	}
+
+	// node height is a little larger than the default
+	> * {
+		padding-top: $padding-small;
+		padding-bottom: $padding-small;
+	}
+}
+
 .tc-hierarchic {
 	font-family: 'Inconsolata';
 	font-size: 1.4rem;
@@ -77,7 +105,7 @@
 				background: $gallery;
 			}
 
-			&-myspan {
+			&-options {
 				display: flex;
 				align-items: center;
 			}

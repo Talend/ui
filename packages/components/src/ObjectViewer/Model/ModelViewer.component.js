@@ -5,8 +5,6 @@ import ModelMenus from './ModelMenus.component';
 import QualityCircles from './QualityCircles.component';
 import GenericViewer from '../Generic';
 
-import theme from './ModelViewer.scss';
-
 export default class ModelViewer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,6 +14,7 @@ export default class ModelViewer extends React.Component {
 	}
 
 	onCloseOverlay(focusedItem) {
+		console.log('onCloseOverlay', focusedItem);
 		ReactDOM.findDOMNode(focusedItem).focus(); // eslint-disable-line react/no-find-dom-node
 	}
 
@@ -41,7 +40,6 @@ export default class ModelViewer extends React.Component {
 			<GenericViewer
 				{...this.props}
 				{...genericViewerConfiguration}
-				className={theme.model}
 				getItemMenu={this.getItemMenu}
 				opened={this.props.isSingle ? this.props.opened.default : this.props.opened}
 				noRoot
