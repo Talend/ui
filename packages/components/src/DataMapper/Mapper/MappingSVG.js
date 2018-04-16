@@ -297,6 +297,9 @@ function renderLinearGradients(gradientStops, key) {
 				<linearGradient id={`grad-right-bottom-${key}`} x1="100%" y1="100%" x2="0%" y2="0%">
 					{gradientStops.map(stop => renderGradientStop(stop))}
 				</linearGradient>
+				<linearGradient id={`grad-left-right-${key}`} x1="0%" x2="100%">
+					{gradientStops.map(stop => renderGradientStop(stop))}
+				</linearGradient>
 			</defs>
 		);
 	}

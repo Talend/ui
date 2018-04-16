@@ -37,8 +37,10 @@ function getClassname(part, params, style) {
 				case Constants.Connection.VISIBILITY.FULL:
 					if (params.y1 < params.y2) {
 						gradClassName = 'grad-left-top-100';
-					} else {
+					} else if (params.y1 > params.y2) {
 						gradClassName = 'grad-left-bottom-100';
+					} else {
+						gradClassName = 'grad-left-right-100';
 					}
 					break;
 				default:
