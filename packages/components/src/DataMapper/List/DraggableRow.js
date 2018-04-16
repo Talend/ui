@@ -41,6 +41,11 @@ function collectForDropTarget(connect, monitor) {
  * This component adds the draggable behaviour to the Row component.
  */
 class DraggableRow extends Component {
+
+	shouldComponentUpdate(nextProps) {
+		return nextProps.needUpdate(nextProps);
+	}
+
 	render() {
 		const {
 			element,
@@ -87,6 +92,7 @@ DraggableRow.propTypes = {
 	onLeaveElement: PropTypes.func,
 	connectDragSource: PropTypes.func,
 	connectDropTarget: PropTypes.func,
+	needUpdate: PropTypes.func,
 };
 
 export default flow(

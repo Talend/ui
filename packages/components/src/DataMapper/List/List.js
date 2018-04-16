@@ -20,6 +20,7 @@ function renderRow(
 	onDoubleClick,
 	onEnterElement,
 	onLeaveElement,
+	needUpdate,
 ) {
 	if (draggable) {
 		return (
@@ -35,6 +36,7 @@ function renderRow(
 				onEnterElement={onEnterElement}
 				onLeaveElement={onLeaveElement}
 				dndListener={dndListener}
+				needUpdate={needUpdate}
 			/>
 		);
 	}
@@ -78,6 +80,7 @@ export default class List extends Component {
 			updateListNodeRef,
 			onEnterElement,
 			onLeaveElement,
+			needUpdate,
 		} = this.props;
 		return (
 			<div
@@ -98,6 +101,7 @@ export default class List extends Component {
 						onDoubleClick,
 						onEnterElement,
 						onLeaveElement,
+						needUpdate,
 					),
 				)}
 			</div>
@@ -117,6 +121,7 @@ List.propTypes = {
 	onDoubleClick: PropTypes.func,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
+	needUpdate: PropTypes.func,
 	dndListener: PropTypes.object,
 	updateListNodeRef: PropTypes.func,
 };

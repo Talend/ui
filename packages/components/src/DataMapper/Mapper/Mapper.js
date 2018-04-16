@@ -129,6 +129,11 @@ export default class Mapper extends Component {
 		this.updateInputSchemaRef = this.updateInputSchemaRef.bind(this);
 		this.updateOutputSchemaRef = this.updateOutputSchemaRef.bind(this);
 		this.updateGMapRef = this.updateGMapRef.bind(this);
+		this.isElementVisible = this.isElementVisible.bind(this);
+	}
+
+	componentDidMount() {
+		this.needUpdateVisibleInfo = true;
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -168,6 +173,17 @@ export default class Mapper extends Component {
 			this.outputFilterVersion = nextProps.dataAccessor.getFilterVersion(this.props.outputSchema);
 			this.anchors = resetAnchors(this.anchors);
 		}
+	}
+
+	updateVisibleInfo() {
+		this.visibleInputElements = this.inputSchemaRef.getVisibleElements();
+		this.visibleOutputElements = this.outputSchemaRef.getVisibleElements();
+		this.visibleMapping = updateVisibleMapping(
+			this.props.dataAccessor,
+			this.props.mapping,
+			this.visibleInputElements,
+			this.visibleOutputElements,
+		);
 	}
 
 	onScroll(side) {
@@ -639,6 +655,19 @@ export default class Mapper extends Component {
 		}
 	}
 
+	isElementVisible(element, side) {
+		const dataAccessor = this.props.dataAccessor;
+		switch (side) {
+			case Constants.MappingSide.INPUT:
+				return dataAccessor.includes(this.getInputVisibleElements(), element);
+			case Constants.MappingSide.OUTPUT:
+				return dataAccessor.includes(this.getOutputVisibleElements(), element);
+			default:
+				break;
+		}
+		return false;
+	}
+
 	updateInputSchemaRef(ref) {
 		this.inputSchemaRef = ref;
 	}
@@ -652,6 +681,10 @@ export default class Mapper extends Component {
 	}
 
 	render() {
+		if (this.needUpdateVisibleInfo) {
+			this.updateVisibleInfo();
+			this.needUpdateVisibleInfo = false
+		}
 		const {
 			mapperId,
 			mappingConfiguration,
@@ -690,6 +723,7 @@ export default class Mapper extends Component {
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
 					columnKeys={schemaConfiguration.getColumns(inputSide)}
 					filters={filters.input}
+					isElementVisible={this.isElementVisible}
 				/>
 				<Schema
 					{...commonSchemaProps}
@@ -703,6 +737,7 @@ export default class Mapper extends Component {
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
 					columnKeys={schemaConfiguration.getColumns(outputSide)}
 					filters={filters.output}
+					isElementVisible={this.isElementVisible}
 				/>
 				<Mapping
 					ref={this.updateGMapRef}

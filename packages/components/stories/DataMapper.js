@@ -2048,7 +2048,7 @@ stories
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
-	}).addWithInfo('1-1', () => {
+	}).addWithInfo('300-300', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={
@@ -2056,15 +2056,15 @@ stories
 					getRandomInitialState(
 						{
 							id: 'fgs2525sdf5',
-							name: 'ONE-ELEM-IN',
-							size: 1,
+							name: '300-ELEM-IN',
+							size: 300,
 							mandatoryParams: noMandatoryFields,
 						},
 						{
 							id: '62ds5csd5',
-							name: 'ONE-ELEM-OUT',
-							size: 1,
-							mandatoryParams: noMandatoryFields,
+							name: '300-ELEM-OUT',
+							size: 300,
+							mandatoryParams: oneMandatoryFieldOfThree,
 						},
 						0,
 						alternativePrefs,

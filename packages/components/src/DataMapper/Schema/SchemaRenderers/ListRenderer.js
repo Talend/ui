@@ -125,6 +125,7 @@ export default class ListRenderer extends Component {
 		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
 		this.onLeaveElement = this.onLeaveElement.bind(this);
+		this.needUpdate = this.needUpdate.bind(this);
 		this.classNameProvider = new SchemaClassNameProvider();
 		this.dndListener = new SchemaDndListener();
 		this.rowDataGetter = new RowDataGetter();
@@ -155,6 +156,15 @@ export default class ListRenderer extends Component {
 		this.props.revealConnectedElement(element, this.props.side);
 	}
 
+	needUpdate(nextProps) {
+		// if (this.props.trigger.code === Constants.Events.ENTER_ELEM ||
+		// 	this.props.trigger.code === Constants.Events.LEAVE_ELEM) {
+		// 	return this.props.trigger.side === this.props.side &&
+		// 		this.props.dataAccessor.areElementsEqual(this.props.trigger.element, nextProps.element);
+		// }
+		return this.props.isElementVisible(nextProps.element, this.props.side);
+	}
+
 	render() {
 		this.classNameProvider.updateProps(this.props);
 		this.dndListener.updateProps(this.props);
@@ -182,6 +192,7 @@ export default class ListRenderer extends Component {
 				updateListNodeRef={updateContentNodeRef}
 				onEnterElement={this.onEnterElement}
 				onLeaveElement={this.onLeaveElement}
+				needUpdate={this.needUpdate}
 			/>
 		);
 	}
@@ -199,4 +210,5 @@ ListRenderer.propTypes = {
 	revealConnectedElement: PropTypes.func,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
+	isElementVisible: PropTypes.func,
 };

@@ -40,6 +40,7 @@ export default class Schema extends Component {
 		super(props);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
 		this.onContentScroll = this.onContentScroll.bind(this);
+		this.meanDist = -1;
 	}
 
 	shouldComponentUpdate(nextProps) {
@@ -124,7 +125,17 @@ export default class Schema extends Component {
 			const elements = this.props.dataAccessor.getSchemaElements(this.props.schema, true);
 			const children = this.contentNode.childNodes;
 			const childrenArray = Array.from(children);
-			for (let i = 0; i < childrenArray.length; i += 1) {
+			if (this.meanDist < 0) {
+				this.computeMeanDist(elements);
+			}
+			let startIndex = 0;
+			if (this.meanDist > 0) {
+				// compute start index
+				const scrollTop = this.contentNode.scrollTop;
+				const n = Math.floor(scrollTop / this.meanDist);
+				startIndex = Math.max(0, n);
+			}
+			for (let i = startIndex; i < childrenArray.length; i += 1) {
 				const element = elements[i];
 				const elemYPos = this.getYPosition(element);
 				if (elemYPos > 0 && elemYPos < contentHeight) {
@@ -136,6 +147,14 @@ export default class Schema extends Component {
 			}
 		}
 		return visibleElements;
+	}
+
+	computeMeanDist(elements) {
+		if (elements.length > 1) {
+			const y1 = this.getYPosition(elements[0]);
+			const y2 = this.getYPosition(elements[1]);
+			this.meanDist = Math.abs(y2 - y1);
+		}
 	}
 
 	reveal(element) {
@@ -193,4 +212,5 @@ Schema.propTypes = {
 	focusedElements: PropTypes.array,
 	onScroll: PropTypes.func,
 	side: PropTypes.string,
+	isElementVisible: PropTypes.func,
 };
