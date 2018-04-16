@@ -179,7 +179,7 @@ ActionDropdown.propTypes = {
 				...MenuItem.propTypes,
 			}),
 		),
-		ImmutablePropTypes.list(),
+		ImmutablePropTypes.list,
 	]).isRequired,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
