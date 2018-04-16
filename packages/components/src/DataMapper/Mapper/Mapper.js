@@ -683,7 +683,7 @@ export default class Mapper extends Component {
 	render() {
 		if (this.needUpdateVisibleInfo) {
 			this.updateVisibleInfo();
-			this.needUpdateVisibleInfo = false
+			this.needUpdateVisibleInfo = false;
 		}
 		const {
 			mapperId,
