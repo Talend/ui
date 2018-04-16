@@ -1,6 +1,9 @@
-.record {
-	.icon {
+.tc-records {
+	&-icon {
 		height: $svg-sm-size;
 		width: $svg-sm-size;
+	}
+	&-row {
+		padding: 10px 30px;
 	}
 }

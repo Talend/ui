@@ -110,7 +110,7 @@ function getIcon({ isOpened, type }) {
 	let className;
 	if (type === 'object') {
 		name = 'talend-plus-circle'; // TODO we don't have a talend-minus-circle
-		className = theme.icon;
+		className = theme['tc-records-icon'];
 	} else {
 		name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 		transform = isOpened ? null : 'rotate-180';

@@ -1,6 +1,5 @@
-
-
-	.tc-model-menu {
+.tc-model {
+	&-menu {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -20,3 +19,19 @@
 			text-decoration: none;
 		}
 	}
+	&:global(.tc-hierarchic .tc-hierarchic-list .tc-hierarchic-item .tc-hierarchic-item-content) {
+		&:focus,
+		&:focus-within,
+		&:hover {
+			// reveal node menu on hover or focus on the line
+			.tc-model-menu .tc-model-menu-trigger {
+				opacity: 1;
+			}
+		}
+		// node height is a little larger than the default
+		> * {
+			padding-top: $padding-small;
+			padding-bottom: $padding-small;
+		}
+	}
+}

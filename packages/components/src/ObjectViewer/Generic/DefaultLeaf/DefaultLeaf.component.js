@@ -11,7 +11,7 @@ import {
 function getRenderQuality(quality) {
 	return (
 		quality === -1 && (
-			<div
+			<span
 				key="quality"
 				className={classNames(
 					theme['tc-hierarchic-item-content-invalid-value'],
@@ -24,8 +24,7 @@ function getRenderQuality(quality) {
 }
 
 function getLeafContent(quality, formattedKey, formattedValue) {
-	return [
-		getRenderQuality(quality),
+	return (
 		<div
 			key="key-value"
 			className={classNames(
@@ -33,6 +32,7 @@ function getLeafContent(quality, formattedKey, formattedValue) {
 				'tc-hierarchic-item-content-key-value',
 			)}
 		>
+			{getRenderQuality(quality)}
 			<span
 				key="key"
 				className={classNames(
@@ -53,8 +53,8 @@ function getLeafContent(quality, formattedKey, formattedValue) {
 			>
 				{formattedValue}
 			</span>
-		</div>,
-	];
+		</div>
+	);
 }
 
 export default function DefaultLeaf(props) {

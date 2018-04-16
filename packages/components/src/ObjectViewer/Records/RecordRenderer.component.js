@@ -5,7 +5,8 @@ import omit from 'lodash/omit';
 import classNames from 'classnames';
 
 import RecordViewer from './RecordViewer.component';
-import theme from './RecordRenderer.scss';
+// import theme from './RecordRenderer.scss';
+import theme from './RecordViewer.scss';
 
 /**
  * Wrapper around ObjectViewer to trigger a React-Virtualized/CellMesurer#mesure() after update.
@@ -58,7 +59,7 @@ export default function RecordRenderer({ index, key, parent, style }) {
 		<CellMeasurer cache={cache} columnIndex={0} key={key} parent={parent} rowIndex={index}>
 			{({ measure }) => (
 				// 'style' attribute required to position cell (within parent List)
-				<div className={classNames(theme.row, 'tc-object-viewer-records-row')} style={style}>
+				<div className={classNames(theme['tc-records-row'], 'tc-records-row')} style={style}>
 					<MesureObjectViewer
 						avroRenderersIds={avroRenderersIds}
 						data={datum}

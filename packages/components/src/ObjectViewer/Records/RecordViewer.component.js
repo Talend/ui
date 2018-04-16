@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import genericViewerConfiguration from './genericViewer.configuration';
 import GenericViewer from '../Generic';
 
@@ -11,7 +12,7 @@ export default function Record(props) {
 		<GenericViewer
 			{...props}
 			{...genericViewerConfiguration}
-			className={theme.record}
+			className={classNames(theme['tc-records'], 'tc-records')}
 			data={data}
 			isRoot
 		/>

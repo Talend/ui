@@ -1,31 +1,3 @@
-:global(.tc-hierarchic .tc-hierarchic-list .tc-hierarchic-item .tc-hierarchic-item-content) {
-	&:focus,
-	&:focus-within,
-	&:hover {
-		// reveal node menu on hover or focus on the line
-		.tc-model-menu .tc-model-menu-trigger {
-			opacity: 1;
-		}
-
-		// makes the left line darker on hover to make it visible with the hover background
-		> *:first-child {
-			border-left-color: $silver-chalice;
-		}
-	}
-	// nested nodes have a left solid line
-	> *:first-child {
-		border-left: 1px solid $gallery;
-		padding-left: $padding-larger;
-		margin-left: -$padding-larger;
-	}
-
-	// node height is a little larger than the default
-	> * {
-		padding-top: $padding-small;
-		padding-bottom: $padding-small;
-	}
-}
-
 .tc-hierarchic {
 	font-family: 'Inconsolata';
 	font-size: 1.4rem;
@@ -44,6 +16,22 @@
 		&-content {
 			display: flex;
 			padding: $padding-smaller 0;
+
+			&:focus,
+			&:focus-within,
+			&:hover {
+				background: $gallery;
+
+				> *:first-child {
+					border-left-color: $silver-chalice;
+				}
+			}
+
+			> *:first-child {
+				border-left: 1px solid $gallery;
+				padding-left: $padding-larger;
+				margin-left: -$padding-larger;
+			}
 
 			:global(.tc-svg-anchor),
 			&-button {
@@ -76,11 +64,12 @@
 			}
 
 			&-invalid-value {
-				height: 29px;
-				width: 3px;
+				height: 20px;
+				width: 2px;
 				background: $lightning-yellow;
 				position: absolute;
-				margin-left: -($padding-large + $padding-smaller);
+				margin-left: -$padding-larger;
+				// margin-left: -($padding-large + $padding-smaller);
 			}
 
 			&-caret {
@@ -97,12 +86,6 @@
 
 			&-no-root {
 				display: none;
-			}
-
-			&:focus,
-			&:focus-within,
-			&:hover {
-				background: $gallery;
 			}
 
 			&-options {
