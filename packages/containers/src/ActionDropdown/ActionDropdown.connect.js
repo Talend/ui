@@ -51,10 +51,7 @@ export function ContainerActionDropdown({ items, ...props }) {
 ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
-	items: PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.object),
-		ImmutablePropTypes.list,
-	]),
+	items: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), ImmutablePropTypes.list]),
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	hideLabel: PropTypes.bool,
