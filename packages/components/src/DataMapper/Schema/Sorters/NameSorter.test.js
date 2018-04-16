@@ -29,20 +29,19 @@ it('name-sorter', () => {
 	sorter.setOrder(Order.DESCENDING);
 	dataAccessor.sort(schema);
 
-  expect(dataAccessor.hasSorter(schema)).toBe(true);
-  checkNames(dataAccessor, schema, ['Lastname', 'Firstname', 'Birthday', 'Address']);
+	expect(dataAccessor.hasSorter(schema)).toBe(true);
+	checkNames(dataAccessor, schema, ['Lastname', 'Firstname', 'Birthday', 'Address']);
 
 	dataAccessor.clearSorter(schema);
 
-  expect(dataAccessor.hasSorter(schema)).toBe(false);
-  checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
-
+	expect(dataAccessor.hasSorter(schema)).toBe(false);
+	checkNames(dataAccessor, schema, ['Firstname', 'Lastname', 'Birthday', 'Address']);
 });
 
 it('name-sorter-and-filter', () => {
 	const schema = TestData.schema;
 
-  const sorter = new NameSorter(Order.ASCENDING);
+	const sorter = new NameSorter(Order.ASCENDING);
 	dataAccessor.setSorter(schema, sorter);
 
 	const filter = new NameFilter(false);
@@ -57,8 +56,8 @@ it('name-sorter-and-filter', () => {
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
 	checkNames(dataAccessor, schema, ['Firstname', 'Lastname']);
 
-  sorter.setOrder(Order.DESCENDING);
-  dataAccessor.sort(schema);
+	sorter.setOrder(Order.DESCENDING);
+	dataAccessor.sort(schema);
 
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
 	checkNames(dataAccessor, schema, ['Lastname', 'Firstname']);

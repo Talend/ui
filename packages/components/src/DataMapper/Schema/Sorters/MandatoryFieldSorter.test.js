@@ -24,17 +24,17 @@ it('mandatory-field-sorter', () => {
 	expect(dataAccessor.hasSorter(schema)).toBe(true);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
-  checkNames(dataAccessor, schema, ['Lastname', 'Address', 'Firstname', 'Birthday']);
+	checkNames(dataAccessor, schema, ['Lastname', 'Address', 'Firstname', 'Birthday']);
 
-  sorter.setOrder(Order.DESCENDING);
-  dataAccessor.sort(schema);
+	sorter.setOrder(Order.DESCENDING);
+	dataAccessor.sort(schema);
 
-  checkNames(dataAccessor, schema, ['Firstname', 'Birthday', 'Lastname', 'Address']);
+	checkNames(dataAccessor, schema, ['Firstname', 'Birthday', 'Lastname', 'Address']);
 
-  sorter.setOrder(Order.ASCENDING);
-  dataAccessor.sort(schema);
+	sorter.setOrder(Order.ASCENDING);
+	dataAccessor.sort(schema);
 
-  checkNames(dataAccessor, schema, ['Lastname', 'Address', 'Firstname', 'Birthday']);
+	checkNames(dataAccessor, schema, ['Lastname', 'Address', 'Firstname', 'Birthday']);
 
 	dataAccessor.clearSorter(schema);
 

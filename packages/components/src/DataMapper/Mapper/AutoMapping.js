@@ -5,14 +5,14 @@ import { Actions } from '../../Actions/index.js';
 
 const icons = {
 	'talend-replicate': talendIcons['talend-replicate'],
-  'talend-cog': talendIcons['talend-cog'],
+	'talend-cog': talendIcons['talend-cog'],
 };
 
 function getActions(autoMap) {
 	return [
 		{
 			id: 'auto-map',
-      icon: 'talend-cog',
+			icon: 'talend-cog',
 			label: 'AUTO MAP!',
 			onClick: autoMap,
 		},
@@ -22,11 +22,6 @@ function getActions(autoMap) {
 export default class AutoMapping extends Component {
 	render() {
 		const { autoMap } = this.props;
-		return (
-			<Actions
-				className="auto-mapping"
-				actions={getActions(autoMap)}
-			/>
-		);
+		return <Actions className="auto-mapping" actions={getActions(autoMap)} />;
 	}
 }

@@ -107,7 +107,6 @@ function needResetAnchors(status) {
 	return focusedChanged || selectionChanged || pendingChanged;
 }
 
-
 function sortHasChanged(status) {
 	return (status & Constants.StateStatus.SORT) !== 0;
 }
