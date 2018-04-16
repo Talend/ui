@@ -71,7 +71,7 @@ TreeItem.propTypes = {
 	value: PropTypes.any,
 };
 
-export default function HierarchicTree({ level, jsonpath, data, value, treeItems, ...props }) {
+export default function HierarchicTree({ level, jsonpath, data, value, treeItems, type, ...props }) {
 	const cn = classNames(theme['tc-hierarchic-item'], 'tc-hierarchic-item');
 	if (isArray(treeItems) && treeItems.length) {
 		return (
@@ -88,6 +88,7 @@ export default function HierarchicTree({ level, jsonpath, data, value, treeItems
 								parent: {
 									jsonpath,
 									value,
+									type,
 								},
 							})}
 						/>
@@ -97,11 +98,11 @@ export default function HierarchicTree({ level, jsonpath, data, value, treeItems
 		);
 	}
 	if (isRoot(level)) {
-		return <TreeItem {...props} jsonpath={jsonpath} value={value} level={level} />;
+		return <TreeItem {...props} jsonpath={jsonpath} value={value} level={level} type={type} />;
 	}
 	return (
 		<li className={cn}>
-			<TreeItem {...props} jsonpath={jsonpath} value={value} level={level} />
+			<TreeItem {...props} jsonpath={jsonpath} value={value} level={level} type={type} />
 		</li>
 	);
 }

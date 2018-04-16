@@ -16,7 +16,6 @@ export default class ModelViewer extends React.Component {
 	}
 
 	onCloseOverlay(focusedItem) {
-		console.log('onCloseOverlay', focusedItem);
 		ReactDOM.findDOMNode(focusedItem).focus(); // eslint-disable-line react/no-find-dom-node
 	}
 

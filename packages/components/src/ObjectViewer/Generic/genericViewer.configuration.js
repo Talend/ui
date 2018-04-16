@@ -38,7 +38,7 @@ export function defaultGetDisplayValue({ value }) {
 }
 
 export function defaultGetJSONPath({ dataKey, parent }) {
-	return getJSONPathUtils(dataKey, parent.jsonpath, parent.type);	
+	return getJSONPathUtils(dataKey, parent.jsonpath, parent.type);
 }
 
 export function defaultGetQuality() {
