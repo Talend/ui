@@ -469,7 +469,7 @@ export default class Mapper extends Component {
 	//   dnd: {sourceYPos, targetYPos},
 	//	 dndInProgress: {sourceYPos, pos}
 	// }
-	getConnections() {
+	getConnections(onlyDndInProgress) {
 		const {
 			dataAccessor,
 			inputSchema,
@@ -480,6 +480,10 @@ export default class Mapper extends Component {
 			preferences,
 			dnd,
 		} = this.props;
+
+		if (onlyDndInProgress) {
+			return this.getDnDInProgressConnection(dnd);
+		}
 
 		const visibleMapping = this.getVisibleMapping();
 
@@ -594,11 +598,8 @@ export default class Mapper extends Component {
 			}
 		}
 		let dndInProgress = null;
-		if (!dndConnection && dnd && dnd.source && dnd.pos) {
-			dndInProgress = {
-				sourceYPos: this.getYPosition(dnd.source.element, dnd.source.side),
-				pos: dnd.pos,
-			};
+		if (!dndConnection && dnd && dnd.source && dnd.inProgress && this.dndPos) {
+			dndInProgress = this.getDnDInProgressConnection(dnd);
 		}
 
 		return {
@@ -608,6 +609,14 @@ export default class Mapper extends Component {
 			all: allConnections,
 			dnd: dndConnection,
 			dndInProgress,
+		};
+	}
+
+	getDnDInProgressConnection(dnd) {
+		return {
+			sourceYPos: this.getYPosition(dnd.source.element, dnd.source.side),
+			pos: this.dndPos,
+			key: 'dnd-in-progress',
 		};
 	}
 
@@ -666,6 +675,35 @@ export default class Mapper extends Component {
 				break;
 		}
 		return false;
+	}
+
+	beginDrag(element, side) {
+		this.dndPos = null;
+		return this.props.dndListener.beginDrag(element, side);
+	}
+
+	dndInProgress(pos) {
+		this.dndPos = pos;
+		this.props.dndListener.dndInProgress(pos);
+		const gMap = this.getMappingComponent();
+		if (gMap.updateDND) {
+			gMap.updateDND();
+		}
+	}
+
+	canDrop(sourceItem, targetItem) {
+		this.dndPos = null;
+		return this.props.dndListener.canDrop(sourceItem, targetItem);
+	}
+
+	drop(sourceItem, targetItem) {
+		this.dndPos = null;
+		this.props.dndListener.drop(sourceItem, targetItem);
+	}
+
+	endDrag() {
+		this.dndPos = null;
+		this.props.dndListener.endDrag();
 	}
 
 	updateInputSchemaRef(ref) {
@@ -749,7 +787,7 @@ export default class Mapper extends Component {
 					preferences={preferences}
 					draggable={draggable}
 					dnd={dnd}
-					dndListener={dndListener}
+					dndListener={this}
 					mappingConfiguration={mappingConfiguration}
 					onEnterAnchor={onEnterElement}
 					onLeaveAnchor={onLeaveElement}

@@ -48,7 +48,6 @@ export default class Schema extends Component {
 		let needUpdate = true;
 		if (nextProps.dnd) {
 			needUpdate = !(
-				nextProps.dnd.pos != null ||
 				(nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side)
 			);
 		}

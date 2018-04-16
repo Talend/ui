@@ -1307,10 +1307,6 @@ function navigate(state, nav, mapper, usePosition) {
   return state.selection;
 }
 
-function arePositionsClosed(pos1, pos2, delta) {
-	return Math.abs(pos1.x - pos2.x) <= delta && Math.abs(pos1.y - pos2.y) <= delta;
-}
-
 function filterSelection(state, selection) {
 	if (selection) {
 		const schema = getSchema(state, selection.side);
@@ -1668,7 +1664,7 @@ class ConnectedDataMapper extends React.Component {
 			dnd: {
 				source: { element, side },
 				target: null,
-				pos: null,
+				inProgress: false,
 			},
 			status: Constants.StateStatus.DND,
 		});
@@ -1676,22 +1672,17 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	dndInProgress(pos) {
-		if (this.state.dnd.pos != null
-			&& arePositionsClosed(this.state.dnd.pos, pos, 3)) {
-			// do not update state
-			return;
+		if (!this.state.dnd.inProgress) {
+			this.setState(prevState => ({
+				trigger: null,
+				dnd: {
+					source: prevState.dnd.source,
+					target: null,
+					inProgress: true,
+				},
+				status: Constants.StateStatus.DND,
+			}));
 		}
-		this.setState(prevState => ({
-			trigger: {
-				code: Constants.Events.DND_IN_PROGRESS,
-			},
-			dnd: {
-				source: prevState.dnd.source,
-				target: null,
-				pos,
-			},
-			status: Constants.StateStatus.DND,
-		}));
 	}
 
 	canDrop(sourceItem, targetItem) {
@@ -1712,7 +1703,7 @@ class ConnectedDataMapper extends React.Component {
 				dnd: {
 					source: prevState.dnd.source,
 					target: targetItem,
-					pos: null,
+					inProgress: false,
 				},
 				status: Constants.StateStatus.DND,
 			}));
@@ -2065,6 +2056,32 @@ stories
 							name: '300-ELEM-OUT',
 							size: 300,
 							mandatoryParams: oneMandatoryFieldOfThree,
+						},
+						0,
+						alternativePrefs,
+					)
+				)
+			}
+			mappingConfiguration={mappingConfigWithAutoMap}
+			schemaConfiguration={listConfiguration}
+		/>;
+	}).addWithInfo('1-1', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={
+				initializeCache(
+					getRandomInitialState(
+						{
+							id: 'fgs2525sdf5',
+							name: 'ONE-ELEM-IN',
+							size: 1,
+							mandatoryParams: noMandatoryFields,
+						},
+						{
+							id: '62ds5csd5',
+							name: 'ONE-ELEM-OUT',
+							size: 1,
+							mandatoryParams: noMandatoryFields,
 						},
 						0,
 						alternativePrefs,

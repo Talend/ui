@@ -131,6 +131,10 @@ class MappingCanvas extends Component {
 		this.updateCanvas(true, false, false);
 	}
 
+	updateDND() {
+		this.updateCanvas(true, false, true);
+	}
+
 	drawDndInProgress(dndInProgress, params) {
 		const pos = dndInProgress.pos;
 		const sourceYPos = dndInProgress.sourceYPos;

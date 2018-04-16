@@ -101,30 +101,35 @@ function buildSVGConnections(connections, dnd, bounds) {
 				xRight,
 			);
 		} else if (connections.dndInProgress) {
-			const pos = connections.dndInProgress.pos;
-			const sourceYPos = connections.dndInProgress.sourceYPos;
-			// default case: source is input
-			let x1 = xLeft;
-			let y1 = sourceYPos;
-			let x2 = pos.x;
-			let y2 = pos.y;
-			if (dnd.source.side === Constants.MappingSide.OUTPUT) {
-				x1 = pos.x;
-				y1 = pos.y;
-				x2 = xRight;
-				y2 = sourceYPos;
-			}
-			const svgConnection = {
-				x1,
-				y1,
-				x2,
-				y2,
-				style: Constants.Connection.STYLE.PENDING,
-			};
+			const svgConnection = buildDndInProgressSVGConnection(dnd, connections.dndInProgress, xLeft, xRight);
 			svgConnections = svgConnections.concat(svgConnection);
 		}
 	}
 	return svgConnections;
+}
+
+function buildDndInProgressSVGConnection(dnd, dndInProgress, xLeft, xRight) {
+	const pos = dndInProgress.pos;
+	const sourceYPos = dndInProgress.sourceYPos;
+	// default case: source is input
+	let x1 = xLeft;
+	let y1 = sourceYPos;
+	let x2 = pos.x;
+	let y2 = pos.y;
+	if (dnd.source.side === Constants.MappingSide.OUTPUT) {
+		x1 = pos.x;
+		y1 = pos.y;
+		x2 = xRight;
+		y2 = sourceYPos;
+	}
+	return {
+		x1,
+		y1,
+		x2,
+		y2,
+		style: Constants.Connection.STYLE.PENDING,
+		key: dndInProgress.key,
+	};
 }
 
 function buildBezierPath(connection) {
@@ -368,6 +373,40 @@ class MappingSVG extends Component {
 		return this.svgAnchors;
 	}
 
+	getBounds() {
+		return {
+			left: padding,
+			right: this.props.width - padding + extraWidth,
+		};
+	}
+
+	updateDND() {
+		const dndConnectionElement = document.getElementById('dnd-in-progress-pending');
+		if (dndConnectionElement) {
+			const dndInProgressConnection = this.props.getConnections(true);
+			// update connection directly!
+			const bounds = this.getBounds();
+			const svgConnection = buildDndInProgressSVGConnection(this.props.dnd, dndInProgressConnection, bounds.left, bounds.right);
+			const params = getBezierParams(svgConnection);
+			// update start element attributes (cx & cy)
+			const startElem = document.getElementById('dnd-in-progress-pending-start');
+			if (startElem) {
+				startElem.setAttribute("cx", params.x1);
+				startElem.setAttribute("cy", params.y1);
+			}
+			// update curve element attribute (curve path)
+			const curveElem = document.getElementById('dnd-in-progress-pending-curve');
+			if (curveElem) {
+				curveElem.setAttribute("d", params.path);
+			}
+			// update end element attributes (arrow path)
+			const endElem = document.getElementById('dnd-in-progress-pending-end');
+			if (endElem) {
+				endElem.setAttribute("d", params.arrow);
+			}
+		}
+	}
+
 	update() {
 		this.forceUpdate();
 	}
@@ -384,15 +423,11 @@ class MappingSVG extends Component {
 			dnd,
 			dndListener,
 			preferences,
-			width,
 			onEnterAnchor,
 			onLeaveAnchor,
 		} = this.props;
 
-		const bounds = {
-			left: padding,
-			right: width - padding + extraWidth,
-		};
+		const bounds = this.getBounds();
 
 		const connections = getConnections();
 		const svgConnections = buildSVGConnections(connections, dnd, bounds);

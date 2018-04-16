@@ -56,6 +56,12 @@ export default class Mapping extends Component {
 		this.getArea().update();
 	}
 
+	updateDND() {
+		if (this.getArea().updateDND) {
+			this.getArea().updateDND();
+		}
+	}
+
 	reveal(connectionKey) {
 		this.getArea().reveal(connectionKey);
 	}
