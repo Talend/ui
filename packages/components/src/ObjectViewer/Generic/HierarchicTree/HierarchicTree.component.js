@@ -5,10 +5,7 @@ import { isArray } from 'lodash';
 import DefaultLeaf from '../DefaultLeaf';
 import DefaultBranch from '../DefaultBranch';
 import theme from '../GenericViewer.scss';
-import {
-	defaultGetDataType,
-	defaultGetJSONPath,
-} from '../genericViewer.configuration';
+import { defaultGetDataType, defaultGetJSONPath } from '../genericViewer.configuration';
 
 const PADDING_LEFT = 30;
 
@@ -69,7 +66,7 @@ TreeItem.propTypes = {
 	value: PropTypes.any,
 };
 
-export default function HierarchicTree({ level, jsonpath, value, treeItems, type, ...props }) {
+function HierarchicTree({ level, jsonpath, value, treeItems, type, ...props }) {
 	const cn = classNames(theme['tc-hierarchic-item'], 'tc-hierarchic-item');
 	if (isArray(treeItems) && treeItems.length) {
 		return (
@@ -117,3 +114,5 @@ HierarchicTree.propTypes = {
 	treeItems: PropTypes.array,
 	type: PropTypes.string,
 };
+
+export { HierarchicTree as default, TreeItem };
