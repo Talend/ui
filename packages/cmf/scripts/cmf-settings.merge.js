@@ -3,34 +3,34 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const deepmerge = require('deepmerge');
 const Ajv = require('ajv');
+
+const {
+	getLocaleByNamespaceInFolder,
+	getLocaleByNamespace,
+	updateLocales,
+	setI18Next,
+	saveSettings,
+} = require('./cmf-settings.i18n');
+
 const ajv = new Ajv();
 
 const DEFAULT_SETTINGS_EXT = '.json';
-
 const DEFAULT_CONFIG_FILENAME = 'cmf.json';
 
-function merge(options, logger, successCallback, errorCallback) {
-	const onSuccess = successCallback || Function.prototype;
+function merge(options, errorCallback) {
 	const onError = errorCallback || Function.prototype;
 
-	const {
-		dev,
-		quiet,
-		recursive,
-	} = Object.assign({
-		dev: false,
-		quiet: false,
-		recursive: false,
-	}, options);
-
-	function log(...args) {
-		if (!quiet) {
-			logger ? logger(args) : console.log(args); // eslint-disable-line no-console
-		}
-	}
+	const { dev, recursive } = Object.assign(
+		{
+			dev: false,
+			quiet: false,
+			recursive: false,
+		},
+		options,
+	);
 
 	function error(...args) {
-		logger ? logger(args) : console.error(args); // eslint-disable-line no-console
+		console.error(args); // eslint-disable-line no-console
 		return onError();
 	}
 
@@ -71,10 +71,10 @@ function merge(options, logger, successCallback, errorCallback) {
 
 	function getChildRoutes(splitedPath, settings) {
 		let currentChild = settings.routes.childRoutes;
-		splitedPath.forEach(path => {
-			if (path !== '') {
+		splitedPath.forEach(filePath => {
+			if (filePath !== '') {
 				currentChild.forEach(config => {
-					if (config.path === path) {
+					if (config.path === filePath) {
 						currentChild = config.childRoutes || [];
 					}
 				});
@@ -83,12 +83,12 @@ function merge(options, logger, successCallback, errorCallback) {
 		return currentChild;
 	}
 
-	function overrideRoutes(path, settings) {
-		const childRoutes = getChildRoutes(path.split('/'), settings);
-		settings.overrideRoutes[path].forEach(config => {
+	function overrideRoutes(filePath, settings) {
+		const childRoutes = getChildRoutes(filePath.split('/'), settings);
+		settings.overrideRoutes[filePath].forEach(config => {
 			childRoutes.push(config);
 		});
-		delete settings.overrideRoutes[path]; // eslint-disable-line no-param-reassign
+		delete settings.overrideRoutes[filePath]; // eslint-disable-line no-param-reassign
 	}
 
 	function overrideActions(id, settings) {
@@ -100,46 +100,81 @@ function merge(options, logger, successCallback, errorCallback) {
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
 	const cmfconfig = importAndValidate(cmfconfigPath);
 
-	// Get sources & destination paths
-	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
-	const destination = path.join(process.cwd(), cmfconfig.settings.destination);
+	let sources;
+	let destination;
+	let settings;
 
-	// Extract json from sources
-	const jsonFiles = sources.reduce(
-		(acc, source) => acc.concat([...findJson(path.join(process.cwd(), source))]),
-		[],
-	);
+	if (cmfconfig.settings.destination) {
+		// Get sources & destination paths
+		sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
+		destination = path.join(process.cwd(), cmfconfig.settings.destination);
 
-	log('Extracting configuration from:', jsonFiles);
-	const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile));
+		// Extract json from sources
+		const jsonFiles = sources.reduce(
+			(acc, source) => acc.concat([...findJson(path.join(process.cwd(), source))]),
+			[],
+		);
 
-	// Merge json stuff in one object / settings
-	const settings = deepmerge.all(configurations, {
-		arrayMerge: concatMerge,
-	});
+		const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile));
 
-	// Override actions & routes
-	if (settings.overrideRoutes) {
-		Object.keys(settings.overrideRoutes).forEach(route => {
-			overrideRoutes(route, settings);
+		// Merge json stuff in one object / settings
+		settings = deepmerge.all(configurations, {
+			arrayMerge: concatMerge,
+		});
+
+		// Override actions & routes
+		if (settings.overrideRoutes) {
+			Object.keys(settings.overrideRoutes).forEach(route => {
+				overrideRoutes(route, settings);
+			});
+		}
+		if (settings.overrideActions) {
+			Object.keys(settings.overrideActions).forEach(id => {
+				overrideActions(id, settings);
+			});
+		}
+	}
+
+	if (cmfconfig.settings['extract-locale']) {
+		Object.keys(cmfconfig.settings['extract-locale']).forEach(namespace => {
+			let i18nKeys = {};
+			if (cmfconfig.settings['extract-from']) {
+				i18nKeys = getLocaleByNamespaceInFolder(
+					path.join(process.cwd(), ...cmfconfig.settings['extract-from'].split('/')),
+					namespace,
+				);
+			} // else {
+			// 	i18nKeys = getLocaleByNamespace(settings, namespace);
+			// }
+
+			updateLocales(
+				i18nKeys,
+				cmfconfig.settings.languages,
+				namespace,
+				cmfconfig.settings['extract-locale'][namespace],
+			);
 		});
 	}
-	if (settings.overrideActions) {
-		Object.keys(settings.overrideActions).forEach(id => {
-			overrideActions(id, settings);
-		});
+
+	if (settings && cmfconfig.settings.namespaces && cmfconfig.settings.languages) {
+		const i18next = setI18Next(cmfconfig.settings.languages, cmfconfig.settings.namespaces);
+
+		if (i18next) {
+			cmfconfig.settings.languages.forEach(locale =>
+				saveSettings(i18next, settings, locale, destination),
+			);
+		}
 	}
 
-	// Write the merged file
-	log(`Merge to ${destination}`);
-	mkdirp(path.dirname(destination), () => {
-		fs.writeFile(destination, JSON.stringify(settings), () => {
-			log('CMF settings has been merged');
-			return onSuccess();
+	if (destination) {
+		// Write the merged file
+		mkdirp(path.dirname(destination), () => {
+			const file = fs.createWriteStream(destination);
+			file.write(JSON.stringify(settings, null, '  '));
+			console.log(`${destination} created.`);
+			file.end();
 		});
-	});
-
-	return jsonFiles.concat(cmfconfigPath);
+	}
 }
 
 module.exports = merge;

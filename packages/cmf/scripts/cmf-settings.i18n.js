@@ -1,0 +1,242 @@
+const path = require('path');
+const fs = require('fs');
+const jsonpath = require('jsonpath');
+const cloneDeep = require('lodash/cloneDeep');
+const difference = require('lodash/difference');
+const get = require('lodash/get');
+const intersection = require('lodash/intersection');
+const set = require('lodash/set');
+const mkdirp = require('mkdirp');
+
+const JSON_PATH_EXPRESSION = '$..i18n';
+
+/**
+ * getPathFromPattern - get the path in order the patter in the currect context
+ *
+ * @param  {string} pattern   pattern to replace
+ * @param  {string} namespace namespace to set
+ * @param  {string} locale    local to set
+ * @return {string}           path with replaced value
+ */
+function getPathFromPattern(pattern, namespace, locale) {
+	const replaceMap = {
+		'{{namespace}}': namespace,
+		'{{locale}}': locale,
+	};
+
+	return path.join(
+		process.cwd(),
+		...pattern.replace(/{{namespace}}|{{locale}}/g, match => replaceMap[match]).split('/'),
+	);
+}
+
+/**
+ * getLocaleByNamespace - transform a JSON to a dictionary of key/value with a given namespace
+ *
+ * @param  {object} settings  JSON Object
+ * @param  {string} namespace namespace to parse
+ * @return {Map}              dictionary of key/value locales
+ */
+function getLocaleByNamespace(settings, namespace) {
+	return jsonpath
+		.query(settings, JSON_PATH_EXPRESSION)
+		.reduce(
+			(locale, i18n) => locale.set(i18n.key.split(`${namespace}:`)[1], i18n.options.defaultValue),
+			new Map(),
+		);
+}
+
+/**
+ * getNameSpacesByLocale - get all namespace by locale
+ *
+ * @param  {object} namespaces object of namespaces ({namespace:pattern to get the file})
+ * @param  {string} locale    locale to get
+ * @return {object}           return all locales by namespace
+ */
+function getNameSpacesByLocale(namespaces, locale) {
+	return Object.keys(namespaces).reduce(
+		(state, namespace) => ({
+			...state,
+			// eslint-disable-next-line global-require
+			[namespace]: require(getPathFromPattern(namespaces[namespace], namespace, locale)),
+		}),
+		{},
+	);
+}
+
+/**
+ * setTranslate - replace in the given setting all i18n key by the this translated value
+ *
+ * @param  {type} i18next       i18next instance
+ * @param  {type} object        settings to replace
+ * @param  {type} jsonpaths     remove without the first index set by jsonpath ($)
+ */
+function setTranslate(i18next, object, [, ...jsonpaths]) {
+	const i18n = get(object, jsonpaths.join('.'));
+	jsonpaths.splice(-1); // replace the object by the new value
+	set(object, jsonpaths.join('.'), i18next.t(i18n.key, i18n.options));
+}
+
+/**
+ * parseSettings - parse settings and apply the locale on it
+ *
+ * @param  {object} i18next  i18n instance
+ * @param  {type} settings   settings to translate
+ * @param  {string} locale   locale to apply
+ * @return {object}          translated settings
+ */
+function parseSettings(i18next, settings, locale) {
+	const clonedSettings = cloneDeep(settings);
+	i18next.changeLanguage(locale);
+	jsonpath
+		.paths(clonedSettings, '$..i18n')
+		.forEach(jsonpaths => setTranslate(i18next, clonedSettings, jsonpaths));
+
+	return clonedSettings;
+}
+
+/**
+ * saveSettings - description
+ *
+ /**
+  * saveSettings - save the settings
+  *
+  * @param  {object} i18next  i18n instance
+  * @param  {type}   settings   settings to translate
+  * @param  {string} locale   locale to apply
+  * @param  {string} destination destination to write the settings
+ */
+function saveSettings(i18next, settings, locale, destination) {
+	const translatedSetting = parseSettings(i18next, settings, locale);
+
+	mkdirp(path.dirname(destination), () => {
+		const basename = `${path.basename(
+			destination,
+			path.extname(destination),
+		)}.${locale}${path.extname(destination)}`;
+		const dest = path.join(path.dirname(destination), basename);
+		const file = fs.createWriteStream(dest);
+		file.write(JSON.stringify(translatedSetting, null, '  '));
+		file.end();
+	});
+}
+
+/**
+ * getI18nextResources - get the resource object to i18next
+ *
+ * @param  {array} locales    array of locales to get
+ * @param  {object} namespaces object of namespaces to get
+ * @return {object}            return the resource object
+ */
+function getI18nextResources(locales, namespaces) {
+	return locales.reduce(
+		(resource, locale) => ({
+			...resource,
+			[locale]: getNameSpacesByLocale(namespaces, locale),
+		}),
+		{},
+	);
+}
+
+/**
+ * updateLocale - adding or removing unused keys/values
+ * 								write the new locale
+ *
+ * @param  {Map} i18nKeys        key/value used in the projets
+ * @param  {string} locale       current locale
+ * @param  {string} namespace    current namespace
+ * @param  {string} pattern      pattern to get the locale
+
+ */
+function updateLocale(i18nKeys, locale, namespace, pattern) {
+	const filePath = getPathFromPattern(pattern, namespace, locale);
+	let savedLocale = {};
+	if (fs.existsSync(filePath)) {
+		// eslint-disable-next-line global-require
+		savedLocale = require(filePath);
+	}
+
+	// find the difference between the code & the dictionary. prior is the code
+	const keys = [
+		...intersection([...i18nKeys.keys()], Object.keys(locale)),
+		...difference([...i18nKeys.keys()], Object.keys(locale)),
+	];
+
+	const newLocale = keys.reduce(
+		(refreshedLocale, key) => ({
+			...refreshedLocale,
+			[key]: savedLocale[key] || i18nKeys.get(key),
+		}),
+		{},
+	);
+
+	mkdirp.sync(path.dirname(filePath));
+	fs.writeFileSync(filePath, JSON.stringify(newLocale, null, '  '));
+}
+
+/**
+ * getLocaleByNamespaceInFolder - search all locale used in a folder for a given namespace
+ *
+ * @param  {string} folder    folder to search
+ * @param  {string} namespace namespace to get
+ * @return {Map}              locale of key/value
+ */
+function getLocaleByNamespaceInFolder(folder, namespace) {
+	if (!fs.existsSync(folder)) {
+		return new Map();
+	}
+
+	const files = fs.readdirSync(folder);
+
+	return new Map(
+		files
+			// eslint-disable-next-line global-require
+			.map(file => getLocaleByNamespace(require(path.join(folder, file)), namespace))
+			.reduce((state, map) => [...state, ...map], []),
+	);
+}
+
+/**
+ * setI18Next - description
+ *
+ * @param  {array} languages  language to get
+ * @param  {object} namespaces object of namespaces to get
+ */
+function setI18Next(languages, namespaces) {
+	let i18next;
+	try {
+		// eslint-disable-next-line global-require
+		i18next = require('i18next');
+	} catch (e) {
+		console.log('The package i18next have to be installed on your project to use i18n feature.');
+		return false;
+	}
+
+	i18next.init({
+		resources: getI18nextResources(languages, namespaces),
+	});
+
+	return i18next;
+}
+
+/**
+ * updateLocales - update the locales for all languages used in the project
+ *
+ * @param  {Map} i18nKeys        key/value used in the projets
+ * @param  {string} locale       current locale
+ * @param  {string} namespace    current namespace
+ * @param  {string} pattern      pattern to get the locale
+
+ */
+function updateLocales(i18nKeys, locales, namespace, pattern) {
+	locales.forEach(lcoale => updateLocale(i18nKeys, lcoale, namespace, pattern));
+}
+
+module.exports = {
+	getI18nextResources,
+	getLocaleByNamespaceInFolder,
+	getLocaleByNamespace,
+	updateLocales,
+	setI18Next,
+	saveSettings,
+};
