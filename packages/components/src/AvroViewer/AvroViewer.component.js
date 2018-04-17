@@ -4,12 +4,7 @@ import classNames from 'classnames';
 import Inject from '../Inject';
 import theme from './AvroViewer.scss';
 
-export default function AvroViewer({
-	getComponent,
-	components,
-	leftProps,
-	rightProps,
-}) {
+export default function AvroViewer({ getComponent, components, leftProps, rightProps }) {
 	const injected = Inject.all(getComponent, components);
 	return (
 		<div className={classNames(theme['tc-avro-layout'], 'tc-avro-layout')}>
