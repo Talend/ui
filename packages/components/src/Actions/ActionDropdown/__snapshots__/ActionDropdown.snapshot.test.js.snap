@@ -107,6 +107,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-icon"
           title={null}
         >
           <use
@@ -192,6 +193,7 @@ exports[`ActionDropdown should render a button with icon 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-icon"
           title={null}
         >
           <use
@@ -280,6 +282,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-icon"
           title={null}
         >
           <use
@@ -362,6 +365,7 @@ exports[`ActionDropdown should render a button with label 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-icon"
           title={null}
         >
           <use
@@ -444,6 +448,7 @@ exports[`ActionDropdown should render a button with label and a filled dropdown 
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-icon"
           title={null}
         >
           <use

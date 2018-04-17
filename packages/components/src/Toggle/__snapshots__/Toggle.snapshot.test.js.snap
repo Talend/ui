@@ -5,6 +5,7 @@ exports[`Toggle should render a Checkbox 1`] = `
   className="checkbox tc-toggle checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
@@ -28,6 +29,7 @@ exports[`Toggle should render a Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
@@ -51,6 +53,7 @@ exports[`Toggle should render a Toggle with label 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
@@ -74,6 +77,7 @@ exports[`Toggle should render a autoFocused Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
@@ -97,6 +101,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature="toggle.disable"
     htmlFor="id"
   >
     <input
@@ -120,6 +125,7 @@ exports[`Toggle should render a disabled Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
