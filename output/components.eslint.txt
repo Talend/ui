@@ -7,21 +7,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Constants.js
-  18:13  error  Unexpected use of '<<'  no-bitwise
-  19:11  error  Unexpected use of '<<'  no-bitwise
-  20:7   error  Unexpected use of '<<'  no-bitwise
-  21:11  error  Unexpected use of '<<'  no-bitwise
+  21:13  error  Unexpected use of '<<'  no-bitwise
   22:11  error  Unexpected use of '<<'  no-bitwise
-  23:15  error  Unexpected use of '<<'  no-bitwise
-  24:8   error  Unexpected use of '<<'  no-bitwise
-  28:2   error  Unexpected use of '|'   no-bitwise
-  28:2   error  Unexpected use of '|'   no-bitwise
-  28:2   error  Unexpected use of '|'   no-bitwise
+  23:7   error  Unexpected use of '<<'  no-bitwise
+  24:11  error  Unexpected use of '<<'  no-bitwise
+  25:11  error  Unexpected use of '<<'  no-bitwise
+  26:15  error  Unexpected use of '<<'  no-bitwise
+  27:8   error  Unexpected use of '<<'  no-bitwise
   31:2   error  Unexpected use of '|'   no-bitwise
   31:2   error  Unexpected use of '|'   no-bitwise
   31:2   error  Unexpected use of '|'   no-bitwise
-  33:39  error  Unexpected use of '|'   no-bitwise
-  33:39  error  Unexpected use of '|'   no-bitwise
+  34:2   error  Unexpected use of '|'   no-bitwise
+  34:2   error  Unexpected use of '|'   no-bitwise
+  34:2   error  Unexpected use of '|'   no-bitwise
+  36:39  error  Unexpected use of '|'   no-bitwise
+  36:39  error  Unexpected use of '|'   no-bitwise
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/DataAccessorWrapper.js
   251:7  error  'result' is never reassigned. Use 'const' instead  prefer-const
@@ -68,17 +68,18 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   97:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.js
-  104:26  error  Unexpected use of '&'                                             no-bitwise
-  105:28  error  Unexpected use of '&'                                             no-bitwise
-  106:26  error  Unexpected use of '&'                                             no-bitwise
-  111:10  error  Unexpected use of '&'                                             no-bitwise
-  178:2   error  updateVisibleInfo should be placed after getConnections           react/sort-comp
-  268:15  error  Expected 'this' to be used by class method 'getVisibility'        class-methods-use-this
-  268:62  error  'targetYPos' is defined but never used                            no-unused-vars
-  356:21  error  Expected 'this' to be used by class method 'updatePropertyValue'  class-methods-use-this
-  359:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
-  368:4   error  Assignment to property of function parameter 'anchors'            no-param-reassign
-  713:23  error  Unknown property 'tabindex' found, use 'tabIndex' instead         react/no-unknown-property
+  104:26  error  Unexpected use of '&'                                                no-bitwise
+  105:28  error  Unexpected use of '&'                                                no-bitwise
+  106:26  error  Unexpected use of '&'                                                no-bitwise
+  111:10  error  Unexpected use of '&'                                                no-bitwise
+  178:2   error  updateVisibleInfo should be placed after getDnDInProgressConnection  react/sort-comp
+  272:15  error  Expected 'this' to be used by class method 'getVisibility'           class-methods-use-this
+  272:62  error  'targetYPos' is defined but never used                               no-unused-vars
+  371:21  error  Expected 'this' to be used by class method 'updatePropertyValue'     class-methods-use-this
+  374:4   error  Assignment to property of function parameter 'anchors'               no-param-reassign
+  383:4   error  Assignment to property of function parameter 'anchors'               no-param-reassign
+  765:4   error  'dndListener' is assigned a value but never used                     no-unused-vars
+  774:23  error  Unknown property 'tabindex' found, use 'tabIndex' instead            react/no-unknown-property
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   64:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -88,7 +89,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   5:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapping.js
-  93:11  error  'dndListener' is assigned a value but never used  no-unused-vars
+  99:11  error  'dndListener' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapping.test.js
   88:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -98,14 +99,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   38:1  error  Component should be written as a pure function  react/prefer-stateless-function
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingCanvas.js
-  196:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  200:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingSVG.js
    19:10  error  'props' is defined but never used                                                              no-unused-vars
-  340:21  error  'height' is missing in props validation                                                        react/prop-types
-  343:2   error  reveal should be placed after getSVGAnchors                                                    react/sort-comp
-  343:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
-  437:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  104:26  error  'buildDndInProgressSVGConnection' was used before it was defined                               no-use-before-define
+  350:21  error  'height' is missing in props validation                                                        react/prop-types
+  353:2   error  reveal should be placed after getBounds                                                        react/sort-comp
+  353:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
+  482:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Filters/Filter.js
   29:8   error  Expected 'this' to be used by class method 'select'  class-methods-use-this
@@ -123,9 +125,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:12  error  Expected 'this' to be used by class method 'getColumns'   class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.js
-  27:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
-  28:2  error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
-  74:2  error  getNode should be placed after onContentScroll  react/sort-comp
+   27:2   error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
+   28:2   error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
+   71:2   error  getNode should be placed after onContentScroll  react/sort-comp
+  125:24  error  Expected '!==' and instead saw '!='             eqeqeq
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaConfiguration.js
   13:13  error  Expected 'this' to be used by class method 'getRenderer'  class-methods-use-this
@@ -148,6 +151,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.test.js
   20:79  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
   32:5   error  Value must be omitted for boolean attributes  react/jsx-boolean-value
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaRenderers/ListRenderer.js
+  178:18  error  'trigger' is missing in props validation       react/prop-types
+  179:28  error  'trigger' is missing in props validation       react/prop-types
+  179:36  error  'trigger.code' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Sorters/MandatoryFieldSorter.test.js
    9:21  error  'dataAccessor' is already declared in the upper scope  no-shadow
@@ -185,5 +193,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 111 problems (110 errors, 1 warning)
+✖ 117 problems (116 errors, 1 warning)
 
