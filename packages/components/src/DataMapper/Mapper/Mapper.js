@@ -175,9 +175,13 @@ export default class Mapper extends Component {
 		}
 	}
 
-	updateVisibleInfo() {
-		this.visibleInputElements = this.inputSchemaRef.getVisibleElements();
-		this.visibleOutputElements = this.outputSchemaRef.getVisibleElements();
+	updateVisibleInfo(side) {
+		if (!side || side === Constants.MappingSide.INPUT) {
+			this.visibleInputElements = this.inputSchemaRef.getVisibleElements();
+		}
+		if (!side || side === Constants.MappingSide.OUTPUT) {
+			this.visibleOutputElements = this.outputSchemaRef.getVisibleElements();
+		}
 		this.visibleMapping = updateVisibleMapping(
 			this.props.dataAccessor,
 			this.props.mapping,
@@ -301,6 +305,17 @@ export default class Mapper extends Component {
 			dataAccessor.includes(visibleInputElements, sourceElement),
 			dataAccessor.includes(visibleOutputElements, targetElement),
 		);
+	}
+
+	getVisibleElements(side) {
+		switch (side) {
+			case Constants.MappingSide.INPUT:
+				return this.getInputVisibleElements();
+			case Constants.MappingSide.OUTPUT:
+				return this.getOutputVisibleElements();
+			default:
+				return [];
+		}
 	}
 
 	getInputVisibleElements() {
@@ -622,10 +637,24 @@ export default class Mapper extends Component {
 
 	revealSelection(selection) {
 		if (!selection) return;
+		let revealed = false;
 		if (selection.side === Constants.MappingSide.INPUT) {
-			this.inputSchemaRef.reveal(selection.element);
+			revealed = this.inputSchemaRef.reveal(selection.element);
 		} else {
-			this.outputSchemaRef.reveal(selection.element);
+			revealed = this.outputSchemaRef.reveal(selection.element);
+		}
+		if (revealed) {
+			this.updateVisibleInfo(selection.side);
+			this.renderSchema(selection.side);
+		}
+	}
+
+	renderSchema(side) {
+		if ((!side || side === Constants.MappingSide.INPUT) && this.inputSchemaRef) {
+			this.inputSchemaRef.forceUpdate();
+		}
+		if ((!side || side === Constants.MappingSide.OUTPUT) && this.outputSchemaRef) {
+			this.outputSchemaRef.forceUpdate();
 		}
 	}
 
@@ -634,29 +663,31 @@ export default class Mapper extends Component {
 		const mappingItems = dataAccessor.getMappingItemsWithElement(this.props.mapping, element, side);
 		if (mappingItems && mappingItems.length > 0) {
 			const item = mappingItems[0];
+			let revealed = false;
 			if (side === Constants.MappingSide.INPUT) {
-				this.outputSchemaRef.reveal(
+				revealed = this.outputSchemaRef.reveal(
 					dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
 				);
 			} else {
-				this.inputSchemaRef.reveal(
+				revealed = this.inputSchemaRef.reveal(
 					dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
 				);
+			}
+			if (revealed) {
+				this.updateVisibleInfo(side);
+				this.renderSchema(side);
 			}
 		}
 	}
 
-	revealElement(element, side) {
-		if (side === Constants.MappingSide.INPUT) {
-			this.inputSchemaRef.reveal(element);
-		} else {
-			this.outputSchemaRef.reveal(element);
-		}
-	}
-
 	revealConnection(source, target) {
-		this.inputSchemaRef.reveal(source);
-		this.outputSchemaRef.reveal(target);
+		let revealed = false;
+		revealed = this.inputSchemaRef.reveal(source) || revealed;
+		revealed = this.outputSchemaRef.reveal(target) || revealed;
+		if (revealed) {
+			this.updateVisibleInfo();
+			this.renderSchema();
+		}
 		const gMap = this.getMappingComponent();
 		if (gMap.reveal) {
 			const connectionKey = this.getConnectionKey(source, target);
@@ -666,15 +697,7 @@ export default class Mapper extends Component {
 
 	isElementVisible(element, side) {
 		const dataAccessor = this.props.dataAccessor;
-		switch (side) {
-			case Constants.MappingSide.INPUT:
-				return dataAccessor.includes(this.getInputVisibleElements(), element);
-			case Constants.MappingSide.OUTPUT:
-				return dataAccessor.includes(this.getOutputVisibleElements(), element);
-			default:
-				break;
-		}
-		return false;
+		return dataAccessor.includes(this.getVisibleElements(side), element);
 	}
 
 	beginDrag(element, side) {

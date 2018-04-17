@@ -1184,6 +1184,38 @@ function getNextElement(dataAccessor, schema, element, nav) {
 	return dataAccessor.getSchemaElement(schema, newSelectedElemIndex, true);
 }
 
+function navigatePage(state, nav, mapper) {
+	const dataAccessor = state.dataAccessor;
+	const selection = state.selection;
+	const mapperInstance = mapper.getDecoratedComponentInstance();
+	const visibleElements = mapperInstance.getVisibleElements(selection.side);
+	const pageSize = visibleElements.length;
+	let newSelectedElement = selection.element;
+	if (pageSize > 0) {
+		const schema = getSchema(state, selection.side);
+		const index = dataAccessor.getSchemaElementIndex(schema, selection.element, true);
+		let targetIndex = -1;
+		switch (nav) {
+			case Constants.Keys.PAGE_UP:
+				targetIndex = Math.max(0, index - pageSize);
+				break;
+			case Constants.Keys.PAGE_DOWN:
+				targetIndex = Math.min(index + pageSize, dataAccessor.getSchemaSize(schema, true) - 1);
+				break;
+			default:
+				break;
+		}
+		if (targetIndex >= 0) {
+			newSelectedElement = dataAccessor.getSchemaElement(schema, targetIndex, true);
+		}
+	}
+	return {
+		element: newSelectedElement,
+		connected: dataAccessor.getConnectedElements(state.mapping, newSelectedElement, selection.side),
+		side: selection.side,
+	};
+}
+
 function navigateUpDown(state, nav) {
 	const dataAccessor = state.dataAccessor;
 	const selection = state.selection;
@@ -1295,6 +1327,10 @@ function navigate(state, nav, mapper, usePosition) {
       return navigateUpDown(state, nav);
     case Constants.Keys.DOWN:
       return navigateUpDown(state, nav);
+		case Constants.Keys.PAGE_UP:
+			return navigatePage(state, nav, mapper);
+		case Constants.Keys.PAGE_DOWN:
+				return navigatePage(state, nav, mapper);
     case Constants.Keys.LEFT:
 			return switchSchema(state, false, mapper, usePosition);
 		case Constants.Keys.RIGHT:
@@ -1500,7 +1536,9 @@ class ConnectedDataMapper extends React.Component {
 	handleNavigation(ev) {
 		const key = ev.keyCode;
 		const isValidKey = key === Constants.Keys.UP
-										|| key === Constants.Keys.DOWN;
+										|| key === Constants.Keys.DOWN
+										|| key === Constants.Keys.PAGE_UP
+										|| key === Constants.Keys.PAGE_DOWN;
 		const isValidSwitch = (key === Constants.Keys.LEFT || key === Constants.Keys.RIGHT)
 			&& this.state.pendingItem == null;
 		return !isSelectionEmpty(this.state.selection)
@@ -1539,7 +1577,11 @@ class ConnectedDataMapper extends React.Component {
 			selectedTargetElement = sourceElement;
 		}
 		this.setState(prevState => ({
-			trigger: null,
+			trigger: {
+				code: Constants.Events.ADD_MAPPING,
+				source: sourceElement,
+				target: targetElement,
+			},
 			mapping: prevState.dataAccessor.addMapping(prevState.mapping, sourceElement, targetElement),
 			selection: {
 				element: selectedSourceElement,
@@ -1558,7 +1600,9 @@ class ConnectedDataMapper extends React.Component {
 
 	clearMapping() {
 		this.setState(prevState => ({
-			trigger: null,
+			trigger: {
+				code: Constants.Events.CLEAR_MAPPING,
+			},
 			mapping: prevState.dataAccessor.clearMapping(prevState.mapping),
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,
@@ -1569,7 +1613,10 @@ class ConnectedDataMapper extends React.Component {
 
 	clearConnection() {
 		this.setState(prevState => ({
-			trigger: null,
+			trigger: {
+				code: Constants.Events.REMOVE_MAPPING,
+				element: prevState.selection.element,
+			},
 			mapping: removeConnections(prevState.dataAccessor, prevState.mapping, prevState.selection),
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,

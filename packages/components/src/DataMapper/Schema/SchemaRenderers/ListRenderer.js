@@ -118,6 +118,20 @@ class RowRenderers {
 	}
 }
 
+function isModelEvent(code) {
+	return code === Constants.Events.UNDO ||
+		code === Constants.Events.REDO ||
+		code === Constants.Events.ADD_MAPPING ||
+		code === Constants.Events.REMOVE_MAPPING ||
+		code === Constants.Events.CLEAR_MAPPING;
+}
+
+function isFilterOrSortEvent(code) {
+	return code === Constants.Events.FILTERING ||
+		code === Constants.Events.SORT ||
+		code === Constants.Events.CLEAR_SORT;
+}
+
 export default class ListRenderer extends Component {
 	constructor(props) {
 		super(props);
@@ -157,11 +171,12 @@ export default class ListRenderer extends Component {
 	}
 
 	needUpdate(nextProps) {
-		// if (this.props.trigger.code === Constants.Events.ENTER_ELEM ||
-		// 	this.props.trigger.code === Constants.Events.LEAVE_ELEM) {
-		// 	return this.props.trigger.side === this.props.side &&
-		// 		this.props.dataAccessor.areElementsEqual(this.props.trigger.element, nextProps.element);
-		// }
+		if (this.props.trigger) {
+			const code = this.props.trigger.code;
+			if (isModelEvent(code) || isFilterOrSortEvent(code)) {
+				return true;
+			}
+		}
 		return this.props.isElementVisible(nextProps.element, this.props.side);
 	}
 

@@ -124,6 +124,10 @@ export default class Schema extends Component {
 			const elements = this.props.dataAccessor.getSchemaElements(this.props.schema, true);
 			const children = this.contentNode.childNodes;
 			const childrenArray = Array.from(children);
+			if (elements.length != childrenArray.length) {
+				visibleElements = visibleElements.concat(elements);
+				return visibleElements;
+			}
 			if (this.meanDist < 0) {
 				this.computeMeanDist(elements);
 			}
@@ -161,12 +165,16 @@ export default class Schema extends Component {
 		const nodeHeight = node.clientHeight;
 		const elemYPos = this.getYPosition(element);
 		const contentHeight = this.contentNode.offsetHeight;
+		let revealed = false;
 		if (elemYPos < 0) {
 			this.contentNode.scrollTop = this.contentNode.scrollTop + elemYPos - nodeHeight / 2;
+			revealed = true;
 		} else if (elemYPos > contentHeight - nodeHeight) {
 			const offset = elemYPos + nodeHeight - contentHeight;
 			this.contentNode.scrollTop = this.contentNode.scrollTop + offset;
+			revealed = true;
 		}
+		return revealed;
 	}
 
 	updateContentNodeRef(ref) {

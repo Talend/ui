@@ -206,11 +206,13 @@ exports[`single connection [all] - mapped/unmapped anchors 1`] = `
             className="connection start all"
             cx={8}
             cy={15}
+            id="in_1-out_2-all-start"
             r={3}
           />
           <path
             className="connection curve all grad-left-top-100"
             d="M 8 15 C 12.5 15, 12.5 40, 17 40"
+            id="in_1-out_2-all-curve"
           >
             <animate
               attributeName="stroke-width"
@@ -233,6 +235,7 @@ exports[`single connection [all] - mapped/unmapped anchors 1`] = `
           <path
             className="connection end all"
             d="M 12 35 L 22 40 L 12 45 Z"
+            id="in_1-out_2-all-end"
           />
         </g>
       </svg>
@@ -311,11 +314,13 @@ exports[`single connection [all] - no anchors 1`] = `
             className="connection start all"
             cx={8}
             cy={15}
+            id="in_1-out_2-all-start"
             r={3}
           />
           <path
             className="connection curve all grad-left-top-100"
             d="M 8 15 C 12.5 15, 12.5 40, 17 40"
+            id="in_1-out_2-all-curve"
           >
             <animate
               attributeName="stroke-width"
@@ -338,6 +343,7 @@ exports[`single connection [all] - no anchors 1`] = `
           <path
             className="connection end all"
             d="M 12 35 L 22 40 L 12 45 Z"
+            id="in_1-out_2-all-end"
           />
         </g>
       </svg>

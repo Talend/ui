@@ -5,6 +5,9 @@ export const Events = {
 	ENTER_ELEM: 'enter-elem',
 	LEAVE_ELEM: 'leave-elem',
 	FILTERING: 'filtering',
+	ADD_MAPPING: 'add-mapping',
+	REMOVE_MAPPING: 'remove-mapping',
+	CLEAR_MAPPING: 'clear-mapping',
 	UNDO: 'undo',
 	REDO: 'redo',
 	SORT: 'sort',
@@ -119,6 +122,8 @@ export const Schema = {
 };
 
 export const Keys = {
+	PAGE_UP: 33,
+	PAGE_DOWN: 34,
 	LEFT: 37,
 	UP: 38,
 	RIGHT: 39,
