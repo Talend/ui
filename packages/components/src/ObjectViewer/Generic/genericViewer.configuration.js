@@ -46,7 +46,8 @@ export function defaultGetQuality() {
 }
 
 export function defaultGetIcon({ isOpened }) {
-	const name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
-	const transform = isOpened ? null : 'rotate-180';
-	return { name, transform };
+	return {
+		name: isOpened ? 'talend-caret-down' : 'talend-chevron-left',
+		transform: isOpened ? null : 'rotate-180',
+	};
 }

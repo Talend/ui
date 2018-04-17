@@ -1,3 +1,3 @@
-import AvroViewer from './AvroViewer.component';
+import Component from './AvroViewer.component';
 
-export default AvroViewer;
+export default Component;

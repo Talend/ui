@@ -1,4 +1,6 @@
 import React from 'react';
+import { get, has } from 'lodash';
+import classNames from 'classnames';
 import defaultGetJSONPath from '../jsonPath';
 import theme from './ModelViewer.scss';
 
@@ -13,7 +15,10 @@ import theme from './ModelViewer.scss';
  * 				 	but we want to display the array objects fields as a JSON object property
  */
 function getDataType(item) {
-	return Array.isArray(item) || item.fields || item.items ? 'object' : null;
+	if (Array.isArray(item) || has(item, 'fields') || has(item, 'items')) {
+		return 'object';
+	}
+	return null;
 }
 
 /**
@@ -37,7 +42,10 @@ function getDataType(item) {
  */
 function getDisplayKey({ value }) {
 	const type = value.type && (value.type.dqType || value.type.type);
-	return [value.doc, type && <span className={theme.type}>({type})</span>];
+	return [
+		value.doc,
+		type && <span className={classNames(theme['tc-model-type'], 'tc-model-type')}>({type})</span>,
+	];
 }
 
 /**
@@ -57,21 +65,16 @@ function getDisplayKey({ value }) {
  * 			So we follow with the "record" case, item.items.fields is an array of properties.
  * 			Each property is an avro schema definition.
  *
- * The format that the generic viewer waits for is { dataKey, value }. 
+ * The format that the generic viewer waits for is { dataKey, value }.
  * Each 3 cases produces an array of avro record
  * definition, that we adapt to this format.
  */
 function getFields(item) {
-	let fields;
-	if (Array.isArray(item)) {
-		fields = item;
-	} else {
-		fields = item.fields || (item.items && item.items.fields);
+	const fields = Array.isArray(item) ? item : get(item, 'fields') || get(item, 'items.fields');
+	if (!Array.isArray(fields)) {
+		return null;
 	}
-	if (fields) {
-		return fields.map(field => ({ dataKey: field.name, value: field }));
-	}
-	return null;
+	return fields.map(field => ({ dataKey: field.name, value: field }));
 }
 
 /**
@@ -92,12 +95,15 @@ function getFields(item) {
  * \$\['my-array']\[[0-9]+]\['array-item-property']
  * that matches 'array-item-property' in all 'my-array' elements' jsonpath.
  */
-function getJSONPath({ dataKey, parent }) {
-	let currentJsonPathAsParent = parent.jsonpath;
-	if (parent.value.type && parent.value.type.type === 'array') {
-		currentJsonPathAsParent = defaultGetJSONPath('', parent.jsonpath, 'array');
+function getCurrentParentJSONPath(parent) {
+	if (has(parent, 'value.type') && get(parent, 'value.type.type') === 'array') {
+		return defaultGetJSONPath('', parent.jsonpath, 'array');
 	}
-	return defaultGetJSONPath(dataKey, currentJsonPathAsParent);
+	return parent.jsonpath;
+}
+
+function getJSONPath({ dataKey, parent }) {
+	return defaultGetJSONPath(dataKey, getCurrentParentJSONPath(parent));
 }
 
 /**
