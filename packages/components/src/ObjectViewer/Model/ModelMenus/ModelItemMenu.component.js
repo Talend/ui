@@ -43,5 +43,4 @@ ModelItemMenu.propTypes = {
 	menuItems: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	onClickItemMenu: PropTypes.func,
 	onClose: PropTypes.func,
-
 };

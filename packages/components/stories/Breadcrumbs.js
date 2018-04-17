@@ -17,6 +17,7 @@ storiesOf('Breadcrumbs', module)
 			{ text: 'Text A', title: 'Text title A', onClick: action('Text A clicked') },
 			{ text: 'Text B', title: 'Text title B', onClick: action('Text B clicked') },
 			{ text: 'Text C', title: 'Text title C', onClick: action('Text C clicked') },
+			{ text: 'lower case', title: 'lower case', onClick: action('lower case clicked') },
 		];
 		return (
 			<div>

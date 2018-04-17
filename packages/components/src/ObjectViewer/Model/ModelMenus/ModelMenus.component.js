@@ -31,10 +31,7 @@ export default class ModelMenus extends React.Component {
 						buttonRef={button => {
 							this.button = button;
 						}}
-						className={classNames(
-							theme['tc-model-menu-trigger'],
-							'tc-model-menu-trigger',
-						)}
+						className={classNames(theme['tc-model-menu-trigger'], 'tc-model-menu-trigger')}
 						link
 						label="..."
 						overlayId={`tc-object-viewer-model-menu-${jsonpath}`}
