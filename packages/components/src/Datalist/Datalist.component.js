@@ -315,6 +315,7 @@ class Datalist extends Component {
 					readOnly={this.props.readOnly || false}
 					theme={this.theme}
 					value={this.state.value}
+					noResultText={this.props.noResultText}
 				/>
 				<div className={theme.toggle}>
 					<span className="caret" />
@@ -337,6 +338,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
+		noResultText: PropTypes.string,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
