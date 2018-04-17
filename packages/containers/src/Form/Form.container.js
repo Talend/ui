@@ -65,10 +65,11 @@ class Form extends React.Component {
 		}
 	}
 
-	onChange(form) {
-		this.props.setState({ data: form.formData, dirty: true });
+	onChange(event, form) {
+		const data = form || event;
+		this.props.setState({ data: data.formData, dirty: true });
 		if (this.props.onChange) {
-			this.props.onChange(form);
+			this.props.onChange(data);
 		}
 	}
 
@@ -139,6 +140,7 @@ class Form extends React.Component {
 			children: this.props.children,
 			uiform: this.props.uiform,
 			language: this.props.language,
+			widgets: this.props.widgets,
 			...this.props.formProps,
 		};
 		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
