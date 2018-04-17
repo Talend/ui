@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Component from './GenericViewer.component';
 
+/*
 const schema = [
 	{
 		name: 'id',
@@ -44,10 +45,11 @@ const sample = {
 	schema,
 	data,
 };
+*/
 
 describe('GenericViewer', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Component data={sample.data} schema={sample.schema} />);
+		const wrapper = shallow(<Component />);
 		expect(wrapper).toMatchSnapshot();
 	});
 });

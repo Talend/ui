@@ -4,49 +4,7 @@ exports[`GenericViewer should render 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <GenericViewer
-    data={
-        Array [
-            Object {
-              "quality": 1,
-              "value": Object {
-                "date": Object {
-                  "quality": 1,
-                  "value": 1523952920435,
-                },
-                "id": Object {
-                  "quality": 1,
-                  "value": 0,
-                },
-                "name": Object {
-                  "quality": 1,
-                  "value": "Nom de la gare",
-                },
-                "price": Object {
-                  "quality": 1,
-                  "value": "Code UIC",
-                },
-              },
-            },
-          ]
-    }
-    schema={
-        Array [
-            Object {
-              "@talend-quality@": Object {
-                "-1": 30,
-                "0": 5,
-                "1": 65,
-              },
-              "doc": "Id",
-              "name": "id",
-              "type": Object {
-                "type": "integer",
-              },
-            },
-          ]
-    }
-/>,
+  Symbol(enzyme.__unrendered__): <GenericViewer />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -60,76 +18,11 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <HierarchicTree
-        data={
-                Array [
-                        Object {
-                          "quality": 1,
-                          "value": Object {
-                            "date": Object {
-                              "quality": 1,
-                              "value": 1523952920435,
-                            },
-                            "id": Object {
-                              "quality": 1,
-                              "value": 0,
-                            },
-                            "name": Object {
-                              "quality": 1,
-                              "value": "Nom de la gare",
-                            },
-                            "price": Object {
-                              "quality": 1,
-                              "value": "Code UIC",
-                            },
-                          },
-                        },
-                      ]
-        }
         dataKey={undefined}
         getJSONPath={[Function]}
         jsonpath="$"
         level={0}
-        schema={
-                Array [
-                        Object {
-                          "@talend-quality@": Object {
-                            "-1": 30,
-                            "0": 5,
-                            "1": 65,
-                          },
-                          "doc": "Id",
-                          "name": "id",
-                          "type": Object {
-                            "type": "integer",
-                          },
-                        },
-                      ]
-        }
-        value={
-                Array [
-                        Object {
-                          "quality": 1,
-                          "value": Object {
-                            "date": Object {
-                              "quality": 1,
-                              "value": 1523952920435,
-                            },
-                            "id": Object {
-                              "quality": 1,
-                              "value": 0,
-                            },
-                            "name": Object {
-                              "quality": 1,
-                              "value": "Nom de la gare",
-                            },
-                            "price": Object {
-                              "quality": 1,
-                              "value": "Code UIC",
-                            },
-                          },
-                        },
-                      ]
-        }
+        value={undefined}
 />,
       "className": "theme-tc-hierarchic tc-hierarchic",
     },
@@ -139,70 +32,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "data": Array [
-          Object {
-            "quality": 1,
-            "value": Object {
-              "date": Object {
-                "quality": 1,
-                "value": 1523952920435,
-              },
-              "id": Object {
-                "quality": 1,
-                "value": 0,
-              },
-              "name": Object {
-                "quality": 1,
-                "value": "Nom de la gare",
-              },
-              "price": Object {
-                "quality": 1,
-                "value": "Code UIC",
-              },
-            },
-          },
-        ],
         "dataKey": undefined,
         "getJSONPath": [Function],
         "jsonpath": "$",
         "level": 0,
-        "schema": Array [
-          Object {
-            "@talend-quality@": Object {
-              "-1": 30,
-              "0": 5,
-              "1": 65,
-            },
-            "doc": "Id",
-            "name": "id",
-            "type": Object {
-              "type": "integer",
-            },
-          },
-        ],
-        "value": Array [
-          Object {
-            "quality": 1,
-            "value": Object {
-              "date": Object {
-                "quality": 1,
-                "value": 1523952920435,
-              },
-              "id": Object {
-                "quality": 1,
-                "value": 0,
-              },
-              "name": Object {
-                "quality": 1,
-                "value": "Nom de la gare",
-              },
-              "price": Object {
-                "quality": 1,
-                "value": "Code UIC",
-              },
-            },
-          },
-        ],
+        "value": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -217,76 +51,11 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <HierarchicTree
-          data={
-                    Array [
-                              Object {
-                                "quality": 1,
-                                "value": Object {
-                                  "date": Object {
-                                    "quality": 1,
-                                    "value": 1523952920435,
-                                  },
-                                  "id": Object {
-                                    "quality": 1,
-                                    "value": 0,
-                                  },
-                                  "name": Object {
-                                    "quality": 1,
-                                    "value": "Nom de la gare",
-                                  },
-                                  "price": Object {
-                                    "quality": 1,
-                                    "value": "Code UIC",
-                                  },
-                                },
-                              },
-                            ]
-          }
           dataKey={undefined}
           getJSONPath={[Function]}
           jsonpath="$"
           level={0}
-          schema={
-                    Array [
-                              Object {
-                                "@talend-quality@": Object {
-                                  "-1": 30,
-                                  "0": 5,
-                                  "1": 65,
-                                },
-                                "doc": "Id",
-                                "name": "id",
-                                "type": Object {
-                                  "type": "integer",
-                                },
-                              },
-                            ]
-          }
-          value={
-                    Array [
-                              Object {
-                                "quality": 1,
-                                "value": Object {
-                                  "date": Object {
-                                    "quality": 1,
-                                    "value": 1523952920435,
-                                  },
-                                  "id": Object {
-                                    "quality": 1,
-                                    "value": 0,
-                                  },
-                                  "name": Object {
-                                    "quality": 1,
-                                    "value": "Nom de la gare",
-                                  },
-                                  "price": Object {
-                                    "quality": 1,
-                                    "value": "Code UIC",
-                                  },
-                                },
-                              },
-                            ]
-          }
+          value={undefined}
 />,
         "className": "theme-tc-hierarchic tc-hierarchic",
       },
@@ -296,70 +65,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "data": Array [
-            Object {
-              "quality": 1,
-              "value": Object {
-                "date": Object {
-                  "quality": 1,
-                  "value": 1523952920435,
-                },
-                "id": Object {
-                  "quality": 1,
-                  "value": 0,
-                },
-                "name": Object {
-                  "quality": 1,
-                  "value": "Nom de la gare",
-                },
-                "price": Object {
-                  "quality": 1,
-                  "value": "Code UIC",
-                },
-              },
-            },
-          ],
           "dataKey": undefined,
           "getJSONPath": [Function],
           "jsonpath": "$",
           "level": 0,
-          "schema": Array [
-            Object {
-              "@talend-quality@": Object {
-                "-1": 30,
-                "0": 5,
-                "1": 65,
-              },
-              "doc": "Id",
-              "name": "id",
-              "type": Object {
-                "type": "integer",
-              },
-            },
-          ],
-          "value": Array [
-            Object {
-              "quality": 1,
-              "value": Object {
-                "date": Object {
-                  "quality": 1,
-                  "value": 1523952920435,
-                },
-                "id": Object {
-                  "quality": 1,
-                  "value": 0,
-                },
-                "name": Object {
-                  "quality": 1,
-                  "value": "Nom de la gare",
-                },
-                "price": Object {
-                  "quality": 1,
-                  "value": "Code UIC",
-                },
-              },
-            },
-          ],
+          "value": undefined,
         },
         "ref": null,
         "rendered": null,
