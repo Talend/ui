@@ -6,20 +6,26 @@ import ModelItemMenu from '../ModelMenus/ModelItemMenu.component';
 import PieChartButton from '../../../PieChartButton';
 import theme from './QualityCircles.scss';
 
-function getQualityModels(qualities) {
-	let invalidPercentage = (qualities && qualities[-1]) || 0;
-	let emptyPercentage = (qualities && qualities[0]) || 0;
-	let validPercentage = (qualities && qualities[1]) || 0;
-	const total = invalidPercentage + emptyPercentage + validPercentage;
+function evalPercentage(value, total) {
 	if (total) {
-		invalidPercentage = invalidPercentage / total * 100;
-		emptyPercentage = emptyPercentage / total * 100;
-		validPercentage = validPercentage / total * 100;
+		return value / total * 100;
 	}
+	return value;
+}
+
+function getQuality(qualities, index) {
+	return (qualities && qualities[index]) || 0;
+}
+
+function getQualityModels(qualities) {
+	const invalidPercentage = getQuality(qualities, -1);
+	const emptyPercentage = getQuality(qualities, 0);
+	const validPercentage = getQuality(qualities, 1);
+	const total = invalidPercentage + emptyPercentage + validPercentage;
 	return {
-		invalid: [{ color: 'lightning-yellow', percentage: invalidPercentage }],
-		empty: [{ color: 'silver-chalice', percentage: emptyPercentage }],
-		valid: [{ color: 'rio-grande', percentage: validPercentage }],
+		invalid: [{ color: 'lightning-yellow', percentage: evalPercentage(invalidPercentage, total) }],
+		empty: [{ color: 'silver-chalice', percentage: evalPercentage(emptyPercentage, total) }],
+		valid: [{ color: 'rio-grande', percentage: evalPercentage(validPercentage, total) }],
 	};
 }
 
@@ -45,7 +51,7 @@ class QualityCircle extends React.Component {
 				buttonRef={button => {
 					this.button = button;
 				}}
-				display={'small'}
+				display="small"
 				hideLabel
 				aria-label={`Open menu for ${type} values (${model[0].percentage} %)`}
 				label={`${type} (${model[0].percentage} %)`}
@@ -70,6 +76,7 @@ class QualityCircle extends React.Component {
 }
 
 QualityCircle.propTypes = {
+	onCloseOverlay: PropTypes.func.isRequired,
 	onClick: PropTypes.func,
 	item: PropTypes.object,
 	jsonpath: PropTypes.string,
@@ -88,9 +95,7 @@ export default function QualityCircles({ item, jsonpath, quality, ...rest }) {
 	if (!item[key]) {
 		return null;
 	}
-
 	const { invalid, empty, valid } = getQualityModels(item[key]);
-
 	return (
 		<div className={classNames(theme['tc-quality'], 'tc-quality')}>
 			<QualityCircle
@@ -99,7 +104,7 @@ export default function QualityCircles({ item, jsonpath, quality, ...rest }) {
 				item={item}
 				jsonpath={jsonpath}
 				model={invalid}
-				type={'invalid'}
+				type="invalid"
 				{...rest}
 			/>
 			<QualityCircle
@@ -108,7 +113,7 @@ export default function QualityCircles({ item, jsonpath, quality, ...rest }) {
 				item={item}
 				jsonpath={jsonpath}
 				model={empty}
-				type={'empty'}
+				type="empty"
 				{...rest}
 			/>
 			<QualityCircle
@@ -117,7 +122,7 @@ export default function QualityCircles({ item, jsonpath, quality, ...rest }) {
 				item={item}
 				jsonpath={jsonpath}
 				model={valid}
-				type={'valid'}
+				type="valid"
 				{...rest}
 			/>
 		</div>
