@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { get } from 'lodash';
+import classNames from 'classnames';
 import theme from './RecordViewer.scss';
 import { injectedCellRenderer } from '../AvroRenderer';
 
@@ -35,26 +37,27 @@ import { injectedCellRenderer } from '../AvroRenderer';
 		}
 	}
  */
-function getFields(avroSample, type) {
-	const value = avroSample.data.value;
-	const schema = avroSample.schema;
+function getFieldsFromSchema(schema) {
+	return Array.isArray(schema) ? schema : schema.fields;
+}
 
+function getFields(avroSample, type) {
+	const value = get(avroSample, 'data.value');
+	const schema = get(avroSample, 'schema');
 	if (type === 'object') {
-		const fieldsSchema = Array.isArray(schema) ? schema : schema.fields;
-		return fieldsSchema.filter(({ name }) => value[name] !== undefined).map(subSchema => {
-			const dataKey = subSchema.name;
-			return {
-				dataKey,
+		return getFieldsFromSchema(schema)
+			.filter(({ name }) => value[name] !== undefined)
+			.map(subSchema => ({
+				dataKey: subSchema.name,
 				value: {
 					schema: subSchema,
-					data: value[dataKey],
+					data: value[subSchema.name],
 				},
-			};
-		});
+			}));
 	}
 	return value.map((datum, index) => ({
 		dataKey: index,
-		value: { schema: schema.items.fields, data: datum },
+		value: { schema: get(schema, 'items.fields'), data: datum },
 	}));
 }
 
@@ -70,24 +73,17 @@ function getDataType(avroSample) {
  * The data is an avro data, containing a quality indicator.
  * We adapt this indicator to a quality constant.
  */
-function getQuality(props) {
-	const avroSample = props.value;
-	return avroSample.data.quality;
+function getQuality({ value }) {
+	return get(value, 'data.quality');
 }
 
 /**
  * The value is an avro entry that contains { schema, data }.
  * The data is an avro data, containing the real value.
  */
-function getDisplayValue(props) {
-	const avroSample = props.value;
-	const RendererComponent = injectedCellRenderer(
-		props.getComponent,
-		props.cellRenderer,
-		props.avroRenderersIds,
-	);
-
-	return <RendererComponent colDef={{ avro: avroSample.schema }} data={avroSample.data} />;
+function getDisplayValue({ value, getComponent, cellRenderer, avroRenderersIds }) {
+	const Component = injectedCellRenderer(getComponent, cellRenderer, avroRenderersIds);
+	return <Component colDef={{ avro: value.schema }} data={value.data} />;
 }
 getDisplayValue.propTypes = {
 	avroRenderersIds: PropTypes.object, // dictionary type/rendererId
@@ -107,7 +103,10 @@ getDisplayValue.propTypes = {
 function getIcon({ isOpened, type }) {
 	if (type === 'object') {
 		// TODO we don't have a talend-minus-circle
-		return { name: 'talend-plus-circle', className: theme['tc-records-icon'] };
+		return {
+			name: 'talend-plus-circle',
+			className: classNames(theme['tc-records-icon'], 'tc-records-icon'),
+		};
 	}
 	return {
 		name: isOpened ? 'talend-caret-down' : 'talend-chevron-left',
