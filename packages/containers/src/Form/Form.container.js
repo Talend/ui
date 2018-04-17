@@ -141,7 +141,6 @@ class Form extends React.Component {
 			language: this.props.language,
 			...this.props.formProps,
 		};
-
 		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
 	}
 }

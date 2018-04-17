@@ -132,6 +132,9 @@ class Form extends React.Component {
 			}
 			return <UIForm {...props} />;
 		}
+		if (Array.isArray(this.props.data.uiSchema)) {
+			return <UIForm {...this.props} />;
+		}
 		const schema = this.props.data && this.props.data.jsonSchema;
 		if (!schema) {
 			throw Error('You must provide data with valid JSON Schema');
