@@ -73,14 +73,15 @@ class Form extends React.Component {
 		}
 	}
 
-	onSubmit(formData) {
+	onSubmit(event, formData) {
+		const data = formData || event;
 		if (this.props.onSubmit) {
-			this.props.onSubmit(formData);
+			this.props.onSubmit(data);
 		}
 		if (this.props.onSubmitActionCreator) {
 			this.props.dispatchActionCreator(this.props.onSubmitActionCreator, null, {
 				props: this.props,
-				formData,
+				formData: data,
 			});
 		}
 	}
