@@ -66,7 +66,6 @@ class Form extends React.Component {
 	}
 
 	onChange(event, form) {
-		debugger;
 		this.props.setState({ data: form.formData, dirty: true });
 		if (this.props.onChange) {
 			this.props.onChange(form);
