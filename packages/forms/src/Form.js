@@ -81,7 +81,7 @@ class Form extends React.Component {
 
 	handleSchemaSubmit(changes) {
 		if (this.props.onSubmit) {
-			this.props.onSubmit(changes);
+			this.props.onSubmit(null, changes);
 		}
 	}
 
@@ -115,7 +115,7 @@ class Form extends React.Component {
 	 */
 	handleChange(...args) {
 		if (this.props.onChange) {
-			this.props.onChange(...args);
+			this.props.onChange(null, ...args);
 		}
 	}
 

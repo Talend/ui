@@ -44,7 +44,7 @@ export default class UIForm extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		} else if (this.props.moz) {
-			this.props.onChange(payload);
+			this.props.onChange(null, payload);
 		} else {
 			this.props.onChange(event, payload);
 		}

@@ -66,22 +66,21 @@ class Form extends React.Component {
 	}
 
 	onChange(event, form) {
-		const data = form || event;
-		this.props.setState({ data: data.formData, dirty: true });
+		debugger;
+		this.props.setState({ data: form.formData, dirty: true });
 		if (this.props.onChange) {
-			this.props.onChange(data);
+			this.props.onChange(form);
 		}
 	}
 
 	onSubmit(event, formData) {
-		const data = formData || event;
 		if (this.props.onSubmit) {
-			this.props.onSubmit(data);
+			this.props.onSubmit(formData);
 		}
 		if (this.props.onSubmitActionCreator) {
 			this.props.dispatchActionCreator(this.props.onSubmitActionCreator, null, {
 				props: this.props,
-				formData: data,
+				formData,
 			});
 		}
 	}
