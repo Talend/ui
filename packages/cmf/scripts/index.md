@@ -26,7 +26,7 @@ Create on your own project a file "cmf.json"
 				"package2-cmf": "node_modules/package2/lib/app/locales/{{namespace}}/{{locale}}.json"
 			},
 			"extract-namepaces": ["app-cmf"],
-			"from": "src/settings"
+			"extract-from": "src/settings"
 		},
 		"destination": "src/assets/settings.json"
 	}

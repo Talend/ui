@@ -62,7 +62,7 @@ function merge(options, errorCallback) {
 		);
 
 		logger('Extracting configuration from:', jsonFiles);
-		const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile));
+		const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile)).concat([{}]);
 
 		// Merge json stuff in one object / settings
 		settings = deepmerge.all(configurations, {
@@ -86,7 +86,7 @@ function merge(options, errorCallback) {
 	if (
 		cmfconfig.settings.i18n &&
 		cmfconfig.settings.i18n.languages &&
-		cmfconfig.settings.i18n.from &&
+		cmfconfig.settings.i18n['extract-from'] &&
 		cmfconfig.settings.i18n['namepace-paths'] &&
 		cmfconfig.settings.i18n['extract-namepaces']
 	) {
@@ -95,7 +95,7 @@ function merge(options, errorCallback) {
 			.forEach(namespace => {
 				let i18nKeys = {};
 				i18nKeys = getLocaleByNamespaceInFolder(
-					path.join(process.cwd(), ...cmfconfig.settings.i18n.from.split('/')),
+					path.join(process.cwd(), ...cmfconfig.settings.i18n['extract-from'].split('/')),
 					namespace,
 				);
 
