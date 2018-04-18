@@ -9,6 +9,7 @@ const set = require('lodash/set');
 const mkdirp = require('mkdirp');
 
 const { getLogger } = require('./cmf-settings.utils');
+const { getJSON } = require('./getJSON');
 
 const JSON_PATH_EXPRESSION = '$..i18n';
 const DEFAULT_LOCALE = 'en';
@@ -61,7 +62,7 @@ function getNameSpacesByLocale(namespaces, locale) {
 		(state, namespace) => ({
 			...state,
 			// eslint-disable-next-line global-require
-			[namespace]: require(getPathFromPattern(namespaces[namespace], namespace, locale)),
+			[namespace]: getJSON(getPathFromPattern(namespaces[namespace], namespace, locale)),
 		}),
 		{},
 	);
@@ -157,7 +158,7 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 	let savedLocale = {};
 	if (fs.existsSync(filePath)) {
 		// eslint-disable-next-line global-require
-		savedLocale = require(filePath);
+		savedLocale = getJSON(filePath);
 	}
 
 	// find the difference between the code & the dictionary. prior is the code
@@ -198,7 +199,7 @@ function getLocaleByNamespaceInFolder(folder, namespace) {
 	return new Map(
 		files
 			// eslint-disable-next-line global-require
-			.map(file => getLocaleByNamespace(require(path.join(folder, file)), namespace))
+			.map(file => getLocaleByNamespace(getJSON(path.join(folder, file)), namespace))
 			.reduce((state, map) => [...state, ...map], []),
 	);
 }
@@ -244,8 +245,11 @@ module.exports = {
 	getI18nextResources,
 	getLocaleByNamespace,
 	getLocaleByNamespaceInFolder,
+	getNameSpacesByLocale,
 	getPathFromPattern,
 	parseSettings,
 	saveSettings,
+	setTranslate,
 	updateLocales,
+	updateLocale,
 };
