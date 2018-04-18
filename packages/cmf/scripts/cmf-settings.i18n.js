@@ -242,7 +242,9 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
 module.exports = {
 	getI18Next,
 	getI18nextResources,
+	getLocaleByNamespace,
 	getLocaleByNamespaceInFolder,
+	getPathFromPattern,
 	parseSettings,
 	saveSettings,
 	updateLocales,
