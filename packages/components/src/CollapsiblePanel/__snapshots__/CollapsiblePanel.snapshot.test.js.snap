@@ -149,6 +149,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-caret-down"
         title={null}
       >
         <use
@@ -346,6 +347,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-caret-down"
         title={null}
       >
         <use
@@ -598,6 +600,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-caret-down"
         title={null}
       >
         <use

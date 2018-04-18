@@ -13,15 +13,14 @@ function merge(options, logger, successCallback, errorCallback) {
 	const onSuccess = successCallback || Function.prototype;
 	const onError = errorCallback || Function.prototype;
 
-	const {
-		dev,
-		quiet,
-		recursive,
-	} = Object.assign({
-		dev: false,
-		quiet: false,
-		recursive: false,
-	}, options);
+	const { dev, quiet, recursive } = Object.assign(
+		{
+			dev: false,
+			quiet: false,
+			recursive: false,
+		},
+		options,
+	);
 
 	function log(...args) {
 		if (!quiet) {
@@ -111,7 +110,7 @@ function merge(options, logger, successCallback, errorCallback) {
 	);
 
 	log('Extracting configuration from:', jsonFiles);
-	const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile));
+	const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile)).concat([{}]);
 
 	// Merge json stuff in one object / settings
 	const settings = deepmerge.all(configurations, {
