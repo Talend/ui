@@ -1,5 +1,3 @@
-
-
 function toJS(data) {
 	if (data) {
 		if (data.toJS) {
