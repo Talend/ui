@@ -1,120 +1,67 @@
-const fs = require('fs').default || require('fs');
+const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const deepmerge = require('deepmerge');
-const Ajv = require('ajv');
 
 const {
+	getI18Next,
 	getLocaleByNamespaceInFolder,
-	getLocaleByNamespace,
-	updateLocales,
-	setI18Next,
+	parseSettings,
 	saveSettings,
+	updateLocales,
 } = require('./cmf-settings.i18n');
 
-const ajv = new Ajv();
+const {
+	concatMerge,
+	findJson,
+	getLogger,
+	importAndValidate,
+	overrideActions,
+	overrideRoutes,
+	setLogger,
+} = require('./cmf-settings.utils');
 
-const DEFAULT_SETTINGS_EXT = '.json';
 const DEFAULT_CONFIG_FILENAME = 'cmf.json';
 
 function merge(options, errorCallback) {
-	const onError = errorCallback || Function.prototype;
+	const onErrorCallback = errorCallback || Function.prototype;
+	function onError(...args) {
+		console.error(args); // eslint-disable-line no-console
+		return onErrorCallback();
+	}
 
-	const { dev, recursive } = Object.assign(
+	const { quiet, recursive } = Object.assign(
 		{
-			dev: false,
 			quiet: false,
 			recursive: false,
 		},
 		options,
 	);
 
-	function error(...args) {
-		console.error(args); // eslint-disable-line no-console
-		return onError();
-	}
-
-	function importAndValidate(filePath, schema) {
-		let file;
-		try {
-			delete require.cache[require.resolve(filePath)];
-			file = require(filePath); // eslint-disable-line global-require
-		} catch (e) {
-			error(`${filePath} does not exist`, e);
-		}
-		if (!ajv.validate(schema || {}, file)) {
-			error(`${filePath} is invalid`, ajv.errors);
-		}
-		return file;
-	}
-
-	function findJson(fileOrFolder) {
-		let files = [];
-		if (fileOrFolder.endsWith(DEFAULT_SETTINGS_EXT)) {
-			files.push(fileOrFolder);
-		} else {
-			fs.readdirSync(fileOrFolder).forEach(fileOrFolderPath => {
-				const fullpath = path.join(fileOrFolder, fileOrFolderPath);
-				if (fileOrFolderPath.endsWith(DEFAULT_SETTINGS_EXT)) {
-					files.push(fullpath);
-				} else if (recursive && fs.lstatSync(fullpath).isDirectory()) {
-					files = files.concat(...findJson(fullpath));
-				}
-			});
-		}
-		return files;
-	}
-
-	function concatMerge(destinationArray, sourceArray) {
-		return destinationArray.concat(sourceArray);
-	}
-
-	function getChildRoutes(splitedPath, settings) {
-		let currentChild = settings.routes.childRoutes;
-		splitedPath.forEach(filePath => {
-			if (filePath !== '') {
-				currentChild.forEach(config => {
-					if (config.path === filePath) {
-						currentChild = config.childRoutes || [];
-					}
-				});
-			}
-		});
-		return currentChild;
-	}
-
-	function overrideRoutes(filePath, settings) {
-		const childRoutes = getChildRoutes(filePath.split('/'), settings);
-		settings.overrideRoutes[filePath].forEach(config => {
-			childRoutes.push(config);
-		});
-		delete settings.overrideRoutes[filePath]; // eslint-disable-line no-param-reassign
-	}
-
-	function overrideActions(id, settings) {
-		// eslint-disable-next-line no-param-reassign
-		settings.actions[id] = Object.assign({}, settings.actions[id], settings.overrideActions[id]);
-	}
+	setLogger(quiet);
+	const logger = getLogger();
 
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
-	const cmfconfig = importAndValidate(cmfconfigPath);
+	const cmfconfig = importAndValidate(cmfconfigPath, onError);
 
 	let sources;
 	let destination;
 	let settings;
+	let jsonFiles;
 
 	if (cmfconfig.settings.destination) {
 		// Get sources & destination paths
-		sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
+		sources = cmfconfig.settings.sources;
 		destination = path.join(process.cwd(), cmfconfig.settings.destination);
 
 		// Extract json from sources
-		const jsonFiles = sources.reduce(
-			(acc, source) => acc.concat([...findJson(path.join(process.cwd(), source))]),
+		jsonFiles = sources.reduce(
+			(acc, source) => acc.concat([...findJson(path.join(process.cwd(), source), recursive)]),
 			[],
 		);
 
+		logger('Extracting configuration from:', jsonFiles);
 		const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile));
 
 		// Merge json stuff in one object / settings
@@ -135,29 +82,42 @@ function merge(options, errorCallback) {
 		}
 	}
 
-	if (cmfconfig.settings['extract-locale']) {
-		Object.keys(cmfconfig.settings['extract-locale']).forEach(namespace => {
-			let i18nKeys = {};
-			if (cmfconfig.settings['extract-from']) {
+	// extract all keys from a folder
+	if (
+		cmfconfig.settings.i18n &&
+		cmfconfig.settings.i18n.languages &&
+		cmfconfig.settings.i18n.from &&
+		cmfconfig.settings.i18n['namepace-paths'] &&
+		cmfconfig.settings.i18n['extract-namepaces']
+	) {
+		cmfconfig.settings.i18n['extract-namepaces']
+			.filter(namespace => cmfconfig.settings.i18n['namepace-paths'][namespace])
+			.forEach(namespace => {
+				let i18nKeys = {};
 				i18nKeys = getLocaleByNamespaceInFolder(
-					path.join(process.cwd(), ...cmfconfig.settings['extract-from'].split('/')),
+					path.join(process.cwd(), ...cmfconfig.settings.i18n.from.split('/')),
 					namespace,
 				);
-			} // else {
-			// 	i18nKeys = getLocaleByNamespace(settings, namespace);
-			// }
 
-			updateLocales(
-				i18nKeys,
-				cmfconfig.settings.languages,
-				namespace,
-				cmfconfig.settings['extract-locale'][namespace],
-			);
-		});
+				updateLocales(
+					i18nKeys,
+					cmfconfig.settings.languages,
+					namespace,
+					cmfconfig.settings.i18n['namepace-paths'][namespace],
+				);
+			});
 	}
 
-	if (settings && cmfconfig.settings.namespaces && cmfconfig.settings.languages) {
-		const i18next = setI18Next(cmfconfig.settings.languages, cmfconfig.settings.namespaces);
+	// parse settings to replace i18n object by the translated value
+	if (
+		cmfconfig.settings.i18n &&
+		cmfconfig.settings.i18n.languages &&
+		cmfconfig.settings.i18n['namepace-paths']
+	) {
+		const i18next = getI18Next(
+			cmfconfig.settings.i18n.languages,
+			cmfconfig.settings.i18n['namepace-paths'],
+		);
 
 		if (i18next) {
 			cmfconfig.settings.languages.forEach(locale =>
@@ -166,15 +126,25 @@ function merge(options, errorCallback) {
 		}
 	}
 
-	if (destination) {
+	if (!cmfconfig.settings.i18n && destination) {
+		const settingWithoutI18n = parseSettings(
+			{
+				changeLanguage: () => {},
+				t: (key, i18nOptions) => i18nOptions.defaultValue,
+			},
+			settings,
+		);
 		// Write the merged file
-		mkdirp(path.dirname(destination), () => {
-			const file = fs.createWriteStream(destination);
-			file.write(JSON.stringify(settings, null, '  '));
-			console.log(`${destination} created.`);
-			file.end();
-		});
+		logger(`Merge to ${destination}`);
+		mkdirp.sync(path.dirname(destination));
+		const file = fs.createWriteStream(destination);
+		file.write(JSON.stringify(settingWithoutI18n));
+		file.end();
+		logger('CMF settings has been merged');
+		return jsonFiles.concat(cmfconfigPath);
 	}
+
+	return [];
 }
 
 module.exports = merge;

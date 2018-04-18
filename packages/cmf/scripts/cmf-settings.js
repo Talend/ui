@@ -10,4 +10,4 @@ program
 	.option('-r, --recursive', 'allow recursive search for json files')
 	.parse(process.argv);
 
-merge(program, null, null, process.exit);
+merge(program, process.exit);

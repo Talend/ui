@@ -8,7 +8,10 @@ const intersection = require('lodash/intersection');
 const set = require('lodash/set');
 const mkdirp = require('mkdirp');
 
+const { getLogger } = require('./cmf-settings.utils');
+
 const JSON_PATH_EXPRESSION = '$..i18n';
+const DEFAULT_LOCALE = 'en';
 
 /**
  * getPathFromPattern - get the path in order the patter in the currect context
@@ -89,7 +92,7 @@ function parseSettings(i18next, settings, locale) {
 	const clonedSettings = cloneDeep(settings);
 	i18next.changeLanguage(locale);
 	jsonpath
-		.paths(clonedSettings, '$..i18n')
+		.paths(clonedSettings, JSON_PATH_EXPRESSION)
 		.forEach(jsonpaths => setTranslate(i18next, clonedSettings, jsonpaths));
 
 	return clonedSettings;
@@ -114,10 +117,11 @@ function saveSettings(i18next, settings, locale, destination) {
 			destination,
 			path.extname(destination),
 		)}.${locale}${path.extname(destination)}`;
-		const dest = path.join(path.dirname(destination), basename);
-		const file = fs.createWriteStream(dest);
-		file.write(JSON.stringify(translatedSetting, null, '  '));
+		const filePath = path.join(path.dirname(destination), basename);
+		const file = fs.createWriteStream(filePath);
+		file.write(JSON.stringify(translatedSetting));
 		file.end();
+		getLogger()('Settings created:', `${filePath}  settings has been created`);
 	});
 }
 
@@ -157,15 +161,18 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 	}
 
 	// find the difference between the code & the dictionary. prior is the code
+	// remove unused keys
+	// add new keys
 	const keys = [
-		...intersection([...i18nKeys.keys()], Object.keys(locale)),
-		...difference([...i18nKeys.keys()], Object.keys(locale)),
+		...intersection([...i18nKeys.keys()], Object.keys(savedLocale)),
+		...difference([...i18nKeys.keys()], Object.keys(savedLocale)),
 	];
 
+	// set value that exist in the current locale or set defaultValue (only for en)
 	const newLocale = keys.reduce(
 		(refreshedLocale, key) => ({
 			...refreshedLocale,
-			[key]: savedLocale[key] || i18nKeys.get(key),
+			[key]: savedLocale[key] || (locale === DEFAULT_LOCALE ? i18nKeys.get(key) : ''),
 		}),
 		{},
 	);
@@ -202,7 +209,7 @@ function getLocaleByNamespaceInFolder(folder, namespace) {
  * @param  {array} languages  language to get
  * @param  {object} namespaces object of namespaces to get
  */
-function setI18Next(languages, namespaces) {
+function getI18Next(languages, namespaces) {
 	let i18next;
 	try {
 		// eslint-disable-next-line global-require
@@ -233,10 +240,10 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
 }
 
 module.exports = {
+	getI18Next,
 	getI18nextResources,
 	getLocaleByNamespaceInFolder,
-	getLocaleByNamespace,
-	updateLocales,
-	setI18Next,
+	parseSettings,
 	saveSettings,
+	updateLocales,
 };

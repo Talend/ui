@@ -35,8 +35,9 @@
     "babel-polyfill": "6.26.0",
     "deepmerge": "1.5.1",
     "hoist-non-react-statics": "^1.2.0",
-    "react-immutable-proptypes": "2.1.0",
-    "i18next": "^9.0.0"
+    "jsonpath": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
     "ajv": "^6.2.1",
@@ -118,6 +119,7 @@
     ],
     "roots": [
       "src",
+      "scripts",
       "__tests__"
     ],
     "transform": {
