@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { store } from '@talend/react-cmf/lib/mock';
 import Immutable from 'immutable';
 
-import Container from './DeleteResource.container';
+import { DeleteResource } from './DeleteResource.container';
 import Connected from './DeleteResource.connect';
 
 const state = store.state();
@@ -40,10 +40,12 @@ describe('Container DeleteResource', () => {
 			resource: new Immutable.Map({ label: 'myLabel' }),
 			header: 'My header title',
 			params: { id: 'myResourceID' },
+			resourceTypeLabel: 'resourceLabel',
+			female: true,
 			'validate-action': 'dialog:delete:validate',
 			'cancel-action': 'dialog:delete:cancel',
 		};
-		const wrapper = shallow(<Container {...props} />, { context });
+		const wrapper = shallow(<DeleteResource {...props} />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with wrong resourceInfo params', () => {
@@ -55,14 +57,14 @@ describe('Container DeleteResource', () => {
 			'validate-action': 'dialog:delete:validate',
 			'cancel-action': 'dialog:delete:cancel',
 		};
-		const wrapper = shallow(<Container {...props} />, { context });
+		const wrapper = shallow(<DeleteResource {...props} />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
 describe('Connected DeleteResource', () => {
 	it('should connect TestGenerator', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(Container);
+		expect(Connected.displayName).toBe('Connect(CMF(Translate(Container(DeleteResource))))');
+		expect(Connected.WrappedComponent).toBe(DeleteResource);
 	});
 });

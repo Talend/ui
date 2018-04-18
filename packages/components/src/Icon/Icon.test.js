@@ -1,27 +1,27 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Icon from './Icon.component';
 
 describe('Icon', () => {
 	it('should render fontawesome', () => {
-		const wrapper = renderer.create(<Icon name="fa-bars" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(<Icon name="fa-bars" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render from custom font', () => {
-		const wrapper = renderer.create(<Icon name="icon-test" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(<Icon name="icon-test" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render from svg', () => {
-		const wrapper = renderer.create(<Icon name="svg-dd" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(<Icon name="svg-dd" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render from src', () => {
-		const wrapper = renderer.create(<Icon name="src-/foo/bar.png" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(<Icon name="src-/foo/bar.png" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should fails if no id found', () => {
@@ -29,7 +29,12 @@ describe('Icon', () => {
 	});
 
 	it('should render with provided className', () => {
-		const wrapper = renderer.create(<Icon name="svg-dd" className="custom-class" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(<Icon name="svg-dd" className="custom-class" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should support extra props', () => {
+		const wrapper = shallow(<Icon name="svg-dd" className="custom-class" data-custom="hello" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
