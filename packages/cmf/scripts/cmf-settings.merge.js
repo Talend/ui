@@ -111,6 +111,7 @@ function merge(options, errorCallback) {
 	// parse settings to replace i18n object by the translated value
 	if (
 		cmfconfig.settings.i18n &&
+		destination &&
 		cmfconfig.settings.i18n.languages &&
 		cmfconfig.settings.i18n['namepace-paths']
 	) {
