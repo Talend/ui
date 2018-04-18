@@ -2,7 +2,7 @@
 
 function toJS(data) {
 	if (data) {
-		if (data.toJS) {
+		if (typeof data.toJS === 'function') {
 			return data.toJS();
 		}
 		throw new Error('the selector return a data which is not an immutable');
