@@ -24,6 +24,7 @@ Object {
   "onTrigger": [Function],
   "other": true,
   "uiform": undefined,
+  "widgets": undefined,
 }
 `;
 
@@ -52,6 +53,7 @@ exports[`Container(Form) should render a Form 1`] = `
   onTrigger={[Function]}
   other={true}
   uiform={undefined}
+  widgets={undefined}
 />
 `;
 
