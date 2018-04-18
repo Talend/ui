@@ -8,7 +8,18 @@ function toJS(data) {
 	return undefined;
 }
 
+/**
+ * toJS is an higher order selector.
+ * It modify a given selector to return the value
+ * as a POO.
+ * Note: your selector must use only one selector
+ * @param {function} selector the selector
+ * @returns the POO associated to the given selector
+ */
 export default function getToJSMemoized(selector) {
+	if (typeof selector !== 'function') {
+		throw new Error('selector must be a function in api.selectors.toJS(selector)');
+	}
 	const cache = {};
 
 	function memoize(func) {
