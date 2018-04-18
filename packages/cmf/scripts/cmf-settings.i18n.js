@@ -237,7 +237,7 @@ function getI18Next(languages, namespaces) {
 
  */
 function updateLocales(i18nKeys, locales, namespace, pattern) {
-	locales.forEach(lcoale => updateLocale(i18nKeys, lcoale, namespace, pattern));
+	locales.forEach(locale => updateLocale(i18nKeys, locale, namespace, pattern));
 }
 
 module.exports = {

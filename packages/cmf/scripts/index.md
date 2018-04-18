@@ -2,13 +2,13 @@
 
 CMF provides a script to build:
 * the settings from a lot of settings,
-* i18n the settings
+* i18n the settings.
 
-After the install of cmf, the binary cmf-settings is installed on your system
+After the install of cmf, the binary cmf-settings is installed on your system.
 
 ## Configuration
 
-Create on your own project a file "cmf.json"
+Create on your own project a file "cmf.json".
 
 ```json
 {
@@ -43,7 +43,7 @@ I18NConfiguration
 
 | property  | description  | type  |
 |---|---|---|
-| languages | languages handle by your application  | I18NConfiguration |
+| languages | languages handle by your application  | array |
 | namepace-paths | path of the namespace used to build the i18next ressource  | object |
 | extract-namepaces | set the namespace to extract the keys/values  | array |
 | extract-from | indicate the folder to extract the keys/values  | string |

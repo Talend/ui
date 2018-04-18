@@ -101,7 +101,7 @@ function merge(options, errorCallback) {
 
 				updateLocales(
 					i18nKeys,
-					cmfconfig.settings.languages,
+					cmfconfig.settings.i18n.languages,
 					namespace,
 					cmfconfig.settings.i18n['namepace-paths'][namespace],
 				);
@@ -120,7 +120,7 @@ function merge(options, errorCallback) {
 		);
 
 		if (i18next) {
-			cmfconfig.settings.languages.forEach(locale =>
+			cmfconfig.settings.i18n.languages.forEach(locale =>
 				saveSettings(i18next, settings, locale, destination),
 			);
 		}
