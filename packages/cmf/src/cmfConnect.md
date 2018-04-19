@@ -1,5 +1,4 @@
-cmfConnect
-==
+# cmfConnect
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
@@ -12,8 +11,7 @@ cmfConnect
 
 Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
-API
---
+## API
 
 ```javascript
 cmfConnect({
@@ -25,8 +23,8 @@ cmfConnect({
 })(Component);
 ```
 
-How to use component state
---
+## How to use component state
+
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
@@ -213,8 +211,8 @@ export default cmfConnect({})(SimpleButton);
 }
 
 ```
-How to render conditionally
---
+
+## How to render conditionally
 
 Every component that connected with CMF can be rendered conditionally
 
@@ -223,8 +221,7 @@ If you want to render some component conditionally, just pass "renderIf" prop (t
 You can also use Expression for this and customize this prop like "renderIfExpression" in
 CMF json configuration files
 
-How to test
---
+## How to test
 
 
 When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).
