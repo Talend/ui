@@ -1,4 +1,4 @@
-# Content Management Framework (aka CMF)
+# React based Framework
 
 This is a framework to help you to build configurable React App.
 
@@ -35,15 +35,20 @@ Before trying CMF you must know:
 
 So you understand all the following words: pure component, action creator, reducer, put, takeEvery, fromJS, ...
 
-## Working with CMF
+## What is react-cmf
+
+So it's a framework. It is the results of the years of experience with react ecosystem at Talend.
+The goal is to provide one way to do the things keeping best pratices in mind.
+
+## Working with react-cmf
 
 If you try to work with the required addons listed above you will do some
-repetitive tasks and some boiler plate each time on each components.
+repetitive tasks and some boiler plate every time and on each components.
 
-When working with a framework like angular you tools plus a guideline on how to use them.
+When working with a framework like angular you have the tools plus a guideline on how to use them.
 With CMF the idea is the same. Provide the good set of tools plus the guideline.
 
-A brief overview of this guideline:
+A brief overview of how to do a project with react-cmf:
 
 * you write a set of configurable pure component connected using `cmfConnect`
 * you configure them using the settings
