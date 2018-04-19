@@ -15,9 +15,9 @@ const JSON_PATH_EXPRESSION = '$..i18n';
 const DEFAULT_LOCALE = 'en';
 
 /**
- * getPathFromPattern - get the path in order the patter in the currect context
+ * getPathFromPattern - get the path from the current pattern
  *
- * @param  {string} pattern   pattern to replace
+ * @param  {string} pattern   is the template string of the path with {{namespace}} and {{local}}
  * @param  {string} namespace namespace to set
  * @param  {string} locale    local to set
  * @return {string}           path with replaced value
