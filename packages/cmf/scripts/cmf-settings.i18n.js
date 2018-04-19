@@ -24,14 +24,14 @@ const DEFAULT_LOCALE = 'en';
  * @return {string}           path with replaced value
  */
 function getPathFromPattern(pattern, namespace, locale) {
+	if (!pattern.match(PATTERN_REG_EXP)) {
+		throw new Error('No {{locale}} or {{namespace}} found');
+	}
+
 	const replaceMap = {
 		'{{namespace}}': namespace,
 		'{{locale}}': locale,
 	};
-
-	if (!pattern.match(PATTERN_REG_EXP)) {
-		throw new Error('No {{locale}} or {{namespace}} found');
-	}
 
 	return path.join(
 		process.cwd(),
