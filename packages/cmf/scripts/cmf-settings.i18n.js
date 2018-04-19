@@ -35,13 +35,13 @@ function getPathFromPattern(pattern, namespace, locale) {
 }
 
 /**
- * getLocaleByNamespace - transform a JSON to a dictionary of key/value with a given namespace
+ * getLocalesFromNamespace - transform a JSON to a dictionary of key/value with a given namespace
  *
  * @param  {object} settings  JSON Object
  * @param  {string} namespace namespace to parse
  * @return {Map}              dictionary of key/value locales
  */
-function getLocaleByNamespace(settings, namespace) {
+function getLocalesFromNamespace(settings, namespace) {
 	return jsonpath
 		.query(settings, JSON_PATH_EXPRESSION)
 		.reduce(
@@ -58,11 +58,11 @@ function getLocaleByNamespace(settings, namespace) {
  * @return {object}           return all locales by namespace
  */
 function getNameSpacesByLocale(namespaces, locale) {
-	return Object.keys(namespaces).reduce(
+	return namespaces.reduce(
 		(state, namespace) => ({
 			...state,
 			// eslint-disable-next-line global-require
-			[namespace]: getJSON(getPathFromPattern(namespaces[namespace], namespace, locale)),
+			[namespace.name]: getJSON(getPathFromPattern(namespace.path, namespace.name, locale)),
 		}),
 		{},
 	);
@@ -183,13 +183,13 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 }
 
 /**
- * getLocaleByNamespaceInFolder - search all locale used in a folder for a given namespace
+ * getLocalesFromNamespaceInFolder - search all locale used in a folder for a given namespace
  *
  * @param  {string} folder    folder to search
  * @param  {string} namespace namespace to get
  * @return {Map}              locale of key/value
  */
-function getLocaleByNamespaceInFolder(folder, namespace) {
+function getLocalesFromNamespaceInFolder(folder, namespace) {
 	if (!fs.existsSync(folder)) {
 		return new Map();
 	}
@@ -199,7 +199,7 @@ function getLocaleByNamespaceInFolder(folder, namespace) {
 	return new Map(
 		files
 			// eslint-disable-next-line global-require
-			.map(file => getLocaleByNamespace(getJSON(path.join(folder, file)), namespace))
+			.map(file => getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace))
 			.reduce((state, map) => [...state, ...map], []),
 	);
 }
@@ -240,13 +240,32 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
 	locales.forEach(locale => updateLocale(i18nKeys, locale, namespace, pattern));
 }
 
+/**
+ * parseI18n - parse a folder to extract key/values for all given namespace and languages
+ *
+ * @param  {Array<Namespace>} namespaces Array of Namespace to extract (name, path)
+ * @param  {array<string>} languages              Locales to extract
+ * @param  {string} from                          folder to parse
+ */
+function parseI18n(namespaces, languages, from) {
+	namespaces.forEach(namespace => {
+		const i18nKeys = getLocalesFromNamespaceInFolder(
+			path.join(process.cwd(), ...from.split('/')),
+			namespace.name,
+		);
+
+		updateLocales(i18nKeys, languages, namespace.name, namespace.path);
+	});
+}
+
 module.exports = {
 	getI18Next,
 	getI18nextResources,
-	getLocaleByNamespace,
-	getLocaleByNamespaceInFolder,
+	getLocalesFromNamespace,
+	getLocalesFromNamespaceInFolder,
 	getNameSpacesByLocale,
 	getPathFromPattern,
+	parseI18n,
 	parseSettings,
 	saveSettings,
 	setTranslate,

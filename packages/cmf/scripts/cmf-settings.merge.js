@@ -5,7 +5,8 @@ const deepmerge = require('deepmerge');
 
 const {
 	getI18Next,
-	getLocaleByNamespaceInFolder,
+	getLocalesFromNamespaceInFolder,
+	parseI18n,
 	parseSettings,
 	saveSettings,
 	updateLocales,
@@ -44,17 +45,13 @@ function merge(options, errorCallback) {
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
 	const cmfconfig = importAndValidate(cmfconfigPath, onError);
-
-	let sources;
-	let destination;
+	const sources = cmfconfig.settings.sources;
+	const destination =
+		cmfconfig.settings.destination && path.join(process.cwd(), cmfconfig.settings.destination);
 	let settings;
 	let jsonFiles;
 
 	if (cmfconfig.settings.destination) {
-		// Get sources & destination paths
-		sources = cmfconfig.settings.sources;
-		destination = path.join(process.cwd(), cmfconfig.settings.destination);
-
 		// Extract json from sources
 		jsonFiles = sources.reduce(
 			(acc, source) => acc.concat([...findJson(path.join(process.cwd(), source), recursive)]),
@@ -90,22 +87,34 @@ function merge(options, errorCallback) {
 		cmfconfig.settings.i18n['namepace-paths'] &&
 		cmfconfig.settings.i18n['extract-namepaces']
 	) {
-		cmfconfig.settings.i18n['extract-namepaces']
-			.filter(namespace => cmfconfig.settings.i18n['namepace-paths'][namespace])
-			.forEach(namespace => {
-				let i18nKeys = {};
-				i18nKeys = getLocaleByNamespaceInFolder(
-					path.join(process.cwd(), ...cmfconfig.settings.i18n['extract-from'].split('/')),
-					namespace,
-				);
+		// ['extract-namepaces']
+		// ['namepace-paths']
+		// ['extract-from']
+		const namespaces = cmfconfig.settings.i18n['namepace-paths'].filter(namespace =>
+			cmfconfig.settings.i18n['extract-namepaces'].includes(namespace),
+		);
+		parseI18n(
+			namespaces,
+			cmfconfig.settings.i18n.languages,
+			cmfconfig.settings.i18n['extract-from'],
+		);
 
-				updateLocales(
-					i18nKeys,
-					cmfconfig.settings.i18n.languages,
-					namespace,
-					cmfconfig.settings.i18n['namepace-paths'][namespace],
-				);
-			});
+		// cmfconfig.settings.i18n['extract-namepaces']
+		// 	.filter(namespace => cmfconfig.settings.i18n['namepace-paths'][namespace])
+		// 	.forEach(namespace => {
+		// 		let i18nKeys = {};
+		// 		i18nKeys = getLocalesFromNamespaceInFolder(
+		// 			path.join(process.cwd(), ...cmfconfig.settings.i18n['extract-from'].split('/')),
+		// 			namespace,
+		// 		);
+		//
+		// 		updateLocales(
+		// 			i18nKeys,
+		// 			cmfconfig.settings.i18n.languages,
+		// 			namespace,
+		// 			cmfconfig.settings.i18n['namepace-paths'][namespace],
+		// 		);
+		// 	});
 	}
 
 	// parse settings to replace i18n object by the translated value

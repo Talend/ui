@@ -58,8 +58,8 @@ jest.mock('./getJSON', () => ({
 
 const {
 	getI18Next,
-	getLocaleByNamespace,
-	getLocaleByNamespaceInFolder,
+	getLocalesFromNamespace,
+	getLocalesFromNamespaceInFolder,
 	getNameSpacesByLocale,
 	getPathFromPattern,
 	parseSettings,
@@ -70,7 +70,9 @@ const {
 describe('i18n scripts', () => {
 	describe('#getNameSpacesByLocale', () => {
 		it('should get initiailized i18next with the locales', () => {
-			expect(getNameSpacesByLocale({ ns1: 'src/{{namespace}}/{{locale}}' }, 'fr')).toEqual({
+			expect(
+				getNameSpacesByLocale([{ name: 'ns1', path: 'src/{{namespace}}/{{locale}}' }], 'fr'),
+			).toEqual({
 				ns1: { key1: 'bar', oldKey: 'bar' },
 			});
 		});
@@ -78,13 +80,15 @@ describe('i18n scripts', () => {
 
 	describe('#getI18Next', () => {
 		it('should get initiailized i18next with the locales', () => {
-			expect(getI18Next(['fr'], { ns1: 'src/{{namespace}}/{{locale}}' }).store.data).toEqual({
+			expect(
+				getI18Next(['fr'], [{ name: 'ns1', path: 'src/{{namespace}}/{{locale}}' }]).store.data,
+			).toEqual({
 				fr: { ns1: { key1: 'bar', oldKey: 'bar' } },
 			});
 		});
 	});
 
-	describe('#getLocaleByNamespaceInFolder', () => {
+	describe('#getLocalesFromNamespaceInFolder', () => {
 		const oldReaddirSync = fs.readdirSync;
 		const oldExistsSync = fs.existsSync;
 
@@ -100,7 +104,7 @@ describe('i18n scripts', () => {
 			fs.readdirSync = readdirSync;
 			fs.existsSync = () => true;
 
-			const localizedJSON = getLocaleByNamespaceInFolder('root', namespace);
+			const localizedJSON = getLocalesFromNamespaceInFolder('root', namespace);
 
 			expect(localizedJSON).toEqual(
 				new Map([['KEY1', 'key1'], ['KEY2', 'key2'], ['KEY3', 'key3'], ['KEY4', 'key4']]),
@@ -243,7 +247,7 @@ describe('i18n scripts', () => {
 		});
 	});
 
-	describe('#getLocaleByNamespace', () => {
+	describe('#getLocalesFromNamespace', () => {
 		it('should parse a JSON and return all key for the given namespace', () => {
 			const namespace = 'ns';
 			const json = {
@@ -264,7 +268,7 @@ describe('i18n scripts', () => {
 					},
 				},
 			};
-			const locale = getLocaleByNamespace(json, namespace);
+			const locale = getLocalesFromNamespace(json, namespace);
 
 			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
 		});
