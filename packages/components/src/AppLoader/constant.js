@@ -17,18 +17,17 @@ body {
   height: 100vh;
   width: 100vw;
   background: #f6f6f6;
-  align-items: center;
-  justify-content: center;
 }
 
-.tc-app-loader-container:before {
+.tc-app-loader-icon {
   animation: app-loader-fadeIn 1.5s linear infinite;
   background-image: ICON_BASE_64;
-  content: '';
-  position: absolute;
+  display: inline-block;
+  position: relative;
   width: 151px;
   height: 151px;
   border-radius: 50%;
+  margin: auto;
 }
    
 .tc-app-loader {
@@ -37,6 +36,7 @@ body {
   position: relative;
   width: 165px;
   height: 165px;
+  margin: -7px 0px 0px -7px;
 }
 
 .tc-app-loader .spinner-wrapper {
@@ -69,8 +69,8 @@ body {
 
 .tc-app-loader .spinner-left:before,
 .tc-app-loader .spinner-right:before {
-  width: 200%;
-  height: 100%;
+  width: 156px;
+  height: 156px;
   content: '';
   border-width: 4.5px;
   border-style: solid;
@@ -92,7 +92,7 @@ body {
 }
 
 .tc-app-loader .spinner-right:before {
-  animation: inner-spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
+  animation: right-spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
   left: -100%;
   border-left-color: transparent !important;
   transform: rotate(-129deg);
@@ -143,7 +143,7 @@ body {
   }
 }
 
-@keyframes inner-spin {
+@keyframes right-spin {
   0% {
       transform: rotate(-130deg);
   }
@@ -167,11 +167,13 @@ body {
 }`;
 
 const APP_LOADER = `<div class="tc-app-loader-container">
-	<div class="tc-app-loader" >
-		<div class="spinner-wrapper">
-      <div class="spinner-left"></div>
-      <div class="spinner-right"></div>
-    </div>
+	<div class="tc-app-loader-icon">
+		<div class="tc-app-loader" >
+			<div class="spinner-wrapper">
+				<div class="spinner-left"></div>
+				<div class="spinner-right"></div>
+			</div>
+		</div>
 	</div>
 </div>
 `;
