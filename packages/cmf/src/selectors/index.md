@@ -3,9 +3,7 @@
 A selector take the state and return part of it.
 This api propose some selectors
 
-## api.selectors.collections
-
-TODO
+## [api.selectors.collections](./collections.md)
 
 ## api.selectors.router
 
