@@ -14,6 +14,7 @@ describe('Container(Form)', () => {
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
 				className="foo"
+				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
 			/>,
 		);
@@ -118,16 +119,6 @@ describe('Container(Form)', () => {
 		form.onChange(null, { foo: 'bar' }, 'my-form', 'key', 'value');
 		expect(onChange.mock.calls[0]).toMatchSnapshot();
 		expect(setState.mock.calls[0]).toMatchSnapshot();
-	});
-
-	it('should use props.onTrigger', () => {
-		const onTrigger = jest.fn();
-		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
-			onTrigger,
-		});
-		form.onTrigger({ foo: 'bar' }, 'my-form', 'key', 'value');
-		expect(onTrigger.mock.calls[0]).toMatchSnapshot();
 	});
 
 	it('should have getFormData static', () => {
