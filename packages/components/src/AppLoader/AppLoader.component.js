@@ -6,8 +6,8 @@ function AppLoader() {
 			<div className="tc-app-loader-icon">
 				<div className="tc-app-loader">
 					<div className="spinner-wrapper">
-            <div className="spinner-left" ></div>
-            <div className="spinner-right"></div>
+						<div className="spinner-left" />
+						<div className="spinner-right" />
 					</div>
 				</div>
 			</div>
