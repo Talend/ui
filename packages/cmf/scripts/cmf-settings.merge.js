@@ -88,8 +88,9 @@ function merge(options, errorCallback) {
 		cmfconfig.settings.i18n['extract-namepaces']
 	) {
 		const namespaces = cmfconfig.settings.i18n['namepace-paths'].filter(namespace =>
-			cmfconfig.settings.i18n['extract-namepaces'].includes(namespace),
+			cmfconfig.settings.i18n['extract-namepaces'].includes(namespace.name),
 		);
+
 		parseI18n(
 			namespaces,
 			cmfconfig.settings.i18n.languages,
