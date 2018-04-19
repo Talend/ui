@@ -39,7 +39,6 @@ class Form extends React.Component {
 		super(props);
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
@@ -56,12 +55,6 @@ class Form extends React.Component {
 			}
 		} else if (nextProps.properties !== this.props.properties) {
 			this.props.setState({ data: nextProps.data });
-		}
-	}
-
-	onTrigger(formData, formId, propertyName, propertyValue) {
-		if (this.props.onTrigger) {
-			this.props.onTrigger(formData, formId, propertyName, propertyValue);
 		}
 	}
 
@@ -132,7 +125,7 @@ class Form extends React.Component {
 			actions: this.formActions(),
 			fields: this.props.fields,
 			onChange: this.onChange,
-			onTrigger: this.onTrigger,
+			onTrigger: this.props.onTrigger,
 			onSubmit: this.onSubmit,
 			customFormats: this.props.customFormats,
 			buttonBlockClass: this.props.buttonBlockClass,
