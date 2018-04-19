@@ -12,6 +12,7 @@ const { getLogger } = require('./cmf-settings.utils');
 const { getJSON } = require('./getJSON');
 
 const JSON_PATH_EXPRESSION = '$..i18n';
+const PATTERN_REG_EXP = /{{namespace}}|{{locale}}/g;
 const DEFAULT_LOCALE = 'en';
 
 /**
@@ -28,9 +29,13 @@ function getPathFromPattern(pattern, namespace, locale) {
 		'{{locale}}': locale,
 	};
 
+	if (!pattern.match(PATTERN_REG_EXP)) {
+		throw new Error('No {{locale}} or {{namespace}} found');
+	}
+
 	return path.join(
 		process.cwd(),
-		...pattern.replace(/{{namespace}}|{{locale}}/g, match => replaceMap[match]).split('/'),
+		...pattern.replace(PATTERN_REG_EXP, match => replaceMap[match]).split('/'),
 	);
 }
 
