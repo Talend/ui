@@ -87,9 +87,6 @@ function merge(options, errorCallback) {
 		cmfconfig.settings.i18n['namepace-paths'] &&
 		cmfconfig.settings.i18n['extract-namepaces']
 	) {
-		// ['extract-namepaces']
-		// ['namepace-paths']
-		// ['extract-from']
 		const namespaces = cmfconfig.settings.i18n['namepace-paths'].filter(namespace =>
 			cmfconfig.settings.i18n['extract-namepaces'].includes(namespace),
 		);
@@ -98,23 +95,6 @@ function merge(options, errorCallback) {
 			cmfconfig.settings.i18n.languages,
 			cmfconfig.settings.i18n['extract-from'],
 		);
-
-		// cmfconfig.settings.i18n['extract-namepaces']
-		// 	.filter(namespace => cmfconfig.settings.i18n['namepace-paths'][namespace])
-		// 	.forEach(namespace => {
-		// 		let i18nKeys = {};
-		// 		i18nKeys = getLocalesFromNamespaceInFolder(
-		// 			path.join(process.cwd(), ...cmfconfig.settings.i18n['extract-from'].split('/')),
-		// 			namespace,
-		// 		);
-		//
-		// 		updateLocales(
-		// 			i18nKeys,
-		// 			cmfconfig.settings.i18n.languages,
-		// 			namespace,
-		// 			cmfconfig.settings.i18n['namepace-paths'][namespace],
-		// 		);
-		// 	});
 	}
 
 	// parse settings to replace i18n object by the translated value

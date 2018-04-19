@@ -21,11 +21,11 @@ Here is an example of configuration
 		],
 		"i18n":{
 			"languages": ["en", "fr", "ja"],
-			"namepace-paths": {
-				"app-cmf": "src/app/locales/{{namespace}}/{{locale}}.json",
-				"package1-cmf": "node_modules/package1/lib/app/locales/{{namespace}}/{{locale}}.json",
-				"package2-cmf": "node_modules/package2/lib/app/locales/{{namespace}}/{{locale}}.json"
-			},
+			"namepace-paths": [
+				{"name": "app-cmf", "path": "src/app/locales/{{namespace}}/{{locale}}.json"},
+				{"name": "package1-cmf", "path": "node_modules/package1/lib/app/locales/{{namespace}}/{{locale}}.json"},
+				{"name": "package2-cmf", "path": "node_modules/package2/lib/app/locales/{{namespace}}/{{locale}}.json"}
+			],
 			"extract-namepaces": ["app-cmf"],
 			"extract-from": "src/settings"
 		},
@@ -34,20 +34,28 @@ Here is an example of configuration
 }
 ```
 
+Namespace
+
 | property  | description  | type  |
 |---|---|---|
-| sources  | defines all path to merge  | array |
-| destination  | destination for the merged settings  | string |
-| i18n | defined the configuration to i18n the settings  | I18NConfiguration |
+| name | name of the namepace  | name |
+| path | pattern to find the locale  | string |
 
 I18NConfiguration
 
 | property  | description  | type  |
 |---|---|---|
 | languages | languages handle by your application  | array |
-| namepace-paths | path of the namespace used to build the i18next ressource  | object |
+| namepace-paths | path of the namespace used to build the i18next ressource  | array<Namespace> |
 | extract-namepaces | set the namespace to extract the keys/values  | array |
 | extract-from | indicate the folder to extract the keys/values  | string |
+
+| property  | description  | type  |
+|---|---|---|
+| sources  | defines all path to merge  | array |
+| destination  | destination for the merged settings  | string |
+| i18n | defined the configuration to i18n the settings  | I18NConfiguration |
+
 
 The i18n settings are merged to the destination property with the language.
 e.g. For the destination "src/assets/settings.json", each translated settings will be created like "src/assets/settings.{{language}}.json"

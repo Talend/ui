@@ -62,6 +62,7 @@ const {
 	getLocalesFromNamespaceInFolder,
 	getNameSpacesByLocale,
 	getPathFromPattern,
+	parseI18n,
 	parseSettings,
 	setTranslate,
 	updateLocale,
@@ -271,6 +272,42 @@ describe('i18n scripts', () => {
 			const locale = getLocalesFromNamespace(json, namespace);
 
 			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
+		});
+	});
+
+	describe('#parseI18n', () => {
+		const oldReaddirSync = fs.readdirSync;
+		const oldExistsSync = fs.existsSync;
+		const oldWriteFileSync = fs.writeFileSync;
+
+		afterEach(() => {
+			fs.readdirSync = oldReaddirSync;
+			fs.existsSync = oldExistsSync;
+			fs.writeFileSync = oldWriteFileSync;
+		});
+
+		it('should parse a folder and extract the keys', () => {
+			const readdirSync = jest.fn(() => ['foo', 'bar']);
+			const writeFileSync = jest.fn();
+			fs.writeFileSync = writeFileSync;
+			fs.readdirSync = readdirSync;
+			fs.existsSync = () => true;
+
+			parseI18n([{ name: 'ns1', path: '{{namespace}}/{{locale}}.json' }], ['en'], 'root');
+
+			expect(writeFileSync).toHaveBeenCalledWith(
+				getPathFromPattern('{{namespace}}/{{locale}}.json', 'ns1', 'en'),
+				JSON.stringify(
+					{
+						KEY1: 'key1',
+						KEY2: 'key2',
+						KEY3: 'key3',
+						KEY4: 'key4',
+					},
+					null,
+					'  ',
+				),
+			);
 		});
 	});
 });
