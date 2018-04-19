@@ -2,7 +2,7 @@
 
 With CMF we want all data structure to be Immutable into the store for performance reason.
 
-But many components want POO, so a solution is to use toJS but it's known as a bad pratice because:
+But many components want POJO, so a solution is to use toJS but it's known as a bad pratice because:
 
 * it's slow
 * it creates a new object on every mutation of the store so react-redux re-render the component

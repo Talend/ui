@@ -10,11 +10,10 @@ function toJS(data) {
 
 /**
  * toJS is an higher order selector.
- * It modify a given selector to return the value
- * as a POO.
+ * It modify a given selector to return the value as a POJO
  * Note: your selector must use only one selector
  * @param {function} selector the selector
- * @returns the POO associated to the given selector
+ * @returns the POJO associated to the given selector
  */
 export default function getToJSMemoized(selector) {
 	if (typeof selector !== 'function') {
