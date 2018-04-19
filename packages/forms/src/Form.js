@@ -120,7 +120,9 @@ class Form extends React.Component {
 	}
 
 	render() {
-		if (this.props.uiform) {
+		if (Array.isArray(this.props.data.uiSchema)) {
+			return <UIForm {...this.props} />;
+		} else if (this.props.uiform) {
 			const props = Object.assign({}, this.props);
 			props.moz = true;
 			if (props.widgets) {
@@ -131,9 +133,6 @@ class Form extends React.Component {
 					});
 			}
 			return <UIForm {...props} />;
-		}
-		if (Array.isArray(this.props.data.uiSchema)) {
-			return <UIForm {...this.props} />;
 		}
 		const schema = this.props.data && this.props.data.jsonSchema;
 		if (!schema) {

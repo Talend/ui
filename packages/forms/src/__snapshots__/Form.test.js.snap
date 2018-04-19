@@ -200,7 +200,7 @@ Object {
 }
 `;
 
-exports[`<UIForm/> should render uiform 1`] = `
+exports[`<Form/> should render uiform 1`] = `
 <Container(UIForm)
   autoComplete="off"
   buttonBlockClass="form-actions"
