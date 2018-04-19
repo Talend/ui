@@ -110,9 +110,9 @@ function merge(options, errorCallback) {
 		);
 
 		if (i18next) {
-			cmfconfig.settings.i18n.languages.forEach(locale =>
-				saveSettings(i18next, settings, locale, destination),
-			);
+			cmfconfig.settings.i18n.languages.forEach(locale => {
+				saveSettings(i18next, settings, locale, destination);
+			});
 		}
 	}
 
