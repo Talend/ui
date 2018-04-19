@@ -1,14 +1,15 @@
 # CMF Scripts
 
-CMF provides a script to build:
-* the settings from a lot of settings,
-* i18n the settings.
+CMF provides a script `cmf-settings` to:
+* merge settings from a folder to a single minified file ready to be fetch
+* extract and update translations in the settings
 
-After the install of cmf, the binary cmf-settings is installed on your system.
+After the install of cmf, the script `cmf-settings` is installed on your *node_modules/.bin* folder.
 
 ## Configuration
 
-Create on your own project a file "cmf.json".
+Create in your project folder a file `cmf.json` at the same level as the *package.json*.
+Here is an example of configuration
 
 ```json
 {
@@ -53,7 +54,10 @@ e.g. For the destination "src/assets/settings.json", each translated settings wi
 
 ## Usage
 
-launch the below command
+launch the command below to build your webapp. you can add it into `prepublish` npm script.
+
 ```
-cmf-settings
+yarn cmf-settings
 ```
+
+Note: If you add `node_modules/.bin` into your env *PATH* you can directly type `cmf-settings`.
