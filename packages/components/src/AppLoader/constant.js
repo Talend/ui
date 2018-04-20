@@ -69,8 +69,8 @@ body {
 
 .tc-app-loader .spinner-left:before,
 .tc-app-loader .spinner-right:before {
-  width: 156px;
-  height: 156px;
+  width: 165px;
+  height: 165px;
   content: '';
   border-width: 4.5px;
   border-style: solid;
