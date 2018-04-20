@@ -67,8 +67,8 @@ body {
   float: right !important;
 }
 
-.tc-app-loader .spinner-left:before,
-.tc-app-loader .spinner-right:before {
+.tc-app-loader .spinner-left .circle,
+.tc-app-loader .spinner-right .circle {
   width: 165px;
   height: 165px;
   content: '';
@@ -84,14 +84,14 @@ body {
   bottom: 0;
 }
 
-.tc-app-loader .spinner-left:before {
+.tc-app-loader .spinner-left .circle {
   animation: left-spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
   left: 0;
   border-right-color: transparent !important;
   transform: rotate(129deg);
 }
 
-.tc-app-loader .spinner-right:before {
+.tc-app-loader .spinner-right .circle {
   animation: right-spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
   left: -100%;
   border-left-color: transparent !important;
@@ -170,8 +170,12 @@ const APP_LOADER = `<div class="tc-app-loader-container">
 	<div class="tc-app-loader-icon">
 		<div class="tc-app-loader" >
 			<div class="spinner-wrapper">
-				<div class="spinner-left"></div>
-				<div class="spinner-right"></div>
+				<div class="spinner-left" > 
+        	<div class="circle"></div>
+       	</div>
+        <div class="spinner-right">
+        	<div class="circle"></div>
+       	</div>
 			</div>
 		</div>
 	</div>

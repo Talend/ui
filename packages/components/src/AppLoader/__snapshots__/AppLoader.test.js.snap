@@ -17,10 +17,18 @@ exports[`AppLoader should render 1`] = `
       >
         <div
           className="spinner-left"
-        />
+        >
+          <div
+            className="circle"
+          />
+        </div>
         <div
           className="spinner-right"
-        />
+        >
+          <div
+            className="circle"
+          />
+        </div>
       </div>
     </div>
   </div>
