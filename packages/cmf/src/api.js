@@ -33,12 +33,7 @@ import sagas from './sagas';
 import selectors from './selectors';
 import component from './component';
 import matchPath from './sagaRouter/matchPath';
-
-function registerInternals(context) {
-	actionCreator.register('cmf.saga.start', actions.saga.start, context);
-	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
-	expression.registerMany(expressions, context);
-}
+import { registerInternals } from './register';
 
 export default {
 	action,

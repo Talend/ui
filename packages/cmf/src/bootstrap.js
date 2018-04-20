@@ -8,14 +8,27 @@ import { call, fork } from 'redux-saga/effects';
 import compose from 'redux';
 
 import App from './App';
-import storeAPI from './store';
+import actionCreator from './actionCreator';
 import actions from './actions';
+import component from './component';
+import expression from './expression';
+import storeAPI from './store';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
+import { registerInternals } from './register';
 
 const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
 });
+
+function assertTypeOf(options, attr, type) {
+	if (
+		(type === 'Array' && options[attr] && !Array.isArray(options[attr])) &&
+		(options[attr] && typeof options[attr] !== type)
+	) {
+		throw new Error(`${attr} must be a ${type} but got ${typeof options[attr]}`);
+	}
+}
 
 /**
  * This is the function to use in your app index.js file.
@@ -28,6 +41,35 @@ const bactchedSubscribe = batchedSubscribe(notify => {
  * @returns {object} app object with render function
  */
 export default function bootstrap(options) {
+	assertTypeOf(options, 'settingsURL', 'string');
+	assertTypeOf(options, 'appId', 'string');
+	assertTypeOf(options, 'history', 'object');
+	assertTypeOf(options, 'preReducer', 'function');
+	assertTypeOf(options, 'httpMiddleware', 'function');
+	assertTypeOf(options, 'enhancer', 'function');
+	assertTypeOf(options, 'preloadedState', 'object');
+	assertTypeOf(options, 'middlewares', 'Array');
+	assertTypeOf(options, 'storeCallback', 'function');
+	assertTypeOf(options, 'saga', 'function');
+	assertTypeOf(options, 'sagas', 'object');
+	assertTypeOf(options, 'components', 'object');
+	assertTypeOf(options, 'expressions', 'object');
+	assertTypeOf(options, 'actionCreators', 'object');
+
+	registerInternals();
+	if (options.components) {
+		component.registerMany(options.components);
+	}
+	if (options.expressions) {
+		expression.registerMany(options.expressions);
+	}
+	if (options.actionCreators) {
+		actionCreator.registerMany(options.actionCreators);
+	}
+	if (options.sagas) {
+		sagas.registerMany(options.sagas);
+	}
+
 	const appId = options.appId || 'app';
 	const sagaMiddleware = createSagaMiddleware();
 
@@ -39,28 +81,23 @@ export default function bootstrap(options) {
 	}
 	if (typeof options.httpMiddleware === 'function') {
 		storeAPI.setHttpMiddleware(options.httpMiddleware);
-	} else if (options.httpMiddleware) {
-		throw new Error('options.httpMiddleware must be a function got ', typeof options.httpMiddleware);
 	}
 	let enhancer = bactchedSubscribe;
 	if (typeof options.enhancer === 'function') {
 		enhancer = compose(options.enhancer, bactchedSubscribe);
-	} else if (options.enhancer) {
-		throw new Error('options.enhancer must be a function, got ', typeof options.enhancer);
 	}
+	const middlewares = options.middlewares || [];
 	const store = storeAPI.initialize(
 		options.reducer,
 		options.preloadedState,
 		enhancer,
-		[...options.middlewares, sagaMiddleware],
+		[...middlewares, sagaMiddleware],
 	);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
 	}
 	if (typeof options.storeCallback === 'function') {
 		options.storeCallback(store);
-	} else if (options.storeCallback) {
-		throw new Error('options.storeCallback must be a function got ', typeof options.storeCallback);
 	}
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
@@ -71,8 +108,6 @@ export default function bootstrap(options) {
 		}
 		if (typeof options.saga === 'function') {
 			yield call(options.saga);
-		} else if (options.saga) {
-			throw new Error('options.saga must be a generator function got ', typeof options.saga);
 		}
 	}
 	sagaMiddleware.run(cmfSaga);
