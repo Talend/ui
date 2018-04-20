@@ -41,7 +41,8 @@ function assertTypeOf(options, attr, type) {
  * @param {object} options the set of supported options
  * @returns {object} app object with render function
  */
-export default function bootstrap(options) {
+export default function bootstrap(unSafeOptions) {
+	const options = unSafeOptions || {};
 	assertTypeOf(options, 'settingsURL', 'string');
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
