@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import QualityBar from './QualityBar.component';
 import theme from './DefaultHeaderRenderer.scss';
 import {
-	TALEND_QUALITY_KEY,
-	TALEND_QUALITY_INVALID_KEY,
-	TALEND_QUALITY_EMPTY_KEY,
-	TALEND_QUALITY_VALID_KEY,
+	QUALITY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_EMPTY_KEY,
+	QUALITY_VALID_KEY,
 } from '../../constants';
 
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
@@ -32,15 +32,18 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 					</span>
 					<span>...</span>
 				</div>
-				<div className={classNames(theme['td-header-type'], 'td-header-type')}>
+				<div
+					className={classNames(theme['td-header-type'], 'td-header-type')}
+					title={column.colDef.type}
+				>
 					{column.colDef.type}
 				</div>
 			</button>
-			{column.colDef[TALEND_QUALITY_KEY] && (
+			{column.colDef[QUALITY_KEY] && (
 				<QualityBar
-					invalid={column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_INVALID_KEY]}
-					empty={column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_EMPTY_KEY]}
-					valid={column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_VALID_KEY]}
+					invalid={column.colDef[QUALITY_KEY][QUALITY_INVALID_KEY]}
+					empty={column.colDef[QUALITY_KEY][QUALITY_EMPTY_KEY]}
+					valid={column.colDef[QUALITY_KEY][QUALITY_VALID_KEY]}
 				/>
 			)}
 		</div>
@@ -50,10 +53,10 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 DefaultHeaderRenderer.propTypes = {
 	column: PropTypes.shape({
 		colDef: PropTypes.shape({
-			[TALEND_QUALITY_KEY]: PropTypes.shape({
-				[TALEND_QUALITY_EMPTY_KEY]: PropTypes.number,
-				[TALEND_QUALITY_INVALID_KEY]: PropTypes.number,
-				[TALEND_QUALITY_VALID_KEY]: PropTypes.number,
+			[QUALITY_KEY]: PropTypes.shape({
+				[QUALITY_EMPTY_KEY]: PropTypes.number,
+				[QUALITY_INVALID_KEY]: PropTypes.number,
+				[QUALITY_VALID_KEY]: PropTypes.number,
 			}),
 		}),
 	}),

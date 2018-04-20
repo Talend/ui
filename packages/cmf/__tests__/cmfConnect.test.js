@@ -136,7 +136,7 @@ describe('cmfConnect', () => {
 			});
 			expect(mapStateToProps).toHaveBeenCalled();
 			expect(mapStateToProps.mock.calls[0][0]).toBe(state);
-			expect(mapStateToProps.mock.calls[0][1]).toMatchObject({ view: 'simple', name: 'my app'});
+			expect(mapStateToProps.mock.calls[0][1]).toMatchObject({ view: 'simple', name: 'my app' });
 			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 	});
@@ -597,7 +597,7 @@ describe('cmfConnect', () => {
 					childContextTypes: {
 						registry: React.PropTypes.object,
 					},
-				}
+				},
 			);
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
@@ -618,16 +618,41 @@ describe('cmfConnect', () => {
 			});
 		});
 
+		it('should spread cmf state when onEventSetState is set', () => {
+			const context = mock.context();
+			const state = mock.state();
+			context.store.getState = () => {
+				return {
+					cmf: {
+						...state.cmf,
+						components: fromJS({
+							Button: {
+								default: {
+									inProgress: false,
+								},
+							},
+						}),
+					},
+				};
+			};
+
+			const wrapper = mount(
+				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={{}} />,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				},
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.inProgress).toBe(false);
+		});
+
 		it('should check that component will not be rendered if renderIf equals false', () => {
 			const context = mock.context();
 			const CMFConnected = cmfConnect({})(Button);
-			const mounted = mount(
-				<CMFConnected
-					store={context.store}
-					label={'text'}
-					renderIf={false}
-				/>
-			);
+			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
 			expect(mounted.html()).toBeNull();
 		});
 	});

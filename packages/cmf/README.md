@@ -322,6 +322,7 @@ you may change the following using simple props:
 * [how to](howto/index.md)
 * [sagas](src/sagas/index.md)
 * [sagaRouter](src/sagaRouter/index.md)
+* [scripts](scripts/index.md)
 
 ## ROADMAP
 
