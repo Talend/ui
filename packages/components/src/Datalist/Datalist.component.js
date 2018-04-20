@@ -32,17 +32,6 @@ class Datalist extends Component {
 		};
 	}
 
-	buildTitleMapping(titleMap) {
-		return titleMap.reduce((obj, item) => {
-			if (this.props.multiSection && item.title && item.suggestions) {
-				const children = this.buildTitleMapping(item.suggestions);
-				return { ...obj, ...children };
-			}
-			obj[item.value] = item.name;
-			return obj;
-		}, {});
-	}
-
 	componentWillReceiveProps({ value, titleMap }) {
 		this.setState({ previousValue: value, value, titleMapping: this.buildTitleMapping(titleMap) });
 	}
@@ -161,6 +150,23 @@ class Datalist extends Component {
 			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
 		}
 		this.updateValue(event, newValue, true);
+	}
+
+  /***
+   * Prepares a map (object) to match the label from the value in the render
+   * function.
+   *
+   * @param titleMap the titleMap to use to create the label/value mapping.
+   */
+	buildTitleMapping(titleMap) {
+		return titleMap.reduce((obj, item) => {
+			if (this.props.multiSection && item.title && item.suggestions) {
+				const children = this.buildTitleMapping(item.suggestions);
+				return { ...obj, ...children };
+			}
+      const mapping = { [item.value]: item.name || item.value };
+			return { ...obj, ...mapping };
+		}, {});
 	}
 
 	/**
