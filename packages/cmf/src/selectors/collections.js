@@ -47,8 +47,9 @@ got ${collectionOrCollectionSubset}`,
 const selectors = {};
 
 export function toJS(state, path) {
-	if (!selectors[path]) {
-		selectors[path] = getToJSMemoized(calledState => get(calledState, path));
+	const joinedPath = Array.isArray(path) ? path.join('.') : path;
+	if (!selectors[joinedPath]) {
+		selectors[joinedPath] = getToJSMemoized(calledState => get(calledState, path));
 	}
-	return selectors[path](state);
+	return selectors[joinedPath](state);
 }
