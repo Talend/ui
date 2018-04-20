@@ -7,11 +7,22 @@ exports[`AppLoader should render 1`] = `
   className="tc-app-loader-container"
 >
   <div
-    className="tc-app-loader"
+    className="tc-app-loader-icon"
   >
     <div
-      className="tc-app-loader-icon"
-    />
+      className="tc-app-loader"
+    >
+      <div
+        className="spinner-wrapper"
+      >
+        <div
+          className="spinner-left"
+        />
+        <div
+          className="spinner-right"
+        />
+      </div>
+    </div>
   </div>
 </div>
 `;
