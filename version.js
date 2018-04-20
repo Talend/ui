@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint no-console: 0 */
 
 const fs = require('fs');
 const path = require('path');
@@ -29,27 +30,27 @@ program.on('--help', () => {
 
 program.parse(process.argv);
 
-const stack_version = program.stack || require('./lerna.json').version;
+const stackVersion = program.stack || require('./lerna.json').version;
 
 if (program.debug) {
-	console.log(`use stack version ${stack_version}`);
+	console.log(`use stack version ${stackVersion}`);
 }
 
 const REACT_VERSION = '^15.6.2';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
-	'@talend/bootstrap-theme': stack_version,
-	'@talend/react-cmf': stack_version,
-	'@talend/react-cmf-cqrs': stack_version,
-	'@talend/react-cmf-webpack-plugin': stack_version,
-	'@talend/react-sagas': stack_version,
-	'@talend/react-components': stack_version,
-	'@talend/react-containers': stack_version,
-	'@talend/react-datagrid': stack_version,
-	'@talend/react-forms': stack_version,
-	'@talend/icons': stack_version,
-	'@talend/log': stack_version,
+	'@talend/bootstrap-theme': stackVersion,
+	'@talend/react-cmf': stackVersion,
+	'@talend/react-cmf-cqrs': stackVersion,
+	'@talend/react-cmf-webpack-plugin': stackVersion,
+	'@talend/react-sagas': stackVersion,
+	'@talend/react-components': stackVersion,
+	'@talend/react-containers': stackVersion,
+	'@talend/react-datagrid': stackVersion,
+	'@talend/react-forms': stackVersion,
+	'@talend/icons': stackVersion,
+	'@talend/log': stackVersion,
 };
 
 const ADDONS = {
@@ -188,13 +189,18 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
-function check(source, dep, version) {
+function check(source, dep, version, forceUpdate) {
 	let modified = false;
-	if (source && source[dep] && source[dep] !== version) {
+	let safeVersion = version;
+	if (forceUpdate && !version.startsWith('^')) {
+		safeVersion = `^${version}`;
+	}
+	if (source && source[dep] && source[dep] !== safeVersion) {
 		if (!program.quiet) {
-			console.log(`update ${dep}: '${version}' from ${source[dep]}`);
+			console.log(`update ${dep}: ${source[dep]} to '${safeVersion}'`);
 		}
-		source[dep] = version;
+		// eslint-disable-next-line no-param-reassign
+		source[dep] = safeVersion;
 		modified = true;
 	}
 	return modified;
@@ -206,9 +212,10 @@ function checkAll(versions, source, dep) {
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
 	const isModDevDeps = check(devDeps, dep, version);
-	const isModDeps = check(deps, dep, version);
+	const isModDeps = check(deps, dep, version, true);
 	const isModPeers = check(peer, dep, version);
 	if (isModDevDeps || isModDeps || isModPeers) {
+		// eslint-disable-next-line no-param-reassign
 		source.modified = true;
 	}
 }
@@ -217,14 +224,14 @@ function save(ppath, data) {
 	if (!program.quiet) {
 		console.log(`save ${ppath}`);
 	}
-	fs.open(ppath, 'w', (err, fd) => {
-		if (err) {
-			throw `error opening file: ${err}`;
+	fs.open(ppath, 'w', (readError, fd) => {
+		if (readError) {
+			throw new Error(`error opening file: ${readError}`);
 		}
 
-		fs.write(fd, data, 0, data.length, null, err => {
-			if (err) {
-				throw `error writing file: ${err}`;
+		fs.write(fd, data, 0, data.length, null, writeError => {
+			if (writeError) {
+				throw new Error(`error writing file: ${writeError}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
@@ -237,6 +244,7 @@ function save(ppath, data) {
 
 function updateFiles(filesList, versions) {
 	filesList.forEach(ppath => {
+		// eslint-disable-next-line global-require
 		const packageJSON = require(ppath);
 		if (!program.quiet) {
 			console.log(`=== check ${packageJSON.name} ===`);
