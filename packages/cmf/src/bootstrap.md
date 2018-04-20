@@ -7,15 +7,16 @@ Quick start:
 ```javascript
 import { api } from '@talend/react-cmf';
 import configure from './configure';
+import components from './components';
 import sagas from './sagas';
 
 configure.initialize();
 const app = api.bootstrap({
-	middlewares: [],
+    components,
 	settingsURL: '/settings.json',
 	saga: sagas.appSaga, // function* appSaga() {...}
 	sagaRouterConfig: sagas.routes, // { '/foo/bar': function* bar() {...}, ... },
-        ...manyMoreOptions
+    ...manyMoreOptions
 });
 app.render();
 ```
