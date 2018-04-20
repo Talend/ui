@@ -152,19 +152,19 @@ class Datalist extends Component {
 		this.updateValue(event, newValue, true);
 	}
 
-  /***
-   * Prepares a map (object) to match the label from the value in the render
-   * function.
-   *
-   * @param titleMap the titleMap to use to create the label/value mapping.
-   */
+	/***
+	 * Prepares a map (object) to match the label from the value in the render
+	 * function.
+	 *
+	 * @param titleMap the titleMap to use to create the label/value mapping.
+	 */
 	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
 			if (this.props.multiSection && item.title && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
 				return { ...obj, ...children };
 			}
-      const mapping = { [item.value]: item.name || item.value };
+			const mapping = { [item.value]: item.name || item.value };
 			return { ...obj, ...mapping };
 		}, {});
 	}
