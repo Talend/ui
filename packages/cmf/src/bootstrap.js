@@ -24,6 +24,7 @@ const bactchedSubscribe = batchedSubscribe(notify => {
 function assertTypeOf(options, attr, type) {
 	if (
 		(type === 'Array' && options[attr] && !Array.isArray(options[attr])) &&
+		// eslint-disable-next-line valid-typeof
 		(options[attr] && typeof options[attr] !== type)
 	) {
 		throw new Error(`${attr} must be a ${type} but got ${typeof options[attr]}`);
