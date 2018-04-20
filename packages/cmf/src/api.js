@@ -21,6 +21,7 @@ Object.keys(expressions).forEach(id => api.expressions.register(id, expressions[
 api.action.registerActionCreator('my:edit', actions.myEdit);
  */
 
+import bootstrap from './bootstrap';
 import registry from './registry';
 import route from './route';
 import action from './action';
@@ -43,6 +44,7 @@ export default {
 	action,
 	actions,
 	actionCreator,
+	bootstrap,
 	component,
 	expression,
 	expressions,
