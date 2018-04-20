@@ -34,14 +34,9 @@ which is very bad for performance, you should rewrite it like this:
 ```javascript
 import { api } from '@talend/react-cmf';
 
-function getMyCollection(state) {
-  return state.cmf.collections.get('mycollection');
-}
-const getMyStuff = api.selectors.toJS(getMyCollection);
-
 function mapStateToProps(state) {
   return {
-    mystuff: getMyStuff(state),
+    mystuff: api.selectors.collections.toJS(state, pathToCollection),
   };
 }
 ```
