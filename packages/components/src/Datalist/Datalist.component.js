@@ -25,11 +25,26 @@ class Datalist extends Component {
 			itemsList: theme.items,
 		};
 
-		this.state = { previousValue: props.value, value: props.value };
+		this.state = {
+			previousValue: props.value,
+			value: props.value,
+			titleMapping: this.buildTitleMapping(props.titleMap),
+		};
 	}
 
-	componentWillReceiveProps({ value }) {
-		this.setState({ previousValue: value, value });
+	buildTitleMapping(titleMap) {
+		return titleMap.reduce((obj, item) => {
+			if (this.props.multiSection && item.title && item.suggestions) {
+				const children = this.buildTitleMapping(item.suggestions);
+				return { ...obj, ...children };
+			}
+			obj[item.value] = item.name;
+			return obj;
+		}, {});
+	}
+
+	componentWillReceiveProps({ value, titleMap }) {
+		this.setState({ previousValue: value, value, titleMapping: this.buildTitleMapping(titleMap) });
 	}
 
 	/**
@@ -296,6 +311,7 @@ class Datalist extends Component {
 	}
 
 	render() {
+		const label = this.state.value && this.state.titleMapping && (this.state.titleMapping[this.state.value] || this.state.value);
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
@@ -314,7 +330,7 @@ class Datalist extends Component {
 					placeholder={this.props.placeholder}
 					readOnly={this.props.readOnly || false}
 					theme={this.theme}
-					value={this.state.value}
+					value={label}
 				/>
 				<div className={theme.toggle}>
 					<span className="caret" />
