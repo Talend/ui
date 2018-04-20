@@ -83,27 +83,24 @@ describe('Datalist component', () => {
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				{...props}
-				titleMap={[
-					{ name: 'A', value: 'a' },
-					{ name: 'B', value: 'b' },
-				]}
+				titleMap={[{ name: 'A', value: 'a' }, { name: 'B', value: 'b' }]}
 				value={'a'}
 			/>,
 		);
 
-    function findInput() {
-      return wrapper.find('input').at(0);
-    }
-    function findLabel() {
-      return findInput().props().value;
-    }
+		function findInput() {
+			return wrapper.find('input').at(0);
+		}
+		function findLabel() {
+			return findInput().props().value;
+		}
 
 		// ensure the shown value is the label
-    expect(findLabel()).toEqual('A');
+		expect(findLabel()).toEqual('A');
 
-    // now change the value and ensures it still show the label
-    findInput().simulate('change', { target: { value: 'b' } });
-    expect(findLabel()).toEqual('B');
+		// now change the value and ensures it still show the label
+		findInput().simulate('change', { target: { value: 'b' } });
+		expect(findLabel()).toEqual('B');
 	});
 
 	it('should update suggestions on value change', () => {

@@ -311,7 +311,10 @@ class Datalist extends Component {
 	}
 
 	render() {
-		const label = this.state.value && this.state.titleMapping && (this.state.titleMapping[this.state.value] || this.state.value);
+		const label =
+			this.state.value &&
+			this.state.titleMapping &&
+			(this.state.titleMapping[this.state.value] || this.state.value);
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
