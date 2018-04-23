@@ -83,7 +83,14 @@ function getNameSpacesByLocale(namespaces, locale) {
 function setTranslate(i18next, object, [, ...jsonpaths]) {
 	const i18n = get(object, jsonpaths.join('.'));
 	jsonpaths.splice(-1); // replace the object by the new value
-	set(object, jsonpaths.join('.'), i18next.t(i18n.key, i18n.options));
+	let value = i18next.t(i18n.key, i18n.options);
+	if (!value) {
+		value = i18n.options.defaultValue;
+	}
+	if (!value) {
+		console.error(`${i18n.key} has no value. You should add a defaultValue to it`);
+	}
+	set(object, jsonpaths.join('.'), value);
 }
 
 /**
@@ -221,7 +228,7 @@ function getI18Next(languages, namespaces) {
 		// eslint-disable-next-line global-require
 		i18next = require('i18next');
 	} catch (e) {
-		console.log('The package i18next have to be installed on your project to use i18n feature.');
+		console.error('The package i18next have to be installed on your project to use i18n feature.');
 		return false;
 	}
 
