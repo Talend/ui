@@ -164,6 +164,16 @@ class Datalist extends Component {
 	}
 
 	/**
+	 * Reset the focused item and section
+	 */
+	resetSelection() {
+		this.setState({
+			focusedItemIndex: undefined,
+			focusedSectionIndex: undefined,
+		});
+	}
+
+	/**
 	 * Prepares a map (object) to match the label from the value in the render
 	 * function.
 	 *
