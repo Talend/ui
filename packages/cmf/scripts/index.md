@@ -21,12 +21,12 @@ Here is an example of configuration
 		],
 		"i18n":{
 			"languages": ["en", "fr", "ja"],
-			"namepace-paths": [
+			"namespace-paths": [
 				{"name": "app-cmf", "path": "src/app/locales/{{namespace}}/{{locale}}.json"},
 				{"name": "package1-cmf", "path": "node_modules/package1/lib/app/locales/{{namespace}}/{{locale}}.json"},
 				{"name": "package2-cmf", "path": "node_modules/package2/lib/app/locales/{{namespace}}/{{locale}}.json"}
 			],
-			"extract-namepaces": ["app-cmf"],
+			"extract-namespaces": ["app-cmf"],
 			"extract-from": "src/settings"
 		},
 		"destination": "src/assets/settings.json"
@@ -46,8 +46,8 @@ I18NConfiguration
 | property  | description  | type  |
 |---|---|---|
 | languages | languages handle by your application  | array |
-| namepace-paths | path of the namespace used to build the i18next ressource  | array<Namespace> |
-| extract-namepaces | set the namespace to extract the keys/values  | array |
+| namespace-paths | path of the namespace used to build the i18next ressource  | array<Namespace> |
+| extract-namespaces | set the namespace to extract the keys/values  | array |
 | extract-from | indicate the folder to extract the keys/values  | string |
 
 | property  | description  | type  |
