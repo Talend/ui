@@ -23,7 +23,9 @@ const bactchedSubscribe = batchedSubscribe(notify => {
 
 function assertTypeOf(options, attr, type) {
 	if (
-		(type === 'Array' && options[attr] && !Array.isArray(options[attr])) &&
+		type === 'Array' &&
+		options[attr] &&
+		!Array.isArray(options[attr]) &&
 		// eslint-disable-next-line valid-typeof
 		(options[attr] && typeof options[attr] !== type)
 	) {
@@ -89,12 +91,10 @@ export default function bootstrap(unSafeOptions) {
 		enhancer = compose(options.enhancer, bactchedSubscribe);
 	}
 	const middlewares = options.middlewares || [];
-	const store = storeAPI.initialize(
-		options.reducer,
-		options.preloadedState,
-		enhancer,
-		[...middlewares, sagaMiddleware],
-	);
+	const store = storeAPI.initialize(options.reducer, options.preloadedState, enhancer, [
+		...middlewares,
+		sagaMiddleware,
+	]);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
 	}
@@ -105,7 +105,7 @@ export default function bootstrap(unSafeOptions) {
 		yield fork(sagas.component.handle);
 		if (options.sagaRouterConfig) {
 			// eslint-disable-next-line no-console
-			console.warn('sagaRouter is deprecated please use cmfConnect \'saga\' props');
+			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
 			yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
 		}
 		if (typeof options.saga === 'function') {
@@ -114,15 +114,14 @@ export default function bootstrap(unSafeOptions) {
 	}
 	sagaMiddleware.run(cmfSaga);
 	return {
-		render: () => render(
-			(
+		render: () =>
+			render(
 				<App
 					store={store}
 					history={syncHistoryWithStore(options.history, store)}
 					loading={options.AppLoader}
-				/>
+				/>,
+				document.getElementById(appId),
 			),
-			document.getElementById(appId)
-		),
 	};
 }
