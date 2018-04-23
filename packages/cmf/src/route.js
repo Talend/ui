@@ -77,6 +77,9 @@ function loadComponents(context, item, dispatch) {
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
 		} else if ((item.view || item.componentId) && item.component.CMFContainer) {
+			if (item.view) {
+				// eslint-disable-next-line no-console
+				console.warn('DEPRECATED: view is deprecated please use componentId');
 			const WithView = item.component;
 			item.component = props => (
 				<WithView view={item.view} componentId={item.componentId} {...props} />
