@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import uuid from 'uuid';
 
 import TooltipTrigger from '../../TooltipTrigger';
@@ -68,7 +68,7 @@ class ActionFile extends React.Component {
 		...getIcon.propTypes,
 		id: PropTypes.string,
 		bsStyle: PropTypes.string,
-		classNames: PropTypes.string,
+		className: PropTypes.string,
 		disabled: PropTypes.bool,
 		hideLabel: PropTypes.bool,
 		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
@@ -107,7 +107,7 @@ class ActionFile extends React.Component {
 		const {
 			id,
 			name,
-			classNames,
+			className,
 			available,
 			disabled,
 			inProgress,
@@ -122,7 +122,7 @@ class ActionFile extends React.Component {
 		}
 		const localId = id || uuid.v4();
 		const buttonContent = getButtonContent(this.props);
-		const labelClasses = classnames(
+		const labelClasses = classNames(
 			'btn',
 			theme['btn-file'],
 			(disabled || inProgress) && 'disabled',
@@ -135,7 +135,7 @@ class ActionFile extends React.Component {
 					name={name}
 					id={localId}
 					disabled={inProgress || disabled}
-					className={classnames(theme['action-file-input'], 'sr-only', classNames)}
+					className={classNames(theme['action-file-input'], 'sr-only', className)}
 				/>
 				<label htmlFor={localId} className={labelClasses}>
 					{buttonContent}

@@ -24,7 +24,7 @@ describe('ActionFile', () => {
 
 	it('should render a div with a input[type="file"] with some classname on it', () => {
 		// when
-		const wrapper = shallow(<ActionFile {...myAction} classNames={'testClassName'} />);
+		const wrapper = shallow(<ActionFile {...myAction} className={'testClassName'} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
