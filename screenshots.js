@@ -15,16 +15,12 @@ program
 
 const PR = program.pullrequest;
 const SURGE_TIMEOUT = program.timeout || 30000;
-const SURGE_MAX_RETRY = program.maxTry || 0;
-let nbCurrentRetry = 0;
+const SURGE_MAX_RETRY = program.maxTry > 1 ? program.maxTry : 1;
+let nbCurrentRetry = 1;
 let restartNonReg = false;
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
-	process.exit();
-}
-
-function stopMe() {
 	process.exit();
 }
 
@@ -162,7 +158,7 @@ const screenshotRun = (async () => {
 		screenshotRun();
 	}
 	if (restartNonReg && nbCurrentRetry >= SURGE_MAX_RETRY) {
-		console.error("Max try to make non regression exceeded. Please wait the C-I's upload to Surge");
+		console.error(`Max try to make non regression exceeded (${nbCurrentRetry}/${SURGE_MAX_RETRY}). Please wait the C-I's upload to Surge`);
 	}
 });
 
