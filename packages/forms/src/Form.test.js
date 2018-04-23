@@ -16,6 +16,8 @@ import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 import Form, { renderActionIcon, renderActions } from './Form';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 
+import { data as dataUIForm, initProps } from '../__mocks__/data';
+
 const data = {
 	jsonSchema: {
 		title: 'TestForm',
@@ -140,6 +142,13 @@ describe('<Form/>', () => {
 
 	it('should have a displayName', () => {
 		expect(Form.displayName).toBe('TalendForm');
+	});
+
+	it('should render uiform', () => {
+		const props = initProps();
+		// when
+		wrapper = shallow(<Form data={dataUIForm} {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('render simple elements', () => {
