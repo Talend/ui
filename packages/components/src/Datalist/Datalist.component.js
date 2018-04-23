@@ -25,11 +25,15 @@ class Datalist extends Component {
 			itemsList: theme.items,
 		};
 
-		this.state = { previousValue: props.value, value: props.value };
+		this.state = {
+			previousValue: props.value,
+			value: props.value,
+			titleMapping: this.buildTitleMapping(props.titleMap),
+		};
 	}
 
-	componentWillReceiveProps({ value }) {
-		this.setState({ previousValue: value, value });
+	componentWillReceiveProps({ value, titleMap }) {
+		this.setState({ previousValue: value, value, titleMapping: this.buildTitleMapping(titleMap) });
 	}
 
 	/**
@@ -149,6 +153,17 @@ class Datalist extends Component {
 	}
 
 	/**
+	 * Get the selected value's label.
+	 * If there is no label defined or no label defined for the value, the value itself is returned.
+	 */
+	getSelectedLabel() {
+		if (this.state.titleMapping) {
+			return this.state.titleMapping[this.state.value] || this.state.value;
+		}
+		return this.state.value;
+	}
+
+	/**
 	 * Reset the focused item and section
 	 */
 	resetSelection() {
@@ -156,6 +171,23 @@ class Datalist extends Component {
 			focusedItemIndex: undefined,
 			focusedSectionIndex: undefined,
 		});
+	}
+
+	/**
+	 * Prepares a map (object) to match the label from the value in the render
+	 * function.
+	 *
+	 * @param titleMap the titleMap to use to create the label/value mapping.
+	 */
+	buildTitleMapping(titleMap) {
+		return titleMap.reduce((obj, item) => {
+			if (this.props.multiSection && item.title && item.suggestions) {
+				const children = this.buildTitleMapping(item.suggestions);
+				return { ...obj, ...children };
+			}
+			const mapping = { [item.value]: item.name || item.value };
+			return { ...obj, ...mapping };
+		}, {});
 	}
 
 	/**
@@ -296,6 +328,8 @@ class Datalist extends Component {
 	}
 
 	render() {
+		const label = this.getSelectedLabel();
+
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
@@ -314,7 +348,7 @@ class Datalist extends Component {
 					placeholder={this.props.placeholder}
 					readOnly={this.props.readOnly || false}
 					theme={this.theme}
-					value={this.state.value}
+					value={label}
 				/>
 				<div className={theme.toggle}>
 					<span className="caret" />
@@ -356,7 +390,7 @@ if (process.env.NODE_ENV !== 'production') {
 					),
 				}),
 			]),
-		),
+		).isRequired,
 		value: PropTypes.string,
 	};
 }
