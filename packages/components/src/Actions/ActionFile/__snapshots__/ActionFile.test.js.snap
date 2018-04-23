@@ -124,6 +124,31 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
 </span>
 `;
 
+exports[`ActionFile should render a div with a input[type="file"] with some classname on it 1`] = `
+<span>
+  <input
+    className="theme-action-file-input sr-only testClassName"
+    disabled={false}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn theme-btn-file"
+    htmlFor={42}
+  >
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
 exports[`ActionFile should render action with html property name = props.name if set 1`] = `
 <span>
   <input
