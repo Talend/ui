@@ -10,10 +10,13 @@ program
 	.option('-c, --config [config]', 'JSON config file')
 	.option('-v, --verbose', 'Verbose')
 	.option('-t, --timeout [time]', 'timeout for waiting surge upload')
+	.option('-m, --maxTry [nb max try]', 'maximum try before stopped the process')
 	.parse(process.argv);
 
 const PR = program.pullrequest;
 const SURGE_TIMEOUT = program.timeout || 30000;
+const SURGE_MAX_RETRY = program.maxTry || 10;
+let nbCurrentRetry = 0;
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
@@ -63,7 +66,7 @@ const TMP_CONFIG = { postfix: '.png' };
 
 	async function goToPage(page, url, isRestart) {
 		if (isRestart) {
-			console.error('retry to access to :');
+			console.error(`retry to access to (${nbCurrentRetry}/${SURGE_MAX_RETRY}):`);
 			console.error(url);
 		}
 		await page.goto(url);
@@ -72,16 +75,21 @@ const TMP_CONFIG = { postfix: '.png' };
 
 	async function sleepBeforeRetry(page, url) {
 		await new Promise(resolve => setTimeout(resolve, SURGE_TIMEOUT));
-		return goToPage(page, url, true);
+		if (nbCurrentRetry <= SURGE_MAX_RETRY) {
+			return goToPage(page, url, true);
+		}
+		console.error(`Max number of retry to get page exceeded : ${SURGE_MAX_RETRY}`);
 	}
 
 	async function isNotFound(page, url) {
 		const textContent = await page.evaluate(() => document.querySelector('h1').textContent);
 		if (textContent === 'project not found') {
+			nbCurrentRetry += 1;
 			console.error(`this page is not ready yet : ${url}`);
 			console.error(`Waiting surge upload (${SURGE_TIMEOUT})`);
 			await sleepBeforeRetry(page, url);
 		}
+		nbCurrentRetry = 0;
 	}
 
 	async function process(masterPage, branchPage, pageConfig) {
