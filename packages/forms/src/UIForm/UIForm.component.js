@@ -204,7 +204,7 @@ export class UIFormComponent extends React.Component {
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit({ formData: properties });
+				this.props.onSubmit(null, { formData: properties });
 			} else {
 				this.props.onSubmit(event, properties);
 			}
