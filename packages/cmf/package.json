@@ -97,6 +97,7 @@
     ],
     "roots": [
       "src",
+      "scripts",
       "__tests__"
     ],
     "transform": {
