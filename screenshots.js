@@ -15,11 +15,16 @@ program
 
 const PR = program.pullrequest;
 const SURGE_TIMEOUT = program.timeout || 30000;
-const SURGE_MAX_RETRY = program.maxTry || 10;
+const SURGE_MAX_RETRY = program.maxTry || 0;
 let nbCurrentRetry = 0;
+let restartNonReg = false;
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
+	process.exit();
+}
+
+function stopMe() {
 	process.exit();
 }
 
@@ -44,10 +49,14 @@ function log(msg) {
 
 const TMP_CONFIG = { postfix: '.png' };
 
-(async () => {
+const screenshotRun = (async () => {
 	async function asyncForEach(array, callback) {
 		for (let index = 0; index < array.length; index += 1) {
-			await callback(array[index], index, array);
+			if (!restartNonReg) {
+				await callback(array[index], index, array);
+			} else {
+				index = array.length;
+			}
 		}
 	}
 
@@ -64,32 +73,8 @@ const TMP_CONFIG = { postfix: '.png' };
 		return screenshot;
 	}
 
-	async function goToPage(page, url, isRestart) {
-		if (isRestart) {
-			console.error(`retry to access to (${nbCurrentRetry}/${SURGE_MAX_RETRY}):`);
-			console.error(url);
-		}
+	async function goToPage(page, url) {
 		await page.goto(url);
-		await isNotFound(page, url);
-	}
-
-	async function sleepBeforeRetry(page, url) {
-		await new Promise(resolve => setTimeout(resolve, SURGE_TIMEOUT));
-		if (nbCurrentRetry <= SURGE_MAX_RETRY) {
-			return goToPage(page, url, true);
-		}
-		console.error(`Max number of retry to get page exceeded : ${SURGE_MAX_RETRY}`);
-	}
-
-	async function isNotFound(page, url) {
-		const textContent = await page.evaluate(() => document.querySelector('h1').textContent);
-		if (textContent === 'project not found') {
-			nbCurrentRetry += 1;
-			console.error(`this page is not ready yet : ${url}`);
-			console.error(`Waiting surge upload (${SURGE_TIMEOUT})`);
-			await sleepBeforeRetry(page, url);
-		}
-		nbCurrentRetry = 0;
 	}
 
 	async function process(masterPage, branchPage, pageConfig) {
@@ -128,6 +113,15 @@ const TMP_CONFIG = { postfix: '.png' };
 			log('-- no diff');
 		}
 	}
+	function onResponse(page, isMaster) {
+		const pageUrls = Object.keys(config).map(path => `http://${PR}.talend.surge.sh/${path}`);
+		page.on('response', async res => {
+			if (pageUrls.includes(res.url()) && res.status() === 404) {
+				console.error(`Surge is not ready yet ${isMaster ? 'for Master' : `for the PR ${PR}`}: ${res.url()}`);
+				restartNonReg = true;
+			}
+		});
+	}
 
 	async function compare(masterPage, branchPage, path = 'theme') {
 		log(`\nCompare ${path}`);
@@ -145,8 +139,10 @@ const TMP_CONFIG = { postfix: '.png' };
 	const browser = await puppeteer.launch();
 	log('Open browser for master pages');
 	const masterPage = await browser.newPage();
+	onResponse(masterPage, true);
 	log('Open browser for PR pages');
 	const branchPage = await browser.newPage();
+	onResponse(branchPage, false);
 
 	await asyncForEach(Object.keys(config), async path => {
 		try {
@@ -158,4 +154,16 @@ const TMP_CONFIG = { postfix: '.png' };
 
 	log('Close browser');
 	await browser.close();
-})();
+	if (restartNonReg && nbCurrentRetry < SURGE_MAX_RETRY) {
+		nbCurrentRetry += 1;
+		restartNonReg = false;
+		console.error(`retry the non regression in ${SURGE_TIMEOUT}ms (${nbCurrentRetry}/${SURGE_MAX_RETRY})`);
+		await new Promise(resolve => setInterval(resolve, SURGE_TIMEOUT));
+		screenshotRun();
+	}
+	if (restartNonReg && nbCurrentRetry >= SURGE_MAX_RETRY) {
+		console.error("Max try to make non regression exceeded. Please wait the C-I's upload to Surge");
+	}
+});
+
+screenshotRun();
