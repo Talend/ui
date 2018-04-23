@@ -153,11 +153,22 @@ class Datalist extends Component {
 	}
 
 	/**
-   * Prepares a map (object) to match the label from the value in the render
-   * function.
-   *
-   * @param titleMap the titleMap to use to create the label/value mapping.
-   */
+	 * Get the selected value's label.
+	 * If there is no label defined or no label defined for the value, the value itself is returned.
+	 */
+	getSelectedLabel() {
+		if (this.state.titleMapping) {
+			return this.state.titleMapping[this.state.value] || this.state.value;
+		}
+		return this.state.value;
+	}
+
+	/**
+	 * Prepares a map (object) to match the label from the value in the render
+	 * function.
+	 *
+	 * @param titleMap the titleMap to use to create the label/value mapping.
+	 */
 	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
 			if (this.props.multiSection && item.title && item.suggestions) {
@@ -167,16 +178,6 @@ class Datalist extends Component {
 			const mapping = { [item.value]: item.name || item.value };
 			return { ...obj, ...mapping };
 		}, {});
-	}
-
-	/**
-	 * Reset the focused item and section
-	 */
-	resetSelection() {
-		this.setState({
-			focusedItemIndex: undefined,
-			focusedSectionIndex: undefined,
-		});
 	}
 
 	/**
@@ -317,10 +318,8 @@ class Datalist extends Component {
 	}
 
 	render() {
-		const label =
-			this.state.value &&
-			this.state.titleMapping &&
-			(this.state.titleMapping[this.state.value] || this.state.value);
+		const label = this.getSelectedLabel();
+
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
@@ -381,7 +380,7 @@ if (process.env.NODE_ENV !== 'production') {
 					),
 				}),
 			]),
-		),
+		).isRequired,
 		value: PropTypes.string,
 	};
 }
