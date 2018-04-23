@@ -84,11 +84,11 @@ function merge(options, errorCallback) {
 		cmfconfig.settings.i18n &&
 		cmfconfig.settings.i18n.languages &&
 		cmfconfig.settings.i18n['extract-from'] &&
-		cmfconfig.settings.i18n['namepace-paths'] &&
-		cmfconfig.settings.i18n['extract-namepaces']
+		cmfconfig.settings.i18n['namespace-paths'] &&
+		cmfconfig.settings.i18n['extract-namespaces']
 	) {
-		const namespaces = cmfconfig.settings.i18n['namepace-paths'].filter(namespace =>
-			cmfconfig.settings.i18n['extract-namepaces'].includes(namespace.name),
+		const namespaces = cmfconfig.settings.i18n['namespace-paths'].filter(namespace =>
+			cmfconfig.settings.i18n['extract-namespaces'].includes(namespace.name),
 		);
 
 		parseI18n(
@@ -103,11 +103,11 @@ function merge(options, errorCallback) {
 		cmfconfig.settings.i18n &&
 		destination &&
 		cmfconfig.settings.i18n.languages &&
-		cmfconfig.settings.i18n['namepace-paths']
+		cmfconfig.settings.i18n['namespace-paths']
 	) {
 		const i18next = getI18Next(
 			cmfconfig.settings.i18n.languages,
-			cmfconfig.settings.i18n['namepace-paths'],
+			cmfconfig.settings.i18n['namespace-paths'],
 		);
 
 		if (i18next) {

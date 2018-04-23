@@ -94,8 +94,8 @@ this.props.setState(
 );
 ```
 
-If you want the component to support the props `initialState` to make the state spawned with this value;
-This lets save one render if you know the first state.
+If you want the component to be instantiated and rendered directly with a custum state and overwrite the `defaultState`, it can be done with the `initialState` prop.
+This saves one render if you know the first state.
 
 How to use expression
 --
@@ -167,7 +167,7 @@ import { cmfConnect } from "@talend/react-cmf";
 
 function SimpleButton ({label, onClick}) {
     return (
-      <button onClick={props.onClick}>{label}</button>
+      <button onClick={onClick}>{label}</button>
     );
   }
 }
