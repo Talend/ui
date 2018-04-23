@@ -81,7 +81,7 @@ class Form extends React.Component {
 
 	handleSchemaSubmit(changes) {
 		if (this.props.onSubmit) {
-			this.props.onSubmit(changes);
+			this.props.onSubmit(null, changes);
 		}
 	}
 
@@ -115,12 +115,14 @@ class Form extends React.Component {
 	 */
 	handleChange(...args) {
 		if (this.props.onChange) {
-			this.props.onChange(...args);
+			this.props.onChange(null, ...args);
 		}
 	}
 
 	render() {
-		if (this.props.uiform) {
+		if (Array.isArray(this.props.data.uiSchema)) {
+			return <UIForm {...this.props} />;
+		} else if (this.props.uiform) {
 			const props = Object.assign({}, this.props);
 			props.moz = true;
 			if (props.widgets) {
