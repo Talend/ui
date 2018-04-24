@@ -128,14 +128,14 @@ class ActionFile extends React.Component {
 			(disabled || inProgress) && 'disabled',
 		);
 		const btn = (
-			<span>
+			<span className={className}>
 				<input
 					onChange={this.handleChange}
 					type="file"
 					name={name}
 					id={localId}
 					disabled={inProgress || disabled}
-					className={classNames(theme['action-file-input'], 'sr-only', className)}
+					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
 				<label htmlFor={localId} className={labelClasses}>
 					{buttonContent}
