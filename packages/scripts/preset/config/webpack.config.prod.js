@@ -1,17 +1,16 @@
-const webpack = require('webpack');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = () => ({
-	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false,
-			},
-			comments: false,
-			mangle: true,
-			minimize: true,
-		}),
-		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify('production'),
-		}),
-	],
+	mode: 'production',
+	optimization: {
+		minimizer: [
+			new UglifyJsPlugin({
+				cache: true,
+				parallel: true,
+				sourceMap: true,
+			}),
+			new OptimizeCSSAssetsPlugin({}),
+		],
+	},
 });
