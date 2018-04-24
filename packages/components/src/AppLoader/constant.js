@@ -170,12 +170,12 @@ const APP_LOADER = `<div class="tc-app-loader-container">
 	<div class="tc-app-loader-icon">
 		<div class="tc-app-loader" >
 			<div class="spinner-wrapper">
-				<div class="spinner-left" > 
-        	<div class="circle"></div>
-       	</div>
-        <div class="spinner-right">
-        	<div class="circle"></div>
-       	</div>
+				<div class="spinner-left" >
+					<div class="circle"></div>
+				</div>
+				<div class="spinner-right">
+					<div class="circle"></div>
+				</div>
 			</div>
 		</div>
 	</div>
