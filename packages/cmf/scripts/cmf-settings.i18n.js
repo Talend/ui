@@ -132,7 +132,7 @@ function saveSettings(i18next, settings, locale, destination) {
 		)}.${locale}${path.extname(destination)}`;
 		const filePath = path.join(path.dirname(destination), basename);
 		const file = fs.createWriteStream(filePath);
-		file.write(JSON.stringify(translatedSetting));
+		file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
 		file.end();
 		getLogger()('Settings created:', `${filePath}  settings has been created`);
 	});
@@ -191,7 +191,7 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 	);
 
 	mkdirp.sync(path.dirname(filePath));
-	fs.writeFileSync(filePath, JSON.stringify(newLocale, null, '  '));
+	fs.writeFileSync(filePath, JSON.stringify(newLocale, null, '  ') + String.fromCharCode(10));
 }
 
 /**
