@@ -173,7 +173,6 @@ export function ActionButton(props) {
 		</Button>
 	);
 	if (!inProgress && overlayComponent) {
-		console.log('voerlayId', overlayId);
 		btn = (
 			// this span is here to allow the tooltip trigger to work
 			<span>
