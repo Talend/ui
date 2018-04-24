@@ -138,7 +138,7 @@ describe('i18n scripts', () => {
 					},
 					null,
 					'  ',
-				),
+				) + String.fromCharCode(10),
 			);
 		});
 
@@ -158,7 +158,7 @@ describe('i18n scripts', () => {
 					},
 					null,
 					'  ',
-				),
+				) + String.fromCharCode(10),
 			);
 		});
 
@@ -181,7 +181,7 @@ describe('i18n scripts', () => {
 					},
 					null,
 					'  ',
-				),
+				) + String.fromCharCode(10),
 			);
 		});
 	});
@@ -306,7 +306,7 @@ describe('i18n scripts', () => {
 					},
 					null,
 					'  ',
-				),
+				) + String.fromCharCode(10),
 			);
 		});
 	});
