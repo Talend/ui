@@ -189,12 +189,18 @@ export function setMinimumPercentage(model, minimumPercentage) {
  * @param {string} overlayPlacement the overlay placement
  * @param {Element} overlayComponent the overlay component
  * @param {string} overlayId the id to be set for the overlay
+ * @param {callback} overlayRef the callback to be set for the overlay to bind ref
  */
-export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
+export function decorateWithOverlay(
+	btn,
+	overlayPlacement,
+	overlayComponent,
+	overlayId,
+	overlayRef,
+) {
 	if (!overlayComponent) {
 		return btn;
 	}
-
 	return (
 		<span>
 			<OverlayTrigger
@@ -202,6 +208,7 @@ export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, ove
 				rootClose
 				placement={overlayPlacement}
 				overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
+				ref={overlayRef}
 			>
 				{btn}
 			</OverlayTrigger>
@@ -321,6 +328,8 @@ function PieChartButton({
 	size,
 	tooltip,
 	tooltipPlacement,
+	buttonRef,
+	overlayRef,
 	...rest
 }) {
 	const sizeObject = getDisplaySize(size, display);
@@ -357,6 +366,7 @@ function PieChartButton({
 			className={classnames(theme['tc-pie-chart'], 'tc-pie-chart', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
+			ref={buttonRef}
 			{...rest}
 		>
 			<svg
@@ -380,7 +390,7 @@ function PieChartButton({
 		</Button>
 	);
 
-	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId);
+	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
 	btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
 
 	return btn;
@@ -415,6 +425,8 @@ PieChartButton.propTypes = {
 	size: propTypeCheckSize,
 	tooltip: PropTypes.bool,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	buttonRef: PropTypes.func,
+	overlayRef: PropTypes.func,
 };
 
 PieChartButton.defaultProps = {
