@@ -7,7 +7,7 @@ Under the hood they are called into the mapStateToProps of cmf.
 
 ## How to use expressions
 
-You can use them to handle dynamic configuration like disable buttons if a user doesn't have a permission.
+You can use them to handle dynamic configuration like disabling buttons if a user doesn't have a permission.
 
 Given `MyComponent` you can use expression to fill the `title` from the store
 

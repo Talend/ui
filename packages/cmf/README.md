@@ -1,4 +1,4 @@
-# React based Framework
+# React content management Framework
 
 This is a framework to help you to build configurable React App.
 
@@ -33,16 +33,16 @@ Before trying CMF you must know:
 * [redux-saga](https://redux-saga.js.org)
 * [Immutable](https://facebook.github.io/immutable-js/)
 
-So you understand all the following words: pure component, action creator, reducer, put, takeEvery, fromJS, ...
+You must understand all the following words: pure component, action creator, reducer, put, takeEvery, fromJS, ...
 
 ## What is react-cmf
 
-So it's a framework. It is the results of the years of experience with react ecosystem at Talend.
+It's a framework. It is the results of the years of experience with react ecosystem at Talend.
 The goal is to provide one way to do the things keeping best pratices in mind.
 
 ## Working with react-cmf
 
-If you try to work with the required addons listed above you will do some
+If you tried to work with the required addons listed above you will do some
 repetitive tasks and some boiler plate every time and on each components.
 
 When working with a framework like angular you have the tools plus a guideline on how to use them.
@@ -56,13 +56,13 @@ A brief overview of how to do a project with react-cmf:
 
 Side by side with angular 1:
 
-* directives are React pure component connected
+* components are React *cmfConnected* (pure) component
 * services are sagas
 * controllers are containers
 
-So the UI send action into redux which are handled by sagas.
+UI sends actions into redux which are handled by sagas.
 
-## cmfConnect highder order component
+## cmfConnect higher order component
 
 `cmfConnect` create a component with all CMF features charged in it.
 Under the hood it uses the connect function and create a container.
@@ -75,7 +75,7 @@ Read more about [cmfConnect](./src/cmfConnect.md)
 
 ## Store structure
 
-cmf's redux store use the following structure
+CMF uses react-redux store with the following structure
 
 * root
   * cmf
@@ -83,7 +83,7 @@ cmf's redux store use the following structure
     * components
     * settings
 
-collections and components use Immutable data structure.
+Collections and components use Immutable data structure.
 
 ### ComponentState Management
 
