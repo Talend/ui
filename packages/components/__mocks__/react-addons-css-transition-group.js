@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function ReactCSSTransitionGroup({children, ...props}) {
 	return (
@@ -8,7 +9,7 @@ function ReactCSSTransitionGroup({children, ...props}) {
 	);
 }
 ReactCSSTransitionGroup.propTypes = {
-	children: React.PropTypes.arrayOf(React.PropTypes.element),
+	children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default ReactCSSTransitionGroup;
