@@ -7,7 +7,7 @@ import { drag } from 'd3-drag';
 
 class LinkHandle extends React.Component {
 	static propTypes = {
-		position: ImmutablePropTypes.mapContains({
+		position: ImmutablePropTypes.recordOf({
 			x: PropTypes.number.isRequired,
 			y: PropTypes.number.isRequired,
 		}).isRequired,
