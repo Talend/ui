@@ -176,9 +176,175 @@ const data = [
 	},
 ];
 
+const dataModelFields = [
+	{
+		name: 'id',
+		doc: 'Id',
+		type: {
+			type: 'integer',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'name',
+		doc: 'Name',
+		type: {
+			type: 'string',
+			dqType: 'Recipe',
+			dqTypeKey: 'RECIPE',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'price',
+		doc: 'Price per unit',
+		type: {
+			type: 'decimal',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'ingredients',
+		doc: 'Ingredients',
+		type: {
+			type: 'object',
+		},
+		fields: [
+			{
+				name: 'name',
+				doc: 'Name',
+				type: {
+					type: 'string',
+					dqType: 'Ingredient',
+					dqTypeKey: 'INGREDIENT',
+				},
+				'@talend-quality@': {
+					0: 2,
+					1: 88,
+					'-1': 10,
+				},
+			},
+			{
+				name: 'amount',
+				doc: 'Amount',
+				type: {
+					type: 'number',
+				},
+				'@talend-quality@': {
+					0: 4,
+					1: 96,
+					'-1': 0,
+				},
+			},
+			{
+				name: 'unit',
+				doc: 'Unit',
+				type: {
+					type: 'string',
+					dqType: 'Unit',
+					dqTypeKey: 'UNIT',
+				},
+				'@talend-quality@': {
+					0: 4,
+					1: 96,
+					'-1': 0,
+				},
+			},
+			{
+				name: 'nested',
+				doc: 'Nested things',
+				type: {
+					type: 'object',
+				},
+				fields: [
+					{
+						name: 'poo',
+						doc: 'Poo',
+						type: {
+							type: 'string',
+							dqType: 'Taste',
+							dqTypeKey: 'TASTE',
+						},
+						'@talend-quality@': {
+							0: 2,
+							1: 88,
+							'-1': 10,
+						},
+					},
+					{
+						name: 'pee',
+						doc: 'Pee',
+						type: {
+							type: 'string',
+							dqType: 'Taste',
+							dqTypeKey: 'TASTE',
+						},
+						'@talend-quality@': {
+							0: 4,
+							1: 96,
+							'-1': 0,
+						},
+					},
+				],
+			},
+		],
+	},
+	{
+		name: 'ratings',
+		doc: 'Ratings',
+		type: {
+			type: 'object',
+		},
+		fields: [
+			{
+				name: 'michelin',
+				doc: 'Michelin',
+				type: {
+					type: 'integer',
+				},
+				'@talend-quality@': {
+					0: 2,
+					1: 88,
+					'-1': 10,
+				},
+			},
+			{
+				name: 'gaultmillau',
+				doc: 'Gault & Millau',
+				type: {
+					type: 'integer',
+				},
+				'@talend-quality@': {
+					0: 4,
+					1: 96,
+					'-1': 0,
+				},
+			},
+		],
+	},
+];
+
 const selectedJsonpath = "$[0]['name']";
 
 const ExampleObjectViewer = {
+	dataModel: () => (
+		<div>
+			<IconsProvider />
+			<ObjectViewer displayMode="model" data={dataModelFields} />
+		</div>
+	),
 	default: () => (
 		<div>
 			<IconsProvider />

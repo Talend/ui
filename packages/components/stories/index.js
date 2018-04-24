@@ -6,6 +6,7 @@ import './ActionIconToggle';
 import './ActionList';
 import './ActionSplitDropdown';
 import './Actions';
+import './AvroViewer';
 import './AppLoader';
 import './Badge';
 import './Breadcrumbs';

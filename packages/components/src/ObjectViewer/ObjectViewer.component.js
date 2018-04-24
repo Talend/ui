@@ -1,15 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Table from './Table';
+import GenericViewer from './Generic';
 import JSONLike from './JSONLike';
 import List from './List';
+import Model from './Model';
+import Records from './Records';
+import Table from './Table';
 
 export const DISPLAY_MODES = {
 	FLAT: 'flat',
+	GENERIC: 'generic',
+	LIST: 'list',
+	MODEL: 'model',
+	RECORDS: 'records',
 	TABLE: 'table',
 	TREE: 'tree',
-	LIST: 'list',
 };
 
 export default function ObjectViewer({ displayMode, ...props }) {
@@ -26,6 +32,12 @@ export default function ObjectViewer({ displayMode, ...props }) {
 			return <JSONLike {...props} />;
 		case DISPLAY_MODES.LIST:
 			return <List {...props} />;
+		case DISPLAY_MODES.GENERIC:
+			return <GenericViewer {...props} />;
+		case DISPLAY_MODES.MODEL:
+			return <Model {...props} />;
+		case DISPLAY_MODES.RECORDS:
+			return <Records {...props} />;
 		default:
 			return <JSONLike {...props} />;
 	}
@@ -34,11 +46,11 @@ export default function ObjectViewer({ displayMode, ...props }) {
 ObjectViewer.displayName = 'ObjectViewer';
 
 ObjectViewer.propTypes = {
+	data: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]),
 	displayMode: PropTypes.oneOf(Object.keys(DISPLAY_MODES).map(key => DISPLAY_MODES[key])),
-	tupleLabel: PropTypes.string,
 	rootLabel: PropTypes.string,
 	showTypes: PropTypes.bool,
-	data: PropTypes.arrayOf(PropTypes.object),
+	tupleLabel: PropTypes.string,
 };
 
 ObjectViewer.Table = Table;

@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultLeaf should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DefaultBranch
+    fields={Array []}
+    getDisplayKey={[Function]}
+    getFieldsCount={[Function]}
+    getIcon={[Function]}
+    getJSONPath={[Function]}
+    getQuality={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className={undefined}
+          style={undefined}
+>
+          <Icon
+                    className="theme-tc-hierarchic-item-content-caret tc-hierarchic-item-content-caret"
+                    name="talend-chevron-left"
+                    onClick={[Function]}
+                    title="Expand undefined (undefined)"
+                    transform="rotate-180"
+          />
+          <span
+                    className="theme-tc-hierarchic-item-content-options tc-hierarchic-item-content-options"
+          >
+                    <span />
+          </span>
+</div>,
+        undefined,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Icon
+              className="theme-tc-hierarchic-item-content-caret tc-hierarchic-item-content-caret"
+              name="talend-chevron-left"
+              onClick={[Function]}
+              title="Expand undefined (undefined)"
+              transform="rotate-180"
+/>,
+            <span
+              className="theme-tc-hierarchic-item-content-options tc-hierarchic-item-content-options"
+>
+              <span />
+</span>,
+          ],
+          "className": undefined,
+          "style": undefined,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "Icon",
+            "nodeType": "function",
+            "props": Object {
+              "className": "theme-tc-hierarchic-item-content-caret tc-hierarchic-item-content-caret",
+              "name": "talend-chevron-left",
+              "onClick": [Function],
+              "title": "Expand undefined (undefined)",
+              "transform": "rotate-180",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "main-text",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span />,
+                Array [
+                  false,
+                  false,
+                ],
+              ],
+              "className": "theme-tc-hierarchic-item-content-options tc-hierarchic-item-content-options",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "datakey",
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "span",
+              },
+              false,
+              false,
+            ],
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+      undefined,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className={undefined}
+            style={undefined}
+>
+            <Icon
+                        className="theme-tc-hierarchic-item-content-caret tc-hierarchic-item-content-caret"
+                        name="talend-chevron-left"
+                        onClick={[Function]}
+                        title="Expand undefined (undefined)"
+                        transform="rotate-180"
+            />
+            <span
+                        className="theme-tc-hierarchic-item-content-options tc-hierarchic-item-content-options"
+            >
+                        <span />
+            </span>
+</div>,
+          undefined,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Icon
+                className="theme-tc-hierarchic-item-content-caret tc-hierarchic-item-content-caret"
+                name="talend-chevron-left"
+                onClick={[Function]}
+                title="Expand undefined (undefined)"
+                transform="rotate-180"
+/>,
+              <span
+                className="theme-tc-hierarchic-item-content-options tc-hierarchic-item-content-options"
+>
+                <span />
+</span>,
+            ],
+            "className": undefined,
+            "style": undefined,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "Icon",
+              "nodeType": "function",
+              "props": Object {
+                "className": "theme-tc-hierarchic-item-content-caret tc-hierarchic-item-content-caret",
+                "name": "talend-chevron-left",
+                "onClick": [Function],
+                "title": "Expand undefined (undefined)",
+                "transform": "rotate-180",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "main-text",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span />,
+                  Array [
+                    false,
+                    false,
+                  ],
+                ],
+                "className": "theme-tc-hierarchic-item-content-options tc-hierarchic-item-content-options",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "datakey",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+                false,
+                false,
+              ],
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+        undefined,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

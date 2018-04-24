@@ -189,8 +189,15 @@ export function setMinimumPercentage(model, minimumPercentage) {
  * @param {string} overlayPlacement the overlay placement
  * @param {Element} overlayComponent the overlay component
  * @param {string} overlayId the id to be set for the overlay
+ * @param {function} overlayRef the react ref function
  */
-export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
+export function decorateWithOverlay(
+	btn,
+	overlayPlacement,
+	overlayComponent,
+	overlayId,
+	overlayRef,
+) {
 	if (!overlayComponent) {
 		return btn;
 	}
@@ -202,6 +209,7 @@ export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, ove
 				rootClose
 				placement={overlayPlacement}
 				overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
+				ref={overlayRef}
 			>
 				{btn}
 			</OverlayTrigger>
@@ -305,6 +313,7 @@ function getShowedValue(model, index) {
 }
 
 function PieChartButton({
+	buttonRef,
 	model,
 	labelIndex,
 	className,
@@ -314,6 +323,7 @@ function PieChartButton({
 	label,
 	overlayComponent,
 	overlayPlacement,
+	overlayRef,
 	overlayId,
 	onClick,
 	onMouseDown,
@@ -357,6 +367,7 @@ function PieChartButton({
 			className={classnames(theme['tc-pie-chart'], 'tc-pie-chart', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
+			ref={buttonRef}
 			{...rest}
 		>
 			<svg
@@ -380,13 +391,14 @@ function PieChartButton({
 		</Button>
 	);
 
-	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId);
+	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
 	btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
 
 	return btn;
 }
 
 PieChartButton.propTypes = {
+	buttonRef: PropTypes.func,
 	className: PropTypes.string,
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
 	loading: PropTypes.bool,
@@ -412,6 +424,7 @@ PieChartButton.propTypes = {
 	overlayComponent: PropTypes.element,
 	overlayId: PropTypes.string,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayRef: PropTypes.func,
 	size: propTypeCheckSize,
 	tooltip: PropTypes.bool,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,

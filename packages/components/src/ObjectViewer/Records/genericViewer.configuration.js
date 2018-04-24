@@ -1,0 +1,123 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { get } from 'lodash';
+import classNames from 'classnames';
+import theme from './RecordViewer.scss';
+import { injectedCellRenderer } from '../AvroRenderer';
+
+/**
+ * We are schema driven.
+ * We have 2 cases that has children
+ * - object : 	schema.fields is an array describing each object property.
+ * 				so each element of schema.fields is the subSchema of a property.
+  	{
+		name: 'my-object',
+		doc: 'My Object',
+		type: { type: 'record' },
+		fields: [
+			{ name: 'field1-avro-schema', ... },
+			{ name: 'field2-avro-schema', ... },
+			// an object schema can be a array of fields (root case)
+			// or a complete avro definition, where fields is an array of avro definition
+			{ name: 'object-field-avro-schema', fields: [], ... },
+		],
+	}
+ * - array : schema.items.fields is an array containing the schema of each children properties
+ 	{
+		name: 'my-array',
+		doc: 'My Array',
+		type: { type: 'array' },
+		items: {
+			name: 'my-array-items',
+			type: 'record',
+			fields: [
+				{ name: 'array-item1-avro-schema', ... },
+				{ name: 'array-item2-avro-schema', ... },
+			]
+		}
+	}
+ */
+function getFieldsFromSchema(schema) {
+	return Array.isArray(schema) ? schema : schema.fields;
+}
+
+function getFields(avroSample, type) {
+	const value = get(avroSample, 'data.value');
+	const schema = get(avroSample, 'schema');
+	if (type === 'object') {
+		return getFieldsFromSchema(schema)
+			.filter(({ name }) => value[name] !== undefined)
+			.map(subSchema => ({
+				dataKey: subSchema.name,
+				value: {
+					schema: subSchema,
+					data: value[subSchema.name],
+				},
+			}));
+	}
+	return value.map((datum, index) => ({
+		dataKey: index,
+		value: { schema: get(schema, 'items.fields'), data: datum },
+	}));
+}
+
+/**
+ * The value is the data to display, we return its type.
+ */
+function getDataType(avroSample) {
+	return Array.isArray(avroSample.data.value) ? 'array' : typeof avroSample.data.value;
+}
+
+/**
+ * The value is an avro entry that contains { schema, data }.
+ * The data is an avro data, containing a quality indicator.
+ * We adapt this indicator to a quality constant.
+ */
+function getQuality({ value }) {
+	return get(value, 'data.quality');
+}
+
+/**
+ * The value is an avro entry that contains { schema, data }.
+ * The data is an avro data, containing the real value.
+ */
+function getDisplayValue({ value, getComponent, cellRenderer, avroRenderersIds }) {
+	const Component = injectedCellRenderer(getComponent, cellRenderer, avroRenderersIds);
+	return <Component colDef={{ avro: value.schema }} data={value.data} />;
+}
+getDisplayValue.propTypes = {
+	avroRenderersIds: PropTypes.object, // dictionary type/rendererId
+	cellRenderer: PropTypes.string, // top cell renderer id
+	getComponent: PropTypes.func,
+	value: PropTypes.shape({
+		schema: PropTypes.object,
+		data: PropTypes.object,
+	}).isRequired,
+};
+
+/**
+ * For objects (technical type provided, the corresponding avro type is records),
+ * we display a "plus" icon.
+ * For arrays, we stick to the caret.
+ */
+function getIcon({ isOpened, type }) {
+	if (type === 'object') {
+		// TODO we don't have a talend-minus-circle
+		return {
+			name: 'talend-plus-circle',
+			className: classNames(theme['tc-records-icon'], 'tc-records-icon'),
+		};
+	}
+	return {
+		name: isOpened ? 'talend-caret-down' : 'talend-chevron-left',
+		transform: isOpened ? null : 'rotate-180',
+	};
+}
+
+export default {
+	getDataType,
+	getDisplayValue,
+	getFields,
+	getIcon,
+	getQuality,
+};
