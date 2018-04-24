@@ -112,7 +112,6 @@ export function ActionButton(props) {
 		t,
 		...rest
 	} = props;
-
 	if (!available) {
 		return null;
 	}

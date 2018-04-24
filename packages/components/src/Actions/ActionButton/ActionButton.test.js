@@ -175,9 +175,7 @@ describe('Action', () => {
 			overlayComponent: OverlayComponent,
 			overlayPlacement: 'bottom',
 			overlayRef: myRefFunc,
-			overlayId: 'myOverlayId',
 		};
-
 		// when
 		mount(<ActionButton {...props} />);
 
