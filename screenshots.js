@@ -114,13 +114,15 @@ const screenshotTest = (async () => {
 		}
 	}
 
-	function onResponse(page, isMaster) {
-		const pageUrls = Object.keys(config).map(path => `${getUrl(isMaster)}${path}`);
+	function onResponse(page, isMaster, pageUrls) {
 		page.on('response', async res => {
 			if (pageUrls.includes(res.url()) && res.status() === 404) {
 				console.error(`Surge is not ready yet ${isMaster ? 'for Master' : `for the PR ${PR}`}: ${res.url()}`);
-				errorWithSurgeMaster = isMaster;
-				errorWithSurgePR = !isMaster;
+				if (isMaster) {
+					errorWithSurgeMaster = true;
+				} else {
+					errorWithSurgePR = true;
+				}
 			}
 		});
 	}
@@ -143,16 +145,15 @@ const screenshotTest = (async () => {
 	const browser = await puppeteer.launch();
 	log('Open browser for master pages');
 	const masterPage = await browser.newPage();
-	onResponse(masterPage, true);
+	onResponse(masterPage, true, Object.keys(config).map(path => `${getUrl(true)}${path}`));
 	log('Open browser for PR pages');
 	const branchPage = await browser.newPage();
-	onResponse(branchPage, false);
+	onResponse(branchPage, false, Object.keys(config).map(path => `${getUrl(false)}${path}`));
 
 	await asyncForEach(Object.keys(config), async path => {
 		try {
 			await compare(masterPage, branchPage, path);
 		} catch (error) {
-			console.log(error);
 			if (error.message === ERROR_SURGE_UNAVAILABLE) {
 				throw error;
 			} else {
@@ -170,10 +171,9 @@ async function runScreenshot(nbCurrentRetry) {
 		await screenshotTest();
 	} catch (e) {
 		if (nbCurrentRetry < SURGE_MAX_RETRY) {
-			const newNbCurrentRetry = nbCurrentRetry + 1;
 			console.error(`retry the non regression in ${SURGE_TIMEOUT}ms (${nbCurrentRetry}/${SURGE_MAX_RETRY})`);
 			await new Promise(resolve => setInterval(resolve, SURGE_TIMEOUT));
-			runScreenshot(newNbCurrentRetry);
+			runScreenshot(nbCurrentRetry + 1);
 		}
 		if (nbCurrentRetry >= SURGE_MAX_RETRY) {
 			console.error(`Max try to make non regression exceeded (${nbCurrentRetry}/${SURGE_MAX_RETRY}). Please wait the C-I's upload to Surge`);
