@@ -189,7 +189,7 @@ export function setMinimumPercentage(model, minimumPercentage) {
  * @param {string} overlayPlacement the overlay placement
  * @param {Element} overlayComponent the overlay component
  * @param {string} overlayId the id to be set for the overlay
- * @param {func} overlayRef the callback to be set for the overlay to bind ref
+ * @param {callback} overlayRef the callback to be set for the overlay to bind ref
  */
 export function decorateWithOverlay(
 	btn,
