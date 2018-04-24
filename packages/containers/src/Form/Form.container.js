@@ -39,7 +39,6 @@ class Form extends React.Component {
 		super(props);
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
@@ -59,20 +58,14 @@ class Form extends React.Component {
 		}
 	}
 
-	onTrigger(formData, formId, propertyName, propertyValue) {
-		if (this.props.onTrigger) {
-			this.props.onTrigger(formData, formId, propertyName, propertyValue);
-		}
-	}
-
-	onChange(form) {
+	onChange(event, form) {
 		this.props.setState({ data: form.formData, dirty: true });
 		if (this.props.onChange) {
 			this.props.onChange(form);
 		}
 	}
 
-	onSubmit(formData) {
+	onSubmit(event, formData) {
 		if (this.props.onSubmit) {
 			this.props.onSubmit(formData);
 		}
@@ -132,16 +125,16 @@ class Form extends React.Component {
 			actions: this.formActions(),
 			fields: this.props.fields,
 			onChange: this.onChange,
-			onTrigger: this.onTrigger,
+			onTrigger: this.props.onTrigger,
 			onSubmit: this.onSubmit,
 			customFormats: this.props.customFormats,
 			buttonBlockClass: this.props.buttonBlockClass,
 			children: this.props.children,
 			uiform: this.props.uiform,
 			language: this.props.language,
+			widgets: this.props.widgets,
 			...this.props.formProps,
 		};
-
 		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
 	}
 }
