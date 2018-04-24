@@ -129,7 +129,7 @@ function merge(options, errorCallback) {
 		logger(`Merge to ${destination}`);
 		mkdirp.sync(path.dirname(destination));
 		const file = fs.createWriteStream(destination);
-		file.write(JSON.stringify(settingWithoutI18n));
+		file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
 		file.end();
 		logger('CMF settings has been merged');
 		return jsonFiles.concat(cmfconfigPath);
