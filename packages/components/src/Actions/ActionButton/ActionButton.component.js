@@ -180,7 +180,7 @@ export function ActionButton(props) {
 					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
-					overlay={<Popover id={overlayId} >{overlayComponent}</Popover>}
+					overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
 				>
 					{btn}
 				</OverlayTrigger>
