@@ -91,6 +91,7 @@ function noOp() {}
 export function ActionButton(props) {
 	const {
 		bsStyle,
+		buttonRef,
 		inProgress,
 		disabled,
 		hideLabel,
@@ -100,8 +101,10 @@ export function ActionButton(props) {
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		overlayId,
 		overlayComponent,
 		overlayPlacement,
+		overlayRef,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -163,20 +166,23 @@ export function ActionButton(props) {
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
+			ref={buttonRef}
 			{...buttonProps}
 		>
 			{buttonContent}
 		</Button>
 	);
 	if (!inProgress && overlayComponent) {
+		console.log('voerlayId', overlayId);
 		btn = (
 			// this span is here to allow the tooltip trigger to work
 			<span>
 				<OverlayTrigger
 					trigger="click"
+					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
-					overlay={<Popover>{overlayComponent}</Popover>}
+					overlay={<Popover id={overlayId} >{overlayComponent}</Popover>}
 				>
 					{btn}
 				</OverlayTrigger>
@@ -190,7 +196,6 @@ export function ActionButton(props) {
 			</TooltipTrigger>
 		);
 	}
-
 	return btn;
 }
 
@@ -198,6 +203,7 @@ ActionButton.propTypes = {
 	...getIcon.propTypes,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
+	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
@@ -207,8 +213,10 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	overlayId: PropTypes.string,
 	overlayComponent: PropTypes.element,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayRef: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { ActionButton } from './ActionButton.component';
 
 const myAction = {
@@ -163,5 +163,34 @@ describe('Action', () => {
 		// then
 		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should called ref method on overlay', () => {
+		// given
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>;
+		}
+		const myRefFunc = jest.fn();
+		const props = {
+			...myAction,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+			overlayRef: myRefFunc,
+			overlayId: 'myOverlayId',
+		};
+
+		// when
+		mount(<ActionButton {...props} />);
+
+		// then
+		expect(myRefFunc).toHaveBeenCalled();
+	});
+	it('should called ref method on button', () => {
+		// Given
+		const myRefFunc = jest.fn();
+		// when
+		mount(<ActionButton {...myAction} buttonRef={myRefFunc} />);
+
+		// then
+		expect(myRefFunc).toHaveBeenCalled();
 	});
 });
