@@ -17,6 +17,8 @@ const PR = program.pullrequest;
 const SURGE_TIMEOUT = program.timeout || 30000;
 const SURGE_MAX_RETRY = program.maxTry > 1 ? program.maxTry : 1;
 const ERROR_SURGE_UNAVAILABLE = 'ERROR_SURGE_UNAVAILABLE';
+let errorWithSurgeMaster = false;
+let errorWithSurgePR = false;
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
@@ -112,12 +114,13 @@ const screenshotTest = (async () => {
 		}
 	}
 
-	function onResponse(page, isMaster, url, onErrorCallback) {
+	function onResponse(page, isMaster) {
 		const pageUrls = Object.keys(config).map(path => `${getUrl(isMaster)}${path}`);
 		page.on('response', async res => {
 			if (pageUrls.includes(res.url()) && res.status() === 404) {
 				console.error(`Surge is not ready yet ${isMaster ? 'for Master' : `for the PR ${PR}`}: ${res.url()}`);
-				onErrorCallback(ERROR_SURGE_UNAVAILABLE);
+				errorWithSurgeMaster = isMaster;
+				errorWithSurgePR = !isMaster;
 			}
 		});
 	}
@@ -130,22 +133,20 @@ const screenshotTest = (async () => {
 		log('Go to PR page');
 		await goToPage(branchPage, `${getUrl(false)}${path}`);
 		log('-- ok');
-
+		if (errorWithSurgeMaster || errorWithSurgePR) {
+			throw new Error(ERROR_SURGE_UNAVAILABLE);
+		}
 		await asyncForEach(config[path], async config => await process(masterPage, branchPage, config));
 	}
 
-
-	const onError = async () => {
-		throw new Error(ERROR_SURGE_UNAVAILABLE);
-	};
 	log('Launch puppeteer');
 	const browser = await puppeteer.launch();
 	log('Open browser for master pages');
 	const masterPage = await browser.newPage();
-	onResponse(masterPage, true, onError);
+	onResponse(masterPage, true);
 	log('Open browser for PR pages');
 	const branchPage = await browser.newPage();
-	onResponse(branchPage, false, onError);
+	onResponse(branchPage, false);
 
 	await asyncForEach(Object.keys(config), async path => {
 		try {
@@ -176,8 +177,9 @@ async function runScreenshot(nbCurrentRetry) {
 		}
 		if (nbCurrentRetry >= SURGE_MAX_RETRY) {
 			console.error(`Max try to make non regression exceeded (${nbCurrentRetry}/${SURGE_MAX_RETRY}). Please wait the C-I's upload to Surge`);
+			process.exit();
 		}
 	}
 }
 
-runScreenshot(0);
+runScreenshot(1);
