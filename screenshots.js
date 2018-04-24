@@ -16,8 +16,7 @@ program
 const PR = program.pullrequest;
 const SURGE_TIMEOUT = program.timeout || 30000;
 const SURGE_MAX_RETRY = program.maxTry > 1 ? program.maxTry : 1;
-let nbCurrentRetry = 1;
-let restartNonReg = false;
+const ERROR_SURGE_UNAVAILABLE = 'ERROR_SURGE_UNAVAILABLE';
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
@@ -43,16 +42,19 @@ function log(msg) {
 	}
 }
 
+function getUrl(isMaster) {
+	if (isMaster) {
+		return 'http://talend.surge.sh/';
+	}
+	return `http://${PR}.talend.surge.sh/`;
+}
+
 const TMP_CONFIG = { postfix: '.png' };
 
-const screenshotRun = (async () => {
+const screenshotTest = (async () => {
 	async function asyncForEach(array, callback) {
 		for (let index = 0; index < array.length; index += 1) {
-			if (!restartNonReg) {
-				await callback(array[index], index, array);
-			} else {
-				index = array.length;
-			}
+			await callback(array[index], index, array);
 		}
 	}
 
@@ -109,12 +111,13 @@ const screenshotRun = (async () => {
 			log('-- no diff');
 		}
 	}
-	function onResponse(page, isMaster) {
-		const pageUrls = Object.keys(config).map(path => `http://${PR}.talend.surge.sh/${path}`);
+
+	function onResponse(page, isMaster, url, onErrorCallback) {
+		const pageUrls = Object.keys(config).map(path => `${getUrl(isMaster)}${path}`);
 		page.on('response', async res => {
 			if (pageUrls.includes(res.url()) && res.status() === 404) {
 				console.error(`Surge is not ready yet ${isMaster ? 'for Master' : `for the PR ${PR}`}: ${res.url()}`);
-				restartNonReg = true;
+				onErrorCallback(ERROR_SURGE_UNAVAILABLE);
 			}
 		});
 	}
@@ -122,44 +125,59 @@ const screenshotRun = (async () => {
 	async function compare(masterPage, branchPage, path = 'theme') {
 		log(`\nCompare ${path}`);
 		log('Go to master page');
-		await goToPage(masterPage, `http://talend.surge.sh/${path}`);
+		await goToPage(masterPage, `${getUrl(true)}${path}`);
 		log('-- ok');
 		log('Go to PR page');
-		await goToPage(branchPage, `http://${PR}.talend.surge.sh/${path}`);
+		await goToPage(branchPage, `${getUrl(false)}${path}`);
 		log('-- ok');
 
 		await asyncForEach(config[path], async config => await process(masterPage, branchPage, config));
 	}
 
+
+	const onError = async () => {
+		throw new Error(ERROR_SURGE_UNAVAILABLE);
+	};
 	log('Launch puppeteer');
 	const browser = await puppeteer.launch();
 	log('Open browser for master pages');
 	const masterPage = await browser.newPage();
-	onResponse(masterPage, true);
+	onResponse(masterPage, true, onError);
 	log('Open browser for PR pages');
 	const branchPage = await browser.newPage();
-	onResponse(branchPage, false);
+	onResponse(branchPage, false, onError);
 
 	await asyncForEach(Object.keys(config), async path => {
 		try {
 			await compare(masterPage, branchPage, path);
 		} catch (error) {
-			console.error(path, error);
+			console.log(error);
+			if (error.message === ERROR_SURGE_UNAVAILABLE) {
+				throw error;
+			} else {
+				console.error(path, error);
+			}
 		}
 	});
 
 	log('Close browser');
 	await browser.close();
-	if (restartNonReg && nbCurrentRetry < SURGE_MAX_RETRY) {
-		nbCurrentRetry += 1;
-		restartNonReg = false;
-		console.error(`retry the non regression in ${SURGE_TIMEOUT}ms (${nbCurrentRetry}/${SURGE_MAX_RETRY})`);
-		await new Promise(resolve => setInterval(resolve, SURGE_TIMEOUT));
-		screenshotRun();
-	}
-	if (restartNonReg && nbCurrentRetry >= SURGE_MAX_RETRY) {
-		console.error(`Max try to make non regression exceeded (${nbCurrentRetry}/${SURGE_MAX_RETRY}). Please wait the C-I's upload to Surge`);
-	}
 });
 
-screenshotRun();
+async function runScreenshot(nbCurrentRetry) {
+	try {
+		await screenshotTest();
+	} catch (e) {
+		if (nbCurrentRetry < SURGE_MAX_RETRY) {
+			const newNbCurrentRetry = nbCurrentRetry + 1;
+			console.error(`retry the non regression in ${SURGE_TIMEOUT}ms (${nbCurrentRetry}/${SURGE_MAX_RETRY})`);
+			await new Promise(resolve => setInterval(resolve, SURGE_TIMEOUT));
+			runScreenshot(newNbCurrentRetry);
+		}
+		if (nbCurrentRetry >= SURGE_MAX_RETRY) {
+			console.error(`Max try to make non regression exceeded (${nbCurrentRetry}/${SURGE_MAX_RETRY}). Please wait the C-I's upload to Surge`);
+		}
+	}
+}
+
+runScreenshot(0);
