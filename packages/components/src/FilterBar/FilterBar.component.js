@@ -93,6 +93,8 @@ class FilterBar extends React.Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+		this.applyFilter = this.applyFilter.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
 	}
 
@@ -117,15 +119,19 @@ class FilterBar extends React.Component {
 	}
 
 	onFilter(event) {
-		this.setState({ value: event.target.value });
-		if (this.props.onFilter) {
-			this.props.onFilter(event, event.target.value);
-		}
+		this.applyFilter(event);
 	}
 
 	onSubmit(event) {
 		event.preventDefault();
-		return this.onFilter(event);
+		return this.applyFilter(event);
+	}
+
+	applyFilter(event) {
+		this.setState({ value: event.target.value });
+		if (this.props.onFilter) {
+			this.props.onFilter(event, event.target.value);
+		}
 	}
 
 	render() {
