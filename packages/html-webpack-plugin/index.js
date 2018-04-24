@@ -18,7 +18,7 @@ TalendHTMLOptimize.prototype.apply = function myapply(compiler) {
 					}
 					const media = head.attributes.media || 'all';
 					head.attributes.media = 'none';
-					head.attributes.onload = `media='${media}'`;
+					head.attributes.onload = `if(media!='${media}')media='${media}'`;
 					return head;
 				});
 			}
