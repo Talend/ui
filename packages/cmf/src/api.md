@@ -5,7 +5,7 @@
 import { api } from '@talend/react-cmf';
 ```
 
-The API is the most used item accessible. 
+The API is the most used item accessible.
 Here is the list of the first level access:
 
 * `actionCreator` to register your action creators
@@ -37,15 +37,15 @@ import React from 'react';
 import { api, cmfConnect } from '@talend/react-cmf';
 
 class MyCollectionManager extends React.Component {
-	
+
     constructor(props) {
         this.increment = this.increment.bind(this);
     }
-    
+
     componentDidMount() {
         this.props.dispatch(api.actions.collections.addOrReplace('count', 0));
     }
-    
+
     increment() {
         this.props.dispatch(
             api.actions.collections.addOrReplace(
@@ -125,3 +125,5 @@ api.sagas.putActionCreator('myaction', event, data, optionalContext);
 
 This will call the registered `myAction` action creator.
 It's an equivalent of dispatchActionCreator using saga.
+
+## [api.selectors](./selectors/index.md)

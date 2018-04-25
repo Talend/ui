@@ -22,6 +22,14 @@ describe('ActionFile', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render a div with a input[type="file"] with some classname on it', () => {
+		// when
+		const wrapper = shallow(<ActionFile {...myAction} className={'testClassName'} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('change file value on the button trigger the onChange props', () => {
 		// given
 		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
