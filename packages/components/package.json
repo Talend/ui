@@ -88,7 +88,7 @@
     "eslint-plugin-react": "^6.3.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^9.0.0",
-    "i18next-parser": "^0.13.0",
+    "i18next-parser": "^1.0.0-beta11",
     "invariant": "2.2.2",
     "jest": "20.0.3",
     "keycode": "2.2.0",
