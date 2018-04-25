@@ -31,8 +31,9 @@ function merge(options, errorCallback) {
 		return onErrorCallback();
 	}
 
-	const { quiet, recursive } = Object.assign(
+	const { dev, quiet, recursive } = Object.assign(
 		{
+			dev: false,
 			quiet: false,
 			recursive: false,
 		},
@@ -45,7 +46,7 @@ function merge(options, errorCallback) {
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
 	const cmfconfig = importAndValidate(cmfconfigPath, onError);
-	const sources = cmfconfig.settings.sources;
+	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
 	const destination =
 		cmfconfig.settings.destination && path.join(process.cwd(), cmfconfig.settings.destination);
 	let settings;
