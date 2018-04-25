@@ -2,6 +2,8 @@
  * @module react-cmf/lib/reducers/settingsReducers
  */
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
+
+import get from 'lodash/get';
 import invariant from 'invariant';
 import * as ACTIONS from '../actions/settingsActions';
 
@@ -75,7 +77,8 @@ export function settingsReducers(state = defaultState, action) {
 		case ACTIONS.REQUEST_OK:
 			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
-			console.error(action.error); // eslint-disable-line
+			// eslint-disable-next-line no-console
+			console.error(`Settings can't be loaded ${get(action, 'error.message')}`, action.error);
 			return state;
 		default:
 			return state;
