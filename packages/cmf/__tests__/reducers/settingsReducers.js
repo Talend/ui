@@ -93,7 +93,7 @@ describe('CMF settinsReducers', () => {
 		const state = reducer(undefined, action);
 		expect(state).not.toBe(undefined);
 		expect(state.initialized).toBe(false);
-		expect(console.error).toHaveBeenCalledWith(action.error);
+		expect(console.error).toHaveBeenCalledWith('Settings can\'t be loaded Not Found', action.error);
 		console.error = oldError.bind(console);
 	});
 });
