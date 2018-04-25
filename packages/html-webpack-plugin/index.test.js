@@ -55,12 +55,12 @@ describe('@talend/html-webpack-plugin', () => {
 		pluginExecFn(DATA, pluginExecCallback);
 		expect(pluginExecCallback.mock.calls[0][1].body[0]).toBe(item);
 	});
-	it('hould modify <link> media with loadCSSAsync option', () => {
+	it('should modify <link> media with loadCSSAsync option', () => {
 		refresh({ loadCSSAsync: true });
 		pluginExecFn(DATA, pluginExecCallback);
 		expect(pluginExecCallback.mock.calls[0][1].head[0].attributes).toMatchObject({
 			media: 'none',
-			onload: 'media=\'all\'',
+			onload: 'if(media!=\'all\')media=\'all\'',
 		});
 	});
 	it('should add TALEND_APP_INFO global var with versions option', () => {

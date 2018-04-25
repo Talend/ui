@@ -97,7 +97,7 @@ In your app configuration phase, _configure.js_
 import { api } from 'react-cmf';
 import myAction from '../actions/my-action';
 
-api.action.registerActionCreator('my:action', myAction);
+api.actionCreator.register('my:action', myAction);
 ```
 
 ## Add your route Settings configuration
