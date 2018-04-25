@@ -19,18 +19,18 @@ const icons = {
 
 const actions = [
 	{
-		label: 'Preparations',
+		label: 'Preparations de chimistes',
 		icon: 'talend-dataprep',
 		onClick: action('Preparations clicked'),
 		active: true,
 	},
 	{
-		label: 'Datasets',
+		label: 'Datasets pour les cons',
 		icon: 'talend-download',
 		onClick: action('Datasets clicked'),
 	},
 	{
-		label: 'Favorites',
+		label: 'Favorites des boulets',
 		icon: 'talend-star',
 		onClick: action('Favorites clicked'),
 	},
@@ -38,18 +38,18 @@ const actions = [
 
 const actionsLinks = [
 	{
-		label: 'Preparations',
+		label: 'Preparations de malade pour les chimistes',
 		icon: 'talend-dataprep',
 		href: '/preparations',
 		active: true,
 	},
 	{
-		label: 'Datasets',
+		label: 'Datasets assez court :)',
 		icon: 'talend-download',
 		href: '/datasets',
 	},
 	{
-		label: 'Favorites',
+		label: 'Favorites my faroris long',
 		icon: 'talend-star',
 		href: '/favorites',
 	},
@@ -58,17 +58,17 @@ const actionsLinks = [
 const items = [
 	{
 		key: 'preparations',
-		label: 'Preparations',
+		label: 'Preparations assez longue quand meme',
 		icon: 'talend-dataprep',
 	},
 	{
 		key: 'datasets',
-		label: 'Datasets',
+		label: 'Datasets data set assez long',
 		icon: 'talend-download',
 	},
 	{
 		key: 'favorites',
-		label: 'Favorites',
+		label: 'Favorites mon favoris le plus long',
 		icon: 'talend-star',
 	},
 ];
