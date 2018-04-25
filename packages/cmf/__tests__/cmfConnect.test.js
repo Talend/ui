@@ -219,7 +219,6 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected.CMFContainer {...props} />, { context });
 			const injectedProps = wrapper.find(TestComponent).props();
 			expect(injectedProps.dispatchActionCreator).not.toBe(props.dispatchActionCreator);
-			// const instance = new CMFConnected.CMFContainer(props, context);
 			const event = {};
 			const data = {};
 			injectedProps.dispatchActionCreator('myactionCreator', event, data);
@@ -592,7 +591,7 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(
-				<CMFConnectedButton onClickSetState={config} initialState={{}} spreadCMFState />,
+				<CMFConnectedButton onClickSetState={config} initialState={new Map()} spreadCMFState />,
 				{
 					context,
 					childContextTypes: {
@@ -638,7 +637,7 @@ describe('cmfConnect', () => {
 			};
 
 			const wrapper = mount(
-				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={{}} />,
+				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />,
 				{
 					context,
 					childContextTypes: {

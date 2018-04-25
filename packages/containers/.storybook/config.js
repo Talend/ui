@@ -81,7 +81,7 @@ function selectTab(event, data) {
 	};
 }
 
-const registerActionCreator = api.action.registerActionCreator;
+const registerActionCreator = api.actionCreator.register;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
