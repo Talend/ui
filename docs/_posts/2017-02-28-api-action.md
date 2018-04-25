@@ -23,7 +23,7 @@ It returns the `static actions definitions dictionary` from the [settings]({{ si
 ```javascript
 import { api } from 'react-cmf';
 
-api.action.getActionCreatorFunction(context, id);
+api.actionCreator.get(context, id);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -98,7 +98,7 @@ It returns the props with the actions props replaced by their dispatch closures.
 
 ```javascript
 import { api } from 'react-cmf';
-const registerActionCreator = api.action.registerActionCreator;
+const registerActionCreator = api.actionCreator.register;
 
 registerActionCreator(id, actionCreator);
 ```
