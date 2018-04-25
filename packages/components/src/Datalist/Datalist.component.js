@@ -348,6 +348,7 @@ class Datalist extends Component {
 					placeholder={this.props.placeholder}
 					readOnly={this.props.readOnly || false}
 					theme={this.theme}
+					noResultText={this.props.noResultText}
 					value={label}
 				/>
 				<div className={theme.toggle}>
@@ -371,6 +372,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
+		noResultText: PropTypes.string,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
