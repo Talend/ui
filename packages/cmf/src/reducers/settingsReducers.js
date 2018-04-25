@@ -2,7 +2,6 @@
  * @module react-cmf/lib/reducers/settingsReducers
  */
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
-import get from 'lodash/get';
 import invariant from 'invariant';
 import * as ACTIONS from '../actions/settingsActions';
 
