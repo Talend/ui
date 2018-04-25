@@ -8,6 +8,7 @@ const props = {
 	autoFocus: true,
 	disabled: false,
 	placeholder: 'Type here',
+	noResultText: 'there is nothing ...',
 	readOnly: false,
 	title: 'My List',
 	titleMap: [
