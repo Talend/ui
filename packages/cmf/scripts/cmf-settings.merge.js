@@ -3,14 +3,7 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const deepmerge = require('deepmerge');
 
-const {
-	getI18Next,
-	getLocalesFromNamespaceInFolder,
-	parseI18n,
-	parseSettings,
-	saveSettings,
-	updateLocales,
-} = require('./cmf-settings.i18n');
+const { getI18Next, parseI18n, parseSettings, saveSettings } = require('./cmf-settings.i18n');
 
 const {
 	concatMerge,
