@@ -42,6 +42,10 @@ const PATHS = [
 	// __dirname + '/i18n/forms/en/tui-forms.json'
 ];
 
+const FILES = [
+	{ name: 'tui-components.json', path: `${__dirname}/i18n/components/en/tui-components.json` },
+];
+
 function onError(error) {
 	if (error) {
 		throw error;
@@ -108,78 +112,10 @@ function download() {
 	request(options, handleDownloadRequest);
 }
 
-function handleUpload(error, response, body) {
-	if (error) {
-		return console.error('upload failed:', error);
-	}
-	// const res = response.resume();
-	console.log(response.req);
-	console.log('Upload successful!  Server responded with:', body);
-	// process.exit();
-}
-
 function upload() {
-	// const files = PATHS.map(path => fs.readFileSync(path).toString());
-	// debug(files);
-	// const formData = { files };
-	// 	files: [
-	// 		{
-	// 			value: fs.createReadStream(__dirname + '/i18n/components/en/tui-components.json'),
-	// 			options: {
-	// 				filename: 'tui-components.json',
-	// 				'content-type': 'application/json',
-	// 			},
-	// 		},
-	// 		{
-	// 			value: fs.createReadStream(__dirname + '/i18n/forms/en/tui-forms.json'),
-	// 			options: {
-	// 				filename: 'tui-forms.json',
-	// 				'content-type': 'application/json',
-	// 			},
-	// 		}
-	// 	]
-	// };
-	const formData = new FormData();
-	PATHS.forEach(path => formData.append('files[]', fs.createReadStream(path))); //{
-	// PATHS.forEach(path => formData.append('files[]', {
-	// 	value: fs.createReadStream(path),
-	// 	options: {
-	// 		filename: path.split('/')[4],
-	// 		contentType: 'application/json',
-	// 	},
-	// }));
-	// debug('header', formData.getHeaders());
-	const options = {
-		method: 'POST',
-		url: `${URL}/update-file?json&key=${PROJECT_KEY}`,
-		// form: {
-		// 	files: [
-		// 		fs.createReadStream(__dirname + '/i18n/components/en/tui-components.json'),
-		// 		fs.createReadStream(__dirname + '/i18n/forms/en/tui-forms.json'),
-		// 	]
-		// }
-		headers: formData.getHeaders(),
-		// formData,
-		body: formData,
-	};
-	// debug(options);
-	// formData.submit(options.url, handleUpload);
-	const req = request.post(options, handleUpload);
-
-
-	// HANG
-	// const form = req.form();
-	// PATHS.forEach(path => form.append('files[]', fs.createReadStream(path)));
-	// form.submit(url, handleUpload);
-
-	// form.append('files', {
-	// 	'tui-components.json': fs.createReadStream(__dirname + '/i18n/components/en/tui-components.json'),
-	// 	'tui-forms.json': fs.createReadStream(__dirname + '/i18n/forms/en/tui-forms.json'),
-	// });
-	// form.append('files', {
-	// 	'tui-components.json': fs.createReadStream(__dirname + '/i18n/components/en/tui-components.json'),
-	// 	'tui-forms.json': fs.createReadStream(__dirname + '/i18n/forms/en/tui-forms.json'),
-	// });
+	console.log('please use curl');
+	const files = FILES.map(file => `\n  -F "files[/${file.name}]=@${file.path}"`);
+	console.log(`curl ${files}\n  https://api.crowdin.com/api/project/talendui/update-file?key=${PROJECT_KEY}`);
 }
 
 /** ------ main ----- */
