@@ -6,8 +6,8 @@ import { fetchDataStores } from './actions/datastore';
 
 import App from './components/App.container';
 
-const registerComponent = api.route.registerComponent;
-const registerActionCreator = api.action.registerActionCreator;
+const registerComponent = api.component.register;
+const registerActionCreator = api.actionCreator.register;
 
 export default {
 	initialize() {
