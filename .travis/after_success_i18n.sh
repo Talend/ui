@@ -7,8 +7,14 @@ if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'master' ]; th
         -F "files[/tui-components.json]=@i18n/components/en/tui-components.json"
         -F "files[/tui-forms.json]=@i18n/forms/en/tui-forms.json"
         https://api.crowdin.com/api/project/talendui/update-file?key=$CROWDIN_TOKEN
-	echo "✓ Pushed new keys to crowdin"
+    echo "✓ Pushed new keys to crowdin"
 else
+    echo 'only for testing purpose in the PR'
+    curl
+        -F "files[/tui-components.json]=@i18n/components/en/tui-components.json"
+        -F "files[/tui-forms.json]=@i18n/forms/en/tui-forms.json"
+        https://api.crowdin.com/api/project/talendui/update-file?key=$CROWDIN_TOKEN
+
     echo "✓ No i18n needed"
 fi
 cd "$TRAVIS_BUILD_DIR"
