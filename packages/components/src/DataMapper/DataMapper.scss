@@ -1,4 +1,10 @@
 :global {
+
+	$font_family_for_type: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+	$row_height: 25px;
+	$mapper_background_color: #e9e9e9;
+	$type_field_color: #66bdff;
+
 	#mapper-container {
 		&,
 		> div,
@@ -14,15 +20,19 @@
 		justify-content: center;
 		padding: 8px;
 		margin: 8px;
-		background-color: #e9e9e9;
+		background-color: $mapper_background_color;
 		height: 600px;
 		width: 90%;
 	}
 
 	.comp-list-row {
 		display: flex;
-		height: 25px;
+		height: $row_height;
 		cursor: grab;
+	}
+
+	.comp-simple-list-row {
+		height: $row_height;
 	}
 
 	.comp-list-row.input {
@@ -39,17 +49,30 @@
 		overflow: hidden;
 	}
 
+	.comp-simple-list-row-data-name {
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
 	.mapped .comp-list-row-data-name {
 		font-weight: bold;
 	}
 
 	.comp-list-row-data-type {
-		font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+		font-family: $font_family_for_type;
 		font-size: 0.9em;
 		min-width: 100px;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		color: #66bdff;
+		color: $type_field_color;
+	}
+
+	.comp-simple-list-row-data-type {
+		font-family: $font_family_for_type;
+		font-size: 0.9em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		color: $type_field_color;
 	}
 
 	.comp-list-row-data-type.input {
@@ -60,7 +83,19 @@
 		text-align: right;
 	}
 
-	.comp-list-row-data-desc {
+	.comp-simple-list-row-data-type.input {
+		display: block;
+		text-align: left;
+		padding: 4px;
+	}
+
+	.comp-simple-list-row-data-name.input {
+		display: block;
+		padding: 4px;
+		text-align: right;
+	}
+
+	.comp-list-row-data-desc, .comp-simple-list-row-data-desc {
 		color: #aaa;
 		font-style: italic;
 		text-overflow: ellipsis;
@@ -294,10 +329,47 @@
 		margin-bottom: 2px;
 	}
 
+	.comp-simple-list.schema-content.input {
+		position: relative;
+	}
+
+	.comp-simple-list.schema-content.input table {
+		position: absolute;
+		width: 100%;
+	}
+
+	.comp-simple-list.schema-content table {
+		overflow: hidden;
+		tr {
+			&.draggable {
+				cursor: grab;
+				td:first-child {
+					position: relative;
+					span[draggable="true"]:before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						content: '';
+						width: 100vw;
+					}
+				}
+			}
+		}
+	}
+
 	.schema-element {
 		padding: 2px;
 		margin: 2px;
 		border-radius: 4px;
+	}
+
+	.schema-element.input {
+		text-align: right;
+	}
+
+	.schema-element.output {
+		text-align: left;
 	}
 
 	.separator.horizontal {
@@ -305,15 +377,7 @@
 		margin: 0;
 		height: 2px;
 		width: 100%;
-		background-color: #e9e9e9;
-	}
-
-	.input {
-		text-align: right;
-	}
-
-	.output {
-		text-align: left;
+		background-color: $mapper_background_color;
 	}
 
 	.highlighted {
@@ -322,10 +386,6 @@
 
 	.selected {
 		background-color: #ddd;
-	}
-
-	.btn span {
-		vertical-align: top;
 	}
 
 	.filter-name {

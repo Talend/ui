@@ -38,7 +38,7 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 export default class Schema extends Component {
 	constructor(props) {
 		super(props);
-		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
+		this.updateRendererNodeRef = this.updateRendererNodeRef.bind(this);
 		this.onContentScroll = this.onContentScroll.bind(this);
 		this.meanDist = -1;
 	}
@@ -72,28 +72,27 @@ export default class Schema extends Component {
 
 	getNode(element) {
 		const index = this.props.dataAccessor.getSchemaElementIndex(this.props.schema, element, true);
-		const children = this.contentNode.childNodes;
+		const children = this.getRendererNode().getChildNodes();
 		const childrenArray = Array.from(children);
 		return childrenArray[index];
 	}
 
 	getYPosition(element) {
-		const scrollTop = this.contentNode.scrollTop;
+		const scrollTop = this.getRendererNode().getScrollTop();
 		const child = this.getNode(element);
-		const childOffsetTop = child.offsetTop;
-		const parentOffsetTop = this.contentNode.offsetTop;
-		const y = childOffsetTop - parentOffsetTop + child.clientHeight / 2 - scrollTop;
+		const childOffsetTop = this.getRendererNode().getChildOffsetTop(child);
+		const y = childOffsetTop + child.clientHeight / 2 - scrollTop;
 		return y;
 	}
 
 	getElementAtPosition(position) {
 		let theElement = null;
-		if (this.contentNode) {
+		if (this.isRendererNodeDefined()) {
 			let previousDist = -1;
 			let currentDist = -1;
-			const contentHeight = this.contentNode.offsetHeight;
+			const contentHeight = this.getRendererNode().getOffsetHeight();
 			const elements = this.props.dataAccessor.getSchemaElements(this.props.schema, true);
-			const children = this.contentNode.childNodes;
+			const children = this.getRendererNode().getChildNodes();
 			const childrenArray = Array.from(children);
 			for (let i = 0; i < childrenArray.length; i += 1) {
 				previousDist = currentDist;
@@ -119,10 +118,10 @@ export default class Schema extends Component {
 
 	getVisibleElements() {
 		let visibleElements = [];
-		if (this.contentNode) {
-			const contentHeight = this.contentNode.offsetHeight;
+		if (this.isRendererNodeDefined()) {
+			const contentHeight = this.getRendererNode().getOffsetHeight();
 			const elements = this.props.dataAccessor.getSchemaElements(this.props.schema, true);
-			const children = this.contentNode.childNodes;
+			const children = this.getRendererNode().getChildNodes();
 			const childrenArray = Array.from(children);
 			if (elements.length != childrenArray.length) {
 				visibleElements = visibleElements.concat(elements);
@@ -134,7 +133,7 @@ export default class Schema extends Component {
 			let startIndex = 0;
 			if (this.meanDist > 0) {
 				// compute start index
-				const scrollTop = this.contentNode.scrollTop;
+				const scrollTop = this.getRendererNode().getScrollTop();
 				const n = Math.floor(scrollTop / this.meanDist);
 				startIndex = Math.max(0, n);
 			}
@@ -164,21 +163,48 @@ export default class Schema extends Component {
 		const node = this.getNode(element);
 		const nodeHeight = node.clientHeight;
 		const elemYPos = this.getYPosition(element);
-		const contentHeight = this.contentNode.offsetHeight;
+		const contentHeight = this.getRendererNode().getOffsetHeight();
 		let revealed = false;
+		const scrollTop = this.getRendererNode().getScrollTop();
 		if (elemYPos < 0) {
-			this.contentNode.scrollTop = this.contentNode.scrollTop + elemYPos - nodeHeight / 2;
+			this.getRendererNode().setScrollTop(scrollTop + elemYPos - nodeHeight / 2);
 			revealed = true;
 		} else if (elemYPos > contentHeight - nodeHeight) {
 			const offset = elemYPos + nodeHeight - contentHeight;
-			this.contentNode.scrollTop = this.contentNode.scrollTop + offset;
+			this.getRendererNode().setScrollTop(scrollTop + offset);
 			revealed = true;
 		}
 		return revealed;
 	}
 
-	updateContentNodeRef(ref) {
-		this.contentNode = ref;
+	isRendererNodeDefined() {
+		return this.rendererNode;
+	}
+
+	getRendererNode() {
+		if (this.rendererNode) {
+			return this.rendererNode;
+		}
+		return {
+			getChildNodes() {
+				return [];
+			},
+			getScrollTop() {
+				return 0;
+			},
+			setScrollTop(scrollTop) {
+			},
+			getChildOffsetTop(child) {
+				return 0;
+			},
+			getOffsetHeight() {
+				return 0;
+			},
+		};
+	}
+
+	updateRendererNodeRef(ref) {
+		this.rendererNode = ref;
 	}
 
 	render() {
@@ -186,7 +212,6 @@ export default class Schema extends Component {
 		const { dataAccessor, schema, side, filters, filterComponents, onFilterChange } = this.props;
 		const contentProps = {
 			...tempProps,
-			updateContentNodeRef: this.updateContentNodeRef,
 			isMapped,
 			isSelected,
 			isHighlighted,
@@ -203,7 +228,10 @@ export default class Schema extends Component {
 					onFilterChange={onFilterChange}
 				/>
 				<div className="separator horizontal" />
-				<SchemaRenderer {...contentProps} />
+				<SchemaRenderer
+					{...contentProps}
+					ref={this.updateRendererNodeRef}
+				/>
 			</div>
 		);
 	}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import List from '../../List/List';
-import RowLabel from '../../List/RowLabel';
-import MandatoryField from '../../List/MandatoryField';
+import classnames from 'classnames';
+import { SimpleList, Cell, DraggableCell } from '../../../SimpleList';
+//import MandatoryField from '../../List/MandatoryField';
+
 import * as Constants from '../../Constants';
 
 class SchemaClassNameProvider {
@@ -10,41 +11,47 @@ class SchemaClassNameProvider {
 		this.props = props;
 	}
 
-	get(element, key) {
-		const {
+  getForList() {
+    return `comp-simple-list schema-content ${this.props.side}`;
+  }
+
+  getForRow(element) {
+    const {
 			dataAccessor,
 			selection,
 			side,
 			pendingItem,
 			dnd,
+			draggable,
 			focusedElements,
 			mappedElements,
 			isHighlighted,
 			isMapped,
 			isSelected,
 		} = this.props;
-		if (element && key) {
-			return `comp-list-row-data-${key} ${side}`;
-		} else if (element) {
-			return {
-				'schema-element': true,
-				highlighted: isHighlighted(
-					dataAccessor,
-					element,
-					selection,
-					side,
-					pendingItem,
-					focusedElements,
-					dnd,
-				),
-				mapped: isMapped(dataAccessor, element, mappedElements),
-				selected: isSelected(dataAccessor, selection, element, side),
-				input: side === Constants.MappingSide.INPUT,
-				output: side === Constants.MappingSide.OUTPUT,
-			};
-		}
-		return `schema-content ${side}`;
-	}
+    return classnames({
+			'comp-simple-list-row': true,
+      highlighted: isHighlighted(
+        dataAccessor,
+        element,
+        selection,
+        side,
+        pendingItem,
+        focusedElements,
+        dnd,
+      ),
+      mapped: isMapped(dataAccessor, element, mappedElements),
+      selected: isSelected(dataAccessor, selection, element, side),
+      input: side === Constants.MappingSide.INPUT,
+      output: side === Constants.MappingSide.OUTPUT,
+			draggable,
+    });
+  }
+
+  getForData(element, columnKey) {
+    return `comp-simple-list-row-data-${columnKey} ${this.props.side}`;
+  }
+
 }
 
 class SchemaDndListener {
@@ -72,6 +79,7 @@ class SchemaDndListener {
 }
 
 class RowDataGetter {
+
 	updateProps(props) {
 		this.props = props;
 	}
@@ -100,51 +108,75 @@ class RowDataGetter {
 	}
 }
 
-class RowRenderers {
-	constructor(side) {
-		this.side = side;
+class RowRenderer {
+
+  constructor() {
+    this.dndListener = new SchemaDndListener();
+  }
+
+  updateProps(props) {
+    this.props = props;
+    this.dndListener.updateProps(props);
+  }
+
+  isModelEvent(code) {
+  	return code === Constants.Events.UNDO ||
+  		code === Constants.Events.REDO ||
+  		code === Constants.Events.ADD_MAPPING ||
+  		code === Constants.Events.REMOVE_MAPPING ||
+  		code === Constants.Events.CLEAR_MAPPING;
+  }
+
+  isFilterOrSortEvent(code) {
+  	return code === Constants.Events.FILTERING ||
+  		code === Constants.Events.SORT ||
+  		code === Constants.Events.CLEAR_SORT;
+  }
+
+  needRowUpdate(props) {
+    if (this.props.trigger) {
+			const code = this.props.trigger.code;
+			if (this.isModelEvent(code) || this.isFilterOrSortEvent(code)) {
+				return true;
+			}
+		}
+		return this.props.isElementVisible(props.element, this.props.side);
 	}
 
-	getComponent(key) {
-		switch (key) {
+	getCellComponent(columnKey) {
+		switch (columnKey) {
 			case Constants.Schema.DATA_KEYS.NAME:
-				if (this.side === Constants.MappingSide.INPUT) {
-					return RowLabel;
+				if (this.props.side === Constants.MappingSide.INPUT) {
+					return Cell;
 				}
-				return MandatoryField;
+				return DraggableCell;
+      case Constants.Schema.DATA_KEYS.TYPE:
+        if (this.props.side === Constants.MappingSide.INPUT) {
+          return DraggableCell;
+        }
+        return Cell;
 			default:
-				return RowLabel;
+				return Cell;
 		}
 	}
+
+  getExtraProps(columnKey) {
+		return this.dndListener;
+	}
+
 }
 
-function isModelEvent(code) {
-	return code === Constants.Events.UNDO ||
-		code === Constants.Events.REDO ||
-		code === Constants.Events.ADD_MAPPING ||
-		code === Constants.Events.REMOVE_MAPPING ||
-		code === Constants.Events.CLEAR_MAPPING;
-}
-
-function isFilterOrSortEvent(code) {
-	return code === Constants.Events.FILTERING ||
-		code === Constants.Events.SORT ||
-		code === Constants.Events.CLEAR_SORT;
-}
-
-export default class ListRenderer extends Component {
+export default class SimpleListRenderer extends Component {
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
 		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
 		this.onLeaveElement = this.onLeaveElement.bind(this);
-		this.needUpdate = this.needUpdate.bind(this);
-		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
+		this.updateListNodeRef = this.updateListNodeRef.bind(this);
 		this.classNameProvider = new SchemaClassNameProvider();
-		this.dndListener = new SchemaDndListener();
 		this.rowDataGetter = new RowDataGetter();
-		this.rowRenderers = new RowRenderers(props.side);
+		this.rowRenderer = new RowRenderer();
 	}
 
 	onEnterElement(element) {
@@ -171,75 +203,63 @@ export default class ListRenderer extends Component {
 		this.props.revealConnectedElement(element, this.props.side);
 	}
 
-	needUpdate(nextProps) {
-		if (this.props.trigger) {
-			const code = this.props.trigger.code;
-			if (isModelEvent(code) || isFilterOrSortEvent(code)) {
-				return true;
-			}
-		}
-		return this.props.isElementVisible(nextProps.element, this.props.side);
-	}
-
-	updateContentNodeRef(ref) {
-		this.contentNode = ref;
+	updateListNodeRef(ref) {
+		this.listNode = ref;
 	}
 
 	getChildNodes() {
-		return this.contentNode.childNodes;
+		return this.listNode.getTableNode().childNodes;
 	}
 
 	getScrollTop() {
-		return this.contentNode.scrollTop;
+		return this.listNode.getContentNode().scrollTop;
 	}
 
 	setScrollTop(scrollTop) {
-		this.contentNode.scrollTop = scrollTop;
+		this.listNode.getContentNode().scrollTop = scrollTop;
 	}
 
 	getChildOffsetTop(child) {
 		const childOffsetTop = child.offsetTop;
-		const parentOffsetTop = this.contentNode.offsetTop;
-		return childOffsetTop - parentOffsetTop;
+		const tableOffsetTop = this.listNode.getTableNode().offsetTop;
+		return childOffsetTop + tableOffsetTop;
 	}
 
 	getOffsetHeight() {
-		return this.contentNode.offsetHeight;
+		return this.listNode.getContentNode().offsetHeight;
 	}
 
 	render() {
 		this.classNameProvider.updateProps(this.props);
-		this.dndListener.updateProps(this.props);
 		this.rowDataGetter.updateProps(this.props);
+    this.rowRenderer.updateProps(this.props);
 		const {
 			dataAccessor,
 			schema,
 			draggable,
 			onScroll,
 			columnKeys,
+			updateContentNodeRef,
 		} = this.props;
 		return (
-			<List
+			<SimpleList
+				ref={this.updateListNodeRef}
 				classNameProvider={this.classNameProvider}
 				elements={dataAccessor.getSchemaElements(schema, true)}
-				dataKeys={columnKeys}
+				columnKeys={columnKeys}
 				rowDataGetter={this.rowDataGetter}
-				rowRenderers={this.rowRenderers}
+				rowRenderer={this.rowRenderer}
 				onScroll={onScroll}
-				draggable={draggable}
-				dndListener={this.dndListener}
 				onClick={this.select}
 				onDoubleClick={this.revealConnectedElement}
-				updateListNodeRef={this.updateContentNodeRef}
 				onEnterElement={this.onEnterElement}
 				onLeaveElement={this.onLeaveElement}
-				needUpdate={this.needUpdate}
 			/>
 		);
 	}
 }
 
-ListRenderer.propTypes = {
+SimpleListRenderer.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
 	draggable: PropTypes.bool,

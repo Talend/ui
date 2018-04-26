@@ -9,6 +9,7 @@ import DefaultDataAccessor from '../src/DataMapper/DefaultDataAccessor';
 import DataAccessorWithUndoRedo from '../src/DataMapper/DataAccessorWithUndoRedo';
 import SchemaConfiguration from '../src/DataMapper/Schema/SchemaConfiguration';
 import ListConfiguration from '../src/DataMapper/Schema/ListConfiguration';
+import SimpleListConfiguration from '../src/DataMapper/Schema/SimpleListConfiguration';
 import FilterComponents from '../src/DataMapper/Schema/Filters/FilterComponents';
 import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters/NameFilter';
 import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
@@ -398,6 +399,7 @@ function createDataAccessor() {
 
 const schemaConfiguration = new SchemaConfiguration();
 const listConfiguration = new ListConfiguration();
+const simpleListConfiguration = new SimpleListConfiguration();
 
 const mappingCanvasConfig = new MappingConfiguration(MappingCanvas, MappingActions);
 const mappingSVGConfig = new MappingConfiguration(MappingSVG, MappingActions);
@@ -2060,6 +2062,13 @@ stories
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
+	}).addWithInfo('UX proto (simple list)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={initializeCache(getUXInitialState(0, alternativePrefs))}
+			mappingConfiguration={mappingConfigWithAutoMap}
+			schemaConfiguration={simpleListConfiguration}
+		/>;
 	}).addWithInfo('Random', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
@@ -2085,6 +2094,32 @@ stories
 			}
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
+		/>;
+	}).addWithInfo('Random (simple list)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={
+				initializeCache(
+					getRandomInitialState(
+						{
+							id: 'f4d51fg5d1fvg',
+							name: 'CUSTOMERS-25K PREP',
+							size: 50,
+							mandatoryParams: noMandatoryFields,
+						},
+						{
+							id: 'sdgf5fsdf45',
+							name: 'SALESFORCE.ACCOUNT',
+							size: 50,
+							mandatoryParams: oneMandatoryFieldOfThree,
+						},
+						20,
+						alternativePrefs,
+					)
+				)
+			}
+			mappingConfiguration={mappingConfigWithAutoMap}
+			schemaConfiguration={simpleListConfiguration}
 		/>;
 	}).addWithInfo('300-300', () => {
 		return <ConnectedDataMapper
@@ -2137,5 +2172,31 @@ stories
 			}
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
+		/>;
+	}).addWithInfo('1-1 (simple list)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={
+				initializeCache(
+					getRandomInitialState(
+						{
+							id: 'fgs2525sdf5',
+							name: 'ONE-ELEM-IN',
+							size: 1,
+							mandatoryParams: noMandatoryFields,
+						},
+						{
+							id: '62ds5csd5',
+							name: 'ONE-ELEM-OUT',
+							size: 1,
+							mandatoryParams: noMandatoryFields,
+						},
+						0,
+						alternativePrefs,
+					)
+				)
+			}
+			mappingConfiguration={mappingConfigWithAutoMap}
+			schemaConfiguration={simpleListConfiguration}
 		/>;
 	});

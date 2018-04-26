@@ -84,13 +84,49 @@ renderSchemaElement.propTypes = {
 };
 
 export default class DefaultRenderer extends Component {
+
+	constructor(props) {
+		super(props);
+		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
+	}
+
+	updateContentNodeRef(ref) {
+		this.contentNode = ref;
+	}
+
+	getChildNodes() {
+		return this.contentNode.childNodes;
+	}
+
+	getScrollTop() {
+		return this.contentNode.scrollTop;
+	}
+
+	setScrollTop(scrollTop) {
+		this.contentNode.scrollTop = scrollTop;
+	}
+
+	getChildOffsetTop(child) {
+		const childOffsetTop = child.offsetTop;
+		const parentOffsetTop = this.contentNode.offsetTop;
+		return childOffsetTop - parentOffsetTop;
+	}
+
+	getOffsetHeight() {
+		return this.contentNode.offsetHeight;
+	}
+
 	render() {
-		const { dataAccessor, schema, onScroll, updateContentNodeRef } = this.props;
+		const { dataAccessor, schema, onScroll } = this.props;
 		const content = dataAccessor
 			.getSchemaElements(schema, true)
 			.map(elem => renderSchemaElement(this.props, elem));
 		return (
-			<div ref={updateContentNodeRef} className="schema-content" onScroll={onScroll}>
+			<div
+				ref={this.updateContentNodeRef}
+				className="schema-content"
+				onScroll={onScroll}
+			>
 				{content}
 			</div>
 		);
@@ -101,5 +137,4 @@ DefaultRenderer.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
 	onScroll: PropTypes.func,
-	updateContentNodeRef: PropTypes.func,
 };

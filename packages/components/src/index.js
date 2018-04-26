@@ -39,6 +39,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
+import { SimpleList, ClassNameProvider, RowRenderer, Cell, DraggableCell } from './SimpleList';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -157,6 +158,11 @@ export {
 	ObjectViewer,
 	Progress,
 	SidePanel,
+	SimpleList,
+	ClassNameProvider,
+	RowRenderer,
+	Cell,
+	DraggableCell,
 	Status,
 	SubHeaderBar,
 	TabBar,
