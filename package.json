@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "adm-zip": "^0.4.9",
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
     "i18next-parser": "^0.13.0",
