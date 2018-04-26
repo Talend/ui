@@ -47,9 +47,7 @@ export default class Schema extends Component {
 		// check first is a drag and drop is in progress
 		let needUpdate = true;
 		if (nextProps.dnd) {
-			needUpdate = !(
-				(nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side)
-			);
+			needUpdate = !(nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side);
 		}
 		// then check if rendering focused elements is needed
 		if (

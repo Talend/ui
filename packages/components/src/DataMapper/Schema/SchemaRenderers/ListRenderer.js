@@ -119,17 +119,21 @@ class RowRenderers {
 }
 
 function isModelEvent(code) {
-	return code === Constants.Events.UNDO ||
+	return (
+		code === Constants.Events.UNDO ||
 		code === Constants.Events.REDO ||
 		code === Constants.Events.ADD_MAPPING ||
 		code === Constants.Events.REMOVE_MAPPING ||
-		code === Constants.Events.CLEAR_MAPPING;
+		code === Constants.Events.CLEAR_MAPPING
+	);
 }
 
 function isFilterOrSortEvent(code) {
-	return code === Constants.Events.FILTERING ||
+	return (
+		code === Constants.Events.FILTERING ||
 		code === Constants.Events.SORT ||
-		code === Constants.Events.CLEAR_SORT;
+		code === Constants.Events.CLEAR_SORT
+	);
 }
 
 export default class ListRenderer extends Component {
