@@ -39,6 +39,7 @@ matrix:
         - .travis/after_success_prettier.sh
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
+        - .travis/after_success_i18n.sh
 
     - language: java
       jdk: oraclejdk8
