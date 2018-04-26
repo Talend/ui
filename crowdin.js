@@ -6,7 +6,7 @@ const FormData = require('form-data');
 const fs = require('fs');
 
 /* eslint-disable no-console */
-request.debug = true;
+// request.debug = true;
 
 function help() {
 	console.log('To use crowdin script to get the status: ');
@@ -43,7 +43,11 @@ const PATHS = [
 ];
 
 const FILES = [
-	{ name: 'tui-components.json', path: `${__dirname}/i18n/components/en/tui-components.json` },
+	{
+		name: 'tui-components.json',
+		path: `${__dirname}/i18n/components/en/tui-components.json`,
+		locales: `${__dirname}/components/locales`,
+	},
 ];
 
 function onError(error) {
@@ -68,13 +72,13 @@ function getDestination(fileEntry) {
 	debug(fileEntry.toString());
 	const path = fileEntry.entryName;
 	if (fileEntry.name === 'tui-components.json') {
-		return `i18n/components/${path}`; // "ja/tui-components.json"
+		return `packages/components/locales/${path}`; // "ja/tui-components.json"
 	} else if (fileEntry.name === 'tui-forms.json') {
-		return `i18n/forms/${path}`; // "ja/tui-forms.json"
+		return `packages/forms/locales/${path}`; // "ja/tui-forms.json"
 	} else if (fileEntry.isDirectory) {
 		debug(`directory found supposed to be a language folder: ${path}`);
-		fs.mkdirSync(`i18n/components/${path}`);
-		fs.mkdirSync(`i18n/forms/${path}`);
+		fs.mkdirSync(`packages/components/locales/${path}`);
+		fs.mkdirSync(`packages/forms/locales/${path}`);
 	}
 	return undefined;
 }
@@ -100,7 +104,19 @@ function handleDownloadRequest(error, response, body) {
 	zip.getEntries().forEach(extractAndSave);
 }
 
+function cleanUpBeforeDownload() {
+	if (!fs.existsSync('packages/components/locales')) {
+		debug('create components/locales');
+		fs.mkdirSync('packages/components/locales');
+	}
+	if (!fs.existsSync('packages/forms/locales')) {
+		debug('create forms/locales');
+		fs.mkdirSync('packages/forms/locales');
+	}
+}
+
 function download() {
+	cleanUpBeforeDownload();
 	const options = {
 		url: `${URL}/download/all.zip?key=${PROJECT_KEY}`,
 		headers: {
