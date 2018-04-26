@@ -83,23 +83,35 @@
 		text-align: right;
 	}
 
+	.comp-simple-list-row-data-type {
+		padding: 4px;
+	}
+
 	.comp-simple-list-row-data-type.input {
 		display: block;
 		text-align: left;
+	}
+
+	.comp-simple-list-row-data-name {
 		padding: 4px;
 	}
 
 	.comp-simple-list-row-data-name.input {
 		display: block;
-		padding: 4px;
 		text-align: right;
 	}
 
-	.comp-list-row-data-desc, .comp-simple-list-row-data-desc {
+	.comp-list-row-data-desc {
 		color: #aaa;
 		font-style: italic;
 		text-overflow: ellipsis;
 		overflow: hidden;
+	}
+
+	.comp-simple-list-row-data-desc {
+		color: #aaa;
+		font-style: italic;
+		padding: 4px;
 	}
 
 	.mandatory-field {
@@ -333,13 +345,33 @@
 		position: relative;
 	}
 
+	.comp-simple-list.schema-content.output {
+		position: relative;
+	}
+
 	.comp-simple-list.schema-content.input table {
 		position: absolute;
 		width: 100%;
 	}
 
+	.comp-simple-list.schema-content.output table {
+		position: absolute;
+		width: 100%;
+	}
+
+	tr.comp-simple-list-row td {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	tr.comp-simple-list-row td:first-child {
+		overflow: visible;		
+	}
+
 	.comp-simple-list.schema-content table {
 		overflow: hidden;
+		white-space: nowrap;
+		table-layout: fixed;
 		tr {
 			&.draggable {
 				cursor: grab;
@@ -356,6 +388,26 @@
 				}
 			}
 		}
+	}
+
+	col.name.input {
+		width: 50%;
+	}
+
+	col.type.input {
+		width: 50%;
+	}
+
+	col.name.output {
+		width: 25%;
+	}
+
+	col.type.output {
+		width: 15%;
+	}
+
+	col.desc.output {
+		width: 60%;
 	}
 
 	.schema-element {

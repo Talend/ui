@@ -39,6 +39,25 @@ function getListClassName(classNameProvider) {
 	return 'simple-list';
 }
 
+function getColumnClassName(classNameProvider, columnKey) {
+	if (classNameProvider && classNameProvider.getForColumn) {
+		return classNameProvider.getForColumn(columnKey);
+	}
+	return columnKey;
+}
+
+function renderCol(classNameProvider, col) {
+	return <col className={getColumnClassName(classNameProvider, col)} />;
+}
+
+function renderColGroup(classNameProvider, columnKeys) {
+	return (
+		<colgroup>
+			{columnKeys.map(col => renderCol(classNameProvider, col))}
+		</colgroup>
+	);
+}
+
 /**
  * This component displays a list of elements.
  * Elements are provided as array.
@@ -53,10 +72,15 @@ export default class SimpleList extends Component {
 		super(props);
 		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
+		this.updateBodyNodeRef = this.updateBodyNodeRef.bind(this);
 	}
 
 	updateTableNodeRef(ref) {
 		this.tableNode = ref
+	}
+
+	updateBodyNodeRef(ref) {
+		this.bodyNode = ref
 	}
 
 	updateContentNodeRef(ref) {
@@ -65,6 +89,10 @@ export default class SimpleList extends Component {
 
 	getTableNode() {
 		return this.tableNode;
+	}
+
+	getBodyNode() {
+		return this.bodyNode;
 	}
 
 	getContentNode() {
@@ -91,19 +119,22 @@ export default class SimpleList extends Component {
 				onScroll={onScroll}
 			>
 				<table ref={this.updateTableNodeRef} >
-					{elements.map(elem =>
-						renderRow(
-							elem,
-							classNameProvider,
-							columnKeys,
-							rowDataGetter,
-							rowRenderer,
-							onClick,
-							onDoubleClick,
-							onEnterElement,
-							onLeaveElement,
-						),
-					)}
+					{renderColGroup(classNameProvider, columnKeys)}
+					<tbody ref={this.updateBodyNodeRef} >
+						{elements.map(elem =>
+							renderRow(
+								elem,
+								classNameProvider,
+								columnKeys,
+								rowDataGetter,
+								rowRenderer,
+								onClick,
+								onDoubleClick,
+								onEnterElement,
+								onLeaveElement,
+							),
+						)}
+					</tbody>
 				</table>
 			</div>
 		);

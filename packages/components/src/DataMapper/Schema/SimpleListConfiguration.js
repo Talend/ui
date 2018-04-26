@@ -1,5 +1,4 @@
 import SimpleListRenderer from './SchemaRenderers/SimpleListRenderer';
-import ListRenderer from './SchemaRenderers/ListRenderer';
 import SchemaConfiguration, { inputColumns, outputColumns } from './SchemaConfiguration';
 import * as Constants from '../Constants';
 
@@ -10,7 +9,7 @@ export default class SimpleListConfiguration extends SchemaConfiguration {
       case Constants.MappingSide.INPUT:
         return SimpleListRenderer;
       case Constants.MappingSide.OUTPUT:
-        return ListRenderer;
+        return SimpleListRenderer;
       default:
         return null;
     }

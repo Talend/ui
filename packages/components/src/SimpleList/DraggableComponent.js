@@ -3,6 +3,8 @@ import { DragSource, DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import flow from 'lodash/flow';
 
+const DRAGGABLE_ELEMENT_TYPE = 'element';
+
 export default function getDraggable(Comp) {
 
   const elementSource = {
@@ -54,7 +56,7 @@ export default function getDraggable(Comp) {
               element={element}
               data={data}
               className={className}
-              extra={extraProps}
+              extra={extra}
   					/>
   				</span>,
   			),
@@ -64,8 +66,8 @@ export default function getDraggable(Comp) {
   }
 
   return flow(
-  	DragSource('cell', elementSource, collectForDragSource),
-  	DropTarget('cell', elementTarget, collectForDropTarget),
+  	DragSource(DRAGGABLE_ELEMENT_TYPE, elementSource, collectForDragSource),
+  	DropTarget(DRAGGABLE_ELEMENT_TYPE, elementTarget, collectForDropTarget),
   )(DraggableComponent);
 
 }

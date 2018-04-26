@@ -9,10 +9,10 @@ export default function MandatoryField({ data, className }) {
 	const label = data.value;
 	const mandatory = data.mandatory;
 	return (
-		<div className={`comp-list-row-data mandatory-field ${className}`}>
-			<div className={'mandatory-field-label'}>{label}</div>
-			<div className={'mandatory-field-info'}>{mandatory ? '*' : ''}</div>
-		</div>
+		<span className={`comp-list-row-data mandatory-field ${className}`}>
+			<span className={'mandatory-field-label'}>{label}</span>
+			<span className={'mandatory-field-info'}>{mandatory ? '*' : ''}</span>
+		</span>
 	);
 }
 

@@ -5,7 +5,14 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { SimpleList, ClassNameProvider, RowRenderer, DraggableCell, IconsProvider } from '../src/index';
+import {
+	SimpleList,
+	ClassNameProvider,
+	RowRenderer,
+	Cell,
+	DraggableComponent,
+	IconsProvider
+} from '../src/index';
 
 const dataPrepSchema = {
 	id: 'd1fg158sc',
@@ -205,9 +212,14 @@ const rowRenderer = new RowRenderer();
 
 class DraggableRowRenderer extends RowRenderer {
 
+	constructor() {
+		super();
+		this.draggableCell = DraggableComponent(Cell);
+	}
+
 	getCellComponent(columnKey) {
 		if (columnKey === ColumnKey.DRAG_NAME) {
-			return DraggableCell;
+			return this.draggableCell;
 		}
 		return super.getCellComponent(columnKey);
 	}
@@ -275,6 +287,10 @@ class ConnectedSimpleList extends React.Component {
 	getForList() {
     return 'connected-simple-list';
   }
+
+	getForColumn(columnKey) {
+		return columnKey;
+	}
 
 	getForRow(element) {
 		const classNames = {

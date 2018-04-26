@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { SimpleList, Cell, DraggableCell } from '../../../SimpleList';
-//import MandatoryField from '../../List/MandatoryField';
+import { SimpleList, Cell, DraggableComponent } from '../../../SimpleList';
+import MandatoryField from '../../List/MandatoryField';
 
 import * as Constants from '../../Constants';
 
@@ -14,6 +14,15 @@ class SchemaClassNameProvider {
   getForList() {
     return `comp-simple-list schema-content ${this.props.side}`;
   }
+
+	getForColumn(columnKey) {
+		const classes = {
+			input: this.props.side === Constants.MappingSide.INPUT,
+      output: this.props.side === Constants.MappingSide.OUTPUT,
+		};
+		classes[columnKey] = true;
+		return classnames(classes);
+	}
 
   getForRow(element) {
     const {
@@ -112,6 +121,8 @@ class RowRenderer {
 
   constructor() {
     this.dndListener = new SchemaDndListener();
+		this.draggableCell = DraggableComponent(Cell);
+		this.draggableMandatoryField = DraggableComponent(MandatoryField);
   }
 
   updateProps(props) {
@@ -149,10 +160,10 @@ class RowRenderer {
 				if (this.props.side === Constants.MappingSide.INPUT) {
 					return Cell;
 				}
-				return DraggableCell;
+				return this.draggableMandatoryField;
       case Constants.Schema.DATA_KEYS.TYPE:
         if (this.props.side === Constants.MappingSide.INPUT) {
-          return DraggableCell;
+          return this.draggableCell;
         }
         return Cell;
 			default:
@@ -208,7 +219,7 @@ export default class SimpleListRenderer extends Component {
 	}
 
 	getChildNodes() {
-		return this.listNode.getTableNode().childNodes;
+		return this.listNode.getBodyNode().childNodes;
 	}
 
 	getScrollTop() {
@@ -221,8 +232,9 @@ export default class SimpleListRenderer extends Component {
 
 	getChildOffsetTop(child) {
 		const childOffsetTop = child.offsetTop;
+		const bodyOffsetTop = this.listNode.getBodyNode().offsetTop;
 		const tableOffsetTop = this.listNode.getTableNode().offsetTop;
-		return childOffsetTop + tableOffsetTop;
+		return childOffsetTop + bodyOffsetTop + tableOffsetTop;
 	}
 
 	getOffsetHeight() {

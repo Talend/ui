@@ -12,6 +12,13 @@ export default class ClassNameProvider {
   }
 
   /**
+  * Returns a classname for the column
+  */
+  getForColumn(columnKey) {
+    return 'columnKey';
+  }
+
+  /**
   * Return a classname for an element of the list
   * @param {object} element - An element of the list.
   */
