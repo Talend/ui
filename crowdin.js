@@ -29,7 +29,9 @@ program.on('--help', help);
 program.parse(process.argv);
 
 function debug(...args) {
-	console.log(...args);
+	if (program.verbose) {
+		console.log(...args);
+	}
 }
 
 // TODO: prompt for the PROJECT_KEY
@@ -77,14 +79,18 @@ function getDestination(fileEntry) {
 		return `packages/forms/locales/${path}`; // "ja/tui-forms.json"
 	} else if (fileEntry.isDirectory) {
 		debug(`directory found supposed to be a language folder: ${path}`);
-		fs.mkdirSync(`packages/components/locales/${path}`);
-		fs.mkdirSync(`packages/forms/locales/${path}`);
+		if (!fs.existsSync(`packages/components/locales/${path}`)) {
+			fs.mkdirSync(`packages/components/locales/${path}`);
+		}
+		if (!fs.existsSync(`packages/forms/locales/${path}`)) {
+			fs.mkdirSync(`packages/forms/locales/${path}`);
+		}
 	}
 	return undefined;
 }
 
 function write(destination, data) {
-	debug(`write to ${destination}`);
+	console.log(`write ${destination}`);
 	fs.writeFileSync(destination, data);
 }
 
