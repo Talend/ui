@@ -1,10 +1,9 @@
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const babelrc = require('./.babelrc.json');
-const extractCSS = new ExtractTextPlugin({ filename: '[name]-[hash].css' });
 
 function getSassData(getUserConfig) {
 	const sassData = '@import \'~@talend/bootstrap-theme/src/theme/guidelines\';';
@@ -29,6 +28,7 @@ function getCommonStyleLoaders(enableModules) {
 		};
 	}
 	return [
+		{ loader: MiniCssExtractPlugin.loader },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
@@ -67,17 +67,17 @@ module.exports = ({ getUserConfig }) => {
 				},
 				{
 					test: /\.css$/,
-					use: extractCSS.extract(getCommonStyleLoaders()),
+					use: getCommonStyleLoaders(),
 					exclude: /@talend/,
 				},
 				{
 					test: /\.scss$/,
-					use: extractCSS.extract(getSassLoaders(false, sassData)),
+					use: getSassLoaders(false, sassData),
 					include: /bootstrap-theme/,
 				},
 				{
 					test: /\.scss$/,
-					use: extractCSS.extract(getSassLoaders(true, sassData)),
+					use: getSassLoaders(true, sassData),
 					exclude: /bootstrap-theme/,
 				},
 				{
@@ -88,7 +88,9 @@ module.exports = ({ getUserConfig }) => {
 			],
 		},
 		plugins: [
-			extractCSS,
+			new MiniCssExtractPlugin({
+				filename: '[name]-[hash].css',
+			}),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
 				template: `${process.cwd()}/src/app/index.html`,

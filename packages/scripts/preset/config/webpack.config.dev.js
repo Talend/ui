@@ -1,6 +1,5 @@
-const webpack = require('webpack');
-
 module.exports = ({ getUserConfig }) => ({
+	mode: 'development',
 	output: {
 		path: `${process.cwd()}/build`,
 	},
@@ -19,8 +18,4 @@ module.exports = ({ getUserConfig }) => ({
 		},
 		historyApiFallback: true,
 	},
-	devtool: 'inline-source-map',
-	plugins: [
-		new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-	],
 });
