@@ -6,19 +6,21 @@ const fs = require('fs');
 /* eslint-disable no-console */
 
 function help() {
+	console.log('To use crowdin script you need API key. You can set this key under .crowdin.json file { "key": "..." } or use -k');
 	console.log('To use crowdin script to get the status: ');
 	console.log('>node crowding.js --status');
-	console.log('To use crowdin script to upload current catalog: ');
-	console.log('>node crowding.js --upload ./i18n/components/tui-components.json');
+	console.log('To use crowdin script to download current locales: ');
+	console.log('>node crowding.js --download');
 }
 
 program
 	.version('0.0.1')
-	.option('-k, --key [value]', 'REQUIRED PROJECT KEY')
+	.option('-k, --key [value]', 'Required API key (or use .crowdin.json)')
 	.option('-v, --verbose', 'display debug info')
+	.option('-p, --project [value]', 'PROJECT_ID to set API URL. Default talendui')
 	.option('-d, --download', 'download all the translations')
 	.option('-s, --status', 'get the status of translations')
-	.option('-u, --upload [value]', 'upload translation')
+	.option('-u, --upload', 'upload translation')
 	;
 
 program.on('--help', help);
@@ -31,19 +33,43 @@ function debug(...args) {
 	}
 }
 
-// TODO: prompt for the PROJECT_KEY
+// TODO: prompt for the API_KEY
 
-const PROJECT_KEY = program.key;
-const PROJECT_ID = 'talendui';
+let API_KEY = program.key;
+let CROWDIN;
+if (fs.existsSync('.crowdin.json')) {
+	// eslint-disable-next-line
+	CROWDIN = require('./.crowdin.json');
+	if (CROWDIN.key) {
+		API_KEY = CROWDIN.key;
+	}
+}
+
+const PROJECT_ID = program.project || CROWDIN.project || 'talendui';
 const URL = `https://api.crowdin.com/api/project/${PROJECT_ID}`;
+
+if (!API_KEY) {
+	throw new Error('you must set -k or put a key in .crowdin config file');
+}
 
 const FILES = [
 	{
 		name: 'tui-components.json',
 		path: `${__dirname}/i18n/components/en/tui-components.json`,
-		locales: `${__dirname}/components/locales`,
+		target: path => `${__dirname}/packages/components/${path}`,
+		locales: `${__dirname}/packages/components/locales`,
+	},
+	{
+		name: 'tui-forms.json',
+		path: `${__dirname}/i18n/forms/en/tui-forms.json`,
+		target: path => `${__dirname}/packages/forms/${path}`,
+		locales: `${__dirname}/packages/forms/locales`,
 	},
 ];
+const BY_NAME = FILES.reduce((acc, file) => {
+	acc[file.name] = file;
+	return acc;
+}, {});
 
 function onError(error) {
 	if (error) {
@@ -58,7 +84,7 @@ function handleStatusRequest(error, response, body) {
 }
 
 function status() {
-	const url = `${URL}/status?json&key=${PROJECT_KEY}`;
+	const url = `${URL}/status?json&key=${API_KEY}`;
 	debug(`status send GET , ${url}`);
 	request(url, handleStatusRequest);
 }
@@ -66,18 +92,9 @@ function status() {
 function getDestination(fileEntry) {
 	debug(fileEntry.toString());
 	const path = fileEntry.entryName;
-	if (fileEntry.name === 'tui-components.json') {
-		return `packages/components/locales/${path}`; // "ja/tui-components.json"
-	} else if (fileEntry.name === 'tui-forms.json') {
-		return `packages/forms/locales/${path}`; // "ja/tui-forms.json"
-	} else if (fileEntry.isDirectory) {
-		debug(`directory found supposed to be a language folder: ${path}`);
-		if (!fs.existsSync(`packages/components/locales/${path}`)) {
-			fs.mkdirSync(`packages/components/locales/${path}`);
-		}
-		if (!fs.existsSync(`packages/forms/locales/${path}`)) {
-			fs.mkdirSync(`packages/forms/locales/${path}`);
-		}
+	const config = BY_NAME[fileEntry.name];
+	if (config) {
+		return config.target(path); // "ja/tui-components.json"
 	}
 	return undefined;
 }
@@ -89,7 +106,14 @@ function write(destination, data) {
 
 function extractAndSave(zipEntry) {
 	const dest = getDestination(zipEntry);
-	if (!dest) {
+	if (!dest && zipEntry.isDirectory) {
+		FILES.forEach(file => {
+			const target = file.target(zipEntry.entryName)
+			if (!fs.existsSync(target)) {
+				debug(`create missing directory: ${target}`);
+				fs.mkdirSync(target);
+			}
+		});
 		return;
 	}
 	const data = zipEntry.getData().toString('utf8');
@@ -104,20 +128,18 @@ function handleDownloadRequest(error, response, body) {
 }
 
 function cleanUpBeforeDownload() {
-	if (!fs.existsSync('packages/components/locales')) {
-		debug('create components/locales');
-		fs.mkdirSync('packages/components/locales');
-	}
-	if (!fs.existsSync('packages/forms/locales')) {
-		debug('create forms/locales');
-		fs.mkdirSync('packages/forms/locales');
-	}
+	FILES.forEach(file => {
+		if (!fs.existsSync(file.locales)) {
+			debug(`create ${file.locales}`);
+			fs.mkdirSync(file.locales);
+		}
+	});
 }
 
 function download() {
 	cleanUpBeforeDownload();
 	const options = {
-		url: `${URL}/download/all.zip?key=${PROJECT_KEY}`,
+		url: `${URL}/download/all.zip?key=${API_KEY}`,
 		headers: {
 			'Accept-Encoding': 'gzip, deflate',
 		},
@@ -130,7 +152,7 @@ function download() {
 function upload() {
 	console.log('please use curl');
 	const files = FILES.map(file => `\n  -F "files[/${file.name}]=@${file.path}"`);
-	console.log(`curl ${files}\n  https://api.crowdin.com/api/project/talendui/update-file?key=${PROJECT_KEY}`);
+	console.log(`curl ${files}\n  ${URL}/update-file?key=${API_KEY}`);
 }
 
 /** ------ main ----- */
