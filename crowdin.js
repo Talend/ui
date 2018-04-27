@@ -4,7 +4,6 @@ const request = require('request');
 const fs = require('fs');
 
 /* eslint-disable no-console */
-// request.debug = true;
 
 function help() {
 	console.log('To use crowdin script to get the status: ');
@@ -135,6 +134,10 @@ function upload() {
 }
 
 /** ------ main ----- */
+
+if (program.verbose) {
+	request.debug = true;
+}
 
 if (program.download) {
 	download();
