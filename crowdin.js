@@ -33,8 +33,6 @@ function debug(...args) {
 	}
 }
 
-// TODO: prompt for the API_KEY
-
 let API_KEY = program.key;
 let CROWDIN;
 if (fs.existsSync('.crowdin.json')) {
@@ -67,7 +65,7 @@ const FILES = [
 	},
 ];
 const BY_NAME = FILES.reduce((acc, file) => {
-	acc[file.name] = file;
+	acc[file.name] = file;  // eslint-disable-line no-param-reassign
 	return acc;
 }, {});
 
@@ -94,7 +92,7 @@ function getDestination(fileEntry) {
 	const path = fileEntry.entryName;
 	const config = BY_NAME[fileEntry.name];
 	if (config) {
-		return config.target(path); // "ja/tui-components.json"
+		return config.target(path);
 	}
 	return undefined;
 }
@@ -117,7 +115,6 @@ function extractAndSave(zipEntry) {
 		return;
 	}
 	const data = zipEntry.getData().toString('utf8');
-	// write to dest
 	write(dest, data);
 }
 
