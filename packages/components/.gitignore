@@ -41,5 +41,7 @@ hs_err_pid*
 # Talend web apps build directory
 build/
 lib/
-locales/
+locales/fr
+locales/en
+locales/ja
 storybook-static

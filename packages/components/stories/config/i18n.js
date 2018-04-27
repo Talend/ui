@@ -18,6 +18,8 @@ if (process.env.NODE_ENV === 'production') {
 		wait: true, // globally set to wait for loaded translations in translate hoc
 	});
 	i18nInitialized = true;
+} else {
+	i18next.createInstance({});
 }
 
 export const LanguageSwitcher = () => {

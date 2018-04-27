@@ -55,13 +55,13 @@ if (!API_KEY) {
 const FILES = [
 	{
 		name: 'tui-components.json',
-		path: `${__dirname}/i18n/components/en/tui-components.json`,
+		path: `${__dirname}/packages/components/locales/template/tui-components.json`,
 		target: path => `${__dirname}/packages/components/locales/${path}`,
 		locales: `${__dirname}/packages/components/locales`,
 	},
 	{
 		name: 'tui-forms.json',
-		path: `${__dirname}/i18n/forms/en/tui-forms.json`,
+		path: `${__dirname}/packages/forms/locales/template/tui-forms.json`,
 		target: path => `${__dirname}/packages/forms/locales/${path}`,
 		locales: `${__dirname}/packages/forms/locales`,
 	},

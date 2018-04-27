@@ -336,7 +336,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -531,7 +531,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -551,9 +551,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -963,7 +961,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -1204,7 +1202,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -1224,9 +1222,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -1636,7 +1632,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -1899,7 +1895,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -1919,9 +1915,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -2331,7 +2325,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
@@ -2526,7 +2520,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -2546,9 +2540,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -2958,7 +2950,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -3153,7 +3145,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -3173,9 +3165,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -3585,7 +3575,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -3806,7 +3796,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -3826,9 +3816,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -4238,7 +4226,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -4433,7 +4421,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Notifications"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
@@ -4461,7 +4449,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -4481,9 +4469,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -4893,7 +4879,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -5108,7 +5094,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -5128,9 +5114,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -5540,7 +5524,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -6088,7 +6072,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -6108,9 +6092,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -6520,7 +6502,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -6715,7 +6697,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Notifications"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
@@ -6743,7 +6725,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -6763,9 +6745,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -7175,7 +7155,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
@@ -7264,7 +7244,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -7284,9 +7264,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -7696,7 +7674,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Go to Portal"
+          aria-label={undefined}
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -7891,7 +7869,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Help"
+          aria-label={undefined}
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -7911,9 +7889,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               xlinkHref="#talend-question-circle"
             />
           </svg>
-          <span>
-            Help
-          </span>
+          <span />
         </button>
       </li>
       <li
@@ -8353,7 +8329,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -8548,7 +8524,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -8568,9 +8544,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
@@ -8992,7 +8966,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -9187,7 +9161,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -9207,9 +9181,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
@@ -9631,7 +9603,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -9826,7 +9798,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -9846,9 +9818,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
@@ -10270,7 +10240,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -10465,7 +10435,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -10485,9 +10455,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
@@ -10909,7 +10877,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -11104,7 +11072,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -11124,9 +11092,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
@@ -11548,7 +11514,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -11743,7 +11709,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -11763,9 +11729,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
@@ -12187,7 +12151,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Go to Portal"
+                aria-label={undefined}
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -12382,7 +12346,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                aria-label="Help"
+                aria-label={undefined}
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -12402,9 +12366,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     xlinkHref="#talend-question-circle"
                   />
                 </svg>
-                <span>
-                  Help
-                </span>
+                <span />
               </button>
             </li>
             <li
