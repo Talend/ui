@@ -6,7 +6,7 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 import talendIcons from '@talend/icons/dist/react';
 
 import { I18nextProvider } from 'react-i18next';
-import i18n from './config/i18n';
+import i18n, { LanguageSwitcher } from './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 
@@ -161,6 +161,7 @@ const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
 			<IconsProvider defaultIcons={icons} />
+			<LanguageSwitcher />
 		</div>
 	</I18nextProvider>
 ));

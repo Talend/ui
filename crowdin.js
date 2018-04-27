@@ -56,13 +56,13 @@ const FILES = [
 	{
 		name: 'tui-components.json',
 		path: `${__dirname}/i18n/components/en/tui-components.json`,
-		target: path => `${__dirname}/packages/components/${path}`,
+		target: path => `${__dirname}/packages/components/locales/${path}`,
 		locales: `${__dirname}/packages/components/locales`,
 	},
 	{
 		name: 'tui-forms.json',
 		path: `${__dirname}/i18n/forms/en/tui-forms.json`,
-		target: path => `${__dirname}/packages/forms/${path}`,
+		target: path => `${__dirname}/packages/forms/locales/${path}`,
 		locales: `${__dirname}/packages/forms/locales`,
 	},
 ];
@@ -127,7 +127,7 @@ function handleDownloadRequest(error, response, body) {
 	zip.getEntries().forEach(extractAndSave);
 }
 
-function cleanUpBeforeDownload() {
+function ensureLocalesExists() {
 	FILES.forEach(file => {
 		if (!fs.existsSync(file.locales)) {
 			debug(`create ${file.locales}`);
@@ -137,7 +137,7 @@ function cleanUpBeforeDownload() {
 }
 
 function download() {
-	cleanUpBeforeDownload();
+	ensureLocalesExists();
 	const options = {
 		url: `${URL}/download/all.zip?key=${API_KEY}`,
 		headers: {
