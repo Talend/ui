@@ -1,8 +1,6 @@
 const AdmZip = require('adm-zip');
 const program = require('commander');
 const request = require('request');
-const FormData = require('form-data');
-// const http = require('http');
 const fs = require('fs');
 
 /* eslint-disable no-console */
@@ -39,10 +37,6 @@ function debug(...args) {
 const PROJECT_KEY = program.key;
 const PROJECT_ID = 'talendui';
 const URL = `https://api.crowdin.com/api/project/${PROJECT_ID}`;
-const PATHS = [
-	__dirname + '/i18n/components/en/tui-components.json',
-	// __dirname + '/i18n/forms/en/tui-forms.json'
-];
 
 const FILES = [
 	{
