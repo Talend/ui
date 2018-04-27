@@ -2,27 +2,28 @@ import React from 'react';
 import i18next from 'i18next';
 import I18N_DOMAIN_COMPONENTS from '../../src/constants';
 
-const LOCALES_FR = require('../../locales/fr/tui-components.json');
-const LOCALES_JA = require('../../locales/ja/tui-components.json');
-const LOCALES_EN = require('../../locales/en/tui-components.json');
+let i18nInitialized = false;
+const languages = ['en', 'fr', 'ja'];
 
-i18next.init({
-	resources: {
-		en: {
-			[I18N_DOMAIN_COMPONENTS]: LOCALES_EN,
-		},
-		fr: {
-			[I18N_DOMAIN_COMPONENTS]: LOCALES_FR,
-		},
-		ja: {
-			[I18N_DOMAIN_COMPONENTS]: LOCALES_JA,
-		},
-	},
-	debug: false,
-	wait: true, // globally set to wait for loaded translations in translate hoc
-});
+if (process.env.NODE_ENV === 'production') {
+	const resources = {};
+	languages.forEach(lng => {
+		resources[lng] = {
+			[I18N_DOMAIN_COMPONENTS]: require(`../../locales/${lng}/tui-components.json`),
+		};
+	});
+	i18next.init({
+		resources,
+		debug: false,
+		wait: true, // globally set to wait for loaded translations in translate hoc
+	});
+	i18nInitialized = true;
+}
 
 export const LanguageSwitcher = () => {
+	if (!i18nInitialized) {
+		return null;
+	}
 	const style = {
 		position: 'fixed',
 		bottom: 0,
@@ -31,10 +32,10 @@ export const LanguageSwitcher = () => {
 		zIndex: 1,
 	};
 
-	function renderBtn(locale, isDefault) {
+	function renderBtn(locale, key) {
 		return (
-			<button className="btn" onClick={() => i18next.changeLanguage(locale)}>
-				{locale} {isDefault && '(default)'}
+			<button key={key} className="btn" onClick={() => i18next.changeLanguage(locale)}>
+				{locale} {locale === 'en' && '(default)'}
 			</button>
 		);
 	}
@@ -42,9 +43,7 @@ export const LanguageSwitcher = () => {
 	return (
 		<nav style={style}>
 			<div className="btn-group">
-				{renderBtn('en', true)}
-				{renderBtn('fr')}
-				{renderBtn('ja')}
+				{languages.map(renderBtn)}
 			</div>
 		</nav>
 	);
