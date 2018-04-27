@@ -95,6 +95,7 @@ function merge(options, errorCallback) {
 			namespaces,
 			cmfconfig.settings.i18n.languages,
 			cmfconfig.settings.i18n['extract-from'],
+			cmfconfig.settings.i18n['extract-ignore-namespace'],
 		);
 	}
 
