@@ -34,7 +34,7 @@ function debug(...args) {
 }
 
 let API_KEY = program.key;
-let CROWDIN;
+let CROWDIN = {};
 if (fs.existsSync('.crowdin.json')) {
 	// eslint-disable-next-line
 	CROWDIN = require('./.crowdin.json');
