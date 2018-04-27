@@ -51,14 +51,14 @@ export default function getDraggable(Comp) {
   		} = this.props;
   		return connectDragSource(
   			connectDropTarget(
-  				<span>
+  				<div>
   					<Comp
               element={element}
               data={data}
               className={className}
               extra={extra}
   					/>
-  				</span>,
+  				</div>,
   			),
   		);
   	}

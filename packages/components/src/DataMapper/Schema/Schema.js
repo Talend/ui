@@ -135,13 +135,15 @@ export default class Schema extends Component {
 				const n = Math.floor(scrollTop / this.meanDist);
 				startIndex = Math.max(0, n);
 			}
+			const headerHeight = this.getRendererNode().getHeaderHeight();
+			const bottomLimit = contentHeight + headerHeight;
 			for (let i = startIndex; i < childrenArray.length; i += 1) {
 				const element = elements[i];
 				const elemYPos = this.getYPosition(element);
-				if (elemYPos > 0 && elemYPos < contentHeight) {
+				if (elemYPos > headerHeight && elemYPos < bottomLimit) {
 					// element is visible
 					visibleElements = visibleElements.concat(element);
-				} else if (elemYPos > contentHeight) {
+				} else if (elemYPos > bottomLimit) {
 					break;
 				}
 			}
@@ -162,13 +164,15 @@ export default class Schema extends Component {
 		const nodeHeight = node.clientHeight;
 		const elemYPos = this.getYPosition(element);
 		const contentHeight = this.getRendererNode().getOffsetHeight();
+		const headerHeight = this.getRendererNode().getHeaderHeight();
 		let revealed = false;
 		const scrollTop = this.getRendererNode().getScrollTop();
-		if (elemYPos < 0) {
-			this.getRendererNode().setScrollTop(scrollTop + elemYPos - nodeHeight / 2);
+		if (elemYPos < headerHeight) {
+			const newScrollTop = scrollTop + elemYPos - headerHeight - nodeHeight / 2;
+			this.getRendererNode().setScrollTop(newScrollTop);
 			revealed = true;
-		} else if (elemYPos > contentHeight - nodeHeight) {
-			const offset = elemYPos + nodeHeight - contentHeight;
+		} else if (elemYPos > contentHeight + headerHeight - nodeHeight) {
+			const offset = elemYPos + nodeHeight - contentHeight - headerHeight;
 			this.getRendererNode().setScrollTop(scrollTop + offset);
 			revealed = true;
 		}
@@ -196,6 +200,9 @@ export default class Schema extends Component {
 				return 0;
 			},
 			getOffsetHeight() {
+				return 0;
+			},
+			getHeaderHeight() {
 				return 0;
 			},
 		};

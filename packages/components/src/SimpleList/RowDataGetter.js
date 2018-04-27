@@ -12,8 +12,17 @@ export default class RowDataGetter {
     return element.id;
 	}
 
+	/**
+	* Return the header data corresponding to the given column.
+	* This data will be used to render the header.
+	* @param {string} columnKey - The key identifying a column.
+	*/
+	getHeaderData(columnKey) {
+		return columnKey;
+	}
+
   /**
-  * Return the data corresponding ti the given element and column.
+  * Return the data corresponding to the given element and column.
 	* @param {object} element - An element of the list.
   * @param {string} columnKey - The key identifying a column.
   */

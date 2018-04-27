@@ -43,7 +43,9 @@ import {
 	SimpleList,
 	ClassNameProvider,
 	RowRenderer,
+	HeaderRenderer,
 	Cell,
+	Header,
 	DraggableComponent,
 } from './SimpleList';
 import { Status } from './Status';
@@ -167,7 +169,9 @@ export {
 	SimpleList,
 	ClassNameProvider,
 	RowRenderer,
+	HeaderRenderer,
 	Cell,
+	Header,
 	DraggableComponent,
 	Status,
 	SubHeaderBar,

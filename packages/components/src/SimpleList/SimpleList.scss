@@ -9,6 +9,60 @@
 		}
 	}
 
+	.simple-list-holder {
+		table, th, td {
+			border: 1px solid black;
+		}
+	}
+
+	.simple-list-holder table {
+		table-layout: fixed;
+	}
+
+	.simple-list-holder tbody {
+		display: block;
+	}
+
+	.simple-list-holder col {
+		display: inline-block;
+	}
+
+	.simple-list-holder col.name {
+		width: 200px;
+	}
+
+	.simple-list-holder col.type {
+		width: 100px;
+	}
+
+	.simple-list-scrollable {
+		overflow: auto;
+		height: 300px;
+	}
+
+	.simple-list-scrollable {
+		table, th, td {
+			border: 1px solid black;
+		}
+	}
+
+	.simple-list-scrollable table {
+		table-layout: fixed;
+	}
+
+	.simple-list-scrollable col.name {
+		width: 60%;
+	}
+
+	.simple-list-scrollable col.type {
+		width: 40%;
+	}
+
+	.simple-list {
+		margin: 4px;
+		padding: 4px;
+	}
+
 	.simple-list-row {
 		height: 25px;
 		background-color: #fff;
@@ -39,11 +93,48 @@
 		padding: 2px;
 	}
 
+	.connected-simple-list-header.type {
+		display: block;
+		text-align: right;
+	}
+
   .highlighted {
     background-color: #f2f2f2;
   }
 
-	table {
+	.simple-list-with-header-holder {
+		position: relative;
+		width: 300px;
+	}
+
+	.simple-list-with-header-holder table {
+		position: absolute;
+		width: 100%;
+	}
+
+	.simple-list-with-header-holder thead {
+		display: block;
+	}
+
+	.simple-list-with-header-holder tbody {
+		height: 200px;
+		display: block;
+		overflow-y: auto;
+	}
+
+	.simple-list-with-header-holder table {
+		td:nth-child(1), th:nth-child(1) {
+  		width: 200px;
+		}
+	}
+
+	.simple-list-with-header-holder table {
+		td:nth-child(2), th:nth-child(2) {
+  		width: 200px;
+		}
+	}
+
+	.draggable-table table {
 		overflow: hidden;
     tr {
       &.draggable {

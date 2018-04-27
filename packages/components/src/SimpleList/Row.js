@@ -90,7 +90,7 @@ export default class Row extends Component {
 		} = this.props;
 		return (
 			<tr
-				className={`${getRowClassName(classNameProvider, element)}`}
+				className={`tr-body ${getRowClassName(classNameProvider, element)}`}
 				onClick={onClick}
 				onDoubleClick={onDoubleClick}
 				ref={this.updateElementRef}

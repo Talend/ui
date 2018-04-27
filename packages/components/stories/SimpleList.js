@@ -9,6 +9,7 @@ import {
 	SimpleList,
 	ClassNameProvider,
 	RowRenderer,
+	HeaderRenderer,
 	Cell,
 	DraggableComponent,
 	IconsProvider
@@ -209,6 +210,7 @@ const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
 const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE];
 
 const rowRenderer = new RowRenderer();
+const headerRenderer = new HeaderRenderer();
 
 class DraggableRowRenderer extends RowRenderer {
 
@@ -252,6 +254,21 @@ class MyRowDataGetter {
     return element.id;
 	}
 
+	getHeaderData(columnKey) {
+		switch (columnKey) {
+			case ColumnKey.DRAG_NAME:
+				return 'Name';
+			case ColumnKey.NAME:
+        return 'Name';
+			case ColumnKey.TYPE:
+				return 'Type';
+			case ColumnKey.DESC:
+				return 'Description';
+			default:
+				return columnKey;
+		}
+	}
+
 	getData(element, columnKey) {
     switch (columnKey) {
 			case ColumnKey.DRAG_NAME:
@@ -285,11 +302,14 @@ class ConnectedSimpleList extends React.Component {
 	}
 
 	getForList() {
-    return 'connected-simple-list';
+		return classnames({
+				'connected-simple-list': true,
+				'draggable-table': this.state.draggable,
+		});
   }
 
-	getForColumn(columnKey) {
-		return columnKey;
+	getForHeader(columnKey) {
+		return `${columnKey} connected-simple-list-header`;
 	}
 
 	getForRow(element) {
@@ -323,6 +343,7 @@ class ConnectedSimpleList extends React.Component {
 			columnKeys,
 			rowDataGetter,
 			rowRenderer,
+			headerRenderer,
 			onScroll,
 			onClick,
 			onDoubleClick,
@@ -334,6 +355,7 @@ class ConnectedSimpleList extends React.Component {
 	      classNameProvider={this}
 	      rowDataGetter={rowDataGetter}
 	      rowRenderer={rowRenderer}
+				headerRenderer={headerRenderer}
 	      onScroll={onScroll}
 	      onClick={onClick}
 	      onDoubleClick={onDoubleClick}
@@ -360,18 +382,40 @@ stories
 		</div>
 	))
 	.addWithInfo('Simple List', () => {
-		return <SimpleList
-		  elements={schema1.elements}
-      columnKeys={columnKeys1}
-      rowDataGetter={rowDataGetter}
-      rowRenderer={rowRenderer}
-			classNameProvider={classNameProvider}
-      onScroll={action('onScroll called!')}
-      onClick={action('onClick called!')}
-      onDoubleClick={action('onDoubleClick called!')}
-			onEnterElement={action('onEnterElement called!')}
-			onLeaveElement={action('onLeaveElement called!')}
-		/>;
+		return (
+			<div className="simple-list-holder" >
+				<SimpleList
+				  elements={schema1.elements}
+		      columnKeys={columnKeys1}
+		      rowDataGetter={rowDataGetter}
+		      rowRenderer={rowRenderer}
+					classNameProvider={classNameProvider}
+		      onScroll={action('onScroll called!')}
+		      onClick={action('onClick called!')}
+		      onDoubleClick={action('onDoubleClick called!')}
+					onEnterElement={action('onEnterElement called!')}
+					onLeaveElement={action('onLeaveElement called!')}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('Simple List with vertical scrollbar', () => {
+		return (
+			<div className="simple-list-scrollable" >
+				<SimpleList
+			  	elements={schema1.elements}
+	      	columnKeys={columnKeys1}
+	      	rowDataGetter={rowDataGetter}
+	      	rowRenderer={rowRenderer}
+					classNameProvider={classNameProvider}
+	      	onScroll={action('onScroll called!')}
+	      	onClick={action('onClick called!')}
+	      	onDoubleClick={action('onDoubleClick called!')}
+					onEnterElement={action('onEnterElement called!')}
+					onLeaveElement={action('onLeaveElement called!')}
+				/>
+			</div>
+		);
 	})
 	.addWithInfo('Simple List with highlight', () => {
 		return <ConnectedSimpleList
@@ -384,6 +428,23 @@ stories
       onClick={action('onClick called!')}
       onDoubleClick={action('onDoubleClick called!')}
 		/>;
+	})
+	.addWithInfo('Simple List with header', () => {
+		return (
+			<div className="simple-list-with-header-holder" >
+				<ConnectedSimpleList
+					initialState={emptyInitialState}
+		  		elements={schema1.elements}
+      		columnKeys={columnKeys1}
+      		rowDataGetter={rowDataGetter}
+      		rowRenderer={rowRenderer}
+					headerRenderer={headerRenderer}
+      		onScroll={action('onScroll called!')}
+      		onClick={action('onClick called!')}
+      		onDoubleClick={action('onDoubleClick called!')}
+				/>
+			</div>
+		);
 	})
 	.addWithInfo('Simple List with draggable elements', () => {
 		return <SimpleListWithDND

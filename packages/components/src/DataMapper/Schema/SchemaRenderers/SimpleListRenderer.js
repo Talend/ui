@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { SimpleList, Cell, DraggableComponent } from '../../../SimpleList';
+import {
+	SimpleList,
+	Cell,
+	Header,
+	HeaderRenderer,
+	DraggableComponent
+} from '../../../SimpleList';
 import MandatoryField from '../../List/MandatoryField';
 
 import * as Constants from '../../Constants';
@@ -15,8 +21,9 @@ class SchemaClassNameProvider {
     return `comp-simple-list schema-content ${this.props.side}`;
   }
 
-	getForColumn(columnKey) {
+	getForHeader(columnKey) {
 		const classes = {
+			'comp-simple-list-header': true,
 			input: this.props.side === Constants.MappingSide.INPUT,
       output: this.props.side === Constants.MappingSide.OUTPUT,
 		};
@@ -97,8 +104,21 @@ class RowDataGetter {
 		return this.props.dataAccessor.getElementId(element);
 	}
 
-	getData(element, key) {
-		switch (key) {
+	getHeaderData(columnKey) {
+		switch (columnKey) {
+			case Constants.Schema.DATA_KEYS.NAME:
+				return 'Name';
+			case Constants.Schema.DATA_KEYS.TYPE:
+				return 'Type';
+			case Constants.Schema.DATA_KEYS.DESC:
+				return 'Description';
+			default:
+				return columnKey;
+		}
+	}
+
+	getData(element, columnKey) {
+		switch (columnKey) {
 			case Constants.Schema.DATA_KEYS.NAME:
 				if (this.props.side === Constants.MappingSide.INPUT) {
 					return this.props.dataAccessor.getElementName(element);
@@ -188,6 +208,7 @@ export default class SimpleListRenderer extends Component {
 		this.classNameProvider = new SchemaClassNameProvider();
 		this.rowDataGetter = new RowDataGetter();
 		this.rowRenderer = new RowRenderer();
+		this.headerRenderer = new HeaderRenderer();
 	}
 
 	onEnterElement(element) {
@@ -223,22 +244,25 @@ export default class SimpleListRenderer extends Component {
 	}
 
 	getScrollTop() {
-		return this.listNode.getContentNode().scrollTop;
+		return this.listNode.getBodyNode().scrollTop;
 	}
 
 	setScrollTop(scrollTop) {
-		this.listNode.getContentNode().scrollTop = scrollTop;
+		this.listNode.getBodyNode().scrollTop = scrollTop;
 	}
 
 	getChildOffsetTop(child) {
 		const childOffsetTop = child.offsetTop;
-		const bodyOffsetTop = this.listNode.getBodyNode().offsetTop;
 		const tableOffsetTop = this.listNode.getTableNode().offsetTop;
-		return childOffsetTop + bodyOffsetTop + tableOffsetTop;
+		return childOffsetTop + tableOffsetTop;
 	}
 
 	getOffsetHeight() {
-		return this.listNode.getContentNode().offsetHeight;
+		return this.listNode.getBodyNode().offsetHeight;
+	}
+
+	getHeaderHeight() {
+		return this.listNode.getHeadNode().offsetHeight;
 	}
 
 	render() {
@@ -261,6 +285,7 @@ export default class SimpleListRenderer extends Component {
 				columnKeys={columnKeys}
 				rowDataGetter={this.rowDataGetter}
 				rowRenderer={this.rowRenderer}
+				headerRenderer={this.headerRenderer}
 				onScroll={onScroll}
 				onClick={this.select}
 				onDoubleClick={this.revealConnectedElement}

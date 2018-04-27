@@ -116,6 +116,11 @@ export default class DefaultRenderer extends Component {
 		return this.contentNode.offsetHeight;
 	}
 
+	getHeaderHeight() {
+		// no header
+		return 0;
+	}
+
 	render() {
 		const { dataAccessor, schema, onScroll } = this.props;
 		const content = dataAccessor

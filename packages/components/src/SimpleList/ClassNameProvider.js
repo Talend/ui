@@ -12,10 +12,10 @@ export default class ClassNameProvider {
   }
 
   /**
-  * Returns a classname for the column
+  * Returns a classname for the header of the given column
   */
-  getForColumn(columnKey) {
-    return 'columnKey';
+  getForHeader(columnKey) {
+    return columnKey;
   }
 
   /**

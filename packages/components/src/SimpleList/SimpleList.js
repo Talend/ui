@@ -39,23 +39,43 @@ function getListClassName(classNameProvider) {
 	return 'simple-list';
 }
 
-function getColumnClassName(classNameProvider, columnKey) {
-	if (classNameProvider && classNameProvider.getForColumn) {
-		return classNameProvider.getForColumn(columnKey);
+function getHeaderClassName(classNameProvider, columnKey) {
+	if (classNameProvider && classNameProvider.getForHeader) {
+		return classNameProvider.getForHeader(columnKey);
 	}
 	return columnKey;
 }
 
-function renderCol(classNameProvider, col) {
-	return <col className={getColumnClassName(classNameProvider, col)} />;
+function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, columnKey) {
+	const HeaderComponent = headerRenderer.getHeaderComponent(columnKey);
+	const data = rowDataGetter.getHeaderData(columnKey);
+	const extraProps = headerRenderer.getExtraProps(columnKey);
+	const className = getHeaderClassName(classNameProvider, columnKey);
+	return (
+		<th>
+			<HeaderComponent
+				key={columnKey}
+				data={data}
+				className={className}
+				extra={extraProps}
+			/>
+		</th>
+	);
 }
 
-function renderColGroup(classNameProvider, columnKeys) {
-	return (
-		<colgroup>
-			{columnKeys.map(col => renderCol(classNameProvider, col))}
-		</colgroup>
-	);
+function renderHeader(classNameProvider, rowDataGetter, headerRenderer, columnKeys, updateHeadNodeRef) {
+	if (headerRenderer) {
+		return (
+			<thead ref={updateHeadNodeRef}>
+				<tr className="tr-head">
+					{columnKeys.map(
+						col => renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col))
+					}
+				</tr>
+			</thead>
+		);
+	}
+	return null;
 }
 
 /**
@@ -73,6 +93,7 @@ export default class SimpleList extends Component {
 		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
 		this.updateBodyNodeRef = this.updateBodyNodeRef.bind(this);
+		this.updateHeadNodeRef = this.updateHeadNodeRef.bind(this);
 	}
 
 	updateTableNodeRef(ref) {
@@ -83,12 +104,20 @@ export default class SimpleList extends Component {
 		this.bodyNode = ref
 	}
 
+	updateHeadNodeRef(ref) {
+		this.headNode = ref
+	}
+
 	updateContentNodeRef(ref) {
 		this.contentNode = ref;
 	}
 
 	getTableNode() {
 		return this.tableNode;
+	}
+
+	getHeadNode() {
+		return this.headNode;
 	}
 
 	getBodyNode() {
@@ -106,6 +135,7 @@ export default class SimpleList extends Component {
 			columnKeys,
 			rowDataGetter,
 			rowRenderer,
+			headerRenderer,
 			onScroll,
 			onClick,
 			onDoubleClick,
@@ -116,11 +146,19 @@ export default class SimpleList extends Component {
 			<div
 				ref={this.updateContentNodeRef}
 				className={`${getListClassName(classNameProvider)}`}
-				onScroll={onScroll}
 			>
 				<table ref={this.updateTableNodeRef} >
-					{renderColGroup(classNameProvider, columnKeys)}
-					<tbody ref={this.updateBodyNodeRef} >
+					{renderHeader(
+						classNameProvider,
+						rowDataGetter,
+						headerRenderer,
+						columnKeys,
+						this.updateHeadNodeRef,
+					)}
+					<tbody
+						ref={this.updateBodyNodeRef}
+						onScroll={onScroll}
+					>
 						{elements.map(elem =>
 							renderRow(
 								elem,
@@ -147,6 +185,7 @@ SimpleList.propTypes = {
 	columnKeys: PropTypes.array,
 	rowDataGetter: PropTypes.object,
 	rowRenderer: PropTypes.object,
+	headerRenderer: PropTypes.object,
 	onScroll: PropTypes.func,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,

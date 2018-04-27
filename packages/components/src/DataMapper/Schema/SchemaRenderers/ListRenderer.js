@@ -211,6 +211,11 @@ export default class ListRenderer extends Component {
 		return this.contentNode.offsetHeight;
 	}
 
+	getHeaderHeight() {
+		// no header
+		return 0;
+	}
+
 	render() {
 		this.classNameProvider.updateProps(this.props);
 		this.dndListener.updateProps(this.props);

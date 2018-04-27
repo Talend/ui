@@ -31,10 +31,6 @@
 		cursor: grab;
 	}
 
-	.comp-simple-list-row {
-		height: $row_height;
-	}
-
 	.comp-list-row.input {
 		justify-content: space-between;
 	}
@@ -45,11 +41,6 @@
 
 	.comp-list-row-data-name {
 		min-width: 150px;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-
-	.comp-simple-list-row-data-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}
@@ -67,14 +58,6 @@
 		color: $type_field_color;
 	}
 
-	.comp-simple-list-row-data-type {
-		font-family: $font_family_for_type;
-		font-size: 0.9em;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		color: $type_field_color;
-	}
-
 	.comp-list-row-data-type.input {
 		text-align: left;
 	}
@@ -83,35 +66,11 @@
 		text-align: right;
 	}
 
-	.comp-simple-list-row-data-type {
-		padding: 4px;
-	}
-
-	.comp-simple-list-row-data-type.input {
-		display: block;
-		text-align: left;
-	}
-
-	.comp-simple-list-row-data-name {
-		padding: 4px;
-	}
-
-	.comp-simple-list-row-data-name.input {
-		display: block;
-		text-align: right;
-	}
-
 	.comp-list-row-data-desc {
 		color: #aaa;
 		font-style: italic;
 		text-overflow: ellipsis;
 		overflow: hidden;
-	}
-
-	.comp-simple-list-row-data-desc {
-		color: #aaa;
-		font-style: italic;
-		padding: 4px;
 	}
 
 	.mandatory-field {
@@ -341,22 +300,117 @@
 		margin-bottom: 2px;
 	}
 
-	.comp-simple-list.schema-content.input {
+	.comp-simple-list-header {
+		padding: 4px;
+	}
+
+	.comp-simple-list-header.name.input {
+		text-align: right;
+	}
+
+	.comp-simple-list-row {
+		height: $row_height;
+	}
+
+	.comp-simple-list-row-data-name {
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.comp-simple-list-row-data-type {
+		font-family: $font_family_for_type;
+		font-size: 0.9em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		color: $type_field_color;
+	}
+
+	.comp-simple-list-row-data-type {
+		padding: 4px;
+	}
+
+	.comp-simple-list-row-data-type.input {
+		text-align: left;
+	}
+
+	.comp-simple-list-row-data-name {
+		padding: 4px;
+	}
+
+	.mapped .comp-simple-list-row-data-name {
+		font-weight: bold;
+	}
+
+	.comp-simple-list-row-data-name.input {
+		text-align: right;
+	}
+
+	.comp-simple-list-row-data-desc {
+		color: #aaa;
+		font-style: italic;
+		padding: 4px;
+	}
+
+	.comp-simple-list.schema-content {
+		overflow: visible;
 		position: relative;
 	}
 
-	.comp-simple-list.schema-content.output {
-		position: relative;
+	.comp-simple-list.schema-content table {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		white-space: nowrap;
 	}
 
-	.comp-simple-list.schema-content.input table {
-		position: absolute;
+	.comp-simple-list.schema-content thead {
+		display: block;
 		width: 100%;
+		height: 30px;
 	}
 
-	.comp-simple-list.schema-content.output table {
-		position: absolute;
+	.comp-simple-list.schema-content tbody {
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
 		width: 100%;
+		height: 1000px;
+	}
+
+	.comp-simple-list.schema-content.input tr.tr-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.comp-simple-list.schema-content.output tr.tr-head {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.comp-simple-list.schema-content.input tr.tr-body {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.comp-simple-list.schema-content.output tr.tr-body {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.comp-simple-list.schema-content.output tr {
+		td:nth-child(1), th:nth-child(1) {
+			width: 200px;
+		}
+		td:nth-child(2), th:nth-child(2) {
+			width: 150px;
+		}
+		td:nth-child(3), th:nth-child(3) {
+			width: 500px;
+		}
 	}
 
 	tr.comp-simple-list-row td {
@@ -365,19 +419,16 @@
 	}
 
 	tr.comp-simple-list-row td:first-child {
-		overflow: visible;		
+		overflow: visible;
 	}
 
 	.comp-simple-list.schema-content table {
-		overflow: hidden;
-		white-space: nowrap;
-		table-layout: fixed;
 		tr {
 			&.draggable {
 				cursor: grab;
 				td:first-child {
 					position: relative;
-					span[draggable="true"]:before {
+					div[draggable="true"]:before {
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -388,26 +439,6 @@
 				}
 			}
 		}
-	}
-
-	col.name.input {
-		width: 50%;
-	}
-
-	col.type.input {
-		width: 50%;
-	}
-
-	col.name.output {
-		width: 25%;
-	}
-
-	col.type.output {
-		width: 15%;
-	}
-
-	col.desc.output {
-		width: 60%;
 	}
 
 	.schema-element {
