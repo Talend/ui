@@ -282,8 +282,9 @@ describe('i18n scripts', () => {
 			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
 		});
 
-		it('should parse a JSON and return all key', () => {
+		it('should parse a JSON with a key without namespace', () => {
 			const namespace = 'ns';
+			const invalidNamespace = 'invalid';
 			const json = {
 				label: {
 					i18n: {
@@ -309,10 +310,18 @@ describe('i18n scripts', () => {
 						},
 					},
 				},
+				invalid: {
+					i18n: {
+						key: `${invalidNamespace}:KEY4`,
+						options: {
+							defaultValue: 'bar',
+						},
+					},
+				},
 			};
 			const locale = getLocalesFromNamespace(json, namespace, true);
 
-			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar'], ['KEY3', 'bar']]));
+			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
 		});
 	});
 

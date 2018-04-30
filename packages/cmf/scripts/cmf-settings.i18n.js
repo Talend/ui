@@ -46,23 +46,16 @@ function getPathFromPattern(pattern, namespace, locale) {
  * @param  {string} namespace namespace to parse
  * @return {Map}              dictionary of key/value locales
  */
-function getLocalesFromNamespace(settings, namespace, ignoreNamespace) {
+function getLocalesFromNamespace(settings, namespace) {
 	return jsonpath
 		.query(settings, JSON_PATH_EXPRESSION)
 		.reduce(
 			(locale, i18n) => {
-				let key;
-				if (ignoreNamespace) {
-					key = i18n.key;
-				}
 				const extractKey = i18n.key.split(`${namespace}:`)[1];
-				if (extractKey) {
-					key = extractKey;
-				}
-				if (!key) {
+				if (!extractKey) {
 					return locale;
 				}
-				return locale.set(key, i18n.options.defaultValue);
+				return locale.set(extractKey, i18n.options.defaultValue);
 			},
 			new Map(),
 		);
@@ -214,7 +207,7 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
  * @param  {string} namespace namespace to get
  * @return {Map}              locale of key/value
  */
-function getLocalesFromNamespaceInFolder(folder, namespace, ignoreNamespace) {
+function getLocalesFromNamespaceInFolder(folder, namespace) {
 	if (!fs.existsSync(folder)) {
 		return new Map();
 	}
@@ -225,7 +218,7 @@ function getLocalesFromNamespaceInFolder(folder, namespace, ignoreNamespace) {
 		files
 			// eslint-disable-next-line global-require
 			.map(file =>
-				getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace, ignoreNamespace))
+				getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace))
 			.reduce((state, map) => [...state, ...map], []),
 	);
 }
@@ -273,12 +266,11 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
  * @param  {array<string>} languages              Locales to extract
  * @param  {string} from                          folder to parse
  */
-function parseI18n(namespaces, languages, from, ignoreNamespace) {
+function parseI18n(namespaces, languages, from) {
 	namespaces.forEach(namespace => {
 		const i18nKeys = getLocalesFromNamespaceInFolder(
 			path.join(process.cwd(), ...from.split('/')),
-			namespace.name,
-			ignoreNamespace
+			namespace.name
 		);
 
 		updateLocales(i18nKeys, languages, namespace.name, namespace.path);
