@@ -28,7 +28,7 @@ $toggle-button-padding: $padding-small - 1;
 	&,
 	> ul {
 		min-width: $tc-side-panel-minwidth;
-		transition: 0.2s min-width ease-out, 0.2s width ease-out;
+		transition: 0.2s min-width ease-out;
 	}
 
 	:global(.tc-svg-icon) {
