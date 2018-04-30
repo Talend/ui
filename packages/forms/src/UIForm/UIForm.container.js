@@ -83,7 +83,7 @@ if (process.env.NODE_ENV !== 'production') {
 			/** Json schema that specify the data model */
 			jsonSchema: PropTypes.object,
 			/** UI schema that specify how to render the fields */
-			uiSchema: PropTypes.array,
+			uiSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 			/**
 			 * Form fields values.
 			 * Note that it should contains @definitionName for triggers.
