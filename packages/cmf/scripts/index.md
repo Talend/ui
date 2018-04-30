@@ -126,3 +126,5 @@ e.g. For the destination "src/assets/settings.json", each translated settings wi
 	}
  }
 ```
+
+Warning : if the namespace is not define in the settings files or if it is not define in the config file the key will not be extracted
