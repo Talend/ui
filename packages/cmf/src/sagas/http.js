@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import curry from 'lodash/curry';
 import get from 'lodash/get';
+import isObject from 'lodash/isObject';
 import actions from '../actions';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
@@ -49,7 +50,8 @@ export function handleBody(response) {
  * @return {Promise}           A promise that reject with the result of parsing the body
  */
 export function handleError(response) {
-	return handleBody(response).then(body => new HTTPError(body));
+	// BREAKING CHANGE to allow Go-like error handling
+	return handleBody(response).then(body => ({ error: new HTTPError(body) }));
 }
 
 /**
@@ -155,6 +157,35 @@ export function* errorProcessing(error, httpAction) {
 	}
 }
 
+export const handleDefaultConfiguration = curry((defaultConfig, config) =>
+	mergeCSRFToken(defaultConfig)(config),
+);
+
+function normalizeParameters(
+	urlOrBag,
+	config,
+	method = HTTP_METHODS.GET,
+	payload,
+	cmf,
+	defaultConfig,
+) {
+	const configEnhancer = handleDefaultConfiguration(defaultConfig);
+	if (isObject(urlOrBag)) {
+		return {
+			...urlOrBag,
+			config: configEnhancer(urlOrBag.config),
+		};
+	}
+
+	return {
+		url: urlOrBag,
+		config: configEnhancer(config),
+		method,
+		payload,
+		cmf,
+	};
+}
+
 /**
  * function - wrap the fetch request with the actions errors
  *
@@ -166,21 +197,37 @@ export function* errorProcessing(error, httpAction) {
  * @return {object}                           the response of the request
  */
 export function* wrapFetch(
-	url,
+	urlOrBag,
 	config,
 	method = HTTP_METHODS.GET,
 	payload,
-	{ silent, onSend, onResponse, onError, transform, collectionId, responseSelector } = {},
+	cmf = {},
+	defaultConfig,
 ) {
-	if (!silent) {
-		yield put(onRequest(url, config));
-	}
-	if (onSend) {
-		yield put({ type: onSend });
-	}
-	const answer = yield call(httpFetch, url, config, method, payload);
+	const normalizedParameters = normalizeParameters(
+		urlOrBag,
+		config,
+		method,
+		payload,
+		cmf,
+		defaultConfig,
+	);
 
-	if (!silent) {
+	if (!normalizedParameters.cmf.silent) {
+		yield put(onRequest(normalizedParameters.url, normalizedParameters.config));
+	}
+	if (normalizedParameters.cmf.onSend) {
+		yield put({ type: normalizedParameters.cmf.onSend });
+	}
+	const answer = yield call(
+		httpFetch,
+		normalizedParameters.url,
+		normalizedParameters.config,
+		normalizedParameters.method,
+		normalizedParameters.payload,
+	);
+
+	if (!normalizedParameters.cmf.silent) {
 		if (answer instanceof Error) {
 			yield put(
 				onHttpError({
@@ -195,16 +242,30 @@ export function* wrapFetch(
 		}
 	}
 	if (answer instanceof Error) {
-		yield call(errorProcessing, answer, { onError });
+		yield call(errorProcessing, answer, { onError: normalizedParameters.cmf.onError });
 	}
-	const extractedData = responseSelector ? get(answer, responseSelector, answer) : answer;
-	const transformedData = transform ? transform(extractedData) : extractedData;
+	const extractedData = normalizedParameters.cmf.responseSelector
+		? get(
+				answer,
+				normalizedParameters.cmf.responseSelector,
+				normalizedParameters.cmf.responseDefaultValue
+					? normalizedParameters.cmf.responseDefaultValue
+					: answer,
+		)
+		: answer;
+	const transformedData = normalizedParameters.cmf.transform
+		? normalizedParameters.cmf.transform(extractedData)
+		: extractedData;
 
-	if (collectionId) {
-		yield put(actions.collections.addOrReplace(collectionId, transformedData));
+	if (normalizedParameters.cmf.collectionId) {
+		yield put(
+			actions.collections.addOrReplace(normalizedParameters.cmf.collectionId, transformedData),
+		);
 	}
-	if (onResponse) {
-		yield put(onActionResponse({ onResponse }, transformedData));
+	if (normalizedParameters.cmf.onResponse) {
+		yield put(
+			onActionResponse({ onResponse: normalizedParameters.cmf.onResponse }, transformedData),
+		);
 	}
 
 	return transformedData;
@@ -213,23 +274,23 @@ export function* wrapFetch(
 /**
  * function - fetch a url with POST method
  *
- * @param  {string} url     url to request
- * @param  {object} payload payload to send with the request
- * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
+ * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
+ * @param  {object} payload 	payload to send with the request
+ * @param  {object} config  	option that you want apply to the request
+ * @param  {object} options 	options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.post, '/foo', {foo: 42});
  */
-export function* httpPost(url, payload, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+export function* httpPost(urlOrBag, payload, config, options, defaultConfig) {
+	return yield* wrapFetch(urlOrBag, config, HTTP_METHODS.POST, payload, options, defaultConfig);
 }
 
 /**
  * function - fetch a url with PATCH method
  *
- * @param  {string} url     url to request
+ * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
  * @param  {object} options options to deal with cmf automatically
@@ -238,14 +299,14 @@ export function* httpPost(url, payload, config, options) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.patch, '/foo', {foo: 42});
  */
-export function* httpPatch(url, payload, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.PATCH, payload, options);
+export function* httpPatch(urlOrBag, payload, config, options, defaultConfig) {
+	return yield* wrapFetch(urlOrBag, config, HTTP_METHODS.PATCH, payload, options, defaultConfig);
 }
 
 /**
  * function - fetch a url with PUT method
  *
- * @param  {string} url     url to request
+ * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
  * @param  {object} options options to deal with cmf automatically
@@ -254,14 +315,14 @@ export function* httpPatch(url, payload, config, options) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.put, '/foo', {foo: 42});
  */
-export function* httpPut(url, payload, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.PUT, payload, options);
+export function* httpPut(urlOrBag, payload, config, options, defaultConfig) {
+	return yield* wrapFetch(urlOrBag, config, HTTP_METHODS.PUT, payload, options, defaultConfig);
 }
 
 /**
  * function - fetch a url with DELETE method
  *
- * @param  {string} url     url to request
+ * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
  * @param  {object} config  option that you want apply to the request
  * @param  {object} options options to deal with cmf automatically
  * @example
@@ -269,14 +330,14 @@ export function* httpPut(url, payload, config, options) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.delete, '/foo');
  */
-export function* httpDelete(url, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
+export function* httpDelete(urlOrBag, config, options, defaultConfig) {
+	return yield* wrapFetch(urlOrBag, config, HTTP_METHODS.DELETE, undefined, options, defaultConfig);
 }
 
 /**
  * function - fetch a url with GET method
  *
- * @param  {string} url     url to request
+ * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
  * @param  {object} config  option that you want apply to the request
  * @param  {object} options options to deal with cmf automatically
  * @example
@@ -284,13 +345,53 @@ export function* httpDelete(url, config, options) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.get, '/foo');
  */
-export function* httpGet(url, config, options) {
-	return yield* wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+export function* httpGet(urlOrBag, config, options, defaultConfig) {
+	return yield* wrapFetch(urlOrBag, config, HTTP_METHODS.GET, undefined, options, defaultConfig);
 }
 
-export const handleDefaultConfiguration = curry((defaultConfig, config) =>
-	mergeCSRFToken(defaultConfig)(config),
-);
+/**
+ * function - fetch a url with POST method
+ *
+ * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
+ * @param  {object} defaultConfig  	defaultConfig of the http client
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.post, '/foo', {foo: 42});
+ */
+export function* http(urlOrBag, defaultConfig) {
+	return yield* wrapFetch(
+		urlOrBag,
+		urlOrBag.config,
+		HTTP_METHODS[urlOrBag.method],
+		urlOrBag.payload,
+		urlOrBag.options,
+		defaultConfig,
+	);
+}
+
+function createClient(defaultConfig = {}) {
+	return {
+		delete: function* configuredDelete(urlOrBag, config = {}, options = {}) {
+			return yield call(httpDelete, urlOrBag, config, options, defaultConfig);
+		},
+		get: function* configuredGet(urlOrBag, config = {}, options = {}) {
+			return yield call(httpGet, urlOrBag, config, options, defaultConfig);
+		},
+		post: function* configuredPost(urlOrBag, payload, config = {}, options = {}) {
+			return yield call(httpPost, urlOrBag, payload, config, options, defaultConfig);
+		},
+		put: function* configuredPut(urlOrBag, payload, config = {}, options = {}) {
+			return yield call(httpPut, urlOrBag, payload, config, options, defaultConfig);
+		},
+		patch: function* configuredPatch(urlOrBag, payload, config = {}, options = {}) {
+			return yield call(httpPatch, urlOrBag, payload, config, options, defaultConfig);
+		},
+		fetch: function* configuredFetch(urlOrBag) {
+			return yield call(http, urlOrBag, defaultConfig);
+		},
+	};
+}
 
 export default {
 	delete: httpDelete,
@@ -298,24 +399,6 @@ export default {
 	post: httpPost,
 	put: httpPut,
 	patch: httpPatch,
-	create(defaultConfig = {}) {
-		const configEnhancer = handleDefaultConfiguration(defaultConfig);
-		return {
-			delete: function* configuredDelete(url, config = {}, options = {}) {
-				return yield call(httpDelete, url, configEnhancer(config), options);
-			},
-			get: function* configuredGet(url, config = {}, options = {}) {
-				return yield call(httpGet, url, configEnhancer(config), options);
-			},
-			post: function* configuredPost(url, payload, config = {}, options = {}) {
-				return yield call(httpPost, url, payload, configEnhancer(config), options);
-			},
-			put: function* configuredPut(url, payload, config = {}, options = {}) {
-				return yield call(httpPut, url, payload, configEnhancer(config), options);
-			},
-			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
-				return yield call(httpPatch, url, payload, configEnhancer(config), options);
-			},
-		};
-	},
+	fetch: httpFetch,
+	create: createClient,
 };

@@ -35,6 +35,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
+import api from './api';
 import expression from './expression';
 import actionCreator from './actionCreator';
 import deprecated from './deprecated';
