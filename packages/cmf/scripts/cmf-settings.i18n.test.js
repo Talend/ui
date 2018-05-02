@@ -14,19 +14,19 @@ jest.mock('./getJSON', () => ({
 
 		if (path.includes('foo')) {
 			return {
-				label: {
-					i18n: {
-						key: 'ns1:KEY1',
-						options: {
-							defaultValue: 'key1',
-						},
-					},
-				},
 				message: {
 					i18n: {
 						key: 'ns1:KEY2',
 						options: {
 							defaultValue: 'key2',
+						},
+					},
+				},
+				label: {
+					i18n: {
+						key: 'ns1:KEY1',
+						options: {
+							defaultValue: 'key1',
 						},
 					},
 				},
@@ -108,7 +108,7 @@ describe('i18n scripts', () => {
 			const localizedJSON = getLocalesFromNamespaceInFolder('root', namespace);
 
 			expect(localizedJSON).toEqual(
-				new Map([['KEY1', 'key1'], ['KEY2', 'key2'], ['KEY3', 'key3'], ['KEY4', 'key4']]),
+				new Map([['KEY2', 'key2'], ['KEY1', 'key1'], ['KEY3', 'key3'], ['KEY4', 'key4']]),
 			);
 		});
 	});
@@ -129,12 +129,34 @@ describe('i18n scripts', () => {
 			const filePath = './src/{{namespace}}/{{locale}}';
 			const namespace = 'ns1';
 
-			updateLocale(new Map([['key1', 'foo']]), locale, namespace, filePath);
+			updateLocale(new Map([['key2', 'test'], ['key1', 'foo']]), locale, namespace, filePath);
+			expect(writeFileSync).toHaveBeenCalledWith(
+				getPathFromPattern(filePath, namespace, locale),
+				JSON.stringify(
+					{
+						key2: 'test',
+						key1: 'foo',
+					},
+					null,
+					'  ',
+				) + String.fromCharCode(10),
+			);
+		});
+
+		it('should create the locale with the sorted keys', () => {
+			const writeFileSync = jest.fn();
+			fs.writeFileSync = writeFileSync;
+			const locale = 'en';
+			const filePath = './src/{{namespace}}/{{locale}}';
+			const namespace = 'ns1';
+
+			updateLocale(new Map([['key2', 'test'], ['key1', 'foo']]), locale, namespace, filePath, true);
 			expect(writeFileSync).toHaveBeenCalledWith(
 				getPathFromPattern(filePath, namespace, locale),
 				JSON.stringify(
 					{
 						key1: 'foo',
+						key2: 'test',
 					},
 					null,
 					'  ',
@@ -294,6 +316,30 @@ describe('i18n scripts', () => {
 			fs.existsSync = () => true;
 
 			parseI18n([{ name: 'ns1', path: '{{namespace}}/{{locale}}.json' }], ['en'], 'root');
+
+			expect(writeFileSync).toHaveBeenCalledWith(
+				getPathFromPattern('{{namespace}}/{{locale}}.json', 'ns1', 'en'),
+				JSON.stringify(
+					{
+						KEY2: 'key2',
+						KEY1: 'key1',
+						KEY3: 'key3',
+						KEY4: 'key4',
+					},
+					null,
+					'  ',
+				) + String.fromCharCode(10),
+			);
+		});
+
+		it('should parse a folder and extract the sorted keys', () => {
+			const readdirSync = jest.fn(() => ['foo', 'bar']);
+			const writeFileSync = jest.fn();
+			fs.writeFileSync = writeFileSync;
+			fs.readdirSync = readdirSync;
+			fs.existsSync = () => true;
+
+			parseI18n([{ name: 'ns1', path: '{{namespace}}/{{locale}}.json' }], ['en'], 'root', true);
 
 			expect(writeFileSync).toHaveBeenCalledWith(
 				getPathFromPattern('{{namespace}}/{{locale}}.json', 'ns1', 'en'),
