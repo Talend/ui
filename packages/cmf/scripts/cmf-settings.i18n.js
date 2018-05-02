@@ -8,7 +8,7 @@ const intersection = require('lodash/intersection');
 const set = require('lodash/set');
 const mkdirp = require('mkdirp');
 
-const { getLogger } = require('./cmf-settings.utils');
+const { getLogger, sortObject } = require('./cmf-settings.utils');
 const { getJSON } = require('./getJSON');
 
 const JSON_PATH_EXPRESSION = '$..i18n';
@@ -165,7 +165,7 @@ function getI18nextResources(locales, namespaces) {
  * @param  {string} pattern      pattern to get the locale
 
  */
-function updateLocale(i18nKeys, locale, namespace, pattern) {
+function updateLocale(i18nKeys, locale, namespace, pattern, sort) {
 	const filePath = getPathFromPattern(pattern, namespace, locale);
 	let savedLocale = {};
 	if (fs.existsSync(filePath)) {
@@ -190,8 +190,12 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 		{},
 	);
 
+
 	mkdirp.sync(path.dirname(filePath));
-	fs.writeFileSync(filePath, JSON.stringify(newLocale, null, '  ') + String.fromCharCode(10));
+	fs.writeFileSync(
+		filePath,
+		JSON.stringify(sort ? sortObject(newLocale) : newLocale, null, '  ') + String.fromCharCode(10),
+	);
 }
 
 /**
@@ -248,8 +252,10 @@ function getI18Next(languages, namespaces) {
  * @param  {string} pattern      pattern to get the locale
 
  */
-function updateLocales(i18nKeys, locales, namespace, pattern) {
-	locales.forEach(locale => updateLocale(i18nKeys, locale, namespace, pattern));
+function updateLocales(i18nKeys, locales, namespace, pattern, sort) {
+	locales.forEach(locale => {
+		updateLocale(i18nKeys, locale, namespace, pattern, sort);
+	});
 }
 
 /**
@@ -259,14 +265,14 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
  * @param  {array<string>} languages              Locales to extract
  * @param  {string} from                          folder to parse
  */
-function parseI18n(namespaces, languages, from) {
+function parseI18n(namespaces, languages, from, sort) {
 	namespaces.forEach(namespace => {
 		const i18nKeys = getLocalesFromNamespaceInFolder(
 			path.join(process.cwd(), ...from.split('/')),
 			namespace.name,
 		);
 
-		updateLocales(i18nKeys, languages, namespace.name, namespace.path);
+		updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
 	});
 }
 
