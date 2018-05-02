@@ -1,4 +1,8 @@
-const LOADER_STYLE = `html {
+const LOADER_STYLE = `* {
+	box-sizing: border-box;
+}
+
+html {
 	font-size: 10px;
 	text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;

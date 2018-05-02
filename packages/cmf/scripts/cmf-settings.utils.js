@@ -85,6 +85,12 @@ function importAndValidate(filePath, onError) {
 	return file;
 }
 
+function sortObject(object) {
+	return Object.keys(object)
+		.sort()
+		.reduce((state, key) => ({ ...state, [key]: object[key] }), {});
+}
+
 module.exports = {
 	concatMerge,
 	findJson,
@@ -93,4 +99,5 @@ module.exports = {
 	overrideActions,
 	overrideRoutes,
 	setLogger,
+	sortObject,
 };

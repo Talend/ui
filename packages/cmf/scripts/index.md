@@ -80,7 +80,8 @@ It will extract all object with a i18n attribute
 				}
 			],
 			"extract-namespaces": ["app-cmf"],
-			"extract-from": "src/settings"
+			"extract-from": "src/settings",
+			"extract-sort": true
 		},
 		"destination": "src/assets/settings.json"
 	}
@@ -90,19 +91,20 @@ It will extract all object with a i18n attribute
 The i18n settings are merged to the destination property with the language.
 e.g. For the destination "src/assets/settings.json", each translated settings will be created like "src/assets/settings.{{language}}.json"
 
-| property           | description                                               | type             |
-| ------------------ | --------------------------------------------------------- | ---------------- |
-| languages          | languages handle by your application                      | array            |
-| namespace-paths    | path of the namespace used to build the i18next ressource | array<Namespace> |
-| extract-namespaces | set the namespace to extract the keys/values              | array            |
-| extract-from       | indicate the folder to extract the keys/values            | string           |
+| property  | description  | type  |
+|---|---|---|
+| languages | languages handle by your application  | array |
+| namespace-paths | path of the namespace used to build the i18next ressource  | array<Namespace> |
+| extract-namespaces | set the namespace to extract the keys/values  | array |
+| extract-from | indicate the folder to extract the keys/values  | string |
+| extract-sort | indicate if the keys are sorted (default: true) | boolean |
 
 **Namespace definition**
 
-| property | description                | type   |
-| -------- | -------------------------- | ------ |
-| name     | name of the namepace       | name   |
-| path     | pattern to find the locale | string |
+| property  | description  | type  |
+|---|---|---|
+| name | name of the namepace  | name |
+| path | pattern to find the locale  | string |
 
 ### Exemple of settings with translation
 
