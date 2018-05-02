@@ -33,10 +33,10 @@ const HTML_TPL = (icons, style) => `
 				margin-left: 47px;
 			}
 			${style}
-			.colormapping > g {
+			.colormapping > svg > g {
 				filter: url(#colormapping);
 			}
-			.colormapping:hover > g {
+			.colormapping:hover > svg > g {
 				filter: none;
 			}
 		</style>
