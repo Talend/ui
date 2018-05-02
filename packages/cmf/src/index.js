@@ -2,54 +2,55 @@
  * @module react-cmf
  */
 
-import api from './api';
-import App from './App';
-import cmfConnect from './cmfConnect';
-import ConnectedDispatcher from './Dispatcher';
-import Inject from './Inject.component.js';
-import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
-import history from './history';
-import store from './store';
 import actions from './actions/';
-import reducers from './reducers/';
-import getErrorMiddleware from './middlewares/error';
-import httpMiddleware from './middlewares/http';
-import componentState from './componentState';
+import actionCreator from './actionCreator';
+import api from './api';
+import bootstrap from './bootstrap';
+import cmfConnect from './cmfConnect';
+import component from './component';
+import ConnectedDispatcher from './Dispatcher';
+import expression from './expression';
+import expressions from './expressions';
+import Inject from './Inject.component.js';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import selectors from './selectors';
 
 const Dispatcher = ConnectedDispatcher;
 
-/**
- * API exported
- * @type {Object}
- * @example
-import { api } from 'react-cmf';
-api.registry; api.route; api.action;
- * @example
-import { App } from 'react-cmf';
- * @example
-import { Dispatcher, Icon } from 'react-cmf';
- * @see module:react-cmf/lib/api
- */
 export {
 	actions,
 	api,
-	App,
 	cmfConnect,
 	Dispatcher,
 	Inject,
 	history,
-	store,
-	reducers,
-	componentState,
-	RegistryProvider,
-	UIRouter,
-	getErrorMiddleware,
-	httpMiddleware,
 	sagaRouter,
+	sagas,
+	selectors,
+};
+
+/**
+ * API exported
+ * @type {Object}
+ * @example
+import cmf from '@talend/react-cmf';
+cmf.actionCreator.register(...);
+cmf.connect()(MyComponent);
+cmf.actions.collections.addOrReplace(...);
+ * @example
+import { Inject } from '@talend/react-cmf';
+import { Dispatcher } from '@talend/react-cmf';
+ * @see module:react-cmf/lib/api
+ */
+export default {
+	actions,
+	actionCreator,
+	bootstrap,
+	component,
+	connect: cmfConnect,
+	expression,
+	expressions,
 	sagas,
 	selectors,
 };
