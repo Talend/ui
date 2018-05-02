@@ -74,7 +74,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "i18next": "^9.0.0",
-    "i18next-parser": "^0.13.0",
+    "i18next-parser": "^1.0.0-beta11",
     "invariant": "2.2.2",
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
