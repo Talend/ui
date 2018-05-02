@@ -12,6 +12,7 @@ const { getLogger, sortObject } = require('./cmf-settings.utils');
 const { getJSON } = require('./getJSON');
 
 const JSON_PATH_EXPRESSION = '$..i18n';
+const NAMESPACE_SEPARATOR = ':';
 const PATTERN_REG_EXP = /{{namespace}}|{{locale}}/g;
 const DEFAULT_LOCALE = 'en';
 
@@ -51,9 +52,9 @@ function getLocalesFromNamespace(settings, namespace) {
 		.query(settings, JSON_PATH_EXPRESSION)
 		.reduce(
 			(locale, i18n) => {
-				const extractKey = i18n.key.split(`${namespace}:`)[1];
+				const extractKey = i18n.key.split(`${namespace}${NAMESPACE_SEPARATOR}`)[1];
 				if (!extractKey) {
-					if (!i18n.key.split(':')[1]) {
+					if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
 						console.warn(`WARNING: the key '${i18n.key}' doesn't have namespace defined.`,
 						'if a key doesn\'t have a namespace defined, it will not be extracted.',
 						'See the doc : https://github.com/Talend/ui/blob/master/packages/cmf/scripts/index.md');
