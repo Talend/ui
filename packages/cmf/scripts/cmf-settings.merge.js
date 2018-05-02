@@ -31,8 +31,9 @@ function merge(options, errorCallback) {
 		return onErrorCallback();
 	}
 
-	const { quiet, recursive } = Object.assign(
+	const { dev, quiet, recursive } = Object.assign(
 		{
+			dev: false,
 			quiet: false,
 			recursive: false,
 		},
@@ -45,7 +46,7 @@ function merge(options, errorCallback) {
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
 	const cmfconfig = importAndValidate(cmfconfigPath, onError);
-	const sources = cmfconfig.settings.sources;
+	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
 	const destination =
 		cmfconfig.settings.destination && path.join(process.cwd(), cmfconfig.settings.destination);
 	let settings;
@@ -95,6 +96,7 @@ function merge(options, errorCallback) {
 			namespaces,
 			cmfconfig.settings.i18n.languages,
 			cmfconfig.settings.i18n['extract-from'],
+			cmfconfig.settings.i18n['extract-sort'] || true,
 		);
 	}
 
@@ -129,7 +131,7 @@ function merge(options, errorCallback) {
 		logger(`Merge to ${destination}`);
 		mkdirp.sync(path.dirname(destination));
 		const file = fs.createWriteStream(destination);
-		file.write(JSON.stringify(settingWithoutI18n));
+		file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
 		file.end();
 		logger('CMF settings has been merged');
 		return jsonFiles.concat(cmfconfigPath);
