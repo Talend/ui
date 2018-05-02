@@ -316,14 +316,12 @@
     react-treebeard "^2.1.0"
     redux "^3.7.2"
 
-"@talend/react-cmf@^0.179.0":
-  version "0.179.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.179.0.tgz#c1179f8aae13f191d4bddd7df240c64dc0e577c1"
+"@talend/json-schema-form-core@1.0.0-alpha.4":
+  version "1.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@talend/json-schema-form-core/-/json-schema-form-core-1.0.0-alpha.4.tgz#ac4e865eef72db2dd5e0c012b3048cc1a6697404"
   dependencies:
-    babel-polyfill "6.26.0"
-    deepmerge "1.5.1"
-    hoist-non-react-statics "^1.2.0"
-    react-immutable-proptypes "2.1.0"
+    objectpath "^1.2.1"
+    tv4 "^1.3.0"
 
 "@types/node@*":
   version "9.4.7"
@@ -11910,13 +11908,6 @@ taketalk@^1.0.0:
     get-stdin "^4.0.1"
     minimist "^1.1.0"
 
-talend-json-schema-form-core@1.0.2-alpha.2:
-  version "1.0.2-alpha.2"
-  resolved "https://registry.yarnpkg.com/talend-json-schema-form-core/-/talend-json-schema-form-core-1.0.2-alpha.2.tgz#5e78155e25aa99f50cfb7b054b263a1367a9201d"
-  dependencies:
-    objectpath "^1.2.1"
-    tv4 "^1.3.0"
-
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"
@@ -12261,7 +12252,7 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-tv4@^1.2.7, tv4@^1.3.0:
+tv4@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.3.0.tgz#d020c846fadd50c855abb25ebaecc68fc10f7963"
 

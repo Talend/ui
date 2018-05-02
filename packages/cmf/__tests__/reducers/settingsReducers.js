@@ -5,6 +5,8 @@ import reducer, {
 	attachRefs,
 } from '../../src/reducers/settingsReducers';
 
+/* eslint-disable no-console */
+
 describe('settingsReducers.attachRef', () => {
 	it('should attachRef with _ref', () => {
 		const sidemenu = { foo: 'bar', baz: true };
@@ -67,5 +69,31 @@ describe('CMF settinsReducers', () => {
 		const state = reducer(undefined, action);
 		expect(state).not.toBe(undefined);
 		expect(state.initialized).toBe(true);
+	});
+	it('should understand REQUEST_KO on 404', () => {
+		const oldError = console.error;
+		console.error = jest.fn();
+		const action = {
+			type: actions.REQUEST_KO,
+			error: {
+				message: 'Not Found',
+				stack: {
+					headers: undefined,
+					ok: false,
+					redirected: false,
+					response: '<html></html>',
+					status: 404,
+					statusText: 'Not Found',
+					type: 'basic',
+					url: 'http://localhost/',
+				},
+			},
+			settings: {},
+		};
+		const state = reducer(undefined, action);
+		expect(state).not.toBe(undefined);
+		expect(state.initialized).toBe(false);
+		expect(console.error).toHaveBeenCalledWith('Settings can\'t be loaded Not Found', action.error);
+		console.error = oldError.bind(console);
 	});
 });

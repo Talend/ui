@@ -14,6 +14,7 @@ describe('Container(Form)', () => {
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
 				className="foo"
+				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
 			/>,
 		);
@@ -98,7 +99,7 @@ describe('Container(Form)', () => {
 			onSubmit,
 			dispatchActionCreator,
 		});
-		form.onSubmit({ foo: 'bar' });
+		form.onSubmit(null, { foo: 'bar' });
 		expect(onSubmit.mock.calls[0][0]).toEqual({ foo: 'bar' });
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe('myaction');
 		expect(dispatchActionCreator.mock.calls[0][1]).toBe(null);
@@ -115,19 +116,9 @@ describe('Container(Form)', () => {
 			onChange,
 			setState,
 		});
-		form.onChange({ foo: 'bar' }, 'my-form', 'key', 'value');
+		form.onChange(null, { foo: 'bar' }, 'my-form', 'key', 'value');
 		expect(onChange.mock.calls[0]).toMatchSnapshot();
 		expect(setState.mock.calls[0]).toMatchSnapshot();
-	});
-
-	it('should use props.onTrigger', () => {
-		const onTrigger = jest.fn();
-		const form = new Container({
-			state: fromJS({ data: { schema: true } }),
-			onTrigger,
-		});
-		form.onTrigger({ foo: 'bar' }, 'my-form', 'key', 'value');
-		expect(onTrigger.mock.calls[0]).toMatchSnapshot();
 	});
 
 	it('should have getFormData static', () => {

@@ -8,7 +8,7 @@ const intersection = require('lodash/intersection');
 const set = require('lodash/set');
 const mkdirp = require('mkdirp');
 
-const { getLogger } = require('./cmf-settings.utils');
+const { getLogger, sortObject } = require('./cmf-settings.utils');
 const { getJSON } = require('./getJSON');
 
 const JSON_PATH_EXPRESSION = '$..i18n';
@@ -83,7 +83,14 @@ function getNameSpacesByLocale(namespaces, locale) {
 function setTranslate(i18next, object, [, ...jsonpaths]) {
 	const i18n = get(object, jsonpaths.join('.'));
 	jsonpaths.splice(-1); // replace the object by the new value
-	set(object, jsonpaths.join('.'), i18next.t(i18n.key, i18n.options));
+	let value = i18next.t(i18n.key, i18n.options);
+	if (!value) {
+		value = i18n.options.defaultValue;
+	}
+	if (!value) {
+		console.error(`${i18n.key} has no value. You should add a defaultValue to it`);
+	}
+	set(object, jsonpaths.join('.'), value);
 }
 
 /**
@@ -125,7 +132,7 @@ function saveSettings(i18next, settings, locale, destination) {
 		)}.${locale}${path.extname(destination)}`;
 		const filePath = path.join(path.dirname(destination), basename);
 		const file = fs.createWriteStream(filePath);
-		file.write(JSON.stringify(translatedSetting));
+		file.write(JSON.stringify(translatedSetting) + String.fromCharCode(10));
 		file.end();
 		getLogger()('Settings created:', `${filePath}  settings has been created`);
 	});
@@ -158,7 +165,7 @@ function getI18nextResources(locales, namespaces) {
  * @param  {string} pattern      pattern to get the locale
 
  */
-function updateLocale(i18nKeys, locale, namespace, pattern) {
+function updateLocale(i18nKeys, locale, namespace, pattern, sort) {
 	const filePath = getPathFromPattern(pattern, namespace, locale);
 	let savedLocale = {};
 	if (fs.existsSync(filePath)) {
@@ -183,8 +190,12 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 		{},
 	);
 
+
 	mkdirp.sync(path.dirname(filePath));
-	fs.writeFileSync(filePath, JSON.stringify(newLocale, null, '  '));
+	fs.writeFileSync(
+		filePath,
+		JSON.stringify(sort ? sortObject(newLocale) : newLocale, null, '  ') + String.fromCharCode(10),
+	);
 }
 
 /**
@@ -221,7 +232,7 @@ function getI18Next(languages, namespaces) {
 		// eslint-disable-next-line global-require
 		i18next = require('i18next');
 	} catch (e) {
-		console.log('The package i18next have to be installed on your project to use i18n feature.');
+		console.error('The package i18next have to be installed on your project to use i18n feature.');
 		return false;
 	}
 
@@ -241,8 +252,10 @@ function getI18Next(languages, namespaces) {
  * @param  {string} pattern      pattern to get the locale
 
  */
-function updateLocales(i18nKeys, locales, namespace, pattern) {
-	locales.forEach(locale => updateLocale(i18nKeys, locale, namespace, pattern));
+function updateLocales(i18nKeys, locales, namespace, pattern, sort) {
+	locales.forEach(locale => {
+		updateLocale(i18nKeys, locale, namespace, pattern, sort);
+	});
 }
 
 /**
@@ -252,14 +265,14 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
  * @param  {array<string>} languages              Locales to extract
  * @param  {string} from                          folder to parse
  */
-function parseI18n(namespaces, languages, from) {
+function parseI18n(namespaces, languages, from, sort) {
 	namespaces.forEach(namespace => {
 		const i18nKeys = getLocalesFromNamespaceInFolder(
 			path.join(process.cwd(), ...from.split('/')),
 			namespace.name,
 		);
 
-		updateLocales(i18nKeys, languages, namespace.name, namespace.path);
+		updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
 	});
 }
 

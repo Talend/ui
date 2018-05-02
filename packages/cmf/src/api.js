@@ -15,10 +15,10 @@ import components from './components';
 import expressions from './expressions';
 import actions from './actions';
 
-Object.keys(components).forEach(id => api.route.registerComponent(id, components[id]));
+Object.keys(components).forEach(id => api.component.register(id, components[id]));
 Object.keys(expressions).forEach(id => api.expressions.register(id, expressions[id]));
 
-api.action.registerActionCreator('my:edit', actions.myEdit);
+api.actionCreator.register('my:edit', actions.myEdit);
  */
 
 import bootstrap from './bootstrap';
