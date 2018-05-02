@@ -55,7 +55,7 @@ function getLocalesFromNamespace(settings, namespace) {
 				if (!extractKey) {
 					if (!i18n.key.split(':')[1]) {
 						console.warn(`WARNING: the key '${i18n.key}' doesn't have namespace defined.`,
-						'if a key doesn\'t have a namespace define, it will not be extracted.',
+						'if a key doesn\'t have a namespace defined, it will not be extracted.',
 						'See the doc : https://github.com/Talend/ui/blob/master/packages/cmf/scripts/index.md');
 					}
 					return locale;
