@@ -86,7 +86,7 @@ const HTML_TPL = (icons, style) => `
 					<option value="2.4rem" selected>lg</option>
 				</select>
 			</div>
-			<div class="form-group>
+			<div class="form-group">
 				<label for="select-filter" class="sr-only">Select filter</label>
 				<select id="select-filter" class="form-control" onChange="setFilter(this.value)">
 					<option value="no-filter">No filter</option>
