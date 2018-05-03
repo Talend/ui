@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
-	SimpleList,
+	SimpleTable,
 	ClassNameProvider,
 	RowRenderer,
 	HeaderRenderer,
@@ -208,6 +208,7 @@ const ColumnKey = {
 const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE];
 const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
 const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE];
+const columnKeys4 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
 
 const rowRenderer = new RowRenderer();
 const headerRenderer = new HeaderRenderer();
@@ -269,7 +270,7 @@ class MyRowDataGetter {
 		}
 	}
 
-	getData(element, columnKey) {
+	getRowData(element, columnKey) {
     switch (columnKey) {
 			case ColumnKey.DRAG_NAME:
 				return element.name;
@@ -292,7 +293,7 @@ const rowDataGetter = new MyRowDataGetter();
 const emptyInitialState = {};
 const initialStateWithDnD = { draggable: true };
 
-class ConnectedSimpleList extends React.Component {
+class ConnectedSimpleTable extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -301,28 +302,28 @@ class ConnectedSimpleList extends React.Component {
 		this.onLeaveElement = this.onLeaveElement.bind(this);
 	}
 
-	getForList() {
+	getForTable() {
 		return classnames({
-				'connected-simple-list': true,
+				'simple-table': true,
 				'draggable-table': this.state.draggable,
 		});
   }
 
 	getForHeader(columnKey) {
-		return `${columnKey} connected-simple-list-header`;
+		return `simple-table-header-${columnKey}`;
 	}
 
 	getForRow(element) {
 		const classNames = {
-			'simple-list-row': true,
+			'simple-table-row': true,
 			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
 			draggable: this.state.draggable,
 		};
 		return classnames(classNames);
   }
 
-	getForData(element, columnKey) {
-    return `simple-list-row-data-${columnKey}`;
+	getForRowData(element, columnKey) {
+    return `simple-table-row-data-${columnKey}`;
   }
 
 	onEnterElement(element) {
@@ -349,7 +350,7 @@ class ConnectedSimpleList extends React.Component {
 			onDoubleClick,
 		} = this.props;
 		return (
-			<SimpleList
+			<SimpleTable
 			  elements={elements}
 	      columnKeys={columnKeys}
 	      classNameProvider={this}
@@ -367,24 +368,24 @@ class ConnectedSimpleList extends React.Component {
 
 }
 
-const SimpleListWithDND = DragDropContext(HTML5Backend)(ConnectedSimpleList);
+const SimpleTableWithDND = DragDropContext(HTML5Backend)(ConnectedSimpleTable);
 
-const stories = storiesOf('SimpleList', module);
+const stories = storiesOf('SimpleTable', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
 stories
 	.addDecorator(story => (
-		<div id="simple-list-container">
+		<div id="simple-table-main-container">
 			<IconsProvider />
 			{story()}
 		</div>
 	))
-	.addWithInfo('Simple List', () => {
+	.addWithInfo('Simple Table', () => {
 		return (
-			<div className="simple-list-holder" >
-				<SimpleList
+			<div className="simple-table-container-1" >
+				<SimpleTable
 				  elements={schema1.elements}
 		      columnKeys={columnKeys1}
 		      rowDataGetter={rowDataGetter}
@@ -399,108 +400,19 @@ stories
 			</div>
 		);
 	})
-	.addWithInfo('Simple List with vertical scrollbar', () => {
+	.addWithInfo('Simple Table with header and dnd', () => {
 		return (
-			<div className="simple-list-scrollable" >
-				<SimpleList
-			  	elements={schema1.elements}
-	      	columnKeys={columnKeys1}
-	      	rowDataGetter={rowDataGetter}
-	      	rowRenderer={rowRenderer}
-					classNameProvider={classNameProvider}
-	      	onScroll={action('onScroll called!')}
-	      	onClick={action('onClick called!')}
-	      	onDoubleClick={action('onDoubleClick called!')}
-					onEnterElement={action('onEnterElement called!')}
-					onLeaveElement={action('onLeaveElement called!')}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Simple List with highlight', () => {
-		return <ConnectedSimpleList
-			initialState={emptyInitialState}
-		  elements={schema1.elements}
-      columnKeys={columnKeys1}
-      rowDataGetter={rowDataGetter}
-			rowRenderer={rowRenderer}
-      onScroll={action('onScroll called!')}
-      onClick={action('onClick called!')}
-      onDoubleClick={action('onDoubleClick called!')}
-		/>;
-	})
-	.addWithInfo('Simple List with header', () => {
-		return (
-			<div className="simple-list-with-header-holder" >
-				<ConnectedSimpleList
-					initialState={emptyInitialState}
-		  		elements={schema1.elements}
-      		columnKeys={columnKeys1}
-      		rowDataGetter={rowDataGetter}
-      		rowRenderer={rowRenderer}
+			<div className="simple-table-container-2" >
+				<SimpleTableWithDND
+					initialState={initialStateWithDnD}
+					elements={schema2.elements}
+					columnKeys={columnKeys4}
+					rowDataGetter={rowDataGetter}
+					rowRenderer={draggableRowRenderer}
 					headerRenderer={headerRenderer}
-      		onScroll={action('onScroll called!')}
-      		onClick={action('onClick called!')}
-      		onDoubleClick={action('onDoubleClick called!')}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Simple List with draggable elements', () => {
-		return <SimpleListWithDND
-			initialState={initialStateWithDnD}
-		  elements={schema1.elements}
-      columnKeys={columnKeys3}
-      rowDataGetter={rowDataGetter}
-			rowRenderer={draggableRowRenderer}
-      onScroll={action('onScroll called!')}
-      onClick={action('onClick called!')}
-      onDoubleClick={action('onDoubleClick called!')}
-		/>;
-	})
-	.addWithInfo('Two Simple Lists with DnD', () => {
-		return (
-			<div style={{ display: 'flex', margin: '10px', padding: '10px', backgroundColor: '#eee' }}>
-				<div>
-					<SimpleListWithDND
-						initialState={initialStateWithDnD}
-			  		elements={schema1.elements}
-	      		columnKeys={columnKeys3}
-	      		rowDataGetter={rowDataGetter}
-						rowRenderer={draggableRowRenderer}
-	      		onScroll={action('onScroll called!')}
-	      		onClick={action('onClick called!')}
-	      		onDoubleClick={action('onDoubleClick called!')}
-					/>
-				</div>
-				<div style={{ width: '10vw' }} />
-				<div>
-					<SimpleListWithDND
-						initialState={initialStateWithDnD}
-			  		elements={schema1.elements}
-	      		columnKeys={columnKeys3}
-	      		rowDataGetter={rowDataGetter}
-						rowRenderer={draggableRowRenderer}
-	      		onScroll={action('onScroll called!')}
-	      		onClick={action('onClick called!')}
-	      		onDoubleClick={action('onDoubleClick called!')}
-					/>
-				</div>
-			</div>
-		);
-	})
-	.addWithInfo('Simple List with description and highlight', () => {
-		return (
-			<div style={{ width: '90vw' }}>
-				<ConnectedSimpleList
-					initialState={emptyInitialState}
-		  		elements={schema2.elements}
-      		columnKeys={columnKeys2}
-      		rowDataGetter={rowDataGetter}
-					rowRenderer={rowRenderer}
-      		onScroll={action('onScroll called!')}
-      		onClick={action('onClick called!')}
-      		onDoubleClick={action('onDoubleClick called!')}
+					onScroll={action('onScroll called!')}
+					onClick={action('onClick called!')}
+					onDoubleClick={action('onDoubleClick called!')}
 				/>
 			</div>
 		);

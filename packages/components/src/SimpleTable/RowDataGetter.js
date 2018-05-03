@@ -1,12 +1,12 @@
 /**
-* This class provides data about elements displayed in a list.
+* This class provides data about elements displayed in a table.
 */
 export default class RowDataGetter {
 
   /**
   * Return an unique identifier for the given element.
   * Each element is displayed in a row.
-	* @param {object} element - An element of the list.
+	* @param {object} element - An element of the table.
   */
 	getId(element) {
     return element.id;
@@ -23,10 +23,10 @@ export default class RowDataGetter {
 
   /**
   * Return the data corresponding to the given element and column.
-	* @param {object} element - An element of the list.
+	* @param {object} element - An element of the table.
   * @param {string} columnKey - The key identifying a column.
   */
-	getData(element, columnKey) {
+	getRowData(element, columnKey) {
 		return 'No data';
 	}
 

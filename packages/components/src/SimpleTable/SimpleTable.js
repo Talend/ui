@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Row from './Row.js';
 
 /**
- * This function is responsible for rendering an element in the list.
+ * This function is responsible for rendering an element in the table.
  */
 function renderRow(
 	element,
@@ -32,11 +32,11 @@ function renderRow(
 	);
 }
 
-function getListClassName(classNameProvider) {
-	if (classNameProvider && classNameProvider.getForList) {
-		return classNameProvider.getForList();
+function getTableClassName(classNameProvider) {
+	if (classNameProvider && classNameProvider.getForTable) {
+		return classNameProvider.getForTable();
 	}
-	return 'simple-list';
+	return 'simple-table';
 }
 
 function getHeaderClassName(classNameProvider, columnKey) {
@@ -52,7 +52,7 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 	const extraProps = headerRenderer.getExtraProps(columnKey);
 	const className = getHeaderClassName(classNameProvider, columnKey);
 	return (
-		<th>
+		<th key={`th-${columnKey}`}>
 			<HeaderComponent
 				key={columnKey}
 				data={data}
@@ -79,14 +79,14 @@ function renderHeader(classNameProvider, rowDataGetter, headerRenderer, columnKe
 }
 
 /**
- * This component displays a list of elements.
+ * This component displays a table of elements.
  * Elements are provided as array.
  * An element is displayed in a row and is divided in multiple data.
  * The rowDataGetter object provides the data for each element.
  * The columnKeys array provides the column keys. These keys are used to get the element data.
  * The rowRenderer object provides the components used to display the element data.
  */
-export default class SimpleList extends Component {
+export default class SimpleTable extends Component {
 
 	constructor(props) {
 		super(props);
@@ -145,7 +145,7 @@ export default class SimpleList extends Component {
 		return (
 			<div
 				ref={this.updateContentNodeRef}
-				className={`${getListClassName(classNameProvider)}`}
+				className={`${getTableClassName(classNameProvider)}`}
 			>
 				<table ref={this.updateTableNodeRef} >
 					{renderHeader(
@@ -179,7 +179,7 @@ export default class SimpleList extends Component {
 	}
 }
 
-SimpleList.propTypes = {
+SimpleTable.propTypes = {
 	elements: PropTypes.array,
 	classNameProvider: PropTypes.object,
 	columnKeys: PropTypes.array,

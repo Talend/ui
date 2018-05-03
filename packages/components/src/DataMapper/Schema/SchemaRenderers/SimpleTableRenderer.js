@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
-	SimpleList,
+	SimpleTable,
 	Cell,
 	Header,
 	HeaderRenderer,
 	DraggableComponent
-} from '../../../SimpleList';
+} from '../../../SimpleTable';
 import MandatoryField from '../../List/MandatoryField';
 
 import * as Constants from '../../Constants';
@@ -17,13 +17,13 @@ class SchemaClassNameProvider {
 		this.props = props;
 	}
 
-  getForList() {
-    return `comp-simple-list schema-content ${this.props.side}`;
+  getForTable() {
+    return `comp-simple-table schema-content ${this.props.side}`;
   }
 
 	getForHeader(columnKey) {
 		const classes = {
-			'comp-simple-list-header': true,
+			'comp-simple-table-header': true,
 			input: this.props.side === Constants.MappingSide.INPUT,
       output: this.props.side === Constants.MappingSide.OUTPUT,
 		};
@@ -46,7 +46,7 @@ class SchemaClassNameProvider {
 			isSelected,
 		} = this.props;
     return classnames({
-			'comp-simple-list-row': true,
+			'comp-simple-table-row': true,
       highlighted: isHighlighted(
         dataAccessor,
         element,
@@ -64,8 +64,8 @@ class SchemaClassNameProvider {
     });
   }
 
-  getForData(element, columnKey) {
-    return `comp-simple-list-row-data-${columnKey} ${this.props.side}`;
+  getForRowData(element, columnKey) {
+    return `comp-simple-table-row-data-${columnKey} ${this.props.side}`;
   }
 
 }
@@ -117,7 +117,7 @@ class RowDataGetter {
 		}
 	}
 
-	getData(element, columnKey) {
+	getRowData(element, columnKey) {
 		switch (columnKey) {
 			case Constants.Schema.DATA_KEYS.NAME:
 				if (this.props.side === Constants.MappingSide.INPUT) {
@@ -197,14 +197,14 @@ class RowRenderer {
 
 }
 
-export default class SimpleListRenderer extends Component {
+export default class SimpleTableRenderer extends Component {
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
 		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
 		this.onLeaveElement = this.onLeaveElement.bind(this);
-		this.updateListNodeRef = this.updateListNodeRef.bind(this);
+		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
 		this.classNameProvider = new SchemaClassNameProvider();
 		this.rowDataGetter = new RowDataGetter();
 		this.rowRenderer = new RowRenderer();
@@ -235,34 +235,34 @@ export default class SimpleListRenderer extends Component {
 		this.props.revealConnectedElement(element, this.props.side);
 	}
 
-	updateListNodeRef(ref) {
-		this.listNode = ref;
+	updateTableNodeRef(ref) {
+		this.tableNode = ref;
 	}
 
 	getChildNodes() {
-		return this.listNode.getBodyNode().childNodes;
+		return this.tableNode.getBodyNode().childNodes;
 	}
 
 	getScrollTop() {
-		return this.listNode.getBodyNode().scrollTop;
+		return this.tableNode.getBodyNode().scrollTop;
 	}
 
 	setScrollTop(scrollTop) {
-		this.listNode.getBodyNode().scrollTop = scrollTop;
+		this.tableNode.getBodyNode().scrollTop = scrollTop;
 	}
 
 	getChildOffsetTop(child) {
 		const childOffsetTop = child.offsetTop;
-		const tableOffsetTop = this.listNode.getTableNode().offsetTop;
+		const tableOffsetTop = this.tableNode.getTableNode().offsetTop;
 		return childOffsetTop + tableOffsetTop;
 	}
 
 	getOffsetHeight() {
-		return this.listNode.getBodyNode().offsetHeight;
+		return this.tableNode.getBodyNode().offsetHeight;
 	}
 
 	getHeaderHeight() {
-		return this.listNode.getHeadNode().offsetHeight;
+		return this.tableNode.getHeadNode().offsetHeight;
 	}
 
 	render() {
@@ -278,8 +278,8 @@ export default class SimpleListRenderer extends Component {
 			updateContentNodeRef,
 		} = this.props;
 		return (
-			<SimpleList
-				ref={this.updateListNodeRef}
+			<SimpleTable
+				ref={this.updateTableNodeRef}
 				classNameProvider={this.classNameProvider}
 				elements={dataAccessor.getSchemaElements(schema, true)}
 				columnKeys={columnKeys}
@@ -296,7 +296,7 @@ export default class SimpleListRenderer extends Component {
 	}
 }
 
-SimpleListRenderer.propTypes = {
+SimpleTableRenderer.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
 	draggable: PropTypes.bool,

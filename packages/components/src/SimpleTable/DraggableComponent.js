@@ -3,8 +3,13 @@ import { DragSource, DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import flow from 'lodash/flow';
 
-const DRAGGABLE_ELEMENT_TYPE = 'element';
+export const DRAGGABLE_ELEMENT_TYPE = 'element';
 
+/**
+* This function adds the 'drag & drop' behaviour on the given component.
+* Its returns a new component which encaspulates the given one.
+* The new component is draggable and dropppable.
+*/
 export default function getDraggable(Comp) {
 
   const elementSource = {

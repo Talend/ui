@@ -1,18 +1,11 @@
-import SimpleListRenderer from './SchemaRenderers/SimpleListRenderer';
+import SimpleTableRenderer from './SchemaRenderers/SimpleTableRenderer';
 import SchemaConfiguration, { inputColumns, outputColumns } from './SchemaConfiguration';
 import * as Constants from '../Constants';
 
-export default class SimpleListConfiguration extends SchemaConfiguration {
+export default class SimpleTableConfiguration extends SchemaConfiguration {
 
   getRenderer(side) {
-    switch (side) {
-      case Constants.MappingSide.INPUT:
-        return SimpleListRenderer;
-      case Constants.MappingSide.OUTPUT:
-        return SimpleListRenderer;
-      default:
-        return null;
-    }
+    return SimpleTableRenderer;
 	}
 
 	getColumns(side) {

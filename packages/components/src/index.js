@@ -40,14 +40,14 @@ import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import {
-	SimpleList,
+	SimpleTable,
 	ClassNameProvider,
 	RowRenderer,
 	HeaderRenderer,
 	Cell,
 	Header,
 	DraggableComponent,
-} from './SimpleList';
+} from './SimpleTable';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -166,7 +166,7 @@ export {
 	ObjectViewer,
 	Progress,
 	SidePanel,
-	SimpleList,
+	SimpleTable,
 	ClassNameProvider,
 	RowRenderer,
 	HeaderRenderer,

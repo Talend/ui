@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 function getRowDataClassName(classNameProvider, element, columnKey) {
-	if (classNameProvider && classNameProvider.getForData) {
-		return classNameProvider.getForData(element, columnKey);
+	if (classNameProvider && classNameProvider.getForRowData) {
+		return classNameProvider.getForRowData(element, columnKey);
 	}
-	return `simple-list-row-data-${columnKey}`;
+	return `simple-table-row-data-${columnKey}`;
 }
 
 /**
@@ -13,13 +13,16 @@ function getRowDataClassName(classNameProvider, element, columnKey) {
  */
 function renderRowData(element, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
 	const CellComponent = rowRenderer.getCellComponent(columnKey);
-	const data = rowDataGetter.getData(element, columnKey);
+	const data = rowDataGetter.getRowData(element, columnKey);
 	const className = getRowDataClassName(classNameProvider, element, columnKey);
 	const extraProps = rowRenderer.getExtraProps(columnKey);
+	const compKey = `${rowDataGetter.getId(element)}-${columnKey}`;
 	return (
-    <td>
+    <td
+			key={`td-${compKey}`}
+		>
 		  <CellComponent
-			  key={`${rowDataGetter.getId(element)}-${columnKey}`}
+			  key={compKey}
 			  element={element}
 			  data={data}
 			  className={className}
@@ -33,11 +36,11 @@ function getRowClassName(classNameProvider, element) {
 	if (classNameProvider && classNameProvider.getForRow) {
 		return classNameProvider.getForRow(element);
 	}
-	return 'simple-list-row';
+	return 'simple-table-row';
 }
 
 /**
- * This component displays the data of an element in a list.
+ * This component displays the data of an element in a table.
  * A row is divided in columns, each column displaying an element data.
  */
 export default class Row extends Component {
@@ -88,13 +91,15 @@ export default class Row extends Component {
 			onClick,
 			onDoubleClick,
 		} = this.props;
+		const rowKey = rowDataGetter.getId(element);
 		return (
 			<tr
+				key={rowKey}
 				className={`tr-body ${getRowClassName(classNameProvider, element)}`}
 				onClick={onClick}
 				onDoubleClick={onDoubleClick}
 				ref={this.updateElementRef}
-				data-id={rowDataGetter.getId(element)}
+				data-id={rowKey}
 			>
 				{columnKeys.map(key =>
 					renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderer),
