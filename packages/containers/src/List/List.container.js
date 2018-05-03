@@ -140,9 +140,7 @@ class List extends React.Component {
 		const items = this.props.items.toJS();
 		if (state.selectedItems.length !== items.length) {
 			this.props.setState({
-				selectedItems: items.map(item => {
-					return item[this.props.multiSelectionKey];
-				}),
+				selectedItems: items.map(item => item[this.props.multiSelectionKey]),
 			});
 		} else {
 			this.props.setState({
