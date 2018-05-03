@@ -24,11 +24,7 @@ describe('talend:react-cmf', function () {
 
 		it('generates base files', function () {
 			assert.file([
-				'env.js',
 				'package.json',
-				'webpack.config.js',
-				'webpack.config.dev.js',
-				'webpack.config.prod.js',
 			]);
 		});
 	});
