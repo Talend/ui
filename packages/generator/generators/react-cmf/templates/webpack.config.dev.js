@@ -1,10 +1,8 @@
 const config = require('./webpack.config');
 const webpack = require('webpack');
-const Dashboard = require('webpack-dashboard/plugin');
 const ENV = require('./env');
 
 config.devtool = 'inline-source-map';
-config.plugins.push(new Dashboard());
 config.plugins.push(new webpack.DefinePlugin({
 	'process.env.NODE_ENV': JSON.stringify(ENV.DEV),
 }));
