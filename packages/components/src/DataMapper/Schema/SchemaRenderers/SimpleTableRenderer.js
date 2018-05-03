@@ -6,7 +6,7 @@ import {
 	Cell,
 	Header,
 	HeaderRenderer,
-	DraggableComponent
+	DraggableComponent,
 } from '../../../SimpleTable';
 import MandatoryField from '../../List/MandatoryField';
 
@@ -17,22 +17,22 @@ class SchemaClassNameProvider {
 		this.props = props;
 	}
 
-  getForTable() {
-    return `comp-simple-table schema-content ${this.props.side}`;
-  }
+	getForTable() {
+		return `comp-simple-table schema-content ${this.props.side}`;
+	}
 
 	getForHeader(columnKey) {
 		const classes = {
 			'comp-simple-table-header': true,
 			input: this.props.side === Constants.MappingSide.INPUT,
-      output: this.props.side === Constants.MappingSide.OUTPUT,
+			output: this.props.side === Constants.MappingSide.OUTPUT,
 		};
 		classes[columnKey] = true;
 		return classnames(classes);
 	}
 
-  getForRow(element) {
-    const {
+	getForRow(element) {
+		const {
 			dataAccessor,
 			selection,
 			side,
@@ -45,29 +45,28 @@ class SchemaClassNameProvider {
 			isMapped,
 			isSelected,
 		} = this.props;
-    return classnames({
+		return classnames({
 			'comp-simple-table-row': true,
-      highlighted: isHighlighted(
-        dataAccessor,
-        element,
-        selection,
-        side,
-        pendingItem,
-        focusedElements,
-        dnd,
-      ),
-      mapped: isMapped(dataAccessor, element, mappedElements),
-      selected: isSelected(dataAccessor, selection, element, side),
-      input: side === Constants.MappingSide.INPUT,
-      output: side === Constants.MappingSide.OUTPUT,
+			highlighted: isHighlighted(
+				dataAccessor,
+				element,
+				selection,
+				side,
+				pendingItem,
+				focusedElements,
+				dnd,
+			),
+			mapped: isMapped(dataAccessor, element, mappedElements),
+			selected: isSelected(dataAccessor, selection, element, side),
+			input: side === Constants.MappingSide.INPUT,
+			output: side === Constants.MappingSide.OUTPUT,
 			draggable,
-    });
-  }
+		});
+	}
 
-  getForRowData(element, columnKey) {
-    return `comp-simple-table-row-data-${columnKey} ${this.props.side}`;
-  }
-
+	getForRowData(element, columnKey) {
+		return `comp-simple-table-row-data-${columnKey} ${this.props.side}`;
+	}
 }
 
 class SchemaDndListener {
@@ -95,7 +94,6 @@ class SchemaDndListener {
 }
 
 class RowDataGetter {
-
 	updateProps(props) {
 		this.props = props;
 	}
@@ -138,34 +136,37 @@ class RowDataGetter {
 }
 
 class RowRenderer {
-
-  constructor() {
-    this.dndListener = new SchemaDndListener();
+	constructor() {
+		this.dndListener = new SchemaDndListener();
 		this.draggableCell = DraggableComponent(Cell);
 		this.draggableMandatoryField = DraggableComponent(MandatoryField);
-  }
+	}
 
-  updateProps(props) {
-    this.props = props;
-    this.dndListener.updateProps(props);
-  }
+	updateProps(props) {
+		this.props = props;
+		this.dndListener.updateProps(props);
+	}
 
-  isModelEvent(code) {
-  	return code === Constants.Events.UNDO ||
-  		code === Constants.Events.REDO ||
-  		code === Constants.Events.ADD_MAPPING ||
-  		code === Constants.Events.REMOVE_MAPPING ||
-  		code === Constants.Events.CLEAR_MAPPING;
-  }
+	isModelEvent(code) {
+		return (
+			code === Constants.Events.UNDO ||
+			code === Constants.Events.REDO ||
+			code === Constants.Events.ADD_MAPPING ||
+			code === Constants.Events.REMOVE_MAPPING ||
+			code === Constants.Events.CLEAR_MAPPING
+		);
+	}
 
-  isFilterOrSortEvent(code) {
-  	return code === Constants.Events.FILTERING ||
-  		code === Constants.Events.SORT ||
-  		code === Constants.Events.CLEAR_SORT;
-  }
+	isFilterOrSortEvent(code) {
+		return (
+			code === Constants.Events.FILTERING ||
+			code === Constants.Events.SORT ||
+			code === Constants.Events.CLEAR_SORT
+		);
+	}
 
-  needRowUpdate(props) {
-    if (this.props.trigger) {
+	needRowUpdate(props) {
+		if (this.props.trigger) {
 			const code = this.props.trigger.code;
 			if (this.isModelEvent(code) || this.isFilterOrSortEvent(code)) {
 				return true;
@@ -181,20 +182,19 @@ class RowRenderer {
 					return Cell;
 				}
 				return this.draggableMandatoryField;
-      case Constants.Schema.DATA_KEYS.TYPE:
-        if (this.props.side === Constants.MappingSide.INPUT) {
-          return this.draggableCell;
-        }
-        return Cell;
+			case Constants.Schema.DATA_KEYS.TYPE:
+				if (this.props.side === Constants.MappingSide.INPUT) {
+					return this.draggableCell;
+				}
+				return Cell;
 			default:
 				return Cell;
 		}
 	}
 
-  getExtraProps(columnKey) {
+	getExtraProps(columnKey) {
 		return this.dndListener;
 	}
-
 }
 
 export default class SimpleTableRenderer extends Component {
@@ -268,7 +268,7 @@ export default class SimpleTableRenderer extends Component {
 	render() {
 		this.classNameProvider.updateProps(this.props);
 		this.rowDataGetter.updateProps(this.props);
-    this.rowRenderer.updateProps(this.props);
+		this.rowRenderer.updateProps(this.props);
 		const {
 			dataAccessor,
 			schema,

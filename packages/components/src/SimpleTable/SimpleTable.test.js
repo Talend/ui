@@ -31,7 +31,7 @@ it('simple-table-with-header', () => {
 				columnKeys={TestData.columnKeys}
 				rowDataGetter={TestData.rowDataGetter}
 				rowRenderer={TestData.rowRenderer}
-        headerRenderer={TestData.headerRenderer}
+				headerRenderer={TestData.headerRenderer}
 			/>,
 		)
 		.toJSON();

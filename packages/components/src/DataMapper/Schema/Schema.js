@@ -194,8 +194,7 @@ export default class Schema extends Component {
 			getScrollTop() {
 				return 0;
 			},
-			setScrollTop(scrollTop) {
-			},
+			setScrollTop(scrollTop) {},
 			getChildOffsetTop(child) {
 				return 0;
 			},
@@ -233,10 +232,7 @@ export default class Schema extends Component {
 					onFilterChange={onFilterChange}
 				/>
 				<div className="separator horizontal" />
-				<SchemaRenderer
-					{...contentProps}
-					ref={this.updateRendererNodeRef}
-				/>
+				<SchemaRenderer {...contentProps} ref={this.updateRendererNodeRef} />
 			</div>
 		);
 	}

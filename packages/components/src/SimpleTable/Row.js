@@ -18,17 +18,15 @@ function renderRowData(element, columnKey, rowDataGetter, classNameProvider, row
 	const extraProps = rowRenderer.getExtraProps(columnKey);
 	const compKey = `${rowDataGetter.getId(element)}-${columnKey}`;
 	return (
-    <td
-			key={`td-${compKey}`}
-		>
-		  <CellComponent
-			  key={compKey}
-			  element={element}
-			  data={data}
-			  className={className}
+		<td key={`td-${compKey}`}>
+			<CellComponent
+				key={compKey}
+				element={element}
+				data={data}
+				className={className}
 				extra={extraProps}
-		  />
-    </td>
+			/>
+		</td>
 	);
 }
 

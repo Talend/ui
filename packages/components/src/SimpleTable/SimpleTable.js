@@ -53,12 +53,7 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 	const className = getHeaderClassName(classNameProvider, columnKey);
 	return (
 		<th key={`th-${columnKey}`}>
-			<HeaderComponent
-				key={columnKey}
-				data={data}
-				className={className}
-				extra={extraProps}
-			/>
+			<HeaderComponent key={columnKey} data={data} className={className} extra={extraProps} />
 		</th>
 	);
 }
@@ -68,15 +63,15 @@ function renderHeader(
 	rowDataGetter,
 	headerRenderer,
 	columnKeys,
-	updateHeadNodeRef
+	updateHeadNodeRef,
 ) {
 	if (headerRenderer) {
 		return (
 			<thead ref={updateHeadNodeRef}>
 				<tr className="tr-head">
-					{columnKeys.map(
-						col => renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col))
-					}
+					{columnKeys.map(col =>
+						renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col),
+					)}
 				</tr>
 			</thead>
 		);
@@ -95,7 +90,6 @@ function renderHeader(
  * If the headerRenderer is null or undefined, no header is displayed.
  */
 export default class SimpleTable extends Component {
-
 	constructor(props) {
 		super(props);
 		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
@@ -151,11 +145,8 @@ export default class SimpleTable extends Component {
 			onLeaveRow,
 		} = this.props;
 		return (
-			<div
-				ref={this.updateContentNodeRef}
-				className={`${getTableClassName(classNameProvider)}`}
-			>
-				<table ref={this.updateTableNodeRef} >
+			<div ref={this.updateContentNodeRef} className={`${getTableClassName(classNameProvider)}`}>
+				<table ref={this.updateTableNodeRef}>
 					{renderHeader(
 						classNameProvider,
 						rowDataGetter,
@@ -163,10 +154,7 @@ export default class SimpleTable extends Component {
 						columnKeys,
 						this.updateHeadNodeRef,
 					)}
-					<tbody
-						ref={this.updateBodyNodeRef}
-						onScroll={onScroll}
-					>
+					<tbody ref={this.updateBodyNodeRef} onScroll={onScroll}>
 						{elements.map(elem =>
 							renderRow(
 								elem,

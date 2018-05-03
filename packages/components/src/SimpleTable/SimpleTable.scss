@@ -23,8 +23,8 @@
 		font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
 		font-size: 0.9em;
 		min-width: 100px;
-    float: right;
-    text-align: right;
+		float: right;
+		text-align: right;
 		color: #66bdff;
 	}
 
@@ -36,9 +36,9 @@
 		padding: 2px;
 	}
 
-  .highlighted {
-    background-color: #f2f2f2;
-  }
+	.highlighted {
+		background-color: #f2f2f2;
+	}
 
 	.draggable-table {
 		width: 600px;
@@ -91,15 +91,18 @@
 	}
 
 	.simple-table.draggable-table tr {
-		td:nth-child(1), th:nth-child(1) {
+		td:nth-child(1),
+		th:nth-child(1) {
 			flex: none;
 			width: 150px;
 		}
-		td:nth-child(2), th:nth-child(2) {
+		td:nth-child(2),
+		th:nth-child(2) {
 			flex: none;
 			width: 100px;
 		}
-		td:nth-child(3), th:nth-child(3) {
+		td:nth-child(3),
+		th:nth-child(3) {
 			flex: none;
 			width: 500px;
 		}
@@ -107,22 +110,21 @@
 
 	.draggable-table table {
 		overflow: hidden;
-    tr {
-      &.draggable {
-        cursor: grab;
-        td:first-child {
-          position: relative;
-          div[draggable="true"]:before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            content: '';
-            width: 100vw;
-          }
-        }
-      }
-    }
-  }
-
+		tr {
+			&.draggable {
+				cursor: grab;
+				td:first-child {
+					position: relative;
+					div[draggable='true']:before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						content: '';
+						width: 100vw;
+					}
+				}
+			}
+		}
+	}
 }

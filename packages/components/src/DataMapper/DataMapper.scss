@@ -1,5 +1,4 @@
 :global {
-
 	$font_family_for_type: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
 	$row_height: 25px;
 	$mapper_background_color: #e9e9e9;
@@ -402,13 +401,16 @@
 	}
 
 	.comp-simple-table.schema-content.output tr {
-		td:nth-child(1), th:nth-child(1) {
+		td:nth-child(1),
+		th:nth-child(1) {
 			width: 200px;
 		}
-		td:nth-child(2), th:nth-child(2) {
+		td:nth-child(2),
+		th:nth-child(2) {
 			width: 150px;
 		}
-		td:nth-child(3), th:nth-child(3) {
+		td:nth-child(3),
+		th:nth-child(3) {
 			width: 500px;
 		}
 	}
@@ -428,7 +430,7 @@
 				cursor: grab;
 				td:first-child {
 					position: relative;
-					div[draggable="true"]:before {
+					div[draggable='true']:before {
 						position: absolute;
 						top: 0;
 						left: 0;

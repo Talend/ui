@@ -9,8 +9,8 @@ import './SimpleTable.scss';
 
 export {
 	SimpleTable,
-  ClassNameProvider,
-  RowRenderer,
+	ClassNameProvider,
+	RowRenderer,
 	HeaderRenderer,
 	Cell,
 	Header,

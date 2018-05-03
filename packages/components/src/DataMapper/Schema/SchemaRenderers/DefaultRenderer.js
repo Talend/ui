@@ -84,7 +84,6 @@ renderSchemaElement.propTypes = {
 };
 
 export default class DefaultRenderer extends Component {
-
 	constructor(props) {
 		super(props);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
@@ -127,11 +126,7 @@ export default class DefaultRenderer extends Component {
 			.getSchemaElements(schema, true)
 			.map(elem => renderSchemaElement(this.props, elem));
 		return (
-			<div
-				ref={this.updateContentNodeRef}
-				className="schema-content"
-				onScroll={onScroll}
-			>
+			<div ref={this.updateContentNodeRef} className="schema-content" onScroll={onScroll}>
 				{content}
 			</div>
 		);

@@ -3,9 +3,8 @@ import SchemaConfiguration, { inputColumns, outputColumns } from './SchemaConfig
 import * as Constants from '../Constants';
 
 export default class SimpleTableConfiguration extends SchemaConfiguration {
-
-  getRenderer(side) {
-    return SimpleTableRenderer;
+	getRenderer(side) {
+		return SimpleTableRenderer;
 	}
 
 	getColumns(side) {

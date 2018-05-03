@@ -220,13 +220,7 @@ export default class ListRenderer extends Component {
 		this.classNameProvider.updateProps(this.props);
 		this.dndListener.updateProps(this.props);
 		this.rowDataGetter.updateProps(this.props);
-		const {
-			dataAccessor,
-			schema,
-			draggable,
-			onScroll,
-			columnKeys,
-		} = this.props;
+		const { dataAccessor, schema, draggable, onScroll, columnKeys } = this.props;
 		return (
 			<List
 				classNameProvider={this.classNameProvider}

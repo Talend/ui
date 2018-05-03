@@ -25,17 +25,17 @@ export const columnKeys = [KEYS.NAME, KEYS.TYPE, KEYS.DESC];
 
 export const classNameProvider = {
 	getForTable() {
-    return 'classname-of-simple-table';
-  },
+		return 'classname-of-simple-table';
+	},
 	getForHeader(columnKey) {
-    return `classname-of-header-${columnKey}`;
-  },
+		return `classname-of-header-${columnKey}`;
+	},
 	getForRow(element) {
-    return `classname-of-row-(${element.id})`;
-  },
+		return `classname-of-row-(${element.id})`;
+	},
 	getForRowData(element, columnKey) {
-    return `classname-of-row-data-(${element.id},${columnKey})`;
-  },
+		return `classname-of-row-data-(${element.id},${columnKey})`;
+	},
 };
 
 export const rowDataGetter = {

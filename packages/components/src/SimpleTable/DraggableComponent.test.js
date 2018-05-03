@@ -16,8 +16,8 @@ it('draggable-cell', () => {
 		.create(
 			<OriginalCell
 				element={TestData.element1}
-        data={TestData.element1.name}
-        className={`classname-of-${TestData.element1.id}`}
+				data={TestData.element1.name}
+				className={`classname-of-${TestData.element1.id}`}
 				connectDragSource={identity}
 				connectDropTarget={identity}
 			/>,

@@ -29,39 +29,38 @@ function wrapInTestContext(DecoratedComponent) {
 const draggableCell = DraggableComponent(Cell);
 
 it('drag-and-drop-on-simple-table', () => {
-
-  const dndListener = {
-    beginDrag: jest.fn().mockReturnValue(TestData.element1),
-    canDrop: jest.fn().mockReturnValue(true),
-    drop: jest.fn(),
-    endDrag: jest.fn(),
+	const dndListener = {
+		beginDrag: jest.fn().mockReturnValue(TestData.element1),
+		canDrop: jest.fn().mockReturnValue(true),
+		drop: jest.fn(),
+		endDrag: jest.fn(),
 	};
 
-  const draggableRowRenderer = {
-  	needRowUpdate() {
-  		return true;
-  	},
-  	getCellComponent(columnKey) {
-      if (columnKey === TestData.KEYS.NAME) {
-  		    return draggableCell;
-      }
-      return Cell;
-  	},
-  	getExtraProps() {
-  		return dndListener;
-  	},
-  };
+	const draggableRowRenderer = {
+		needRowUpdate() {
+			return true;
+		},
+		getCellComponent(columnKey) {
+			if (columnKey === TestData.KEYS.NAME) {
+				return draggableCell;
+			}
+			return Cell;
+		},
+		getExtraProps() {
+			return dndListener;
+		},
+	};
 
 	const TableTestContext = wrapInTestContext(SimpleTable);
 
 	const table = (
 		<TableTestContext
-      elements={elements}
-      classNameProvider={TestData.classNameProvider}
-      columnKeys={TestData.columnKeys}
-      rowDataGetter={TestData.rowDataGetter}
-      rowRenderer={draggableRowRenderer}
-      headerRenderer={TestData.headerRenderer}
+			elements={elements}
+			classNameProvider={TestData.classNameProvider}
+			columnKeys={TestData.columnKeys}
+			rowDataGetter={TestData.rowDataGetter}
+			rowRenderer={draggableRowRenderer}
+			headerRenderer={TestData.headerRenderer}
 		/>
 	);
 
@@ -99,5 +98,4 @@ it('drag-and-drop-on-simple-table', () => {
 
 	// The second argument of the first call to the function was element2
 	expect(dndListener.drop.mock.calls[0][1].id).toBe(TestData.element2.id);
-
 });
