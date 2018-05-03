@@ -40,6 +40,16 @@ function getPathFromPattern(pattern, namespace, locale) {
 	);
 }
 
+function manageEmptyNamespace(i18n) {
+	if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
+		throw new Error(
+			`The key '${
+				i18n.key
+			}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
+		);
+	}
+}
+
 /**
  * getLocalesFromNamespace - transform a JSON to a dictionary of key/value with a given namespace
  *
@@ -48,23 +58,14 @@ function getPathFromPattern(pattern, namespace, locale) {
  * @return {Map}              dictionary of key/value locales
  */
 function getLocalesFromNamespace(settings, namespace) {
-	return jsonpath
-		.query(settings, JSON_PATH_EXPRESSION)
-		.reduce(
-			(locale, i18n) => {
-				const extractKey = i18n.key.split(`${namespace}${NAMESPACE_SEPARATOR}`)[1];
-				if (!extractKey) {
-					if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
-						console.warn(`WARNING: the key '${i18n.key}' doesn't have namespace defined.`,
-						'if a key doesn\'t have a namespace defined, it will not be extracted.',
-						'See the doc : https://github.com/Talend/ui/blob/master/packages/cmf/scripts/index.md');
-					}
-					return locale;
-				}
-				return locale.set(extractKey, i18n.options.defaultValue);
-			},
-			new Map(),
-		);
+	return jsonpath.query(settings, JSON_PATH_EXPRESSION).reduce((locale, i18n) => {
+		const extractKey = i18n.key.split(`${namespace}${NAMESPACE_SEPARATOR}`)[1];
+		if (!extractKey) {
+			manageEmptyNamespace(i18n);
+			return locale;
+		}
+		return locale.set(extractKey, i18n.options.defaultValue);
+	}, new Map());
 }
 
 /**
@@ -202,7 +203,6 @@ function updateLocale(i18nKeys, locale, namespace, pattern, sort) {
 		{},
 	);
 
-
 	mkdirp.sync(path.dirname(filePath));
 	fs.writeFileSync(
 		filePath,
@@ -228,7 +228,8 @@ function getLocalesFromNamespaceInFolder(folder, namespace) {
 		files
 			// eslint-disable-next-line global-require
 			.map(file =>
-				getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace))
+				getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace),
+			)
 			.reduce((state, map) => [...state, ...map], []),
 	);
 }
@@ -282,7 +283,7 @@ function parseI18n(namespaces, languages, from, sort) {
 	namespaces.forEach(namespace => {
 		const i18nKeys = getLocalesFromNamespaceInFolder(
 			path.join(process.cwd(), ...from.split('/')),
-			namespace.name
+			namespace.name,
 		);
 
 		updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);

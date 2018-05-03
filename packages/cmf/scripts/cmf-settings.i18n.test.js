@@ -341,9 +341,8 @@ describe('i18n scripts', () => {
 					},
 				},
 			};
-			const locale = getLocalesFromNamespace(json, namespace, true);
 
-			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
+			expect(() => getLocalesFromNamespace(json, namespace, true)).toThrow();
 		});
 	});
 
