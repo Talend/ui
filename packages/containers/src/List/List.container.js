@@ -124,13 +124,14 @@ class List extends React.Component {
 		const state = this.props.state.toJS();
 		let selectedItems = [].concat(state.selectedItems);
 		if (selectedItems.find(itemKey => itemKey === data[this.props.multiSelectionKey])) {
-			selectedItems =
-				selectedItems.filter(itemKey => itemKey !== data[this.props.multiSelectionKey]);
+			selectedItems = selectedItems.filter(
+				itemKey => itemKey !== data[this.props.multiSelectionKey],
+			);
 		} else {
 			selectedItems.push(data[this.props.multiSelectionKey]);
 		}
 		this.props.setState({
-			selectedItems
+			selectedItems,
 		});
 	}
 
@@ -139,7 +140,7 @@ class List extends React.Component {
 		const items = this.props.items.toJS();
 		if (state.selectedItems.length !== items.length) {
 			this.props.setState({
-				selectedItems:items.map((item) => {
+				selectedItems: items.map(item => {
 					return item[this.props.multiSelectionKey];
 				}),
 			});
@@ -237,17 +238,25 @@ class List extends React.Component {
 				props.toolbar.filter.value = state.searchQuery;
 			}
 			// setting the number of selected items
-			props.toolbar.actionBar = { actions: {}, multiSelectActions: {}, selected: state.selectedItems.length };
+			props.toolbar.actionBar = {
+				actions: {},
+				multiSelectActions: {},
+				selected: state.selectedItems.length,
+			};
 			const actions = this.props.actions;
 			const multiSelectActions = this.props.multiSelectActions;
 			if (multiSelectActions) {
 				if (multiSelectActions.left) {
-					props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({ actionId: action }));
-				}
-				if (multiSelectActions.right) {
-					props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(action => ({
+					props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({
 						actionId: action,
 					}));
+				}
+				if (multiSelectActions.right) {
+					props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(
+						action => ({
+							actionId: action,
+						}),
+					);
 				}
 			}
 			if (actions) {

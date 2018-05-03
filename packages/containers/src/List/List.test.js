@@ -336,7 +336,7 @@ describe('Container List', () => {
 			// when
 			const props = wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({"selectedItems": [1]});
+			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [1] });
 		});
 
 		it('should deselect one item', () => {
@@ -355,7 +355,7 @@ describe('Container List', () => {
 			// when
 			const props = wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({"selectedItems": []});
+			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [] });
 		});
 		it('should select all items', () => {
 			// given
@@ -373,7 +373,7 @@ describe('Container List', () => {
 			// when
 			const props = wrapper.instance().onToggleAllMultiSelection();
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({"selectedItems": [1, 2, 3]});
+			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [1, 2, 3] });
 		});
 
 		it('should deselect all items', () => {
@@ -392,7 +392,7 @@ describe('Container List', () => {
 			// when
 			const props = wrapper.instance().onToggleAllMultiSelection();
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({"selectedItems": []});
+			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [] });
 		});
 
 		it('should display multiActions', () => {
