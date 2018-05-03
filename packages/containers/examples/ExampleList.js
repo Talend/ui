@@ -257,6 +257,24 @@ const ExampleList = {
 			</div>
 		);
 	},
+	'multi selection': () => {
+		const multiSelectionProps = cloneDeep(props);
+		multiSelectionProps.list.itemProps = {
+			// onSelect: action('onItemSelect'),
+		};
+		multiSelectionProps.multiSelectActions = {
+				left: ['object:remove'],
+		};
+		multiSelectionProps.multiSelectionKey = 'id';
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...multiSelectionProps} items={items} />
+				</div>
+			</div>
+		);
+	},
 	'no toolbar': () => (
 		<div>
 			<IconsProvider />

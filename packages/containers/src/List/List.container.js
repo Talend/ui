@@ -12,6 +12,7 @@ import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
+	selectedItems: [],
 	searchQuery: '',
 	itemsPerPage: 10,
 	startIndex: 1,
@@ -43,6 +44,12 @@ class List extends React.Component {
 			left: PropTypes.arrayOf(PropTypes.string),
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
+		multiSelectActions: PropTypes.shape({
+			title: PropTypes.string,
+			left: PropTypes.arrayOf(PropTypes.string),
+			right: PropTypes.arrayOf(PropTypes.string),
+		}),
+		multiSelectionKey: PropTypes.string,
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -76,6 +83,9 @@ class List extends React.Component {
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onChangePage = this.onChangePage.bind(this);
+		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
+		this.onToggleAllMultiSelection = this.onToggleAllMultiSelection.bind(this);
+		this.isSelected = this.isSelected.bind(this);
 	}
 	onSelectSortBy(event, payload) {
 		this.props.setState({
@@ -110,6 +120,44 @@ class List extends React.Component {
 		};
 	}
 
+	onToggleMultiSelection(event, data) {
+		const state = this.props.state.toJS();
+		let selectedItems = [].concat(state.selectedItems);
+		if (selectedItems.find(itemKey => itemKey === data[this.props.multiSelectionKey])) {
+			selectedItems =
+				selectedItems.filter(itemKey => itemKey !== data[this.props.multiSelectionKey]);
+		} else {
+			selectedItems.push(data[this.props.multiSelectionKey]);
+		}
+		this.props.setState({
+			selectedItems
+		});
+	}
+
+	onToggleAllMultiSelection() {
+		const state = this.props.state.toJS();
+		const items = this.props.items.toJS();
+		if (state.selectedItems.length !== items.length) {
+			this.props.setState({
+				selectedItems:items.map((item) => {
+					return item[this.props.multiSelectionKey];
+				}),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: [],
+			});
+		}
+	}
+
+	isSelected(item) {
+		const state = this.props.state.toJS();
+		if (state.selectedItems.find(itemKey => itemKey === item[this.props.multiSelectionKey])) {
+			return true;
+		}
+		return false;
+	}
+
 	render() {
 		const state = this.props.state.toJS();
 		const items = getItems(this.context, this.props);
@@ -132,6 +180,15 @@ class List extends React.Component {
 			isDescending: !state.sortAsc,
 			onChange: this.onSelectSortBy,
 		};
+		if (!props.list.itemProps) {
+			props.list.itemProps = {};
+		}
+
+		if (props.multiSelectActions && props.multiSelectionKey) {
+			props.list.itemProps.onToggle = this.onToggleMultiSelection;
+			props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
+			props.list.itemProps.isSelected = this.isSelected;
+		}
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
@@ -179,9 +236,20 @@ class List extends React.Component {
 				props.toolbar.filter.docked = state.filterDocked;
 				props.toolbar.filter.value = state.searchQuery;
 			}
-
-			props.toolbar.actionBar = { actions: {} };
+			// setting the number of selected items
+			props.toolbar.actionBar = { actions: {}, multiSelectActions: {}, selected: state.selectedItems.length };
 			const actions = this.props.actions;
+			const multiSelectActions = this.props.multiSelectActions;
+			if (multiSelectActions) {
+				if (multiSelectActions.left) {
+					props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({ actionId: action }));
+				}
+				if (multiSelectActions.right) {
+					props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(action => ({
+						actionId: action,
+					}));
+				}
+			}
 			if (actions) {
 				if (actions.left) {
 					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
