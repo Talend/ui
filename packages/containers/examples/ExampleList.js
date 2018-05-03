@@ -259,9 +259,6 @@ const ExampleList = {
 	},
 	'multi selection': () => {
 		const multiSelectionProps = cloneDeep(props);
-		multiSelectionProps.list.itemProps = {
-			// onSelect: action('onItemSelect'),
-		};
 		multiSelectionProps.multiSelectActions = {
 				left: ['object:remove'],
 		};
