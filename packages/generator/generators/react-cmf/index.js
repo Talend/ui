@@ -29,7 +29,7 @@ module.exports = yeoman.Base.extend({
 			message: 'description',
 		}];
 
-		return this.prompt(prompts).then((props) => {
+		return this.prompt(prompts).then(props => {
 			if (props.name !== slug(this.appname)) {
 				this.destinationRoot(props.name);
 			}
@@ -42,19 +42,15 @@ module.exports = yeoman.Base.extend({
 	writing() {
 		const fileToCopy = [
 			'src',
-			'env.js',
-			'webpack.config.js',
-			'webpack.config.dev.js',
-			'webpack.config.prod.js',
 		];
 		const tplToCopy = ['package.json'];
-		fileToCopy.forEach((name) => {
+		fileToCopy.forEach(name => {
 			this.fs.copy(
 				this.templatePath(name),
 				this.destinationPath(name)
 			);
 		});
-		tplToCopy.forEach((name) => {
+		tplToCopy.forEach(name => {
 			this.fs.copyTpl(
 				this.templatePath(name),
 				this.destinationPath(name),
