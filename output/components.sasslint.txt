@@ -2,14 +2,33 @@
 
 
 src/DataMapper/DataMapper.scss
-  163:15  error  Quotes around URLs are required  url-quotes
-  167:15  error  Quotes around URLs are required  url-quotes
-  171:15  error  Quotes around URLs are required  url-quotes
-  175:15  error  Quotes around URLs are required  url-quotes
-  179:15  error  Quotes around URLs are required  url-quotes
-  183:15  error  Quotes around URLs are required  url-quotes
-  187:15  error  Quotes around URLs are required  url-quotes
-  191:15  error  Quotes around URLs are required  url-quotes
+    2:2   error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
+    3:2   error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
+    4:2   error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
+    5:2   error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
+   22:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
+   29:11  error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
+   52:16  error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
+   57:10  error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
+  168:15  error  Quotes around URLs are required                                                 url-quotes
+  172:15  error  Quotes around URLs are required                                                 url-quotes
+  176:15  error  Quotes around URLs are required                                                 url-quotes
+  180:15  error  Quotes around URLs are required                                                 url-quotes
+  184:15  error  Quotes around URLs are required                                                 url-quotes
+  188:15  error  Quotes around URLs are required                                                 url-quotes
+  192:15  error  Quotes around URLs are required                                                 url-quotes
+  196:15  error  Quotes around URLs are required                                                 url-quotes
+  311:11  error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
+  320:16  error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
+  324:10  error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
+  381:44  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
+  387:45  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
+  393:44  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
+  398:45  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
+  418:4   error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
+  423:4   error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
+  433:6   error  Nesting depth 4 greater than max of 3                                           nesting-depth
+  465:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -17,5 +36,10 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 10 problems (8 errors, 2 warnings)
+src/SimpleTable/SimpleTable.scss
+   82:34  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   88:34  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  118:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+
+✖ 32 problems (30 errors, 2 warnings)
 
