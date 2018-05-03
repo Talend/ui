@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import PieChartButton, {
 	decorateWithOverlay,
 	decorateWithTooltip,
@@ -84,6 +84,26 @@ describe('PieChartButton', () => {
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
+		it('should called refs methods', () => {
+			// given
+			const overlayComponent = <div className="fake-overlay" />;
+			// when
+			const myButtonRef = jest.fn();
+			const myOverlayRef = jest.fn();
+			mount(
+				<PieChartButton
+					display="medium"
+					labelIndex={2}
+					model={pieChartData}
+					overlayComponent={overlayComponent}
+					overlayId="id-popover"
+					buttonRef={myButtonRef}
+					overlayRef={myOverlayRef}
+				/>,
+			);
+			expect(myButtonRef).toHaveBeenCalled();
+			expect(myOverlayRef).toHaveBeenCalled();
+		});
 	});
 
 	describe('decorateWithOverlay', () => {
@@ -102,10 +122,23 @@ describe('PieChartButton', () => {
 			const overlayComponent = <div className="fake-overlay" />;
 			// when
 			const modified = decorateWithOverlay(btn, 'top', overlayComponent, 'id-test');
-
 			// then
 			expect(modified).not.toBe(btn);
 			expect(modified).toMatchSnapshot();
+		});
+		it('should trigger ref function', () => {
+			// given
+			const btn = <div className="fake-button-element" />;
+			const overlayComponent = <div className="fake-overlay" />;
+			// when
+			const myBindRef = jest.fn();
+			function OverlayCmp() {
+				return (
+					<div>{decorateWithOverlay(btn, 'top', overlayComponent, 'myDumbOverlay', myBindRef)}</div>
+				);
+			}
+			mount(<OverlayCmp />);
+			expect(myBindRef).toHaveBeenCalled();
 		});
 	});
 

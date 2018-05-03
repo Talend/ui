@@ -24,6 +24,7 @@ Object {
   "onTrigger": [Function],
   "other": true,
   "uiform": undefined,
+  "widgets": undefined,
 }
 `;
 
@@ -49,9 +50,10 @@ exports[`Container(Form) should render a Form 1`] = `
   language={undefined}
   onChange={[Function]}
   onSubmit={[Function]}
-  onTrigger={[Function]}
+  onTrigger={undefined}
   other={true}
   uiform={undefined}
+  widgets={undefined}
 />
 `;
 
@@ -69,16 +71,5 @@ Array [
     "data": undefined,
     "dirty": true,
   },
-]
-`;
-
-exports[`Container(Form) should use props.onTrigger 1`] = `
-Array [
-  Object {
-    "foo": "bar",
-  },
-  "my-form",
-  "key",
-  "value",
 ]
 `;

@@ -12,6 +12,10 @@
         "type": "string",
         "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
       },
+      "titleMapDatalist": {
+        "type": "string",
+        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      },
       "enumNamesDatalist": {
         "type": "string",
         "enum": [ "a", "p", "b", "c", "l", "g" ],
@@ -35,6 +39,38 @@
       "title": "Datalist with restricted options",
       "description": "This datalist does not allow other values than the possible choices",
       "widget": "datalist"
+    },
+    {
+      "key": "titleMapDatalist",
+      "title": "Datalist with custom titles",
+      "description": "This datalist have custom displayed titles, different from values",
+      "widget": "datalist",
+      "titleMap": [
+        {
+          "name": "My Apple",
+          "value": "Apple"
+        },
+        {
+          "name": "My Pineapple",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "My Banana",
+          "value": "Banana"
+        },
+        {
+          "name": "My Cherry",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "My Lemon",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "My Grapefruit",
+          "value": "Grapefruit"
+        }
+      ]
     },
     {
       "key": "enumNamesDatalist",

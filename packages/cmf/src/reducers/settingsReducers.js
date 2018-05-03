@@ -2,6 +2,7 @@
  * @module react-cmf/lib/reducers/settingsReducers
  */
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
+
 import get from 'lodash/get';
 import invariant from 'invariant';
 import * as ACTIONS from '../actions/settingsActions';
@@ -47,6 +48,7 @@ function prepareSettings({ views, props, ref, ...rest }) {
 	const settings = Object.assign({ props: {} }, { ...rest });
 	if (views) {
 		if (process.env.NODE_ENV === 'development') {
+			// eslint-disable-next-line no-console
 			console.warn('settings.view is deprecated, please use settings.props');
 		}
 		Object.keys(views).forEach(id => {
@@ -75,9 +77,9 @@ export function settingsReducers(state = defaultState, action) {
 		case ACTIONS.REQUEST_OK:
 			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
-			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
-			console.error(action.error); // eslint-disable-line
-			return Object.assign({}, state, { initialized: true }, action.settings);
+			// eslint-disable-next-line no-console
+			console.error(`Settings can't be loaded ${get(action, 'error.message')}`, action.error);
+			return state;
 		default:
 			return state;
 	}
