@@ -289,8 +289,8 @@ export default class SimpleTableRenderer extends Component {
 				onScroll={onScroll}
 				onClick={this.select}
 				onDoubleClick={this.revealConnectedElement}
-				onEnterElement={this.onEnterElement}
-				onLeaveElement={this.onLeaveElement}
+				onEnterRow={this.onEnterElement}
+				onLeaveRow={this.onLeaveElement}
 			/>
 		);
 	}

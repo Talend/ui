@@ -13,6 +13,7 @@ export default class ClassNameProvider {
 
   /**
   * Returns a classname for the header of the given column
+  * @param {string} columnKey - The key identifying a column.
   */
   getForHeader(columnKey) {
     return `simple-table-header-${columnKey}`;

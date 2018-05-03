@@ -48,13 +48,13 @@ export default class Row extends Component {
 		super(props);
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
-		this.updateElementRef = this.updateElementRef.bind(this);
+		this.updateRowRef = this.updateRowRef.bind(this);
 	}
 
 	componentDidMount() {
-		if (this.elementRef != null) {
-			this.elementRef.addEventListener('mouseenter', this.handleMouseEnter);
-			this.elementRef.addEventListener('mouseleave', this.handleMouseLeave);
+		if (this.rowRef != null) {
+			this.rowRef.addEventListener('mouseenter', this.handleMouseEnter);
+			this.rowRef.addEventListener('mouseleave', this.handleMouseLeave);
 		}
 	}
 
@@ -63,22 +63,22 @@ export default class Row extends Component {
 	}
 
 	componentWillUnmount() {
-		if (this.elementRef != null) {
-			this.elementRef.removeEventListener('mouseenter', this.handleMouseEnter);
-			this.elementRef.removeEventListener('mouseleave', this.handleMouseLeave);
+		if (this.rowRef != null) {
+			this.rowRef.removeEventListener('mouseenter', this.handleMouseEnter);
+			this.rowRef.removeEventListener('mouseleave', this.handleMouseLeave);
 		}
 	}
 
 	handleMouseEnter() {
-		this.props.onEnterElement(this.props.element);
+		this.props.onEnterRow(this.props.element);
 	}
 
 	handleMouseLeave() {
-		this.props.onLeaveElement(this.props.element);
+		this.props.onLeaveRow(this.props.element);
 	}
 
-	updateElementRef(ref) {
-		this.elementRef = ref;
+	updateRowRef(ref) {
+		this.rowRef = ref;
 	}
 
 	render() {
@@ -98,7 +98,7 @@ export default class Row extends Component {
 				className={`tr-body ${getRowClassName(classNameProvider, element)}`}
 				onClick={onClick}
 				onDoubleClick={onDoubleClick}
-				ref={this.updateElementRef}
+				ref={this.updateRowRef}
 				data-id={rowKey}
 			>
 				{columnKeys.map(key =>
@@ -117,6 +117,6 @@ Row.propTypes = {
 	rowRenderer: PropTypes.object,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,
-	onEnterElement: PropTypes.func,
-	onLeaveElement: PropTypes.func,
+	onEnterRow: PropTypes.func,
+	onLeaveRow: PropTypes.func,
 };

@@ -13,8 +13,8 @@ function renderRow(
 	rowRenderer,
 	onClick,
 	onDoubleClick,
-	onEnterElement,
-	onLeaveElement,
+	onEnterRow,
+	onLeaveRow,
 ) {
 	return (
 		<Row
@@ -26,8 +26,8 @@ function renderRow(
 			columnKeys={columnKeys}
 			rowDataGetter={rowDataGetter}
 			rowRenderer={rowRenderer}
-			onEnterElement={onEnterElement}
-			onLeaveElement={onLeaveElement}
+			onEnterRow={onEnterRow}
+			onLeaveRow={onLeaveRow}
 		/>
 	);
 }
@@ -63,7 +63,13 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 	);
 }
 
-function renderHeader(classNameProvider, rowDataGetter, headerRenderer, columnKeys, updateHeadNodeRef) {
+function renderHeader(
+	classNameProvider,
+	rowDataGetter,
+	headerRenderer,
+	columnKeys,
+	updateHeadNodeRef
+) {
 	if (headerRenderer) {
 		return (
 			<thead ref={updateHeadNodeRef}>
@@ -85,6 +91,8 @@ function renderHeader(classNameProvider, rowDataGetter, headerRenderer, columnKe
  * The rowDataGetter object provides the data for each element.
  * The columnKeys array provides the column keys. These keys are used to get the element data.
  * The rowRenderer object provides the components used to display the element data.
+ * The headerRenderer object provides the components used to display the table header.
+ * If the headerRenderer is null or undefined, no header is displayed.
  */
 export default class SimpleTable extends Component {
 
@@ -97,15 +105,15 @@ export default class SimpleTable extends Component {
 	}
 
 	updateTableNodeRef(ref) {
-		this.tableNode = ref
+		this.tableNode = ref;
 	}
 
 	updateBodyNodeRef(ref) {
-		this.bodyNode = ref
+		this.bodyNode = ref;
 	}
 
 	updateHeadNodeRef(ref) {
-		this.headNode = ref
+		this.headNode = ref;
 	}
 
 	updateContentNodeRef(ref) {
@@ -139,8 +147,8 @@ export default class SimpleTable extends Component {
 			onScroll,
 			onClick,
 			onDoubleClick,
-			onEnterElement,
-			onLeaveElement,
+			onEnterRow,
+			onLeaveRow,
 		} = this.props;
 		return (
 			<div
@@ -168,8 +176,8 @@ export default class SimpleTable extends Component {
 								rowRenderer,
 								onClick,
 								onDoubleClick,
-								onEnterElement,
-								onLeaveElement,
+								onEnterRow,
+								onLeaveRow,
 							),
 						)}
 					</tbody>
@@ -189,6 +197,6 @@ SimpleTable.propTypes = {
 	onScroll: PropTypes.func,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,
-	onEnterElement: PropTypes.func,
-	onLeaveElement: PropTypes.func,
+	onEnterRow: PropTypes.func,
+	onLeaveRow: PropTypes.func,
 };

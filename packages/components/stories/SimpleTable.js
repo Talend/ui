@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
 	SimpleTable,
 	ClassNameProvider,
@@ -12,7 +12,7 @@ import {
 	HeaderRenderer,
 	Cell,
 	DraggableComponent,
-	IconsProvider
+	IconsProvider,
 } from '../src/index';
 
 const dataPrepSchema = {
@@ -152,28 +152,13 @@ const salesForceAccountSchema = {
 	],
 };
 
-function randomInt(max) {
-	return Math.floor((Math.random() * max));
-}
-
-function randomType() {
-	const nbrOfTypes = types.length;
-	const index = randomInt(nbrOfTypes);
-	return types[index];
-}
-
 function buildElement(elem, index, types, descriptions) {
-	let type = null;
-	if (types) {
-		type = types[index];
-	} else {
-		type = randomType();
-	}
+	const type = types[index];
 	let description = null;
 	if (descriptions) {
 		description = descriptions[index];
 	} else {
-		description = `Description of ${elem}: `;
+		description = `Description of ${elem}: bla bla bla`;
 	}
 	return {
 		id: `${index}`,
@@ -206,9 +191,7 @@ const ColumnKey = {
 };
 
 const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE];
-const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
-const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE];
-const columnKeys4 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
+const columnKeys2 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
 
 const rowRenderer = new RowRenderer();
 const headerRenderer = new HeaderRenderer();
@@ -236,7 +219,7 @@ class DraggableRowRenderer extends RowRenderer {
 				canDrop(sourceItem, targetElement) {
 					return sourceItem.id !== targetElement.id;
 				},
-				drop(sourceItem, targetElement) {
+				drop() {
 				},
 				endDrag() {
 				},
@@ -290,7 +273,6 @@ class MyRowDataGetter {
 const classNameProvider = new ClassNameProvider();
 const rowDataGetter = new MyRowDataGetter();
 
-const emptyInitialState = {};
 const initialStateWithDnD = { draggable: true };
 
 class ConnectedSimpleTable extends React.Component {
@@ -298,8 +280,8 @@ class ConnectedSimpleTable extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = props.initialState;
-		this.onEnterElement = this.onEnterElement.bind(this);
-		this.onLeaveElement = this.onLeaveElement.bind(this);
+		this.onEnterRow = this.onEnterRow.bind(this);
+		this.onLeaveRow = this.onLeaveRow.bind(this);
 	}
 
 	getForTable() {
@@ -326,13 +308,13 @@ class ConnectedSimpleTable extends React.Component {
     return `simple-table-row-data-${columnKey}`;
   }
 
-	onEnterElement(element) {
+	onEnterRow(element) {
 		this.setState({
 			highlighted: element,
 		});
 	}
 
-	onLeaveElement(element) {
+	onLeaveRow(element) {
 		this.setState({
 			highlighted: null,
 		});
@@ -342,9 +324,6 @@ class ConnectedSimpleTable extends React.Component {
 		const {
 			elements,
 			columnKeys,
-			rowDataGetter,
-			rowRenderer,
-			headerRenderer,
 			onScroll,
 			onClick,
 			onDoubleClick,
@@ -355,18 +334,27 @@ class ConnectedSimpleTable extends React.Component {
 	      columnKeys={columnKeys}
 	      classNameProvider={this}
 	      rowDataGetter={rowDataGetter}
-	      rowRenderer={rowRenderer}
+	      rowRenderer={draggableRowRenderer}
 				headerRenderer={headerRenderer}
 	      onScroll={onScroll}
 	      onClick={onClick}
 	      onDoubleClick={onDoubleClick}
-	      onEnterElement={this.onEnterElement}
-	      onLeaveElement={this.onLeaveElement}
+	      onEnterRow={this.onEnterRow}
+	      onLeaveRow={this.onLeaveRow}
 			/>
 		);
 	}
 
 }
+
+ConnectedSimpleTable.propTypes = {
+	initialState: PropTypes.object,
+	elements: PropTypes.array,
+	columnKeys: PropTypes.array,
+	onScroll: PropTypes.func,
+	onClick: PropTypes.func,
+	onDoubleClick: PropTypes.func,
+};
 
 const SimpleTableWithDND = DragDropContext(HTML5Backend)(ConnectedSimpleTable);
 
@@ -377,14 +365,14 @@ if (!stories.addWithInfo) {
 
 stories
 	.addDecorator(story => (
-		<div id="simple-table-main-container">
+		<div id="simple-table-container">
 			<IconsProvider />
 			{story()}
 		</div>
 	))
 	.addWithInfo('Simple Table', () => {
 		return (
-			<div className="simple-table-container-1" >
+			<div>
 				<SimpleTable
 				  elements={schema1.elements}
 		      columnKeys={columnKeys1}
@@ -394,22 +382,19 @@ stories
 		      onScroll={action('onScroll called!')}
 		      onClick={action('onClick called!')}
 		      onDoubleClick={action('onDoubleClick called!')}
-					onEnterElement={action('onEnterElement called!')}
-					onLeaveElement={action('onLeaveElement called!')}
+					onEnterRow={action('onEnterRow called!')}
+					onLeaveRow={action('onLeaveRow called!')}
 				/>
 			</div>
 		);
 	})
 	.addWithInfo('Simple Table with header and dnd', () => {
 		return (
-			<div className="simple-table-container-2" >
+			<div>
 				<SimpleTableWithDND
 					initialState={initialStateWithDnD}
 					elements={schema2.elements}
-					columnKeys={columnKeys4}
-					rowDataGetter={rowDataGetter}
-					rowRenderer={draggableRowRenderer}
-					headerRenderer={headerRenderer}
+					columnKeys={columnKeys2}
 					onScroll={action('onScroll called!')}
 					onClick={action('onClick called!')}
 					onDoubleClick={action('onDoubleClick called!')}

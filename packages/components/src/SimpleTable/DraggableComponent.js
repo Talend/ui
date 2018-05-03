@@ -34,12 +34,14 @@ export default function getDraggable(Comp) {
   function collectForDragSource(connect, monitor) {
   	return {
   		connectDragSource: connect.dragSource(),
+      isDragging: monitor.isDragging(),
   	};
   }
 
   function collectForDropTarget(connect, monitor) {
   	return {
   		connectDropTarget: connect.dropTarget(),
+      dragOver: monitor.isOver(),
   	};
   }
 
@@ -51,17 +53,21 @@ export default function getDraggable(Comp) {
         data,
   			className,
         extra,
+        isDragging,
+        dragOver,
         connectDragSource,
         connectDropTarget,
   		} = this.props;
   		return connectDragSource(
   			connectDropTarget(
-  				<div>
+  				<div className="draggable-component">
   					<Comp
               element={element}
               data={data}
               className={className}
               extra={extra}
+              isDragging={isDragging}
+              dragOver={dragOver}
   					/>
   				</div>,
   			),
@@ -69,6 +75,17 @@ export default function getDraggable(Comp) {
   	}
 
   }
+
+  DraggableComponent.propTypes = {
+    element: PropTypes.object,
+  	data: PropTypes.string,
+  	className: PropTypes.string,
+    extra: PropTypes.object,
+    isDragging: PropTypes.bool,
+    dragOver: PropTypes.bool,
+    connectDragSource: PropTypes.func,
+    connectDropTarget: PropTypes.func,
+  };
 
   return flow(
   	DragSource(DRAGGABLE_ELEMENT_TYPE, elementSource, collectForDragSource),
