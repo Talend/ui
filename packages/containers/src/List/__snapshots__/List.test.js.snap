@@ -379,7 +379,6 @@ Object {
     "actionBar": Object {
       "actions": Object {},
       "multiSelectActions": Object {},
-      "selected": 0,
     },
     "display": Object {
       "displayModes": Array [

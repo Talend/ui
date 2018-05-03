@@ -185,11 +185,6 @@ class List extends React.Component {
 			props.list.itemProps = {};
 		}
 
-		if (props.multiSelectActions && props.multiSelectionKey) {
-			props.list.itemProps.onToggle = this.onToggleMultiSelection;
-			props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
-			props.list.itemProps.isSelected = this.isSelected;
-		}
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
@@ -237,12 +232,24 @@ class List extends React.Component {
 				props.toolbar.filter.docked = state.filterDocked;
 				props.toolbar.filter.value = state.searchQuery;
 			}
-			// setting the number of selected items
-			props.toolbar.actionBar = {
-				actions: {},
-				multiSelectActions: {},
-				selected: state.selectedItems.length,
-			};
+
+			props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
+
+			// settings up multi selection
+			if (props.multiSelectActions && props.multiSelectionKey) {
+				props.list.itemProps.onToggle = this.onToggleMultiSelection;
+				props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
+				props.list.itemProps.isSelected = this.isSelected;
+				// selectedItems is part of the default state
+				// but host app can override it so
+				if (!state.selectedItems) {
+					this.props.setState({
+						selectedItems: [],
+					});
+				}
+				props.toolbar.actionBar.selected = state.selectedItems.length;
+			}
+
 			const actions = this.props.actions;
 			const multiSelectActions = this.props.multiSelectActions;
 			if (multiSelectActions) {
