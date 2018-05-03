@@ -1,11 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider, store } from '@talend/react-cmf/lib/mock';
-import { Map } from 'immutable';
+import { shallow } from 'enzyme';
+import mock from '@talend/react-cmf/lib/mock';
 
-import App from './App.container';
-
-jest.mock('react-dom');
+import App from './App.component';
 
 describe('App container', () => {
 	/**
@@ -17,16 +14,13 @@ describe('App container', () => {
 	it('should render', () => {
 		// given
 		// get the CMF state mock and inject your mock in it
-		const state = store.state();
-		state.cmf.components = new Map();
+		const context = mock.context();
 
 		// when
 		// wrap your container with CMF Provider mock, injecting your state mock
-		const wrapper = renderer.create(
-			<Provider state={state}>
-				<App />
-			</Provider>,
-		).toJSON();
+		const wrapper = shallow(
+			<App />
+		, { context });
 
 		// then
 		expect(wrapper).toMatchSnapshot();
