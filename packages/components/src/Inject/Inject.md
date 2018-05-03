@@ -1,9 +1,17 @@
 # **INJECT**
+> i think the following doc should be split in four main topics
+> 1. general concept with simple example
+> 2. How to use a component that implement these features
+> 3. How to create a component that support these features
+> 4. How it work
+
+> and instead of starting with technical stuff such as api, start with a problem and how to solve it, ex: create a component with a default renderer but that should be customizable
 
 With the Inject components you can instanciate any component anywhere. This allows a great flexibility in your component design.
 
 The concept is to let you add `slot` in your component so from the outside a user may
 inject in a controlled way some other components.
+> could use a drawing here
 
 # How to customize components as a user
 
@@ -21,10 +29,15 @@ const props = {
 };
 return <MyCustomizableComponent components={components} />;
 ```
+> the concept of slot is often mentionned in the doc but not visible in the configuration or code
 
 The most important here is to understand the structure of the components props.
 The attributes keys are the `slot` key which is exposed in the component documentation.
 The value should always be an Array of Object.
+
+> shouldn't it be `The value should always be an Object or  an Array of Object.`
+
+> exhaustive description of said object should be given or linked from here, maybe change object to something with more semantic value ?
 
 Each object should have the component key which is the string of the registred Component.
 The mecanism inside is to call the props.getComponent function with this component key as only argument.
@@ -32,11 +45,13 @@ The mecanism inside is to call the props.getComponent function with this compone
 All other will attributes of this object will be pass as props of the given components.
 
 ```js
-<Action label="LabelACtion1" icon="IconAction1 />
+<Action label="LabelACtion1" icon="IconAction1" />
 ```
+> the above example need to be improved wich inject config result in this
 
 Good practice: If you are using CMF you can use `componentId` props in combination here to then use
 props['Action#componentId'] in the settings.
+> can use an example
 
 # How to create a customizable components
 
@@ -61,6 +76,7 @@ function Example({ getComponent, components, children }) {
 	);
 }
 ```
+> A more concrete example would be great with component mockup
 
 could use some more information geared toward the component user like "before-something" is the slot name in which you wish to inject a component, you can find those in the component documentation.
 
@@ -108,6 +124,7 @@ function MyUse() {
 In this case Action will not be wrapped but WhatEver will be.
 
 # How it works
+> how it works should be burried at the end of the documentation, because the average user should never need to know how it work, but how to use it
 
 The Inject component looks like this
 
@@ -139,6 +156,8 @@ function Example({ getComponent, actionProps, filterProps }) {
 	</div>;
 }
 ```
+> i am not sure why we give as props a list of component and a function to find component
+
 
 If you used cmfConnect in your component, the getComponent props will automatically valorised with the api.get.component \( it is the default accessor to the cmf registry\). If a component is not found it will return a NotFoundComponent that allows a displayed feedback.
 
@@ -153,6 +172,9 @@ Inject.map = function injectMap(getComponent, array) {
 	return array.map(props => <Inject getComponent={getComponent} {...props} />);
 };
 ```
+> should'nt it be `components` instead of `array` parameter ?
+
+> naive implem example should be removed
 
 This function is quite simple, same as before, we have getComponent, and an array of component, it need to have a shape describe at the bottom.
 
@@ -164,7 +186,7 @@ const array = [
 	{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
 ];
 ```
-
+> components ?
 ```js
 function Example({ getComponent, components }) {
 	return <div>{Inject.map(getComponent, components)}</div>;
@@ -189,6 +211,7 @@ const inject = Inject.all(getComponent, components);
 }
 // retun <Action nowrap />
 ```
+> this is not javascript here confusing
 
 This function helps to instanciate a all bunch of components.
 You can pass specific props when you insert the injected component.
@@ -215,6 +238,7 @@ Like always getComponent is the function accessor to the component.
 ComponentId is the component id or name of the desired component. Component is the react component as function.
 
 The function will try to return the component associate to the componentId by using the getComponent function, if not found it will return the Component. It's a safe function used to be sure that you will get a component.
+> if it is the component is not found it return the component, if it is not found how can it be return ? shoudl rename component in signature by defaultComponent, should be updated in the doc to
 
 It's a perfect use to replace older component and be sure to not break something.
 
@@ -233,6 +257,7 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 Inject.getAll is based on Inject.get, it just changed a parameters to allow to add multiple component.
 
 { Action, ActionDropdown: 'MySpecialActionDropdown' }
+> not javascript, im lost
 
 For the first case we will have the component Action directly.
 
