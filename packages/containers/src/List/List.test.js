@@ -123,13 +123,6 @@ describe('Container List', () => {
 		expect(props).toMatchSnapshot();
 	});
 
-	it('should put default props', () => {
-		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />, {
-			lifecycleExperimental: true,
-		});
-		const props = wrapper.props();
-	});
-
 	it('should render without toolbar', () => {
 		const wrapper = shallow(<Container items={items} />, { lifecycleExperimental: true });
 		const props = wrapper.props();
@@ -334,7 +327,7 @@ describe('Container List', () => {
 				lifecycleExperimental: true,
 			});
 			// when
-			const props = wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [1] });
 		});
@@ -353,7 +346,7 @@ describe('Container List', () => {
 				lifecycleExperimental: true,
 			});
 			// when
-			const props = wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [] });
 		});
@@ -371,7 +364,7 @@ describe('Container List', () => {
 				lifecycleExperimental: true,
 			});
 			// when
-			const props = wrapper.instance().onToggleAllMultiSelection();
+			wrapper.instance().onToggleAllMultiSelection();
 			// then
 			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [1, 2, 3] });
 		});
@@ -390,7 +383,7 @@ describe('Container List', () => {
 				lifecycleExperimental: true,
 			});
 			// when
-			const props = wrapper.instance().onToggleAllMultiSelection();
+			wrapper.instance().onToggleAllMultiSelection();
 			// then
 			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [] });
 		});
