@@ -116,6 +116,7 @@ export default function bootstrap(unSafeOptions) {
 	const appId = options.appId || 'app';
 	const saga = bootstrapSaga(options);
 
+	const history = options.history || hashHistory;
 	if (options.history) {
 		storeAPI.setRouterMiddleware(routerMiddleware(options.history));
 	}
@@ -127,7 +128,7 @@ export default function bootstrap(unSafeOptions) {
 			render(
 				<App
 					store={store}
-					history={syncHistoryWithStore(options.history, store)}
+					history={syncHistoryWithStore(history, store)}
 					loading={options.AppLoader}
 				/>,
 				document.getElementById(appId),
