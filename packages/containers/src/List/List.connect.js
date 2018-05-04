@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { List } from 'immutable';
-import { cmfConnect } from '@talend/react-cmf';
+import { api, cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import {
 	configureGetFilteredItems,
@@ -32,6 +32,19 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 	};
 	if (ownProps.list) {
 		config.columns = ownProps.list.columns;
+
+		if (ownProps.selectedIdPath) {
+			const isActive = item =>
+				item.id === api.selectors.collections.get(state, ownProps.selectedIdPath);
+			props.list = {
+				...ownProps.list,
+				...api.expression.mapStateToProps(state, ownProps.list),
+				itemProps: {
+					...ownProps.list.itemProps,
+					isActive,
+				},
+			};
+		}
 	}
 
 	props.items = getItems(state, config);
