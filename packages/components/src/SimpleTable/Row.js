@@ -5,7 +5,7 @@ import Cell from './Cell';
 export function getRowId(rowDataGetter, element) {
 	if (rowDataGetter && rowDataGetter.getId) {
 		return rowDataGetter.getId(element);
-	} else if (element.id && (typeof element.id === 'string')) {
+	} else if (element.id && typeof element.id === 'string') {
 		return element.id;
 	}
 	return 'undefined-id';

@@ -29,10 +29,9 @@ function wrapInTestContext(DecoratedComponent) {
 const draggableCell = DraggableComponent(Cell);
 
 /**
-* This tests the drag and drop of the element1 onto the element2.
-*/
+ * This tests the drag and drop of the element1 onto the element2.
+ */
 it('drag-and-drop-on-simple-table', () => {
-
 	const dndListener = {
 		beginDrag: jest.fn().mockReturnValue(TestData.element1),
 		canDrop: jest.fn().mockReturnValue(true),
@@ -108,5 +107,4 @@ it('drag-and-drop-on-simple-table', () => {
 	backend.simulateEndDrag();
 
 	expect(dndListener.endDrag).toBeCalled();
-
 });

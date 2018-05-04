@@ -4,8 +4,8 @@ import Row from './Row';
 import * as TestData from './TestData';
 
 /**
-* Render a single row
-*/
+ * Render a single row
+ */
 it('single-row', () => {
 	// create React tree
 	const tree = renderer
