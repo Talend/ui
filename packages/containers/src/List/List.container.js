@@ -114,12 +114,6 @@ class List extends React.Component {
 		this.props.setState({ displayMode: payload });
 	}
 
-	getGenericDispatcher(property) {
-		return (event, data) => {
-			this.props.dispatchActionCreator(property, event, data, this.context);
-		};
-	}
-
 	onToggleMultiSelection(event, data) {
 		const state = this.props.state.toJS();
 		let selectedItems = [].concat(state.selectedItems);
@@ -147,6 +141,12 @@ class List extends React.Component {
 				selectedItems: [],
 			});
 		}
+	}
+
+	getGenericDispatcher(property) {
+		return (event, data) => {
+			this.props.dispatchActionCreator(property, event, data, this.context);
+		};
 	}
 
 	isSelected(item) {
