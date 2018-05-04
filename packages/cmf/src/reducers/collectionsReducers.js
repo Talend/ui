@@ -3,7 +3,7 @@
  */
 import { Map, List, fromJS } from 'immutable';
 import invariant from 'invariant';
-import ACTIONS from '../actions';
+import CONSTANTS from '../constant';
 
 export const defaultState = new Map();
 
@@ -148,9 +148,9 @@ function mutateCollection(state, action) {
  */
 function collectionsReducers(state = defaultState, action) {
 	switch (action.type) {
-		case ACTIONS.collections.COLLECTION_ADD_OR_REPLACE:
+		case CONSTANTS.COLLECTION_ADD_OR_REPLACE:
 			return state.set(action.collectionId, fromJS(action.data));
-		case ACTIONS.collections.COLLECTION_REMOVE:
+		case CONSTANTS.COLLECTION_REMOVE:
 			if (!state.get(action.collectionId)) {
 				invariant(
 					process.env.NODE_ENV === 'production',
@@ -159,7 +159,7 @@ function collectionsReducers(state = defaultState, action) {
 				return state;
 			}
 			return state.delete(action.collectionId);
-		case ACTIONS.collections.COLLECTION_MUTATE:
+		case CONSTANTS.COLLECTION_MUTATE:
 			return mutateCollection(state, action);
 		default:
 			return state;
