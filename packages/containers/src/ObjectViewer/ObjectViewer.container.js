@@ -84,9 +84,7 @@ class ObjectViewer extends React.Component {
 	}
 
 	onChange(event, data) {
-		this.props.setState(prevState =>
-			change(data.jsonpath, prevState.state, event.target.value),
-		);
+		this.props.setState(prevState => change(data.jsonpath, prevState.state, event.target.value));
 	}
 
 	onSelect(event, data) {
