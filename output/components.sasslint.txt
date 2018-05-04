@@ -39,7 +39,7 @@ src/FilterBar/FilterBar.scss
 src/SimpleTable/SimpleTable.scss
    82:34  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
    88:34  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  124:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  123:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
 
 ✖ 32 problems (30 errors, 2 warnings)
 
