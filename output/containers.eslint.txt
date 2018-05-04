@@ -8,13 +8,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   117:2  error  getGenericDispatcher should be placed after onToggleAllMultiSelection  react/sort-comp
 
-/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
-  130:9   error  'props' is assigned a value but never used  no-unused-vars
-  337:10  error  'props' is assigned a value but never used  no-unused-vars
-  356:10  error  'props' is assigned a value but never used  no-unused-vars
-  374:10  error  'props' is assigned a value but never used  no-unused-vars
-  393:10  error  'props' is assigned a value but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
@@ -27,5 +20,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 11 problems (11 errors, 0 warnings)
+✖ 6 problems (6 errors, 0 warnings)
 
