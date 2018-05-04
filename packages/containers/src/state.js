@@ -1,4 +1,4 @@
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 /* eslint-disable no-console */
 console.warn(`DEPRECATION WARNING: import state, {} from '@talend/react-containers'; is deprecated.

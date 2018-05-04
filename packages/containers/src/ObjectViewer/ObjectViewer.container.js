@@ -4,7 +4,7 @@ import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
 import { ObjectViewer as Component } from '@talend/react-components';
-import { componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	edited: new List(), // Array of JSONPath
@@ -64,7 +64,7 @@ class ObjectViewer extends React.Component {
 		data: get(Component, 'propTypes.data', PropTypes.any),
 		displayMode: get(Component, 'propTypes.displayMode', PropTypes.func),
 		onSubmit: get(Component, 'propTypes.onSubmit', PropTypes.func),
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 
 	constructor(props) {
