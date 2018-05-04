@@ -7,5 +7,10 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+src/SimpleTable/SimpleTable.scss
+   82:34  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   88:34  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  123:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+
+✖ 5 problems (3 errors, 2 warnings)
 

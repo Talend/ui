@@ -21,11 +21,62 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/ClassNameProvider.js
+   9:13  error  Expected 'this' to be used by class method 'getForTable'    class-methods-use-this
+  17:14  error  Expected 'this' to be used by class method 'getForHeader'   class-methods-use-this
+  25:11  error  Expected 'this' to be used by class method 'getForRow'      class-methods-use-this
+  25:12  error  'element' is defined but never used                         no-unused-vars
+  34:15  error  Expected 'this' to be used by class method 'getForRowData'  class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/DraggableComponent.js
+  88:3  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  89:3  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/DraggableComponent.test.js
+  7:23  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/HeaderRenderer.js
+  12:20  error  Expected 'this' to be used by class method 'getHeaderComponent'  class-methods-use-this
+  12:21  error  'columnKey' is defined but never used                            no-unused-vars
+  20:15  error  Expected 'this' to be used by class method 'getExtraProps'       class-methods-use-this
+  20:16  error  'columnKey' is defined but never used                            no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/Row.js
+  130:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/RowDataGetter.js
+  10:7   error  Expected 'this' to be used by class method 'getId'          class-methods-use-this
+  19:15  error  Expected 'this' to be used by class method 'getHeaderData'  class-methods-use-this
+  28:12  error  Expected 'this' to be used by class method 'getRowData'     class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/RowRenderer.js
+  13:15  error  Expected 'this' to be used by class method 'needRowUpdate'     class-methods-use-this
+  13:16  error  'props' is defined but never used                              no-unused-vars
+  21:18  error  Expected 'this' to be used by class method 'getCellComponent'  class-methods-use-this
+  21:19  error  'columnKey' is defined but never used                          no-unused-vars
+  29:15  error  Expected 'this' to be used by class method 'getExtraProps'     class-methods-use-this
+  29:16  error  'columnKey' is defined but never used                          no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/SimpleTable.js
+  124:2  error  updateTableNodeRef should be placed after getContentNode  react/sort-comp
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/SimpleTableWithDnD.test.js
+  20:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  21:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+  29:23  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/components/src/SimpleTable/TestData.js
+  63:16  error  'props' is defined but never used      no-unused-vars
+  66:19  error  'columnKey' is defined but never used  no-unused-vars
+  69:16  error  'columnKey' is defined but never used  no-unused-vars
+  75:21  error  'columnKey' is defined but never used  no-unused-vars
+  78:16  error  'columnKey' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   44:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 42 problems (41 errors, 1 warning)
 
