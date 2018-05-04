@@ -59,7 +59,7 @@ function deleteMapElements(state, action) {
 	if (action.operations.delete.some(id => collection.has(id))) {
 		const changedCollection = action.operations.delete.reduce(
 			(collectionAccu, element) => collectionAccu.delete(element),
-			collection
+			collection,
 		);
 		return state.set(action.id, changedCollection);
 	}
@@ -90,9 +90,7 @@ function deleteCollectionElement(state, action) {
 function updateListElements(state, action) {
 	const updates = action.operations.update;
 
-	const changedCollection = state
-		.get(action.id)
-		.map(element => updates[getId(element)] || element);
+	const changedCollection = state.get(action.id).map(element => updates[getId(element)] || element);
 	return state.set(action.id, changedCollection);
 }
 
@@ -100,7 +98,7 @@ function updateMapElements(state, action) {
 	const updates = action.operations.update;
 	const changedCollection = Object.keys(updates).reduce(
 		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
-		state.get(action.id)
+		state.get(action.id),
 	);
 	return state.set(action.id, changedCollection);
 }

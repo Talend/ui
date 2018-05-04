@@ -4,11 +4,7 @@
 import CONSTANTS from '../constant';
 
 // keep backward compatibility
-export const {
-	COLLECTION_ADD_OR_REPLACE,
-	COLLECTION_REMOVE,
-	COLLECTION_MUTATE,
-} = CONSTANTS;
+export const { COLLECTION_ADD_OR_REPLACE, COLLECTION_REMOVE, COLLECTION_MUTATE } = CONSTANTS;
 
 /**
  * Add or replace collection data in store

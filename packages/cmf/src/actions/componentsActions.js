@@ -4,11 +4,7 @@
 import CONSTANTS from '../constant';
 
 // keep backward compatibility
-export const {
-	COMPONENT_ADD_STATE,
-	COMPONENT_MERGE_STATE,
-	COMPONENT_REMOVE_STATE,
-} = CONSTANTS;
+export const { COMPONENT_ADD_STATE, COMPONENT_MERGE_STATE, COMPONENT_REMOVE_STATE } = CONSTANTS;
 
 /**
  * add a new component state with optional initialComponentState to the store

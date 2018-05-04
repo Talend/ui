@@ -7,11 +7,7 @@ import http from './http';
 import CONSTANTS from '../constant';
 
 // keep backward compatibility
-export const {
-	REQUEST_OK,
-	REQUEST_KO,
-	REQUEST_SETTINGS,
-} = CONSTANTS;
+export const { REQUEST_OK, REQUEST_KO, REQUEST_SETTINGS } = CONSTANTS;
 
 export function requestSettings() {
 	return {
