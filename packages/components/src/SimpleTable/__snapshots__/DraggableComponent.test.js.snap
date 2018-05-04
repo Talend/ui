@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`draggable-cell 1`] = `
+<div
+  className="draggable-component"
+>
+  <div
+    className="comp-cell classname-of-elem_1"
+  >
+    element 1
+  </div>
+</div>
+`;

@@ -38,6 +38,15 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
+import {
+	SimpleTable,
+	ClassNameProvider,
+	RowRenderer,
+	HeaderRenderer,
+	Cell,
+	Header,
+	DraggableComponent,
+} from './SimpleTable';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -155,6 +164,13 @@ export {
 	ObjectViewer,
 	Progress,
 	SidePanel,
+	SimpleTable,
+	ClassNameProvider,
+	RowRenderer,
+	HeaderRenderer,
+	Cell,
+	Header,
+	DraggableComponent,
 	Status,
 	SubHeaderBar,
 	TabBar,

@@ -32,6 +32,7 @@ import './ObjectViewer';
 import './PieChartButton';
 import './Progress';
 import './SidePanel';
+import './SimpleTable';
 import './Slider';
 import './Skeleton';
 import './Status';

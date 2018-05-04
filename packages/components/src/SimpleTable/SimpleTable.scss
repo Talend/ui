@@ -1,0 +1,135 @@
+:global {
+	#simple-table-container {
+		&,
+		> div,
+		> div > div {
+			display: flex;
+			justify-content: center;
+			width: 100vw;
+		}
+	}
+
+	.simple-table {
+		margin: 4px;
+		padding: 4px;
+	}
+
+	.simple-table-row {
+		height: 25px;
+		background-color: #fff;
+	}
+
+	.simple-table-row-data-type {
+		font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+		font-size: 0.9em;
+		min-width: 100px;
+		float: right;
+		text-align: right;
+		color: #66bdff;
+	}
+
+	.simple-table-row-data-desc {
+		color: #aaa;
+		font-style: italic;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		padding: 2px;
+	}
+
+	.highlighted {
+		background-color: #f2f2f2;
+	}
+
+	.draggable-table {
+		width: 600px;
+		height: 300px;
+		padding: 0;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		margin: 0;
+		margin-top: 2px;
+		margin-bottom: 2px;
+		position: relative;
+	}
+
+	.draggable-table .simple-table-row-data-type {
+		text-align: left;
+	}
+
+	.simple-table.draggable-table table {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	.simple-table.draggable-table thead {
+		display: block;
+		width: 100%;
+		height: 30px;
+	}
+
+	.simple-table.draggable-table tbody {
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		width: 100%;
+		height: 100%;
+	}
+
+	.simple-table.draggable-table tr.tr-head {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.simple-table.draggable-table tr.tr-body {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.simple-table.draggable-table tr {
+		td:nth-child(1),
+		th:nth-child(1) {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
+			width: 150px;
+		}
+		td:nth-child(2),
+		th:nth-child(2) {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
+			width: 100px;
+		}
+		td:nth-child(3),
+		th:nth-child(3) {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
+		}
+	}
+
+	.draggable-table table {
+		overflow: hidden;
+		tr {
+			&.draggable {
+				cursor: grab;
+				td:first-child {
+					position: relative;
+					div[draggable='true']:before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						content: '';
+						width: 100vw;
+					}
+				}
+			}
+		}
+	}
+}
