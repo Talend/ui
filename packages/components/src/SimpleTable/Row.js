@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Cell from './Cell';
+
+export function getRowId(rowDataGetter, element) {
+	if (rowDataGetter && rowDataGetter.getId) {
+		return rowDataGetter.getId(element);
+	} else if (element.id && typeof element.id === 'string') {
+		return element.id;
+	}
+	return 'undefined-id';
+}
 
 function getRowDataClassName(classNameProvider, element, columnKey) {
 	if (classNameProvider && classNameProvider.getForRowData) {
@@ -8,15 +18,38 @@ function getRowDataClassName(classNameProvider, element, columnKey) {
 	return `simple-table-row-data-${columnKey}`;
 }
 
+function getCellComponent(rowRenderer, columnKey) {
+	if (rowRenderer && rowRenderer.getCellComponent) {
+		return rowRenderer.getCellComponent(columnKey);
+	}
+	return Cell;
+}
+
+function getCellComponentExtraProps(rowRenderer, columnKey) {
+	if (rowRenderer && rowRenderer.getExtraProps) {
+		return rowRenderer.getExtraProps(columnKey);
+	}
+	return null;
+}
+
+function getRowData(rowDataGetter, element, columnKey) {
+	if (rowDataGetter && rowDataGetter.getRowData) {
+		return rowDataGetter.getRowData(element, columnKey);
+	} else if (element && element[columnKey]) {
+		return element[columnKey];
+	}
+	return null;
+}
+
 /**
  * This function is responsible for rendering a piece of data for an element.
  */
 function renderRowData(element, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
-	const CellComponent = rowRenderer.getCellComponent(columnKey);
-	const data = rowDataGetter.getRowData(element, columnKey);
+	const CellComponent = getCellComponent(rowRenderer, columnKey);
+	const data = getRowData(rowDataGetter, element, columnKey);
 	const className = getRowDataClassName(classNameProvider, element, columnKey);
-	const extraProps = rowRenderer.getExtraProps(columnKey);
-	const compKey = `${rowDataGetter.getId(element)}-${columnKey}`;
+	const extraProps = getCellComponentExtraProps(rowRenderer, columnKey);
+	const compKey = `${getRowId(rowDataGetter, element)}-${columnKey}`;
 	return (
 		<td key={`td-${compKey}`}>
 			<CellComponent
@@ -57,7 +90,10 @@ export default class Row extends Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		return this.props.rowRenderer.needRowUpdate(nextProps);
+		if (this.props.rowRenderer && this.props.rowRenderer.needRowUpdate) {
+			return this.props.rowRenderer.needRowUpdate(nextProps);
+		}
+		return true;
 	}
 
 	componentWillUnmount() {
@@ -89,7 +125,7 @@ export default class Row extends Component {
 			onClick,
 			onDoubleClick,
 		} = this.props;
-		const rowKey = rowDataGetter.getId(element);
+		const rowKey = getRowId(rowDataGetter, element);
 		return (
 			<tr
 				key={rowKey}

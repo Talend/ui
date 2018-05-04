@@ -285,6 +285,7 @@ export default class SimpleTableRenderer extends Component {
 				columnKeys={columnKeys}
 				rowDataGetter={this.rowDataGetter}
 				rowRenderer={this.rowRenderer}
+				withHeader={true}
 				headerRenderer={this.headerRenderer}
 				onScroll={onScroll}
 				onClick={this.select}

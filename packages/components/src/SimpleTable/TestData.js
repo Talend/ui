@@ -5,14 +5,14 @@ export const element1 = {
 	id: 'elem_1',
 	name: 'element 1',
 	type: 'string',
-	description: 'Description of element 1',
+	desc: 'Description of element 1',
 };
 
 export const element2 = {
 	id: 'elem_2',
 	name: 'element 2',
 	type: 'string',
-	description: 'This element is a string',
+	desc: 'This element is a string',
 };
 
 export const KEYS = {
@@ -52,7 +52,7 @@ export const rowDataGetter = {
 			case KEYS.TYPE:
 				return element.type;
 			case KEYS.DESC:
-				return element.description;
+				return element.desc;
 			default:
 				return `No data available for ${columnKey}`;
 		}

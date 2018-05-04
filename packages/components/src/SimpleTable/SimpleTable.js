@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Row from './Row.js';
+import Row, { getRowId } from './Row.js';
+import Header from './Header';
 
 /**
  * This function is responsible for rendering an element in the table.
@@ -18,7 +19,7 @@ function renderRow(
 ) {
 	return (
 		<Row
-			key={rowDataGetter.getId(element)}
+			key={getRowId(rowDataGetter, element)}
 			element={element}
 			onClick={onClick}
 			onDoubleClick={onDoubleClick}
@@ -46,10 +47,31 @@ function getHeaderClassName(classNameProvider, columnKey) {
 	return columnKey;
 }
 
+function getHeaderData(rowDataGetter, columnKey) {
+	if (rowDataGetter && rowDataGetter.getHeaderData) {
+		return rowDataGetter.getHeaderData(columnKey);
+	}
+	return columnKey;
+}
+
+function getHeaderComponent(headerRenderer, columnKey) {
+	if (headerRenderer && headerRenderer.getHeaderComponent) {
+		return headerRenderer.getHeaderComponent(columnKey);
+	}
+	return Header;
+}
+
+function getHeaderExtraProps(headerRenderer, columnKey) {
+	if (headerRenderer && headerRenderer.getExtraProps) {
+		return headerRenderer.getExtraProps(columnKey);
+	}
+	return null;
+}
+
 function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, columnKey) {
-	const HeaderComponent = headerRenderer.getHeaderComponent(columnKey);
-	const data = rowDataGetter.getHeaderData(columnKey);
-	const extraProps = headerRenderer.getExtraProps(columnKey);
+	const HeaderComponent = getHeaderComponent(headerRenderer, columnKey);
+	const data = getHeaderData(rowDataGetter, columnKey);
+	const extraProps = getHeaderExtraProps(headerRenderer, columnKey);
 	const className = getHeaderClassName(classNameProvider, columnKey);
 	return (
 		<th key={`th-${columnKey}`}>
@@ -61,11 +83,12 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 function renderHeader(
 	classNameProvider,
 	rowDataGetter,
+	withHeader,
 	headerRenderer,
 	columnKeys,
 	updateHeadNodeRef,
 ) {
-	if (headerRenderer) {
+	if (withHeader) {
 		return (
 			<thead ref={updateHeadNodeRef}>
 				<tr className="tr-head">
@@ -137,6 +160,7 @@ export default class SimpleTable extends Component {
 			columnKeys,
 			rowDataGetter,
 			rowRenderer,
+			withHeader,
 			headerRenderer,
 			onScroll,
 			onClick,
@@ -150,6 +174,7 @@ export default class SimpleTable extends Component {
 					{renderHeader(
 						classNameProvider,
 						rowDataGetter,
+						withHeader,
 						headerRenderer,
 						columnKeys,
 						this.updateHeadNodeRef,
@@ -181,6 +206,7 @@ SimpleTable.propTypes = {
 	columnKeys: PropTypes.array,
 	rowDataGetter: PropTypes.object,
 	rowRenderer: PropTypes.object,
+	withHeader: PropTypes.bool,
 	headerRenderer: PropTypes.object,
 	onScroll: PropTypes.func,
 	onClick: PropTypes.func,

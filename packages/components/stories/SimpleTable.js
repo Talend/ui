@@ -7,7 +7,6 @@ import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
 	SimpleTable,
-	ClassNameProvider,
 	RowRenderer,
 	HeaderRenderer,
 	Cell,
@@ -270,7 +269,6 @@ class MyRowDataGetter {
 
 }
 
-const classNameProvider = new ClassNameProvider();
 const rowDataGetter = new MyRowDataGetter();
 
 const initialStateWithDnD = { draggable: true };
@@ -324,6 +322,7 @@ class ConnectedSimpleTable extends React.Component {
 		const {
 			elements,
 			columnKeys,
+			withHeader,
 			onScroll,
 			onClick,
 			onDoubleClick,
@@ -335,6 +334,7 @@ class ConnectedSimpleTable extends React.Component {
 	      classNameProvider={this}
 	      rowDataGetter={rowDataGetter}
 	      rowRenderer={draggableRowRenderer}
+				withHeader={withHeader}
 				headerRenderer={headerRenderer}
 	      onScroll={onScroll}
 	      onClick={onClick}
@@ -351,6 +351,7 @@ ConnectedSimpleTable.propTypes = {
 	initialState: PropTypes.object,
 	elements: PropTypes.array,
 	columnKeys: PropTypes.array,
+	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,
@@ -376,9 +377,6 @@ stories
 				<SimpleTable
 				  elements={schema1.elements}
 		      columnKeys={columnKeys1}
-		      rowDataGetter={rowDataGetter}
-		      rowRenderer={rowRenderer}
-					classNameProvider={classNameProvider}
 		      onScroll={action('onScroll called!')}
 		      onClick={action('onClick called!')}
 		      onDoubleClick={action('onDoubleClick called!')}
@@ -395,6 +393,7 @@ stories
 					initialState={initialStateWithDnD}
 					elements={schema2.elements}
 					columnKeys={columnKeys2}
+					withHeader={true}
 					onScroll={action('onScroll called!')}
 					onClick={action('onClick called!')}
 					onDoubleClick={action('onDoubleClick called!')}

@@ -1,5 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`default-simple-table 1`] = `
+<div
+  className="simple-table"
+>
+  <table>
+    <tbody
+      onScroll={undefined}
+    >
+      <tr
+        className="tr-body simple-table-row"
+        data-id="elem_1"
+        onClick={undefined}
+        onDoubleClick={undefined}
+      >
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-name"
+          >
+            element 1
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-type"
+          >
+            string
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-desc"
+          >
+            Description of element 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="tr-body simple-table-row"
+        data-id="elem_2"
+        onClick={undefined}
+        onDoubleClick={undefined}
+      >
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-name"
+          >
+            element 2
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-type"
+          >
+            string
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-desc"
+          >
+            This element is a string
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`simple-table 1`] = `
 <div
   className="classname-of-simple-table"
@@ -59,6 +128,102 @@ exports[`simple-table 1`] = `
         <td>
           <div
             className="comp-cell classname-of-row-data-(elem_2,desc)"
+          >
+            This element is a string
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`simple-table-with-default-header 1`] = `
+<div
+  className="simple-table"
+>
+  <table>
+    <thead>
+      <tr
+        className="tr-head"
+      >
+        <th>
+          <div
+            className="comp-header name"
+          >
+            name
+          </div>
+        </th>
+        <th>
+          <div
+            className="comp-header type"
+          >
+            type
+          </div>
+        </th>
+        <th>
+          <div
+            className="comp-header desc"
+          >
+            desc
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      onScroll={undefined}
+    >
+      <tr
+        className="tr-body simple-table-row"
+        data-id="elem_1"
+        onClick={undefined}
+        onDoubleClick={undefined}
+      >
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-name"
+          >
+            element 1
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-type"
+          >
+            string
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-desc"
+          >
+            Description of element 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="tr-body simple-table-row"
+        data-id="elem_2"
+        onClick={undefined}
+        onDoubleClick={undefined}
+      >
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-name"
+          >
+            element 2
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-type"
+          >
+            string
+          </div>
+        </td>
+        <td>
+          <div
+            className="comp-cell simple-table-row-data-desc"
           >
             This element is a string
           </div>

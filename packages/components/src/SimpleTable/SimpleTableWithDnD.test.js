@@ -28,6 +28,9 @@ function wrapInTestContext(DecoratedComponent) {
 
 const draggableCell = DraggableComponent(Cell);
 
+/**
+ * This tests the drag and drop of the element1 onto the element2.
+ */
 it('drag-and-drop-on-simple-table', () => {
 	const dndListener = {
 		beginDrag: jest.fn().mockReturnValue(TestData.element1),
@@ -79,6 +82,8 @@ it('drag-and-drop-on-simple-table', () => {
 	// simulate begin drag source node
 	backend.simulateBeginDrag([decoratedSourceElem.getHandlerId()]);
 
+	expect(dndListener.beginDrag).toBeCalled();
+
 	const targetElem = getComponentByName(draggableCells, TestData.element2.name);
 
 	// simulate drag node element1 over target node element2
@@ -98,4 +103,8 @@ it('drag-and-drop-on-simple-table', () => {
 
 	// The second argument of the first call to the function was element2
 	expect(dndListener.drop.mock.calls[0][1].id).toBe(TestData.element2.id);
+
+	backend.simulateEndDrag();
+
+	expect(dndListener.endDrag).toBeCalled();
 });

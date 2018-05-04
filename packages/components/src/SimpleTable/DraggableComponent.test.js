@@ -6,6 +6,9 @@ import * as TestData from './TestData';
 
 const draggableCell = DraggableComponent(Cell);
 
+/**
+ * Render a single draggable cell
+ */
 it('draggable-cell', () => {
 	// Obtain the reference to the component before React DnD wrapping
 	const OriginalCell = draggableCell.DecoratedComponent;

@@ -26,6 +26,6 @@ export default class RowDataGetter {
 	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getRowData(element, columnKey) {
-		return 'No data';
+		return element[columnKey];
 	}
 }
