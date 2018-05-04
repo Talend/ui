@@ -5,7 +5,9 @@ The idea here is to build script to help following the changes
 
 ## componentState.propTypes -> cmfConnect.propTypes
 
-This script search for this patter:
+    jscodeshift -t ./componentState_to_cmfConnect.js TARGET
+
+This script transform for this pattern:
 
 ```javascript
 import { componentState } from '@talend/react-cmf';
@@ -17,7 +19,8 @@ class XXX extends React.Component {
 }
 ```
 
-transform into
+into this
+
 ```javascript
 import { cmfConnect } from '@talend/react-cmf';
 
