@@ -397,7 +397,6 @@ function createDataAccessor() {
 	return new DataAccessorWithUndoRedo(new DefaultDataAccessor());
 }
 
-const schemaConfiguration = new SchemaConfiguration();
 const listConfiguration = new ListConfiguration();
 const simpleTableConfiguration = new SimpleTableConfiguration();
 
@@ -1992,46 +1991,6 @@ stories
 			{story()}
 		</div>
 	))
-	.addWithInfo('default (canvas)', () => {
-		return <ConnectedDataMapper
-			mapperId="mapper"
-			initialState={initializeCache(getDefaultInitialState())}
-			mappingConfiguration={mappingCanvasConfig}
-			schemaConfiguration={schemaConfiguration}
-		/>;
-	})
-	.addWithInfo('empty (canvas)', () => {
-		return <ConnectedDataMapper
-			mapperId="mapper"
-			initialState={initializeCache(getEmptyInitialState())}
-			mappingConfiguration={mappingCanvasConfig}
-			schemaConfiguration={schemaConfiguration}
-		/>;
-	})
-	.addWithInfo('50-mapped (canvas)', () => {
-		return <ConnectedDataMapper
-			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
-			mappingConfiguration={mappingCanvasConfig}
-			schemaConfiguration={schemaConfiguration}
-		/>;
-	})
-	.addWithInfo('default (svg)', () => {
-		return <ConnectedDataMapper
-			mapperId="mapper"
-			initialState={initializeCache(getDefaultInitialState())}
-			mappingConfiguration={mappingSVGConfig}
-			schemaConfiguration={schemaConfiguration}
-		/>;
-	})
-	.addWithInfo('50-mapped (svg)', () => {
-		return <ConnectedDataMapper
-			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
-			mappingConfiguration={mappingSVGConfig}
-			schemaConfiguration={schemaConfiguration}
-		/>;
-	})
 	.addWithInfo('default (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
