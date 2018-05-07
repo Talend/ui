@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map } from 'immutable';
+import Immutable, { Map } from 'immutable';
 import { shallow } from 'enzyme';
 import Connected, { ContainerPieChartButton } from './PieChartButton.connect';
 
@@ -10,9 +10,26 @@ describe('PieChartButton connected', () => {
 	});
 });
 
-describe('Filter container', () => {
+describe('PieChartButton container', () => {
 	it('should render', () => {
 		const initialState = new Map({
+			model: [
+				{ percentage: 10, color: 'red' },
+				{ percentage: 15, color: 'blue' },
+				{ percentage: 5, color: 'cyan' },
+				{ percentage: 20, color: 'yellow' },
+				{ percentage: 15, color: 'black' },
+			],
+		});
+		expect(
+			shallow(<ContainerPieChartButton initialState={initialState} />).getElement(),
+		).toMatchSnapshot();
+	});
+});
+
+describe('PieChartButton container', () => {
+	it('should render', () => {
+		const initialState = Immutable.fromJS({
 			model: [
 				{ percentage: 10, color: 'red' },
 				{ percentage: 15, color: 'blue' },

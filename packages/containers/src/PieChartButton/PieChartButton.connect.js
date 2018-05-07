@@ -31,10 +31,13 @@ export function ContainerPieChartButton(props) {
 	}
 
 	const state = props.state || DEFAULT_STATE;
+	const model = state.has('model') ? state.get('model').toJS() : props.model;
+
 	const newProps = {
 		...omit(props, cmfConnect.INJECTED_PROPS.concat(['getComponent', 'initialState'])),
-		model: state.get('model', props.model),
+		model,
 		inProgress: state.get('inProgress', props.inProgress),
+		loading: state.get('loading', props.loading),
 		overlayComponent,
 		onClick,
 	};
