@@ -4,20 +4,20 @@
 import get from 'lodash/get';
 
 import http from './http';
+import CONSTANTS from '../constant';
 
-export const REQUEST_SETTINGS = 'REACT_CMF.REQUEST_SETTINGS';
-export const REQUEST_KO = 'REACT_CMF.REQUEST_SETTINGS_KO';
-export const REQUEST_OK = 'REACT_CMF.REQUEST_SETTINGS_OK';
+// keep backward compatibility
+export const { REQUEST_OK, REQUEST_KO, REQUEST_SETTINGS } = CONSTANTS;
 
 export function requestSettings() {
 	return {
-		type: REQUEST_SETTINGS,
+		type: CONSTANTS.REQUEST_SETTINGS,
 	};
 }
 
 export function receiveSettings(json) {
 	return {
-		type: REQUEST_OK,
+		type: CONSTANTS.REQUEST_OK,
 		settings: json,
 		receivedAt: Date.now(),
 	};
@@ -25,7 +25,7 @@ export function receiveSettings(json) {
 
 export function errorWithSettings(error) {
 	return {
-		type: REQUEST_KO,
+		type: CONSTANTS.REQUEST_KO,
 		error: {
 			message: get(error, 'message'),
 			stack: get(error, 'stack'),

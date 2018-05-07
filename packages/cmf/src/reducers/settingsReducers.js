@@ -5,7 +5,7 @@
 
 import get from 'lodash/get';
 import invariant from 'invariant';
-import * as ACTIONS from '../actions/settingsActions';
+import CONSTANTS from '../constant';
 
 export const defaultState = {
 	initialized: false,
@@ -74,9 +74,9 @@ function prepareSettings({ views, props, ref, ...rest }) {
  */
 export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
-		case ACTIONS.REQUEST_OK:
+		case CONSTANTS.REQUEST_OK:
 			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
-		case ACTIONS.REQUEST_KO:
+		case CONSTANTS.REQUEST_KO:
 			// eslint-disable-next-line no-console
 			console.error(`Settings can't be loaded ${get(action, 'error.message')}`, action.error);
 			return state;

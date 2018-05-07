@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
 import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
@@ -17,7 +17,7 @@ class Form extends React.Component {
 	static displayName = 'Container(Form)';
 	static propTypes = {
 		formId: PropTypes.string.isRequired,
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 
 	/**
