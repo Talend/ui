@@ -2,7 +2,7 @@
 
 This is a preset for @talend/scripts. It holds most of Talend projects tools configuration.
 
-This preset allows some customisation through specific entry points. The configuration is done via `Talend/scripts` configuration file.
+This preset allows some customisation through specific entry points. The configuration is done via `Talend/scripts` configuration file `talend-scripts.json`.
 
 ## Configuration overview
 
