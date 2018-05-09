@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Cell from './Cell';
+import TableCell from './TableCell';
 
 export function getRowId(rowDataGetter, element) {
 	if (rowDataGetter && rowDataGetter.getId) {
@@ -13,16 +13,16 @@ export function getRowId(rowDataGetter, element) {
 
 function getRowDataClassName(classNameProvider, element, columnKey) {
 	if (classNameProvider && classNameProvider.getForRowData) {
-		return classNameProvider.getForRowData(element, columnKey);
+		return classNameProvider.getForRowData(columnKey, element);
 	}
-	return `simple-table-row-data-${columnKey}`;
+	return `tc-table-row-data-${columnKey}`;
 }
 
 function getCellComponent(rowRenderer, columnKey) {
 	if (rowRenderer && rowRenderer.getCellComponent) {
 		return rowRenderer.getCellComponent(columnKey);
 	}
-	return Cell;
+	return TableCell;
 }
 
 function getCellComponentExtraProps(rowRenderer, columnKey) {
@@ -67,14 +67,14 @@ function getRowClassName(classNameProvider, element) {
 	if (classNameProvider && classNameProvider.getForRow) {
 		return classNameProvider.getForRow(element);
 	}
-	return 'simple-table-row';
+	return 'tc-table-row';
 }
 
 /**
  * This component displays the data of an element in a table.
  * A row is divided in columns, each column displaying an element data.
  */
-export default class Row extends Component {
+export default class TableRow extends Component {
 	constructor(props) {
 		super(props);
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
@@ -104,11 +104,15 @@ export default class Row extends Component {
 	}
 
 	handleMouseEnter() {
-		this.props.onEnterRow(this.props.element);
+		if (this.props.onEnterRow) {
+			this.props.onEnterRow(this.props.element);
+		}
 	}
 
 	handleMouseLeave() {
-		this.props.onLeaveRow(this.props.element);
+		if (this.props.onLeaveRow) {
+			this.props.onLeaveRow(this.props.element);
+		}
 	}
 
 	updateRowRef(ref) {
@@ -122,16 +126,12 @@ export default class Row extends Component {
 			columnKeys,
 			rowDataGetter,
 			rowRenderer,
-			onClick,
-			onDoubleClick,
 		} = this.props;
 		const rowKey = getRowId(rowDataGetter, element);
 		return (
 			<tr
 				key={rowKey}
 				className={`tr-body ${getRowClassName(classNameProvider, element)}`}
-				onClick={onClick}
-				onDoubleClick={onDoubleClick}
 				ref={this.updateRowRef}
 				data-id={rowKey}
 			>
@@ -143,14 +143,25 @@ export default class Row extends Component {
 	}
 }
 
-Row.propTypes = {
+TableRow.propTypes = {
 	element: PropTypes.object,
-	classNameProvider: PropTypes.object,
+	classNameProvider: PropTypes.shape({
+		getForTable: PropTypes.func,
+		getForHeader: PropTypes.func,
+		getForRow: PropTypes.func,
+		getForRowData: PropTypes.func,
+	}),
 	columnKeys: PropTypes.array,
-	rowDataGetter: PropTypes.object,
-	rowRenderer: PropTypes.object,
-	onClick: PropTypes.func,
-	onDoubleClick: PropTypes.func,
+	rowDataGetter: PropTypes.shape({
+		getId: PropTypes.func,
+		getHeaderData: PropTypes.func,
+		getRowData: PropTypes.func,
+	}),
+	rowRenderer: PropTypes.shape({
+		needRowUpdate: PropTypes.func,
+		getCellComponent: PropTypes.func,
+		getExtraProps: PropTypes.func,
+	}),
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
 };

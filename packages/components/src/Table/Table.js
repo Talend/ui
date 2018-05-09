@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Row, { getRowId } from './Row.js';
-import Header from './Header';
+import TableRow, { getRowId } from './TableRow.js';
+import TableHeader from './TableHeader';
 
 /**
  * This function is responsible for rendering an element in the table.
@@ -12,17 +12,13 @@ function renderRow(
 	columnKeys,
 	rowDataGetter,
 	rowRenderer,
-	onClick,
-	onDoubleClick,
 	onEnterRow,
 	onLeaveRow,
 ) {
 	return (
-		<Row
+		<TableRow
 			key={getRowId(rowDataGetter, element)}
 			element={element}
-			onClick={onClick}
-			onDoubleClick={onDoubleClick}
 			classNameProvider={classNameProvider}
 			columnKeys={columnKeys}
 			rowDataGetter={rowDataGetter}
@@ -37,7 +33,7 @@ function getTableClassName(classNameProvider) {
 	if (classNameProvider && classNameProvider.getForTable) {
 		return classNameProvider.getForTable();
 	}
-	return 'simple-table';
+	return 'tc-table';
 }
 
 function getHeaderClassName(classNameProvider, columnKey) {
@@ -58,7 +54,7 @@ function getHeaderComponent(headerRenderer, columnKey) {
 	if (headerRenderer && headerRenderer.getHeaderComponent) {
 		return headerRenderer.getHeaderComponent(columnKey);
 	}
-	return Header;
+	return TableHeader;
 }
 
 function getHeaderExtraProps(headerRenderer, columnKey) {
@@ -112,29 +108,13 @@ function renderHeader(
  * The headerRenderer object provides the components used to display the table header.
  * If the headerRenderer is null or undefined, no header is displayed.
  */
-export default class SimpleTable extends Component {
+export default class Table extends Component {
 	constructor(props) {
 		super(props);
 		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
 		this.updateBodyNodeRef = this.updateBodyNodeRef.bind(this);
 		this.updateHeadNodeRef = this.updateHeadNodeRef.bind(this);
-	}
-
-	updateTableNodeRef(ref) {
-		this.tableNode = ref;
-	}
-
-	updateBodyNodeRef(ref) {
-		this.bodyNode = ref;
-	}
-
-	updateHeadNodeRef(ref) {
-		this.headNode = ref;
-	}
-
-	updateContentNodeRef(ref) {
-		this.contentNode = ref;
 	}
 
 	getTableNode() {
@@ -153,6 +133,22 @@ export default class SimpleTable extends Component {
 		return this.contentNode;
 	}
 
+	updateTableNodeRef(ref) {
+		this.tableNode = ref;
+	}
+
+	updateBodyNodeRef(ref) {
+		this.bodyNode = ref;
+	}
+
+	updateHeadNodeRef(ref) {
+		this.headNode = ref;
+	}
+
+	updateContentNodeRef(ref) {
+		this.contentNode = ref;
+	}
+
 	render() {
 		const {
 			classNameProvider,
@@ -163,8 +159,6 @@ export default class SimpleTable extends Component {
 			withHeader,
 			headerRenderer,
 			onScroll,
-			onClick,
-			onDoubleClick,
 			onEnterRow,
 			onLeaveRow,
 		} = this.props;
@@ -187,8 +181,6 @@ export default class SimpleTable extends Component {
 								columnKeys,
 								rowDataGetter,
 								rowRenderer,
-								onClick,
-								onDoubleClick,
 								onEnterRow,
 								onLeaveRow,
 							),
@@ -200,17 +192,31 @@ export default class SimpleTable extends Component {
 	}
 }
 
-SimpleTable.propTypes = {
+Table.propTypes = {
 	elements: PropTypes.array,
-	classNameProvider: PropTypes.object,
+	classNameProvider: PropTypes.shape({
+		getForTable: PropTypes.func,
+		getForHeader: PropTypes.func,
+		getForRow: PropTypes.func,
+		getForRowData: PropTypes.func,
+	}),
 	columnKeys: PropTypes.array,
-	rowDataGetter: PropTypes.object,
-	rowRenderer: PropTypes.object,
+	rowDataGetter: PropTypes.shape({
+		getId: PropTypes.func,
+		getHeaderData: PropTypes.func,
+		getRowData: PropTypes.func,
+	}),
+	rowRenderer: PropTypes.shape({
+		needRowUpdate: PropTypes.func,
+		getCellComponent: PropTypes.func,
+		getExtraProps: PropTypes.func,
+	}),
 	withHeader: PropTypes.bool,
-	headerRenderer: PropTypes.object,
+	headerRenderer: PropTypes.shape({
+		getHeaderComponent: PropTypes.func,
+		getExtraProps: PropTypes.func,
+	}),
 	onScroll: PropTypes.func,
-	onClick: PropTypes.func,
-	onDoubleClick: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
 };
