@@ -290,10 +290,59 @@ describe('i18n scripts', () => {
 						},
 					},
 				},
+				foo: {
+					i18n: {
+						key: 'foo:KEY2',
+						options: {
+							defaultValue: 'bar',
+						},
+					},
+				},
 			};
 			const locale = getLocalesFromNamespace(json, namespace);
 
 			expect(locale).toEqual(new Map([['KEY1', 'foo'], ['KEY2', 'bar']]));
+		});
+
+		it('should parse a JSON with a key without namespace', () => {
+			const namespace = 'ns';
+			const invalidNamespace = 'invalid';
+			const json = {
+				label: {
+					i18n: {
+						key: `${namespace}:KEY1`,
+						options: {
+							defaultValue: 'foo',
+						},
+					},
+				},
+				message: {
+					i18n: {
+						key: `${namespace}:KEY2`,
+						options: {
+							defaultValue: 'bar',
+						},
+					},
+				},
+				foo: {
+					i18n: {
+						key: 'KEY3',
+						options: {
+							defaultValue: 'bar',
+						},
+					},
+				},
+				invalid: {
+					i18n: {
+						key: `${invalidNamespace}:KEY4`,
+						options: {
+							defaultValue: 'bar',
+						},
+					},
+				},
+			};
+
+			expect(() => getLocalesFromNamespace(json, namespace, true)).toThrow();
 		});
 	});
 
