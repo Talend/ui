@@ -1,30 +1,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SimpleTable from './SimpleTable';
+import Table from './Table';
 import * as TestData from './TestData';
 
 const elements = [TestData.element1, TestData.element2];
 
 /**
- * Render a simple table with default configuration.
+ * Render a table with default configuration.
  * Only elements and column keys are specified.
  */
-it('default-simple-table', () => {
+it('default-table', () => {
 	// create React tree
 	const tree = renderer
-		.create(<SimpleTable elements={elements} columnKeys={TestData.columnKeys} />)
+		.create(<Table elements={elements} columnKeys={TestData.columnKeys} />)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
 /**
- * Render a simple table with custom configuration.
+ * Render a table with custom configuration.
  */
-it('simple-table', () => {
+it('custom-table', () => {
 	// create React tree
 	const tree = renderer
 		.create(
-			<SimpleTable
+			<Table
 				elements={elements}
 				columnKeys={TestData.columnKeys}
 				classNameProvider={TestData.classNameProvider}
@@ -37,25 +37,25 @@ it('simple-table', () => {
 });
 
 /**
- * Render a simple table with header and default configuration.
+ * Render a table with header and default configuration.
  * Header is rendered with default component.
  */
-it('simple-table-with-default-header', () => {
+it('default-table-with-header', () => {
 	// create React tree
 	const tree = renderer
-		.create(<SimpleTable elements={elements} columnKeys={TestData.columnKeys} withHeader />)
+		.create(<Table elements={elements} columnKeys={TestData.columnKeys} withHeader />)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
 /**
- * Render a simple table with header and with custom configuration.
+ * Render a table with header and with custom configuration.
  */
-it('simple-table-with-header', () => {
+it('custom-table-with-header', () => {
 	// create React tree
 	const tree = renderer
 		.create(
-			<SimpleTable
+			<Table
 				elements={elements}
 				classNameProvider={TestData.classNameProvider}
 				columnKeys={TestData.columnKeys}

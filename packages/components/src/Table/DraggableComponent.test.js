@@ -1,15 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import DraggableComponent from './DraggableComponent.js';
-import Cell from './Cell';
+import draggable from './DraggableComponent.js';
+import TableCell from './TableCell';
 import * as TestData from './TestData';
-
-const draggableCell = DraggableComponent(Cell);
 
 /**
  * Render a single draggable cell
  */
-it('draggable-cell', () => {
+it('display simple draggable-cell content', () => {
+	const draggableCell = draggable(TableCell);
 	// Obtain the reference to the component before React DnD wrapping
 	const OriginalCell = draggableCell.DecoratedComponent;
 	// Stub the React DnD connector functions with an identity function

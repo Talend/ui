@@ -39,18 +39,17 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
-import {
-	SimpleTable,
-	ClassNameProvider,
-	RowRenderer,
-	HeaderRenderer,
-	Cell,
-	Header,
-	DraggableComponent,
-} from './SimpleTable';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
+import {
+	Table,
+	TableButton,
+	TableConfiguration,
+	TableCell,
+	TableHeader,
+	DraggableComponent,
+} from './Table';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import getTranslated from './TranslateWrapper';
@@ -116,7 +115,6 @@ const {
 	Tab,
 	TabContainer,
 	TabContent,
-	Table,
 	TabPane,
 	Tabs,
 	Thumbnail,
@@ -126,6 +124,7 @@ const {
 
 const BootstrapBadge = bootstrap.Badge;
 const BootstrapCheckbox = bootstrap.Checkbox;
+const BootstrapTable = bootstrap.Table;
 
 export {
 	Action,
@@ -166,16 +165,15 @@ export {
 	ObjectViewer,
 	Progress,
 	SidePanel,
-	SimpleTable,
-	ClassNameProvider,
-	RowRenderer,
-	HeaderRenderer,
-	Cell,
-	Header,
-	DraggableComponent,
 	Status,
 	SubHeaderBar,
 	TabBar,
+	Table,
+	TableButton,
+	TableConfiguration,
+	TableCell,
+	TableHeader,
+	DraggableComponent,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
@@ -189,6 +187,7 @@ export {
 	Alert,
 	BootstrapBadge,
 	BootstrapCheckbox,
+	BootstrapTable,
 	Breadcrumb,
 	BreadcrumbItem,
 	Button,
@@ -245,7 +244,6 @@ export {
 	Tab,
 	TabContainer,
 	TabContent,
-	Table,
 	TabPane,
 	Tabs,
 	Thumbnail,

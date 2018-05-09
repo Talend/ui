@@ -1,26 +1,29 @@
 :global {
-	#simple-table-container {
+
+	$data-type-font: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+
+	.table-container {
 		&,
 		> div,
 		> div > div {
 			display: flex;
 			justify-content: center;
-			width: 100vw;
+			width: 100%;
 		}
 	}
 
-	.simple-table {
+	.tc-table {
 		margin: 4px;
 		padding: 4px;
 	}
 
-	.simple-table-row {
+	.tc-table-row {
 		height: 25px;
 		background-color: #fff;
 	}
 
-	.simple-table-row-data-type {
-		font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+	.tc-table-row-data-type {
+		font-family: $data-type-font;
 		font-size: 0.9em;
 		min-width: 100px;
 		float: right;
@@ -28,7 +31,7 @@
 		color: #66bdff;
 	}
 
-	.simple-table-row-data-desc {
+	.tc-table-row-data-description {
 		color: #aaa;
 		font-style: italic;
 		text-overflow: ellipsis;
@@ -40,7 +43,7 @@
 		background-color: #f2f2f2;
 	}
 
-	.draggable-table {
+	.story-table {
 		width: 600px;
 		height: 300px;
 		padding: 0;
@@ -52,11 +55,11 @@
 		position: relative;
 	}
 
-	.draggable-table .simple-table-row-data-type {
+	.story-table .tc-table-row-data-type {
 		text-align: left;
 	}
 
-	.simple-table.draggable-table table {
+	.tc-table.story-table table {
 		position: absolute;
 		display: flex;
 		flex-direction: column;
@@ -65,13 +68,13 @@
 		white-space: nowrap;
 	}
 
-	.simple-table.draggable-table thead {
+	.tc-table.story-table thead {
 		display: block;
 		width: 100%;
 		height: 30px;
 	}
 
-	.simple-table.draggable-table tbody {
+	.tc-table.story-table tbody {
 		display: block;
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -79,18 +82,18 @@
 		height: 100%;
 	}
 
-	.simple-table.draggable-table tr.tr-head {
+	.tc-table.story-table tr.tr-head {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 	}
 
-	.simple-table.draggable-table tr.tr-body {
+	.tc-table.story-table tr.tr-body {
 		display: flex;
 		justify-content: flex-start;
 	}
 
-	.simple-table.draggable-table tr {
+	.tc-table.story-table tr {
 		td:nth-child(1),
 		th:nth-child(1) {
 			flex-grow: 0;
@@ -113,23 +116,49 @@
 		}
 	}
 
-	.draggable-table table {
+	button.tc-table-button {
+	  position: relative;
+	  background: none;
+	  border: none;
+	}
+
+	.table-with-dnd table {
 		overflow: hidden;
 		tr {
 			&.draggable {
-				cursor: grab;
 				td:first-child {
 					position: relative;
-					div[draggable='true']:before {
-						position: absolute;
-						top: 0;
-						left: 0;
-						bottom: 0;
-						content: '';
-						width: 100vw;
+					div[draggable='true'] {
+						button.tc-table-button:before {
+							position: absolute;
+							top: 0;
+							left: 0;
+							bottom: 0;
+							content: '';
+							width: 100vw;
+						}
 					}
 				}
 			}
 		}
 	}
+
+	.default-table table {
+		thead {
+			background-color: #aadbff;
+			border-bottom: 1px solid #ddd;
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid #ddd;
+			}
+			tr:nth-child(even) {
+				background-color: #f2f2f2;
+			}
+			tr:hover {
+				background-color: #ddd;
+			}
+		}
+	}
+
 }

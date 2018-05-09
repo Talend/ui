@@ -1,5 +1,5 @@
-import Cell from './Cell';
-import Header from './Header';
+import TableCell from './TableCell';
+import TableHeader from './TableHeader';
 
 export const element1 = {
 	id: 'elem_1',
@@ -31,10 +31,10 @@ export const classNameProvider = {
 		return `classname-of-header-${columnKey}`;
 	},
 	getForRow(element) {
-		return `classname-of-row-(${element.id})`;
+		return `classname-of-row-${element.id}`;
 	},
-	getForRowData(element, columnKey) {
-		return `classname-of-row-data-(${element.id},${columnKey})`;
+	getForRowData(columnKey, element) {
+		return `classname-of-row-data-${element.id}-${columnKey}`;
 	},
 };
 
@@ -60,22 +60,22 @@ export const rowDataGetter = {
 };
 
 export const rowRenderer = {
-	needRowUpdate(props) {
+	needRowUpdate() {
 		return true;
 	},
-	getCellComponent(columnKey) {
-		return Cell;
+	getCellComponent() {
+		return TableCell;
 	},
-	getExtraProps(columnKey) {
+	getExtraProps() {
 		return null;
 	},
 };
 
 export const headerRenderer = {
-	getHeaderComponent(columnKey) {
-		return Header;
+	getHeaderComponent() {
+		return TableHeader;
 	},
-	getExtraProps(columnKey) {
+	getExtraProps() {
 		return null;
 	},
 };

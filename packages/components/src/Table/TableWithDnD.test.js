@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TestBackend from 'react-dnd-test-backend';
-import { DragDropContext } from 'react-dnd';
+import { DragDropContext as dndContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
-import SimpleTable from './SimpleTable';
-import Cell from './Cell';
-import DraggableComponent from './DraggableComponent';
+import Table from './Table';
+import TableCell from './TableCell';
+import draggable from './DraggableComponent';
 import * as TestData from './TestData';
 
 const elements = [TestData.element1, TestData.element2];
@@ -17,21 +17,19 @@ function getComponentByName(components, name) {
  * Wraps a component into a DragDropContext that uses the TestBackend.
  */
 function wrapInTestContext(DecoratedComponent) {
-	return DragDropContext(TestBackend)(
-		class TestContextContainer extends Component {
-			render() {
-				return <DecoratedComponent {...this.props} />;
-			}
+	return dndContext(TestBackend)(
+		function TestContextContainer(props) {
+			return <DecoratedComponent {...props} />;
 		},
 	);
 }
 
-const draggableCell = DraggableComponent(Cell);
+const draggableCell = draggable(TableCell);
 
 /**
  * This tests the drag and drop of the element1 onto the element2.
  */
-it('drag-and-drop-on-simple-table', () => {
+it('drag-and-drop-on-table', () => {
 	const dndListener = {
 		beginDrag: jest.fn().mockReturnValue(TestData.element1),
 		canDrop: jest.fn().mockReturnValue(true),
@@ -47,14 +45,14 @@ it('drag-and-drop-on-simple-table', () => {
 			if (columnKey === TestData.KEYS.NAME) {
 				return draggableCell;
 			}
-			return Cell;
+			return TableCell;
 		},
 		getExtraProps() {
 			return dndListener;
 		},
 	};
 
-	const TableTestContext = wrapInTestContext(SimpleTable);
+	const TableTestContext = wrapInTestContext(Table);
 
 	const table = (
 		<TableTestContext

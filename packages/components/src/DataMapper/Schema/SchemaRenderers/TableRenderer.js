@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
-	SimpleTable,
-	Cell,
-	Header,
-	HeaderRenderer,
+	Table,
+	TableButton,
+	TableCell,
+	TableConfiguration,
 	DraggableComponent,
-} from '../../../SimpleTable';
+} from '../../../Table';
 import MandatoryField from '../../List/MandatoryField';
 
 import * as Constants from '../../Constants';
@@ -64,7 +64,7 @@ class SchemaClassNameProvider {
 		});
 	}
 
-	getForRowData(element, columnKey) {
+	getForRowData(columnKey) {
 		return `comp-simple-table-row-data-${columnKey} ${this.props.side}`;
 	}
 }
@@ -138,7 +138,7 @@ class RowDataGetter {
 class RowRenderer {
 	constructor() {
 		this.dndListener = new SchemaDndListener();
-		this.draggableCell = DraggableComponent(Cell);
+		this.draggableCell = DraggableComponent(TableCell);
 		this.draggableMandatoryField = DraggableComponent(MandatoryField);
 	}
 
@@ -179,16 +179,16 @@ class RowRenderer {
 		switch (columnKey) {
 			case Constants.Schema.DATA_KEYS.NAME:
 				if (this.props.side === Constants.MappingSide.INPUT) {
-					return Cell;
+					return TableCell;
 				}
 				return this.draggableMandatoryField;
 			case Constants.Schema.DATA_KEYS.TYPE:
 				if (this.props.side === Constants.MappingSide.INPUT) {
 					return this.draggableCell;
 				}
-				return Cell;
+				return TableCell;
 			default:
-				return Cell;
+				return TableCell;
 		}
 	}
 
@@ -197,7 +197,7 @@ class RowRenderer {
 	}
 }
 
-export default class SimpleTableRenderer extends Component {
+export default class TableRenderer extends Component {
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
@@ -208,7 +208,6 @@ export default class SimpleTableRenderer extends Component {
 		this.classNameProvider = new SchemaClassNameProvider();
 		this.rowDataGetter = new RowDataGetter();
 		this.rowRenderer = new RowRenderer();
-		this.headerRenderer = new HeaderRenderer();
 	}
 
 	onEnterElement(element) {
@@ -278,7 +277,7 @@ export default class SimpleTableRenderer extends Component {
 			updateContentNodeRef,
 		} = this.props;
 		return (
-			<SimpleTable
+			<Table
 				ref={this.updateTableNodeRef}
 				classNameProvider={this.classNameProvider}
 				elements={dataAccessor.getSchemaElements(schema, true)}
@@ -286,7 +285,7 @@ export default class SimpleTableRenderer extends Component {
 				rowDataGetter={this.rowDataGetter}
 				rowRenderer={this.rowRenderer}
 				withHeader={true}
-				headerRenderer={this.headerRenderer}
+				headerRenderer={TableConfiguration.headerRenderer}
 				onScroll={onScroll}
 				onClick={this.select}
 				onDoubleClick={this.revealConnectedElement}
@@ -297,7 +296,7 @@ export default class SimpleTableRenderer extends Component {
 	}
 }
 
-SimpleTableRenderer.propTypes = {
+TableRenderer.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
 	draggable: PropTypes.bool,

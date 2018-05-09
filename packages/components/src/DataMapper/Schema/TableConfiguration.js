@@ -1,10 +1,10 @@
-import SimpleTableRenderer from './SchemaRenderers/SimpleTableRenderer';
+import TableRenderer from './SchemaRenderers/TableRenderer';
 import SchemaConfiguration, { inputColumns, outputColumns } from './SchemaConfiguration';
 import * as Constants from '../Constants';
 
-export default class SimpleTableConfiguration extends SchemaConfiguration {
+export default class TableConfiguration extends SchemaConfiguration {
 	getRenderer(side) {
-		return SimpleTableRenderer;
+		return TableRenderer;
 	}
 
 	getColumns(side) {

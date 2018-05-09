@@ -9,7 +9,7 @@ import DefaultDataAccessor from '../src/DataMapper/DefaultDataAccessor';
 import DataAccessorWithUndoRedo from '../src/DataMapper/DataAccessorWithUndoRedo';
 import SchemaConfiguration from '../src/DataMapper/Schema/SchemaConfiguration';
 import ListConfiguration from '../src/DataMapper/Schema/ListConfiguration';
-import SimpleTableConfiguration from '../src/DataMapper/Schema/SimpleTableConfiguration';
+import TableConfiguration from '../src/DataMapper/Schema/TableConfiguration';
 import FilterComponents from '../src/DataMapper/Schema/Filters/FilterComponents';
 import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters/NameFilter';
 import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
@@ -398,7 +398,7 @@ function createDataAccessor() {
 }
 
 const listConfiguration = new ListConfiguration();
-const simpleTableConfiguration = new SimpleTableConfiguration();
+const tableConfiguration = new TableConfiguration();
 
 const mappingCanvasConfig = new MappingConfiguration(MappingCanvas, MappingActions);
 const mappingSVGConfig = new MappingConfiguration(MappingSVG, MappingActions);
@@ -2021,12 +2021,12 @@ stories
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
-	}).addWithInfo('UX proto (simple table)', () => {
+	}).addWithInfo('UX proto (table)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={initializeCache(getUXInitialState(0, alternativePrefs))}
 			mappingConfiguration={mappingConfigWithAutoMap}
-			schemaConfiguration={simpleTableConfiguration}
+			schemaConfiguration={tableConfiguration}
 		/>;
 	}).addWithInfo('Random', () => {
 		return <ConnectedDataMapper
@@ -2054,7 +2054,7 @@ stories
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
-	}).addWithInfo('Random (simple table)', () => {
+	}).addWithInfo('Random (table)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={
@@ -2078,7 +2078,7 @@ stories
 				)
 			}
 			mappingConfiguration={mappingConfigWithAutoMap}
-			schemaConfiguration={simpleTableConfiguration}
+			schemaConfiguration={tableConfiguration}
 		/>;
 	}).addWithInfo('300-300', () => {
 		return <ConnectedDataMapper
@@ -2132,7 +2132,7 @@ stories
 			mappingConfiguration={mappingConfigWithAutoMap}
 			schemaConfiguration={listConfiguration}
 		/>;
-	}).addWithInfo('1-1 (simple table)', () => {
+	}).addWithInfo('1-1 (table)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={
@@ -2156,6 +2156,6 @@ stories
 				)
 			}
 			mappingConfiguration={mappingConfigWithAutoMap}
-			schemaConfiguration={simpleTableConfiguration}
+			schemaConfiguration={tableConfiguration}
 		/>;
 	});

@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DragDropContext } from 'react-dnd';
+import { DragDropContext as dndContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
-	SimpleTable,
-	RowRenderer,
-	HeaderRenderer,
-	Cell,
-	DraggableComponent,
+	Table,
+	TableButton,
+	TableConfiguration,
+	TableCell,
+	DraggableComponent as draggable,
 	IconsProvider,
 } from '../src/index';
 
@@ -167,76 +167,80 @@ function buildElement(elem, index, types, descriptions) {
 	};
 }
 
-function finalizeSchema(schema) {
+function finalizeSchema(schema, size) {
 	const result = {
 		id: schema.id,
 		name: schema.name,
 	};
-	const elements = schema.elements.map(
+	let sourceElements = schema.elements;
+	if (size) {
+		sourceElements = schema.elements.slice(0, size);
+	}
+	const elements = sourceElements.map(
 		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions)
 	);
 	result.elements = elements;
 	return result;
 }
 
-const schema1 = finalizeSchema(dataPrepSchema);
-const schema2 = finalizeSchema(salesForceAccountSchema);
+const schema1 = finalizeSchema(salesForceAccountSchema, 10);
+const schema2 = finalizeSchema(dataPrepSchema);
+const schema3 = finalizeSchema(salesForceAccountSchema);
 
 const ColumnKey = {
   NAME: 'name',
 	DRAG_NAME: 'drag-name',
   TYPE: 'type',
-  DESC: 'desc',
+  DESC: 'description',
 };
 
-const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE];
-const columnKeys2 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
+const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
+const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE];
+const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
 
-const rowRenderer = new RowRenderer();
-const headerRenderer = new HeaderRenderer();
+const draggableCell = draggable(TableButton);
 
-class DraggableRowRenderer extends RowRenderer {
-
-	constructor() {
-		super();
-		this.draggableCell = DraggableComponent(Cell);
-	}
-
+const draggableRowRenderer = {
 	getCellComponent(columnKey) {
-		if (columnKey === ColumnKey.DRAG_NAME) {
-			return this.draggableCell;
+		switch (columnKey) {
+			case ColumnKey.DRAG_NAME:
+				return draggableCell;
+			default:
+				return TableCell;
 		}
-		return super.getCellComponent(columnKey);
-	}
-
+	},
 	getExtraProps(columnKey) {
-		if (columnKey === ColumnKey.DRAG_NAME) {
-			return {
-				beginDrag(element) {
-					return element;
-				},
-				canDrop(sourceItem, targetElement) {
-					return sourceItem.id !== targetElement.id;
-				},
-				drop() {
-				},
-				endDrag() {
-				},
-			};
+		switch (columnKey) {
+			case ColumnKey.DRAG_NAME:
+				return {
+					// for the drag and drop behaviour
+					beginDrag(element) {
+						return element;
+					},
+					canDrop(sourceItem, targetElement) {
+						return sourceItem.id !== targetElement.id;
+					},
+					drop() {
+					},
+					endDrag() {
+					},
+					// for the click behaviour
+					onClick(element) {
+						action(`You have clicked on element ${element.name}`);
+					},
+				};
+			default:
+				return null;
 		}
-		return super.getExtraProps(columnKey);
-	}
+	},
+};
 
-}
+const headerRenderer = TableConfiguration.headerRenderer;
 
-const draggableRowRenderer = new DraggableRowRenderer();
-
-class MyRowDataGetter {
-
+const rowDataGetter = {
   getId(element) {
     return element.id;
-	}
-
+	},
 	getHeaderData(columnKey) {
 		switch (columnKey) {
 			case ColumnKey.DRAG_NAME:
@@ -250,8 +254,7 @@ class MyRowDataGetter {
 			default:
 				return columnKey;
 		}
-	}
-
+	},
 	getRowData(element, columnKey) {
     switch (columnKey) {
 			case ColumnKey.DRAG_NAME:
@@ -265,15 +268,18 @@ class MyRowDataGetter {
 			default:
 				return 'No data available!';
 		}
-	}
+	},
+};
 
-}
-
-const rowDataGetter = new MyRowDataGetter();
+const classNameProvider = {
+	getForTable() {
+		return 'tc-table story-table default-table';
+	},
+};
 
 const initialStateWithDnD = { draggable: true };
 
-class ConnectedSimpleTable extends React.Component {
+class ConnectedTable extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -282,40 +288,33 @@ class ConnectedSimpleTable extends React.Component {
 		this.onLeaveRow = this.onLeaveRow.bind(this);
 	}
 
-	getForTable() {
-		return classnames({
-				'simple-table': true,
-				'draggable-table': this.state.draggable,
-		});
-  }
-
-	getForHeader(columnKey) {
-		return `simple-table-header-${columnKey}`;
-	}
-
-	getForRow(element) {
-		const classNames = {
-			'simple-table-row': true,
-			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
-			draggable: this.state.draggable,
-		};
-		return classnames(classNames);
-  }
-
-	getForRowData(element, columnKey) {
-    return `simple-table-row-data-${columnKey}`;
-  }
-
 	onEnterRow(element) {
 		this.setState({
 			highlighted: element,
 		});
 	}
 
-	onLeaveRow(element) {
+	onLeaveRow() {
 		this.setState({
 			highlighted: null,
 		});
+	}
+
+	getForTable() {
+		return classnames({
+				'tc-table': true,
+				'story-table': true,
+				'table-with-dnd': this.state.draggable,
+		});
+	}
+
+	getForRow(element) {
+		const classNames = {
+			'tc-table-row': true,
+			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
+			draggable: this.state.draggable,
+		};
+		return classnames(classNames);
 	}
 
 	render() {
@@ -324,80 +323,76 @@ class ConnectedSimpleTable extends React.Component {
 			columnKeys,
 			withHeader,
 			onScroll,
-			onClick,
-			onDoubleClick,
 		} = this.props;
 		return (
-			<SimpleTable
-			  elements={elements}
-	      columnKeys={columnKeys}
-	      classNameProvider={this}
-	      rowDataGetter={rowDataGetter}
-	      rowRenderer={draggableRowRenderer}
+			<Table
+				elements={elements}
+				columnKeys={columnKeys}
+				classNameProvider={this}
+				rowDataGetter={rowDataGetter}
+				rowRenderer={draggableRowRenderer}
 				withHeader={withHeader}
 				headerRenderer={headerRenderer}
-	      onScroll={onScroll}
-	      onClick={onClick}
-	      onDoubleClick={onDoubleClick}
-	      onEnterRow={this.onEnterRow}
-	      onLeaveRow={this.onLeaveRow}
+				onScroll={onScroll}
+				onEnterRow={this.onEnterRow}
+				onLeaveRow={this.onLeaveRow}
 			/>
 		);
 	}
 
 }
 
-ConnectedSimpleTable.propTypes = {
+ConnectedTable.propTypes = {
 	initialState: PropTypes.object,
 	elements: PropTypes.array,
 	columnKeys: PropTypes.array,
 	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
-	onClick: PropTypes.func,
-	onDoubleClick: PropTypes.func,
 };
 
-const SimpleTableWithDND = DragDropContext(HTML5Backend)(ConnectedSimpleTable);
+const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
 
-const stories = storiesOf('SimpleTable', module);
+const stories = storiesOf('Table', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
 stories
 	.addDecorator(story => (
-		<div id="simple-table-container">
+		<div className="table-container">
 			<IconsProvider />
 			{story()}
 		</div>
 	))
-	.addWithInfo('Simple Table', () => {
+	.addWithInfo('Table', () => {
 		return (
-			<div>
-				<SimpleTable
-				  elements={schema1.elements}
-		      columnKeys={columnKeys1}
-		      onScroll={action('onScroll called!')}
-		      onClick={action('onClick called!')}
-		      onDoubleClick={action('onDoubleClick called!')}
-					onEnterRow={action('onEnterRow called!')}
-					onLeaveRow={action('onLeaveRow called!')}
-				/>
-			</div>
+			<Table
+			  elements={schema1.elements}
+	      columnKeys={columnKeys1}
+				classNameProvider={classNameProvider}
+				withHeader={true}
+			/>
 		);
 	})
-	.addWithInfo('Simple Table with header and dnd', () => {
+	.addWithInfo('Table (as list)', () => {
 		return (
-			<div>
-				<SimpleTableWithDND
-					initialState={initialStateWithDnD}
-					elements={schema2.elements}
-					columnKeys={columnKeys2}
-					withHeader={true}
-					onScroll={action('onScroll called!')}
-					onClick={action('onClick called!')}
-					onDoubleClick={action('onDoubleClick called!')}
-				/>
-			</div>
+			<Table
+			  elements={schema2.elements}
+	      columnKeys={columnKeys2}
+	      onScroll={action('onScroll called!')}
+				onEnterRow={action('onEnterRow called!')}
+				onLeaveRow={action('onLeaveRow called!')}
+			/>
+		);
+	})
+	.addWithInfo('Table with drag and drop', () => {
+		return (
+			<TableWithDND
+				initialState={initialStateWithDnD}
+				elements={schema3.elements}
+				columnKeys={columnKeys3}
+				withHeader={true}
+				onScroll={action('onScroll called!')}
+			/>
 		);
 	});
