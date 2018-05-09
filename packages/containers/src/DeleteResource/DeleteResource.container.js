@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { translate, Trans } from 'react-i18next';
+import { translate } from 'react-i18next';
 import { getActionsProps } from '../actionAPI';
 import deleteResourceConst from './deleteResource.constants';
 import DEFAULT_I18N from '../translate';
