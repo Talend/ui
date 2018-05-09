@@ -90,8 +90,9 @@ export class DeleteResource extends React.Component {
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {
-						defaultValue: 'Are you sure you want to remove the',
+						defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
 						context: this.props.female ? 'female' : '',
+						resourceLabel: resourceInfo.resourceTypeLabel,
 					})}
 					&nbsp;
 					<strong>{resourceInfo.label}</strong>
