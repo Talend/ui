@@ -8,10 +8,9 @@ i18n.init({
 	resources: {
 		en: {
 			[I18N_DOMAIN_CONTAINERS]: {
-				DELETE_RESOURCE_MESSAGE:
-					'Are you sure you want to remove the <1>{{ resourceLabel }}</1> <2><1>{{ resourceName }}</1></2>?',
-				DELETE_RESOURCE_MESSAGE_female:
-					'Are you sure you want to remove the <1>{{ resourceLabel }}</1> <2><1>{{ resourceName }}</1></2>?',
+				DELETE_RESOURCE_MESSAGE: 'Are you sure you want to remove the',
+				DELETE_RESOURCE_MESSAGE_female: 'Are you sure you want to remove the',
+				DELETE_RESOURCE_QUESTION_MARK: '?',
 			},
 		},
 		fr: {
@@ -29,10 +28,9 @@ i18n.init({
 				VIRTUALIZEDLIST_NO_RESULT: 'Pas de résultat',
 			},
 			[I18N_DOMAIN_CONTAINERS]: {
-				DELETE_RESOURCE_MESSAGE:
-					'Êtes-vous sûr(e) de vouloir supprimer le <1>{{ resourceLabel }}</1> <2><1>{{ resourceName }}</1></2> ?',
-				DELETE_RESOURCE_MESSAGE_female:
-					'Êtes-vous sûr(e) de vouloir supprimer la <1>{{ resourceLabel }}</1> <2><1>{{ resourceName }}</1></2> ?',
+				DELETE_RESOURCE_MESSAGE: 'Êtes-vous sûr(e) de vouloir supprimer le',
+				DELETE_RESOURCE_MESSAGE_female: 'Êtes-vous sûr(e) de vouloir supprimer la',
+				DELETE_RESOURCE_QUESTION_MARK: ' ?',
 			},
 		},
 		it: {
@@ -50,7 +48,8 @@ i18n.init({
 				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
 			},
 			[I18N_DOMAIN_CONTAINERS]: {
-				DELETE_RESOURCE_MESSAGE: 'Sei sicuro di voler eliminare {{resourceLabel}} ',
+				DELETE_RESOURCE_MESSAGE: 'Sei sicuro di voler eliminare ',
+				DELETE_RESOURCE_QUESTION_MARK: '?',
 			},
 		},
 	},

@@ -81,9 +81,6 @@ export class DeleteResource extends React.Component {
 		const resourceInfo = this.getResourceInfo();
 		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
 		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
-		const i18nKey = this.props.female
-			? 'DELETE_RESOURCE_MESSAGE_female'
-			: 'DELETE_RESOURCE_MESSAGE';
 		return (
 			<ConfirmDialog
 				show
@@ -92,10 +89,13 @@ export class DeleteResource extends React.Component {
 				validateAction={validateAction}
 			>
 				<div>
-					<Trans i18nKey={i18nKey}>
-						Are you sure you want to remove the {{ resourceLabel: resourceInfo.resourceTypeLabel }}
-						<strong> {{ resourceName: resourceInfo.label }} </strong> ?
-					</Trans>
+					{this.props.t('DELETE_RESOURCE_MESSAGE', {
+						defaultValue: 'Are you sure you want to remove the',
+						context: this.props.female ? 'female' : '',
+					})}
+					&nbsp;
+					<strong>{resourceInfo.label}</strong>
+					{this.props.t('DELETE_RESOURCE_QUESTION_MARK', { defaultValue: '?' })}
 				</div>
 			</ConfirmDialog>
 		);
