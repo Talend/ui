@@ -85,6 +85,7 @@ function calculatePortPosition(ports, nodePosition, nodeSize) {
 class AbstractNode extends React.Component {
 	static propTypes = {
 		node: NodeType.isRequired,
+		startMoveNodeTo: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
 		snapToGrid: PropTypes.bool,
@@ -141,13 +142,18 @@ class AbstractNode extends React.Component {
 
 	onDragStart() {
 		this.squaredDeltaDrag = 0;
+		const position = {
+			x: event.x,
+			y: event.y,
+		};
+		this.props.startMoveNodeTo(this.props.node.id, position);
 		if (this.props.onDragStart) {
 			this.props.onDragStart(event);
 		}
 	}
 
 	onDrag() {
-		this.squaredDeltaDrag += (event.dx * event.dx) + (event.dy * event.dy);
+		this.squaredDeltaDrag += event.dx * event.dx + event.dy * event.dy;
 		const position = {
 			x: event.x,
 			y: event.y,
@@ -166,7 +172,7 @@ class AbstractNode extends React.Component {
 		// where d3 inhibit onCLick propagation
 		// if there is any delta between down and up of the mouse
 		// here we add a tolerance, so the underlying click doesn't
-		// get smooshed if the user do not initiate drag 
+		// get smooshed if the user do not initiate drag
 		if (this.squaredDeltaDrag < 1) {
 			select(window).on('click.drag', null);
 		}

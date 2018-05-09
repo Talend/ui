@@ -6,6 +6,7 @@ import { outPort, inPort } from '../selectors/portSelectors';
 
 import {
 	FLOWDESIGNER_NODE_ADD,
+	FLOWDESIGNER_NODE_MOVE_START,
 	FLOWDESIGNER_NODE_MOVE,
 	FLOWDESIGNER_NODE_APPLY_MOVEMENT,
 	FLOWDESIGNER_NODE_MOVE_END,
@@ -63,8 +64,15 @@ const nodeReducer = (state = defaultState, action) => {
 				.setIn(['in', action.nodeId], new Map())
 				.setIn(['childrens', action.nodeId], new Map())
 				.setIn(['parents', action.nodeId], new Map());
+		case FLOWDESIGNER_NODE_MOVE_START:
+			if (!state.getIn('nodes', action.nodeId)) {
+				invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
+			}
+			return state.setIn(
+				['nodes', action.nodeId, 'graphicalAttributes', 'properties', 'startPosition'],
+				new PositionRecord(action.nodePosition),
+			);
 		case FLOWDESIGNER_NODE_MOVE:
-		case FLOWDESIGNER_NODE_MOVE_END:
 			if (!state.getIn('nodes', action.nodeId)) {
 				invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
 			}
@@ -72,6 +80,22 @@ const nodeReducer = (state = defaultState, action) => {
 				['nodes', action.nodeId, 'graphicalAttributes', 'position'],
 				new PositionRecord(action.nodePosition),
 			);
+		case FLOWDESIGNER_NODE_MOVE_END:
+			if (!state.getIn('nodes', action.nodeId)) {
+				invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
+			}
+			return state
+				.setIn(
+					['nodes', action.nodeId, 'graphicalAttributes', 'position'],
+					new PositionRecord(action.nodePosition),
+				)
+				.deleteIn([
+					'nodes',
+					action.nodeId,
+					'graphicalAttributes',
+					'properties',
+					'startPosition',
+				]);
 		case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
 			return state.update('nodes', nodes =>
 				nodes.map(node => {

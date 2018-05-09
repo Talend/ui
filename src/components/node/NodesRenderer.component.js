@@ -9,6 +9,7 @@ class NodesRenderer extends React.Component {
 	static propTypes = {
 		nodes: mapOf(NodeType).isRequired,
 		nodeTypeMap: PropTypes.object.isRequired,
+		startMoveNodeTo: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
 		snapToGrid: PropTypes.bool.isRequired,
@@ -32,6 +33,7 @@ class NodesRenderer extends React.Component {
 		return (
 			<ConcreteComponent
 				node={node}
+				startMoveNodeTo={this.props.startMoveNodeTo}
 				moveNodeTo={this.props.moveNodeTo}
 				moveNodeToEnd={this.props.moveNodeToEnd}
 				key={node.id}

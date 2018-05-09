@@ -7,7 +7,12 @@ import {
 	PositionRecord,
 	NodeGraphicalAttributes,
 } from '../constants/flowdesigner.model';
-import { FLOWDESIGNER_NODE_SET_TYPE } from '../constants/flowdesigner.constants';
+import {
+	FLOWDESIGNER_NODE_SET_TYPE,
+	FLOWDESIGNER_NODE_MOVE_START,
+	FLOWDESIGNER_NODE_MOVE,
+	FLOWDESIGNER_NODE_MOVE_END,
+} from '../constants/flowdesigner.constants';
 
 describe('Check node reducer', () => {
 	const initialState = defaultState
@@ -64,15 +69,38 @@ describe('Check node reducer', () => {
 		).toMatchSnapshot();
 	});
 
+	it('Create a startPosition when receiving a FLOWDESIGNER_NODE_MOVE_START command', () => {
+		expect(
+			nodeReducer(initialState, {
+				type: FLOWDESIGNER_NODE_MOVE_START,
+				nodeId: 'id1',
+				nodePosition: { x: 50, y: 50 },
+			})
+				.getIn(['nodes', 'id1', 'graphicalAttributes', 'properties', 'startPosition'])
+				.toJS(),
+		).toEqual({ x: 50, y: 50 });
+	});
+
 	it('FLOWDESIGNER_NODE_MOVE update node position', () => {
 		expect(
 			nodeReducer(initialState, {
-				type: 'FLOWDESIGNER_NODE_MOVE',
+				type: FLOWDESIGNER_NODE_MOVE,
 				nodeId: 'id2',
 				nodePosition: { x: 50, y: 50 },
 			}),
 		).toMatchSnapshot();
 	});
+
+	it('empty the startPostion when receiving a FLOW_DESIGNER_MOVE_END command', () => {
+		expect(
+			nodeReducer(initialState, {
+				type: FLOWDESIGNER_NODE_MOVE_END,
+				nodeId: 'id1',
+				nodePosition: { x: 50, y: 50 },
+			})
+				.getIn(['nodes', 'id1', 'graphicalAttributes', 'properties', 'startPosition']),
+		).toEqual(undefined);
+	})
 
 	it('FLOWDESIGNER_NODE_SET_SIZE update node size property', () => {
 		expect(

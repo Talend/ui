@@ -22,7 +22,7 @@ function noOp() {}
 describe('Testing <AbstractNode>', () => {
 	it('should create a bare node component with provided position', () => {
 		const wrapper = shallow(
-			<AbstractNode node={node} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+			<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
 			</AbstractNode>,
 		);
@@ -33,7 +33,7 @@ describe('Testing <AbstractNode>', () => {
 	it('call the injected onClick action when clicked', () => {
 		const onClick = jasmine.createSpy('onClick');
 		const wrapper = shallow(
-			<AbstractNode node={node} onClick={onClick} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+			<AbstractNode node={node} onClick={onClick} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
 			</AbstractNode>,
 		);
@@ -50,7 +50,7 @@ describe('Testing <AbstractNode>', () => {
 		evt.initEvent('click', false, true);
 		const onDragStart = jest.fn();
 		mount(
-			<AbstractNode node={node} onClick={onDragStart} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+			<AbstractNode node={node} onClick={onDragStart} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
 			</AbstractNode>,
 			{ attachTo: document.body },
@@ -74,7 +74,7 @@ describe('Testing <AbstractNode>', () => {
 
 	it('should fire an error if its rendered without a children set up', () => {
 		expect(() => {
-			shallow(<AbstractNode node={node} moveNodeTo={noOp} moveNodeToEnd={noOp} />);
+			shallow(<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp} />);
 		}).toThrowError(ABSTRACT_NODE_INVARIANT);
 	});
 });

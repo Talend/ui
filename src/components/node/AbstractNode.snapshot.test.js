@@ -28,7 +28,7 @@ describe('<AbstractNode />', () => {
 		});
 		const tree = renderer
 			.create(
-				<AbstractNode node={node} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+				<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 					<rect />
 				</AbstractNode>,
 			)

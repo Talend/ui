@@ -1,4 +1,5 @@
 import {
+	FLOWDESIGNER_NODE_MOVE_START,
 	FLOWDESIGNER_NODE_APPLY_MOVEMENT,
 	FLOWDESIGNER_NODE_MOVE,
 	FLOWDESIGNER_NODE_MOVE_END,
@@ -28,6 +29,14 @@ export const addNode = (nodeId, nodeType, { data = {}, graphicalAttributes = {} 
 	data,
 	graphicalAttributes,
 });
+
+export function startMoveNodeTo(nodeId, nodePosition) {
+	return {
+		type: FLOWDESIGNER_NODE_MOVE_START,
+		nodeId,
+		nodePosition,
+	};
+}
 
 /**
  * Ask for moving node

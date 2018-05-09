@@ -29,6 +29,7 @@ describe('<NodesRenderer />', () => {
 				<NodesRenderer
 					nodes={nodes}
 					nodeTypeMap={nodeTypeMap}
+					startMoveNodeTo={noOp}
 					moveNodeTo={noOp}
 					moveNodeToEnd={noOp}
 					snapToGrid

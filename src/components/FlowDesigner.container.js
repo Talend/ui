@@ -13,13 +13,14 @@ import NodesRenderer from './node/NodesRenderer.component';
 import LinksRenderer from './link/LinksRenderer.component';
 import PortsRenderer from './port/PortsRenderer.component';
 
-import { moveNodeTo, moveNodeToEnd } from '../actions/node.actions';
+import { startMoveNodeTo, moveNodeTo, moveNodeToEnd } from '../actions/node.actions';
 import { setNodeTypes } from '../actions/nodeType.actions';
 
 export class FlowDesigner extends React.Component {
 	static propTypes = {
 		children: PropTypes.node,
 		setNodeTypes: PropTypes.func.isRequired,
+		startMoveNodeTo: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
 		nodes: mapOf(NodeType).isRequired,
@@ -115,6 +116,7 @@ export class FlowDesigner extends React.Component {
 					<g>
 						<NodesRenderer
 							nodeTypeMap={this.state.nodeTypeMap}
+							startMoveNodeTo={this.props.startMoveNodeTo}
 							moveNodeTo={this.props.moveNodeTo}
 							moveNodeToEnd={this.props.moveNodeToEnd}
 							nodes={this.props.nodes}
@@ -146,8 +148,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
 	setNodeTypes: nodeTypeMap => dispatch(setNodeTypes(nodeTypeMap)),
-	moveNodeTo: (nodId, nodePosition) => dispatch(moveNodeTo(nodId, nodePosition)),
-	moveNodeToEnd: (nodId, nodePosition) => dispatch(moveNodeToEnd(nodId, nodePosition)),
+	startMoveNodeTo: (nodeId, nodePosition) => dispatch(startMoveNodeTo(nodeId, nodePosition)),
+	moveNodeTo: (nodeId, nodePosition) => dispatch(moveNodeTo(nodeId, nodePosition)),
+	moveNodeToEnd: (nodeId, nodePosition) => dispatch(moveNodeToEnd(nodeId, nodePosition)),
 	setZoom: transform => dispatch(setZoom(transform)),
 });
 

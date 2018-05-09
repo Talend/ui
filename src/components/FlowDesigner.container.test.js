@@ -18,6 +18,7 @@ describe('<FlowDesigner /> renders correctly', () => {
 		const tree = renderer
 			.create(
 				<FlowDesigner
+					startMoveNodeTo={noOp}
 					moveNodeTo={noOp}
 					moveNodeToEnd={noOp}
 					setNodeTypes={noOp}
