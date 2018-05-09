@@ -1,5 +1,4 @@
 :global {
-
 	$data-type-font: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
 
 	.table-container {
@@ -117,9 +116,9 @@
 	}
 
 	button.tc-table-button {
-	  position: relative;
-	  background: none;
-	  border: none;
+		position: relative;
+		background: none;
+		border: none;
 	}
 
 	.table-with-dnd table {
@@ -160,5 +159,4 @@
 			}
 		}
 	}
-
 }

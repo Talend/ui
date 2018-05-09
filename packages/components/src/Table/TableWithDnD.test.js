@@ -17,11 +17,9 @@ function getComponentByName(components, name) {
  * Wraps a component into a DragDropContext that uses the TestBackend.
  */
 function wrapInTestContext(DecoratedComponent) {
-	return dndContext(TestBackend)(
-		function TestContextContainer(props) {
-			return <DecoratedComponent {...props} />;
-		},
-	);
+	return dndContext(TestBackend)(function TestContextContainer(props) {
+		return <DecoratedComponent {...props} />;
+	});
 }
 
 const draggableCell = draggable(TableCell);

@@ -78,7 +78,4 @@ export default class DataAccessorWithSorterAndFilter {
 		// finally merge all results
 		this.mergeFiltersAndSorters();
 	}
-
-
-
 }

@@ -5,7 +5,6 @@
  * This class is intended to be subclassed.
  */
 export default class Filter {
-
 	constructor(id, active) {
 		this.id = id;
 		this.active = active;
@@ -16,9 +15,9 @@ export default class Filter {
 	}
 
 	/**
-	* Set active or inactive the current filter.
-	* @param {boolean} active
-	*/
+	 * Set active or inactive the current filter.
+	 * @param {boolean} active
+	 */
 	setActive(active) {
 		this.active = active;
 	}
@@ -36,5 +35,4 @@ export default class Filter {
 	select() {
 		return !this.active;
 	}
-
 }
