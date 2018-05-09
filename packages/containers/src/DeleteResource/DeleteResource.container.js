@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
 import { translate, Trans } from 'react-i18next';
 import { getActionsProps } from '../actionAPI';
@@ -16,7 +16,7 @@ import I18N_DOMAIN_CONTAINERS from '../constant';
 export class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		'cancel-action': PropTypes.string.isRequired,
 		'validate-action': PropTypes.string.isRequired,
 		header: PropTypes.string,
