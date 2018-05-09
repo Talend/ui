@@ -2,8 +2,10 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const babelrc = require('./.babelrc.json');
+const LICENSE_BANNER = require('./licence');
 
 function getSassData(getUserConfig) {
 	const sassData = '@import \'~@talend/bootstrap-theme/src/theme/guidelines\';';
@@ -99,6 +101,9 @@ module.exports = ({ getUserConfig }) => {
 			new CopyWebpackPlugin([
 				{ from: 'src/assets' },
 			]),
+			new webpack.BannerPlugin({
+				banner: LICENSE_BANNER,
+			}),
 		],
 	};
 };
