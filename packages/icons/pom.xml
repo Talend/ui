@@ -11,7 +11,7 @@
     <build>
         <resources>
             <resource>
-                <directory>${basedir}/src/svg</directory>
+                <directory>${basedir}/src</directory>
                 <includes>
                     <include>**/*.svg</include>
                 </includes>
