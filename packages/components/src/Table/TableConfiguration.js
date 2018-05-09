@@ -28,7 +28,7 @@ export const classNameProvider = {
 	},
 	/**
 	 * Return a classname for a data of the given element.
-   * @param {string} columnKey - The key identifying a column.
+	 * @param {string} columnKey - The key identifying a column.
 	 * @param {object} element - An element of the table.
 	 */
 	getForRowData(columnKey) {

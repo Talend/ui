@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
  * Callback methods (onClick and onDoubleClick) must be passed via extra props.
  */
 export default class TableButton extends Component {
-
 	constructor(props) {
-  	super(props);
+		super(props);
 		this.onClick = this.onClick.bind(this);
 		this.onDoubleClick = this.onDoubleClick.bind(this);
 	}
@@ -28,14 +27,14 @@ export default class TableButton extends Component {
 	render() {
 		const { data, className } = this.props;
 		return (
-	    <button
-	      className={`tc-table-button ${className}`}
-	      onClick={this.onClick}
-	      onDoubleClick={this.onDoubleClick}
-	    >
-	      {data}
-	    </button>
-	  );
+			<button
+				className={`tc-table-button ${className}`}
+				onClick={this.onClick}
+				onDoubleClick={this.onDoubleClick}
+			>
+				{data}
+			</button>
+		);
 	}
 }
 
@@ -43,5 +42,5 @@ TableButton.propTypes = {
 	element: PropTypes.object,
 	data: PropTypes.string,
 	className: PropTypes.string,
-  extra: PropTypes.object,
+	extra: PropTypes.object,
 };

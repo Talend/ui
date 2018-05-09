@@ -120,13 +120,7 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const {
-			element,
-			classNameProvider,
-			columnKeys,
-			rowDataGetter,
-			rowRenderer,
-		} = this.props;
+		const { element, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
 		const rowKey = getRowId(rowDataGetter, element);
 		return (
 			<tr

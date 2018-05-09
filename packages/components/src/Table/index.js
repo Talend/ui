@@ -6,11 +6,4 @@ import TableHeader from './TableHeader';
 import DraggableComponent from './DraggableComponent';
 import './Table.scss';
 
-export {
-	DraggableComponent,
-	Table,
-	TableButton,
-	TableCell,
-	TableConfiguration,
-	TableHeader,
-};
+export { DraggableComponent, Table, TableButton, TableCell, TableConfiguration, TableHeader };
