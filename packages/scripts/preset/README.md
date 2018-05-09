@@ -11,7 +11,7 @@ This preset allows some customisation through specific entry points. The configu
   "preset": "talend",
   "html": {
     "title": "Talend Data Preparation",
-    "otherOptions": "Option value passed to html-webpack-plugin"
+    "other-options": "Option value passed to html-webpack-plugin"
   },
   "sass": {
     "data": {
@@ -35,7 +35,7 @@ This preset allows some customisation through specific entry points. The configu
 |---|---|
 | html | `html-webpack-plugin` template and options customisation. |
 | sass | `sass-loader` custom data. |
-| webpack | `webpack` and `devServer customisation. |
+| webpack | `webpack` and `devServer` customisation. |
 
 ## HTML
 
@@ -44,7 +44,7 @@ This preset allows some customisation through specific entry points. The configu
   "preset": "talend",
   "html": {
     "title": "Talend Data Preparation",
-    "otherOptions": "Option value passed to html-webpack-plugin"
+    "other-options": "Option value passed to html-webpack-plugin"
   }
 }
 ```
@@ -52,6 +52,14 @@ This preset allows some customisation through specific entry points. The configu
 All those options are passed as `html-webpack-plugin` options. It goes in pair with your index.html template.  
 By default, your html template is located in `src/app/index.html`, which can be overridden with the preset html configuration.
 
+```json
+{
+  "preset": "talend",
+  "html": {
+    "template": "my-template-path"
+  }
+}
+```
 
 ## App loader
 

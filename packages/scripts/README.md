@@ -112,7 +112,7 @@ yarn add --dev talend-scripts-preset-${presetName}
 
 ### Preset talend (default)
 
-Preset documentation available [here](./preset/README.md).
+Preset documentation is available [here](./preset/README.md).
 
 ## Possible issues
 
