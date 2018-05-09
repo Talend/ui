@@ -110,36 +110,9 @@ yarn add --dev talend-scripts-preset-${presetName}
 
 3. Add any preset variables in talend-scripts.json, following your preset documentation.
 
-### Preset talend configuration
+### Preset talend (default)
 
-```json
-{
-  "preset": "talend",
-  "html": {
-    "title": "Talend Data Preparation"
-  },
-  "sass": {
-    "data": {
-      "$brand-primary": "#4F93A7",
-      "$brand-primary-t7": "#00A1B3",
-      "$brand-secondary-t7": "#168AA6"
-    }
-  },
-  "webpack": {
-    "config": {
-      "development": "./webpack.config.dev.js",
-      "production": "./webpack.config.prod.js"
-    },
-    "api-url": "http://localhost:3030"
-  }
-}
-```
-
-| Preset variable | Description |
-|---|---|
-| html.title | The title to display on the browser tab. |
-| sass.data | Define a set of sass variables to customise @talend/theme. |
-| webpack.api-url | Default: `http://localhost`. The preset adds a proxy to `/api` urls. |
+Preset documentation available [here](./preset/README.md).
 
 ## Possible issues
 
