@@ -1613,28 +1613,29 @@ exports[`List should render 1`] = `
                         </ul>
                       </Nav>
                     </Pagination>
-                    <FilterBar
-                      autoFocus={true}
+                    <Translate(FilterBar)
                       className="navbar-right"
-                      dockable={true}
-                      docked={true}
-                      focus={false}
-                      iconAlwaysVisible={false}
                       navbar={true}
                       onFilter={[Function]}
                       onToggle={[Function]}
-                      placeholder="Filter"
                       t={[Function]}
                     >
-                      <Action
-                        bsStyle="link"
+                      <FilterBar
+                        autoFocus={true}
                         className="navbar-right"
-                        hideLabel={true}
-                        icon="talend-search"
-                        label="Toggle filter"
-                        onClick={[Function]}
+                        dockable={true}
+                        docked={true}
+                        focus={false}
+                        i18n={Object {}}
+                        i18nLoadedAt={null}
+                        iconAlwaysVisible={false}
+                        navbar={true}
+                        onFilter={[Function]}
+                        onToggle={[Function]}
+                        placeholder="Filter"
+                        t={[Function]}
                       >
-                        <Translate(ActionButton)
+                        <Action
                           bsStyle="link"
                           className="navbar-right"
                           hideLabel={true}
@@ -1642,74 +1643,83 @@ exports[`List should render 1`] = `
                           label="Toggle filter"
                           onClick={[Function]}
                         >
-                          <ActionButton
-                            available={true}
+                          <Translate(ActionButton)
                             bsStyle="link"
                             className="navbar-right"
-                            disabled={false}
                             hideLabel={true}
-                            i18n={Object {}}
-                            i18nLoadedAt={null}
                             icon="talend-search"
-                            inProgress={false}
                             label="Toggle filter"
-                            loading={false}
                             onClick={[Function]}
-                            t={[Function]}
-                            tooltipPlacement="top"
                           >
-                            <TooltipTrigger
+                            <ActionButton
+                              available={true}
+                              bsStyle="link"
+                              className="navbar-right"
+                              disabled={false}
+                              hideLabel={true}
+                              i18n={Object {}}
+                              i18nLoadedAt={null}
+                              icon="talend-search"
+                              inProgress={false}
                               label="Toggle filter"
+                              loading={false}
+                              onClick={[Function]}
+                              t={[Function]}
                               tooltipPlacement="top"
                             >
-                              <Button
-                                active={false}
-                                aria-label="Toggle filter"
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="link"
-                                className="navbar-right"
-                                disabled={false}
-                                onClick={[Function]}
-                                onFocus={[Function]}
-                                onMouseDown={[Function]}
-                                onMouseOver={[Function]}
-                                role={null}
+                              <TooltipTrigger
+                                label="Toggle filter"
+                                tooltipPlacement="top"
                               >
-                                <button
+                                <Button
+                                  active={false}
                                   aria-label="Toggle filter"
-                                  className="navbar-right btn btn-link"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="navbar-right"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
                                   onMouseOver={[Function]}
                                   role={null}
-                                  type="button"
                                 >
-                                  <Icon
-                                    key="icon"
-                                    name="talend-search"
+                                  <button
+                                    aria-label="Toggle filter"
+                                    className="navbar-right btn btn-link"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onMouseDown={[Function]}
+                                    onMouseOver={[Function]}
+                                    role={null}
+                                    type="button"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      className="theme-tc-svg-icon tc-svg-icon"
-                                      focusable="false"
+                                    <Icon
+                                      key="icon"
                                       name="talend-search"
-                                      title={null}
                                     >
-                                      <use
-                                        xlinkHref="#talend-search"
-                                      />
-                                    </svg>
-                                  </Icon>
-                                </button>
-                              </Button>
-                            </TooltipTrigger>
-                          </ActionButton>
-                        </Translate(ActionButton)>
-                      </Action>
-                    </FilterBar>
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
+                                        name="talend-search"
+                                        title={null}
+                                      >
+                                        <use
+                                          xlinkHref="#talend-search"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
+                              </TooltipTrigger>
+                            </ActionButton>
+                          </Translate(ActionButton)>
+                        </Action>
+                      </FilterBar>
+                    </Translate(FilterBar)>
                   </div>
                 </Grid>
               </div>
@@ -3331,30 +3341,31 @@ exports[`List should render id if provided 1`] = `
                         </ul>
                       </Nav>
                     </Pagination>
-                    <FilterBar
-                      autoFocus={true}
+                    <Translate(FilterBar)
                       className="navbar-right"
-                      dockable={true}
-                      docked={true}
-                      focus={false}
-                      iconAlwaysVisible={false}
                       id="context-filter"
                       navbar={true}
                       onFilter={[Function]}
                       onToggle={[Function]}
-                      placeholder="Filter"
                       t={[Function]}
                     >
-                      <Action
-                        bsStyle="link"
+                      <FilterBar
+                        autoFocus={true}
                         className="navbar-right"
-                        hideLabel={true}
-                        icon="talend-search"
+                        dockable={true}
+                        docked={true}
+                        focus={false}
+                        i18n={Object {}}
+                        i18nLoadedAt={null}
+                        iconAlwaysVisible={false}
                         id="context-filter"
-                        label="Toggle filter"
-                        onClick={[Function]}
+                        navbar={true}
+                        onFilter={[Function]}
+                        onToggle={[Function]}
+                        placeholder="Filter"
+                        t={[Function]}
                       >
-                        <Translate(ActionButton)
+                        <Action
                           bsStyle="link"
                           className="navbar-right"
                           hideLabel={true}
@@ -3363,45 +3374,43 @@ exports[`List should render id if provided 1`] = `
                           label="Toggle filter"
                           onClick={[Function]}
                         >
-                          <ActionButton
-                            available={true}
+                          <Translate(ActionButton)
                             bsStyle="link"
                             className="navbar-right"
-                            disabled={false}
                             hideLabel={true}
-                            i18n={Object {}}
-                            i18nLoadedAt={null}
                             icon="talend-search"
                             id="context-filter"
-                            inProgress={false}
                             label="Toggle filter"
-                            loading={false}
                             onClick={[Function]}
-                            t={[Function]}
-                            tooltipPlacement="top"
                           >
-                            <TooltipTrigger
+                            <ActionButton
+                              available={true}
+                              bsStyle="link"
+                              className="navbar-right"
+                              disabled={false}
+                              hideLabel={true}
+                              i18n={Object {}}
+                              i18nLoadedAt={null}
+                              icon="talend-search"
+                              id="context-filter"
+                              inProgress={false}
                               label="Toggle filter"
+                              loading={false}
+                              onClick={[Function]}
+                              t={[Function]}
                               tooltipPlacement="top"
                             >
-                              <Button
-                                active={false}
-                                aria-label="Toggle filter"
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="link"
-                                className="navbar-right"
-                                disabled={false}
-                                id="context-filter"
-                                onClick={[Function]}
-                                onFocus={[Function]}
-                                onMouseDown={[Function]}
-                                onMouseOver={[Function]}
-                                role={null}
+                              <TooltipTrigger
+                                label="Toggle filter"
+                                tooltipPlacement="top"
                               >
-                                <button
+                                <Button
+                                  active={false}
                                   aria-label="Toggle filter"
-                                  className="navbar-right btn btn-link"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="navbar-right"
                                   disabled={false}
                                   id="context-filter"
                                   onClick={[Function]}
@@ -3409,31 +3418,43 @@ exports[`List should render id if provided 1`] = `
                                   onMouseDown={[Function]}
                                   onMouseOver={[Function]}
                                   role={null}
-                                  type="button"
                                 >
-                                  <Icon
-                                    key="icon"
-                                    name="talend-search"
+                                  <button
+                                    aria-label="Toggle filter"
+                                    className="navbar-right btn btn-link"
+                                    disabled={false}
+                                    id="context-filter"
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onMouseDown={[Function]}
+                                    onMouseOver={[Function]}
+                                    role={null}
+                                    type="button"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      className="theme-tc-svg-icon tc-svg-icon"
-                                      focusable="false"
+                                    <Icon
+                                      key="icon"
                                       name="talend-search"
-                                      title={null}
                                     >
-                                      <use
-                                        xlinkHref="#talend-search"
-                                      />
-                                    </svg>
-                                  </Icon>
-                                </button>
-                              </Button>
-                            </TooltipTrigger>
-                          </ActionButton>
-                        </Translate(ActionButton)>
-                      </Action>
-                    </FilterBar>
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
+                                        name="talend-search"
+                                        title={null}
+                                      >
+                                        <use
+                                          xlinkHref="#talend-search"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
+                              </TooltipTrigger>
+                            </ActionButton>
+                          </Translate(ActionButton)>
+                        </Action>
+                      </FilterBar>
+                    </Translate(FilterBar)>
                   </div>
                 </Grid>
               </div>
