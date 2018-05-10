@@ -1,9 +1,10 @@
 /**
  * @module react-cmf/lib/actions/componentsActions
  */
-export const COMPONENT_ADD_STATE = 'REACT_CMF.COMPONENT_ADD_STATE';
-export const COMPONENT_MERGE_STATE = 'REACT_CMF.COMPONENT_MERGE_STATE';
-export const COMPONENT_REMOVE_STATE = 'REACT_CMF.COMPONENT_REMOVE_STATE';
+import CONSTANTS from '../constant';
+
+// keep backward compatibility
+export const { COMPONENT_ADD_STATE, COMPONENT_MERGE_STATE, COMPONENT_REMOVE_STATE } = CONSTANTS;
 
 /**
  * add a new component state with optional initialComponentState to the store
@@ -16,7 +17,7 @@ export const COMPONENT_REMOVE_STATE = 'REACT_CMF.COMPONENT_REMOVE_STATE';
  */
 export function addState(componentName, key, initialComponentState) {
 	return {
-		type: COMPONENT_ADD_STATE,
+		type: CONSTANTS.COMPONENT_ADD_STATE,
 		componentName,
 		key,
 		initialComponentState,
@@ -34,7 +35,7 @@ export function addState(componentName, key, initialComponentState) {
  */
 export function mergeState(componentName, key, componentState) {
 	return {
-		type: COMPONENT_MERGE_STATE,
+		type: CONSTANTS.COMPONENT_MERGE_STATE,
 		componentName,
 		key,
 		componentState,
@@ -51,7 +52,7 @@ export function mergeState(componentName, key, componentState) {
  */
 export function removeState(componentName, key) {
 	return {
-		type: COMPONENT_REMOVE_STATE,
+		type: CONSTANTS.COMPONENT_REMOVE_STATE,
 		componentName,
 		key,
 	};
