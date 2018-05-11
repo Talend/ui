@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { translate, getI18n } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
-import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
+import '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import css from './ActionBar.scss';
 
@@ -120,7 +120,7 @@ SwitchActions.propTypes = {
 };
 SwitchActions.defaultProps = {
 	actions: [],
-	t: getDefaultTranslate,
+	t: getI18n().t.bind(getI18n()),
 };
 
 function Count({ selected, t }) {
@@ -198,4 +198,4 @@ ActionBar.SwitchActions = SwitchActions;
 ActionBar.getActionsToRender = getActionsToRender;
 ActionBar.Content = Content;
 ActionBar.getContentClassName = getContentClassName;
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(ActionBar);
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionBar);

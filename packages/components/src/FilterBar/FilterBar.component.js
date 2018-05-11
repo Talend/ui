@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
+import { getI18n } from 'react-i18next';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
 import { Action } from '../Actions';
 import Icon from '../Icon';
-import { getDefaultTranslate } from '../translate';
+import '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -220,7 +221,7 @@ FilterBar.defaultProps = {
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
-	t: getDefaultTranslate,
+	t: getI18n().t.bind(getI18n()),
 	className: '',
 };
 

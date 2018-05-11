@@ -1,8 +1,5 @@
 import { createInstance } from 'i18next';
-
-export function getDefaultTranslate(key, options) {
-	return options.defaultValue;
-}
+import { setI18n } from 'react-i18next';
 
 // https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-export const DEFAULT_I18N = createInstance({}, () => {});
+setI18n(createInstance({}, () => {}));

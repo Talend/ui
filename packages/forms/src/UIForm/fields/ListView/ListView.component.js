@@ -5,7 +5,7 @@ import ListView from '@talend/react-components/lib/ListView';
 import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import { getDefaultTranslate } from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
 
@@ -219,4 +219,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { ListViewWidget };
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
+export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);

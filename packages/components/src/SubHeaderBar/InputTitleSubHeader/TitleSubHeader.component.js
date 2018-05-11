@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { getI18n } from 'react-i18next';
 import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
-import { getDefaultTranslate } from '../../translate';
+import '../../translate';
 
 function TitleSubHeader({ title, subTitle, onEdit, editable, disabled, t }) {
 	return (
@@ -76,7 +77,7 @@ TitleSubHeader.propTypes = {
 };
 
 TitleSubHeader.defaultProps = {
-	t: getDefaultTranslate,
+	t: getI18n().t.bind(getI18n()),
 	editable: false,
 };
 
