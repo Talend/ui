@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '@talend/react-components/lib/Icon';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { getI18n, translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import { getDefaultTranslate } from '../../../translate';
+import '../../../translate';
 
 import theme from './ArrayItem.scss';
 
@@ -51,7 +51,7 @@ export function ReorderButton(props) {
 }
 
 ReorderButton.defaultProps = {
-	t: getDefaultTranslate,
+	t: getI18n().t.bind(getI18n()),
 };
 if (process.env.NODE_ENV !== 'production') {
 	ReorderButton.propTypes = {

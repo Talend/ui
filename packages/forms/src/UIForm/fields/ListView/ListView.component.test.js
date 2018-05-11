@@ -204,7 +204,7 @@ describe('ListView field', () => {
 
 		it('should switch back to default mode on abort button click', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			const wrapper = mount(<ListViewWidget {...props} />);
 			filter(wrapper, 'ia');
 
 			expect(wrapper.state()).toMatchSnapshot();
@@ -221,7 +221,7 @@ describe('ListView field', () => {
 
 		it('should switch back to default mode on ESC keydown', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			const wrapper = mount(<ListViewWidget {...props} />);
 			filter(wrapper, 'ia');
 
 			expect(wrapper.state()).toMatchSnapshot();
