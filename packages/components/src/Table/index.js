@@ -7,10 +7,10 @@ import DraggableComponent from './DraggableComponent';
 import './Table.scss';
 
 export {
-  DraggableComponent,
-  Table,
-  TableCell,
-  TableClickableCell,
-  TableConfiguration,
-  TableHeader
+	DraggableComponent,
+	Table,
+	TableCell,
+	TableClickableCell,
+	TableConfiguration,
+	TableHeader,
 };

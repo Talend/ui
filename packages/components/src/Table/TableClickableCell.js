@@ -10,7 +10,7 @@ export default class TableClickableCell extends Component {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 		this.onDoubleClick = this.onDoubleClick.bind(this);
-    this.onDoubleClick = this.onDoubleClick.bind(this);
+		this.onDoubleClick = this.onDoubleClick.bind(this);
 	}
 
 	onClick(ev) {
@@ -25,11 +25,11 @@ export default class TableClickableCell extends Component {
 		}
 	}
 
-  onKeyPress(ev) {
-    if (this.props.extra && this.props.extra.onKeyPress) {
+	onKeyPress(ev) {
+		if (this.props.extra && this.props.extra.onKeyPress) {
 			this.props.extra.onKeyPress(this.props.element, ev);
 		}
-  }
+	}
 
 	render() {
 		const { data, className } = this.props;
