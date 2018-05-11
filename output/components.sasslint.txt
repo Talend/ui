@@ -8,13 +8,8 @@ src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/Table/Table.scss
-   84:26  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   90:26  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  118:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  124:17  warning  No unit allowed for values of 0                          zero-unit
-  133:6   error    Nesting depth 4 greater than max of 3                    nesting-depth
-  134:7   error    Nesting depth 4 greater than max of 3                    nesting-depth
-  134:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  120:5  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  124:6  error  Nesting depth 4 greater than max of 3                    nesting-depth
 
-✖ 9 problems (6 errors, 3 warnings)
+✖ 4 problems (2 errors, 2 warnings)
 
