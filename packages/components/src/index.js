@@ -40,7 +40,7 @@ import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import {
 	Table,
-	TableButton,
+	TableClickableCell,
 	TableConfiguration,
 	TableCell,
 	TableHeader,
@@ -164,7 +164,7 @@ export {
 	Progress,
 	SidePanel,
 	Table,
-	TableButton,
+	TableClickableCell,
 	TableConfiguration,
 	TableCell,
 	TableHeader,

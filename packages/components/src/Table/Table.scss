@@ -119,6 +119,9 @@
 		position: relative;
 		background: none;
 		border: none;
+		outline: 0;
+		text-align: left;
+		padding-left: 0px;
 	}
 
 	.table-with-dnd table {
@@ -128,12 +131,11 @@
 				td:first-child {
 					position: relative;
 					div[draggable='true'] {
-						button.tc-table-button:before {
+						div.tc-table-clickable-cell {
 							position: absolute;
 							top: 0;
 							left: 0;
 							bottom: 0;
-							content: '';
 							width: 100vw;
 						}
 					}
