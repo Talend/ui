@@ -315,7 +315,7 @@ class ConnectedTable extends React.Component {
 		const classNames = {
 			'tc-table-row': true,
 			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
-			draggable: this.state.draggable,
+			'draggable-row': this.state.draggable,
 		};
 		return classnames(classNames);
 	}
