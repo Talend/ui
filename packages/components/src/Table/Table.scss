@@ -81,13 +81,13 @@
 		height: 100%;
 	}
 
-	.tc-table.story-table tr.tr-head {
+	.tc-table.story-table .tr-head {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 	}
 
-	.tc-table.story-table tr.tr-body {
+	.tc-table.story-table .tr-body {
 		display: flex;
 		justify-content: flex-start;
 	}
@@ -115,29 +115,18 @@
 		}
 	}
 
-	button.tc-table-button {
-		position: relative;
-		background: none;
-		border: none;
-		outline: 0;
-		text-align: left;
-		padding-left: 0px;
-	}
-
 	.table-with-dnd table {
 		overflow: hidden;
-		tr {
-			&.draggable {
-				td:first-child {
-					position: relative;
-					div[draggable='true'] {
-						div.tc-table-clickable-cell {
-							position: absolute;
-							top: 0;
-							left: 0;
-							bottom: 0;
-							width: 100vw;
-						}
+		tr.draggable {
+			td:first-child {
+				position: relative;
+				div[draggable='true'] {
+					.tc-table-clickable-cell {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						width: 100vw;
 					}
 				}
 			}

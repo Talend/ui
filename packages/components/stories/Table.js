@@ -241,7 +241,7 @@ const draggableRowRenderer = {
 const headerRenderer = TableConfiguration.headerRenderer;
 
 const rowDataGetter = {
-  getId(element) {
+  getElementId(element) {
     return element.id;
 	},
 	getHeaderData(columnKey) {

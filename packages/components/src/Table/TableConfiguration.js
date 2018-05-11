@@ -95,7 +95,7 @@ export const rowDataGetter = {
 	 * Each element is displayed in a row.
 	 * @param {object} element - An element of the table.
 	 */
-	getId(element) {
+	getElementId(element) {
 		return element.id;
 	},
 	/**
