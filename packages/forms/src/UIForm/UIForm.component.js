@@ -274,7 +274,7 @@ if (process.env.NODE_ENV !== 'production') {
 		/** Form definition: Json schema that specify the data model */
 		jsonSchema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: UI schema that specify how to render the fields */
-		uiSchema: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+		uiSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired, // eslint-disable-line react/forbid-prop-types
 		/**
 		 *  Form definition: Form fields values.
 		 *  Note that it should contains @definitionName for triggers.
