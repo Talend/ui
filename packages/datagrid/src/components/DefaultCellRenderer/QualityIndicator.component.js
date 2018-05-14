@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate, getI18n } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_DATAGRID from '../../constant';
-import '../../translate';
+import getDefaultT from '../../translate';
 
 import { QUALITY_INVALID_KEY } from '../../constants';
 
@@ -39,7 +39,7 @@ QualityIndicatorComponent.propTypes = {
 };
 
 QualityIndicatorComponent.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 export default translate(I18N_DOMAIN_DATAGRID)(QualityIndicatorComponent);
