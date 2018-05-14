@@ -27,7 +27,7 @@ exports[`Action should apply transformation on icon 1`] = `
 exports[`Action should display a Progress indicator if set 1`] = `
 <Button
   active={false}
-  aria-label="{{label}} (in progress)"
+  aria-label="Click me (in progress)"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -129,6 +129,7 @@ exports[`Action should render a button with a overlay component 1`] = `
     overlay={
       <Popover
         bsClass="popover"
+        id="myOverlayId"
         placement="right"
       >
         [Function]
@@ -172,7 +173,7 @@ exports[`Action should render a button with loading state 1`] = `
 exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
 <Button
   active={false}
-  aria-label="{{label}} (in progress)"
+  aria-label="Click me (in progress)"
   block={false}
   bsClass="btn"
   bsStyle="default"
@@ -196,7 +197,7 @@ exports[`Action should render a button without an overlay component if inProgres
 exports[`Action should render a link button with loading state 1`] = `
 <Button
   active={false}
-  aria-label=" {{type}} (loading)"
+  aria-label="  (loading)"
   block={false}
   bsClass="btn"
   bsStyle="link"

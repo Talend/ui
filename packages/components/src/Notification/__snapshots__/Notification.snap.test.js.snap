@@ -30,6 +30,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use
@@ -60,6 +61,7 @@ exports[`Notification should render 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-undo"
               title={null}
             >
               <use
@@ -96,6 +98,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use
@@ -131,6 +134,7 @@ exports[`Notification should render 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-undo"
               title={null}
             >
               <use
@@ -164,6 +168,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use
@@ -212,6 +217,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use

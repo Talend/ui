@@ -14,7 +14,7 @@ import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import '../translate';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -204,7 +204,7 @@ export class UIFormComponent extends React.Component {
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit({ formData: properties });
+				this.props.onSubmit(null, { formData: properties });
 			} else {
 				this.props.onSubmit(event, properties);
 			}
@@ -265,7 +265,7 @@ export class UIFormComponent extends React.Component {
 		);
 	}
 }
-const I18NUIForm = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(UIFormComponent);
+const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
 	I18NUIForm.propTypes = {

@@ -5,7 +5,7 @@ import { AutoSizer, List } from 'react-virtualized';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
@@ -26,7 +26,7 @@ function itemContainer(additionalClassName) {
 	);
 }
 
-class Items extends React.PureComponent {
+export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -167,7 +167,7 @@ class Items extends React.PureComponent {
 	}
 }
 
-Items.propTypes = {
+ItemsComponent.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -186,10 +186,10 @@ Items.propTypes = {
 	t: PropTypes.func,
 };
 
-Items.defaultProps = {
-	t: getDefaultTranslate,
+ItemsComponent.defaultProps = {
+	t: getDefaultT(),
 	isSwitchBox: false,
 	showToggleAll: true,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Items);
+export default translate(I18N_DOMAIN_COMPONENTS)(ItemsComponent);

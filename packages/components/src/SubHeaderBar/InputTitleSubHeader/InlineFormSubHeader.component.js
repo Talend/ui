@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
-import { getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 function noop() {}
 
@@ -17,7 +17,7 @@ class InlineFormSubHeader extends React.Component {
 	};
 
 	static defaultProps = {
-		t: getDefaultTranslate,
+		t: getDefaultT(),
 	};
 
 	constructor(props) {

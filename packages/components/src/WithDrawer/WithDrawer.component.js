@@ -35,7 +35,7 @@ function WithDrawer({ drawers, children }) {
 								get(drawer, 'props.withTransition', true) &&
 								get(drawer, 'props.route.state.withTransition')
 							}
-							key={(drawer.props.route && drawer.props.route.path) || key}
+							key={get(drawer, 'props.route.path', key)}
 							className="tc-with-drawer-wrapper"
 						>
 							{drawer}

@@ -395,7 +395,7 @@ const UnknownWidget = props => {
 };
 
 UnknownWidget.propTypes = {
-	value: React.PropTypes.string,
+	value: PropTypes.string,
 };
 
 decoratedStories.add('Custom widget', () => {
