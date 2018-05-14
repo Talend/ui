@@ -115,25 +115,20 @@
 		}
 	}
 
-	button.tc-table-button {
-		position: relative;
-		background: none;
-		border: none;
-	}
-
 	.table-with-dnd table {
 		overflow: hidden;
-		tr.draggable {
-			td:first-child {
-				position: relative;
-				div[draggable='true'] {
-					.tc-table-clickable-cell {
-						position: absolute;
-						top: 0;
-						left: 0;
-						bottom: 0;
-						width: 100vw;
-					}
+	}
+
+	.draggable-row {
+		td:first-child {
+			position: relative;
+			div[draggable='true'] {
+				.tc-table-clickable-cell {
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					width: 100vw;
 				}
 			}
 		}
