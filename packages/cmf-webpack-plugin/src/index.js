@@ -1,26 +1,6 @@
-const chokidar = require('chokidar');
-
+/* eslint-disable global-require */
+const path = require('path');
 const mergeSettings = require('@talend/react-cmf/scripts/cmf-settings.merge');
-
-const chokidarOptions = {
-	persistent: true,
-	ignored: false,
-	ignoreInitial: false,
-	followSymlinks: true,
-	cwd: '.',
-	disableGlobbing: false,
-	usePolling: true,
-	interval: 100,
-	binaryInterval: 300,
-	alwaysStat: false,
-	depth: 99,
-	awaitWriteFinish: {
-		stabilityThreshold: 2000,
-		pollInterval: 100,
-	},
-	ignorePermissionErrors: false,
-	atomic: true,
-};
 
 /**
  * React CMF Webpack Plugin
@@ -46,81 +26,57 @@ function ReactCMFWebpackPlugin(options = {}) {
 ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 	this.log('apply');
 
-	compiler.plugin('emit', (compilation, callback) => {
+	let outputPath = compiler.options.output.path;
+	if (compiler.options.devServer &&
+		compiler.options.devServer.outputPath) {
+		outputPath = compiler.options.devServer.outputPath;
+	}
+	const cmfConfig = require(path.join(process.cwd(), 'cmf.json'));
+	const destination = cmfConfig.settings.destination;
+	if (!destination) {
+		cmfConfig.settings.destination = path.join(outputPath, 'settings.json');
+	}
+	this.options.cmfConfig = cmfConfig;
+
+	const emit = (compilation, callback) => {
 		this.log('emit', JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }));
 		if (!this.canRun || (this.lastRun && this.lastWatch && this.lastRun > this.lastWatch)) return;
 
 		const startTime = Date.now();
 		this.lastRun = startTime;
 		this.canRun = false;
+
 		this.modifiedFiles = mergeSettings(this.options, callback);
+
 		const endTime = Date.now();
 		this.log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
 		this.canRun = true;
+
 		callback();
-	});
+	};
+
+	const plugin = { name: 'ReactCMFPlugin' };
+	compiler.hooks.emit.tapAsync(plugin, emit);
 
 	if (this.options.watch) {
-		compiler.plugin('done', () => {
-			this.log('done', JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }));
-			if (!this.canRun || (this.lastRun && this.lastWatch && this.lastWatch > this.lastRun)) return;
-			this.lastWatch = new Date();
-			const watcher = chokidar.watch(this.modifiedFiles, chokidarOptions);
-			const run = () => {
-				watcher.close();
-				compiler.run(err => {
-					if (err) throw err;
-				});
-			};
-			watcher
-				.on(
-					'add',
-					path => {
-						this.log(`[watcher] File ${path} has been added`);
-					}
-				)
-				.on(
-					'change',
-					path => {
-						this.log(`[watcher] File ${path} has been changed`);
-						run();
-					}
-				)
-				.on(
-					'unlink',
-					path => {
-						this.log(`[watcher] File ${path} has been removed`);
-					}
-				)
-				.on(
-					'addDir',
-					path => {
-						this.log(`[watcher] Directory ${path} has been added`);
-					}
-				)
-				.on(
-					'unlinkDir',
-					path => {
-						this.log(`[watcher] Directory ${path} has been removed`);
-					}
-				)
-				.on(
-					'error',
-					error => {
-						this.log(`[watcher] ${error}`);
-					}
-				)
-				.on(
-					'ready',
-					() => {
-						this.log('[watcher] Initial scan complete. Ready for changes');
-					}
-				)
-				.on(
-					'raw',
-					() => null
-				);
-		});
+		const afterEmit = (compilation, callback) => {
+			let compilationFileDependencies;
+			if (Array.isArray(compilation.fileDependencies)) {
+				compilationFileDependencies = new Set(compilation.fileDependencies);
+			} else {
+				compilationFileDependencies = compilation.fileDependencies;
+			}
+
+			for (const file of this.modifiedFiles) {
+				if (!compilationFileDependencies.has(file)) {
+					compilation.fileDependencies.add(file);
+				}
+			}
+
+			callback();
+		};
+
+		compiler.hooks.afterEmit.tapAsync(plugin, afterEmit);
 	}
 };
 

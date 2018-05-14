@@ -6,7 +6,7 @@ module.exports = ({ getUserConfig }) => {
 	if (getUserConfig('cmf') !== false) {
 		// eslint-disable-next-line global-require,import/newline-after-import
 		const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
-		plugins.push(new ReactCMFWebpackPlugin({ quite: true }));
+		plugins.push(new ReactCMFWebpackPlugin({ quiet: true }));
 	}
 
 	return {
