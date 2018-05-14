@@ -3,7 +3,8 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/cmf-webpack-plugin/src/index.js
-  46:41  warning  Unexpected unnamed function  func-names
+  29:41  warning  Unexpected unnamed function                func-names
+  29:49  error    Missing space before function parentheses  space-before-function-paren
 
-✖ 1 problem (0 errors, 1 warning)
+✖ 2 problems (1 error, 1 warning)
 
