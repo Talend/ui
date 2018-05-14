@@ -18,17 +18,7 @@ import selectors from './selectors';
 
 const Dispatcher = ConnectedDispatcher;
 
-export {
-	actions,
-	api,
-	cmfConnect,
-	Dispatcher,
-	Inject,
-	history,
-	sagaRouter,
-	sagas,
-	selectors,
-};
+export { actions, api, cmfConnect, Dispatcher, Inject, history, sagaRouter, sagas, selectors };
 
 /**
  * API exported

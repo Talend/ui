@@ -4,15 +4,12 @@ export function assertTypeOf(options, attr, type, toThrow = true) {
 		isTypeCorrect = type.reduce((acc, current) => {
 			return assertTypeOf(options, attr, current, false) || acc;
 		});
-	} else if (
-		type === 'Array' &&
-		options[attr] &&
-		!Array.isArray(options[attr])
-	) {
+	} else if (type === 'Array' && options[attr] && !Array.isArray(options[attr])) {
 		isTypeCorrect = false;
 	} else if (
 		// eslint-disable-next-line valid-typeof
-		(options[attr] && typeof options[attr] !== type)
+		options[attr] &&
+		typeof options[attr] !== type
 	) {
 		isTypeCorrect = false;
 	}
