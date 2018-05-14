@@ -44,17 +44,17 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	internalGetElements() {
 		return this.elements;
 	}
 
 	/**
-	* Add a new filter. If it is active then compute the result.
-	* @param {object} filter - The filter.
-	* @see {@link Filter} for further information.
-	*/
+	 * Add a new filter. If it is active then compute the result.
+	 * @param {object} filter - The filter.
+	 * @see {@link Filter} for further information.
+	 */
 	addFilter(filter) {
 		const filterId = filter.getId();
 		this.filters.registry[filterId] = { filter, result: [], version: 0 };
@@ -84,10 +84,10 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
-	* Compute the result of the given filter (only if it is active).
-	* @param {string} filterId - identifier of the filter
-	* @private do not call it from outside.
-	*/
+	 * Compute the result of the given filter (only if it is active).
+	 * @param {string} filterId - identifier of the filter
+	 * @private do not call it from outside.
+	 */
 	internalComputeFilter(filterId) {
 		const filter = this.filters.registry[filterId].filter;
 		if (filter.isActive()) {
@@ -123,8 +123,8 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	internalMergeFiltersAndSorter() {
 		this.internalMergeFilters();
 		if (this.isSorterDefined()) {
@@ -133,8 +133,8 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	internalMergeFilters() {
 		const filterIds = Object.keys(this.filters.registry);
 		let result = null;
@@ -183,8 +183,8 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	internalGetFilteredElements() {
 		if (this.hasFiltersActive()) {
 			return this.filters.result;
@@ -216,8 +216,8 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	internalSortElements(elements) {
 		let result = elements.slice();
 		this.comparator.sort(result, this.sorterInfo.sorter);
@@ -311,9 +311,7 @@ export default class DataAccessorWithSorterAndFilter {
 	getElementIndex(element, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
 			if (this.hasSorter()) {
-				return this.sorterInfo.result.findIndex(elem =>
-					this.areElementsEqual(elem, element),
-				);
+				return this.sorterInfo.result.findIndex(elem => this.areElementsEqual(elem, element));
 			} else if (this.hasFiltersActive()) {
 				return this.filters.result.findIndex(elem => this.areElementsEqual(elem, element));
 			}
@@ -332,5 +330,4 @@ export default class DataAccessorWithSorterAndFilter {
 		}
 		return null;
 	}
-
 }
