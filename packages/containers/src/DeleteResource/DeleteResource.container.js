@@ -91,12 +91,10 @@ export class DeleteResource extends React.Component {
 				cancelAction={cancelAction}
 				validateAction={validateAction}
 			>
-				<div>
-					<Trans i18nKey="DELETE_RESOURCE_MESSAGE" parent="div" tOptions={{ context }}>
-						Are you sure you want to remove the {{ resourceLabel: resourceInfo.resourceTypeLabel }}
-						<strong> {{ resourceName: resourceInfo.label }} </strong> ?
-					</Trans>
-				</div>
+				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" parent="div" tOptions={{ context }}>
+					Are you sure you want to remove the {{ resourceLabel: resourceInfo.resourceTypeLabel }}
+					<strong> {{ resourceName: resourceInfo.label }} </strong> ?
+				</Trans>
 			</ConfirmDialog>
 		);
 	}
