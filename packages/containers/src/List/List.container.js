@@ -116,11 +116,10 @@ class List extends React.Component {
 
 	onToggleMultiSelection(event, data) {
 		const state = this.props.state.toJS();
-		let selectedItems = [].concat(state.selectedItems);
-		if (selectedItems.find(itemKey => itemKey === data[this.props.multiSelectionKey])) {
-			selectedItems = selectedItems.filter(
-				itemKey => itemKey !== data[this.props.multiSelectionKey],
-			);
+		let selectedItems = state.selectedItems.slice();
+		const dataIndex = selectedItems.indexOf(data[this.props.multiSelectionKey]);
+		if (dataIndex > -1) {
+			selectedItems.splice(dataIndex, 1);
 		} else {
 			selectedItems.push(data[this.props.multiSelectionKey]);
 		}
@@ -151,10 +150,7 @@ class List extends React.Component {
 
 	isSelected(item) {
 		const state = this.props.state.toJS();
-		if (state.selectedItems.find(itemKey => itemKey === item[this.props.multiSelectionKey])) {
-			return true;
-		}
-		return false;
+		return state.selectedItems.some(itemKey => itemKey === item[this.props.multiSelectionKey]);
 	}
 
 	render() {

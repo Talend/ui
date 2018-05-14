@@ -260,7 +260,7 @@ const ExampleList = {
 	'multi selection': () => {
 		const multiSelectionProps = cloneDeep(props);
 		multiSelectionProps.multiSelectActions = {
-				left: ['object:remove'],
+			left: ['object:remove'],
 		};
 		multiSelectionProps.multiSelectionKey = 'id';
 		return (
