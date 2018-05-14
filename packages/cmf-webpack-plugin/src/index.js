@@ -49,15 +49,15 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 	compiler.plugin('emit', (compilation, callback) => {
 		this.log('emit', JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }));
 		if (!this.canRun || (this.lastRun && this.lastWatch && this.lastRun > this.lastWatch)) return;
-		this.canRun = false;
-		this.lastRun = new Date();
+
 		const startTime = Date.now();
-		this.modifiedFiles = mergeSettings(this.options, this.log, () => {
-			const endTime = Date.now();
-			this.log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
-			this.canRun = true;
-			callback();
-		}, callback);
+		this.lastRun = startTime;
+		this.canRun = false;
+		this.modifiedFiles = mergeSettings(this.options, callback);
+		const endTime = Date.now();
+		this.log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
+		this.canRun = true;
+		callback();
 	});
 
 	if (this.options.watch) {

@@ -12,7 +12,19 @@ const babelrc = require('./.babelrc.json');
 const LICENSE_BANNER = require('./licence');
 
 function getSassData(getUserConfig) {
-	let sassData = ['@import \'~@talend/bootstrap-theme/src/theme/guidelines\';'];
+	let sassData = [
+		`$tc-drawer-content-max-width: 100%;
+		@mixin flex-full-height(){
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		@mixin flex-scroll(){
+			min-height: 0;
+			overflow-y: auto;
+		}`,
+		'@import \'~@talend/bootstrap-theme/src/theme/guidelines\';',
+	];
 
 	const userSassData = getUserConfig('sass');
 	if (userSassData && userSassData.data) {
@@ -61,7 +73,7 @@ module.exports = ({ getUserConfig }) => {
 	return {
 		entry: ['babel-polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
 		output: {
-			path: `${process.cwd()}/dist`,
+			path: `${process.cwd()}/build`,
 			publicPath: '/',
 			filename: '[name]-[hash].js',
 		},
