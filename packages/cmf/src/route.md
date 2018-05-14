@@ -33,7 +33,7 @@ On a child declaration, we can have :
 
 * path : the url path that activate the component
 * component : the component rendered for a given url, this is the displayName registered in the CMF registry
-* view : the component view can be passed to give props to the component. This feature will be soon deprecated
 * componentId : the component id that can be defined in the props entry of the settings
+* view : DEPRECATED (legacy). the component view can be passed to give props to the component.
 
 For the document title handler, you have to use the documentTitle saga in this repo.
