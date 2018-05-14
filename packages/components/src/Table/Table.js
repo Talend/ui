@@ -202,7 +202,7 @@ Table.propTypes = {
 	}),
 	columnKeys: PropTypes.array,
 	rowDataGetter: PropTypes.shape({
-		getId: PropTypes.func,
+		getElementId: PropTypes.func,
 		getHeaderData: PropTypes.func,
 		getRowData: PropTypes.func,
 	}),

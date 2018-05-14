@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
 	Table,
-	TableButton,
+	TableClickableCell,
 	TableConfiguration,
 	TableCell,
 	DraggableComponent as draggable,
@@ -198,7 +198,7 @@ const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
 const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE];
 const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
 
-const draggableCell = draggable(TableButton);
+const draggableCell = draggable(TableClickableCell);
 
 const draggableRowRenderer = {
 	getCellComponent(columnKey) {
@@ -215,18 +215,21 @@ const draggableRowRenderer = {
 				return {
 					// for the drag and drop behaviour
 					beginDrag(element) {
+						action(`Begin drag element ${element.name}`).call();
 						return element;
 					},
 					canDrop(sourceItem, targetElement) {
 						return sourceItem.id !== targetElement.id;
 					},
-					drop() {
+					drop(sourceItem, targetElement) {
+						action(`You have dropped element ${sourceItem.name} onto element ${targetElement.name}`).call();
 					},
 					endDrag() {
+						action(`Drag and drop is finished!`).call();
 					},
 					// for the click behaviour
 					onClick(element) {
-						action(`You have clicked on element ${element.name}`);
+						action(`You have clicked on element ${element.name}`).call();
 					},
 				};
 			default:
@@ -238,7 +241,7 @@ const draggableRowRenderer = {
 const headerRenderer = TableConfiguration.headerRenderer;
 
 const rowDataGetter = {
-  getId(element) {
+  getElementId(element) {
     return element.id;
 	},
 	getHeaderData(columnKey) {

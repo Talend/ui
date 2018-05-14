@@ -39,7 +39,7 @@ export const classNameProvider = {
 };
 
 export const rowDataGetter = {
-	getId(element) {
+	getElementId(element) {
 		return element.id;
 	},
 	getHeaderData(columnKey) {

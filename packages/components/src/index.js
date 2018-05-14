@@ -44,7 +44,7 @@ import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import {
 	Table,
-	TableButton,
+	TableClickableCell,
 	TableConfiguration,
 	TableCell,
 	TableHeader,
@@ -169,7 +169,7 @@ export {
 	SubHeaderBar,
 	TabBar,
 	Table,
-	TableButton,
+	TableClickableCell,
 	TableConfiguration,
 	TableCell,
 	TableHeader,

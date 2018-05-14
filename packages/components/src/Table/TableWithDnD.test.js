@@ -18,9 +18,7 @@ function getComponentByName(components, name) {
  */
 function wrapInTestContext(DecoratedComponent) {
 	return dndContext(TestBackend)(
-		function TestContextContainer(props) {
-			return <DecoratedComponent {...props} />;
-		},
+		props => (<DecoratedComponent {...props} />)
 	);
 }
 

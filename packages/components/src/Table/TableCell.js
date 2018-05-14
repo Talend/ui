@@ -6,13 +6,7 @@ import PropTypes from 'prop-types';
  * It uses a div element for layout purpose (text alignment in a cell).
  */
 export default function TableCell({ data, className }) {
-	return (
-		<div
-			className={`tc-table-cell ${className}`}
-		>
-			{data}
-		</div>
-	);
+	return <div className={`tc-table-cell ${className}`}>{data}</div>;
 }
 
 TableCell.propTypes = {

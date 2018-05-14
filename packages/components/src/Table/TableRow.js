@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import TableCell from './TableCell';
 
 export function getRowId(rowDataGetter, element) {
-	if (rowDataGetter && rowDataGetter.getId) {
-		return rowDataGetter.getId(element);
+	if (rowDataGetter && rowDataGetter.getElementId) {
+		return rowDataGetter.getElementId(element);
 	} else if (element.id && typeof element.id === 'string') {
 		return element.id;
 	}
@@ -120,13 +120,7 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const {
-			element,
-			classNameProvider,
-			columnKeys,
-			rowDataGetter,
-			rowRenderer,
-		} = this.props;
+		const { element, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
 		const rowKey = getRowId(rowDataGetter, element);
 		return (
 			<tr
@@ -153,7 +147,7 @@ TableRow.propTypes = {
 	}),
 	columnKeys: PropTypes.array,
 	rowDataGetter: PropTypes.shape({
-		getId: PropTypes.func,
+		getElementId: PropTypes.func,
 		getHeaderData: PropTypes.func,
 		getRowData: PropTypes.func,
 	}),

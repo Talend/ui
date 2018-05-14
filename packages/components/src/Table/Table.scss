@@ -1,5 +1,4 @@
 :global {
-
 	$data-type-font: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
 
 	.table-container {
@@ -82,13 +81,13 @@
 		height: 100%;
 	}
 
-	.tc-table.story-table tr.tr-head {
+	.tc-table.story-table .tr-head {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 	}
 
-	.tc-table.story-table tr.tr-body {
+	.tc-table.story-table .tr-body {
 		display: flex;
 		justify-content: flex-start;
 	}
@@ -116,27 +115,18 @@
 		}
 	}
 
-	button.tc-table-button {
-	  position: relative;
-	  background: none;
-	  border: none;
-	}
-
 	.table-with-dnd table {
 		overflow: hidden;
-		tr {
-			&.draggable {
-				td:first-child {
-					position: relative;
-					div[draggable='true'] {
-						button.tc-table-button:before {
-							position: absolute;
-							top: 0;
-							left: 0;
-							bottom: 0;
-							content: '';
-							width: 100vw;
-						}
+		tr.draggable {
+			td:first-child {
+				position: relative;
+				div[draggable='true'] {
+					.tc-table-clickable-cell {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						width: 100vw;
 					}
 				}
 			}
@@ -160,5 +150,4 @@
 			}
 		}
 	}
-
 }
