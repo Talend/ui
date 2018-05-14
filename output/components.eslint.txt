@@ -160,7 +160,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   214:17  error  Expected 'this' to be used by class method 'getHeaderHeight'  class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaRenderers/TableRenderer.js
-    6:2   error  'TableButton' is defined but never used                                                        no-unused-vars
+    6:2   error  'TableClickableCell' is defined but never used                                                 no-unused-vars
   105:15  error  Expected 'this' to be used by class method 'getHeaderData'                                     class-methods-use-this
   141:24  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   142:34  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -210,9 +210,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/Table/DataAccessor/DataAccessorWithSorterAndFilter.js
-  1:8   error  'Filter' is defined but never used              no-unused-vars
-  2:8   error  'Sorter' is defined but never used              no-unused-vars
-  4:10  error  'mergeFilterResults' is defined but never used  no-unused-vars
+    1:8   error  'Filter' is defined but never used                 no-unused-vars
+    2:8   error  'Sorter' is defined but never used                 no-unused-vars
+  222:7   error  'result' is never reassigned. Use 'const' instead  prefer-const
+  326:19  error  'elementId' is defined but never used              no-unused-vars
+  329:61  error  'id' is not defined                                no-undef
 
 /home/travis/build/Talend/ui/packages/components/src/Table/Filters/RegexpFilter.js
   30:50  error  'key' is not defined  no-undef
@@ -220,8 +222,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/Table/Sorters/Sorter.js
   50:10  error  Do not nest ternary expressions  no-nested-ternary
 
-/home/travis/build/Talend/ui/packages/components/src/Table/TableWithDnD.test.js
-  20:33  error  Unexpected function expression  prefer-arrow-callback
+/home/travis/build/Talend/ui/packages/components/src/Table/TableClickableCell.js
+  37:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   44:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -229,5 +231,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 145 problems (144 errors, 1 warning)
+✖ 147 problems (146 errors, 1 warning)
 
