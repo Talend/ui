@@ -51,6 +51,7 @@
     "rc-tooltip": "3.7.0",
     "react-autowhatever": "10.1.0",
     "react-debounce-input": "3.1.0",
+    "react-immutable-proptypes": "2.1.0",
     "react-virtualized": "9.10.1"
   },
   "devDependencies": {
