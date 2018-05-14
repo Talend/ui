@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getI18n } from 'react-i18next';
 import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
-import '../../translate';
+import getDefaultT from '../../translate';
 
 function noop() {}
 
@@ -18,7 +17,7 @@ class InlineFormSubHeader extends React.Component {
 	};
 
 	static defaultProps = {
-		t: getI18n().t.bind(getI18n()),
+		t: getDefaultT(),
 	};
 
 	constructor(props) {

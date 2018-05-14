@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { translate, Trans, getI18n } from 'react-i18next';
+import { translate, Trans } from 'react-i18next';
 import { getActionsProps } from '../actionAPI';
 import deleteResourceConst from './deleteResource.constants';
-import '../translate';
+import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 
 /**
@@ -30,7 +30,7 @@ export class DeleteResource extends React.Component {
 		store: PropTypes.object.isRequired,
 	};
 	static defaultProps = {
-		t: getI18n().t.bind(getI18n()),
+		t: getDefaultT(),
 	};
 
 	constructor(props, context) {
@@ -81,11 +81,9 @@ export class DeleteResource extends React.Component {
 		const resourceInfo = this.getResourceInfo();
 		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
 		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
-		const i18nKey = this.props.female
-			? 'DELETE_RESOURCE_MESSAGE_female'
-			: 'DELETE_RESOURCE_MESSAGE';
+		const context = this.props.female ? 'female' : '';
 
-		//parent attribute on Trans: https://react.i18next.com/components/trans-component#additional-options-on-i-18-next-init
+		// parent attribute on Trans: https://react.i18next.com/components/trans-component#additional-options-on-i-18-next-init
 		return (
 			<ConfirmDialog
 				show
@@ -94,7 +92,7 @@ export class DeleteResource extends React.Component {
 				validateAction={validateAction}
 			>
 				<div>
-					<Trans i18nKey={i18nKey} parent="div">
+					<Trans i18nKey="DELETE_RESOURCE_MESSAGE" parent="div" tOptions={{ context }}>
 						Are you sure you want to remove the {{ resourceLabel: resourceInfo.resourceTypeLabel }}
 						<strong> {{ resourceName: resourceInfo.label }} </strong> ?
 					</Trans>

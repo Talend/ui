@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import '../../../translate';
+import getDefaultT from '../../../translate';
 
 import theme from './Array.scss';
 
@@ -45,7 +45,7 @@ export function DefaultArrayTemplate(props) {
 }
 
 DefaultArrayTemplate.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
-import { translate, getI18n } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -11,7 +11,7 @@ import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import '../../translate';
+import getDefaultT from '../../translate';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -228,7 +228,7 @@ ActionButton.defaultProps = {
 	inProgress: false,
 	loading: false,
 	disabled: false,
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 ActionButton.displayName = 'ActionButton';

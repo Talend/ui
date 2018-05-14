@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import '../../translate';
+import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
@@ -187,7 +187,7 @@ Items.propTypes = {
 };
 
 Items.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 	isSwitchBox: false,
 	showToggleAll: true,
 };

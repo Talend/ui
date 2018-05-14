@@ -44,8 +44,13 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 >
   <div>
     <Trans
-      i18nKey="DELETE_RESOURCE_MESSAGE_female"
+      i18nKey="DELETE_RESOURCE_MESSAGE"
       parent="div"
+      tOptions={
+        Object {
+          "context": "female",
+        }
+      }
     >
       Are you sure you want to remove the 
       Object {
@@ -110,6 +115,11 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     <Trans
       i18nKey="DELETE_RESOURCE_MESSAGE"
       parent="div"
+      tOptions={
+        Object {
+          "context": "",
+        }
+      }
     >
       Are you sure you want to remove the 
       Object {

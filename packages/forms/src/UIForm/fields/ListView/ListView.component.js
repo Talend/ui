@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import '../../../translate';
+import getDefaultT from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
 
@@ -190,7 +190,7 @@ class ListViewWidget extends React.Component {
 
 ListViewWidget.defaultProps = {
 	value: [],
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {

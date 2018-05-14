@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
-import { getI18n } from 'react-i18next';
 
-import '../../../translate';
+import getDefaultT from '../../../translate';
 import theme from './SelectSortBy.scss';
 
 function SortByItem({ option, index, id }) {
@@ -82,7 +81,7 @@ SelectSortBy.propTypes = {
 };
 
 SelectSortBy.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 export default SelectSortBy;

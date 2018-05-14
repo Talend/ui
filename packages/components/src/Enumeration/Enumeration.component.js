@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate, getI18n } from 'react-i18next';
+import { translate } from 'react-i18next';
 
-import '../translate';
+import getDefaultT from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
 import Action from '../Actions/Action';
@@ -202,7 +202,7 @@ HeaderEnumeration.propTypes = {
 };
 
 HeaderEnumeration.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS)(Enumeration);

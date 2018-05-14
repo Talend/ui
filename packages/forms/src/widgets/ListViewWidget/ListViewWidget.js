@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ListView from '@talend/react-components/lib/ListView';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import '../../translate';
+import getDefaultT from '../../translate';
 import { abort, search } from './ListViewWidget.actions';
 
 import {
@@ -172,7 +172,7 @@ ListViewWidget.defaultProps = {
 	options: {
 		enumOptions: [],
 	},
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {

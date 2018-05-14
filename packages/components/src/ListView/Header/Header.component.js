@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import '../../translate';
+import getDefaultT from '../../translate';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
@@ -82,7 +82,7 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 Header.propTypes = headerPropTypes;
 
 Header.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS)(Header);

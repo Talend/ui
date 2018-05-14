@@ -3,11 +3,11 @@ import React from 'react';
 import keycode from 'keycode';
 import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import '../../translate';
+import getDefaultT from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -916,7 +916,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 EnumerationForm.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 export { EnumerationForm };

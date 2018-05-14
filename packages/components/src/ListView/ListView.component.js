@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { getI18n, translate } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
+import getDefaultT from '../translate';
 import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import Items from './Items/Items.component';
@@ -114,7 +114,7 @@ function HeaderListView(props) {
 
 HeaderListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 HeaderListView.propTypes = {

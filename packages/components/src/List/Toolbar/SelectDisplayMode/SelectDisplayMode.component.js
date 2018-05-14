@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
-import { getI18n } from 'react-i18next';
 
-import '../../../translate';
+import getDefaultT from '../../../translate';
 import Icon from '../../../Icon';
 
 function getIcon(selected) {
@@ -67,7 +66,7 @@ SelectDisplayMode.propTypes = {
 };
 
 SelectDisplayMode.defaultProps = {
-	t: getI18n().t.bind(getI18n()),
+	t: getDefaultT(),
 };
 
 export default SelectDisplayMode;
