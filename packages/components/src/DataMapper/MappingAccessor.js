@@ -17,8 +17,7 @@ function removeMappingItem(mapping, index) {
 }
 
 export default class MappingAccessor {
-
-  /**
+	/**
 	 * Returns an array of all the mapping items. A mapping item defines
 	 * a mapping betwwen an input and an output element.
 	 */
@@ -70,5 +69,4 @@ export default class MappingAccessor {
 	isMappingEmpty(mapping) {
 		return !mapping.length;
 	}
-
 }

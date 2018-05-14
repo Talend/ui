@@ -16,7 +16,6 @@ function getCoef(order) {
  * This class is intended to be subclassed.
  */
 export default class Sorter {
-
 	constructor(id, label, icon, order, key) {
 		this.id = id;
 		this.label = label;
