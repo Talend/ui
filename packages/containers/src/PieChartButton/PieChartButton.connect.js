@@ -38,6 +38,7 @@ export function ContainerPieChartButton(props) {
 		model,
 		inProgress: state.get('inProgress', props.inProgress),
 		loading: state.get('loading', props.loading),
+		available: state.get('available', props.available),
 		overlayComponent,
 		onClick,
 	};
