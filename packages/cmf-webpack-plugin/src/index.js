@@ -12,10 +12,13 @@ function ReactCMFWebpackPlugin(options = {}) {
 	this.lastRun = null;
 	this.lastWatch = null;
 	this.modifiedFiles = [];
-	this.options = Object.assign({
-		quiet: false,
-		watch: false,
-	}, options);
+	this.options = Object.assign(
+		{
+			quiet: false,
+			watch: false,
+		},
+		options,
+	);
 	this.log = (...args) => {
 		if (!this.options.quiet) {
 			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
@@ -23,12 +26,11 @@ function ReactCMFWebpackPlugin(options = {}) {
 	};
 }
 
-ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
+ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 	this.log('apply');
 
 	let outputPath = compiler.options.output.path;
-	if (compiler.options.devServer &&
-		compiler.options.devServer.outputPath) {
+	if (compiler.options.devServer && compiler.options.devServer.outputPath) {
 		outputPath = compiler.options.devServer.outputPath;
 	}
 	const cmfConfig = require(path.join(process.cwd(), 'cmf.json'));
@@ -39,7 +41,10 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 	this.options.cmfConfig = cmfConfig;
 
 	const emit = (compilation, callback) => {
-		this.log('emit', JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }));
+		this.log(
+			'emit',
+			JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }),
+		);
 		if (!this.canRun || (this.lastRun && this.lastWatch && this.lastRun > this.lastWatch)) return;
 
 		const startTime = Date.now();
@@ -49,7 +54,7 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 		this.modifiedFiles = mergeSettings(this.options, callback);
 
 		const endTime = Date.now();
-		this.log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
+		this.log(`Files merged in ${((endTime - startTime) % 60000) / 1000}s`);
 		this.canRun = true;
 
 		callback();
