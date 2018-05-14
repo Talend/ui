@@ -85,11 +85,7 @@ describe('ListView field', () => {
 			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
-			expect(toJsonWithoutI18n(
-				wrapper
-					.find('.tc-listview')
-					.at(0)
-			)).toMatchSnapshot();
+			expect(toJsonWithoutI18n(wrapper.find('.tc-listview').at(0))).toMatchSnapshot();
 		});
 	});
 
