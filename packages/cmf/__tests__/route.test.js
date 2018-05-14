@@ -44,7 +44,7 @@ describe('loadComponent behavior', () => {
 		expect(mockItem.component.displayName).toBe('WithView');
 	});
 
-	it('should use the componentId', () => {
+	it('should use the componentId to resolve the props for the component instead of using a view', () => {
 		const mockItem = {
 			component: 'TestContainer',
 			componentId: 'test',
