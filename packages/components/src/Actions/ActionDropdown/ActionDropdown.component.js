@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
@@ -170,13 +171,16 @@ ActionDropdown.propTypes = {
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			icon: PropTypes.string,
-			label: PropTypes.string,
-			...MenuItem.propTypes,
-		}),
-	).isRequired,
+	items: PropTypes.oneOfType([
+		PropTypes.arrayOf(
+			PropTypes.shape({
+				icon: PropTypes.string,
+				label: PropTypes.string,
+				...MenuItem.propTypes,
+			}),
+		),
+		ImmutablePropTypes.list,
+	]).isRequired,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	onSelect: PropTypes.func,
