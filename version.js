@@ -96,7 +96,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'i18next-parser': '^0.13.0',
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
-	'react-i18next': '^5.2.0',
+	'react-i18next': '^7.6.1',
 	'react-redux': '5.0.5',
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
