@@ -1,5 +1,5 @@
 import React from 'react';
-import Immutable, { Map } from 'immutable';
+import Immutable from 'immutable';
 import { shallow } from 'enzyme';
 import Connected, { ContainerPieChartButton } from './PieChartButton.connect';
 
