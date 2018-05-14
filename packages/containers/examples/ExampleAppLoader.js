@@ -17,7 +17,7 @@ const ExampleAppLoader = {
 			<div>
 				<style>{APP_LOADER.getLoaderStyle(ICON)}</style>
 				<AppLoader hasCollections={hasCollections} steps={steps} saga="appLoaderSaga">
-					<div>Loaded content</div>
+					Loaded content
 				</AppLoader>
 			</div>
 		);

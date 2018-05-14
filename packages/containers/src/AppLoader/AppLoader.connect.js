@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { cmfConnect } from '@talend/react-cmf';
-import { AppLoader } from '@talend/react-components';
+import { AppLoader, Inject } from '@talend/react-components';
 import { appLoaderSaga } from './AppLoader.saga';
 
 /**
@@ -16,7 +16,15 @@ export function AppLoaderContainer({ loading, children, ...rest }) {
 		return <AppLoader {...rest} />;
 	}
 
-	return children || null;
+	const CustomInject = cmfConnect({})(Inject); // put that with import
+	const injected = Inject.all(rest.getComponent, rest.components, CustomInject);
+	return (
+		<div>
+			{injected('before-children')}
+			{children || null}
+			{injected('after-children')}
+		</div>
+	);
 }
 
 AppLoaderContainer.displayName = 'AppLoader';

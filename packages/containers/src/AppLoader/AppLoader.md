@@ -18,6 +18,8 @@ On your top level component, you can place it this way :
 </AppLoader>
 ```
 
+Another way to do it could be to use the inject placeholders to inject all the stuff
+
 ## How to configure it ?
 
 This is a sample of configuration :
