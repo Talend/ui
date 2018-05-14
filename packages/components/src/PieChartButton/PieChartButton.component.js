@@ -312,6 +312,7 @@ function getShowedValue(model, index) {
 }
 
 function PieChartButton({
+	available,
 	model,
 	labelIndex,
 	className,
@@ -332,6 +333,9 @@ function PieChartButton({
 	overlayRef,
 	...rest
 }) {
+	if (!available) {
+		return null;
+	}
 	const sizeObject = getDisplaySize(size, display);
 
 	if (loading) {
@@ -397,6 +401,7 @@ function PieChartButton({
 }
 
 PieChartButton.propTypes = {
+	available: PropTypes.bool,
 	className: PropTypes.string,
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
 	loading: PropTypes.bool,
@@ -430,6 +435,7 @@ PieChartButton.propTypes = {
 };
 
 PieChartButton.defaultProps = {
+	available: true,
 	labelIndex: 0,
 	minimumPercentage: 5,
 	display: 'small',

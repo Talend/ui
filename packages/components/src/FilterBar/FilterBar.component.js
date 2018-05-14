@@ -7,8 +7,8 @@ import keycode from 'keycode';
 import { translate } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
-import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -222,8 +222,8 @@ FilterBarComponent.defaultProps = {
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 	className: '',
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(FilterBarComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);
