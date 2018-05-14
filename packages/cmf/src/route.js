@@ -80,6 +80,7 @@ function loadComponents(context, item, dispatch) {
 			if (item.view) {
 				// eslint-disable-next-line no-console
 				console.warn('DEPRECATED: view is deprecated please use componentId');
+			}
 			const WithView = item.component;
 			item.component = props => (
 				<WithView view={item.view} componentId={item.componentId} {...props} />
