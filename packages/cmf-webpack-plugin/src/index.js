@@ -26,9 +26,10 @@ function ReactCMFWebpackPlugin(options = {}) {
 	};
 }
 
-ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
+ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(compiler) {
 	this.log('apply');
 
+	// adapt cmf settings result to output to /settings.json by default
 	let outputPath = compiler.options.output.path;
 	if (compiler.options.devServer && compiler.options.devServer.outputPath) {
 		outputPath = compiler.options.devServer.outputPath;
@@ -40,7 +41,11 @@ ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 	}
 	this.options.cmfConfig = cmfConfig;
 
-	const emit = (compilation, callback) => {
+	/**
+	 * Runs at each webpack run.
+	 * Calls cmf merge function with the modified cmf config.
+	 */
+	function emit(compilation, callback) {
 		this.log(
 			'emit',
 			JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }),
@@ -58,30 +63,34 @@ ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 		this.canRun = true;
 
 		callback();
-	};
+	}
+
+	/**
+	 * Register the cmf settings files in the watched files.
+	 * So every change will trigger a new webpack run.
+	 */
+	function afterEmit(compilation, callback) {
+		let compilationFileDependencies;
+		if (Array.isArray(compilation.fileDependencies)) {
+			compilationFileDependencies = new Set(compilation.fileDependencies);
+		} else {
+			compilationFileDependencies = compilation.fileDependencies;
+		}
+
+		for (const file of this.modifiedFiles) {
+			if (!compilationFileDependencies.has(file)) {
+				compilation.fileDependencies.add(file);
+			}
+		}
+
+		callback();
+	}
 
 	const plugin = { name: 'ReactCMFPlugin' };
-	compiler.hooks.emit.tapAsync(plugin, emit);
+	compiler.hooks.emit.tapAsync(plugin, emit.bind(this));
 
 	if (this.options.watch) {
-		const afterEmit = (compilation, callback) => {
-			let compilationFileDependencies;
-			if (Array.isArray(compilation.fileDependencies)) {
-				compilationFileDependencies = new Set(compilation.fileDependencies);
-			} else {
-				compilationFileDependencies = compilation.fileDependencies;
-			}
-
-			for (const file of this.modifiedFiles) {
-				if (!compilationFileDependencies.has(file)) {
-					compilation.fileDependencies.add(file);
-				}
-			}
-
-			callback();
-		};
-
-		compiler.hooks.afterEmit.tapAsync(plugin, afterEmit);
+		compiler.hooks.afterEmit.tapAsync(plugin, afterEmit.bind(this));
 	}
 };
 
