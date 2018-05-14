@@ -1,6 +1,7 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 import registry from '../src/registry';
 
+// FIXME: those are not unit test since registry is shared between tests
 describe('CMF registry', () => {
 	it('Registry should get a singleton', () => {
 		// given
@@ -37,10 +38,10 @@ describe('CMF registry', () => {
 
 	it('getFromRegistry should return the item', () => {
 		// given
-		registry.addToRegistry('key', 'value');
+		registry.addToRegistry('anItem', 'value');
 
 		// when
-		const value = registry.getFromRegistry('key');
+		const value = registry.getFromRegistry('anItem');
 
 		// then
 		expect(value).toBe('value');

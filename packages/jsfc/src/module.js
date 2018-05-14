@@ -4,6 +4,7 @@ import canonicalTitleMapImp from './lib/canonical-title-map';
 
 export { merge } from './lib/merge';
 export { select } from './lib/select';
+export { jsonref } from './lib/resolve';
 export { traverseSchema, traverseForm } from './lib/traverse';
 export { validate } from './lib/validate';
 
