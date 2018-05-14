@@ -51,6 +51,7 @@
     "rc-tooltip": "3.7.0",
     "react-autowhatever": "10.1.0",
     "react-debounce-input": "3.1.0",
+    "react-immutable-proptypes": "2.1.0",
     "react-virtualized": "9.10.1"
   },
   "devDependencies": {
@@ -103,7 +104,6 @@
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
-    "react-immutable-proptypes": "2.1.0",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "^15.6.2",
     "rimraf": "^2.6.1",
