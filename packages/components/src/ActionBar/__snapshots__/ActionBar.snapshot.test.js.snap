@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionBar should render a btn-group 1`] = `
-<I18n
-  actions={
-    Object {
-      "left": Array [
+<nav
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "actions": Array [
             Object {
@@ -22,30 +24,22 @@ exports[`ActionBar should render a btn-group 1`] = `
           ],
           "displayMode": "btnGroup",
         },
-      ],
+      ]
     }
-  }
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
-  i18n={Object {}}
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
-/>
+    key="0"
+    left={true}
+    t={[Function]}
+  />
+</nav>
 `;
 
 exports[`ActionBar should render no-selected actions, all on left  1`] = `
-<I18n
-  actions={
-    Object {
-      "left": Array [
+<nav
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
@@ -74,24 +68,14 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           "label": "Add File",
           "onClick": [Function],
         },
-      ],
+      ]
     }
-  }
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
-  i18n={Object {}}
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  selected={0}
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
-/>
+    key="0"
+    left={true}
+    selected={0}
+    t={[Function]}
+  />
+</nav>
 `;
 
 exports[`ActionBar should render no-selected actions, all on right 1`] = `
@@ -629,18 +613,28 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
 `;
 
 exports[`ActionBar should render no-selected actions, some on left, the other on right 1`] = `
-<I18n
-  actions={
-    Object {
-      "left": Array [
+<nav
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
           "onClick": [Function],
         },
-      ],
-      "right": Array [
+      ]
+    }
+    key="0"
+    left={true}
+    selected={0}
+    t={[Function]}
+  />
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
@@ -663,35 +657,23 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           "label": "Add File",
           "onClick": [Function],
         },
-      ],
+      ]
     }
-  }
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
-  i18n={Object {}}
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  selected={0}
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
-/>
+    key="2"
+    right={true}
+    selected={0}
+    t={[Function]}
+  />
+</nav>
 `;
 
 exports[`ActionBar should render selected count and multi-selected actions, all on left 1`] = `
-<I18n
-  actions={Object {}}
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
-  i18n={Object {}}
-  multiSelectActions={
-    Object {
-      "left": Array [
+<nav
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
@@ -719,32 +701,30 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           "label": "Add File",
           "onClick": [Function],
         },
-      ],
+      ]
     }
-  }
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  selected={1}
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
-/>
+    key="0"
+    left={true}
+    selected={1}
+    t={[Function]}
+  />
+</nav>
 `;
 
 exports[`ActionBar should render selected count and multi-selected actions, all on right 1`] = `
-<I18n
-  actions={Object {}}
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
-  i18n={Object {}}
-  multiSelectActions={
-    Object {
-      "right": Array [
+<nav
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={Array []}
+    key="0"
+    left={true}
+    selected={1}
+    t={[Function]}
+  />
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
@@ -772,39 +752,38 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           "label": "Add File",
           "onClick": [Function],
         },
-      ],
+      ]
     }
-  }
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  selected={1}
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
-/>
+    key="2"
+    right={true}
+    selected={1}
+    t={[Function]}
+  />
+</nav>
 `;
 
 exports[`ActionBar should render selected count and multi-selected actions, count and some actions on left, the other on right 1`] = `
-<I18n
-  actions={Object {}}
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
-  i18n={Object {}}
-  multiSelectActions={
-    Object {
-      "left": Array [
+<nav
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [Function],
         },
-      ],
-      "right": Array [
+      ]
+    }
+    key="0"
+    left={true}
+    selected={1}
+    t={[Function]}
+  />
+  <SwitchActions
+    actions={
+      Array [
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
@@ -827,21 +806,14 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
           "label": "Add File",
           "onClick": [Function],
         },
-      ],
+      ]
     }
-  }
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  selected={1}
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
-/>
+    key="2"
+    right={true}
+    selected={1}
+    t={[Function]}
+  />
+</nav>
 `;
 
 exports[`ActionBar.Count should render if selected 1`] = `

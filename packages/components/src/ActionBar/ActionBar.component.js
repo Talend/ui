@@ -138,7 +138,7 @@ Count.propTypes = {
 	t: PropTypes.func,
 };
 
-function ActionBar(props) {
+export function ActionBarComponent(props) {
 	const { left, right, center } = getActionsToRender(props);
 	const cssClass = classNames(
 		css['tc-actionbar-container'],
@@ -183,7 +183,7 @@ function ActionBar(props) {
 	);
 }
 
-ActionBar.propTypes = {
+ActionBarComponent.propTypes = {
 	selected: PropTypes.number,
 	children: PropTypes.node,
 	className: PropTypes.string,
@@ -191,11 +191,11 @@ ActionBar.propTypes = {
 	t: PropTypes.func,
 };
 
-ActionBar.displayName = 'ActionBar';
-ActionBar.DISPLAY_MODES = DISPLAY_MODES;
-ActionBar.Count = Count;
-ActionBar.SwitchActions = SwitchActions;
-ActionBar.getActionsToRender = getActionsToRender;
-ActionBar.Content = Content;
-ActionBar.getContentClassName = getContentClassName;
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionBar);
+ActionBarComponent.displayName = 'ActionBar';
+ActionBarComponent.DISPLAY_MODES = DISPLAY_MODES;
+ActionBarComponent.Count = Count;
+ActionBarComponent.SwitchActions = SwitchActions;
+ActionBarComponent.getActionsToRender = getActionsToRender;
+ActionBarComponent.Content = Content;
+ActionBarComponent.getContentClassName = getContentClassName;
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionBarComponent);

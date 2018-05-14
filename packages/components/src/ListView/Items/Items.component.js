@@ -26,7 +26,7 @@ function itemContainer(additionalClassName) {
 	);
 }
 
-class Items extends React.PureComponent {
+export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -167,7 +167,7 @@ class Items extends React.PureComponent {
 	}
 }
 
-Items.propTypes = {
+ItemsComponent.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -186,10 +186,10 @@ Items.propTypes = {
 	t: PropTypes.func,
 };
 
-Items.defaultProps = {
+ItemsComponent.defaultProps = {
 	t: getDefaultT(),
 	isSwitchBox: false,
 	showToggleAll: true,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Items);
+export default translate(I18N_DOMAIN_COMPONENTS)(ItemsComponent);
