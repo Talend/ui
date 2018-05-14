@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
-import { componentState, cmfConnect, Inject } from '@talend/react-cmf';
+import { cmfConnect, Inject } from '@talend/react-cmf';
 import PieChartButton from '@talend/react-components/lib/PieChartButton';
 
 export const DEFAULT_STATE = new Immutable.Map({});
@@ -45,7 +45,7 @@ export function ContainerPieChartButton(props) {
 ContainerPieChartButton.displayName = 'Container(PieChartButton)';
 
 ContainerPieChartButton.propTypes = {
-	...componentState.propTypes,
+	...cmfConnect.propTypes,
 	actionCreator: PropTypes.string,
 	dispatch: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,

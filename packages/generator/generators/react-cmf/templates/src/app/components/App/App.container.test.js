@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 
-import App from './App.component';
+import App from './App.container';
 
 describe('App container', () => {
 	/**
@@ -23,6 +23,6 @@ describe('App container', () => {
 		, { context });
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
