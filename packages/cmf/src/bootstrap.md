@@ -6,7 +6,6 @@ Quick start:
 
 ```javascript
 import { api } from '@talend/react-cmf';
-import configure from './configure';
 import components from './components';
 import sagas from './sagas';
 

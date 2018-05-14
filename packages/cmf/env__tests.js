@@ -10,3 +10,6 @@ const fetch = jest.fn(
 		}),
 );
 global.fetch = fetch;
+
+const raf = jest.fn();
+global.requestAnimationFrameRate = raf;

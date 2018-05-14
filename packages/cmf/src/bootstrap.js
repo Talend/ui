@@ -18,16 +18,15 @@ import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import { registerInternals } from './register';
 
-const bactchedSubscribe = batchedSubscribe(notify => {
+export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
 });
 
-function bootstrapRegistry(options) {
+export function bootstrapRegistry(options) {
 	assertTypeOf(options, 'sagas', 'object');
 	assertTypeOf(options, 'components', 'object');
 	assertTypeOf(options, 'expressions', 'object');
 	assertTypeOf(options, 'actionCreators', 'object');
-
 	registerInternals();
 	if (options.components) {
 		component.registerMany(options.components);
@@ -43,7 +42,7 @@ function bootstrapRegistry(options) {
 	}
 }
 
-function bootstrapSaga(options) {
+export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
@@ -63,7 +62,7 @@ function bootstrapSaga(options) {
 	};
 }
 
-function bootstrapRedux(options, sagaMiddleware) {
+export function bootstrapRedux(options, sagaMiddleware) {
 	assertTypeOf(options, 'settingsURL', 'string');
 	assertTypeOf(options, 'preReducer', 'function');
 	assertTypeOf(options, 'httpMiddleware', 'function');

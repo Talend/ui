@@ -1,12 +1,13 @@
 // eslint-disable-next-line import/prefer-default-export
 export function assertTypeOf(options, attr, type, toThrow = true) {
+	if (type === 'Array' && options[attr] && Array.isArray(options[attr])) {
+		return true;
+	}
 	let isTypeCorrect = true;
 	if (Array.isArray(type)) {
 		isTypeCorrect = type.reduce(
 			(acc, current) => assertTypeOf(options, attr, current, false) || acc,
 		);
-	} else if (type === 'Array' && options[attr] && !Array.isArray(options[attr])) {
-		isTypeCorrect = false;
 	} else if (
 		options[attr] &&
 		// eslint-disable-next-line valid-typeof
