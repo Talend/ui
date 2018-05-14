@@ -9,6 +9,7 @@ This preset allows some customisation through specific entry points. The configu
 ```json
 {
   "preset": "talend",
+  "cmf": false,
   "html": {
     "title": "Talend Data Preparation",
     "other-options": "Option value passed to html-webpack-plugin"
@@ -33,6 +34,7 @@ This preset allows some customisation through specific entry points. The configu
 
 | Preset variable | Description |
 |---|---|
+| cmf | `cmf-webpack-plugin` flag. |
 | html | `html-webpack-plugin` template and options customisation. |
 | sass | `sass-loader` custom data. |
 | webpack | `webpack` and `devServer` customisation. |
@@ -129,7 +131,16 @@ By default, a devServer proxy is in place, mapping all `/api` urls to `http://lo
 
 ## CMF
 
-Talend preset integrates `cmf-webpack-plugin`. It has an incompatibility with `copy-webpack-plugin`. To use it correctly
+Talend preset integrates `cmf-webpack-plugin`. By default it is active, it is possible to disable the plugin with a flag
+
+```json
+{
+  "preset": "talend",
+  "cmf": false
+}
+```
+ 
+It has an incompatibility with `copy-webpack-plugin`. To use it correctly
 
 1. Create your `settings.json`, be careful not to create it in one of the folders copied by `copy-webpack-plugin`. Otherwise the merge will be overridden.
 2. Create a `cmf.json` at your app root folder and configure it. *Important* : remove the destination property. `cmf-webpack-plugin` will output the result in a `settings.json` in the webpack output folder.
