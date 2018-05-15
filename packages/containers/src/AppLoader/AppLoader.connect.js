@@ -16,7 +16,7 @@ export function AppLoaderContainer({ loading, children, ...rest }) {
 		return <AppLoader {...rest} />;
 	}
 
-	const CustomInject = cmfConnect({})(Inject); // put that with import
+	const CustomInject = cmfConnect({})(Inject);
 	const injected = Inject.all(rest.getComponent, rest.components, CustomInject);
 	return (
 		<div>
