@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
+import get from 'lodash/get';
 import { translate } from 'react-i18next';
 
 import SelectAll from './SelectAll';
@@ -41,6 +42,110 @@ function adaptLeftAndRightActions(actions, parentId) {
 	);
 }
 
+function getSortProps(props) {
+	if (props.displayMode !== 'table') {
+		return props.sort || {
+			options: props.sortOptions,
+			onChange: props.onSort,
+			field: props.sortOn,
+			isDescending: props.sortIsDescending,
+		};
+	}
+	return undefined;
+}
+
+function getDisplayProps(props) {
+	const display = props.display || {
+		displayModes: props.displayModes,
+		onChange: props.onDisplayChange,
+	};
+	if (!display.mode && props.displayMode) {
+		display.mode = props.displayMode;
+	}
+	if (!display.id && props.id) {
+		display.id = props.id && `${props.id}-display-mode`;
+	}
+	return display;
+}
+
+function getPaginationProps(props) {
+	const pagination = props.pagination || {
+		onChange: props.onPaginationChange,
+		itemsPerPage: props.itemsPerPage,
+		totalResults: props.totalResults,
+	};
+	if (!pagination.id && props.id) {
+		pagination.id = `${props.id}-pagination`;
+	}
+	return pagination;
+}
+
+function getFilterProps(props) {
+	const filter = props.filter || {};
+	if (!filter.id && props.id) {
+		filter.id = `${props.id}-filter`;
+	}
+	if (!filter.onFilter && props.onFilterChange) {
+		filter.onFilter = props.onFilterChange;
+	}
+	if (!filter.onToggle && props.onFilterToggle) {
+		filter.onToggle = props.onFilterToggle;
+	}
+	if (filter.docked === undefined && props.filterDocked !== undefined) {
+		filter.docked = props.filterDocked;
+	}
+	if (filter.highlight === undefined && props.filterHighlight !== undefined) {
+		filter.highlight = props.filterHighlight;
+	}
+	if (!filter.debounceTimeout && props.filterDebounceTimeout) {
+		filter.debounceTimeout = props.filterDebounceTimeout;
+	}
+	return filter;
+}
+
+
+function isChecked(items, isSelected) {
+	return items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
+}
+
+function getSelectAllProps(props) {
+	// -- backward compatibility
+	const selectAll = props.selectAllCheckbox;  // deprecated
+	const items = get(props, 'list.items', props.items);
+	const isSelected = get(props, 'list.itemProps.isSelected', props.isSelected);
+	const onToggleAll = get(props, 'list.itemProps.onToggleAll', props.onToggleAll);
+	const checked = () => isChecked(items, isSelected);
+	if (selectAll) {
+		// should I add isSelected and onToggleAll ?
+		if (!selectAll.checked) {
+			selectAll.checked = checked;
+		}
+		return selectAll;
+	}
+	if (!selectAll && onToggleAll && isSelected) {
+		return {
+			items,
+			onToggleAll,
+			checked,
+		};
+	}
+	return selectAll;
+}
+
+function getActionBarProps(props) {
+	if (props.actionBar) {
+		return props.actionBar;
+	}
+	if (props.actions || props.multiSelectActions) {
+		return {
+			actions: props.actions,
+			multiSelectActions: props.multiSelectActions,
+			selected: props.selectedCount || 0,
+		};
+	}
+	return undefined;
+}
+
 /**
  * @param {string} id the id of Toolbar
  * @param {object} actionBar the ActionBar properties
@@ -54,80 +159,69 @@ function adaptLeftAndRightActions(actions, parentId) {
  <Toolbar id="my-toolbar"></Toolbar>
  */
 function Toolbar({
-	id,
-	actionBar,
-	selectAllCheckbox,
-	display,
-	sort,
-	sortOptions,
-	pagination,
-	filter,
-	displayModes,
 	t,
 	getComponent,
 	components,
+	...props
 }) {
+	if (props.hideToolbar) {
+		return null;
+	}
+	const selectAll = getSelectAllProps(props);
+	const sort = getSortProps(props);
+	const display = getDisplayProps(props);
+	const pagination = getPaginationProps(props);
+	const filter = getFilterProps(props);
+	const actions = getActionBarProps(props);
 	const Renderer = Inject.getAll(getComponent, {
 		ActionBar,
 		FilterBar,
 	});
 	const injected = Inject.all(getComponent, components);
-	let actionBarProps = actionBar;
-	if (id && actionBar) {
-		const { actions, multiSelectActions } = actionBar;
-		actionBarProps = {
-			...actionBar,
-			actions: adaptLeftAndRightActions(actions, id),
-			multiSelectActions: adaptLeftAndRightActions(multiSelectActions, id),
-		};
-	}
-	const displayModeId = id && `${id}-display-mode`;
-	const hasToolbarItem = selectAllCheckbox || display || sort || pagination || filter;
-
+	const hasToolbar = selectAll || display || sort || pagination || filter;
 	return (
 		<div className="tc-list-toolbar">
 			{injected('before-actionbar')}
-			{actionBar && <Renderer.ActionBar {...actionBarProps} />}
+			{actions && <Renderer.ActionBar {...actions} />}
 			{injected('after-actionbar')}
 			{injected('before-navbar')}
-			{hasToolbarItem && (
+			{hasToolbar && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
 					{injected('before-selectall')}
-					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
+					{<SelectAll {...selectAll} t={t} />}
 					{injected('after-selectall')}
 					{injected('before-displaymode')}
 					{display && (
 						<Label
 							text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}
-							htmlFor={displayModeId}
+							htmlFor={display.id}
 						/>
 					)}
-					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
+					{display && <SelectDisplayMode {...display} t={t} />}
 					{injected('after-displaymode')}
 					{injected('before-sort')}
-					{sortOptions && (
+					{sort && (
 						<Label
 							text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
-							htmlFor={id && `${id}-sort-by`}
+							htmlFor={props.id && `${props.id}-sort-by`}
 						/>
 					)}
-					{sortOptions && <SelectSortBy id={id && `${id}-sort`} sortOptions={sortOptions} t={t} />}
+					{sort && <SelectSortBy id={props.id && `${props.id}-sort`} {...sort} t={t} />}
 					{injected('after-sort')}
 					{injected('before-pagination')}
 					{pagination && (
 						<Label
 							text={t('LIST_TOOLBAR_PAGINATION_SHOW', { defaultValue: 'Show:' })}
-							htmlFor={id && `${id}-pagination-size`}
+							htmlFor={pagination.id && `${pagination.id}-size`}
 						/>
 					)}
-					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
+					{pagination && <Pagination {...pagination} />}
 					{injected('after-pagination')}
 					{injected('before-filter')}
 					{filter && (
 						<Renderer.FilterBar
-							id={id && `${id}-filter`}
 							{...filter}
-							t={t}
+							t={props.t}
 							navbar
 							className="navbar-right"
 						/>

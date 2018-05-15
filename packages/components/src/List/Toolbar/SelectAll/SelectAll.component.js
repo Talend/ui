@@ -5,12 +5,11 @@ import classNames from 'classnames';
 import getDefaultT from '../../../translate';
 import theme from './SelectAll.scss';
 
-function checked(items, isSelected) {
-	return items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
-}
-
-function SelectAll({ id, items, isSelected, onToggleAll, t }) {
-	const checkboxId = id && `${id}-check-all`;
+function SelectAll(props) {
+	const checkboxId = props.id && `${props.id}-check-all`;
+	if (!props.onToggleAll || !props.checked) {
+		return null;
+	}
 	return (
 		<form className="navbar-form navbar-left">
 			<div className="checkbox-inline navbar-text">
@@ -22,12 +21,12 @@ function SelectAll({ id, items, isSelected, onToggleAll, t }) {
 						id={checkboxId}
 						type="checkbox"
 						onChange={event => {
-							onToggleAll(event, items);
+							props.onToggleAll(event, props.items);
 						}}
-						checked={checked(items, isSelected)}
-						disabled={!items.length}
+						checked={props.checked()}
+						disabled={!props.items.length}
 					/>
-					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
+					<span>{props.t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
 				</label>
 			</div>
 		</form>
@@ -37,7 +36,7 @@ function SelectAll({ id, items, isSelected, onToggleAll, t }) {
 SelectAll.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
-	isSelected: PropTypes.func.isRequired,
+	checked: PropTypes.func.isRequired,
 	onToggleAll: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };

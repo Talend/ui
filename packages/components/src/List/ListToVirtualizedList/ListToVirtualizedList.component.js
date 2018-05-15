@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import VirtualizedList, { SORT_BY, cellDictionary } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
@@ -18,7 +19,16 @@ export function HiddenHeader(props) {
 }
 
 export function ListToVirtualizedList(props) {
-	const { itemProps, sort, titleProps } = props;
+	const titleProps = props.titleProps || {
+		key: props.titleKey,
+		iconKey: props.titleIconKey,
+		displayModeKey: props.titleDisplayModeKey,
+		actionsKey: props.actionsKey,
+		persistentActionsKey: props.persistentActionsKey,
+		onClick: props.onTitleClick,
+		onEditCancel: props.onTitleEditCancel,
+		onEditSubmit: props.onTitleEditSubmit,
+	};
 
 	if (titleProps) {
 		if (!titleProps.actionsKey) {
@@ -38,20 +48,29 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
-
+	const isActive = props.isActive || get(props, 'itemProps.isActive');
+	const isSelected = props.isSelected || get(props, 'itemProps.isSelected');
+	const onRowClick = props.onRowClick || get(props, 'itemProps.onRowClick');
+	const onToggle = props.onSelect || get(props, 'itemProps.onToggle'); // sic
+	const onTitleClick = props.onTitleClick || get(props, 'titleProps.onClick');
+	const sort = props.sort || {
+		onChange: props.onSortChange,
+		field: props.sortOn,
+		isDescending: props.sortIsDescending,
+	};
 	return (
 		<VirtualizedList
 			id={props.id}
 			collection={props.items}
-			isActive={itemProps && itemProps.isActive}
-			isSelected={itemProps && itemProps.isSelected}
+			isActive={isActive}
+			isSelected={isSelected}
 			inProgress={props.inProgress}
-			onRowClick={itemProps && itemProps.onRowClick}
-			onRowDoubleClick={titleProps && titleProps.onClick}
+			onRowClick={onRowClick}
+			onRowDoubleClick={onTitleClick}
 			defaultHeight={props.defaultHeight}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
-			selectionToggle={itemProps && itemProps.onToggle}
+			selectionToggle={onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
