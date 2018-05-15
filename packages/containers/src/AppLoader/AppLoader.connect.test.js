@@ -12,7 +12,7 @@ describe('AppLoader container', () => {
 					<div className="child" />
 				</AppLoaderContainer>,
 			);
-			expect(wrapper.getElement()).toEqual(<div className="child" />);
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render the app loader if loading', () => {
