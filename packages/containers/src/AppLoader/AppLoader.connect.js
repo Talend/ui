@@ -5,6 +5,7 @@ import { cmfConnect } from '@talend/react-cmf';
 import { AppLoader, Inject } from '@talend/react-components';
 import { appLoaderSaga } from './AppLoader.saga';
 
+const CustomInject = cmfConnect({})(Inject);
 /**
  * This container show the application's loader & bootstrap the app
  * @param {object} props the component props
@@ -16,7 +17,6 @@ export function AppLoaderContainer({ loading, children, ...rest }) {
 		return <AppLoader {...rest} />;
 	}
 
-	const CustomInject = cmfConnect({})(Inject);
 	const injected = Inject.all(rest.getComponent, rest.components, CustomInject);
 	return (
 		<div>
