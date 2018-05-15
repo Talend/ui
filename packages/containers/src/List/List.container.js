@@ -138,14 +138,10 @@ class List extends React.Component {
 				props.onTitleClick = this.getGenericDispatcher(this.props.actions.title);
 			}
 			if (this.props.actions.editSubmit) {
-				props.onTitleEditSubmit = this.getGenericDispatcher(
-					this.props.actions.editSubmit,
-				);
+				props.onTitleEditSubmit = this.getGenericDispatcher(this.props.actions.editSubmit);
 			}
 			if (this.props.actions.editCancel) {
-				props.onTitleEditCancel = this.getGenericDispatcher(
-					this.props.actions.editCancel,
-				);
+				props.onTitleEditCancel = this.getGenericDispatcher(this.props.actions.editCancel);
 			}
 		}
 
