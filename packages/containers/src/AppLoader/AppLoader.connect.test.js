@@ -1,6 +1,7 @@
 import React from 'react';
 import Immutable from 'immutable';
 import { shallow } from 'enzyme';
+import { AppLoader } from '@talend/react-components';
 import { AppLoaderContainer, mapStateToProps } from './AppLoader.connect';
 
 describe('AppLoader container', () => {
@@ -11,7 +12,7 @@ describe('AppLoader container', () => {
 					<div className="child" />
 				</AppLoaderContainer>,
 			);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(wrapper.find('.child').length).toBe(1);
 		});
 
 		it('should render the app loader if loading', () => {
@@ -20,7 +21,8 @@ describe('AppLoader container', () => {
 					<div className="child" />
 				</AppLoaderContainer>,
 			);
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(wrapper.find('.child').length).toBe(0);
+			expect(wrapper.getElement()).toEqual(<AppLoader />);
 		});
 	});
 

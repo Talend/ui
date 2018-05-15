@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AppLoader container rendering should render child if not loading 1`] = `
-<div
-  className="child"
-/>
-`;
-
-exports[`AppLoader container rendering should render the app loader if loading 1`] = `<AppLoader />`;
