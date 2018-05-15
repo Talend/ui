@@ -42,7 +42,7 @@ function getCommonStyleLoaders(enableModules) {
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
-			options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })] },
+			options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['>0.25%', 'IE 11', 'not op_mini all'] })] },
 		},
 		{ loader: 'resolve-url-loader' },
 	];
