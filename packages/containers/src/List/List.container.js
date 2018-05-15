@@ -149,8 +149,8 @@ class List extends React.Component {
 	}
 
 	isSelected(item) {
-		const state = this.props.state.toJS();
-		return state.selectedItems.some(itemKey => itemKey === item[this.props.multiSelectionKey]);
+		const selectedItems = this.props.state.get('selectedItems');
+		return selectedItems.some((itemKey) => itemKey === item[this.props.multiSelectionKey]);
 	}
 
 	render() {
