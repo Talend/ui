@@ -16,10 +16,9 @@ function getCoef(order) {
  * This class is intended to be subclassed.
  */
 export default class Sorter {
-	constructor(id, label, icon, order, key) {
+	constructor(id, label, order, key) {
 		this.id = id;
 		this.label = label;
-		this.icon = icon;
 		this.order = order;
 		this.key = key;
 		this.coef = getCoef(order);
@@ -33,12 +32,12 @@ export default class Sorter {
 		return this.label;
 	}
 
-	getIcon() {
-		return this.icon;
-	}
-
 	getOrder() {
 		return this.order;
+	}
+
+	getKey() {
+		return this.key;
 	}
 
 	setOrder(order) {
@@ -65,4 +64,5 @@ export default class Sorter {
 			this.getValueToCompare(dataAccessor, element2),
 		);
 	}
+
 }

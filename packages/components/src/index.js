@@ -43,12 +43,16 @@ import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import {
+	DataAccessorWithSorterAndFilter,
+	DraggableComponent,
+	Sorter,
+	SorterHeaderRenderer,
+	SortOrder,
 	Table,
 	TableClickableCell,
 	TableConfiguration,
 	TableCell,
 	TableHeader,
-	DraggableComponent,
 } from './Table';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -174,6 +178,10 @@ export {
 	TableCell,
 	TableHeader,
 	DraggableComponent,
+	Sorter,
+	SorterHeaderRenderer,
+	SortOrder,
+	DataAccessorWithSorterAndFilter,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

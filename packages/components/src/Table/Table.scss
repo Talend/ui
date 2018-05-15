@@ -54,6 +54,10 @@
 		position: relative;
 	}
 
+	.sorted-table {
+		width: 300px;
+	}
+
 	.story-table .tc-table-row-data-type {
 		text-align: left;
 	}
@@ -151,4 +155,15 @@
 			}
 		}
 	}
+
+	.tc-table-action-header {
+		background-color: #fff;
+		color: #000;
+		font-weight: bold;
+	}
+
+	.tc-table-action-header:hover {
+		background-color: #fff;
+	}
+
 }

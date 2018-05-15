@@ -201,6 +201,10 @@ export default class DataAccessorWithSorterAndFilter {
 		return Boolean(this.sorterInfo.sorter);
 	}
 
+	isActiveSorter(sorter) {
+		return this.hasSorter() && this.sorterInfo.sorter.getId() === sorter.getId();
+	}
+
 	getSorter() {
 		return this.sorterInfo.sorter;
 	}

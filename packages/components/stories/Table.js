@@ -6,6 +6,10 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
+	DataAccessorWithSorterAndFilter,
+	Sorter,
+	SorterHeaderRenderer,
+	SortOrder,
 	Table,
 	TableClickableCell,
 	TableConfiguration,
@@ -280,7 +284,12 @@ const classNameProvider = {
 	},
 };
 
-const initialStateWithDnD = { draggable: true };
+function getInitialState(elements, draggable) {
+	return {
+		elements,
+		draggable,
+	};
+}
 
 class ConnectedTable extends React.Component {
 
@@ -305,9 +314,9 @@ class ConnectedTable extends React.Component {
 
 	getForTable() {
 		return classnames({
-				'tc-table': true,
-				'story-table': true,
-				'table-with-dnd': this.state.draggable,
+			'tc-table': true,
+			'story-table': true,
+			'table-with-dnd': this.state.draggable,
 		});
 	}
 
@@ -322,14 +331,13 @@ class ConnectedTable extends React.Component {
 
 	render() {
 		const {
-			elements,
 			columnKeys,
 			withHeader,
 			onScroll,
 		} = this.props;
 		return (
 			<Table
-				elements={elements}
+				elements={this.state.elements}
 				columnKeys={columnKeys}
 				classNameProvider={this}
 				rowDataGetter={rowDataGetter}
@@ -354,6 +362,105 @@ ConnectedTable.propTypes = {
 };
 
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
+
+function getSorterId(label) {
+	return `${label}-id`;
+}
+
+function createSorters(keys) {
+	let sorters = [];
+	for (let i = 0; i < keys.length; i += 1) {
+		const key = keys[i];
+		const sorter = new Sorter(key, key, SortOrder.ASCENDING, key);
+		sorters = sorters.concat(sorter);
+	}
+	return sorters;
+}
+
+class SortedTable extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			elements: props.elements,
+		};
+		this.dataAccessor = new DataAccessorWithSorterAndFilter(props.elements, rowDataGetter);
+		this.onSortChange = this.onSortChange.bind(this);
+		this.isSorterActive = this.isSorterActive.bind(this);
+		this.headerRenderer = new SorterHeaderRenderer(this);
+		this.registerSorters(props.sorters, this.headerRenderer);
+	}
+
+	registerSorters(sorters, headerRenderer) {
+		for (let i = 0; i < sorters.length; i += 1) {
+			headerRenderer.registerSorter(sorters[i]);
+		}
+	}
+
+	isSorterActive(sorter) {
+		return this.dataAccessor.isActiveSorter(sorter);
+	}
+
+	onSortChange(sorter) {
+		if (this.dataAccessor.isActiveSorter(sorter)) {
+			switch (sorter.getOrder()) {
+				case SortOrder.ASCENDING:
+					sorter.setOrder(SortOrder.DESCENDING);
+					this.dataAccessor.sort();
+					break;
+				case SortOrder.DESCENDING:
+					sorter.setOrder(SortOrder.ASCENDING);
+					this.dataAccessor.clearSorter();
+					break;
+				default:
+					break;
+			}
+		} else {
+			this.dataAccessor.setSorter(sorter);
+		}
+		this.setState({
+			elements: this.dataAccessor.getElements(true),
+		});
+	}
+
+	getForTable() {
+		return classnames({
+			'tc-table': true,
+			'story-table': true,
+			'sorted-table': true,
+		});
+	}
+
+	getForRow(element) {
+		const classNames = {
+			'tc-table-row': true,
+		};
+		return classnames(classNames);
+	}
+
+	render() {
+		const {
+			columnKeys,
+		} = this.props;
+		return (
+			<Table
+				elements={this.state.elements}
+				columnKeys={columnKeys}
+				classNameProvider={this}
+				rowDataGetter={rowDataGetter}
+				withHeader={true}
+				headerRenderer={this.headerRenderer}
+			/>
+		);
+	}
+
+}
+
+SortedTable.propTypes = {
+	elements: PropTypes.array,
+	columnKeys: PropTypes.array,
+	sorters: PropTypes.array,
+};
 
 const stories = storiesOf('Table', module);
 if (!stories.addWithInfo) {
@@ -391,11 +498,19 @@ stories
 	.addWithInfo('Table with drag and drop', () => {
 		return (
 			<TableWithDND
-				initialState={initialStateWithDnD}
-				elements={schema3.elements}
+				initialState={getInitialState(schema3.elements, true)}
 				columnKeys={columnKeys3}
 				withHeader={true}
 				onScroll={action('onScroll called!')}
+			/>
+		);
+	})
+	.addWithInfo('Table with sort', () => {
+		return (
+			<SortedTable
+				elements={schema2.elements}
+				columnKeys={columnKeys2}
+				sorters={createSorters(columnKeys2)}
 			/>
 		);
 	});
