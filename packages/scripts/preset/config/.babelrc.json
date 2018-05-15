@@ -5,9 +5,10 @@
       {
         "modules": false,
         "targets": {
-          "ie": 11,
           "browsers": [
-            "last 2 versions"
+            ">0.25%",
+            "not op_mini all",
+            "IE 11"
           ]
         }
       }
