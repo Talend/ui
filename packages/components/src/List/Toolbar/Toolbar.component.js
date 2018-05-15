@@ -44,12 +44,14 @@ function adaptLeftAndRightActions(actions, parentId) {
 
 function getSortProps(props) {
 	if (props.displayMode !== 'table') {
-		return props.sort || {
-			options: props.sortOptions,
-			onChange: props.onSort,
-			field: props.sortOn,
-			isDescending: props.sortIsDescending,
-		};
+		return (
+			props.sort || {
+				options: props.sortOptions,
+				onChange: props.onSort,
+				field: props.sortOn,
+				isDescending: props.sortIsDescending,
+			}
+		);
 	}
 	return undefined;
 }
@@ -103,14 +105,13 @@ function getFilterProps(props) {
 	return filter;
 }
 
-
 function isChecked(items, isSelected) {
 	return items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
 }
 
 function getSelectAllProps(props) {
 	// -- backward compatibility
-	const selectAll = props.selectAllCheckbox;  // deprecated
+	const selectAll = props.selectAllCheckbox; // deprecated
 	const items = get(props, 'list.items', props.items);
 	const isSelected = get(props, 'list.itemProps.isSelected', props.isSelected);
 	const onToggleAll = get(props, 'list.itemProps.onToggleAll', props.onToggleAll);
@@ -158,12 +159,7 @@ function getActionBarProps(props) {
  * @example
  <Toolbar id="my-toolbar"></Toolbar>
  */
-function Toolbar({
-	t,
-	getComponent,
-	components,
-	...props
-}) {
+function Toolbar({ t, getComponent, components, ...props }) {
 	if (props.hideToolbar) {
 		return null;
 	}
@@ -218,14 +214,7 @@ function Toolbar({
 					{pagination && <Pagination {...pagination} />}
 					{injected('after-pagination')}
 					{injected('before-filter')}
-					{filter && (
-						<Renderer.FilterBar
-							{...filter}
-							t={props.t}
-							navbar
-							className="navbar-right"
-						/>
-					)}
+					{filter && <Renderer.FilterBar {...filter} t={props.t} navbar className="navbar-right" />}
 					{injected('after-filter')}
 				</Navbar>
 			)}
