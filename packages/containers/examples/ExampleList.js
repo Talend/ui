@@ -15,9 +15,7 @@ const list = {
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
 	],
-	titleProps: {
-		key: 'label',
-	},
+	titleKey: 'label',
 };
 
 const listWithTimestamp = {
@@ -28,9 +26,7 @@ const listWithTimestamp = {
 		{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
 		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } }
 	],
-	titleProps: {
-		key: 'label',
-	},
+	titlekey: 'label',
 };
 
 const actions = {
@@ -40,22 +36,16 @@ const actions = {
 };
 
 const toolbar = {
-	sort: {
-		field: 'id',
-		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
-	},
-	display: {
-		displayModes: ['large', 'table'],
-	},
-	filter: {
-		placeholder: 'find an object',
-	},
+	sortOn: 'id',
+	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+	displayModes: ['large', 'table'],
+	filterPlaceholder: 'find an object',
 };
 
 const props = {
-	list,
+	...list,
+	...toolbar,
 	actions,
-	toolbar,
 };
 
 const customHeight = {
@@ -150,12 +140,12 @@ const itemsWithTimestamp = Immutable.fromJS([
 ]);
 
 const sortUpdatedAsc = {
-	field: 'modified',
-	isDescending: false,
+	sortOn: 'modified',
+	isSortDescending: false,
 };
 const propsTimestampSorted = cloneDeep(props);
-propsTimestampSorted.list = listWithTimestamp;
-propsTimestampSorted.list.sort = sortUpdatedAsc;
+Object.assign(propsTimestampSorted, listWithTimestamp);
+Object.assign(propsTimestampSorted, sortUpdatedAsc);
 
 const ExampleList = {
 	default: () => (

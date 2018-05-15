@@ -90,6 +90,9 @@ class List extends React.Component {
 
 	onChangePage(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
+		if (this.props.onPaginationChange) {
+			this.props.onPaginationChange(startIndex, itemsPerPage);
+		}
 	}
 
 	onToggle() {
@@ -112,109 +115,56 @@ class List extends React.Component {
 
 	render() {
 		const state = this.props.state.toJS();
-		const items = getItems(this.context, this.props);
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
 		if (!props.displayMode) {
 			props.displayMode = state.displayMode;
 		}
-		if (!props.list) {
-			props.list = {};
+		if (!props.id) {
+			props.id = 'list';
 		}
-		if (!props.list.id) {
-			props.list.id = 'list';
+		props.items = getItems(this.context, this.props);
+		if (!props.columns) {
+			props.columns = [];
 		}
-		props.list.items = items;
-		if (!props.list.columns) {
-			props.list.columns = [];
-		}
-		props.list.sort = {
-			field: state.sortOn,
-			isDescending: !state.sortAsc,
-			onChange: this.onSelectSortBy,
-		};
+		props.sortOn = state.sortOn;
+		props.sortIsDescending = !state.sortAsc;
+		props.onSortChange = this.onSelectSortBy;
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
-		if (props.list.titleProps && this.props.actions.title) {
+		// Backward compatibility
+		if (this.props.actions) {
 			if (this.props.actions.title) {
-				props.list.titleProps.onClick = this.getGenericDispatcher(this.props.actions.title);
+				props.onTitleClick = this.getGenericDispatcher(this.props.actions.title);
 			}
 			if (this.props.actions.editSubmit) {
-				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(
+				props.onTitleEditSubmit = this.getGenericDispatcher(
 					this.props.actions.editSubmit,
 				);
 			}
 			if (this.props.actions.editCancel) {
-				props.list.titleProps.onEditCancel = this.getGenericDispatcher(
+				props.onTitleEditCancel = this.getGenericDispatcher(
 					this.props.actions.editCancel,
 				);
 			}
 		}
 
 		// toolbar
-		if (props.toolbar) {
-			if (props.toolbar.display) {
-				props.toolbar.display = {
-					...props.toolbar.display,
-					onChange: (event, data) => {
-						this.onSelectDisplayMode(event, data);
-					},
-				};
-			}
-			if (props.toolbar.sort) {
-				props.toolbar.sort.isDescending = !state.sortAsc;
-				props.toolbar.sort.field = state.sortOn;
-				props.toolbar.sort.onChange = (event, data) => {
-					this.onSelectSortBy(event, data);
-				};
-			}
+		props.onDisplayChange = this.onSelectDisplayMode;
+		props.onSortChange = this.onSelectSortBy;
+		props.sortOn = state.sortOn;
+		props.sortIsDescending = !state.sortAsc;
+		props.onFilterToggle = this.onToggle;
+		props.onFilterChange = this.onFilter;
+		props.filterDocked = state.filterDocked;
+		props.filterValue = state.searchQuery;
 
-			if (props.toolbar.filter) {
-				props.toolbar.filter.onToggle = (event, data) => {
-					this.onToggle(event, data);
-				};
-				props.toolbar.filter.onFilter = (event, data) => {
-					this.onFilter(event, data);
-				};
-				props.toolbar.filter.docked = state.filterDocked;
-				props.toolbar.filter.value = state.searchQuery;
-			}
-
-			props.toolbar.actionBar = { actions: {} };
-			const actions = this.props.actions;
-			if (actions) {
-				if (actions.left) {
-					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
-				}
-				if (actions.right) {
-					props.toolbar.actionBar.actions.right = actions.right.map(action => ({
-						actionId: action,
-					}));
-				}
-			}
-
-			if (props.toolbar.pagination) {
-				const pagination = props.toolbar.pagination;
-				Object.assign(props.toolbar.pagination, {
-					...pick(state, ['totalResults', 'itemsPerPage', 'startIndex']),
-				});
-				if (!pagination.onChange) {
-					pagination.onChange = (startIndex, itemsPerPage) => {
-						this.onChangePage(startIndex, itemsPerPage);
-					};
-				} else if (typeof pagination.onChange === 'string') {
-					const onChangeActionCreator = pagination.onChange;
-					pagination.onChange = (startIndex, itemsPerPage) => {
-						this.props.dispatchActionCreator(
-							onChangeActionCreator,
-							null,
-							{ startIndex, itemsPerPage },
-							this.context,
-						);
-					};
-				}
-			}
-		}
+		// pagination
+		props.totalResults = state.totalResults;
+		props.itemsPerPage = state.itemsPerPage;
+		props.startIndex = state.startIndex;
+		props.onPaginationChange = this.onChangePage;
+		console.log(props);
 		return <Component {...props} />;
 	}
 }
