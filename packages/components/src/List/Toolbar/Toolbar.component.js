@@ -59,8 +59,10 @@ function Toolbar({
 	selectAllCheckbox,
 	display,
 	sort,
+	sortOptions,
 	pagination,
 	filter,
+	displayModes,
 	t,
 	getComponent,
 	components,
@@ -103,13 +105,13 @@ function Toolbar({
 					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
 					{injected('after-displaymode')}
 					{injected('before-sort')}
-					{sort && (
+					{sortOptions && (
 						<Label
 							text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
 							htmlFor={id && `${id}-sort-by`}
 						/>
 					)}
-					{sort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />}
+					{sortOptions && <SelectSortBy id={id && `${id}-sort`} sortOptions={sortOptions} t={t} />}
 					{injected('after-sort')}
 					{injected('before-pagination')}
 					{pagination && (

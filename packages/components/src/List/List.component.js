@@ -101,6 +101,10 @@ function List({
 	id,
 	list,
 	toolbar,
+	// toolbar
+	filter,
+	displayModes,
+	sortOptions,
 	defaultHeight,
 	rowHeight,
 	getComponent,
@@ -116,6 +120,9 @@ function List({
 			<ListToolbar
 				id={id}
 				toolbar={toolbar}
+				filter={filter}
+				displayModes={displayModes}
+				sortOptions={sortOptions}
 				displayMode={displayMode}
 				list={list}
 				getComponent={getComponent}
