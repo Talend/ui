@@ -34,6 +34,7 @@ module.exports = ({ getUserConfig }) => {
 			},
 			stats: 'errors-only',
 			historyApiFallback: true,
+			contentBase: path.join(process.cwd(), '/dist'),
 		},
 		plugins,
 	};

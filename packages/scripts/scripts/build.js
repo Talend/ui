@@ -7,7 +7,7 @@ const webpack = resolveBin('webpack');
 module.exports = function build(env) {
 	// remove old builds folder
 	const rmResult = spawn.sync(
-		rimraf, ['./build'],
+		rimraf, ['./dist'],
 		{ stdio: 'inherit', env }
 	);
 	if (rmResult.status === 0) {
