@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -165,6 +165,7 @@ class EnumerationForm extends React.Component {
 		];
 
 		if (this.allowImport) {
+			const dataFeature = this.props.uiSchema['data-feature'];
 			this.defaultHeaderActions.push({
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', {
 					defaultValue: 'Import values from a file',
@@ -172,6 +173,7 @@ class EnumerationForm extends React.Component {
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.onImportButtonClick.bind(this),
+				'data-feature': dataFeature ? dataFeature.importFile : undefined,
 				displayMode: 'dropdown',
 				items: [
 					{
@@ -180,6 +182,7 @@ class EnumerationForm extends React.Component {
 						}),
 						id: 'append-uploding',
 						onClick: this.onImportAppendClick.bind(this),
+						'data-feature': dataFeature ? dataFeature.addFromFile : undefined,
 					},
 					{
 						label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', {
@@ -187,6 +190,7 @@ class EnumerationForm extends React.Component {
 						}),
 						id: 'append-uploding',
 						onClick: this.onImportOverwriteClick.bind(this),
+						'data-feature': dataFeature ? dataFeature.overwriteExisting : undefined,
 					},
 				],
 			});
@@ -904,6 +908,7 @@ if (process.env.NODE_ENV !== 'production') {
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line
+		uiSchema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
 		t: PropTypes.func.isRequired,
@@ -911,10 +916,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 EnumerationForm.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 export { EnumerationForm };
-export default translate(I18N_DOMAIN_FORMS, {
-	i18n: DEFAULT_I18N,
-})(EnumerationForm);
+export default translate(I18N_DOMAIN_FORMS)(EnumerationForm);

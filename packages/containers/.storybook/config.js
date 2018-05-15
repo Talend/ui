@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import createSagaMiddleware from 'redux-saga';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api } from '@talend/react-cmf';
+import { api, actions } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
@@ -83,22 +83,51 @@ function selectTab(event, data) {
 	};
 }
 
-const registerActionCreator = api.action.registerActionCreator;
+function httpPhotosGet1() {
+	return actions.http.get('https://jsonplaceholder.typicode.com/photos/', {
+		cmf: {
+			collectionId: 'photos1',
+		},
+	});
+}
+function httpPhotosGet2() {
+	return actions.http.get('https://jsonplaceholder.typicode.com/photos/', {
+		cmf: {
+			collectionId: 'photos2',
+		},
+	});
+}
+
+const registerActionCreator = api.actionCreator.register;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
 
-registerActionCreator('subheaderbar:display-sharing', actionsCreatorsSubHeader.sharingSubHeader);
-registerActionCreator('subheaderbar:display-bubbles', actionsCreatorsSubHeader.bubblesSubHeader);
-registerActionCreator('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
-registerActionCreator('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
-registerActionCreator('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
-registerActionCreator('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
-registerActionCreator('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
 
-registerActionCreator('tabbar:select', selectTab);
+api.actionCreator.register('http:get:photos1', httpPhotosGet1);
+api.actionCreator.register('http:get:photos2', httpPhotosGet2);
+api.actionCreator.register('object:view', objectView);
+api.actionCreator.register('cancel:hide:dialog', hideDialog);
+api.actionCreator.register('confirm:dialog', confirmDialog);
+api.actionCreator.register('item1:action', chooseItem1);
+api.actionCreator.register('item2:action', chooseItem2);
+
+api.actionCreator.register(
+	'subheaderbar:display-sharing',
+	actionsCreatorsSubHeader.sharingSubHeader,
+);
+api.actionCreator.register(
+	'subheaderbar:display-bubbles',
+	actionsCreatorsSubHeader.bubblesSubHeader,
+);
+api.actionCreator.register('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
+api.actionCreator.register('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
+api.actionCreator.register('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
+api.actionCreator.register('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
+api.actionCreator.register('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
+api.actionCreator.register('tabbar:select', selectTab);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);

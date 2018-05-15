@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import expression from '../src/expression';
@@ -218,7 +219,6 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected.CMFContainer {...props} />, { context });
 			const injectedProps = wrapper.find(TestComponent).props();
 			expect(injectedProps.dispatchActionCreator).not.toBe(props.dispatchActionCreator);
-			// const instance = new CMFConnected.CMFContainer(props, context);
 			const event = {};
 			const data = {};
 			injectedProps.dispatchActionCreator('myactionCreator', event, data);
@@ -240,7 +240,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected />, {
 				context: mock.context(),
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 
@@ -359,7 +359,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 
@@ -387,7 +387,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 
@@ -414,7 +414,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected keepComponentState />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 
@@ -441,7 +441,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected keepComponentState={false} />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 
@@ -471,7 +471,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnected {...iProps} />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 			const props = wrapper.find(TestComponent).props();
@@ -507,7 +507,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnectedButton onClickDispatch={onClickDispatch} />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 			const props = wrapper.find(Button).props();
@@ -533,7 +533,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 			const props = wrapper.find(Button).props();
@@ -569,7 +569,7 @@ describe('cmfConnect', () => {
 			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
 				context,
 				childContextTypes: {
-					registry: React.PropTypes.object,
+					registry: PropTypes.object,
 				},
 			});
 			const props = wrapper.find(Button).props();
@@ -591,11 +591,11 @@ describe('cmfConnect', () => {
 			context.store.dispatch = jest.fn();
 
 			const wrapper = mount(
-				<CMFConnectedButton onClickSetState={config} initialState={{}} spreadCMFState />,
+				<CMFConnectedButton onClickSetState={config} initialState={new Map()} spreadCMFState />,
 				{
 					context,
 					childContextTypes: {
-						registry: React.PropTypes.object,
+						registry: PropTypes.object,
 					},
 				},
 			);
@@ -637,11 +637,11 @@ describe('cmfConnect', () => {
 			};
 
 			const wrapper = mount(
-				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={{}} />,
+				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />,
 				{
 					context,
 					childContextTypes: {
-						registry: React.PropTypes.object,
+						registry: PropTypes.object,
 					},
 				},
 			);

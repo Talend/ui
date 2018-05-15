@@ -1,4 +1,4 @@
-# Content Management Framework (aka CMF)
+# React content management Framework
 
 This is a framework to help you to build configurable React App.
 
@@ -23,60 +23,67 @@ It provides a set of base APIs and patterns.
 Before 1.0, `@talend/react-cmf` does NOT follow semver version in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
-## Definition
+## Requirements
 
-_CMF_ definition from Wikipedia:
+Before trying CMF you must know:
 
-```
-A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
-```
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [react-redux](https://redux.js.org/basics/usage-with-react)
+* [redux-saga](https://redux-saga.js.org)
+* [Immutable](https://facebook.github.io/immutable-js/)
 
-It fits with our goal, this is why this add-on has been named that way.
+You must understand all the following words: pure component, action creator, reducer, put, takeEvery, fromJS, ...
 
-## Paradigm
+## What is react-cmf
 
-A _user_ interacts with a _component_ using mouse and/or keyboard which sends _events_ from a _content_ and that interaction _dispatches_ an _action_.
-The action may change the application state, which in turn may change some components in the user interface.
+It's a framework. It is the results of the years of experience with react ecosystem at Talend.
+The goal is to provide one way to do the things keeping best pratices in mind.
 
-## Definitions
+## Working with react-cmf
 
-### Components
+If you tried to work with the required addons listed above you will do some
+repetitive tasks and some boiler plate every time and on each components.
 
-An HTML page is composed by a tree structure called the DOM. In our case React manages that DOM
-using a tree of `components`.
+When working with a framework like angular you have the tools plus a guideline on how to use them.
+With CMF the idea is the same. Provide the good set of tools plus the guideline.
 
-`Components` in the context of CMF are React components.
+A brief overview of how to do a project with react-cmf:
 
-But they are not just React component. We give them some super powers using [cmfConnect](./src/cmfConnect.md).
+* you write a set of configurable pure component connected using `cmfConnect`
+* you configure them using the settings
+* events are handled in a saga (effects are the way to write business code)
 
-```javascript
-import React from 'react';
-import { cmfConnect } from '@talend/react-cmf';
+Side by side with angular 1:
 
-function MyComponent(props) {
-	return (
-		<article>
-			<h2>{props.title}</h2>
-			<button onClick={() => props.dispatchActionCreator('read')}>Read</button>
-		</article>
-	);
-}
-export default cmfConnect({})(MyComponent);
-```
+* components are React *cmfConnected* (pure) component
+* services are sagas
+* controllers are containers
 
-### Actions
+UI sends actions into redux which are handled by sagas.
 
-Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
+## cmfConnect higher order component
+
+`cmfConnect` create a component with all CMF features charged in it.
+Under the hood it uses the connect function and create a container.
+
+Once your component is connected:
+* you can read data from the store using [expression](./src/expression.md)
+* you can dispatch actions using [onEvent handler](./src/onEvent.md)
+
+Read more about [cmfConnect](./src/cmfConnect.md)
 
 ## Store structure
 
-cmf store structure is the following
+CMF uses react-redux store with the following structure
 
 * root
   * cmf
     * collections
     * components
     * settings
+
+Collections and components use Immutable data structure.
 
 ### ComponentState Management
 
@@ -97,11 +104,11 @@ Manage a local cache of your business data.
 You can connect your component to give it access to your data and being able
 to dispatch action to let CMF reducers write them.
 
-You can dispatch some actionCreators in `api.actions.collections` for that.
+You can dispatch some actionCreators in [api.actions.collections](src/api.md) for that.
 
-## Configuration (settings)
+### Settings
 
-We don't want to rewrite a bunch of app code to change a label of a button?
+We don't want to create a PR, merge, build to change a label of a button right?
 With CMF you can describe all your app just using json.
 
 The json looks like this:
@@ -130,145 +137,13 @@ The json looks like this:
 }
 ```
 
-To resolve the component "Button" we need a registry.
-
-## Internals: The registry
-
-You will find the registry as the central piece of CMF.
-It's just a key/object registry and it's used with prefix to store the following:
-
-* action creators (function)
-* components (function or class)
-* expressions (function)
-* saga (iterator)
-
-## Middlewares
-
-### CMF
-
-You can put params in existing action object to trigger some other actions from react-cmf. For example control the router:
-
-```javascript
-export function cancelMyForm(nextRoute) {
-	return {
-		type: 'CLUSTER_CANCEL',
-		cmf: {
-			routerReplace: nextRoute || '/clusters',
-		},
-	};
-}
-```
-
-Existing commands:
-
-* cmf.routerReplace (string or function)
-* cmf.routerPush (string or function)
-* response + cmf.collectionId -> addOrReplace
-
-[See API](src/middlewares/cmf/index.md)
-
-### HTTP
-
-CMF init a middleware which is able to handle http requests for you.
-
-It attach the response to the action object.
-
-```javascript
-import { actions } from '@talend/react-cmf';
-
-const url = '/foo/bar';
-
-return actions.http.get(url, {
-		onSend: 'ACTION_TYPE_DISPATCHED_ON_SEND',
-		onError: 'ACTION_TYPE_DISPATCHED_ON_ERROR',
-		cmf: {
-			collectionId: 'clusters', // saved in this collection
-		},
-		transform(data) { // called onResponse
-			return data.map((row) => {
-				const { id, label, engine, tags, created, updated, properties, ...rest } = row;
-				return {
-					id,
-					label,
-					type: properties.type,
-					engine: engine.type,
-					created: moment(created).format(DATE_TIME_FORMAT),
-					updated: moment(updated).fromNow(),
-					tags: tags ? tags.join(', ') : '',
-					...rest,
-				};
-			});
-		},
-	}
-);
-```
-
-The request is done using the fecth API so you may add the [github's fetch
-polyfill](http://npmjs.com/package/whatwg-fetch) in your project.
-
-Note onResponse and onError accept function:
-
-* onResponse(response)
-* onError(error)
-
-[See API](src/middlewares/http/index.md)
-
 ## Scripts
 
-When you have cmf in you package.json, you can run in your project scope this script:
+When you have cmf in you project, it adds [scripts](./scripts/index.md) in your node_modules/.bin
 
-* cmf-settings
+Tips you should add `node_modules/bin` folder into your path.
 
-It require a cmf.json file with this format in your webapp's project root:
-
-```json
-{
-	"settings": {
-		"sources": [
-			"src/settings",
-			"node_modules/@talend/dataset/lib/settings",
-			"node_modules/@talend/myOtherDep/lib/file.json"
-		],
-		"sources-dev": [
-			"src/settings",
-			"../../dataset/webapp/src/settings",
-			"../../myOtherDep/lib/file.json"
-		],
-		"destination": "src/assets/cmf-settings.json"
-	}
-}
-```
-
-Options for this script :
-
-* -d to use dev-sources instead of sources
-* -q to run the script in quiet mode
-* -r to run the json search recursive
-
-## Expressions
-
-Expression are registred function use to eval props.
-We use them to handle dynamic configuration like disable buttons if a user doesn't have the permission.
-
-Given the upper `MyComponent` example you can use expression to fill the `title` from the store
-
-```json
-{
-	"props": {
-		"MyComponent#default": {
-			"titleExpression": {
-				"id": "cmf.collections.get",
-				"args": ["article.data.title"]
-			}
-		}
-	}
-}
-```
-
-So adding `Expression` to a prop name of a component is resolved by `cmfConnect`
-during the `mapStateToProps` evaluation. So the `title` props will be resolved!
-
-[See API](src/expression.md)
+So you can use them either in CLI or in npm scripts.
 
 ## Tests & mocks
 
@@ -322,13 +197,20 @@ you may change the following using simple props:
 * [how to](howto/index.md)
 * [sagas](src/sagas/index.md)
 * [sagaRouter](src/sagaRouter/index.md)
+* [scripts](scripts/index.md)
+
+## Internals
+
+* [registry](./src/registry.md).
+* [middleware/cmf](./src/middlewares/cmf/index.md)
+* [middleware/http](./src/middlewares/http/index.md)
 
 ## ROADMAP
 
 For 1.0
 
 * [x] embedable apps
-* [ ] react-router v4
+* [ ] router
 * [x] generator
 * [x] actionCreator should become first class
 * [ ] move from peer dependencies to dependencies

@@ -29,10 +29,10 @@ import { api } from 'react-cmf';
 function MyComponent(props) {
     return (
         <Button
-            onClick={(event) => this.props.onClick(event)}
-            role={this.props.link ? 'link' : null}
+            onClick={(event) => props.onClick(event)}
+            role={props.link ? 'link' : null}
         >
-            {this.props.label}
+            {props.label}
         </Button>
     );
 }
@@ -97,7 +97,7 @@ In your app configuration phase, _configure.js_
 import { api } from 'react-cmf';
 import myAction from '../actions/my-action';
 
-api.action.registerActionCreator('my:action', myAction);
+api.actionCreator.register('my:action', myAction);
 ```
 
 ## Add your route Settings configuration
@@ -137,7 +137,8 @@ In your app _settings.json_
 
 ## Add your actions settings configuration
 
-In your app _settings.json_ 
+In your app _settings.json_
+
 Here we rely on an actionCreator, but you can pass a `payload` object property instead of the `actionCreator` that would be dispatched to redux.
 
 ```json
@@ -147,5 +148,6 @@ Here we rely on an actionCreator, but you can pass a `payload` object property i
             "id": "myClickAction",
             "actionCreator": "my:action"
         }
-    }}
+    }
+}
 ```

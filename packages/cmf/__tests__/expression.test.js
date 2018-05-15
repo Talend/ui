@@ -89,7 +89,7 @@ describe('expression', () => {
 				'expression:test': isTrue,
 			},
 		};
-		const wrapper = shallow(<WithExpr disabled="test" />, { context });
+		const wrapper = shallow(<WithExpr disabledExpression="test" />, { context });
 		expect(wrapper.props().disabled).toBe(true);
 		expect(wrapper.props().disabled).not.toBe('test');
 	});
@@ -104,7 +104,7 @@ describe('getProps', () => {
 			},
 		};
 		const props = {
-			disabled: 'test',
+			disabledExpression: 'test',
 		};
 		const newProps = expression.getProps(props, ['disabled'], context);
 		expect(newProps.disabled).toBe(true);

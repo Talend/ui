@@ -68,6 +68,7 @@ class ActionFile extends React.Component {
 		...getIcon.propTypes,
 		id: PropTypes.string,
 		bsStyle: PropTypes.string,
+		className: PropTypes.string,
 		disabled: PropTypes.bool,
 		hideLabel: PropTypes.bool,
 		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
@@ -106,6 +107,7 @@ class ActionFile extends React.Component {
 		const {
 			id,
 			name,
+			className,
 			available,
 			disabled,
 			inProgress,
@@ -126,7 +128,7 @@ class ActionFile extends React.Component {
 			(disabled || inProgress) && 'disabled',
 		);
 		const btn = (
-			<span>
+			<span className={className}>
 				<input
 					onChange={this.handleChange}
 					type="file"

@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
 import { Action } from '../Actions';
 import Icon from '../Icon';
-import { getDefaultTranslate } from '../translate';
+import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -220,7 +220,7 @@ FilterBar.defaultProps = {
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 	className: '',
 };
 
