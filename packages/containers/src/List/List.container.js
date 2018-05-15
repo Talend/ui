@@ -150,7 +150,7 @@ class List extends React.Component {
 
 	isSelected(item) {
 		const selectedItems = this.props.state.get('selectedItems');
-		return selectedItems.some((itemKey) => itemKey === item[this.props.multiSelectionKey]);
+		return selectedItems.some(itemKey => itemKey === item[this.props.multiSelectionKey]);
 	}
 
 	render() {
