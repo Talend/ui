@@ -16,7 +16,7 @@ export function AppLoaderContainer({ loading, children, ...rest }) {
 	if (loading) {
 		return <AppLoader {...rest} />;
 	}
-	
+
 	const injected = Inject.all(rest.getComponent, rest.components, CustomInject);
 	return (
 		<div>
