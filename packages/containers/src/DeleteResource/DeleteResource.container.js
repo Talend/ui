@@ -81,7 +81,6 @@ export class DeleteResource extends React.Component {
 		const resourceInfo = this.getResourceInfo();
 		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
 		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
-		const context = this.props.female ? 'female' : '';
 
 		return (
 			<ConfirmDialog
