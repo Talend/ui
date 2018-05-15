@@ -11,7 +11,7 @@ module.exports = function build(env) {
 		{ stdio: 'inherit', env }
 	);
 	if (rmResult.status === 0) {
-		console.log('Folders ./build removed successfully');
+		console.log('Folders ./dist removed successfully');
 	}
 
 	// Run webpack dev server
