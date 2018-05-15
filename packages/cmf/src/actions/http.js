@@ -1,5 +1,5 @@
-import { HTTP_METHODS } from '../middlewares/http';
 import {
+	HTTP_METHODS,
 	ACTION_TYPE_HTTP_REQUEST,
 	ACTION_TYPE_HTTP_RESPONSE,
 	ACTION_TYPE_HTTP_ERRORS,

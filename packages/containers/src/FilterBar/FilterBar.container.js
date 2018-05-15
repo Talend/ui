@@ -1,4 +1,4 @@
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
@@ -24,7 +24,7 @@ class FilterBar extends React.Component {
 	};
 
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		id: PropTypes.string,
 		placeholder: PropTypes.string,
 		filterInputValue: PropTypes.string,
