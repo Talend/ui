@@ -261,7 +261,7 @@ const propsWithVirtualized = {
 	],
 	titleKey: 'name',
 	titleIconKey: 'icon',
-	titleDisplayModeKey: 'display',
+	displayModeKey: 'display',
 	onTitleClick: action('onTitleClick'),
 	onTitleEditCancel: action('onEditCancel'),
 	onTitleEditSubmit: action('onEditSubmit'),
@@ -285,7 +285,7 @@ const itemPropsForItems = {
 
 const sort = {
 	sortOn: 'name',
-	isSortDescending: false,
+	sortIsDescending: false,
 	onSortChange: action('sort.onChange'),
 };
 

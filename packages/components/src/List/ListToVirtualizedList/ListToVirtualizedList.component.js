@@ -23,8 +23,8 @@ export function ListToVirtualizedList(props) {
 		key: props.titleKey,
 		iconKey: props.titleIconKey,
 		displayModeKey: props.titleDisplayModeKey,
-		actionsKey: props.actionsKey,
-		persistentActionsKey: props.persistentActionsKey,
+		actionsKey: props.titleActionsKey,
+		persistentActionsKey: props.titlePersistentActionsKey,
 		onClick: props.onTitleClick,
 		onEditCancel: props.onTitleEditCancel,
 		onEditSubmit: props.onTitleEditSubmit,
@@ -51,7 +51,7 @@ export function ListToVirtualizedList(props) {
 	const isActive = props.isActive || get(props, 'itemProps.isActive');
 	const isSelected = props.isSelected || get(props, 'itemProps.isSelected');
 	const onRowClick = props.onRowClick || get(props, 'itemProps.onRowClick');
-	const onToggle = props.onSelect || get(props, 'itemProps.onToggle'); // sic
+	const onToggle = props.onToggle || get(props, 'itemProps.onToggle'); // sic
 	const onTitleClick = props.onTitleClick || get(props, 'titleProps.onClick');
 	const sort = props.sort || {
 		onChange: props.onSortChange,
@@ -107,26 +107,28 @@ ListToVirtualizedList.propTypes = {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
-	itemProps: PropTypes.shape({
-		isActive: PropTypes.func,
-		isSelected: PropTypes.func,
-		onRowClick: PropTypes.func,
-		onToggle: PropTypes.func,
-	}),
+	isActive: PropTypes.func,
+	isSelected: PropTypes.func,
+	onRowClick: PropTypes.func,
+	onToggle: PropTypes.func,
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
 	noRowsRenderer: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 	rowHeight: PropTypes.number,
-	sort: PropTypes.shape({
-		onChange: PropTypes.func,
-		field: PropTypes.string,
-		isDescending: PropTypes.bool,
-	}),
-	titleProps: PropTypes.shape({
-		actionsKey: PropTypes.string,
-		presistentActionsKey: PropTypes.string,
-		key: PropTypes.string,
-	}),
+	titleProps: PropTypes.object,
+	sort: PropTypes.object,
+	sortOn: PropTypes.string,
+	onSortChange: PropTypes.func,
+	sortIsDescending: PropTypes.bool,
+	titleActionsKey: PropTypes.string,
+	titleDisplayModeKey: PropTypes.string,
+	titleIconKey: PropTypes.string,
+	titleKey: PropTypes.string,
+	titlePersistentActionsKey: PropTypes.string,
+	onTitleEditSubmit: PropTypes.func,
+	onTitleEditCancel: PropTypes.func,
+	onTitleClick: PropTypes.func,
+
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',

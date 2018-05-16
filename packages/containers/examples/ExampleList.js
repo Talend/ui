@@ -148,7 +148,7 @@ const itemsWithTimestamp = Immutable.fromJS([
 
 const sortUpdatedAsc = {
 	sortOn: 'modified',
-	isSortDescending: false,
+	sortIsDescending: false,
 };
 const propsTimestampSorted = cloneDeep(props);
 Object.assign(propsTimestampSorted, listWithTimestamp);

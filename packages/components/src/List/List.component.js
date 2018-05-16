@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
@@ -13,34 +12,22 @@ import Inject from '../Inject';
  * @example
  const props = {
 	displayMode: 'table' / 'large'
-	list: {
-		items: [{}, {}, ...],
-		columns: [
-			{key, label},
-			{key, label},
-		]
-	},
-	toolbar: {
-		display: {
-			onChange: function,
-		},
-		sort: {
-			field: key,
-			options: [
-				{key, label},
-			],
-			isDescending: true / false,
-			onChange: function,
-		},
-		pagination: {
-			onChange: function,
-			itemsLength: number,
-		},
-		filter: {
-			onFilter: function,
-		},
-	}
-}
+	items: [{}, {}, ...],
+	columns: [
+		{key, label},
+		{key, label},
+	]
+	onDisplayChange: function,
+	sortOn: key,
+	sortOptions: [
+		{key, label},
+	],
+	sortIsDescending: true / false,
+	onSortChange: function,
+	onPaginationChange: function,
+	itemsLength: number, // pagination ??
+	onFilterChange: function,
+};
  <List {...props}></List>
  */
 function List(props) {
@@ -68,28 +55,7 @@ function List(props) {
 List.displayName = 'List';
 
 List.propTypes = {
-	id: PropTypes.string,
-	displayMode: PropTypes.string,
-	list: PropTypes.shape({
-		items: PropTypes.arrayOf(PropTypes.object),
-		itemProps: PropTypes.shape({
-			classNameKey: PropTypes.string,
-			isActive: PropTypes.func,
-			isSelected: PropTypes.func,
-			onRowClick: PropTypes.func,
-			onSelect: PropTypes.func,
-			onToggle: PropTypes.func,
-			onToggleAll: PropTypes.func,
-			width: PropTypes.string,
-		}),
-		sort: PropTypes.shape({
-			field: PropTypes.string,
-			isDescending: PropTypes.bool,
-			onChange: PropTypes.func.isRequired,
-		}),
-	}),
-	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
-	renderers: PropTypes.object,
+	...Inject.propTypes,
 };
 
 List.defaultProps = {
