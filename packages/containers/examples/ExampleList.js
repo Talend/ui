@@ -36,6 +36,7 @@ const actions = {
 };
 
 const toolbar = {
+	toolbar: true,
 	sortOn: 'id',
 	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
 	displayModes: ['large', 'table'],
@@ -225,7 +226,7 @@ const ExampleList = {
 				},
 			]),
 		);
-		propsPg.toolbar.pagination = {};
+		propsPg.pagination = true;
 		return (
 			<div>
 				<IconsProvider />
@@ -237,7 +238,7 @@ const ExampleList = {
 	},
 	'in progress': () => {
 		const props2 = cloneDeep(props);
-		props2.list.inProgress = true;
+		props2.inProgress = true;
 		return (
 			<div>
 				<IconsProvider />
@@ -251,7 +252,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List list={list} actions={actions} items={items} />
+				<List {...list} items={items} />
 			</div>
 		</div>
 	),

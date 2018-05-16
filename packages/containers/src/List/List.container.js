@@ -5,7 +5,6 @@ import { Map } from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
@@ -75,7 +74,7 @@ class List extends React.Component {
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
-		this.onChangePage = this.onChangePage.bind(this);
+		this.onPaginationChange = this.onPaginationChange.bind(this);
 	}
 	onSelectSortBy(event, payload) {
 		this.props.setState({
@@ -88,7 +87,7 @@ class List extends React.Component {
 		this.props.setState({ searchQuery: payload.query });
 	}
 
-	onChangePage(startIndex, itemsPerPage) {
+	onPaginationChange(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
 		if (this.props.onPaginationChange) {
 			this.props.onPaginationChange(startIndex, itemsPerPage);
@@ -126,9 +125,6 @@ class List extends React.Component {
 		if (!props.columns) {
 			props.columns = [];
 		}
-		props.sortOn = state.sortOn;
-		props.sortIsDescending = !state.sortAsc;
-		props.onSortChange = this.onSelectSortBy;
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
@@ -149,22 +145,27 @@ class List extends React.Component {
 			}
 		}
 
-		// toolbar
-		props.onDisplayChange = this.onSelectDisplayMode;
-		props.onSortChange = this.onSelectSortBy;
-		props.sortOn = state.sortOn;
-		props.sortIsDescending = !state.sortAsc;
-		props.onFilterToggle = this.onToggle;
-		props.onFilterChange = this.onFilter;
-		props.filterDocked = state.filterDocked;
-		props.filterValue = state.searchQuery;
+		if (props.toolbar) {
+			props.sortOn = state.sortOn;
+			props.sortIsDescending = !state.sortAsc;
+			props.onSortChange = this.onSelectSortBy;
+			props.onDisplayChange = this.onSelectDisplayMode;
+			props.onSortChange = this.onSelectSortBy;
+			props.sortOn = state.sortOn;
+			props.sortIsDescending = !state.sortAsc;
+			props.onFilterToggle = this.onToggle;
+			props.onFilterChange = this.onFilter;
+			props.filterDocked = state.filterDocked;
+			props.filterValue = state.searchQuery;
+			// pagination
+			if (props.pagination) {
+				props.totalResults = state.totalResults;
+				props.itemsPerPage = state.itemsPerPage;
+				props.startIndex = state.startIndex;
+				props.onPaginationChange = this.onPaginationChange;
+			}
+		}
 
-		// pagination
-		props.totalResults = state.totalResults;
-		props.itemsPerPage = state.itemsPerPage;
-		props.startIndex = state.startIndex;
-		props.onPaginationChange = this.onChangePage;
-		console.log(props);
 		return <Component {...props} />;
 	}
 }

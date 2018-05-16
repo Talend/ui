@@ -57,50 +57,69 @@ function getSortProps(props) {
 }
 
 function getDisplayProps(props) {
-	const display = props.display || {
-		displayModes: props.displayModes,
-		onChange: props.onDisplayChange,
-	};
-	if (!display.mode && props.displayMode) {
-		display.mode = props.displayMode;
+	let display;
+	if (props.display) {
+		display = props.display;
 	}
-	if (!display.id && props.id) {
-		display.id = props.id && `${props.id}-display-mode`;
+	if (props.onDisplayChange) {
+		display = {
+			displayModes: props.displayModes,
+			onChange: props.onDisplayChange,
+		};
+	}
+	if (display) {
+		if (!display.mode && props.displayMode) {
+			display.mode = props.displayMode;
+		}
+		if (!display.id && props.id) {
+			display.id = props.id && `${props.id}-display-mode`;
+		}
 	}
 	return display;
 }
 
 function getPaginationProps(props) {
-	const pagination = props.pagination || {
-		onChange: props.onPaginationChange,
-		itemsPerPage: props.itemsPerPage,
-		totalResults: props.totalResults,
-	};
-	if (!pagination.id && props.id) {
-		pagination.id = `${props.id}-pagination`;
+	let pagination;
+	if (props.pagination) {
+		pagination = {
+			onChange: get(props, 'toolbar.pagination.onChange', props.onPaginationChange),
+			itemsPerPage: get(props, 'toolbar.pagination.itemsPerPage', props.itemsPerPage),
+			totalResults: get(props, 'toolbar.pagination.totalResults', props.totalResults),
+			startIndex: get(props, 'toolbar.pagination.startIndex', props.startIndex),
+		};
+		if (!pagination.id && props.id) {
+			pagination.id = `${props.id}-pagination`;
+		}
 	}
 	return pagination;
 }
 
 function getFilterProps(props) {
-	const filter = props.filter || {};
-	if (!filter.id && props.id) {
-		filter.id = `${props.id}-filter`;
+	let filter = props.filter;
+	if (props.onFilterChange) {
+		filter = {
+			onFilter: props.onFilterChange,
+		};
 	}
-	if (!filter.onFilter && props.onFilterChange) {
-		filter.onFilter = props.onFilterChange;
-	}
-	if (!filter.onToggle && props.onFilterToggle) {
-		filter.onToggle = props.onFilterToggle;
-	}
-	if (filter.docked === undefined && props.filterDocked !== undefined) {
-		filter.docked = props.filterDocked;
-	}
-	if (filter.highlight === undefined && props.filterHighlight !== undefined) {
-		filter.highlight = props.filterHighlight;
-	}
-	if (!filter.debounceTimeout && props.filterDebounceTimeout) {
-		filter.debounceTimeout = props.filterDebounceTimeout;
+	if (filter) {
+		if (!filter.id && props.id) {
+			filter.id = `${props.id}-filter`;
+		}
+		if (!filter.onFilter && props.onFilterChange) {
+			filter.onFilter = props.onFilterChange;
+		}
+		if (!filter.onToggle && props.onFilterToggle) {
+			filter.onToggle = props.onFilterToggle;
+		}
+		if (filter.docked === undefined && props.filterDocked !== undefined) {
+			filter.docked = props.filterDocked;
+		}
+		if (filter.highlight === undefined && props.filterHighlight !== undefined) {
+			filter.highlight = props.filterHighlight;
+		}
+		if (!filter.debounceTimeout && props.filterDebounceTimeout) {
+			filter.debounceTimeout = props.filterDebounceTimeout;
+		}
 	}
 	return filter;
 }
@@ -174,7 +193,7 @@ function Toolbar({ t, getComponent, components, ...props }) {
 		FilterBar,
 	});
 	const injected = Inject.all(getComponent, components);
-	const hasToolbar = selectAll || display || sort || pagination || filter;
+	const hasToolbar = !!(selectAll || display || sort || pagination || filter);
 	return (
 		<div className="tc-list-toolbar">
 			{injected('before-actionbar')}
