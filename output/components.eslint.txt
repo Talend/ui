@@ -13,36 +13,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
   76:56  error  'properties' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/components/src/List/List.component.js
-  48:36  error  'getComponent' is missing in props validation             react/prop-types
-  48:61  error  'components' is missing in props validation               react/prop-types
-  71:6   error  'id' PropType is defined but prop is never used           react/no-unused-prop-types
-  72:15  error  'displayMode' PropType is defined but prop is never used  react/no-unused-prop-types
-  91:11  error  'toolbar' PropType is defined but prop is never used      react/no-unused-prop-types
-  92:13  error  'renderers' PropType is defined but prop is never used    react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
-   23:14  error  'titleKey' is missing in props validation               react/prop-types
-   24:18  error  'titleIconKey' is missing in props validation           react/prop-types
-   25:25  error  'titleDisplayModeKey' is missing in props validation    react/prop-types
-   26:21  error  'actionsKey' is missing in props validation             react/prop-types
-   27:31  error  'persistentActionsKey' is missing in props validation   react/prop-types
-   28:18  error  'onTitleClick' is missing in props validation           react/prop-types
-   29:23  error  'onTitleEditCancel' is missing in props validation      react/prop-types
-   30:23  error  'onTitleEditSubmit' is missing in props validation      react/prop-types
-   51:25  error  'isActive' is missing in props validation               react/prop-types
-   52:27  error  'isSelected' is missing in props validation             react/prop-types
-   53:27  error  'onRowClick' is missing in props validation             react/prop-types
-   54:25  error  'onSelect' is missing in props validation               react/prop-types
-   55:29  error  'onTitleClick' is missing in props validation           react/prop-types
-   57:19  error  'onSortChange' is missing in props validation           react/prop-types
-   58:16  error  'sortOn' is missing in props validation                 react/prop-types
-   59:23  error  'sortIsDescending' is missing in props validation       react/prop-types
-  110:13  error  'itemProps' PropType is defined but prop is never used  react/no-unused-prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.component.js
    36:10  error  'adaptLeftAndRightActions' is defined but never used  no-unused-vars
-  182:12  error  'hideToolbar' is missing in props validation          react/prop-types
+  175:12  error  'hideToolbar' is missing in props validation          react/prop-types
+  189:86  error  'toolbar' is missing in props validation              react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
@@ -58,5 +32,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 36 problems (35 errors, 1 warning)
+✖ 14 problems (13 errors, 1 warning)
 
