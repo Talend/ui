@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
-import { Map } from 'immutable';
+import { Map, List as ImmutableList } from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
@@ -12,7 +12,7 @@ import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
-	selectedItems: [],
+	selectedItems: new ImmutableList(),
 	searchQuery: '',
 	itemsPerPage: 10,
 	startIndex: 1,
@@ -87,6 +87,10 @@ class List extends React.Component {
 		this.onToggleAllMultiSelection = this.onToggleAllMultiSelection.bind(this);
 		this.isSelected = this.isSelected.bind(this);
 	}
+
+	getSelectedItems() {
+		return this.props.state.get('selectedItems', new ImmutableList());
+	}
 	onSelectSortBy(event, payload) {
 		this.props.setState({
 			sortOn: payload.field,
@@ -116,7 +120,7 @@ class List extends React.Component {
 
 	onToggleMultiSelection(event, data) {
 		const state = this.props.state.toJS();
-		let selectedItems = state.selectedItems.slice();
+		const selectedItems = state.selectedItems.slice();
 		const dataIndex = selectedItems.indexOf(data[this.props.multiSelectionKey]);
 		if (dataIndex > -1) {
 			selectedItems.splice(dataIndex, 1);
@@ -149,7 +153,7 @@ class List extends React.Component {
 	}
 
 	isSelected(item) {
-		const selectedItems = this.props.state.get('selectedItems');
+		const selectedItems = this.getSelectedItems();
 		return selectedItems.some(itemKey => itemKey === item[this.props.multiSelectionKey]);
 	}
 
@@ -234,14 +238,7 @@ class List extends React.Component {
 				props.list.itemProps.onToggle = this.onToggleMultiSelection;
 				props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
 				props.list.itemProps.isSelected = this.isSelected;
-				// selectedItems is part of the default state
-				// but host app can override it so
-				if (!state.selectedItems) {
-					this.props.setState({
-						selectedItems: [],
-					});
-				}
-				props.toolbar.actionBar.selected = state.selectedItems.length;
+				props.toolbar.actionBar.selected = this.getSelectedItems().size;
 			}
 
 			const actions = this.props.actions;
