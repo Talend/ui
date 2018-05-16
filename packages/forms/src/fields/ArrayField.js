@@ -109,7 +109,7 @@ function DefaultFixedArrayFieldTemplate(props) {
 				required={props.required}
 			/>
 
-			{(props.uiSchema['ui:description'] || props.schema.description) ? (
+			{props.uiSchema['ui:description'] || props.schema.description ? (
 				<div className="field-description" key={`field-description-${props.idSchema.$id}`}>
 					{props.uiSchema['ui:description'] || props.schema.description}
 				</div>
@@ -137,7 +137,7 @@ function DefaultNormalArrayFieldTemplate(props) {
 				required={props.required}
 			/>
 
-			{(props.uiSchema['ui:description'] || props.schema.description) ? (
+			{props.uiSchema['ui:description'] || props.schema.description ? (
 				<ArrayFieldDescription
 					key={`array-field-description-${props.idSchema.$id}`}
 					DescriptionField={props.DescriptionField}
