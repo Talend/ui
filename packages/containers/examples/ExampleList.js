@@ -16,6 +16,7 @@ const list = {
 		{ key: 'modified', label: 'Modified' },
 	],
 	titleKey: 'label',
+	idKey: 'id',
 };
 
 const listWithTimestamp = {
@@ -23,8 +24,13 @@ const listWithTimestamp = {
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Name' },
 		{ key: 'author', label: 'Author' },
-		{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
-		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } }
+		{
+			key: 'created',
+			label: 'Created',
+			type: 'datetime',
+			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+		},
+		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
 	],
 	titlekey: 'label',
 };
@@ -281,9 +287,28 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List {...propsTimestampSorted} items={itemsWithTimestamp} initialState={defaultSortedListState}/>
+				<List
+					{...propsTimestampSorted}
+					items={itemsWithTimestamp}
+					initialState={defaultSortedListState}
+				/>
 			</div>
 		</div>
-	)
+	),
+	'multi selection': () => {
+		const multiSelectionProps = cloneDeep(props);
+		multiSelectionProps.multiSelectActions = {
+			left: ['object:remove'],
+		};
+		multiSelectionProps.multiSelectionKey = 'id';
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...multiSelectionProps} items={items} />
+				</div>
+			</div>
+		);
+	},
 };
 export default ExampleList;

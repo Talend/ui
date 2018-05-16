@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
-import { Map } from 'immutable';
+import Immutable from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
@@ -9,8 +9,9 @@ import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = new Immutable.Map({
 	displayMode: 'table',
+	selectedItems: new Immutable.List(),
 	searchQuery: '',
 	itemsPerPage: 10,
 	startIndex: 1,
@@ -71,8 +72,8 @@ class List extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSelectSortBy = this.onSelectSortBy.bind(this);
-		this.onFilter = this.onFilter.bind(this);
-		this.onToggle = this.onToggle.bind(this);
+		this.onFilterChange = this.onFilterChange.bind(this);
+		this.onFilterToggle = this.onFilterToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onPaginationChange = this.onPaginationChange.bind(this);
 	}
@@ -83,7 +84,7 @@ class List extends React.Component {
 		});
 	}
 
-	onFilter(event, payload) {
+	onFilterChange(event, payload) {
 		this.props.setState({ searchQuery: payload.query });
 	}
 
@@ -94,7 +95,7 @@ class List extends React.Component {
 		}
 	}
 
-	onToggle() {
+	onFilterToggle() {
 		// clearing filter when toggle
 		this.props.setState({
 			filterDocked: !this.props.state.get('filterDocked'),
@@ -110,6 +111,10 @@ class List extends React.Component {
 		return (event, data) => {
 			this.props.dispatchActionCreator(property, event, data, this.context);
 		};
+	}
+
+	isSelected(item) {
+		return this.props.state.get('selectedItems').some(itemKey => itemKey === item.get(this.props.idKey));
 	}
 
 	render() {
@@ -149,8 +154,8 @@ class List extends React.Component {
 			props.onSortChange = this.onSelectSortBy;
 			props.sortOn = state.sortOn;
 			props.sortIsDescending = !state.sortAsc;
-			props.onFilterToggle = this.onToggle;
-			props.onFilterChange = this.onFilter;
+			props.onFilterToggle = this.onFilterToggle;
+			props.onFilterChange = this.onFilterChange;
 			props.filterDocked = state.filterDocked;
 			props.filterValue = state.searchQuery;
 			// pagination
