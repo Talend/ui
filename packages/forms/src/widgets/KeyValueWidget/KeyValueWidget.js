@@ -77,6 +77,18 @@ function KeyValueWidget({ schema, value, formData, onChange, ...internalProps })
 }
 
 if (process.env.NODE_ENV !== 'production') {
+	Key.propTypes = {
+		schema: PropTypes.object,
+		data: PropTypes.shape({ key: PropTypes.string }),
+		onChange: PropTypes.func,
+	};
+
+	Value.propTypes = {
+		schema: PropTypes.object,
+		data: PropTypes.shape({ value: PropTypes.string }),
+		onChange: PropTypes.func,
+	};
+
 	KeyValueWidget.propTypes = {
 		schema: PropTypes.object,
 		formData: PropTypes.object,

@@ -14,8 +14,8 @@ function buildOptions(schema) {
 		enumOptions: optionsList(
 			Object.assign(
 				{
-					enum: [true, false],
 					enumNames: ['true', 'false'],
+					enum: [true, false],
 				},
 				{ enumNames: schema.enumNames },
 			),

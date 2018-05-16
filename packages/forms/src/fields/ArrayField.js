@@ -55,10 +55,10 @@ function DefaultArrayItem(props) {
 		<div key={props.index} className={props.className}>
 			<div className={props.hasToolbar ? 'col-xs-9' : 'col-xs-12'}>{props.children}</div>
 
-			{props.hasToolbar && (
+			{props.hasToolbar ? (
 				<div className="col-xs-3 array-item-toolbox">
 					<div className="btn-group" style={{ display: 'flex', justifyContent: 'space-around' }}>
-						{(props.hasMoveUp || props.hasMoveDown) && (
+						{props.hasMoveUp || props.hasMoveDown ? (
 							<IconBtn
 								icon="arrow-up"
 								className="array-item-move-up"
@@ -67,9 +67,9 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveUp}
 								onClick={props.onReorderClick(props.index, props.index - 1)}
 							/>
-						)}
+						) : null}
 
-						{(props.hasMoveUp || props.hasMoveDown) && (
+						{props.hasMoveUp || props.hasMoveDown ? (
 							<IconBtn
 								icon="arrow-down"
 								className="array-item-move-down"
@@ -78,9 +78,9 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly || !props.hasMoveDown}
 								onClick={props.onReorderClick(props.index, props.index + 1)}
 							/>
-						)}
+						) : null}
 
-						{props.hasRemove && (
+						{props.hasRemove ? (
 							<IconBtn
 								type="danger"
 								icon="remove"
@@ -90,10 +90,10 @@ function DefaultArrayItem(props) {
 								disabled={props.disabled || props.readonly}
 								onClick={props.onDropIndexClick(props.index)}
 							/>
-						)}
+						) : null}
 					</div>
 				</div>
-			)}
+			) : null}
 		</div>
 	);
 }
@@ -109,19 +109,19 @@ function DefaultFixedArrayFieldTemplate(props) {
 				required={props.required}
 			/>
 
-			{(props.uiSchema['ui:description'] || props.schema.description) && (
+			{(props.uiSchema['ui:description'] || props.schema.description) ? (
 				<div className="field-description" key={`field-description-${props.idSchema.$id}`}>
 					{props.uiSchema['ui:description'] || props.schema.description}
 				</div>
-			)}
+			) : null}
 
 			<div className="row array-item-list" key={`array-item-list-${props.idSchema.$id}`}>
 				{props.items && props.items.map(DefaultArrayItem)}
 			</div>
 
-			{props.canAdd && (
+			{props.canAdd ? (
 				<AddButton onClick={props.onAddClick} disabled={props.disabled || props.readonly} />
-			)}
+			) : null}
 		</fieldset>
 	);
 }
@@ -137,22 +137,21 @@ function DefaultNormalArrayFieldTemplate(props) {
 				required={props.required}
 			/>
 
-			{(props.uiSchema['ui:description'] || props.schema.description) && (
+			{(props.uiSchema['ui:description'] || props.schema.description) ? (
 				<ArrayFieldDescription
 					key={`array-field-description-${props.idSchema.$id}`}
 					DescriptionField={props.DescriptionField}
 					idSchema={props.idSchema}
 					description={props.uiSchema['ui:description'] || props.schema.description}
 				/>
-			)}
-
+			) : null}
 			<div className="row array-item-list" key={`array-item-list-${props.idSchema.$id}`}>
 				{props.items && props.items.map(DefaultArrayItem)}
 			</div>
 
-			{props.canAdd && (
+			{props.canAdd ? (
 				<AddButton onClick={props.onAddClick} disabled={props.disabled || props.readonly} />
-			)}
+			) : null}
 		</fieldset>
 	);
 }

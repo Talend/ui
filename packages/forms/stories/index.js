@@ -741,7 +741,6 @@ decoratedStories.add('Form with live validation', () => {
 				name: {
 					title: 'Name',
 					type: 'string',
-					0: true,
 					minLength: 3,
 				},
 				email: {
