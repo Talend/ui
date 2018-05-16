@@ -5,13 +5,18 @@
  * This class is intended to be subclassed.
  */
 export default class Filter {
-	constructor(id, active) {
+	constructor(id, key, active) {
 		this.id = id;
+		this.key = key;
 		this.active = active;
 	}
 
 	getId() {
 		return this.id;
+	}
+
+	getKey() {
+		return this.key;
 	}
 
 	/**
@@ -32,7 +37,13 @@ export default class Filter {
 	 * @param {object} dataAccessor - element data getter
 	 * @param {object} element - an element of the table
 	 */
-	select() {
-		return !this.active;
+	select(dataAccessor, element) {
+		const value = dataAccessor.getRowData(element, this.key);
+		return this.selectValue(value);
 	}
+
+	selectValue(value) {
+		return !this.active || value;
+	}
+
 }

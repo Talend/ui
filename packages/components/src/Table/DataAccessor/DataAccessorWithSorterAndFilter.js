@@ -63,6 +63,18 @@ export default class DataAccessorWithSorterAndFilter {
 		}
 	}
 
+	getFilters() {
+		let filters = [];
+		const filterIds = Object.keys(this.filters.registry);
+		for (let i = 0; i < filterIds.length; i += 1) {
+			const filter = this.filters.registry[filterIds[i]];
+			if (filter) {
+				filters = filters.concat(filter);
+			}
+		}
+		return filters;
+	}
+
 	getFiltersVersion() {
 		return this.filters.version;
 	}
@@ -127,7 +139,7 @@ export default class DataAccessorWithSorterAndFilter {
 	 */
 	internalMergeFiltersAndSorter() {
 		this.internalMergeFilters();
-		if (this.isSorterDefined()) {
+		if (this.hasSorter()) {
 			this.internalSortElements(this.internalGetFilteredElements());
 		}
 	}

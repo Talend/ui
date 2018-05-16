@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TableRow, { getRowId } from './TableRow.js';
 import TableHeader from './TableHeader';
+import FiltersBar from './Filters/FiltersBar';
 
 /**
  * This function is responsible for rendering an element in the table.
@@ -27,6 +28,27 @@ function renderRow(
 			onLeaveRow={onLeaveRow}
 		/>
 	);
+}
+
+function getMainClassName(classNameProvider) {
+	if (classNameProvider && classNameProvider.getMain) {
+		return classNameProvider.getMain();
+	}
+	return 'tc-table-container';
+}
+
+function getTitleClassName(classNameProvider) {
+	if (classNameProvider && classNameProvider.getForTitle) {
+		return classNameProvider.getForTitle();
+	}
+	return 'tc-table-title';
+}
+
+function getFiltersBarClassName(classNameProvider) {
+	if (classNameProvider && classNameProvider.getForFilters) {
+		return classNameProvider.getForFilters();
+	}
+	return 'tc-table-filters';
 }
 
 function getTableClassName(classNameProvider) {
@@ -79,23 +101,23 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 function renderHeader(
 	classNameProvider,
 	rowDataGetter,
-	withHeader,
 	headerRenderer,
 	columnKeys,
 	updateHeadNodeRef,
 ) {
-	if (withHeader) {
-		return (
-			<thead ref={updateHeadNodeRef}>
-				<tr className="tr-head">
-					{columnKeys.map(col =>
-						renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col),
-					)}
-				</tr>
-			</thead>
-		);
-	}
-	return null;
+	return (
+		<thead ref={updateHeadNodeRef}>
+			<tr className="tr-head">
+				{columnKeys.map(col =>
+					renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col),
+				)}
+			</tr>
+		</thead>
+	);
+}
+
+function displayFilters(filters) {
+	return filters && filters.length > 0;
 }
 
 /**
@@ -151,6 +173,8 @@ export default class Table extends Component {
 
 	render() {
 		const {
+			withTitle,
+			title,
 			classNameProvider,
 			elements,
 			columnKeys,
@@ -158,41 +182,60 @@ export default class Table extends Component {
 			rowRenderer,
 			withHeader,
 			headerRenderer,
+			filters,
+			filtersRenderer,
+			onFilterChange,
 			onScroll,
 			onEnterRow,
 			onLeaveRow,
 		} = this.props;
 		return (
-			<div ref={this.updateContentNodeRef} className={`${getTableClassName(classNameProvider)}`}>
-				<table ref={this.updateTableNodeRef}>
-					{renderHeader(
-						classNameProvider,
-						rowDataGetter,
-						withHeader,
-						headerRenderer,
-						columnKeys,
-						this.updateHeadNodeRef,
+			<div className={getMainClassName(classNameProvider)}>
+				<div className="tc-table-title-and-filters">
+					{withTitle && (
+						<span className={getTitleClassName(classNameProvider)}>{title}</span>
 					)}
-					<tbody ref={this.updateBodyNodeRef} onScroll={onScroll}>
-						{elements.map(elem =>
-							renderRow(
-								elem,
-								classNameProvider,
-								columnKeys,
-								rowDataGetter,
-								rowRenderer,
-								onEnterRow,
-								onLeaveRow,
-							),
+					{displayFilters(filters) && (
+						<FiltersBar
+							className={getFiltersBarClassName(classNameProvider)}
+							filters={filters}
+							filtersRenderer={filtersRenderer}
+							onFilterChange={onFilterChange}
+						/>
+					)}
+				</div>
+				<div ref={this.updateContentNodeRef} className={getTableClassName(classNameProvider)}>
+					<table ref={this.updateTableNodeRef}>
+						{withHeader && renderHeader(
+							classNameProvider,
+							rowDataGetter,
+							headerRenderer,
+							columnKeys,
+							this.updateHeadNodeRef,
 						)}
-					</tbody>
-				</table>
+						<tbody ref={this.updateBodyNodeRef} onScroll={onScroll}>
+							{elements.map(elem =>
+								renderRow(
+									elem,
+									classNameProvider,
+									columnKeys,
+									rowDataGetter,
+									rowRenderer,
+									onEnterRow,
+									onLeaveRow,
+								),
+							)}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		);
 	}
 }
 
 Table.propTypes = {
+	withTitle: PropTypes.bool,
+	title: PropTypes.string,
 	elements: PropTypes.array,
 	classNameProvider: PropTypes.shape({
 		getForTable: PropTypes.func,
@@ -216,6 +259,9 @@ Table.propTypes = {
 		getHeaderComponent: PropTypes.func,
 		getExtraProps: PropTypes.func,
 	}),
+	filters: PropTypes.array,
+	filtersRenderer: PropTypes.object,
+	onFilterChange: PropTypes.func,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

@@ -45,6 +45,8 @@ import TabBar from './TabBar';
 import {
 	DataAccessorWithSorterAndFilter,
 	DraggableComponent,
+	FilterComponents,
+	FilterFactory,
 	Sorter,
 	SorterHeaderRenderer,
 	SortOrder,
@@ -178,6 +180,8 @@ export {
 	TableCell,
 	TableHeader,
 	DraggableComponent,
+	FilterComponents,
+	FilterFactory,
 	Sorter,
 	SorterHeaderRenderer,
 	SortOrder,

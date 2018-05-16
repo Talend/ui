@@ -56,11 +56,14 @@ export default class SorterHeaderRenderer {
     if (this.sorters[columnKey]) {
       const sorter = this.sorters[columnKey].sorter;
       return {
-        label: sorter.getLabel(),
-        icon: getIcon(this.sortHandler, sorter),
-        onClick: this.sorters[columnKey].onClick,
-        iconPosition: 'right',
-      };
+        actionProps: {
+          label: sorter.getLabel(),
+          icon: getIcon(this.sortHandler, sorter),
+          onClick: this.sorters[columnKey].onClick,
+          iconPosition: 'right',
+          link: true,
+        },
+      }
     }
 		return null;
 	}

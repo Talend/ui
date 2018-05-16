@@ -7,6 +7,24 @@ import TableHeader from './TableHeader';
  */
 export const classNameProvider = {
 	/**
+	 * Return a classname for the root container of the table.
+	 */
+	getMain() {
+		return 'tc-table-container';
+	},
+	/**
+	 * Return a classname for the title of the table.
+	 */
+	getForTitle() {
+		return 'tc-table-title';
+	},
+	/**
+	 * Return a classname for the component displaying filters.
+	 */
+	getForFilters() {
+		return 'tc-table-filters';
+	},
+	/**
 	 * Return a classname for the table component.
 	 */
 	getForTable() {

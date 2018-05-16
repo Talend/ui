@@ -7,6 +7,9 @@ import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
 	DataAccessorWithSorterAndFilter,
+	DraggableComponent as draggable,
+	FilterComponents,
+	FilterFactory,
 	Sorter,
 	SorterHeaderRenderer,
 	SortOrder,
@@ -14,7 +17,6 @@ import {
 	TableClickableCell,
 	TableConfiguration,
 	TableCell,
-	DraggableComponent as draggable,
 	IconsProvider,
 } from '../src/index';
 
@@ -153,9 +155,40 @@ const salesForceAccountSchema = {
 		'The timestamp for when the current user last viewed this record. If this value is null, this record might only have been referenced (LastReferencedDate) and not viewed.',
 		'',
 	],
+	mandatories: [
+		false,
+		false,
+		false,
+		true,
+		true,
+		true,
+		true,
+		false,
+		false,
+		false,
+		true,
+		true,
+		false,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		true,
+		false,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	],
 };
 
-function buildElement(elem, index, types, descriptions) {
+function buildElement(elem, index, types, descriptions, mandatories) {
 	const type = types[index];
 	let description = null;
 	if (descriptions) {
@@ -163,11 +196,16 @@ function buildElement(elem, index, types, descriptions) {
 	} else {
 		description = `Description of ${elem}: bla bla bla`;
 	}
+	let mandatory = false;
+	if (mandatories) {
+		mandatory = mandatories[index];
+	}
 	return {
 		id: `${index}`,
 		name: elem,
 		type,
 		description,
+		mandatory,
 	};
 }
 
@@ -181,7 +219,7 @@ function finalizeSchema(schema, size) {
 		sourceElements = schema.elements.slice(0, size);
 	}
 	const elements = sourceElements.map(
-		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions)
+		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions, schema.mandatories)
 	);
 	result.elements = elements;
 	return result;
@@ -196,11 +234,13 @@ const ColumnKey = {
 	DRAG_NAME: 'drag-name',
   TYPE: 'type',
   DESC: 'description',
+	MANDATORY: 'mandatory',
 };
 
 const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
 const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE];
 const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
+const columnKeys4 = [ColumnKey.MANDATORY, ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
 
 const draggableCell = draggable(TableClickableCell);
 
@@ -258,6 +298,8 @@ const rowDataGetter = {
 				return 'Type';
 			case ColumnKey.DESC:
 				return 'Description';
+			case ColumnKey.MANDATORY:
+				return '';
 			default:
 				return columnKey;
 		}
@@ -272,6 +314,8 @@ const rowDataGetter = {
 				return element.type;
 			case ColumnKey.DESC:
 				return element.description;
+			case ColumnKey.MANDATORY:
+				return element.mandatory ? '*' : '';
 			default:
 				return 'No data available!';
 		}
@@ -363,10 +407,6 @@ ConnectedTable.propTypes = {
 
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
 
-function getSorterId(label) {
-	return `${label}-id`;
-}
-
 function createSorters(keys) {
 	let sorters = [];
 	for (let i = 0; i < keys.length; i += 1) {
@@ -377,7 +417,50 @@ function createSorters(keys) {
 	return sorters;
 }
 
-class SortedTable extends React.Component {
+const nameFilterId = 'name-filter';
+const nameFilterComponent = FilterComponents.getFilterComponent(FilterComponents.classes.string);
+
+const mandatoryFieldFilterId = 'mandatory-field-filter';
+const mandatoryFieldFilterComponent = FilterComponents.getFilterComponent(FilterComponents.classes.toggle);
+
+function createFilters() {
+	const nameFilter = FilterFactory.createRegexpFilter(nameFilterId, ColumnKey.NAME, false);
+	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(mandatoryFieldFilterId, ColumnKey.MANDATORY, false);
+	return [nameFilter, mandatoryFieldFilter];
+}
+
+const filtersRenderer = {
+	getFilterComponent(filterId) {
+		switch (filterId) {
+			case nameFilterId:
+				return nameFilterComponent;
+			case mandatoryFieldFilterId:
+				return mandatoryFieldFilterComponent;
+			default:
+				return null;
+		}
+	},
+	getExtraProps(filterId) {
+		switch (filterId) {
+			case nameFilterId:
+				return {
+					className: nameFilterId,
+					placeHolder: 'Filter...',
+					dockable: true,
+					navbar: true,
+				}
+			case mandatoryFieldFilterId:
+				return {
+					className: mandatoryFieldFilterId,
+					label: 'Show Mandatory Fields (*) Only',
+				}
+			default:
+				return null;
+		}
+	},
+};
+
+class SortedFilteredTable extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -387,13 +470,28 @@ class SortedTable extends React.Component {
 		this.dataAccessor = new DataAccessorWithSorterAndFilter(props.elements, rowDataGetter);
 		this.onSortChange = this.onSortChange.bind(this);
 		this.isSorterActive = this.isSorterActive.bind(this);
+		this.onFilterChange = this.onFilterChange.bind(this);
 		this.headerRenderer = new SorterHeaderRenderer(this);
 		this.registerSorters(props.sorters, this.headerRenderer);
+		this.registerFilters(props.filters, this.dataAccessor);
+	}
+
+	registerFilters(filters, dataAccessor) {
+		if (filters) {
+			for (let i = 0; i < filters.length; i += 1) {
+				const filter = filters[i];
+				if (filter) {
+					dataAccessor.addFilter(filter);
+				}
+			}
+		}
 	}
 
 	registerSorters(sorters, headerRenderer) {
-		for (let i = 0; i < sorters.length; i += 1) {
-			headerRenderer.registerSorter(sorters[i]);
+		if (sorters) {
+			for (let i = 0; i < sorters.length; i += 1) {
+				headerRenderer.registerSorter(sorters[i]);
+			}
 		}
 	}
 
@@ -423,43 +521,58 @@ class SortedTable extends React.Component {
 		});
 	}
 
+	onFilterChange(filter) {
+		this.dataAccessor.filter(filter.getId());
+		this.setState({
+			elements: this.dataAccessor.getElements(true),
+		});
+	}
+
 	getForTable() {
 		return classnames({
 			'tc-table': true,
 			'story-table': true,
-			'sorted-table': true,
+			'sorted-table': this.props.sorters,
+			'filtered-table': this.props.filters,
 		});
-	}
-
-	getForRow(element) {
-		const classNames = {
-			'tc-table-row': true,
-		};
-		return classnames(classNames);
 	}
 
 	render() {
 		const {
 			columnKeys,
+			filters,
+			filtersRenderer,
+			withTitle,
+			title,
 		} = this.props;
 		return (
 			<Table
+				withTitle={withTitle}
+				title={title}
 				elements={this.state.elements}
 				columnKeys={columnKeys}
 				classNameProvider={this}
 				rowDataGetter={rowDataGetter}
 				withHeader={true}
 				headerRenderer={this.headerRenderer}
+				filters={filters}
+				filtersRenderer={filtersRenderer}
+				onFilterChange={this.onFilterChange}
 			/>
 		);
 	}
 
 }
 
-SortedTable.propTypes = {
+SortedFilteredTable.propTypes = {
 	elements: PropTypes.array,
 	columnKeys: PropTypes.array,
 	sorters: PropTypes.array,
+	filters: PropTypes.array,
+	filtersRenderer: PropTypes.object,
+	onFilterChange: PropTypes.func,
+	withTitle: PropTypes.bool,
+	title: PropTypes.string,
 };
 
 const stories = storiesOf('Table', module);
@@ -507,10 +620,22 @@ stories
 	})
 	.addWithInfo('Table with sort', () => {
 		return (
-			<SortedTable
+			<SortedFilteredTable
 				elements={schema2.elements}
 				columnKeys={columnKeys2}
 				sorters={createSorters(columnKeys2)}
+			/>
+		);
+	})
+	.addWithInfo('Table with filters', () => {
+		return (
+			<SortedFilteredTable
+				elements={schema3.elements}
+				columnKeys={columnKeys4}
+				filters={createFilters()}
+				filtersRenderer={filtersRenderer}
+				withTitle={true}
+				title={schema3.name}
 			/>
 		);
 	});
