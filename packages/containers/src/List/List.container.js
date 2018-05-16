@@ -135,14 +135,22 @@ class List extends React.Component {
 		}
 		// Backward compatibility
 		if (this.props.actions) {
-			if (this.props.actions.title) {
-				props.onTitleClick = this.getGenericDispatcher(this.props.actions.title);
+			props.actions = {};
+			const actions = this.props.actions;
+			if (actions.left) {
+				props.actions.left = actions.left.map(action => ({ actionId: action }));
 			}
-			if (this.props.actions.editSubmit) {
-				props.onTitleEditSubmit = this.getGenericDispatcher(this.props.actions.editSubmit);
+			if (actions.right) {
+				props.actions.right = actions.right.map(action => ({ actionId: action }));
 			}
-			if (this.props.actions.editCancel) {
-				props.onTitleEditCancel = this.getGenericDispatcher(this.props.actions.editCancel);
+			if (actions.title) {
+				props.onTitleClick = this.getGenericDispatcher(actions.title);
+			}
+			if (actions.editSubmit) {
+				props.onTitleEditSubmit = this.getGenericDispatcher(actions.editSubmit);
+			}
+			if (actions.editCancel) {
+				props.onTitleEditCancel = this.getGenericDispatcher(actions.editCancel);
 			}
 		}
 
