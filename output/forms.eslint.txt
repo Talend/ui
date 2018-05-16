@@ -23,13 +23,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
-  25:16  error  'schema' is missing in props validation    react/prop-types
-  25:24  error  'data' is missing in props validation      react/prop-types
-  25:30  error  'onChange' is missing in props validation  react/prop-types
-  47:18  error  'schema' is missing in props validation    react/prop-types
-  47:26  error  'data' is missing in props validation      react/prop-types
-  47:32  error  'onChange' is missing in props validation  react/prop-types
-
-✖ 15 problems (15 errors, 0 warnings)
+✖ 9 problems (9 errors, 0 warnings)
 
