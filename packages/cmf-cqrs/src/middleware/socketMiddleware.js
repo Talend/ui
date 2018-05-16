@@ -1,10 +1,10 @@
 import SmartWebsocket from './smartWebsocket';
-
-export const ACTION_TYPES = {
-	ON_OPEN: '@@SOCKET.ON_OPEN',
-	ON_CLOSE: '@@SOCKET.ON_CLOSE',
-	ON_ERROR: '@@SOCKET.ON_ERROR',
-};
+import {
+	SOCKET_ON_OPEN,
+	SOCKET_ON_CLOSE,
+	SOCKET_ON_ERROR,
+	SOCKET_ON_PING_TIMEOUT,
+} from '../constants';
 
 // if host is localhost connect directly to the localhost backend
 // else connect to the actual host
@@ -27,7 +27,12 @@ if (window.location.protocol === 'https:') {
  * @return {object} result
  *
  */
-function createWebsocketMiddleware(socketPath, actionListeners = [], socketListener = []) {
+function createWebsocketMiddleware(
+	socketPath,
+	actionListeners = [],
+	socketListener = [],
+	socketOptions = {},
+) {
 	const buffer = [];
 	let ws;
 	const urlPrefix = `${protocol}://${host}${socketPath}`;
@@ -53,14 +58,21 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 	return ({ getState, dispatch }) => next => action => {
 		if (!ws) {
 			ws = new SmartWebsocket(urlPrefix, {
-				onOpen: () => dispatch({ type: ACTION_TYPES.ON_OPEN }),
-				onClose: event => dispatch({ type: ACTION_TYPES.ON_CLOSE, event }),
+				onOpen: () => dispatch({ type: SOCKET_ON_OPEN }),
+				onClose: event => dispatch({ type: SOCKET_ON_CLOSE, event }),
 				onMessage: messageEvent => {
-					socketListener.forEach(func => func(messageEvent, dispatch, getState));
+					socketListener.forEach(func => func(messageEvent, dispatch, getState, ws));
 				},
 				onError: event => {
-					dispatch({ type: ACTION_TYPES.ON_ERROR, event });
+					dispatch({ type: SOCKET_ON_ERROR, event });
 				},
+				onPing: event => {
+					ws.pingTimeoutId = event.pingTimeoutId;
+				},
+				onPingTimeout: () => {
+					dispatch({ type: SOCKET_ON_PING_TIMEOUT });
+				},
+				...socketOptions,
 			});
 		}
 		const entrie = {};

@@ -1,6 +1,6 @@
 # DeleteResource Container
 
-This peculiar component need some preparation and make some assomption about your resource shape to properly work.
+This peculiar component need some preparation and make some assumption about your resource shape to properly work.
 It better to read the following documentation to avoid headache and hair loss.
 
 ## Breaking changes log
@@ -25,7 +25,7 @@ your resource need to have the following minimal shape
 }
 ```
 
-id will be used to identify the resource, and label will be used in the action dispatched when the resource will be succesfully deleted, allowing you to create a custom notification containing the resource name.
+id will be used to identify the resource, and label will be used in the action dispatched when the resource will be successfully deleted, allowing you to create a custom notification containing the resource name.
 
 ### association of the component with a route
 
@@ -50,19 +50,42 @@ next you have to associate the saga with the same route using SagaRouter present
 
 ```javascript
 const route = {
-	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, resourceType),
+	'/connections/:id/delete': DeleteResource.sagas(
+        {
+            uri,
+            resourceType,
+            routerParamAttribute: 'id',
+        }
+    ),
 };
 ```
 
-**uri** : is the base url where the deletion service will make a request to delete the resource
-**resourceType** : is the name of the resource category
-**resourcePath** : optional array of string, is appended to resourceType key to deep location of a subset of a collection element
+#### Params
+
+Required :
+
+* **uri** : is the base url where the deletion service will make a request to delete the resource
+* **resourceType** : is the name of the resource category
+* **redirectUrl** : is the url to redirect when delete is complete or cancel action is triggered
+
+Optional :
+* **resourceLabel** : is the parameter to show the type to remove if the resourceType is not readable by the user
+* **routerParamAttribute** : is the attribute defined in the route to give the resource id
+* **resourcePath** : array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
+* **female** : Only for i18n, allow to set the i18nkey to tell of the resource type if female or not
 
 example with resourceType only
 ```javascript
 const route = {
-	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, 'resourceType'),
+	'/connections/:id/delete': DeleteResource.sagas(
+        {
+            uri,
+            resourceType:'resourceType',
+            redirectUrl:'/connections',
+            routerParamAttribute: 'id',
+        }
+    ),
 };
 ```
 
@@ -76,11 +99,18 @@ const route = {
 }
 ```
 
-example with resourcepath
+example with resourcePath
 
 ```javascript
 const route = {
-	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, 'resourceType', ['data']),
+	'/connections/:deletedId/delete': DeleteResource.sagas(
+        {
+            uri,
+            resourceType: 'resourceType',
+            resourcePath: ['data'],
+            routerParamAttribute: 'deletedId',
+        }
+    ),
 };
 ```
 

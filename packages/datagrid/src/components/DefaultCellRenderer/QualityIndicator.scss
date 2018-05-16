@@ -1,0 +1,13 @@
+$td-quality-bar-indicator-width: 0.3rem !default;
+
+.td-cell-quality-indicator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $td-quality-bar-indicator-width;
+	height: 100%;
+
+	&-invalid {
+		background-color: $td-quality-bar-invalid-background-color;
+	}
+}

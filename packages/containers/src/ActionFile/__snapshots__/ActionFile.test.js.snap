@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Connected ActionFile should render 1`] = `
-<span>
+<span
+  className={undefined}
+>
   <input
-    className={undefined}
+    className="theme-action-file-input sr-only"
     disabled={false}
     id="42"
     name={undefined}
@@ -11,7 +13,7 @@ exports[`Connected ActionFile should render 1`] = `
     type="file"
   />
   <label
-    className="btn"
+    className="btn theme-btn-file"
     htmlFor="42"
   >
     <span />

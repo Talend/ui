@@ -3,40 +3,85 @@ import React from 'react';
 import Modal from 'react-bootstrap/lib/Modal';
 
 import Action from '../Actions/Action';
+import ActionBar from '../ActionBar';
+import Inject from '../Inject';
+import Progress from '../Progress';
 
 /**
  * @param {object} props react props
  * @example
-<Dialog name="Hello world"></Dialog>
+<Dialog header="Hello world">content</Dialog>
  */
-function Dialog(props) {
-	const modalProps = { bsSize: props.size, show: props.show, ...props.bsDialogProps };
+function Dialog({
+	action,
+	actionbar,
+	children,
+	closeButton,
+	components,
+	footer,
+	getComponent,
+	header,
+	progress,
+	size,
+	...props
+}) {
+	const Renderers = Inject.getAll(getComponent, {
+		ActionBar,
+		Action,
+	});
+	const injected = Inject.all(getComponent, components);
+
 	return (
-		<Modal {...modalProps} >
-			{props.header && (
-				<Modal.Header closeButton>
-					<Modal.Title>{props.header}</Modal.Title>
+		<Modal bsSize={size} {...props}>
+			{injected('before-modal-header')}
+			{header && (
+				<Modal.Header closeButton={closeButton}>
+					<Modal.Title>{header}</Modal.Title>
 				</Modal.Header>
 			)}
+			{injected('after-modal-header')}
+			{progress && <Progress contained {...progress} />}
+			{injected('before-modal-body')}
 			<Modal.Body>
-				{props.children}
+				{injected('before-children')}
+				{children}
+				{injected('after-children')}
 			</Modal.Body>
-			{props.action && (
+			{injected('before-modal-body')}
+			{action && (
 				<Modal.Footer>
-					<Action {...props.action} />
+					<Renderers.Action {...action} />
 				</Modal.Footer>
 			)}
+			{actionbar && (
+				<Modal.Footer>
+					<Renderers.ActionBar {...actionbar} />
+				</Modal.Footer>
+			)}
+			{footer && <Modal.Footer {...footer}>{injected('footer')}</Modal.Footer>}
 		</Modal>
 	);
 }
 
+Dialog.displayName = 'Dialog';
+
+Dialog.defaultProps = {
+	closeButton: true,
+};
+
 Dialog.propTypes = {
 	header: PropTypes.string,
-	size: PropTypes.oneOf(['small', 'large']),
+	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
 	children: PropTypes.element,
 	show: PropTypes.bool,
 	action: PropTypes.shape(Action.propTypes),
-	bsDialogProps: PropTypes.shape({ ...Modal.propTypes, manager: PropTypes.object }),
+	footer: PropTypes.object,
+	actionbar: PropTypes.object,
+	closeButton: PropTypes.bool,
+	keyboard: PropTypes.bool,
+	getComponent: PropTypes.func,
+	components: PropTypes.object,
+	progress: PropTypes.object,
 };
 
 export default Dialog;

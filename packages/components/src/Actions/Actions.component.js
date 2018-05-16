@@ -3,6 +3,7 @@ import React from 'react';
 import { ButtonGroup, OverlayTrigger } from 'react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';
+import Inject from '../Inject';
 
 function getButtonGroupProps(props) {
 	const buttonGroupProps = {};
@@ -62,9 +63,9 @@ const actions: [
  ];
  <Actions actions={actions} tooltipPlacement="right" hideLabel link />
  */
-function Actions(props) {
+function Actions({ getComponent, ...props }) {
 	const buttonGroupProps = getButtonGroupProps(props);
-
+	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
 		<ButtonGroup className={classNames('tc-actions', props.className)} {...buttonGroupProps}>
 			{props.actions.map((action, index) => {
@@ -76,11 +77,13 @@ function Actions(props) {
 					...action,
 				};
 
-				return <props.renderers.Action {...params} />;
+				return <Renderers.Action {...params} />;
 			})}
 		</ButtonGroup>
 	);
 }
+
+Actions.displayName = 'Actions';
 
 Actions.propTypes = {
 	actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.shape(Action.propTypes)])),

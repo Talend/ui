@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import { api, componentState } from '@talend/react-cmf';
+import { api, cmfConnect } from '@talend/react-cmf';
 
 import { deleteACK } from '../../actions/ack';
 
@@ -22,8 +23,8 @@ export const DEFAULT_STATE = new Map({});
 class ACKDispatcher extends React.Component {
 	static displayName = 'Container(ACKDispatcher)';
 	static propTypes = {
-		acks: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
-		...componentState.propTypes,
+		acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		...cmfConnect.propTypes,
 	};
 	static contextTypes = {
 		registry: PropTypes.object,
@@ -44,7 +45,6 @@ class ACKDispatcher extends React.Component {
 		}
 	}
 
-
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.acks) {
 			this.processACK(nextProps.acks);
@@ -56,13 +56,10 @@ class ACKDispatcher extends React.Component {
 	}
 
 	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = api.action.getActionCreatorFunction(
-			this.context,
-			actionCreator,
-		)({}, data, this.context);
+		const action = api.actionCreator.get(this.context, actionCreator)({}, data, this.context);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
-		this.setState((oldState) => {
+		this.setState(oldState => {
 			if (oldState.dispatchedAck.includes(requestId)) {
 				return oldState;
 			}
@@ -82,7 +79,8 @@ class ACKDispatcher extends React.Component {
 			});
 	}
 
-	render() { // eslint-disable-line class-methods-use-this
+	render() {
+		// eslint-disable-line class-methods-use-this
 		return null;
 	}
 }

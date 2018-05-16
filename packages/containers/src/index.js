@@ -13,14 +13,14 @@ import actionAPI from './actionAPI';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
-import ActionFile from './ActionFile';
 import ActionDropdown from './ActionDropdown';
+import ActionFile from './ActionFile';
+import ActionIconToggle from './ActionIconToggle';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
+import Badge from './Badge';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
-import Form from './Form';
-import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
@@ -32,24 +32,25 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import TabBar from './TabBar';
 
 export {
 	actionAPI,
 	Action,
 	ActionBar,
 	ActionButton,
-	ActionFile,
 	ActionDropdown,
+	ActionFile,
+	ActionIconToggle,
 	Actions,
 	ActionSplitDropdown,
+	Badge,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
 	Drawer,
 	DeleteResource,
 	FilterBar,
-	Form,
-	HeaderBar,
 	HomeListView,
 	Icon,
 	IconsProvider,
@@ -62,6 +63,7 @@ export {
 	SelectObject,
 	SidePanel,
 	SubHeaderBar,
+	TabBar,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,

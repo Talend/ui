@@ -8,9 +8,7 @@ function getValues(value = [], itemValue, checked) {
 		return value.concat(itemValue);
 	}
 	const filteredValue = value.filter(nextValue => nextValue !== itemValue);
-	return filteredValue.length ?
-		filteredValue :
-		undefined;
+	return filteredValue.length ? filteredValue : undefined;
 }
 
 export default function CheckBoxes(props) {
@@ -23,29 +21,24 @@ export default function CheckBoxes(props) {
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
+			required={schema.required}
 		>
-			{
-				titleMap.map((item, index) => (
-					<SimpleCheckBox
-						id={id}
-						key={index}
-						label={item.name}
-						onChange={
-							(event, payload) => onChange(
-								event,
-								{
-									schema: payload.schema,
-									value: getValues(value, item.value, payload.value),
-								}
-							)
-						}
-						onFinish={onFinish}
-						schema={schema}
-						value={value && value.includes(item.value)}
-					/>
-				))
-			}
-
+			{titleMap.map((item, index) => (
+				<SimpleCheckBox
+					id={id}
+					key={index}
+					label={item.name}
+					onChange={(event, payload) =>
+						onChange(event, {
+							schema: payload.schema,
+							value: getValues(value, item.value, payload.value),
+						})
+					}
+					onFinish={onFinish}
+					schema={schema}
+					value={value && value.includes(item.value)}
+				/>
+			))}
 		</FieldTemplate>
 	);
 }
@@ -60,10 +53,12 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(PropTypes.shape({
-				name: PropTypes.string,
-				value: PropTypes.string,
-			})),
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string,
+					value: PropTypes.string,
+				}),
+			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 	};

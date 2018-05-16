@@ -2,7 +2,7 @@
 
 exports[`Header should render header with one button 1`] = `
 <header
-  className="tc-listview-header"
+  className="theme-tc-listview-header tc-listview-header"
 >
   <strong>
     Values
@@ -11,6 +11,7 @@ exports[`Header should render header with one button 1`] = `
     className="actions"
   >
     <button
+      aria-label="Search for specific values"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -22,8 +23,9 @@ exports[`Header should render header with one button 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-search"
         title={null}
       >
         <use

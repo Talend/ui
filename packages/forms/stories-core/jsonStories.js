@@ -1,13 +1,14 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
-import { Tabs, Tab } from 'react-bootstrap';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import { UIForm, ConnectedUIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
 const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);
 const fieldsFilenames = require.context('./json/fields', true, /.(js|json)$/);
+const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
+
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
@@ -53,29 +54,10 @@ function createStory(category, sampleFilenames, filename) {
 				<section>
 					<IconsProvider />
 					{doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
-
-					<Tabs id={'store-tabs'}>
-						<Tab
-							eventKey={0}
-							key={'without'}
-							title={'State'}
-						>
-							<UIForm
-								{...createCommonProps('state')}
-								data={data}
-							/>
-						</Tab>
-						<Tab
-							eventKey={1}
-							key={'with'}
-							title={'Redux'}
-						>
-							<ConnectedUIForm
-								{...createCommonProps('redux')}
-								data={data}
-							/>
-						</Tab>
-					</Tabs>
+					<UIForm
+						{...createCommonProps('state')}
+						data={data}
+					/>
 				</section>
 			);
 		},
@@ -93,5 +75,9 @@ fieldsetsFilenames
 fieldsFilenames
 	.keys()
 	.forEach(filename => { stories.push(createStory('fields', fieldsFilenames, filename)); });
+
+oldFilenames
+	.keys()
+	.forEach(filename => { stories.push(createStory('old', oldFilenames, filename)); });
 
 export default stories;

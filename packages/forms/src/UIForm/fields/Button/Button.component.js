@@ -11,12 +11,9 @@ export default function Button(props) {
 			description={schema.description}
 			errorMessage={errorMessage}
 			isValid={isValid}
+			required={schema.required}
 		>
-			<SingleButton
-				id={id}
-				onTrigger={onTrigger}
-				schema={schema}
-			/>
+			<SingleButton id={id} onTrigger={onTrigger} schema={schema} />
 		</FieldTemplate>
 	);
 }

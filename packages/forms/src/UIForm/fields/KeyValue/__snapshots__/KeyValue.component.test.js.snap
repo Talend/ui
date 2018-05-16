@@ -7,9 +7,10 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
+  required={undefined}
 >
   <dl
-    className={undefined}
+    className="theme-key-value"
   >
     <dt>
       <Widget
@@ -70,9 +71,10 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
+  required={undefined}
 >
   <dl
-    className={undefined}
+    className="theme-key-value"
   >
     <dt>
       <Widget
@@ -134,9 +136,10 @@ exports[`KeyValue field should render default KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
+  required={undefined}
 >
   <dl
-    className={undefined}
+    className="theme-key-value"
   >
     <dt>
       <Widget
@@ -197,9 +200,10 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
+  required={undefined}
 >
   <dl
-    className={undefined}
+    className="theme-key-value"
   >
     <dt>
       <Widget
@@ -260,9 +264,10 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
+  required={undefined}
 >
   <dl
-    className={undefined}
+    className="theme-key-value"
   >
     <dt>
       <Widget

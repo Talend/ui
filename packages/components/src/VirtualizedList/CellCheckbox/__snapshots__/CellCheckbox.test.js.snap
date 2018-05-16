@@ -2,7 +2,7 @@
 
 exports[`CellActions should render checked checkbox 1`] = `
 <form
-  className="tc-list-checkbox"
+  className="tc-list-checkbox theme-tc-list-checkbox"
 >
   <div
     className="checkbox"
@@ -30,7 +30,7 @@ exports[`CellActions should render checked checkbox 1`] = `
 
 exports[`CellActions should render unchecked checkbox 1`] = `
 <form
-  className="tc-list-checkbox"
+  className="tc-list-checkbox theme-tc-list-checkbox"
 >
   <div
     className="checkbox"

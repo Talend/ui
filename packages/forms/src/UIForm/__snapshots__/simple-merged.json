@@ -1,0 +1,112 @@
+[
+  {
+    "title": "A registration form",
+    "description": "A simple form example.",
+    "widget": "fieldset",
+    "items": [
+      {
+        "autoFocus": true,
+        "key": [
+          "firstName"
+        ],
+        "title": "First name",
+        "widget": "text",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "title": "First name"
+        },
+        "ngModelOptions": {},
+        "type": "text"
+      },
+      {
+        "key": [
+          "lastName"
+        ],
+        "title": "Last name",
+        "widget": "text",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "title": "Last name"
+        },
+        "ngModelOptions": {},
+        "type": "text"
+      },
+      {
+        "key": [
+          "age"
+        ],
+        "title": "Age",
+        "widget": "text",
+        "type": "number",
+        "schema": {
+          "type": "integer",
+          "title": "Age"
+        },
+        "ngModelOptions": {}
+      },
+      {
+        "key": [
+          "bio"
+        ],
+        "title": "Bio",
+        "widget": "textarea",
+        "schema": {
+          "type": "string",
+          "title": "Bio"
+        },
+        "ngModelOptions": {},
+        "type": "text"
+      },
+      {
+        "key": [
+          "password"
+        ],
+        "title": "Password",
+        "widget": "text",
+        "type": "password",
+        "helpvalue": "Hint: Make it strong!",
+        "minlength": 3,
+        "schema": {
+          "type": "string",
+          "title": "Password",
+          "minLength": 3
+        },
+        "ngModelOptions": {}
+      },
+      {
+        "key": [
+          "enum"
+        ],
+        "title": "Enum",
+        "schema": {
+          "type": "string",
+          "title": "Enum",
+          "enum": [
+            "1",
+            "two",
+            "three"
+          ]
+        },
+        "ngModelOptions": {},
+        "type": "select",
+        "widget": "select",
+        "titleMap": [
+          {
+            "name": "1",
+            "value": "1"
+          },
+          {
+            "name": "two",
+            "value": "two"
+          },
+          {
+            "name": "three",
+            "value": "three"
+          }
+        ]
+      }
+    ]
+  }
+]

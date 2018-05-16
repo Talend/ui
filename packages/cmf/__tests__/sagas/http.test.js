@@ -13,7 +13,17 @@ import http, {
 	httpFetch,
 	HTTPError,
 	wrapFetch,
+	httpGet,
+	httpDelete,
+	httpPost,
+	httpPut,
 } from '../../src/sagas/http';
+
+const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+
+beforeEach(() => {
+	jest.clearAllMocks();
+});
 
 describe('http.get', () => {
 	it('should fetch /foo with a GET method', () => {
@@ -42,6 +52,23 @@ describe('http.post', () => {
 		const gen = http.post('/foo', payload, config);
 
 		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.POST, payload));
+		expect(gen.next().done).toBe(true);
+	});
+});
+
+describe('http.patch', () => {
+	it('should fetch /foo with a PATCH method', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const gen = http.patch('/foo', payload, config);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PATCH, payload));
 		expect(gen.next().done).toBe(true);
 	});
 });
@@ -189,6 +216,39 @@ describe('#handleError', () => {
 });
 
 describe('#httpFetch', () => {
+	it('should wrap the request as a GET by default and provide an undefined payload', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a GET when options are given', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const options = {
+			aCmfOption: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
 	it('should wrap the request with action', () => {
 		const url = '/foo';
 		const config = {
@@ -205,6 +265,40 @@ describe('#httpFetch', () => {
 				data: { ok: true },
 			}).value,
 		).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the DELETE request and an undefined payload', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+
+	it('should wrap the DELETE request when options are given', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const options = {
+			aCmfOption: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
 		expect(gen.next().done).toBe(true);
 	});
 
@@ -243,6 +337,35 @@ describe('#httpFetch', () => {
 		expect(gen.next().value).toEqual(httpError);
 		expect(gen.next().done).toBe(true);
 	});
+});
+
+it('should wrap the request and not notify with generic http error if silent option is set to true ', () => {
+	const url = '/foo';
+	const config = {
+		'Content-Type': 'application/json',
+	};
+	const options = {
+		silent: true,
+	};
+
+	const payload = {
+		bar: 42,
+	};
+
+	const httpError = new HTTPError({
+		data: {
+			message: 'Error occured',
+		},
+		response: {
+			status: HTTP_STATUS.FORBIDDEN,
+		},
+	});
+
+	const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload, options);
+
+	expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+	expect(gen.next(httpError).value).toEqual(httpError);
+	expect(gen.next().done).toBe(true);
 });
 
 describe('#httpFetch', () => {
@@ -370,5 +493,426 @@ describe('#HTTPError', () => {
 			foo: 42,
 		});
 		expect(httpError.response).toBe(response);
+	});
+});
+
+describe('Http{Method} calls httpFetch with appropriate method', () => {
+	// given
+	const url = '/url';
+	const config = {
+		'Content-Type': 'application/json',
+	};
+	const options = {
+		silent: true,
+	};
+	it('check that httpFetch is called from httpGet', () => {
+		// when
+		const gen = httpGet(url, config, options);
+		// then
+		expect(gen.next().value).toEqual(
+			call(httpFetch, url, config, HTTP_METHODS.GET, undefined)
+		);
+	});
+	it('check that httpFetch is called from httpDelete', () => {
+		// when
+		const gen = httpDelete(url, config, options);
+		// then
+		expect(gen.next().value).toEqual(
+			call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined)
+		);
+	});
+});
+describe('http module with instance created', () => {
+	it(`check that httpGet is called with only :
+	- an url
+	- an empty config object literal
+	- an empty options object literal
+    when http.get is called only with an url`, () => {
+		// given
+		const url = '/url';
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.get(url);
+		// then
+		expect(gen.next().value).toEqual(call(httpGet, url, {}, {}));
+	});
+
+	it(`check that httpGet is called with :
+	- an url
+	- an config object
+	- an empty options object literal
+    when http.get is called with an url and config object`, () => {
+		// given
+		const url = '/url';
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.get(url, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpGet, url, config, {}));
+	});
+
+	it(`check that httpPost is called with:
+	- an url
+	- a payload
+	- an empty config object
+	- an empty options object
+    when http.post is called only with an url and a payload`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.post(url, payload);
+		// then
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, {}, {}));
+	});
+
+	it(`check that httpPost is called with an url, payload, a config object and an empty options object
+        when http.post is called with an url and a payload and a config object`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.post(url, payload, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, config, {}));
+	});
+
+	it(`check that httpPut is called with an url, payload, an empty config object, an empty option object
+        when http.put is called only with an url and a payload`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.put(url, payload);
+		// then
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, {}, {}));
+	});
+
+	it(`check that httpPut is called with an url, payload, an config object, an empty option object
+        when http.put is called with an url and a payload and a config object`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.put(url, payload, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, config, {}));
+	});
+});
+
+describe('http module with instance created with no CSRF handling configuration', () => {
+	beforeAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
+	});
+
+	afterAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+	});
+	it(`check that httpGet is called with only an url, empty config object literal, and an empty options object
+    when http.get is called only with an url`, () => {
+		// given
+		const url = '/url';
+		const expectedConfig = {
+			headers: {
+				'X-CSRF-Token': CSRFToken,
+			},
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.get(url);
+		// then
+		expect(gen.next().value).toEqual(call(httpGet, url, expectedConfig, {}));
+	});
+
+	it(`check that httpGet is called with only an url, a config object and an empty options object
+    when http.get is called with an url and config object`, () => {
+		// given
+		const url = '/url';
+		const config = {
+			headers: {
+				'Content-Type': 'TEST',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const expectedConfig = {
+			headers: {
+				'Content-Type': 'TEST',
+				'X-CSRF-Token': CSRFToken,
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.get(url, config);
+		// then
+		const value = gen.next().value;
+		expect(value).toEqual(call(httpGet, url, expectedConfig, {}));
+	});
+
+	it(`check that httpPost is called with an url, payload and empty config object
+    when http.post is called only with an url and a payload`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const expectedConfig = {
+			headers: {
+				'X-CSRF-Token': CSRFToken,
+			},
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.post(url, payload);
+		// then
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, expectedConfig, {}));
+	});
+
+	it(`check that httpPost is called with an url, payload, config object and empty option object
+        when http.post is called with an url and a payload and a config object`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const expectedConfig = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+				'X-CSRF-Token': CSRFToken,
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.post(url, payload, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, expectedConfig, {}));
+	});
+
+	it(`check that httpPut is called with an url, payload and empty config object
+        when http.put is called only with an url and a payload`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const expectedConfig = {
+			headers: {
+				'X-CSRF-Token': CSRFToken,
+			},
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.put(url, payload, {});
+		// then
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, expectedConfig, {}));
+	});
+
+	it(`check that httpPut is called with an url, payload, config object and empty option object
+        when http.put is called with an url and a payload and a config object`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const expectedConfig = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+				'X-CSRF-Token': CSRFToken,
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create();
+		// when
+		const gen = httpInstance.put(url, payload, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, expectedConfig, {}));
+	});
+});
+
+describe('http module with instance created with CSRF handling configuration', () => {
+	const defaultHttpConfiguration = {
+		security: {
+			CSRFTokenCookieKey: 'customCookieKey',
+			CSRFTokenHeaderKey: 'customHeaderKey',
+		},
+	};
+
+	beforeAll(() => {
+		document.cookie = `${
+			defaultHttpConfiguration.security.CSRFTokenCookieKey
+		}=${CSRFToken}; dwf_section_edit=True;`;
+	});
+
+	afterAll(() => {
+		document.cookie = `${
+			defaultHttpConfiguration.security.CSRFTokenCookieKey
+		}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+	});
+
+	it(`check that httpGet is called with only an url, a filled config object literal, an empty option object
+    when http.get is called only with an url but http has been created with a some default configuration`, () => {
+		// given
+		document.cookie = `customCookieKey=${CSRFToken}; dwf_section_edit=True;`;
+		const url = '/url';
+		const expectedConfig = {
+			headers: {
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+		};
+		const httpInstance = http.create(defaultHttpConfiguration);
+		// when
+		const gen = httpInstance.get(url);
+		// then
+		expect(gen.next().value).toEqual(call(httpGet, url, expectedConfig, {}));
+	});
+
+	it(`check that httpGet is called with only an url, config object and empty option object
+    when http.get is called with an url and config object`, () => {
+		// given
+		const url = '/url';
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const expectedConfig = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create(defaultHttpConfiguration);
+		// when
+		const gen = httpInstance.get(url, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpGet, url, expectedConfig, {}));
+	});
+
+	it(`check that httpPost is called with an url, payload, empty config object and an empty option object
+    when http.post is called only with an url and a payload`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const httpInstance = http.create(defaultHttpConfiguration);
+		const expectedConfig = {
+			headers: {
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+		};
+		// when
+		const gen = httpInstance.post(url, payload);
+		// then
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, expectedConfig, {}));
+	});
+
+	it(`check that httpPost is called with an url, payload, config object and empty object
+        when http.post is called with an url and a payload and a config object`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const expectedConfig = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create(defaultHttpConfiguration);
+		// when
+		const gen = httpInstance.post(url, payload, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, expectedConfig, {}));
+	});
+
+	it(`check that httpPut is called with an url, payload, empty config object and empty options object
+        when http.put is called only with an url and a payload`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const httpInstance = http.create(defaultHttpConfiguration);
+		const expectedConfig = {
+			headers: {
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+		};
+		// when
+		const gen = httpInstance.put(url, payload);
+		// then
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, expectedConfig, {}));
+	});
+
+	it(`check that httpPut is called with an url, payload, config object and an empty option object
+        when http.put is called with an url and a payload and a config object`, () => {
+		// given
+		const url = '/url';
+		const payload = { payload: 'payload' };
+		const config = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const expectedConfig = {
+			headers: {
+				'Content-Type': 'overloaded nested header',
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+			credentials: 'overloaded non nested config',
+			newConfig: 'newConfig element',
+		};
+		const httpInstance = http.create(defaultHttpConfiguration);
+		// when
+		const gen = httpInstance.put(url, payload, config);
+		// then
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, expectedConfig, {}));
 	});
 });

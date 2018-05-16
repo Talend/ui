@@ -1,4 +1,3 @@
-
 import { testHTTPCode } from '../../src/middlewares/http/constants';
 
 describe('testHTTPCode', () => {

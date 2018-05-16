@@ -54,6 +54,33 @@ function simulateSearch(wrapper, value) {
 }
 
 describe('ListViewWidget', () => {
+	it('should detect props change to update state.items', () => {
+		const values = ['A', 'B', 'C', 'D'];
+		const nextValues = ['A', 'F', 'G', 'H'];
+		const onChange = jest.fn();
+		let wrapper = mount(
+			<ListViewWidget.WrappedComponent
+				{...generateProps(values, values.slice(0, 2))}
+				onChange={onChange}
+			/>,
+		);
+		const items = wrapper.state('items');
+		expect(wrapper.state('items').length).toEqual(4);
+		expect(wrapper.state('items')[0].label).toEqual('A');
+
+		// when
+		wrapper = wrapper.setProps(generateProps(nextValues, nextValues.slice(0, 2)));
+		// then
+
+		const newItems = wrapper.state('items');
+		expect(items).not.toEqual(newItems);
+		expect(newItems.length).toEqual(4);
+		expect(newItems[0].label).toEqual('A');
+		expect(newItems[0].checked).toBe(false);
+		expect(newItems[1].label).toEqual('F');
+		expect(newItems[1].checked).toBe(false);
+	});
+
 	describe('toggleAll', () => {
 		it('should check every items', () => {
 			// given

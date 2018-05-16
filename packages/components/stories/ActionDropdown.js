@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -14,6 +15,7 @@ const myAction = {
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
 			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 1 click'),
 		},
 		{
@@ -22,10 +24,36 @@ const myAction = {
 		{
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 2 click'),
 		},
 	],
 };
+
+const withImmutable = {
+	id: 'context-dropdown-related-items',
+	label: 'related immutable items',
+	items: Immutable.fromJS([
+		{
+			id: 'context-dropdown-item-document-1',
+			icon: 'talend-file-json-o',
+			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+		{
+			id: 'context-dropdown-item-document-2',
+			label: 'document 2',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 2 click'),
+		},
+	]),
+};
+
+const openWithImmutable = { ...withImmutable, open: true };
 
 const withComponents = {
 	id: 'context-dropdown-custom-items',
@@ -37,13 +65,14 @@ const withComponents = {
 		} else if (key === 'FilterBar') {
 			return FilterBar;
 		}
-		return Action;
+		throw new Error('Component not found');
 	},
 	components: {
 		itemsDropdown: [
 			{
 				component: 'Action',
 				label: 'First item',
+				'data-feature': 'actiondropdown.items',
 			},
 			{
 				divider: true,
@@ -51,6 +80,7 @@ const withComponents = {
 			{
 				component: 'FilterBar',
 				label: 'Second item',
+				'data-feature': 'actiondropdown.items',
 			},
 		],
 	},
@@ -63,13 +93,14 @@ const mixItemsComponents = {
 		if (key === 'Action') {
 			return Action;
 		}
-		return Action;
+		throw new Error('Component not found');
 	},
 	items: [
 		{
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
 			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 1 click'),
 		},
 		{
@@ -78,6 +109,7 @@ const mixItemsComponents = {
 		{
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 2 click'),
 		},
 	],
@@ -86,6 +118,7 @@ const mixItemsComponents = {
 			{
 				component: 'Action',
 				label: 'Third item',
+				'data-feature': 'actiondropdown.items',
 			},
 			{
 				divider: true,
@@ -93,6 +126,7 @@ const mixItemsComponents = {
 			{
 				component: 'Action',
 				label: 'Fourth item',
+				'data-feature': 'actiondropdown.items',
 			},
 		],
 	},
@@ -107,6 +141,7 @@ const propsTooltip = {
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
 			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 1 click'),
 		},
 		{
@@ -115,6 +150,7 @@ const propsTooltip = {
 		{
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 2 click'),
 		},
 	],
@@ -123,7 +159,7 @@ const propsTooltip = {
 const oneEventAction = {
 	id: 'context-dropdown-events',
 	label: 'Dropdown',
-	items: [{ id: 'item-1', label: 'Item 1' }, { id: 'item-2', label: 'Item 2' }],
+	items: [{ id: 'item-1', label: 'Item 1', 'data-feature': 'actiondropdown.items' }, { id: 'item-2', label: 'Item 2', 'data-feature': 'actiondropdown.items' }],
 	onSelect: action('onItemSelect'),
 };
 
@@ -164,6 +200,14 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<p>Tool tip</p>
 		<div id="toolTip">
 			<ActionDropdown {...propsTooltip} />
+		</div>
+		<p>With immutable items :</p>
+		<div id="default">
+			<ActionDropdown {...withImmutable} />
+		</div>
+		<p>Opened and with immutable items :</p>
+		<div id="openImmutable">
+			<ActionDropdown {...openWithImmutable} />
 		</div>
 		<IconsProvider />
 	</div>

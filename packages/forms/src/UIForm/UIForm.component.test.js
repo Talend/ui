@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 
-import UIForm from './UIForm.component';
+import UIForm, { UIFormComponent } from './UIForm.component';
 
 describe('UIForm component', () => {
 	let props;
@@ -17,7 +18,7 @@ describe('UIForm component', () => {
 
 	it('should render form', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} />);
+		const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -25,10 +26,31 @@ describe('UIForm component', () => {
 
 	it('should render provided actions', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} actions={actions} />);
+		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={actions} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should take in account customFormat', () => {
+		// given
+		const notABCRegExp = /[^abc]+/g;
+		const customFormats = {
+			noABC: fieldData => {
+				if (typeof fieldData === 'string' && !notABCRegExp.test(fieldData)) {
+					return 'test custom';
+				}
+				return null;
+			},
+		};
+
+		expect(tv4.validate('abc', { format: 'noABC' })).toBe(true);
+		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
+
+		mount(<UIForm {...data} {...props} customFormats={customFormats} />);
+
+		expect(tv4.validate('abc', { format: 'noABC' })).toBe(false);
+		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
 	});
 
 	describe('#onChange', () => {
@@ -46,20 +68,40 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onChange).toBeCalledWith(expect.anything(), {
-				formName: props.formName,
 				schema: mergedSchema[0],
 				value: newValue,
-				properties: data.properties,
+				oldProperties: data.properties,
+				properties: { lastname: 'toto' },
+				formData: { lastname: 'toto' },
 			});
 			expect(props.onTrigger).not.toBeCalled();
 			expect(props.setErrors).not.toBeCalled();
+		});
+
+		it('should not perform trigger onChange', () => {
+			// given
+			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }} />);
+			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
+
+			// when
+			wrapper
+				.find('input')
+				.at(1)
+				.simulate('change', { target: { value: 'toto' } });
+
+			// then
+			expect(props.onTrigger).not.toBeCalled();
 		});
 	});
 
 	describe('#onFinish', () => {
 		it('should perform trigger', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'toto' }} />);
+			const validData = {
+				...data,
+				properties: { firstname: 'toto' },
+			};
+			const wrapper = mount(<UIForm {...validData} {...props} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -70,10 +112,19 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
-				formName: props.formName,
 				trigger: 'after',
-				schema: mergedSchema[1],
-				properties: { firstname: 'toto' },
+				schema: {
+					key: ['firstname'],
+					title: 'First Name (with placeholder)',
+					placeholder: 'Enter your firstname here',
+					triggers: ['after'],
+					required: true,
+					schema: { type: 'string' },
+					ngModelOptions: {},
+					type: 'text',
+				},
+				properties: validData.properties,
+				errors: validData.errors,
 			});
 		});
 
@@ -94,7 +145,7 @@ describe('UIForm component', () => {
 
 		it('should set errors, applying widget errors hook', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			const newErrors = { lastname: 'lol' };
@@ -112,7 +163,7 @@ describe('UIForm component', () => {
 			);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(props.formName, newErrors);
+			expect(props.setErrors).toBeCalledWith(event, newErrors);
 		});
 	});
 
@@ -120,7 +171,6 @@ describe('UIForm component', () => {
 		it('should call trigger callback', () => {
 			// given
 			const wrapper = mount(<UIForm {...data} {...props} />);
-			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
 			wrapper
@@ -130,61 +180,10 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
-				formName: props.formName,
+				properties: {},
+				errors: {},
 				trigger: 'after',
 				schema: mergedSchema[2],
-				properties: data.properties,
-			});
-		});
-
-		it('should updateForm on trigger success', done => {
-			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const nextData = {
-				jsonSchema: {
-					type: 'object',
-					title: 'User',
-					properties: {
-						name: { type: 'string' },
-					},
-				},
-				uiSchema: ['name'],
-				properties: { name: 'toto' },
-				errors: { name: 'This field is required' },
-			};
-			props.onTrigger.mockReturnValueOnce(Promise.resolve(nextData));
-
-			// when
-			const trigger = wrapper.instance().onTrigger(null, 'after', mergedSchema[2], null);
-
-			// then
-			trigger.then(() => {
-				expect(props.updateForm).toBeCalledWith(
-					props.formName,
-					nextData.jsonSchema,
-					nextData.uiSchema,
-					nextData.properties,
-					nextData.errors,
-				);
-				expect(props.setError).not.toBeCalled();
-				done();
-			});
-		});
-
-		it('should setError after trigger failure', done => {
-			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const triggerErrors = { errors: { check: 'Error while triggeringthe trigger' } };
-			props.onTrigger.mockReturnValueOnce(Promise.reject(triggerErrors));
-
-			// when
-			const trigger = wrapper.instance().onTrigger(null, 'after', mergedSchema[2], null);
-
-			// then
-			trigger.then(() => {
-				expect(props.updateForm).not.toBeCalled();
-				expect(props.setError).toBeCalledWith(props.formName, triggerErrors.errors);
-				done();
 			});
 		});
 	});
@@ -194,7 +193,7 @@ describe('UIForm component', () => {
 
 		it('should prevent event default', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
@@ -205,20 +204,20 @@ describe('UIForm component', () => {
 
 		it('should validate all fields', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(props.formName, {
-				firstname: 'Missing required property: firstname',
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				firstname: 'Missing required field',
 			});
 		});
 
 		it('should not call submit callback when form is invalid', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
@@ -234,58 +233,13 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
+			const wrapper = mount(<UIFormComponent {...data} {...props} properties={validProperties} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
-		});
-	});
-
-	describe('#onReset', () => {
-		const resetEvent = { target: {} };
-
-		it('should reset form with initial schema and data', () => {
-			// given
-			const initialData = {
-				...data,
-				properties: {
-					...data.properties,
-					changedField: 'lol',
-				},
-			};
-			const wrapper = mount(<UIForm {...data} initialData={initialData} {...props} />);
-
-			// when
-			wrapper
-				.find('form')
-				.at(0)
-				.simulate('reset', resetEvent);
-
-			// then
-			expect(props.updateForm).toBeCalledWith(
-				props.formName,
-				initialData.jsonSchema,
-				initialData.uiSchema,
-				initialData.properties,
-			);
-			expect(props.setErrors).toBeCalledWith(props.formName, {});
-		});
-
-		it('should call onReset from props', () => {
-			// given
-			const wrapper = mount(<UIForm {...data} initialData={data} {...props} />);
-
-			// when
-			wrapper
-				.find('form')
-				.at(0)
-				.simulate('reset', resetEvent);
-
-			// then
-			expect(props.onReset).toBeCalled();
 		});
 	});
 });

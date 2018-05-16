@@ -4,7 +4,7 @@ import invariant from 'invariant';
 import forIn from 'lodash/forIn';
 
 import CONST from './constant';
-import Registry from './registry';
+import registry from './registry';
 
 const regexExpression = new RegExp('(.*)Expression');
 
@@ -29,7 +29,7 @@ const regexExpression = new RegExp('(.*)Expression');
  * @param {Context} context React context is optional
  */
 function register(id, func, context) {
-	Registry.addToRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, func, context);
+	registry.addToRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, func, context);
 }
 
 /**
@@ -38,7 +38,7 @@ function register(id, func, context) {
  * @param {Context} context React context is optional
  */
 function get(id, context) {
-	return Registry.getFromRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, context);
+	return registry.getFromRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, context);
 }
 
 /**
@@ -120,7 +120,7 @@ function mapStateToProps(state, ownProps) {
 		store: {
 			getState: () => state,
 		},
-		registry: Registry.getRegistry(),
+		registry: registry.getRegistry(),
 	};
 	forIn(ownProps, (value, key) => {
 		const match = regexExpression.exec(key);
@@ -165,8 +165,11 @@ function withExpression(Component, attrs) {
 	return WithExpression;
 }
 
+const registerMany = registry.getRegisterMany(register);
+
 export default {
 	register,
+	registerMany,
 	get,
 	call,
 	getProps,

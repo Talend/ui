@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CMF(Container(ActionButton)) should inject a component overlay 1`] = `
-<ActionButton
-  available={true}
-  bsStyle="default"
-  disabled={false}
-  inProgress={false}
+<Translate(ActionButton)
   onClick={[Function]}
   overlayComponent={
     <Inject
@@ -13,19 +9,13 @@ exports[`CMF(Container(ActionButton)) should inject a component overlay 1`] = `
       customProps="customProps"
     />
   }
-  tooltipPlacement="top"
 />
 `;
 
 exports[`CMF(Container(ActionButton)) should render 1`] = `
-<ActionButton
+<Translate(ActionButton)
   actionId="menu:article"
-  available={true}
-  bsStyle="default"
-  disabled={false}
   extra="foo"
-  inProgress={false}
   onClick={[Function]}
-  tooltipPlacement="top"
 />
 `;

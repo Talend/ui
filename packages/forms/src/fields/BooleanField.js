@@ -65,6 +65,7 @@ function BooleanField(props) {
 		registry,
 		formContext,
 		autofocus,
+		'data-feature': uiSchema['data-feature'],
 	};
 
 	if (widget) {

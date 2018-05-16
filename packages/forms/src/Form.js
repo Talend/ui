@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
-
 import Action from '@talend/react-components/lib/Actions/Action';
 
+import { UIForm } from './UIForm';
+import { wrapCustomWidget } from './UIForm/merge';
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
@@ -19,7 +20,7 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
-import I18N_DOMAIN_FORMS from './constants';
+import { I18N_DOMAIN_FORMS } from './constants';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -80,7 +81,7 @@ class Form extends React.Component {
 
 	handleSchemaSubmit(changes) {
 		if (this.props.onSubmit) {
-			this.props.onSubmit(changes);
+			this.props.onSubmit(null, changes);
 		}
 	}
 
@@ -114,11 +115,25 @@ class Form extends React.Component {
 	 */
 	handleChange(...args) {
 		if (this.props.onChange) {
-			this.props.onChange(...args);
+			this.props.onChange(null, ...args);
 		}
 	}
 
 	render() {
+		if (Array.isArray(this.props.data.uiSchema)) {
+			return <UIForm {...this.props} />;
+		} else if (this.props.uiform) {
+			const props = Object.assign({}, this.props);
+			props.moz = true;
+			if (props.widgets) {
+				Object.keys(props.widgets)
+					.filter(key => props.widgets[key].displayName !== 'TFMigratedWidget')
+					.forEach(key => {
+						props.widgets[key] = wrapCustomWidget(props.widgets[key]);
+					});
+			}
+			return <UIForm {...props} />;
+		}
 		const schema = this.props.data && this.props.data.jsonSchema;
 		if (!schema) {
 			throw Error('You must provide data with valid JSON Schema');
@@ -186,6 +201,7 @@ export const ActionsPropTypes = PropTypes.arrayOf(
 
 if (process.env.NODE_ENV !== 'production') {
 	Form.propTypes = {
+		uiform: PropTypes.bool,
 		data: DataPropTypes.isRequired,
 		onChange: PropTypes.func,
 		onTrigger: PropTypes.func,
@@ -194,8 +210,8 @@ if (process.env.NODE_ENV !== 'production') {
 		buttonBlockClass: PropTypes.string,
 		handleAction: PropTypes.func,
 		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		formContext: PropTypes.object,
-		children: PropTypes.element,
+		formContext: PropTypes.func,
+		children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 		fields: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	};
 }

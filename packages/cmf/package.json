@@ -9,6 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:demo": "jsdoc -c docs.json",
     "lint:es": "eslint --config ../../.eslintrc --ext .js src",
     "lint": "npm run lint:es"
   },
@@ -34,9 +35,12 @@
     "babel-polyfill": "6.26.0",
     "deepmerge": "1.5.1",
     "hoist-non-react-statics": "^1.2.0",
+    "jsonpath": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
+    "ajv": "^6.2.1",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.2",
@@ -115,6 +119,7 @@
     ],
     "roots": [
       "src",
+      "scripts",
       "__tests__"
     ],
     "transform": {
@@ -128,5 +133,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.141.0"
+  "version": "0.184.0"
 }

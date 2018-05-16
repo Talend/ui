@@ -57,12 +57,75 @@ const withSwitchBox = {
 	isSwitchBox: true,
 };
 
+const withNestedItems = {
+	required: true,
+	isSwitchBox: true,
+	items: [
+		{
+			label: 'LoremParent',
+			value: 'LoremParent',
+			onChange: action('onChange'),
+			onExpandToggle: action('onExpandToggle'),
+			expanded: false,
+			children: [
+				{
+					label: 'Lorem',
+					value: 'Lorem',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum',
+					value: 'Ipsum',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor',
+					value: 'Dolor',
+					onChange: action('onChange'),
+				},
+			]
+		},
+		{
+			label: 'IpsumParent',
+			value: 'IpsumParent',
+			onChange: action('onChange'),
+			onExpandToggle: action('onExpandToggle'),
+			expanded: true,
+			children: [
+				{
+					label: 'Lorem2',
+					value: 'Lorem2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum2',
+					value: 'Ipsum2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor2',
+					value: 'Dolor2',
+					onChange: action('onChange'),
+				},
+			]
+		},
+	],
+	headerDefault: [filterAction],
+	getItemHeight: () => 33,
+	onAddChange: action('onAddChange'),
+	onAddKeyDown: action('onAddKeyDown'),
+	headerLabel: 'Choose wisely',
+	toggleAllChecked: false,
+	onToggleAll: action('onToggleAll'),
+	showToggleAll: false,
+};
+
 storiesOf('ListView', module)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
 			<div>
-				<LanguageSwitcher/>
-				<IconsProvider/>
+				<LanguageSwitcher />
+				<IconsProvider />
 				<h1>ListView</h1>
 				<form>{story()}</form>
 			</div>
@@ -72,34 +135,45 @@ storiesOf('ListView', module)
 		const emptyProps = { ...props };
 		emptyProps.items = [];
 		return (
-			<ListView
-				{...emptyProps}
-			/>
+				<div id="listview-empty">
+				<ListView
+					{...emptyProps}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('single entry', () => {
 		const singleEntryProps = { ...props };
 		singleEntryProps.items = [props.items[0]];
 		return (
-			<ListView
-				{...singleEntryProps}
-			/>
+			<div id="listview-single">
+				<ListView
+					{...singleEntryProps}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('several values', () => (
-		<ListView
-			{...props}
-		/>
+		<div id="listview-several">
+			<ListView
+				{...props}
+			/>
+		</div>
 	))
 	.addWithInfo('search mode', () => (
-		<ListView
-			{...searchProps}
-		/>
+		<div id="listview-search">
+
+			<ListView
+				{...searchProps}
+			/>
+		</div>
 	))
 	.addWithInfo('search mode without results', () => (
-		<ListView
-			{...noResultsSearch}
-		/>
+		<div id="listview-search-no-result">
+			<ListView
+				{...noResultsSearch}
+			/>
+		</div>
 	))
 	.addWithInfo('selected values', () => {
 		const selectedValuesProps = { ...props };
@@ -107,16 +181,29 @@ storiesOf('ListView', module)
 		selectedValuesProps.items[1].checked = true;
 
 		return (
-			<ListView
-				{...selectedValuesProps}
-			/>
+			<div id="listview-selected">
+				<ListView
+					{...selectedValuesProps}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('with switch box', () => {
 		return (
-			<ListView
-				{...withSwitchBox}
-			/>
+			<div id="listview-switch">
+				<ListView
+					{...withSwitchBox}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('with nested items', () => {
+		return (
+			<div id="listview-nested">
+				<ListView
+					{...withNestedItems}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('without toggleAll', () => {
@@ -124,8 +211,10 @@ storiesOf('ListView', module)
 		withoutToggleALLProps.showToggleAll = false;
 
 		return (
-			<ListView
-				{...withoutToggleALLProps}
-			/>
+			<div id="listview-without-toggle-all">
+				<ListView
+					{...withoutToggleALLProps}
+				/>
+			</div>
 		);
 	});

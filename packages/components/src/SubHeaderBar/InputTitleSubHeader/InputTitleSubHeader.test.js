@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Icon, Action } from '../../index';
+import { Skeleton, Icon, Action } from '../../index';
 import InputTitleSubHeader, {
 	InlineFormSubHeader,
 	TitleSubHeader,
@@ -40,6 +40,17 @@ describe('InputTitleSubHeader', () => {
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
 	});
+	it('should render skeleton', () => {
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} loading />);
+		expect(wrapper.find(Skeleton)).toHaveLength(1);
+	});
+	it('should render inProgress', () => {
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} inProgress />);
+		expect(wrapper.props().className).toEqual(
+			'theme-tc-subheader-details tc-subheader-details theme-tc-subheader-details-blink tc-subheader-details-blink',
+		);
+		expect(wrapper.find(TitleSubHeader).props().disabled).toEqual(true);
+	});
 });
 
 describe('TitleSubHeader', () => {
@@ -65,7 +76,9 @@ describe('TitleSubHeader', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
 			'small',
 		);
-		expect(wrapper.getElement().props.className).toEqual('tc-subheader-details-text-subtitle');
+		expect(wrapper.getElement().props.className).toEqual(
+			'theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle',
+		);
 		expect(wrapper.getElement().props.children).toEqual('mySubTitle');
 	});
 	it('should render an Action with edit pencil', () => {
@@ -112,6 +125,38 @@ describe('InlineFormSubHeader', () => {
 			value: wrapper.state('value'),
 			props: defaultProps,
 		});
+	});
+	it('should not call onSubmit when submit event trigger with empty value', () => {
+		const event = { preventDefault: jest.fn() };
+		const wrapper = shallow(<InlineFormSubHeader {...defaultProps} />);
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group');
+		expect(
+			wrapper
+				.find('Action')
+				.first()
+				.props().disabled,
+		).toBe(false);
+		wrapper.setState({ value: ' ' });
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group has-error');
+		expect(
+			wrapper
+				.find('Action')
+				.first()
+				.props().disabled,
+		).toBe(true);
+		wrapper.find('form').simulate('submit', event);
+		expect(event.preventDefault).toHaveBeenCalled();
+		expect(defaultProps.onSubmit).not.toHaveBeenCalled();
 	});
 	it('should call onCancel when cancel event trigger', () => {
 		const event = {};

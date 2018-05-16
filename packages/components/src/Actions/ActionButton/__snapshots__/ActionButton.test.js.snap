@@ -3,13 +3,16 @@
 exports[`Action should apply transformation on icon 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
+  data-feature="action.feature"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -24,14 +27,17 @@ exports[`Action should apply transformation on icon 1`] = `
 exports[`Action should display a Progress indicator if set 1`] = `
 <Button
   active={false}
+  aria-label="Click me (in progress)"
   block={false}
   bsClass="btn"
   bsStyle="default"
-  className="navbar-btn"
+  className="navbar-btn theme-btn-disabled"
+  data-feature="action.feature"
   disabled={true}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <CircularProgress
     size="small"
@@ -45,14 +51,17 @@ exports[`Action should display a Progress indicator if set 1`] = `
 exports[`Action should display a disabled Icon 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
-  className="navbar-btn"
+  className="navbar-btn theme-btn-disabled"
+  data-feature="action.feature"
   disabled={true}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -67,14 +76,17 @@ exports[`Action should display a disabled Icon 1`] = `
 exports[`Action should pass all props to the Button 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
   className="navbar-btn"
+  data-feature="action.feature"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -89,13 +101,16 @@ exports[`Action should pass all props to the Button 1`] = `
 exports[`Action should render a button 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
+  data-feature="action.feature"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -114,6 +129,7 @@ exports[`Action should render a button with a overlay component 1`] = `
     overlay={
       <Popover
         bsClass="popover"
+        id="myOverlayId"
         placement="right"
       >
         [Function]
@@ -125,13 +141,16 @@ exports[`Action should render a button with a overlay component 1`] = `
   >
     <Button
       active={false}
+      aria-label="Click me"
       block={false}
       bsClass="btn"
       bsStyle="default"
+      data-feature="action.feature"
       disabled={false}
       onClick={null}
       onMouseDown={null}
       role={null}
+      title="Title to describe click me button"
     >
       <Icon
         name="talend-caret-down"
@@ -145,17 +164,26 @@ exports[`Action should render a button with a overlay component 1`] = `
 </span>
 `;
 
+exports[`Action should render a button with loading state 1`] = `
+<Translate(Skeleton)
+  type="button"
+/>
+`;
+
 exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
 <Button
   active={false}
+  aria-label="Click me (in progress)"
   block={false}
   bsClass="btn"
   bsStyle="default"
-  className=""
+  className="theme-btn-disabled"
+  data-feature="action.feature"
   disabled={true}
   onClick={null}
   onMouseDown={null}
   role={null}
+  title="Title to describe click me button"
 >
   <CircularProgress
     size="small"
@@ -166,17 +194,44 @@ exports[`Action should render a button without an overlay component if inProgres
 </Button>
 `;
 
+exports[`Action should render a link button with loading state 1`] = `
+<Button
+  active={false}
+  aria-label="  (loading)"
+  block={false}
+  bsClass="btn"
+  bsStyle="link"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role="link"
+>
+  <Translate(Skeleton)
+    className="theme-tc-action-button-skeleton-circle tc-action-button-skeleton-circle"
+    size="small"
+    type="circle"
+  />
+  <Translate(Skeleton)
+    size="medium"
+    type="text"
+  />
+</Button>
+`;
+
 exports[`Action should render action with html property name = props.name if set 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
+  data-feature="action.feature"
   disabled={false}
   name="custom_name"
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <Icon
     name="talend-caret-down"
@@ -191,13 +246,16 @@ exports[`Action should render action with html property name = props.name if set
 exports[`Action should reverse icon/label 1`] = `
 <Button
   active={false}
+  aria-label="Click me"
   block={false}
   bsClass="btn"
   bsStyle="default"
+  data-feature="action.feature"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
+  title="Title to describe click me button"
 >
   <span>
     Click me

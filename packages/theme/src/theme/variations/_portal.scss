@@ -1,0 +1,11 @@
+.t7 {
+	$brand-primary-t7: #0675c1 !default;
+	$brand-secondary-t7: #b6be00 !default;
+	@include layout-colors($brand-primary-t7, $brand-secondary-t7);
+
+	[role='banner'] [role='heading'] span:first-child {
+		&:before {
+			display: none;
+		}
+	}
+}

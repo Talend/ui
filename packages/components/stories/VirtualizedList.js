@@ -38,6 +38,7 @@ const icons = {
 
 const titleProps = {
 	onClick: action('onTitleClick'),
+	'data-feature': 'list.item.title',
 	actionsKey: 'titleActions',
 	persistentActionsKey: 'persistentActions',
 	displayModeKey: 'display',
@@ -50,12 +51,14 @@ const titleActions = [
 	{
 		id: 'edit',
 		label: 'edit',
+		'data-feature': 'list.item.edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
 	},
 	{
 		id: 'delete',
 		label: 'delete',
+		'data-feature': 'list.item.delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 	},
@@ -67,10 +70,12 @@ const titleActions = [
 		items: [
 			{
 				label: 'document 1',
+				'data-feature': 'list.item.related',
 				onClick: action('document 1 click'),
 			},
 			{
 				label: 'document 2',
+				'data-feature': 'list.item.related',
 				onClick: action('document 2 click'),
 			},
 		],
@@ -83,12 +88,14 @@ const persistentActions = [
 		label: 'favorite',
 		icon: 'talend-star',
 		className: 'favorite',
+		'data-feature': 'list.item.favorite',
 		onClick: action('onFavorite'),
 	},
 	{
 		label: 'certify',
 		icon: 'talend-badge',
 		className: 'certify',
+		'data-feature': 'list.item.certify',
 		onClick: action('onCertify'),
 	},
 ];
@@ -111,6 +118,7 @@ const collection = [
 	{
 		id: 1,
 		name: 'Title without actions',
+		'data-feature': 'list.item.title_without_actions',
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
@@ -197,8 +205,8 @@ for (let i = collection.length; i < 100; i += 1) {
 		id: i,
 		name: `Title with icon and actions ${i}`,
 		tag: 'test',
-		created: '2016-09-22',
-		modified: '2016-09-22',
+		created: 1474495200,
+		modified: 1474495200,
 		description: 'Simple row with icon and actions',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-xls-o',

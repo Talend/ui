@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Map } from 'immutable';
-import { componentState } from '@talend/react-cmf';
+import Immutable from 'immutable';
+import { cmfConnect } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
-import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
+import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
-export const DEFAULT_STATE = new Map({});
+export const DEFAULT_STATE = new Immutable.Map({});
 
 /**
  * Because we don't want to loose form input
@@ -17,7 +17,7 @@ class Form extends React.Component {
 	static displayName = 'Container(Form)';
 	static propTypes = {
 		formId: PropTypes.string.isRequired,
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 
 	/**
@@ -32,14 +32,13 @@ class Form extends React.Component {
 	 * @return {[type]}        [description]
 	 */
 	static getFormData(state, formId) {
-		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], Map());
+		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
 	}
 
 	constructor(props) {
 		super(props);
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
@@ -54,23 +53,19 @@ class Form extends React.Component {
 			if (!nextProps.state) {
 				nextProps.initState();
 			}
+		} else if (nextProps.properties !== this.props.properties) {
+			this.props.setState({ data: nextProps.data });
 		}
 	}
 
-	onTrigger(formData, formId, propertyName, propertyValue) {
-		if (this.props.onTrigger) {
-			this.props.onTrigger(formData, formId, propertyName, propertyValue);
-		}
-	}
-
-	onChange(form) {
+	onChange(event, form) {
 		this.props.setState({ data: form.formData, dirty: true });
 		if (this.props.onChange) {
 			this.props.onChange(form);
 		}
 	}
 
-	onSubmit(formData) {
+	onSubmit(event, formData) {
 		if (this.props.onSubmit) {
 			this.props.onSubmit(formData);
 		}
@@ -80,14 +75,6 @@ class Form extends React.Component {
 				formData,
 			});
 		}
-	}
-
-	formActions() {
-		if (typeof this.props.actions === 'function') {
-			const state = (this.props.state || DEFAULT_STATE).toJS();
-			return this.props.actions(state.data || this.props.data);
-		}
-		return this.props.actions;
 	}
 
 	jsonSchema() {
@@ -114,33 +101,41 @@ class Form extends React.Component {
 		return Object.assign({}, this.props.data, state.data);
 	}
 
+	formActions() {
+		if (typeof this.props.actions === 'function') {
+			const state = (this.props.state || DEFAULT_STATE).toJS();
+			return this.props.actions(state.data || this.props.data);
+		}
+		return this.props.actions;
+	}
+
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const data = {
-			jsonSchema: this.jsonSchema(),
-			uiSchema: this.uiSchema(),
-			properties: this.data(),
+		const props = {
+			data: {
+				jsonSchema: this.jsonSchema(),
+				uiSchema: this.uiSchema(),
+				properties: this.data(),
+			},
+			className: classnames('tc-form', 'rjsf', this.props.className, {
+				dirty: state.dirty,
+				pristine: !state.dirty,
+			}),
+			ArrayFieldTemplate: this.props.ArrayFieldTemplate || DefaultArrayFieldTemplate,
+			actions: this.formActions(),
+			fields: this.props.fields,
+			onChange: this.onChange,
+			onTrigger: this.props.onTrigger,
+			onSubmit: this.onSubmit,
+			customFormats: this.props.customFormats,
+			buttonBlockClass: this.props.buttonBlockClass,
+			children: this.props.children,
+			uiform: this.props.uiform,
+			language: this.props.language,
+			widgets: this.props.widgets,
+			...this.props.formProps,
 		};
-		const className = classnames('tc-form', 'rjsf', this.props.className, {
-			dirty: state.dirty,
-			pristine: !state.dirty,
-		});
-		return (
-			<ComponentForm
-				ArrayFieldTemplate={ArrayFieldTemplate}
-				className={className}
-				data={data}
-				actions={this.formActions()}
-				fields={this.props.fields}
-				onTrigger={this.onTrigger}
-				onChange={this.onChange}
-				onSubmit={this.onSubmit}
-				buttonBlockClass={this.props.buttonBlockClass}
-				{...this.props.formProps}
-			>
-				{this.props.children}
-			</ComponentForm>
-		);
+		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
 	}
 }
 Form.defaultProps = {

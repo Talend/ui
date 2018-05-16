@@ -21,18 +21,11 @@ if [ -n "$GH_TOKEN" ]; then
 			echo "✓ Commit optimized icons and components snapshots to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
-#		git add packages/theme/screenshots/
-#		git add packages/components/screenshots/
-#		echo "git status"
-#		git status
-#		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update screenshots"
-#		echo "✓ Commit updated screenshots to $TRAVIS_PULL_REQUEST_BRANCH"
-
 		git add output/
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"
 
-		find packages/*/src -name "*.scss" -o -name "*.js" | xargs git add
+		find packages/*/src -name "*.scss" -o -name "*.js" -o -name "*.json" | xargs git add
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): prettier"
 		echo "✓ Commit prettified files to $TRAVIS_PULL_REQUEST_BRANCH"
 

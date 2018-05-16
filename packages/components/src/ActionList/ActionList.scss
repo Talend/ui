@@ -1,0 +1,34 @@
+////
+/// Action list
+/// @group Custom widgets
+////
+
+$tc-action-list-item-width: 200px !default;
+$tc-action-list-item-icons-size: 20px !default;
+$tc-action-list-item-border-size: 2px !default;
+
+.tc-action-list {
+	.tc-action-list-item {
+		:global {
+			.tc-svg-icon {
+				width: $tc-action-list-item-icons-size;
+				height: $tc-action-list-item-icons-size;
+				margin: 0;
+			}
+
+			.btn.btn-link {
+				padding: $padding-normal;
+				text-overflow: inherit;
+				text-transform: uppercase;
+
+				> span {
+					margin-left: $padding-normal;
+					vertical-align: middle;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					transition: 0.1s opacity ease-out;
+				}
+			}
+		}
+	}
+}

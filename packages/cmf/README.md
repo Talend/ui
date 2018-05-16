@@ -1,5 +1,4 @@
-
-# Content Management Framework (aka CMF)
+# React content management Framework
 
 This is a framework to help you to build configurable React App.
 
@@ -21,70 +20,62 @@ It provides a set of base APIs and patterns.
 
 ## Breaking changes log
 
-Before 1.0, `react-cmf` do NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/react-cmf/blob/master/BREAKING_CHANGES_LOG.md).
+Before 1.0, `@talend/react-cmf` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
-## Definition
+## Requirements
 
-_CMF_ definition from wikipedia:
+Before trying CMF you must know:
 
-```
-A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
-```
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [react-redux](https://redux.js.org/basics/usage-with-react)
+* [redux-saga](https://redux-saga.js.org)
+* [Immutable](https://facebook.github.io/immutable-js/)
 
-It fits with our goal, this is why this add-on has been named that way.
+You must understand all the following words: pure component, action creator, reducer, put, takeEvery, fromJS, ...
 
-## Paradigm
+## What is react-cmf
 
-A _user_ interact with a _view_ using mouse and/or keyboard which send _events_ from a _content_ and that interaction _dispatch_ an _action_.
-That action may change the current view or the content displayed.
+It's a framework. It is the results of the years of experience with react ecosystem at Talend.
+The goal is to provide one way to do the things keeping best pratices in mind.
 
-## Definitions
+## Working with react-cmf
 
-We have the following objects to build a user interface:
+If you tried to work with the required addons listed above you will do some
+repetitive tasks and some boiler plate every time and on each components.
 
-* views
-* actions
+When working with a framework like angular you have the tools plus a guideline on how to use them.
+With CMF the idea is the same. Provide the good set of tools plus the guideline.
 
-Let's talk about each of them.
+A brief overview of how to do a project with react-cmf:
 
-### Views
+* you write a set of configurable pure component connected using `cmfConnect`
+* you configure them using the settings
+* events are handled in a saga (effects are the way to write business code)
 
-Views are special React component. They are high level component which has the following responsibility:
-They must dispatch props to configurable components.
+Side by side with angular 1:
 
-They are called by UI abstraction library from the router and connected to the store throw the settings.
+* components are React *cmfConnected* (pure) component
+* services are sagas
+* controllers are containers
 
-So a view is can be a pure component.
+UI sends actions into redux which are handled by sagas.
 
-Then view will be composed of react components that can get their props.
+## cmfConnect higher order component
 
-### Actions
+`cmfConnect` create a component with all CMF features charged in it.
+Under the hood it uses the connect function and create a container.
 
-Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
+Once your component is connected:
+* you can read data from the store using [expression](./src/expression.md)
+* you can dispatch actions using [onEvent handler](./src/onEvent.md)
 
-### ComponentState Management
-
-Component state can be easily stored in cmf state, each are identified by their name and an unique key,
-so component state can be stored and reused later
-
-### Collections management
-
-Manage a local cache of your business data
-
-## Internals: The registry
-
-You will find the registry as the central piece of ui abstraction.
-It's just a key/object registry and it's used with prefix to store the following:
-
-* action creators (function)
-* views (React Component)
-
-Note: this may change in the futur. We will try to remove the singleton in favors of higher order components.
+Read more about [cmfConnect](./src/cmfConnect.md)
 
 ## Store structure
 
-cmf store structure is the following
+CMF uses react-redux store with the following structure
 
 * root
   * cmf
@@ -92,126 +83,67 @@ cmf store structure is the following
     * components
     * settings
 
-## Middlewares
+Collections and components use Immutable data structure.
 
-### CMF
+### ComponentState Management
 
-You can put params in existing action object to trigger some other actions from react-cmf. For example control the router:
+Component state can be easily stored in cmf state, each are identified by their name and an unique key,
+so component state can be stored and reused later.
 
-```javascript
-export function cancelMyForm(nextRoute) {
-	return {
-		type: 'CLUSTER_CANCEL',
-		cmf: {
-			routerReplace: nextRoute || '/clusters',
-		},
-	};
-}
-```
+We give you the choice to use either:
 
-Existing commands:
+* CMF redux state (this.props.state && this.props.setState)
+* React component state (this.state && this.setState)
 
-* cmf.routerReplace (string or function)
-* cmf.routerPush (string or function)
-* response + cmf.collectionId -> addOrReplace
+Warning: you should use the redux state except for part that require lots of mutation without sharing.
+For example for Forms you should prefer to use the internal React component state.
 
-[See API](src/middlewares/cmf/index.md)
+### Collections management
 
-### HTTP
+Manage a local cache of your business data.
+You can connect your component to give it access to your data and being able
+to dispatch action to let CMF reducers write them.
 
-CMF init a middleware which is able to handle http requests for you.
+You can dispatch some actionCreators in [api.actions.collections](src/api.md) for that.
 
-It attach the response to the action object.
+### Settings
 
-```javascript
-import { actions } from '@talend/react-cmf';
+We don't want to create a PR, merge, build to change a label of a button right?
+With CMF you can describe all your app just using json.
 
-const url = '/foo/bar';
-
-return actions.http.get(url, {
-		onSend: 'ACTION_TYPE_DISPATCHED_ON_SEND',
-		onError: 'ACTION_TYPE_DISPATCHED_ON_ERROR',
-		cmf: {
-			collectionId: 'clusters', // saved in this collection
-		},
-		transform(data) { // called onResponse
-			return data.map((row) => {
-				const { id, label, engine, tags, created, updated, properties, ...rest } = row;
-				return {
-					id,
-					label,
-					type: properties.type,
-					engine: engine.type,
-					created: moment(created).format(DATE_TIME_FORMAT),
-					updated: moment(updated).fromNow(),
-					tags: tags ? tags.join(', ') : '',
-					...rest,
-				};
-			});
-		},
-	});
-}
-```
-
-The request is done using the fecth API so you may add the [github's fetch
-polyfill](http://npmjs.com/package/whatwg-fetch) in your project.
-
-Note onResponse and onError accept function:
-
-* onResponse(response)
-* onError(error)
-
-[See API](src/middlewares/http/index.md)
-
-## Scripts
-
-When you have cmf in you package.json, you can run in your project scope this script :
-
-* cmf-settings
-
-It require a cmf.json file with this format in your webapp's project root :
+The json looks like this:
 
 ```json
 {
-	"settings": {
-		"sources": [
-			"src/settings",
-			"node_modules/@talend/dataset/lib/settings",
-			"node_modules/@talend/myOtherDep/lib/file.json"
-		],
-		"sources-dev": [
-			"src/settings",
-			"../../dataset/webapp/src/settings",
-			"../../myOtherDep/lib/file.json"
-		],
-		"destination": "src/assets/cmf-settings.json"
+	"props": {
+		"App#default": {
+			"saga": "bootstrap"
+		},
+		"Navbar#default": {
+			"brand": "Talend",
+			"left": [{ "component": "Button", "componentId": "help" }]
+		},
+		"Button#help": {
+			"id": "help",
+			"label": "help",
+			"payload": {
+				"type": "MENU_HELP",
+				"cmf": {
+					"routerPush": "/help"
+				}
+			}
+		}
 	}
 }
 ```
 
-Options for this script :
+## Scripts
 
-* -d to use dev-sources instead of sources
-* -q to run the script in quiet mode
-* -r to run the json search recursive
+When you have cmf in you project, it adds [scripts](./scripts/index.md) in your node_modules/.bin
 
-## Expressions
+Tips you should add `node_modules/bin` folder into your path.
 
-Expression are registred function use to eval props.
-We use them to handle dynamic configuration like disable buttons if a user doesn't have the permission.
-
-Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
-
-```javascript
-import { api } from '@talend/react-cmf';
-import MyComponent from './MyComponent';
-
-const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
-
-return <MySuperComponent disabled="userDontHaveSuperPower" />;
-```
-
-[See API](src/expression.md)
+So you can use them either in CLI or in npm scripts.
 
 ## Tests & mocks
 
@@ -261,19 +193,24 @@ you may change the following using simple props:
 * [settings](src/settings.md)
 * [api](src/api.md)
 * [store](src/store.md)
-* [Inject](src/Inject.md)
 * [Dispatcher](src/Dispatcher.md)
 * [how to](howto/index.md)
-* [saga](src/saga.md)
 * [sagas](src/sagas/index.md)
 * [sagaRouter](src/sagaRouter/index.md)
+* [scripts](scripts/index.md)
+
+## Internals
+
+* [registry](./src/registry.md).
+* [middleware/cmf](./src/middlewares/cmf/index.md)
+* [middleware/http](./src/middlewares/http/index.md)
 
 ## ROADMAP
 
 For 1.0
 
 * [x] embedable apps
-* [ ] react-router v4
-* [ ] i18n
+* [ ] router
 * [x] generator
 * [x] actionCreator should become first class
+* [ ] move from peer dependencies to dependencies

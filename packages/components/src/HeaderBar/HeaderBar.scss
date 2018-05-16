@@ -4,7 +4,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		opacity: 0;
 	}
 
-	to   {
+	to {
 		opacity: 1;
 	}
 }
@@ -16,6 +16,15 @@ $background-color-on-hover: shade($brand-primary, 30);
 	top: 0;
 	width: 100%;
 	z-index: 1030;
+
+	& {
+		svg {
+			margin: 0;
+		}
+		a svg {
+			margin: 0 $padding-smaller;
+		}
+	}
 
 	.tc-header-bar-actions {
 		align-items: center;
@@ -30,6 +39,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 		.tc-header-bar-action {
 			height: 100%;
 			list-style: none;
+			white-space: nowrap;
+
+			:global {
+				.tc-typeahead-item-title,
+				.tc-typeahead-item-description {
+					white-space: initial;
+				}
+			}
 
 			&:not(:last-child).separated:after {
 				content: '|';
@@ -44,7 +61,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
 			line-height: $svg-lg-size;
-			padding: 12px $padding-normal;
+			padding: 12px $padding-large 12px $padding-normal;
 
 			:global(.tc-svg-icon) {
 				height: $svg-lg-size;
@@ -69,6 +86,17 @@ $background-color-on-hover: shade($brand-primary, 30);
 		width: $svg-lg-size;
 	}
 
+	.tc-header-bar-brand + :global(.dropdown-menu .tc-svg-icon) {
+		fill: $st-tropaz;
+		height: $svg-md-size;
+		width: $svg-md-size;
+	}
+
+	.tc-header-bar-brand + :global(.dropdown-menu) {
+		min-width: 100%;
+		width: auto;
+	}
+
 	:global(.btn):global(.btn-link) {
 		color: $white;
 		font-size: $font-size-base;
@@ -86,12 +114,16 @@ $background-color-on-hover: shade($brand-primary, 30);
 		height: 100%;
 
 		:global(.caret) {
-			border-top-color: $white;
-			border-right-color: $white;
-			box-shadow: 1px -1px 0 $white;
+			box-shadow: 2px -2px 0 $white;
+			border: none;
+			margin-left: $padding-small;
+			margin-bottom: $padding-smaller;
 		}
 
 		&:global(.open) {
+			:global(.caret) {
+				margin-top: $padding-small;
+			}
 			:global(.btn):global(.btn-link) {
 				background-color: $background-color-on-hover;
 			}
@@ -116,16 +148,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 				font-style: italic;
 				animation: fadeIn 0.2s;
 				width: 400px;
-			}
-		}
-	}
-
-	.tc-header-bar-user {
-		.user-lastname {
-			text-transform: uppercase;
-
-			&:before {
-				content: ' ';
 			}
 		}
 	}

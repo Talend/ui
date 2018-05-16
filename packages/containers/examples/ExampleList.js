@@ -2,6 +2,7 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
+import { cloneDeep } from 'lodash';
 
 import { List } from '../src';
 import i18n from './config/i18n';
@@ -13,6 +14,19 @@ const list = {
 		{ key: 'author', label: 'Author' },
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
+	],
+	titleProps: {
+		key: 'label',
+	},
+};
+
+const listWithTimestamp = {
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'label', label: 'Name' },
+		{ key: 'author', label: 'Author' },
+		{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
+		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } }
 	],
 	titleProps: {
 		key: 'label',
@@ -52,6 +66,10 @@ const customHeight = {
 export const defaultListState = new Immutable.Map({
 	displayMode: 'large',
 });
+export const defaultSortedListState = new Immutable.Map({
+	sortOn: 'modified',
+	sortAsc: false,
+});
 
 const items = Immutable.fromJS([
 	{
@@ -83,6 +101,62 @@ const items = Immutable.fromJS([
 	},
 ]);
 
+const referenceDatetime = Date.now();
+const minusThreeHours = referenceDatetime - 3600 * 3 * 1000;
+const minusTwoHours = referenceDatetime - 3600 * 2 * 1000;
+const minusOneHours = referenceDatetime - 3600 * 1 * 1000;
+const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
+
+const oneDay = 24 * 3600 * 1000;
+
+const itemsWithTimestamp = Immutable.fromJS([
+	{
+		id: 'id0',
+		label: 'Title with actions but first',
+		created: minusThreeHours,
+		modified: minusThreeHours,
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-excel-o',
+		display: 'text',
+		className: 'item-0-class',
+	},
+	{
+		id: 'ID2',
+		label: 'Title in input mode',
+		created: minusTwoHours,
+		modified: minusTwoHours - oneDay * 2,
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-pdf-o',
+		display: 'input',
+		className: 'item-1-class',
+	},
+	{
+		id: 'id1',
+		label: 'Title with actions',
+		created: minusThreeMin - oneDay,
+		modified: minusThreeMin,
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-excel-o',
+		display: 'text',
+		className: 'item-0-class',
+	},
+	{
+		id: 'iD3',
+		label: 'Super long title to trigger overflow on some rendering',
+		created: minusOneHours - oneDay,
+		modified: minusOneHours,
+		author: 'Jean-Pierre DUPONT with super long name',
+	},
+]);
+
+const sortUpdatedAsc = {
+	field: 'modified',
+	isDescending: false,
+};
+const propsTimestampSorted = cloneDeep(props);
+propsTimestampSorted.list = listWithTimestamp;
+propsTimestampSorted.list.sort = sortUpdatedAsc;
+
 const ExampleList = {
 	default: () => (
 		<div>
@@ -92,6 +166,97 @@ const ExampleList = {
 			</div>
 		</div>
 	),
+	pagination: () => {
+		const propsPg = cloneDeep(props);
+		const itemsPg = items.concat(
+			Immutable.fromJS([
+				{
+					id: 'id4',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID5',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD6',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+				{
+					id: 'id7',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID8',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD9',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+				{
+					id: 'id10',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID11',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD12',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+			]),
+		);
+		propsPg.toolbar.pagination = {};
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...propsPg} items={itemsPg} />
+				</div>
+			</div>
+		);
+	},
+	'in progress': () => {
+		const props2 = cloneDeep(props);
+		props2.list.inProgress = true;
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...props2} items={items} />
+				</div>
+			</div>
+		);
+	},
 	'no toolbar': () => (
 		<div>
 			<IconsProvider />
@@ -104,12 +269,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List
-					{...props}
-					items={items}
-					rowHeight={customHeight}
-					initialState={defaultListState}
-				/>
+				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
 			</div>
 		</div>
 	),
@@ -126,5 +286,13 @@ const ExampleList = {
 			</div>
 		</I18nextProvider>
 	),
+	'sort on timestamps': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...propsTimestampSorted} items={itemsWithTimestamp} initialState={defaultSortedListState}/>
+			</div>
+		</div>
+	)
 };
 export default ExampleList;

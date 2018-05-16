@@ -2,7 +2,7 @@
 
 exports[`Table should render Table with props data as an array 1`] = `
 <table
-  className="tc-object-viewer table table-bordered table-striped table-hover"
+  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
 >
   <thead>
     <tr>
@@ -17,6 +17,7 @@ exports[`Table should render Table with props data as an array 1`] = `
         <JSONLike
           data="header1"
           jsonpath="$[0]['field0']"
+          nativeValueClassName="theme-nativevalue"
         />
       </td>
     </tr>
@@ -25,6 +26,7 @@ exports[`Table should render Table with props data as an array 1`] = `
         <JSONLike
           data={undefined}
           jsonpath="$[1]['field0']"
+          nativeValueClassName="theme-nativevalue"
         />
       </td>
     </tr>
@@ -34,7 +36,7 @@ exports[`Table should render Table with props data as an array 1`] = `
 
 exports[`Table should render Table with props data as an object 1`] = `
 <table
-  className="tc-object-viewer table table-bordered table-striped table-hover"
+  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
 >
   <thead>
     <tr>
@@ -56,6 +58,7 @@ exports[`Table should render Table with props data as an object 1`] = `
         <JSONLike
           data="header1"
           jsonpath="$[0]['field0']"
+          nativeValueClassName="theme-nativevalue"
         />
       </td>
     </tr>
@@ -64,6 +67,7 @@ exports[`Table should render Table with props data as an object 1`] = `
         <JSONLike
           data={undefined}
           jsonpath="$[1]['field0']"
+          nativeValueClassName="theme-nativevalue"
         />
       </td>
     </tr>
@@ -73,7 +77,7 @@ exports[`Table should render Table with props data as an object 1`] = `
 
 exports[`Table should render if data is empty 1`] = `
 <table
-  className="tc-object-viewer table table-bordered table-striped table-hover"
+  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
 >
   <thead>
     <tr>

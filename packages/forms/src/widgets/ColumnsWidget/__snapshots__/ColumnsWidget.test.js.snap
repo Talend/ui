@@ -2,7 +2,7 @@
 
 exports[`ColumnsWidget should render 1`] = `
 <div
-  className="tf-widget-columns undefined"
+  className="tf-widget-columns theme-columns"
 >
   <TitleField
     id="undefined__title"

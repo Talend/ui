@@ -2,7 +2,7 @@
 
 exports[`Pagination should disable first and previous buttons for first page 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -101,6 +101,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -111,8 +112,9 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -130,6 +132,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -140,8 +143,9 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -158,6 +162,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -184,12 +189,14 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -207,12 +214,14 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -226,7 +235,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
 
 exports[`Pagination should disable next and last buttons for last page 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -325,12 +334,14 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -348,12 +359,14 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -370,6 +383,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -396,6 +410,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -406,8 +421,9 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -425,6 +441,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -435,8 +452,9 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -450,7 +468,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
 
 exports[`Pagination should not render navigation when show all items 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -545,7 +563,7 @@ exports[`Pagination should not render navigation when show all items 1`] = `
 
 exports[`Pagination should not show navigation when there is no items 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -640,7 +658,7 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
 
 exports[`Pagination should not show navigation when there is only one page 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -735,7 +753,7 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
 
 exports[`Pagination should render 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -834,12 +852,14 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -857,12 +877,14 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -879,6 +901,7 @@ exports[`Pagination should render 1`] = `
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -905,12 +928,14 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -928,12 +953,14 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -947,7 +974,7 @@ exports[`Pagination should render 1`] = `
 
 exports[`Pagination should render id if provided 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li
@@ -1046,12 +1073,14 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-first"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -1069,12 +1098,14 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-prev"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -1091,6 +1122,7 @@ exports[`Pagination should render id if provided 1`] = `
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -1117,12 +1149,14 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-next"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -1140,12 +1174,14 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-last"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -1159,7 +1195,7 @@ exports[`Pagination should render id if provided 1`] = `
 
 exports[`Pagination should render menu item with "All" title when size is -1 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-pagination nav"
   role={null}
 >
   <li

@@ -22,6 +22,15 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
 }
 
 /**
+ * Extract component name without HOC
+ * @param {String} viewId Connect(CMF(Container(MyComponent)))
+ * @return {String} MyComponent
+ */
+function withoutHOC(componentName) {
+	return componentName.match(/.*\((.*?)\)/)[1];
+}
+
+/**
  * try to retrieve view settings for a cmfconnected component
  * @param {Object} state the application state
  * @param {*} ownProps props given to the cmfConnected component
@@ -36,6 +45,11 @@ export function nonMemoized(state, ownProps, componentName, componentId) {
 
 	if (viewId && state.cmf.settings.props[viewId]) {
 		viewProps = state.cmf.settings.props[viewId] || {};
+	} else if (componentName && componentName.includes('(')) {
+		viewId = generateDefaultViewId(null, withoutHOC(componentName), componentId);
+		if (viewId && state.cmf.settings.props[viewId]) {
+			viewProps = state.cmf.settings.props[viewId] || {};
+		}
 	}
 	return viewProps;
 }

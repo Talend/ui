@@ -1,24 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 
 import theme from './CircularProgress.scss';
 
 const RADIUS = 20;
 const DIAMETER = 50;
 const CENTER_POSITION = 25;
-const SIZE = {
-	small: 'small',
-	default: 'default',
-	large: 'large',
-};
 const CIRCUMFERENCE = Math.PI * (RADIUS * 2);
 
 function getCircleStyle(percent) {
 	if (percent) {
 		return {
 			strokeDasharray: CIRCUMFERENCE,
-			strokeDashoffset: ((100 - percent) / 100) * CIRCUMFERENCE,
+			strokeDashoffset: (100 - percent) / 100 * CIRCUMFERENCE,
 		};
 	}
 	return {
@@ -32,25 +28,18 @@ function getCircleStyle(percent) {
  * @example
  <CircularProgress size="large" />
  */
-function CircularProgress({ size, light, percent }) {
-	const classes = classNames(
-		theme.loader,
-		{
-			[theme.loaderlight]: light,
-			[theme.animate]: !percent,
-			[theme.fixed]: percent,
-			[theme.small]: size === SIZE.small,
-			[theme.default]: size === SIZE.default,
-			[theme.large]: size === SIZE.large,
-		},
-	);
+function CircularProgress({ size, light, percent, className }) {
+	const classes = classNames('tc-circular-progress', className, theme.loader, {
+		[theme.loaderlight]: light,
+		[theme.animate]: !percent,
+		[theme.fixed]: percent,
+		[theme.small]: size === SIZE.small,
+		[theme.default]: size === SIZE.default,
+		[theme.large]: size === SIZE.large,
+	});
 
 	return (
-		<svg
-			focusable="false"
-			className={classes}
-			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
-		>
+		<svg focusable="false" className={classes} viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}>
 			<circle
 				className={theme.path}
 				r={RADIUS}
@@ -63,8 +52,11 @@ function CircularProgress({ size, light, percent }) {
 	);
 }
 
+CircularProgress.displayName = 'CircularProgress';
+
 CircularProgress.propTypes = {
-	size: PropTypes.oneOf([SIZE.small, SIZE.default, SIZE.large]),
+	className: PropTypes.string,
+	size: PropTypes.oneOf(Object.keys(SIZE).map(key => SIZE[key])),
 	light: PropTypes.bool,
 	percent: PropTypes.number,
 };

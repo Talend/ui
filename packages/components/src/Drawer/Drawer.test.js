@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import Drawer, { cancelActionComponent } from './Drawer.component';
 
@@ -79,7 +79,7 @@ describe('Drawer', () => {
 				},
 			],
 			onSelect: jest.fn(),
-			selected: '2',
+			selectedKey: '2',
 		};
 		const wrapper = renderer
 			.create(
@@ -111,5 +111,49 @@ describe('Drawer', () => {
 			)
 			.toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('render with injected TabBar or Action if provided', () => {
+		function getComponent(name) {
+			if (name === 'TabBar') {
+				return function CustomTabBar() {
+					return <p className="custom">injected tabbar</p>;
+				};
+			} else if (name === 'Action') {
+				return function CustomAction() {
+					return <button>custom</button>;
+				};
+			}
+			return null;
+		}
+
+		const props = {
+			getComponent,
+			title: 'test',
+			tabs: { items: [{ item: { key: 'tab1', label: 'tab1' }, onClick: jest.fn() }] },
+			onCancelAction: { id: 'cacel-button-id' },
+			footerActions: { actions: { left: [] } },
+		};
+
+		const wrapper = shallow(
+			<Drawer {...props}>
+				<p>simple drawer</p>
+			</Drawer>,
+		);
+
+		expect(wrapper.find('TabBar')).toHaveLength(0);
+		expect(wrapper.find('CustomTabBar')).toHaveLength(1);
+		expect(
+			wrapper
+				.find('DrawerTitle')
+				.dive()
+				.find('Action'),
+		).toHaveLength(0);
+		expect(
+			wrapper
+				.find('DrawerTitle')
+				.dive()
+				.find('CustomAction'),
+		).toHaveLength(1);
 	});
 });

@@ -76,7 +76,7 @@ describe('CheckBox field', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
 	});
 
-	it('should trigger onFinish on input blur', () => {
+	it('should trigger onFinish on input change', () => {
 		// given
 		const onFinish = jest.fn();
 		const wrapper = mount(
@@ -93,9 +93,9 @@ describe('CheckBox field', () => {
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper.find('input').simulate('blur', event);
+		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema, value: false });
 	});
 });

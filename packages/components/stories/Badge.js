@@ -37,7 +37,7 @@ storiesOf('Badge', module)
 	.addWithInfo('default', () => (
 		<section>
 			<IconsProvider defaultIcons={icons} />
-			<div style={defaultStyle}>
+			<div style={defaultStyle} id="default">
 				<div style={columnStyle}>
 					<Badge label="Group A" {...onSelect('A')} />
 					<Badge label={longStr} {...onSelect('B')} />
@@ -55,7 +55,7 @@ storiesOf('Badge', module)
 					<Badge label={longStr} {...onDelete('Bd')} disabled />
 				</div>
 			</div>
-			<div style={defaultStyle}>
+			<div style={defaultStyle} id="category">
 				<div style={columnStyle}>
 					<Badge label="Little Gem Magnolia" category="Trees" {...onSelect('L')} />
 					<Badge label="Mexican Plum" category="Trees" {...onSelect('M')} />

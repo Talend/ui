@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#QualityBar should render QualityBar 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-invalid td-quality-bar-invalid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "32%",
+      }
+    }
+    title="999 invalid values (32%)"
+  />
+  <span
+    className="theme-td-quality-bar-empty td-quality-bar-empty"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "33%",
+      }
+    }
+    title="1 000 empty values (33%)"
+  />
+  <span
+    className="theme-td-quality-bar-valid td-quality-bar-valid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "35%",
+      }
+    }
+    title="1 001 valid values (35%)"
+  />
+</div>
+`;
+
+exports[`#QualityBar should render QualityBar without empty value 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-invalid td-quality-bar-invalid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "49%",
+      }
+    }
+    title="1 000 invalid values (49%)"
+  />
+  <span
+    className="theme-td-quality-bar-valid td-quality-bar-valid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "51%",
+      }
+    }
+    title="1 001 valid values (51%)"
+  />
+</div>
+`;
+
+exports[`#QualityBar should render QualityBar without invalid value 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-empty td-quality-bar-empty"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "49%",
+      }
+    }
+    title="1 000 empty values (49%)"
+  />
+  <span
+    className="theme-td-quality-bar-valid td-quality-bar-valid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "51%",
+      }
+    }
+    title="1 001 valid values (51%)"
+  />
+</div>
+`;
+
+exports[`#QualityBar should render QualityBar without valid value 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-invalid td-quality-bar-invalid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "49%",
+      }
+    }
+    title="1 000 invalid values (49%)"
+  />
+  <span
+    className="theme-td-quality-bar-empty td-quality-bar-empty"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "51%",
+      }
+    }
+    title="1 001 empty values (51%)"
+  />
+</div>
+`;

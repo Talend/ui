@@ -55,7 +55,7 @@ function getButtonContent(props) {
 /**
  * Purpose of this component is to provide a simple direct upload button.
  * When the user click on this component a file picker is open,
- * letting the user to choose the file he wich to upload.
+ * letting the user to choose the file he which to upload.
  * When the user select a file, the onChange props is executed and get
  * passed the react syntetic event and the selected file.
  * subsequently the field get emptied.
@@ -68,6 +68,7 @@ class ActionFile extends React.Component {
 		...getIcon.propTypes,
 		id: PropTypes.string,
 		bsStyle: PropTypes.string,
+		className: PropTypes.string,
 		disabled: PropTypes.bool,
 		hideLabel: PropTypes.bool,
 		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
@@ -106,6 +107,7 @@ class ActionFile extends React.Component {
 		const {
 			id,
 			name,
+			className,
 			available,
 			disabled,
 			inProgress,
@@ -126,14 +128,14 @@ class ActionFile extends React.Component {
 			(disabled || inProgress) && 'disabled',
 		);
 		const btn = (
-			<span>
+			<span className={className}>
 				<input
 					onChange={this.handleChange}
 					type="file"
 					name={name}
 					id={localId}
 					disabled={inProgress || disabled}
-					className={theme['action-file-label']}
+					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
 				<label htmlFor={localId} className={labelClasses}>
 					{buttonContent}

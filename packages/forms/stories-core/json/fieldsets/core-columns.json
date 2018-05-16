@@ -41,6 +41,7 @@
   "uiSchema": [
     {
       "widget": "columns",
+      "title": "My awesome columns",
       "items": [
         {
           "widget": "fieldset",

@@ -4,8 +4,8 @@ import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_FORMS from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
+import getDefaultT from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
 
@@ -22,7 +22,7 @@ class ListViewWidget extends React.Component {
 			{
 				id: `${props.id}-search`,
 				icon: 'talend-search',
-				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
+				label: t('LISTVIEW_WIDGET_SEARCH', { defaultValue: 'Search for specific values' }),
 				onClick: this.switchToSearchMode.bind(this),
 			},
 		];
@@ -30,7 +30,7 @@ class ListViewWidget extends React.Component {
 			{
 				id: 'abort',
 				icon: 'talend-cross',
-				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
+				label: t('LISTVIEW_WIDGET_ABORT', { defaultValue: 'Abort' }),
 				onClick: this.switchToDefaultMode.bind(this),
 			},
 		];
@@ -175,6 +175,7 @@ class ListViewWidget extends React.Component {
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
+				required={this.props.schema.required}
 			>
 				<ListView
 					{...this.state}
@@ -189,7 +190,7 @@ class ListViewWidget extends React.Component {
 
 ListViewWidget.defaultProps = {
 	value: [],
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
@@ -218,4 +219,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { ListViewWidget };
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
+export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);

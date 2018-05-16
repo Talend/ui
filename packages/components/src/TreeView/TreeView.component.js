@@ -105,6 +105,8 @@ function TreeView({
 	);
 }
 
+TreeView.displayName = 'TreeView';
+
 TreeView.propTypes = {
 	id: PropTypes.string,
 	headerText: PropTypes.string,

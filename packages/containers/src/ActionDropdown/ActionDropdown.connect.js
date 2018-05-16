@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
+import omit from 'lodash/omit';
 
 import getOnClick from '../actionOnClick';
 
@@ -14,10 +16,12 @@ export function mapStateToProps(state, ownProps = {}) {
 		},
 	};
 	if (ownProps.actionId) {
+		// deprecated
 		props = api.action.getActionInfo(context, ownProps.actionId);
 	}
 	const actionIds = ownProps.actionIds || props.actionIds;
 	if (actionIds) {
+		// deprecated
 		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	return props;
@@ -35,20 +39,22 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 }
 
 export function ContainerActionDropdown({ items, ...props }) {
+	const safeProps = omit(props, cmfConnect.INJECTED_PROPS);
 	if (items) {
-		const clikableItems = items.map(item => ({
-			...getOnClick(item, props),
-			...item,
-		}));
-		return <ActionDropdown items={clikableItems} {...props} />;
+		// keep initial object as it can be immutable and have a prototype
+		const clikableItems = items.map(item => Object.assign(item, ...getOnClick(item, props)));
+		return <ActionDropdown items={clikableItems} {...safeProps} />;
 	}
-	return <ActionDropdown {...props} />;
+	return <ActionDropdown {...safeProps} />;
 }
 
 ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.object),
+	items: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), ImmutablePropTypes.list]),
+	noCaret: PropTypes.bool,
+	pullRight: PropTypes.bool,
+	hideLabel: PropTypes.bool,
 };
 
 export default cmfConnect({

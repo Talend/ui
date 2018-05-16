@@ -1,18 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import toJsonWithoutI18n from '../../../__mocks__/props-without-i18n';
 import TranslatedEnumeration, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
 describe('EnumerationWidget', () => {
 	it('should wrapped in Translate component', () => {
 		const wrapper = mount(<TranslatedEnumeration />);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in default mode', () => {
 		// given
 		const wrapper = mount(<EnumerationWidget />);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in default mode', () => {
@@ -24,7 +24,7 @@ describe('EnumerationWidget', () => {
 				}}
 			/>,
 		);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in add mode', () => {
@@ -38,7 +38,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in search mode', () => {
@@ -52,7 +52,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in edit mode', () => {
@@ -71,7 +71,7 @@ describe('EnumerationWidget', () => {
 			.at(0)
 			.simulate('click');
 
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should delete an item', () => {
@@ -91,7 +91,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should select an item', () => {
@@ -110,7 +110,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should select multiple  items', () => {
@@ -136,7 +136,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click', { ctrlKey: true });
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('delete all', () => {
@@ -166,7 +166,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should delete an item with callHandler', () => {
@@ -194,7 +194,7 @@ describe('EnumerationWidget', () => {
 
 		// then
 		expect(registry.formContext.handleAction).toBeCalled();
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should deselect edit mode when select other item', () => {
@@ -228,15 +228,22 @@ describe('EnumerationWidget', () => {
 	});
 
 	describe('upload file', () => {
-		it('should add a upload icon', () => {
+		it('should add a upload icon and set data-feature', () => {
 			const wrapper = mount(
 				<EnumerationWidget
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{
+						'data-feature': {
+							overwriteExisting: 'file.overwrite',
+							addFromFile: 'file.add',
+							importFile: 'file.import',
+						},
+					}}
 				/>,
 			);
-			expect(toJson(wrapper)).toMatchSnapshot();
+			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		});
 
 		it('should send a event with a method to simulate the click on the input file', () => {
@@ -253,6 +260,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -289,6 +297,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -324,6 +333,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -357,6 +367,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 
@@ -384,6 +395,7 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
+					uiSchema={{}}
 				/>,
 			);
 			wrapper.instance().inputFile.click = jest.fn();
@@ -420,6 +432,7 @@ describe('EnumerationWidget', () => {
 						schema={{
 							allowImport: true,
 						}}
+						uiSchema={{}}
 						registry={registry}
 						formData={[
 							{ id: '111', values: ['titi', 'tata'] },
@@ -449,10 +462,10 @@ describe('EnumerationWidget', () => {
 					jasmine.any(Function),
 				);
 
-				expect(toJson(wrapper.update())).toMatchSnapshot();
+				expect(toJsonWithoutI18n(wrapper.update())).toMatchSnapshot();
 
 				successUploadHandler();
-				expect(toJson(wrapper.update())).toMatchSnapshot();
+				expect(toJsonWithoutI18n(wrapper.update())).toMatchSnapshot();
 			},
 		);
 	});

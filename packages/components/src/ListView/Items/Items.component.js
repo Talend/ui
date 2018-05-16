@@ -5,7 +5,7 @@ import { AutoSizer, List } from 'react-virtualized';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
@@ -26,7 +26,7 @@ function itemContainer(additionalClassName) {
 	);
 }
 
-class Items extends React.PureComponent {
+export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -39,11 +39,22 @@ class Items extends React.PureComponent {
 		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 	}
 
+	getItemByIndex(index) {
+		return this.props.items[index - Number(this.hasToggleAll)];
+	}
+
 	getRowHeight({ index }) {
 		if (this.hasToggleAll && index === 0) {
 			return 40;
 		}
-		return this.props.getItemHeight();
+
+		let extraHeight = 0;
+		const currentItem = this.getItemByIndex(index);
+		if (currentItem && currentItem.children && currentItem.expanded) {
+			extraHeight = currentItem.children.length * this.props.getItemHeight();
+		}
+
+		return this.props.getItemHeight() + extraHeight;
 	}
 
 	getRowCount() {
@@ -56,8 +67,15 @@ class Items extends React.PureComponent {
 	rowRenderer(props) {
 		const { key, index, style } = props;
 		const isToggle = this.hasToggleAll && index === 0;
+		const currentItem = this.getItemByIndex(index);
 		return (
-			<div className={itemContainer(isToggle && 'toggle')} key={key} style={style}>
+			<div
+				className={classNames(itemContainer(isToggle && 'toggle'), {
+					expanded: currentItem && currentItem.expanded,
+				})}
+				key={key}
+				style={style}
+			>
 				{this.renderToggleAllOrItem(index)}
 			</div>
 		);
@@ -107,9 +125,19 @@ class Items extends React.PureComponent {
 				key={computedId}
 				id={computedId}
 				item={item}
-				isSwitchBox={this.props.isSwitchBox}
+				isSwitchBox={this.props.isSwitchBox && !item.children}
 				searchCriteria={this.props.searchCriteria}
-			/>
+			>
+				{item.children &&
+					item.children.map((nestedItem, nestedIndex) => (
+						<Item
+							key={nestedIndex}
+							item={nestedItem}
+							parentItem={item}
+							searchCriteria={this.props.searchCriteria}
+						/>
+					))}
+			</Item>
 		);
 	}
 
@@ -139,7 +167,7 @@ class Items extends React.PureComponent {
 	}
 }
 
-Items.propTypes = {
+ItemsComponent.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -158,10 +186,10 @@ Items.propTypes = {
 	t: PropTypes.func,
 };
 
-Items.defaultProps = {
-	t: getDefaultTranslate,
+ItemsComponent.defaultProps = {
+	t: getDefaultT(),
 	isSwitchBox: false,
 	showToggleAll: true,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Items);
+export default translate(I18N_DOMAIN_COMPONENTS)(ItemsComponent);

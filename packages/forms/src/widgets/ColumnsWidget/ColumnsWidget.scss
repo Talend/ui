@@ -4,14 +4,15 @@
 
 	.column {
 		flex: 1;
+		// added padding so column are nicely separated
+		margin: $padding-normal $padding-smaller 0 $padding-smaller;
 
 		fieldset {
 			margin-right: auto;
-
 		}
 
 		input {
-			min-width: 20rem;
+			min-width: 15rem;
 		}
 	}
 }

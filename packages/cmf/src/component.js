@@ -1,6 +1,7 @@
 import invariant from 'invariant';
-import action from './action';
+import actionCreator from './actionCreator';
 import expression from './expression';
+import sagas from './sagas';
 import registry from './registry';
 import CONST from './constant';
 
@@ -32,27 +33,26 @@ function get(id, context) {
  */
 function register(id, component, context) {
 	if (!component) {
-		invariant(process.env.NODE_ENV !== 'production', 'You can register undefined as a component');
+		invariant(
+			process.env.NODE_ENV === 'production',
+			'You cannot register undefined as a component for id "%s"',
+			id,
+		);
 		return;
 	}
 	registry.addToRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, component, context);
 	if (component.actions) {
-		Object.keys(component.actions).forEach(key => {
-			action.registerActionCreator(key, component.actions[key], context);
-		});
+		actionCreator.registerMany(component.actions, context);
 	}
 	if (component.expressions) {
-		Object.keys(component.expressions).forEach(key => {
-			expression.register(key, component.expressions[key], context);
-		});
+		expression.registerMany(component.expressions, context);
+	}
+	if (component.sagas) {
+		sagas.registerMany(component.sagas, context);
 	}
 }
 
-function registerMany(components, context) {
-	Object.keys(components).forEach(key => {
-		register(key, components[key], context);
-	});
-}
+const registerMany = registry.getRegisterMany(register);
 
 function has(id, context) {
 	return (

@@ -2,10 +2,10 @@
 
 exports[`OneColumn should render 1`] = `
 <div
-  className="tc-layout-one-column"
+  className="tc-layout-one-column theme-main"
 >
   <div
-    className={undefined}
+    className="theme-tc-with-drawer"
   >
     <div
       style={
@@ -22,7 +22,7 @@ exports[`OneColumn should render 1`] = `
       </span>
     </div>
     <div
-      className={undefined}
+      className="theme-tc-with-drawer-container"
     />
   </div>
 </div>

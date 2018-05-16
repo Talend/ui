@@ -1,5 +1,5 @@
-import { HTTP_METHODS } from '../middlewares/http';
 import {
+	HTTP_METHODS,
 	ACTION_TYPE_HTTP_REQUEST,
 	ACTION_TYPE_HTTP_RESPONSE,
 	ACTION_TYPE_HTTP_ERRORS,
@@ -27,6 +27,7 @@ function onRequest(url, config) {
 }
 
 function onJSError(error, action) {
+	console.error(error); // eslint-disable-line no-console
 	return {
 		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
 		error,

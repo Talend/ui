@@ -54,22 +54,23 @@ function addToRegistry(id, item, context) {
 	if (Registry.isLocked()) {
 		throw new Error(
 			`CMF: The registry is locked, you cannot therefore add '${id}' in it. ` +
-			'Please check your CMF configuration, it should not move after the initial ' +
-			'configuration before bootstrap.'
+				'Please check your CMF configuration, it should not move after the initial ' +
+				'configuration before bootstrap.',
 		);
 	}
 
 	const registry = getRegistry(context);
 	if (registry[id]) {
-		console.warn( // eslint-disable-line no-console
+		// eslint-disable-next-line no-console
+		console.warn(
 			`CMF: The '${id}' object is registered, overriding an existing '${id}' object. ` +
-			'Please check your CMF configuration, you might not want that.'
+				'Please check your CMF configuration, you might not want that.',
 		);
 	}
 	if (item === undefined) {
 		throw new Error(
 			`CMF: you can't register undefined in '${id}'.
-			You may have an import error in your configuration`
+			You may have an import error in your configuration`,
 		);
 	}
 	registry[id] = item;
@@ -78,10 +79,23 @@ function addToRegistry(id, item, context) {
 /**
  * Internal: return element registred under the ID.
  * @param  {string} id the object's id in the registry you want to get
+ * @param  {object} context cmf context
  * @return {any}    the object you are looking for
  */
 function getFromRegistry(id, context) {
 	return getRegistry(context)[id];
+}
+
+/**
+ * This function is a curry that return a generic function to register components in registry
+ * @param {function} registerFn a function that register a item in the registry
+ */
+function getRegisterMany(registerFn) {
+	return (itemsToRegister, context) => {
+		Object.keys(itemsToRegister).forEach(key => {
+			registerFn(key, itemsToRegister[key], context);
+		});
+	};
 }
 
 /**
@@ -96,5 +110,6 @@ export default {
 	addToRegistry,
 	getRegistry,
 	getFromRegistry,
+	getRegisterMany,
 	lock,
 };

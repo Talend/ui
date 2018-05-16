@@ -1,3 +1,3 @@
-import ActionSplitDropdown from './ActionSplitDropdown.component';
+import TranslatedActionSplitDropdown from './ActionSplitDropdown.component';
 
-export default ActionSplitDropdown;
+export default TranslatedActionSplitDropdown;
