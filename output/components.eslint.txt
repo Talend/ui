@@ -42,7 +42,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.component.js
    36:10  error  'adaptLeftAndRightActions' is defined but never used  no-unused-vars
-  163:12  error  'hideToolbar' is missing in props validation          react/prop-types
+  182:12  error  'hideToolbar' is missing in props validation          react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
