@@ -109,7 +109,7 @@ describe('Container List', () => {
 
 	it('should add multiSelection props', () => {
 		const multiSelectionSetting = cloneDeep(settings);
-		multiSelectionSetting.multiSelectionKey = 'id';
+		multiSelectionSetting.idKey = 'id';
 		multiSelectionSetting.multiSelectActions = {
 			left: ['object:remove'],
 		};
@@ -316,7 +316,7 @@ describe('Container List', () => {
 		it('should select one item', () => {
 			// given
 			const multiSelectionSetting = cloneDeep(settings);
-			multiSelectionSetting.multiSelectionKey = 'id';
+			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
 				left: ['object:remove'],
 			};
@@ -337,7 +337,7 @@ describe('Container List', () => {
 		it('should deselect one item', () => {
 			// given
 			const multiSelectionSetting = cloneDeep(settings);
-			multiSelectionSetting.multiSelectionKey = 'id';
+			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
 				left: ['object:remove'],
 			};
@@ -357,7 +357,7 @@ describe('Container List', () => {
 		it('should select all items', () => {
 			// given
 			const multiSelectionSetting = cloneDeep(settings);
-			multiSelectionSetting.multiSelectionKey = 'id';
+			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
 				left: ['object:remove'],
 			};
@@ -379,7 +379,7 @@ describe('Container List', () => {
 		it('should deselect all items', () => {
 			// given
 			const multiSelectionSetting = cloneDeep(settings);
-			multiSelectionSetting.multiSelectionKey = 'id';
+			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
 				left: ['object:remove'],
 			};
@@ -400,7 +400,7 @@ describe('Container List', () => {
 		it('should display multiActions', () => {
 			// given
 			const multiSelectionSetting = cloneDeep(settings);
-			multiSelectionSetting.multiSelectionKey = 'id';
+			multiSelectionSetting.idKey = 'id';
 			multiSelectionSetting.multiSelectActions = {
 				left: ['object:remove'],
 			};

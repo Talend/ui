@@ -262,7 +262,7 @@ const ExampleList = {
 		multiSelectionProps.multiSelectActions = {
 			left: ['object:remove'],
 		};
-		multiSelectionProps.multiSelectionKey = 'id';
+		multiSelectionProps.idKey = 'id';
 		return (
 			<div>
 				<IconsProvider />

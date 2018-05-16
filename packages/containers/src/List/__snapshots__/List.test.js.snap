@@ -110,6 +110,7 @@ Object {
     "title": "object:open",
   },
   "displayMode": "table",
+  "idKey": "id",
   "items": Immutable.List [
     Immutable.Map {
         id: 1,
@@ -217,7 +218,6 @@ Object {
       "object:remove",
     ],
   },
-  "multiSelectionKey": "id",
   "toolbar": Object {
     "actionBar": Object {
       "actions": Object {},

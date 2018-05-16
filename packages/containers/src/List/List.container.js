@@ -49,7 +49,7 @@ class List extends React.Component {
 			left: PropTypes.arrayOf(PropTypes.string),
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
-		multiSelectionKey: PropTypes.string,
+		idKey: PropTypes.string,
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -117,14 +117,14 @@ class List extends React.Component {
 
 	onToggleMultiSelection(event, data) {
 		const selectedItems = this.getSelectedItems();
-		const dataIndex = selectedItems.indexOf(data[this.props.multiSelectionKey]);
+		const dataIndex = selectedItems.indexOf(data[this.props.idKey]);
 		if (dataIndex > -1) {
 			this.props.setState({
 				selectedItems: selectedItems.splice(dataIndex, 1),
 			});
 		} else {
 			this.props.setState({
-				selectedItems: selectedItems.push(data[this.props.multiSelectionKey]),
+				selectedItems: selectedItems.push(data[this.props.idKey]),
 			});
 		}
 	}
@@ -134,7 +134,7 @@ class List extends React.Component {
 		const items = this.props.items;
 		if (selectedItems.size !== items.size) {
 			this.props.setState({
-				selectedItems: items.map(item => item.get(this.props.multiSelectionKey)),
+				selectedItems: items.map(item => item.get(this.props.idKey)),
 			});
 		} else {
 			this.props.setState({
@@ -155,7 +155,7 @@ class List extends React.Component {
 
 	isSelected(item) {
 		const selectedItems = this.getSelectedItems();
-		return selectedItems.some(itemKey => itemKey === item[this.props.multiSelectionKey]);
+		return selectedItems.some(itemKey => itemKey === item[this.props.idKey]);
 	}
 
 	render() {
@@ -235,7 +235,7 @@ class List extends React.Component {
 			props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
 
 			// settings up multi selection
-			if (props.multiSelectActions && props.multiSelectionKey) {
+			if (props.multiSelectActions && props.idKey) {
 				props.list.itemProps.onToggle = this.onToggleMultiSelection;
 				props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
 				props.list.itemProps.isSelected = this.isSelected;
