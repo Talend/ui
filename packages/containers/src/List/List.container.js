@@ -114,7 +114,9 @@ class List extends React.Component {
 	}
 
 	isSelected(item) {
-		return this.props.state.get('selectedItems').some(itemKey => itemKey === item.get(this.props.idKey));
+		return this.props.state
+			.get('selectedItems')
+			.some(itemKey => itemKey === item.get(this.props.idKey));
 	}
 
 	render() {
