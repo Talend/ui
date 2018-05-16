@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Map } from 'immutable';
-import { api, componentState } from '@talend/react-cmf';
+import { api, cmfConnect } from '@talend/react-cmf';
 
 import { deleteACK } from '../../actions/ack';
 
@@ -25,7 +24,7 @@ class ACKDispatcher extends React.Component {
 	static displayName = 'Container(ACKDispatcher)';
 	static propTypes = {
 		acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 	static contextTypes = {
 		registry: PropTypes.object,

@@ -90,7 +90,6 @@ exports[`Storyshots ActionList default 1`] = `
   <div
     style={
       Object {
-        "background": "#236192",
         "display": "inline-table",
       }
     }
@@ -104,7 +103,9 @@ exports[`Storyshots ActionList default 1`] = `
         title="Recent datasets"
       >
         <button
+          aria-label="Recent datasets"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-recent-datasets"
           onClick={[Function]}
@@ -116,6 +117,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-clock"
             title={null}
           >
             <use
@@ -133,7 +135,9 @@ exports[`Storyshots ActionList default 1`] = `
         title="Favorite datasets"
       >
         <button
+          aria-label="Favorite datasets"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-favorite-datasets"
           onClick={[Function]}
@@ -145,6 +149,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -162,7 +167,9 @@ exports[`Storyshots ActionList default 1`] = `
         title="Certified datasets"
       >
         <button
+          aria-label="Certified datasets"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-certified-datasets"
           onClick={[Function]}
@@ -174,6 +181,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-badge"
             title={null}
           >
             <use
@@ -191,7 +199,9 @@ exports[`Storyshots ActionList default 1`] = `
         title="All datasets"
       >
         <button
+          aria-label="All datasets"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-all-datasets"
           onClick={[Function]}
@@ -203,6 +213,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-expanded"
             title={null}
           >
             <use
@@ -220,7 +231,9 @@ exports[`Storyshots ActionList default 1`] = `
         title="Import file"
       >
         <button
+          aria-label="Import file"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-import-file"
           onClick={[Function]}
@@ -232,6 +245,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-folder"
             title={null}
           >
             <use
@@ -249,7 +263,9 @@ exports[`Storyshots ActionList default 1`] = `
         title="Use magic"
       >
         <button
+          aria-label="Use magic"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-use-magic"
           onClick={[Function]}
@@ -261,6 +277,7 @@ exports[`Storyshots ActionList default 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-tdp-negative"
             title={null}
           >
             <use
@@ -367,7 +384,6 @@ exports[`Storyshots ActionList single 1`] = `
   <div
     style={
       Object {
-        "background": "#236192",
         "display": "inline-table",
       }
     }
@@ -381,7 +397,9 @@ exports[`Storyshots ActionList single 1`] = `
         title="Favorite datasets"
       >
         <button
+          aria-label="Favorite datasets"
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-favorite-datasets"
           onClick={[Function]}
@@ -393,6 +411,7 @@ exports[`Storyshots ActionList single 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-star"
             title={null}
           >
             <use
@@ -532,7 +551,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
     <div
       style={
         Object {
-          "background": "#236192",
           "display": "inline-table",
         }
       }
@@ -546,7 +564,9 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           title="Recent datasets"
         >
           <button
+            aria-label="Recent datasets"
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-recent-datasets"
             onClick={[Function]}
@@ -558,6 +578,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-clock"
               title={null}
             >
               <use
@@ -575,7 +596,9 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           title="Favorite datasets"
         >
           <button
+            aria-label="Favorite datasets"
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-favorite-datasets"
             onClick={[Function]}
@@ -587,6 +610,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-star"
               title={null}
             >
               <use
@@ -604,7 +628,9 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           title="Certified datasets"
         >
           <button
+            aria-label="Certified datasets"
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-certified-datasets"
             onClick={[Function]}
@@ -616,6 +642,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-badge"
               title={null}
             >
               <use
@@ -633,7 +660,9 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           title="All datasets"
         >
           <button
+            aria-label="All datasets"
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-all-datasets"
             onClick={[Function]}
@@ -645,6 +674,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-expanded"
               title={null}
             >
               <use
@@ -662,7 +692,9 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           title="Import file"
         >
           <button
+            aria-label="Import file"
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-import-file"
             onClick={[Function]}
@@ -674,6 +706,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-folder"
               title={null}
             >
               <use
@@ -691,7 +724,9 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           title="Use magic"
         >
           <button
+            aria-label="Use magic"
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-use-magic"
             onClick={[Function]}
@@ -703,6 +738,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-tdp-negative"
               title={null}
             >
               <use

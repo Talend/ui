@@ -1,4 +1,5 @@
 import { List } from 'immutable';
+import getToJSMemoized from './toJS';
 
 export function getAll(state) {
 	return state.cmf.collections;
@@ -41,4 +42,14 @@ export function findListItem(state, collectionPath, itemId) {
 		`Type mismatch: ${collectionPath} does not resolve as an instance of Immutable.List,
 got ${collectionOrCollectionSubset}`,
 	);
+}
+
+const selectors = {};
+
+export function toJS(state, path) {
+	const joinedPath = Array.isArray(path) ? path.join('.') : path;
+	if (!selectors[joinedPath]) {
+		selectors[joinedPath] = getToJSMemoized(calledState => get(calledState, path));
+	}
+	return selectors[joinedPath](state);
 }

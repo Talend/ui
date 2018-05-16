@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
+import { I18nextProvider } from 'react-i18next';
 import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
 import { api } from '@talend/react-cmf';
@@ -8,7 +9,7 @@ import { api } from '@talend/react-cmf';
 import DataGrid from '../src/';
 import register from '../src/register';
 import theme from '../src/components/DataGrid/DataGrid.scss';
-
+import i18n, { LanguageSwitcher } from './config/i18n';
 import sample from './sample.json';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -187,6 +188,12 @@ const options = {
 };
 
 storiesOf('Container Datagrid')
+	.addDecorator(story => (
+		<div>
+			<LanguageSwitcher />
+			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+		</div>
+	))
 	.addWithCMF(
 		'default',
 		() => (

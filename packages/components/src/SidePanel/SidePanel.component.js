@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
-
+import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
@@ -53,7 +52,9 @@ function SidePanel({
 		reverse,
 		[theme.reverse]: reverse,
 	});
-	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
+		'nav-inverse': !reverse,
+	});
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
@@ -127,4 +128,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);
+export default translate(I18N_DOMAIN_COMPONENTS)(SidePanel);

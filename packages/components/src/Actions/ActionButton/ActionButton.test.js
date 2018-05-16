@@ -1,11 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import ActionButton from './ActionButton.component';
+import { shallow, mount } from 'enzyme';
+import { ActionButton } from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
+	title: 'Title to describe click me button',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
+	'data-feature': 'action.feature',
 };
 
 const mouseDownAction = {
@@ -18,6 +20,22 @@ describe('Action', () => {
 	it('should render a button', () => {
 		// when
 		const wrapper = shallow(<ActionButton {...myAction} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton loading />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a link button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton link loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -137,6 +155,7 @@ describe('Action', () => {
 			...myAction,
 			overlayComponent: OverlayComponent,
 			overlayPlacement: 'bottom',
+			overlayId: 'myOverlayId',
 		};
 
 		// when
@@ -145,5 +164,33 @@ describe('Action', () => {
 		// then
 		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should called ref method on overlay', () => {
+		// given
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>;
+		}
+		const myRefFunc = jest.fn();
+		const props = {
+			...myAction,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+			overlayRef: myRefFunc,
+			overlayId: 'myOverlayId',
+		};
+		// when
+		mount(<ActionButton {...props} />);
+
+		// then
+		expect(myRefFunc).toHaveBeenCalled();
+	});
+	it('should called ref method on button', () => {
+		// Given
+		const myRefFunc = jest.fn();
+		// when
+		mount(<ActionButton {...myAction} buttonRef={myRefFunc} />);
+
+		// then
+		expect(myRefFunc).toHaveBeenCalled();
 	});
 });

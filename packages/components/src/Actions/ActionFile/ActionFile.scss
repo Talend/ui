@@ -1,10 +1,6 @@
-/** this more specific selector is here else some boostrap rules
- * targeting this html element
- * will override ction-file-label
- */
 input[type='file'] {
-	&.action-file-label {
-		display: none;
+	&.action-file-input:focus + label {
+		@include tab-focus;
 	}
 }
 

@@ -45,6 +45,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 className="tc-actions btn-group"
               >
                 <button
+                  aria-label="cancel"
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
@@ -63,6 +64,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                   </span>
                 </button>
                 <button
+                  aria-label="delete"
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
@@ -88,6 +90,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className="theme-undefined theme-col-4"
         >
           <button
+            aria-label="edit"
             className="theme-undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -146,6 +149,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-caret-down"
         title={null}
       >
         <use
@@ -239,6 +243,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 className="tc-actions btn-group"
               >
                 <button
+                  aria-label="cancel"
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
@@ -257,6 +262,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                   </span>
                 </button>
                 <button
+                  aria-label="delete"
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
@@ -282,6 +288,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className="theme-undefined theme-col-4"
         >
           <button
+            aria-label="edit"
             className="theme-undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -340,6 +347,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-caret-down"
         title={null}
       >
         <use
@@ -433,6 +441,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 className="tc-actions btn-group"
               >
                 <button
+                  aria-label="cancel"
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
@@ -451,6 +460,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                   </span>
                 </button>
                 <button
+                  aria-label="delete"
                   className="btn btn-default"
                   disabled={false}
                   onClick={[Function]}
@@ -476,6 +486,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className="theme-undefined theme-col-4"
         >
           <button
+            aria-label="edit"
             className="theme-undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -589,6 +600,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-caret-down"
         title={null}
       >
         <use

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import MultiSelectTagWidget from './MultiSelectTagWidget';
+import { MultiSelectTagWidgetComponent } from './MultiSelectTagWidget';
 
 describe('MultiSelectTagWidget', () => {
 	it('should render multiSelectTagWidget', () => {
@@ -27,7 +27,7 @@ describe('MultiSelectTagWidget', () => {
 		};
 
 		const wrapper = shallow(
-			<MultiSelectTagWidget options={options} schema={schema} value={value} />,
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
 		);
 
 		// then
@@ -56,7 +56,9 @@ describe('MultiSelectTagWidget', () => {
 			noAvailableMessage: 'None',
 		};
 
-		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
+		const wrapper = mount(
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
+		);
 
 		// when
 		wrapper
@@ -93,7 +95,9 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
+		const wrapper = mount(
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
+		);
 
 		// when
 		wrapper
@@ -137,7 +141,9 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
+		const wrapper = mount(
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
+		);
 
 		// when
 		wrapper.find('input').simulate('focus');

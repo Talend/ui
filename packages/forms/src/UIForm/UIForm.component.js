@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
+import { translate } from 'react-i18next';
 
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
@@ -11,8 +12,11 @@ import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue } from './utils/properties';
 import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
+import customFormats from './customFormats';
+import { I18N_DOMAIN_FORMS } from '../constants';
+import '../translate';
 
-export default class UIForm extends React.Component {
+export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
 		super(props);
@@ -31,10 +35,16 @@ export default class UIForm extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
 		// control the tv4 language here.
+		const language = getLanguage(props.t);
+		if (typeof props.language === 'function') {
+			Object.assign(language, props.language);
+		}
 		if (!tv4.language('@talend')) {
-			tv4.addLanguage('@talend', props.language);
+			tv4.addLanguage('@talend', language);
 			tv4.language('@talend'); // set it
 		}
+		const allFormats = Object.assign(customFormats(props.t), props.customFormats);
+		tv4.addFormat(allFormats);
 	}
 
 	/**
@@ -194,7 +204,7 @@ export default class UIForm extends React.Component {
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit({ formData: properties });
+				this.props.onSubmit(null, { formData: properties });
 			} else {
 				this.props.onSubmit(event, properties);
 			}
@@ -255,9 +265,10 @@ export default class UIForm extends React.Component {
 		);
 	}
 }
+const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
-	UIForm.propTypes = {
+	I18NUIForm.propTypes = {
 		...formPropTypes,
 
 		/** Form definition: Json schema that specify the data model */
@@ -284,6 +295,10 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is triggered on fields that has their uiSchema > customValidation : true
 		 */
 		customValidation: PropTypes.func,
+		/*
+		 * Form definition: Custom formats
+		 */
+		customFormats: PropTypes.object,
 		/**
 		 * User callback: Trigger
 		 * Prototype: function onTrigger(event, { trigger, schema, properties })
@@ -299,11 +314,14 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 	};
+	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
 
-UIForm.defaultProps = {
+I18NUIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},
-	language: getLanguage(),
 };
+UIFormComponent.defaultProps = I18NUIForm.defaultProps;
+
+export default I18NUIForm;

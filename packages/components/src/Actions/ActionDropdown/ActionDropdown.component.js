@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import classNames from 'classnames';
+import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
@@ -51,7 +53,7 @@ InjectDropdownMenuItem.propTypes = {
 };
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
-function getMenuItem(item, index, getComponent) {
+function renderMutableMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
@@ -62,6 +64,14 @@ function getMenuItem(item, index, getComponent) {
 			{item.label}
 		</Renderers.MenuItem>
 	);
+}
+
+function getMenuItem(item, index, getComponent) {
+	if (Iterable.isIterable(item)) {
+		return renderMutableMenuItem(item.toJS(), index, getComponent);
+	}
+
+	return renderMutableMenuItem(item, index, getComponent);
 }
 
 /**
@@ -130,9 +140,12 @@ function ActionDropdown(props) {
 			role="button"
 			onSelect={onItemSelect}
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
+			aria-label={tooltipLabel || label}
 			{...rest}
 		>
-			{!items.length && !components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
+			{!items.length &&
+				!items.size &&
+				!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
 			{injected('beforeItemsDropdown')}
 			{items.map((item, key) => getMenuItem(item, key, getComponent))}
 			{injected('itemsDropdown')}
@@ -158,13 +171,16 @@ ActionDropdown.propTypes = {
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			icon: PropTypes.string,
-			label: PropTypes.string,
-			...MenuItem.propTypes,
-		}),
-	).isRequired,
+	items: PropTypes.oneOfType([
+		PropTypes.arrayOf(
+			PropTypes.shape({
+				icon: PropTypes.string,
+				label: PropTypes.string,
+				...MenuItem.propTypes,
+			}),
+		),
+		ImmutablePropTypes.list,
+	]).isRequired,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	onSelect: PropTypes.func,

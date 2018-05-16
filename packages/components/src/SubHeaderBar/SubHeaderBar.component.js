@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
+import getDefaultT from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import InputTitleSubHeader from './InputTitleSubHeader';
@@ -105,7 +105,7 @@ function SubHeaderBar({
 				{injected('center')}
 				{Array.isArray(center) &&
 					center.map((item, index) => (
-						<SubHeaderBarActions center hasRight={hasRight}>
+						<SubHeaderBarActions center hasRight={hasRight} key={index}>
 							<Renderer.Action key={index} {...item} />
 						</SubHeaderBarActions>
 					))}
@@ -117,6 +117,7 @@ function SubHeaderBar({
 								theme['tc-subheader-navbar-right'],
 								'tc-subheader-navbar-right',
 							)}
+							key={index}
 							right
 						>
 							<Renderer.Action key={index} {...item} />
@@ -138,13 +139,14 @@ SubHeaderBar.propTypes = {
 	left: PropTypes.array,
 	right: PropTypes.array,
 	center: PropTypes.array,
+	inProgress: PropTypes.bool,
 	...Inject.PropTypes,
 };
 
 SubHeaderBar.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 SubHeaderBar.Content = SubHeaderBarActions;
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SubHeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS)(SubHeaderBar);
 export { SubHeaderBar, SubHeaderBarActions, CustomInject };

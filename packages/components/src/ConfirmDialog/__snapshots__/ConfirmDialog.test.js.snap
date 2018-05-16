@@ -34,6 +34,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
         className="theme-navbar-left navbar-left"
       >
         <button
+          aria-label="CANCEL"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -53,6 +54,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
         className="theme-navbar-right navbar-right"
       >
         <button
+          aria-label="OK"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -117,6 +119,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
         className="theme-navbar-left navbar-left"
       >
         <button
+          aria-label="CANCEL"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -136,6 +139,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
         className="theme-navbar-right navbar-right"
       >
         <button
+          aria-label="OK"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -187,6 +191,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
         className="theme-navbar-left navbar-left"
       >
         <button
+          aria-label="CANCEL"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -206,6 +211,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
         className="theme-navbar-right navbar-right"
       >
         <button
+          aria-label="OK"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -257,6 +263,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
         className="theme-navbar-left navbar-left"
       >
         <button
+          aria-label="CANCEL"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -276,6 +283,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
         className="theme-navbar-right navbar-right"
       >
         <button
+          aria-label="Keep on Github"
           className="btn btn-info"
           disabled={false}
           onClick={[Function]}
@@ -288,6 +296,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           </span>
         </button>
         <button
+          aria-label="OK"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -339,6 +348,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
         className="theme-navbar-left navbar-left"
       >
         <button
+          aria-label="CANCEL"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -358,6 +368,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
         className="theme-navbar-right navbar-right"
       >
         <button
+          aria-label="OK"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -399,6 +410,7 @@ exports[`ConfirmDialog should render without header 1`] = `
         className="theme-navbar-left navbar-left"
       >
         <button
+          aria-label="CANCEL"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}
@@ -418,6 +430,7 @@ exports[`ConfirmDialog should render without header 1`] = `
         className="theme-navbar-right navbar-right"
       >
         <button
+          aria-label="OK"
           className="btn btn-default"
           disabled={false}
           onClick={[Function]}

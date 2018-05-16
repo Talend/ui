@@ -72,6 +72,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
             >
               <button
+                aria-label="Validate"
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
@@ -85,6 +86,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-check"
                   title={null}
                 >
                   <use
@@ -125,6 +127,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
             >
               <button
+                aria-label="Edit"
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
@@ -138,6 +141,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-pencil"
                   title={null}
                 >
                   <use
@@ -146,6 +150,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 </svg>
               </button>
               <button
+                aria-label="Delete"
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
@@ -159,6 +164,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-trash"
                   title={null}
                 >
                   <use
@@ -199,6 +205,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
             >
               <button
+                aria-label="Edit"
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
@@ -212,6 +219,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-pencil"
                   title={null}
                 >
                   <use
@@ -220,6 +228,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                 </svg>
               </button>
               <button
+                aria-label="Delete"
                 className="btn btn-link"
                 disabled={false}
                 onClick={[Function]}
@@ -233,6 +242,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-trash"
                   title={null}
                 >
                   <use

@@ -11,6 +11,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
       className="theme-navbar-left navbar-left"
     >
       <button
+        aria-label="Add"
         className="btn btn-primary"
         disabled={false}
         id="my-toolbar-actions-add"
@@ -23,6 +24,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-plus"
           title={null}
         >
           <use
@@ -51,10 +53,10 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       <span
         className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
       >
-        1
-         selected
+        1 selected
       </span>
       <button
+        aria-label="Delete selection"
         className="btn btn-default"
         disabled={false}
         id="my-toolbar-actions-delete"
@@ -67,6 +69,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-trash"
           title={null}
         >
           <use
@@ -124,6 +127,7 @@ exports[`Toolbar should render display mode selector 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-table"
               title={null}
             >
               <use
@@ -157,6 +161,7 @@ exports[`Toolbar should render display mode selector 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-table"
                   title={null}
                 >
                   <use
@@ -183,6 +188,7 @@ exports[`Toolbar should render display mode selector 1`] = `
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-expanded"
                   title={null}
                 >
                   <use
@@ -218,6 +224,7 @@ exports[`Toolbar should render filter form 1`] = `
       className="container-fluid"
     >
       <button
+        aria-label="Toggle filter"
         className="navbar-right btn btn-link"
         disabled={false}
         id="my-toolbar-filter"
@@ -232,6 +239,7 @@ exports[`Toolbar should render filter form 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-search"
           title={null}
         >
           <use
@@ -371,6 +379,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-chevron-end"
               title={null}
             >
               <use
@@ -395,6 +404,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-chevron-left"
               title={null}
             >
               <use
@@ -445,6 +455,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
               focusable="false"
+              name="talend-chevron-left"
               title={null}
             >
               <use
@@ -469,6 +480,7 @@ exports[`Toolbar should render pagination 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
               focusable="false"
+              name="talend-chevron-end"
               title={null}
             >
               <use

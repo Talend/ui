@@ -1,5 +1,4 @@
-cmfConnect
-==
+# cmfConnect
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
@@ -12,8 +11,7 @@ cmfConnect
 
 Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
-API
---
+## API
 
 ```javascript
 cmfConnect({
@@ -25,8 +23,8 @@ cmfConnect({
 })(Component);
 ```
 
-How to use component state
---
+## How to use component state
+
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
@@ -94,8 +92,8 @@ this.props.setState(
 );
 ```
 
-If you want the component to support the props `initialState` to make the state spawned with this value;
-This lets save one render if you know the first state.
+If you want the component to be instantiated and rendered directly with a custum state and overwrite the `defaultState`, it can be done with the `initialState` prop.
+This saves one render if you know the first state.
 
 How to use expression
 --
@@ -167,7 +165,7 @@ import { cmfConnect } from "@talend/react-cmf";
 
 function SimpleButton ({label, onClick}) {
     return (
-      <button onClick={props.onClick}>{label}</button>
+      <button onClick={onClick}>{label}</button>
     );
   }
 }
@@ -211,11 +209,19 @@ export default cmfConnect({})(SimpleButton);
 		}
 	}
 }
+
 ```
 
+## How to render conditionally
 
-How to test
---
+Every component that connected with CMF can be rendered conditionally
+
+If you want to render some component conditionally, just pass "renderIf" prop (type boolean) to it
+
+You can also use Expression for this and customize this prop like "renderIfExpression" in
+CMF json configuration files
+
+## How to test
 
 
 When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).

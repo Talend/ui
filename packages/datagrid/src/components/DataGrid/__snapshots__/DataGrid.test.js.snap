@@ -6,6 +6,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
 >
   <AgGridReact
     columnDefs={Array []}
+    deltaRowDataMode={true}
     enableColResize={true}
     frameworkComponents={
       Object {
@@ -14,6 +15,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
         "pinHeaderRenderer": [Function],
       }
     }
+    getRowNodeId={[Function]}
     headerHeight={55}
     navigateToNextCell={[Function]}
     onCellFocused={[Function]}
@@ -21,6 +23,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
     onViewportChanged={[Function]}
     onVirtualColumnsChanged={[Function]}
     overlayNoRowsTemplate={undefined}
+    rowBuffer={undefined}
     rowData={Array []}
     rowHeight={39}
     rowSelection="single"
@@ -48,9 +51,18 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
         },
         Object {
           "@talend-quality@": Object {
-            "-1": 62,
-            "0": 0,
-            "1": 38,
+            "-1": Object {
+              "percentage": 0,
+              "total": 62,
+            },
+            "0": Object {
+              "percentage": 0,
+              "total": 0,
+            },
+            "1": Object {
+              "percentage": 0,
+              "total": 38,
+            },
           },
           "avro": Object {
             "@talend-quality@": Object {
@@ -72,15 +84,24 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerName": "Nom de la gare",
           "lockPinned": true,
           "minWidth": 30,
-          "type": "FR Commune",
+          "type": "FR Commune*",
           "valueGetter": [Function],
           "width": 150,
         },
         Object {
           "@talend-quality@": Object {
-            "-1": 0,
-            "0": 0,
-            "1": 100,
+            "-1": Object {
+              "percentage": 0,
+              "total": 0,
+            },
+            "0": Object {
+              "percentage": 0,
+              "total": 0,
+            },
+            "1": Object {
+              "percentage": 0,
+              "total": 100,
+            },
           },
           "avro": Object {
             "@talend-quality@": Object {
@@ -102,12 +123,13 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerName": "Code UIC",
           "lockPinned": true,
           "minWidth": 30,
-          "type": "int",
+          "type": "int*",
           "valueGetter": [Function],
           "width": 150,
         },
       ]
     }
+    deltaRowDataMode={true}
     enableColResize={true}
     frameworkComponents={
       Object {
@@ -116,6 +138,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
         "pinHeaderRenderer": [Function],
       }
     }
+    getRowNodeId={[Function]}
     headerHeight={55}
     navigateToNextCell={[Function]}
     onCellFocused={[Function]}
@@ -123,6 +146,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
     onViewportChanged={[Function]}
     onVirtualColumnsChanged={[Function]}
     overlayNoRowsTemplate={undefined}
+    rowBuffer={undefined}
     rowData={
       Array [
         Object {
@@ -187,6 +211,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
             "value": "10880464",
           },
           "index.index": 0,
+          "loading": false,
         },
         Object {
           "data.field0": Object {
@@ -250,6 +275,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
             "value": "",
           },
           "index.index": 1,
+          "loading": false,
         },
       ]
     }
@@ -265,9 +291,8 @@ exports[`#DataGrid should render one Skeleton is InProgress 1`] = `
 <div
   className="theme-td-grid-loading theme-td-grid td-grid"
 >
-  <Skeleton
+  <Translate(Skeleton)
     name="talend-table"
-    size="medium"
     type="icon"
   />
 </div>

@@ -43,6 +43,7 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
     </span>
   </button>
   <button
+    aria-label="delete"
     className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
@@ -56,6 +57,7 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
@@ -84,6 +86,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
     </span>
   </button>
   <button
+    aria-label="delete"
     className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
@@ -97,6 +100,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use
@@ -151,6 +155,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
     onMouseOver={[Function]}
   >
     <button
+      aria-label="delete"
       className="tc-badge-delete-icon theme-tc-badge-delete-icon theme-btn-disabled btn btn-default"
       disabled={true}
       id="tc-badge-delete-delete"
@@ -163,6 +168,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-cross"
         title={null}
       >
         <use
@@ -192,6 +198,7 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
     </span>
   </button>
   <button
+    aria-label="delete"
     className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
@@ -205,6 +212,7 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use

@@ -20,9 +20,9 @@ const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
 	'talend-launcher': talendIcons['talend-launcher'],
 	'talend-logo': talendIcons['talend-logo'],
-	'talend-logo-dp': talendIcons['talend-logo-dp'],
-	'talend-logo-ic': talendIcons['talend-logo-ic'],
-	'talend-logo-mc': talendIcons['talend-logo-mc'],
+	'talend-tdp-colored': talendIcons['talend-tdp-colored'],
+	'talend-tic-colored': talendIcons['talend-tic-colored'],
+	'talend-tmc-colored': talendIcons['talend-tmc-colored'],
 	'talend-logo-square': talendIcons['talend-logo-square'],
 	'talend-question-circle': talendIcons['talend-question-circle'],
 	'talend-search': talendIcons['talend-search'],
@@ -123,6 +123,7 @@ const props = {
 		id: 'header-user',
 		items: [
 			{
+				id: 'settings',
 				icon: 'talend-cog',
 				label: 'Settings',
 				onClick: action('onSettingsClick'),
@@ -135,17 +136,17 @@ const props = {
 	products: {
 		items: [
 			{
-				icon: 'talend-logo-dp',
+				icon: 'talend-tdp-colored',
 				key: 'tdp',
 				label: 'Data Preparation',
 			},
 			{
-				icon: 'talend-logo-ic',
+				icon: 'talend-tic-colored',
 				key: 'tic',
 				label: 'Integration Cloud',
 			},
 			{
-				icon: 'talend-logo-mc',
+				icon: 'talend-tmc-colored',
 				key: 'tmc',
 				label: 'Management Console',
 			},

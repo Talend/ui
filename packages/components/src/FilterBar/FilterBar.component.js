@@ -4,9 +4,11 @@ import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
+import { translate } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
-import { getDefaultTranslate } from '../translate';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -87,7 +89,7 @@ FilterInput.propTypes = {
  * @example
  <FilterBar id="my-filter" docked="false" onFilter="filter()"></Filter>
  */
-class FilterBar extends React.Component {
+export class FilterBarComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onFocus = this.onFocus.bind(this);
@@ -157,7 +159,7 @@ class FilterBar extends React.Component {
 						[theme.animate]: this.props.dockable,
 					})}
 				>
-					{!(this.state.focus || this.state.value) && (
+					{(this.props.iconAlwaysVisible || !(this.state.focus || this.state.value)) && (
 						<Icon name="talend-search" className={theme['search-icon']} />
 					)}
 					<FilterInput
@@ -189,9 +191,10 @@ class FilterBar extends React.Component {
 	}
 }
 
-FilterBar.displayName = 'FilterBar';
-FilterBar.propTypes = {
+FilterBarComponent.displayName = 'FilterBar';
+FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
+	iconAlwaysVisible: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -211,15 +214,16 @@ FilterBar.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-FilterBar.defaultProps = {
+FilterBarComponent.defaultProps = {
 	autoFocus: true,
 	dockable: true,
 	docked: true,
+	iconAlwaysVisible: false,
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 	className: '',
 };
 
-export default FilterBar;
+export default translate(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);

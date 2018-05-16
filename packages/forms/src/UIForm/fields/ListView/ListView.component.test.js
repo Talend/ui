@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { mount, shallow } from 'enzyme';
 import keycode from 'keycode';
 import ListView, { ListViewWidget } from './ListView.component';
+import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
 
 jest.useFakeTimers();
 
@@ -76,7 +77,7 @@ describe('ListView field', () => {
 			const wrapper = shallow(<ListView {...props} />);
 
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		});
 
 		it('should render no items message', () => {
@@ -84,12 +85,7 @@ describe('ListView field', () => {
 			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
-			expect(
-				wrapper
-					.find('.tc-listview')
-					.at(0)
-					.getElement(),
-			).toMatchSnapshot();
+			expect(toJsonWithoutI18n(wrapper.find('.tc-listview').at(0))).toMatchSnapshot();
 		});
 	});
 
@@ -203,7 +199,7 @@ describe('ListView field', () => {
 
 		it('should switch back to default mode on abort button click', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			const wrapper = mount(<ListViewWidget {...props} />);
 			filter(wrapper, 'ia');
 
 			expect(wrapper.state()).toMatchSnapshot();
@@ -220,7 +216,7 @@ describe('ListView field', () => {
 
 		it('should switch back to default mode on ESC keydown', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			const wrapper = mount(<ListViewWidget {...props} />);
 			filter(wrapper, 'ia');
 
 			expect(wrapper.state()).toMatchSnapshot();
