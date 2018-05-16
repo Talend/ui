@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { Map, fromJS } from 'immutable';
+import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Container, { DEFAULT_STATE } from './List.container';
@@ -329,7 +329,8 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [1] });
+			expect(multiSelectionSetting.setState.mock.calls[0][0])
+				.toEqual({ selectedItems: new ImmutableList([1]) });
 		});
 
 		it('should deselect one item', () => {
@@ -348,7 +349,8 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [] });
+			expect(multiSelectionSetting.setState.mock.calls[0][0])
+				.toEqual({ selectedItems: new ImmutableList([]) });
 		});
 		it('should select all items', () => {
 			// given
@@ -366,7 +368,9 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleAllMultiSelection();
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [1, 2, 3] });
+
+			expect(multiSelectionSetting.setState.mock.calls[0][0])
+				.toEqual({ selectedItems: new ImmutableList([1, 2, 3]) });
 		});
 
 		it('should deselect all items', () => {
@@ -385,7 +389,8 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleAllMultiSelection();
 			// then
-			expect(multiSelectionSetting.setState).toHaveBeenCalledWith({ selectedItems: [] });
+			expect(multiSelectionSetting.setState.mock.calls[0][0])
+				.toEqual({ selectedItems: new ImmutableList([]) });
 		});
 
 		it('should display multiActions', () => {

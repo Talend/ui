@@ -88,9 +88,6 @@ class List extends React.Component {
 		this.isSelected = this.isSelected.bind(this);
 	}
 
-	getSelectedItems() {
-		return this.props.state.get('selectedItems', new ImmutableList());
-	}
 	onSelectSortBy(event, payload) {
 		this.props.setState({
 			sortOn: payload.field,
@@ -119,31 +116,35 @@ class List extends React.Component {
 	}
 
 	onToggleMultiSelection(event, data) {
-		const state = this.props.state.toJS();
-		const selectedItems = state.selectedItems.slice();
+		const selectedItems = this.getSelectedItems();
 		const dataIndex = selectedItems.indexOf(data[this.props.multiSelectionKey]);
 		if (dataIndex > -1) {
-			selectedItems.splice(dataIndex, 1);
+			this.props.setState({
+				selectedItems: selectedItems.splice(dataIndex, 1),
+			});
 		} else {
-			selectedItems.push(data[this.props.multiSelectionKey]);
+			this.props.setState({
+				selectedItems: selectedItems.push(data[this.props.multiSelectionKey]),
+			});
 		}
-		this.props.setState({
-			selectedItems,
-		});
 	}
 
 	onToggleAllMultiSelection() {
-		const state = this.props.state.toJS();
-		const items = this.props.items.toJS();
-		if (state.selectedItems.length !== items.length) {
+		const selectedItems = this.getSelectedItems();
+		const items = this.props.items;
+		if (selectedItems.size !== items.size) {
 			this.props.setState({
-				selectedItems: items.map(item => item[this.props.multiSelectionKey]),
+				selectedItems: items.map(item => item.get(this.props.multiSelectionKey)),
 			});
 		} else {
 			this.props.setState({
-				selectedItems: [],
+				selectedItems: new ImmutableList([]),
 			});
 		}
+	}
+
+	getSelectedItems() {
+		return this.props.state.get('selectedItems', new ImmutableList());
 	}
 
 	getGenericDispatcher(property) {
