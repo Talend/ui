@@ -17,4 +17,8 @@ export default class TableConfiguration extends SchemaConfiguration {
 				return [];
 		}
 	}
+
+	withHeader(side) {
+		return false;
+	}
 }

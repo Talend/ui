@@ -103,7 +103,6 @@ export default class Mapping extends Component {
 		return (
 			<div className="mapping mapper-element">
 				<MappingActions {...this.props} />
-				<div className="separator horizontal" />
 				<div ref={this.updateMappingContentRef} className="mapping-content">
 					<MappingRenderer
 						{...mappingProps}

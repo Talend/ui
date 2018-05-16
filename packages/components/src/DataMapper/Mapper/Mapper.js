@@ -785,6 +785,7 @@ export default class Mapper extends Component {
 					columnKeys={schemaConfiguration.getColumns(inputSide)}
 					filters={filters.input}
 					isElementVisible={this.isElementVisible}
+					withHeader={schemaConfiguration.withHeader(inputSide)}
 				/>
 				<Schema
 					{...commonSchemaProps}
@@ -799,6 +800,7 @@ export default class Mapper extends Component {
 					columnKeys={schemaConfiguration.getColumns(outputSide)}
 					filters={filters.output}
 					isElementVisible={this.isElementVisible}
+					withHeader={schemaConfiguration.withHeader(outputSide)}
 				/>
 				<Mapping
 					ref={this.updateGMapRef}

@@ -16,4 +16,8 @@ export default class SchemaConfiguration {
 	getColumns(side) {
 		return [];
 	}
+
+	withHeader(side) {
+		return true;
+	}
 }

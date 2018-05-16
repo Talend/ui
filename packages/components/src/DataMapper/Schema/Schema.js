@@ -213,7 +213,15 @@ export default class Schema extends Component {
 
 	render() {
 		const { SchemaRenderer, ...tempProps } = this.props;
-		const { dataAccessor, schema, side, filters, filterComponents, onFilterChange } = this.props;
+		const {
+			dataAccessor,
+			schema,
+			side,
+			filters,
+			filterComponents,
+			onFilterChange,
+			withHeader,
+		} = this.props;
 		const contentProps = {
 			...tempProps,
 			isMapped,
@@ -223,15 +231,16 @@ export default class Schema extends Component {
 		};
 		return (
 			<div className={`schema mapper-element ${side}`}>
-				<SchemaHeader
-					dataAccessor={dataAccessor}
-					schema={schema}
-					side={side}
-					filters={filters}
-					filterComponents={filterComponents}
-					onFilterChange={onFilterChange}
-				/>
-				<div className="separator horizontal" />
+				{withHeader && (
+					<SchemaHeader
+						dataAccessor={dataAccessor}
+						schema={schema}
+						side={side}
+						filters={filters}
+						filterComponents={filterComponents}
+						onFilterChange={onFilterChange}
+					/>
+				)}
 				<SchemaRenderer {...contentProps} ref={this.updateRendererNodeRef} />
 			</div>
 		);
@@ -249,4 +258,5 @@ Schema.propTypes = {
 	onScroll: PropTypes.func,
 	side: PropTypes.string,
 	isElementVisible: PropTypes.func,
+	withHeader: PropTypes.bool,
 };
