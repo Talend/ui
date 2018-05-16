@@ -88,178 +88,124 @@ const persistentActions = [
 const props = {
 	id: 'talend',
 	displayMode: 'table',
-	columns: [
-		{ key: 'id', label: 'Id' },
-		{ key: 'name', label: 'Name' },
-		{ key: 'author', label: 'Author' },
-		{ key: 'created', label: 'Created' },
-		{ key: 'modified', label: 'Modified' },
-	],
-	items: [
-		{
-			id: 0,
-			name: 'Title with actions',
-			created: '2016-09-22',
-			modified: '2016-09-22',
-			author: 'Jean-Pierre DUPONT',
-			actions,
-			icon: 'talend-file-xls-o',
-			display: 'text',
-			className: 'item-0-class',
-		},
-		{
-			persistentActions,
-			id: 1,
-			name: 'Title in input mode',
-			created: '2016-09-22',
-			modified: '2016-09-22',
-			author: 'Jean-Pierre DUPONT',
-			icon: 'talend-file-json-o',
-			display: 'input',
-			className: 'item-1-class',
-		},
-		{
-			persistentActions,
-			id: 2,
-			name: 'Super long title to trigger overflow on tile rendering',
-			created: '2016-09-22',
-			modified: '2016-09-22',
-			author:
-				'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
-			className: 'item-2-class',
-		},
-		{
-			persistentActions,
-			id: 3,
-			name: 'Title with long long long long long long long long long long long text',
-			created: '2016-09-22',
-			modified: '2016-09-22',
-			author: 'Jean-Pierre DUPONT',
-			actions,
-			icon: 'talend-file-xls-o',
-			display: 'text',
-			className: 'item-3-class',
-		},
-	],
-	titleKey: 'name',
-	titleIconKey: 'icon',
-	titleDisplayModeKey: 'display',
-	onTitleClick: action('onTitleClick'),
-	onTitleEditCancel: action('onEditCancel'),
-	onTitleEditSubmit: action('onEditSubmit'),
-	actions: {
-		left: [
+	list: {
+		columns: [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'author', label: 'Author' },
+			{ key: 'created', label: 'Created' },
+			{ key: 'modified', label: 'Modified' },
+		],
+		items: [
 			{
-				id: 'add',
-				label: 'Add Folder',
-				bsStyle: 'primary',
-				icon: 'talend-plus-circle',
-				onClick: action('add.onClick'),
+				id: 0,
+				name: 'Title with actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-0-class',
 			},
 			{
-				displayMode: 'splitDropdown',
-				label: 'Add File',
-				icon: 'talend-folder',
-				onClick: action('onAdd'),
-				items: [
-					{
-						label: 'From Local',
-						onClick: action('From Local click'),
-					},
-					{
-						label: 'From Remote',
-						onClick: action('From Remote click'),
-					},
-				],
-				emptyDropdownLabel: 'No option',
+				persistentActions,
+				id: 1,
+				name: 'Title in input mode',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				icon: 'talend-file-json-o',
+				display: 'input',
+				className: 'item-1-class',
+			},
+			{
+				persistentActions,
+				id: 2,
+				name: 'Super long title to trigger overflow on tile rendering',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author:
+					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+				className: 'item-2-class',
+			},
+			{
+				persistentActions,
+				id: 3,
+				name: 'Title with long long long long long long long long long long long text',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
 			},
 		],
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onTitleClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
+		itemProps: {
+			classNameKey: 'className',
+		},
 	},
-	onDisplayChange: action('display.onChange'),
-	sortOn: 'name',
-	onSort: action('sort.onChange'),
-	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
-	itemsPerPage: 5,
-	totalResults: 10,
-	onPaginationChange: action('pagination.onChange'),
-	onFilterBlur: action('filter.onBlur'),
-	onFilterFocus: action('filter.onFocus'),
-	onFilterChange: action('filter.onFilter'),
-	onFilterToggle: action('filter.onToggle'),
-	filterDocked: true,
-	filterPlaceholder: 'search for something',
-};
-
-const referenceDatetime = Date.now();
-const minusThreeHours = referenceDatetime - 3600 * 3 * 1000;
-const minusTwoHours = referenceDatetime - 3600 * 2 * 1000;
-const minusOneHours = referenceDatetime - 3600 * 1 * 1000;
-const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
-
-const propsWithVirtualized = {
-	id: 'talend',
-	displayMode: 'table',
-	columns: [
-		{ key: 'id', label: 'Id' },
-		{ key: 'name', label: 'Name' },
-		{ key: 'author', label: 'Author' },
-		{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
-		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
-	],
-	items: [
-		{
-			id: 0,
-			name: 'Title with actions',
-			created: 1518596913333,
-			modified: minusThreeHours,
-			author: 'Jean-Pierre DUPONT',
-			actions,
-			icon: 'talend-file-xls-o',
-			display: 'text',
-			className: 'item-0-class',
+	toolbar: {
+		actionBar: {
+			actions: {
+				left: [
+					{
+						id: 'add',
+						label: 'Add Folder',
+						bsStyle: 'primary',
+						icon: 'talend-plus-circle',
+						onClick: action('add.onClick'),
+					},
+					{
+						displayMode: 'splitDropdown',
+						label: 'Add File',
+						icon: 'talend-folder',
+						onClick: action('onAdd'),
+						items: [
+							{
+								label: 'From Local',
+								onClick: action('From Local click'),
+							},
+							{
+								label: 'From Remote',
+								onClick: action('From Remote click'),
+							},
+						],
+						emptyDropdownLabel: 'No option',
+					},
+				],
+			},
 		},
-		{
-			persistentActions,
-			id: 1,
-			name: 'Title in input mode',
-			created: 1518596913333,
-			modified: minusTwoHours,
-			author: 'Jean-Pierre DUPONT',
-			icon: 'talend-file-json-o',
-			display: 'input',
-			className: 'item-1-class',
+		display: {
+			onChange: action('display.onChange'),
 		},
-		{
-			persistentActions,
-			id: 2,
-			name: 'Super long title to trigger overflow on tile rendering',
-			created: 1518596913333,
-			modified: minusOneHours,
-			author:
-				'Jean-Pierre DUPONT',
-			className: 'item-2-class',
+		sort: {
+			field: 'name',
+			onChange: action('sort.onChange'),
+			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		},
-		{
-			persistentActions,
-			id: 3,
-			name: 'Title',
-			created: 1518596913333,
-			modified: minusThreeMin,
-			author: 'Jean-Pierre DUPONT',
-			actions,
-			icon: 'talend-file-xls-o',
-			display: 'text',
-			className: 'item-3-class',
+		pagination: {
+			itemsPerPage: 5,
+			totalResults: 10,
+			onChange: action('pagination.onChange'),
 		},
-	],
-	titleKey: 'name',
-	titleIconKey: 'icon',
-	displayModeKey: 'display',
-	onTitleClick: action('onTitleClick'),
-	onTitleEditCancel: action('onEditCancel'),
-	onTitleEditSubmit: action('onEditSubmit'),
-	itemProps: {
-		classNameKey: 'className',
+		filter: {
+			docked: true,
+			onBlur: action('filter.onBlur'),
+			onFocus: action('filter.onFocus'),
+			onFilter: action('filter.onFilter'),
+			onToggle: action('filter.onToggle'),
+			placeholder: 'search for something',
+		},
 	},
 };
 
@@ -270,16 +216,15 @@ const itemPropsForItems = {
 	onToggle: action('onItemToggle'),
 	onToggleAll: action('onToggleAll'),
 	isSelected: item => selected.find(next => next.id === item.id),
-	selectedCount: selected.length,
 	onCancel: action('onTitleEditCancel'),
 	onChange: action('onTitleChange'),
 	onSubmit: action('onTitleEditSubmit'),
 };
 
 const sort = {
-	sortOn: 'name',
-	sortIsDescending: false,
-	onSortChange: action('sort.onChange'),
+	field: 'name',
+	isDescending: false,
+	onChange: action('sort.onChange'),
 };
 
 function getActionsProps() {
@@ -290,8 +235,8 @@ function getActionsProps() {
 		hideHeader: true, // header will created with a sr-only class, so it will be hidden
 	};
 
-	columnActionsProps.columns.splice(2, 0, actionsColumn);
-	columnActionsProps.items = columnActionsProps.items.map((item, index) => ({
+	columnActionsProps.list.columns.splice(2, 0, actionsColumn);
+	columnActionsProps.list.items = columnActionsProps.list.items.map((item, index) => ({
 		columnActions: [
 			{
 				id: `favorite-action-${index}`,
@@ -327,12 +272,9 @@ const warningIcon = {
 
 const getIcon = item => {
 	switch (item.cat) {
-		case 'fluffy':
-			return okIcon;
-		case 'fat':
-			return warningIcon;
-		default:
-			return null;
+		case 'fluffy' : return okIcon;
+		case 'fat' : return warningIcon;
+		default: return null;
 	}
 };
 
@@ -357,7 +299,7 @@ const itemsForListWithIcons = [
 	},
 ];
 
-storiesOf('List (Deprecated)', module)
+storiesOf('List (OLD)', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
@@ -378,14 +320,14 @@ storiesOf('List (Deprecated)', module)
 	.add('Table icons', () => {
 		const customProps = cloneDeep(props);
 
-		customProps.columns = [
+		customProps.list.columns = [
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
 			{ key: 'cat', label: 'Cat' },
 		];
 
-		customProps.items = itemsForListWithIcons;
+		customProps.list.items = itemsForListWithIcons;
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -411,13 +353,13 @@ storiesOf('List (Deprecated)', module)
 	))
 	.add('Large display with icons', () => {
 		const customProps = cloneDeep(props);
-		customProps.columns = [
+		customProps.list.columns = [
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
 			{ key: 'cat', label: 'Cat' },
 		];
-		customProps.items = itemsForListWithIcons;
+		customProps.list.items = itemsForListWithIcons;
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -427,11 +369,11 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('Empty list', () => {
 		const emptyListProps = cloneDeep(props);
-		emptyListProps.items = [];
+		emptyListProps.list.items = [];
 
 		const customEmptyRendererListProps = cloneDeep(props);
-		customEmptyRendererListProps.items = [];
-		customEmptyRendererListProps.noRowsRenderer = () => (
+		customEmptyRendererListProps.list.items = [];
+		customEmptyRendererListProps.list.noRowsRenderer = () => (
 			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
 				I'm a custom NoRowsRenderer
 			</span>
@@ -452,7 +394,7 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('List in progress', () => {
 		const loadingListProps = cloneDeep(props);
-		loadingListProps.inProgress = true;
+		loadingListProps.list.inProgress = true;
 		return (
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
@@ -476,7 +418,7 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('Selection', () => {
 		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.multiSelectActions = {
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
 				{
 					id: 'remove',
@@ -486,19 +428,18 @@ storiesOf('List (Deprecated)', module)
 				},
 			],
 		};
-		Object.assign(selectedItemsProps, itemPropsForItems);
+		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You can manage selection by passing 3 props : onSelect, isSelected, selectedCount.<br />
+					You can manage selection by passing 2 props : onSelect and isSelected.<br />
 					<b>onSelect(event, item)</b> : item selection callback
 					<b>isSelected(item)</b> : returns true if the item is selected
 					<pre>
-						listProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
-						listProps.isSelected = (item) => item.id === 2;<br />
-						listProps.selectedCount = 1;<br />
-						&lt;List &#123;...listProps&#125; &gt;<br />
+						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
+						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
 				<List {...selectedItemsProps} />
@@ -507,8 +448,8 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('Activation', () => {
 		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.isActive = item => item.id === 0;
-		selectedItemsProps.onRowClick = action('onRowClick');
+		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
+		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
@@ -531,7 +472,7 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('No toolbar', () => {
 		const tprops = cloneDeep(props);
-		tprops.hideToolbar = true;
+		tprops.toolbar = undefined;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
@@ -542,7 +483,7 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('Sort', () => {
 		const tprops = cloneDeep(props);
-		Object.assign(tprops, sort);
+		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
@@ -562,17 +503,17 @@ storiesOf('List (Deprecated)', module)
 	})
 	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
-		// dockedProps.items = [dockedProps.items[0]];
-		dockedProps.actions = null;
+		dockedProps.list.items = [dockedProps.list.items[0]];
+		dockedProps.toolbar.actionBar = null;
 
 		const inputProps = Immutable.fromJS(dockedProps).toJS();
-		inputProps.filterDocked = false;
+		inputProps.toolbar.filter.docked = false;
 
 		const highlightedProps = Immutable.fromJS(inputProps).toJS();
-		highlightedProps.filterHighlight = true;
+		highlightedProps.toolbar.filter.highlight = true;
 
 		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
-		inputDebounceProps.filterDebounceTimeout = 300;
+		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -583,21 +524,45 @@ storiesOf('List (Deprecated)', module)
 					Its state, input, and callbacks are customizable.
 				</p>
 				<h2>Docked</h2>
-				<div style={{ height: '30vh' }}>
+				<div style={{ height: '15vh' }}>
 					<List {...dockedProps} />
 				</div>
 				<h2>Input</h2>
-				<div style={{ height: '30vh' }}>
+				<div style={{ height: '15vh' }}>
 					<List {...inputProps} />
 				</div>
 				<h2>Highlighted</h2>
-				<div style={{ height: '30vh' }}>
+				<div style={{ height: '15vh' }}>
 					<List {...highlightedProps} />
 				</div>
 				<h2>Input with 300ms debounce</h2>
-				<div style={{ height: '30vh' }}>
+				<div style={{ height: '15vh' }}>
 					<List {...inputDebounceProps} />
 				</div>
+			</div>
+		);
+	})
+	.add('Filtered DisplayMode', () => {
+		const tprops = {
+			...props,
+			toolbar: {
+				display: {
+					onChange: action('display.onChange'),
+					displayModes: ['large', 'table'],
+				},
+			},
+		};
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					You can get limited options for displayMode.<br />
+					<pre>
+						toolbarProps.display.displayModes = ['large', 'table'];<br />
+						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+					</pre>
+				</p>
+				<List {...tprops} />
 			</div>
 		);
 	})
@@ -611,16 +576,16 @@ storiesOf('List (Deprecated)', module)
 	.add('Title without click', () => {
 		const tprops = cloneDeep(props);
 
-		tprops.onTitleClick = null;
+		tprops.list.titleProps.onClick = null;
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					To have not clickable titles, just don't pass any onTitleClick callback
+					To have not clickable titles, just don't pass any onClick callback
 					<pre>
 						const props = &#123;...&#125;;<br />
-						props.onTitleClick = null;<br />
+						props.list.titleProps.onClick = null;<br />
 						&lt;List &#123;...props&#125; /&gt;
 					</pre>
 				</p>
@@ -631,7 +596,7 @@ storiesOf('List (Deprecated)', module)
 	.add('Hidden header labels', () => {
 		const tprops = cloneDeep(props);
 
-		tprops.columns[0].hideHeader = true;
+		tprops.list.columns[0].hideHeader = true;
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -640,7 +605,7 @@ storiesOf('List (Deprecated)', module)
 					Display the list with hidden header labels.<br />
 					<pre>
 						const props = &#123;...&#125;;<br />
-						props.columns[0].hideHeader = true;<br />
+						props.list.columns[0].hideHeader = true;<br />
 						&lt;List &#123;...props&#125; /&gt;
 					</pre>
 				</p>
@@ -654,7 +619,7 @@ storiesOf('List (Deprecated)', module)
 			<p>Display the list with hidden header labels.</p>
 			<List {...props} />
 		</div>
-	))
+		))
 	.add('Inline parent', () => (
 		<div className="virtualized-list">
 			<h1>List</h1>
@@ -663,13 +628,4 @@ storiesOf('List (Deprecated)', module)
 				<List {...props} />
 			</span>
 		</div>
-	))
-	.add('list with virtualized', () => (
-		<div className="virtualized-list">
-			<h1>List with virtualized and timestamp</h1>
-			<p>CellDatetimeRenderer in action.</p>
-			<span>
-				<List {...propsWithVirtualized} />
-			</span>
-		</div>
-	));
+		));

@@ -44,24 +44,19 @@ function adaptLeftAndRightActions(actions, parentId) {
 
 function getSortProps(props) {
 	if (props.displayMode !== 'table') {
-		return (
-			props.sort || {
-				options: props.sortOptions,
-				onChange: props.onSort,
-				field: props.sortOn,
-				isDescending: props.sortIsDescending,
-			}
-		);
+		return get(props, 'toolbar.sort', {
+			options: props.sortOptions,
+			onChange: props.onSort,
+			field: props.sortOn,
+			isDescending: props.sortIsDescending,
+		});
 	}
 	return undefined;
 }
 
 function getDisplayProps(props) {
-	let display;
-	if (props.display) {
-		display = props.display;
-	}
-	if (props.onDisplayChange) {
+	let display = get(props, 'toolbar.display');
+	if (!display && props.onDisplayChange) {
 		display = {
 			displayModes: props.displayModes,
 			onChange: props.onDisplayChange,
@@ -79,8 +74,8 @@ function getDisplayProps(props) {
 }
 
 function getPaginationProps(props) {
-	let pagination;
-	if (props.pagination) {
+	let pagination = get(props, 'toolbar.pagination');
+	if (pagination || props.pagination) {
 		pagination = {
 			onChange: get(props, 'toolbar.pagination.onChange', props.onPaginationChange),
 			itemsPerPage: get(props, 'toolbar.pagination.itemsPerPage', props.itemsPerPage),
@@ -95,7 +90,7 @@ function getPaginationProps(props) {
 }
 
 function getFilterProps(props) {
-	let filter = props.filter;
+	let filter = get(props, 'toolbar.filter');
 	if (props.onFilterChange) {
 		filter = {
 			onFilter: props.onFilterChange,
@@ -153,9 +148,7 @@ function getSelectAllProps(props) {
 }
 
 function getActionBarProps(props) {
-	if (props.actionBar) {
-		return props.actionBar;
-	}
+	const actionBar = get(props, 'toolbar.actionBar');
 	if (props.actions || props.multiSelectActions) {
 		return {
 			actions: props.actions,
@@ -163,7 +156,7 @@ function getActionBarProps(props) {
 			selected: props.selectedCount || 0,
 		};
 	}
-	return undefined;
+	return actionBar;
 }
 
 /**
@@ -193,7 +186,7 @@ function Toolbar({ t, getComponent, components, ...props }) {
 		FilterBar,
 	});
 	const injected = Inject.all(getComponent, components);
-	const hasToolbar = !!(selectAll || display || sort || pagination || filter);
+	const hasToolbar = !!(selectAll || display || sort || pagination || filter || props.toolbar);
 	return (
 		<div className="tc-list-toolbar">
 			{injected('before-actionbar')}
