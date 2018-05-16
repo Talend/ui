@@ -329,8 +329,9 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState.mock.calls[0][0])
-				.toEqual({ selectedItems: new ImmutableList([1]) });
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([1]),
+			});
 		});
 
 		it('should deselect one item', () => {
@@ -349,8 +350,9 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState.mock.calls[0][0])
-				.toEqual({ selectedItems: new ImmutableList([]) });
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([]),
+			});
 		});
 		it('should select all items', () => {
 			// given
@@ -369,8 +371,9 @@ describe('Container List', () => {
 			wrapper.instance().onToggleAllMultiSelection();
 			// then
 
-			expect(multiSelectionSetting.setState.mock.calls[0][0])
-				.toEqual({ selectedItems: new ImmutableList([1, 2, 3]) });
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([1, 2, 3]),
+			});
 		});
 
 		it('should deselect all items', () => {
@@ -389,8 +392,9 @@ describe('Container List', () => {
 			// when
 			wrapper.instance().onToggleAllMultiSelection();
 			// then
-			expect(multiSelectionSetting.setState.mock.calls[0][0])
-				.toEqual({ selectedItems: new ImmutableList([]) });
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([]),
+			});
 		});
 
 		it('should display multiActions', () => {
