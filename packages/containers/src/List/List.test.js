@@ -85,9 +85,7 @@ const items = fromJS([
 
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
@@ -113,14 +111,11 @@ describe('Container List', () => {
 		multiSelectionSetting.multiSelectActions = {
 			left: ['object:remove'],
 		};
-		const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />);
 		const props = wrapper.props();
 		expect(typeof props.list.itemProps.onToggle).toBe('function');
 		expect(typeof props.list.itemProps.onToggleAll).toBe('function');
 		expect(typeof props.list.itemProps.isSelected).toBe('function');
-		expect(props).toMatchSnapshot();
 	});
 
 	it('should render without toolbar', () => {
@@ -130,9 +125,7 @@ describe('Container List', () => {
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = shallow(<Container displayMode="large" items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container displayMode="large" items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -397,7 +390,7 @@ describe('Container List', () => {
 			});
 		});
 
-		it('should display multiActions', () => {
+		it('should compute the number of selected items', () => {
 			// given
 			const multiSelectionSetting = cloneDeep(settings);
 			multiSelectionSetting.idKey = 'id';
