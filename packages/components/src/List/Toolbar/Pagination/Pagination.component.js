@@ -100,9 +100,8 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<Icon {...next} />
 			</NavItem>,
 			<NavItem
-				key={'last'}
-				eventKey={LAST}
 				key={LAST}
+				eventKey={LAST}
 				id={id && `${id}-nav-to-last`}
 				className={'btn-link'}
 				disabled={startIndex + itemsPerPage > totalResults}
