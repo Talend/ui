@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import i18next from 'i18next';
 
 import CellDatetime, { computeValue } from './CellDatetime.component';
 
@@ -24,6 +25,20 @@ describe('CellDatetime', () => {
 
 		// then
 		expect(strDate.indexOf('ago')).toBeGreaterThan(-1);
+	});
+
+	it('should format with "il y a"', () => {
+		// when
+		i18next.language = 'fr';
+		const columnData = {
+			mode: 'ago',
+		};
+		const cellData = 1474495200000;
+		const strDate = computeValue(cellData, columnData);
+
+		// then
+		expect(strDate.indexOf('il y a')).toBeGreaterThan(-1);
+		i18next.language = 'en';
 	});
 
 	it('should format according to the pattern', () => {
