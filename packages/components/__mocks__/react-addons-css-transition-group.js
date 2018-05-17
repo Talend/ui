@@ -9,7 +9,7 @@ function ReactCSSTransitionGroup({ children, ...props }) {
 	);
 }
 ReactCSSTransitionGroup.propTypes = {
-	children: PropTypes.arrayOf(React.PropTypes.element),
+	children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default ReactCSSTransitionGroup;

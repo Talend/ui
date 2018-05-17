@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { SubHeaderBar } from '../SubHeaderBar/SubHeaderBar.component';
 
 import Layout from './Layout.component';
@@ -110,25 +111,19 @@ describe('Layout', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render layout with subHeader in OneColumn mode', () => {
-		const wrapper = renderer
-			.create(
-				<Layout subHeader={subHeader} mode="OneColumn">
-					{one}
-				</Layout>,
-			)
-			.toJSON();
-
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(
+			<Layout subHeader={subHeader} mode="OneColumn">
+				{one}
+			</Layout>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render layout with subHeader in TwoColumns mode', () => {
-		const wrapper = renderer
-			.create(
-				<Layout subHeader={subHeader} mode="TwoColumns">
-					{one}
-				</Layout>,
-			)
-			.toJSON();
-
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = shallow(
+			<Layout subHeader={subHeader} mode="TwoColumns">
+				{one}
+			</Layout>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -16,9 +16,7 @@ export default class CellTitleInput extends React.Component {
 	}
 
 	componentDidMount() {
-		if (this.titleInput) {
-			this.titleInput.value = this.props.cellData;
-		}
+		this.titleInput.value = this.props.cellData;
 	}
 
 	onKeyUp(event) {
