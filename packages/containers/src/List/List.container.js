@@ -91,7 +91,18 @@ class List extends React.Component {
 	onPaginationChange(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
 		if (this.props.onPaginationChange) {
-			this.props.onPaginationChange(startIndex, itemsPerPage);
+			if (typeof this.props.onPaginationChange === 'string') {
+				// backward compatibility
+				this.getGenericDispatcher(this.props.onPaginationChange)(
+					null,
+					{
+						startIndex,
+						itemsPerPage,
+					},
+				);
+			} else {
+				this.props.onPaginationChange(startIndex, itemsPerPage);
+			}
 		}
 	}
 
