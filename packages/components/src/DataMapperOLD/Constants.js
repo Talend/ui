@@ -103,6 +103,24 @@ export const Connection = {
 	},
 };
 
+export const Schema = {
+	RENDERER: {
+		DEFAULT: 'default',
+		VIRTUAL_LIST: 'virtual-list',
+		LIST: 'list',
+	},
+	DATA_KEYS: {
+		NAME: 'name',
+		TYPE: 'type',
+		DESC: 'desc',
+	},
+	COLUMN: {
+		NAME: 'name',
+		TYPE: 'type',
+		DESCRIPTION: 'description',
+	},
+};
+
 export const Keys = {
 	PAGE_UP: 33,
 	PAGE_DOWN: 34,

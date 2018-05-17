@@ -191,19 +191,21 @@ export default class Table extends Component {
 		} = this.props;
 		return (
 			<div className={getMainClassName(classNameProvider)}>
-				<div className="tc-table-title-and-filters">
-					{withTitle && (
-						<span className={getTitleClassName(classNameProvider)}>{title}</span>
-					)}
-					{displayFilters(filters) && (
-						<FiltersBar
-							className={getFiltersBarClassName(classNameProvider)}
-							filters={filters}
-							filtersRenderer={filtersRenderer}
-							onFilterChange={onFilterChange}
-						/>
-					)}
-				</div>
+				{(withTitle || displayFilters(filters)) && (
+					<div className="tc-table-title-and-filters">
+						{withTitle && (
+							<span className={getTitleClassName(classNameProvider)}>{title}</span>
+						)}
+						{displayFilters(filters) && (
+							<FiltersBar
+								className={getFiltersBarClassName(classNameProvider)}
+								filters={filters}
+								filtersRenderer={filtersRenderer}
+								onFilterChange={onFilterChange}
+							/>
+						)}
+					</div>
+				)}
 				<div ref={this.updateContentNodeRef} className={getTableClassName(classNameProvider)}>
 					<table ref={this.updateTableNodeRef}>
 						{withHeader && renderHeader(

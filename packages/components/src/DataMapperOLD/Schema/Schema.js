@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SchemaHeader from './SchemaHeader';
 import * as Constants from '../Constants';
 
 function isMapped(dataAccessor, element, mappedElements) {
@@ -219,6 +220,7 @@ export default class Schema extends Component {
 			filters,
 			filterComponents,
 			onFilterChange,
+			withHeader,
 		} = this.props;
 		const contentProps = {
 			...tempProps,
@@ -229,6 +231,16 @@ export default class Schema extends Component {
 		};
 		return (
 			<div className={`schema mapper-element ${side}`}>
+				{withHeader && (
+					<SchemaHeader
+						dataAccessor={dataAccessor}
+						schema={schema}
+						side={side}
+						filters={filters}
+						filterComponents={filterComponents}
+						onFilterChange={onFilterChange}
+					/>
+				)}
 				<SchemaRenderer {...contentProps} ref={this.updateRendererNodeRef} />
 			</div>
 		);
@@ -246,4 +258,5 @@ Schema.propTypes = {
 	onScroll: PropTypes.func,
 	side: PropTypes.string,
 	isElementVisible: PropTypes.func,
+	withHeader: PropTypes.bool,
 };

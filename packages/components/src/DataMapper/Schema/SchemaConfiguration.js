@@ -1,23 +1,36 @@
-import * as Constants from '../Constants';
 
-export const inputColumns = [Constants.Schema.DATA_KEYS.TYPE, Constants.Schema.DATA_KEYS.NAME];
+const NAME = 'name';
+const TYPE = 'type';
+const DESCRIPTION = 'description';
+const MANDATORY = 'mandatory';
 
-export const outputColumns = [
-	Constants.Schema.DATA_KEYS.NAME,
-	Constants.Schema.DATA_KEYS.TYPE,
-	Constants.Schema.DATA_KEYS.DESC,
-];
+const inputColumns = [ TYPE, NAME ];
+
+const outputColumns = [ NAME, TYPE, DESC ];
 
 export default class SchemaConfiguration {
-	getRenderer(side) {
-		return null;
-	}
 
 	getColumns(side) {
-		return [];
+		switch (side) {
+			case Constants.MappingSide.INPUT:
+				return inputColumns;
+			case Constants.MappingSide.OUTPUT:
+				return outputColumns;
+			default:
+				return [];
+		}
 	}
 
-	withHeader(side) {
-		return true;
+	getClassNameProvider(side) {
+
 	}
+
+	getRowRenderer(side) {
+
+	}
+
+	getHeaderRenderer(side) {
+
+	}
+
 }

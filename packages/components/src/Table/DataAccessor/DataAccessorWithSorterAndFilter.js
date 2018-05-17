@@ -276,6 +276,7 @@ export default class DataAccessorWithSorterAndFilter {
 
 	/**
 	 * Returns the number of elements.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters.
 	 */
 	getSize(withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
