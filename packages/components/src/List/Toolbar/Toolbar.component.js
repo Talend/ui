@@ -196,7 +196,7 @@ function Toolbar({ t, getComponent, components, ...props }) {
 			{hasToolbar && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
 					{injected('before-selectall')}
-					{<SelectAll {...selectAll} t={t} />}
+					{selectAll && <SelectAll {...selectAll} t={t} />}
 					{injected('after-selectall')}
 					{injected('before-displaymode')}
 					{display && (
@@ -238,7 +238,7 @@ function Toolbar({ t, getComponent, components, ...props }) {
 Toolbar.propTypes = {
 	id: PropTypes.string,
 	...ActionBar.propTypes,
-	...omit(SelectAll.propTypes, 't'),
+	...SelectAll.propTypes,
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
 	sort: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 	pagination: PropTypes.oneOfType([PropTypes.bool, PropTypes.shape(Pagination.propTypes)]),

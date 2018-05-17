@@ -7,7 +7,8 @@ import Toolbar from './Toolbar.component';
 jest.mock('react-dom');
 
 const id = 'my-toolbar';
-
+const items = [{ id: 1 }, { id: 2 }];
+const t = jest.fn(msg => msg);
 const actionBar = {
 	selectedCount: 1,
 	actions: {
@@ -34,7 +35,7 @@ const actionBar = {
 };
 
 const selectAllCheckbox = {
-	items: [{ id: 1 }, { id: 2 }],
+	items,
 	isSelected: jest.fn(),
 	onToggleAll: jest.fn(),
 };
@@ -58,7 +59,7 @@ const pagination = {
 	pagination: true,
 	startIndex: 6,
 	totalResults: 13,
-	onChangePagination: jest.fn(),
+	onPaginationChange: jest.fn(),
 	itemsPerPage: 5,
 };
 
@@ -67,14 +68,17 @@ const filter = {
 	onFilterToggle: jest.fn(),
 };
 
+const requiredProps = {
+	items,
+	t,
+};
 
 describe('Toolbar', () => {
 	it('should render empty toolbar', () => {
 		// when
-		const wrapper = renderer.create(<Toolbar />).toJSON();
-
+		const wrapper = shallow(<Toolbar.WrappedComponent {...requiredProps} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render actions toolbar', () => {
@@ -82,6 +86,7 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			actions: actionBar.actions,
+			...requiredProps,
 		};
 
 		// when
@@ -95,6 +100,7 @@ describe('Toolbar', () => {
 		// given
 		const tProps = {
 			id,
+			...requiredProps,
 			...actionBar,
 		};
 
@@ -110,6 +116,7 @@ describe('Toolbar', () => {
 		// given
 		const tProps = {
 			id,
+			...requiredProps,
 			...selectAllCheckbox,
 		};
 
@@ -125,6 +132,7 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			...display,
+			...requiredProps,
 		};
 
 		// when
@@ -138,6 +146,7 @@ describe('Toolbar', () => {
 		// given
 		const tProps = {
 			id,
+			...requiredProps,
 			...sort,
 		};
 
@@ -153,6 +162,7 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			...filter,
+			...requiredProps,
 		};
 
 		// when
@@ -167,6 +177,7 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			...pagination,
+			...requiredProps,
 		};
 
 		// when

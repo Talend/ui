@@ -3,5 +3,7 @@
 exports[`Toolbar should render empty toolbar 1`] = `
 <div
   className="tc-list-toolbar"
-/>
+>
+  
+</div>
 `;
