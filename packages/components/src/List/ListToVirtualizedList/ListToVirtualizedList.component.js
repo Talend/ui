@@ -128,7 +128,6 @@ ListToVirtualizedList.propTypes = {
 	onTitleEditSubmit: PropTypes.func,
 	onTitleEditCancel: PropTypes.func,
 	onTitleClick: PropTypes.func,
-
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
