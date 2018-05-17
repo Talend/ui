@@ -43,10 +43,10 @@ function adaptLeftAndRightActions(actions, parentId) {
 }
 
 function getSortProps(props) {
-	if (props.displayMode !== 'table') {
+	if (props.displayMode !== 'table' && props.onSortChange) {
 		return get(props, 'toolbar.sort', {
 			options: props.sortOptions,
-			onChange: props.onSort,
+			onChange: props.onSortChange,
 			field: props.sortOn,
 			isDescending: props.sortIsDescending,
 		});
@@ -237,11 +237,11 @@ function Toolbar({ t, getComponent, components, ...props }) {
 
 Toolbar.propTypes = {
 	id: PropTypes.string,
-	actionBar: PropTypes.shape(ActionBar.propTypes),
-	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
+	...ActionBar.propTypes,
+	...omit(SelectAll.propTypes, 't'),
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
-	sort: PropTypes.bool,
-	pagination: PropTypes.shape(Pagination.propTypes),
+	sort: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+	pagination: PropTypes.oneOfType([PropTypes.bool, PropTypes.shape(Pagination.propTypes)]),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,

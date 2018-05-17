@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow, mount } from 'enzyme';
 
 import Toolbar from './Toolbar.component';
 
@@ -8,7 +9,7 @@ jest.mock('react-dom');
 const id = 'my-toolbar';
 
 const actionBar = {
-	selected: 1,
+	selectedCount: 1,
 	actions: {
 		left: [
 			{
@@ -39,21 +40,22 @@ const selectAllCheckbox = {
 };
 
 const display = {
-	displayMode: 'table',
-	onSelectDisplayMode: jest.fn(),
+	displayMode: 'large',
+	onDisplayChange: jest.fn(),
 };
 
 const sort = {
-	field: 'id',
-	isDescending: true,
-	onChange: jest.fn(),
-	options: [
+	sortOn: 'id',
+	isSortDescending: true,
+	onSortChange: jest.fn(),
+	sortOptions: [
 		{ id: 'id', name: 'Id' },
 		{ id: 'name', name: 'Name' },
 	],
 };
 
 const pagination = {
+	pagination: true,
 	startIndex: 6,
 	totalResults: 13,
 	onChangePagination: jest.fn(),
@@ -61,9 +63,10 @@ const pagination = {
 };
 
 const filter = {
-	onFilter: jest.fn(),
-	onToggle: jest.fn(),
+	onFilterChange: jest.fn(),
+	onFilterToggle: jest.fn(),
 };
+
 
 describe('Toolbar', () => {
 	it('should render empty toolbar', () => {
@@ -78,99 +81,98 @@ describe('Toolbar', () => {
 		// given
 		const tProps = {
 			id,
-			actionBar: {
-				actions: actionBar.actions,
-			},
+			actions: actionBar.actions,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('ActionBar').props().actions).toBe(tProps.actions);
 	});
 
-	it('should render actions toolbar with selected items', () => {
+	it('should render ActionBar with selected items', () => {
 		// given
 		const tProps = {
 			id,
-			actionBar,
+			...actionBar,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
+
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('ActionBar').props().selected).toBe(1);
 	});
 
-	it('should render select all checkbox', () => {
+	it('should render SelectAll', () => {
 		// given
 		const tProps = {
 			id,
-			selectAllCheckbox,
+			...selectAllCheckbox,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('SelectAll').length).toBe(1);
 	});
 
-	it('should render display mode selector', () => {
+	it('should render SelectDisplayMode', () => {
 		// given
 		const tProps = {
 			id,
-			display,
+			...display,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('SelectDisplayMode').length).toBe(1);
 	});
 
-	it('should render sort selector', () => {
+	it('should render SelectSortBy', () => {
 		// given
 		const tProps = {
 			id,
-			sort,
+			...sort,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('SelectSortBy').length).toBe(1);
 	});
 
-	it('should render filter form', () => {
+	it('should render FilterBar', () => {
 		// given
 		const tProps = {
 			id,
-			filter,
+			...filter,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('FilterBar').length).toBe(1);
 	});
 
-	it('should render pagination', () => {
+	it('should render Pagination', () => {
 		// given
 		const tProps = {
 			id,
-			pagination,
+			...pagination,
 		};
 
 		// when
-		const wrapper = renderer.create(<Toolbar {...tProps} />).toJSON();
+		const wrapper = mount(<Toolbar {...tProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('Pagination').length).toBe(1);
 	});
 });

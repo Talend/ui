@@ -1,45 +1,61 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
 import SelectAll from './SelectAll.component';
 
 jest.mock('react-dom');
 
+const onToggleAll = jest.fn();
+const checked = jest.fn(() => true);
+const items = [{ id: 1 }, { id: 2 }];
+
 const props = {
-	items: [{ id: 1 }, { id: 2 }],
-	isSelected: jest.fn(),
-	onToggleAll: jest.fn(),
+	onToggleAll,
+	checked,
+	items,
 };
 
 describe('SelectAll', () => {
 	it('should render', () => {
 		// when
-		const wrapper = renderer.create(<SelectAll {...props} />).toJSON();
+		const wrapper = shallow(<SelectAll {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('input').props().checked).toBe(true);
+	});
+
+	it('should render null if no onToggleAll or checked props', () => {
+		// when
+		const common = {
+			items,
+		};
+		const withoutOnToggleAll = shallow(<SelectAll {...common} checked={jest.fn()} />);
+		const withoutChecked = shallow(<SelectAll {...common} onToggleAll={jest.fn()} />);
+
+		// then
+		expect(withoutOnToggleAll.getElement()).toBe(null);
+		expect(withoutChecked.getElement()).toBe(null);
 	});
 
 	it('should render id if provided', () => {
 		// when
-		const wrapper = renderer.create(<SelectAll id="list-toolbar" {...props} />).toJSON();
+		const wrapper = shallow(<SelectAll id="list-toolbar" {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('input').props().id).toBe('list-toolbar-check-all');
 	});
 
-	it('should be unchecked when there is no items', () => {
-		// given
+	it('should be disabled when there are no items', () => {
 		const myProps = {
 			items: [],
-			isSelected: jest.fn(),
-			onToggleAll: jest.fn(),
+			onToggleAll,
+			checked,
 		};
 
 		// when
-		const wrapper = renderer.create(<SelectAll {...myProps} />).toJSON();
+		const wrapper = shallow(<SelectAll id="list-toolbar" {...myProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('input').props().disabled).toBe(true);
 	});
 });

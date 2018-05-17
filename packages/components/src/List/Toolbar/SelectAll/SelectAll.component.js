@@ -36,8 +36,8 @@ function SelectAll(props) {
 SelectAll.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
-	checked: PropTypes.func.isRequired,
-	onToggleAll: PropTypes.func.isRequired,
+	checked: PropTypes.func,
+	onToggleAll: PropTypes.func,
 	t: PropTypes.func.isRequired,
 };
 
