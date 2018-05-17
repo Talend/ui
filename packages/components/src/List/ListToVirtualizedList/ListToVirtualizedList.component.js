@@ -80,6 +80,7 @@ export function ListToVirtualizedList(props) {
 				const cProps = {
 					label: column.label,
 					dataKey: column.key,
+					width: column.width,
 				};
 				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
