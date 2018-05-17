@@ -11,6 +11,8 @@ import {
 	testHTTPCode,
 } from '../middlewares/http/constants';
 
+let defaultHeader = {};
+
 export class HTTPError extends Error {
 	constructor({ data, response }) {
 		super(response.statusText);
@@ -82,6 +84,7 @@ export function handleHttpResponse(response) {
 export function httpFetch(url, config, method, payload) {
 	let body;
 	const defaultHeaders = {
+		...defaultHeader,
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	};
@@ -216,6 +219,10 @@ export function* httpGet(url, config, options) {
 export const handleDefaultConfiguration = curry((defaultConfig, config) =>
 	mergeCSRFToken(defaultConfig)(config),
 );
+
+export function setDefaultHeader(config) {
+	defaultHeader = config;
+}
 
 export default {
 	delete: httpDelete,
