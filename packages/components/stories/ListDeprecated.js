@@ -299,9 +299,9 @@ const itemsForListWithIcons = [
 	},
 ];
 
-storiesOf('List (OLD)', module)
+storiesOf('List (Deprecated)', module)
 	.addDecorator(story => (
-		<div>
+		<div className="container-fuild">
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>

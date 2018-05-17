@@ -181,6 +181,7 @@ const props = {
 	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 	itemsPerPage: 5,
 	totalResults: 10,
+	pagination: true,
 	onPaginationChange: action('pagination.onChange'),
 	onFilterBlur: action('filter.onBlur'),
 	onFilterFocus: action('filter.onFocus'),
@@ -357,9 +358,9 @@ const itemsForListWithIcons = [
 	},
 ];
 
-storiesOf('List (Deprecated)', module)
+storiesOf('List', module)
 	.addDecorator(story => (
-		<div>
+		<div className="container-fluid">
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
@@ -517,9 +518,9 @@ storiesOf('List (Deprecated)', module)
 					<b>onRowClick(event, item)</b> : item selection callback<br />
 					<b>isActive(item)</b> : returns true if the item is selected
 					<pre>
-						listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
-						listProps.itemProps.isActive = (item) => item.id === 0;<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+						listProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
+						listProps.isActive = (item) => item.id === 0;<br />
+						&lt;List &#123;...listProps&#125; &gt;<br />
 					</pre>
 				</p>
 				<h2>Table</h2>
@@ -549,11 +550,11 @@ storiesOf('List (Deprecated)', module)
 				<p>
 					You add sort management with column header click.<br />
 					<pre>
-						listProps.sort.field = 'name';<br />
-						listProps.sort.isDescending = false;<br />
-						listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
+						listProps.sortOn = 'name';<br />
+						listProps.sortIsDescending = false;<br />
+						listProps.onSortChange = (event, &#123;field, isDescending&#125;) => sort(field,
 						isDescending);<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
+						&lt;List &#123;...listProps&#125; &gt;<br />
 					</pre>
 				</p>
 				<List {...tprops} />
