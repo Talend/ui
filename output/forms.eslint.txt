@@ -2,8 +2,17 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
+  161:9  error  'defaultProps' is not defined  no-undef
+
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-  82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  10:10  error  'defaultProps' is not defined                                                        no-undef
+  26:3   error  'onPropertyChange' is not defined                                                    no-undef
+  82:8   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
+  52:9  error  'defaultProps' is not defined      no-undef
+  62:2  error  'onPropertyChange' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.test.js
   10:36  error  Absolute imports should come before relative imports  import/imports-first
@@ -17,11 +26,25 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
+  20:9  error  'displayName' is not defined  no-undef
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
+  9:9  error  'displayName' is not defined  no-undef
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
 
+/home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/CodeWidget.component.js
+  26:10  error  'displayName' is not defined  no-undef
+
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
+  82:9  error  'itemContainerStyle' is not defined  no-undef
+  83:9  error  'noResultStyle' is not defined       no-undef
+  84:9  error  'emptyStyle' is not defined          no-undef
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   25:22  error  'schema' is missing in props validation    react/prop-types
@@ -33,5 +56,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   47:39  error  'formData' is missing in props validation  react/prop-types
   47:49  error  'onChange' is missing in props validation  react/prop-types
 
-✖ 17 problems (17 errors, 0 warnings)
+✖ 28 problems (28 errors, 0 warnings)
 
