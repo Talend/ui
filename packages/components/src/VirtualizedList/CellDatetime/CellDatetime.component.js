@@ -3,35 +3,18 @@ import React from 'react';
 import classnames from 'classnames';
 import { distanceInWordsToNow, format } from 'date-fns';
 import invariant from 'invariant';
-import enLocale from 'date-fns/locale/en';
-import frLocale from 'date-fns/locale/fr';
-import jaLocale from 'date-fns/locale/ja';
 
 import styles from './CellDatetime.scss';
-import { getCurrentLanguage } from '../../translate';
+import { getCurrentDateFnsLocale } from '../../translate';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
-
-export function getDateFnsLocale(language) {
-	switch (language) {
-		case 'en':
-			return enLocale;
-		case 'fr':
-			return frLocale;
-		case 'ja':
-			return jaLocale;
-		default:
-			return enLocale;
-	}
-}
 
 export function computeValue(cellData, columnData) {
 	try {
 		if (columnData.mode === 'ago') {
-			const currentLocale = getCurrentLanguage();
 			return distanceInWordsToNow(cellData, {
-				addSuffix: 'ago',
-				locale: getDateFnsLocale(currentLocale),
+				addSuffix: true,
+				locale: getCurrentDateFnsLocale(),
 			});
 		} else if (columnData.mode === 'format') {
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
