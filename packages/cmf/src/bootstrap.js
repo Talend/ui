@@ -89,6 +89,8 @@ export function bootstrapRedux(options, sagaMiddleware) {
 	]);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
+	} else {
+		store.dispatch(actions.settings.fetchSettings('/settings.json'));
 	}
 	if (typeof options.storeCallback === 'function') {
 		options.storeCallback(store);
@@ -97,17 +99,17 @@ export function bootstrapRedux(options, sagaMiddleware) {
 }
 
 /**
- * This is the function to use in your app index.js file.
- * It take your configuration and provide a very good default one.
- * By default it start react with the following addons:
+ * Bootstrap your cmf app
+ * It takes your configuration and provides a very good default one.
+ * By default it starts react with the following addons:
  * - react-router
  * - redux
  * - redux-saga
  * @param {object} options the set of supported options
  * @returns {object} app object with render function
  */
-export default function bootstrap(unSafeOptions) {
-	const options = unSafeOptions || {};
+export default function bootstrap(unSafeOptions = {}) {
+	const options = unSafeOptions;
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
 

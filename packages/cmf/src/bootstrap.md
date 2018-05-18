@@ -12,10 +12,9 @@ import sagas from './sagas';
 configure.initialize();
 cmf.bootstrap({
 	components,
-	settingsURL: '/settings.json',
 	saga: sagas.appSaga, // function* appSaga() {...}
 	sagaRouterConfig: sagas.routes, // { '/foo/bar': function* bar() {...}, ... },
-    ...manyMoreOptions
+	...manyMoreOptions
 });
 ```
 
@@ -23,18 +22,18 @@ cmf.bootstrap({
 
 | name | type | default | description |
 | -- | -- | -- | -- |
-| settingsURL* | string | undefined | **REQUIRED** this URL to fetch the cmf settings.json file |
-| appId | string | 'app' | the default html element id to get to render react |
-| history | Object | `{ hashHistory } from 'react-router'` | the history object to control the router |
-| components | Object | undefined | an object with key/value to register your components |
-| actionCreators | Object | undefined | an object with key/value to register your action creators |
-| expressions | Object | undefined | an object with key/value to register your expressions |
-| sagas | Object | undefined | an object with key/value to register your sagas |
-| httpMiddleware | function | undefined | override the default http middleware |
-| preReducer | function | undefined | call on every action before the other reducers |
-| enhancer | function | undefined | add redux enhancer |
-| reducer | Object or function | undefined | add your own app reducer |
-| preloadedState | Object | undefined | start with an existing redux state |
-| middlewares | Array | undefined | add some redux middlewares |
+| settingsURL | string | '/settings.json' | REQUIRED This URL to fetch the cmf settings.json file |
+| appId | string | 'app' | DOM element id, where to render the React application |
+| history | Object | `{ hashHistory } from 'react-router'` | The history object to control the router |
+| components | Object | undefined | A components dictionnary where each key/value are registred in cmf registry so you can refer them in settings |
+| actionCreators | Object | undefined | Same as `components` |
+| expressions | Object | undefined | Same as `components` |
+| sagas | Object | undefined | Same as `components`  |
+| httpMiddleware | function | undefined | Override the default http middleware |
+| preReducer | function | undefined | Redux preReducer, called on every actions before reducer |
+| enhancer | function | undefined |Redux enhancer |
+| reducer | Object or function | undefined | Redux reducer. This is added with the internal reducers. |
+| preloadedState | Object | undefined | Redux state to preload. This is the initial state on Redux bootstrap. |
+| middlewares | Array | undefined | Redux middlewares |
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |

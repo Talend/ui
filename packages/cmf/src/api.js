@@ -21,7 +21,6 @@ Object.keys(expressions).forEach(id => api.expressions.register(id, expressions[
 api.actionCreator.register('my:edit', actions.myEdit);
  */
 
-import bootstrap from './bootstrap';
 import registry from './registry';
 import route from './route';
 import action from './action';
@@ -33,13 +32,15 @@ import sagas from './sagas';
 import selectors from './selectors';
 import component from './component';
 import matchPath from './sagaRouter/matchPath';
-import { registerInternals } from './register';
+
+function registerInternals() {
+	console.warn('DEPRECATED: you should not need to import and call this function anymore');
+}
 
 export default {
 	action,
 	actions,
 	actionCreator,
-	bootstrap,
 	component,
 	expression,
 	expressions,
