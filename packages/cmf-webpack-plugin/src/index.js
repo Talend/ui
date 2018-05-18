@@ -31,11 +31,7 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 	this.log('apply');
 
 	// adapt cmf settings result to output to /settings.json by default
-	let outputPath = compiler.options.output.path;
-	const devServerOutputPath = get(compiler.options, ['devServer', 'outputPath']);
-	if (devServerOutputPath) {
-		outputPath = devServerOutputPath;
-	}
+	const outputPath = get(compiler.options, ['devServer', 'outputPath'], compiler.options.output.path);
 	const cmfConfig = require(path.join(process.cwd(), 'cmf.json'));
 	const destination = cmfConfig.settings.destination;
 	if (!destination) {
