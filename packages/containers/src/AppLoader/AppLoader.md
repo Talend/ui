@@ -2,23 +2,19 @@
 
 This component is here to make http calls before the first render of the application. During the loading, it show the application's loader.
 
-## Where i put it ?
+## Where do i put it ?
 
 On your top level component, you can place it this way :
 
 ```html
 <AppLoader>
-    <div>
-        <ShortcutManager view="shortcuts" />
-        <IconsProvider icons={mockIconDefinition} />
-        <ACKDispatcher />
-        <Notification />
-        {props.children}
-    </div>
+    <IconsProvider icons={mockIconDefinition} />
+    <ACKDispatcher />
+    {props.children}
 </AppLoader>
 ```
 
-Another way to do it could be to use the inject placeholders to inject all the stuff
+you could also provide configuration to be to use the inject placeholders to inject all the stuff
 
 ## How to configure it ?
 
@@ -27,6 +23,17 @@ This is a sample of configuration :
 ```json
 "AppLoader#default":{
     "saga": "appLoaderSaga",
+    "components": {
+        "before-children": [
+          {
+            "component": "Notification"
+          },
+          {
+            "component": "ShortcutManager",
+            "view": "shortcuts"
+          }
+        ]
+    },
     "steps":[
         { "actionCreators":["user:fetchIdentity"] },
         { "waitFor":["identity"] },
@@ -41,7 +48,8 @@ This is a sample of configuration :
 ### Props
 
 * saga : required cause this is how the action creator are dispatched
+* components : injected components
 * steps, you can pass objects, this objects can have an attribute ( exclusive ) :
-  * actionCreators : an array of action creator to dispatch in parallel.
-  * waitFor : an array of collection we have in the cmf store to go on next step
-* hasCollections : an array of collections we have in the cmf store to render the children
+  * actionCreators : an array of action creators to dispatch in parallel.
+  * waitFor : an array of collection ids to have in cmf store before we can trigger the next step
+* hasCollections : an array of collection ids to have in cmf store before it can render the children

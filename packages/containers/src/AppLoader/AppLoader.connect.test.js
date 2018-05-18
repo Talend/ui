@@ -47,7 +47,7 @@ describe('AppLoader container', () => {
 			expect(result).toEqual({ loading: true });
 		});
 
-		it('should return loading to false if everithing to wait is present in collections', () => {
+		it('should return loading to false if everything to wait is present in collections', () => {
 			// given
 			const state = {
 				cmf: {

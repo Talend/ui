@@ -98,14 +98,6 @@ function httpPhotosGet2() {
 	});
 }
 
-const registerActionCreator = api.actionCreator.register;
-registerActionCreator('object:view', objectView);
-registerActionCreator('cancel:hide:dialog', hideDialog);
-registerActionCreator('confirm:dialog', confirmDialog);
-registerActionCreator('item1:action', chooseItem1);
-registerActionCreator('item2:action', chooseItem2);
-
-
 api.actionCreator.register('http:get:photos1', httpPhotosGet1);
 api.actionCreator.register('http:get:photos2', httpPhotosGet2);
 api.actionCreator.register('object:view', objectView);
