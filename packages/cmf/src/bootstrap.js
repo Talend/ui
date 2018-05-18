@@ -108,8 +108,7 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * @param {object} options the set of supported options
  * @returns {object} app object with render function
  */
-export default function bootstrap(unSafeOptions = {}) {
-	const options = unSafeOptions;
+export default function bootstrap(options = {}) {
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
 

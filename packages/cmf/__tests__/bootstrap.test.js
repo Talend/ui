@@ -164,7 +164,7 @@ describe('bootstrap', () => {
 		expect(routerMiddleware).toHaveBeenCalled();
 		expect(storeAPI.setRouterMiddleware).toHaveBeenCalledWith({ routerMiddlewareMocked: true });
 	});
-	it('should return an object with render function wich renders with good options', () => {
+	it('should return an object with render function which renders with good options', () => {
 		const options = {};
 		bootstrap(options);
 		expect(render).toHaveBeenCalled();
