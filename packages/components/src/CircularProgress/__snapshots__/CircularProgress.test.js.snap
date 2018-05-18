@@ -2,6 +2,9 @@
 
 exports[`CircularProgress should render as light if set 1`] = `
 <svg
+  aria-busy="true"
+  aria-label="Loading "
+  aria-live="polite"
   className="tc-circular-progress theme-loader theme-loaderlight theme-animate theme-default"
   focusable="false"
   viewBox="0 0 50 50"
@@ -24,6 +27,9 @@ exports[`CircularProgress should render as light if set 1`] = `
 
 exports[`CircularProgress should render at large size if set 1`] = `
 <svg
+  aria-busy="true"
+  aria-label="Loading "
+  aria-live="polite"
   className="tc-circular-progress theme-loader theme-animate theme-large"
   focusable="false"
   viewBox="0 0 50 50"
@@ -46,6 +52,9 @@ exports[`CircularProgress should render at large size if set 1`] = `
 
 exports[`CircularProgress should render at small size if set 1`] = `
 <svg
+  aria-busy="true"
+  aria-label="Loading "
+  aria-live="polite"
   className="tc-circular-progress theme-loader theme-animate theme-small"
   focusable="false"
   viewBox="0 0 50 50"
@@ -68,6 +77,9 @@ exports[`CircularProgress should render at small size if set 1`] = `
 
 exports[`CircularProgress should render by default at default size 1`] = `
 <svg
+  aria-busy="true"
+  aria-label="Loading "
+  aria-live="polite"
   className="tc-circular-progress theme-loader theme-animate theme-default"
   focusable="false"
   viewBox="0 0 50 50"
@@ -90,6 +102,9 @@ exports[`CircularProgress should render by default at default size 1`] = `
 
 exports[`CircularProgress should render with percent if set 1`] = `
 <svg
+  aria-busy="true"
+  aria-label="Loading 30%"
+  aria-live="polite"
   className="tc-circular-progress theme-loader theme-fixed theme-default"
   focusable="false"
   viewBox="0 0 50 50"

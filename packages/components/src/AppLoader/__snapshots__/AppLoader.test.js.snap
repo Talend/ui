@@ -4,6 +4,7 @@ exports[`AppLoader should render 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
+  aria-label="APP_LOADER_LOADING"
   className="tc-app-loader-container"
 >
   <div
