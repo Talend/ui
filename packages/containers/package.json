@@ -132,9 +132,6 @@
     "roots": [
       "src"
     ],
-    "setupFiles": [
-      "./env__tests.js"
-    ],
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
@@ -142,7 +139,7 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
   },
   "publishConfig": {
     "access": "public"
