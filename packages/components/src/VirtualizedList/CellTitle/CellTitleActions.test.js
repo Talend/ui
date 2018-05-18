@@ -79,11 +79,7 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.main-title-actions-group')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
 
 	it('should render a menu containing simple actions', () => {
@@ -97,11 +93,7 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.main-title-actions-group')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
 
 	it('should extract and render each dropdown actions', () => {
@@ -115,11 +107,7 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.main-title-actions-group')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
 
 	it('should render persistent actions', () => {
@@ -133,10 +121,6 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.main-title-actions-group')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
 });
