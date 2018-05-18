@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@talend/html-webpack-plugin": "1.0.0",
+    "@talend/react-cmf-webpack-plugin": "^0.184.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -31,7 +32,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "file-loader": "1.1.5",
+    "file-loader": "1.1.11",
     "html-webpack-plugin": "3.2.0",
     "jest": "20.0.3",
     "lodash.get": "^4.4.2",
