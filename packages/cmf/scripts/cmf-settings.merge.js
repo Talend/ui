@@ -62,7 +62,9 @@ function merge(options, errorCallback) {
 		);
 
 		logger('Extracting configuration from:', jsonFiles);
-		const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile)).concat([{}]);
+		const configurations = jsonFiles.map(
+			jsonFile => importAndValidate(jsonFile, onError)
+		).concat([{}]);
 
 		// Merge json stuff in one object / settings
 		settings = deepmerge.all(configurations, {
