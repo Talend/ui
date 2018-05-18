@@ -1,21 +1,17 @@
 // eslint-disable-next-line import/prefer-default-export
 export function assertTypeOf(options, attr, type, toThrow = true) {
-	if (type === 'Array' && options[attr] && Array.isArray(options[attr])) {
+	let isTypeCorrect;
+	if (options[attr] === undefined) {
 		return true;
-	}
-	let isTypeCorrect = true;
-	if (Array.isArray(type)) {
-		isTypeCorrect = type.reduce(
-			(acc, current) => assertTypeOf(options, attr, current, false) || acc,
-		);
-	} else if (
-		options[attr] &&
+	} else if (type === 'Array' && Array.isArray(options[attr])) {
+		return true;
+	} else if (Array.isArray(type)) {
+		isTypeCorrect = type.some(currentType => assertTypeOf(options, attr, currentType, false));
+	} else {
 		// eslint-disable-next-line valid-typeof
-		typeof options[attr] !== type
-	) {
-		isTypeCorrect = false;
+		isTypeCorrect = typeof options[attr] === type && !Array.isArray(options[attr]);
 	}
-	if (toThrow && !isTypeCorrect) {
+	if (toThrow && isTypeCorrect === false) {
 		throw new Error(`${attr} must be a ${type} but got ${typeof options[attr]}`);
 	}
 	return isTypeCorrect;

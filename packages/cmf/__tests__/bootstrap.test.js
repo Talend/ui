@@ -5,12 +5,9 @@ import createSagaMiddleware from 'redux-saga';
 import bootstrap, * as internals from '../src/bootstrap';
 import { registerInternals } from '../src/register';
 import actionCreator from '../src/actionCreator';
-import actions from '../src/actions';
-import { assertTypeOf } from '../src/assert';
 import component from '../src/component';
 import expression from '../src/expression';
 import storeAPI from '../src/store';
-import sagaRouter from '../src/sagaRouter';
 import sagas from '../src/sagas';
 
 jest.mock('react-dom', () => ({
@@ -53,7 +50,7 @@ jest.mock('../src/store', () => ({
 }));
 
 describe('bootstrap', () => {
-	describe('bootstrap registry', () => {
+	describe('registry', () => {
 		it('should check options', () => {
 			const toThrow = () => bootstrap({ appId: {} });
 			expect(toThrow).toThrow('appId must be a string but got object');
@@ -63,7 +60,7 @@ describe('bootstrap', () => {
 			bootstrap({});
 			expect(registerInternals).toHaveBeenCalled();
 		});
-		it('should registery options.components using component.registerMany', () => {
+		it('should register options.components using component.registerMany', () => {
 			component.registerMany.mockClear();
 			const options = {
 				components: {
@@ -73,7 +70,7 @@ describe('bootstrap', () => {
 			bootstrap(options);
 			expect(component.registerMany).toHaveBeenCalledWith(options.components);
 		});
-		it('should registery options.expressions using expression.registerMany', () => {
+		it('should register options.expressions using expression.registerMany', () => {
 			expression.registerMany.mockClear();
 			const options = {
 				expressions: {
@@ -83,7 +80,7 @@ describe('bootstrap', () => {
 			bootstrap(options);
 			expect(expression.registerMany).toHaveBeenCalledWith(options.expressions);
 		});
-		it('should support options.actionCreators', () => {
+		it('should register options.actionCreators using actionCreator.registerMany', () => {
 			actionCreator.registerMany.mockClear();
 			const options = {
 				actionCreators: {
@@ -93,7 +90,7 @@ describe('bootstrap', () => {
 			bootstrap(options);
 			expect(actionCreator.registerMany).toHaveBeenCalledWith(options.actionCreators);
 		});
-		it('should registery options.sagas using sagas.registerMany', () => {
+		it('should register options.sagas using sagas.registerMany', () => {
 			sagas.registerMany.mockClear();
 			const options = {
 				sagas: {
@@ -104,7 +101,7 @@ describe('bootstrap', () => {
 			expect(sagas.registerMany).toHaveBeenCalledWith(options.sagas);
 		});
 	});
-	describe('bootstrap saga', () => {
+	describe('saga', () => {
 		it('should call createSagaMiddleware and run the middleware', () => {
 			createSagaMiddleware.mockClear();
 			createSagaMiddleware.clearRun();
@@ -113,7 +110,7 @@ describe('bootstrap', () => {
 			expect(createSagaMiddleware.run).toHaveBeenCalled();
 		});
 	});
-	describe('bootstrap redux', () => {
+	describe('redux', () => {
 		it('should call storeAPI.addPreReducer if options.preReducer', () => {
 			const options = {
 				preReducer: jest.fn(),
@@ -167,13 +164,9 @@ describe('bootstrap', () => {
 		expect(routerMiddleware).toHaveBeenCalled();
 		expect(storeAPI.setRouterMiddleware).toHaveBeenCalledWith({ routerMiddlewareMocked: true });
 	});
-	it('should return an object with render function wich render with good options', () => {
+	it('should return an object with render function wich renders with good options', () => {
 		const options = {};
-		const result = bootstrap(options);
-		expect(typeof result).toBe('object');
-		expect(typeof result.render).toBe('function');
-		expect(render).not.toHaveBeenCalled();
-		result.render();
+		bootstrap(options);
 		expect(render).toHaveBeenCalled();
 		expect(syncHistoryWithStore).toHaveBeenCalled();
 	});

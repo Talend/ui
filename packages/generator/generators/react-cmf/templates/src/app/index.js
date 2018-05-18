@@ -10,18 +10,23 @@ import actions from './actions';
 import components from './components';
 import reducer from './reducers';
 
+/**
+ * This will register all containers in the CMF registry
+ */
 registerAllContainers();
 
 /**
- * Initialize CMF configuration
- * - Register your components in the CMF dictionary
- * - Register action creators in CMF actions dictionary
+ * Initialize CMF
+ * This will:
+ * - Register your components in the CMF registry
+ * - Register your action creators in CMF registry
+ * - Setup redux store using reducer
+ * - Fetch the settings
+ * - render react-dom in the dom 'app' element
  */
-const app = cmf.bootstrap({
+cmf.bootstrap({
 	components,
 	reducer,
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 });
-
-app.render();

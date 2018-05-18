@@ -1,23 +1,22 @@
 # react-cmf bootstrap
 
-This api help you to start without importing much than the api
+This api help you to start without importing anything except your code and cmf itself
 
 Quick start:
 
 ```javascript
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 import components from './components';
 import sagas from './sagas';
 
 configure.initialize();
-const app = api.bootstrap({
-    components,
+cmf.bootstrap({
+	components,
 	settingsURL: '/settings.json',
 	saga: sagas.appSaga, // function* appSaga() {...}
 	sagaRouterConfig: sagas.routes, // { '/foo/bar': function* bar() {...}, ... },
     ...manyMoreOptions
 });
-app.render();
 ```
 
 ## Options
@@ -37,4 +36,5 @@ app.render();
 | reducer | Object or function | undefined | add your own app reducer |
 | preloadedState | Object | undefined | start with an existing redux state |
 | middlewares | Array | undefined | add some redux middlewares |
-
+| storeCallback | function | undefined | Let you call a function once the store is created |
+| AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |

@@ -122,15 +122,13 @@ export default function bootstrap(unSafeOptions) {
 	const store = bootstrapRedux(options, saga.middleware);
 
 	saga.run();
-	return {
-		render: () =>
-			render(
-				<App
-					store={store}
-					history={syncHistoryWithStore(history, store)}
-					loading={options.AppLoader}
-				/>,
-				document.getElementById(appId),
-			),
-	};
+
+	render(
+		<App
+			store={store}
+			history={syncHistoryWithStore(history, store)}
+			loading={options.AppLoader}
+		/>,
+		document.getElementById(appId),
+	);
 }
