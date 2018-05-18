@@ -2,22 +2,26 @@
 
 exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
+  role="navigation"
 />
 `;
 
 exports[`Breadcrumbs should not render dropdown because all items are shown 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
+  role="navigation"
 >
   <li
     className="tc-breadcrumb-item"
+    key="0"
   >
     <span
       id="42-item-0"
-      title={undefined}
     >
       Text A
     </span>
@@ -25,25 +29,19 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="0-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="1"
   >
     <span
       id="42-item-1"
-      title={undefined}
     >
       Text B
     </span>
@@ -51,25 +49,19 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="1-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="2"
   >
     <span
       id="42-item-2"
-      title={undefined}
     >
       Text C
     </span>
@@ -77,25 +69,19 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="2-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="3"
   >
     <span
       id="42-item-3"
-      title={undefined}
     >
       Text D
     </span>
@@ -103,25 +89,19 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="3-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item active"
+    key="4"
   >
     <span
       id="42-item-4"
-      title={undefined}
     >
       Text E
     </span>
@@ -131,35 +111,37 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
 
 exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
+  role="navigation"
 >
   <li
     className="sr-only"
+    key="0"
   >
     <span
       id="42-item-0"
-      title={undefined}
     >
       Text A
     </span>
   </li>
   <li
     className="sr-only"
+    key="1"
   >
     <span
       id="42-item-1"
-      title={undefined}
     >
       Text B
     </span>
   </li>
   <li
     className="sr-only"
+    key="2.1"
   >
     <span
       id="42-item-2"
-      title={undefined}
     >
       Text C
     </span>
@@ -167,116 +149,56 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-menu"
+    key="2.2"
   >
-    <div
-      className="dropdown btn-group btn-group-link"
-    >
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label="…"
-        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-        disabled={false}
-        id="42-ellipsis"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-        <span
-          className="tc-dropdown-button-title"
-        >
-          <span
-            className="tc-dropdown-button-title-label"
-          >
-            …
-          </span>
-        </span>
-      </button>
-      <ul
-        aria-labelledby="42-ellipsis"
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            id="42-item-0"
-            label="Text A"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-            title={undefined}
-          >
-            Text A
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            id="42-item-1"
-            label="Text B"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-            title={undefined}
-          >
-            Text B
-          </a>
-        </li>
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            id="42-item-2"
-            label="Text C"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-            title={undefined}
-          >
-            Text C
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ActionDropdown
+      aria-label="Open first links menu"
+      bsStyle="default"
+      id="42-ellipsis"
+      items={
+        Array [
+          Object {
+            "id": "42-item-0",
+            "label": "Text A",
+            "onClick": [Function],
+            "title": undefined,
+          },
+          Object {
+            "id": "42-item-1",
+            "label": "Text B",
+            "onClick": [Function],
+            "title": undefined,
+          },
+          Object {
+            "id": "42-item-2",
+            "label": "Text C",
+            "onClick": [Function],
+            "title": undefined,
+          },
+        ]
+      }
+      label="…"
+      link={true}
+      noCaret={true}
+      tooltipPlacement="top"
+    />
   </li>
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="2-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="3"
   >
     <span
       id="42-item-3"
-      title={undefined}
     >
       Text D
     </span>
@@ -284,25 +206,19 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="3-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item active"
+    key="4"
   >
     <span
       id="42-item-4"
-      title={undefined}
     >
       Text E
     </span>
@@ -312,15 +228,18 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
 
 exports[`Breadcrumbs should render items ids when provided 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="my-breadcrumb"
+  role="navigation"
 >
   <li
     className="sr-only"
+    key="0.1"
   >
     <span
       id="my-breadcrumb-item-0"
-      title={undefined}
+      title="Go to Page Text A"
     >
       Text A
     </span>
@@ -328,80 +247,45 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-menu"
+    key="0.2"
   >
-    <div
-      className="dropdown btn-group btn-group-link"
-    >
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label="…"
-        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-        disabled={false}
-        id="my-breadcrumb-ellipsis"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-        <span
-          className="tc-dropdown-button-title"
-        >
-          <span
-            className="tc-dropdown-button-title-label"
-          >
-            …
-          </span>
-        </span>
-      </button>
-      <ul
-        aria-labelledby="my-breadcrumb-ellipsis"
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            id="my-breadcrumb-item-0"
-            label="Text A"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-            title={undefined}
-          >
-            Text A
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ActionDropdown
+      aria-label="Open first links menu"
+      bsStyle="default"
+      id="my-breadcrumb-ellipsis"
+      items={
+        Array [
+          Object {
+            "id": "my-breadcrumb-item-0",
+            "label": "Text A",
+            "onClick": [Function],
+            "title": "Go to Page Text A",
+          },
+        ]
+      }
+      label="…"
+      link={true}
+      noCaret={true}
+      tooltipPlacement="top"
+    />
   </li>
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="0-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="1"
   >
     <span
       id="my-breadcrumb-item-1"
-      title={undefined}
+      title="Go to Page Text B"
     >
       Text B
     </span>
@@ -409,25 +293,20 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="1-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="2"
   >
     <span
       id="my-breadcrumb-item-2"
-      title={undefined}
+      title="Go to Page Text C"
     >
       Text C
     </span>
@@ -435,25 +314,20 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="2-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item active"
+    key="3"
   >
     <span
       id="my-breadcrumb-item-3"
-      title={undefined}
+      title="Go to Page Text D"
     >
       Text D
     </span>
@@ -463,15 +337,18 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
 
 exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
+  role="navigation"
 >
   <li
     className="sr-only"
+    key="0.1"
   >
     <span
       id="42-item-0"
-      title={undefined}
+      title="Go to Page Text A"
     >
       Text A
     </span>
@@ -479,80 +356,45 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-menu"
+    key="0.2"
   >
-    <div
-      className="dropdown btn-group btn-group-link"
-    >
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        aria-label="…"
-        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-        disabled={false}
-        id="42-ellipsis"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        role="button"
-        type="button"
-      >
-        <span
-          className="tc-dropdown-button-title"
-        >
-          <span
-            className="tc-dropdown-button-title-label"
-          >
-            …
-          </span>
-        </span>
-      </button>
-      <ul
-        aria-labelledby="42-ellipsis"
-        className="dropdown-menu"
-        role="menu"
-      >
-        <li
-          className=""
-          role="presentation"
-          style={undefined}
-        >
-          <a
-            href="#"
-            id="42-item-0"
-            label="Text A"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="menuitem"
-            tabIndex="-1"
-            title={undefined}
-          >
-            Text A
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ActionDropdown
+      aria-label="Open first links menu"
+      bsStyle="default"
+      id="42-ellipsis"
+      items={
+        Array [
+          Object {
+            "id": "42-item-0",
+            "label": "Text A",
+            "onClick": [Function],
+            "title": "Go to Page Text A",
+          },
+        ]
+      }
+      label="…"
+      link={true}
+      noCaret={true}
+      tooltipPlacement="top"
+    />
   </li>
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="0-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="1"
   >
     <span
       id="42-item-1"
-      title={undefined}
+      title="Go to Page Text B"
     >
       Text B
     </span>
@@ -560,25 +402,20 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="1-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="2"
   >
     <span
       id="42-item-2"
-      title={undefined}
+      title="Go to Page Text C"
     >
       Text C
     </span>
@@ -586,25 +423,20 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="2-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item active"
+    key="3"
   >
     <span
       id="42-item-3"
-      title={undefined}
+      title="Go to Page Text D"
     >
       Text D
     </span>
@@ -614,15 +446,17 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
 
 exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
+  role="navigation"
 >
   <li
     className="tc-breadcrumb-item"
+    key="0"
   >
     <span
       id="42-item-0"
-      title={undefined}
     >
       Text A
     </span>
@@ -630,25 +464,19 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="0-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="1"
   >
     <span
       id="42-item-1"
-      title={undefined}
     >
       Text B
     </span>
@@ -656,25 +484,19 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="1-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="2"
   >
     <span
       id="42-item-2"
-      title={undefined}
     >
       Text C
     </span>
@@ -682,25 +504,19 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="2-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="3"
   >
     <span
       id="42-item-3"
-      title={undefined}
     >
       Text D
     </span>
@@ -708,25 +524,19 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="3-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item active"
+    key="4"
   >
     <span
       id="42-item-4"
-      title={undefined}
     >
       Text E
     </span>
@@ -736,11 +546,14 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
 
 exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
 <ol
+  aria-label="breadcrumb"
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
+  role="navigation"
 >
   <li
     className="tc-breadcrumb-item"
+    key="0"
   >
     <span
       id="42-item-0"
@@ -752,21 +565,16 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="0-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item"
+    key="1"
   >
     <span
       id="42-item-1"
@@ -778,25 +586,19 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
+    key="1-separator"
   >
-    <svg
-      aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-      focusable="false"
+    <Icon
       name="talend-chevron-left"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-chevron-left"
-      />
-    </svg>
+      transform="rotate-180"
+    />
   </li>
   <li
     className="tc-breadcrumb-item active"
+    key="2"
   >
     <span
       id="42-item-2"
-      title={undefined}
     >
       Text C
     </span>

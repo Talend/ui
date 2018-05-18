@@ -2,10 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import uuid from 'uuid';
+import { translate } from 'react-i18next';
 
 import theme from './Breadcrumbs.scss';
 import { Action, ActionDropdown } from '../Actions';
 import Icon from '../Icon';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 
 /**
  * Default max items to display without starting by ellipsis
@@ -21,7 +24,7 @@ const DEFAULT_MAX_ITEMS = 3;
  items={items}
  />
  */
-function Breadcrumbs(props) {
+export function BreadcrumbsComponent(props) {
 	const items = props.items || [];
 
 	const nbItems = items.length;
@@ -71,6 +74,7 @@ function Breadcrumbs(props) {
 						bsStyle="link"
 						role="link"
 						title={title || text}
+						aria-label={title}
 						label={text}
 						onClick={wrappedOnClick}
 					/>
@@ -95,7 +99,14 @@ function Breadcrumbs(props) {
 					{getItemContent()}
 				</li>,
 				<li className={'tc-breadcrumb-menu'} key={index + 0.2} aria-hidden="true">
-					<ActionDropdown id={`${props.id}-ellipsis`} items={hiddenItems} label="…" link noCaret />
+					<ActionDropdown
+						id={`${props.id}-ellipsis`}
+						items={hiddenItems}
+						aria-label={props.t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', { defaultValue: 'Open first links menu' })}
+						label="…"
+						link
+						noCaret
+					/>
 				</li>,
 				separator,
 			];
@@ -109,15 +120,20 @@ function Breadcrumbs(props) {
 	}
 
 	return (
-		<ol id={props.id} className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
+		<ol
+			id={props.id}
+			className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}
+			role="navigation"
+			aria-label={props.t('BREADCRUMB', { defaultValue: 'breadcrumb' })}
+		>
 			{items.map(renderBreadcrumbItem)}
 		</ol>
 	);
 }
 
-Breadcrumbs.displayName = 'Breadcrumbs';
+BreadcrumbsComponent.displayName = 'Breadcrumbs';
 
-Breadcrumbs.propTypes = {
+BreadcrumbsComponent.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -127,10 +143,12 @@ Breadcrumbs.propTypes = {
 		}),
 	),
 	maxItems: PropTypes.number,
+	t: PropTypes.func.isRequired,
 };
 
-Breadcrumbs.defaultProps = {
+BreadcrumbsComponent.defaultProps = {
 	id: `${uuid.v4()}`,
+	t: getDefaultT(),
 };
 
-export default Breadcrumbs;
+export default translate(I18N_DOMAIN_COMPONENTS)(BreadcrumbsComponent);
