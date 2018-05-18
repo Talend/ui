@@ -15,12 +15,12 @@ describe('Breadcrumbs', () => {
 
 	it('should render items with ellipsis and 3 visible items by default', () => {
 		const breadcrumbs = shallow(<BreadcrumbsComponent items={items} />);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should do nothing if items property is empty', () => {
 		const breadcrumbs = shallow(<BreadcrumbsComponent items={null} />);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render small list of items without ellipsis', () => {
@@ -30,7 +30,7 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text C' },
 		];
 		const breadcrumbs = shallow(<BreadcrumbsComponent items={customItems} />);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render list of items without ellipsis when set enough max items to display', () => {
@@ -42,7 +42,7 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text E' },
 		];
 		const breadcrumbs = shallow(<BreadcrumbsComponent items={customItems} maxItems={5} />);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render dropdown containing 3 items', () => {
@@ -54,7 +54,7 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text E' },
 		];
 		const breadcrumbs = shallow(<BreadcrumbsComponent items={customItems} maxItems={2} />);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should not render dropdown because all items are shown', () => {
@@ -68,11 +68,11 @@ describe('Breadcrumbs', () => {
 		const breadcrumbs = shallow(
 			<BreadcrumbsComponent items={customItems} maxItems={customItems.length} />,
 		);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render items ids when provided', () => {
 		const breadcrumbs = shallow(<BreadcrumbsComponent id="my-breadcrumb" items={items} />);
-		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 });

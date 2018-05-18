@@ -6,7 +6,9 @@ exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
   className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
   role="navigation"
-/>
+>
+  
+</ol>
 `;
 
 exports[`Breadcrumbs should not render dropdown because all items are shown 1`] = `
@@ -18,10 +20,10 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
 >
   <li
     className="tc-breadcrumb-item"
-    key="0"
   >
     <span
       id="42-item-0"
+      title={undefined}
     >
       Text A
     </span>
@@ -29,7 +31,6 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="0-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -38,10 +39,10 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="1"
   >
     <span
       id="42-item-1"
+      title={undefined}
     >
       Text B
     </span>
@@ -49,7 +50,6 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="1-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -58,10 +58,10 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="2"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
@@ -69,7 +69,6 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="2-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -78,10 +77,10 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="3"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
@@ -89,7 +88,6 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="3-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -98,10 +96,10 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   </li>
   <li
     className="tc-breadcrumb-item active"
-    key="4"
   >
     <span
       id="42-item-4"
+      title={undefined}
     >
       Text E
     </span>
@@ -118,30 +116,30 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
 >
   <li
     className="sr-only"
-    key="0"
   >
     <span
       id="42-item-0"
+      title={undefined}
     >
       Text A
     </span>
   </li>
   <li
     className="sr-only"
-    key="1"
   >
     <span
       id="42-item-1"
+      title={undefined}
     >
       Text B
     </span>
   </li>
   <li
     className="sr-only"
-    key="2.1"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
@@ -149,7 +147,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-menu"
-    key="2.2"
   >
     <ActionDropdown
       aria-label="Open first links menu"
@@ -186,7 +183,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="2-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -195,10 +191,10 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="3"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
@@ -206,7 +202,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="3-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -215,10 +210,10 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item active"
-    key="4"
   >
     <span
       id="42-item-4"
+      title={undefined}
     >
       Text E
     </span>
@@ -235,7 +230,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
 >
   <li
     className="sr-only"
-    key="0.1"
   >
     <span
       id="my-breadcrumb-item-0"
@@ -247,7 +241,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-menu"
-    key="0.2"
   >
     <ActionDropdown
       aria-label="Open first links menu"
@@ -272,7 +265,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="0-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -281,7 +273,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="1"
   >
     <span
       id="my-breadcrumb-item-1"
@@ -293,7 +284,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="1-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -302,7 +292,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="2"
   >
     <span
       id="my-breadcrumb-item-2"
@@ -314,7 +303,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="2-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -323,7 +311,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item active"
-    key="3"
   >
     <span
       id="my-breadcrumb-item-3"
@@ -344,7 +331,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
 >
   <li
     className="sr-only"
-    key="0.1"
   >
     <span
       id="42-item-0"
@@ -356,7 +342,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-menu"
-    key="0.2"
   >
     <ActionDropdown
       aria-label="Open first links menu"
@@ -381,7 +366,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="0-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -390,7 +374,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="1"
   >
     <span
       id="42-item-1"
@@ -402,7 +385,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="1-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -411,7 +393,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="2"
   >
     <span
       id="42-item-2"
@@ -423,7 +404,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="2-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -432,7 +412,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   </li>
   <li
     className="tc-breadcrumb-item active"
-    key="3"
   >
     <span
       id="42-item-3"
@@ -453,10 +432,10 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
 >
   <li
     className="tc-breadcrumb-item"
-    key="0"
   >
     <span
       id="42-item-0"
+      title={undefined}
     >
       Text A
     </span>
@@ -464,7 +443,6 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="0-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -473,10 +451,10 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="1"
   >
     <span
       id="42-item-1"
+      title={undefined}
     >
       Text B
     </span>
@@ -484,7 +462,6 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="1-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -493,10 +470,10 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="2"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
@@ -504,7 +481,6 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="2-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -513,10 +489,10 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="3"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
@@ -524,7 +500,6 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="3-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -533,10 +508,10 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   </li>
   <li
     className="tc-breadcrumb-item active"
-    key="4"
   >
     <span
       id="42-item-4"
+      title={undefined}
     >
       Text E
     </span>
@@ -553,7 +528,6 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
 >
   <li
     className="tc-breadcrumb-item"
-    key="0"
   >
     <span
       id="42-item-0"
@@ -565,7 +539,6 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="0-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -574,7 +547,6 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item"
-    key="1"
   >
     <span
       id="42-item-1"
@@ -586,7 +558,6 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   <li
     aria-hidden="true"
     className="tc-breadcrumb-separator separator"
-    key="1-separator"
   >
     <Icon
       name="talend-chevron-left"
@@ -595,10 +566,10 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   </li>
   <li
     className="tc-breadcrumb-item active"
-    key="2"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
