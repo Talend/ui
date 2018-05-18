@@ -25,6 +25,7 @@ exports[`Header should render header with one button 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-plus"
         title={null}
       >
         <use
@@ -62,6 +63,7 @@ exports[`Header should render header with one button and indicate the component 
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-plus"
         title={null}
       >
         <use
@@ -110,6 +112,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-plus"
             title={null}
           >
             <use

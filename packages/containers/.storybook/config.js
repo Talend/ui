@@ -81,7 +81,7 @@ function selectTab(event, data) {
 	};
 }
 
-const registerActionCreator = api.action.registerActionCreator;
+const registerActionCreator = api.actionCreator.register;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
@@ -285,6 +285,14 @@ function loadStories() {
 			bsStyle: 'primary',
 			payload: {
 				type: 'APP_OBJECT_ADD',
+			},
+		};
+		actions['object:remove'] = {
+			label: 'Remove',
+			icon: 'talend-trash',
+			bsStyle: 'danger',
+			payload: {
+				type: 'APP_OBJECT_REMOVE',
 			},
 		};
 		actions['object:upload'] = {

@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CellTitleActions, { CellTitleActionsComponent } from './CellTitleActions.component';
+import { CellTitleActionsComponent } from './CellTitleActions.component';
 import { cellTitleDisplayModes } from '../utils/constants';
-import toJsonWithoutI18n from '../../../test/props-without-i18n';
 
 const simpleActions = [
 	{
@@ -72,7 +71,7 @@ describe('CellTitleActions', () => {
 	it('should not render actions in input mode', () => {
 		// when
 		const wrapper = shallow(
-			<CellTitleActions
+			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_INPUT}
 				rowData={{ actions: simpleActions }}
@@ -82,8 +81,6 @@ describe('CellTitleActions', () => {
 		// then
 		expect(
 			wrapper
-				.find(CellTitleActionsComponent)
-				.dive()
 				.find('.main-title-actions-group')
 				.getElement(),
 		).toMatchSnapshot();
@@ -92,7 +89,7 @@ describe('CellTitleActions', () => {
 	it('should render a menu containing simple actions', () => {
 		// when
 		const wrapper = shallow(
-			<CellTitleActions
+			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ actions: simpleActions }}
@@ -102,8 +99,6 @@ describe('CellTitleActions', () => {
 		// then
 		expect(
 			wrapper
-				.find(CellTitleActionsComponent)
-				.dive()
 				.find('.main-title-actions-group')
 				.getElement(),
 		).toMatchSnapshot();
@@ -112,7 +107,7 @@ describe('CellTitleActions', () => {
 	it('should extract and render each dropdown actions', () => {
 		// when
 		const wrapper = shallow(
-			<CellTitleActions
+			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ actions: dropdownActions.concat(simpleActions) }}
@@ -122,8 +117,6 @@ describe('CellTitleActions', () => {
 		// then
 		expect(
 			wrapper
-				.find(CellTitleActionsComponent)
-				.dive()
 				.find('.main-title-actions-group')
 				.getElement(),
 		).toMatchSnapshot();
@@ -132,7 +125,7 @@ describe('CellTitleActions', () => {
 	it('should render persistent actions', () => {
 		// when
 		const wrapper = shallow(
-			<CellTitleActions
+			<CellTitleActionsComponent
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ persistentActions }}
@@ -142,8 +135,6 @@ describe('CellTitleActions', () => {
 		// then
 		expect(
 			wrapper
-				.find(CellTitleActionsComponent)
-				.dive()
 				.find('.main-title-actions-group')
 				.getElement(),
 		).toMatchSnapshot();

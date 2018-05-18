@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
-import { DEFAULT_I18N } from '../../translate';
+import getDefaultT, { DEFAULT_I18N } from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './CellTitleActions.scss';
@@ -29,6 +29,9 @@ export function CellTitleActionsComponent({
 
 		actions.push(
 			<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
+				{dropdownDefinitions && (
+					<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
+				)}
 				{actionDefinitions && (
 					<ActionDropdown
 						id={id}
@@ -39,9 +42,6 @@ export function CellTitleActionsComponent({
 						link
 						noCaret
 					/>
-				)}
-				{dropdownDefinitions && (
-					<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
 				)}
 			</div>,
 		);
@@ -74,7 +74,10 @@ CellTitleActionsComponent.propTypes = {
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
 	// The collection item.
 	rowData: PropTypes.object,
-	t: PropTypes.func,
+	t: PropTypes.func.isRequired,
+};
+CellTitleActionsComponent.defaultProps = {
+	t: getDefaultT(),
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(CellTitleActionsComponent);

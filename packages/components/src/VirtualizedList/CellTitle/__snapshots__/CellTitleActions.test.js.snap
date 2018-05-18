@@ -7,36 +7,6 @@ exports[`CellTitleActions should extract and render each dropdown actions 1`] = 
   <div
     className="cell-title-actions theme-cell-title-actions"
   >
-    <ActionDropdown
-      bsStyle="default"
-      className="cell-title-actions-menu theme-cell-title-actions-menu"
-      hideLabel={true}
-      id="my-actions"
-      items={
-        Array [
-          Object {
-            "data-feature": "list.item.edit",
-            "hideLabel": true,
-            "icon": "talend-pencil",
-            "id": "edit",
-            "label": "edit",
-            "onClick": [Function],
-          },
-          Object {
-            "data-feature": "list.item.delete",
-            "hideLabel": true,
-            "icon": "talend-trash",
-            "id": "delete",
-            "label": "delete",
-            "onClick": [Function],
-          },
-        ]
-      }
-      label="Open menu"
-      link={true}
-      noCaret={true}
-      tooltipPlacement="top"
-    />
     <Actions
       actions={
         Array [
@@ -69,36 +39,6 @@ exports[`CellTitleActions should extract and render each dropdown actions 1`] = 
         }
       }
     />
-  </div>
-  <Actions
-    actions={Array []}
-    className="persistent-actions theme-persistent-actions"
-    hideLabel={true}
-    link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
-  />
-</div>
-`;
-
-exports[`CellTitleActions should not render actions in input mode 1`] = `
-<div
-  className="main-title-actions-group theme-main-title-actions-group"
->
-  
-</div>
-`;
-
-exports[`CellTitleActions should render a menu containing simple actions 1`] = `
-<div
-  className="main-title-actions-group theme-main-title-actions-group"
->
-  <div
-    className="cell-title-actions theme-cell-title-actions"
-  >
     <ActionDropdown
       bsStyle="default"
       className="cell-title-actions-menu theme-cell-title-actions-menu"
@@ -129,6 +69,36 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
       noCaret={true}
       tooltipPlacement="top"
     />
+  </div>
+  <Actions
+    actions={Array []}
+    className="persistent-actions theme-persistent-actions"
+    hideLabel={true}
+    link={true}
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitleActions should not render actions in input mode 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+>
+  
+</div>
+`;
+
+exports[`CellTitleActions should render a menu containing simple actions 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
     <Actions
       actions={Array []}
       hideLabel={true}
@@ -138,6 +108,36 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
           "Action": [Function],
         }
       }
+    />
+    <ActionDropdown
+      bsStyle="default"
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      hideLabel={true}
+      id="my-actions"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.edit",
+            "hideLabel": true,
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.delete",
+            "hideLabel": true,
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ]
+      }
+      label="Open menu"
+      link={true}
+      noCaret={true}
+      tooltipPlacement="top"
     />
   </div>
   <Actions

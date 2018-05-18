@@ -249,6 +249,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                               aria-hidden="true"
                               className="theme-tc-svg-icon tc-svg-icon"
                               focusable="false"
+                              name="talend-icon"
                               title={null}
                             >
                               <use
@@ -586,6 +587,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
                   aria-hidden="true"
                   className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
+                  name="talend-icon"
                   title={null}
                 >
                   <use
@@ -841,6 +843,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                               aria-hidden="true"
                               className="theme-tc-svg-icon tc-svg-icon"
                               focusable="false"
+                              name="talend-icon"
                               title={null}
                             >
                               <use
