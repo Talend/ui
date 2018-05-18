@@ -48,6 +48,7 @@
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
+    "lodash": "^4.17.10",
     "rimraf": "^2.6.1"
   },
   "publishConfig": {
