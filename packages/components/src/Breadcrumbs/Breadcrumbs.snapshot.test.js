@@ -66,7 +66,7 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text E' },
 		];
 		const breadcrumbs = shallow(
-			<BreadcrumbsComponent items={customItems} maxItems={customItems.length} />
+			<BreadcrumbsComponent items={customItems} maxItems={customItems.length} />,
 		);
 		expect(toJsonWithoutI18n(breadcrumbs)).toMatchSnapshot();
 	});

@@ -102,7 +102,9 @@ export function BreadcrumbsComponent(props) {
 					<ActionDropdown
 						id={`${props.id}-ellipsis`}
 						items={hiddenItems}
-						aria-label={props.t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', { defaultValue: 'Open first links menu' })}
+						aria-label={props.t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', {
+							defaultValue: 'Open first links menu',
+						})}
 						label="…"
 						link
 						noCaret
