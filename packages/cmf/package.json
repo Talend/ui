@@ -103,13 +103,10 @@
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupFiles": [
-      "./env__tests.js"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.183.0"
+  "version": "0.185.0"
 }
