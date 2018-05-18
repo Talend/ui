@@ -318,6 +318,14 @@ function loadStories() {
 				type: 'APP_OBJECT_ADD',
 			},
 		};
+		actions['object:remove'] = {
+			label: 'Remove',
+			icon: 'talend-trash',
+			bsStyle: 'danger',
+			payload: {
+				type: 'APP_OBJECT_REMOVE',
+			},
+		};
 		actions['object:upload'] = {
 			label: 'Upload',
 			icon: 'talend-upload',
