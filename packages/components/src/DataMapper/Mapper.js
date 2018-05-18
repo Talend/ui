@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Schema from '../Schema/Schema.js';
-import Mapping from './Mapping.js';
-import * as Constants from '../Constants';
+import Schema from './Schema/Schema.js';
+import Mapping from './Mapping/Mapping';
+import * as Constants from './Constants';
 
 function getMappedElements(dataAccessor, mapping, side) {
 	const mappingItems = dataAccessor.getMappingItems(mapping);
@@ -76,8 +76,8 @@ function mappingHasChanged(dataAccessor, version) {
 	return dataAccessor.getMappingVersion() !== version;
 }
 
-function filterHasChanged(dataAccessor, schema, version) {
-	return dataAccessor.getFilterVersion(schema) !== version;
+function filtersHaveChanged(dataAccessor, schema, version) {
+	return dataAccessor.getFiltersVersion(schema) !== version;
 }
 
 function initAnchors() {
@@ -116,8 +116,8 @@ export default class Mapper extends Component {
 		super(props);
 		this.visibleInputElements = null;
 		this.visibleOutputElements = null;
-		this.inputFilterVersion = props.dataAccessor.getFilterVersion(props.inputSchema);
-		this.outputFilterVersion = props.dataAccessor.getFilterVersion(props.outputSchema);
+		this.inputFilterVersion = props.dataAccessor.getFiltersVersion(props.inputSchema);
+		this.outputFilterVersion = props.dataAccessor.getFiltersVersion(props.outputSchema);
 		this.visibleMapping = null;
 		this.mappingVersion = props.dataAccessor.getMappingVersion();
 		this.anchors = initAnchors();
@@ -159,18 +159,18 @@ export default class Mapper extends Component {
 			this.mappingVersion = nextProps.dataAccessor.getMappingVersion();
 			this.anchors = resetAnchors(this.anchors);
 		}
-		if (filterHasChanged(nextProps.dataAccessor, this.props.inputSchema, this.inputFilterVersion)) {
+		if (filtersHaveChanged(nextProps.dataAccessor, this.props.inputSchema, this.inputFilterVersion)) {
 			this.visibleMapping = null;
 			this.visibleInputElements = null;
-			this.inputFilterVersion = nextProps.dataAccessor.getFilterVersion(this.props.inputSchema);
+			this.inputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.inputSchema);
 			this.anchors = resetAnchors(this.anchors);
 		}
 		if (
-			filterHasChanged(nextProps.dataAccessor, this.props.outputSchema, this.outputFilterVersion)
+			filtersHaveChanged(nextProps.dataAccessor, this.props.outputSchema, this.outputFilterVersion)
 		) {
 			this.visibleMapping = null;
 			this.visibleOutputElements = null;
-			this.outputFilterVersion = nextProps.dataAccessor.getFilterVersion(this.props.outputSchema);
+			this.outputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.outputSchema);
 			this.anchors = resetAnchors(this.anchors);
 		}
 	}
@@ -765,7 +765,6 @@ export default class Mapper extends Component {
 			dndListener,
 			onEnterElement,
 			onLeaveElement,
-			draggable,
 		} = this.props;
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;
@@ -775,13 +774,12 @@ export default class Mapper extends Component {
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}
 					schema={inputSchema}
-					SchemaRenderer={schemaConfiguration.getRenderer(inputSide)}
+					schemaConfiguration={schemaConfiguration}
 					side={inputSide}
 					onScroll={this.onScroll}
 					revealConnectedElement={this.revealConnectedElement}
 					mappedElements={getMappedElements(dataAccessor, mapping, inputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
-					columnKeys={schemaConfiguration.getColumns(inputSide)}
 					filters={filters.input}
 					isElementVisible={this.isElementVisible}
 				/>
@@ -789,13 +787,12 @@ export default class Mapper extends Component {
 					{...commonSchemaProps}
 					ref={this.updateOutputSchemaRef}
 					schema={outputSchema}
-					SchemaRenderer={schemaConfiguration.getRenderer(outputSide)}
+					schemaConfiguration={schemaConfiguration}
 					side={outputSide}
 					onScroll={this.onScroll}
 					revealConnectedElement={this.revealConnectedElement}
 					mappedElements={getMappedElements(dataAccessor, mapping, outputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
-					columnKeys={schemaConfiguration.getColumns(outputSide)}
 					filters={filters.output}
 					isElementVisible={this.isElementVisible}
 				/>
@@ -808,10 +805,8 @@ export default class Mapper extends Component {
 					getYPosition={this.getYPosition}
 					selection={selection}
 					preferences={preferences}
-					draggable={draggable}
 					dnd={dnd}
 					dndListener={this}
-					mappingConfiguration={mappingConfiguration}
 					onEnterAnchor={onEnterElement}
 					onLeaveAnchor={onLeaveElement}
 				/>
@@ -829,7 +824,6 @@ Mapper.propTypes = {
 	inputSchema: PropTypes.object,
 	outputSchema: PropTypes.object,
 	schemaConfiguration: PropTypes.object,
-	draggable: PropTypes.bool,
 	onSelect: PropTypes.func,
 	pendingItem: PropTypes.object,
 	onEnterElement: PropTypes.func,

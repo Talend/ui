@@ -1,5 +1,5 @@
-import * as Constants from './Constants';
-import DataAccessorWithSorterAndFilter from '../index';
+import * as Constants from '../Constants';
+import DataAccessorWithSorterAndFilter from '../../Table/DataAccessor/DataAccessorWithSorterAndFilter';
 
 /**
  * This class wraps a data accessor and a mapping accessor
@@ -39,11 +39,8 @@ export default class DataAccessorWrapper {
 	* @private
 	*/
 	initializeInternalDataAccessor(schema, side) {
-		const elements = this.getSchemaElements(schema, false);
-		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(
-			elements,
-			this.dataAccessor
-		);
+		const elements = this.dataAccessor.getSchemaElements(schema);
+		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(elements, this.dataAccessor);
 	}
 
 	/**
@@ -51,7 +48,7 @@ export default class DataAccessorWrapper {
 	*/
 	populateCache(schema, side) {
 		this.cache[side] = {};
-		const elements = this.getSchemaElements(schema, false);
+		const elements = this.dataAccessor.getSchemaElements(schema);
 		for (let i = 0; i < elements.length; i += 1) {
 			this.cache[side][this.getElementId(elements[i])] = elements[i];
 		}

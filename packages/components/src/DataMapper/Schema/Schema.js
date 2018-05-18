@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as Constants from '../Constants';
+import TableRenderer from './TableRenderer';
 
 function isMapped(dataAccessor, element, mappedElements) {
 	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);
@@ -32,6 +33,41 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 	const focused = focusedElements != null && dataAccessor.includes(focusedElements, element);
 	const isTarget = dnd && dnd.target && dataAccessor.areElementsEqual(dnd.target.element, element);
 	return connected || pending || focused || isTarget;
+}
+
+function getColumns(schemaConfiguration, side) {
+	if (schemaConfiguration && schemaConfiguration.getColumns) {
+		return schemaConfiguration.getColumns(side);
+	}
+	return [];
+}
+
+function getClassNameProvider(schemaConfiguration, side) {
+	if (schemaConfiguration && schemaConfiguration.getClassNameProvider) {
+		return schemaConfiguration.getClassNameProvider(side);
+	}
+	return null;
+}
+
+function getRowRenderer(schemaConfiguration, side) {
+	if (schemaConfiguration && schemaConfiguration.getRowRenderer) {
+		return schemaConfiguration.getRowRenderer(side);
+	}
+	return null;
+}
+
+function getHeaderRenderer(schemaConfiguration, side) {
+	if (schemaConfiguration && schemaConfiguration.getHeaderRenderer) {
+		return schemaConfiguration.getHeaderRenderer(side);
+	}
+	return null;
+}
+
+function withHeader(schemaConfiguration, side) {
+	if (schemaConfiguration && schemaConfiguration.withHeader(side)) {
+		return schemaConfiguration.withHeader(side);
+	}
+	return false;
 }
 
 export default class Schema extends Component {
@@ -211,14 +247,9 @@ export default class Schema extends Component {
 	}
 
 	render() {
-		const { SchemaRenderer, ...tempProps } = this.props;
+		const { schemaConfiguration, ...tempProps } = this.props;
 		const {
-			dataAccessor,
-			schema,
 			side,
-			filters,
-			filterComponents,
-			onFilterChange,
 		} = this.props;
 		const contentProps = {
 			...tempProps,
@@ -229,7 +260,15 @@ export default class Schema extends Component {
 		};
 		return (
 			<div className={`schema mapper-element ${side}`}>
-				<SchemaRenderer {...contentProps} ref={this.updateRendererNodeRef} />
+				<TableRenderer
+					{...contentProps}
+					ref={this.updateRendererNodeRef}
+					columnKeys={getColumns(schemaConfiguration, side)}
+					classNameProvider={getClassNameProvider(schemaConfiguration, side)}
+					rowRenderer={getRowRenderer(schemaConfiguration, side)}
+					withHeader={withHeader(schemaConfiguration, side)}
+					headerRenderer={getHeaderRenderer(schemaConfiguration, side)}
+				/>
 			</div>
 		);
 	}
@@ -238,9 +277,9 @@ export default class Schema extends Component {
 Schema.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
-	SchemaRenderer: PropTypes.func,
+	schemaConfiguration: PropTypes.object,
 	filters: PropTypes.array,
-	filterComponents: PropTypes.object,
+	filtersRenderer: PropTypes.object,
 	onFilterChange: PropTypes.func,
 	focusedElements: PropTypes.array,
 	onScroll: PropTypes.func,

@@ -3,50 +3,84 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
 	Table,
-	TableClickableCell,
 	TableCell,
-	TableConfiguration,
+	TableHeader,
 	DraggableComponent,
-} from '../../../Table';
-import MandatoryField from '../../List/MandatoryField';
+} from '../../index';
 
-import * as Constants from '../../Constants';
+import * as Constants from '../Constants';
 
-class SchemaClassNameProvider {
-	updateProps(props) {
-		this.props = props;
+class InternalClassNameProvider {
+	update(schemaProps) {
+		this.schemaProps = schemaProps;
+	}
+
+	getMain() {
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getMain) {
+			return this.schemaProps.classNameProvider.getMain();
+		}
+		return 'tc-table-container';
+	}
+
+	getForTitle() {
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForTitle) {
+			return this.schemaProps.classNameProvider.getForTitle();
+		}
+		return 'tc-table-title';
+	}
+
+	getForFilters() {
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForFilters) {
+			return this.schemaProps.classNameProvider.getForFilters();
+		}
+		return 'tc-table-filters';
 	}
 
 	getForTable() {
-		return `comp-simple-table schema-content ${this.props.side}`;
+		let className = 'tc-table';
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForTable) {
+			 className = this.schemaProps.classNameProvider.getForTable();
+		}
+		return `${className} schema-content ${this.schemaProps.side}`;
 	}
 
 	getForHeader(columnKey) {
+		// default header className
+		let className = 'tc-table-header';
+		// custom header className
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForHeader) {
+			 className = this.schemaProps.classNameProvider.getForHeader();
+		}
+		// specific header className added for data-mapper context
 		const classes = {
-			'comp-simple-table-header': true,
-			input: this.props.side === Constants.MappingSide.INPUT,
-			output: this.props.side === Constants.MappingSide.OUTPUT,
+			input: this.schemaProps.side === Constants.MappingSide.INPUT,
+			output: this.schemaProps.side === Constants.MappingSide.OUTPUT,
 		};
 		classes[columnKey] = true;
-		return classnames(classes);
+		return `${className} ${classnames(classes)}`;
 	}
 
 	getForRow(element) {
+		// default row className
+		let className = 'tc-table-row';
+		// custom row className
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForRow) {
+			 className = this.schemaProps.classNameProvider.getForRow(element);
+		}
+		// specific row className added for data-mapper context
 		const {
 			dataAccessor,
 			selection,
 			side,
 			pendingItem,
 			dnd,
-			draggable,
 			focusedElements,
 			mappedElements,
 			isHighlighted,
 			isMapped,
 			isSelected,
-		} = this.props;
-		return classnames({
-			'comp-simple-table-row': true,
+		} = this.schemaProps;
+		const addedClassNames = classnames({
 			highlighted: isHighlighted(
 				dataAccessor,
 				element,
@@ -60,91 +94,62 @@ class SchemaClassNameProvider {
 			selected: isSelected(dataAccessor, selection, element, side),
 			input: side === Constants.MappingSide.INPUT,
 			output: side === Constants.MappingSide.OUTPUT,
-			draggable,
+			draggable: true,
 		});
+		return `${className} ${addedClassNames}`;
 	}
 
-	getForRowData(columnKey) {
-		return `comp-simple-table-row-data-${columnKey} ${this.props.side}`;
+	getForRowData(columnKey, element) {
+		// default row className
+		let className = `tc-table-row-data-${columnKey}`;
+		// custom row className
+		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForRowData) {
+			 className = this.schemaProps.classNameProvider.getForRowData(columnKey, element);
+		}
+		return `${className} ${this.schemaProps.side}`;
 	}
 }
 
-class SchemaDndListener {
-	updateProps(props) {
-		this.props = props;
+class InternalDndListener {
+	constructor() {
+		this.beginDrag = this.beginDrag.bind(this);
+		this.canDrop = this.canDrop.bind(this);
+		this.drop = this.drop.bind(this);
+		this.endDrag = this.endDrag.bind(this);
+	}
+
+	update(schemaProps) {
+		this.schemaProps = schemaProps;
 	}
 
 	beginDrag(element) {
-		return this.props.dndListener.beginDrag(element, this.props.side);
+		return this.schemaProps.dndListener.beginDrag(element, this.schemaProps.side);
 	}
 
 	canDrop(sourceItem, targetElement) {
-		const targetItem = { element: targetElement, side: this.props.side };
-		return this.props.dndListener.canDrop(sourceItem, targetItem);
+		const targetItem = { element: targetElement, side: this.schemaProps.side };
+		return this.schemaProps.dndListener.canDrop(sourceItem, targetItem);
 	}
 
 	drop(sourceItem, targetElement) {
-		const targetItem = { element: targetElement, side: this.props.side };
-		this.props.dndListener.drop(sourceItem, targetItem);
+		const targetItem = { element: targetElement, side: this.schemaProps.side };
+		this.schemaProps.dndListener.drop(sourceItem, targetItem);
 	}
 
 	endDrag() {
-		this.props.dndListener.endDrag();
+		this.schemaProps.dndListener.endDrag();
 	}
 }
 
-class RowDataGetter {
-	updateProps(props) {
-		this.props = props;
-	}
-
-	getId(element) {
-		return this.props.dataAccessor.getElementId(element);
-	}
-
-	getHeaderData(columnKey) {
-		switch (columnKey) {
-			case Constants.Schema.DATA_KEYS.NAME:
-				return 'Name';
-			case Constants.Schema.DATA_KEYS.TYPE:
-				return 'Type';
-			case Constants.Schema.DATA_KEYS.DESC:
-				return 'Description';
-			default:
-				return columnKey;
-		}
-	}
-
-	getRowData(element, columnKey) {
-		switch (columnKey) {
-			case Constants.Schema.DATA_KEYS.NAME:
-				if (this.props.side === Constants.MappingSide.INPUT) {
-					return this.props.dataAccessor.getElementName(element);
-				}
-				return {
-					value: this.props.dataAccessor.getElementName(element),
-					mandatory: this.props.dataAccessor.isElementMandatory(element),
-				};
-			case Constants.Schema.DATA_KEYS.TYPE:
-				return this.props.dataAccessor.getElementType(element);
-			case Constants.Schema.DATA_KEYS.DESC:
-				return this.props.dataAccessor.getElementDescription(element);
-			default:
-				return 'No data available!';
-		}
-	}
-}
-
-class RowRenderer {
+class InternalRowRenderer {
 	constructor() {
-		this.dndListener = new SchemaDndListener();
-		this.draggableCell = DraggableComponent(TableCell);
-		this.draggableMandatoryField = DraggableComponent(MandatoryField);
+		this.dndListener = new InternalDndListener();
+		this.draggableCell = null;
 	}
 
-	updateProps(props) {
-		this.props = props;
-		this.dndListener.updateProps(props);
+	update(schemaProps) {
+		this.schemaProps = schemaProps;
+		this.dndListener.update(schemaProps);
 	}
 
 	isModelEvent(code) {
@@ -165,35 +170,82 @@ class RowRenderer {
 		);
 	}
 
-	needRowUpdate(props) {
-		if (this.props.trigger) {
-			const code = this.props.trigger.code;
+	needRowUpdate(rowProps) {
+		let customNeedUpdate = false;
+		if (this.schemaProps.rowRenderer && this.schemaProps.rowRenderer.needRowUpdate) {
+			customNeedUpdate = this.schemaProps.rowRenderer.needRowUpdate(rowProps);
+		}
+		let needUpdate = false;
+		if (this.schemaProps.trigger) {
+			const code = this.schemaProps.trigger.code;
 			if (this.isModelEvent(code) || this.isFilterOrSortEvent(code)) {
-				return true;
+				needUpdate = true;
 			}
 		}
-		return this.props.isElementVisible(props.element, this.props.side);
+		if (!needUpdate) {
+			needUpdate = this.schemaProps.isElementVisible(rowProps.element, this.schemaProps.side);
+		}
+		return needUpdate || customNeedUpdate;
+	}
+
+	isFirstColumn(columnKey) {
+		return this.schemaProps.columnKeys &&
+			this.schemaProps.columnKeys.length > 0 &&
+			this.schemaProps.columnKeys[0] === columnKey;
 	}
 
 	getCellComponent(columnKey) {
-		switch (columnKey) {
-			case Constants.Schema.DATA_KEYS.NAME:
-				if (this.props.side === Constants.MappingSide.INPUT) {
-					return TableCell;
-				}
-				return this.draggableMandatoryField;
-			case Constants.Schema.DATA_KEYS.TYPE:
-				if (this.props.side === Constants.MappingSide.INPUT) {
-					return this.draggableCell;
-				}
-				return TableCell;
-			default:
-				return TableCell;
+		if (this.isFirstColumn(columnKey) && this.draggableCell) {
+			return this.draggableCell;
 		}
+		// default cell component
+		let cellComponent = TableCell;
+		// check if there is a custom cell component
+		if (this.schemaProps.rowRenderer && this.schemaProps.rowRenderer.getCellComponent) {
+			cellComponent = this.schemaProps.rowRenderer.getCellComponent(columnKey);
+		}
+		if (this.isFirstColumn(columnKey)) {
+			this.draggableCell = DraggableComponent(cellComponent);
+			cellComponent = this.draggableCell;
+		}
+		return cellComponent;
 	}
 
 	getExtraProps(columnKey) {
-		return this.dndListener;
+		let extraProps = {};
+		if (this.schemaProps.rowRenderer && this.schemaProps.rowRenderer.getExtraProps) {
+			extraProps = this.schemaProps.rowRenderer.getExtraProps(columnKey);
+		}
+		if (this.isFirstColumn(columnKey)) {
+			// add dnd extra props
+			extraProps.beginDrag = this.dndListener.beginDrag;
+			extraProps.canDrop = this.dndListener.canDrop;
+			extraProps.drop = this.dndListener.drop;
+			extraProps.endDrag = this.dndListener.endDrag;
+		}
+		return extraProps;
+	}
+}
+
+class InternalHeaderRenderer {
+	update(schemaProps) {
+		this.schemaProps = schemaProps;
+	}
+
+	getHeaderComponent(columnKey) {
+		let headerComponent = TableHeader;
+		if (this.schemaProps.headerRenderer && this.schemaProps.headerRenderer.getHeaderComponent) {
+			headerComponent = this.schemaProps.headerRenderer.getHeaderComponent(columnKey);
+		}
+		return headerComponent;
+	}
+
+	getExtraProps() {
+		let extraProps = {};
+		if (this.schemaProps.headerRenderer && this.schemaProps.headerRenderer.getExtraProps) {
+			extraProps = this.schemaProps.headerRenderer.getExtraProps(columnKey);
+		}
+		return extraProps;
 	}
 }
 
@@ -204,10 +256,11 @@ export default class TableRenderer extends Component {
 		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
 		this.onLeaveElement = this.onLeaveElement.bind(this);
+		this.onFilterChange = this.onFilterChange.bind(this);
 		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
-		this.classNameProvider = new SchemaClassNameProvider();
-		this.rowDataGetter = new RowDataGetter();
-		this.rowRenderer = new RowRenderer();
+		this.classNameProvider = new InternalClassNameProvider();
+		this.rowRenderer = new InternalRowRenderer();
+		this.headerRenderer = new InternalHeaderRenderer();
 	}
 
 	onEnterElement(element) {
@@ -216,6 +269,10 @@ export default class TableRenderer extends Component {
 
 	onLeaveElement(element) {
 		this.props.onLeaveElement(element, this.props.side);
+	}
+
+	onFilterChange(filter) {
+		this.props.onFilterChange(filter, this.props.side);
 	}
 
 	getElement(ev) {
@@ -265,16 +322,18 @@ export default class TableRenderer extends Component {
 	}
 
 	render() {
-		this.classNameProvider.updateProps(this.props);
-		this.rowDataGetter.updateProps(this.props);
-		this.rowRenderer.updateProps(this.props);
+		this.classNameProvider.update(this.props);
+		this.rowRenderer.update(this.props);
+		this.headerRenderer.update(this.props);
 		const {
 			dataAccessor,
 			schema,
-			draggable,
 			onScroll,
 			columnKeys,
 			updateContentNodeRef,
+			withHeader,
+			filters,
+			filtersRenderer,
 		} = this.props;
 		return (
 			<Table
@@ -282,10 +341,13 @@ export default class TableRenderer extends Component {
 				classNameProvider={this.classNameProvider}
 				elements={dataAccessor.getSchemaElements(schema, true)}
 				columnKeys={columnKeys}
-				rowDataGetter={this.rowDataGetter}
+				rowDataGetter={dataAccessor}
 				rowRenderer={this.rowRenderer}
-				withHeader={true}
-				headerRenderer={TableConfiguration.headerRenderer}
+				withHeader={withHeader}
+				headerRenderer={this.headerRenderer}
+				filters={filters}
+				filtersRenderer={filtersRenderer}
+				onFilterChange={this.onFilterChange}
 				onScroll={onScroll}
 				onClick={this.select}
 				onDoubleClick={this.revealConnectedElement}
@@ -299,9 +361,15 @@ export default class TableRenderer extends Component {
 TableRenderer.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
-	draggable: PropTypes.bool,
-	onScroll: PropTypes.func,
 	columnKeys: PropTypes.array,
+	classNameProvider: PropTypes.object,
+	rowRenderer: PropTypes.object,
+	headerRenderer: PropTypes.object,
+	withHeader: PropTypes.bool,
+	filters: PropTypes.array,
+	filtersRenderer: PropTypes.object,
+	onFilterChange: PropTypes.func,
+	onScroll: PropTypes.func,
 	side: PropTypes.string,
 	onSelect: PropTypes.func,
 	revealConnectedElement: PropTypes.func,

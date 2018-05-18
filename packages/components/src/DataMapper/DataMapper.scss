@@ -4,6 +4,10 @@
 	$mapper_background_color: #e9e9e9;
 	$type_field_color: #66bdff;
 
+	/*
+	* === MAIN SECTION ===
+	*/
+
 	#mapper-container {
 		&,
 		> div,
@@ -21,55 +25,226 @@
 		margin: 8px;
 		background-color: $mapper_background_color;
 		height: 600px;
-		width: 90%;
+		width: 80vw;
 	}
 
-	.comp-list-row {
+	.mapper-element:nth-child(1) {
+		order: 1;
+	}
+
+	.mapper-element:nth-child(2) {
+		order: 3;
+	}
+
+	.mapper-element:nth-child(3) {
+		order: 2;
+	}
+
+	/*
+	* === SCHEMA SECTION
+	*/
+
+	.schema {
+		background-color: #fff;
+		padding: 8px;
+		margin: 2px;
+		width: 100%;
+	}
+
+	.schema.input {
+		width: 400px;
+	}
+
+	.schema-header {
 		display: flex;
-		height: $row_height;
-		cursor: grab;
-	}
-
-	.comp-list-row.input {
 		justify-content: space-between;
+		align-items: center;
+		background-color: #fff;
+		font-weight: bold;
+		font-size: 1.2em;
+		padding: 4px;
+		margin: 4px;
+		height: 35px;
 	}
 
-	.comp-list-row.output {
-		justify-content: flex-start;
+	.schema .tc-table-container {
+		height: 100%;
+		padding: 0;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		margin: 0;
+		margin-top: 2px;
+		margin-bottom: 2px;
 	}
 
-	.comp-list-row-data-name {
-		min-width: 150px;
+	.schema-content {
+		height: 100%;
+		padding: 0;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		margin: 0;
+		margin-top: 2px;
+		margin-bottom: 2px;
+	}
+
+	.tc-table-header {
+		padding: 4px;
+	}
+
+	.tc-table-header.name.input {
+		text-align: right;
+	}
+
+	.tc-table-row {
+		height: $row_height;
+	}
+
+	.tc-table-row-data-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}
 
-	.mapped .comp-list-row-data-name {
-		font-weight: bold;
-	}
-
-	.comp-list-row-data-type {
+	.tc-table-row-data-type {
 		font-family: $font_family_for_type;
 		font-size: 0.9em;
-		min-width: 100px;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		color: $type_field_color;
 	}
 
-	.comp-list-row-data-type.input {
+	.tc-table-row-data-type {
+		padding: 4px;
+	}
+
+	.tc-table-row-data-type.input {
 		text-align: left;
 	}
 
-	.comp-list-row-data-name.input {
+	.tc-table-row-data-type.output {
+		text-align: left;
+	}
+
+	.tc-table-row-data-name {
+		padding: 4px;
+	}
+
+	.mapped .tc-table-row-data-name {
+		font-weight: bold;
+	}
+
+	.tc-table-row-data-name.input {
 		text-align: right;
 	}
 
-	.comp-list-row-data-desc {
+	.tc-table-row-data-description {
 		color: #aaa;
 		font-style: italic;
-		text-overflow: ellipsis;
+		padding: 4px;
+	}
+
+	.tc-table.schema-content {
+		overflow: visible;
+		position: relative;
+	}
+
+	.tc-table.schema-content table {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	.tc-table.schema-content thead {
+		display: block;
+		width: 100%;
+		height: 30px;
+	}
+
+	.tc-table.schema-content tbody {
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		width: 100%;
+		height: 1000px;
+	}
+
+	.tc-table.schema-content.input tr.tr-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.tc-table.schema-content.output tr.tr-head {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.tc-table.schema-content.input tr.tr-body {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.tc-table.schema-content.output tr.tr-body {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.tc-table.schema-content.output tr {
+		td:nth-child(1),
+		th:nth-child(1) {
+			width: 200px;
+		}
+		td:nth-child(2),
+		th:nth-child(2) {
+			width: 150px;
+		}
+		td:nth-child(3),
+		th:nth-child(3) {
+			width: 500px;
+		}
+	}
+
+	tr.tc-table-row td {
 		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	tr.tc-table-row td:first-child {
+		overflow: visible;
+	}
+
+	.tc-table.schema-content table {
+		tr {
+			&.draggable {
+				cursor: grab;
+				td:first-child {
+					position: relative;
+					div[draggable='true']:before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						content: '';
+						width: 100vw;
+					}
+				}
+			}
+		}
+	}
+
+	.highlighted {
+		background-color: #f2f2f2;
+	}
+
+	.selected {
+		background-color: #ddd;
+	}
+
+	.filter-name {
+		vertical-align: top;
 	}
 
 	.mandatory-field {
@@ -92,30 +267,7 @@
 		width: 300px;
 	}
 
-	.mapping-canvas {
-		position: absolute;
-		left: 0;
-		right: auto;
-		top: 0;
-		bottom: 0;
-		height: 100%;
-		width: 100%;
-	}
-
-	.mapper-element:nth-child(1) {
-		order: 1;
-	}
-
-	.mapper-element:nth-child(2) {
-		order: 3;
-	}
-
-	.mapper-element:nth-child(3) {
-		order: 2;
-	}
-
-	.mapping-tools,
-	.auto-mapping {
+	.mapping-actions {
 		display: flex;
 		justify-content: space-around;
 		font-weight: bold;
@@ -265,215 +417,4 @@
 		cursor: grab;
 	}
 
-	.schema {
-		background-color: #fff;
-		padding: 8px;
-		margin: 2px;
-		width: 100%;
-	}
-
-	.schema.input {
-		width: 400px;
-	}
-
-	.schema-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background-color: #fff;
-		font-weight: bold;
-		font-size: 1.2em;
-		padding: 4px;
-		margin: 4px;
-		height: 35px;
-	}
-
-	.schema-content {
-		height: 92%;
-		overflow: auto;
-		padding: 0;
-		padding-top: 2px;
-		padding-bottom: 2px;
-		margin: 0;
-		margin-top: 2px;
-		margin-bottom: 2px;
-	}
-
-	.comp-simple-table-header {
-		padding: 4px;
-	}
-
-	.comp-simple-table-header.name.input {
-		text-align: right;
-	}
-
-	.comp-simple-table-row {
-		height: $row_height;
-	}
-
-	.comp-simple-table-row-data-name {
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-
-	.comp-simple-table-row-data-type {
-		font-family: $font_family_for_type;
-		font-size: 0.9em;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		color: $type_field_color;
-	}
-
-	.comp-simple-table-row-data-type {
-		padding: 4px;
-	}
-
-	.comp-simple-table-row-data-type.input {
-		text-align: left;
-	}
-
-	.comp-simple-table-row-data-name {
-		padding: 4px;
-	}
-
-	.mapped .comp-simple-table-row-data-name {
-		font-weight: bold;
-	}
-
-	.comp-simple-table-row-data-name.input {
-		text-align: right;
-	}
-
-	.comp-simple-table-row-data-desc {
-		color: #aaa;
-		font-style: italic;
-		padding: 4px;
-	}
-
-	.comp-simple-table.schema-content {
-		overflow: visible;
-		position: relative;
-	}
-
-	.comp-simple-table.schema-content table {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		width: 100%;
-		white-space: nowrap;
-	}
-
-	.comp-simple-table.schema-content thead {
-		display: block;
-		width: 100%;
-		height: 30px;
-	}
-
-	.comp-simple-table.schema-content tbody {
-		display: block;
-		overflow-x: hidden;
-		overflow-y: auto;
-		width: 100%;
-		height: 1000px;
-	}
-
-	.comp-simple-table.schema-content.input tr.tr-head {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.comp-simple-table.schema-content.output tr.tr-head {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-	}
-
-	.comp-simple-table.schema-content.input tr.tr-body {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.comp-simple-table.schema-content.output tr.tr-body {
-		display: flex;
-		justify-content: flex-start;
-	}
-
-	.comp-simple-table.schema-content.output tr {
-		td:nth-child(1),
-		th:nth-child(1) {
-			width: 200px;
-		}
-		td:nth-child(2),
-		th:nth-child(2) {
-			width: 150px;
-		}
-		td:nth-child(3),
-		th:nth-child(3) {
-			width: 500px;
-		}
-	}
-
-	tr.comp-simple-table-row td {
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	tr.comp-simple-table-row td:first-child {
-		overflow: visible;
-	}
-
-	.comp-simple-table.schema-content table {
-		tr {
-			&.draggable {
-				cursor: grab;
-				td:first-child {
-					position: relative;
-					div[draggable='true']:before {
-						position: absolute;
-						top: 0;
-						left: 0;
-						bottom: 0;
-						content: '';
-						width: 100vw;
-					}
-				}
-			}
-		}
-	}
-
-	.schema-element {
-		padding: 2px;
-		margin: 2px;
-		border-radius: 4px;
-	}
-
-	.schema-element.input {
-		text-align: right;
-	}
-
-	.schema-element.output {
-		text-align: left;
-	}
-
-	.separator.horizontal {
-		padding: 0;
-		margin: 0;
-		height: 2px;
-		width: 100%;
-		background-color: $mapper_background_color;
-	}
-
-	.highlighted {
-		background-color: #f2f2f2;
-	}
-
-	.selected {
-		background-color: #ddd;
-	}
-
-	.filter-name {
-		vertical-align: top;
-	}
 }

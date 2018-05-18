@@ -90,13 +90,13 @@ it('data-accessor-wrapper-mandatory-field-filter', () => {
 
 	expect(dataAccessor.hasFilters(schema)).toBe(false);
 	expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
-	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(-1);
 
 	dataAccessor.addFilter(schema, mandatoryFieldFilter);
 
 	expect(dataAccessor.hasFilters(schema)).toBe(true);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
-	expect(dataAccessor.getFilterVersion(schema)).toBe(0);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(0);
 	expect(dataAccessor.hasFiltersActive(schema)).toBe(false);
 
 	mandatoryFieldFilter.setActive(true);
@@ -110,7 +110,7 @@ it('data-accessor-wrapper-mandatory-field-filter', () => {
 	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(true);
 	expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(1);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(1);
 
 	mandatoryFieldFilter.setActive(false);
 	dataAccessor.filterSchema(schema, mandatoryFieldFilter.getId());
@@ -119,12 +119,12 @@ it('data-accessor-wrapper-mandatory-field-filter', () => {
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(false);
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(2);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(2);
 
 	dataAccessor.removeFilter(schema, mandatoryFieldFilter);
 
 	expect(dataAccessor.hasFilters(schema)).toBe(false);
-	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(-1);
 });
 
 it('data-accessor-wrapper-name-filter', () => {
@@ -135,13 +135,13 @@ it('data-accessor-wrapper-name-filter', () => {
 	nameFilter.setActive(true);
 	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(1);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(1);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
 	nameFilter.setName('name');
 	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(2);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(2);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(2);
 	expect(dataAccessor.isFiltered(schema, TestData.element1)).toBe(false);
 	expect(dataAccessor.isFiltered(schema, TestData.element3)).toBe(true);
@@ -149,32 +149,32 @@ it('data-accessor-wrapper-name-filter', () => {
 	nameFilter.setName('');
 	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(3);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(3);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
 	nameFilter.setName('DAY');
 	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(4);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(4);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
 	expect(dataAccessor.isFiltered(schema, TestData.element3)).toBe(false);
 
 	nameFilter.setActive(false);
 	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(5);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(5);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
 	nameFilter.setActive(true);
 	dataAccessor.filterSchema(schema, nameFilter.getId());
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(6);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(6);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
 
 	dataAccessor.removeFilter(schema, nameFilter);
 
 	expect(dataAccessor.hasFilters(schema)).toBe(false);
-	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(-1);
 });
 
 it('data-accessor-wrapper-all-filters', () => {
@@ -185,7 +185,7 @@ it('data-accessor-wrapper-all-filters', () => {
 	dataAccessor.addFilter(schema, mandatoryFieldFilter);
 	dataAccessor.addFilter(schema, nameFilter);
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(0);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(0);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
 	mandatoryFieldFilter.setActive(true);
@@ -214,7 +214,7 @@ it('data-accessor-wrapper-all-filters', () => {
 	nameFilter.setActive(true);
 	dataAccessor.filterAll(schema);
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(5);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(5);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(1);
 	expect(dataAccessor.isFiltered(schema, TestData.element2)).toBe(false);
 
@@ -222,12 +222,12 @@ it('data-accessor-wrapper-all-filters', () => {
 	nameFilter.setActive(false);
 	dataAccessor.filterAll(schema);
 
-	expect(dataAccessor.getFilterVersion(schema)).toBe(6);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(6);
 	expect(dataAccessor.getSchemaSize(schema, true)).toBe(4);
 
 	dataAccessor.removeFilter(schema, mandatoryFieldFilter);
 	dataAccessor.removeFilter(schema, nameFilter);
 
 	expect(dataAccessor.hasFilters(schema)).toBe(false);
-	expect(dataAccessor.getFilterVersion(schema)).toBe(-1);
+	expect(dataAccessor.getFiltersVersion(schema)).toBe(-1);
 });

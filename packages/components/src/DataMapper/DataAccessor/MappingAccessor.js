@@ -1,4 +1,4 @@
-import * as Constants from './Constants';
+import * as Constants from '../Constants';
 
 /**
  * Internal function only used by the dataAccessor.

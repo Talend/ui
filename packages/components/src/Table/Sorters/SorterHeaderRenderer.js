@@ -45,16 +45,24 @@ export default class SorterHeaderRenderer {
     this.sorters[sorter.getKey()] = new InternalSorter(sorter, this);
   }
 
+  hasSorter(columnKey) {
+    return Boolean(this.sorters[columnKey]);
+  }
+
+  getSorter(columnKey) {
+    return this.sorters[columnKey].sorter;
+  }
+
   getHeaderComponent(columnKey) {
-		if (this.sorters[columnKey]) {
+		if (this.hasSorter(columnKey)) {
       return TableActionHeader;
     }
     return TableHeader;
 	}
 
 	getExtraProps(columnKey) {
-    if (this.sorters[columnKey]) {
-      const sorter = this.sorters[columnKey].sorter;
+    if (this.hasSorter(columnKey)) {
+      const sorter = this.getSorter(columnKey);
       return {
         actionProps: {
           label: sorter.getLabel(),

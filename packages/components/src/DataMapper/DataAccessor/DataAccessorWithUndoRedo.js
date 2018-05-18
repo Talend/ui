@@ -1,4 +1,4 @@
-import * as Constants from './Constants';
+import * as Constants from '../Constants';
 import DataAccessorWrapper from './DataAccessorWrapper';
 
 function storeMapping(dataAccessor, mapping) {
