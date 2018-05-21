@@ -122,14 +122,14 @@ export function BreadcrumbsComponent(props) {
 	}
 
 	return (
-		<ol
-			id={props.id}
-			className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}
-			role="navigation"
-			aria-label={props.t('BREADCRUMB', { defaultValue: 'breadcrumb' })}
-		>
-			{items.map(renderBreadcrumbItem)}
-		</ol>
+		<nav aria-label={props.t('BREADCRUMB', { defaultValue: 'breadcrumb' })}>
+			<ol
+				id={props.id}
+				className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}
+			>
+				{items.map(renderBreadcrumbItem)}
+			</ol>
+		</nav>
 	);
 }
 

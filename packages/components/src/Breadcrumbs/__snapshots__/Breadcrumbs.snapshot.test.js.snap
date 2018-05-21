@@ -1,578 +1,592 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="42"
-  role="navigation"
 >
-  
-</ol>
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
+  >
+    
+  </ol>
+</nav>
 `;
 
 exports[`Breadcrumbs should not render dropdown because all items are shown 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="42"
-  role="navigation"
 >
-  <li
-    className="tc-breadcrumb-item"
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
   >
-    <span
-      id="42-item-0"
-      title={undefined}
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text A
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-1"
-      title={undefined}
+      <span
+        id="42-item-0"
+        title={undefined}
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text B
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-2"
-      title={undefined}
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text C
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-3"
-      title={undefined}
+      <span
+        id="42-item-1"
+        title={undefined}
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text D
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item active"
-  >
-    <span
-      id="42-item-4"
-      title={undefined}
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text E
-    </span>
-  </li>
-</ol>
+      <span
+        id="42-item-2"
+        title={undefined}
+      >
+        Text C
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-3"
+        title={undefined}
+      >
+        Text D
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        id="42-item-4"
+        title={undefined}
+      >
+        Text E
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="42"
-  role="navigation"
 >
-  <li
-    className="sr-only"
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
   >
-    <span
-      id="42-item-0"
-      title={undefined}
+    <li
+      className="sr-only"
     >
-      Text A
-    </span>
-  </li>
-  <li
-    className="sr-only"
-  >
-    <span
-      id="42-item-1"
-      title={undefined}
+      <span
+        id="42-item-0"
+        title={undefined}
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      className="sr-only"
     >
-      Text B
-    </span>
-  </li>
-  <li
-    className="sr-only"
-  >
-    <span
-      id="42-item-2"
-      title={undefined}
+      <span
+        id="42-item-1"
+        title={undefined}
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      className="sr-only"
     >
-      Text C
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-menu"
-  >
-    <ActionDropdown
-      aria-label="Open first links menu"
-      bsStyle="default"
-      id="42-ellipsis"
-      items={
-        Array [
-          Object {
-            "id": "42-item-0",
-            "label": "Text A",
-            "onClick": [Function],
-            "title": undefined,
-          },
-          Object {
-            "id": "42-item-1",
-            "label": "Text B",
-            "onClick": [Function],
-            "title": undefined,
-          },
-          Object {
-            "id": "42-item-2",
-            "label": "Text C",
-            "onClick": [Function],
-            "title": undefined,
-          },
-        ]
-      }
-      label="…"
-      link={true}
-      noCaret={true}
-      tooltipPlacement="top"
-    />
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-3"
-      title={undefined}
+      <span
+        id="42-item-2"
+        title={undefined}
+      >
+        Text C
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-menu"
     >
-      Text D
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item active"
-  >
-    <span
-      id="42-item-4"
-      title={undefined}
+      <ActionDropdown
+        aria-label="Open first links menu"
+        bsStyle="default"
+        id="42-ellipsis"
+        items={
+          Array [
+            Object {
+              "id": "42-item-0",
+              "label": "Text A",
+              "onClick": [Function],
+              "title": undefined,
+            },
+            Object {
+              "id": "42-item-1",
+              "label": "Text B",
+              "onClick": [Function],
+              "title": undefined,
+            },
+            Object {
+              "id": "42-item-2",
+              "label": "Text C",
+              "onClick": [Function],
+              "title": undefined,
+            },
+          ]
+        }
+        label="…"
+        link={true}
+        noCaret={true}
+        tooltipPlacement="top"
+      />
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text E
-    </span>
-  </li>
-</ol>
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-3"
+        title={undefined}
+      >
+        Text D
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        id="42-item-4"
+        title={undefined}
+      >
+        Text E
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`Breadcrumbs should render items ids when provided 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="my-breadcrumb"
-  role="navigation"
 >
-  <li
-    className="sr-only"
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="my-breadcrumb"
   >
-    <span
-      id="my-breadcrumb-item-0"
-      title="Go to Page Text A"
+    <li
+      className="sr-only"
     >
-      Text A
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-menu"
-  >
-    <ActionDropdown
-      aria-label="Open first links menu"
-      bsStyle="default"
-      id="my-breadcrumb-ellipsis"
-      items={
-        Array [
-          Object {
-            "id": "my-breadcrumb-item-0",
-            "label": "Text A",
-            "onClick": [Function],
-            "title": "Go to Page Text A",
-          },
-        ]
-      }
-      label="…"
-      link={true}
-      noCaret={true}
-      tooltipPlacement="top"
-    />
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="my-breadcrumb-item-1"
-      title="Go to Page Text B"
+      <span
+        id="my-breadcrumb-item-0"
+        title="Go to Page Text A"
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-menu"
     >
-      Text B
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="my-breadcrumb-item-2"
-      title="Go to Page Text C"
+      <ActionDropdown
+        aria-label="Open first links menu"
+        bsStyle="default"
+        id="my-breadcrumb-ellipsis"
+        items={
+          Array [
+            Object {
+              "id": "my-breadcrumb-item-0",
+              "label": "Text A",
+              "onClick": [Function],
+              "title": "Go to Page Text A",
+            },
+          ]
+        }
+        label="…"
+        link={true}
+        noCaret={true}
+        tooltipPlacement="top"
+      />
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text C
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item active"
-  >
-    <span
-      id="my-breadcrumb-item-3"
-      title="Go to Page Text D"
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text D
-    </span>
-  </li>
-</ol>
+      <span
+        id="my-breadcrumb-item-1"
+        title="Go to Page Text B"
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="my-breadcrumb-item-2"
+        title="Go to Page Text C"
+      >
+        Text C
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        id="my-breadcrumb-item-3"
+        title="Go to Page Text D"
+      >
+        Text D
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="42"
-  role="navigation"
 >
-  <li
-    className="sr-only"
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
   >
-    <span
-      id="42-item-0"
-      title="Go to Page Text A"
+    <li
+      className="sr-only"
     >
-      Text A
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-menu"
-  >
-    <ActionDropdown
-      aria-label="Open first links menu"
-      bsStyle="default"
-      id="42-ellipsis"
-      items={
-        Array [
-          Object {
-            "id": "42-item-0",
-            "label": "Text A",
-            "onClick": [Function],
-            "title": "Go to Page Text A",
-          },
-        ]
-      }
-      label="…"
-      link={true}
-      noCaret={true}
-      tooltipPlacement="top"
-    />
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-1"
-      title="Go to Page Text B"
+      <span
+        id="42-item-0"
+        title="Go to Page Text A"
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-menu"
     >
-      Text B
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-2"
-      title="Go to Page Text C"
+      <ActionDropdown
+        aria-label="Open first links menu"
+        bsStyle="default"
+        id="42-ellipsis"
+        items={
+          Array [
+            Object {
+              "id": "42-item-0",
+              "label": "Text A",
+              "onClick": [Function],
+              "title": "Go to Page Text A",
+            },
+          ]
+        }
+        label="…"
+        link={true}
+        noCaret={true}
+        tooltipPlacement="top"
+      />
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text C
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item active"
-  >
-    <span
-      id="42-item-3"
-      title="Go to Page Text D"
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text D
-    </span>
-  </li>
-</ol>
+      <span
+        id="42-item-1"
+        title="Go to Page Text B"
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-2"
+        title="Go to Page Text C"
+      >
+        Text C
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        id="42-item-3"
+        title="Go to Page Text D"
+      >
+        Text D
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="42"
-  role="navigation"
 >
-  <li
-    className="tc-breadcrumb-item"
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
   >
-    <span
-      id="42-item-0"
-      title={undefined}
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text A
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-1"
-      title={undefined}
+      <span
+        id="42-item-0"
+        title={undefined}
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text B
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-2"
-      title={undefined}
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text C
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-3"
-      title={undefined}
+      <span
+        id="42-item-1"
+        title={undefined}
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text D
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item active"
-  >
-    <span
-      id="42-item-4"
-      title={undefined}
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text E
-    </span>
-  </li>
-</ol>
+      <span
+        id="42-item-2"
+        title={undefined}
+      >
+        Text C
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-3"
+        title={undefined}
+      >
+        Text D
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        id="42-item-4"
+        title={undefined}
+      >
+        Text E
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
-<ol
+<nav
   aria-label="breadcrumb"
-  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
-  id="42"
-  role="navigation"
 >
-  <li
-    className="tc-breadcrumb-item"
+  <ol
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
   >
-    <span
-      id="42-item-0"
-      title="Text tile A"
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text A
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item"
-  >
-    <span
-      id="42-item-1"
-      title="Text tile B"
+      <span
+        id="42-item-0"
+        title="Text tile A"
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
     >
-      Text B
-    </span>
-  </li>
-  <li
-    aria-hidden="true"
-    className="tc-breadcrumb-separator separator"
-  >
-    <Icon
-      name="talend-chevron-left"
-      transform="rotate-180"
-    />
-  </li>
-  <li
-    className="tc-breadcrumb-item active"
-  >
-    <span
-      id="42-item-2"
-      title={undefined}
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
     >
-      Text C
-    </span>
-  </li>
-</ol>
+      <span
+        id="42-item-1"
+        title="Text tile B"
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      className="tc-breadcrumb-separator separator"
+    >
+      <Icon
+        name="talend-chevron-left"
+        transform="rotate-180"
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        id="42-item-2"
+        title={undefined}
+      >
+        Text C
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
