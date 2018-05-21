@@ -174,7 +174,6 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     <svg
       aria-busy="true"
       aria-label="Loading "
-      aria-live="polite"
       className="tc-circular-progress theme-loader theme-animate theme-small"
       focusable="false"
       viewBox="0 0 50 50"
@@ -259,7 +258,6 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     <svg
       aria-busy="true"
       aria-label="Loading "
-      aria-live="polite"
       className="tc-circular-progress theme-loader theme-animate theme-small"
       focusable="false"
       viewBox="0 0 50 50"

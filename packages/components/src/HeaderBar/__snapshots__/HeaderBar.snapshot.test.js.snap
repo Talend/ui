@@ -1178,7 +1178,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 <svg
                   aria-busy="true"
                   aria-label="Loading "
-                  aria-live="polite"
                   className="tc-circular-progress theme-loader theme-animate theme-default"
                   focusable="false"
                   viewBox="0 0 50 50"
