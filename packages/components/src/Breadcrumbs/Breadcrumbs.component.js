@@ -25,10 +25,8 @@ const DEFAULT_MAX_ITEMS = 3;
  />
  */
 export function BreadcrumbsComponent(props) {
-	const items = props.items || [];
-
-	const nbItems = items.length;
-	const maxItemsToDisplay = props.maxItems || DEFAULT_MAX_ITEMS;
+	const nbItems = props.items.length;
+	const maxItemsToDisplay = props.maxItems;
 	const maxItemsReached = nbItems > maxItemsToDisplay;
 	const ellipsisIndex = nbItems - 1 - maxItemsToDisplay;
 	const hiddenItems = items.slice(0, ellipsisIndex + 1).map((hiddenItem, index) => ({
@@ -80,8 +78,9 @@ export function BreadcrumbsComponent(props) {
 					/>
 				);
 			}
+			const ariaCurrent = isActive ? 'page' : undefined;
 			return (
-				<span id={id} title={title}>
+				<span id={id} title={title} aria-current={ariaCurrent}>
 					{text}
 				</span>
 			);
@@ -98,7 +97,7 @@ export function BreadcrumbsComponent(props) {
 				<li className="sr-only" key={index + 0.1}>
 					{getItemContent()}
 				</li>,
-				<li className={'tc-breadcrumb-menu'} key={index + 0.2} aria-hidden="true">
+				<li className="tc-breadcrumb-menu" key={index + 0.2} aria-hidden="true">
 					<ActionDropdown
 						id={`${props.id}-ellipsis`}
 						items={hiddenItems}
@@ -127,7 +126,7 @@ export function BreadcrumbsComponent(props) {
 				id={props.id}
 				className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}
 			>
-				{items.map(renderBreadcrumbItem)}
+				{props.items.map(renderBreadcrumbItem)}
 			</ol>
 		</nav>
 	);
@@ -137,19 +136,19 @@ BreadcrumbsComponent.displayName = 'Breadcrumbs';
 
 BreadcrumbsComponent.propTypes = {
 	id: PropTypes.string,
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			text: PropTypes.string.isRequired,
-			title: PropTypes.string,
-			onClick: PropTypes.func,
-		}),
-	),
+	items: PropTypes.arrayOf(PropTypes.shape({
+		text: PropTypes.string.isRequired,
+		title: PropTypes.string,
+		onClick: PropTypes.func,
+	})),
 	maxItems: PropTypes.number,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 BreadcrumbsComponent.defaultProps = {
 	id: `${uuid.v4()}`,
+	items: [],
+	maxItems: DEFAULT_MAX_ITEMS,
 	t: getDefaultT(),
 };
 
