@@ -50,7 +50,7 @@ $tc-list-title-actions-color: $brand-primary-darker !default;
 		&:before {
 			content: '\25b2';
 			position: absolute;
-			top: -20px;
+			top: -1em;
 			font-size: 1.4em;
 			left: 50%;
 			transform: translateX(-50%);

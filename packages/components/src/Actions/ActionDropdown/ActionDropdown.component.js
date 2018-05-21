@@ -64,7 +64,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
-			title={item.label}
+			title={item.title || item.label}
 		>
 			{item.icon && <Icon name={item.icon} />}
 			{!item.hideLabel && item.label}
