@@ -163,6 +163,7 @@ Object {
       },
     ],
     "id": "list",
+    "itemProps": Object {},
     "items": Array [
       Object {
         "actions": Array [],
@@ -210,6 +211,7 @@ Object {
   "toolbar": Object {
     "actionBar": Object {
       "actions": Object {},
+      "multiSelectActions": Object {},
     },
     "display": Object {
       "displayModes": Array [
