@@ -202,7 +202,7 @@ function HeaderBar(props) {
 
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
-			<ul className={theme['tc-header-bar-actions']}>
+			<ul className={classNames(theme['tc-header-bar-actions'], 'tc-header-bar-actions', 'navbar-nav')}>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
@@ -216,7 +216,7 @@ function HeaderBar(props) {
 				)}
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
-			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
+			<ul className={classNames(theme['tc-header-bar-actions'], 'tc-header-bar-actions', 'navbar-nav', theme.right)}>
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
 				{props.notification && (
 					<Components.AppNotification

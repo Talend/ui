@@ -31,13 +31,13 @@
 		li {
 			display: flex;
 			align-items: center;
-		}
 
-		> li > a,
-		> li > button {
-			display: flex;
-			align-items: center;
-			height: $navbar-height;
+			> a,
+			> button {
+				display: flex;
+				align-items: center;
+				height: $navbar-height;
+			}
 		}
 	}
 }
