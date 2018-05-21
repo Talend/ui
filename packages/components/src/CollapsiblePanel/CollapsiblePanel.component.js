@@ -140,9 +140,9 @@ function CollapsiblePanelHeader(props) {
 	];
 
 	if (content) {
-		const caretText = expanded ?
-			t('COLLAPSIBLE_PANEL_COLLAPSE', { defaultValue: 'Collapse panel' }) :
-			t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
+		const caretText = expanded
+			? t('COLLAPSIBLE_PANEL_COLLAPSE', { defaultValue: 'Collapse panel' })
+			: t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
 
 		const defaultCaret = (
 			<Button
@@ -157,26 +157,20 @@ function CollapsiblePanelHeader(props) {
 		);
 		wrappedHeader.push(defaultCaret);
 	}
-	return (
-		<div className={classNames(css['panel-heading'], 'panel-heading')}>
-			{wrappedHeader}
-		</div>
-	);
+	return <div className={classNames(css['panel-heading'], 'panel-heading')}>{wrappedHeader}</div>;
 }
 
 function getKeyValueContent(content) {
 	return (
 		<dl className={css.content}>
-			{content.map((item, index) => (
-				[
-					<dt className={css.label} key={`${index}_label`}>
-						<Label>{item.label}</Label>
-					</dt>,
-					<dd className={css.description} key={`${index}_desc`}>
-						{item.description}
-					</dd>,
-				]
-			))}
+			{content.map((item, index) => [
+				<dt className={css.label} key={`${index}_label`}>
+					<Label>{item.label}</Label>
+				</dt>,
+				<dd className={css.description} key={`${index}_desc`}>
+					{item.description}
+				</dd>,
+			])}
 		</dl>
 	);
 }
