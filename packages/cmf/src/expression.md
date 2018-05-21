@@ -27,6 +27,8 @@ Given `MyComponent` you can use expression to fill the `title` from the store
 So adding `Expression` to a prop *name* of a component is resolved by `cmfConnect`
 during the `mapStateToProps` evaluation. So the `title` props will be resolved.
 
+During settings agregation, expressions will have greater order than hardcoded props.
+
 ## Expressions
 
 CMF register some [expressions](./expressions/index.md) for you. And for sure you can build your own.
