@@ -117,7 +117,8 @@ const props = {
 	},
 	help: {
 		id: 'header-help',
-		onClick: action('onHelpClick'),
+		icon: 'talend-question-circle',
+		href: 'https://help.talend.com',
 	},
 	user: {
 		id: 'header-user',
@@ -158,9 +159,9 @@ const props = {
 const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 	<I18nextProvider i18n={i18n}>
 		<div>
+			<IconsProvider defaultIcons={icons}/>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider defaultIcons={icons} />
 		</div>
 	</I18nextProvider>
 ));
