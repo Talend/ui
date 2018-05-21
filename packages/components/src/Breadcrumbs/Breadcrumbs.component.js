@@ -136,11 +136,13 @@ BreadcrumbsComponent.displayName = 'Breadcrumbs';
 
 BreadcrumbsComponent.propTypes = {
 	id: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.shape({
-		text: PropTypes.string.isRequired,
-		title: PropTypes.string,
-		onClick: PropTypes.func,
-	})),
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			text: PropTypes.string.isRequired,
+			title: PropTypes.string,
+			onClick: PropTypes.func,
+		}),
+	),
 	maxItems: PropTypes.number,
 	t: PropTypes.func,
 };
