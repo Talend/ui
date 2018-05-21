@@ -39,7 +39,6 @@ export {
 	Inject,
 	sagas,
 	selectors,
-
 	// DEPRECATED by bootstrap
 	componentState,
 	getErrorMiddleware,

@@ -46,7 +46,6 @@ import { mapStateToViewProps } from './settings';
 
 let newState;
 
-
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
