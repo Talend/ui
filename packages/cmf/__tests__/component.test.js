@@ -1,10 +1,6 @@
 import component from '../src/component';
-import api from '../src/api';
 
 describe('component', () => {
-	it('should be same as api.component', () => {
-		expect(api.component).toBe(component);
-	});
 	it('register add to the registry', () => {
 		const context = {
 			registry: {},

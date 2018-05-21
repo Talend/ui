@@ -6,11 +6,12 @@ date: 2017-02-28 22:10:38
 order: 3
 ---
 
-## getActionsById
-```javascript
-import { api } from 'react-cmf';
+## getActionsById (DEPRECATED)
 
-api.action.getActionsById(context);
+```javascript
+import cmf from 'react-cmf';
+
+cmf.action.getActionsById(context);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -21,9 +22,9 @@ It returns the `static actions definitions dictionary` from the [settings]({{ si
 
 ## getActionCreatorFunction
 ```javascript
-import { api } from 'react-cmf';
+import cmf from 'react-cmf';
 
-api.actionCreator.get(context, id);
+cmf.actionCreator.get(context, id);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -33,11 +34,11 @@ api.actionCreator.get(context, id);
 
 It returns the registered `action creator` from the provided registry.
 
-## getActionInfo
+## getActionInfo (DEPRECATED)
 ```javascript
-import { api } from 'react-cmf';
+import cmf from 'react-cmf';
 
-api.action.getActionInfo(context, id);
+cmf.action.getActionInfo(context, id);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -47,11 +48,11 @@ api.action.getActionInfo(context, id);
 
 It returns the static `action` definition from the settings.
 
-## getActionObject
+## getActionObject (DEPRECATED)
 ```javascript
-import { api } from 'react-cmf';
+import cmf, from 'react-cmf';
 
-api.action.getActionObject(context, id, event, data);
+cmf.action.getActionObject(context, id, event, data);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -67,11 +68,11 @@ It creates the action to dispatch from
 * the provided user `event`
 * the provided user `data`
 
-## getOnProps
+## getOnProps (DEPRECATED)
 ```javascript
-import { api } from 'react-cmf';
+import cmf from 'react-cmf';
 
-api.action.getOnProps(props);
+cmf.action.getOnProps(props);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -80,11 +81,11 @@ api.action.getOnProps(props);
 
 It returns the array of props keys beginning with `on`. This is used to get the list of action props (onClick, onKeyDown, ...).
 
-## mapDispatchToProps
+## mapDispatchToProps (DEPRECATED)
 ```javascript
-import { api } from 'react-cmf';
+import cmf from 'react-cmf';
 
-api.action.mapDispatchToProps(dispatch, props);
+cmf.action.mapDispatchToProps(dispatch, props);
 ```
 
 | Argument | Type | Description | Mandatory |
@@ -97,10 +98,9 @@ It returns the props with the actions props replaced by their dispatch closures.
 ## registerActionCreator
 
 ```javascript
-import { api } from 'react-cmf';
-const registerActionCreator = api.actionCreator.register;
+import cmf from 'react-cmf';
 
-registerActionCreator(id, actionCreator);
+cmf.actionCreator.register(id, actionCreator);
 ```
 
 | Argument | Type | Description | Mandatory |

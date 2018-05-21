@@ -5,9 +5,9 @@
 you have to do the following in your configure.js to activate this
 
 ```javascript
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 
-api.registerInternals();
+cmf.registerInternals();
 ```
 
 Then you can use all internal expressions.
@@ -18,7 +18,7 @@ For all the following example we take this component as example:
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { api, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 const DEFAULT_STATE = new Immutable.Map({
 	like: false,
@@ -55,7 +55,7 @@ function mapStateToProps(state) {
 		model: state.cmf.collections.get('article');
 	};
 }
-export api.cmfConnect({mapStateToProps})(MyComponent)
+export cmfConnect({mapStateToProps})(MyComponent)
 ```
 
 ## cmf.collections

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import api from './api';
+import componentAPI from './component';
 
 /**
  * The Inject component let you use the registry to render named component
@@ -29,7 +29,7 @@ NotFoundComponent.propTypes = {
 
 function Inject({ component, ...props }, context) {
 	try {
-		const Component = api.component.get(component, context);
+		const Component = componentAPI.get(component, context);
 		return (<Component {...props} />);
 	} catch (error) {
 		return (<NotFoundComponent error={error.message} />);
