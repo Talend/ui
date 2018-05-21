@@ -17,6 +17,7 @@ import http, {
 	httpDelete,
 	httpPost,
 	httpPut,
+	setDefaultHeader,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
@@ -369,6 +370,10 @@ it('should wrap the request and not notify with generic http error if silent opt
 });
 
 describe('#httpFetch', () => {
+	afterEach(() => {
+		setDefaultHeader({});
+	});
+
 	it('should fetch the request', done => {
 		const url = '/foo';
 		const headers = new Headers();
@@ -396,6 +401,45 @@ describe('#httpFetch', () => {
 			body: '{"bar":42}',
 			credentials: 'same-origin',
 			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			method: HTTP_METHODS.GET,
+			response: config.response,
+		});
+	});
+
+	it('should fetch the request with the default settings', done => {
+		const url = '/foo';
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+		const config = {
+			response: new Response('{"foo": 42}', {
+				status: HTTP_STATUS.OK,
+				headers,
+			}),
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		setDefaultHeader({
+			'Accept-Language': 'fr',
+		});
+		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
+			done();
+		});
+
+		expect(fetch).toHaveBeenCalledWith(url, {
+			body: '{"bar":42}',
+			credentials: 'same-origin',
+			headers: {
+				'Accept-Language': 'fr',
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
@@ -509,17 +553,13 @@ describe('Http{Method} calls httpFetch with appropriate method', () => {
 		// when
 		const gen = httpGet(url, config, options);
 		// then
-		expect(gen.next().value).toEqual(
-			call(httpFetch, url, config, HTTP_METHODS.GET, undefined)
-		);
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
 	});
 	it('check that httpFetch is called from httpDelete', () => {
 		// when
 		const gen = httpDelete(url, config, options);
 		// then
-		expect(gen.next().value).toEqual(
-			call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined)
-		);
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.DELETE, undefined));
 	});
 });
 describe('http module with instance created', () => {
@@ -774,15 +814,13 @@ describe('http module with instance created with CSRF handling configuration', (
 	};
 
 	beforeAll(() => {
-		document.cookie = `${
-			defaultHttpConfiguration.security.CSRFTokenCookieKey
-		}=${CSRFToken}; dwf_section_edit=True;`;
+		document.cookie = `${defaultHttpConfiguration.security
+			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
 	});
 
 	afterAll(() => {
-		document.cookie = `${
-			defaultHttpConfiguration.security.CSRFTokenCookieKey
-		}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+		document.cookie = `${defaultHttpConfiguration.security
+			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
 	it(`check that httpGet is called with only an url, a filled config object literal, an empty option object

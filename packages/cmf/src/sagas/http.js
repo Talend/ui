@@ -220,6 +220,16 @@ export const handleDefaultConfiguration = curry((defaultConfig, config) =>
 	mergeCSRFToken(defaultConfig)(config),
 );
 
+/**
+ * setDefaultHeader - define a default header to use with the saga http
+ *
+ * @param  {object} config key/value of header to apply
+ * @example
+ * import { setDefaultHeader } from '@talend/react-cmf/sagas/http';
+ * setDefaultHeader({
+ *  'Accept-Language': preferredLanguage,
+ * });
+ */
 export function setDefaultHeader(config) {
 	defaultHeader = config;
 }
