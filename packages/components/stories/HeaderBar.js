@@ -3,14 +3,36 @@ import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-e
 import { action } from '@storybook/addon-actions';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
+import talendIcons from '@talend/icons/dist/react';
 
 import { I18nextProvider } from 'react-i18next';
-
 import i18n from './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
+
+const icons = {
+	'talend-burger': talendIcons['talend-burger'],
+	'talend-cog': talendIcons['talend-cog'],
+	'talend-environment': talendIcons['talend-environment'],
+	'talend-filter': talendIcons['talend-filter'],
+	'talend-info-circle': talendIcons['talend-info-circle'],
+	'talend-launcher': talendIcons['talend-launcher'],
+	'talend-logo': talendIcons['talend-logo'],
+	'talend-tdp-colored': talendIcons['talend-tdp-colored'],
+	'talend-tic-colored': talendIcons['talend-tic-colored'],
+	'talend-tmc-colored': talendIcons['talend-tmc-colored'],
+	'talend-logo-square': talendIcons['talend-logo-square'],
+	'talend-question-circle': talendIcons['talend-question-circle'],
+	'talend-search': talendIcons['talend-search'],
+	'talend-share-alt': talendIcons['talend-share-alt'],
+	'talend-star': talendIcons['talend-star'],
+	'talend-user-circle': talendIcons['talend-user-circle'],
+	'talend-board': talendIcons['talend-board'],
+	'talend-bell': talendIcons['talend-bell'],
+	'talend-bell-notification': talendIcons['talend-bell-notification'],
+};
 
 const typeaheadItems = [
 	{
@@ -137,7 +159,7 @@ const props = {
 const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 	<I18nextProvider i18n={i18n}>
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons}/>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
 		</div>
