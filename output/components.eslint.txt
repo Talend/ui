@@ -568,38 +568,38 @@
   172:26  error  Expected a line break after this opening brace                                             object-curly-newline
   172:28  error  'getComponent' is missing in props validation                                              react/prop-types
   172:65  error  Expected a line break before this closing brace                                            object-curly-newline
-  233:1   error  Expected indentation of 5 tabs but found 6                                                 indent
-  234:1   error  Expected indentation of 6 tabs but found 7                                                 indent
-  235:1   error  Expected indentation of 6 tabs but found 7                                                 indent
-  236:1   error  Expected indentation of 6 tabs but found 7                                                 indent
-  237:1   error  Expected indentation of 5 tabs but found 6                                                 indent
-  238:1   error  Expected indentation of 4 tabs but found 5                                                 indent
-  256:3   error  propType "isFull" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  257:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  264:3   error  propType "isSeparated" is not required, but has no corresponding defaultProp declaration   react/require-default-props
-  265:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  271:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  246:1   error  Expected indentation of 5 tabs but found 6                                                 indent
+  247:1   error  Expected indentation of 6 tabs but found 7                                                 indent
+  248:1   error  Expected indentation of 6 tabs but found 7                                                 indent
+  249:1   error  Expected indentation of 6 tabs but found 7                                                 indent
+  250:1   error  Expected indentation of 5 tabs but found 6                                                 indent
+  251:1   error  Expected indentation of 4 tabs but found 5                                                 indent
+  269:3   error  propType "isFull" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  270:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  277:3   error  propType "isSeparated" is not required, but has no corresponding defaultProp declaration   react/require-default-props
   278:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
   284:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  292:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  300:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  301:3   error  propType "name" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  302:3   error  propType "firstName" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  303:3   error  propType "lastName" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  304:3   error  propType "t" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  308:3   error  propType "hasUnread" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  309:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  314:3   error  propType "logo" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  315:3   error  propType "brand" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  316:3   error  propType "env" is not required, but has no corresponding defaultProp declaration           react/require-default-props
-  317:3   error  propType "search" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  318:3   error  propType "help" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  319:3   error  propType "information" is not required, but has no corresponding defaultProp declaration   react/require-default-props
-  320:3   error  propType "user" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  321:3   error  propType "notification" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  322:3   error  propType "products" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  326:3   error  propType "getComponent" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  327:3   error  propType "t" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  291:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  297:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  305:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  313:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  314:3   error  propType "name" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  315:3   error  propType "firstName" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  316:3   error  propType "lastName" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  317:3   error  propType "t" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  321:3   error  propType "hasUnread" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  322:3   error  propType "renderers" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  327:3   error  propType "logo" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  328:3   error  propType "brand" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  329:3   error  propType "env" is not required, but has no corresponding defaultProp declaration           react/require-default-props
+  330:3   error  propType "search" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  331:3   error  propType "help" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  332:3   error  propType "information" is not required, but has no corresponding defaultProp declaration   react/require-default-props
+  333:3   error  propType "user" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  334:3   error  propType "notification" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  335:3   error  propType "products" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  339:3   error  propType "getComponent" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  340:3   error  propType "t" is not required, but has no corresponding defaultProp declaration             react/require-default-props
 
 /home/travis/build/Talend/ui/packages/components/src/HttpError/HttpError.component.js
   14:8   error  Expected a line break after this opening brace                                      object-curly-newline
