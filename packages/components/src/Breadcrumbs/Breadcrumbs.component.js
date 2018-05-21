@@ -29,7 +29,7 @@ export function BreadcrumbsComponent(props) {
 	const maxItemsToDisplay = props.maxItems;
 	const maxItemsReached = nbItems > maxItemsToDisplay;
 	const ellipsisIndex = nbItems - 1 - maxItemsToDisplay;
-	const hiddenItems = items.slice(0, ellipsisIndex + 1).map((hiddenItem, index) => ({
+	const hiddenItems = props.items.slice(0, ellipsisIndex + 1).map((hiddenItem, index) => ({
 		id: `${props.id}-item-${index}`,
 		label: hiddenItem.text,
 		title: hiddenItem.title,
