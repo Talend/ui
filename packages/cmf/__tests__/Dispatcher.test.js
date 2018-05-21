@@ -7,6 +7,24 @@ const mockContext = {
 	registry: {},
 };
 
+jest.mock('../src/action', () => ({
+	getOnProps() {
+		return ['onClick', 'onDoubleClick'];
+	},
+}));
+jest.mock('../src/actionCreator', () => ({
+	get(context, id) {
+		if (
+			id !== 'existingActionCreator:id' &&
+			id !== 'actionCreator:id' &&
+			id !== 'noOp' &&
+			id !== 'another:actionCreator:id'
+		) {
+			throw new Error(`action not found id: ${id}`);
+		}
+	},
+}));
+
 describe('Testing <Dispatcher />', () => {
 	function replacer(k, v) {
 		let val = v;
