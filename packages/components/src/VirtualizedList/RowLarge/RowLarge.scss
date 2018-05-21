@@ -14,8 +14,7 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		flex-direction: column;
 
 		&:hover,
-		&:focus,
-		&:focus-within {
+		&:focus {
 			background: $tc-list-large-hover-bg;
 		}
 	}

@@ -10,8 +10,7 @@ $tc-list-table-header-color: $black !default;
 		align-items: center;
 
 		&:hover,
-		&:focus,
-		&:focus-within {
+		&:focus {
 			background: $tc-list-row-hover-bg;
 		}
 	}
