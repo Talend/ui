@@ -44,6 +44,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "ally.js": "^1.4.1",
     "date-fns": "1.27.2",
     "immutable": "3.8.1",
     "lodash": "4.17.4",

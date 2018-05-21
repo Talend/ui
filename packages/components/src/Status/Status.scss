@@ -44,8 +44,7 @@ $tc-status-space-btn-icon-label: 5px !default;
 	}
 
 	&.action:hover,
-	&.action:focus,
-	&.action:focus-within {
+	&.action:global(.ally-focus-within) {
 		.tc-status-label {
 			opacity: 0;
 		}
