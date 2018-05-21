@@ -21,7 +21,7 @@ function MyComponent(props) {
 
 function NotFoundComponent({ error }) {
 	console.error(error.message);
-	return (<div className="alert alert-danger">{error.message}</div>);
+	return <div className="alert alert-danger">{error.message}</div>;
 }
 NotFoundComponent.propTypes = {
 	error: PropTypes.string.isRequired,
@@ -30,9 +30,9 @@ NotFoundComponent.propTypes = {
 function Inject({ component, ...props }, context) {
 	try {
 		const Component = componentAPI.get(component, context);
-		return (<Component {...props} />);
+		return <Component {...props} />;
 	} catch (error) {
-		return (<NotFoundComponent error={error.message} />);
+		return <NotFoundComponent error={error.message} />;
 	}
 }
 Inject.contextTypes = {

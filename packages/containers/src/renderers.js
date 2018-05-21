@@ -2,7 +2,7 @@ import cmf from '@talend/react-cmf';
 
 export default function getRenderers(fromImports) {
 	const renderers = Object.assign({}, fromImports);
-	Object.keys(renderers).forEach((key) => {
+	Object.keys(renderers).forEach(key => {
 		if (cmf.component.has(key)) {
 			const component = cmf.component.get(key);
 			if (component && renderers[key] && renderers[key] !== component) {
