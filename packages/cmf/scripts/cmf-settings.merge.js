@@ -45,10 +45,12 @@ function merge(options, errorCallback) {
 
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
-	const cmfconfig = importAndValidate(cmfconfigPath, onError);
+	const cmfconfig = options.cmfConfig || importAndValidate(cmfconfigPath, onError);
 	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
-	const destination =
-		cmfconfig.settings.destination && path.join(process.cwd(), cmfconfig.settings.destination);
+	let destination = cmfconfig.settings.destination;
+	if (!path.isAbsolute(destination)) {
+		destination = path.join(process.cwd(), cmfconfig.settings.destination);
+	}
 	let settings;
 	let jsonFiles;
 
