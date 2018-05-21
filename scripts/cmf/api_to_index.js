@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+/* eslint-disable no-param-reassign */
 
 /**
  * import { api } from '@talend/react-cmf';
@@ -43,9 +43,7 @@ function updateImport(j, root) {
 }
 
 function renameIntoCode(j, root, info) {
-	console.log('###', info);
-	root.find(j.Identifier, { name: info.currentName}).forEach(i => {
-		console.log('### ', i.value.name);
+	root.find(j.Identifier, { name: info.currentName }).forEach(i => {
 		i.value.name = info.newName;
 	});
 }
