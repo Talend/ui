@@ -18,9 +18,9 @@ api.WHAT_EVER
 into
 
 ```javascript
-import cmf from '@talend/react-cmf'
+import api from '@talend/react-cmf'
 
-cmf.WHAT_EVER
+api.WHAT_EVER
 ```
 
 

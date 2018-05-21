@@ -2,12 +2,12 @@
 
 /**
  * import { api } from '@talend/react-cmf';
+ * ->
+ * import api from '@talend/react-cmf';
+ *
  * import { api as WHAT } from '@talend/react-cmf';
  * ->
- * import cmf from '@talend/react-cmf';
- *
- * api. -> cmf.
- * WHAT. -> cmf.
+ * import WHAT from '@talend/react-cmf';
  */
 
 function updateImport(j, root) {
@@ -18,7 +18,7 @@ function updateImport(j, root) {
 		return undefined;
 	}
 	let currentName = 'api';
-	let newName = 'cmf';
+	let newName = 'api';
 	cmfimports.forEach(i => {
 		let foundAPI = false;
 		let foundCMF = false;
@@ -34,18 +34,19 @@ function updateImport(j, root) {
 			return true;
 		});
 		if (foundAPI && !foundCMF) {
-			// add cmf import
-			// TODO: default
-			i.value.specifiers.push(j.importDefaultSpecifier(j.identifier('cmf')));
+			i.value.specifiers.push(j.importDefaultSpecifier(j.identifier(newName)));
 		}
 	});
 	return { currentName, newName };
 }
 
 function renameIntoCode(j, root, info) {
-	root.find(j.Identifier, { name: info.currentName }).forEach(i => {
-		i.value.name = info.newName;
-	});
+	if (info.currentName !== info.newName) {
+		// only if import cmf, { api } from '@talend/react-cmf';
+		root.find(j.Identifier, { name: info.currentName }).forEach(i => {
+			i.value.name = info.newName;
+		});
+	}
 }
 
 module.exports = function transform(fileInfo, api) {
