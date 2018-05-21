@@ -6,79 +6,80 @@
    19:66  error  Expected a line break before this closing brace                                                object-curly-newline
    38:8   error  Expected a line break after this opening brace                                                 object-curly-newline
    38:59  error  Expected a line break before this closing brace                                                object-curly-newline
-   48:19  error  Expected a line break after this opening brace                                                 object-curly-newline
-   48:82  error  Expected a line break before this closing brace                                                object-curly-newline
-  268:9   error  Expected a line break after this opening brace                                                 object-curly-newline
-  268:60  error  Expected a line break before this closing brace                                                object-curly-newline
-  271:9   error  Expected a line break after this opening brace                                                 object-curly-newline
-  271:64  error  Expected a line break before this closing brace                                                object-curly-newline
-  336:9   error  Expected a line break after this opening brace                                                 object-curly-newline
-  336:77  error  Expected a line break before this closing brace                                                object-curly-newline
-  361:9   error  Expected a line break after this opening brace                                                 object-curly-newline
-  361:83  error  Expected a line break before this closing brace                                                object-curly-newline
-  565:3   error  propType "errorSchema" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  567:3   error  propType "onBlur" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  573:3   error  propType "name" is not required, but has no corresponding defaultProp declaration              react/require-default-props
-  574:3   error  propType "formContext" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  585:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  586:3   error  propType "required" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  587:3   error  propType "title" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  588:3   error  propType "TitleField" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  592:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  593:3   error  propType "description" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  594:3   error  propType "DescriptionField" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  598:3   error  propType "type" is not required, but has no corresponding defaultProp declaration              react/require-default-props
-  599:3   error  propType "icon" is not required, but has no corresponding defaultProp declaration              react/require-default-props
-  600:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  604:3   error  propType "index" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  605:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  606:3   error  propType "hasToolbar" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  607:3   error  propType "children" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  608:3   error  propType "hasMoveUp" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  609:3   error  propType "hasMoveDown" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  610:3   error  propType "hasRemove" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  611:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  612:3   error  propType "readonly" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  613:3   error  propType "onReorderClick" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  614:3   error  propType "onDropIndexClick" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  618:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  619:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  620:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  621:3   error  propType "TitleField" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  622:3   error  propType "title" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  623:3   error  propType "required" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  624:3   error  propType "items" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  625:3   error  propType "canAdd" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  626:3   error  propType "onAddClick" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  627:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  628:3   error  propType "readonly" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  632:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  633:3   error  propType "title" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  634:3   error  propType "TitleField" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  635:3   error  propType "DescriptionField" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  636:3   error  propType "required" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  637:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  638:3   error  propType "readonly" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  639:3   error  propType "canAdd" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  640:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  641:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  642:3   error  propType "onAddClick" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  643:3   error  propType "items" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  647:3   error  propType "onClick" is not required, but has no corresponding defaultProp declaration           react/require-default-props
-  648:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  269:9   error  Expected a line break after this opening brace                                                 object-curly-newline
+  269:60  error  Expected a line break before this closing brace                                                object-curly-newline
+  272:9   error  Expected a line break after this opening brace                                                 object-curly-newline
+  272:64  error  Expected a line break before this closing brace                                                object-curly-newline
+  438:3   error  Unexpected newline before ')'                                                                  function-paren-newline
+  519:9   error  Expected a line break after this opening brace                                                 object-curly-newline
+  519:50  error  Expected a line break before this closing brace                                                object-curly-newline
+  568:9   error  Expected a line break after this opening brace                                                 object-curly-newline
+  568:48  error  Expected a line break before this closing brace                                                object-curly-newline
+  617:3   error  propType "errorSchema" is not required, but has no corresponding defaultProp declaration       react/require-default-props
+  619:3   error  propType "onBlur" is not required, but has no corresponding defaultProp declaration            react/require-default-props
+  620:3   error  propType "onFocus" is not required, but has no corresponding defaultProp declaration           react/require-default-props
+  626:3   error  propType "name" is not required, but has no corresponding defaultProp declaration              react/require-default-props
+  627:3   error  propType "formContext" is not required, but has no corresponding defaultProp declaration       react/require-default-props
+  638:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  639:3   error  propType "required" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  640:3   error  propType "title" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  641:3   error  propType "TitleField" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  645:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  646:3   error  propType "description" is not required, but has no corresponding defaultProp declaration       react/require-default-props
+  647:3   error  propType "DescriptionField" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  651:3   error  propType "type" is not required, but has no corresponding defaultProp declaration              react/require-default-props
+  652:3   error  propType "icon" is not required, but has no corresponding defaultProp declaration              react/require-default-props
+  653:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  657:3   error  propType "index" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  658:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  659:3   error  propType "hasToolbar" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  660:3   error  propType "children" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  661:3   error  propType "hasMoveUp" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  662:3   error  propType "hasMoveDown" is not required, but has no corresponding defaultProp declaration       react/require-default-props
+  663:3   error  propType "hasRemove" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  664:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  665:3   error  propType "readonly" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  666:3   error  propType "onReorderClick" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  667:3   error  propType "onDropIndexClick" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  671:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  672:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  673:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration            react/require-default-props
+  674:3   error  propType "TitleField" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  675:3   error  propType "title" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  676:3   error  propType "required" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  677:3   error  propType "items" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  678:3   error  propType "canAdd" is not required, but has no corresponding defaultProp declaration            react/require-default-props
+  679:3   error  propType "onAddClick" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  680:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  681:3   error  propType "readonly" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  682:3   error  propType "uiSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  689:3   error  propType "className" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  690:3   error  propType "title" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  691:3   error  propType "TitleField" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  692:3   error  propType "DescriptionField" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  693:3   error  propType "required" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  694:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  695:3   error  propType "readonly" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  696:3   error  propType "canAdd" is not required, but has no corresponding defaultProp declaration            react/require-default-props
+  697:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  698:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration            react/require-default-props
+  699:3   error  propType "onAddClick" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+  700:3   error  propType "items" is not required, but has no corresponding defaultProp declaration             react/require-default-props
+  701:3   error  propType "uiSchema" is not required, but has no corresponding defaultProp declaration          react/require-default-props
+  708:3   error  propType "onClick" is not required, but has no corresponding defaultProp declaration           react/require-default-props
+  709:3   error  propType "disabled" is not required, but has no corresponding defaultProp declaration          react/require-default-props
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.test.js
   14:26  error  Unexpected newline after '('   function-paren-newline
   16:3   error  Unexpected newline before ')'  function-paren-newline
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
-  15:27  error  Unexpected newline after '('                                                           function-paren-newline
-  23:3   error  Unexpected newline before ')'                                                          function-paren-newline
-  79:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  81:3   error  propType "onBlur" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  82:3   error  propType "name" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  83:3   error  propType "formData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  84:3   error  propType "required" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  14:27  error  Unexpected newline after '('                                                           function-paren-newline
+  22:3   error  Unexpected newline before ')'                                                          function-paren-newline
+  82:3   error  propType "idSchema" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  85:3   error  propType "formData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  86:3   error  propType "name" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  87:3   error  propType "required" is not required, but has no corresponding defaultProp declaration  react/require-default-props
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
    23:19  error  Unused state field: 'toggled'                                                                   react/no-unused-state
@@ -112,19 +113,25 @@
   124:3   error  Unexpected newline before ')'  function-paren-newline
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
-   38:9   error  Use object destructuring                                                             prefer-destructuring
-   55:9   error  Expected a line break after this opening brace                                       object-curly-newline
-   55:53  error  Expected a line break before this closing brace                                      object-curly-newline
-  116:12  error  Do not use Array index in keys                                                       react/no-array-index-key
-  144:3   error  propType "onBlur" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  147:3   error  propType "name" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+   39:3   error  propType "description" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+   40:3   error  propType "formContext" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+   45:3   error  propType "required" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+   46:3   error  propType "title" is not required, but has no corresponding defaultProp declaration        react/require-default-props
+   72:9   error  Use object destructuring                                                                  prefer-destructuring
+   91:9   error  Expected a line break after this opening brace                                            object-curly-newline
+   91:53  error  Expected a line break before this closing brace                                           object-curly-newline
+  186:3   error  propType "onBlur" is not required, but has no corresponding defaultProp declaration       react/require-default-props
+  187:3   error  propType "onFocus" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  190:3   error  propType "name" is not required, but has no corresponding defaultProp declaration         react/require-default-props
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
-  62:3  error  propType "idSchema" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  65:3  error  propType "formData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  73:3  error  propType "name" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  74:3  error  propType "required" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  82:2  error  defaultProp "uiSchema" defined for isRequired propType                                 react/default-props-match-prop-types
+  65:3  error  propType "idSchema" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  67:3  error  propType "onBlur" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  68:3  error  propType "onFocus" is not required, but has no corresponding defaultProp declaration   react/require-default-props
+  69:3  error  propType "formData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  77:3  error  propType "name" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  78:3  error  propType "required" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  86:2  error  defaultProp "uiSchema" defined for isRequired propType                                 react/default-props-match-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.js
    60:10  error  Do not use Array index in keys                                                             react/no-array-index-key
@@ -156,12 +163,14 @@
   181:4   error  Unexpected newline before ')'                         function-paren-newline
   203:19  error  Unexpected newline after '('                          function-paren-newline
   205:4   error  Unexpected newline before ')'                         function-paren-newline
-  271:21  error  Unexpected newline after '('                          function-paren-newline
-  275:4   error  Unexpected newline before ')'                         function-paren-newline
-  310:19  error  Unexpected newline after '('                          function-paren-newline
-  312:4   error  Unexpected newline before ')'                         function-paren-newline
-  368:12  error  Unexpected newline after '('                          function-paren-newline
-  377:5   error  Unexpected newline before ')'                         function-paren-newline
+  220:10  error  Unexpected newline after '('                          function-paren-newline
+  225:4   error  Unexpected newline before ')'                         function-paren-newline
+  276:21  error  Unexpected newline after '('                          function-paren-newline
+  280:4   error  Unexpected newline before ')'                         function-paren-newline
+  315:19  error  Unexpected newline after '('                          function-paren-newline
+  317:4   error  Unexpected newline before ')'                         function-paren-newline
+  373:12  error  Unexpected newline after '('                          function-paren-newline
+  382:5   error  Unexpected newline before ')'                         function-paren-newline
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/ArrayFieldTemplate.js
    14:24  error  Expected a line break after this opening brace                                      object-curly-newline
@@ -1005,10 +1014,22 @@
   1:80  error  Unexpected use of file extension "js" for "./utils.js"  import/extensions
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
-  72:3  error  propType "schema" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  73:3  error  propType "formData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  74:3  error  propType "value" is not required, but has no corresponding defaultProp declaration     react/require-default-props
-  78:3  error  propType "onChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  25:14  error  Expected a line break after this opening brace                                         object-curly-newline
+  25:57  error  Expected a line break before this closing brace                                        object-curly-newline
+  47:16  error  Expected a line break after this opening brace                                         object-curly-newline
+  47:59  error  Expected a line break before this closing brace                                        object-curly-newline
+  66:25  error  Expected a line break after this opening brace                                         object-curly-newline
+  66:79  error  Expected a line break before this closing brace                                        object-curly-newline
+  81:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  82:3   error  propType "data" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  83:3   error  propType "onChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  87:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  88:3   error  propType "data" is not required, but has no corresponding defaultProp declaration      react/require-default-props
+  89:3   error  propType "onChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  93:3   error  propType "schema" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  94:3   error  propType "formData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  95:3   error  propType "value" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  96:3   error  propType "onChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
   29:4  error  Unexpected newline before ')'  function-paren-newline
@@ -1084,6 +1105,6 @@
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ToggleWidget.js
   24:3  error  propType "checked" is not required, but has no corresponding defaultProp declaration  react/require-default-props
 
-✖ 917 problems (917 errors, 0 warnings)
-  629 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 938 problems (938 errors, 0 warnings)
+  636 errors, 0 warnings potentially fixable with the `--fix` option.
 

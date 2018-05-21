@@ -182,7 +182,6 @@
   90:3   error  Unexpected newline before ')'  function-paren-newline
 
 /home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.component.js
-   32:22  error  'items' is not defined         no-undef
   139:26  error  Unexpected newline after '('   function-paren-newline
   145:2   error  Unexpected newline before ')'  function-paren-newline
 
@@ -1577,6 +1576,6 @@
    9:3  error  propType "onClick" is not required, but has no corresponding defaultProp declaration   react/require-default-props
   10:3  error  propType "children" is not required, but has no corresponding defaultProp declaration  react/require-default-props
 
-✖ 1280 problems (1279 errors, 1 warning)
+✖ 1279 problems (1278 errors, 1 warning)
   700 errors, 0 warnings potentially fixable with the `--fix` option.
 
