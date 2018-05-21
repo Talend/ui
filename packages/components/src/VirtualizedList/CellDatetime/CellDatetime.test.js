@@ -110,10 +110,12 @@ describe('CellDatetime', () => {
 		);
 		// then
 		expect(distanceInWordsToNow.mock.calls[0][0]).toBe(1474495200000);
-		expect(distanceInWordsToNow.mock.calls[0][1]).toEqual({
-			addSuffix: true,
-			locale: distanceInWordsToNow.mock.calls[0][1].locale,
-		});
+		expect(distanceInWordsToNow.mock.calls[0][1].addSuffix).toBe(true);
+		expect(
+			distanceInWordsToNow.mock.calls[0][1].locale.distanceInWords.localize('almostXYears', 5, {
+				addSuffix: true,
+			}),
+		).toBe('almost 5 years ago');
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should format with "ago"', () => {
