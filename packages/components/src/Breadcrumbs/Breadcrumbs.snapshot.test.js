@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { BreadcrumbsComponent } from './Breadcrumbs.component';
-import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 jest.mock('react-dom');
 
