@@ -1,4 +1,8 @@
-import 'babel-polyfill'; // eslint-disable-line
+import 'babel-polyfill';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+
+configure({ adapter: new Adapter() });
 
 const fetch = jest.fn(
 	(url, config) =>
