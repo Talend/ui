@@ -217,7 +217,12 @@ describe('<Form/>', () => {
 			input.simulate('change', { target: { value: 'Test' } });
 
 			// then
-			expect(input.instance().value).toEqual('Test');
+			expect(
+				wrapper
+					.find('input')
+					.first()
+					.instance().value,
+			).toEqual('Test');
 			setTimeout(() => {
 				wrapper.setState({}, () => {
 					expect(onChange.mock.calls.length).toEqual(1);
@@ -226,7 +231,7 @@ describe('<Form/>', () => {
 			}, 100);
 		});
 
-		it('should handles triggers and change if fied as ui:trigger property', done => {
+		it('should handles triggers and change if field as ui:trigger property', done => {
 			// given
 			const input = wrapper.find('input').at(1);
 
