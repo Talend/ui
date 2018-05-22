@@ -52,7 +52,7 @@
 	}
 
 	.schema.input {
-		width: 400px;
+		width: 500px;
 	}
 
 	.schema-header {
@@ -67,7 +67,7 @@
 		height: 35px;
 	}
 
-	.schema .tc-table-container {
+	.schema .mapper-table-container {
 		height: 100%;
 		padding: 0;
 		padding-top: 2px;
@@ -87,24 +87,24 @@
 		margin-bottom: 2px;
 	}
 
-	.tc-table-header {
+	.mapper-table-header {
 		padding: 4px;
 	}
 
-	.tc-table-header.name.input {
+	.mapper-table-header.name.input {
 		text-align: right;
 	}
 
-	.tc-table-row {
+	.mapper-table-row {
 		height: $row_height;
 	}
 
-	.tc-table-row-data-name {
+	.mapper-table-row-data-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}
 
-	.tc-table-row-data-type {
+	.mapper-table-row-data-type {
 		font-family: $font_family_for_type;
 		font-size: 0.9em;
 		text-overflow: ellipsis;
@@ -112,57 +112,57 @@
 		color: $type_field_color;
 	}
 
-	.tc-table-row-data-type {
+	.mapper-table-row-data-type {
 		padding: 4px;
 	}
 
-	.tc-table-row-data-type.input {
+	.mapper-table-row-data-type.input {
 		text-align: left;
 	}
 
-	.tc-table-row-data-type.output {
+	.mapper-table-row-data-type.output {
 		text-align: left;
 	}
 
-	.tc-table-row-data-name {
+	.mapper-table-row-data-name {
 		padding: 4px;
 	}
 
-	.mapped .tc-table-row-data-name {
+	.mapped .mapper-table-row-data-name {
 		font-weight: bold;
 	}
 
-	.tc-table-row-data-name.input {
+	.mapper-table-row-data-name.input {
 		text-align: right;
 	}
 
-	.tc-table-row-data-description {
+	.mapper-table-row-data-description {
 		color: #aaa;
 		font-style: italic;
 		padding: 4px;
 	}
 
-	.tc-table.schema-content {
+	.mapper-table.schema-content {
 		overflow: visible;
 		position: relative;
 	}
 
-	.tc-table.schema-content table {
+	.mapper-table.schema-content table {
 		position: absolute;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		height: 92%;
 		width: 100%;
 		white-space: nowrap;
 	}
 
-	.tc-table.schema-content thead {
+	.mapper-table.schema-content thead {
 		display: block;
 		width: 100%;
-		height: 30px;
+		height: 40px;
 	}
 
-	.tc-table.schema-content tbody {
+	.mapper-table.schema-content tbody {
 		display: block;
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -170,77 +170,107 @@
 		height: 1000px;
 	}
 
-	.tc-table.schema-content.input tr.tr-head {
+	.mapper-table.schema-content.input tr.tr-head {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
 
-	.tc-table.schema-content.output tr.tr-head {
+	.mapper-table.schema-content.output tr.tr-head {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 	}
 
-	.tc-table.schema-content.input tr.tr-body {
+	.mapper-table.schema-content.input tr.tr-body {
 		display: flex;
 		justify-content: space-between;
 	}
 
-	.tc-table.schema-content.output tr.tr-body {
+	.mapper-table.schema-content.output tr.tr-body {
 		display: flex;
 		justify-content: flex-start;
 	}
 
-	.tc-table.schema-content.output tr {
+	.mapper-table.schema-content.output tr {
 		td:nth-child(1),
 		th:nth-child(1) {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
 			width: 200px;
 		}
 		td:nth-child(2),
 		th:nth-child(2) {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
 			width: 150px;
 		}
 		td:nth-child(3),
 		th:nth-child(3) {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
 			width: 500px;
 		}
 	}
 
-	tr.tc-table-row td {
+	tr.mapper-table-row td {
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
-	tr.tc-table-row td:first-child {
+	tr.mapper-table-row td:first-child {
 		overflow: visible;
 	}
 
-	.tc-table.schema-content table {
-		tr {
-			&.draggable {
-				cursor: grab;
-				td:first-child {
-					position: relative;
-					div[draggable='true']:before {
-						position: absolute;
-						top: 0;
-						left: 0;
-						bottom: 0;
-						content: '';
-						width: 100vw;
-					}
+	.draggable-row {
+		td:first-child {
+			position: relative;
+			div[draggable='true'] {
+				.tc-table-clickable-cell {
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					width: 100vw;
 				}
 			}
 		}
 	}
 
-	.highlighted {
-		background-color: #f2f2f2;
+	.mapper-table-action-header {
+		color: #000;
+		font-weight: bold;
 	}
 
-	.selected {
-		background-color: #ddd;
+	.mapper-table-container .tc-table-title-and-filters {
+		height: 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid #ddd;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.mapper-table-title {
+		color: #000;
+		font-weight: bold;
+		font-size: 1.2em;
+		text-transform: uppercase;
+	}
+
+	.mapper-table-filters {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.mapper-filter {
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 	.filter-name {
@@ -258,6 +288,19 @@
 		margin-left: 1px;
 	}
 
+	.mapper-table-row.highlighted {
+		background-color: #f2f2f2;
+
+	}
+
+	.mapper-table-row.selected {
+		background-color: #ddd;
+	}
+
+	/*
+	* === MAPPING SECTION
+	*/
+
 	.mapping {
 		background-color: #fbfdff;
 		padding: 8px;
@@ -274,7 +317,7 @@
 		font-size: 1em;
 		padding: 4px;
 		margin: 4px;
-		height: 35px;
+		height: 40px;
 	}
 
 	#auto-map {

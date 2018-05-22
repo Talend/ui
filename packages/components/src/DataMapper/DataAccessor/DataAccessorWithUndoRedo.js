@@ -46,7 +46,7 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 
 	removeMapping(mapping, source, target) {
 		const sourceLabel = this.getElementLabel(source);
-		const targetLabel = this.getElementLable(target);
+		const targetLabel = this.getElementLabel(target);
 		const cmd = {
 			code: Constants.Commands.REMOVE_MAPPING,
 			label: `Clear mapping between ${sourceLabel} and ${targetLabel}`,

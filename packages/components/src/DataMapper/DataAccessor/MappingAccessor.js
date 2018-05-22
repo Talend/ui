@@ -3,13 +3,6 @@ import * as Constants from '../Constants';
 /**
  * Internal function only used by the dataAccessor.
  */
-function getMappingItemIndex(mapping, source, target) {
-	return mapping.findIndex(item => areEqual(item.source, source) && areEqual(item.target, target));
-}
-
-/**
- * Internal function only used by the dataAccessor.
- */
 function removeMappingItem(mapping, index) {
 	const updatedMapping = mapping.slice();
 	updatedMapping.splice(index, 1);
@@ -17,6 +10,21 @@ function removeMappingItem(mapping, index) {
 }
 
 export default class MappingAccessor {
+
+	constructor(dataAccessor) {
+		this.dataAccessor = dataAccessor;
+	}
+
+	internalAreEqual(elem1, elem2) {
+		return this.dataAccessor.areElementsEqual(elem1, elem2);
+	}
+
+	internalGetMappingItemIndex(mapping, source, target) {
+		return mapping.findIndex(
+			item => this.internalAreEqual(item.source, source) && this.internalAreEqual(item.target, target)
+		);
+	}
+
 	/**
 	 * Returns an array of all the mapping items. A mapping item defines
 	 * a mapping betwwen an input and an output element.
@@ -48,7 +56,7 @@ export default class MappingAccessor {
 	 * Returns the updated mapping.
 	 */
 	removeMapping(mapping, source, target) {
-		const index = getMappingItemIndex(mapping, source, target);
+		const index = this.internalGetMappingItemIndex(mapping, source, target);
 		if (index >= 0) {
 			return removeMappingItem(mapping, index);
 		}

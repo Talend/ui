@@ -70,6 +70,13 @@ function withHeader(schemaConfiguration, side) {
 	return false;
 }
 
+function withTitle(schemaConfiguration, side) {
+	if (schemaConfiguration && schemaConfiguration.withTitle(side)) {
+		return schemaConfiguration.withTitle(side);
+	}
+	return false;
+}
+
 export default class Schema extends Component {
 	constructor(props) {
 		super(props);
@@ -249,6 +256,8 @@ export default class Schema extends Component {
 	render() {
 		const { schemaConfiguration, ...tempProps } = this.props;
 		const {
+			dataAccessor,
+			schema,
 			side,
 		} = this.props;
 		const contentProps = {
@@ -258,11 +267,14 @@ export default class Schema extends Component {
 			isHighlighted,
 			onScroll: this.onContentScroll,
 		};
+		const title = dataAccessor.getSchemaName(schema);
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<TableRenderer
 					{...contentProps}
 					ref={this.updateRendererNodeRef}
+					withTitle={withTitle(schemaConfiguration, side)}
+					title={title}
 					columnKeys={getColumns(schemaConfiguration, side)}
 					classNameProvider={getClassNameProvider(schemaConfiguration, side)}
 					rowRenderer={getRowRenderer(schemaConfiguration, side)}

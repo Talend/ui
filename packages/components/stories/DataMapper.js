@@ -10,6 +10,7 @@ import {
 } from '../src/index';
 import { DataMapper as Mapper } from '../src/index';
 import * as Constants from '../src/DataMapper/Constants';
+import { isSelected } from '../src/DataMapper/Schema/Schema';
 import { IconsProvider } from '../src/index';
 
 const Keys = {
@@ -298,6 +299,30 @@ const schemaDataAccessor = {
 	},
 };
 
+const mapperClassNameProvider = {
+	getMain() {
+		return 'mapper-table-container';
+	},
+	getForTitle() {
+		return 'mapper-table-title';
+	},
+	getForFilters() {
+		return 'mapper-table-filters';
+	},
+	getForTable() {
+		return 'mapper-table';
+	},
+	getForHeader(columnKey) {
+		return `mapper-table-header-${columnKey}`;
+	},
+	getForRow() {
+		return 'mapper-table-row';
+	},
+	getForRowData(columnKey) {
+		return `mapper-table-row-data-${columnKey}`;
+	},
+};
+
 const schemaColumns = {
 	input: [ COLUMNS.TYPE.key, COLUMNS.NAME.key ],
 	output: [ COLUMNS.NAME.key, COLUMNS.TYPE.key, COLUMNS.DESC.key ],
@@ -309,7 +334,12 @@ const nameFilterComponent = FilterComponents.getFilterComponent(FilterComponents
 const mandatoryFieldFilterId = 'mandatory-field-filter';
 const mandatoryFieldFilterComponent = FilterComponents.getFilterComponent(FilterComponents.classes.toggle);
 
-function createFilters() {
+function createInputFilters() {
+	const nameFilter = FilterFactory.createRegexpFilter(nameFilterId, COLUMNS.NAME.key, false);
+	return [nameFilter];
+}
+
+function createOutputFilters() {
 	const nameFilter = FilterFactory.createRegexpFilter(nameFilterId, COLUMNS.NAME.key, false);
 	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(mandatoryFieldFilterId, COLUMNS.MANDATORY.key, false);
 	return [nameFilter, mandatoryFieldFilter];
@@ -346,41 +376,20 @@ const filtersRenderer = {
 	},
 };
 
-/*
-const outputRowRenderer = {
-	getCellComponent(key) {
-		switch (key) {
-			case COLUMNS.NAME.key:
-				return MandatoryField;
-			default:
-				return TableCell;
-		}
+const mapperSchemaConfiguration = {
+	withTitle() {
+		return true;
 	},
-};
-*/
-
-const defaultSchemaConfiguration = {
 	getColumns(side) {
 		return schemaColumns[side];
 	},
 	withHeader() {
 		return true;
 	},
-};
-
-/*
-const mapperSchemaConfiguration = {
-	getColumns(side) {
-		return schemaColumns[side];
-	},
-	getRowRenderer(side) {
-		if (side === Constants.MappingSide.OUTPUT) {
-			return outputRowRenderer;
-		}
-		return null;
+	getClassNameProvider() {
+		return mapperClassNameProvider;
 	},
 };
-*/
 
 const autoMapping = [];
 
@@ -411,7 +420,7 @@ function finalizeSchema(schema) {
 }
 
 function createDataAccessor() {
-	return new DataAccessorWithUndoRedo(schemaDataAccessor, new MappingAccessor());
+	return new DataAccessorWithUndoRedo(schemaDataAccessor, new MappingAccessor(schemaDataAccessor));
 }
 
 function prefs(showAll, gradientStops50, gradientStops100) {
@@ -498,12 +507,25 @@ function getUXInitialState(preferences) {
     inputSchema,
     outputSchema,
 		preferences,
+		filters: {
+			input: createInputFilters(),
+			output: createOutputFilters(),
+		},
 	};
 }
 
+function registerFilters(dataAccessor, schema, filters) {
+	for (let i = 0; i < filters.length; i += 1) {
+		dataAccessor.addFilter(schema, filters[i]);
+	}
+}
+
 function initialize(state) {
-	state.dataAccessor.registerSchema(state.inputSchema, Constants.MappingSide.INPUT);
-	state.dataAccessor.registerSchema(state.outputSchema, Constants.MappingSide.OUTPUT);
+	const dataAccessor = state.dataAccessor;
+	dataAccessor.registerSchema(state.inputSchema, Constants.MappingSide.INPUT);
+	registerFilters(dataAccessor, state.inputSchema, state.filters.input);
+	dataAccessor.registerSchema(state.outputSchema, Constants.MappingSide.OUTPUT);
+	registerFilters(dataAccessor, state.outputSchema, state.filters.output);
 	return state;
 }
 
@@ -677,9 +699,9 @@ function navigateUpDown(state, nav) {
 function findTargetElement(dataAccessor, schema, selection, mappingInProgress) {
 	const elements = dataAccessor.getSchemaElements(schema, true);
 	return elements.find(elem =>
-		(!mappingInProgress && dataAccessor.haveSameName(elem, selection.element))
+		(!mappingInProgress && dataAccessor.haveSameData(elem, selection.element, COLUMNS.NAME.key))
 		|| (mappingInProgress
-				&& dataAccessor.haveSameName(elem, selection.element)
+				&& dataAccessor.haveSameData(elem, selection.element, COLUMNS.NAME.key)
 				&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem)))
 	);
 }
@@ -1416,6 +1438,6 @@ stories
 			mapperId="mapper"
 			initialState={initialize(getUXInitialState(alternativePrefs))}
 			mappingActions={autoMapping}
-			schemaConfiguration={defaultSchemaConfiguration}
+			schemaConfiguration={mapperSchemaConfiguration}
 		/>;
 	});

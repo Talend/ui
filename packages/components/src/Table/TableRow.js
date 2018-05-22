@@ -44,12 +44,12 @@ function getRowData(rowDataGetter, element, columnKey) {
 /**
  * This function is responsible for rendering a piece of data for an element.
  */
-function renderRowData(element, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
+function renderRowData(element, elementId, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
 	const CellComponent = getCellComponent(rowRenderer, columnKey);
 	const data = getRowData(rowDataGetter, element, columnKey);
 	const className = getRowDataClassName(classNameProvider, element, columnKey);
 	const extraProps = getCellComponentExtraProps(rowRenderer, columnKey);
-	const compKey = `${getRowId(rowDataGetter, element)}-${columnKey}`;
+	const compKey = `${elementId}-${columnKey}`;
 	return (
 		<td key={`td-${compKey}`}>
 			<CellComponent
@@ -121,16 +121,16 @@ export default class TableRow extends Component {
 
 	render() {
 		const { element, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
-		const rowKey = getRowId(rowDataGetter, element);
+		const rowId = getRowId(rowDataGetter, element);
 		return (
 			<tr
-				key={rowKey}
+				key={rowId}
 				className={`tr-body ${getRowClassName(classNameProvider, element)}`}
 				ref={this.updateRowRef}
-				data-id={rowKey}
+				data-id={rowId}
 			>
 				{columnKeys.map(key =>
-					renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderer),
+					renderRowData(element, rowId, key, rowDataGetter, classNameProvider, rowRenderer),
 				)}
 			</tr>
 		);

@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import {
 	Table,
 	TableCell,
+	TableClickableCell,
 	TableHeader,
 	DraggableComponent,
 } from '../../index';
@@ -94,7 +95,7 @@ class InternalClassNameProvider {
 			selected: isSelected(dataAccessor, selection, element, side),
 			input: side === Constants.MappingSide.INPUT,
 			output: side === Constants.MappingSide.OUTPUT,
-			draggable: true,
+			'draggable-row': true,
 		});
 		return `${className} ${addedClassNames}`;
 	}
@@ -141,15 +142,36 @@ class InternalDndListener {
 	}
 }
 
+class InternalSelectionHandler {
+	constructor() {
+		this.onClick = this.onClick.bind(this);
+		this.onDoubleClick = this.onDoubleClick.bind(this);
+	}
+
+	update(schemaProps) {
+		this.schemaProps = schemaProps;
+	}
+
+	onClick(element, ev) {
+		this.schemaProps.onSelect(ev.ctrlKey, element, this.schemaProps.side);
+	}
+
+	onDoubleClick(element) {
+		this.schemaProps.revealConnectedElement(element, this.schemaProps.side);
+	}
+}
+
 class InternalRowRenderer {
 	constructor() {
 		this.dndListener = new InternalDndListener();
+		this.selectionHandler = new InternalSelectionHandler();
 		this.draggableCell = null;
 	}
 
 	update(schemaProps) {
 		this.schemaProps = schemaProps;
 		this.dndListener.update(schemaProps);
+		this.selectionHandler.update(schemaProps);
 	}
 
 	isModelEvent(code) {
@@ -195,16 +217,17 @@ class InternalRowRenderer {
 	}
 
 	getCellComponent(columnKey) {
-		if (this.isFirstColumn(columnKey) && this.draggableCell) {
+		const first = this.isFirstColumn(columnKey);
+		if (first && this.draggableCell) {
 			return this.draggableCell;
 		}
 		// default cell component
-		let cellComponent = TableCell;
+		let cellComponent = first ? TableClickableCell : TableCell;
 		// check if there is a custom cell component
 		if (this.schemaProps.rowRenderer && this.schemaProps.rowRenderer.getCellComponent) {
 			cellComponent = this.schemaProps.rowRenderer.getCellComponent(columnKey);
 		}
-		if (this.isFirstColumn(columnKey)) {
+		if (first) {
 			this.draggableCell = DraggableComponent(cellComponent);
 			cellComponent = this.draggableCell;
 		}
@@ -222,6 +245,9 @@ class InternalRowRenderer {
 			extraProps.canDrop = this.dndListener.canDrop;
 			extraProps.drop = this.dndListener.drop;
 			extraProps.endDrag = this.dndListener.endDrag;
+			// add selection extra props
+			extraProps.onClick = this.selectionHandler.onClick;
+			extraProps.onDoubleClick = this.selectionHandler.onDoubleClick;
 		}
 		return extraProps;
 	}
@@ -252,8 +278,6 @@ class InternalHeaderRenderer {
 export default class TableRenderer extends Component {
 	constructor(props) {
 		super(props);
-		this.select = this.select.bind(this);
-		this.revealConnectedElement = this.revealConnectedElement.bind(this);
 		this.onEnterElement = this.onEnterElement.bind(this);
 		this.onLeaveElement = this.onLeaveElement.bind(this);
 		this.onFilterChange = this.onFilterChange.bind(this);
@@ -273,22 +297,6 @@ export default class TableRenderer extends Component {
 
 	onFilterChange(filter) {
 		this.props.onFilterChange(filter, this.props.side);
-	}
-
-	getElement(ev) {
-		const node = ev.currentTarget;
-		const elementId = node.dataset.id;
-		return this.props.dataAccessor.getSchemaElementFromId(this.props.schema, elementId);
-	}
-
-	select(ev) {
-		const element = this.getElement(ev);
-		this.props.onSelect(ev.ctrlKey, element, this.props.side);
-	}
-
-	revealConnectedElement(ev) {
-		const element = this.getElement(ev);
-		this.props.revealConnectedElement(element, this.props.side);
 	}
 
 	updateTableNodeRef(ref) {
@@ -334,10 +342,14 @@ export default class TableRenderer extends Component {
 			withHeader,
 			filters,
 			filtersRenderer,
+			withTitle,
+			title,
 		} = this.props;
 		return (
 			<Table
 				ref={this.updateTableNodeRef}
+				withTitle={withTitle}
+				title={title}
 				classNameProvider={this.classNameProvider}
 				elements={dataAccessor.getSchemaElements(schema, true)}
 				columnKeys={columnKeys}
@@ -349,8 +361,6 @@ export default class TableRenderer extends Component {
 				filtersRenderer={filtersRenderer}
 				onFilterChange={this.onFilterChange}
 				onScroll={onScroll}
-				onClick={this.select}
-				onDoubleClick={this.revealConnectedElement}
 				onEnterRow={this.onEnterElement}
 				onLeaveRow={this.onLeaveElement}
 			/>
@@ -361,6 +371,8 @@ export default class TableRenderer extends Component {
 TableRenderer.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
+	withTitle: PropTypes.bool,
+	title: PropTypes.string,
 	columnKeys: PropTypes.array,
 	classNameProvider: PropTypes.object,
 	rowRenderer: PropTypes.object,
