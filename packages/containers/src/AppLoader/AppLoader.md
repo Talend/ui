@@ -14,7 +14,7 @@ On your top level component, you can place it this way :
 </AppLoader>
 ```
 
-you could also provide configuration to be to use the inject placeholders to inject all the stuff
+you could also provide configuration to use the inject placeholders to inject all the stuff
 
 ## How to configure it ?
 
@@ -50,6 +50,6 @@ This is a sample of configuration :
 * saga : required cause this is how the action creator are dispatched
 * components : injected components
 * steps, you can pass objects, this objects can have an attribute ( exclusive ) :
-  * actionCreators : an array of action creators to dispatch in parallel.
-  * waitFor : an array of collection ids to have in cmf store before we can trigger the next step
+* actionCreators : an array of action creators to dispatch in parallel.
+* waitFor : an array of collection ids to have in cmf store before we can trigger the next step
 * hasCollections : an array of collection ids to have in cmf store before it can render the children
