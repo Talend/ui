@@ -50,7 +50,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.tc-list-large-row),
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
-	&:focus {
+	&:focus,
+	&:global(ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			opacity: 1;
 			transition: opacity 0.15s ease-in;
@@ -62,7 +63,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.tc-list-large-row.active),
 :global(.ReactVirtualized__Table__row.active) {
 	&:hover,
-	&:focus {
+	&:focus,
+	&:global(ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			background: linear-gradient(
 				to right,
@@ -76,7 +78,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.tc-list-large-row.selected),
 :global(.ReactVirtualized__Table__row.selected) {
 	&:hover,
-	&:focus {
+	&:focus,
+	&:global(ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
 			background: linear-gradient(
 				to right,
@@ -93,7 +96,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.ReactVirtualized__Grid__innerScrollContainer),
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
-	&:focus {
+	&:focus,
+	&:global(ally-focus-within) {
 		overflow: visible !important;
 
 		:global(.tc-list-title-cell),
@@ -105,7 +109,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
-	&:focus {
+	&:focus,
+	&:global(ally-focus-within) {
 		/* avoid scrolling over x axis */
 		width: auto !important;
 		right: 0 !important;
