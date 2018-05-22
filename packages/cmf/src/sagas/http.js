@@ -1,6 +1,5 @@
 import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
-import curry from 'lodash/curry';
 import get from 'lodash/get';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
@@ -11,7 +10,11 @@ import {
 	testHTTPCode,
 } from '../middlewares/http/constants';
 
-let defaultHeader = {};
+let defaultConfig = {};
+
+export function handleCSRFToken(config) {
+	return mergeCSRFToken(config)(config);
+}
 
 export class HTTPError extends Error {
 	constructor({ data, response }) {
@@ -84,7 +87,6 @@ export function handleHttpResponse(response) {
 export function httpFetch(url, config, method, payload) {
 	let body;
 	const defaultHeaders = {
-		...defaultHeader,
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	};
@@ -101,14 +103,19 @@ export function httpFetch(url, config, method, payload) {
 	}
 	return fetch(
 		url,
-		merge(
-			{
-				credentials: 'same-origin',
-				headers: defaultHeaders,
-				method,
-				body,
-			},
-			config,
+		handleCSRFToken(
+			merge(
+				{
+					credentials: 'same-origin',
+					headers: defaultHeaders,
+					method,
+					body,
+				},
+				{
+					...defaultConfig,
+					...config,
+				},
+			),
 		),
 	)
 		.then(handleHttpResponse)
@@ -216,22 +223,27 @@ export function* httpGet(url, config, options) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
 }
 
-export const handleDefaultConfiguration = curry((defaultConfig, config) =>
-	mergeCSRFToken(defaultConfig)(config),
-);
-
 /**
  * setDefaultHeader - define a default header to use with the saga http
  *
  * @param  {object} config key/value of header to apply
  * @example
  * import { setDefaultHeader } from '@talend/react-cmf/sagas/http';
- * setDefaultHeader({
+ * setDefaultHeader({headers: {
  *  'Accept-Language': preferredLanguage,
- * });
+ * }});
  */
-export function setDefaultHeader(config) {
-	defaultHeader = config;
+export function setDefaultConfig(config) {
+	defaultConfig = config;
+}
+
+/**
+ * getDefaultConfig - return the defaultConfig
+ *
+ * @return {object}  the defaultConfig used by cmf
+ */
+export function getDefaultConfig() {
+	return defaultConfig;
 }
 
 export default {
@@ -240,23 +252,23 @@ export default {
 	post: httpPost,
 	put: httpPut,
 	patch: httpPatch,
-	create(defaultConfig = {}) {
-		const configEnhancer = handleDefaultConfiguration(defaultConfig);
+	create(createConfig = {}) {
+		setDefaultConfig(createConfig);
 		return {
 			delete: function* configuredDelete(url, config = {}, options = {}) {
-				return yield call(httpDelete, url, configEnhancer(config), options);
+				return yield call(httpDelete, url, config, options);
 			},
 			get: function* configuredGet(url, config = {}, options = {}) {
-				return yield call(httpGet, url, configEnhancer(config), options);
+				return yield call(httpGet, url, config, options);
 			},
 			post: function* configuredPost(url, payload, config = {}, options = {}) {
-				return yield call(httpPost, url, payload, configEnhancer(config), options);
+				return yield call(httpPost, url, payload, config, options);
 			},
 			put: function* configuredPut(url, payload, config = {}, options = {}) {
-				return yield call(httpPut, url, payload, configEnhancer(config), options);
+				return yield call(httpPut, url, payload, config, options);
 			},
 			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
-				return yield call(httpPatch, url, payload, configEnhancer(config), options);
+				return yield call(httpPatch, url, payload, config, options);
 			},
 		};
 	},
