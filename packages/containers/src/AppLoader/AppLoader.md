@@ -14,11 +14,31 @@ On your top level component, you can place it this way :
 </AppLoader>
 ```
 
-you could also provide configuration to use the inject placeholders to inject all the stuff
+You can also provide configuration to use the inject placeholders to inject all the stuff (see next section).
 
 ## How to configure it ?
 
 This is a sample of configuration :
+
+```json
+"AppLoader#default":{
+    "saga": "appLoaderSaga",
+    "steps":[
+        { "actionCreators":["user:fetchIdentity"] },
+        { "waitFor":["identity"] },
+        { "actionCreators":["datastore:fetch.types", "datastore:fetch:cloudAgents"]}
+        { "waitFor":["datastore-types", "cloud-agents"] },
+        { "actionCreators":["datastore:fetchAll", "dataset:fetchAll"] }
+    ],
+    "hasCollections": ["identity", "datastore-types", "datastores", "datasets"]
+},
+```
+
+To use the inject feature to add component within the children, you have 2 placeholders
+* before-children
+* after-children
+
+This is a sample of inject configuration :
 
 ```json
 "AppLoader#default":{
@@ -34,16 +54,11 @@ This is a sample of configuration :
           }
         ]
     },
-    "steps":[
-        { "actionCreators":["user:fetchIdentity"] },
-        { "waitFor":["identity"] },
-        { "actionCreators":["datastore:fetch.types", "datastore:fetch:cloudAgents"]}
-        { "waitFor":["datastore-types", "cloud-agents"] },
-        { "actionCreators":["datastore:fetchAll", "dataset:fetchAll"] }
-    ],
-    "hasCollections": ["identity", "datastore-types", "datastores", "datasets"]
-},
+    "steps": [...],
+    "hasCollections": [...]
+}
 ```
+
 
 ### Props
 
