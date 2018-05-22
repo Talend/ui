@@ -1,45 +1,31 @@
 import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 
-import ActionButton from '../ActionButton';
-import ActionFile from '../ActionFile';
-import ActionSplitDropdown from '../ActionSplitDropdown';
-import ActionDropdown from '../ActionDropdown';
-import ActionIconToggle from '../ActionIconToggle';
-import getRenderers from '../renderers';
-
-export const renderers = {
-	ActionButton,
-	ActionFile,
-	ActionSplitDropdown,
-	ActionDropdown,
-	ActionIconToggle,
-};
-
 export function mapStateToProps(state, ownProps) {
-	const props = {
-		renderers: getRenderers(renderers),
-	};
-
-	if (!ownProps.actionId && !ownProps.name) {
-		return props;
-	}
-	const info = api.action.getActionInfo(
-		{
-			registry: api.registry.getRegistry(),
-			store: {
-				getState: () => state,
+	const props = {};
+	if (ownProps.actionId) {
+		const info = api.action.getActionInfo(
+			{
+				registry: api.registry.getRegistry(),
+				store: {
+					getState: () => state,
+				},
 			},
-		},
-		ownProps.actionId || ownProps.name,
-	);
+			ownProps.actionId,
+		);
 
-	props.actionId = ownProps.actionId || ownProps.name;
-	props.displayMode = info.displayMode;
+		props.displayMode = info.displayMode;
+	}
+	return props;
+}
+
+export function mergeProps(stateProps, dispatchProps, ownProps) {
+	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	delete props.actionId;
 	return props;
 }
 
 export default cmfConnect({
-	componentId: ownProps => ownProps.componentId || ownProps.id,
+	componentId: ownProps => ownProps.componentId || ownProps.actionId || ownProps.id,
 	mapStateToProps,
 })(Action);

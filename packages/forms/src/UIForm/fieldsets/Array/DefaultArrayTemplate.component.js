@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
-import I18N_DOMAIN_FORMS from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
+import getDefaultT from '../../../translate';
 
 import theme from './Array.scss';
 
@@ -25,7 +25,7 @@ export function DefaultArrayTemplate(props) {
 			/>
 			<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 				{value.map((itemValue, index) => (
-					<li className={theme.item} key={index}>
+					<li className={classNames(theme.item, 'item', `item-${index}`)} key={index}>
 						<ArrayItem
 							hasMoveDown={index < value.length - 1}
 							hasMoveUp={index > 0}
@@ -45,7 +45,7 @@ export function DefaultArrayTemplate(props) {
 }
 
 DefaultArrayTemplate.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -62,4 +62,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(DefaultArrayTemplate);
+export default translate(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);

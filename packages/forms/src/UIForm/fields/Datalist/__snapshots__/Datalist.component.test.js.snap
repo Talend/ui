@@ -9,43 +9,36 @@ exports[`Datalist component should render typeahead 1`] = `
   label="My List"
   required={undefined}
 >
-  <div
-    className="theme-tf-datalist"
-  >
-    <Typeahead
-      autoFocus={true}
-      disabled={false}
-      focusedItemIndex={undefined}
-      id="my-datalist"
-      items={null}
-      multiSection={false}
-      noResultText="No result."
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onSelect={[Function]}
-      placeholder="Type here"
-      position="left"
-      readOnly={false}
-      searching={false}
-      searchingText="Searching for matches…"
-      theme={
+  <Datalist component
+    autoFocus={true}
+    disabled={false}
+    id="my-datalist"
+    multiSection={false}
+    onChange={[Function]}
+    placeholder="Type here"
+    readOnly={false}
+    restricted={false}
+    titleMap={
+      Array [
         Object {
-          "container": "theme-container tf-datalist-container",
-          "itemsContainer": "theme-items-container",
-          "itemsList": "theme-items",
-        }
-      }
-      value="foo"
-    />
-    <div
-      className="theme-toggle"
-    >
-      <span
-        className="caret"
-      />
-    </div>
-  </div>
+          "name": "foo",
+          "value": "foo",
+        },
+        Object {
+          "name": "bar",
+          "value": "bar",
+        },
+        Object {
+          "name": "foobar",
+          "value": "foobar",
+        },
+        Object {
+          "name": "lol",
+          "value": "lol",
+        },
+      ]
+    }
+    value="foo"
+  />
 </FieldTemplate>
 `;

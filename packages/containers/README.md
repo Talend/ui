@@ -2,7 +2,6 @@
 
 This library provide a set of widgets to be ready to start with [react-cmf](https://github.com/Talend/ui/blob/master/packages/cmf/README.md)
 
-
 [![NPM][npm-icon] ][npm-url]
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
@@ -14,16 +13,19 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 [npm-url]: https://npmjs.org/package/@talend/react-containers
 [travis-ci-image]: https://travis-ci.org/Talend/react-talend-containers.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-talend-containers
-
 [dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/containers
 [dependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers
 [devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.png?path=packages/containers
 [devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers&type=dev
 [peerdependencies-image]: https://david-dm.org/Talend/ui/peer-status.svg?path=packages/containers
 [peerdependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers&type=peer
-
 [quality-badge]: http://npm.packagequality.com/shield/react-talend-containers.svg
 [quality-url]: http://packagequality.com/#?package=react-talend-containers
+
+## Breaking changes log
+
+Before 1.0, `@talend/react-containers` does NOT follow semver in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Dependencies
 

@@ -4,17 +4,15 @@
 ////
 
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-active-color: rgba($white, 0.25) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-width: 200px !default;
-$tc-side-panel-large-width: 250px !default;
+$tc-side-panel-minwidth: 200px !default;
+$tc-side-panel-large-minwidth: 250px !default;
 $tc-side-panel-docked-width: 50px !default;
 $tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-labels-width: 165px !default;
 $tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: 20px !default;
 $tc-side-panel-border-size: 2px !default;
@@ -22,31 +20,15 @@ $tc-side-panel-large-toggle-padding: 4px !default;
 $toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
-	display: flex;
+	display: inline-flex;
 	flex-direction: column;
 	overflow-x: hidden;
+	background: $list-item-reverse-color;
 
 	&,
 	> ul {
-		width: $tc-side-panel-width;
-		transition: 0.2s width ease-out;
-	}
-
-	:global(.btn.btn-link) {
-		padding: $padding-normal;
-		font-size: $font-size-small;
-		text-align: left;
-		text-overflow: inherit;
-		text-transform: uppercase;
-
-		> span {
-			margin-left: $padding-normal;
-			width: $tc-side-panel-labels-width;
-			vertical-align: middle;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			transition: 0.1s opacity ease-out;
-		}
+		min-width: $tc-side-panel-minwidth;
+		transition: 0.2s min-width ease-out;
 	}
 
 	:global(.tc-svg-icon) {
@@ -56,63 +38,43 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	.toggle-btn {
-		padding-bottom: $padding-normal + $padding-large;
+		padding-top: $padding-small;
+		padding-bottom: $padding-smaller + $padding-large;
 		padding-left: $toggle-button-padding;
 		text-align: left;
 
-		:global(.btn.btn-link) {
-			color: $white;
-			line-height: 1;
-			padding: $padding-small;
-			display: inline-block;
-			width: auto;
-			opacity: $toggle-button-opacity;
-			margin: 0 auto;
+		:global {
+			.btn.btn-link {
+				color: $white;
+				line-height: 1;
+				padding: $padding-small;
+				display: inline-block;
+				width: auto;
+				opacity: $toggle-button-opacity;
+				margin: 0 auto;
 
-			> span {
-				// .sr-only
-				position: absolute;
-				width: 1px;
-				height: 1px;
-				padding: 0;
-				margin: -1px;
-				overflow: hidden;
-				clip: rect(0, 0, 0, 0);
-				border: none;
-			}
-
-			&:hover {
-				opacity: 1;
-				background-color: $list-item-hover-color;
-			}
-
-			:global(.tc-svg-icon) {
-				width: $svg-sm-size;
-				height: $svg-sm-size;
-				transition: 0.2s transform ease-out;
-			}
-		}
-	}
-
-	&-list {
-		.tc-side-panel-list-item {
-			color: $list-item-color;
-
-			&:hover,
-			&.active {
-				color: $list-item-color;
-
-				:global(.tc-svg-icon) {
-					color: $list-item-color;
+				> span {
+					// .sr-only
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					padding: 0;
+					margin: -1px;
+					overflow: hidden;
+					clip: rect(0, 0, 0, 0);
+					border: none;
 				}
-			}
 
-			&:hover {
-				background-color: $list-item-hover-color;
-			}
+				&:hover {
+					opacity: 1;
+					background-color: $list-item-hover-color;
+				}
 
-			&.active {
-				background-color: $list-item-active-color;
+				.tc-svg-icon {
+					width: $svg-sm-size;
+					height: $svg-sm-size;
+					transition: 0.2s transform ease-out;
+				}
 			}
 		}
 	}
@@ -120,6 +82,7 @@ $toggle-button-padding: $padding-small - 1;
 	&.docked {
 		&,
 		> ul {
+			min-width: $tc-side-panel-docked-width;
 			width: $tc-side-panel-docked-width;
 		}
 
@@ -132,11 +95,13 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		.toggle-btn {
-			:global(.btn.btn-link) {
-				padding: $padding-small;
+			:global {
+				.btn.btn-link {
+					padding: $padding-small;
 
-				:global(.tc-svg-icon) {
-					transform: rotate(-180deg);
+					.tc-svg-icon {
+						transform: rotate(-180deg);
+					}
 				}
 			}
 		}
@@ -145,7 +110,7 @@ $toggle-button-padding: $padding-small - 1;
 	&.large {
 		&,
 		> ul {
-			width: $tc-side-panel-large-width;
+			min-width: $tc-side-panel-large-minwidth;
 		}
 
 		.toggle-btn {
@@ -156,22 +121,21 @@ $toggle-button-padding: $padding-small - 1;
 			}
 		}
 
-		:global(.btn.btn-link) {
-			padding: $padding-normal $tc-side-panel-large-padding;
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal $tc-side-panel-large-padding;
 
-			> span {
-				width: $tc-side-panel-large-labels-width;
-			}
-
-			:global(.tc-svg-icon) + span {
-				margin-left: $tc-side-panel-large-padding;
+				.tc-svg-icon + span {
+					margin-left: $tc-side-panel-large-padding;
+				}
 			}
 		}
 
 		&.docked {
 			&,
 			> ul,
-			.tc-side-panel-list-item {
+			:global(.tc-action-list-item) {
+				min-width: $tc-side-panel-large-docked-width;
 				width: $tc-side-panel-large-docked-width;
 			}
 		}
@@ -187,33 +151,37 @@ $toggle-button-padding: $padding-small - 1;
 		.toggle-btn {
 			background-color: $wild-sand;
 
-			:global(.btn.btn-link),
-			:global(.tc-svg-icon) {
-				color: $dove-gray;
+			:global {
+				.btn.btn-link,
+				.tc-svg-icon {
+					color: $dove-gray;
+				}
 			}
 		}
 
-		.tc-side-panel-list-item {
-			color: $dove-gray;
+		:global {
+			.tc-action-list-item {
+				color: $dove-gray;
 
-			&:hover {
-				background-color: $list-item-reverse-hover-color;
+				&:hover {
+					background-color: $list-item-reverse-hover-color;
 
-				:global(.btn.btn-link) {
-					color: $dove-gray;
+					.btn.btn-link {
+						color: $dove-gray;
+					}
+
+					.tc-svg-icon {
+						color: $silver;
+					}
 				}
 
-				:global(.tc-svg-icon) {
-					color: $silver;
-				}
-			}
+				&.active {
+					background-color: $list-item-color;
 
-			&.active {
-				background-color: $list-item-color;
-
-				:global(.btn.btn-link),
-				:global(.tc-svg-icon) {
-					color: $brand-primary;
+					.btn.btn-link,
+					.tc-svg-icon {
+						color: $brand-primary;
+					}
 				}
 			}
 		}

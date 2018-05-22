@@ -161,7 +161,7 @@ const tabs = {
 		},
 	],
 	onSelect: action('onSelect'),
-	selected: '2',
+	selectedKey: '2',
 };
 
 const stories = storiesOf('Layout', module).addDecorator(story => (

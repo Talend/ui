@@ -14,14 +14,18 @@ describe('CMF api', () => {
 		expect(api.sagas).toBeDefined();
 		expect(api.saga).toBeDefined();
 	});
-	it('registerInternals should add internal actionCreators to the registry', () => {
+	it('registerInternals should add internal actionCreators & expressions to the registry', () => {
 		const context = {
 			registry: {},
 		};
 		expect(() => api.actionCreator.get(context, 'cmf.saga.start')).toThrow();
 		expect(() => api.actionCreator.get(context, 'cmf.saga.stop')).toThrow();
+		expect(api.expression.get('cmf.collections.get', context)).toBeUndefined();
+		expect(api.expression.get('cmf.components.get', context)).toBeUndefined();
 		api.registerInternals(context);
 		expect(api.actionCreator.get(context, 'cmf.saga.start')).toBeDefined();
 		expect(api.actionCreator.get(context, 'cmf.saga.stop')).toBeDefined();
+		expect(api.expression.get('cmf.collections.get', context)).toBeDefined();
+		expect(api.expression.get('cmf.components.get', context)).toBeDefined();
 	});
 });

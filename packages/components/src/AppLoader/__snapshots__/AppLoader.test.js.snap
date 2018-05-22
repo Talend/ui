@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppLoader should render 1`] = `
+<div
+  aria-atomic="true"
+  aria-busy="true"
+  className="tc-app-loader-container"
+>
+  <div
+    className="tc-app-loader-icon"
+  >
+    <div
+      className="tc-app-loader"
+    >
+      <div
+        className="spinner-wrapper"
+      >
+        <div
+          className="spinner-left"
+        >
+          <div
+            className="circle"
+          />
+        </div>
+        <div
+          className="spinner-right"
+        >
+          <div
+            className="circle"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

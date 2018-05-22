@@ -8,8 +8,14 @@ program
 	.version('0.0.1')
 	.option('-d, --debug', 'display more info')
 	.option('-q, --quiet', 'display nothing')
-	.option('-p, --path [value]', '[optional] path of the package.json to update by default local package')
-	.option('-s, --stack [value]', '[optional] stack version to use, by default the last published one')
+	.option(
+		'-p, --path [value]',
+		'[optional] path of the package.json to update by default local package',
+	)
+	.option(
+		'-s, --stack [value]',
+		'[optional] stack version to use, by default the last published one',
+	)
 	.option('-f, --force');
 
 program.on('--help', () => {
@@ -17,7 +23,7 @@ program.on('--help', () => {
 	console.log('>node version.js --path ../yourapp/package.json');
 	console.log('To update your project dependencies to a specif stack version :');
 	console.log('>node version.js --path ../yourapp/package.json --stack=0.114.0');
-	console.log('Don\'t forget to use yarn after the package json update');
+	console.log("Don't forget to use yarn after the package json update");
 	console.log('so you lockfile is updated !');
 });
 
@@ -36,9 +42,11 @@ const STACK_VERSION = {
 	'@talend/bootstrap-theme': stack_version,
 	'@talend/react-cmf': stack_version,
 	'@talend/react-cmf-cqrs': stack_version,
+	'@talend/react-cmf-webpack-plugin': stack_version,
 	'@talend/react-sagas': stack_version,
 	'@talend/react-components': stack_version,
 	'@talend/react-containers': stack_version,
+	'@talend/react-datagrid': stack_version,
 	'@talend/react-forms': stack_version,
 	'@talend/icons': stack_version,
 	'@talend/log': stack_version,
@@ -68,10 +76,12 @@ const ADDONS = {
 
 const VERSIONS = Object.assign({}, ADDONS, {
 	// deps
+	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
 	classnames: '2.2.5',
-	keycode: '2.1.9',
+	'd3-shape': '1.2.0',
+	keycode: '2.2.0',
 	lodash: '4.17.4',
 	immutable: '3.8.1',
 	invariant: '2.2.2',
@@ -85,7 +95,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'i18next-parser': '^0.13.0',
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
-	'react-i18next': '^5.2.0',
+	'react-i18next': '^7.6.1',
 	'react-redux': '5.0.5',
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
@@ -98,30 +108,30 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-logger': '3.0.6',
 	'redux-mock-store': '1.2.3',
 	'redux-thunk': '2.2.0',
-	uuid: '3.0.1',  // prefer bson-objectid
-	tv4: '^1.2.7',
+	uuid: '3.0.1', // prefer bson-objectid
+	tv4: '^1.3.0',
 
 	// script dep
 	deepmerge: '1.5.1',
 
 	// dev deps
-	'@storybook/react': '^3.3.6',
-	'@storybook/addon-storyshots': '^3.3.6',
-	'@storybook/addon-actions': '^3.3.6',
-	'@storybook/addon-info': '^3.3.6',
-	'@storybook/addon-knobs': '^3.3.6',
-	'@storybook/addons': '^3.3.6',
+	'@storybook/react': '^3.3.14',
+	'@storybook/addon-storyshots': '^3.3.14',
+	'@storybook/addon-actions': '^3.3.14',
+	'@storybook/addon-info': '^3.3.14',
+	'@storybook/addon-knobs': '^3.3.14',
+	'@storybook/addons': '^3.3.14',
 	autoprefixer: '^7.1.4',
-	'babel-cli': '6.26.0',
-	'babel-core': '6.26.0',
-	'babel-eslint': '8.0.2',
+	'babel-cli': '^6.26.0',
+	'babel-core': '^6.26.0',
+	'babel-eslint': '^8.0.2',
 	'babel-jest': JEST_VERSION,
-	'babel-plugin-transform-class-properties': '6.24.1',
-	'babel-plugin-transform-export-extensions': '6.22.0',
-	'babel-plugin-transform-object-assign': '6.22.0',
-	'babel-plugin-transform-object-rest-spread': '6.26.0',
-	'babel-preset-env': '1.6.0',
-	'babel-preset-react': '6.24.1',
+	'babel-plugin-transform-class-properties': '^6.24.1',
+	'babel-plugin-transform-export-extensions': '^6.22.0',
+	'babel-plugin-transform-object-assign': '^6.22.0',
+	'babel-plugin-transform-object-rest-spread': '^6.26.0',
+	'babel-preset-env': '^1.6.0',
+	'babel-preset-react': '^6.24.1',
 	cpx: '1.5.0',
 	enzyme: '^3.1.0',
 	'enzyme-adapter-react-15': '^1.0.1',
@@ -140,7 +150,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	storyshots: '3.2.2',
 
 	// webpack
-	'babel-loader': '7.1.2',
+	'babel-loader': '^7.1.2',
 	'copy-webpack-plugin': '4.1.1',
 	'css-loader': '0.28.7',
 	'extract-text-webpack-plugin': '3.0.2',
@@ -160,6 +170,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 const files = [
 	'./packages/cmf/package.json',
 	'./packages/cmf-cqrs/package.json',
+	'./packages/cmf-webpack-plugin/package.json',
 	'./packages/components/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
@@ -168,11 +179,10 @@ const files = [
 	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
+	'./packages/datagrid/package.json',
 ];
 
-const templates = [
-	'./packages/generator/generators/react-cmf/templates/package.json',
-];
+const templates = ['./packages/generator/generators/react-cmf/templates/package.json'];
 
 if (program.debug) {
 	console.log(`will update ${files}`);

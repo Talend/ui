@@ -25,6 +25,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
     <Typeahead
       autoFocus={false}
       disabled={false}
+      docked={false}
       focusedItemIndex={undefined}
       focusedSectionIndex={undefined}
       id={42}
@@ -64,7 +65,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
     role="listbox"
   >
     <li
-      className="theme-item-highlighted"
+      className="theme-item-highlighted tc-typeahead-item-highlighted"
       id="react-autowhatever-42--item-0"
       onMouseDown={[Function]}
       role="option"
@@ -74,7 +75,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
         title="Bar"
       >
         <span
-          className="theme-item-title"
+          className="theme-item-title tc-typeahead-item-title"
         >
           <span>
             Bar
@@ -93,7 +94,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
   key="react-autowhatever-42-items-container"
 >
   <div
-    className="theme-section-container"
+    className="theme-section-container tc-typeahead-section-container"
     key="react-autowhatever-42-section-0-container"
   >
     <div
@@ -101,10 +102,10 @@ exports[`MultiSelectTagWidget should render section title when items has categor
       style={Object {}}
     >
       <div
-        className="theme-section-header"
+        className="theme-section-header tc-typeahead-section-header"
       >
         <span
-          className="theme-section-header-title"
+          className="theme-section-header-title tc-typeahead-section-header-title"
         >
           pet
         </span>
@@ -116,7 +117,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
       role="listbox"
     >
       <li
-        className="theme-item-highlighted"
+        className="theme-item-highlighted tc-typeahead-item-highlighted"
         id="react-autowhatever-42-section-0-item-0"
         onMouseDown={[Function]}
         role="option"
@@ -126,7 +127,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
           title="Puppy"
         >
           <span
-            className="theme-item-title"
+            className="theme-item-title tc-typeahead-item-title"
           >
             <span>
               Puppy

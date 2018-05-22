@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
 import { Action } from '../Actions';
 import Icon from '../Icon';
-import { getDefaultTranslate } from '../translate';
+import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -157,7 +157,7 @@ class FilterBar extends React.Component {
 						[theme.animate]: this.props.dockable,
 					})}
 				>
-					{!(this.state.focus || this.state.value) && (
+					{(this.props.iconAlwaysVisible || !(this.state.focus || this.state.value)) && (
 						<Icon name="talend-search" className={theme['search-icon']} />
 					)}
 					<FilterInput
@@ -192,6 +192,7 @@ class FilterBar extends React.Component {
 FilterBar.displayName = 'FilterBar';
 FilterBar.propTypes = {
 	autoFocus: PropTypes.bool,
+	iconAlwaysVisible: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -215,10 +216,11 @@ FilterBar.defaultProps = {
 	autoFocus: true,
 	dockable: true,
 	docked: true,
+	iconAlwaysVisible: false,
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 	className: '',
 };
 

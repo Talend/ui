@@ -1,8 +1,10 @@
 import { createInstance } from 'i18next';
+import { setI18n, getI18n } from 'react-i18next';
 
-export function getDefaultTranslate(key, options) {
-	return options.defaultValue;
+// eslint-disable-next-line import/prefer-default-export
+export default function getDefaultT() {
+	return getI18n().t.bind(getI18n());
 }
 
 // https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-export const DEFAULT_I18N = createInstance({}, () => {});
+setI18n(createInstance({}, () => {}));

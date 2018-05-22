@@ -8,6 +8,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
     2 selected values
   </span>
   <button
+    aria-label="Validate"
     className="btn btn-link"
     disabled={false}
     onClick={[Function]}
@@ -21,6 +22,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-check"
       title={null}
     >
       <use

@@ -20,7 +20,6 @@ import ActionSplitDropdown from './ActionSplitDropdown';
 import Badge from './Badge';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
-import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
@@ -33,6 +32,7 @@ import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
 import Typeahead from './Typeahead';
+import TabBar from './TabBar';
 
 export {
 	actionAPI,
@@ -51,7 +51,6 @@ export {
 	Drawer,
 	DeleteResource,
 	FilterBar,
-	HeaderBar,
 	HomeListView,
 	Icon,
 	IconsProvider,
@@ -64,6 +63,7 @@ export {
 	SelectObject,
 	SidePanel,
 	SubHeaderBar,
+	TabBar,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,

@@ -6,15 +6,15 @@ import Icon from '@talend/react-components/lib/Icon';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_FORMS from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import { I18N_DOMAIN_FORMS } from '../constants';
+import '../translate';
 
 import theme from './ArrayFieldTemplate.scss';
 
-function FieldTemplate({ element, cantDelete, t }) {
+function FieldTemplate({ element, index, cantDelete, t }) {
 	const elementClasses = classNames(theme.element, element.itemData.isClosed && theme.closed);
 	return (
-		<div className={theme.arrayElement}>
+		<div className={classNames(theme.arrayElement, 'arrayElement', `arrayElement-${index}`)}>
 			<div className={theme.control}>
 				<button
 					type="button"
@@ -54,6 +54,7 @@ function FieldTemplate({ element, cantDelete, t }) {
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		element: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		index: PropTypes.number.isRequired,
 		cantDelete: PropTypes.bool.isRequired,
 		t: PropTypes.func.isRequired,
 	};
@@ -84,6 +85,7 @@ function ArrayFieldTemplate(props) {
 				items.map((element, index) => (
 					<FieldTemplate
 						key={index}
+						index={index}
 						element={element}
 						cantDelete={items.length <= minItems}
 						t={t}
@@ -104,4 +106,4 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 }
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ArrayFieldTemplate);
+export default translate(I18N_DOMAIN_FORMS)(ArrayFieldTemplate);

@@ -3,6 +3,7 @@ import React from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Emphasis from '@talend/react-components/lib/Emphasis';
 import classnames from 'classnames';
+import get from 'lodash/get';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
 import theme from './DatalistWidget.scss';
@@ -80,6 +81,7 @@ function getSectionItems(section) {
 class DatalistWidget extends React.Component {
 	static itemContainerStyle = theme['items-container'];
 	static noResultStyle = theme['no-result'];
+	static emptyStyle = theme.empty;
 
 	constructor(props) {
 		super(props);
@@ -93,13 +95,17 @@ class DatalistWidget extends React.Component {
 			itemIndex: null,
 			noMatch: false,
 			itemsMap: getItemsMap(this.getItems()),
+			hasFocus: false,
 		};
 
 		this.inputProps = {
 			placeholder: props.placeholder,
 			required: props.required,
 			onBlur: event => this.onBlur(event),
-			onFocus: () => this.initSuggestions(this.state.value),
+			onFocus: () => {
+				this.setState({ hasFocus: true });
+				this.initSuggestions(this.state.value);
+			},
 			onChange: event => this.updateSuggestions(event.target.value),
 			onKeyDown: (event, payload) => this.onKeyDown(event, payload),
 		};
@@ -140,14 +146,16 @@ class DatalistWidget extends React.Component {
 		if (dontBlur) {
 			return;
 		}
-
+		this.setState({ hasFocus: false });
 		const inputLabel = event.target.value;
 		const { options, onChange } = this.props;
 		const { value, lastKnownValue } = this.state;
 		const inputValue = this.getValue(inputLabel);
 		const isIncluded = this.isPartOfItems(value);
 
-		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
+		if (this.reference && this.reference.itemsContainer) {
+			this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
+		}
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
 			if (inputLabel !== this.getLabel(lastKnownValue)) {
@@ -286,7 +294,11 @@ class DatalistWidget extends React.Component {
 
 	isPartOfItems(value) {
 		const { initialItems, itemsMap } = this.state;
-		return initialItems.includes(value) || Object.keys(itemsMap).some(k => itemsMap[k] === value);
+		return (
+			initialItems.includes(value) ||
+			initialItems.find(item => item.value === value) ||
+			Object.keys(itemsMap).some(k => itemsMap[k] === value)
+		);
 	}
 
 	resetValue() {
@@ -300,7 +312,9 @@ class DatalistWidget extends React.Component {
 		const keys = Object.keys(itemsMap);
 		const suggestions = this.getMatchingSuggestions(items, value);
 
-		this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
+		if (this.reference && this.reference.itemsContainer) {
+			this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
+		}
 		this.setState({
 			value,
 			initialItems: items,
@@ -356,6 +370,9 @@ class DatalistWidget extends React.Component {
 	 * @param value
 	 */
 	renderDatalistItem(item, { value }) {
+		if (!item) {
+			return null;
+		}
 		return (
 			<div className={classnames(theme.item, 'datalist-item')}>
 				<Emphasis value={this.getLabel(value)} text={this.getLabel(item)} />
@@ -387,6 +404,12 @@ class DatalistWidget extends React.Component {
 		this.inputProps.value = value;
 		if (this.state.noMatch) {
 			renderItemsContainer = renderNoMatch;
+		} else if (
+			get(this.state, 'initialItems.length') === 0 &&
+			this.state.hasFocus &&
+			this.props.renderEmptyList
+		) {
+			renderItemsContainer = this.props.renderEmptyList;
 		} else if (this.props.renderItemsContainer) {
 			renderItemsContainer = this.props.renderItemsContainer;
 		} else {
@@ -449,6 +472,7 @@ if (process.env.NODE_ENV !== 'production') {
 			groupBy: PropTypes.string,
 		}),
 		renderItemsContainer: PropTypes.func,
+		renderEmptyList: PropTypes.func,
 		renderNoMatch: PropTypes.func,
 		placeholder: PropTypes.string,
 	};

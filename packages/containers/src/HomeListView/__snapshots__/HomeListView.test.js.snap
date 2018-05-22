@@ -29,7 +29,7 @@ exports[`Component HomeListView should be able to render theme 1`] = `
 </Layout>
 `;
 
-exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
+exports[`Component HomeListView should children transformed as array in props.drawers 1`] = `
 Array [
   Object {
     "props": Object {
@@ -104,7 +104,7 @@ exports[`Component HomeListView should render with object props 1`] = `
   }
   hasTheme={undefined}
   header={
-    <Connect(CMF(Container(HeaderBar)))
+    <Translate(HeaderBar)
       app="hello app"
     />
   }

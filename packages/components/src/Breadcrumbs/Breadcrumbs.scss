@@ -3,7 +3,7 @@
 /// @group Custom widgets
 ////
 
-:global(.tc-breadcrumb):global(.breadcrumb) {
+.tc-breadcrumb {
 	> li {
 		margin: 0;
 
@@ -13,6 +13,11 @@
 			&:before {
 				border: none;
 				box-shadow: none;
+			}
+
+			> button > span,
+			> span {
+				text-transform: none;
 			}
 		}
 	}

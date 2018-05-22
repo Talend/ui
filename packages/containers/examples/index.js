@@ -11,12 +11,14 @@ import HomeListViewExample from './ExampleHomeListView';
 import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
+import PieChartButtonExample from './ExamplePieChartButton';
 import SelectObjectExample from './ExampleSelectObject';
 import SidePanelExample from './ExampleSidePanel';
 import SliderExample from './ExampleSlider';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
+import TabBarExample from './ExampleTabBar';
 
 export default {
 	ActionExample,
@@ -32,10 +34,12 @@ export default {
 	HomeListViewExample,
 	ListExample,
 	NotificationExample,
+	PieChartButtonExample,
 	ObjectViewerExample,
 	SelectObjectExample,
 	SidePanelExample,
 	SliderExample,
 	SubHeaderBarExample,
+	TabBarExample,
 	TreeViewExample,
 };

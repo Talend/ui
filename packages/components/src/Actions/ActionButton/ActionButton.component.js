@@ -2,19 +2,36 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
+import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import getDefaultT from '../../translate';
 
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, iconTransform, inProgress }) {
+function getIcon({ icon, iconTransform, inProgress, loading }) {
 	if (inProgress) {
 		return <CircularProgress size="small" key="icon" />;
+	}
+
+	if (loading) {
+		return (
+			<Skeleton
+				size="small"
+				type="circle"
+				className={classNames(
+					theme['tc-action-button-skeleton-circle'],
+					'tc-action-button-skeleton-circle',
+				)}
+			/>
+		);
 	}
 
 	if (icon) {
@@ -29,15 +46,19 @@ getIcon.propTypes = {
 	inProgress: PropTypes.bool,
 };
 
-function getLabel({ hideLabel, label }) {
+function getLabel({ hideLabel, label, loading }) {
 	if (hideLabel) {
 		return null;
+	}
+	if (loading) {
+		return <Skeleton type="text" size="medium" />;
 	}
 	return <span key="label">{label}</span>;
 }
 
 getLabel.propTypes = {
 	label: PropTypes.string,
+	loading: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 };
 
@@ -67,31 +88,41 @@ function noOp() {}
 };
  <Action {...props} />
  */
-function ActionButton(props) {
+export function ActionButton(props) {
 	const {
 		bsStyle,
+		buttonRef,
 		inProgress,
 		disabled,
 		hideLabel,
 		label,
+		loading,
 		link,
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		overlayId,
 		overlayComponent,
 		overlayPlacement,
+		overlayRef,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
 		available,
+		t,
 		...rest
 	} = props;
-
 	if (!available) {
 		return null;
 	}
 
+	if (loading && !link) {
+		return <Skeleton type="button" />;
+	}
+
 	const buttonProps = getPropsFrom(Button, rest);
+	const buttonContent = getContent(props);
+	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
 	let rClick = null;
 	let rMouseDown = null;
@@ -111,11 +142,19 @@ function ActionButton(props) {
 			});
 	}
 
-	const buttonContent = getContent(props);
-	const btnIsDisabled = inProgress || disabled;
-
 	if (btnIsDisabled) {
 		buttonProps.className = classNames(buttonProps.className, theme['btn-disabled']);
+	}
+
+	let ariaLabel = tooltipLabel || label;
+	if (inProgress) {
+		ariaLabel = t('ACTION_IN_PROGRESS', {
+			defaultValue: '{{label}} (in progress)',
+			label: ariaLabel,
+		});
+	}
+	if (loading) {
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
 	}
 
 	let btn = (
@@ -125,6 +164,8 @@ function ActionButton(props) {
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
+			aria-label={ariaLabel}
+			ref={buttonRef}
 			{...buttonProps}
 		>
 			{buttonContent}
@@ -136,9 +177,10 @@ function ActionButton(props) {
 			<span>
 				<OverlayTrigger
 					trigger="click"
+					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
-					overlay={<Popover>{overlayComponent}</Popover>}
+					overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
 				>
 					{btn}
 				</OverlayTrigger>
@@ -152,7 +194,6 @@ function ActionButton(props) {
 			</TooltipTrigger>
 		);
 	}
-
 	return btn;
 }
 
@@ -160,17 +201,22 @@ ActionButton.propTypes = {
 	...getIcon.propTypes,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
+	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
+	loading: PropTypes.bool,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	overlayId: PropTypes.string,
 	overlayComponent: PropTypes.element,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayRef: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
 };
@@ -180,8 +226,10 @@ ActionButton.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,
+	loading: false,
 	disabled: false,
+	t: getDefaultT(),
 };
 
 ActionButton.displayName = 'ActionButton';
-export default ActionButton;
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);

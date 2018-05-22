@@ -4,31 +4,11 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
-
+import '../translate';
 import Action from '../Actions/Action';
+import ActionList from '../ActionList';
 import Inject from '../Inject';
 import theme from './SidePanel.scss';
-
-/**
- * return the formatted action id
- * if there is no action id, it is generated from the action label
- * @param  {string} id        sidepanel id
- * @param  {string} action    current action
- * @return {string}            formatted id
- */
-function getActionId(id, action) {
-	if (action.id || action.label) {
-		const actionId =
-			action.id ||
-			action.label
-				.toLowerCase()
-				.split(' ')
-				.join('-');
-		return id && `${id}-nav-${actionId}`;
-	}
-	return undefined;
-}
 
 /**
  * This component aims to display links as a menu.
@@ -72,28 +52,21 @@ function SidePanel({
 		reverse,
 		[theme.reverse]: reverse,
 	});
-	const listCSS = classNames(
-		'nav',
-		'nav-pills',
-		'nav-stacked',
-		theme['tc-side-panel-list'],
-		'tc-side-panel-list',
-	);
-	const isActionSelected = action => {
-		if (selected) {
-			return action === selected;
-		}
-		return action.active;
-	};
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
+		'nav-inverse': !reverse,
+	});
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
-	const Components = Inject.getAll(getComponent, { Action });
+	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
 		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
 			{dockable && (
-				<div className={theme['toggle-btn']} title={toggleButtonTitle}>
+				<div
+					className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}
+					title={toggleButtonTitle}
+				>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
 						bsStyle="link"
@@ -106,53 +79,14 @@ function SidePanel({
 			)}
 			{injected('before-actions')}
 			{actions && (
-				<ul className={listCSS}>
-					{actions.map(action => {
-						const a11y = {
-							role: 'presentation',
-						};
-						const extra = {};
-						const isSelected = isActionSelected(action);
-
-						if (isSelected) {
-							// @see https://tink.uk/using-the-aria-current-attribute/
-							a11y['aria-current'] = true;
-						}
-						if (onSelect) {
-							extra.onClick = event => {
-								onSelect(event, action);
-								if (action.onClick) {
-									action.onClick(event);
-								}
-							};
-						}
-
-						const actionProps = Object.assign(
-							{},
-							action,
-							{
-								active: undefined, // active scope is only the list item
-								id: getActionId(id, action),
-								bsStyle: 'link',
-								role: 'link',
-							},
-							extra,
-						);
-						return (
-							<li
-								title={action.label}
-								key={action.key || action.label}
-								className={classNames(theme['tc-side-panel-list-item'], 'tc-side-panel-list-item', {
-									active: isSelected,
-									[theme.active]: isSelected,
-								})}
-								{...a11y}
-							>
-								<Components.Action {...actionProps} />
-							</li>
-						);
-					})}
-				</ul>
+				<Components.ActionList
+					className={listCSS}
+					onSelect={onSelect}
+					selected={selected}
+					actions={actions}
+					id={id}
+					isNav
+				/>
 			)}
 			{injected('actions')}
 		</nav>
@@ -194,4 +128,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);
+export default translate(I18N_DOMAIN_COMPONENTS)(SidePanel);

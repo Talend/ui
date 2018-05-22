@@ -1,5 +1,4 @@
-cmfConnect
-==
+# cmfConnect
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
@@ -12,8 +11,7 @@ cmfConnect
 
 Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
-API
---
+## API
 
 ```javascript
 cmfConnect({
@@ -25,8 +23,8 @@ cmfConnect({
 })(Component);
 ```
 
-How to use component state
---
+## How to use component state
+
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
@@ -94,8 +92,8 @@ this.props.setState(
 );
 ```
 
-If you want the component to support the props `initialState` to make the state spawned with this value;
-This lets save one render if you know the first state.
+If you want the component to be instantiated and rendered directly with a custum state and overwrite the `defaultState`, it can be done with the `initialState` prop.
+This saves one render if you know the first state.
 
 How to use expression
 --
@@ -114,6 +112,8 @@ function MyArticle(props) {
 ```
 
 The titleExpression will be evaluated and injected as title props.
+
+Expressions are a way to read the state, they are a mapStateToProps available in JSON.
 
 How to dispatch action creator
 ---
@@ -157,8 +157,71 @@ Here instead of having click handler dispatcher hard coded into that component, 
 
 [You can see a schema here](http://www.plantuml.com/plantuml/png/XLJBReGm3Bpp5JvNuWSuz4BRsqehjkgbwW61WKYGe2JiKg7zzvf0U6J3bWl8dXbxx0IbKurmJYLo7Okc5Pm-O0W0lbz-8Cp5ZOUl49y-Oi4vPZg2inIj2WYW37LD6HPi0o5HcxIzZC1FCH57I89vrvieX5tx28885DQZmbIZa6dPK5-6_Dwt4fLYWYTOCgNbBuGr5ffaA2xgAwu84i8UiuuqvbnE0PiDZ9urulOmpDbzkvALrQRKCh8f7L5SIuPNX6mPflKW6iYQmW2zqlEiP-KlXhSBQirugGvqRTOlxVe9ZxfU67vFJ_focRkUBI_hb1RDoNCCniURTMkk2tKhRbPjEUJxZQasrLbbYosiQHL-d-k-xmU4dRqdSB-d__KtPZpW-yDnTMmk91U9iaIt1mzzF20vNJkDoNnNF7C_0XXsNB4wfp-9w--GjBNfxTqg4Z9OWS7u8kI4sToXOOrwVXEK_GC0)
 
-How to test
---
+Next step you can do the same with a step more to CMF.
+
+```javascript
+import React from "react";
+import { cmfConnect } from "@talend/react-cmf";
+
+function SimpleButton ({label, onClick}) {
+    return (
+      <button onClick={onClick}>{label}</button>
+    );
+  }
+}
+export default cmfConnect({})(SimpleButton);
+
+// using the following configuration
+{
+	"props": {
+		"SimpleButton#default": {
+			"label": "What you want even an expression",
+			// just to dispatch static action onClick
+			"onClickDispatch": {
+				"type": "SIMPLE_BUTTON_CLICKED",
+				"what": "you want more"
+			}
+			// to dispatch action creator onClick with event, data (props) and context
+			"onClickActionCreator": "mycustomactioncreator"
+			// to dispatch action creator onClick with controlled arguments
+			"onClickActionCreator": {
+				"id": "cmf.http",
+				"data": {
+					"method": "GET",
+					"url": "/api/v1/foo",
+					"cmf": {
+						"collectionId": "foo"
+					}
+				}
+			}
+		}
+	}
+}
+
+// the first and third option will dispatch an action in redux with the serialized event.
+{
+	type: 'SIMPLE_BUTTON_CLICKED',
+	what: 'you want more',
+	event: {
+		type: 'click',
+		target: {
+			type: 'button'
+		}
+	}
+}
+
+```
+
+## How to render conditionally
+
+Every component that connected with CMF can be rendered conditionally
+
+If you want to render some component conditionally, just pass "renderIf" prop (type boolean) to it
+
+You can also use Expression for this and customize this prop like "renderIfExpression" in
+CMF json configuration files
+
+## How to test
 
 
 When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).

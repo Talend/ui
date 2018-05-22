@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import expression from '../src/expression';
@@ -18,39 +19,32 @@ import api from '../src/api';
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
 		it('should return displayName', () => {
-			expect(getComponentName({ displayName: 'test' }))
-				.toBe('test');
+			expect(getComponentName({ displayName: 'test' })).toBe('test');
 		});
 
 		it('should return name if no displayName', () => {
-			expect(getComponentName({ name: 'test' }))
-				.toBe('test');
+			expect(getComponentName({ name: 'test' })).toBe('test');
 		});
 
 		it('should return Component if no name and no displayName', () => {
-			expect(getComponentName({}))
-				.toBe('Component');
+			expect(getComponentName({})).toBe('Component');
 		});
 	});
 
 	describe('#getComponentId', () => {
 		it('should call if it is a function', () => {
 			const componentId = props => props.id;
-			expect(getComponentId(componentId, { id: 'test' }))
-				.toBe('test');
+			expect(getComponentId(componentId, { id: 'test' })).toBe('test');
 		});
 
 		it('should return if it is a string', () => {
 			const componentId = 'test';
-			expect(getComponentId(componentId))
-				.toBe('test');
+			expect(getComponentId(componentId)).toBe('test');
 		});
 
 		it('should return props.componentId if not componentId provided', () => {
-			expect(getComponentId(null, { componentId: 'test' }))
-				.toBe('test');
-			expect(getComponentId(undefined, { componentId: 'test' }))
-				.toBe('test');
+			expect(getComponentId(null, { componentId: 'test' })).toBe('test');
+			expect(getComponentId(undefined, { componentId: 'test' })).toBe('test');
 		});
 	});
 
@@ -141,11 +135,9 @@ describe('cmfConnect', () => {
 				mapStateToProps,
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
-			expect(mapStateToProps).toHaveBeenCalledWith(
-					state,
-					{ view: 'simple', name: 'my app' },
-					expect.anything(),
-			);
+			expect(mapStateToProps).toHaveBeenCalled();
+			expect(mapStateToProps.mock.calls[0][0]).toBe(state);
+			expect(mapStateToProps.mock.calls[0][1]).toMatchObject({ view: 'simple', name: 'my app' });
 			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 	});
@@ -203,6 +195,8 @@ describe('cmfConnect', () => {
 	});
 
 	describe('Higher Order Component', () => {
+		const Button = ({ onClick, label }) => <button onClick={onClick}>{label}</button>;
+		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
@@ -210,27 +204,21 @@ describe('cmfConnect', () => {
 			const CMFConnected = cmfConnect({})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
-			const wrapper = shallow(
-				<CMFConnected />,
-				{ context: mock.context() },
-			);
+			const wrapper = shallow(<CMFConnected />, { context: mock.context() });
 			expect(wrapper.props()).toMatchSnapshot();
 		});
 
 		it('should support no context in dispatchActionCreator', () => {
-			const TestComponent = props => (<div className="test-component" {...props} />);
+			const TestComponent = props => <div className="test-component" {...props} />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
 				dispatchActionCreator: jest.fn(),
 			};
 			const context = mock.context();
-			const wrapper = mount(
-				<CMFConnected.CMFContainer {...props} />
-				, { context });
+			const wrapper = mount(<CMFConnected.CMFContainer {...props} />, { context });
 			const injectedProps = wrapper.find(TestComponent).props();
 			expect(injectedProps.dispatchActionCreator).not.toBe(props.dispatchActionCreator);
-			// const instance = new CMFConnected.CMFContainer(props, context);
 			const event = {};
 			const data = {};
 			injectedProps.dispatchActionCreator('myactionCreator', event, data);
@@ -244,26 +232,22 @@ describe('cmfConnect', () => {
 		});
 
 		it('should pass defaultState when there is no component state in store', () => {
-			const TestComponent = () => (<div />);
+			const TestComponent = () => <div />;
 			TestComponent.displayName = 'MyComponentWithoutStateInStore';
 			const defaultState = new Map({ toto: 'lol' });
 			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
 
-			const wrapper = mount(
-				<CMFConnected />,
-				{
-					context: mock.context(),
-					childContextTypes: {
-						registry: React.PropTypes.object,
-					},
+			const wrapper = mount(<CMFConnected />, {
+				context: mock.context(),
+				childContextTypes: {
+					registry: PropTypes.object,
 				},
-			);
+			});
 
 			expect(wrapper.find(TestComponent).props().state).toBe(defaultState);
-
 		});
 
-		it('should componentDidMount initState and dispatchActionCreator', () => {
+		it('should componentDidMount initState and dispatchActionCreator after the saga', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
 			const STATE = new Map();
@@ -274,17 +258,23 @@ describe('cmfConnect', () => {
 				initState: jest.fn(),
 				initialState: STATE,
 				foo: 'bar',
+				saga: 'saga',
 			};
 			const context = mock.context();
 			const instance = new CMFConnected.CMFContainer(props, context);
 			instance.componentDidMount();
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
-			const call = props.dispatchActionCreator.mock.calls[0];
-			expect(call[0]).toBe('hello');
-			expect(call[1]).toBe(null);
-			expect(call[2]).toBe(props);
-			expect(call[3].registry).toBe(instance.context.registry);
-			expect(call[3].store).toBe(instance.context.store);
+			const callSagaActionCreator = props.dispatchActionCreator.mock.calls[0];
+			const callDidMountActionCreator = props.dispatchActionCreator.mock.calls[1];
+			expect(callSagaActionCreator[0]).toBe('cmf.saga.start');
+			expect(callSagaActionCreator[1]).toEqual({
+				type: 'DID_MOUNT',
+			});
+			expect(callDidMountActionCreator[0]).toBe('hello');
+			expect(callDidMountActionCreator[1]).toBe(null);
+			expect(callDidMountActionCreator[2]).toBe(props);
+			expect(callDidMountActionCreator[3].registry).toBe(instance.context.registry);
+			expect(callDidMountActionCreator[3].store).toBe(instance.context.store);
 
 			expect(props.initState).toHaveBeenCalled();
 			expect(props.initState.mock.calls[0][0]).toBe(props.initialState);
@@ -305,7 +295,7 @@ describe('cmfConnect', () => {
 				'cmf.saga.start',
 				{ type: 'DID_MOUNT' },
 				instance.props,
-				instance.context
+				instance.context,
 			);
 		});
 
@@ -325,7 +315,7 @@ describe('cmfConnect', () => {
 				'cmf.saga.stop',
 				{ type: 'WILL_UNMOUNT' },
 				instance.props,
-				instance.context
+				instance.context,
 			);
 		});
 
@@ -356,7 +346,7 @@ describe('cmfConnect', () => {
 
 		it('should remove the component state when unmount', () => {
 			// given
-			const TestComponent = () => (<div />);
+			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({
 				defaultState: new Map(),
@@ -366,15 +356,12 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(
-				<CMFConnected />,
-				{
-					context,
-					childContextTypes: {
-						registry: React.PropTypes.object,
-					},
+			const wrapper = mount(<CMFConnected />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
 				},
-			);
+			});
 
 			// when
 			wrapper.unmount();
@@ -386,7 +373,7 @@ describe('cmfConnect', () => {
 
 		it('should not remove the component state when unmount and cmfConnect keepComponentState is true', () => {
 			// given
-			const TestComponent = () => (<div />);
+			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({
 				defaultState: new Map(),
@@ -397,15 +384,12 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(
-				<CMFConnected />,
-				{
-					context,
-					childContextTypes: {
-						registry: React.PropTypes.object,
-					},
+			const wrapper = mount(<CMFConnected />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
 				},
-			);
+			});
 
 			// when
 			wrapper.unmount();
@@ -417,7 +401,7 @@ describe('cmfConnect', () => {
 
 		it('should not remove the component state when unmount and props keepComponentState is true', () => {
 			// given
-			const TestComponent = () => (<div />);
+			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({
 				defaultState: new Map(),
@@ -427,15 +411,12 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(
-				<CMFConnected keepComponentState />,
-				{
-					context,
-					childContextTypes: {
-						registry: React.PropTypes.object,
-					},
+			const wrapper = mount(<CMFConnected keepComponentState />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
 				},
-			);
+			});
 
 			// when
 			wrapper.unmount();
@@ -447,7 +428,7 @@ describe('cmfConnect', () => {
 
 		it('should remove the component state when unmount and props keepComponentState is false', () => {
 			// given
-			const TestComponent = () => (<div />);
+			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({
 				defaultState: new Map(),
@@ -457,15 +438,12 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(
-				<CMFConnected keepComponentState={false} />,
-				{
-					context,
-					childContextTypes: {
-						registry: React.PropTypes.object,
-					},
+			const wrapper = mount(<CMFConnected keepComponentState={false} />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
 				},
-			);
+			});
 
 			// when
 			wrapper.unmount();
@@ -484,21 +462,18 @@ describe('cmfConnect', () => {
 				nonInternalProp: 'lol',
 			};
 			// given
-			const TestComponent = () => (<div />);
+			const TestComponent = () => <div />;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = mount(
-				<CMFConnected {...iProps} />,
-				{
-					context,
-					childContextTypes: {
-						registry: React.PropTypes.object,
-					},
+			const wrapper = mount(<CMFConnected {...iProps} />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
 				},
-			);
+			});
 			const props = wrapper.find(TestComponent).props();
 
 			// then
@@ -510,7 +485,7 @@ describe('cmfConnect', () => {
 		});
 
 		it('should expose displayName', () => {
-			const ArrowComponent = () => (<div />);
+			const ArrowComponent = () => <div />;
 			function FunctionComponent() {
 				return <div />;
 			}
@@ -521,6 +496,164 @@ describe('cmfConnect', () => {
 			expect(CMFConnectedArrow.displayName).toBe('Connect(CMF(ArrowComponent))');
 			expect(CMFConnectedFunction.displayName).toBe('Connect(CMF(FunctionComponent))');
 			expect(CMFConnectedClass.displayName).toBe('Connect(CMF(ClassComponent))');
+		});
+		it('should transform onEventDispatch props to onEvent handler', () => {
+			const onClickDispatch = {
+				type: 'MY_BUTTON_CLICKED',
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+
+			const wrapper = mount(<CMFConnectedButton onClickDispatch={onClickDispatch} />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
+				},
+			});
+			const props = wrapper.find(Button).props();
+			expect(props.onClickDispatch).toBeUndefined();
+			expect(props.onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			props.onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'MY_BUTTON_CLICKED',
+				event: {
+					type: 'click',
+				},
+			});
+		});
+		it('should transform onEventActionCreator props to onEvent handler', () => {
+			const onClickActionCreator = 'myactionCreator';
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+			context.registry = {
+				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
+			};
+
+			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
+				},
+			});
+			const props = wrapper.find(Button).props();
+			expect(props.onClick).toBeDefined();
+			expect(props.onClickActionCreator).toBeUndefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			props.onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'FETCH_STUFF',
+				event: {
+					type: 'click',
+				},
+			});
+		});
+		it('should support onEventActionCreator props as object', () => {
+			const onClickActionCreator = {
+				id: 'myfetch',
+				data: {
+					url: '/api/foo',
+					cmf: { collectionId: 'foo' },
+				},
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+			context.registry = {
+				'actionCreator:myfetch': (event, data) => ({
+					type: 'FETCH_CONFIGURED',
+					event,
+					data,
+				}),
+			};
+
+			const wrapper = mount(<CMFConnectedButton onClickActionCreator={onClickActionCreator} />, {
+				context,
+				childContextTypes: {
+					registry: PropTypes.object,
+				},
+			});
+			const props = wrapper.find(Button).props();
+			expect(props.onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			const event = { type: 'click' };
+			props.onClick(event);
+			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
+				type: 'FETCH_CONFIGURED',
+				event,
+				data: onClickActionCreator.data,
+			});
+		});
+		it('should transform onEventSetState props to onEvent handler', () => {
+			const config = {
+				disabled: true,
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+
+			const wrapper = mount(
+				<CMFConnectedButton onClickSetState={config} initialState={new Map()} spreadCMFState />,
+				{
+					context,
+					childContextTypes: {
+						registry: PropTypes.object,
+					},
+				},
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.onClick).toBeDefined();
+			expect(props.onClickSetState).toBeUndefined();
+			props.onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalled();
+			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
+				id: 'default',
+				type: 'Button.initState',
+				cmf: {
+					componentState: {
+						initialComponentState: expect.anything(),
+						componentName: 'Button',
+						key: 'default',
+						type: 'REACT_CMF.COMPONENT_ADD_STATE',
+					},
+				},
+			});
+		});
+
+		it('should spread cmf state when onEventSetState is set', () => {
+			const context = mock.context();
+			const state = mock.state();
+			context.store.getState = () => {
+				return {
+					cmf: {
+						...state.cmf,
+						components: fromJS({
+							Button: {
+								default: {
+									inProgress: false,
+								},
+							},
+						}),
+					},
+				};
+			};
+
+			const wrapper = mount(
+				<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />,
+				{
+					context,
+					childContextTypes: {
+						registry: PropTypes.object,
+					},
+				},
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.inProgress).toBe(false);
+		});
+
+		it('should check that component will not be rendered if renderIf equals false', () => {
+			const context = mock.context();
+			const CMFConnected = cmfConnect({})(Button);
+			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
+			expect(mounted.html()).toBeNull();
 		});
 	});
 });

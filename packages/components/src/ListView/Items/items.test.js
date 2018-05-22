@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import Items from './Items.component';
+import { ItemsComponent } from './Items.component';
+import toJsonWithoutI18n from './../../../test/props-without-i18n';
 
 jest.mock(
 	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
@@ -18,27 +18,43 @@ describe('Items', () => {
 		getItemHeight: () => 42,
 	};
 
+	const propsNested = {
+		items: [
+			{ label: 'Lorem ipsum dolor default' },
+			{ label: 'Lorem ipsum dolor Parent', checked: true, children: props.items },
+		],
+		getItemHeight: () => 42,
+	};
+
 	it('should render', () => {
 		// when
-		const wrapper = mount(<Items {...props} />);
+		const wrapper = mount(<ItemsComponent {...props} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with provided id', () => {
 		// when
-		const wrapper = mount(<Items {...props} id={'my-widget'} />);
+		const wrapper = mount(<ItemsComponent {...props} id={'my-widget'} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render without toggleAll checkbox', () => {
 		// when
-		const wrapper = mount(<Items {...props} showToggleAll={false} />);
+		const wrapper = mount(<ItemsComponent {...props} showToggleAll={false} />);
 
 		// then
 		expect(wrapper.find('#tc-listview-toggle-all').exists()).toBeFalsy();
+	});
+
+	it('should render with nested items', () => {
+		// when
+		const wrapper = mount(<ItemsComponent {...propsNested} />);
+
+		// then
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });
