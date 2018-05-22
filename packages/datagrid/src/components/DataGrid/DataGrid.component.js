@@ -181,6 +181,7 @@ export default class DataGrid extends React.Component {
 			enableColResize: this.props.enableColResize,
 			onCellFocused: this.onFocusedCell,
 			onGridReady: this.onGridReady,
+			suppressPropertyNamesCheck: true,
 		};
 
 		if (this.props.onVerticalScroll) {
