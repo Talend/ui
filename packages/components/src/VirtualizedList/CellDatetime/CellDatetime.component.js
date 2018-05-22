@@ -6,8 +6,7 @@ import invariant from 'invariant';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { getDefaultT } from '../../translate';
-
-import { getLocale } from './buildDistanceInWordsLocale';
+import getLocale from '../../DateFnsLocale/locale';
 import styles from './CellDatetime.scss';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';

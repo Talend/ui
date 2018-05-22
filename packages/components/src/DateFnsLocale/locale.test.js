@@ -1,6 +1,6 @@
 import i18next from 'i18next';
-import getDefaultT from '../../translate';
-import buildDistanceInWordsLocale, { getLocale } from './buildDistanceInWordsLocale';
+import getDefaultT from '../translate';
+import getLocale, { buildDistanceInWordsLocale } from './locale';
 
 describe('buildDistanceInWordsLocale', () => {
 	it('should return the formatDistance with ', () => {

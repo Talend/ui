@@ -1,6 +1,6 @@
-import { getCurrentLanguage } from '../../translate';
+import { getCurrentLanguage } from '../translate';
 
-export default function buildDistanceInWordsLocale(t) {
+export function buildDistanceInWordsLocale(t) {
 	function localize(token, count, options = {}) {
 		const distanceInWordsLocale = {
 			lessThanXSeconds: t('DATE_FNS_LESS_THAN_SECONDS', {
@@ -46,7 +46,7 @@ export default function buildDistanceInWordsLocale(t) {
 let currentlanguage;
 let locale;
 
-export function getLocale(t) {
+export default function getLocale(t) {
 	if (currentlanguage !== getCurrentLanguage()) {
 		locale = {
 			distanceInWords: buildDistanceInWordsLocale(t),
