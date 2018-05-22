@@ -5,6 +5,10 @@ import { distanceInWordsToNow, format } from 'date-fns';
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
 
+jest.mock('./buildDistanceInWordsLocale', () => ({
+	getLocale: () => 'getLocale',
+}));
+
 jest.mock('date-fns', () => ({
 	format: jest.fn(() => '2016-09-22 09:00:00'),
 	distanceInWordsToNow: jest.fn(() => 'about 1 month ago'),
@@ -21,13 +25,10 @@ describe('CellDatetime', () => {
 			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} t={getDefaultT()} />,
 		);
 		// then
-		expect(distanceInWordsToNow.mock.calls[0][0]).toBe(1474495200000);
-		expect(distanceInWordsToNow.mock.calls[0][1].addSuffix).toBe(true);
-		expect(
-			distanceInWordsToNow.mock.calls[0][1].locale.distanceInWords.localize('almostXYears', 5, {
-				addSuffix: true,
-			}),
-		).toBe('almost 5 years ago');
+		expect(distanceInWordsToNow).toHaveBeenCalledWith(1474495200000, {
+			addSuffix: true,
+			locale: 'getLocale',
+		});
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should format with "ago"', () => {
