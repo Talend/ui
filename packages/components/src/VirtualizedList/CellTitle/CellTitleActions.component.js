@@ -11,6 +11,10 @@ import theme from './CellTitleActions.scss';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
+function isDropdown(actionDef) {
+	return actionDef.displayMode === 'dropdown';
+}
+
 export function CellTitleActionsComponent({
 	rowData,
 	actionsKey,
@@ -22,7 +26,6 @@ export function CellTitleActionsComponent({
 	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
-		const isDropdown = actionDef => actionDef.displayMode === 'dropdown';
 		const actionDefinitions =
 			rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
 		const dropdownDefinitions = rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
