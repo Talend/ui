@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import keys from 'lodash/keys';
-import { componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 /**
  * ShortcutManager matches shortcuts to the current route to redirect to a new
@@ -13,7 +13,7 @@ import { componentState } from '@talend/react-cmf';
 class ShortcutManager extends React.Component {
 	static displayName = 'Container(ShortcutManager)';
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 
 	static contextTypes = {

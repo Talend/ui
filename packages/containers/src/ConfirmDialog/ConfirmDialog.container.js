@@ -3,7 +3,7 @@ import React from 'react';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
 import { ConfirmDialog as Component } from '@talend/react-components';
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
@@ -14,7 +14,7 @@ export const DEFAULT_STATE = new Map({
 class ConfirmDialog extends React.Component {
 	static displayName = 'CMFContainer(ConfirmDialog)';
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 	static contextTypes = {
 		store: PropTypes.object,

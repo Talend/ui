@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
-import { getDefaultTranslate, DEFAULT_I18N } from '../translate';
+import getDefaultT from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
 import Action from '../Actions/Action';
@@ -202,7 +202,7 @@ HeaderEnumeration.propTypes = {
 };
 
 HeaderEnumeration.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS)(Enumeration);
