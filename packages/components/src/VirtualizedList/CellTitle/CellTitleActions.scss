@@ -1,6 +1,7 @@
 @import '../colors';
 
 $tc-list-title-actions-color: $brand-primary-darker !default;
+$tc-list-title-actions-ellipsis: '\22ee';
 
 .main-title-actions-group {
 	flex-grow: 0;
@@ -29,7 +30,7 @@ $tc-list-title-actions-color: $brand-primary-darker !default;
 
 		.cell-title-actions-menu {
 			&:after {
-				content: '\22ee';
+				content: $tc-list-title-actions-ellipsis;
 				font-size: 2em;
 				font-weight: bold;
 				vertical-align: inherit;
