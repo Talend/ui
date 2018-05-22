@@ -45,10 +45,10 @@
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint": "^3.6.1",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
     "rimraf": "^2.6.1"
   },
   "publishConfig": {

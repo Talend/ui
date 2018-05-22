@@ -25,6 +25,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-0"
         title={undefined}
       >
@@ -44,6 +45,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-1"
         title={undefined}
       >
@@ -63,6 +65,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-2"
         title={undefined}
       >
@@ -82,6 +85,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-3"
         title={undefined}
       >
@@ -101,6 +105,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
       className="tc-breadcrumb-item active"
     >
       <span
+        aria-current="page"
         id="42-item-4"
         title={undefined}
       >
@@ -123,6 +128,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       className="sr-only"
     >
       <span
+        aria-current={undefined}
         id="42-item-0"
         title={undefined}
       >
@@ -133,6 +139,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       className="sr-only"
     >
       <span
+        aria-current={undefined}
         id="42-item-1"
         title={undefined}
       >
@@ -143,6 +150,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       className="sr-only"
     >
       <span
+        aria-current={undefined}
         id="42-item-2"
         title={undefined}
       >
@@ -198,6 +206,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-3"
         title={undefined}
       >
@@ -217,6 +226,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       className="tc-breadcrumb-item active"
     >
       <span
+        aria-current="page"
         id="42-item-4"
         title={undefined}
       >
@@ -239,6 +249,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       className="sr-only"
     >
       <span
+        aria-current={undefined}
         id="my-breadcrumb-item-0"
         title="Go to Page Text A"
       >
@@ -282,6 +293,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="my-breadcrumb-item-1"
         title="Go to Page Text B"
       >
@@ -301,6 +313,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="my-breadcrumb-item-2"
         title="Go to Page Text C"
       >
@@ -320,6 +333,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       className="tc-breadcrumb-item active"
     >
       <span
+        aria-current="page"
         id="my-breadcrumb-item-3"
         title="Go to Page Text D"
       >
@@ -342,6 +356,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       className="sr-only"
     >
       <span
+        aria-current={undefined}
         id="42-item-0"
         title="Go to Page Text A"
       >
@@ -385,6 +400,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-1"
         title="Go to Page Text B"
       >
@@ -404,6 +420,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-2"
         title="Go to Page Text C"
       >
@@ -423,6 +440,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       className="tc-breadcrumb-item active"
     >
       <span
+        aria-current="page"
         id="42-item-3"
         title="Go to Page Text D"
       >
@@ -445,6 +463,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-0"
         title={undefined}
       >
@@ -464,6 +483,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-1"
         title={undefined}
       >
@@ -483,6 +503,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-2"
         title={undefined}
       >
@@ -502,6 +523,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-3"
         title={undefined}
       >
@@ -521,6 +543,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
       className="tc-breadcrumb-item active"
     >
       <span
+        aria-current="page"
         id="42-item-4"
         title={undefined}
       >
@@ -543,6 +566,7 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-0"
         title="Text tile A"
       >
@@ -562,6 +586,7 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
       className="tc-breadcrumb-item"
     >
       <span
+        aria-current={undefined}
         id="42-item-1"
         title="Text tile B"
       >
@@ -581,6 +606,7 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
       className="tc-breadcrumb-item active"
     >
       <span
+        aria-current="page"
         id="42-item-2"
         title={undefined}
       >

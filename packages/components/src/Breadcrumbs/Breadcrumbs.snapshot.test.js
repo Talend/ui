@@ -18,7 +18,7 @@ describe('Breadcrumbs', () => {
 	});
 
 	it('should do nothing if items property is empty', () => {
-		const breadcrumbs = shallow(<BreadcrumbsComponent items={null} />);
+		const breadcrumbs = shallow(<BreadcrumbsComponent items={undefined} />);
 		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 

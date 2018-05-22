@@ -80,6 +80,9 @@ export function BreadcrumbsComponent(props) {
 			}
 			const ariaCurrent = isActive ? 'page' : undefined;
 			return (
+				// bug in eslint a11y plugin, fixed in version 6.
+				// But to upgrade we need to upgrade the whole package (eslint, airbnb, a11y, react)
+				// eslint-disable-next-line jsx-a11y/aria-props
 				<span id={id} title={title} aria-current={ariaCurrent}>
 					{text}
 				</span>
