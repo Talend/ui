@@ -1,3 +1,5 @@
+import { getCurrentLanguage } from '../../translate';
+
 export default function buildDistanceInWordsLocale(t) {
 	function localize(token, count, options = {}) {
 		const distanceInWordsLocale = {
@@ -39,4 +41,18 @@ export default function buildDistanceInWordsLocale(t) {
 	return {
 		localize,
 	};
+}
+
+let currentlanguage;
+let locale;
+
+export function getLocale(t) {
+	if (currentlanguage !== getCurrentLanguage()) {
+		locale = {
+			distanceInWords: buildDistanceInWordsLocale(t),
+		};
+		currentlanguage = getCurrentLanguage();
+	}
+
+	return locale;
 }

@@ -1,5 +1,6 @@
+import i18next from 'i18next';
 import getDefaultT from '../../translate';
-import buildDistanceInWordsLocale from './buildDistanceInWordsLocale';
+import buildDistanceInWordsLocale, { getLocale } from './buildDistanceInWordsLocale';
 
 describe('buildDistanceInWordsLocale', () => {
 	it('should return the formatDistance with ', () => {
@@ -82,5 +83,29 @@ describe('buildDistanceInWordsLocale', () => {
 		).toBe('in less than 5 seconds');
 
 		expect(distanceInWords.localize('lessThanXSeconds', 5)).toBe('less than 5 seconds');
+	});
+});
+
+describe('getLocale', () => {
+	afterEach(() => {
+		i18next.language = undefined;
+	});
+	it('should return the locale', () => {
+		const locale = getLocale(getDefaultT());
+
+		expect(locale).toEqual({
+			distanceInWords: {
+				localize: locale.distanceInWords.localize,
+			},
+		});
+	});
+
+	it('should return a locale different when we change the i18next language', () => {
+		const locale = getLocale(getDefaultT());
+		const secondLocale = getLocale(getDefaultT());
+		expect(locale).toBe(secondLocale);
+		i18next.language = 'fr';
+		const thirdLocale = getLocale(getDefaultT());
+		expect(thirdLocale).not.toBe(secondLocale);
 	});
 });

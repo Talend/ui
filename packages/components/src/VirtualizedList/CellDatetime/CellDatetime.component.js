@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { getDefaultT } from '../../translate';
 
-import buildDistanceInWordsLocale from './buildDistanceInWordsLocale';
+import { getLocale } from './buildDistanceInWordsLocale';
 import styles from './CellDatetime.scss';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
@@ -17,9 +17,7 @@ export function computeValue(cellData, columnData, t) {
 		if (columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, {
 				addSuffix: true,
-				locale: {
-					distanceInWords: buildDistanceInWordsLocale(t),
-				},
+				locale: getLocale(t),
 			});
 		} else if (columnData.mode === 'format') {
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
