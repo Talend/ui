@@ -14,8 +14,8 @@ function buildOptions(schema) {
 		enumOptions: optionsList(
 			Object.assign(
 				{
-					enum: [true, false],
 					enumNames: ['true', 'false'],
+					enum: [true, false],
 				},
 				{ enumNames: schema.enumNames },
 			),
@@ -30,7 +30,7 @@ function BooleanField(props) {
 		uiSchema,
 		idSchema,
 		formData,
-		registry = getDefaultRegistry(),
+		registry,
 		required,
 		disabled,
 		readonly,
@@ -100,6 +100,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 BooleanField.defaultProps = {
 	uiSchema: {},
+	registry: getDefaultRegistry(),
 	disabled: false,
 	readonly: false,
 	autofocus: false,

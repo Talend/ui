@@ -54,6 +54,7 @@ class ObjectField extends Component {
 		formData: {},
 		errorSchema: {},
 		idSchema: {},
+		registry: getDefaultRegistry(),
 		required: false,
 		disabled: false,
 		readonly: false,
@@ -85,7 +86,7 @@ class ObjectField extends Component {
 			onBlur,
 			onChange,
 			onFocus,
-			registry = getDefaultRegistry(),
+			registry,
 		} = this.props;
 		const { definitions, fields, formContext, widgets } = registry;
 		const { SchemaField, TitleField, DescriptionField } = fields;

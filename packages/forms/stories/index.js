@@ -219,7 +219,7 @@ function CustomDatalist(...args) {
 						bsStyle="primary"
 						id="default"
 						label="do some stuff"
-	 				/>
+					/>
 				</div>
 			</div>
 		);
