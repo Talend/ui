@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ReactCSSTransitionGroup({children, ...props}) {
+function ReactCSSTransitionGroup({ children, ...props }) {
 	return (
 		<div className="react-addons-css-transition-group" {...props}>
 			{children}
