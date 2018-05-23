@@ -4,10 +4,6 @@ import MappingAccessor from './DataAccessor/MappingAccessor';
 import Constants from './Constants';
 import './DataMapper.scss';
 
-export {
-  Constants,
-  DataAccessorWithUndoRedo,
-  MappingAccessor
-};
+export { Constants, DataAccessorWithUndoRedo, MappingAccessor };
 
 export default Mapper;

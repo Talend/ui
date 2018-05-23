@@ -39,5 +39,4 @@ export default class RegexpFilter extends Filter {
 			(!this.strict && isString(this.regexp) && lowerCaseMatch(value, this.regexp))
 		);
 	}
-	
 }

@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function renderFilter(filter, filtersRenderer, onFilterChange) {
-  const filterId = filter.getId();
+	const filterId = filter.getId();
 	const FilterComponent = filtersRenderer.getFilterComponent(filterId);
-  const extraProps = filtersRenderer.getExtraProps(filterId);
+	const extraProps = filtersRenderer.getExtraProps(filterId);
 	if (FilterComponent) {
 		return (
 			<FilterComponent
-        className={'tc-filter'}
+				className={'tc-filter'}
 				key={filterId}
 				filter={filter}
 				onFilterChange={onFilterChange}
-        extra={extraProps}
+				extra={extraProps}
 			/>
 		);
 	}
@@ -31,5 +31,5 @@ FiltersBar.propTypes = {
 	filters: PropTypes.array,
 	filtersRenderer: PropTypes.object,
 	onFilterChange: PropTypes.func,
-  className: PropTypes.string,
+	className: PropTypes.string,
 };

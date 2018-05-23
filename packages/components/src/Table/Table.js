@@ -193,9 +193,7 @@ export default class Table extends Component {
 			<div className={getMainClassName(classNameProvider)}>
 				{(withTitle || displayFilters(filters)) && (
 					<div className="tc-table-title-and-filters">
-						{withTitle && (
-							<span className={getTitleClassName(classNameProvider)}>{title}</span>
-						)}
+						{withTitle && <span className={getTitleClassName(classNameProvider)}>{title}</span>}
 						{displayFilters(filters) && (
 							<FiltersBar
 								className={getFiltersBarClassName(classNameProvider)}
@@ -208,13 +206,14 @@ export default class Table extends Component {
 				)}
 				<div ref={this.updateContentNodeRef} className={getTableClassName(classNameProvider)}>
 					<table ref={this.updateTableNodeRef}>
-						{withHeader && renderHeader(
-							classNameProvider,
-							rowDataGetter,
-							headerRenderer,
-							columnKeys,
-							this.updateHeadNodeRef,
-						)}
+						{withHeader &&
+							renderHeader(
+								classNameProvider,
+								rowDataGetter,
+								headerRenderer,
+								columnKeys,
+								this.updateHeadNodeRef,
+							)}
 						<tbody ref={this.updateBodyNodeRef} onScroll={onScroll}>
 							{elements.map(elem =>
 								renderRow(

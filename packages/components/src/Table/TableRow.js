@@ -44,7 +44,14 @@ function getRowData(rowDataGetter, element, columnKey) {
 /**
  * This function is responsible for rendering a piece of data for an element.
  */
-function renderRowData(element, elementId, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
+function renderRowData(
+	element,
+	elementId,
+	columnKey,
+	rowDataGetter,
+	classNameProvider,
+	rowRenderer,
+) {
 	const CellComponent = getCellComponent(rowRenderer, columnKey);
 	const data = getRowData(rowDataGetter, element, columnKey);
 	const className = getRowDataClassName(classNameProvider, element, columnKey);

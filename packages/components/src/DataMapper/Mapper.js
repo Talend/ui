@@ -159,7 +159,9 @@ export default class Mapper extends Component {
 			this.mappingVersion = nextProps.dataAccessor.getMappingVersion();
 			this.anchors = resetAnchors(this.anchors);
 		}
-		if (filtersHaveChanged(nextProps.dataAccessor, this.props.inputSchema, this.inputFilterVersion)) {
+		if (
+			filtersHaveChanged(nextProps.dataAccessor, this.props.inputSchema, this.inputFilterVersion)
+		) {
 			this.visibleMapping = null;
 			this.visibleInputElements = null;
 			this.inputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.inputSchema);

@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-	Table,
-	TableCell,
-	TableClickableCell,
-	TableHeader,
-	DraggableComponent,
-} from '../../index';
+import { Table, TableCell, TableClickableCell, TableHeader, DraggableComponent } from '../../index';
 
 import * as Constants from '../Constants';
 
@@ -40,7 +34,7 @@ class InternalClassNameProvider {
 	getForTable() {
 		let className = 'tc-table';
 		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForTable) {
-			 className = this.schemaProps.classNameProvider.getForTable();
+			className = this.schemaProps.classNameProvider.getForTable();
 		}
 		return `${className} schema-content ${this.schemaProps.side}`;
 	}
@@ -50,7 +44,7 @@ class InternalClassNameProvider {
 		let className = 'tc-table-header';
 		// custom header className
 		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForHeader) {
-			 className = this.schemaProps.classNameProvider.getForHeader();
+			className = this.schemaProps.classNameProvider.getForHeader();
 		}
 		// specific header className added for data-mapper context
 		const classes = {
@@ -66,7 +60,7 @@ class InternalClassNameProvider {
 		let className = 'tc-table-row';
 		// custom row className
 		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForRow) {
-			 className = this.schemaProps.classNameProvider.getForRow(element);
+			className = this.schemaProps.classNameProvider.getForRow(element);
 		}
 		// specific row className added for data-mapper context
 		const {
@@ -105,7 +99,7 @@ class InternalClassNameProvider {
 		let className = `tc-table-row-data-${columnKey}`;
 		// custom row className
 		if (this.schemaProps.classNameProvider && this.schemaProps.classNameProvider.getForRowData) {
-			 className = this.schemaProps.classNameProvider.getForRowData(columnKey, element);
+			className = this.schemaProps.classNameProvider.getForRowData(columnKey, element);
 		}
 		return `${className} ${this.schemaProps.side}`;
 	}
@@ -211,9 +205,11 @@ class InternalRowRenderer {
 	}
 
 	isFirstColumn(columnKey) {
-		return this.schemaProps.columnKeys &&
+		return (
+			this.schemaProps.columnKeys &&
 			this.schemaProps.columnKeys.length > 0 &&
-			this.schemaProps.columnKeys[0] === columnKey;
+			this.schemaProps.columnKeys[0] === columnKey
+		);
 	}
 
 	getCellComponent(columnKey) {

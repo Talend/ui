@@ -20,10 +20,7 @@ import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
-import DataMapper, {
-	DataAccessorWithUndoRedo,
-	MappingAccessor,
-} from './DataMapper';
+import DataMapper, { DataAccessorWithUndoRedo, MappingAccessor } from './DataMapper';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
 import Drawer from './Drawer';

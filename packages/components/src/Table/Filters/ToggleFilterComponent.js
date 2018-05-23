@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import Toggle from '../../Toggle';
 
 function getClassName(extra) {
-  if (extra && extra.className) {
-    return extra.className;
-  }
-  return '';
+	if (extra && extra.className) {
+		return extra.className;
+	}
+	return '';
 }
 
 function getLabel(extra) {
-  if (extra && extra.label) {
-    return extra.label;
-  }
-  return '';
+	if (extra && extra.label) {
+		return extra.label;
+	}
+	return '';
 }
 
 /**
@@ -36,7 +36,7 @@ export default class ToggleFilterComponent extends Component {
 		const { filter, extra, className } = this.props;
 		return (
 			<Toggle
-      	className={`tc-boolean-filter ${className} ${getClassName(extra)}`}
+				className={`tc-boolean-filter ${className} ${getClassName(extra)}`}
 				onChange={this.onChange}
 				label={getLabel(extra)}
 				checked={filter.isActive()}
@@ -48,8 +48,8 @@ export default class ToggleFilterComponent extends Component {
 ToggleFilterComponent.propTypes = {
 	filter: PropTypes.object,
 	onFilterChange: PropTypes.func,
-  className: PropTypes.string,
-  extra: PropTypes.shape({
+	className: PropTypes.string,
+	extra: PropTypes.shape({
 		className: PropTypes.string,
 		label: PropTypes.string,
 	}),

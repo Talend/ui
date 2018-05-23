@@ -101,10 +101,7 @@ export default class Mapping extends Component {
 		const { dndListener, mappingActions, ...mappingProps } = this.props;
 		return (
 			<div className="mapping mapper-element">
-				<Actions
-					className="mapping-actions"
-					actions={mappingActions}
-				/>
+				<Actions className="mapping-actions" actions={mappingActions} />
 				<div ref={this.updateMappingContentRef} className="mapping-content">
 					<MappingSVG
 						{...mappingProps}

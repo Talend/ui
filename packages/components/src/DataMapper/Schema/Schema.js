@@ -256,11 +256,7 @@ export default class Schema extends Component {
 
 	render() {
 		const { schemaConfiguration, ...tempProps } = this.props;
-		const {
-			dataAccessor,
-			schema,
-			side,
-		} = this.props;
+		const { dataAccessor, schema, side } = this.props;
 		const contentProps = {
 			...tempProps,
 			isMapped,

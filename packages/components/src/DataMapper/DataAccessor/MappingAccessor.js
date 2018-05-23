@@ -10,7 +10,6 @@ function removeMappingItem(mapping, index) {
 }
 
 export default class MappingAccessor {
-
 	constructor(dataAccessor) {
 		this.dataAccessor = dataAccessor;
 	}
@@ -21,7 +20,8 @@ export default class MappingAccessor {
 
 	internalGetMappingItemIndex(mapping, source, target) {
 		return mapping.findIndex(
-			item => this.internalAreEqual(item.source, source) && this.internalAreEqual(item.target, target)
+			item =>
+				this.internalAreEqual(item.source, source) && this.internalAreEqual(item.target, target),
 		);
 	}
 

@@ -3,31 +3,31 @@ import PropTypes from 'prop-types';
 import FilterBar from '../../FilterBar';
 
 function getClassName(extra) {
-  if (extra && extra.className) {
-    return extra.className;
-  }
-  return '';
+	if (extra && extra.className) {
+		return extra.className;
+	}
+	return '';
 }
 
 function getPlaceHolder(extra) {
-  if (extra && extra.placeHolder) {
-    return extra.placeHolder;
-  }
-  return '...';
+	if (extra && extra.placeHolder) {
+		return extra.placeHolder;
+	}
+	return '...';
 }
 
 function isDockable(extra) {
-  if (extra && extra.dockable) {
-    return extra.dockable;
-  }
-  return true;
+	if (extra && extra.dockable) {
+		return extra.dockable;
+	}
+	return true;
 }
 
 function isNavbar(extra) {
-  if (extra && extra.navbar) {
-    return extra.navbar;
-  }
-  return true;
+	if (extra && extra.navbar) {
+		return extra.navbar;
+	}
+	return true;
 }
 
 /**
@@ -59,7 +59,7 @@ export default class StringFilterComponent extends Component {
 	}
 
 	render() {
-    const { extra, className } = this.props;
+		const { extra, className } = this.props;
 		return (
 			<FilterBar
 				className={`tc-string-filter ${className} ${getClassName(extra)}`}
@@ -77,6 +77,6 @@ export default class StringFilterComponent extends Component {
 StringFilterComponent.propTypes = {
 	filter: PropTypes.object,
 	onFilterChange: PropTypes.func,
-  className: PropTypes.string,
-  extra: PropTypes.object,
+	className: PropTypes.string,
+	extra: PropTypes.object,
 };

@@ -18,8 +18,8 @@ export default class DataAccessorWrapper {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	side(schema) {
 		return this.schema2side[this.getSchemaId(schema)];
 	}
@@ -36,16 +36,19 @@ export default class DataAccessorWrapper {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	initializeInternalDataAccessor(schema, side) {
 		const elements = this.dataAccessor.getSchemaElements(schema);
-		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(elements, this.dataAccessor);
+		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(
+			elements,
+			this.dataAccessor,
+		);
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	populateCache(schema, side) {
 		this.cache[side] = {};
 		const elements = this.dataAccessor.getSchemaElements(schema);
@@ -55,8 +58,8 @@ export default class DataAccessorWrapper {
 	}
 
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	access(schema) {
 		return this.internalDataAccessors[this.side(schema)];
 	}
@@ -183,10 +186,10 @@ export default class DataAccessorWrapper {
 	}
 
 	/**
-	* Returns the element corresponding to the given schema and identifier.
-	* @param {object} schema - The schema
-	* @param {string} id - the element identifier
-	*/
+	 * Returns the element corresponding to the given schema and identifier.
+	 * @param {object} schema - The schema
+	 * @param {string} id - the element identifier
+	 */
 	getSchemaElementFromId(schema, id) {
 		if (this.isCacheInitialized()) {
 			return this.getSchemaElementFromCache(schema, id);
@@ -203,8 +206,8 @@ export default class DataAccessorWrapper {
 	}
 
 	/**
-	* Returns a label for the given element.
-	*/
+	 * Returns a label for the given element.
+	 */
 	getElementLabel(element) {
 		return this.dataAccessor.getElementLabel(element);
 	}
@@ -225,12 +228,12 @@ export default class DataAccessorWrapper {
 	}
 
 	getRowData(element, key) {
-    return this.dataAccessor.getRowData(element, key);
-  }
+		return this.dataAccessor.getRowData(element, key);
+	}
 
-  getHeaderData(key) {
-    return this.dataAccessor.getHeaderData(key);
-  }
+	getHeaderData(key) {
+		return this.dataAccessor.getHeaderData(key);
+	}
 
 	haveSameData(element1, element2, key) {
 		const data1 = this.getRowData(element1, key);
@@ -363,5 +366,4 @@ export default class DataAccessorWrapper {
 		}
 		return true;
 	}
-
 }

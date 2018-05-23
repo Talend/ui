@@ -45,5 +45,4 @@ export default class Filter {
 	selectValue(value) {
 		return !this.active || value;
 	}
-
 }

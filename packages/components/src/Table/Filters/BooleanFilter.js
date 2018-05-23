@@ -10,9 +10,6 @@ export default class BooleanFilter extends Filter {
 	}
 
 	selectValue(value) {
-		return !this.isActive() ||
-      (!this.reverse && value) ||
-      (this.reverse && !value);
+		return !this.isActive() || (!this.reverse && value) || (this.reverse && !value);
 	}
-  
 }

@@ -64,5 +64,4 @@ export default class Sorter {
 			this.getValueToCompare(dataAccessor, element2),
 		);
 	}
-
 }

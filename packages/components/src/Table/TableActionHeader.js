@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ActionButton } from '../index';
 
 function getLabel(data, label) {
-  return label ? label : data;
+	return label ? label : data;
 }
 
 /**
@@ -13,20 +13,20 @@ function getLabel(data, label) {
  *
  */
 export default function TableActionHeader({ data, className, extra }) {
-  const { label, ...otherActionProps } = extra.actionProps;
+	const { label, ...otherActionProps } = extra.actionProps;
 	return (
-    <ActionButton
-      className={`tc-table-action-header ${className}`}
-      label={getLabel(data, label)}
-      {...otherActionProps}
-    />
-  );
+		<ActionButton
+			className={`tc-table-action-header ${className}`}
+			label={getLabel(data, label)}
+			{...otherActionProps}
+		/>
+	);
 }
 
 TableActionHeader.propTypes = {
 	data: PropTypes.string,
 	className: PropTypes.string,
-  extra: PropTypes.shape({
-    actionProps: PropTypes.object,
+	extra: PropTypes.shape({
+		actionProps: PropTypes.object,
 	}),
 };
