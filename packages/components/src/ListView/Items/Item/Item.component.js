@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
-import { Action } from '../../../index';
+import Action from '../../../Actions/Action';
 
 function itemLabelClasses() {
 	return classNames(theme['tc-listview-item-label'], 'tc-listview-item-label');

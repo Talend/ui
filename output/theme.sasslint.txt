@@ -16,10 +16,13 @@ src/theme/_forms.scss
   374:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   463:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
+src/theme/_navbar.scss
+  18:6  warning  Expected indentation of 4 tabs but found 5  indentation
+
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
   23:29  error    !important not allowed              no-important
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 13 problems (10 errors, 3 warnings)
+✖ 14 problems (10 errors, 4 warnings)

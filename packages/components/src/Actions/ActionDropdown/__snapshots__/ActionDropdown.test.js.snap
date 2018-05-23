@@ -58,6 +58,7 @@ exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
   icon="talend-bell"
   label="Toto"
   onClick={[Function]}
+  title="Toto"
 >
   <Icon
     name="talend-bell"
@@ -81,6 +82,7 @@ exports[`getMenuItem should return a MenuItem with label 1`] = `
   header={false}
   label="Toto"
   onClick={[Function]}
+  title="Toto"
 >
   Toto
 </MenuItem>
