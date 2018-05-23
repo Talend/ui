@@ -165,6 +165,7 @@ $tc-toggle-color: #555964 !default;
 
 		.content {
 			display: flex;
+			flex-wrap: wrap;
 			width: 100%;
 
 			.label {

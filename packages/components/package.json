@@ -44,6 +44,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "ally.js": "^1.4.1",
     "date-fns": "1.27.2",
     "immutable": "3.8.1",
     "lodash": "4.17.4",
@@ -65,16 +66,16 @@
     "@talend/bootstrap-theme": "^0.186.0",
     "@talend/icons": "^0.186.0",
     "autoprefixer": "^7.1.4",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.0.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
     "babel-jest": "20.0.3",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.6.0",
-    "babel-preset-react": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
@@ -144,7 +145,8 @@
     },
     "roots": [
       "src",
-      "__mocks__"
+      "__mocks__",
+      "../../__mocks__"
     ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
