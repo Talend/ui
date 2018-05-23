@@ -3,7 +3,7 @@
   "description": "@talend/react-cmf plugin for CQRS backend architecture",
   "main": "lib/index.js",
   "scripts": {
-    "prepublish": "npm run build && npm run test",
+    "prepublish": "npm run build",
     "build": "rimraf ./lib &&  babel -d lib ./src/ --ignore **/*.test.js",
     "start": "echo nothing to start",
     "test": "jest",

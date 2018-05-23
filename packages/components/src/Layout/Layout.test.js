@@ -110,26 +110,22 @@ describe('Layout', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render layout with SubHeader', () => {
-		const wrapper = shallow(subHeader);
-		expect(wrapper).toMatchSnapshot();
-	});
+
 	it('should render layout with subHeader in OneColumn mode', () => {
 		const wrapper = shallow(
 			<Layout subHeader={subHeader} mode="OneColumn">
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.instance().props.subHeader).toEqual(subHeader);
-		expect(wrapper.instance().props.mode).toEqual('OneColumn');
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should render layout with subHeader in TwoColumns mode', () => {
 		const wrapper = shallow(
 			<Layout subHeader={subHeader} mode="TwoColumns">
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.instance().props.subHeader).toEqual(subHeader);
-		expect(wrapper.instance().props.mode).toEqual('TwoColumns');
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
