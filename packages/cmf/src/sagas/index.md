@@ -55,7 +55,7 @@ const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample
 importing the saga, allow you to statically call any member function `get, post ...` but also `create` which return an object with the exact same API.
 
 `create` also allow you to provide a configuration object.
-`setDefaultConfig` also allow you to provide a default header object which 'll be use at each http call.
+`setDefaultConfig` also allow you to provide a default header object which will be use at each http call.
 
 ```javascript
 import http, { setDefaultConfig } from '@talend/react-cmf/lib/sagas/http';

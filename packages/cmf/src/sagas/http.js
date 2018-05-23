@@ -13,7 +13,9 @@ import {
 let defaultConfig = {};
 
 export function handleCSRFToken(config) {
-	return mergeCSRFToken(config)(config);
+	return mergeCSRFToken({
+		security: config.security,
+	})(config);
 }
 
 export class HTTPError extends Error {
@@ -253,6 +255,7 @@ export default {
 	put: httpPut,
 	patch: httpPatch,
 	create(createConfig = {}) {
+		console.warn('DEPRECATED: http.create(config) is deprecated please use http directly');
 		setDefaultConfig(createConfig);
 		return {
 			delete: function* configuredDelete(url, config = {}, options = {}) {
