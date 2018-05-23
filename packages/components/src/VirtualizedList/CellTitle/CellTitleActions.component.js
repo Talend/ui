@@ -83,4 +83,4 @@ CellTitleActionsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(CellTitleActionsComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);

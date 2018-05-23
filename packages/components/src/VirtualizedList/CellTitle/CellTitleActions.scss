@@ -2,6 +2,7 @@
 
 $tc-list-title-actions-color: $brand-primary-darker !default;
 $tc-list-title-actions-ellipsis: '\22ee';
+$tc-list-title-actions-menu-triangle: '\25b2';
 
 .main-title-actions-group {
 	flex-grow: 0;
@@ -46,7 +47,7 @@ $tc-list-title-actions-ellipsis: '\22ee';
 		transform: translateX(-50%);
 
 		&:before {
-			content: '\25b2';
+			content: $tc-list-title-actions-menu-triangle;
 			position: absolute;
 			top: -1em;
 			font-size: 1.4em;
