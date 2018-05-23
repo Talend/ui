@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
@@ -82,7 +82,7 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 Header.propTypes = headerPropTypes;
 
 Header.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Header);
+export default translate(I18N_DOMAIN_COMPONENTS)(Header);

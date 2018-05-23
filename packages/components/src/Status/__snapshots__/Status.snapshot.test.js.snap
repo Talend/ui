@@ -15,52 +15,48 @@ exports[`Status should render a label 1`] = `
   >
     Successful
   </span>
-  <span
-    className="theme-tc-status-actions tc-status-actions"
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <div
-      className="tc-actions btn-group"
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      <button
-        aria-label="cancel"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-cancel"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          cancel
-        </span>
-      </button>
-      <button
-        aria-label="delete"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-delete"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          delete
-        </span>
-      </button>
-    </div>
-  </span>
+      <i
+        aria-hidden="true"
+        className="fa fa-cancel"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-delete"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -84,52 +80,48 @@ exports[`Status should render a label with Icon 1`] = `
   >
     Successful
   </span>
-  <span
-    className="theme-tc-status-actions tc-status-actions"
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <div
-      className="tc-actions btn-group"
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      <button
-        aria-label="cancel"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-cancel"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          cancel
-        </span>
-      </button>
-      <button
-        aria-label="delete"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-delete"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          delete
-        </span>
-      </button>
-    </div>
-  </span>
+      <i
+        aria-hidden="true"
+        className="fa fa-cancel"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-delete"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -153,13 +145,9 @@ exports[`Status should render a label with Icon without actions 1`] = `
   >
     Successful
   </span>
-  <span
-    className="theme-tc-status-actions tc-status-actions"
-  >
-    <div
-      className="tc-actions btn-group"
-    />
-  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  />
 </div>
 `;
 
@@ -172,6 +160,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     className="theme-tc-status-icon tc-status-icon theme-info"
   >
     <svg
+      aria-busy="true"
+      aria-label="Loading "
       className="tc-circular-progress theme-loader theme-animate theme-small"
       focusable="false"
       viewBox="0 0 50 50"
@@ -196,52 +186,48 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
   >
     In Progress
   </span>
-  <span
-    className="theme-tc-status-actions tc-status-actions"
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <div
-      className="tc-actions btn-group"
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      <button
-        aria-label="cancel"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-cancel"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          cancel
-        </span>
-      </button>
-      <button
-        aria-label="delete"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-delete"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          delete
-        </span>
-      </button>
-    </div>
-  </span>
+      <i
+        aria-hidden="true"
+        className="fa fa-cancel"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-delete"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -254,6 +240,8 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     className="theme-tc-status-icon tc-status-icon theme-info"
   >
     <svg
+      aria-busy="true"
+      aria-label="Loading "
       className="tc-circular-progress theme-loader theme-animate theme-small"
       focusable="false"
       viewBox="0 0 50 50"
@@ -278,51 +266,47 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
   >
     In Progress
   </span>
-  <span
-    className="theme-tc-status-actions tc-status-actions"
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
   >
-    <div
-      className="tc-actions btn-group"
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
     >
-      <button
-        aria-label="cancel"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-cancel"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          cancel
-        </span>
-      </button>
-      <button
-        aria-label="delete"
-        className="btn btn-sm btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-delete"
-          focusable="false"
-          title={null}
-        />
-        <span>
-          delete
-        </span>
-      </button>
-    </div>
-  </span>
+      <i
+        aria-hidden="true"
+        className="fa fa-cancel"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-delete"
+        focusable="false"
+        title={null}
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
 </div>
 `;
