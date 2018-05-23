@@ -674,7 +674,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -714,6 +714,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -742,6 +743,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -770,6 +772,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -919,6 +922,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -1301,7 +1305,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -1341,6 +1345,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -1369,6 +1374,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -1397,6 +1403,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -1594,6 +1601,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -1976,7 +1984,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -2016,6 +2024,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -2044,6 +2053,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -2072,6 +2082,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -2152,6 +2163,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Runtime Environment"
               >
                 Runtime Environment
               </a>
@@ -2289,6 +2301,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -2671,7 +2684,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -2711,6 +2724,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -2739,6 +2753,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -2767,6 +2782,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -2916,6 +2932,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -3298,7 +3315,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -3338,6 +3355,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -3366,6 +3384,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -3394,6 +3413,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -3543,6 +3563,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -3925,7 +3946,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -3965,6 +3986,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -3993,6 +4015,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -4021,6 +4044,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -4196,6 +4220,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -4578,7 +4603,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -4618,6 +4643,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -4646,6 +4672,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -4674,6 +4701,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -4851,6 +4879,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -5233,7 +5262,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -5273,6 +5302,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -5301,6 +5331,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -5329,6 +5360,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -5498,6 +5530,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -5880,7 +5913,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -5920,6 +5953,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -5948,6 +5982,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -5976,6 +6011,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -6478,6 +6514,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -6860,7 +6897,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -6900,6 +6937,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -6928,6 +6966,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -6956,6 +6995,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -7133,6 +7173,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -7654,6 +7695,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Settings"
               >
                 <svg
                   aria-hidden="true"
@@ -8036,7 +8078,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="Example App Name"
-              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -8076,6 +8118,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Data Preparation"
                 >
                   <svg
                     aria-hidden="true"
@@ -8104,6 +8147,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Integration Cloud"
                 >
                   <svg
                     aria-hidden="true"
@@ -8132,6 +8176,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                   onKeyDown={[Function]}
                   role="menuitem"
                   tabIndex="-1"
+                  title="Management Console"
                 >
                   <svg
                     aria-hidden="true"
@@ -8273,6 +8318,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 onKeyDown={[Function]}
                 role="menuitem"
                 tabIndex="-1"
+                title="Guided tour"
               >
                 Guided tour
               </a>
@@ -8296,6 +8342,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 role="menuitem"
                 tabIndex="-1"
                 target="_blank"
+                title="Community"
               >
                 Community
               </a>
@@ -8313,6 +8360,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 role="menuitem"
                 tabIndex="-1"
                 target="_blank"
+                title="Support"
               >
                 Support
               </a>
@@ -8693,7 +8741,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -8733,6 +8781,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -8761,6 +8810,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -8789,6 +8839,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -8938,6 +8989,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
@@ -9332,7 +9384,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -9372,6 +9424,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -9400,6 +9453,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -9428,6 +9482,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -9577,6 +9632,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
@@ -9971,7 +10027,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -10011,6 +10067,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -10039,6 +10096,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -10067,6 +10125,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -10216,6 +10275,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
@@ -10610,7 +10670,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -10650,6 +10710,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -10678,6 +10739,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -10706,6 +10768,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -10855,6 +10918,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
@@ -11249,7 +11313,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -11289,6 +11353,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -11317,6 +11382,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -11345,6 +11411,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -11494,6 +11561,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
@@ -11888,7 +11956,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -11928,6 +11996,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -11956,6 +12025,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -11984,6 +12054,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -12133,6 +12204,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
@@ -12527,7 +12599,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     aria-expanded={false}
                     aria-haspopup={true}
                     aria-label="Example App Name"
-                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -12567,6 +12639,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Data Preparation"
                       >
                         <svg
                           aria-hidden="true"
@@ -12595,6 +12668,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Integration Cloud"
                       >
                         <svg
                           aria-hidden="true"
@@ -12623,6 +12697,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         onKeyDown={[Function]}
                         role="menuitem"
                         tabIndex="-1"
+                        title="Management Console"
                       >
                         <svg
                           aria-hidden="true"
@@ -12772,6 +12847,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       onKeyDown={[Function]}
                       role="menuitem"
                       tabIndex="-1"
+                      title="Settings"
                     >
                       <svg
                         aria-hidden="true"
