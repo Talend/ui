@@ -126,7 +126,8 @@
       "!**/__snapshots__/**"
     ],
     "roots": [
-      "src"
+      "src",
+      "../../__mocks__"
     ],
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
