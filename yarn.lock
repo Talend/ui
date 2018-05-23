@@ -403,15 +403,15 @@ add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
 
-ag-grid-react@^17.0.0:
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-17.0.0.tgz#363d78b95b9be3bb2124284d2baf70056808f287"
+ag-grid-react@^17.1.0:
+  version "17.1.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-17.1.0.tgz#8c9cee63e32183787bafb2a2b85e1e966ad0be39"
   dependencies:
     prop-types "15.6.0"
 
-ag-grid@^17.0.0:
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-17.0.0.tgz#b8c82268c1785e04425a3149ca53cc526376029b"
+ag-grid@^17.1.1:
+  version "17.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-17.1.1.tgz#6c7010a65d6e8b6373e2fe97643c9eecf5417026"
 
 agent-base@^4.1.0:
   version "4.2.0"
