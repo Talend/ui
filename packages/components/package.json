@@ -142,7 +142,8 @@
     },
     "roots": [
       "src",
-      "__mocks__"
+      "__mocks__",
+      "../../__mocks__"
     ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
