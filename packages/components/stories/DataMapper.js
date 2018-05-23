@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import {
+	DataAccessorWithUndoRedo,
+	DataAccessorWithSorterAndFilter,
 	FilterComponents,
 	FilterFactory,
 	MappingAccessor,
-	DataAccessorWithUndoRedo,
-	DataAccessorWithSorterAndFilter,
+	Sorter,
+	SorterHeaderRenderer,
+	SortOrder,
 } from '../src/index';
 import { DataMapper as Mapper } from '../src/index';
 import * as Constants from '../src/DataMapper/Constants';
@@ -376,20 +379,72 @@ const filtersRenderer = {
 	},
 };
 
-const mapperSchemaConfiguration = {
+const sorterKeys = [COLUMNS.NAME.key, COLUMNS.TYPE.key, COLUMNS.DESC.key];
+
+function createSorters(keys) {
+	let sorters = [];
+	for (let i = 0; i < keys.length; i += 1) {
+		const key = keys[i];
+		const sorter = new Sorter(key, key, SortOrder.ASCENDING, key);
+		sorters = sorters.concat(sorter);
+	}
+	return sorters;
+}
+
+class SchemaConfiguration {
+
+	init(sortHandler) {
+		this.inputSortHandler = {
+			isSorterActive(sorter) {
+				return sortHandler.isSorterActive(sorter, Constants.MappingSide.INPUT);
+			},
+			onSortChange(sorter) {
+				sortHandler.onSortChange(sorter, Constants.MappingSide.INPUT);
+			},
+		};
+		this.outputSortHandler = {
+			isSorterActive(sorter) {
+				return sortHandler.isSorterActive(sorter, Constants.MappingSide.OUTPUT);
+			},
+			onSortChange(sorter) {
+				sortHandler.onSortChange(sorter, Constants.MappingSide.OUTPUT);
+			},
+		};
+		this.headerRenderers = {
+			input: new SorterHeaderRenderer(this.inputSortHandler),
+			output: new SorterHeaderRenderer(this.outputSortHandler),
+		};
+	}
+
+	registerSorter(sorter, side) {
+		this.headerRenderers[side].registerSorter(sorter);
+	}
+
 	withTitle() {
 		return true;
-	},
+	}
+
 	getColumns(side) {
 		return schemaColumns[side];
-	},
+	}
+
 	withHeader() {
 		return true;
-	},
+	}
+
 	getClassNameProvider() {
 		return mapperClassNameProvider;
-	},
+	}
+
+	getHeaderRenderer(side) {
+		return this.headerRenderers[side];
+	}
+
 };
+
+function getSchemaConfiguration() {
+	return new SchemaConfiguration();
+}
 
 const autoMapping = [];
 
@@ -495,6 +550,10 @@ const emptyState = {
 		input: [],
 		output: [],
 	},
+	sorters: {
+		input: [],
+		output: [],
+	}
 };
 
 function getUXInitialState(preferences) {
@@ -510,6 +569,10 @@ function getUXInitialState(preferences) {
 		filters: {
 			input: createInputFilters(),
 			output: createOutputFilters(),
+		},
+		sorters: {
+			input: createSorters(sorterKeys),
+			output: createSorters(sorterKeys),
 		},
 	};
 }
@@ -860,10 +923,17 @@ class ConnectedDataMapper extends React.Component {
 		this.updateMapperRef = this.updateMapperRef.bind(this);
 		this.onUndo = this.onUndo.bind(this);
 		this.onRedo = this.onRedo.bind(this);
-		this.onSort = this.onSort.bind(this);
-		this.onChangeSortOrder = this.onChangeSortOrder.bind(this);
-		this.clearSort = this.clearSort.bind(this);
 		this.getMainAction = this.getMainAction.bind(this);
+		// register sorters
+		props.schemaConfiguration.init(this);
+		this.registerSorters(this.state.sorters.input, props.schemaConfiguration, Constants.MappingSide.INPUT);
+		this.registerSorters(this.state.sorters.output, props.schemaConfiguration, Constants.MappingSide.OUTPUT);
+	}
+
+	registerSorters(sorters, schemaConfiguration, side) {
+		for (let i = 0; i < sorters.length; i += 1) {
+			schemaConfiguration.registerSorter(sorters[i], side)
+		}
 	}
 
 	handleKeyEvent(ev) {
@@ -1298,22 +1368,38 @@ class ConnectedDataMapper extends React.Component {
 		});
 	}
 
-	onSort(sorterId, order, side) {
-		const dataAccessor = this.state.dataAccessor;
-		const sorter = getSorter(this.state, sorterId, side);
-		if (sorter) {
-			const schema = getSchema(this.state, side);
-			sorter.setOrder(order);
-			if (!dataAccessor.hasSorter(schema) || dataAccessor.getSorter(schema).getId() !== sorterId) {
-				dataAccessor.setSorter(schema, sorter);
-			} else {
-				dataAccessor.sort(schema);
+	onSortChange(sorter, side) {
+		const schema = getSchema(this.state, side);
+		if (this.state.dataAccessor.isActiveSorter(schema, sorter)) {
+			switch (sorter.getOrder()) {
+				case SortOrder.ASCENDING:
+					sorter.setOrder(SortOrder.DESCENDING);
+					this.state.dataAccessor.sort(schema);
+					break;
+				case SortOrder.DESCENDING:
+					sorter.setOrder(SortOrder.ASCENDING);
+					this.state.dataAccessor.clearSorter(schema);
+					break;
+				default:
+					break;
 			}
+		} else {
+			this.state.dataAccessor.setSorter(schema, sorter);
+		}
+		if (this.state.dataAccessor.hasSorter(schema)) {
 			this.setState({
 				trigger: {
 					code: Constants.Events.SORT,
-					sorterId,
-					order,
+					sorterId: sorter.getId(),
+					order: sorter.getOrder(),
+					side,
+				},
+				status: Constants.StateStatus.SORT,
+			});
+		} else {
+			this.setState({
+				trigger: {
+					code: Constants.Events.CLEAR_SORT,
 					side,
 				},
 				status: Constants.StateStatus.SORT,
@@ -1321,34 +1407,9 @@ class ConnectedDataMapper extends React.Component {
 		}
 	}
 
-	onChangeSortOrder(side, order) {
-		const dataAccessor = this.state.dataAccessor;
-		this.state.sorters[side].order = order;
+	isSorterActive(sorter, side) {
 		const schema = getSchema(this.state, side);
-		if (dataAccessor.hasSorter(schema)) {
-			const sorter = dataAccessor.getSorter(schema);
-			sorter.setOrder(order);
-			dataAccessor.sort(schema);
-		}
-		this.setState({
-			trigger: {
-				code: Constants.Events.SORT_ORDER,
-				order,
-				side,
-			},
-			status: Constants.StateStatus.SORT,
-		});
-	}
-
-	clearSort(side) {
-		this.state.dataAccessor.clearSorter(getSchema(this.state, side));
-		this.setState({
-			trigger: {
-				code: Constants.Events.CLEAR_SORT,
-				side,
-			},
-			status: Constants.StateStatus.SORT,
-		});
+		return this.state.dataAccessor.isActiveSorter(schema, sorter);
 	}
 
 	getMainAction(actionId) {
@@ -1438,6 +1499,6 @@ stories
 			mapperId="mapper"
 			initialState={initialize(getUXInitialState(alternativePrefs))}
 			mappingActions={autoMapping}
-			schemaConfiguration={mapperSchemaConfiguration}
+			schemaConfiguration={getSchemaConfiguration()}
 		/>;
 	});

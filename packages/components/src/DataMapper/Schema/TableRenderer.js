@@ -266,7 +266,7 @@ class InternalHeaderRenderer {
 		return headerComponent;
 	}
 
-	getExtraProps() {
+	getExtraProps(columnKey) {
 		let extraProps = {};
 		if (this.schemaProps.headerRenderer && this.schemaProps.headerRenderer.getExtraProps) {
 			extraProps = this.schemaProps.headerRenderer.getExtraProps(columnKey);

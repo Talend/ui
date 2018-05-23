@@ -56,18 +56,19 @@ function getRowRenderer(schemaConfiguration, side) {
 	return null;
 }
 
-function getHeaderRenderer(schemaConfiguration, side) {
-	if (schemaConfiguration && schemaConfiguration.getHeaderRenderer) {
-		return schemaConfiguration.getHeaderRenderer(side);
-	}
-	return null;
-}
-
 function withHeader(schemaConfiguration, side) {
 	if (schemaConfiguration && schemaConfiguration.withHeader(side)) {
 		return schemaConfiguration.withHeader(side);
 	}
 	return false;
+}
+
+function getHeaderRenderer(schemaConfiguration, side) {
+	const renderHeader = withHeader(schemaConfiguration, side);
+	if (renderHeader && schemaConfiguration && schemaConfiguration.getHeaderRenderer) {
+		return schemaConfiguration.getHeaderRenderer(side);
+	}
+	return null;
 }
 
 function withTitle(schemaConfiguration, side) {

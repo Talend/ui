@@ -113,6 +113,10 @@ export default class DataAccessorWrapper {
 		return this.access(schema).hasSorter();
 	}
 
+	isActiveSorter(schema, sorter) {
+		return this.access(schema).isActiveSorter(sorter);
+	}
+
 	getSorter(schema) {
 		return this.access(schema).getSorter();
 	}
