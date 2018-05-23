@@ -43,15 +43,16 @@ export function buildDistanceInWordsLocale(t) {
 	};
 }
 
-let currentlanguage;
+let language;
 let locale;
 
 export default function getLocale(t) {
-	if (currentlanguage !== getCurrentLanguage()) {
+	const currentlanguage = getCurrentLanguage();
+	if (language !== currentlanguage) {
 		locale = {
 			distanceInWords: buildDistanceInWordsLocale(t),
 		};
-		currentlanguage = getCurrentLanguage();
+		language = getCurrentLanguage();
 	}
 
 	return locale;

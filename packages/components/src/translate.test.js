@@ -7,11 +7,10 @@ describe('getCurrentLanguage', () => {
 	});
 	it('should return the locale', () => {
 		expect(i18next.language).toBe(undefined);
-		let language = getCurrentLanguage();
+		expect(getCurrentLanguage()).toBe('en');
 
-		expect(language).toBe('en');
 		i18next.language = 'fr';
-		language = getCurrentLanguage();
-		expect(language).toBe('fr');
+
+		expect(getCurrentLanguage()).toBe('fr');
 	});
 });

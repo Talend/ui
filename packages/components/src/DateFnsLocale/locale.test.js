@@ -93,11 +93,9 @@ describe('getLocale', () => {
 	it('should return the locale', () => {
 		const locale = getLocale(getDefaultT());
 
-		expect(locale).toEqual({
-			distanceInWords: {
-				localize: locale.distanceInWords.localize,
-			},
-		});
+		expect(locale.distanceInWords).toBeDefined();
+		expect(locale.distanceInWords.localize).toBeDefined();
+		expect(locale.distanceInWords.localize('lessThanXSeconds', 2)).toBe('less than 2 seconds');
 	});
 
 	it('should return a locale different when we change the i18next language', () => {

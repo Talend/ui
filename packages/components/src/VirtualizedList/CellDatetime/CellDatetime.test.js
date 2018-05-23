@@ -25,7 +25,7 @@ describe('CellDatetime', () => {
 		};
 
 		const wrapper = shallow(
-			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} t={getDefaultT()} />,
+			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
 		);
 		// then
 		expect(distanceInWordsToNow).toHaveBeenCalledWith(1474495200000, {
@@ -43,7 +43,7 @@ describe('CellDatetime', () => {
 		const strDate = computeValue(cellData, columnData, getDefaultT());
 
 		// then
-		expect(strDate.indexOf('ago')).toBeGreaterThan(-1);
+		expect(strDate).toEqual(expect.stringContaining('ago'));
 	});
 
 	it('should format according to the pattern', () => {

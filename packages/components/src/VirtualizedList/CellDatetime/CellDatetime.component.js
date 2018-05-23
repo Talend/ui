@@ -5,7 +5,7 @@ import { distanceInWordsToNow, format } from 'date-fns';
 import invariant from 'invariant';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { getDefaultT } from '../../translate';
+import getDefaultT from '../../translate';
 import getLocale from '../../DateFnsLocale/locale';
 import styles from './CellDatetime.scss';
 
@@ -47,10 +47,10 @@ CellDatetimeComponent.propTypes = {
 		mode: PropTypes.string.isRequired,
 		pattern: PropTypes.string,
 	}).isRequired,
-	t: PropTypes.string.isRequired,
+	t: PropTypes.string,
 };
 CellDatetimeComponent.defaultProps = {
-	t: getDefaultT,
+	t: getDefaultT(),
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS)(CellDatetimeComponent);
