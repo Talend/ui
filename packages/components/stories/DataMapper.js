@@ -213,7 +213,7 @@ const COLUMNS = {
 	},
 	MANDATORY: {
 		key: 'mandatory',
-		label: 'Mandatory',
+		label: '',
 	},
 };
 
@@ -286,6 +286,9 @@ const schemaDataAccessor = {
 	* Returns the data corresponding to the given element and key.
 	*/
   getRowData(element, key) {
+		if (key === COLUMNS.MANDATORY.key) {
+			return element.mandatory ? '*' : '';
+		}
     return element[key];
   },
 	/**
@@ -328,7 +331,7 @@ const mapperClassNameProvider = {
 
 const schemaColumns = {
 	input: [ COLUMNS.TYPE.key, COLUMNS.NAME.key ],
-	output: [ COLUMNS.NAME.key, COLUMNS.TYPE.key, COLUMNS.DESC.key ],
+	output: [ COLUMNS.MANDATORY.key, COLUMNS.NAME.key, COLUMNS.TYPE.key, COLUMNS.DESC.key ],
 };
 
 const nameFilterId = 'name-filter';
