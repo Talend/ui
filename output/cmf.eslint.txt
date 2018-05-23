@@ -27,7 +27,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:1  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/http.js
-  258:3  warning  Unexpected console statement  no-console
+  250:3  warning  Unexpected console statement  no-console
+  267:3  warning  Unexpected console statement  no-console
+  287:3  warning  Unexpected console statement  no-console
 
-✖ 13 problems (9 errors, 4 warnings)
+✖ 15 problems (9 errors, 6 warnings)
 
