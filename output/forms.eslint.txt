@@ -12,7 +12,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
   52:9  error  'defaultProps' is not defined      no-undef
-  62:2  error  'onPropertyChange' is not defined  no-undef
+  63:2  error  'onPropertyChange' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/forms/src/Form.test.js
   10:36  error  Absolute imports should come before relative imports  import/imports-first
