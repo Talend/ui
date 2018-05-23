@@ -11,14 +11,13 @@
 		}
 	}
 
-	.tc-table {
-		margin: 4px;
-		padding: 4px;
-	}
-
 	.tc-table-row {
 		height: 25px;
 		background-color: #fff;
+	}
+
+	.tc-table-row-data-name {
+		padding: 2px;
 	}
 
 	.tc-table-row-data-type {
@@ -28,14 +27,14 @@
 		float: right;
 		text-align: right;
 		color: #66bdff;
+		padding: 2px;
 	}
 
 	.tc-table-row-data-description {
 		color: #aaa;
 		font-style: italic;
-		text-overflow: ellipsis;
-		overflow: hidden;
 		padding: 2px;
+		white-space: nowrap;
 	}
 
 	.highlighted {
@@ -58,13 +57,16 @@
 		text-align: left;
 	}
 
+	td > div {
+		width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden
+	}
+
 	.tc-table.story-table table {
 		position: absolute;
-		display: flex;
-		flex-direction: column;
 		height: 100%;
 		width: 100%;
-		white-space: nowrap;
 	}
 
 	.tc-table.story-table thead {
@@ -78,7 +80,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 		width: 100%;
-		height: 100%;
+		height: 300px;
 	}
 
 	.tc-table.story-table .tr-head {
@@ -112,6 +114,7 @@
 			flex-grow: 0;
 			flex-shrink: 0;
 			flex-basis: auto;
+			max-width: 350px;
 		}
 	}
 
@@ -125,7 +128,7 @@
 			div[draggable='true'] {
 				.tc-table-clickable-cell {
 					position: absolute;
-					top: 0;
+					top: 2px;
 					left: 0;
 					bottom: 0;
 					width: 100vw;
