@@ -40,8 +40,8 @@ $dropdown-caret-up-axis: -45deg !default;
 			padding: $padding-small $padding-normal;
 			transition: 0.1s background-color ease-out;
 
-			svg {
-				margin-right: $padding-smaller;
+			svg + * {
+				margin-left: $padding-smaller;
 			}
 		}
 	}
