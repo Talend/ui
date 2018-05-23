@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -8,6 +9,22 @@ import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
+
+/**
+ * Cell renderer that displays hello + text
+ */
+function CellWithHello({ cellData }) {
+	return (
+		<div>
+			<div>hello {cellData}</div>
+		</div>
+	);
+}
+
+CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
+CellWithHello.propTypes = {
+	cellData: PropTypes.string,
+};
 
 const icons = {
 	'talend-apache': talendIcons['talend-apache'],
@@ -226,7 +243,12 @@ const propsWithVirtualized = {
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
+			{
+				key: 'created',
+				label: 'Created',
+				type: 'datetime',
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			},
 			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
 		],
 		items: [
@@ -258,8 +280,7 @@ const propsWithVirtualized = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: 1518596913333,
 				modified: minusOneHours,
-				author:
-					'Jean-Pierre DUPONT',
+				author: 'Jean-Pierre DUPONT',
 				className: 'item-2-class',
 			},
 			{
@@ -581,6 +602,30 @@ storiesOf('List', module)
 					</pre>
 				</p>
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Custom cell renderer', () => {
+		const customProps = cloneDeep(props);
+
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'hello' },
+			{ key: 'cat', label: 'Cat' },
+		];
+
+		customProps.list.items = itemsForListWithIcons;
+		customProps.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<List {...customProps} />
 			</div>
 		);
 	})

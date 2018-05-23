@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { cloneDeep } from 'lodash';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import { ListToVirtualizedList, HiddenHeader } from './ListToVirtualizedList.component';
@@ -10,7 +11,7 @@ const props = {
 	id: 'mylistid',
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
-		{ key: 'id', label: 'Id' },
+		{ key: 'id', label: 'Id', type: 'customType' },
 		{ key: 'label', label: 'Label' },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
@@ -114,6 +115,23 @@ describe('ListToVirtualizedList', () => {
 			const eProps = element.props();
 			if (eProps.label === 'Tag') {
 				expect(eProps.cellRenderer).toBe(CellBadge.cellRenderer);
+			}
+		});
+	});
+
+	it('should support custom cell renderer', () => {
+		const clonedProps = cloneDeep(props);
+		const renderer = function test() {
+			return 'ok';
+		};
+		clonedProps.cellDictionary = { customType: { cellRenderer: renderer } };
+		const wrapper = shallow(<ListToVirtualizedList {...clonedProps} />);
+
+		// then
+		wrapper.find(VirtualizedList.Content).forEach(element => {
+			const eProps = element.props();
+			if (eProps.label === 'Id') {
+				expect(eProps.cellRenderer).toBe(renderer);
 			}
 		});
 	});
