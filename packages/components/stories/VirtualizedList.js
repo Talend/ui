@@ -54,6 +54,7 @@ const titleActions = [
 		'data-feature': 'list.item.edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
+		hideLabel: true,
 	},
 	{
 		id: 'delete',
@@ -61,6 +62,7 @@ const titleActions = [
 		'data-feature': 'list.item.delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
+		hideLabel: true,
 	},
 	{
 		id: 'related',
