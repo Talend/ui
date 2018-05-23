@@ -6,7 +6,7 @@ This modules contains a set of saga ready to use in CMF to write your business c
 
 The http saga is here to help you execute some http request from inside any saga.
 
-## basic usage
+## basic usage
 
 ```javascript
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`);
@@ -54,8 +54,12 @@ const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample
 
 importing the saga, allow you to statically call any member function `get, post ...` but also `create` which return an object with the exact same API.
 
-`create` also allow you to provide a configuration object.
-`setDefaultConfig` also allow you to provide a default header object which will be use at each http call.
+`setDefaultConfig` also allow you to provide a default config object which will be use at each http call.
+This in the host application, and children library that use the same version of CMF
+
+**Note** those children library should not use setDefaultConfig !
+**Only** the host application only should use setDefaultConfig !
+calling `setDefaultConfig` twice will not change the first setup defaultConfig and will print an error.
 
 ```javascript
 import http, { setDefaultConfig } from '@talend/react-cmf/lib/sagas/http';
@@ -101,6 +105,17 @@ const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample
 ```
 
 The above configuration allow the configured instance of `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
+
+## Changing the http defaultConfig `Accept-Language` headers
+
+to change dynamicly this setting during the lifecycle of the application the `setDefaultLanguage` api is provided by the http module.
+
+if the defaultConfig is not already set this will create an error.
+```javascript
+import { setDefaultLanguage } from '@talend/react-cmf/lib/sagas/http';
+
+setDefaultLanguage('fr-FR');
+```
 
 # Component Saga
 

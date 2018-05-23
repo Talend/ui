@@ -10,8 +10,17 @@ import {
 	testHTTPCode,
 } from '../middlewares/http/constants';
 
+/**
+ * Storage point for the doc setup using `setDefaultConfig`
+ */
 let defaultConfig = {};
 
+/**
+ * merge the CSRFToken handling rule from the module defaultConfig
+ * into config argument
+ * @param {Object} config
+ * @returns {Object}
+ */
 export function handleCSRFToken(config) {
 	return mergeCSRFToken({
 		security: config.security,
@@ -226,7 +235,8 @@ export function* httpGet(url, config, options) {
 }
 
 /**
- * setDefaultHeader - define a default header to use with the saga http
+ * setDefaultHeader - define a default config to use with the saga http
+ * this default config is stored in this module for the whole application
  *
  * @param  {object} config key/value of header to apply
  * @example
@@ -236,7 +246,26 @@ export function* httpGet(url, config, options) {
  * }});
  */
 export function setDefaultConfig(config) {
-	defaultConfig = config;
+	if (defaultConfig) {
+		console.error(
+			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
+		);
+	} else {
+		defaultConfig = config;
+	}
+}
+
+/**
+ * To change only the Accept-Language default headers
+ * on the global http defaultConfig
+ * @param {String} language
+ */
+export function setDefaultLanguage(language) {
+	if (defaultConfig) {
+		defaultConfig.headers['Accept-Language'] = language;
+	} else {
+		console.error('ERROR: you should');
+	}
 }
 
 /**
