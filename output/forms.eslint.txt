@@ -3,7 +3,7 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  161:9  error  'defaultProps' is not defined  no-undef
+  160:9  error  'defaultProps' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   10:10  error  'defaultProps' is not defined                                                        no-undef
@@ -46,15 +46,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   83:9  error  'noResultStyle' is not defined       no-undef
   84:9  error  'emptyStyle' is not defined          no-undef
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
-  25:22  error  'schema' is missing in props validation    react/prop-types
-  25:30  error  'value' is missing in props validation     react/prop-types
-  25:37  error  'formData' is missing in props validation  react/prop-types
-  25:47  error  'onChange' is missing in props validation  react/prop-types
-  47:24  error  'schema' is missing in props validation    react/prop-types
-  47:32  error  'value' is missing in props validation     react/prop-types
-  47:39  error  'formData' is missing in props validation  react/prop-types
-  47:49  error  'onChange' is missing in props validation  react/prop-types
-
-✖ 28 problems (28 errors, 0 warnings)
+✖ 20 problems (20 errors, 0 warnings)
 
