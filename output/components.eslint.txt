@@ -26,9 +26,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Table/TableClickableCell.js
-  37:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
 /home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
   132:9  error  'displayName' is not defined  no-undef
   134:9  error  'propTypes' is not defined    no-undef
@@ -36,6 +33,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/InputTitleSubHeader/InlineFormSubHeader.component.js
   11:9  error  'propTypes' is not defined     no-undef
   19:9  error  'defaultProps' is not defined  no-undef
+
+/home/travis/build/Talend/ui/packages/components/src/Table/TableClickableCell.js
+  37:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
   24:9  error  'displayName' is not defined  no-undef
@@ -53,5 +53,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 22 problems (21 errors, 1 warning)
+✖ 23 problems (22 errors, 1 warning)
 
