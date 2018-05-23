@@ -28,6 +28,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
     rowHeight={39}
     rowSelection="single"
     suppressDragLeaveHidesColumns={true}
+    suppressPropertyNamesCheck={true}
     tabToNextCell={[Function]}
   />
 </div>
@@ -282,6 +283,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
     rowHeight={39}
     rowSelection="single"
     suppressDragLeaveHidesColumns={true}
+    suppressPropertyNamesCheck={true}
     tabToNextCell={[Function]}
   />
 </div>

@@ -31,8 +31,9 @@ function merge(options, errorCallback) {
 		return onErrorCallback();
 	}
 
-	const { quiet, recursive } = Object.assign(
+	const { dev, quiet, recursive } = Object.assign(
 		{
+			dev: false,
 			quiet: false,
 			recursive: false,
 		},
@@ -44,10 +45,12 @@ function merge(options, errorCallback) {
 
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
-	const cmfconfig = importAndValidate(cmfconfigPath, onError);
-	const sources = cmfconfig.settings.sources;
-	const destination =
-		cmfconfig.settings.destination && path.join(process.cwd(), cmfconfig.settings.destination);
+	const cmfconfig = options.cmfConfig || importAndValidate(cmfconfigPath, onError);
+	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
+	let destination = cmfconfig.settings.destination;
+	if (!path.isAbsolute(destination)) {
+		destination = path.join(process.cwd(), cmfconfig.settings.destination);
+	}
 	let settings;
 	let jsonFiles;
 
@@ -59,7 +62,9 @@ function merge(options, errorCallback) {
 		);
 
 		logger('Extracting configuration from:', jsonFiles);
-		const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile)).concat([{}]);
+		const configurations = jsonFiles.map(
+			jsonFile => importAndValidate(jsonFile, onError)
+		).concat([{}]);
 
 		// Merge json stuff in one object / settings
 		settings = deepmerge.all(configurations, {
@@ -95,6 +100,7 @@ function merge(options, errorCallback) {
 			namespaces,
 			cmfconfig.settings.i18n.languages,
 			cmfconfig.settings.i18n['extract-from'],
+			cmfconfig.settings.i18n['extract-sort'] || true,
 		);
 	}
 

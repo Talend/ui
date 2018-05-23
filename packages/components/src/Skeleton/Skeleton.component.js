@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import Icon from '../Icon';
 import theme from './Skeleton.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import '../translate';
 
 const TYPES = {
 	icon: 'icon',
@@ -98,4 +98,4 @@ Skeleton.defaultProps = {
 
 Skeleton.displayName = 'Skeleton';
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Skeleton);
+export default translate(I18N_DOMAIN_COMPONENTS)(Skeleton);

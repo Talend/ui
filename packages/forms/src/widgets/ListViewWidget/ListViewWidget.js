@@ -4,7 +4,7 @@ import ListView from '@talend/react-components/lib/ListView';
 import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 import { abort, search } from './ListViewWidget.actions';
 
 import {
@@ -19,6 +19,18 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
 
+function areOptionsDifferent(options, nextOptions) {
+	if (options.enumOptions.length !== nextOptions.enumOptions.length) {
+		return true;
+	}
+	for (let index = 0; index < options.enumOptions.length; index += 1) {
+		if (options.enumOptions[index].value !== nextOptions.enumOptions[index].value) {
+			return true;
+		}
+	}
+	return false;
+}
+
 function getItems(options, value, instance) {
 	return options.enumOptions.map((option, index) => ({
 		index,
@@ -27,6 +39,10 @@ function getItems(options, value, instance) {
 		value: option.value,
 		onChange: onItemChange.bind(instance),
 	}));
+}
+
+function getItemHeight() {
+	return DEFAULT_ITEM_HEIGHT;
 }
 
 class ListViewWidget extends React.Component {
@@ -59,6 +75,12 @@ class ListViewWidget extends React.Component {
 
 		const items = getItems(options, value, this);
 
+		this.onToggleAll = onToggleAll.bind(this);
+		this.onInputChange = onInputChange.bind(this);
+		this.onAddKeyDown = onAddKeyDown.bind(this);
+		this.onAbortHandler = onAbortHandler.bind(this);
+		this.getStateFromOptions = this.getStateFromOptions.bind(this);
+
 		this.state = {
 			displayMode: defaultDisplayMode,
 			required: !!(props.schema && props.schema.required),
@@ -66,24 +88,34 @@ class ListViewWidget extends React.Component {
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
-			onToggleAll: onToggleAll.bind(this),
-			onInputChange: onInputChange.bind(this),
-			onAddKeyDown: onAddKeyDown.bind(this),
-			onAbortHandler: onAbortHandler.bind(this),
 			toggleAllChecked: items.length === items.filter(i => i.checked).length,
-			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
 			items,
 			displayedItems: items,
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const options = this.props.options || {};
-		const nextOptions = nextProps.options || {};
-		if (options.enumOptions !== nextOptions.enumOptions) {
-			const items = getItems(nextOptions, nextProps.value, this);
-			this.setState({ items, displayedItems: items });
+		const options = this.props.options;
+		const nextOptions = nextProps.options;
+		if (areOptionsDifferent(options, nextOptions)) {
+			this.setState(this.getStateFromOptions(nextOptions), () => this.props.onChange([]));
 		}
+	}
+
+	/**
+	 * This computes new derived state when options change
+	 * Compute new items
+	 * Reset search and displayedItems
+	 * Update toggleAll status
+	 */
+	getStateFromOptions(options) {
+		const items = getItems(options, [], this);
+		return {
+			items,
+			displayedItems: items,
+			searchCriteria: null,
+			toggleAllChecked: items.every(item => item.checked),
+		};
 	}
 
 	setFormData() {
@@ -119,10 +151,14 @@ class ListViewWidget extends React.Component {
 
 	render() {
 		const listViewProps = {
+			getItemHeight,
+			onToggleAll: this.onToggleAll,
+			onInputChange: this.onInputChange,
+			onAddKeyDown: this.onAddKeyDown,
+			onAbortHandler: this.onAbortHandler,
 			...this.state,
+			...this.props,
 			items: this.state.displayedItems,
-			id: this.props.id,
-			t: this.props.t,
 		};
 		return (
 			<div>
@@ -136,7 +172,7 @@ ListViewWidget.defaultProps = {
 	options: {
 		enumOptions: [],
 	},
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -154,4 +190,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
+export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);

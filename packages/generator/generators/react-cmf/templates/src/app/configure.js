@@ -4,7 +4,7 @@ import redirect from './actions/redirect';
 import { fetchDataSets } from './actions/dataset';
 import { fetchDataStores } from './actions/datastore';
 
-import App from './components/App.container';
+import App from './components/App';
 
 const registerComponent = api.component.register;
 const registerActionCreator = api.actionCreator.register;

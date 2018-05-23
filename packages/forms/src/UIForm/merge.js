@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { merge } from 'talend-json-schema-form-core';
+import { merge } from '@talend/json-schema-form-core';
 import get from 'lodash/get';
 
 import FieldTemplate from './fields/FieldTemplate';
