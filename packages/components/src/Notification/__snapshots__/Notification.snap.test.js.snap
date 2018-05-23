@@ -4,7 +4,7 @@ exports[`Notification should render 1`] = `
 <div
   className="theme-tc-notification-container tc-notification-container"
 >
-  <span>
+  <div>
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-info tc-notification-info"
       onClick={[Function]}
@@ -236,6 +236,6 @@ exports[`Notification should render 1`] = `
         className="theme-tc-notification-timer-bar tc-notification-timer-bar"
       />
     </div>
-  </span>
+  </div>
 </div>
 `;

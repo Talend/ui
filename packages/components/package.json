@@ -106,7 +106,7 @@
     "react-i18next": "^7.6.1",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "^15.6.2",
-    "react-transition-group": "^1.2.1",
+    "react-transition-group": "^2.3.1",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
     "sass-loader": "6.0.6",
@@ -128,7 +128,7 @@
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-i18next": "^7.6.1",
-    "react-transition-group": "^1.2.1",
+    "react-transition-group": "^2.3.1",
     "uuid": "3.0.1"
   },
   "jest": {
