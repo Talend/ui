@@ -24,8 +24,8 @@
 		padding: 8px;
 		margin: 8px;
 		background-color: $mapper_background_color;
-		height: 600px;
-		width: 80vw;
+		height: 500px;
+		width: 90vw;
 	}
 
 	.mapper-element:nth-child(1) {
@@ -205,7 +205,7 @@
 			flex-grow: 0;
 			flex-shrink: 0;
 			flex-basis: auto;
-			width: 150px;
+			width: 100px;
 		}
 		td:nth-child(3),
 		th:nth-child(3) {

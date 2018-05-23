@@ -14,7 +14,7 @@ import {
 import { DataMapper as Mapper } from '../src/index';
 import * as Constants from '../src/DataMapper/Constants';
 import { isSelected } from '../src/DataMapper/Schema/Schema';
-import { IconsProvider } from '../src/index';
+import { ActionBar, IconsProvider } from '../src/index';
 
 const Keys = {
 	PAGE_UP: 33,
@@ -590,6 +590,93 @@ function initialize(state) {
 	dataAccessor.registerSchema(state.outputSchema, Constants.MappingSide.OUTPUT);
 	registerFilters(dataAccessor, state.outputSchema, state.filters.output);
 	return state;
+}
+
+const MainActions = {
+	UNDO: 'undo',
+	REDO: 'redo',
+	SHOW_ALL: 'show-all',
+	CLEAR: 'clear',
+	CLEAR_ALL: 'clear-all',
+};
+
+function getShowHideAction(state, getAction) {
+	const action = {
+		id: MainActions.SHOW_ALL,
+		tooltipPlacement: 'bottom',
+		onClick: getAction(MainActions.SHOW_ALL),
+		disabled: false,
+	}
+	if (state.preferences.showAll) {
+		action.icon = 'talend-eye-slash';
+		action.tooltipLabel = 'Hide all connections';
+	} else {
+		action.icon = 'talend-eye';
+		action.tooltipLabel = 'Show all connections';
+	}
+	return action;
+}
+
+function getClearAction(state, getAction) {
+	const action = {
+		id: MainActions.CLEAR,
+		icon: 'talend-cross',
+		tooltipLabel: 'Remove selected connection(s)',
+		tooltipPlacement: 'bottom',
+		onClick: getAction(MainActions.CLEAR),
+	}
+	action.disabled = !state.selection ||
+		!state.dataAccessor.isElementMapped(state.mapping, state.selection.element, state.selection.side);
+	return action;
+}
+
+function getClearAllAction(state, getAction) {
+	const action = {
+		id: MainActions.CLEAR_ALL,
+		icon: 'talend-trash',
+		tooltipLabel: 'Clear all mapping',
+		tooltipPlacement: 'bottom',
+		onClick: getAction(MainActions.CLEAR_ALL),
+	}
+	action.disabled = state.dataAccessor.isMappingEmpty(state.mapping);
+	return action;
+}
+
+function getMainActions(state, getAction) {
+	const dataAccessor = state.dataAccessor;
+	return {
+		left: [
+			{
+				displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+				actions: [
+					{
+						id: MainActions.UNDO,
+						icon: 'talend-undo',
+						tooltipLabel: dataAccessor.getUndoLabel(),
+						tooltipPlacement: 'bottom',
+						onClick: getAction(MainActions.UNDO),
+						disabled: !dataAccessor.canUndo(),
+					},
+					{
+						id: MainActions.REDO,
+						icon: 'talend-redo',
+						tooltipLabel: dataAccessor.getRedoLabel(),
+						tooltipPlacement: 'bottom',
+						onClick: getAction(MainActions.REDO),
+						disabled: !dataAccessor.canRedo(),
+					},
+				],
+			},
+			{
+				displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+				actions: [
+					getShowHideAction(state, getAction),
+					getClearAction(state, getAction),
+					getClearAllAction(state, getAction),
+				],
+			},
+		],
+	};
 }
 
 /**
@@ -1424,12 +1511,6 @@ class ConnectedDataMapper extends React.Component {
 				return this.clearConnection;
 			case MainActions.CLEAR_ALL:
 				return this.clearMapping;
-			case MainActions.SORT:
-				return this.onSort;
-			case MainActions.CLEAR_SORT:
-				return this.clearSort;
-			case MainActions.SORT_ORDER:
-				return this.onChangeSortOrder;
 			default:
 				return null;
 		}
@@ -1447,6 +1528,10 @@ class ConnectedDataMapper extends React.Component {
 		} = this.props;
 		return (
 			<div>
+				<ActionBar
+					className="main-tools"
+					actions={getMainActions(this.state, this.getMainAction)}
+				/>
 				<Mapper
 					dataAccessor={this.state.dataAccessor}
 					ref={this.updateMapperRef}
