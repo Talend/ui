@@ -96,7 +96,6 @@ export class FilterBarComponent extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
-		this.applyFilter = this.applyFilter.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
 	}
 
@@ -121,19 +120,15 @@ export class FilterBarComponent extends React.Component {
 	}
 
 	onFilter(event) {
-		this.applyFilter(event);
-	}
-
-	onSubmit(event) {
-		event.preventDefault();
-		return this.applyFilter(event);
-	}
-
-	applyFilter(event) {
 		this.setState({ value: event.target.value });
 		if (this.props.onFilter) {
 			this.props.onFilter(event, event.target.value);
 		}
+	}
+
+	onSubmit(event) {
+		event.preventDefault();
+		return this.onFilter(event);
 	}
 
 	render() {
