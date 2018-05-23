@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group';
 import classNames from 'classnames';
 
 import { Action } from '../Actions';
@@ -176,7 +176,7 @@ class NotificationsContainer extends React.Component {
 		return (
 			<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
 				{
-					<ReactCSSTransitionGroup
+					<CSSTransitionGroup
 						transitionName="tc-notification"
 						transitionEnterTimeout={enterTimeout}
 						transitionLeaveTimeout={leaveTimeout}
@@ -194,7 +194,7 @@ class NotificationsContainer extends React.Component {
 								onClick={this.onClick}
 							/>
 						))}
-					</ReactCSSTransitionGroup>
+					</CSSTransitionGroup>
 				}
 			</div>
 		);
