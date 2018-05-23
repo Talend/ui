@@ -110,6 +110,7 @@ describe('Layout', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should render layout with subHeader in OneColumn mode', () => {
 		const wrapper = shallow(
 			<Layout subHeader={subHeader} mode="OneColumn">
@@ -118,6 +119,7 @@ describe('Layout', () => {
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should render layout with subHeader in TwoColumns mode', () => {
 		const wrapper = shallow(
 			<Layout subHeader={subHeader} mode="TwoColumns">

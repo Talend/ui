@@ -571,7 +571,7 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You add sort management with column header click.<br />
+					You add sort management with column header click.
 				</p>
 				<pre>
 					listProps.sort.field = 'name';<br />
@@ -639,7 +639,7 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You can get limited options for displayMode.<br />
+					You can get limited options for displayMode.
 				</p>
 				<pre>
 					toolbarProps.display.displayModes = ['large', 'table'];<br />
@@ -685,7 +685,7 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list with hidden header labels.<br />
+					Display the list with hidden header labels.
 				</p>
 				<pre>
 					const props = &#123;...&#125;;<br />
