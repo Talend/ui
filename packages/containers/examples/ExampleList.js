@@ -336,7 +336,7 @@ const ExampleList = {
 	),
 	'custom renderer': () => {
 		const cellDictionary = {
-			hello: { cellRendererComponent: 'helloComp', cellRendererComponentId: 'default' },
+			hello: { cellRendererComponent: 'helloComp' },
 		};
 
 		return (

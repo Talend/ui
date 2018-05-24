@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { cloneDeep } from 'lodash';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import { ListToVirtualizedList, HiddenHeader } from './ListToVirtualizedList.component';
@@ -123,10 +122,8 @@ describe('ListToVirtualizedList', () => {
 		const renderer = function test() {
 			return 'ok';
 		};
-		const customDictionnary = { customType: { cellRenderer: renderer } };
-		const wrapper = shallow(
-			<ListToVirtualizedList {...props} cellDictionary={customDictionnary} />,
-		);
+		const customDictionary = { customType: { cellRenderer: renderer } };
+		const wrapper = shallow(<ListToVirtualizedList {...props} cellDictionary={customDictionary} />);
 
 		// then
 		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });

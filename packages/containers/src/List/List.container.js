@@ -209,7 +209,7 @@ class List extends React.Component {
 				const current = props.cellDictionary[key];
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = {
-					...omit(current, ['cellRendererComponent', 'cellRendererComponentId']),
+					...omit(current, ['cellRendererComponent']),
 					cellRenderer: props.getComponent(current.cellRendererComponent),
 				};
 				return acc;
