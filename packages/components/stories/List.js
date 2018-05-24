@@ -16,7 +16,7 @@ import i18n, { LanguageSwitcher } from './config/i18n';
 function CellWithHello({ cellData }) {
 	return (
 		<div>
-			<div>hello {cellData}</div>
+			<div>hello {cellData} !</div>
 		</div>
 	);
 }
@@ -616,7 +616,7 @@ storiesOf('List', module)
 		];
 
 		customProps.list.items = itemsForListWithIcons;
-		customProps.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+		customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
