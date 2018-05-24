@@ -247,6 +247,7 @@ export function* httpGet(url, config, options) {
  */
 export function setDefaultConfig(config) {
 	if (defaultConfig) {
+		// eslint-disable-next-line no-console
 		console.error(
 			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
 		);
@@ -264,6 +265,7 @@ export function setDefaultLanguage(language) {
 	if (get(defaultConfig, 'headers')) {
 		defaultConfig.headers['Accept-Language'] = language;
 	} else {
+		// eslint-disable-next-line no-console
 		console.error('ERROR: you should call setDefaultConfig');
 	}
 }
@@ -284,6 +286,7 @@ export default {
 	put: httpPut,
 	patch: httpPatch,
 	create(createConfig = {}) {
+		// eslint-disable-next-line no-console
 		console.warn('DEPRECATED: http.create(config) is deprecated please use http directly');
 		setDefaultConfig(createConfig);
 		return {
