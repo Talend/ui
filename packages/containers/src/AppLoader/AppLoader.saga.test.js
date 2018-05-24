@@ -1,4 +1,4 @@
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 import registry from '@talend/react-cmf/lib/registry';
 import { call, all } from 'redux-saga/effects';
 import { appLoaderSaga, handleStep, ACTION_CREATORS, WAIT_FOR, waitFor } from './AppLoader.saga';
