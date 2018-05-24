@@ -95,6 +95,7 @@ export class FilterBarComponent extends React.Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
 	}
 
