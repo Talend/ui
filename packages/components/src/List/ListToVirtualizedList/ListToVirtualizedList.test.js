@@ -129,13 +129,8 @@ describe('ListToVirtualizedList', () => {
 		);
 
 		// then
-		expect(VirtualizedList.Content).toBe(1);
-		wrapper.find(VirtualizedList.Content).forEach(element => {
-			const eProps = element.props();
-			if (eProps.label === 'Id') {
-				expect(eProps.cellRenderer).toBe(renderer);
-			}
-		});
+		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		expect(column.props().cellRenderer).toBe(renderer);
 	});
 
 	it('should adapt sort info', () => {
