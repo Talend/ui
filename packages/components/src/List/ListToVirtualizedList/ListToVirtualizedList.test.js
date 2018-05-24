@@ -120,14 +120,16 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should support custom cell renderer', () => {
-		const clonedProps = cloneDeep(props);
 		const renderer = function test() {
 			return 'ok';
 		};
-		clonedProps.cellDictionary = { customType: { cellRenderer: renderer } };
-		const wrapper = shallow(<ListToVirtualizedList {...clonedProps} />);
+		const customDictionnary = { customType: { cellRenderer: renderer } };
+		const wrapper = shallow(
+			<ListToVirtualizedList {...props} cellDictionary={customDictionnary} />,
+		);
 
 		// then
+		expect(VirtualizedList.Content).toBe(1);
 		wrapper.find(VirtualizedList.Content).forEach(element => {
 			const eProps = element.props();
 			if (eProps.label === 'Id') {

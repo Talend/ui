@@ -114,7 +114,6 @@ ListToVirtualizedList.propTypes = {
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
-	cellDictionary: {},
 };
 HiddenHeader.propTypes = {
 	label: PropTypes.string,

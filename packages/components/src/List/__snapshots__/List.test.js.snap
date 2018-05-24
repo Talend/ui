@@ -50,7 +50,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
     className="tc-list-display-virtualized"
   >
     <ListToVirtualizedList
-      cellDictionary={Object {}}
       columns={
         Array [
           Object {
@@ -1851,7 +1850,6 @@ exports[`List should render 1`] = `
     className="tc-list-display-virtualized"
   >
     <ListToVirtualizedList
-      cellDictionary={Object {}}
       columns={
         Array [
           Object {
@@ -3707,7 +3705,6 @@ exports[`List should render id if provided 1`] = `
     className="tc-list-display-virtualized"
   >
     <ListToVirtualizedList
-      cellDictionary={Object {}}
       columns={
         Array [
           Object {
