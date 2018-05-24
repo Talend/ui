@@ -2,12 +2,10 @@ import cmf from '@talend/react-cmf';
 import { registerAllContainers } from './register';
 
 jest.mock('@talend/react-cmf', () => ({
-	cmf: {
-		component: {
-			registerMany: () => {},
-			register: () => {},
-			has: () => false,
-		},
+	component: {
+		registerMany: () => {},
+		register: () => {},
+		has: () => false,
 	},
 	cmfConnect: () => component => component,
 	componentState: {},
