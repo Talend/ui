@@ -14,11 +14,7 @@ import i18n, { LanguageSwitcher } from './config/i18n';
  * Cell renderer that displays hello + text
  */
 function CellWithHello({ cellData }) {
-	return (
-		<div>
-			<div>hello {cellData} !</div>
-		</div>
-	);
+	return <div>hello {cellData} !</div>;
 }
 
 CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
@@ -591,9 +587,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					You add sort management with column header click.
-				</p>
+				<p>You add sort management with column header click.</p>
 				<pre>
 					listProps.sort.field = 'name';<br />
 					listProps.sort.isDescending = false;<br />
@@ -621,10 +615,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Display the list in table mode.<br />
-					This is the default mode.
-				</p>
+				<p>Display the list with a custom renderer for the status column.</p>
 				<List {...customProps} />
 			</div>
 		);
@@ -683,9 +674,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					You can get limited options for displayMode.
-				</p>
+				<p>You can get limited options for displayMode.</p>
 				<pre>
 					toolbarProps.display.displayModes = ['large', 'table'];<br />
 					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
@@ -709,9 +698,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					To have not clickable titles, just don't pass any onClick callback
-				</p>
+				<p>To have not clickable titles, just don't pass any onClick callback</p>
 				<pre>
 					const props = &#123;...&#125;;<br />
 					props.list.titleProps.onClick = null;<br />
@@ -729,9 +716,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Display the list with hidden header labels.
-				</p>
+				<p>Display the list with hidden header labels.</p>
 				<pre>
 					const props = &#123;...&#125;;<br />
 					props.list.columns[0].hideHeader = true;<br />
