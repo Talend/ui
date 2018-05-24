@@ -1,18 +1,53 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Actions } from '../../Actions';
+import { translate } from 'react-i18next';
+import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
+import getDefaultT, { DEFAULT_I18N } from '../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './CellTitleActions.scss';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
-function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsKey }) {
+function isDropdown(actionDef) {
+	return actionDef.displayMode === 'dropdown';
+}
+
+export function CellTitleActionsComponent({
+	rowData,
+	actionsKey,
+	displayMode,
+	persistentActionsKey,
+	id,
+	t,
+}) {
 	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
-		actions.push(<Actions key={actions.length} actions={rowData[actionsKey]} hideLabel link />);
+		const actionDefinitions =
+			rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
+		const dropdownDefinitions = rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
+
+		actions.push(
+			<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
+				{dropdownDefinitions && (
+					<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
+				)}
+				{actionDefinitions && (
+					<ActionDropdown
+						id={id}
+						className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
+						items={actionDefinitions}
+						label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
+						hideLabel
+						link
+						noCaret
+					/>
+				)}
+			</div>,
+		);
 		actions.push(
 			<Actions
 				key={actions.length}
@@ -31,8 +66,9 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 	);
 }
 
-CellTitleActions.displayName = 'VirtualizedList(CellTitleActions)';
-CellTitleActions.propTypes = {
+CellTitleActionsComponent.displayName = 'VirtualizedList(CellTitleActions)';
+CellTitleActionsComponent.propTypes = {
+	id: PropTypes.string,
 	// The actions property key. Actions = props.rowData[props.actionsKey]
 	actionsKey: PropTypes.string,
 	// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
@@ -40,7 +76,11 @@ CellTitleActions.propTypes = {
 	/** The display mode. */
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
 	// The collection item.
-	rowData: PropTypes.object, // eslint-disable-line
+	rowData: PropTypes.object,
+	t: PropTypes.func.isRequired,
+};
+CellTitleActionsComponent.defaultProps = {
+	t: getDefaultT(),
 };
 
-export default CellTitleActions;
+export default translate(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);

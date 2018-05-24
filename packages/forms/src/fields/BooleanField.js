@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
-	defaultFieldValue,
 	getWidget,
 	getUiOptions,
 	optionsList,
@@ -35,6 +34,7 @@ function BooleanField(props) {
 		required,
 		disabled,
 		readonly,
+		autofocus,
 		onChange,
 		onBlur,
 	} = props;
@@ -42,6 +42,7 @@ function BooleanField(props) {
 	const { widgets, formContext } = registry;
 	const widget = uiSchema['ui:widget'];
 	const uiOptions = getUiOptions(uiSchema);
+
 	const onChangeHandler = () => {
 		onChange(!formData, uiOptions);
 	};
@@ -56,15 +57,17 @@ function BooleanField(props) {
 		onChange: onChangeHandler,
 		onBlur: onBlurHandler,
 		label: title === undefined ? name : title,
-		value: defaultFieldValue(formData, schema),
-		checked: defaultFieldValue(formData, schema),
+		value: formData,
+		checked: formData,
 		required,
 		disabled,
 		readonly,
 		registry,
 		formContext,
+		autofocus,
 		'data-feature': uiSchema['data-feature'],
 	};
+
 	if (widget) {
 		const Widget = getWidget(schema, widget, widgets);
 		return <Widget options={buildOptions(schema)} {...commonProps} />;
@@ -77,13 +80,14 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object.isRequired,
 		uiSchema: PropTypes.object,
 		idSchema: PropTypes.object,
+		onBlur: PropTypes.func.isRequired,
 		onChange: PropTypes.func.isRequired,
-		onBlur: PropTypes.func,
-		name: PropTypes.string,
 		formData: PropTypes.bool,
+		name: PropTypes.string,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,
+		autofocus: PropTypes.bool,
 		registry: PropTypes.shape({
 			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
 				.isRequired,
@@ -99,6 +103,7 @@ BooleanField.defaultProps = {
 	registry: getDefaultRegistry(),
 	disabled: false,
 	readonly: false,
+	autofocus: false,
 };
 
 export default BooleanField;
