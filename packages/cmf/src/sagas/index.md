@@ -10,28 +10,28 @@ The http saga is here to help you execute some http request from inside any saga
 
 ```javascript
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`);
-		if (response.ok) {
-			yield put(
-				cmfActions.collectionsActions.mutateCollection('sample', {
-					update: {
-						loading: false,
-						message: null,
-						data: data.data,
-					},
-				}),
-			);
-		} else if (response.status === 404) {
-			yield put(
-				cmfActions.collectionsActions.mutateCollection('sample', {
-					update: {
-						loading: false,
-						warning: true,
-						message: 'Sample is not available',
-						data: null,
-					},
-				}),
-			);
-		}
+if (response.ok) {
+	yield put(
+		cmfActions.collectionsActions.mutateCollection('sample', {
+			update: {
+				loading: false,
+				message: null,
+				data: data.data,
+			},
+		}),
+	);
+} else if (response.status === 404) {
+	yield put(
+		cmfActions.collectionsActions.mutateCollection('sample', {
+			update: {
+				loading: false,
+				warning: true,
+				message: 'Sample is not available',
+				data: null,
+			},
+		}),
+	);
+}
 ```
 
 Calling http.get will return an object containing two element, the `data` which is the body of the response and `response` which contain meta data about how the request was handled.
@@ -40,24 +40,11 @@ Here we can see that we check if the server answered with a `response.ok` evalua
 
 ## configuration
 
-you can provide to your code an instance of the http Saga with preconfigured behaviors
-
-how ?
-
-```javascript
-import http from '@talend/react-cmf/lib/sagas/http';
-
-const configuredHttp = http.create();
-
-const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`);
-```
-
-importing the saga, allow you to statically call any member function `get, post ...` but also `create` which return an object with the exact same API.
-
 `setDefaultConfig` also allow you to provide a default config object which will be use at each http call.
 This in the host application, and children library that use the same version of CMF
 
 **Note** those children library should not use setDefaultConfig !
+
 **Only** the host application only should use setDefaultConfig !
 calling `setDefaultConfig` twice will not change the first setup defaultConfig and will print an error.
 
@@ -67,16 +54,18 @@ import http, { setDefaultConfig } from '@talend/react-cmf/lib/sagas/http';
 setDefaultConfig({
 	'Accept-Language': 'fr',
 });
-const configuredHttp = http.create();
+
 const config = {
 	headers: {
 		'X-header': 'my-specific-value'
 	}
 };
+
 const options = {
 	silent: true
 };
-const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`, config, options);
+
+const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`, config, options);
 ```
 * The config object allow you to customize your http request
  + ```headers```, ```credentials```, ```method```, ```body``` will be merged recursively against other provided arguments and override those values.
@@ -99,12 +88,13 @@ const httpDefaultConfig = {
 		CSRFTokenHeaderKey: 'headerKey',
 	},
 };
-const configuredHttp = http.create(defaultHttpConfiguration);
 
-const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`);
+setDefaultConfig(defaultHttpConfiguration);
+
+const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`);
 ```
 
-The above configuration allow the configured instance of `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
+The above configuration allow  `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
 
 ## Changing the http defaultConfig `Accept-Language` headers
 

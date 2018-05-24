@@ -250,9 +250,9 @@ export function setDefaultConfig(config) {
 		console.error(
 			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
 		);
-	} else {
-		defaultConfig = config;
 	}
+
+	defaultConfig = config;
 }
 
 /**
@@ -264,7 +264,7 @@ export function setDefaultLanguage(language) {
 	if (defaultConfig) {
 		defaultConfig.headers['Accept-Language'] = language;
 	} else {
-		console.error('ERROR: you should');
+		console.error('ERROR: you should call setDefaultConfig');
 	}
 }
 
