@@ -73,7 +73,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "i18next": "10.2.1",
+    "i18next": "^9.0.0",
     "i18next-parser": "^0.13.0",
     "invariant": "2.2.2",
     "jest": "20.0.3",
@@ -102,7 +102,7 @@
   },
   "peerDependencies": {
     "@talend/react-components": "^0.186.0",
-    "i18next": "10.2.1",
+    "i18next": "^9.0.0",
     "prop-types": "15.5.10",
     "react": "^16.0.0",
     "react-bootstrap": "0.31.5",
