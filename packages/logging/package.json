@@ -36,8 +36,8 @@
   "peerDependencies": {
     "angular": "^1.5.9",
     "prop-types": "15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^15.6.2 || ^16.0.0",
+    "react-dom": "^15.6.2 || ^16.0.0"
   },
   "devDependencies": {
     "angular": "^1.5.9",

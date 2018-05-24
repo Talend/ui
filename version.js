@@ -69,7 +69,7 @@ const ADDONS = {
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '1.0.0',
 	'react-tap-event-plugin': '2.0.0',
-	'react-virtualized': '9.15.0',
+	'react-virtualized': '9.10.1',
 	slugify: '1.1.0',
 	'whatwg-fetch': '2.0.3',
 };
@@ -91,7 +91,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-addons-css-transition-group': '15.6.2',
 	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
-	i18next: '10.2.1',
+	i18next: '^9.0.0',
 	'i18next-parser': '^0.13.0',
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',

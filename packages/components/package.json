@@ -124,7 +124,7 @@
     "invariant": "2.2.2",
     "keycode": "2.2.0",
     "prop-types": "15.5.10",
-    "react": "^16.0.0",
+    "react": "^15.6.2 || ^16.0.0",
     "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
