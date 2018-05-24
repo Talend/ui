@@ -13,7 +13,7 @@ import {
 /**
  * Storage point for the doc setup using `setDefaultConfig`
  */
-let defaultConfig = {};
+let defaultConfig;
 
 /**
  * merge the CSRFToken handling rule from the module defaultConfig
@@ -261,7 +261,7 @@ export function setDefaultConfig(config) {
  * @param {String} language
  */
 export function setDefaultLanguage(language) {
-	if (defaultConfig) {
+	if (get(defaultConfig, 'headers')) {
 		defaultConfig.headers['Accept-Language'] = language;
 	} else {
 		console.error('ERROR: you should call setDefaultConfig');

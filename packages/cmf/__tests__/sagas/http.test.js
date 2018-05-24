@@ -20,6 +20,7 @@ import http, {
 	httpPost,
 	httpPut,
 	setDefaultConfig,
+	setDefaultLanguage,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
@@ -760,5 +761,22 @@ describe('http module with instance created', () => {
 		// url, config = {}, options = {}
 		expect(getDefaultConfig()).toBe(defaultConfig);
 		expect(gen.next().value).toEqual(call(httpPatch, url, payload, config, options));
+	});
+});
+
+describe('setDefaultLanguage', () => {
+	it('should not redefine the Accept Language if no defaultConfig', () => {
+		setDefaultLanguage('ja');
+
+		expect(getDefaultConfig()).toEqual({});
+	});
+
+	it('should redefine the Accept Language', () => {
+		setDefaultConfig({
+			headers: {},
+		});
+		setDefaultLanguage('ja');
+
+		expect(getDefaultConfig()).toEqual({ headers: { 'Accept-Language': 'ja' } });
 	});
 });
