@@ -13,11 +13,7 @@ import i18n from './config/i18n';
  * Cell renderer that displays hello + text
  */
 function CellWithHello({ cellData }) {
-	return (
-		<div>
-			<div>hello {cellData} !</div>
-		</div>
-	);
+	return <div>hello {cellData} !</div>;
 }
 
 CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
