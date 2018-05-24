@@ -154,6 +154,53 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
 </div>
 `;
 
+exports[`CellTitleActions should render all actions when the type is LARGE 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "data-feature": "list.item.edit",
+          "hideLabel": true,
+          "icon": "talend-pencil",
+          "id": "edit",
+          "label": "edit",
+          "onClick": [Function],
+        },
+        Object {
+          "data-feature": "list.item.delete",
+          "hideLabel": true,
+          "icon": "talend-trash",
+          "id": "delete",
+          "label": "delete",
+          "onClick": [Function],
+        },
+      ]
+    }
+    hideLabel={true}
+    link={true}
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+  <Actions
+    actions={Array []}
+    className="persistent-actions theme-persistent-actions"
+    hideLabel={true}
+    link={true}
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+</div>
+`;
+
 exports[`CellTitleActions should render persistent actions 1`] = `
 <div
   className="main-title-actions-group theme-main-title-actions-group"

@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { listTypes } from '../utils/constants';
 import CellTitle from './CellTitle.component';
+
+const { LARGE } = listTypes;
 
 describe('CellTitle', () => {
 	it('should render title selector component', () => {
@@ -55,6 +58,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={rowData}
 					rowIndex={1}
+					type={LARGE}
 				/>,
 			);
 
