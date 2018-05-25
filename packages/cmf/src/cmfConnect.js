@@ -234,6 +234,21 @@ export default function cmfConnect({
 		if (!WrappedComponent.displayName) {
 			invariant(true, `${WrappedComponent.name} has no displayName`);
 		}
+		function getState(state, id = 'default') {
+			return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
+		}
+		function getSetStateAction(state, id, type) {
+			return {
+				type: type || `${getComponentName(WrappedComponent)}.setState`,
+				cmf: {
+					componentState: actions.components.mergeState(
+						getComponentName(WrappedComponent),
+						id,
+						state,
+					),
+				},
+			};
+		}
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
@@ -246,20 +261,13 @@ export default function cmfConnect({
 				router: PropTypes.object,
 			};
 			static WrappedComponent = WrappedComponent;
-			static getState = function getState(state, id = 'default') {
-				return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
-			};
+			static getState = getState;
 			static setStateAction = function setStateAction(state, id = 'default', type) {
-				return {
-					type: type || `${getComponentName(WrappedComponent)}.setState`,
-					cmf: {
-						componentState: actions.components.mergeState(
-							getComponentName(WrappedComponent),
-							id,
-							state,
-						),
-					},
-				};
+				if (typeof state !== 'function') {
+					return getSetStateAction(state, id, type);
+				}
+				return (_, getReduxState) =>
+					getSetStateAction(state(getState(getReduxState(), id)), id, type);
 			};
 
 			constructor(props, context) {

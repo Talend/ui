@@ -245,6 +245,35 @@ describe('cmfConnect', () => {
 			expect(action.cmf.componentState.key).toBe('foo');
 		});
 
+		it('should expose setStateAction static function to get the redux action to setState', () => {
+			expect(typeof CMFConnectedButton.setStateAction).toBe('function');
+			const state = mock.state();
+			state.cmf.components = fromJS({
+				Button: {
+					default: { foo: 'foo' },
+					other: { foo: 'baz' },
+				},
+			});
+			let actionCreator = CMFConnectedButton.setStateAction(prevState => prevState.set('foo', 'bar'));
+			expect(typeof actionCreator).toBe('function');
+			let action = actionCreator(null, () => state);
+			expect(action).toMatchObject({
+				type: 'Button.setState',
+				cmf: {
+					componentState: {
+						componentName: 'Button',
+						key: 'default',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+			});
+			expect(action.cmf.componentState.componentState.get('foo')).toBe('bar');
+			actionCreator = CMFConnectedButton.setStateAction(prevState => prevState.set('foo', 'baz'), 'other', 'MY_ACTION');
+			action = actionCreator(null, () => state);
+			expect(action.type).toBe('MY_ACTION');
+			expect(action.cmf.componentState.key).toBe('other');
+			expect(action.cmf.componentState.componentState.get('foo')).toBe('baz');
+		});
 		it('should support no context in dispatchActionCreator', () => {
 			const TestComponent = props => <div className="test-component" {...props} />;
 			TestComponent.displayName = 'TestComponent';
