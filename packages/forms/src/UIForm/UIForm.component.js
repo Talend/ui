@@ -36,9 +36,7 @@ export class UIFormComponent extends React.Component {
 		this.onActionClick = this.onActionClick.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
-		if (typeof props.language === 'function') {
-			Object.assign(language, props.language);
-		}
+		Object.assign(language, props.language);
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', language);
 			tv4.language('@talend'); // set it
