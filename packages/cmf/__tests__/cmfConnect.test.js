@@ -129,7 +129,7 @@ describe('cmfConnect', () => {
 			const state = mock.state();
 			const mapStateToProps = jest.fn();
 			const ownProps = { view: 'simple' };
-			const props = getStateToProps({
+			getStateToProps({
 				state,
 				ownProps,
 				mapStateToProps,
