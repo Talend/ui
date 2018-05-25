@@ -128,7 +128,7 @@ describe('cmfConnect', () => {
 			const state = mock.state();
 			const mapStateToProps = jest.fn();
 			const ownProps = { view: 'simple' };
-			const props = getStateToProps({
+			getStateToProps({
 				state,
 				ownProps,
 				mapStateToProps,
@@ -195,6 +195,10 @@ describe('cmfConnect', () => {
 
 	describe('Higher Order Component', () => {
 		const Button = ({ onClick, label }) => <button onClick={onClick}>{label}</button>;
+		Button.propTypes = {
+			onClick: PropTypes.func,
+			label: PropTypes.string,
+		};
 		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
