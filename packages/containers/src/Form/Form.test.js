@@ -74,8 +74,8 @@ describe('Container(Form)', () => {
 				return null;
 			},
 		};
-		const customValidation = (schema, value) => value.length >= 5 &&
-			'Custom validation : The value should be less than 5 chars';
+		const customValidation = (schema, value) =>
+			value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
 		const wrapper = mount(
 			<Container
 				formId="test-form"
