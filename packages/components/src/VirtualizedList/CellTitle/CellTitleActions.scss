@@ -61,5 +61,6 @@ $tc-list-title-actions-menu-triangle: '\25b2';
 	:global(.btn-link) {
 		color: $tc-list-title-actions-color;
 		padding: 0 $padding-small;
+		min-height: auto;
 	}
 }

@@ -6,6 +6,7 @@
 .navbar {
 	.btn {
 		min-height: $navbar-height;
+		line-height: $navbar-height;
 
 		&:hover,
 		&:active,

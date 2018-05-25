@@ -153,4 +153,8 @@
 			padding-top: $padding-large;
 		}
 	}
+
+	> li > a > * {
+		vertical-align: middle;
+	}
 }

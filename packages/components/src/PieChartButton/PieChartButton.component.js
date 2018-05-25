@@ -377,6 +377,7 @@ function PieChartButton({
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
 				className={classnames(theme['tc-pie-chart-graph'], 'tc-pie-chart-graph')}
+				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
 			>
 				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
 				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
