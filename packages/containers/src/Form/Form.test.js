@@ -74,6 +74,8 @@ describe('Container(Form)', () => {
 				return null;
 			},
 		};
+		const customValidation = (schema, value) => value.length >= 5 &&
+			'Custom validation : The value should be less than 5 chars';
 		const wrapper = mount(
 			<Container
 				formId="test-form"
@@ -83,9 +85,11 @@ describe('Container(Form)', () => {
 				formProps={{ other: true }}
 				uiform
 				customFormats={customFormats}
+				customValidation={customValidation}
 			/>,
 		).find('TalendUIForm');
 		expect(wrapper.props().customFormats).toEqual(customFormats);
+		expect(wrapper.props().customValidation).toEqual(customValidation);
 	});
 
 	it('should use props.onSubmit', () => {
