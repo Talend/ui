@@ -221,7 +221,7 @@ If you want to render some component conditionally, just pass "renderIf" prop (t
 You can also use Expression for this and customize this prop like "renderIfExpression" in
 CMF json configuration files
 
-## How to access state and mute from the outside
+## How to access state and mutate from the outside
 
 Every cmfConnected component expose two static function:
 * getState
