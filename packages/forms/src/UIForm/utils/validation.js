@@ -1,5 +1,5 @@
 import omit from 'lodash/omit';
-import { validate } from 'talend-json-schema-form-core';
+import { validate } from '@talend/json-schema-form-core';
 import { getValue } from '../utils/properties';
 
 /**

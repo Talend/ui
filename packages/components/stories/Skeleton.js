@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import talendIcons from '@talend/icons/dist/react';
 import Skeleton from '../src/Skeleton';
-import IconProvider from '../src/IconsProvider';
+import talendIcons from '@talend/icons/dist/react';
+import IconsProvider from '../src/IconsProvider';
 
 import theme from './Skeleton.scss';
 
@@ -19,7 +19,7 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
-			<IconProvider defaultIcons={icons} />
+			<IconsProvider defaultIcons={icons}/>
 			{story()}
 		</div>
 	))

@@ -28,9 +28,17 @@
     "indexRouteRedirect": {
       "path": "/datastores"
     },
+    "HeaderBar#default": {
+      "logo": {
+        "icon": "talend-logo-square",
+        "isFull": false
+      },
+      "brand": {
+        "label": "Talend App Starter"
+      }
+    },
     "datasets": {
       "didMountActionCreator": "dataset:fetchAll",
-      "header": { "_ref": "AppHeaderBar#default" },
       "sidepanel": { "_ref": "SidePanel#default" },
       "list": {
         "collectionId": "datasets",
@@ -60,7 +68,6 @@
     },
     "datastores": {
       "didMountActionCreator": "datastore:fetchAll",
-      "header": { "_ref": "AppHeaderBar#default" },
       "sidepanel": { "_ref": "SidePanel#default" },
       "list": {
         "collectionId": "datastores",
@@ -111,9 +118,6 @@
     ]
   },
   "ref": {
-    "AppHeaderBar#default": {
-      "app": "CMF starter"
-    },
     "SidePanel#default" : {
       "actionIds": ["menu:datastores", "menu:datasets"]
     }
