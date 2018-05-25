@@ -34,7 +34,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   11:9  error  'propTypes' is not defined     no-undef
   19:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/components/src/Table/TableClickableCell.js
+/home/travis/build/Talend/ui/packages/components/src/Table/Cell/TableClickableCell.js
   37:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
