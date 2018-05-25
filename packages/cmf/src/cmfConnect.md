@@ -239,6 +239,14 @@ export default function* myDeLorean() {
 }
 ```
 
+If you have multiple instance of the same component those api support `id` as a second argument.
+
+```javascript
+const componentState = Clock.getState(state, 'a-component-id');
+// mutation
+Clock.setStateAction(componentState, 'a-component-id');
+```
+
 ## How to test
 
 
