@@ -22,6 +22,7 @@ export class HTTPError extends Error {
 
 		this.name = `HTTP ${response.status}`;
 		this.data = data;
+		this.error = data;
 		this.response = response;
 	}
 }
@@ -51,7 +52,7 @@ export function handleBody(response) {
  */
 export function handleError(response) {
 	// BREAKING CHANGE to allow Go-like error handling
-	return handleBody(response).then(body => ({ error: new HTTPError(body) }));
+	return handleBody(response).then(body => new HTTPError(body));
 }
 
 /**
@@ -142,11 +143,15 @@ export function* errorProcessing(error, httpAction) {
 	};
 	const clone = get(error, 'stack.response.clone');
 	if (!clone) {
+		// eslint-disable-next-line no-console
+		console.log('An error occured on the http saga', httpAction, errorObject);
 		yield put(onJSError(errorObject, httpAction));
 	} else {
 		// clone the response object else the next call to text or json
 		// triggers an exception Already use
 		const clonedError = cloneError(error);
+		// eslint-disable-next-line no-console
+		console.log('An error occured on the http saga', httpAction, clonedError);
 		if (httpAction.onError) {
 			yield put(onActionError(httpAction, clonedError));
 		}
@@ -173,6 +178,7 @@ function normalizeParameters(
 	if (isObject(urlOrBag)) {
 		return {
 			...urlOrBag,
+			method: HTTP_METHODS[urlOrBag.method],
 			config: configEnhancer(urlOrBag.config),
 		};
 	}
@@ -180,7 +186,7 @@ function normalizeParameters(
 	return {
 		url: urlOrBag,
 		config: configEnhancer(config),
-		method,
+		method: HTTP_METHODS[urlOrBag.method],
 		payload,
 		cmf,
 	};
@@ -189,12 +195,12 @@ function normalizeParameters(
 /**
  * function - wrap the fetch request with the actions errors
  *
- * @param  {string} url                       url to request
- * @param  {object} config                    option that you want apply to the request
- * @param  {string} method = HTTP_METHODS.GET method to apply
- * @param  {object} payload                   payload to send with the request
- * @param  {object} options                   options to deal with cmf automatically
- * @return {object}                           the response of the request
+ * @param  {string|object} 	urlOrBag                  url to request or bag of configuration
+ * @param  {object} 		config                    option that you want apply to the request
+ * @param  {string} 		method = HTTP_METHODS.GET method to apply
+ * @param  {object} 		payload                   payload to send with the request
+ * @param  {object} 		options                   options to deal with cmf automatically
+ * @return {object}         	                  the response of the request
  */
 export function* wrapFetch(
 	urlOrBag,
@@ -274,10 +280,10 @@ export function* wrapFetch(
 /**
  * function - fetch a url with POST method
  *
- * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
- * @param  {object} payload 	payload to send with the request
- * @param  {object} config  	option that you want apply to the request
- * @param  {object} options 	options to deal with cmf automatically
+ * @param  {string|object} urlOrBag	url to request or bag of config(http+cmf)
+ * @param  {object} payload 		payload to send with the request
+ * @param  {object} config  		option that you want apply to the request
+ * @param  {object} options 		options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -290,10 +296,10 @@ export function* httpPost(urlOrBag, payload, config, options, defaultConfig) {
 /**
  * function - fetch a url with PATCH method
  *
- * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
- * @param  {object} payload payload to send with the request
- * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
+ * @param  {string|object} urlOrBag	url to request or bag of config(http+cmf)
+ * @param  {object} payload 		payload to send with the request
+ * @param  {object} config 			option that you want apply to the request
+ * @param  {object} options 		options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -306,10 +312,10 @@ export function* httpPatch(urlOrBag, payload, config, options, defaultConfig) {
 /**
  * function - fetch a url with PUT method
  *
- * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
- * @param  {object} payload payload to send with the request
- * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
+ * @param  {string|object} urlOrBag url to request or bag of config(http+cmf)
+ * @param  {object} payload 		payload to send with the request
+ * @param  {object} config  		option that you want apply to the request
+ * @param  {object} options 		options to deal with cmf automatically
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
@@ -322,7 +328,7 @@ export function* httpPut(urlOrBag, payload, config, options, defaultConfig) {
 /**
  * function - fetch a url with DELETE method
  *
- * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
+ * @param  {string|object} urlOrBag url to request or bag of config(http+cmf)
  * @param  {object} config  option that you want apply to the request
  * @param  {object} options options to deal with cmf automatically
  * @example
@@ -337,7 +343,7 @@ export function* httpDelete(urlOrBag, config, options, defaultConfig) {
 /**
  * function - fetch a url with GET method
  *
- * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
+ * @param  {string|object} urlOrBag url to request or bag of config(http+cmf)
  * @param  {object} config  option that you want apply to the request
  * @param  {object} options options to deal with cmf automatically
  * @example
@@ -352,20 +358,20 @@ export function* httpGet(urlOrBag, config, options, defaultConfig) {
 /**
  * function - fetch a url with POST method
  *
- * @param  {string} urlOrBag    url to request or bag of config(http+cmf)
+ * @param  {object} bag 		bag of config(http+cmf)
  * @param  {object} defaultConfig  	defaultConfig of the http client
  * @example
  * import { sagas } from '@talend/react-cmf';
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.post, '/foo', {foo: 42});
  */
-export function* http(urlOrBag, defaultConfig) {
+export function* httpRequest(bag, defaultConfig) {
 	return yield* wrapFetch(
-		urlOrBag,
-		urlOrBag.config,
-		HTTP_METHODS[urlOrBag.method],
-		urlOrBag.payload,
-		urlOrBag.options,
+		bag,
+		bag.config,
+		HTTP_METHODS[bag.method],
+		bag.payload,
+		bag.options,
 		defaultConfig,
 	);
 }
@@ -387,8 +393,8 @@ function createClient(defaultConfig = {}) {
 		patch: function* configuredPatch(urlOrBag, payload, config = {}, options = {}) {
 			return yield call(httpPatch, urlOrBag, payload, config, options, defaultConfig);
 		},
-		fetch: function* configuredFetch(urlOrBag) {
-			return yield call(http, urlOrBag, defaultConfig);
+		request: function* configuredRequest(bag) {
+			return yield call(httpRequest, bag, defaultConfig);
 		},
 	};
 }
@@ -399,6 +405,6 @@ export default {
 	post: httpPost,
 	put: httpPut,
 	patch: httpPatch,
-	fetch: httpFetch,
+	request: httpRequest,
 	create: createClient,
 };

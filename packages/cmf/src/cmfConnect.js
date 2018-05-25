@@ -35,7 +35,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
-import api from './api';
+import component from './component';
 import expression from './expression';
 import actionCreator from './actionCreator';
 import deprecated from './deprecated';
@@ -149,7 +149,7 @@ export function getDispatchToProps({
 		defaultState,
 	);
 	cmfProps.dispatch = dispatch;
-	cmfProps.getComponent = api.component.get;
+	cmfProps.getComponent = component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
 		dispatch(actionCreator.get(context, actionId)(event, data, context));
 	};

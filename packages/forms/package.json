@@ -102,6 +102,7 @@
   },
   "peerDependencies": {
     "@talend/react-components": "^0.186.0",
+    "ajv": "^6.5.0",
     "i18next": "^9.0.0",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
