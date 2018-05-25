@@ -1,10 +1,9 @@
 import Table from './Table';
-import TableClickableCell from './TableClickableCell';
+import TableClickableCell from './Cell/TableClickableCell';
 import TableConfiguration from './TableConfiguration';
-import TableCell from './TableCell';
-import TableHeader from './TableHeader';
-import DraggableComponent from './DraggableComponent';
-import './Table.scss';
+import TableCell from './Cell/TableCell';
+import TableHeaderCell from './Header/TableHeaderCell';
+import DraggableComponent from './Cell/DraggableComponent';
 
 export {
 	DraggableComponent,
@@ -12,5 +11,5 @@ export {
 	TableCell,
 	TableClickableCell,
 	TableConfiguration,
-	TableHeader,
+	TableHeaderCell,
 };

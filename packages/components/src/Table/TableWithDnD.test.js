@@ -3,8 +3,8 @@ import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext as dndContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 import Table from './Table';
-import TableCell from './TableCell';
-import draggable from './DraggableComponent';
+import TableCell from './Cell/TableCell';
+import draggable from './Cell/DraggableComponent';
 import * as TestData from './TestData';
 
 const elements = [TestData.element1, TestData.element2];

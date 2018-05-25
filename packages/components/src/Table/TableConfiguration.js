@@ -1,5 +1,5 @@
-import TableCell from './TableCell';
-import TableHeader from './TableHeader';
+import TableCell from './Cell/TableCell';
+import TableHeaderCell from './Header/TableHeaderCell';
 
 /**
  * This object provides classnames for the components which compose a table:
@@ -12,12 +12,24 @@ export const classNameProvider = {
 	getForTable() {
 		return 'tc-table';
 	},
+	/*
+	 * Return a classname for the table header.
+	 */
+	getForHeader() {
+		return 'tc-table-header';
+	},
 	/**
-	 * Returns a classname for the header of the given column
+	 * Returns a classname for the header cell of the given column
 	 * @param {string} columnKey - The key identifying a column.
 	 */
-	getForHeader(columnKey) {
-		return `tc-table-header-${columnKey}`;
+	getForHeaderCell(columnKey) {
+		return `tc-table-header-cell-${columnKey}`;
+	},
+	/*
+	 * Returns a classname for the table body.
+	 */
+	getForBody() {
+		return 'tc-table-body';
 	},
 	/**
 	 * Return a classname for an element of the table
@@ -67,7 +79,7 @@ export const rowRenderer = {
 
 /**
  * This object provides a header renderer for a given column key.
- * It is a default implementation which always return a TableHeader component.
+ * It is a default implementation which always return a TableHeaderCell component.
  */
 export const headerRenderer = {
 	/**
@@ -75,7 +87,7 @@ export const headerRenderer = {
 	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getHeaderComponent() {
-		return TableHeader;
+		return TableHeaderCell;
 	},
 	/**
 	 * Return extra properties for the header component rendering the given column header.

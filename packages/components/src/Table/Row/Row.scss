@@ -1,0 +1,20 @@
+.row {
+  display: flex;
+  justify-content: flex-start;
+  height: 25px;
+}
+
+.cell {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  div {
+    width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+  }
+}
+
+.data {
+  padding: 2px;
+}

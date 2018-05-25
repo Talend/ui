@@ -1,5 +1,5 @@
-import TableCell from './TableCell';
-import TableHeader from './TableHeader';
+import TableCell from './Cell/TableCell';
+import TableHeaderCell from './Header/TableHeaderCell';
 
 export const element1 = {
 	id: 'elem_1',
@@ -73,7 +73,7 @@ export const rowRenderer = {
 
 export const headerRenderer = {
 	getHeaderComponent() {
-		return TableHeader;
+		return TableHeaderCell;
 	},
 	getExtraProps() {
 		return null;

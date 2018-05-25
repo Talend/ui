@@ -1,101 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TableRow, { getRowId } from './TableRow.js';
-import TableHeader from './TableHeader';
-
-/**
- * This function is responsible for rendering an element in the table.
- */
-function renderRow(
-	element,
-	classNameProvider,
-	columnKeys,
-	rowDataGetter,
-	rowRenderer,
-	onEnterRow,
-	onLeaveRow,
-) {
-	return (
-		<TableRow
-			key={getRowId(rowDataGetter, element)}
-			element={element}
-			classNameProvider={classNameProvider}
-			columnKeys={columnKeys}
-			rowDataGetter={rowDataGetter}
-			rowRenderer={rowRenderer}
-			onEnterRow={onEnterRow}
-			onLeaveRow={onLeaveRow}
-		/>
-	);
-}
+import classNames from 'classnames';
+import TableHeader from './Header/TableHeader';
+import TableBody from './Body/TableBody';
+import theme from './Table.scss';
 
 function getTableClassName(classNameProvider) {
 	if (classNameProvider && classNameProvider.getForTable) {
 		return classNameProvider.getForTable();
 	}
-	return 'tc-table';
-}
-
-function getHeaderClassName(classNameProvider, columnKey) {
-	if (classNameProvider && classNameProvider.getForHeader) {
-		return classNameProvider.getForHeader(columnKey);
-	}
-	return columnKey;
-}
-
-function getHeaderData(rowDataGetter, columnKey) {
-	if (rowDataGetter && rowDataGetter.getHeaderData) {
-		return rowDataGetter.getHeaderData(columnKey);
-	}
-	return columnKey;
-}
-
-function getHeaderComponent(headerRenderer, columnKey) {
-	if (headerRenderer && headerRenderer.getHeaderComponent) {
-		return headerRenderer.getHeaderComponent(columnKey);
-	}
-	return TableHeader;
-}
-
-function getHeaderExtraProps(headerRenderer, columnKey) {
-	if (headerRenderer && headerRenderer.getExtraProps) {
-		return headerRenderer.getExtraProps(columnKey);
-	}
-	return null;
-}
-
-function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, columnKey) {
-	const HeaderComponent = getHeaderComponent(headerRenderer, columnKey);
-	const data = getHeaderData(rowDataGetter, columnKey);
-	const extraProps = getHeaderExtraProps(headerRenderer, columnKey);
-	const className = getHeaderClassName(classNameProvider, columnKey);
-	return (
-		<th key={`th-${columnKey}`}>
-			<HeaderComponent key={columnKey} data={data} className={className} extra={extraProps} />
-		</th>
-	);
-}
-
-function renderHeader(
-	classNameProvider,
-	rowDataGetter,
-	withHeader,
-	headerRenderer,
-	columnKeys,
-	updateHeadNodeRef,
-) {
-	if (withHeader) {
-		return (
-			<thead ref={updateHeadNodeRef}>
-				<tr className="tr-head">
-					{columnKeys.map(col =>
-						renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col),
-					)}
-				</tr>
-			</thead>
-		);
-	}
-	return null;
+	return '';
 }
 
 /**
@@ -162,30 +76,30 @@ export default class Table extends Component {
 			onEnterRow,
 			onLeaveRow,
 		} = this.props;
+		const classnames = classNames('tc-table', theme.table, getTableClassName(classNameProvider));
 		return (
-			<div ref={this.updateContentNodeRef} className={`${getTableClassName(classNameProvider)}`}>
+			<div ref={this.updateContentNodeRef} className={classnames}>
 				<table ref={this.updateTableNodeRef}>
-					{renderHeader(
-						classNameProvider,
-						rowDataGetter,
-						withHeader,
-						headerRenderer,
-						columnKeys,
-						this.updateHeadNodeRef,
+					{withHeader && (
+						<TableHeader
+							updateHeadNodeRef={this.updateHeadNodeRef}
+							columnKeys={columnKeys}
+							classNameProvider={classNameProvider}
+							rowDataGetter={rowDataGetter}
+							headerRenderer={headerRenderer}
+						/>
 					)}
-					<tbody ref={this.updateBodyNodeRef} onScroll={onScroll}>
-						{elements.map(elem =>
-							renderRow(
-								elem,
-								classNameProvider,
-								columnKeys,
-								rowDataGetter,
-								rowRenderer,
-								onEnterRow,
-								onLeaveRow,
-							),
-						)}
-					</tbody>
+					<TableBody
+						updateBodyNodeRef={this.updateBodyNodeRef}
+						elements={elements}
+						columnKeys={columnKeys}
+						classNameProvider={classNameProvider}
+						rowDataGetter={rowDataGetter}
+						rowRenderer={rowRenderer}
+						onScroll={onScroll}
+						onEnterRow={onEnterRow}
+						onLeaveRow={onLeaveRow}
+					/>
 				</table>
 			</div>
 		);

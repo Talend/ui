@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import TableRow from './TableRow';
-import * as TestData from './TestData';
+import * as TestData from '../TestData';
 
 /**
  * Render a single row

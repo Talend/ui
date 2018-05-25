@@ -225,7 +225,7 @@ const draggableRowRenderer = {
 						action(`You have dropped element ${sourceItem.name} onto element ${targetElement.name}`).call();
 					},
 					endDrag() {
-						action(`Drag and drop is finished!`).call();
+						action('Drag and drop is finished!').call();
 					},
 					// for the click behaviour
 					onClick(element) {
@@ -274,9 +274,15 @@ const rowDataGetter = {
 	},
 };
 
-const classNameProvider = {
+const defaultClassNameProvider = {
 	getForTable() {
-		return 'tc-table story-table default-table';
+		return 'default-table';
+	},
+};
+
+const storyClassNameProvider = {
+	getForTable() {
+		return 'story-table';
 	},
 };
 
@@ -305,15 +311,12 @@ class ConnectedTable extends React.Component {
 
 	getForTable() {
 		return classnames({
-				'tc-table': true,
-				'story-table': true,
-				'table-with-dnd': this.state.draggable,
+			'table-with-dnd': this.state.draggable,
 		});
 	}
 
 	getForRow(element) {
 		const classNames = {
-			'tc-table-row': true,
 			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
 			'draggable-row': this.state.draggable,
 		};
@@ -362,7 +365,7 @@ if (!stories.addWithInfo) {
 
 stories
 	.addDecorator(story => (
-		<div className="table-container">
+		<div style={{ display: 'flex', justifyContent: 'center' }}>
 			<IconsProvider />
 			{story()}
 		</div>
@@ -372,7 +375,7 @@ stories
 			<Table
 			  elements={schema1.elements}
 	      columnKeys={columnKeys1}
-				classNameProvider={classNameProvider}
+				classNameProvider={storyClassNameProvider}
 				withHeader={true}
 			/>
 		);
@@ -382,6 +385,7 @@ stories
 			<Table
 			  elements={schema2.elements}
 	      columnKeys={columnKeys2}
+				classNameProvider={defaultClassNameProvider}
 	      onScroll={action('onScroll called!')}
 				onEnterRow={action('onEnterRow called!')}
 				onLeaveRow={action('onLeaveRow called!')}

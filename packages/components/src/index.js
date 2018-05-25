@@ -43,7 +43,7 @@ import {
 	TableClickableCell,
 	TableConfiguration,
 	TableCell,
-	TableHeader,
+	TableHeaderCell,
 	DraggableComponent,
 } from './Table';
 import { Status } from './Status';
@@ -167,7 +167,7 @@ export {
 	TableClickableCell,
 	TableConfiguration,
 	TableCell,
-	TableHeader,
+	TableHeaderCell,
 	DraggableComponent,
 	Status,
 	SubHeaderBar,

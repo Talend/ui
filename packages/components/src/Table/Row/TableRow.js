@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TableCell from './TableCell';
+import classNames from 'classnames';
+import TableCell from '../Cell/TableCell';
+import theme from './Row.scss';
 
 export function getRowId(rowDataGetter, element) {
 	if (rowDataGetter && rowDataGetter.getElementId) {
@@ -46,18 +48,20 @@ function getRowData(rowDataGetter, element, columnKey) {
  */
 function renderRowData(element, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
 	const CellComponent = getCellComponent(rowRenderer, columnKey);
-	const data = getRowData(rowDataGetter, element, columnKey);
-	const className = getRowDataClassName(classNameProvider, element, columnKey);
-	const extraProps = getCellComponentExtraProps(rowRenderer, columnKey);
 	const compKey = `${getRowId(rowDataGetter, element)}-${columnKey}`;
+	const classnames = classNames(`td-${columnKey}`, theme.cell);
+	const dataClassnames = classNames('tc-table-row-data', theme.data, getRowDataClassName(classNameProvider, element, columnKey));
 	return (
-		<td key={`td-${compKey}`}>
+		<td
+			key={`td-${compKey}`}
+			className={classnames}
+		>
 			<CellComponent
 				key={compKey}
 				element={element}
-				data={data}
-				className={className}
-				extra={extraProps}
+				data={getRowData(rowDataGetter, element, columnKey)}
+				className={dataClassnames}
+				extra={getCellComponentExtraProps(rowRenderer, columnKey)}
 			/>
 		</td>
 	);
@@ -67,7 +71,7 @@ function getRowClassName(classNameProvider, element) {
 	if (classNameProvider && classNameProvider.getForRow) {
 		return classNameProvider.getForRow(element);
 	}
-	return 'tc-table-row';
+	return '';
 }
 
 /**
@@ -122,10 +126,11 @@ export default class TableRow extends Component {
 	render() {
 		const { element, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
 		const rowKey = getRowId(rowDataGetter, element);
+		const classnames = classNames('tc-table-row', theme.row, getRowClassName(classNameProvider, element));
 		return (
 			<tr
 				key={rowKey}
-				className={`tr-body ${getRowClassName(classNameProvider, element)}`}
+				className={classnames}
 				ref={this.updateRowRef}
 				data-id={rowKey}
 			>
