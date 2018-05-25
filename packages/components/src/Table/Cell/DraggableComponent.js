@@ -66,11 +66,7 @@ export default function getDraggable(Comp) {
 	}
 
 	function DraggableComponent(props) {
-		const {
-			connectDragSource,
-			connectDropTarget,
-			...rest
-		} = props;
+		const { connectDragSource, connectDropTarget, ...rest } = props;
 		return connectDragSource(
 			connectDropTarget(
 				<div className="draggable-component">

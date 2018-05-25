@@ -50,12 +50,13 @@ function renderRowData(element, columnKey, rowDataGetter, classNameProvider, row
 	const CellComponent = getCellComponent(rowRenderer, columnKey);
 	const compKey = `${getRowId(rowDataGetter, element)}-${columnKey}`;
 	const classnames = classNames(`td-${columnKey}`, theme.cell);
-	const dataClassnames = classNames('tc-table-row-data', theme.data, getRowDataClassName(classNameProvider, element, columnKey));
+	const dataClassnames = classNames(
+		'tc-table-row-data',
+		theme.data,
+		getRowDataClassName(classNameProvider, element, columnKey),
+	);
 	return (
-		<td
-			key={`td-${compKey}`}
-			className={classnames}
-		>
+		<td key={`td-${compKey}`} className={classnames}>
 			<CellComponent
 				key={compKey}
 				element={element}
@@ -126,14 +127,13 @@ export default class TableRow extends Component {
 	render() {
 		const { element, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
 		const rowKey = getRowId(rowDataGetter, element);
-		const classnames = classNames('tc-table-row', theme.row, getRowClassName(classNameProvider, element));
+		const classnames = classNames(
+			'tc-table-row',
+			theme.row,
+			getRowClassName(classNameProvider, element),
+		);
 		return (
-			<tr
-				key={rowKey}
-				className={classnames}
-				ref={this.updateRowRef}
-				data-id={rowKey}
-			>
+			<tr key={rowKey} className={classnames} ref={this.updateRowRef} data-id={rowKey}>
 				{columnKeys.map(key =>
 					renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderer),
 				)}

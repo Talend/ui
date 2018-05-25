@@ -43,10 +43,7 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 	const HeaderComponent = getHeaderComponent(headerRenderer, columnKey);
 	const thKey = `th-${columnKey}`;
 	return (
-		<th
-			key={thKey}
-			className={classNames(thKey, theme.cell)}
-		>
+		<th key={thKey} className={classNames(thKey, theme.cell)}>
 			<HeaderComponent
 				key={columnKey}
 				data={getHeaderData(rowDataGetter, columnKey)}
@@ -67,7 +64,11 @@ export default function TableHeader({
 	rowDataGetter,
 	headerRenderer,
 }) {
-	const classnames = classNames('tc-table-header', theme.head, getHeaderClassName(classNameProvider));
+	const classnames = classNames(
+		'tc-table-header',
+		theme.head,
+		getHeaderClassName(classNameProvider),
+	);
 	return (
 		<thead ref={updateHeadNodeRef} className={classnames}>
 			<tr className={theme.header}>

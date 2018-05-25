@@ -5,10 +5,10 @@ import TableRow, { getRowId } from '../Row/TableRow.js';
 import theme from './Body.scss';
 
 function getBodyClassName(classNameProvider) {
-  if (classNameProvider && classNameProvider.getForBody) {
-    return classNameProvider.getForBody();
-  }
-  return '';
+	if (classNameProvider && classNameProvider.getForBody) {
+		return classNameProvider.getForBody();
+	}
+	return '';
 }
 
 /**
@@ -41,36 +41,32 @@ function renderRow(
  * This component displays the body of the table. It is responsible for rendering the rows.
  */
 export default function TableBody({
-    updateBodyNodeRef,
-    elements,
-    onScroll,
-    classNameProvider,
-    columnKeys,
-    rowDataGetter,
-    rowRenderer,
-    onEnterRow,
-    onLeaveRow,
-  }) {
-  const classnames = classNames('tc-table-body', theme.body, getBodyClassName(classNameProvider));
-  return (
-    <tbody
-      ref={updateBodyNodeRef}
-      className={classnames}
-      onScroll={onScroll}
-    >
-      {elements.map(elem =>
-        renderRow(
-          elem,
-          classNameProvider,
-          columnKeys,
-          rowDataGetter,
-          rowRenderer,
-          onEnterRow,
-          onLeaveRow,
-        ),
-      )}
-    </tbody>
-  );
+	updateBodyNodeRef,
+	elements,
+	onScroll,
+	classNameProvider,
+	columnKeys,
+	rowDataGetter,
+	rowRenderer,
+	onEnterRow,
+	onLeaveRow,
+}) {
+	const classnames = classNames('tc-table-body', theme.body, getBodyClassName(classNameProvider));
+	return (
+		<tbody ref={updateBodyNodeRef} className={classnames} onScroll={onScroll}>
+			{elements.map(elem =>
+				renderRow(
+					elem,
+					classNameProvider,
+					columnKeys,
+					rowDataGetter,
+					rowRenderer,
+					onEnterRow,
+					onLeaveRow,
+				),
+			)}
+		</tbody>
+	);
 }
 
 TableBody.propTypes = {
@@ -95,5 +91,5 @@ TableBody.propTypes = {
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
-  updateBodyNodeRef: PropTypes.func,
+	updateBodyNodeRef: PropTypes.func,
 };
