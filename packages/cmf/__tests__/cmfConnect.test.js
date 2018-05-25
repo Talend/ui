@@ -196,6 +196,11 @@ describe('cmfConnect', () => {
 
 	describe('Higher Order Component', () => {
 		const Button = ({ onClick, label }) => <button onClick={onClick}>{label}</button>;
+		Button.propTypes = {
+			onClick: PropTypes.func,
+			label: PropTypes.string,
+		};
+		Button.displayName = 'Button';
 		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
@@ -209,39 +214,33 @@ describe('cmfConnect', () => {
 		});
 
 		it('should expose getState static function to get the state', () => {
-			const TestComponent = jest.fn();
-			TestComponent.displayName = 'Container(TestComponent)';
-			const CMFConnected = cmfConnect({})(TestComponent);
-			expect(typeof CMFConnected.getState).toBe('function');
+			expect(typeof CMFConnectedButton.getState).toBe('function');
 			const state = mock.state();
 			state.cmf.components = fromJS({
-				'Container(TestComponent)': {
+				Button: {
 					default: { foo: 'bar' },
 					other: { foo: 'baz' },
 				},
 			});
-			expect(CMFConnected.getState(state).get('foo')).toBe('bar');
-			expect(CMFConnected.getState(state, 'other').get('foo')).toBe('baz');
+			expect(CMFConnectedButton.getState(state).get('foo')).toBe('bar');
+			expect(CMFConnectedButton.getState(state, 'other').get('foo')).toBe('baz');
 		});
 		it('should expose setStateAction static function to get the redux action to setState', () => {
-			const TestComponent = jest.fn();
-			const CMFConnected = cmfConnect({})(TestComponent);
-			TestComponent.displayName = 'Container(TestComponent)';
-			expect(typeof CMFConnected.setStateAction).toBe('function');
+			expect(typeof CMFConnectedButton.setStateAction).toBe('function');
 			const state = new Map({ foo: 'bar' });
-			let action = CMFConnected.setStateAction(state);
+			let action = CMFConnectedButton.setStateAction(state);
 			expect(action).toEqual({
-				type: 'Container(TestComponent).setState',
+				type: 'Button.setState',
 				cmf: {
 					componentState: {
-						componentName: 'Container(TestComponent)',
+						componentName: 'Button',
 						componentState: state,
 						key: 'default',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 					},
 				},
 			});
-			action = CMFConnected.setStateAction(state, 'foo', 'MY_ACTION');
+			action = CMFConnectedButton.setStateAction(state, 'foo', 'MY_ACTION');
 			expect(action.type).toBe('MY_ACTION');
 			expect(action.cmf.componentState.key).toBe('foo');
 		});
