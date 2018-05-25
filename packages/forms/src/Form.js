@@ -184,7 +184,7 @@ class Form extends React.Component {
 
 export const DataPropTypes = PropTypes.shape({
 	jsonSchema: PropTypes.object.isRequired,
-	uiSchema: PropTypes.object,
+	uiSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	properties: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 });
 
