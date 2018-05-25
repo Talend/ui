@@ -221,9 +221,9 @@ If you want to render some component conditionally, just pass "renderIf" prop (t
 You can also use Expression for this and customize this prop like "renderIfExpression" in
 CMF json configuration files
 
-## How to access state and mutate from the outside
+## How to read and update component state from the outside
 
-Every cmfConnected component expose two static function:
+Every cmfConnected component expose two static functions:
 * getState
 * setStateAction
 
@@ -246,6 +246,19 @@ const componentState = Clock.getState(state, 'a-component-id');
 // mutation
 Clock.setStateAction(componentState, 'a-component-id');
 ```
+
+If your setState rely on the previous state value and you have some async operations between you can still rely on the callback function:
+
+```javascript
+Clock.setStateAction(
+	prevState => prevState.set(
+		'minutes',
+		prevState.get('date').getMinutes()
+	),
+	'a-component-id'
+);
+```
+
 
 ## How to test
 
