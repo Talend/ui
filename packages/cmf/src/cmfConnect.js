@@ -252,7 +252,7 @@ export default function cmfConnect({
 			static WrappedComponent = WrappedComponent;
 			static getState = function getState(state, id = 'default') {
 				return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
-			}
+			};
 			static setStateAction = function setStateAction(state, id = 'default', type) {
 				return {
 					type: type || `${getComponentName(WrappedComponent)}.setState`,
@@ -260,11 +260,11 @@ export default function cmfConnect({
 						componentState: actions.components.mergeState(
 							getComponentName(WrappedComponent),
 							id,
-							state
+							state,
 						),
 					},
 				};
-			}
+			};
 
 			constructor(props, context) {
 				super(props, context);
