@@ -12,8 +12,10 @@ import {
 	extractSpecialFields,
 	renderCell,
 } from './gridrow';
-import { internalIds } from './constants';
+import { internalIds, listTypes } from './constants';
 import collection from '../collection';
+
+const { LARGE } = listTypes;
 
 describe('gridrow', () => {
 	describe('#getCellRenderer', () => {
@@ -217,7 +219,7 @@ describe('gridrow', () => {
 			};
 
 			// when
-			const result = renderCell(1, parent, field, 'LARGE');
+			const result = renderCell(1, parent, field, LARGE);
 
 			// then
 			expect(result).toMatchSnapshot();
