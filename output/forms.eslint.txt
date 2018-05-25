@@ -47,3 +47,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   84:9  error  'emptyStyle' is not defined          no-undef
 
 ✖ 20 problems (20 errors, 0 warnings)
+

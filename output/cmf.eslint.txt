@@ -27,3 +27,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:1  error  Prefer default export  import/prefer-default-export
 
 ✖ 12 problems (9 errors, 3 warnings)
+
