@@ -15,10 +15,10 @@ import components from './components';
 import expressions from './expressions';
 import actions from './actions';
 
-Object.keys(components).forEach(id => api.route.registerComponent(id, components[id]));
+Object.keys(components).forEach(id => api.component.register(id, components[id]));
 Object.keys(expressions).forEach(id => api.expressions.register(id, expressions[id]));
 
-api.action.registerActionCreator('my:edit', actions.myEdit);
+api.actionCreator.register('my:edit', actions.myEdit);
  */
 
 import registry from './registry';
@@ -27,8 +27,17 @@ import action from './action';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import expression from './expression';
-import saga from './saga';
+import expressions from './expressions';
+import sagas from './sagas';
+import selectors from './selectors';
 import component from './component';
+import matchPath from './sagaRouter/matchPath';
+
+function registerInternals(context) {
+	actionCreator.register('cmf.saga.start', actions.saga.start, context);
+	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
+	expression.registerMany(expressions, context);
+}
 
 export default {
 	action,
@@ -36,7 +45,14 @@ export default {
 	actionCreator,
 	component,
 	expression,
+	expressions,
 	route,
 	registry,
-	saga,
+	registerInternals,
+	router: {
+		matchPath,
+	},
+	saga: sagas,
+	sagas,
+	selectors,
 };

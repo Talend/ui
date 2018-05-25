@@ -79,10 +79,14 @@ import matchPath from './matchPath';
  *
  * @param {MaybeSaga} maybeSaga
  * @param {Match} match
+ * @param {RouteSaga} routeSaga
  */
-function shouldStartSaga(maybeSaga, match) {
+function shouldStartSaga(maybeSaga, match, routeSaga) {
 	if (match) {
 		if (!maybeSaga || (maybeSaga && maybeSaga.saga && !maybeSaga.saga.isRunning())) {
+			if (routeSaga.runOnExactMatch === true) {
+				return match.isExact;
+			}
 			return true;
 		}
 	}
@@ -94,10 +98,11 @@ function shouldStartSaga(maybeSaga, match) {
  *
  * @param {MaybeSaga} maybeSaga
  * @param {Match} match
+ * @param {RouteSaga} routeSaga
  */
-function shouldCancelSaga(maybeSaga, match) {
+function shouldCancelSaga(maybeSaga, match, routeSaga) {
 	if (maybeSaga && maybeSaga.saga.isRunning()) {
-		if (!match) {
+		if (!match || routeSaga.runOnExactMatch === true) {
 			return true;
 		}
 	}
@@ -109,11 +114,15 @@ function shouldCancelSaga(maybeSaga, match) {
  *
  * @param {MaybeSaga} maybeSaga
  * @param {Match} match
+ * @param {RouteSaga} routeSaga
  */
-function shouldRestartSaga(maybeSaga, match) {
+function shouldRestartSaga(maybeSaga, match, routeSaga) {
 	if (match) {
 		if (maybeSaga) {
-			if (!isEqual(maybeSaga.match.params, match.params)) {
+			if (
+				routeSaga.restartOnRouteChange === true ||
+				!isEqual(maybeSaga.match.params, match.params)
+			) {
 				return true;
 			}
 		}
@@ -146,27 +155,33 @@ function parseSagaState(routeFragment, sagas, currentLocation) {
 export default function* sagaRouter(history, routes) {
 	const sagas = {};
 	const routeFragments = Object.keys(routes);
-	while (true) {  // eslint-disable-line no-constant-condition
+	while (true) {
+		// eslint-disable-line no-constant-condition
 		yield take('@@router/LOCATION_CHANGE');
 		const shouldStart = [];
 		const currentLocation = history.getCurrentLocation();
 		for (let index = 0; index < routeFragments.length; ) {
 			const routeFragment = routeFragments[index];
+			const routeSaga = routes[routeFragment];
 			const { match, maybeSaga } = parseSagaState(routeFragment, sagas, currentLocation);
-			if (shouldCancelSaga(maybeSaga, match)) {
+			if (shouldCancelSaga(maybeSaga, match, routeSaga)) {
 				yield cancel(maybeSaga.saga);
-			} else if (shouldRestartSaga(maybeSaga, match)) {
+			} else if (shouldRestartSaga(maybeSaga, match, routeSaga)) {
 				yield cancel(maybeSaga.saga);
 				shouldStart.push({ routeFragment, match });
-			} else if (shouldStartSaga(maybeSaga, match)) {
+			} else if (shouldStartSaga(maybeSaga, match, routeSaga)) {
 				shouldStart.push({ routeFragment, match });
 			}
 			index += 1;
 		}
 		for (let index = 0; index < shouldStart.length; ) {
 			const { routeFragment, match } = shouldStart[index];
+			let routeSaga = routes[routeFragment];
+			if (typeof routes[routeFragment] === 'object') {
+				routeSaga = routes[routeFragment].saga;
+			}
 			sagas[routeFragment] = {
-				saga: yield spawn(routes[routeFragment], match.params),
+				saga: yield spawn(routeSaga, match.params, match.isExact),
 				match,
 			};
 			index += 1;

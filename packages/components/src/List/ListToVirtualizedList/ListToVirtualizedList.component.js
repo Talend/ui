@@ -38,6 +38,7 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
+
 	return (
 		<VirtualizedList
 			id={props.id}
@@ -46,6 +47,7 @@ export function ListToVirtualizedList(props) {
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			onRowDoubleClick={titleProps && titleProps.onClick}
 			defaultHeight={props.defaultHeight}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
@@ -94,7 +96,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
-	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
+	noRowsRenderer: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,

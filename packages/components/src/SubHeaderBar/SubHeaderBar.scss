@@ -42,7 +42,7 @@ $tc-svg-icon-size: $padding-large !default;
 		}
 
 		&-right {
-			margin-left: auto;
+			margin-left: $padding-normal;
 			justify-content: flex-end;
 		}
 

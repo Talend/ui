@@ -4,7 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 import i18n, { LanguageSwitcher } from './config/i18n';
-import { SidePanel, IconsProvider, Layout } from '../src/index';
+import { IconsProvider, Layout, SidePanel } from '../src/index';
+
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -31,6 +33,25 @@ const actions = [
 		label: 'Favorites',
 		icon: 'talend-star',
 		onClick: action('Favorites clicked'),
+	},
+];
+
+const actionsLinks = [
+	{
+		label: 'Preparations',
+		icon: 'talend-dataprep',
+		href: '/preparations',
+		active: true,
+	},
+	{
+		label: 'Datasets',
+		icon: 'talend-download',
+		href: '/datasets',
+	},
+	{
+		label: 'Favorites',
+		icon: 'talend-star',
+		href: '/favorites',
 	},
 ];
 
@@ -62,15 +83,25 @@ stories
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			<I18nextProvider i18n={i18n}>
+				{story()}
+			</I18nextProvider>
 		</div>
 	))
 	.addWithInfo('default', () => (
 		<SidePanel
 			id="context"
 			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked={false}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('links', () => (
+		<SidePanel
+			id="context"
+			actions={actionsLinks}
+			onToggleDock={action('onToggleDock')}
 			tooltipPlacement="top"
 		/>
 	))
@@ -79,15 +110,6 @@ stories
 			actions={actions}
 			onToggleDock={action('Toggle dock clicked')}
 			docked
-			tooltipPlacement="top"
-		/>
-	))
-	.addWithInfo('with onSelect function', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
 			tooltipPlacement="top"
 		/>
 	))
@@ -101,27 +123,6 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
-	.addWithInfo('with inverted style', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
-			reverse
-			tooltipPlacement="top"
-		/>
-	))
-	.addWithInfo('with large inverted style', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
-			reverse
-			large
-			tooltipPlacement="top"
-		/>
-	))
 	.addWithInfo('large docked', () => (
 		<SidePanel
 			actions={actions}
@@ -131,7 +132,28 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
-	.addWithInfo('With layout (toggle interactive)', () => {
+	.addWithInfo('reverse', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('large reverse', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
+			large
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('with layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
@@ -162,7 +184,45 @@ stories
 								.fill('This is some random content')
 								.map((item, num) => <li key={num}>{item}</li>)}
 						</ol>
-						<IconsProvider defaultIcons={icons} />
+					</Layout>
+				);
+			}
+		}
+
+		return <WithLayout />;
+	})
+	.addWithInfo('reverse with layout (toggle interactive)', () => {
+		class WithLayout extends React.Component {
+			constructor() {
+				super();
+				this.state = { docked: false };
+			}
+
+			render() {
+				const panelItems = items.concat([
+					{
+						key: 'longname',
+						label: 'Some super super super long name',
+						icon: 'talend-world',
+					},
+				]);
+				const panel = (
+					<SidePanel
+						actions={panelItems}
+						onSelect={action('onItemSelect')}
+						onToggleDock={() => this.setState({ docked: !this.state.docked })}
+						reverse
+						docked={this.state.docked}
+						tooltipPlacement="top"
+					/>
+				);
+				return (
+					<Layout mode="TwoColumns" one={panel}>
+						<ol>
+							{new Array(100)
+								.fill('This is some random content')
+								.map((item, num) => <li key={num}>{item}</li>)}
+						</ol>
 					</Layout>
 				);
 			}
@@ -170,3 +230,23 @@ stories
 
 		return <WithLayout />;
 	});
+
+const appStyle = require('./config/themes.scss');
+
+apps.forEach(app => {
+	stories
+		.addWithInfo(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
+			<div className={appStyle[app]}>
+				<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+					<SidePanel
+						id="context"
+						actions={actions}
+						onToggleDock={action('Toggle dock clicked')}
+						docked={false}
+						tooltipPlacement="top"
+					/>
+				</div>
+			</div>
+		)
+	);
+});

@@ -1,8 +1,17 @@
 import Action from './Action';
-import ActionButton from './ActionButton';
-import ActionFile from './ActionFile';
-import ActionDropdown from './ActionDropdown';
-import ActionSplitDropdown from './ActionSplitDropdown';
 import Actions from './Actions.component';
+import ActionButton from './ActionButton';
+import ActionDropdown from './ActionDropdown';
+import ActionFile from './ActionFile';
+import ActionIconToggle from './ActionIconToggle';
+import ActionSplitDropdown from './ActionSplitDropdown';
 
-export { Action, ActionButton, ActionFile, ActionDropdown, ActionSplitDropdown, Actions };
+export {
+	Action,
+	Actions,
+	ActionButton,
+	ActionDropdown,
+	ActionFile,
+	ActionIconToggle,
+	ActionSplitDropdown,
+};

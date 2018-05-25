@@ -3,12 +3,13 @@
   "description": "@talend/react-cmf plugin for CQRS backend architecture",
   "main": "lib/index.js",
   "scripts": {
-    "prepublish": "npm run build && npm run test",
+    "prepublish": "npm run build",
     "build": "rimraf ./lib &&  babel -d lib ./src/ --ignore **/*.test.js",
     "start": "echo nothing to start",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:demo": "echo nothing to demo in @talend/react-cmf-cqrs",
     "lint:es": "eslint --config ../../.eslintrc --ext .js src",
     "lint": "npm run lint:es"
   },
@@ -34,16 +35,16 @@
     "mock-socket": "^7.0.0"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^0.149.0",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.0.2",
+    "@talend/react-cmf": "^0.186.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
     "babel-jest": "20.0.3",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.6.0",
-    "babel-preset-react": "6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
     "enzyme": "^3.1.0",
@@ -62,6 +63,7 @@
     "jsdoc": "^3.4.1",
     "lodash": "4.17.4",
     "path-to-regexp": "2.0.0",
+    "prop-types": "15.5.10",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
@@ -81,11 +83,12 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^0.149.0",
+    "@talend/react-cmf": "^0.186.0",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
     "lodash": "4.17.4",
+    "prop-types": "15.5.10",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
@@ -112,13 +115,10 @@
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupFiles": [
-      "./env__tests.js"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.149.0"
+  "version": "0.186.0"
 }

@@ -11,9 +11,9 @@ import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import api from './api';
+import Inject from './Inject.component';
 
-
- /**
+/**
  * @typedef {Object} Router
  */
 
@@ -25,23 +25,24 @@ import api from './api';
  * @return {object} ReactElement
  */
 const UIRouter = (props, context) => {
-	const routes = api.route.getRoutesFromSettings(context, props.routes);
-	if (routes.path === '/' && !!routes.component) {
-		return (<BaseRouter routes={routes} history={props.history} />);
+	const routes = api.route.getRoutesFromSettings(context, props.routes, props.dispatch);
+	if (routes.path === '/' && routes.component) {
+		return <BaseRouter routes={routes} history={props.history} />;
 	}
-	return (
-		<div className="is-loading">loading</div>
-	);
+	if (props.loading) {
+		return <Inject component={props.loading} />;
+	}
+	return <div className="is-loading">loading</div>;
 };
 
 UIRouter.propTypes = {
+	dispatch: PropTypes.func,
 	history: PropTypes.object,
 	routes: PropTypes.object,
+	loading: PropTypes.node,
 };
 UIRouter.contextTypes = {
 	registry: PropTypes.object,
 };
 const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
-export default connect(
-	mapStateToProps
-)(UIRouter);
+export default connect(mapStateToProps)(UIRouter);

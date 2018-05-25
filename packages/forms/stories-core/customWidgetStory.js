@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { action } from '@storybook/addon-actions';
 import { UIForm } from '../src/UIForm';
 
 function CustomWidget(props) {
@@ -18,7 +20,7 @@ function CustomWidget(props) {
 }
 
 CustomWidget.propTypes = {
-	value: React.PropTypes.string,
+	value: PropTypes.string,
 };
 
 function story() {
@@ -46,7 +48,12 @@ function story() {
 		],
 	};
 	return (
-		<UIForm widgets={widgets} data={schema} />
+		<UIForm
+			widgets={widgets}
+			data={schema}
+			onChange={action('Change')}
+			onSubmit={action('onSubmit')}
+		/>
 	);
 }
 

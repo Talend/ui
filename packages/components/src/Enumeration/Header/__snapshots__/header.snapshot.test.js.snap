@@ -11,6 +11,7 @@ exports[`Header should render header with one button 1`] = `
     className="actions"
   >
     <button
+      aria-label="Add item"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -24,6 +25,7 @@ exports[`Header should render header with one button 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-plus"
         title={null}
       >
         <use
@@ -47,6 +49,7 @@ exports[`Header should render header with one button and indicate the component 
     className="actions"
   >
     <button
+      aria-label="Add item"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -60,6 +63,7 @@ exports[`Header should render header with one button and indicate the component 
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-plus"
         title={null}
       >
         <use
@@ -87,11 +91,13 @@ exports[`Header should render header with one dropdown and two items 1`] = `
       <button
         aria-expanded={false}
         aria-haspopup={true}
+        aria-label="Add item"
         btooltipPlacement="bottom"
         className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+        data-feature="item.add"
         disabled={false}
-        id={undefined}
-        inProgress={undefined}
+        displayMode="dropdown"
+        id="add"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -106,6 +112,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
             aria-hidden="true"
             className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
+            name="talend-plus"
             title={null}
           >
             <use
@@ -115,7 +122,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         </span>
       </button>
       <ul
-        aria-labelledby={undefined}
+        aria-labelledby="add"
         className="dropdown-menu dropdown-menu-right"
         role="menu"
       >
@@ -132,6 +139,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
+            title="Add values from a file"
           >
             Add values from a file
           </a>
@@ -149,6 +157,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
+            title="Overwrite existing values"
           >
             Overwrite existing values
           </a>

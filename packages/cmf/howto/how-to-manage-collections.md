@@ -2,7 +2,8 @@
 
 CMF has a system to manage collections by a combination of middleware, action, reducer.
 
-By using those entities, you will have the collections in your app state `state.cmf.collections`. This object is a dictionary that stores a collection under unique identifiers.
+By using those entities, you will have the collections in your app state `state.cmf.collections`. 
+This object is a dictionary that stores a collection under unique identifiers.
 
 **Pre-requisite**
 You can store anything you want in the collections dictionary, but to use the element operations (delete/mutate collection) :
@@ -31,11 +32,11 @@ dispatch(insertAction);
 ```javascript
 import { actions } from '@talend/react-cmf';
 
-const insertAction = actions.collectionsActions.addOrReplaceCollection('datastores', []);
+const insertAction = actions.collections.addOrReplace('datastores', []);
 dispatch(insertAction);
 ```
 
-addOrReplaceCollection(collectionId, data)
+addOrReplace(collectionId, data)
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
@@ -49,11 +50,11 @@ The example will remove the collection `state.cmf.collections.datastores`.
 ```javascript
 import { actions } from '@talend/react-cmf';
 
-const removeAction = actions.collectionsActions.removeCollection('datastores');
+const removeAction = actions.collections.remove('datastores');
 dispatch(removeAction);
 ```
 
-removeCollection(collectionId)
+remove(collectionId)
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
@@ -66,7 +67,7 @@ The example will mutate the collection in `state.cmf.collections.datastores`.
 ```javascript
 import { actions } from '@talend/react-cmf';
 
-const mutationAction = actions.collectionsActions.mutateCollection('datastores', {
+const mutationAction = actions.collections.mutate('datastores', {
     add: [{ id: 'new_element_id', ... }, { id: 'next_new_element_id', ... }],
     delete: ['old_element_id'],
     update: { 'existing_element_id': {id: 'existing_element_id', ... }, ... }
@@ -74,7 +75,7 @@ const mutationAction = actions.collectionsActions.mutateCollection('datastores',
 dispatch(mutationAction);
 ```
 
-removeCollection(collectionId, operations)
+remove(collectionId, operations)
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
@@ -108,7 +109,7 @@ export function fetchDataSets() {
 	});
 }
 
-...
+//...
 
 dispatch(fetchDataSets());
 ```

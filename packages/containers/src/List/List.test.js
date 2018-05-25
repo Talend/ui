@@ -1,6 +1,6 @@
-import React from 'react';
 import { shallow } from 'enzyme';
-import { Map, fromJS } from 'immutable';
+import React from 'react';
+import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Container, { DEFAULT_STATE } from './List.container';
@@ -28,6 +28,9 @@ const toolbar = {
 		field: 'id',
 		isDescending: false,
 	},
+	display: {
+		displayModes: ['large', 'table'],
+	},
 	pagination: {
 		startIndex: 1,
 		itemsPerPage: 25,
@@ -38,6 +41,8 @@ const toolbar = {
 
 const actions = {
 	title: 'object:open',
+	editSubmit: 'object:edit:submit',
+	editCancel: 'object:edit:cancel',
 	// left: ['object:add'],
 	// items: ['object:delete'],
 };
@@ -48,7 +53,7 @@ const settings = {
 	actions,
 };
 
-const items = [
+const items = fromJS([
 	{
 		id: 1,
 		name: 'Title with actions',
@@ -76,13 +81,11 @@ const items = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-];
+]);
 
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
@@ -92,12 +95,27 @@ describe('Container List', () => {
 		expect(props.list.columns).toEqual(list.columns);
 		expect(props.list.titleProps.key).toBe('label');
 		expect(typeof props.list.titleProps.onClick).toBe('function');
+		expect(typeof props.list.titleProps.onEditSubmit).toBe('function');
+		expect(typeof props.list.titleProps.onEditCancel).toBe('function');
 		expect(props.toolbar.filter.placeholder).toBe('find an object');
 		expect(typeof props.toolbar.filter.onFilter).toBe('function');
 		expect(typeof props.toolbar.display.onChange).toBe('function');
 		expect(typeof props.toolbar.sort.onChange).toBe('function');
 		expect(props.toolbar.sort.options.length).toBe(2);
 		expect(props).toMatchSnapshot();
+	});
+
+	it('should add multiSelection props', () => {
+		const multiSelectionSetting = cloneDeep(settings);
+		multiSelectionSetting.idKey = 'id';
+		multiSelectionSetting.multiSelectActions = {
+			left: ['object:remove'],
+		};
+		const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />);
+		const props = wrapper.props();
+		expect(typeof props.list.itemProps.onToggle).toBe('function');
+		expect(typeof props.list.itemProps.onToggleAll).toBe('function');
+		expect(typeof props.list.itemProps.isSelected).toBe('function');
 	});
 
 	it('should render without toolbar', () => {
@@ -107,9 +125,7 @@ describe('Container List', () => {
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = shallow(<Container displayMode="large" items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container displayMode="large" items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -147,6 +163,72 @@ describe('Container List', () => {
 		expect(calls[0][3].registry).toBe(context.registry);
 	});
 
+	it('should ontitle edit submit call action creator', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:edit:submit': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		const onEditSubmit = props.list.titleProps.onEditSubmit;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onEditSubmit(e, data);
+		const calls = dispatchActionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe('object:edit:submit');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
+	});
+
+	it('should ontitle edit cancel call action creator', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:edit:cancel': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		const onEditCancel = props.list.titleProps.onEditCancel;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onEditCancel(e, data);
+		const calls = dispatchActionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe('object:edit:cancel');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
+	});
+
 	it('should not set onclick if no action on title', () => {
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
@@ -178,6 +260,7 @@ describe('Container List', () => {
 		// given
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
+		const setState = jest.fn();
 		const context = {
 			registry: {
 				'actionCreator:pagination:change': actionCreator,
@@ -188,6 +271,7 @@ describe('Container List', () => {
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
+				setState={setState}
 			/>,
 			{
 				lifecycleExperimental: true,
@@ -195,13 +279,13 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		const event = {};
-		const data = { foo: 'bar' };
+		const event = null;
+		const data = { startIndex: 1, itemsPerPage: 5 };
 
 		expect(dispatchActionCreator).not.toBeCalled();
 
 		// when
-		props.toolbar.pagination.onChange(event, data);
+		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
 
 		// then
 		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);
@@ -219,6 +303,111 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.rowHeight).toBe(3);
+	});
+
+	describe('Toggle selection', () => {
+		it('should select one item', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			// then
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([1]),
+			});
+		});
+
+		it('should deselect one item', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [1] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			// then
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([]),
+			});
+		});
+		it('should select all items', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleAllMultiSelection();
+			// then
+
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([1, 2, 3]),
+			});
+		});
+
+		it('should deselect all items', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [1, 2, 3] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleAllMultiSelection();
+			// then
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([]),
+			});
+		});
+
+		it('should compute the number of selected items', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [1, 2, 3] });
+			multiSelectionSetting.state = state;
+
+			// when
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// then
+			expect(wrapper.props().toolbar.actionBar.selected).toBe(3);
+		});
 	});
 });
 

@@ -2,12 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ActionFile from './ActionFile.component';
 
-// jest.mock('react-dom');
-
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onChange: jest.fn(),
+	'data-feature': 'action.feature',
 };
 
 describe('ActionFile', () => {
@@ -18,6 +17,14 @@ describe('ActionFile', () => {
 	it('should render a div with a input[type="file"] and a label to mimic a button', () => {
 		// when
 		const wrapper = shallow(<ActionFile {...myAction} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a div with a input[type="file"] with some classname on it', () => {
+		// when
+		const wrapper = shallow(<ActionFile {...myAction} className={'testClassName'} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

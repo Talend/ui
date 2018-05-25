@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { translate } from 'react-i18next';
 import Badge from '@talend/react-components/lib/Badge';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
+import { I18N_DOMAIN_FORMS } from '../../constants';
+import '../../translate';
 
 const DROP_DOWN_ITEM_HEIGHT = 49;
 
@@ -40,7 +43,7 @@ function filterOptions(props) {
 	return transformOptions(props.options).filter(option => props.value.indexOf(option.value) < 0);
 }
 
-class MultiSelectTagWidget extends React.Component {
+export class MultiSelectTagWidgetComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.withCategory = typeof props.options.groupBy !== 'undefined';
@@ -94,6 +97,7 @@ class MultiSelectTagWidget extends React.Component {
 		onChange(nextValue);
 
 		this.setState({ filterText: '' });
+		this.component.querySelector('input').blur();
 	}
 
 	onRemoveTag(tagValue) {
@@ -104,7 +108,12 @@ class MultiSelectTagWidget extends React.Component {
 
 	onKeyDown(
 		event,
-		{ focusedItemIndex, newFocusedItemIndex, focusedSectionIndex, newFocusedSectionIndex },
+		{
+			highlightedItemIndex,
+			newHighlightedItemIndex,
+			highlightedSectionIndex,
+			newHighlightedSectionIndex,
+		},
 	) {
 		switch (event.which) {
 			case keycode.codes.backspace: {
@@ -116,8 +125,8 @@ class MultiSelectTagWidget extends React.Component {
 			case keycode.codes.enter: {
 				if (this.state.suggestions.length > 0) {
 					this.onSelect(event, {
-						itemIndex: focusedItemIndex,
-						sectionIndex: focusedSectionIndex,
+						itemIndex: highlightedItemIndex,
+						sectionIndex: highlightedSectionIndex,
 					});
 				} else if (this.state.filterText.length > 0) {
 					const { schema } = this.props;
@@ -133,14 +142,14 @@ class MultiSelectTagWidget extends React.Component {
 				event.preventDefault();
 				this.scrollDropDownIfRequired(
 					{
-						itemIndex: newFocusedItemIndex,
-						sectionIndex: newFocusedSectionIndex,
+						itemIndex: newHighlightedItemIndex,
+						sectionIndex: newHighlightedSectionIndex,
 					},
 					event.which,
 				);
 				this.setState({
-					focusedItemIndex: newFocusedItemIndex,
-					focusedSectionIndex: newFocusedSectionIndex,
+					focusedItemIndex: newHighlightedItemIndex,
+					focusedSectionIndex: newHighlightedSectionIndex,
 				});
 				break;
 			}
@@ -272,19 +281,53 @@ class MultiSelectTagWidget extends React.Component {
 	}
 
 	render() {
-		const { value, readonly, options, id, noAvailableMessage } = this.props;
+		const { value, readonly, options, id, noAvailableMessage, t } = this.props;
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;
+		const defaultLabel = readonly &&
+			(!options.enumOptions || !options.enumOptions.length) && (
+				<label className="control-label" htmlFor={id}>
+					{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
+				</label>
+			);
+
+		const caret = !readonly && (
+			<button
+				onClick={this.onCaretClick}
+				className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
+				type="button"
+			>
+				<span className="caret" />
+			</button>
+		);
+
+		const typeAhead = !readonly && (
+			<Typeahead
+				id={id}
+				autoFocus={false}
+				focusedItemIndex={this.state.focusedItemIndex}
+				focusedSectionIndex={this.state.focusedSectionIndex}
+				value={this.state.filterText}
+				items={this.state.items}
+				onFocus={this.onFocus}
+				onKeyDown={this.onKeyDown}
+				onBlur={this.resetSuggestions}
+				onChange={this.onChange}
+				onSelect={this.onSelect}
+				multiSection={this.withCategory}
+				theme={this.theme}
+				noResultText={noAvailableMessage}
+				readOnly={readonly}
+			/>
+		);
 
 		return (
-			<div className="dropdown" ref={component => this.setComponentRef(component)}>
-				<button
-					onClick={this.onCaretClick}
-					className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
-				>
-					<span className="caret" />
-				</button>
+			<div
+				className={classNames(readonly && theme.readonly, 'dropdown')}
+				ref={component => this.setComponentRef(component)}
+			>
+				{caret}
 				<div className={`${theme.wrapper} form-control`}>
 					{value.map((val, index) => {
 						badgeValue = valueToLabel[val] || val;
@@ -302,23 +345,8 @@ class MultiSelectTagWidget extends React.Component {
 						}
 						return <Badge {...badgeProps} />;
 					})}
-					<Typeahead
-						id={id}
-						autoFocus={false}
-						focusedItemIndex={this.state.focusedItemIndex}
-						focusedSectionIndex={this.state.focusedSectionIndex}
-						value={this.state.filterText}
-						items={this.state.items}
-						onFocus={this.onFocus}
-						onKeyDown={this.onKeyDown}
-						onBlur={this.resetSuggestions}
-						onChange={this.onChange}
-						onSelect={this.onSelect}
-						multiSection={this.withCategory}
-						theme={this.theme}
-						noResultText={noAvailableMessage}
-						readOnly={readonly}
-					/>
+					{defaultLabel}
+					{typeAhead}
 				</div>
 			</div>
 		);
@@ -326,7 +354,7 @@ class MultiSelectTagWidget extends React.Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	MultiSelectTagWidget.propTypes = {
+	MultiSelectTagWidgetComponent.propTypes = {
 		id: PropTypes.string,
 		value: PropTypes.array, //eslint-disable-line
 		options: PropTypes.shape({
@@ -337,7 +365,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func,
 		schema: PropTypes.object.isRequired, //eslint-disable-line
 		noAvailableMessage: PropTypes.string,
+		t: PropTypes.func,
 	};
 }
 
-export default MultiSelectTagWidget;
+export default translate(I18N_DOMAIN_FORMS)(MultiSelectTagWidgetComponent);

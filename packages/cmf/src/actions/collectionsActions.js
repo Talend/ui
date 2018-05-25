@@ -1,10 +1,10 @@
 /**
  * @module react-cmf/lib/actions/collectionsActions
  */
+import CONSTANTS from '../constant';
 
-export const COLLECTION_ADD_OR_REPLACE = 'REACT_CMF.COLLECTION_ADD_OR_REPLACE';
-export const COLLECTION_REMOVE = 'REACT_CMF.COLLECTION_REMOVE';
-export const COLLECTION_MUTATE = 'REACT_CMF.COLLECTION_MUTATE';
+// keep backward compatibility
+export const { COLLECTION_ADD_OR_REPLACE, COLLECTION_REMOVE, COLLECTION_MUTATE } = CONSTANTS;
 
 /**
  * Add or replace collection data in store
@@ -13,7 +13,7 @@ export const COLLECTION_MUTATE = 'REACT_CMF.COLLECTION_MUTATE';
  */
 export function addOrReplace(collectionId, data) {
 	return {
-		type: COLLECTION_ADD_OR_REPLACE,
+		type: CONSTANTS.COLLECTION_ADD_OR_REPLACE,
 		collectionId,
 		data,
 	};
@@ -27,7 +27,7 @@ export function addOrReplace(collectionId, data) {
  */
 export function remove(collectionId) {
 	return {
-		type: COLLECTION_REMOVE,
+		type: CONSTANTS.COLLECTION_REMOVE,
 		collectionId,
 	};
 }
@@ -45,7 +45,7 @@ export function remove(collectionId) {
  */
 export function mutate(id, operations) {
 	return {
-		type: COLLECTION_MUTATE,
+		type: CONSTANTS.COLLECTION_MUTATE,
 		id,
 		operations,
 	};

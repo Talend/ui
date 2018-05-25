@@ -4,8 +4,8 @@ import Icon from '@talend/react-components/lib/Icon';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_FORMS from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
+import getDefaultT from '../../../translate';
 
 import theme from './ArrayItem.scss';
 
@@ -40,14 +40,18 @@ export function ReorderButton(props) {
 	}
 
 	return (
-		<button {...buttonProps} type="button">
+		<button
+			{...buttonProps}
+			className={`${theme['tf-array-item-reorder']} tf-array-item-reorder`}
+			type="button"
+		>
 			<Icon name="talend-caret-down" transform={iconTransform} />
 		</button>
 	);
 }
 
 ReorderButton.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 if (process.env.NODE_ENV !== 'production') {
 	ReorderButton.propTypes = {
@@ -60,32 +64,32 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 }
-const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ReorderButton);
+const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
-	const { children, id, index, onRemove, onReorder, value } = props;
+	const { children, id, index, onRemove, onReorder, isClosed } = props;
 
 	return (
 		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
-			{
-				<div className={theme.control}>
-					<button
-						className={theme.delete}
-						id={id && `${id}-delete`}
-						onClick={event => onRemove(event, index)}
-						title="Delete"
-						type="button"
-					>
-						<Icon name="talend-trash" />
-					</button>
-					{!value.isClosed &&
-						onReorder && [
-							<TranslatedReorderButton {...props} index={index} />,
-							<TranslatedReorderButton {...props} index={index} isMoveDown />,
-						]}
-				</div>
-			}
+			<div className={theme.control}>
+				{!isClosed &&
+					onReorder && [
+						<TranslatedReorderButton {...props} index={index} />,
+						<TranslatedReorderButton {...props} index={index} isMoveDown />,
+					]}
+			</div>
 			{children}
+			<div className={theme.control}>
+				<button
+					className={theme.delete}
+					id={id && `${id}-delete`}
+					onClick={event => onRemove(event, index)}
+					title="Delete"
+					type="button"
+				>
+					<Icon name="talend-cross" />
+				</button>
+			</div>
 		</div>
 	);
 }
@@ -95,9 +99,9 @@ if (process.env.NODE_ENV !== 'production') {
 		children: PropTypes.node,
 		id: PropTypes.string,
 		index: PropTypes.number.isRequired,
+		isClosed: PropTypes.bool,
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,
-		value: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	};
 }
 

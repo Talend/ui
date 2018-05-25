@@ -56,6 +56,28 @@ importing the saga, allow you to statically call any member function `get, post 
 
 `create` also allow you to provide a configuration object.
 
+```javascript
+import http from '@talend/react-cmf/lib/sagas/http';
+const configuredHttp = http.create();
+const config = {
+	headers: {
+		'X-header': 'my-specific-value'
+	}
+};
+const options = {
+	silent: true
+};
+const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample']}/${datasetId}`, config, options);
+```
+* The config object allow you to customize your http request
+ + ```headers```, ```credentials```, ```method```, ```body``` will be merged recursively against other provided arguments and override those values.
+ + ```security``` will be resolved and then merged
+
+* The options object allow you to configure cmf behavior.
+
+  + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
+  It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
+
 ## CSRF token handling
 you can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.
 
@@ -74,3 +96,48 @@ const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample
 ```
 
 The above configuration allow the configured instance of `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
+
+# Component Saga
+
+First you have to plug all the thing to make it work :
+- In the configure.js :
+
+```javascript
+import { api } from '@talend/react-cmf';
+// ...
+// where you init your saga router
+yield all([
+	// ...
+	fork(api.sagas.component.handle),
+	// ...
+]);
+// where you init other things ( like register your app )
+api.registerInternals();
+api.saga.registerMany(sagasToRegister);
+```
+
+Then, we can add some cmf configuration :
+
+```json
+{
+    "MyComponent#default": {
+      "saga": "mySaga",
+      "coolProps": "coolData"
+    }
+}
+```
+
+Then, in your app, if you do that ( with a cmfConnected component ) :
+
+```jsx
+<MyComponent otherProps="otherData"/>
+```
+
+When the component mount, an action creator will be dispatched to start a saga, here : mySaga
+
+```javascript
+function* mySaga(props){
+	console.log(props.coolProps); // print coolData
+	console.log(props.otherData); // print otherData
+}
+```

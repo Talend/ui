@@ -20,9 +20,11 @@ function getItemsPerPageTitle(option) {
 }
 
 function getMenuItem(option, index) {
-	return (<MenuItem key={index} eventKey={option}>
-		{getItemsPerPageTitle(option)}
-	</MenuItem>);
+	return (
+		<MenuItem key={index} eventKey={option}>
+			{getItemsPerPageTitle(option)}
+		</MenuItem>
+	);
 }
 
 function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
@@ -55,7 +57,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				break;
 			}
 			case LAST: {
-				from = ((pagesLength - 1) * itemsPerPage) + 1;
+				from = (pagesLength - 1) * itemsPerPage + 1;
 				break;
 			}
 			default:
@@ -64,53 +66,52 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		onChange(from, itemsPerPage);
 	}
 	function getNavigationItems() {
-		return [(
+		return [
 			<NavItem
+				key={FIRST}
 				eventKey={FIRST}
 				id={id && `${id}-nav-to-first`}
 				className={'btn-link'}
 				disabled={startIndex <= 1}
 			>
 				<Icon {...first} />
-			</NavItem>
-		), (
+			</NavItem>,
 			<NavItem
+				key={PREV}
 				eventKey={PREV}
 				id={id && `${id}-nav-to-prev`}
 				className={'btn-link'}
 				disabled={startIndex <= 1}
 			>
 				<Icon {...prev} />
-			</NavItem>
-		), (
-			<NavItem disabled>
-				<span className="btn-link">{currentPage}/{pagesLength}</span>
-			</NavItem>
-		), (
+			</NavItem>,
+			<NavItem key={'current'} disabled>
+				<span className="btn-link">
+					{currentPage}/{pagesLength}
+				</span>
+			</NavItem>,
 			<NavItem
+				key={NEXT}
 				eventKey={NEXT}
 				id={id && `${id}-nav-to-next`}
 				className={'btn-link'}
 				disabled={startIndex + itemsPerPage > totalResults}
 			>
 				<Icon {...next} />
-			</NavItem>
-		), (
+			</NavItem>,
 			<NavItem
+				key={LAST}
 				eventKey={LAST}
 				id={id && `${id}-nav-to-last`}
 				className={'btn-link'}
 				disabled={startIndex + itemsPerPage > totalResults}
 			>
 				<Icon {...last} />
-			</NavItem>
-		)];
+			</NavItem>,
+		];
 	}
 	return (
-		<Nav
-			className={theme['tc-pagination']}
-			onSelect={selectedKey => changePageTo(selectedKey)}
-		>
+		<Nav className={theme['tc-pagination']} onSelect={selectedKey => changePageTo(selectedKey)}>
 			<NavDropdown
 				id={id ? `${id}-size` : uuid.v4()}
 				title={getItemsPerPageTitle(itemsPerPage)}

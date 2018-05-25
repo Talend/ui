@@ -25,11 +25,11 @@ export function getHeaders(keys, isFlat) {
 		// $['id'][0]['foo'] -> id[0].foo
 		return keys.map(str =>
 			str
-				.replace("$['", '')
-				.replace("']['", '.')
-				.replace("]['", '].')
-				.replace("'][", '[')
-				.replace("']", ''),
+				.replace(/^\$\['/g, '')
+				.replace(/']\['/g, '.')
+				.replace(/]\['/g, '].')
+				.replace(/']\[/g, '[')
+				.replace(/']/g, ''),
 		);
 	}
 	return keys;
@@ -87,7 +87,12 @@ function Table({ flat, data, ...props }) {
 								const path = getAbsolutePath(index, key, flat);
 								return (
 									<td key={j}>
-										<JSONLike data={flattenRow[key]} {...props} jsonpath={path} />
+										<JSONLike
+											data={flattenRow[key]}
+											{...props}
+											jsonpath={path}
+											nativeValueClassName={theme.nativevalue}
+										/>
 									</td>
 								);
 							})}

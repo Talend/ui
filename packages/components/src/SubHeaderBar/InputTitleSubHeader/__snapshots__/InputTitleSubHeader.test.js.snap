@@ -5,19 +5,28 @@ exports[`InlineFormSubHeader should render 1`] = `
   className="theme-tc-subheader-details-form tc-subheader-details-form"
   onSubmit={[Function]}
 >
-  <input
-    className="theme-tc-subheader-details-form-input tc-subheader-details-form-input form-control"
-    id="inputTitle"
-    onChange={[Function]}
-    type="text"
-    value="myTitle"
-  />
+  <div
+    className="form-group"
+  >
+    <label
+      className="sr-only"
+      htmlFor="inputTitle"
+    />
+    <input
+      className="theme-tc-subheader-details-form-input tc-subheader-details-form-input form-control"
+      id="inputTitle"
+      onChange={[Function]}
+      type="text"
+      value="myTitle"
+    />
+  </div>
   <div
     className="theme-tc-subheader-details-form-buttons tc-subheader-details-form-buttons"
   >
     <Action
       bsStyle="link"
       className="theme-tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
+      disabled={false}
       hideLabel={true}
       icon="talend-check"
       label={undefined}
@@ -47,6 +56,7 @@ exports[`InputTitleSubHeader should render 1`] = `
     name="myIconId"
   />
   <TitleSubHeader
+    disabled={false}
     editable={false}
     onEdit={[Function]}
     onSubmit={[Function]}

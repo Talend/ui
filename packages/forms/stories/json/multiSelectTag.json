@@ -39,6 +39,30 @@
         },
         "uniqueItems": true,
         "createIfNoneMatch": false
+      },
+      "readOnlyTagsWithCategory": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "apple", "orange"
+          ],
+          "enumNames": [
+            {"label":"Apple", "category": "fruit"},
+            {"label":"Orange", "category": "fruit"}
+          ]
+        },
+        "uniqueItems": true,
+        "createIfNoneMatch": false
+      },
+      "readonlyEmptyTag": {
+        "type": "array",
+        "items": {
+          "enum": [
+          ],
+          "enumNames": [
+          ]
+        },
+        "uniqueItems": true
       }
     }
   },
@@ -51,6 +75,17 @@
       "ui:options": {
         "groupBy": "category"
       }
+    },
+    "readOnlyTagsWithCategory": {
+      "ui:readonly": true,
+      "ui:widget": "multiSelectTag",
+      "ui:options": {
+        "groupBy": "category"
+      }
+    },
+    "readonlyEmptyTag": {
+      "ui:readonly": true,
+      "ui:widget": "multiSelectTag"
     }
   },
   "properties": {
@@ -59,6 +94,9 @@
     ],
     "tagsWithCategory": [
       "apple", "plum"
+    ],
+    "readOnlyTagsWithCategory": [
+      "apple", "orange"
     ]
   }
 }

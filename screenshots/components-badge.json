@@ -1,0 +1,12 @@
+{
+  "components/iframe.html?selectedKind=Badge&selectedStory=default": [
+    {
+      "name": "badge-default",
+      "selector": "#default"
+    },
+    {
+      "name": "badge-category",
+      "selector": "#category"
+    }
+  ]
+}

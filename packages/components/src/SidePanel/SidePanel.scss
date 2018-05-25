@@ -4,17 +4,15 @@
 ////
 
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-active-color: rgba($white, 0.25) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-width: 200px !default;
-$tc-side-panel-large-width: 250px !default;
+$tc-side-panel-minwidth: 200px !default;
+$tc-side-panel-large-minwidth: 250px !default;
 $tc-side-panel-docked-width: 50px !default;
 $tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-labels-width: 165px !default;
 $tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: 20px !default;
 $tc-side-panel-border-size: 2px !default;
@@ -22,189 +20,170 @@ $tc-side-panel-large-toggle-padding: 4px !default;
 $toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
-	overflow-x: hidden;
-	padding: 0;
-	transition: 0.2s width ease-out;
-	width: $tc-side-panel-width;
-	border-right: $tc-side-panel-border-size solid $alto;
-	display: flex;
+	display: inline-flex;
 	flex-direction: column;
+	overflow-x: hidden;
+	background: $list-item-reverse-color;
 
+	&,
 	> ul {
-		width: $tc-side-panel-width;
+		min-width: $tc-side-panel-minwidth;
+		transition: 0.2s min-width ease-out;
 	}
 
-	:global(.btn) svg:global(.tc-svg-icon) {
+	:global(.tc-svg-icon) {
 		width: $tc-side-panel-icons-size;
 		height: $tc-side-panel-icons-size;
 		margin: 0;
 	}
 
-	:global(.btn.btn-link) {
-		padding: $padding-normal;
-		text-overflow: inherit;
-	}
-
-	:global(.btn.btn-link) > span {
-		vertical-align: middle;
-		text-overflow: ellipsis;
-		width: $tc-side-panel-labels-width;
-		overflow: hidden;
-	}
-
-	&-list {
-		background-color: $wild-sand;
-
-		.tc-side-panel-list-item.active {
-			background-color: $list-item-color;
-			color: $brand-primary;
-			&:hover {
-				:global(.tc-svg-icon) {
-					color: $brand-primary;
-				}
-			}
-		}
-
-		.tc-side-panel-list-item:hover {
-			background-color: $list-item-reverse-hover-color;
-			color: $dove-gray;
-			:global(.tc-svg-icon) {
-				color: $silver;
-			}
-		}
-	}
-
 	.toggle-btn {
-		background-color: $wild-sand;
-		padding-bottom: $padding-normal + $padding-large;
+		padding-top: $padding-small;
+		padding-bottom: $padding-smaller + $padding-large;
 		padding-left: $toggle-button-padding;
 		text-align: left;
 
-		:global(.btn.btn-link) {
-			color: $dove-gray;
-			line-height: 1;
-			padding: $padding-small;
-			display: inline-block;
-			width: auto;
-			opacity: $toggle-button-opacity;
-			margin: 0 auto;
-
-			&:hover {
-				opacity: 1;
-				background-color: $list-item-hover-color;
-			}
-
-			:global(.tc-svg-icon) {
-				width: $svg-sm-size;
-				height: $svg-sm-size;
-				transition: 0.2s transform ease-out;
-			}
-		}
-
-		:global(.btn.btn-link) > span {
-			display: none;
-		}
-	}
-
-	&.nav-inverse {
-		background-color: $list-item-reverse-color;
-		border-right: none;
-
-		.tc-side-panel-list {
-			border-right: none;
-			background-color: $list-item-reverse-color;
-
-			.tc-side-panel-list-item:hover,
-			.tc-side-panel-list-item.active {
-				color: $list-item-color;
-				:global(.tc-svg-icon) {
-					color: $list-item-color;
-				}
-			}
-			.tc-side-panel-list-item:hover {
-				background-color: $list-item-hover-color;
-			}
-
-			.tc-side-panel-list-item.active {
-				background-color: $list-item-active-color;
-			}
-		}
-
-		.toggle-btn {
-			background-color: $list-item-reverse-color;
-			:global(.btn.btn-link) {
+		:global {
+			.btn.btn-link {
 				color: $white;
+				line-height: 1;
+				padding: $padding-small;
+				display: inline-block;
+				width: auto;
+				opacity: $toggle-button-opacity;
+				margin: 0 auto;
+
+				> span {
+					// .sr-only
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					padding: 0;
+					margin: -1px;
+					overflow: hidden;
+					clip: rect(0, 0, 0, 0);
+					border: none;
+				}
+
+				&:hover {
+					opacity: 1;
+					background-color: $list-item-hover-color;
+				}
+
+				.tc-svg-icon {
+					width: $svg-sm-size;
+					height: $svg-sm-size;
+					transition: 0.2s transform ease-out;
+				}
 			}
 		}
 	}
 
 	&.docked {
-		width: $tc-side-panel-docked-width;
-
-		.tc-side-panel-list-item {
+		&,
+		> ul {
+			min-width: $tc-side-panel-docked-width;
 			width: $tc-side-panel-docked-width;
 		}
-		.nav-pills {
-			:global(.btn.btn-link) {
-				padding: $padding-normal;
+
+		:global(.btn.btn-link) {
+			padding: $padding-normal;
+
+			> span {
+				opacity: 0;
 			}
 		}
 
 		.toggle-btn {
-			:global(.btn.btn-link) {
-				padding: $padding-small;
-				:global(.tc-svg-icon) {
-					transform: rotate(-180deg);
+			:global {
+				.btn.btn-link {
+					padding: $padding-small;
+
+					.tc-svg-icon {
+						transform: rotate(-180deg);
+					}
 				}
 			}
 		}
 	}
 
 	&.large {
-		width: $tc-side-panel-large-width;
+		&,
 		> ul {
-			width: $tc-side-panel-large-width;
-		}
-
-		:global(.btn.btn-link) {
-			:global(.tc-svg-icon) + span {
-				margin-left: $tc-side-panel-large-padding;
-			}
-		}
-
-		:global(.btn.btn-link) > span {
-			width: $tc-side-panel-large-labels-width;
-		}
-
-		.nav-pills {
-			:global(.btn.btn-link) {
-				padding: $padding-normal $tc-side-panel-large-padding;
-			}
+			min-width: $tc-side-panel-large-minwidth;
 		}
 
 		.toggle-btn {
 			padding-left: $tc-side-panel-large-toggle-padding;
+
 			:global(.btn.btn-link) {
 				padding: $padding-small $tc-side-panel-large-padding;
 			}
 		}
 
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal $tc-side-panel-large-padding;
+
+				.tc-svg-icon + span {
+					margin-left: $tc-side-panel-large-padding;
+				}
+			}
+		}
+
 		&.docked {
-			width: $tc-side-panel-large-docked-width;
-			.tc-side-panel-list-item {
+			&,
+			> ul,
+			:global(.tc-action-list-item) {
+				min-width: $tc-side-panel-large-docked-width;
 				width: $tc-side-panel-large-docked-width;
 			}
 		}
 	}
 
-	:global(.btn.btn-link) {
-		text-align: left;
-		font-size: $font-size-small;
-		text-transform: uppercase;
+	&.reverse {
+		background: $wild-sand;
+		border-right: $tc-side-panel-border-size solid $alto;
 
-		:global(.tc-svg-icon) + span {
-			margin-left: $padding-normal;
-			vertical-align: text-bottom;
+		&:before {
+			background-image: none;
+		}
+		.toggle-btn {
+			background-color: $wild-sand;
+
+			:global {
+				.btn.btn-link,
+				.tc-svg-icon {
+					color: $dove-gray;
+				}
+			}
+		}
+
+		:global {
+			.tc-action-list-item {
+				color: $dove-gray;
+
+				&:hover {
+					background-color: $list-item-reverse-hover-color;
+
+					.btn.btn-link {
+						color: $dove-gray;
+					}
+
+					.tc-svg-icon {
+						color: $silver;
+					}
+				}
+
+				&.active {
+					background-color: $list-item-color;
+
+					.btn.btn-link,
+					.tc-svg-icon {
+						color: $brand-primary;
+					}
+				}
+			}
 		}
 	}
 }

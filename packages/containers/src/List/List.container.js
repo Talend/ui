@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
-import { Map } from 'immutable';
+import { Map, List as ImmutableList } from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
-import { componentState } from '@talend/react-cmf';
+import omit from 'lodash/omit';
+import pick from 'lodash/pick';
+import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
+	selectedItems: new ImmutableList(),
 	searchQuery: '',
-	limit: 0,
-	offset: 0,
+	itemsPerPage: 10,
+	startIndex: 1,
+	totalResults: 0,
 	sortOn: 'name',
 	sortAsc: true,
 	filterDocked: true,
@@ -24,7 +29,7 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.map(item =>
+	return props.items.toJS().map(item =>
 		Object.assign({}, item, {
 			actions: getActionsProps(context, get(props, 'actions.items', []), item),
 		}),
@@ -39,6 +44,12 @@ class List extends React.Component {
 			left: PropTypes.arrayOf(PropTypes.string),
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
+		multiSelectActions: PropTypes.shape({
+			title: PropTypes.string,
+			left: PropTypes.arrayOf(PropTypes.string),
+			right: PropTypes.arrayOf(PropTypes.string),
+		}),
+		idKey: PropTypes.string,
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -47,12 +58,16 @@ class List extends React.Component {
 			sort: PropTypes.object,
 			filter: PropTypes.object,
 			pagination: PropTypes.shape({
-				onChange: PropTypes.string,
+				onChange: PropTypes.func,
 			}),
 		}),
 		displayMode: PropTypes.string,
-		items: PropTypes.arrayOf(PropTypes.object).isRequired,
-		...componentState.propTypes,
+		items: ImmutablePropTypes.list.isRequired,
+		...cmfConnect.propTypes,
+	};
+
+	static defaultProps = {
+		state: DEFAULT_STATE,
 	};
 
 	static contextTypes = {
@@ -67,6 +82,10 @@ class List extends React.Component {
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
+		this.onChangePage = this.onChangePage.bind(this);
+		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
+		this.onToggleAllMultiSelection = this.onToggleAllMultiSelection.bind(this);
+		this.isSelected = this.isSelected.bind(this);
 	}
 
 	onSelectSortBy(event, payload) {
@@ -77,7 +96,11 @@ class List extends React.Component {
 	}
 
 	onFilter(event, payload) {
-		this.props.setState({ searchQuery: payload });
+		this.props.setState({ searchQuery: payload.query });
+	}
+
+	onChangePage(startIndex, itemsPerPage) {
+		this.props.setState({ startIndex, itemsPerPage });
 	}
 
 	onToggle() {
@@ -92,46 +115,104 @@ class List extends React.Component {
 		this.props.setState({ displayMode: payload });
 	}
 
-	render() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const items = getItems(this.context, this.props);
-		const props = {
-			displayMode: this.props.displayMode || state.displayMode,
-			list: {
-				id: get(this.props, 'list.id', 'list'),
-				items,
-				columns: get(this.props, 'list.columns', []),
-				sort: {
-					field: state.sortOn,
-					isDescending: !state.sortAsc,
-					onChange: this.onSelectSortBy,
-				},
-			},
-			virtualized: this.props.virtualized,
-			renderers: this.props.renderers,
+	onToggleMultiSelection(event, data) {
+		const selectedItems = this.getSelectedItems();
+		const dataIndex = selectedItems.indexOf(data[this.props.idKey]);
+		if (dataIndex > -1) {
+			this.props.setState({
+				selectedItems: selectedItems.splice(dataIndex, 1),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: selectedItems.push(data[this.props.idKey]),
+			});
+		}
+	}
+
+	onToggleAllMultiSelection() {
+		const selectedItems = this.getSelectedItems();
+		const items = this.props.items;
+		if (selectedItems.size !== items.size) {
+			this.props.setState({
+				selectedItems: items.map(item => item.get(this.props.idKey)),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: new ImmutableList([]),
+			});
+		}
+	}
+
+	getSelectedItems() {
+		return this.props.state.get('selectedItems', new ImmutableList());
+	}
+
+	getGenericDispatcher(property) {
+		return (event, data) => {
+			this.props.dispatchActionCreator(property, event, data, this.context);
 		};
+	}
+
+	isSelected(item) {
+		const selectedItems = this.getSelectedItems();
+		return selectedItems.some(itemKey => itemKey === item[this.props.idKey]);
+	}
+
+	render() {
+		const state = this.props.state.toJS();
+		const items = getItems(this.context, this.props);
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
+		if (!props.displayMode) {
+			props.displayMode = state.displayMode;
+		}
+		if (!props.list) {
+			props.list = {};
+		}
+		if (!props.list.id) {
+			props.list.id = 'list';
+		}
+		props.list.items = items;
+		if (!props.list.columns) {
+			props.list.columns = [];
+		}
+		props.list.sort = {
+			field: state.sortOn,
+			isDescending: !state.sortAsc,
+			onChange: this.onSelectSortBy,
+		};
+		if (!props.list.itemProps) {
+			props.list.itemProps = {};
+		}
+
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
-		props.list.titleProps = get(this.props, 'list.titleProps');
-
 		if (props.list.titleProps && this.props.actions.title) {
-			props.list.titleProps.onClick = (event, data) => {
-				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
-			};
+			if (this.props.actions.title) {
+				props.list.titleProps.onClick = this.getGenericDispatcher(this.props.actions.title);
+			}
+			if (this.props.actions.editSubmit) {
+				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(
+					this.props.actions.editSubmit,
+				);
+			}
+			if (this.props.actions.editCancel) {
+				props.list.titleProps.onEditCancel = this.getGenericDispatcher(
+					this.props.actions.editCancel,
+				);
+			}
 		}
 
 		// toolbar
-		if (this.props.toolbar) {
-			props.toolbar = {
-				display: {
-					...this.props.toolbar.display,
-					onChange: (e, p) => {
-						this.onSelectDisplayMode(e, p);
+		if (props.toolbar) {
+			if (props.toolbar.display) {
+				props.toolbar.display = {
+					...props.toolbar.display,
+					onChange: (event, data) => {
+						this.onSelectDisplayMode(event, data);
 					},
-				},
-			};
-			props.toolbar.sort = this.props.toolbar.sort;
+				};
+			}
 			if (props.toolbar.sort) {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
@@ -140,7 +221,6 @@ class List extends React.Component {
 				};
 			}
 
-			props.toolbar.filter = this.props.toolbar.filter;
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.onToggle(event, data);
@@ -152,28 +232,65 @@ class List extends React.Component {
 				props.toolbar.filter.value = state.searchQuery;
 			}
 
-			props.toolbar.actionBar = { actions: {} };
+			props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
+
+			// settings up multi selection
+			if (props.multiSelectActions && props.idKey) {
+				props.list.itemProps.onToggle = this.onToggleMultiSelection;
+				props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
+				props.list.itemProps.isSelected = this.isSelected;
+				props.toolbar.actionBar.selected = this.getSelectedItems().size;
+			}
+
 			const actions = this.props.actions;
+			const multiSelectActions = this.props.multiSelectActions;
+			if (multiSelectActions) {
+				if (multiSelectActions.left) {
+					props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({
+						actionId: action,
+					}));
+				}
+				if (multiSelectActions.right) {
+					props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(
+						action => ({
+							actionId: action,
+						}),
+					);
+				}
+			}
 			if (actions) {
 				if (actions.left) {
-					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ name: action }));
+					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = actions.right.map(action => ({ name: action }));
+					props.toolbar.actionBar.actions.right = actions.right.map(action => ({
+						actionId: action,
+					}));
 				}
 			}
 
-			const pagination = this.props.toolbar.pagination;
-			if (pagination) {
-				props.toolbar.pagination = {
-					...pagination,
-					onChange: (event, data) => {
-						this.props.dispatchActionCreator(pagination.onChange, event, data, this.context);
-					},
-				};
+			if (props.toolbar.pagination) {
+				const pagination = props.toolbar.pagination;
+				Object.assign(props.toolbar.pagination, {
+					...pick(state, ['totalResults', 'itemsPerPage', 'startIndex']),
+				});
+				if (!pagination.onChange) {
+					pagination.onChange = (startIndex, itemsPerPage) => {
+						this.onChangePage(startIndex, itemsPerPage);
+					};
+				} else if (typeof pagination.onChange === 'string') {
+					const onChangeActionCreator = pagination.onChange;
+					pagination.onChange = (startIndex, itemsPerPage) => {
+						this.props.dispatchActionCreator(
+							onChangeActionCreator,
+							null,
+							{ startIndex, itemsPerPage },
+							this.context,
+						);
+					};
+				}
 			}
 		}
-
 		return <Component {...props} />;
 	}
 }

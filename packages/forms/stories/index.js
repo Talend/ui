@@ -22,31 +22,37 @@ import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
-.addDecorator(withKnobs)
-.addDecorator(story =>
-	<I18nextProvider i18n={i18n}>
-		<section>
-			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
-				<div className="btn-group">
-					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
-				</div>
-			</nav>
-			<IconsProvider />
-			<div className="container-fluid">
-				<div
-					className="col-md-offset-1 col-md-10"
-					style={{ marginTop: '20px', marginBottom: '20px' }}
+	.addDecorator(withKnobs)
+	.addDecorator(story => (
+		<I18nextProvider i18n={i18n}>
+			<section>
+				<nav
+					style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}
 				>
-					<Well>
-						{story()}
-					</Well>
+					<div className="btn-group">
+						<button className="btn" onClick={() => i18n.changeLanguage('en')}>
+							Default (en)
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
+							fr
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('it')}>
+							it
+						</button>
+					</div>
+				</nav>
+				<IconsProvider />
+				<div className="container-fluid">
+					<div
+						className="col-md-offset-1 col-md-10"
+						style={{ marginTop: '20px', marginBottom: '20px' }}
+					>
+						<Well>{story()}</Well>
+					</div>
 				</div>
-			</div>
-		</section>
-	</I18nextProvider>
-);
+			</section>
+		</I18nextProvider>
+	));
 
 const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
@@ -56,7 +62,7 @@ sampleFilenames.keys().forEach(filename => {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
-	decoratedStories.add(capitalizedSampleName, () =>
+	decoratedStories.add(capitalizedSampleName, () => (
 		<Form
 			autocomplete="off"
 			data={object(capitalizedSampleName, sampleFilenames(filename))}
@@ -64,7 +70,7 @@ sampleFilenames.keys().forEach(filename => {
 			onBlur={action('Blur')}
 			onSubmit={action('Submit')}
 		/>
-	);
+	));
 });
 
 decoratedStories.add('Multiple actions', () => {
@@ -101,6 +107,7 @@ decoratedStories.add('Multiple actions', () => {
 			type: 'submit',
 			label: 'SUBMIT',
 			disabled: true,
+			'data-feature': 'form.feature',
 			onClick: action('SUBMIT'),
 		},
 	];
@@ -121,11 +128,11 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 function CustomDatalist(...args) {
-	function renderItemsContainer({ children, ...containerProps }) {
+	function renderItemsContainer({ children, containerProps }) {
 		return (
 			<div {...containerProps}>
 				{children}
-				{children &&
+				{children && (
 					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
 						<span
 							style={{
@@ -144,13 +151,15 @@ function CustomDatalist(...args) {
 							id="default"
 							label="do some stuff"
 						/>
-					</div>}
+					</div>
+				)}
 			</div>
 		);
 	}
 
 	renderItemsContainer.propTypes = {
 		children: PropTypes.element,
+		containerProps: PropTypes.object,
 	};
 
 	function renderNoMatch({ ...containerProps }) {
@@ -182,11 +191,86 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+
+	function renderEmptyList({ containerProps }) {
+		return (
+			<div
+				{...containerProps}
+				className={`${DatalistWidget.itemContainerStyle} ${DatalistWidget.emptyStyle}`}
+			>
+				<div className={{ padding: '0 1em 1em 1em', width: '100%' }}>
+					<span>Empty list.</span>
+					<span
+						style={{
+							fontSize: '0.9em',
+							padding: '0.5em 0',
+							color: 'gray',
+							width: '100%',
+							display: 'inline-block',
+						}}
+					>
+						Other Actions
+					</span>
+					<Action
+						onMouseDown={action('clicked')}
+						bsStyle="primary"
+						id="default"
+						label="do some stuff"
+	 				/>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<DatalistWidget
 			{...args[0]}
 			renderItemsContainer={renderItemsContainer}
 			renderNoMatch={renderNoMatch}
+			renderEmptyList={renderEmptyList}
+		/>
+	);
+}
+
+function getEmptyDatalist() {
+	function fetchItems() {
+		return [];
+	}
+	const schema = {
+		jsonSchema: {
+			title: 'A simple typeahead',
+			description: 'A simple typeahead widget example.',
+			type: 'object',
+			definitions: {
+				emptyDatalist: {
+					type: 'string',
+					enum: [],
+				},
+			},
+			properties: {
+				emptyDatalist: {
+					$ref: '#/definitions/emptyDatalist',
+				},
+			},
+		},
+		uiSchema: {
+			emptyDatalist: {
+				'ui:widget': 'customDatalist',
+			},
+			'ui:order': ['emptyDatalist'],
+		},
+		properties: {
+			emptyDataList: undefined,
+		},
+	};
+
+	return (
+		<Form
+			data={schema}
+			formContext={{ fetchItems }}
+			onChange={action('CHANGE')}
+			onSubmit={action('SUBMIT')}
+			widgets={{ customDatalist: CustomDatalist }}
 		/>
 	);
 }
@@ -274,30 +358,25 @@ function getDatalist() {
 }
 
 decoratedStories.add('Datalist', getDatalist);
+decoratedStories.add('Datalist empty', getEmptyDatalist);
 decoratedStories.add('Datalist in modal', () => {
 	const props = {
 		header: 'Datalist in modal',
-		bsDialogProps: {
-			show: true,
-			size: 'small',
-			keyboard: true,
-		},
+		show: true,
+		size: 'small',
+		keyboard: true,
 	};
 
 	// Need to override style for this demo (items-container must be scrollable)
 	return (
 		<div>
-			<style>
-				{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}
-			</style>
-			<Dialog {...props}>
-				{ getDatalist() }
-			</Dialog>
+			<style>{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}</style>
+			<Dialog {...props}>{getDatalist()}</Dialog>
 		</div>
 	);
 });
 
-const UnknownWidget = (props) => {
+const UnknownWidget = props => {
 	const { value } = props;
 
 	return (
@@ -314,7 +393,7 @@ const UnknownWidget = (props) => {
 };
 
 UnknownWidget.propTypes = {
-	value: React.PropTypes.string,
+	value: PropTypes.string,
 };
 
 decoratedStories.add('Custom widget', () => {
@@ -348,7 +427,7 @@ decoratedStories.add('Custom widget', () => {
 
 class FormDemo extends React.Component {
 	static fields = {
-		CollapsibleFieldset: createCollapsibleFieldset((formData) => {
+		CollapsibleFieldset: createCollapsibleFieldset(formData => {
 			if (formData.function) {
 				return (
 					<span>
@@ -466,6 +545,165 @@ decoratedStories.add('Custom array', () => {
 	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
 });
 
+decoratedStories.add('Custom double array', () => {
+	const schema = {
+		jsonSchema: {
+			title: '',
+			type: 'object',
+			required: ['label'],
+			properties: {
+				label: {
+					type: 'string',
+					title: 'Label',
+				},
+				description: {
+					type: 'string',
+					title: 'Description',
+				},
+				properties: {
+					title: '',
+					type: 'object',
+					properties: {
+						main: {
+							title: '',
+							type: 'object',
+							properties: {
+								schema: {
+									title: 'Schema',
+									type: 'string',
+								},
+							},
+						},
+						schemaFlow: {
+							title: '',
+							type: 'object',
+							properties: {
+								schema: {
+									title: 'Schema',
+									type: 'string',
+								},
+							},
+						},
+						groupBy: {
+							title: 'Group By',
+							minItems: '0',
+							maxItems: '10',
+							type: 'array',
+							items: {
+								title: '',
+								type: 'object',
+								properties: {
+									fieldPath: {
+										title: 'Field',
+										type: 'string',
+									},
+								},
+								required: ['fieldPath'],
+								default: {
+									fieldPath: '',
+								},
+							},
+						},
+						operations: {
+							title: 'Operations',
+							minItems: '1',
+							maxItems: '10',
+							type: 'array',
+							items: {
+								title: '',
+								type: 'object',
+								properties: {
+									fieldPath: {
+										title: 'Field',
+										type: 'string',
+									},
+									operation: {
+										title: 'Operation',
+										type: 'string',
+										enumNames: ['List', 'Count', 'Sum', 'Avg', 'Min', 'Max'],
+										enum: ['LIST', 'COUNT', 'SUM', 'AVG', 'MIN', 'MAX'],
+									},
+									outputFieldPath: {
+										title: 'Generated field (optional)',
+										type: 'string',
+									},
+								},
+								required: ['fieldPath'],
+								default: {
+									fieldPath: '',
+									operation: 'LIST',
+									outputFieldPath: '',
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		uiSchema: {
+			'ui:order': ['label', 'description', 'properties'],
+			properties: {
+				groupBy: {
+					items: {
+						'ui:field': '',
+						fieldPath: {
+							'ui:widget': 'datalist',
+						},
+						'ui:order': ['fieldPath'],
+						'ui:options': {
+							type: 'filter',
+						},
+					},
+				},
+				operations: {
+					items: {
+						'ui:widget': 'columns',
+						fieldPath: {
+							'ui:widget': 'datalist',
+						},
+						operation: {
+							'ui:widget': 'datalist',
+						},
+						'ui:order': ['fieldPath', 'operation', 'outputFieldPath'],
+						'ui:options': {
+							type: 'filter',
+						},
+					},
+				},
+				'ui:order': ['groupBy', 'operations', 'main', 'schemaFlow'],
+				main: {
+					'ui:widget': 'hidden',
+				},
+				schemaFlow: {
+					'ui:widget': 'hidden',
+				},
+			},
+		},
+		properties: {
+			properties: {
+				main: {
+					schema: '{"type":"record","name":"EmptyRecord","fields":[]}',
+				},
+				schemaFlow: {
+					schema: '{"type":"record","name":"EmptyRecord","fields":[]}',
+				},
+				groupBy: [],
+				operations: [
+					{
+						fieldPath: '',
+						operation: 'LIST',
+						outputFieldPath: '',
+					},
+				],
+				'@definitionName': 'Aggregate',
+			},
+			label: 'Aggregate 1',
+			description: '',
+		},
+	};
+	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
+});
+
 decoratedStories.add('Form Children', () => {
 	const schema = {
 		jsonSchema: {
@@ -491,17 +729,16 @@ decoratedStories.add('Form Children', () => {
 	);
 });
 
-
 decoratedStories.add('Form with live validation', () => {
 	const schema = {
 		jsonSchema: {
 			title: 'Form with live validation',
 			type: 'object',
+			required: ['name', 'email'],
 			properties: {
 				name: {
 					title: 'Name',
 					type: 'string',
-					required: true,
 					minLength: 3,
 				},
 				email: {
@@ -509,7 +746,6 @@ decoratedStories.add('Form with live validation', () => {
 					type: 'string',
 					pattern: '^\\S+@\\S+$',
 					minLength: 5,
-					required: true,
 				},
 			},
 		},
@@ -523,12 +759,5 @@ decoratedStories.add('Form with live validation', () => {
 			email: 'lastJedi@sw.com',
 		},
 	};
-	return (
-		<Form
-			liveValidate
-			data={schema}
-			showErrorList={false}
-			onSubmit={action('SUBMIT')}
-		/>
-	);
+	return <Form liveValidate data={schema} showErrorList={false} onSubmit={action('SUBMIT')} />;
 });

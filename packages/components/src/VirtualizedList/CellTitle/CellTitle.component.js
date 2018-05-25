@@ -27,9 +27,11 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 		iconKey,
 		onEditCancel,
 		onEditSubmit,
+		...columnDataRest
 	} = columnData;
 	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
 	const titleId = id && `${id}-${rowIndex}-title-cell`;
+	const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
 	return (
 		<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
@@ -44,8 +46,10 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
+				columnData={columnDataRest}
 			/>
 			<CellTitleActions
+				id={actionsId}
 				rowData={rowData}
 				actionsKey={actionsKey}
 				persistentActionsKey={persistentActionsKey}

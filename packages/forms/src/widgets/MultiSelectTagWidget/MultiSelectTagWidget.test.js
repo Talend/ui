@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Typeahead from '@talend/react-components/lib/Typeahead';
-import MultiSelectTagWidget from './MultiSelectTagWidget';
+import { MultiSelectTagWidgetComponent } from './MultiSelectTagWidget';
 
 describe('MultiSelectTagWidget', () => {
-	it('should render multiSelectTagWidget without dropdown', () => {
+	it('should render multiSelectTagWidget', () => {
 		// given
 		const options = {
 			enumOptions: [
@@ -28,14 +27,14 @@ describe('MultiSelectTagWidget', () => {
 		};
 
 		const wrapper = shallow(
-			<MultiSelectTagWidget options={options} schema={schema} value={value} />,
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render multiSelectTagWidget with dropdown', () => {
+	it('should render multiSelectTagWidget dropdown', () => {
 		// given
 		const options = {
 			enumOptions: [
@@ -57,7 +56,9 @@ describe('MultiSelectTagWidget', () => {
 			noAvailableMessage: 'None',
 		};
 
-		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
+		const wrapper = mount(
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
+		);
 
 		// when
 		wrapper
@@ -66,7 +67,7 @@ describe('MultiSelectTagWidget', () => {
 			.simulate('focus');
 
 		// then
-		expect(toJson(wrapper.update())).toMatchSnapshot();
+		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
 	});
 
 	it('should take default message when there isnt items', () => {
@@ -90,20 +91,24 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
+		const wrapper = mount(
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
+		);
 
 		// when
 		wrapper
 			.find('input')
 			.at(0)
 			.simulate('focus');
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'lol' } });
 
 		// then
-		expect(toJson(wrapper.update())).toMatchSnapshot();
+		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
 	});
-});
 
-describe('MultiSelectTagWidget - with category', () => {
 	it('should render section title when items has category', () => {
 		// given
 		const options = {
@@ -132,17 +137,14 @@ describe('MultiSelectTagWidget - with category', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
+		const wrapper = mount(
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
+		);
 
 		// when
 		wrapper.find('input').simulate('focus');
+
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{
-				suggestions: [{ group: 'pet', label: 'Puppy', title: 'Puppy', value: 'dog' }],
-				title: 'pet',
-			},
-		]);
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
 	});
 });

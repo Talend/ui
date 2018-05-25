@@ -34,9 +34,14 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 		> div {
 			width: 100%;
 		}
+
+		&[class*='container-open'] .items-container {
+			display: block;
+		}
 	}
 
 	.items-container {
+		display: none;
 		position: absolute;
 		width: 100%;
 		top: 100%;
@@ -53,5 +58,13 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 			color: $tf-typeahead-section-header-color;
 			border-top: 1px solid $tf-typeahead-section-border-color;
 		}
+	}
+}
+
+.readonly {
+	.wrapper {
+		border: none;
+		box-shadow: none;
+		pointer-events: none;
 	}
 }

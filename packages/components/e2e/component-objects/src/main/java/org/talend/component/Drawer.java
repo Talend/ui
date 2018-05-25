@@ -25,4 +25,14 @@ public class Drawer extends Component {
         super(driver, NAME, SELECTOR);
     }
 
+    /**
+     * Drawer constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    Drawer(WebDriver driver, String id) {
+        super(driver, NAME, id + SELECTOR);
+    }
+
 }
