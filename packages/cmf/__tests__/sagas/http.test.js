@@ -820,32 +820,6 @@ describe('http module with instance created', () => {
 			),
 		);
 	});
-
-	// 	it('check that defaultConfig is defined with headers', () => {
-	// 		// given
-	// 		const url = '/url';
-	// 		const payload = {};
-	// 		const config = {};
-	// 		const options = {};
-	// 		const httpInstance = http.create({
-	// 			'Accept-Language': 'fr',
-	// 		});
-	// 		// when
-	// 		const gen = httpInstance.patch(url, payload, config, options);
-	// 		// then
-	// 		// url, config = {}, options = {}
-	// 		expect(gen.next().value).toEqual(
-	// 			call(
-	// 				httpPatch,
-	// 				url,
-	// 				payload,
-	// 				{
-	// 					'Accept-Language': 'fr',
-	// 				},
-	// 				options,
-	// 			),
-	// 		);
-	// 	});
 });
 
 describe('setDefaultLanguage', () => {
