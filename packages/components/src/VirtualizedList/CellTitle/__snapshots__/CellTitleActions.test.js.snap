@@ -179,6 +179,7 @@ exports[`CellTitleActions should render all actions when the type is LARGE 1`] =
         },
       ]
     }
+    className="cell-title-actions theme-cell-title-actions"
     hideLabel={true}
     link={true}
     renderers={

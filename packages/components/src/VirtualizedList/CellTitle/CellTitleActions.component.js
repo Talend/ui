@@ -29,7 +29,15 @@ export function CellTitleActionsComponent({
 
 	if (displayMode === TITLE_MODE_TEXT) {
 		if (type === LARGE) {
-			actions.push(<Actions key={actions.length} actions={rowData[actionsKey]} hideLabel link />);
+			actions.push(
+				<Actions
+					className={classNames('cell-title-actions', theme['cell-title-actions'])}
+					key={actions.length}
+					actions={rowData[actionsKey]}
+					hideLabel
+					link
+				/>,
+			);
 		} else {
 			const actionDefinitions =
 				rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
