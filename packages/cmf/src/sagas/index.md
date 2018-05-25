@@ -39,6 +39,7 @@ Calling http.get will return an object containing two element, the `data` which 
 Here we can see that we check if the server answered with a `response.ok` evaluated at `true` and then put a slice of the data inside the `cmf store` trought the `dispatch` of an `action`
 
 ## configuration
+### setDefaultConfig
 
 `setDefaultConfig` also allow you to provide a default config object which will be use at each http call.
 This in the host application, and children library that use the same version of CMF
@@ -75,6 +76,29 @@ const { data, response } = yield call(http.get, `${API['dataset-sample']}/${data
 
   + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
   It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
+
+### http.create
+
+you can provide to your code an instance of the http Saga with preconfigured behaviors
+
+```
+import http from '@talend/react-cmf/lib/sagas/http';
+
+const configuredHttp = http.create({
+	headers: {
+		'content-type': 'application/json',
+	},
+});
+
+configuredHttp.get('/foo'); // call with the header 'content-type': 'application/json',
+```
+
+
+### Priority for the config
+
+1. config passed by the http.{get|put|post|patch|delete}
+2. http.create
+3. setDefaultConfig
 
 ## CSRF token handling
 you can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.

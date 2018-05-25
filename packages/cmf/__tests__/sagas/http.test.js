@@ -21,6 +21,7 @@ import http, {
 	httpPut,
 	setDefaultConfig,
 	setDefaultLanguage,
+	handleDefaultHttpConfiguration,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
@@ -33,7 +34,9 @@ describe('http.get', () => {
 	it('should fetch /foo with a GET method', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 
 		const gen = http.get('/foo', config);
@@ -47,7 +50,9 @@ describe('http.post', () => {
 	it('should fetch /foo with a POST method', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const payload = {
 			bar: 42,
@@ -64,7 +69,9 @@ describe('http.patch', () => {
 	it('should fetch /foo with a PATCH method', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const payload = {
 			bar: 42,
@@ -81,7 +88,9 @@ describe('http.put', () => {
 	it('should fetch /foo with a PUT method', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const payload = {
 			bar: 42,
@@ -98,7 +107,9 @@ describe('http.delete', () => {
 	it('should fetch /foo with a DELETE method', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 
 		const gen = http.delete('/foo', config);
@@ -223,7 +234,9 @@ describe('#httpFetch', () => {
 	it('should wrap the request as a GET by default and provide an undefined payload', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
@@ -238,7 +251,9 @@ describe('#httpFetch', () => {
 	it('should wrap the request as a GET when options are given', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const options = {
 			aCmfOption: true,
@@ -256,7 +271,9 @@ describe('#httpFetch', () => {
 	it('should wrap the request with action', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const payload = {
 			bar: 42,
@@ -274,7 +291,9 @@ describe('#httpFetch', () => {
 	it('should wrap the DELETE request and an undefined payload', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 
 		const gen = wrapFetch(url, config, HTTP_METHODS.DELETE);
@@ -290,7 +309,9 @@ describe('#httpFetch', () => {
 	it('should wrap the DELETE request when options are given', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const options = {
 			aCmfOption: true,
@@ -309,7 +330,9 @@ describe('#httpFetch', () => {
 	it('should wrap the request and notify errors', () => {
 		const url = '/foo';
 		const config = {
-			'Content-Type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		};
 		const payload = {
 			bar: 42,
@@ -346,7 +369,9 @@ describe('#httpFetch', () => {
 it('should wrap the request and not notify with generic http error if silent option is set to true ', () => {
 	const url = '/foo';
 	const config = {
-		'Content-Type': 'application/json',
+		headers: {
+			'Content-Type': 'application/json',
+		},
 	};
 	const options = {
 		silent: true,
@@ -682,14 +707,28 @@ describe('http module with instance created', () => {
 	it('check that httpGet is called', () => {
 		// given
 		const url = '/url';
-		const config = {};
 		const options = {};
-		const httpInstance = http.create();
+		const httpInstance = http.create({
+			headers: {
+				'Accept-Language': 'fr',
+			},
+		});
 		// when
-		const gen = httpInstance.get(url, config, options);
+		const gen = httpInstance.get(url, {}, options);
 		// then
 		// url, config = {}, options = {}
-		expect(gen.next().value).toEqual(call(httpGet, url, config, options));
+		expect(gen.next().value).toEqual(
+			call(
+				httpGet,
+				url,
+				{
+					headers: {
+						'Accept-Language': 'fr',
+					},
+				},
+				options,
+			),
+		);
 	});
 
 	it('check that httpDelete is called', () => {
@@ -747,21 +786,66 @@ describe('http module with instance created', () => {
 		expect(gen.next().value).toEqual(call(httpPatch, url, payload, config, options));
 	});
 
-	it('check that defaultConfig is defined', () => {
+	it('check that defaultConfig is defined with config', () => {
 		// given
 		const url = '/url';
 		const payload = {};
-		const config = {};
+		const config = {
+			headers: {
+				'content-type': 'application/json',
+			},
+		};
 		const options = {};
-		const defaultConfig = {};
-		const httpInstance = http.create(defaultConfig);
+		const httpInstance = http.create({
+			headers: {
+				'Accept-Language': 'fr',
+			},
+		});
 		// when
 		const gen = httpInstance.patch(url, payload, config, options);
 		// then
 		// url, config = {}, options = {}
-		expect(getDefaultConfig()).toBe(defaultConfig);
-		expect(gen.next().value).toEqual(call(httpPatch, url, payload, config, options));
+		expect(gen.next().value).toEqual(
+			call(
+				httpPatch,
+				url,
+				payload,
+				{
+					headers: {
+						'Accept-Language': 'fr',
+						'content-type': 'application/json',
+					},
+				},
+				options,
+			),
+		);
 	});
+
+	// 	it('check that defaultConfig is defined with headers', () => {
+	// 		// given
+	// 		const url = '/url';
+	// 		const payload = {};
+	// 		const config = {};
+	// 		const options = {};
+	// 		const httpInstance = http.create({
+	// 			'Accept-Language': 'fr',
+	// 		});
+	// 		// when
+	// 		const gen = httpInstance.patch(url, payload, config, options);
+	// 		// then
+	// 		// url, config = {}, options = {}
+	// 		expect(gen.next().value).toEqual(
+	// 			call(
+	// 				httpPatch,
+	// 				url,
+	// 				payload,
+	// 				{
+	// 					'Accept-Language': 'fr',
+	// 				},
+	// 				options,
+	// 			),
+	// 		);
+	// 	});
 });
 
 describe('setDefaultLanguage', () => {
@@ -778,5 +862,26 @@ describe('setDefaultLanguage', () => {
 		setDefaultLanguage('ja');
 
 		expect(getDefaultConfig()).toEqual({ headers: { 'Accept-Language': 'ja' } });
+	});
+});
+
+describe('handleDefaultConfiguration', () => {
+	it('should merge the defaultHttpConfig with httpConfig', () => {
+		expect(
+			handleDefaultHttpConfiguration({
+				headers: {
+					'Accept-Language': 'fr',
+				},
+			})({
+				headers: {
+					'content-type': 'application/json',
+				},
+			}),
+		).toEqual({
+			headers: {
+				'Accept-Language': 'fr',
+				'content-type': 'application/json',
+			},
+		});
 	});
 });

@@ -1,6 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
+import curry from 'lodash/curry';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -270,6 +271,10 @@ export function setDefaultLanguage(language) {
 	}
 }
 
+export const handleDefaultHttpConfiguration = curry((defaultHttpConfig, httpConfig) =>
+	merge(defaultHttpConfig, httpConfig),
+);
+
 /**
  * getDefaultConfig - return the defaultConfig
  *
@@ -286,24 +291,23 @@ export default {
 	put: httpPut,
 	patch: httpPatch,
 	create(createConfig = {}) {
-		// eslint-disable-next-line no-console
-		console.warn('DEPRECATED: http.create(config) is deprecated please use http directly');
-		setDefaultConfig(createConfig);
+		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
+
 		return {
 			delete: function* configuredDelete(url, config = {}, options = {}) {
-				return yield call(httpDelete, url, config, options);
+				return yield call(httpDelete, url, configEnhancer(config), options);
 			},
 			get: function* configuredGet(url, config = {}, options = {}) {
-				return yield call(httpGet, url, config, options);
+				return yield call(httpGet, url, configEnhancer(config), options);
 			},
 			post: function* configuredPost(url, payload, config = {}, options = {}) {
-				return yield call(httpPost, url, payload, config, options);
+				return yield call(httpPost, url, payload, configEnhancer(config), options);
 			},
 			put: function* configuredPut(url, payload, config = {}, options = {}) {
-				return yield call(httpPut, url, payload, config, options);
+				return yield call(httpPut, url, payload, configEnhancer(config), options);
 			},
 			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
-				return yield call(httpPatch, url, payload, config, options);
+				return yield call(httpPatch, url, payload, configEnhancer(config), options);
 			},
 		};
 	},
