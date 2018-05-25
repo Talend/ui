@@ -1,7 +1,7 @@
 import { cmfConnect } from '@talend/react-cmf';
-import Container, { DEFAULT_STATE } from './Typeahead.container';
+import Typeahead, { DEFAULT_STATE } from './Typeahead.container';
 
 export default cmfConnect({
-	componentId: ownProps => ownProps.id || 'Typeahead',
+	componentId: ownProps => ownProps.componentId || ownProps.id,
 	defaultState: DEFAULT_STATE,
-})(Container);
+})(Typeahead);

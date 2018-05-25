@@ -12,7 +12,7 @@ const KEYS = {
 	ESC: 'Escape',
 };
 
-export const DISPLAY_NAME = 'Container(TreeView)';
+export const DISPLAY_NAME = 'Container(Typeahead)';
 export const DEFAULT_STATE = new Immutable.Map({
 	docked: true,
 });
@@ -31,28 +31,13 @@ export default class Typeahead extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
-		this.onChange = this.onChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
-		this.onSelect = this.onSelect.bind(this);
 	}
 
 	onToggle() {
 		this.props.setState(() => ({
 			docked: !this.props.state.get('docked', true),
 		}));
-	}
-
-	onChange(event, data) {
-		if (this.props.onChange) {
-			this.props.onChange(event, data.value);
-		}
-
-		if (this.props.onChangeActionCreator) {
-			this.props.dispatchActionCreator(this.props.onChangeActionCreator, event, {
-				props: this.props,
-				value: data.value,
-			});
-		}
 	}
 
 	onKeyDown(event, data) {
@@ -96,32 +81,16 @@ export default class Typeahead extends React.Component {
 		}
 	}
 
-	onSelect(event) {
-		if (this.props.onSelect) {
-			this.props.onSelect(event, event.target.value);
-		}
-
-		if (this.props.onSelectActionCreator) {
-			this.props.dispatchActionCreator(this.props.onSelectActionCreator, event, {
-				props: this.props,
-				value: event.target.value,
-			});
-		}
-	}
-
 	render() {
-		const { state = DEFAULT_STATE } = this.props;
-		const docked = state.get('docked');
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
+		const { state = DEFAULT_STATE, items } = this.props;
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			onToggle: this.onToggle,
 			onBlur: this.onToggle,
-
-			onChange: this.onChange,
 			onKeyDown: this.onKeyDown,
-			onSelect: this.onSelect,
-
-			docked,
-		});
+			docked: state.get('docked'),
+			items: items.toJS ? items.toJS() : items,
+		};
 
 		return <Component {...props} />;
 	}
