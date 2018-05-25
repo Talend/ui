@@ -3,10 +3,10 @@
     "title": "multiSelectTag",
     "type": "object",
     "properties": {
-			"empty": {
+      "empty": {
         "type": "array",
         "items": {},
-				"minItems": 1,
+        "minItems": 1,
         "uniqueItems": true,
         "createIfNoneMatch": true
       },
@@ -74,7 +74,7 @@
     }
   },
   "uiSchema": {
-		"empty": {
+    "empty": {
       "ui:widget": "multiSelectTag"
     },
     "tags": {
