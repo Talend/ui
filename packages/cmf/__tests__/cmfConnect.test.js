@@ -208,6 +208,44 @@ describe('cmfConnect', () => {
 			expect(wrapper.props()).toMatchSnapshot();
 		});
 
+		it('should expose getState static function to get the state', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'Container(TestComponent)';
+			const CMFConnected = cmfConnect({})(TestComponent);
+			expect(typeof CMFConnected.getState).toBe('function');
+			const state = mock.state();
+			state.cmf.components = fromJS({
+				'Container(TestComponent)': {
+					default: { foo: 'bar' },
+					other: { foo: 'baz' },
+				},
+			});
+			expect(CMFConnected.getState(state).get('foo')).toBe('bar');
+			expect(CMFConnected.getState(state, 'other').get('foo')).toBe('baz');
+		});
+		it('should expose setStateAction static function to get the redux action to setState', () => {
+			const TestComponent = jest.fn();
+			const CMFConnected = cmfConnect({})(TestComponent);
+			TestComponent.displayName = 'Container(TestComponent)';
+			expect(typeof CMFConnected.setStateAction).toBe('function');
+			const state = new Map({ foo: 'bar' });
+			let action = CMFConnected.setStateAction(state);
+			expect(action).toEqual({
+				type: 'Container(TestComponent).setState',
+				cmf: {
+					componentState: {
+						componentName: 'Container(TestComponent)',
+						componentState: state,
+						key: 'default',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+			});
+			action = CMFConnected.setStateAction(state, 'foo', 'MY_ACTION');
+			expect(action.type).toBe('MY_ACTION');
+			expect(action.cmf.componentState.key).toBe('foo');
+		});
+
 		it('should support no context in dispatchActionCreator', () => {
 			const TestComponent = props => <div className="test-component" {...props} />;
 			TestComponent.displayName = 'TestComponent';

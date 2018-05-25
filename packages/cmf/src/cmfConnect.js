@@ -36,6 +36,11 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
 import api from './api';
+import actions from './actions';
+import actionCreator from './actionCreator';
+import component from './component';
+import CONST from './constant';
+import expression from './expression';
 import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
@@ -245,6 +250,21 @@ export default function cmfConnect({
 				router: PropTypes.object,
 			};
 			static WrappedComponent = WrappedComponent;
+			static getState = function getState(state, id = 'default') {
+				return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
+			}
+			static setStateAction = function setStateAction(state, id = 'default', type) {
+				return {
+					type: type || `${getComponentName(WrappedComponent)}.setState`,
+					cmf: {
+						componentState: actions.components.mergeState(
+							getComponentName(WrappedComponent),
+							id,
+							state
+						),
+					},
+				};
+			}
 
 			constructor(props, context) {
 				super(props, context);

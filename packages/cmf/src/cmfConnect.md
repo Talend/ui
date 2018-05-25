@@ -221,6 +221,24 @@ If you want to render some component conditionally, just pass "renderIf" prop (t
 You can also use Expression for this and customize this prop like "renderIfExpression" in
 CMF json configuration files
 
+## How to access state and mute from the outside
+
+Every cmfConnected component expose two static function:
+* getState
+* setStateAction
+
+So if we take back the `Clock` example from below and we try to write a saga:
+
+```javascript
+import Clock from './Clock.connect';
+
+export default function* myDeLorean() {
+	const clockState = yield select(Clock.getState);
+	const action = Clock.setStateAction(clockState.set('date', new Date('2025/12/25')));
+	yield put(DeLorean);
+}
+```
+
 ## How to test
 
 
