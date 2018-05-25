@@ -247,13 +247,18 @@ export function* httpGet(url, config, options) {
  * }});
  */
 export function setDefaultConfig(config) {
+	let throwError = false;
 	if (defaultConfig) {
+		throwError = true;
+	}
+
+	defaultConfig = config;
+
+	if (throwError) {
 		throw new Error(
 			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
 		);
 	}
-
-	defaultConfig = config;
 }
 
 /**
