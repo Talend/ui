@@ -29,12 +29,13 @@ This component displays a list with two optional toolbars
 
 **List Props**
 
-| name        | description                                                         |
-| ----------- | ------------------------------------------------------------------- |
-|  columns    |  Array of {key, label, type, order} define which columns to display |
-| items       | Array of object to display                                          |
-|  titleProps |  object to control the title cell                                   |
-| itemProps   |                                                                     |
+| name           | description                                                                   |
+| -------------- | ----------------------------------------------------------------------------- |
+|  columns       |  Array of {key, label, type, order} define which columns to display                  |
+| items          | Array of object to display                                                    |
+|  titleProps    |  object to control the title cell                                             |
+| itemProps      |                                                                               |
+| cellDictionary | object with key = renderer name to use in columns props/ value = the renderer |
 
 ## Customization
 

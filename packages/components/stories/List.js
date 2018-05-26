@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -8,6 +9,18 @@ import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
+
+/**
+ * Cell renderer that displays hello + text
+ */
+function CellWithHello({ cellData }) {
+	return <div>hello {cellData} !</div>;
+}
+
+CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
+CellWithHello.propTypes = {
+	cellData: PropTypes.string,
+};
 
 const icons = {
 	'talend-apache': talendIcons['talend-apache'],
@@ -583,6 +596,27 @@ storiesOf('List', module)
 					&lt;List ... list=&#123;listProps&#125; &gt;<br />
 				</pre>
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Custom cell renderer', () => {
+		const customProps = cloneDeep(props);
+
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'hello' },
+			{ key: 'cat', label: 'Cat' },
+		];
+
+		customProps.list.items = itemsForListWithIcons;
+		customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display the list with a custom renderer for the status column.</p>
+				<List {...customProps} />
 			</div>
 		);
 	})

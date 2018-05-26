@@ -51,6 +51,8 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
+	// Allow to override or add new cell renderer from outside
+	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
 
 	return (
 		<VirtualizedList
@@ -81,8 +83,8 @@ export function ListToVirtualizedList(props) {
 					});
 				} else if (supposedActions[column.key]) {
 					Object.assign(cProps, CellActions);
-				} else if (column.type && cellDictionary[column.type]) {
-					Object.assign(cProps, cellDictionary[column.type], {
+				} else if (column.type && listCellDictionary[column.type]) {
+					Object.assign(cProps, listCellDictionary[column.type], {
 						columnData: column.data,
 					});
 				}
@@ -101,6 +103,7 @@ ListToVirtualizedList.propTypes = {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
+	cellDictionary: PropTypes.obj,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
