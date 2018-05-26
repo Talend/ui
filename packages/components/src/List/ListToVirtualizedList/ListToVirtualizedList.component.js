@@ -59,7 +59,7 @@ export function ListToVirtualizedList(props) {
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
 		>
-			{props.columns.map((column, index) => {
+			{props.columns.filter(item => !item.hidden).map((column, index) => {
 				const cProps = {
 					label: column.label,
 					dataKey: column.key,

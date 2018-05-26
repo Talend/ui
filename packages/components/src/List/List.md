@@ -31,7 +31,7 @@ This component displays a list with two optional toolbars
 
 | name           | description                                                                   |
 | -------------- | ----------------------------------------------------------------------------- |
-|  columns       |  Array of {key, label, type} define which columns to display                  |
+|  columns       |  Array of {key, label, type, hidden} define which columns to display          |
 | items          | Array of object to display                                                    |
 |  titleProps    |  object to control the title cell                                             |
 | itemProps      |                                                                               |
