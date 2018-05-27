@@ -3,13 +3,14 @@ import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import { Actions, ActionDropdown } from '../../Actions';
-import { cellTitleDisplayModes } from '../utils/constants';
-import getDefaultT, { DEFAULT_I18N } from '../../translate';
+import { cellTitleDisplayModes, listTypes } from '../utils/constants';
+import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './CellTitleActions.scss';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
+const { LARGE } = listTypes;
 
 function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
@@ -22,32 +23,45 @@ export function CellTitleActionsComponent({
 	persistentActionsKey,
 	id,
 	t,
+	type,
 }) {
 	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
-		const actionDefinitions =
-			rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
-		const dropdownDefinitions = rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
+		if (type === LARGE) {
+			actions.push(
+				<Actions
+					className={classNames('cell-title-actions', theme['cell-title-actions'])}
+					key={actions.length}
+					actions={rowData[actionsKey]}
+					hideLabel
+					link
+				/>,
+			);
+		} else {
+			const actionDefinitions =
+				rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
+			const dropdownDefinitions = rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
 
-		actions.push(
-			<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
-				{dropdownDefinitions && (
-					<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
-				)}
-				{actionDefinitions && (
-					<ActionDropdown
-						id={id}
-						className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
-						items={actionDefinitions}
-						label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
-						hideLabel
-						link
-						noCaret
-					/>
-				)}
-			</div>,
-		);
+			actions.push(
+				<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
+					{dropdownDefinitions && (
+						<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
+					)}
+					{actionDefinitions && (
+						<ActionDropdown
+							id={id}
+							className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
+							items={actionDefinitions}
+							label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
+							hideLabel
+							link
+							noCaret
+						/>
+					)}
+				</div>,
+			);
+		}
 		actions.push(
 			<Actions
 				key={actions.length}
@@ -78,6 +92,7 @@ CellTitleActionsComponent.propTypes = {
 	// The collection item.
 	rowData: PropTypes.object,
 	t: PropTypes.func.isRequired,
+	type: PropTypes.oneOf([LARGE]),
 };
 CellTitleActionsComponent.defaultProps = {
 	t: getDefaultT(),
