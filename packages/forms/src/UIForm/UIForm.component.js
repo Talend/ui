@@ -37,7 +37,10 @@ export class UIFormComponent extends React.Component {
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (props.language != null) {
-			Object.assign(language, ...props.language);
+			Object.assign(language, props.language);
+			// Force update of language @talend even if already set
+			tv4.addLanguage('@talend', language);
+			tv4.language('@talend');
 		}
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', language);
