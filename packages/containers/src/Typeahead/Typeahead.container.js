@@ -28,7 +28,6 @@ export default class Typeahead extends React.Component {
 		onSelect: PropTypes.func,
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
-		onBlurActionCreator: PropTypes.string,
 	};
 
 	constructor(props) {
@@ -46,15 +45,12 @@ export default class Typeahead extends React.Component {
 	}
 
 	onBlur(event) {
-		const { onBlur, onBlurActionCreator } = this.props;
+		const { onBlur } = this.props;
 
 		this.onToggle();
 
 		if (onBlur) {
 			onBlur(event);
-		}
-		if (onBlurActionCreator) {
-			this.props.dispatchActionCreator(onBlurActionCreator, event);
 		}
 	}
 
