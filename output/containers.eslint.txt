@@ -29,8 +29,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   40:9  error  'displayName' is not defined   no-undef
   41:9  error  'propTypes' is not defined     no-undef
-  69:9  error  'defaultProps' is not defined  no-undef
-  73:9  error  'contextTypes' is not defined  no-undef
+  70:9  error  'defaultProps' is not defined  no-undef
+  74:9  error  'contextTypes' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types

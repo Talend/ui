@@ -12,5 +12,7 @@ exports[`gridrow #renderCell should render content field 1`] = `
   {"id":1,"name":"Title without actions","description":"Simple row without actions"}
   rowIndex: 
   1
+  type: 
+  LARGE
 </div>
 `;
