@@ -243,8 +243,8 @@ export function* httpGet(url, config, options) {
  *
  * @param  {object} config key/value of header to apply
  * @example
- * import { setDefaultHeader } from '@talend/react-cmf/sagas/http';
- * setDefaultHeader({headers: {
+ * import { setDefaultConfig } from '@talend/react-cmf/sagas/http';
+ * setDefaultConfig({headers: {
  *  'Accept-Language': preferredLanguage,
  * }});
  */
