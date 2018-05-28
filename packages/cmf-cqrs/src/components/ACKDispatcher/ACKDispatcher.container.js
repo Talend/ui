@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import { api, cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 
 import { deleteACK } from '../../actions/ack';
 
@@ -56,7 +56,7 @@ class ACKDispatcher extends React.Component {
 	}
 
 	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = api.actionCreator.get(this.context, actionCreator)({}, data, this.context);
+		const action = cmf.actionCreator.get(this.context, actionCreator)({}, data, this.context);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
 		this.setState(oldState => {

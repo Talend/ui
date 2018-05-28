@@ -128,6 +128,7 @@ class Form extends React.Component {
 			onTrigger: this.props.onTrigger,
 			onSubmit: this.onSubmit,
 			customFormats: this.props.customFormats,
+			customValidation: this.props.customValidation,
 			buttonBlockClass: this.props.buttonBlockClass,
 			children: this.props.children,
 			uiform: this.props.uiform,

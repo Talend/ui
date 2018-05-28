@@ -13,8 +13,7 @@ import cmfConnect, {
 	getDispatchToProps,
 	getMergeProps,
 } from '../src/cmfConnect';
-
-import api from '../src/api';
+import component from '../src/component';
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -129,7 +128,7 @@ describe('cmfConnect', () => {
 			const state = mock.state();
 			const mapStateToProps = jest.fn();
 			const ownProps = { view: 'simple' };
-			const props = getStateToProps({
+			getStateToProps({
 				state,
 				ownProps,
 				mapStateToProps,
@@ -182,7 +181,7 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.dispatch).toBe(dispatch);
-			expect(props.getComponent).toBe(api.component.get);
+			expect(props.getComponent).toBe(component.get);
 			expect(typeof props.dispatchActionCreator).toBe('function');
 			expect(mapDispatchToProps.mock.calls[0][0]).toBe(dispatch);
 			expect(mapDispatchToProps.mock.calls[0][1]).toBe(ownProps);
@@ -196,6 +195,10 @@ describe('cmfConnect', () => {
 
 	describe('Higher Order Component', () => {
 		const Button = ({ onClick, label }) => <button onClick={onClick}>{label}</button>;
+		Button.propTypes = {
+			onClick: PropTypes.func,
+			label: PropTypes.string,
+		};
 		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();

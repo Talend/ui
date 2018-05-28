@@ -1,4 +1,4 @@
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 
 /**
  * add support for expression in actions.
@@ -10,7 +10,7 @@ import { api } from '@talend/react-cmf';
  * * labelExpression
  */
 function evalExpressions(action, context, payload = {}) {
-	const newAction = api.expression.getProps(
+	const newAction = cmf.expression.getProps(
 		action,
 		['active', 'available', 'disabled', 'inProgress'],
 		context,
@@ -31,7 +31,7 @@ export function getActionsProps(context, ids, model) {
 
 	const infos = tmpIds.map(id => {
 		if (typeof id === 'string') {
-			return api.action.getActionInfo(context, id);
+			return cmf.action.getActionInfo(context, id);
 		}
 		return id;
 	});
@@ -41,7 +41,7 @@ export function getActionsProps(context, ids, model) {
 			{
 				onClick(event, data) {
 					if (info.actionCreator) {
-						context.store.dispatch(api.action.getActionObject(context, info.id, event, data));
+						context.store.dispatch(cmf.action.getActionObject(context, info.id, event, data));
 					} else {
 						context.store.dispatch(
 							Object.assign(

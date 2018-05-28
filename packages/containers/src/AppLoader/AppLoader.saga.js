@@ -1,4 +1,4 @@
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 import { call, select, all } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import invariant from 'invariant';
