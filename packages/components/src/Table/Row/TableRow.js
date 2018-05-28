@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import TableCell from '../Cell/TableCell';
 import theme from './Row.scss';
 
-export function getRowId(rowDataGetter, element) {
+export function getRowId(rowDataGetter, element, index) {
 	if (rowDataGetter && rowDataGetter.getElementId) {
 		return rowDataGetter.getElementId(element);
 	} else if (element.id && typeof element.id === 'string') {
 		return element.id;
 	}
-	return 'undefined-id';
+	return index.toString();
 }
 
 function getRowDataClassName(classNameProvider, element, columnKey) {
@@ -46,13 +46,13 @@ function getRowData(rowDataGetter, element, columnKey) {
 /**
  * This function is responsible for rendering a piece of data for an element.
  */
-function renderRowData(element, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
+function renderRowData(element, index, columnKey, rowDataGetter, classNameProvider, rowRenderer) {
 	const CellComponent = getCellComponent(rowRenderer, columnKey);
-	const compKey = `${getRowId(rowDataGetter, element)}-${columnKey}`;
-	const classnames = classNames(`td-${columnKey}`, theme.cell);
+	const compKey = `${getRowId(rowDataGetter, element, index)}-${columnKey}`;
+	const classnames = classNames(`td-${columnKey}`, theme['tc-table-row-cell']);
 	const dataClassnames = classNames(
 		'tc-table-row-data',
-		theme.data,
+		theme['tc-table-row-data'],
 		getRowDataClassName(classNameProvider, element, columnKey),
 	);
 	return (
@@ -125,17 +125,17 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const { element, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
-		const rowKey = getRowId(rowDataGetter, element);
+		const { element, index, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
+		const rowKey = getRowId(rowDataGetter, element, index);
 		const classnames = classNames(
 			'tc-table-row',
-			theme.row,
+			theme['tc-table-row'],
 			getRowClassName(classNameProvider, element),
 		);
 		return (
 			<tr key={rowKey} className={classnames} ref={this.updateRowRef} data-id={rowKey}>
 				{columnKeys.map(key =>
-					renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderer),
+					renderRowData(element, index, key, rowDataGetter, classNameProvider, rowRenderer),
 				)}
 			</tr>
 		);
@@ -144,6 +144,7 @@ export default class TableRow extends Component {
 
 TableRow.propTypes = {
 	element: PropTypes.object,
+	index: PropTypes.number,
 	classNameProvider: PropTypes.shape({
 		getForTable: PropTypes.func,
 		getForHeader: PropTypes.func,

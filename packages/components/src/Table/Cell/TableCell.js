@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 /**
  * This component displays a cell of a table as a simple label. The data must be a string.
  * It uses a div element for layout purpose (text alignment in a cell).
  */
 export default function TableCell({ data, className }) {
-	return <div className={`tc-table-cell ${className}`}>{data}</div>;
+	return <div className={classNames('tc-table-cell', className)}>{data}</div>;
 }
 
 TableCell.propTypes = {

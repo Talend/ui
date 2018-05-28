@@ -1,6 +1,8 @@
 import TableCell from './Cell/TableCell';
 import TableHeaderCell from './Header/TableHeaderCell';
 
+const rootClassname = 'tc-table';
+
 /**
  * This object provides classnames for the components which compose a table:
  * the table itself, the header, the rows and the data.
@@ -10,33 +12,33 @@ export const classNameProvider = {
 	 * Return a classname for the table component.
 	 */
 	getForTable() {
-		return 'tc-table';
+		return rootClassname;
 	},
 	/*
 	 * Return a classname for the table header.
 	 */
 	getForHeader() {
-		return 'tc-table-header';
+		return `${rootClassname}-header`;
 	},
 	/**
 	 * Returns a classname for the header cell of the given column
 	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getForHeaderCell(columnKey) {
-		return `tc-table-header-cell-${columnKey}`;
+		return `${rootClassname}-header-cell-${columnKey}`;
 	},
 	/*
 	 * Returns a classname for the table body.
 	 */
 	getForBody() {
-		return 'tc-table-body';
+		return `${rootClassname}-body`;
 	},
 	/**
 	 * Return a classname for an element of the table
 	 * @param {object} element - An element of the table.
 	 */
 	getForRow() {
-		return 'tc-table-row';
+		return `${rootClassname}-row`;
 	},
 	/**
 	 * Return a classname for a data of the given element.
@@ -44,7 +46,7 @@ export const classNameProvider = {
 	 * @param {object} element - An element of the table.
 	 */
 	getForRowData(columnKey) {
-		return `tc-table-row-data-${columnKey}`;
+		return `${rootClassname}-row-data-${columnKey}`;
 	},
 };
 

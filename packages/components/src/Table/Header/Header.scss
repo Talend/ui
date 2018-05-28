@@ -1,17 +1,20 @@
-.head {
+$tc-table-header-height: 30px !default;
+
+.tc-table-header {
 	display: block;
 	width: 100%;
-	height: 30px;
-}
+	height: $tc-table-header-height;
 
-.header {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
+	&-row {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
 
-.cell {
-	flex-grow: 0;
-	flex-shrink: 0;
-	flex-basis: auto;
+	&-cell {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+	}
+
 }

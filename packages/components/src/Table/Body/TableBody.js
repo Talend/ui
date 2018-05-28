@@ -16,6 +16,7 @@ function getBodyClassName(classNameProvider) {
  */
 function renderRow(
 	element,
+	index,
 	classNameProvider,
 	columnKeys,
 	rowDataGetter,
@@ -27,6 +28,7 @@ function renderRow(
 		<TableRow
 			key={getRowId(rowDataGetter, element)}
 			element={element}
+			index={index}
 			classNameProvider={classNameProvider}
 			columnKeys={columnKeys}
 			rowDataGetter={rowDataGetter}
@@ -51,12 +53,13 @@ export default function TableBody({
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const classnames = classNames('tc-table-body', theme.body, getBodyClassName(classNameProvider));
+	const classnames = classNames('tc-table-body', theme['tc-table-body'], getBodyClassName(classNameProvider));
 	return (
 		<tbody ref={updateBodyNodeRef} className={classnames} onScroll={onScroll}>
-			{elements.map(elem =>
+			{elements.map((elem, index) =>
 				renderRow(
 					elem,
+					index,
 					classNameProvider,
 					columnKeys,
 					rowDataGetter,
