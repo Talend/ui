@@ -1,6 +1,6 @@
 # ACTION DROPDOWN COMPONENT
 
-This component display a dropdown with items in it. It used react-bootstrap component `DropdownButton`, `MenuItem` and `TooltipTrigger`.
+This component display a dropdown with items in it. It used react-bootstrap component [DropdownButton](https://react-bootstrap.github.io/components/dropdowns/#btn-dropdowns), [MenuItem](https://react-bootstrap.github.io/components/dropdowns/#menu-items) and [TooltipTrigger](https://react-bootstrap.github.io/components/tooltips/#tooltips).
 
 A basic example of use
 
