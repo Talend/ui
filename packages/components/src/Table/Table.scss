@@ -6,10 +6,11 @@ $tc-table-margin: 0.3rem;
 	margin: $tc-table-margin;
 	position: relative;
 
-	table {
+	.tc-table-node {
 		position: absolute;
 		height: 100%;
 		width: 100%;
 		overflow: hidden;
 	}
+
 }

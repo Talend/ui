@@ -2,32 +2,32 @@
 
 exports[`single-row 1`] = `
 <tr
-  className="tc-table-row theme-row classname-of-row-elem_1"
+  className="tc-table-row theme-tc-table-row classname-of-row-elem_1"
   data-id="elem_1"
 >
   <td
-    className="td-name theme-cell"
+    className="td-name theme-tc-table-row-cell"
   >
     <div
-      className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-name"
+      className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-name"
     >
       element 1
     </div>
   </td>
   <td
-    className="td-type theme-cell"
+    className="td-type theme-tc-table-row-cell"
   >
     <div
-      className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-type"
+      className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-type"
     >
       string
     </div>
   </td>
   <td
-    className="td-desc theme-cell"
+    className="td-desc theme-tc-table-row-cell"
   >
     <div
-      className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-desc"
+      className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-desc"
     >
       Description of element 1
     </div>

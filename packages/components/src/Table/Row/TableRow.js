@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TableCell from '../Cell/TableCell';
-import theme from './Row.scss';
+import theme from './TableRow.scss';
 
 export function getRowId(rowDataGetter, element, index) {
 	if (rowDataGetter && rowDataGetter.getElementId) {
@@ -150,23 +150,52 @@ export default class TableRow extends Component {
 }
 
 TableRow.propTypes = {
-	element: PropTypes.object,
-	index: PropTypes.number,
+	element: PropTypes.object.isRequired,
+	index: PropTypes.number.isRequired,
 	classNameProvider: PropTypes.shape({
-		getForTable: PropTypes.func,
-		getForHeader: PropTypes.func,
+		/**
+		 * Return a classname for an element of the table
+		 * @param {object} element - An element of the table.
+		 */
 		getForRow: PropTypes.func,
+		/**
+		 * Return a classname for a data of the given element.
+		 * @param {string} columnKey - The key identifying a column.
+		 * @param {object} element - An element of the table.
+		 */
 		getForRowData: PropTypes.func,
 	}),
-	columnKeys: PropTypes.array,
+	columnKeys: PropTypes.array.isRequired,
 	rowDataGetter: PropTypes.shape({
+		/**
+		 * Return an unique identifier for the given element.
+		 * Each element is displayed in a row.
+		 * @param {object} element - An element of the table.
+		 */
 		getElementId: PropTypes.func,
-		getHeaderData: PropTypes.func,
+		/**
+		 * Return the data corresponding to the given row and column.
+		 * @param {object} row - A row of the table.
+		 * @param {string} columnKey - The key identifying a column.
+		 */
 		getRowData: PropTypes.func,
 	}),
 	rowRenderer: PropTypes.shape({
+		/**
+		 * Indicates if a row needs to be updated or not according to the received props.
+		 * Default implementation returns true.
+		 * @param {object} props - The props of the component rendering a row.
+		 */
 		needRowUpdate: PropTypes.func,
+		/**
+		 * Return the component used to render a data for the given column.
+		 * @param {string} columnKey - The key identifying a column.
+		 */
 		getCellComponent: PropTypes.func,
+		/**
+		 * Return custom properties for the component displaying the data of the given column.
+		 * @param {string} columnKey - The key identifying a column.
+		 */
 		getExtraProps: PropTypes.func,
 	}),
 	onEnterRow: PropTypes.func,

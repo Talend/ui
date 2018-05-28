@@ -2,72 +2,74 @@
 
 exports[`Render a table width custom configuration custom-table 1`] = `
 <div
-  className="tc-table theme-table classname-of-simple-table"
+  className="tc-table theme-tc-table classname-of-simple-table"
 >
-  <table>
+  <table
+    className="tc-table-node theme-tc-table-node"
+  >
     <tbody
-      className="tc-table-body theme-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-row classname-of-row-elem_1"
+        className="tc-table-row theme-tc-table-row classname-of-row-elem_1"
         data-id="elem_1"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-name"
           >
             element 1
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-desc"
           >
             Description of element 1
           </div>
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-row classname-of-row-elem_2"
+        className="tc-table-row theme-tc-table-row classname-of-row-elem_2"
         data-id="elem_2"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_2-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-name"
           >
             element 2
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_2-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_2-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-desc"
           >
             This element is a string
           </div>
@@ -80,38 +82,40 @@ exports[`Render a table width custom configuration custom-table 1`] = `
 
 exports[`Render a table width custom header custom-table-with-header 1`] = `
 <div
-  className="tc-table theme-table classname-of-simple-table"
+  className="tc-table theme-tc-table classname-of-simple-table"
 >
-  <table>
+  <table
+    className="tc-table-node theme-tc-table-node"
+  >
     <thead
-      className="tc-table-header theme-head classname-of-header-undefined"
+      className="tc-table-header theme-tc-table-header classname-of-header-undefined"
     >
       <tr
-        className="theme-header"
+        className="theme-tc-table-header-row"
       >
         <th
-          className="th-name theme-cell"
+          className="th-name theme-tc-table-header-cell"
         >
           <div
-            className="tc-table-header-cell name"
+            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data name"
           >
             name
           </div>
         </th>
         <th
-          className="th-type theme-cell"
+          className="th-type theme-tc-table-header-cell"
         >
           <div
-            className="tc-table-header-cell type"
+            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data type"
           >
             type
           </div>
         </th>
         <th
-          className="th-desc theme-cell"
+          className="th-desc theme-tc-table-header-cell"
         >
           <div
-            className="tc-table-header-cell desc"
+            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data desc"
           >
             desc
           </div>
@@ -119,68 +123,68 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
       </tr>
     </thead>
     <tbody
-      className="tc-table-body theme-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-row classname-of-row-elem_1"
+        className="tc-table-row theme-tc-table-row classname-of-row-elem_1"
         data-id="elem_1"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-name"
           >
             element 1
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_1-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-desc"
           >
             Description of element 1
           </div>
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-row classname-of-row-elem_2"
+        className="tc-table-row theme-tc-table-row classname-of-row-elem_2"
         data-id="elem_2"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_2-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-name"
           >
             element 2
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_2-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data classname-of-row-data-elem_2-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-desc"
           >
             This element is a string
           </div>
@@ -193,72 +197,74 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
 
 exports[`Render a table width default configuration default-table 1`] = `
 <div
-  className="tc-table theme-table"
+  className="tc-table theme-tc-table"
 >
-  <table>
+  <table
+    className="tc-table-node theme-tc-table-node"
+  >
     <tbody
-      className="tc-table-body theme-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-row"
+        className="tc-table-row theme-tc-table-row"
         data-id="elem_1"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 1
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             Description of element 1
           </div>
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-row"
+        className="tc-table-row theme-tc-table-row"
         data-id="elem_2"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 2
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             This element is a string
           </div>
@@ -271,38 +277,40 @@ exports[`Render a table width default configuration default-table 1`] = `
 
 exports[`Render a table width default header default-table-with-header 1`] = `
 <div
-  className="tc-table theme-table"
+  className="tc-table theme-tc-table"
 >
-  <table>
+  <table
+    className="tc-table-node theme-tc-table-node"
+  >
     <thead
-      className="tc-table-header theme-head"
+      className="tc-table-header theme-tc-table-header"
     >
       <tr
-        className="theme-header"
+        className="theme-tc-table-header-row"
       >
         <th
-          className="th-name theme-cell"
+          className="th-name theme-tc-table-header-cell"
         >
           <div
-            className="tc-table-header-cell name"
+            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data name"
           >
             name
           </div>
         </th>
         <th
-          className="th-type theme-cell"
+          className="th-type theme-tc-table-header-cell"
         >
           <div
-            className="tc-table-header-cell type"
+            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data type"
           >
             type
           </div>
         </th>
         <th
-          className="th-desc theme-cell"
+          className="th-desc theme-tc-table-header-cell"
         >
           <div
-            className="tc-table-header-cell desc"
+            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data desc"
           >
             desc
           </div>
@@ -310,68 +318,68 @@ exports[`Render a table width default header default-table-with-header 1`] = `
       </tr>
     </thead>
     <tbody
-      className="tc-table-body theme-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-row"
+        className="tc-table-row theme-tc-table-row"
         data-id="elem_1"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 1
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             Description of element 1
           </div>
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-row"
+        className="tc-table-row theme-tc-table-row"
         data-id="elem_2"
       >
         <td
-          className="td-name theme-cell"
+          className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 2
           </div>
         </td>
         <td
-          className="td-type theme-cell"
+          className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
         </td>
         <td
-          className="td-desc theme-cell"
+          className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-data tc-table-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             This element is a string
           </div>

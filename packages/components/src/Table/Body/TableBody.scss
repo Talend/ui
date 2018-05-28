@@ -1,9 +1,9 @@
-$body-height: 300px !default;
+$tc-table-body-height: 300px !default;
 
 .tc-table-body {
 	display: block;
 	overflow-x: hidden;
 	overflow-y: auto;
 	width: 100%;
-	height: $body-height;
+	height: $tc-table-body-height;
 }

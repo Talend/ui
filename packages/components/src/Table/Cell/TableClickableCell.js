@@ -52,5 +52,9 @@ TableClickableCell.propTypes = {
 	element: PropTypes.object,
 	data: PropTypes.string,
 	className: PropTypes.string,
-	extra: PropTypes.object,
+	extra: PropTypes.shape({
+		onClick: PropTypes.func,
+		onDoubleClick: PropTypes.func,
+		onKeyPress: PropTypes.func,
+	}),
 };

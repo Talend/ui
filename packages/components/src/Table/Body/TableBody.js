@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TableRow, { getRowId } from '../Row/TableRow.js';
-import theme from './Body.scss';
+import theme from './TableBody.scss';
 
 function getBodyClassName(classNameProvider) {
 	if (classNameProvider && classNameProvider.getForBody) {
@@ -26,7 +26,7 @@ function renderRow(
 ) {
 	return (
 		<TableRow
-			key={getRowId(rowDataGetter, element)}
+			key={getRowId(rowDataGetter, element, index)}
 			element={element}
 			index={index}
 			classNameProvider={classNameProvider}
@@ -43,7 +43,6 @@ function renderRow(
  * This component displays the body of the table. It is responsible for rendering the rows.
  */
 export default function TableBody({
-	updateBodyNodeRef,
 	elements,
 	onScroll,
 	classNameProvider,
@@ -59,7 +58,7 @@ export default function TableBody({
 		getBodyClassName(classNameProvider),
 	);
 	return (
-		<tbody ref={updateBodyNodeRef} className={classnames} onScroll={onScroll}>
+		<tbody className={classnames} onScroll={onScroll}>
 			{elements.map((elem, index) =>
 				renderRow(
 					elem,
@@ -77,26 +76,17 @@ export default function TableBody({
 }
 
 TableBody.propTypes = {
-	elements: PropTypes.array,
+	elements: PropTypes.array.isRequired,
 	classNameProvider: PropTypes.shape({
-		getForTable: PropTypes.func,
-		getForHeader: PropTypes.func,
-		getForRow: PropTypes.func,
-		getForRowData: PropTypes.func,
+		/**
+		 * Return a classname for the table body.
+		 */
+		getForBody: PropTypes.func,
 	}),
-	columnKeys: PropTypes.array,
-	rowDataGetter: PropTypes.shape({
-		getElementId: PropTypes.func,
-		getHeaderData: PropTypes.func,
-		getRowData: PropTypes.func,
-	}),
-	rowRenderer: PropTypes.shape({
-		needRowUpdate: PropTypes.func,
-		getCellComponent: PropTypes.func,
-		getExtraProps: PropTypes.func,
-	}),
+	columnKeys: PropTypes.array.isRequired,
+	rowDataGetter: PropTypes.object,
+	rowRenderer: PropTypes.object,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
-	updateBodyNodeRef: PropTypes.func,
 };

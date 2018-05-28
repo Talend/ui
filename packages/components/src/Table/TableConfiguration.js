@@ -14,7 +14,7 @@ export const classNameProvider = {
 	getForTable() {
 		return rootClassname;
 	},
-	/*
+	/**
 	 * Return a classname for the table header.
 	 */
 	getForHeader() {
@@ -27,7 +27,7 @@ export const classNameProvider = {
 	getForHeaderCell(columnKey) {
 		return `${rootClassname}-header-cell-${columnKey}`;
 	},
-	/*
+	/**
 	 * Returns a classname for the table body.
 	 */
 	getForBody() {
@@ -35,7 +35,6 @@ export const classNameProvider = {
 	},
 	/**
 	 * Return a classname for an element of the table
-	 * @param {object} element - An element of the table.
 	 */
 	getForRow() {
 		return `${rootClassname}-row`;
@@ -43,7 +42,6 @@ export const classNameProvider = {
 	/**
 	 * Return a classname for a data of the given element.
 	 * @param {string} columnKey - The key identifying a column.
-	 * @param {object} element - An element of the table.
 	 */
 	getForRowData(columnKey) {
 		return `${rootClassname}-row-data-${columnKey}`;
@@ -58,21 +56,18 @@ export const rowRenderer = {
 	/**
 	 * Indicates if a row needs to be updated or not according to the received props.
 	 * Default implementation returns true.
-	 * @param {object} props - The props of the component rendering a row.
 	 */
 	needRowUpdate() {
 		return true;
 	},
 	/**
 	 * Return the component used to render a data for the given column.
-	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getCellComponent() {
 		return TableCell;
 	},
 	/**
 	 * Return custom properties for the component displaying the data of the given column.
-	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getExtraProps() {
 		return null;
@@ -86,14 +81,12 @@ export const rowRenderer = {
 export const headerRenderer = {
 	/**
 	 * Return the component used to render a header for the given column.
-	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getHeaderComponent() {
 		return TableHeaderCell;
 	},
 	/**
 	 * Return extra properties for the header component rendering the given column header.
-	 * @param {string} columnKey - The key identifying a column.
 	 */
 	getExtraProps() {
 		return null;
@@ -121,12 +114,12 @@ export const rowDataGetter = {
 		return columnKey;
 	},
 	/**
-	 * Return the data corresponding to the given element and column.
-	 * @param {object} element - An element of the table.
+	 * Return the data corresponding to the given row and column.
+	 * @param {object} row - A row of the table.
 	 * @param {string} columnKey - The key identifying a column.
 	 */
-	getRowData(element, columnKey) {
-		return element[columnKey];
+	getRowData(row, columnKey) {
+		return row[columnKey];
 	},
 };
 
