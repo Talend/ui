@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 
 import { Action } from '../Actions';
@@ -107,7 +107,7 @@ class NotificationsContainer extends React.Component {
 		this.register = this.register.bind(this);
 		this.timerRegistry = {};
 		const self = this;
-		const registry = {
+		this.registry = {
 			register: (notification, timer) => {
 				self.timerRegistry[notification.id] = timer;
 			},
@@ -118,7 +118,6 @@ class NotificationsContainer extends React.Component {
 				}
 			},
 		};
-		this.registry = registry;
 		this.register(props);
 	}
 
@@ -176,25 +175,26 @@ class NotificationsContainer extends React.Component {
 		return (
 			<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
 				{
-					<ReactCSSTransitionGroup
-						transitionName="tc-notification"
-						transitionEnterTimeout={enterTimeout}
-						transitionLeaveTimeout={leaveTimeout}
-					>
+					<TransitionGroup>
 						{notifications.map(notification => (
-							<Notification
+							<CSSTransition
+								classNames="tc-notification"
 								key={notification.id}
-								notification={notification}
-								leaveFn={leaveFn}
-								autoLeaveTimeout={autoLeaveTimeout}
-								autoLeaveError={this.props.autoLeaveError}
-								onMouseEnter={this.onMouseEnter}
-								onMouseOut={this.onMouseOut}
-								onClose={this.onClose}
-								onClick={this.onClick}
-							/>
+								timeout={{ enter: enterTimeout, exit: leaveTimeout }}
+							>
+								<Notification
+									notification={notification}
+									leaveFn={leaveFn}
+									autoLeaveTimeout={autoLeaveTimeout}
+									autoLeaveError={this.props.autoLeaveError}
+									onMouseEnter={this.onMouseEnter}
+									onMouseOut={this.onMouseOut}
+									onClose={this.onClose}
+									onClick={this.onClick}
+								/>
+							</CSSTransition>
 						))}
-					</ReactCSSTransitionGroup>
+					</TransitionGroup>
 				}
 			</div>
 		);
@@ -252,7 +252,7 @@ NotificationsContainer.propTypes = {
 
 NotificationsContainer.defaultProps = {
 	enterTimeout: 300,
-	leaveTimeout: 280,
+	leaveTimeout: 300,
 	autoLeaveTimeout: 4000,
 	autoLeaveError: false,
 };
