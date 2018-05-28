@@ -2,9 +2,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
-  4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
   15:9  error  'displayName' is not defined   no-undef
   16:9  error  'propTypes' is not defined     no-undef
@@ -29,8 +26,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   40:9  error  'displayName' is not defined   no-undef
   41:9  error  'propTypes' is not defined     no-undef
-  69:9  error  'defaultProps' is not defined  no-undef
-  73:9  error  'contextTypes' is not defined  no-undef
+  70:9  error  'defaultProps' is not defined  no-undef
+  74:9  error  'contextTypes' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
@@ -41,9 +38,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
-
-/home/travis/build/Talend/ui/packages/containers/src/renderers.js
-  5:33  error  Unexpected parentheses around single function argument  arrow-parens
 
 /home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
    92:9  error  'displayName' is not defined   no-undef
@@ -79,16 +73,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:9  error  'propTypes' is not defined     no-undef
   78:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
-  24:9  error  'displayName' is not defined  no-undef
-  25:9  error  'propTypes' is not defined    no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.selectors.js
-  8:1  error  Prefer default export  import/prefer-default-export
-
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.test.js
-  4:21  error  'DEFAULT_STATE' is defined but never used  no-unused-vars
-  4:36  error  'DISPLAY_NAME' is defined but never used   no-unused-vars
-
-✖ 48 problems (48 errors, 0 warnings)
-
+✖ 41 problems (41 errors, 0 warnings)

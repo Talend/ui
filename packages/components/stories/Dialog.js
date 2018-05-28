@@ -43,14 +43,12 @@ const largeProps = {
 };
 const bsProps = {
 	header: 'OnHide + no backdrop + esc',
-	bsDialogProps: {
-		show: true,
-		size: 'small',
-		onHide: action('onHide'),
-		dialogClassName: 'customDialogClassName',
-		keyboard: true,
-		backdrop: false,
-	},
+	show: true,
+	size: 'small',
+	onHide: action('onHide'),
+	dialogClassName: 'customDialogClassName',
+	keyboard: true,
+	backdrop: false,
 	action: {
 		label: 'OK',
 		onClick: action('ok'),

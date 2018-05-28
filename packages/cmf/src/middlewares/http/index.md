@@ -134,12 +134,12 @@ In this case we want to handle the 404, yet the 404 is still dispatched and hand
 
 ```javascript
 import get from 'lodash/get';
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 
 return actions.http.get('/api/may-not-exists', {
 	onError(error) {
 		if (get(error, 'stack.status') !== 404) {
-			return api.actions.http.onError(error);
+			return cmf.actions.http.onError(error);
 		}
 		return {
 			type: NOT_FOUND,
