@@ -41,9 +41,7 @@ export default function Table({
 	);
 	return (
 		<div className={classnames}>
-			<table
-				className={classNames('tc-table-node', theme['tc-table-node'])}
-			>
+			<table className={classNames('tc-table-node', theme['tc-table-node'])}>
 				{withHeader && (
 					<TableHeader
 						columnKeys={columnKeys}
