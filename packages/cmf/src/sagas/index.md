@@ -101,7 +101,7 @@ http.get('/foo'); // call with the header 'content-type': 'application/json',
 3. setDefaultConfig
 
 ## CSRF token handling
-you can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.
+You can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.
 
 ```javascript
 import cmf from '@talend/react-cmf';
@@ -122,9 +122,9 @@ The above configuration allow  `http saga` to automatically inject into http cal
 
 ## Changing the http defaultConfig `Accept-Language` headers
 
-to change dynamicly this setting during the lifecycle of the application the `setDefaultLanguage` api is provided by the http module.
+To change dynamically this setting during the lifecycle of the application the `setDefaultLanguage` api is provided by the http module.
 
-if the defaultConfig is not already set this will create an error.
+If the defaultConfig is not already set this will create an error.
 ```javascript
 import cmf from '@talend/react-cmf';
 

@@ -465,7 +465,7 @@ describe('#httpFetch with CSRF handling configuration', () => {
 			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
-	it('check if httpFetch is called with the security configuation', done => {
+	it('check if httpFetch is called with the security configuration', done => {
 		setDefaultConfig(defaultHttpConfiguration);
 
 		expect(getDefaultConfig()).toEqual(defaultHttpConfiguration);
