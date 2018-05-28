@@ -219,7 +219,7 @@ describe('UIForm component', () => {
 			const props2 = {
 				...props,
 				language: { OBJECT_REQUIRED: 'is required' },
-			}
+			};
 			// given
 			const wrapper = shallow(<UIFormComponent {...data} {...props2} />);
 
