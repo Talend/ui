@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -8,6 +9,18 @@ import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
+
+/**
+ * Cell renderer that displays hello + text
+ */
+function CellWithHello({ cellData }) {
+	return <div>hello {cellData} !</div>;
+}
+
+CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
+CellWithHello.propTypes = {
+	cellData: PropTypes.string,
+};
 
 const icons = {
 	'talend-apache': talendIcons['talend-apache'],
@@ -226,7 +239,12 @@ const propsWithVirtualized = {
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
+			{
+				key: 'created',
+				label: 'Created',
+				type: 'datetime',
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			},
 			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
 		],
 		items: [
@@ -258,8 +276,7 @@ const propsWithVirtualized = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: 1518596913333,
 				modified: minusOneHours,
-				author:
-					'Jean-Pierre DUPONT',
+				author: 'Jean-Pierre DUPONT',
 				className: 'item-2-class',
 			},
 			{
@@ -570,9 +587,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					You add sort management with column header click.
-				</p>
+				<p>You add sort management with column header click.</p>
 				<pre>
 					listProps.sort.field = 'name';<br />
 					listProps.sort.isDescending = false;<br />
@@ -581,6 +596,27 @@ storiesOf('List', module)
 					&lt;List ... list=&#123;listProps&#125; &gt;<br />
 				</pre>
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Custom cell renderer', () => {
+		const customProps = cloneDeep(props);
+
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'hello' },
+			{ key: 'cat', label: 'Cat' },
+		];
+
+		customProps.list.items = itemsForListWithIcons;
+		customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display the list with a custom renderer for the status column.</p>
+				<List {...customProps} />
 			</div>
 		);
 	})
@@ -638,9 +674,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					You can get limited options for displayMode.
-				</p>
+				<p>You can get limited options for displayMode.</p>
 				<pre>
 					toolbarProps.display.displayModes = ['large', 'table'];<br />
 					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
@@ -664,9 +698,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					To have not clickable titles, just don't pass any onClick callback
-				</p>
+				<p>To have not clickable titles, just don't pass any onClick callback</p>
 				<pre>
 					const props = &#123;...&#125;;<br />
 					props.list.titleProps.onClick = null;<br />
@@ -684,9 +716,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Display the list with hidden header labels.
-				</p>
+				<p>Display the list with hidden header labels.</p>
 				<pre>
 					const props = &#123;...&#125;;<br />
 					props.list.columns[0].hideHeader = true;<br />
