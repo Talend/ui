@@ -14,13 +14,15 @@ import {
 /**
  * Storage point for the doc setup using `setDefaultConfig`
  */
-let defaultConfig;
+export const HTTP = {
+	defaultConfig: null,
+};
 
 /**
  * merge the CSRFToken handling rule from the module defaultConfig
  * into config argument
  * @param {Object} config
- * @returns {Object}
+ * @returns {Function}
  */
 export function handleCSRFToken(config) {
 	return mergeCSRFToken({
@@ -124,7 +126,7 @@ export function httpFetch(url, config, method, payload) {
 					body,
 				},
 				{
-					...defaultConfig,
+					...HTTP.defaultConfig,
 					...config,
 				},
 			),
@@ -247,18 +249,13 @@ export function* httpGet(url, config, options) {
  * }});
  */
 export function setDefaultConfig(config) {
-	let throwError = false;
-	if (defaultConfig) {
-		throwError = true;
-	}
-
-	defaultConfig = config;
-
-	if (throwError) {
+	if (HTTP.defaultConfig) {
 		throw new Error(
 			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
 		);
 	}
+
+	HTTP.defaultConfig = config;
 }
 
 /**
@@ -267,8 +264,8 @@ export function setDefaultConfig(config) {
  * @param {String} language
  */
 export function setDefaultLanguage(language) {
-	if (get(defaultConfig, 'headers')) {
-		defaultConfig.headers['Accept-Language'] = language;
+	if (get(HTTP, 'defaultConfig.headers')) {
+		HTTP.defaultConfig.headers['Accept-Language'] = language;
 	} else {
 		// eslint-disable-next-line no-console
 		throw new Error('ERROR: you should call setDefaultConfig.');
@@ -285,7 +282,7 @@ export const handleDefaultHttpConfiguration = curry((defaultHttpConfig, httpConf
  * @return {object}  the defaultConfig used by cmf
  */
 export function getDefaultConfig() {
-	return defaultConfig;
+	return HTTP.defaultConfig;
 }
 
 export default {

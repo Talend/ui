@@ -22,6 +22,7 @@ import http, {
 	setDefaultConfig,
 	setDefaultLanguage,
 	handleDefaultHttpConfiguration,
+	HTTP,
 } from '../../src/sagas/http';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
@@ -451,74 +452,63 @@ describe('#httpFetch with CSRF handling configuration', () => {
 	};
 
 	beforeAll(() => {
-		try {
-			setDefaultConfig({});
-			// eslint-disable-next-line no-empty
-		} catch (e) {}
+		HTTP.defaultConfig = null;
 
 		document.cookie = `${defaultHttpConfiguration.security
 			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
 	});
 
 	afterAll(() => {
-		try {
-			setDefaultConfig({});
-			// eslint-disable-next-line no-empty
-		} catch (e) {}
+		HTTP.defaultConfig = null;
 
 		document.cookie = `${defaultHttpConfiguration.security
 			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
 	it('check if httpFetch is called with the security configuation', done => {
-		try {
-			setDefaultConfig(defaultHttpConfiguration);
-		} catch (e) {
-			expect(getDefaultConfig()).toEqual(defaultHttpConfiguration);
-			const url = '/foo';
-			const headers = new Headers();
-			headers.append('Content-Type', 'application/json');
+		setDefaultConfig(defaultHttpConfiguration);
 
-			const config = {
-				response: new Response('{"foo": 42}', {
-					status: HTTP_STATUS.OK,
-					headers,
-				}),
-			};
-			const payload = {
-				bar: 42,
-			};
+		expect(getDefaultConfig()).toEqual(defaultHttpConfiguration);
+		const url = '/foo';
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
 
-			httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-				expect(body.data).toEqual({
-					foo: 42,
-				});
-				expect(body.response instanceof Response).toBe(true);
-				done();
+		const config = {
+			response: new Response('{"foo": 42}', {
+				status: HTTP_STATUS.OK,
+				headers,
+			}),
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
 			});
+			expect(body.response instanceof Response).toBe(true);
+			done();
+		});
 
-			expect(fetch).toHaveBeenCalledWith(url, {
-				...defaultHttpConfiguration,
-				body: '{"bar":42}',
-				credentials: 'same-origin',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
-				},
-				method: HTTP_METHODS.GET,
-				response: config.response,
-			});
-		}
+		expect(fetch).toHaveBeenCalledWith(url, {
+			...defaultHttpConfiguration,
+			body: '{"bar":42}',
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+			method: HTTP_METHODS.GET,
+			response: config.response,
+		});
 	});
 });
 
 describe('#httpFetch', () => {
 	afterEach(() => {
-		try {
-			setDefaultConfig({});
-			// eslint-disable-next-line no-empty
-		} catch (e) {}
+		HTTP.defaultConfig = null;
 	});
 
 	it('should fetch the request', done => {
@@ -571,33 +561,31 @@ describe('#httpFetch', () => {
 			bar: 42,
 		};
 
-		try {
-			setDefaultConfig({
-				headers: {
-					'Accept-Language': 'fr',
-				},
-			});
-		} catch (e) {
-			httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-				expect(body.data).toEqual({
-					foo: 42,
-				});
-				expect(body.response instanceof Response).toBe(true);
-				done();
-			});
+		setDefaultConfig({
+			headers: {
+				'Accept-Language': 'fr',
+			},
+		});
 
-			expect(fetch).toHaveBeenCalledWith(url, {
-				body: '{"bar":42}',
-				credentials: 'same-origin',
-				headers: {
-					'Accept-Language': 'fr',
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},
-				method: HTTP_METHODS.GET,
-				response: config.response,
+		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
 			});
-		}
+			expect(body.response instanceof Response).toBe(true);
+			done();
+		});
+
+		expect(fetch).toHaveBeenCalledWith(url, {
+			body: '{"bar":42}',
+			credentials: 'same-origin',
+			headers: {
+				'Accept-Language': 'fr',
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			method: HTTP_METHODS.GET,
+			response: config.response,
+		});
 	});
 
 	it('should fetch the request with a FormData', done => {
@@ -716,17 +704,13 @@ describe('Http{Method} calls httpFetch with appropriate method', () => {
 });
 describe('http module with instance created', () => {
 	beforeEach(() => {
-		try {
-			setDefaultConfig({});
-			// eslint-disable-next-line no-empty
-		} catch (e) {}
+		HTTP.defaultConfig = null;
+		setDefaultConfig({});
 	});
 
 	afterEach(() => {
-		try {
-			setDefaultConfig({});
-			// eslint-disable-next-line no-empty
-		} catch (e) {}
+		HTTP.defaultConfig = null;
+		setDefaultConfig({});
 	});
 	it('check that httpGet is called', () => {
 		// given
@@ -847,22 +831,25 @@ describe('http module with instance created', () => {
 });
 
 describe('setDefaultLanguage', () => {
+	beforeEach(() => {
+		HTTP.defaultConfig = null;
+	});
+
+	afterEach(() => {
+		HTTP.defaultConfig = null;
+	});
+
 	it('should not redefine the Accept Language if no defaultConfig', () => {
-		try {
+		expect(() => {
 			setDefaultLanguage('ja');
-		} catch (e) {
-			expect(getDefaultConfig()).toEqual({});
-		}
+		}).toThrow('');
 	});
 
 	it('should redefine the Accept Language', () => {
-		try {
-			setDefaultConfig({
-				headers: {},
-			});
-		} catch (e) {
-			setDefaultLanguage('ja');
-		}
+		setDefaultConfig({
+			headers: {},
+		});
+		setDefaultLanguage('ja');
 
 		expect(getDefaultConfig()).toEqual({ headers: { 'Accept-Language': 'ja' } });
 	});
