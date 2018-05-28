@@ -2,16 +2,43 @@
 
 exports[`Typeahead container should render 1`] = `
 <Typeahead
+  __altered={false}
+  __hash={undefined}
+  __ownerID={undefined}
+  _root={
+    ArrayMapNode {
+      "entries": Array [
+        Array [
+          "docked",
+          true,
+        ],
+        Array [
+          "searching",
+          false,
+        ],
+        Array [
+          "focusedSectionIndex",
+          null,
+        ],
+        Array [
+          "focusedItemIndex",
+          null,
+        ],
+      ],
+      "ownerID": OwnerID {},
+    }
+  }
   autoFocus={true}
   disabled={false}
   docked={true}
+  focusedItemIndex={null}
+  focusedSectionIndex={null}
   icon={Object {}}
   id={42}
-  items={null}
+  items={Array []}
   multiSection={true}
   noResultText="No result."
   onBlur={[Function]}
-  onChange={[Function]}
   onKeyDown={[Function]}
   onSelect={[Function]}
   onToggle={[Function]}
@@ -19,5 +46,6 @@ exports[`Typeahead container should render 1`] = `
   readOnly={false}
   searching={false}
   searchingText="Searching for matches…"
+  size={4}
 />
 `;

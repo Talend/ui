@@ -1,12 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
-import Container, { DEFAULT_STATE, DISPLAY_NAME } from './Typeahead.container';
+import Container, { DEFAULT_STATE } from './Typeahead.container';
 import Connect from './Typeahead.connect';
 
 const defaultProps = {
 	id: 42,
 	icon: {},
+	items: [],
+	...DEFAULT_STATE,
 };
 
 describe('Connect', () => {
@@ -48,27 +50,7 @@ describe('Typeahead container', () => {
 				};
 
 				shallow(<Container {...props} />).simulate('change', event, data);
-				expect(props.onChange).toHaveBeenCalledWith(event, data.value);
-			});
-
-			it('should call onChangeActionCreator ', () => {
-				const event = {};
-				const data = { value: 'test' };
-				const props = {
-					...defaultProps,
-					onChangeActionCreator: 'onChangeActionCreator',
-					dispatchActionCreator: jest.fn(),
-				};
-
-				shallow(<Container {...props} />).simulate('change', event, data);
-				expect(props.dispatchActionCreator).toHaveBeenCalledWith(
-					props.onChangeActionCreator,
-					event,
-					{
-						props,
-						value: data.value,
-					},
-				);
+				expect(props.onChange).toHaveBeenCalledWith(event, data);
 			});
 		});
 
@@ -87,31 +69,49 @@ describe('Typeahead container', () => {
 				newHighlightedSectionIndex: 4,
 			};
 
-			it('should call onKeyDown callback if present', () => {
-				const event = new Event({ key: KEYS.DOWN });
+			it('should call onKeyDow', () => {
+				const event = { key: KEYS.DOWN, preventDefault: () => {} };
 				const props = {
 					...defaultProps,
+					state: Map({ docked: true }),
+					setState: jest.fn(),
 					onKeyDown: jest.fn(),
+					onBlur: jest.fn(),
 				};
 
 				shallow(<Container {...props} />).simulate('keyDown', event, data);
 				expect(props.onKeyDown).toHaveBeenCalledWith(event, data);
 			});
 
-			it('should call onKeyDownActionCreator ', () => {
-				const event = new Event({ key: KEYS.DOWN });
+			it('should blur', () => {
+				const event = { key: KEYS.ESC, preventDefault: () => {} };
 				const props = {
 					...defaultProps,
-					onKeyDownActionCreator: 'onKeyDownActionCreator',
-					dispatchActionCreator: jest.fn(),
+					state: Map({ docked: true }),
+					setState: jest.fn(),
+					onKeyDown: jest.fn(),
+					onBlur: jest.fn(),
 				};
 
 				shallow(<Container {...props} />).simulate('keyDown', event, data);
-				expect(props.dispatchActionCreator).toHaveBeenCalledWith(
-					props.onKeyDownActionCreator,
-					event,
-					data,
-				);
+				expect(props.onBlur).toHaveBeenCalledWith(event);
+			});
+
+			it('should select', () => {
+				const event = { key: KEYS.ENTER, preventDefault: () => {} };
+				const props = {
+					...defaultProps,
+					state: Map({ docked: true }),
+					setState: jest.fn(),
+					onKeyDown: jest.fn(),
+					onSelect: jest.fn(),
+				};
+
+				shallow(<Container {...props} />).simulate('keyDown', event, data);
+				expect(props.onSelect).toHaveBeenCalledWith(event, {
+					sectionIndex: 3,
+					itemIndex: 1,
+				});
 			});
 		});
 	});
