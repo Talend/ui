@@ -15,6 +15,7 @@ const KEYS = {
 export const DISPLAY_NAME = 'Container(Typeahead)';
 export const DEFAULT_STATE = new Immutable.Map({
 	docked: true,
+	searching: false,
 });
 
 /**
@@ -106,6 +107,7 @@ export default class Typeahead extends React.Component {
 			onBlur: this.onBlur,
 			onKeyDown: this.onKeyDown,
 			docked: state.get('docked'),
+			searching: state.get('searching'),
 			items: items.toJS ? items.toJS() : items,
 		};
 
