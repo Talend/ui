@@ -88,7 +88,6 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'prop-types': '15.5.10',
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
-	'react-addons-css-transition-group': '15.6.2',
 	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
@@ -100,6 +99,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
+	'react-transition-group': '^2.3.1',
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
