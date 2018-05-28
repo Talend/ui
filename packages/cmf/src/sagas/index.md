@@ -103,17 +103,17 @@ First you have to plug all the thing to make it work :
 - In the configure.js :
 
 ```javascript
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 // ...
 // where you init your saga router
 yield all([
 	// ...
-	fork(api.sagas.component.handle),
+	fork(cmf.sagas.component.handle),
 	// ...
 ]);
 // where you init other things ( like register your app )
-api.registerInternals();
-api.saga.registerMany(sagasToRegister);
+cmf.registerInternals();
+cmf.saga.registerMany(sagasToRegister);
 ```
 
 Then, we can add some cmf configuration :

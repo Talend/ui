@@ -17,12 +17,12 @@ import component from './component';
 
 const getComponentFromRegistry = deprecated(
 	(context, id) => component.get(id, context),
-	'stop use api.route.getComponentFromRegistry. Please use api.component.get',
+	'stop use cmf.route.getComponentFromRegistry. Please use cmf.component.get',
 );
 
 const registerComponent = deprecated(
 	component.register,
-	'stop use api.route.registerComponent. please use api.component.register',
+	'stop use cmf.route.registerComponent. please use cmf.component.register',
 );
 
 /**
