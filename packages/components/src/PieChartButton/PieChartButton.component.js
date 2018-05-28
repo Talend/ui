@@ -31,7 +31,7 @@ const displaySizes = {
  * @param {number} percentage the percentage to calculate the angle
  */
 export function getAngle(percentage) {
-	return percentage * 2 / 100 * Math.PI;
+	return ((percentage * 2) / 100) * Math.PI;
 }
 
 /**
