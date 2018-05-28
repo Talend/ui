@@ -10,7 +10,7 @@ import React from 'react';
 import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import api from './api';
+import route from './route';
 import Inject from './Inject.component';
 
 /**
@@ -25,7 +25,7 @@ import Inject from './Inject.component';
  * @return {object} ReactElement
  */
 const UIRouter = (props, context) => {
-	const routes = api.route.getRoutesFromSettings(context, props.routes, props.dispatch);
+	const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
 	if (routes.path === '/' && routes.component) {
 		return <BaseRouter routes={routes} history={props.history} />;
 	}
