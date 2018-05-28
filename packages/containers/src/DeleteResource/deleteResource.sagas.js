@@ -1,6 +1,6 @@
 import invariant from 'invariant';
 import { take, put, race, call, select } from 'redux-saga/effects';
-import { api, actions } from '@talend/react-cmf';
+import cmf, { actions } from '@talend/react-cmf';
 import deleteResourceConst from './deleteResource.constants';
 
 /**
@@ -55,7 +55,7 @@ got ${resourcePath}`,
 export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath) {
 	yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
 	const resourceLocator = getResourceLocator(resourceType, resourcePath);
-	const resource = yield select(api.selectors.collections.findListItem, resourceLocator, itemId);
+	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, itemId);
 	if (resource) {
 		yield put(
 			buildHttpDelete(
