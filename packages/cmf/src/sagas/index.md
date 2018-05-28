@@ -47,12 +47,12 @@ This in the host application, and children library that use the same version of 
 **Note** those children library should not use setDefaultConfig !
 
 **Only** the host application only should use setDefaultConfig !
-calling `setDefaultConfig` twice will not change the first setup defaultConfig and will print an error.
+calling `setDefaultConfig` twice will not change the first setup defaultConfig and throw an error.
 
 ```javascript
-import http, { setDefaultConfig } from '@talend/react-cmf/lib/sagas/http';
+import cmf from '@talend/react-cmf';
 
-setDefaultConfig({
+cmf.sagas.http.setDefaultConfig({
 	'Accept-Language': 'fr',
 });
 
@@ -104,7 +104,7 @@ http.get('/foo'); // call with the header 'content-type': 'application/json',
 you can configure the `http saga` with a security configuration, which will help you to manage CSRF TOKEN provided on a cookie.
 
 ```javascript
-import http from '@talend/react-cmf/lib/sagas/http';
+import cmf from '@talend/react-cmf';
 
 const httpDefaultConfig = {
 	security: {
@@ -113,9 +113,9 @@ const httpDefaultConfig = {
 	},
 };
 
-setDefaultConfig(httpDefaultConfig);
+cmf.sagas.http.setDefaultConfig(httpDefaultConfig);
 
-const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`);
+const { data, response } = yield call(cmf.sagas.http.get, `${API['dataset-sample']}/${datasetId}`);
 ```
 
 The above configuration allow  `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
@@ -126,9 +126,9 @@ to change dynamicly this setting during the lifecycle of the application the `se
 
 if the defaultConfig is not already set this will create an error.
 ```javascript
-import { setDefaultLanguage } from '@talend/react-cmf/lib/sagas/http';
+import cmf from '@talend/react-cmf';
 
-setDefaultLanguage('fr-FR');
+cmf.sagas.http.setDefaultLanguage('fr-FR');
 ```
 
 # Component Saga

@@ -291,6 +291,8 @@ export default {
 	post: httpPost,
 	put: httpPut,
 	patch: httpPatch,
+	setDefaultConfig,
+	setDefaultLanguage,
 	create(createConfig = {}) {
 		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
 
