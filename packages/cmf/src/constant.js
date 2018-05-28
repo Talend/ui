@@ -24,4 +24,24 @@ export default {
 	REQUEST_SETTINGS: 'REACT_CMF.REQUEST_SETTINGS',
 	REQUEST_KO: 'REACT_CMF.REQUEST_SETTINGS_KO',
 	REQUEST_OK: 'REACT_CMF.REQUEST_SETTINGS_OK',
+	CMF_PROPS: [
+		'didMountActionCreator', // componentDidMount action creator id in registry
+		'keepComponentState', // redux state management on unmount
+		'view', // view component id in registry
+		'saga',
+		'willUnMountActionCreator', // componentWillUnmount action creator id in registry
+		'initialState',
+		'renderIf',
+	],
+	INJECTED_PROPS: [
+		'setState',
+		'deleteState',
+		'updateState',
+		'componentId',
+		'state',
+		'initState',
+		'getCollection',
+		'dispatch',
+		'dispatchActionCreator',
+	],
 };

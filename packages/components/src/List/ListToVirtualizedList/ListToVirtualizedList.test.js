@@ -10,7 +10,7 @@ const props = {
 	id: 'mylistid',
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
-		{ key: 'id', label: 'Id' },
+		{ key: 'id', label: 'Id', type: 'customType' },
 		{ key: 'label', label: 'Label' },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
@@ -116,6 +116,18 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.cellRenderer).toBe(CellBadge.cellRenderer);
 			}
 		});
+	});
+
+	it('should support custom cell renderer', () => {
+		const renderer = function test() {
+			return 'ok';
+		};
+		const customDictionary = { customType: { cellRenderer: renderer } };
+		const wrapper = shallow(<ListToVirtualizedList {...props} cellDictionary={customDictionary} />);
+
+		// then
+		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		expect(column.props().cellRenderer).toBe(renderer);
 	});
 
 	it('should adapt sort info', () => {

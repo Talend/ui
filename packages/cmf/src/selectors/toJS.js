@@ -17,7 +17,7 @@ function toJS(data) {
  */
 export default function getToJSMemoized(selector) {
 	if (typeof selector !== 'function') {
-		throw new Error('selector must be a function in api.selectors.toJS(selector)');
+		throw new Error('selector must be a function in cmf.selectors.toJS(selector)');
 	}
 	const cache = {};
 
