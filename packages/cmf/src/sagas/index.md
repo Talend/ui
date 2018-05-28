@@ -12,7 +12,7 @@ The http saga is here to help you execute some http request from inside any saga
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`);
 if (response.ok) {
 	yield put(
-		cmfActions.collectionsActions.mutateCollection('sample', {
+		cmf.actions.collections.mutate('sample', {
 			update: {
 				loading: false,
 				message: null,
@@ -22,7 +22,7 @@ if (response.ok) {
 	);
 } else if (response.status === 404) {
 	yield put(
-		cmfActions.collectionsActions.mutateCollection('sample', {
+		cmf.actions.collections.mutate('sample', {
 			update: {
 				loading: false,
 				warning: true,
@@ -82,15 +82,15 @@ const { data, response } = yield call(http.get, `${API['dataset-sample']}/${data
 you can provide to your code an instance of the http Saga with preconfigured behaviors
 
 ```
-import http from '@talend/react-cmf/lib/sagas/http';
+import cmf from '@talend/react-cmf';
 
-const configuredHttp = http.create({
+const http = cmf.sagas.http.create({
 	headers: {
 		'content-type': 'application/json',
 	},
 });
 
-configuredHttp.get('/foo'); // call with the header 'content-type': 'application/json',
+http.get('/foo'); // call with the header 'content-type': 'application/json',
 ```
 
 
@@ -113,7 +113,7 @@ const httpDefaultConfig = {
 	},
 };
 
-setDefaultConfig(defaultHttpConfiguration);
+setDefaultConfig(httpDefaultConfig);
 
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`);
 ```
