@@ -26,18 +26,35 @@ export default class Typeahead extends React.Component {
 		...componentState.propTypes,
 		onSelect: PropTypes.func,
 		onChange: PropTypes.func,
+		onBlur: PropTypes.func,
+		onBlurActionCreator: PropTypes.string,
 	};
 
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 	}
 
 	onToggle() {
 		this.props.setState(() => ({
 			docked: !this.props.state.get('docked', true),
+			items: [],
 		}));
+	}
+
+	onBlur(event) {
+		const { onBlur, onBlurActionCreator } = this.props;
+
+		this.onToggle();
+
+		if (onBlur) {
+			onBlur(event);
+		}
+		if (onBlurActionCreator) {
+			this.props.dispatchActionCreator(onBlurActionCreator, event);
+		}
 	}
 
 	onKeyDown(event, data) {
@@ -86,7 +103,7 @@ export default class Typeahead extends React.Component {
 		const props = {
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			onToggle: this.onToggle,
-			onBlur: this.onToggle,
+			onBlur: this.onBlur,
 			onKeyDown: this.onKeyDown,
 			docked: state.get('docked'),
 			items: items.toJS ? items.toJS() : items,
