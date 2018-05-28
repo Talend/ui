@@ -35,36 +35,17 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
-import api from './api';
 import actions from './actions';
+import actionCreator from './actionCreator';
+import component from './component';
+import CONST from './constant';
+import expression from './expression';
 import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 
 let newState;
-
-export const CMF_PROPS = [
-	'didMountActionCreator', // componentDidMount action creator id in registry
-	'keepComponentState', // redux state management on unmount
-	'view', // view component id in registry
-	'saga',
-	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
-	'initialState',
-	'renderIf',
-];
-
-export const INJECTED_PROPS = [
-	'setState',
-	'deleteState',
-	'updateState',
-	'componentId',
-	'state',
-	'initState',
-	'getCollection',
-	'dispatch',
-	'dispatchActionCreator',
-];
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -129,7 +110,7 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, { ...ownProps, ...props }, cmfProps);
 	}
 	Object.assign(props, userProps);
-	Object.assign(props, api.expression.mapStateToProps(state, { ...ownProps, ...props }));
+	Object.assign(props, expression.mapStateToProps(state, { ...ownProps, ...props }));
 	return props;
 }
 
@@ -148,9 +129,9 @@ export function getDispatchToProps({
 		defaultState,
 	);
 	cmfProps.dispatch = dispatch;
-	cmfProps.getComponent = api.component.get;
+	cmfProps.getComponent = component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
-		dispatch(api.actionCreator.get(context, actionId)(event, data, context));
+		dispatch(actionCreator.get(context, actionId)(event, data, context));
 	};
 
 	let userProps = {};
@@ -175,15 +156,15 @@ export function getDispatchToProps({
 export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps }) {
 	if (mergeProps) {
 		return mergeProps(
-			api.expression.mergeProps(stateProps),
-			api.expression.mergeProps(dispatchProps),
-			api.expression.mergeProps(ownProps),
+			expression.mergeProps(stateProps),
+			expression.mergeProps(dispatchProps),
+			expression.mergeProps(ownProps),
 		);
 	}
 	return {
-		...api.expression.mergeProps(ownProps),
-		...api.expression.mergeProps(dispatchProps),
-		...api.expression.mergeProps(stateProps),
+		...expression.mergeProps(ownProps),
+		...expression.mergeProps(dispatchProps),
+		...expression.mergeProps(stateProps),
 	};
 }
 
@@ -338,7 +319,7 @@ export default function cmfConnect({
 					props.state = defaultState;
 				}
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach(key => {
+				CONST.CMF_PROPS.forEach(key => {
 					delete props[key];
 				});
 				return createElement(WrappedComponent, props);
@@ -378,7 +359,7 @@ export default function cmfConnect({
 	};
 }
 
-cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
+cmfConnect.INJECTED_PROPS = CONST.INJECTED_PROPS;
 
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.map,
