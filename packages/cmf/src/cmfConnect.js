@@ -35,6 +35,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
+import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
 import CONST from './constant';
@@ -214,6 +215,21 @@ export default function cmfConnect({
 		if (!WrappedComponent.displayName) {
 			invariant(true, `${WrappedComponent.name} has no displayName`);
 		}
+		function getState(state, id = 'default') {
+			return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
+		}
+		function getSetStateAction(state, id, type) {
+			return {
+				type: type || `${getComponentName(WrappedComponent)}.setState`,
+				cmf: {
+					componentState: actions.components.mergeState(
+						getComponentName(WrappedComponent),
+						id,
+						state,
+					),
+				},
+			};
+		}
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
@@ -226,6 +242,14 @@ export default function cmfConnect({
 				router: PropTypes.object,
 			};
 			static WrappedComponent = WrappedComponent;
+			static getState = getState;
+			static setStateAction = function setStateAction(state, id = 'default', type) {
+				if (typeof state !== 'function') {
+					return getSetStateAction(state, id, type);
+				}
+				return (_, getReduxState) =>
+					getSetStateAction(state(getState(getReduxState(), id)), id, type);
+			};
 
 			constructor(props, context) {
 				super(props, context);
