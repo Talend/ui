@@ -76,7 +76,11 @@ export default class Table extends Component {
 			onEnterRow,
 			onLeaveRow,
 		} = this.props;
-		const classnames = classNames('tc-table', theme['tc-table'], getTableClassName(classNameProvider));
+		const classnames = classNames(
+			'tc-table',
+			theme['tc-table'],
+			getTableClassName(classNameProvider),
+		);
 		return (
 			<div ref={this.updateContentNodeRef} className={classnames}>
 				<table ref={this.updateTableNodeRef}>

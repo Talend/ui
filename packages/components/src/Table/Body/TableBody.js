@@ -53,7 +53,11 @@ export default function TableBody({
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const classnames = classNames('tc-table-body', theme['tc-table-body'], getBodyClassName(classNameProvider));
+	const classnames = classNames(
+		'tc-table-body',
+		theme['tc-table-body'],
+		getBodyClassName(classNameProvider),
+	);
 	return (
 		<tbody ref={updateBodyNodeRef} className={classnames} onScroll={onScroll}>
 			{elements.map((elem, index) =>

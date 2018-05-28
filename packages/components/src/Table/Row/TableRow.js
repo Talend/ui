@@ -125,7 +125,14 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const { element, index, classNameProvider, columnKeys, rowDataGetter, rowRenderer } = this.props;
+		const {
+			element,
+			index,
+			classNameProvider,
+			columnKeys,
+			rowDataGetter,
+			rowRenderer,
+		} = this.props;
 		const rowKey = getRowId(rowDataGetter, element, index);
 		const classnames = classNames(
 			'tc-table-row',
