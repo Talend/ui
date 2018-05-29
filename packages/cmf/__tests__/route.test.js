@@ -16,16 +16,6 @@ describe('CMF route', () => {
 });
 
 describe('loadComponent behavior', () => {
-	it('should inject dispatch into component properties from context.store', () => {
-		const mockItem = {
-			component: 'component',
-			view: 'something',
-		};
-		route.loadComponents(mock.context(), mockItem);
-		const wrapper = shallow(React.createElement(mockItem.component), { context: mock.context() });
-		expect(wrapper.props().dispatch()).toBe('dispatch');
-	});
-
 	it('should replace component by regitry one', () => {
 		const mockItem = {
 			component: 'TestContainer',
@@ -41,7 +31,7 @@ describe('loadComponent behavior', () => {
 		route.loadComponents(mockContext, mockItem);
 		component();
 		expect(obj.fn).toHaveBeenCalled();
-		expect(mockItem.component.displayName).toBe('WithView');
+		expect(mockItem.component.displayName).toBe('WithProps');
 	});
 
 	it('should use the componentId to resolve the props for the component instead of using a view', () => {
@@ -50,7 +40,6 @@ describe('loadComponent behavior', () => {
 			componentId: 'test',
 		};
 		const Component = () => <div>test</div>;
-		Component.CMFContainer = true;
 		const mockContext = mock.context();
 		mockContext.registry = {
 			'_.route.component:TestContainer': Component,
