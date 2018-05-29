@@ -1,5 +1,4 @@
 # http://editorconfig.org
-root = true
 [*]
 end_of_line = lf
 charset = utf-8
