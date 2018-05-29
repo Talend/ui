@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import VirtualizedList, { SORT_BY, cellDictionary } from '../../VirtualizedList';
+import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
@@ -40,6 +40,7 @@ export function ListToVirtualizedList(props) {
 	}
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
+	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
 
 	return (
 		<VirtualizedList
@@ -78,6 +79,8 @@ export function ListToVirtualizedList(props) {
 				if (column.hideHeader) {
 					cProps.disableSort = true;
 					cProps.headerRenderer = HiddenHeader;
+				} else if (column.header && listHeaderDictionary[column.header]) {
+					Object.assign(cProps, listHeaderDictionary[column.header]);
 				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
@@ -91,6 +94,7 @@ ListToVirtualizedList.propTypes = {
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
 	cellDictionary: PropTypes.obj,
+	headerDictionary: PropTypes.obj,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
