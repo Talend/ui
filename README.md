@@ -28,7 +28,36 @@ front-end stack.
 
 ## Tools (dev environment)
 
-:warning: If you've used `lerna bootstrap` in the past, please start by running `lerna clean` or you will have bad behavior with the following tools.
+### Installation
+
+Make sure you you have [node](https://nodejs.org/) in version 8.x. *Check [nvm](https://github.com/creationix/nvm) to easily manage multiple node versions.*
+
+Install [yarn](https://yarnpkg.com) command line tool globally.
+
+Install the dependencies at the root and for all packages sub respositories with :
+```
+yarn install
+```
+
+### Usage
+
+#### Globally
+
+*TODO: Update commands and readme for global 'yarn start' and 'yarn watch'*
+
+#### Locally
+
+From one package sub respository
+
+Launch the story book :
+```
+yarn start
+```
+
+Launch the tests :
+```
+yarn test
+```
 
 ### yarn run watch
 
