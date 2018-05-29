@@ -134,6 +134,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-preset-react': '^6.24.1',
 	cpx: '1.5.0',
 	enzyme: '^3.1.0',
+	'enzyme-adapter-react-15': '^1.0.1',
 	'enzyme-adapter-react-16': '^1.1.1',
 	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',

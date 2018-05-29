@@ -19,20 +19,20 @@ matrix:
   fast_finish: true
   include:
     - language: node_js
-      env: NAME=test
+      env: NAME=test_react_15 REACT_VERSION=15
       node_js:
         - '8'
       script:
-        - sed -ie 's/const REACT_VERSION =.*/const REACT_VERSION = \'^15.6.2\';/' version.js
+        - sed -i "s/const REACT_VERSION =.*/const REACT_VERSION = '^15.6.2';/" version.js
         - ./version.js
         - yarn test
 
-    - language: node_js
-      env: NAME=test
-      node_js:
-        - '8'
-      script:
-        - yarn test
+#    - language: node_js
+#      env: NAME=test_react_16
+#      node_js:
+#        - '8'
+#      script:
+#        - yarn test
 
 #    - language: node_js
 #      node_js:
