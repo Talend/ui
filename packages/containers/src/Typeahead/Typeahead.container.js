@@ -24,14 +24,6 @@ export const DEFAULT_STATE = new Immutable.Map({
  * The Typeahead React container
  */
 export default class Typeahead extends React.Component {
-	static displayName = DISPLAY_NAME;
-	static propTypes = {
-		...componentState.propTypes,
-		onSelect: PropTypes.func,
-		onChange: PropTypes.func,
-		onBlur: PropTypes.func,
-	};
-
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
@@ -124,3 +116,11 @@ export default class Typeahead extends React.Component {
 		return <Component {...props} />;
 	}
 }
+
+Typeahead.displayName = DISPLAY_NAME;
+Typeahead.propTypes = {
+	...componentState.propTypes,
+	onSelect: PropTypes.func,
+	onChange: PropTypes.func,
+	onBlur: PropTypes.func,
+};
