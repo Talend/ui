@@ -35,7 +35,7 @@ if (program.debug) {
 	console.log(`use stack version ${stack_version}`);
 }
 
-const REACT_VERSION = '^15.6.2';
+const REACT_VERSION = '^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -134,7 +134,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-preset-react': '^6.24.1',
 	cpx: '1.5.0',
 	enzyme: '^3.1.0',
-	'enzyme-adapter-react-15': '^1.0.1',
+	'enzyme-adapter-react-16': '^1.1.1',
 	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
