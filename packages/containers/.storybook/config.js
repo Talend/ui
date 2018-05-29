@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import { storiesOf, configure, setAddon } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import createSagaMiddleware from 'redux-saga';
-import cmf from 'react-storybook-cmf';
+import cmf from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import api, { actions } from '@talend/react-cmf';
 import { List, Map } from 'immutable';

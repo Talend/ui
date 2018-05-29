@@ -1,0 +1,19 @@
+language: node_js
+cache:
+  directories:
+    - $HOME/.cache
+    - $HOME/.yarn-cache
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '6'
+before_install:
+  npm install -g yarn
+install:
+  yarn
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
