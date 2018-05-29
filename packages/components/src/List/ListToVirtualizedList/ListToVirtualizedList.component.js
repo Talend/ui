@@ -80,7 +80,9 @@ export function ListToVirtualizedList(props) {
 					cProps.disableSort = true;
 					cProps.headerRenderer = HiddenHeader;
 				} else if (column.header && listHeaderDictionary[column.header]) {
-					Object.assign(cProps, listHeaderDictionary[column.header]);
+					Object.assign(cProps, listHeaderDictionary[column.header], {
+						columnData: column.data,
+					});
 				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
