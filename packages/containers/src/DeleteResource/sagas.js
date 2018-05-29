@@ -1,7 +1,7 @@
 import invariant from 'invariant';
 import { take, put, race, call, select } from 'redux-saga/effects';
 import cmf, { actions } from '@talend/react-cmf';
-import deleteResourceConst from './deleteResource.constants';
+import deleteResourceConst from './constants';
 
 /**
  * Wil be deprecated with the new http saga api.
