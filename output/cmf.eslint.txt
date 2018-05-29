@@ -2,19 +2,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  234:11  error  'displayName' is not defined     no-undef
-  235:11  error  'propTypes' is not defined       no-undef
-  239:11  error  'contextTypes' is not defined    no-undef
-  246:11  error  'setStateAction' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
-  39:9  error  'displayName' is not defined   no-undef
-  40:9  error  'propTypes' is not defined     no-undef
-  47:9  error  'contextTypes' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
@@ -27,5 +16,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 13 problems (10 errors, 3 warnings)
+✖ 6 problems (3 errors, 3 warnings)
 
