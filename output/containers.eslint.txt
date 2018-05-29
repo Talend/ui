@@ -73,5 +73,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   67:9  error  'propTypes' is not defined     no-undef
   78:9  error  'defaultProps' is not defined  no-undef
 
-✖ 41 problems (41 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
+  28:9  error  'displayName' is not defined  no-undef
+  29:9  error  'propTypes' is not defined    no-undef
+
+✖ 43 problems (43 errors, 0 warnings)
 
