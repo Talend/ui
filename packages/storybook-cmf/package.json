@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "prepublish": "babel -d lib ./src/",
-    "lint": "eslint src/*.js",
+    "lint": "eslint --config ../../.eslintrc src",
     "test": "jest"
   },
   "main": "lib/index.js",
