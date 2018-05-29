@@ -11,16 +11,21 @@ You need to configure 2 info
 You need to configure the logger in order to fit your backend logging service and add your app state.
 
 ```javascript
+import React from 'react';
 import { store as cmfstore } from '@talend/react-cmf';
-import initReactLogger from '@talend/log/lib/react';
+import ErrorReporter from '@talend/log/lib/react';
 
 const store = cmfstore.initialize(appReducer);
-initReactLogger({
-    serverUrl: 'http://localhost:8888/error',
-    getState: () => store.getState(),
-    processState: state => removeSensitiveData(state),
-});
 
+ReactDOM.render(
+	<ErrorReporter
+	    serverUrl={'http://localhost:8888/error'}
+	    getState={store.getState}
+	    processState={state => removeSensitiveData(state)}>
+        <MyApp />
+    </ErrorReporter>,
+	document.getElementById('app')
+);
 ```
 
 You need to remove the user data from app state.
