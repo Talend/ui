@@ -216,6 +216,19 @@ class List extends React.Component {
 			}, {});
 		}
 
+		console.log(props.headerDictionary);
+		if (props.headerDictionary) {
+			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce((acc, key) => {
+				const current = props.headerDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = {
+					...omit(current, ['component']),
+					headerRenderer: props.getComponent(current.component),
+				};
+				return acc;
+			}, {});
+		}
+
 		// toolbar
 		if (props.toolbar) {
 			if (props.toolbar.display) {

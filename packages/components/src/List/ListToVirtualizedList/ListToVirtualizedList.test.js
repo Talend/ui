@@ -10,7 +10,7 @@ const props = {
 	id: 'mylistid',
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
-		{ key: 'id', label: 'Id', type: 'customType' },
+		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
 		{ key: 'label', label: 'Label' },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
@@ -128,6 +128,20 @@ describe('ListToVirtualizedList', () => {
 		// then
 		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
 		expect(column.props().cellRenderer).toBe(renderer);
+	});
+
+	it('should support custom header renderer', () => {
+		const renderer = function test() {
+			return 'ok';
+		};
+		const customHeaderDictionary = { customType: { headerRenderer: renderer } };
+		const wrapper = shallow(
+			<ListToVirtualizedList {...props} headerDictionary={customHeaderDictionary} />,
+		);
+
+		// then
+		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		expect(column.props().headerRenderer).toBe(renderer);
 	});
 
 	it('should adapt sort info', () => {
