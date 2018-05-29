@@ -24,6 +24,10 @@ exports[`Typeahead container should render 1`] = `
           "focusedItemIndex",
           null,
         ],
+        Array [
+          "items",
+          null,
+        ],
       ],
       "ownerID": OwnerID {},
     }
@@ -46,6 +50,6 @@ exports[`Typeahead container should render 1`] = `
   readOnly={false}
   searching={false}
   searchingText="Searching for matches…"
-  size={4}
+  size={5}
 />
 `;
