@@ -35,19 +35,21 @@
     "babel-polyfill": "6.26.0",
     "deepmerge": "1.5.1",
     "hoist-non-react-statics": "^1.2.0",
+    "jsonpath": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
     "ajv": "^6.2.1",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "8.0.2",
     "babel-jest": "20.0.3",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.6.0",
-    "babel-preset-react": "6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
     "enzyme": "^3.1.0",
@@ -117,18 +119,16 @@
     ],
     "roots": [
       "src",
+      "scripts",
       "__tests__"
     ],
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupFiles": [
-      "./env__tests.js"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.178.0"
+  "version": "0.187.1"
 }

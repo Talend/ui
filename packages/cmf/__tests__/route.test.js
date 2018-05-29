@@ -7,7 +7,7 @@ import mock from '../src/mock';
 
 describe('CMF route', () => {
 	it('registerComponent should be an alias to component.get', () => {
-		function C1() { }
+		function C1() {}
 		const emptyRegistry = {};
 		registry.Registry._registry = emptyRegistry;
 		route.registerComponent('C1', C1);
@@ -44,6 +44,22 @@ describe('loadComponent behavior', () => {
 		expect(mockItem.component.displayName).toBe('WithView');
 	});
 
+	it('should use the componentId to resolve the props for the component instead of using a view', () => {
+		const mockItem = {
+			component: 'TestContainer',
+			componentId: 'test',
+		};
+		const Component = () => <div>test</div>;
+		Component.CMFContainer = true;
+		const mockContext = mock.context();
+		mockContext.registry = {
+			'_.route.component:TestContainer': Component,
+		};
+		route.loadComponents(mockContext, mockItem);
+		const wrapper = shallow(<mockItem.component />);
+		expect(wrapper.getElement().props.componentId).toBe('test');
+	});
+
 	it('should replace onEnter/onLeave hooks', () => {
 		// given
 		const mockItem = {
@@ -69,7 +85,6 @@ describe('loadComponent behavior', () => {
 
 		// when
 		route.loadComponents(mockContext, mockItem, dispatch);
-
 
 		// then
 		expect(onEnter).not.toBeCalled();

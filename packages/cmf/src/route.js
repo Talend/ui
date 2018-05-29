@@ -17,12 +17,12 @@ import component from './component';
 
 const getComponentFromRegistry = deprecated(
 	(context, id) => component.get(id, context),
-	'stop use api.route.getComponentFromRegistry. Please use api.component.get',
+	'stop use cmf.route.getComponentFromRegistry. Please use cmf.component.get',
 );
 
 const registerComponent = deprecated(
 	component.register,
-	'stop use api.route.registerComponent. please use api.component.register',
+	'stop use cmf.route.registerComponent. please use cmf.component.register',
 );
 
 /**
@@ -76,12 +76,19 @@ function loadComponents(context, item, dispatch) {
 		item.component = component.get(item.component, context);
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
-		} else if (item.view && item.component.CMFContainer) {
+		} else if ((item.view || item.componentId) && item.component.CMFContainer) {
+			if (item.view) {
+				// eslint-disable-next-line no-console
+				console.warn('DEPRECATED: view is deprecated please use componentId');
+			}
 			const WithView = item.component;
-			item.component = props => <WithView view={item.view} {...props} />;
+			item.component = props => (
+				<WithView view={item.view} componentId={item.componentId} {...props} />
+			);
 			item.component.displayName = 'WithView';
 			item.component.propTypes = {
 				view: PropTypes.string,
+				componentId: PropTypes.string,
 			};
 		}
 	}

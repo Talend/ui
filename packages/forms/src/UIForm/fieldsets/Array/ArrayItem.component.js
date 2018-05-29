@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import getDefaultT from '../../../translate';
 
 import theme from './ArrayItem.scss';
 
@@ -51,7 +51,7 @@ export function ReorderButton(props) {
 }
 
 ReorderButton.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 if (process.env.NODE_ENV !== 'production') {
 	ReorderButton.propTypes = {
@@ -64,7 +64,7 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 }
-const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ReorderButton);
+const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
 	const { children, id, index, onRemove, onReorder, isClosed } = props;

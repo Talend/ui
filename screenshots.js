@@ -9,9 +9,16 @@ program
 	.option('-p, --pullrequest [pr]', 'Pull request')
 	.option('-c, --config [config]', 'JSON config file')
 	.option('-v, --verbose', 'Verbose')
+	.option('-t, --timeout [time]', 'timeout for waiting surge upload')
+	.option('-m, --maxTry [nb max try]', 'maximum try before stopped the process')
 	.parse(process.argv);
 
 const PR = program.pullrequest;
+const SURGE_TIMEOUT = program.timeout || 30000;
+const SURGE_MAX_RETRY = program.maxTry > 1 ? program.maxTry : 1;
+const ERROR_SURGE_UNAVAILABLE = 'ERROR_SURGE_UNAVAILABLE';
+let errorWithSurgeMaster = false;
+let errorWithSurgePR = false;
 
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
@@ -37,9 +44,16 @@ function log(msg) {
 	}
 }
 
+function getUrl(isMaster) {
+	if (isMaster) {
+		return 'http://talend.surge.sh/';
+	}
+	return `http://${PR}.talend.surge.sh/`;
+}
+
 const TMP_CONFIG = { postfix: '.png' };
 
-(async () => {
+const screenshotTest = (async () => {
 	async function asyncForEach(array, callback) {
 		for (let index = 0; index < array.length; index += 1) {
 			await callback(array[index], index, array);
@@ -57,6 +71,10 @@ const TMP_CONFIG = { postfix: '.png' };
 			return undefined;
 		}
 		return screenshot;
+	}
+
+	async function goToPage(page, url) {
+		await page.goto(url);
 	}
 
 	async function process(masterPage, branchPage, pageConfig) {
@@ -96,15 +114,30 @@ const TMP_CONFIG = { postfix: '.png' };
 		}
 	}
 
+	function onResponse(page, isMaster, pageUrls) {
+		page.on('response', async res => {
+			if (pageUrls.includes(res.url()) && res.status() === 404) {
+				console.error(`Surge is not ready yet ${isMaster ? 'for Master' : `for the PR ${PR}`}: ${res.url()}`);
+				if (isMaster) {
+					errorWithSurgeMaster = true;
+				} else {
+					errorWithSurgePR = true;
+				}
+			}
+		});
+	}
+
 	async function compare(masterPage, branchPage, path = 'theme') {
 		log(`\nCompare ${path}`);
 		log('Go to master page');
-		await masterPage.goto(`http://talend.surge.sh/${path}`);
+		await goToPage(masterPage, `${getUrl(true)}${path}`);
 		log('-- ok');
 		log('Go to PR page');
-		await branchPage.goto(`http://${PR}.talend.surge.sh/${path}`);
+		await goToPage(branchPage, `${getUrl(false)}${path}`);
 		log('-- ok');
-
+		if (errorWithSurgeMaster || errorWithSurgePR) {
+			throw new Error(ERROR_SURGE_UNAVAILABLE);
+		}
 		await asyncForEach(config[path], async config => await process(masterPage, branchPage, config));
 	}
 
@@ -112,17 +145,41 @@ const TMP_CONFIG = { postfix: '.png' };
 	const browser = await puppeteer.launch();
 	log('Open browser for master pages');
 	const masterPage = await browser.newPage();
+	onResponse(masterPage, true, Object.keys(config).map(path => `${getUrl(true)}${path}`));
 	log('Open browser for PR pages');
 	const branchPage = await browser.newPage();
+	onResponse(branchPage, false, Object.keys(config).map(path => `${getUrl(false)}${path}`));
 
 	await asyncForEach(Object.keys(config), async path => {
 		try {
 			await compare(masterPage, branchPage, path);
 		} catch (error) {
-			console.error(path, error);
+			if (error.message === ERROR_SURGE_UNAVAILABLE) {
+				throw error;
+			} else {
+				console.error(path, error);
+			}
 		}
 	});
 
 	log('Close browser');
 	await browser.close();
-})();
+});
+
+async function runScreenshot(nbCurrentRetry) {
+	try {
+		await screenshotTest();
+	} catch (e) {
+		if (nbCurrentRetry < SURGE_MAX_RETRY) {
+			console.error(`retry the non regression in ${SURGE_TIMEOUT}ms (${nbCurrentRetry}/${SURGE_MAX_RETRY})`);
+			await new Promise(resolve => setInterval(resolve, SURGE_TIMEOUT));
+			runScreenshot(nbCurrentRetry + 1);
+		}
+		if (nbCurrentRetry >= SURGE_MAX_RETRY) {
+			console.error(`Max try to make non regression exceeded (${nbCurrentRetry}/${SURGE_MAX_RETRY}). Please wait the C-I's upload to Surge`);
+			process.exit();
+		}
+	}
+}
+
+runScreenshot(1);

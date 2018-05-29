@@ -2,10 +2,10 @@
 
 
 ```javascript
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 ```
 
-The API is the most used item accessible. 
+The API is the most used item accessible.
 Here is the list of the first level access:
 
 * `actionCreator` to register your action creators
@@ -15,40 +15,40 @@ Here is the list of the first level access:
 * `expression` to register your expressions
 * `saga` to use CMF with redux-saga
 
-## api.actionCreator
+## cmf.actionCreator
 
 Documentation can be found [here](actionCreator.md).
 
-## api.actions
+## cmf.actions
 
 ```javascript
-import { api, cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 
 function MyButton(props) {
-    return <button onclick={() => props.dispatch(api.actions.http.get('/foo/bar'))}>Get</button>;
+    return <button onclick={() => props.dispatch(cmf.actions.http.get('/foo/bar'))}>Get</button>;
 }
 export default cmfConnect({})(MyButton);
 ```
 
-You can also handle collections using the following API.
+You can also handle collections using the following cmf.
 
 ```javascript
 import React from 'react';
-import { api, cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 
 class MyCollectionManager extends React.Component {
-	
+
     constructor(props) {
         this.increment = this.increment.bind(this);
     }
-    
+
     componentDidMount() {
-        this.props.dispatch(api.actions.collections.addOrReplace('count', 0));
+        this.props.dispatch(cmf.actions.collections.addOrReplace('count', 0));
     }
-    
+
     increment() {
         this.props.dispatch(
-            api.actions.collections.addOrReplace(
+            cmf.actions.collections.addOrReplace(
                 'count', this.props.count + 1
             )
         );
@@ -74,19 +74,19 @@ export default cmfConnect({})(MyCollectionmanager);
 ```
 
 
-## api.component
+## cmf.component
 
 ```javascript
 import * as components from '@talend/containers';
 
-api.component.register('MyComponent', MyComponent);
-api.component.registerMany(components);
-api.component.registerMany({
+cmf.component.register('MyComponent', MyComponent);
+cmf.component.registerMany(components);
+cmf.component.registerMany({
     MyComponent,
 });
 ```
 
-## api.expression
+## cmf.expression
 
 ```javascript
 function myExpression({ context, payload}, ...args) {
@@ -94,16 +94,16 @@ function myExpression({ context, payload}, ...args) {
     // payload - depends on the expression caller
     // args    - arguments given at the call time
 }
-api.expressions.register('myExpression', myExpression);
+cmf.expressions.register('myExpression', myExpression);
 ```
 
 Expressions can be used for props resolution.
 In this case, the payload is the current props.
 
 
-## [api.expressions](./expressions/index.md)
+## [cmf.expressions](./expressions/index.md)
 
-## api.saga
+## cmf.saga
 
 You can register your saga in the cmf registry to be able to use the saga props
 supported by `cmfConnect`.
@@ -112,7 +112,7 @@ supported by `cmfConnect`.
 function* mySaga(action) {
     //...
 }
-api.sagas.register('mySaga', mySaga);
+cmf.sagas.register('mySaga', mySaga);
 ```
 
 This is related to the `component` saga that you must initialize.
@@ -120,8 +120,10 @@ This is related to the `component` saga that you must initialize.
 Most of them are documented [here](sagas/index.md)
 
 ```javascript
-api.sagas.putActionCreator('myaction', event, data, optionalContext);
+cmf.sagas.putActionCreator('myaction', event, data, optionalContext);
 ```
 
 This will call the registered `myAction` action creator.
 It's an equivalent of dispatchActionCreator using saga.
+
+## [cmf.selectors](./selectors/index.md)

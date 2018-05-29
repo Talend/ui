@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { api } from '../src';
+import cmf from '../src';
 import expression from '../src/expression';
 
 describe('expression', () => {
 	it('should be available with api', () => {
-		expect(expression).toBe(api.expression);
+		expect(expression).toBe(cmf.expression);
 	});
 
 	it('should register in registry', () => {
@@ -89,7 +89,7 @@ describe('expression', () => {
 				'expression:test': isTrue,
 			},
 		};
-		const wrapper = shallow(<WithExpr disabled="test" />, { context });
+		const wrapper = shallow(<WithExpr disabledExpression="test" />, { context });
 		expect(wrapper.props().disabled).toBe(true);
 		expect(wrapper.props().disabled).not.toBe('test');
 	});
@@ -104,7 +104,7 @@ describe('getProps', () => {
 			},
 		};
 		const props = {
-			disabled: 'test',
+			disabledExpression: 'test',
 		};
 		const newProps = expression.getProps(props, ['disabled'], context);
 		expect(newProps.disabled).toBe(true);
@@ -129,7 +129,7 @@ describe('getProps', () => {
 describe('mapStateToProps', () => {
 	it('should check first level props keys and call expression on it', () => {
 		const isCalled = jest.fn(() => true);
-		const registry = api.registry.getRegistry();
+		const registry = cmf.registry.getRegistry();
 		registry['expression:isCalled'] = isCalled;
 		const props = {
 			myExpression: 'isCalled',

@@ -4,7 +4,6 @@
 ////
 
 $tc-action-list-item-width: 200px !default;
-$tc-action-list-item-labels-width: 135px !default;
 $tc-action-list-item-icons-size: 20px !default;
 $tc-action-list-item-border-size: 2px !default;
 
@@ -24,7 +23,6 @@ $tc-action-list-item-border-size: 2px !default;
 
 				> span {
 					margin-left: $padding-normal;
-					width: $tc-action-list-item-labels-width;
 					vertical-align: middle;
 					text-overflow: ellipsis;
 					overflow: hidden;

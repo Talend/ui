@@ -2,24 +2,13 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
-  4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.js
-   4:33  error  Unable to resolve path to module './deleteResource.constants'  import/no-unresolved
-  56:2   error  Unexpected 'debugger' statement                                no-debugger
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/containers/src/renderers.js
-  5:33  error  Unexpected parentheses around single function argument  arrow-parens
-
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 7 problems (7 errors, 0 warnings)
-
+✖ 3 problems (3 errors, 0 warnings)

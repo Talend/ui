@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import { DEFAULT_I18N } from '../../translate';
+import '../../translate';
 
 const DROP_DOWN_ITEM_HEIGHT = 49;
 
@@ -27,11 +27,11 @@ function mapValueToLabel(enumOptions) {
  * @param options
  * @returns {Array}
  */
-function transformOptions(options) {
+export function transformOptions(options) {
 	if (options && options.groupBy) {
 		return options.enumOptions.map(opt => ({ ...opt.label, value: opt.value }));
 	}
-	return options.enumOptions;
+	return options.enumOptions || [];
 }
 
 /**
@@ -281,7 +281,7 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 	}
 
 	render() {
-		const { value, readonly, options, id, noAvailableMessage, t } = this.props;
+		const { value = [], readonly, options, id, noAvailableMessage, t } = this.props;
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;
@@ -369,4 +369,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(MultiSelectTagWidgetComponent);
+export default translate(I18N_DOMAIN_FORMS)(MultiSelectTagWidgetComponent);

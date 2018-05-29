@@ -7,7 +7,7 @@ function TalendHTMLOptimize(options) {
 TalendHTMLOptimize.prototype.apply = function myapply(compiler) {
 	const options = this.options || {};
 	compiler.plugin('compilation', compilation => {
-		compilation.plugin('html-webpack-plugin-alter-asset-tags', (data, cb) => {
+		compilation.plugin('html-webpack-plugin-alter-asset-tags', data => {
 			if (options.bodyBefore) {
 				data.body = options.bodyBefore.concat(data.body);
 			}
@@ -18,7 +18,7 @@ TalendHTMLOptimize.prototype.apply = function myapply(compiler) {
 					}
 					const media = head.attributes.media || 'all';
 					head.attributes.media = 'none';
-					head.attributes.onload = `media='${media}'`;
+					head.attributes.onload = `if(media!='${media}')media='${media}'`;
 					return head;
 				});
 			}
@@ -37,7 +37,7 @@ TalendHTMLOptimize.prototype.apply = function myapply(compiler) {
 					innerHTML: AppLoader.getLoaderStyle(options.appLoaderIcon),
 				});
 			}
-			cb(null, data);
+			return data;
 		});
 	});
 };
