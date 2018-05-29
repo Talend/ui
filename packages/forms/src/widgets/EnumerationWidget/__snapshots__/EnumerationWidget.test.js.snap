@@ -13367,6 +13367,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       >
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           data-feature="file.add"
                                           disabled={false}
                                           divider={false}
@@ -13388,7 +13389,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           title="Add values from a file"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -13420,6 +13421,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         </MenuItem>
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           data-feature="file.overwrite"
                                           disabled={false}
                                           divider={false}
@@ -13441,7 +13443,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           title="Overwrite existing values"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -16404,6 +16406,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       >
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           disabled={false}
                                           divider={false}
                                           eventKey={
@@ -16424,7 +16427,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           title="Add values from a file"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -16454,6 +16457,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         </MenuItem>
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           disabled={false}
                                           divider={false}
                                           eventKey={
@@ -16474,7 +16478,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           title="Overwrite existing values"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
