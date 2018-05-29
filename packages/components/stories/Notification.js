@@ -94,13 +94,13 @@ storiesOf('Notification', module).addWithInfo('default', () => (
 		<h2>Definition</h2>
 		<p>
 			The Notification component display notification
-			<ul>
-				<li>Type: info, error, warning</li>
-				<li>Slide in, auto slide out after timeout(except error)</li>
-				<li>Timerbar show remaining time before slide out</li>
-				<li>Hover or click to pin</li>
-			</ul>
 		</p>
+		<ul>
+			<li>Type: info, error, warning</li>
+			<li>Slide in, auto slide out after timeout(except error)</li>
+			<li>Timerbar show remaining time before slide out</li>
+			<li>Hover or click to pin</li>
+		</ul>
 		<h2>Examples</h2>
 		<NotificationWrapper />
 	</nav>
