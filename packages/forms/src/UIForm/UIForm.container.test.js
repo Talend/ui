@@ -38,7 +38,7 @@ describe('UIForm container', () => {
 			expect(wrapper.state()).not.toBe(previousState);
 		});
 
-		it('should not update state if form data structure didn\'t change', () => {
+		it("should not update state if form data structure didn't change", () => {
 			// given
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 
