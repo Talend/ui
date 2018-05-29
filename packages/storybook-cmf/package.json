@@ -16,7 +16,8 @@
   "scripts": {
     "prepublish": "babel -d lib ./src/",
     "lint": "eslint --config ../../.eslintrc src",
-    "test": "jest"
+    "test": "jest",
+    "test:demo": "echo nothing to demo"
   },
   "main": "lib/index.js",
   "devDependencies": {
