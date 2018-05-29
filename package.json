@@ -81,7 +81,6 @@
     "packages/forms",
     "packages/generator",
     "packages/icons",
-    "packages/logging",
     "packages/sagas",
     "packages/theme"
   ]

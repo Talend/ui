@@ -35,9 +35,7 @@
   },
   "peerDependencies": {
     "angular": "^1.5.9",
-    "prop-types": "15.5.10",
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0"
+    "react-dom": "^15.6.2"
   },
   "devDependencies": {
     "angular": "^1.5.9",
@@ -50,7 +48,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-15": "^1.0.1",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -58,9 +56,8 @@
     "eslint-plugin-react": "^6.3.0",
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
-    "prop-types": "15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "rimraf": "^2.6.1"
   },
   "jest": {
@@ -72,7 +69,7 @@
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"

@@ -1,28 +1,42 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import ReactUpdates from 'react-dom/lib/ReactUpdates';
+import ReactDefaultBatchingStrategy from 'react-dom/lib/ReactDefaultBatchingStrategy';
 import { initErrorTransformer, TraceKit } from '../api/errorTransformer';
 import getStatePayloadMiddleware from '../api/payloadMiddleware';
 
-export default class ErrorReporter extends Component {
-	constructor(props) {
-		super(props);
-		initErrorTransformer(props.serverUrl, {
-			payloadMiddleware: getStatePayloadMiddleware(() => props.processState(props.getState())),
-		});
-	}
+function injectLogger() {
+	let isHandlingError = false;
+	const ReactTryCatchBatchingStrategy = {
+		// this is part of the BatchingStrategy API. simply pass along
+		// what the default batching strategy would do.
+		get isBatchingUpdates() {
+			return ReactDefaultBatchingStrategy.isBatchingUpdates;
+		},
 
-	// eslint-disable-next-line class-methods-use-this
-	componentDidCatch(error) {
-		TraceKit.report(error);
-	}
+		batchedUpdates(...args) {
+			try {
+				ReactDefaultBatchingStrategy.batchedUpdates(...args);
+			} catch (e) {
+				if (isHandlingError) {
+					// our error handling code threw an error. just throw now
+					throw e;
+				}
 
-	render() {
-		return this.props.children;
-	}
+				isHandlingError = true;
+				try {
+					TraceKit.report(e);
+				} finally {
+					isHandlingError = false;
+				}
+			}
+		},
+	};
+
+	ReactUpdates.injection.injectBatchingStrategy(ReactTryCatchBatchingStrategy);
 }
-ErrorReporter.propTypes = {
-	getState: PropTypes.func,
-	serverUrl: PropTypes.string,
-	processState: PropTypes.func,
-	children: PropTypes.node,
-};
+
+export default function initReactLogger({ serverUrl, getState, processState = state => state }) {
+	initErrorTransformer(serverUrl, {
+		payloadMiddleware: getStatePayloadMiddleware(() => processState(getState())),
+	});
+	injectLogger();
+}
