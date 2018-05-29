@@ -1,4 +1,4 @@
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 
 import register from './register';
 import DefaultCellRenderer from './components/DefaultCellRenderer';

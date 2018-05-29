@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer';
 import theme from './DefaultIntCell.scss';
 
 export default function DefaultIntCellRenderer({ data }) {
-	return <div className={classNames(theme['td-cell-int'], 'td-cell-int')}>{data.value}</div>;
+	return (
+		<DefaultValueRenderer
+			className={classNames(theme['td-cell-int'], 'td-cell-int')}
+			label={data.value}
+		/>
+	);
 }
 
 DefaultIntCellRenderer.propTypes = {

@@ -26,6 +26,8 @@ class TooltipTrigger extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+
 		this.state = {
 			hovered: false,
 			id: uuid.v4(),
@@ -36,32 +38,52 @@ class TooltipTrigger extends React.Component {
 		return (
 			this.state.hovered !== nextState.hovered ||
 			this.props.children !== nextProps.children ||
-			this.props.label !== nextProps.label
+			this.props.label !== nextProps.label ||
+			this.props.renderContentTooltip !== nextProps.renderContentTooltip
 		);
 	}
 
-	onMouseOver() {
+	onMouseOver(...args) {
 		if (!this.state.hovered) {
 			this.setState({ hovered: true });
+		}
+
+		if (this.childProps.onFocus) {
+			this.childProps.onMouseOver(...args);
+		}
+	}
+
+	onFocus(...args) {
+		if (!this.state.hovered) {
+			this.setState({ hovered: true });
+		}
+
+		if (this.childProps.onFocus) {
+			this.childProps.onFocus(...args);
 		}
 	}
 
 	render() {
 		if (!this.state.hovered) {
 			const child = React.Children.only(this.props.children);
-			const childProps = child.props;
-			const triggerProps = Object.assign(
-				{
-					onMouseOver: this.onMouseOver,
-					onFocus: this.onMouseOver,
-				},
-				childProps,
-			);
+			this.childProps = child.props;
+
+			const triggerProps = Object.assign({
+				onMouseOver: this.onMouseOver,
+				onFocus: this.onFocus,
+			});
 			return cloneElement(child, triggerProps);
+		}
+
+		let tooltipContent;
+		if (this.props.renderContentTooltip) {
+			tooltipContent = this.props.renderContentTooltip();
+		} else {
+			tooltipContent = this.props.label;
 		}
 		const tooltip = (
 			<Tooltip className={getTooltipClass()} id={this.state.id}>
-				{this.props.label}
+				{tooltipContent}
 			</Tooltip>
 		);
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
