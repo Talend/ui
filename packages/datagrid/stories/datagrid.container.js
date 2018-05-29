@@ -4,7 +4,7 @@ import cmf from '@talend/react-storybook-cmf';
 import { I18nextProvider } from 'react-i18next';
 import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 
 import DataGrid from '../src/';
 import register from '../src/register';
