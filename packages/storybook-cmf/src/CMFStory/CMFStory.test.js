@@ -8,7 +8,7 @@ describe('CMFStory', () => {
 		const wrapper = shallow(
 			<CMFStory name="Hello world">
 				<div>My Story</div>
-			</CMFStory>
+			</CMFStory>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
