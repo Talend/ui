@@ -124,7 +124,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	autoprefixer: '^7.1.4',
 	'babel-cli': '^6.26.0',
 	'babel-core': '^6.26.0',
-	'babel-eslint': '^8.0.2',
+	'babel-eslint': '8.0.2',
 	'babel-jest': JEST_VERSION,
 	'babel-plugin-transform-class-properties': '^6.24.1',
 	'babel-plugin-transform-export-extensions': '^6.22.0',
