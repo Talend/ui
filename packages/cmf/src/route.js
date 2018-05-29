@@ -45,6 +45,10 @@ function getFunction(id, context) {
 }
 
 function withProps(Component, item) {
+	if (item.view) {
+		// eslint-disable-next-line no-console
+		console.warn('DEPRECATED: view is deprecated please use componentId');
+	}
 	const WithProps = props => (
 		<Component view={item.view} componentId={item.componentId} {...props} />
 	);
@@ -66,7 +70,7 @@ function withProps(Component, item) {
 function loadComponents(context, item, dispatch) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
-		// we create an HOC to pass item.view and item.componentId
+		// we create an HOC to pass item.componentId
 		item.component = withProps(component.get(item.component, context), item);
 	}
 	if (item.components) {
