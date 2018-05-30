@@ -40,7 +40,10 @@ function CircularProgress({ size, light, percent, className, t }) {
 		[theme.large]: size === SIZE.large,
 	});
 
-	const percentLabel = percent && `${percent}%`;
+	const percentLabel = percent && t('CIRCULAR_PROGRESS_LOADING_PERCENT', {
+		defaultValue: '{{percent}}%',
+		percent,
+	});
 	return (
 		<svg
 			focusable="false"
