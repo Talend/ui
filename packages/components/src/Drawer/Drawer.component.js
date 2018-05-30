@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { findIndex } from 'lodash';
 import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
@@ -164,7 +165,10 @@ function combinedFooterActions(onCancelAction, footerActions) {
 	}
 	const enhancedFooterActions = Object.assign({}, footerActions);
 	if (footerActions && footerActions.actions && footerActions.actions.left) {
-		enhancedFooterActions.actions.left.push(onCancelAction);
+		enhancedFooterActions.actions = {
+			...enhancedFooterActions.actions,
+			left: [...enhancedFooterActions.actions.left, onCancelAction],
+		};
 	} else {
 		enhancedFooterActions.actions.left = [].push(onCancelAction);
 	}
