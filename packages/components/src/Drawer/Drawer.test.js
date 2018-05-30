@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 
-import Drawer, { cancelActionComponent } from './Drawer.component';
+import Drawer, { cancelActionComponent, combinedFooterActions } from './Drawer.component';
 
 describe('Drawer', () => {
 	it('should render', () => {
@@ -155,5 +155,90 @@ describe('Drawer', () => {
 				.dive()
 				.find('CustomAction'),
 		).toHaveLength(1);
+	});
+
+	it('test combinedFooterActions with existing actions left and onCancelAction', () => {
+		const onCancelAction = {
+			actionId: 'drawer:closeDrawer',
+		};
+		const footerActions = {
+			actions: {
+				left: [
+					{
+						id: 'action-left-id',
+						key: 'action-left-key',
+						label: 'action-left-label',
+					},
+				],
+			},
+		};
+
+		const result = {
+			actions: {
+				left: [
+					{
+						id: 'action-left-id',
+						key: 'action-left-key',
+						label: 'action-left-label',
+					},
+					{
+						actionId: 'drawer:closeDrawer',
+					},
+				],
+			},
+		};
+
+		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
+	});
+
+	it('test combinedFooterActions with onCancelAction and without actions left', () => {
+		const onCancelAction = {
+			actionId: 'drawer:closeDrawer',
+		};
+		const footerActions = {
+			actions: {
+				left: [],
+			},
+		};
+
+		const result = {
+			actions: {
+				left: [
+					{
+						actionId: 'drawer:closeDrawer',
+					},
+				],
+			},
+		};
+
+		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
+	});
+
+	it('test combinedFooterActions without actions left and onCancelAction', () => {
+		const footerActions = {
+			actions: {
+				left: [
+					{
+						id: 'action-left-id',
+						key: 'action-left-key',
+						label: 'action-left-label',
+					},
+				],
+			},
+		};
+
+		const result = {
+			actions: {
+				left: [
+					{
+						id: 'action-left-id',
+						key: 'action-left-key',
+						label: 'action-left-label',
+					},
+				],
+			},
+		};
+
+		expect(combinedFooterActions(undefined, footerActions)).toEqual(result);
 	});
 });

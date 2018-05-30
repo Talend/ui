@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -159,7 +159,7 @@ DrawerFooter.propTypes = {
 	children: PropTypes.node,
 };
 
-function combinedFooterActions(onCancelAction, footerActions) {
+export function combinedFooterActions(onCancelAction, footerActions) {
 	if (!onCancelAction) {
 		return footerActions;
 	}
