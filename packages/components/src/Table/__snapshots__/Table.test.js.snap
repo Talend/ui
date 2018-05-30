@@ -1,391 +1,391 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Render a table width custom configuration custom-table 1`] = `
-<div
-  className="tc-table theme-tc-table classname-of-simple-table"
+<table
+  className="tc-table theme-tc-table classname-of-table"
 >
-  <table
-    className="tc-table-node theme-tc-table-node"
+  <tbody
+    className="tc-table-body theme-tc-table-body classname-of-table-body"
+    onScroll={undefined}
   >
-    <tbody
-      className="tc-table-body theme-tc-table-body"
-      onScroll={undefined}
+    <tr
+      className="tc-table-row theme-tc-table-row classname-of-row-1"
+      data-id="elem_1"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <tr
-        className="tc-table-row theme-tc-table-row classname-of-row-elem_1"
-        data-id="elem_1"
+      <td
+        className="td-name theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-name"
-          >
-            element 1
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-desc"
-          >
-            Description of element 1
-          </div>
-        </td>
-      </tr>
-      <tr
-        className="tc-table-row theme-tc-table-row classname-of-row-elem_2"
-        data-id="elem_2"
+          element 1
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-name"
-          >
-            element 2
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
+          Description of element 1
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="tc-table-row theme-tc-table-row classname-of-row-2"
+      data-id="elem_2"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <td
+        className="td-name theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-desc"
-          >
-            This element is a string
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          element 2
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
+        >
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
+        >
+          This element is a string
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Render a table width custom header custom-table-with-header 1`] = `
-<div
-  className="tc-table theme-tc-table classname-of-simple-table"
+<table
+  className="tc-table theme-tc-table classname-of-table"
 >
-  <table
-    className="tc-table-node theme-tc-table-node"
+  <thead
+    className="tc-table-head theme-tc-table-head classname-of-table-header"
   >
-    <thead
-      className="tc-table-header theme-tc-table-header classname-of-header-undefined"
+    <tr
+      className="theme-tc-table-head-row"
     >
-      <tr
-        className="theme-tc-table-header-row"
+      <th
+        className="th-name theme-tc-table-head-th"
       >
-        <th
-          className="th-name theme-tc-table-header-cell"
+        <div
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label classname-of-head-name"
         >
-          <div
-            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data name"
-          >
-            name
-          </div>
-        </th>
-        <th
-          className="th-type theme-tc-table-header-cell"
+          Name
+        </div>
+      </th>
+      <th
+        className="th-type theme-tc-table-head-th"
+      >
+        <div
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label classname-of-head-type"
         >
-          <div
-            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data type"
-          >
-            type
-          </div>
-        </th>
-        <th
-          className="th-desc theme-tc-table-header-cell"
+          Type
+        </div>
+      </th>
+      <th
+        className="th-desc theme-tc-table-head-th"
+      >
+        <div
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label classname-of-head-desc"
         >
-          <div
-            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data desc"
-          >
-            desc
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      className="tc-table-body theme-tc-table-body"
-      onScroll={undefined}
+          Description
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="tc-table-body theme-tc-table-body classname-of-table-body"
+    onScroll={undefined}
+  >
+    <tr
+      className="tc-table-row theme-tc-table-row classname-of-row-1"
+      data-id="elem_1"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <tr
-        className="tc-table-row theme-tc-table-row classname-of-row-elem_1"
-        data-id="elem_1"
+      <td
+        className="td-name theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-name"
-          >
-            element 1
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_1-desc"
-          >
-            Description of element 1
-          </div>
-        </td>
-      </tr>
-      <tr
-        className="tc-table-row theme-tc-table-row classname-of-row-elem_2"
-        data-id="elem_2"
+          element 1
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-name"
-          >
-            element 2
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
+          Description of element 1
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="tc-table-row theme-tc-table-row classname-of-row-2"
+      data-id="elem_2"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <td
+        className="td-name theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-elem_2-desc"
-          >
-            This element is a string
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          element 2
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
+        >
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
+        >
+          This element is a string
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Render a table width default configuration default-table 1`] = `
-<div
+<table
   className="tc-table theme-tc-table"
 >
-  <table
-    className="tc-table-node theme-tc-table-node"
+  <tbody
+    className="tc-table-body theme-tc-table-body"
+    onScroll={undefined}
   >
-    <tbody
-      className="tc-table-body theme-tc-table-body"
-      onScroll={undefined}
+    <tr
+      className="tc-table-row theme-tc-table-row"
+      data-id="elem_1"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <tr
-        className="tc-table-row theme-tc-table-row"
-        data-id="elem_1"
+      <td
+        className="td-name theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
-          >
-            element 1
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
-          >
-            Description of element 1
-          </div>
-        </td>
-      </tr>
-      <tr
-        className="tc-table-row theme-tc-table-row"
-        data-id="elem_2"
+          element 1
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
-          >
-            element 2
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
+          Description of element 1
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="tc-table-row theme-tc-table-row"
+      data-id="elem_2"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <td
+        className="td-name theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
-          >
-            This element is a string
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          element 2
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
+        >
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
+        >
+          This element is a string
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
 
 exports[`Render a table width default header default-table-with-header 1`] = `
-<div
+<table
   className="tc-table theme-tc-table"
 >
-  <table
-    className="tc-table-node theme-tc-table-node"
+  <thead
+    className="tc-table-head theme-tc-table-head"
   >
-    <thead
-      className="tc-table-header theme-tc-table-header"
+    <tr
+      className="theme-tc-table-head-row"
     >
-      <tr
-        className="theme-tc-table-header-row"
+      <th
+        className="th-name theme-tc-table-head-th"
       >
-        <th
-          className="th-name theme-tc-table-header-cell"
+        <div
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label name"
         >
-          <div
-            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data name"
-          >
-            name
-          </div>
-        </th>
-        <th
-          className="th-type theme-tc-table-header-cell"
+          Name
+        </div>
+      </th>
+      <th
+        className="th-type theme-tc-table-head-th"
+      >
+        <div
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label type"
         >
-          <div
-            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data type"
-          >
-            type
-          </div>
-        </th>
-        <th
-          className="th-desc theme-tc-table-header-cell"
+          Type
+        </div>
+      </th>
+      <th
+        className="th-desc theme-tc-table-head-th"
+      >
+        <div
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label desc"
         >
-          <div
-            className="tc-table-header-cell tc-table-header-data theme-tc-table-header-data desc"
-          >
-            desc
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      className="tc-table-body theme-tc-table-body"
-      onScroll={undefined}
+          Description
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="tc-table-body theme-tc-table-body"
+    onScroll={undefined}
+  >
+    <tr
+      className="tc-table-row theme-tc-table-row"
+      data-id="elem_1"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
-      <tr
-        className="tc-table-row theme-tc-table-row"
-        data-id="elem_1"
+      <td
+        className="td-name theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
-          >
-            element 1
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
-        >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
-          >
-            Description of element 1
-          </div>
-        </td>
-      </tr>
-      <tr
-        className="tc-table-row theme-tc-table-row"
-        data-id="elem_2"
+          element 1
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
       >
-        <td
-          className="td-name theme-tc-table-row-cell"
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
-          >
-            element 2
-          </div>
-        </td>
-        <td
-          className="td-type theme-tc-table-row-cell"
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
-          >
-            string
-          </div>
-        </td>
-        <td
-          className="td-desc theme-tc-table-row-cell"
+          Description of element 1
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="tc-table-row theme-tc-table-row"
+      data-id="elem_2"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <td
+        className="td-name theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
         >
-          <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
-          >
-            This element is a string
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          element 2
+        </div>
+      </td>
+      <td
+        className="td-type theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
+        >
+          string
+        </div>
+      </td>
+      <td
+        className="td-desc theme-tc-table-row-cell"
+      >
+        <div
+          className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
+        >
+          This element is a string
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;

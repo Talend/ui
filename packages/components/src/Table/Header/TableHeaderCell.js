@@ -4,14 +4,14 @@ import classNames from 'classnames';
 
 /**
  * This component displays a header cell of a table column as a simple label.
- * The data must be a string.
+ * The label must be a string.
  * It uses a div element for layout purpose (text alignment in a header).
  */
-export default function TableHeaderCell({ data, className }) {
-	return <div className={classNames('tc-table-header-cell', className)}>{data}</div>;
+export default function TableHeaderCell({ label, className }) {
+	return <div className={classNames('tc-table-header-cell', className)}>{label}</div>;
 }
 
 TableHeaderCell.propTypes = {
-	data: PropTypes.string,
+	label: PropTypes.string,
 	className: PropTypes.string,
 };

@@ -1,5 +1,3 @@
-import TableCell from './Cell/TableCell';
-import TableHeaderCell from './Header/TableHeaderCell';
 
 export const element1 = {
 	id: 'elem_1',
@@ -15,67 +13,59 @@ export const element2 = {
 	desc: 'This element is a string',
 };
 
-export const KEYS = {
-	NAME: 'name',
-	TYPE: 'type',
-	DESC: 'desc',
+export const columns = {
+	NAME: {
+		key: 'name',
+		label: 'Name',
+	},
+	TYPE: {
+		key: 'type',
+		label: 'Type',
+	},
+	DESC: {
+		key: 'desc',
+		label: 'Description',
+	},
 };
 
-export const columnKeys = [KEYS.NAME, KEYS.TYPE, KEYS.DESC];
+export const columns1 = [columns.NAME, columns.TYPE, columns.DESC];
 
-export const classNameProvider = {
-	getForTable() {
-		return 'classname-of-simple-table';
-	},
-	getForHeader(columnKey) {
-		return `classname-of-header-${columnKey}`;
-	},
-	getForRow(element) {
-		return `classname-of-row-${element.id}`;
-	},
-	getForRowData(columnKey, element) {
-		return `classname-of-row-data-${element.id}-${columnKey}`;
-	},
+function getColumn(col) {
+	return {
+		key: col.key,
+		label: col.label,
+		headClassName: `classname-of-head-${col.key}`,
+		cellClassName: `classname-of-row-data-${col.key}`,
+	};
+}
+
+export const columns2 = [
+	getColumn(columns.NAME),
+	getColumn(columns.TYPE),
+	getColumn(columns.DESC),
+];
+
+export const classnames = {
+	table: 'classname-of-table',
+	header: 'classname-of-table-header',
+	body: 'classname-of-table-body',
+	rows: ['classname-of-row-1', 'classname-of-row-2'],
 };
 
 export const rowDataGetter = {
 	getElementId(element) {
 		return element.id;
 	},
-	getHeaderData(columnKey) {
-		return columnKey;
-	},
 	getRowData(element, columnKey) {
 		switch (columnKey) {
-			case KEYS.NAME:
+			case columns.NAME.key:
 				return element.name;
-			case KEYS.TYPE:
+			case columns.TYPE.key:
 				return element.type;
-			case KEYS.DESC:
+			case columns.DESC.key:
 				return element.desc;
 			default:
 				return `No data available for ${columnKey}`;
 		}
-	},
-};
-
-export const rowRenderer = {
-	needRowUpdate() {
-		return true;
-	},
-	getCellComponent() {
-		return TableCell;
-	},
-	getExtraProps() {
-		return null;
-	},
-};
-
-export const headerRenderer = {
-	getHeaderComponent() {
-		return TableHeaderCell;
-	},
-	getExtraProps() {
-		return null;
 	},
 };

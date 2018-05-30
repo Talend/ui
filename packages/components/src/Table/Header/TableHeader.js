@@ -4,56 +4,42 @@ import classNames from 'classnames';
 import theme from './TableHeader.scss';
 import TableHeaderCell from './TableHeaderCell';
 
-function getHeaderClassName(classNameProvider) {
-	if (classNameProvider && classNameProvider.getForHeader) {
-		return classNameProvider.getForHeader();
-	}
-	return '';
-}
-
-function getHeaderCellClassName(classNameProvider, columnKey) {
-	if (classNameProvider && classNameProvider.getForHeaderCell) {
-		return classNameProvider.getForHeaderCell(columnKey);
-	}
-	return columnKey;
-}
-
-function getHeaderData(rowDataGetter, columnKey) {
-	if (rowDataGetter && rowDataGetter.getHeaderData) {
-		return rowDataGetter.getHeaderData(columnKey);
-	}
-	return columnKey;
-}
-
-function getHeaderComponent(headerRenderer, columnKey) {
-	if (headerRenderer && headerRenderer.getHeaderComponent) {
-		return headerRenderer.getHeaderComponent(columnKey);
-	}
-	return TableHeaderCell;
-}
-
-function getHeaderExtraProps(headerRenderer, columnKey) {
-	if (headerRenderer && headerRenderer.getExtraProps) {
-		return headerRenderer.getExtraProps(columnKey);
+function getHeaderClassName(classnames) {
+	if (classnames && classnames.header) {
+		return classnames.header;
 	}
 	return null;
 }
 
-function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, columnKey) {
-	const HeaderComponent = getHeaderComponent(headerRenderer, columnKey);
-	const thKey = `th-${columnKey}`;
-	const dataClassnames = classNames(
-		'tc-table-header-data',
-		theme['tc-table-header-data'],
-		getHeaderCellClassName(classNameProvider, columnKey),
+function getHeaderCellClassName(column) {
+	if (column.headClassName) {
+		return column.headClassName;
+	}
+	return column.key;
+}
+
+function getHeaderComponent(column) {
+	if (column.headRenderer) {
+		return column.headRenderer;
+	}
+	return TableHeaderCell;
+}
+
+function renderHeaderCell(column) {
+	const HeaderComponent = getHeaderComponent(column);
+	const thKey = `th-${column.key}`;
+	const cellClassnames = classNames(
+		'tc-table-head-label',
+		theme['tc-table-head-label'],
+		getHeaderCellClassName(column),
 	);
 	return (
-		<th key={thKey} className={classNames(thKey, theme['tc-table-header-cell'])}>
+		<th key={thKey} className={classNames(thKey, theme['tc-table-head-th'])}>
 			<HeaderComponent
-				key={columnKey}
-				data={getHeaderData(rowDataGetter, columnKey)}
-				className={dataClassnames}
-				extra={getHeaderExtraProps(headerRenderer, columnKey)}
+				key={column.key}
+				label={column.label}
+				className={cellClassnames}
+				extra={column.headExtraProps}
 			/>
 		</th>
 	);
@@ -62,59 +48,25 @@ function renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, colu
 /**
  * This component displays the header of the table.
  */
-export default function TableHeader({
-	columnKeys,
-	classNameProvider,
-	rowDataGetter,
-	headerRenderer,
-}) {
-	const classnames = classNames(
-		'tc-table-header',
-		theme['tc-table-header'],
-		getHeaderClassName(classNameProvider),
-	);
+export default function TableHeader({ columns, classnames }) {
 	return (
-		<thead className={classnames}>
-			<tr className={theme['tc-table-header-row']}>
-				{columnKeys.map(col =>
-					renderHeaderCell(classNameProvider, rowDataGetter, headerRenderer, col),
-				)}
+		<thead className={classNames('tc-table-head', theme['tc-table-head'], getHeaderClassName(classnames))}>
+			<tr className={theme['tc-table-head-row']}>
+				{columns.map(column => renderHeaderCell(column))}
 			</tr>
 		</thead>
 	);
 }
 
 TableHeader.propTypes = {
-	classNameProvider: PropTypes.shape({
-		/*
-		 * Return a classname for the table header.
-		 */
-		getForHeader: PropTypes.func,
-		/**
-		 * Returns a classname for the header cell of the given column
-		 * @param {string} columnKey - The key identifying a column.
-		 */
-		getForHeaderCell: PropTypes.func,
-	}),
-	columnKeys: PropTypes.array.isRequired,
-	rowDataGetter: PropTypes.shape({
-		/**
-		 * Return the header data corresponding to the given column.
-		 * This data will be used to render the header.
-		 * @param {string} columnKey - The key identifying a column.
-		 */
-		getHeaderData: PropTypes.func,
-	}),
-	headerRenderer: PropTypes.shape({
-		/**
-		 * Return the component used to render a header for the given column.
-		 * @param {string} columnKey - The key identifying a column.
-		 */
-		getHeaderComponent: PropTypes.func,
-		/**
-		 * Return extra properties for the header component rendering the given column header.
-		 * @param {string} columnKey - The key identifying a column.
-		 */
-		getExtraProps: PropTypes.func,
+	columns: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired, // column key
+    label: PropTypes.string, // label to display
+		headClassName: PropTypes.string, // header classname
+		headRenderer: PropTypes.func, // header renderer
+		headExtraProps: PropTypes.object, // header extra props
+	})).isRequired,
+	classnames: PropTypes.shape({
+		header: PropTypes.string,
 	}),
 };

@@ -4,39 +4,11 @@ import classNames from 'classnames';
 import TableRow, { getRowId } from '../Row/TableRow.js';
 import theme from './TableBody.scss';
 
-function getBodyClassName(classNameProvider) {
-	if (classNameProvider && classNameProvider.getForBody) {
-		return classNameProvider.getForBody();
+function getBodyClassName(classnames) {
+	if (classnames && classnames.body) {
+		return classnames.body;
 	}
-	return '';
-}
-
-/**
- * This function is responsible for rendering an element in the table.
- */
-function renderRow(
-	element,
-	index,
-	classNameProvider,
-	columnKeys,
-	rowDataGetter,
-	rowRenderer,
-	onEnterRow,
-	onLeaveRow,
-) {
-	return (
-		<TableRow
-			key={getRowId(rowDataGetter, element, index)}
-			element={element}
-			index={index}
-			classNameProvider={classNameProvider}
-			columnKeys={columnKeys}
-			rowDataGetter={rowDataGetter}
-			rowRenderer={rowRenderer}
-			onEnterRow={onEnterRow}
-			onLeaveRow={onLeaveRow}
-		/>
-	);
+	return null;
 }
 
 /**
@@ -44,32 +16,27 @@ function renderRow(
  */
 export default function TableBody({
 	elements,
-	onScroll,
-	classNameProvider,
-	columnKeys,
+	columns,
+	classnames,
 	rowDataGetter,
-	rowRenderer,
+	onScroll,
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const classnames = classNames(
-		'tc-table-body',
-		theme['tc-table-body'],
-		getBodyClassName(classNameProvider),
-	);
+	const bodyClassnames = classNames('tc-table-body', theme['tc-table-body'], getBodyClassName(classnames));
 	return (
-		<tbody className={classnames} onScroll={onScroll}>
-			{elements.map((elem, index) =>
-				renderRow(
-					elem,
-					index,
-					classNameProvider,
-					columnKeys,
-					rowDataGetter,
-					rowRenderer,
-					onEnterRow,
-					onLeaveRow,
-				),
+		<tbody className={bodyClassnames} onScroll={onScroll}>
+			{elements.map((element, index) =>
+				<TableRow
+					key={getRowId(rowDataGetter, element, index)}
+					element={element}
+					index={index}
+					classnames={classnames}
+					columns={columns}
+					rowDataGetter={rowDataGetter}
+					onEnterRow={onEnterRow}
+					onLeaveRow={onLeaveRow}
+				/>
 			)}
 		</tbody>
 	);
@@ -77,15 +44,11 @@ export default function TableBody({
 
 TableBody.propTypes = {
 	elements: PropTypes.array.isRequired,
-	classNameProvider: PropTypes.shape({
-		/**
-		 * Return a classname for the table body.
-		 */
-		getForBody: PropTypes.func,
+	columns: PropTypes.array.isRequired,
+	classnames: PropTypes.shape({
+		body: PropTypes.string,
 	}),
-	columnKeys: PropTypes.array.isRequired,
 	rowDataGetter: PropTypes.object,
-	rowRenderer: PropTypes.object,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

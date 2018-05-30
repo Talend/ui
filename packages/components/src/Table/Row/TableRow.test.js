@@ -12,10 +12,10 @@ it('single-row', () => {
 		.create(
 			<TableRow
 				element={TestData.element1}
-				classNameProvider={TestData.classNameProvider}
-				columnKeys={TestData.columnKeys}
+				index={0}
+				classnames={TestData.classnames}
+				columns={TestData.columns1}
 				rowDataGetter={TestData.rowDataGetter}
-				rowRenderer={TestData.rowRenderer}
 			/>,
 		)
 		.toJSON();

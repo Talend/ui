@@ -1,15 +1,3 @@
-$tc-table-padding: 0.3rem;
-$tc-table-margin: 0.3rem;
-
 .tc-table {
-	padding: $tc-table-padding;
-	margin: $tc-table-margin;
-	position: relative;
-
-	.tc-table-node {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		overflow: hidden;
-	}
+	overflow: hidden;
 }

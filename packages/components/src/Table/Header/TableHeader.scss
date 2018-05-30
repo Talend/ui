@@ -1,10 +1,10 @@
-$tc-table-header-height: 30px !default;
-$tc-table-header-data-padding: 0.3rem;
+$tc-table-head-height: 30px !default;
+$tc-table-head-label-padding: 0.3rem;
 
-.tc-table-header {
+.tc-table-head {
 	display: block;
 	width: 100%;
-	height: $tc-table-header-height;
+	height: $tc-table-head-height;
 
 	&-row {
 		display: flex;
@@ -12,14 +12,14 @@ $tc-table-header-data-padding: 0.3rem;
 		align-items: center;
 	}
 
-	&-cell {
+	&-th {
 		flex-grow: 0;
 		flex-shrink: 0;
 		flex-basis: auto;
 	}
 
-	&-data {
-		padding: $tc-table-header-data-padding;
+	&-label {
+		padding: $tc-table-head-label-padding;
 		width: 100%;
 		text-overflow: ellipsis;
 		overflow: hidden;

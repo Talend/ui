@@ -5,11 +5,11 @@ import TableHeader from './Header/TableHeader';
 import TableBody from './Body/TableBody';
 import theme from './Table.scss';
 
-function getTableClassName(classNameProvider) {
-	if (classNameProvider && classNameProvider.getForTable) {
-		return classNameProvider.getForTable();
+function getTableClassName(classnames) {
+	if (classnames && classnames.table) {
+		return classnames.table;
 	}
-	return '';
+	return null;
 }
 
 /**
@@ -23,58 +23,56 @@ function getTableClassName(classNameProvider) {
  * If the headerRenderer is null or undefined, no header is displayed.
  */
 export default function Table({
-	classNameProvider,
 	elements,
-	columnKeys,
+	columns,
+	classnames,
 	rowDataGetter,
-	rowRenderer,
 	withHeader,
-	headerRenderer,
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const classnames = classNames(
-		'tc-table',
-		theme['tc-table'],
-		getTableClassName(classNameProvider),
-	);
 	return (
-		<div className={classnames}>
-			<table className={classNames('tc-table-node', theme['tc-table-node'])}>
-				{withHeader && (
-					<TableHeader
-						columnKeys={columnKeys}
-						classNameProvider={classNameProvider}
-						rowDataGetter={rowDataGetter}
-						headerRenderer={headerRenderer}
-					/>
-				)}
-				<TableBody
-					elements={elements}
-					columnKeys={columnKeys}
-					classNameProvider={classNameProvider}
-					rowDataGetter={rowDataGetter}
-					rowRenderer={rowRenderer}
-					onScroll={onScroll}
-					onEnterRow={onEnterRow}
-					onLeaveRow={onLeaveRow}
+		<table className={classNames('tc-table', theme['tc-table'], getTableClassName(classnames))}>
+			{withHeader && (
+				<TableHeader
+					columns={columns}
+					classnames={classnames}
 				/>
-			</table>
-		</div>
+			)}
+			<TableBody
+				elements={elements}
+				columns={columns}
+				classnames={classnames}
+				rowDataGetter={rowDataGetter}
+				onScroll={onScroll}
+				onEnterRow={onEnterRow}
+				onLeaveRow={onLeaveRow}
+			/>
+		</table>
 	);
 }
 
 Table.propTypes = {
 	elements: PropTypes.array.isRequired,
-	classNameProvider: PropTypes.shape({
-		getForTable: PropTypes.func,
+	columns: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired, // column key
+    label: PropTypes.string, // label to display
+		headClassName: PropTypes.string, // header classname
+		headRenderer: PropTypes.func, // header renderer
+		headExtraProps: PropTypes.object, // header extra props
+    cellClassName: PropTypes.string, // cell classname
+    cellRenderer: PropTypes.func, // cell renderer
+    cellExtraProps: PropTypes.object, // cell extra props
+	})).isRequired,
+	classnames: PropTypes.shape({
+		table: PropTypes.string,
+		header: PropTypes.string,
+		body: PropTypes.string,
+		rows: PropTypes.arrayOf(PropTypes.string),
 	}),
-	columnKeys: PropTypes.array.isRequired,
 	rowDataGetter: PropTypes.object,
-	rowRenderer: PropTypes.object,
 	withHeader: PropTypes.bool,
-	headerRenderer: PropTypes.object,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

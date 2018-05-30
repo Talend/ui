@@ -3,17 +3,17 @@ import { DragSource as dragSource, DropTarget as dropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import flow from 'lodash/flow';
 
-/*
- * This constant allows to specify which drag sources and drop targets are compatible.
- */
-export const DRAGGABLE_ELEMENT_TYPE = 'element';
-
 /**
  * This function adds the 'drag & drop' behaviour on the given component.
  * Its returns a new component which encaspulates the given one.
  * The new component is draggable and dropppable.
+ * The props of the component must have at least: 'element' (object) and 'extra' (object).
+ * The props 'element' is used as dragged data.
+ * The props 'extra' must provide dnd callback methods (see elementSource and elementTarget).
+ * @param {Component} Comp - The component on which the dragd and drop behavior must be defined.
+ * @param {string} type - Define the type of element which can be dragged and dropped.
  */
-export default function getDraggable(Comp) {
+export default function getDraggable(Comp, type) {
 	/*
 	 * This defines the drag source specifications.
 	 */
@@ -82,7 +82,7 @@ export default function getDraggable(Comp) {
 	};
 
 	return flow(
-		dragSource(DRAGGABLE_ELEMENT_TYPE, elementSource, collectForDragSource),
-		dropTarget(DRAGGABLE_ELEMENT_TYPE, elementTarget, collectForDropTarget),
+		dragSource(type, elementSource, collectForDragSource),
+		dropTarget(type, elementTarget, collectForDropTarget),
 	)(DraggableComponent);
 }

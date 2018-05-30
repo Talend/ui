@@ -6,12 +6,10 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
-	Table,
-	TableClickableCell,
-	TableConfiguration,
-	TableCell,
 	DraggableComponent as draggable,
 	IconsProvider,
+	Table,
+	TableCell,
 } from '../src/index';
 
 const dataPrepSchema = {
@@ -187,86 +185,74 @@ const schema1 = finalizeSchema(salesForceAccountSchema, 10);
 const schema2 = finalizeSchema(dataPrepSchema);
 const schema3 = finalizeSchema(salesForceAccountSchema);
 
-const ColumnKey = {
-  NAME: 'name',
-	DRAG_NAME: 'drag-name',
-  TYPE: 'type',
-  DESC: 'description',
-};
-
-const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
-const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE];
-const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
-
-const draggableCell = draggable(TableClickableCell);
-
-const draggableRowRenderer = {
-	getCellComponent(columnKey) {
-		switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return draggableCell;
-			default:
-				return TableCell;
-		}
+const Columns = {
+	NAME: {
+		key: 'name',
+		label: 'Name',
 	},
-	getExtraProps(columnKey) {
-		switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return {
-					// for the drag and drop behaviour
-					beginDrag(element) {
-						action(`Begin drag element ${element.name}`).call();
-						return element;
-					},
-					canDrop(sourceItem, targetElement) {
-						return sourceItem.id !== targetElement.id;
-					},
-					drop(sourceItem, targetElement) {
-						action(`You have dropped element ${sourceItem.name} onto element ${targetElement.name}`).call();
-					},
-					endDrag() {
-						action('Drag and drop is finished!').call();
-					},
-					// for the click behaviour
-					onClick(element) {
-						action(`You have clicked on element ${element.name}`).call();
-					},
-				};
-			default:
-				return null;
-		}
+	TYPE: {
+		key: 'type',
+		label: 'Type',
+	},
+	DESC: {
+		key: 'description',
+		label: 'Description',
 	},
 };
 
-const headerRenderer = TableConfiguration.headerRenderer;
+const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
+const columns2 = [Columns.NAME, Columns.TYPE];
+
+/*
+ * This constant allows to specify which drag sources and drop targets are compatible.
+ */
+const DRAGGABLE_ELEMENT_TYPE = 'element';
+
+const draggableCell = draggable(TableCell, DRAGGABLE_ELEMENT_TYPE);
+
+const draggableCellExtraProps = {
+	// for the drag and drop behaviour
+	beginDrag(element) {
+		action(`Begin drag element ${element.name}`).call();
+		return element;
+	},
+	canDrop(sourceItem, targetElement) {
+		return sourceItem.id !== targetElement.id;
+	},
+	drop(sourceItem, targetElement) {
+		action(`You have dropped element ${sourceItem.name} onto element ${targetElement.name}`).call();
+	},
+	endDrag() {
+		action('Drag and drop is finished!').call();
+	},
+	// for the click behaviour
+	onClick(element) {
+		action(`You have clicked on element ${element.name}`).call();
+	},
+};
+
+const columns3 = [
+	{
+		key: Columns.NAME.key,
+		label: Columns.NAME.label,
+		cellRenderer: draggableCell,
+		cellExtraProps: draggableCellExtraProps,
+	},
+	Columns.TYPE,
+	Columns.DESC,
+];
 
 const rowDataGetter = {
   getElementId(element) {
     return element.id;
 	},
-	getHeaderData(columnKey) {
-		switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return 'Name';
-			case ColumnKey.NAME:
-        return 'Name';
-			case ColumnKey.TYPE:
-				return 'Type';
-			case ColumnKey.DESC:
-				return 'Description';
-			default:
-				return columnKey;
-		}
-	},
 	getRowData(element, columnKey) {
     switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return element.name;
-			case ColumnKey.NAME:
+			case Columns.NAME.key:
         return element.name;
-			case ColumnKey.TYPE:
+			case Columns.TYPE.key:
 				return element.type;
-			case ColumnKey.DESC:
+			case Columns.DESC.key:
 				return element.description;
 			default:
 				return 'No data available!';
@@ -274,16 +260,12 @@ const rowDataGetter = {
 	},
 };
 
-const defaultClassNameProvider = {
-	getForTable() {
-		return 'default-table';
-	},
+const storyClassnames = {
+	table: 'story-table',
 };
 
-const storyClassNameProvider = {
-	getForTable() {
-		return 'story-table';
-	},
+const defaultClassnames = {
+	table: 'default-table',
 };
 
 const initialStateWithDnD = { draggable: true };
@@ -309,13 +291,13 @@ class ConnectedTable extends React.Component {
 		});
 	}
 
-	getForTable() {
+	getTableClassName() {
 		return classnames({
 			'table-with-dnd': this.state.draggable,
 		});
 	}
 
-	getForRow(element) {
+	getRowClassName(element) {
 		const classNames = {
 			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
 			'draggable-row': this.state.draggable,
@@ -323,22 +305,32 @@ class ConnectedTable extends React.Component {
 		return classnames(classNames);
 	}
 
+	getRowClassNames(elements) {
+		let rowClassNames = [];
+		for (let i = 0; i < elements.length; i += 1) {
+			rowClassNames = rowClassNames.concat(this.getRowClassName(elements[i]));
+		}
+		return rowClassNames;
+	}
+
 	render() {
 		const {
 			elements,
-			columnKeys,
+			columns,
 			withHeader,
 			onScroll,
 		} = this.props;
+		const allClassnames = {
+			table: this.getTableClassName(),
+			rows: this.getRowClassNames(elements),
+		};
 		return (
 			<Table
 				elements={elements}
-				columnKeys={columnKeys}
-				classNameProvider={this}
+				columns={columns}
+				classnames={allClassnames}
 				rowDataGetter={rowDataGetter}
-				rowRenderer={draggableRowRenderer}
 				withHeader={withHeader}
-				headerRenderer={headerRenderer}
 				onScroll={onScroll}
 				onEnterRow={this.onEnterRow}
 				onLeaveRow={this.onLeaveRow}
@@ -351,7 +343,7 @@ class ConnectedTable extends React.Component {
 ConnectedTable.propTypes = {
 	initialState: PropTypes.object,
 	elements: PropTypes.array,
-	columnKeys: PropTypes.array,
+	columns: PropTypes.array,
 	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
 };
@@ -374,8 +366,8 @@ stories
 		return (
 			<Table
 			  elements={schema1.elements}
-	      columnKeys={columnKeys1}
-				classNameProvider={storyClassNameProvider}
+	      columns={columns1}
+				classnames={storyClassnames}
 				withHeader={true}
 			/>
 		);
@@ -384,10 +376,9 @@ stories
 		return (
 			<Table
 			  elements={schema2.elements}
-	      columnKeys={columnKeys2}
-				classNameProvider={defaultClassNameProvider}
-	      onScroll={action('onScroll called!')}
-				onEnterRow={action('onEnterRow called!')}
+	      columns={columns2}
+				classnames={defaultClassnames}
+	      onEnterRow={action('onEnterRow called!')}
 				onLeaveRow={action('onLeaveRow called!')}
 			/>
 		);
@@ -397,7 +388,7 @@ stories
 			<TableWithDND
 				initialState={initialStateWithDnD}
 				elements={schema3.elements}
-				columnKeys={columnKeys3}
+				columns={columns3}
 				withHeader={true}
 				onScroll={action('onScroll called!')}
 			/>

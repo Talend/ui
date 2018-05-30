@@ -13,7 +13,7 @@ describe('Render a table width default configuration', () => {
 	it('default-table', () => {
 		// create React tree
 		const tree = renderer
-			.create(<Table elements={elements} columnKeys={TestData.columnKeys} />)
+			.create(<Table elements={elements} columns={TestData.columns1} />)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
@@ -29,10 +29,9 @@ describe('Render a table width custom configuration', () => {
 			.create(
 				<Table
 					elements={elements}
-					columnKeys={TestData.columnKeys}
-					classNameProvider={TestData.classNameProvider}
+					columns={TestData.columns2}
+					classnames={TestData.classnames}
 					rowDataGetter={TestData.rowDataGetter}
-					rowRenderer={TestData.rowRenderer}
 				/>,
 			)
 			.toJSON();
@@ -48,7 +47,7 @@ describe('Render a table width default header', () => {
 	it('default-table-with-header', () => {
 		// create React tree
 		const tree = renderer
-			.create(<Table elements={elements} columnKeys={TestData.columnKeys} withHeader />)
+			.create(<Table elements={elements} columns={TestData.columns1} withHeader />)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
@@ -64,12 +63,10 @@ describe('Render a table width custom header', () => {
 			.create(
 				<Table
 					elements={elements}
-					classNameProvider={TestData.classNameProvider}
-					columnKeys={TestData.columnKeys}
+					classnames={TestData.classnames}
+					columns={TestData.columns2}
 					rowDataGetter={TestData.rowDataGetter}
-					rowRenderer={TestData.rowRenderer}
 					withHeader
-					headerRenderer={TestData.headerRenderer}
 				/>,
 			)
 			.toJSON();

@@ -22,6 +22,7 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
+import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
@@ -40,11 +41,8 @@ import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import {
 	Table,
-	TableClickableCell,
-	TableConfiguration,
 	TableCell,
 	TableHeaderCell,
-	DraggableComponent,
 } from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
@@ -144,6 +142,7 @@ export {
 	ConfirmDialog,
 	Datalist,
 	Dialog,
+	DraggableComponent,
 	Drawer,
 	Emphasis,
 	Enumeration,
@@ -164,11 +163,8 @@ export {
 	Progress,
 	SidePanel,
 	Table,
-	TableClickableCell,
-	TableConfiguration,
 	TableCell,
 	TableHeaderCell,
-	DraggableComponent,
 	Status,
 	SubHeaderBar,
 	TabBar,
