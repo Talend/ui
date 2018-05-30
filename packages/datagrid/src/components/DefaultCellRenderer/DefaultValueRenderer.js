@@ -41,7 +41,12 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	render() {
-		const tooltipContent = this.props.label || this.props.renderValue();
+		let tooltipContent;
+		if (this.props.label !== undefined) {
+			tooltipContent = this.props.label;
+		} else {
+			tooltipContent = this.props.renderContentTooltip();
+		}
 
 		if (!this.state.overflowing) {
 			return (
@@ -57,9 +62,9 @@ export default class DefaultValueRenderer extends React.Component {
 		}
 		const tooltipTrigger = {};
 
-		if (this.props.label) {
+		if (this.props.label !== undefined) {
 			tooltipTrigger.label = tooltipContent;
-		} else if (this.props.renderValue) {
+		} else if (this.props.renderContentTooltip) {
 			tooltipTrigger.renderContentTooltip = () => <div>{tooltipContent}</div>;
 		}
 
