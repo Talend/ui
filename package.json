@@ -83,6 +83,7 @@
     "packages/icons",
     "packages/logging",
     "packages/sagas",
+    "packages/storybook-cmf",
     "packages/theme"
   ]
 }

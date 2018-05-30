@@ -65,6 +65,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			eventKey={item}
 			onClick={wrapOnClick(item)}
 			title={item.title || item.label}
+			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
 		>
 			{item.icon && <Icon name={item.icon} />}
 			{!item.hideLabel && item.label}
