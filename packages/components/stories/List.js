@@ -28,11 +28,13 @@ const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-end': talendIcons['talend-chevron-end'],
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
+	'talend-cog': talendIcons['talend-cog'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],
 	'talend-file-json-o': talendIcons['talend-file-json-o'],
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-files-o': talendIcons['talend-files-o'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-icons': talendIcons['talend-icons'],
 	'talend-pencil': talendIcons['talend-pencil'],
@@ -63,14 +65,56 @@ const actions = [
 		label: 'edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
-		hideLabel: true,
 	},
 	{
 		id: 'delete',
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
-		hideLabel: true,
+	},
+	{
+		id: 'related',
+		displayMode: 'dropdown',
+		label: 'related items',
+		icon: 'talend-folder',
+		items: [
+			{
+				label: 'document 1',
+				onClick: action('document 1 click'),
+			},
+			{
+				label: 'document 2',
+				onClick: action('document 2 click'),
+			},
+		],
+		pullRight: true,
+	},
+];
+
+const lotsOfActions = [
+	{
+		id: 'edit',
+		label: 'edit',
+		icon: 'talend-pencil',
+		onClick: action('onEdit'),
+	},
+	{
+		id: 'delete',
+		label: 'delete',
+		icon: 'talend-trash',
+		onClick: action('onDelete'),
+	},
+	{
+		id: 'copy',
+		label: 'copy',
+		icon: 'talend-files-o',
+		onClick: action('onCopy'),
+	},
+	{
+		id: 'parameters',
+		label: 'efit parameters',
+		icon: 'talend-cog',
+		onClick: action('onEditParameters'),
 	},
 	{
 		id: 'related',
@@ -124,36 +168,34 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
-				persistentActions,
 				id: 1,
+				name: 'Title with a lot of actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions: lotsOfActions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-1-class',
+			},
+			{
+				id: 2,
 				name: 'Title in input mode',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
 				icon: 'talend-file-json-o',
 				display: 'input',
-				className: 'item-1-class',
-			},
-			{
-				persistentActions,
-				id: 2,
-				name: 'Super long title to trigger overflow on tile rendering',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author:
-					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-2-class',
 			},
 			{
 				persistentActions,
 				id: 3,
-				name: 'Title with long long long long long long long long long long long text',
+				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-				actions,
-				icon: 'talend-file-xls-o',
-				display: 'text',
+				author:
+					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-3-class',
 			},
 		],
@@ -408,7 +450,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Table display', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list">
+		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
 				Display the list in table mode.<br />
@@ -430,7 +472,7 @@ storiesOf('List', module)
 		customProps.list.items = itemsForListWithIcons;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					Display the list in table mode.<br />
@@ -441,7 +483,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Large display', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list">
+		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
 				Display the list in large mode.<br />
@@ -462,7 +504,7 @@ storiesOf('List', module)
 		customProps.list.items = itemsForListWithIcons;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<List {...customProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
@@ -480,7 +522,7 @@ storiesOf('List', module)
 		);
 
 		return (
-			<div style={{ height: '60vh' }}>
+			<div style={{ height: '70vh' }}>
 				<h1>List</h1>
 				<p>When the list is empty, a message is displayed instead of the rows.</p>
 				<h2>Table</h2>
@@ -496,7 +538,7 @@ storiesOf('List', module)
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
 		return (
-			<div style={{ height: '60vh' }}>
+			<div style={{ height: '70vh' }}>
 				<h1>List</h1>
 				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
 				<h2>Table</h2>
@@ -509,7 +551,7 @@ storiesOf('List', module)
 	.add('Column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>A column can contains only actions that appear on mouseover.</p>
 				<List {...columnActionsProps} />
@@ -530,7 +572,7 @@ storiesOf('List', module)
 		};
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onSelect and isSelected.<br />
@@ -551,7 +593,7 @@ storiesOf('List', module)
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onRowClick and isActive.<br />
@@ -574,7 +616,7 @@ storiesOf('List', module)
 		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>Table without toolbar</p>
 				<List {...tprops} />
@@ -585,7 +627,7 @@ storiesOf('List', module)
 		const tprops = cloneDeep(props);
 		tprops.list.sort = sort;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>You add sort management with column header click.</p>
 				<pre>
@@ -613,7 +655,7 @@ storiesOf('List', module)
 		customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>Display the list with a custom renderer for the status column.</p>
 				<List {...customProps} />
@@ -635,7 +677,7 @@ storiesOf('List', module)
 		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>
@@ -672,7 +714,7 @@ storiesOf('List', module)
 			},
 		};
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>You can get limited options for displayMode.</p>
 				<pre>
@@ -696,7 +738,7 @@ storiesOf('List', module)
 		tprops.list.titleProps.onClick = null;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>To have not clickable titles, just don't pass any onClick callback</p>
 				<pre>
@@ -714,7 +756,7 @@ storiesOf('List', module)
 		tprops.list.columns[0].hideHeader = true;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>Display the list with hidden header labels.</p>
 				<pre>
@@ -727,7 +769,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Custom classnames', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
+		<div style={{ height: '70vh' }} className="virtualized-list virtualized-list-customized-row">
 			<h1>List</h1>
 			<p>Display the list with hidden header labels.</p>
 			<List {...props} />
@@ -742,9 +784,9 @@ storiesOf('List', module)
 			</span>
 		</div>
 	))
-	.add('list with virtualized', () => (
+	.add('List cell renderer', () => (
 		<div className="virtualized-list">
-			<h1>List with virtualized and timestamp</h1>
+			<h1>List with specified VirtualizedList cell renderer</h1>
 			<p>CellDatetimeRenderer in action.</p>
 			<span>
 				<List {...propsWithVirtualized} />

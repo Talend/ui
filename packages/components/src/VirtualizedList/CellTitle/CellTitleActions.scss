@@ -9,6 +9,7 @@ $tc-list-title-actions-menu-triangle: '\25b2';
 	position: relative;
 	right: 0;
 	top: 0;
+	height: 100%;
 
 	.cell-title-actions {
 		background: linear-gradient(
@@ -21,10 +22,8 @@ $tc-list-title-actions-menu-triangle: '\25b2';
 
 		position: absolute;
 		right: 100%;
-		top: 0;
 
 		padding-left: $padding-larger;
-		z-index: 1;
 
 		.cell-title-actions-menu {
 			&:after {
