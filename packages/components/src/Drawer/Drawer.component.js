@@ -164,14 +164,10 @@ function combinedFooterActions(onCancelAction, footerActions) {
 		return footerActions;
 	}
 	const enhancedFooterActions = Object.assign({}, footerActions);
-	if (get(footerActions, 'actions.left', undefined)) {
-		enhancedFooterActions.actions = {
-			...enhancedFooterActions.actions,
-			left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction],
-		};
-	} else {
-		enhancedFooterActions.actions.left = [].push(onCancelAction);
-	}
+	enhancedFooterActions.actions = {
+		...enhancedFooterActions.actions,
+		left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction],
+	};
 	return enhancedFooterActions;
 }
 
