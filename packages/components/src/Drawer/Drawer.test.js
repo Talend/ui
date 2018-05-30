@@ -229,4 +229,39 @@ describe('Drawer', () => {
 
 		expect(combinedFooterActions(undefined, footerActions)).toEqual(footerActions);
 	});
+
+	it('test combinedFooterActions save good object references', () => {
+		const onCancelAction = {
+			actionId: 'drawer:closeDrawer',
+		};
+		const footerActions = {
+			actions: {
+				left: [
+					{
+						id: 'action-left-id',
+						key: 'action-left-key',
+						label: 'action-left-label',
+					},
+				],
+			},
+		};
+
+		const result = {
+			actions: {
+				left: [
+					{
+						id: 'action-left-id',
+						key: 'action-left-key',
+						label: 'action-left-label',
+					},
+					{
+						actionId: 'drawer:closeDrawer',
+					},
+				],
+			},
+		};
+
+		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
+		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
+	});
 });
