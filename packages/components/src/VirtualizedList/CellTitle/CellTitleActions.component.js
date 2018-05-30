@@ -8,7 +8,7 @@ import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './CellTitleActions.scss';
-import Action from "../../Actions/Action/Action.component";
+import Action from '../../Actions/Action/Action.component';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 const { LARGE } = listTypes;
@@ -43,14 +43,7 @@ function getDefaultDisplayActions(actions, t) {
 
 	// few actions : display them
 	if (hasFewActions) {
-		actionsBlocs.push(
-			<Actions
-				key={'direct-actions'}
-				actions={actions}
-				hideLabel
-				link
-			/>
-		);
+		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link />);
 	}
 	// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
 	// the rest is in an ellipsis dropdown
@@ -63,7 +56,9 @@ function getDefaultDisplayActions(actions, t) {
 		const nbOfSimpleToExtract = 2 - dropdownDefinitions.length;
 		if (nbOfSimpleToExtract > 0) {
 			for (let i = 0; i < nbOfSimpleToExtract; i++) {
-				actionsBlocs.push(<Action {...simpleDefinitions[i]} key={`extracted-action-${i}`} hideLabel link />);
+				actionsBlocs.push(
+					<Action {...simpleDefinitions[i]} key={`extracted-action-${i}`} hideLabel link />,
+				);
 			}
 			restOfSimpleDefinitions = simpleDefinitions.slice(nbOfSimpleToExtract);
 		}
@@ -71,12 +66,7 @@ function getDefaultDisplayActions(actions, t) {
 		// dropdown actions
 		if (dropdownDefinitions.length) {
 			actionsBlocs.push(
-				<Actions
-					key={'dropdown-actions'}
-					actions={dropdownDefinitions}
-					hideLabel
-					link
-				/>
+				<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />,
 			);
 		}
 
@@ -90,7 +80,7 @@ function getDefaultDisplayActions(actions, t) {
 				hideLabel
 				link
 				noCaret
-			/>
+			/>,
 		);
 	}
 
@@ -127,7 +117,8 @@ export function CellTitleActionsComponent({
 }) {
 	const dataActions = rowData[actionsKey];
 	const persistentActions = rowData[persistentActionsKey];
-	const hasActions = dataActions && dataActions.length || persistentActions && persistentActions.length;
+	const hasActions =
+		(dataActions && dataActions.length) || (persistentActions && persistentActions.length);
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
 		return null;
 	}
@@ -142,8 +133,9 @@ export function CellTitleActionsComponent({
 	actions.push(getPersistentActions(persistentActions));
 
 	return (
-		<div id={id}
-			 className={classNames('main-title-actions-group', theme['main-title-actions-group'])}
+		<div
+			id={id}
+			className={classNames('main-title-actions-group', theme['main-title-actions-group'])}
 		>
 			{actions}
 		</div>
