@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Map } from 'immutable';
 import Container, { DEFAULT_STATE } from './Typeahead.container';
 import Connect from './Typeahead.connect';
+import keycode from 'keycode';
 
 const defaultProps = {
 	id: 42,
@@ -84,7 +85,7 @@ describe('Typeahead container', () => {
 			});
 
 			it('should blur', () => {
-				const event = { key: KEYS.ESC, preventDefault: () => {} };
+				const event = { which: keycode.codes.esc, preventDefault: () => {} };
 				const props = {
 					...defaultProps,
 					state: Map({ docked: true }),
@@ -98,7 +99,7 @@ describe('Typeahead container', () => {
 			});
 
 			it('should select', () => {
-				const event = { key: KEYS.ENTER, preventDefault: () => {} };
+				const event = { which: keycode.codes.enter, preventDefault: () => {} };
 				const props = {
 					...defaultProps,
 					state: Map({ docked: true }),

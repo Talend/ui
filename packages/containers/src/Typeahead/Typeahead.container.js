@@ -4,13 +4,7 @@ import Immutable from 'immutable';
 import { cmfConnect, componentState } from '@talend/react-cmf';
 import { Typeahead as Component } from '@talend/react-components';
 import omit from 'lodash/omit';
-
-const KEYS = {
-	DOWN: 'ArrowDown',
-	UP: 'ArrowUp',
-	ENTER: 'Enter',
-	ESC: 'Escape',
-};
+import keycode from 'keycode';
 
 export const DISPLAY_NAME = 'Container(Typeahead)';
 export const DEFAULT_STATE = new Immutable.Map({
@@ -80,17 +74,16 @@ export default class Typeahead extends React.Component {
 		if (onKeyDown) {
 			onKeyDown(event, data);
 		}
-
-		switch (event.key) {
-			case KEYS.DOWN:
-			case KEYS.UP:
+		switch (event.which) {
+			case keycode.codes.down:
+			case keycode.codes.up:
 				event.preventDefault();
 				this.props.setState(() => ({
 					focusedSectionIndex: newHighlightedSectionIndex,
 					focusedItemIndex: newHighlightedItemIndex,
 				}));
 				break;
-			case KEYS.ENTER:
+			case keycode.codes.enter:
 				event.preventDefault();
 				if (highlightedItemIndex !== null && highlightedItemIndex !== null) {
 					this.onSelect(event, {
@@ -99,7 +92,7 @@ export default class Typeahead extends React.Component {
 					});
 				}
 				break;
-			case KEYS.ESC:
+			case keycode.codes.esc:
 				event.preventDefault();
 				this.onBlur(event);
 				break;
