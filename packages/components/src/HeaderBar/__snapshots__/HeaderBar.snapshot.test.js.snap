@@ -702,7 +702,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -731,7 +731,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -760,7 +760,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -909,7 +909,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -1333,7 +1333,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -1362,7 +1362,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -1391,7 +1391,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -1588,7 +1588,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -2012,7 +2012,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -2041,7 +2041,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -2070,7 +2070,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -2152,7 +2152,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -2288,7 +2288,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -2712,7 +2712,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -2741,7 +2741,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -2770,7 +2770,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -2919,7 +2919,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -3343,7 +3343,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -3372,7 +3372,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -3401,7 +3401,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -3550,7 +3550,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -3974,7 +3974,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -4003,7 +4003,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -4032,7 +4032,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -4207,7 +4207,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -4631,7 +4631,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -4660,7 +4660,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -4689,7 +4689,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -4866,7 +4866,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -5290,7 +5290,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -5319,7 +5319,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -5348,7 +5348,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -5517,7 +5517,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -5941,7 +5941,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -5970,7 +5970,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -5999,7 +5999,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -6501,7 +6501,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -6925,7 +6925,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -6954,7 +6954,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -6983,7 +6983,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -7160,7 +7160,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -7682,7 +7682,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -8106,7 +8106,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               role="menu"
             >
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -8135,7 +8135,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -8164,7 +8164,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 </a>
               </li>
               <li
-                className=""
+                className="theme-tc-dropdown-item tc-dropdown-item"
                 role="presentation"
                 style={undefined}
               >
@@ -8307,7 +8307,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             role="menu"
           >
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -8330,7 +8330,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               style={undefined}
             />
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -8348,7 +8348,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               </a>
             </li>
             <li
-              className=""
+              className="theme-tc-dropdown-item tc-dropdown-item"
               role="presentation"
               style={undefined}
             >
@@ -8769,7 +8769,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -8798,7 +8798,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -8827,7 +8827,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -8976,7 +8976,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
@@ -9412,7 +9412,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -9441,7 +9441,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -9470,7 +9470,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -9619,7 +9619,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
@@ -10055,7 +10055,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -10084,7 +10084,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -10113,7 +10113,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -10262,7 +10262,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
@@ -10698,7 +10698,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -10727,7 +10727,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -10756,7 +10756,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -10905,7 +10905,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
@@ -11341,7 +11341,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -11370,7 +11370,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -11399,7 +11399,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -11548,7 +11548,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
@@ -11984,7 +11984,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -12013,7 +12013,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -12042,7 +12042,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -12191,7 +12191,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
@@ -12627,7 +12627,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     role="menu"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -12656,7 +12656,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -12685,7 +12685,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       </a>
                     </li>
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                       style={undefined}
                     >
@@ -12834,7 +12834,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   role="menu"
                 >
                   <li
-                    className=""
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     role="presentation"
                     style={undefined}
                   >
