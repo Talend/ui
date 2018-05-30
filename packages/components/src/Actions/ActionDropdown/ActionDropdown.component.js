@@ -2,29 +2,29 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import classNames from 'classnames';
-import {Iterable} from 'immutable';
-import {DropdownButton, MenuItem, OverlayTrigger} from 'react-bootstrap';
+import { Iterable } from 'immutable';
+import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
-import {wrapOnClick} from '../Action/Action.component';
+import { wrapOnClick } from '../Action/Action.component';
 
 function InjectDropdownMenuItem({
-									getComponent,
-									component,
-									divider,
-									withMenuItem,
-									liProps,
-									menuItemProps,
-									key,
-									onSelect,
-									onKeyDown,
-									...rest
-								}) {
-	const Renderers = Inject.getAll(getComponent, {MenuItem});
+	getComponent,
+	component,
+	divider,
+	withMenuItem,
+	liProps,
+	menuItemProps,
+	key,
+	onSelect,
+	onKeyDown,
+	...rest
+}) {
+	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (divider) {
-		return <Renderers.MenuItem key={key} {...menuItemProps} divider/>;
+		return <Renderers.MenuItem key={key} {...menuItemProps} divider />;
 	}
 	if (withMenuItem) {
 		return (
@@ -54,9 +54,9 @@ InjectDropdownMenuItem.propTypes = {
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function renderMutableMenuItem(item, index, getComponent) {
-	const Renderers = Inject.getAll(getComponent, {MenuItem});
+	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (item.divider) {
-		return <Renderers.MenuItem key={index} divider/>;
+		return <Renderers.MenuItem key={index} divider />;
 	}
 	return (
 		<Renderers.MenuItem
@@ -67,7 +67,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 			title={item.title || item.label}
 			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
 		>
-			{item.icon && <Icon name={item.icon}/>}
+			{item.icon && <Icon name={item.icon} />}
 			{!item.hideLabel && item.label}
 		</Renderers.MenuItem>
 	);
@@ -114,7 +114,7 @@ class ActionDropdown extends React.Component {
 		this.onToggle = this.onToggle.bind(this);
 		this.state = {
 			dropup: false,
-		}
+		};
 	}
 
 	onToggle(isOpen, event) {
@@ -123,7 +123,10 @@ class ActionDropdown extends React.Component {
 		}
 		const dropdown = event.target;
 		let dropdownContainer = dropdown.parentElement;
-		while(dropdownContainer !== null && !dropdownContainer.classList.contains('tc-dropdown-container')) {
+		while (
+			dropdownContainer !== null &&
+			!dropdownContainer.classList.contains('tc-dropdown-container')
+		) {
 			dropdownContainer = dropdownContainer.parentElement;
 		}
 
@@ -136,7 +139,6 @@ class ActionDropdown extends React.Component {
 				this.setState({ dropup: true });
 			}
 		}
-
 	}
 
 	render() {
@@ -156,13 +158,13 @@ class ActionDropdown extends React.Component {
 			...rest
 		} = this.props;
 
-		const Renderers = Inject.getAll(getComponent, {MenuItem, DropdownButton});
+		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = (
 			<span className="tc-dropdown-button-title">
-			{icon ? <Icon name={icon}/> : null}
+				{icon ? <Icon name={icon} /> : null}
 				{hideLabel ? null : <span className="tc-dropdown-button-title-label">{label}</span>}
-		</span>
+			</span>
 		);
 		const style = link ? 'link' : bsStyle;
 
@@ -186,8 +188,8 @@ class ActionDropdown extends React.Component {
 				onToggle={this.onToggle}
 			>
 				{!items.length &&
-				!items.size &&
-				!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
+					!items.size &&
+					!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
 				{injected('beforeItemsDropdown')}
 				{items.map((item, key) => getMenuItem(item, key, getComponent))}
 				{injected('itemsDropdown')}
@@ -244,4 +246,4 @@ ActionDropdown.defaultProps = {
 	items: [],
 };
 
-export {ActionDropdown as default, getMenuItem, InjectDropdownMenuItem};
+export { ActionDropdown as default, getMenuItem, InjectDropdownMenuItem };
