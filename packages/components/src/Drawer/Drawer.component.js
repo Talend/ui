@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { findIndex } from 'lodash';
 import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
