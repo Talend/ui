@@ -10,6 +10,7 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	.navbar-left,
 	.navbar-right {
 		display: flex;
+		flex: 1;
 		align-items: center;
 		justify-content: center;
 		> * {
@@ -24,10 +25,12 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	.navbar-right {
 		margin-right: 0;
 		margin-left: auto;
+		justify-content: flex-end;
 	}
 
 	.navbar-center {
 		display: flex;
+		flex: 1;
 		flex-grow: 1;
 		align-items: center;
 		justify-content: center;
