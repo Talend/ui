@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { get } from 'lodash';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -163,10 +164,10 @@ function combinedFooterActions(onCancelAction, footerActions) {
 		return footerActions;
 	}
 	const enhancedFooterActions = Object.assign({}, footerActions);
-	if (footerActions && footerActions.actions && footerActions.actions.left) {
+	if (get(footerActions, 'actions.left', undefined)) {
 		enhancedFooterActions.actions = {
 			...enhancedFooterActions.actions,
-			left: [...enhancedFooterActions.actions.left, onCancelAction],
+			left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction],
 		};
 	} else {
 		enhancedFooterActions.actions.left = [].push(onCancelAction);
