@@ -53,6 +53,30 @@ function getAvroRenderer(avroRenderer) {
 	};
 }
 
+/**
+ * this function return information about how many row of each type are loaded
+ * @param {array} rowData the data of the datagrid
+ */
+export function getRowDataInfos(rowData) {
+	let notLoaded = 0;
+	let loading = 0;
+	let loaded = 0;
+	rowData.forEach(item => {
+		if (item.loading === false && Object.keys(item).length === 2) {
+			notLoaded += 1;
+		} else if (item.loading === true) {
+			loading += 1;
+		} else {
+			loaded += 1;
+		}
+	});
+	return {
+		loaded,
+		loading,
+		notLoaded,
+	};
+}
+
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
@@ -88,8 +112,15 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
-	componentDidUpdate() {
-		if (this.gridAPI) {
+	componentDidUpdate(prevProps) {
+		const prevInfos = getRowDataInfos(prevProps.rowData);
+		const currentInfos = getRowDataInfos(this.props.rowData);
+		if (
+			this.gridAPI &&
+			(prevInfos.loaded !== currentInfos.loaded ||
+				prevInfos.loading !== currentInfos.loading ||
+				prevInfos.notLoaded !== currentInfos.notLoaded)
+		) {
 			this.gridAPI.redrawRows();
 		}
 	}
