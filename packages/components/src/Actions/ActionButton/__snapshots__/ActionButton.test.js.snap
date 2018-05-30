@@ -39,7 +39,7 @@ exports[`Action should display a Progress indicator if set 1`] = `
   role={null}
   title="Title to describe click me button"
 >
-  <CircularProgress
+  <Translate(CircularProgress)
     size="small"
   />
   <span>
@@ -185,7 +185,7 @@ exports[`Action should render a button without an overlay component if inProgres
   role={null}
   title="Title to describe click me button"
 >
-  <CircularProgress
+  <Translate(CircularProgress)
     size="small"
   />
   <span>

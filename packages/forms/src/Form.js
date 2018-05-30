@@ -184,7 +184,7 @@ class Form extends React.Component {
 
 export const DataPropTypes = PropTypes.shape({
 	jsonSchema: PropTypes.object.isRequired,
-	uiSchema: PropTypes.object,
+	uiSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	properties: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 });
 
@@ -210,7 +210,7 @@ if (process.env.NODE_ENV !== 'production') {
 		buttonBlockClass: PropTypes.string,
 		handleAction: PropTypes.func,
 		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		formContext: PropTypes.func,
+		formContext: PropTypes.object,
 		children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 		fields: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	};

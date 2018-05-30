@@ -1,6 +1,6 @@
 {
   "lerna": "2.5.1",
-  "version": "0.185.0",
+  "version": "0.188.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
@@ -14,6 +14,7 @@
     "packages/icons",
     "packages/logging",
     "packages/sagas",
+    "packages/storybook-cmf",
     "packages/theme",
     "packages/datagrid"
   ]

@@ -18,6 +18,7 @@ import ActionFile from './ActionFile';
 import ActionIconToggle from './ActionIconToggle';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
+import AppLoader from './AppLoader';
 import Badge from './Badge';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
@@ -44,6 +45,7 @@ export {
 	ActionIconToggle,
 	Actions,
 	ActionSplitDropdown,
+	AppLoader,
 	Badge,
 	Breadcrumbs,
 	CircularProgress,

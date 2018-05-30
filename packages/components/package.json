@@ -44,6 +44,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "ally.js": "^1.4.1",
     "date-fns": "1.27.2",
     "immutable": "3.8.1",
     "lodash": "4.17.4",
@@ -60,19 +61,19 @@
     "@storybook/addon-info": "^3.3.14",
     "@storybook/addon-storyshots": "^3.3.14",
     "@storybook/react": "^3.3.14",
-    "@talend/bootstrap-theme": "^0.185.0",
-    "@talend/icons": "^0.185.0",
+    "@talend/bootstrap-theme": "^0.188.0",
+    "@talend/icons": "^0.188.0",
     "autoprefixer": "^7.1.4",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "8.0.2",
     "babel-jest": "20.0.3",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.6.0",
-    "babel-preset-react": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.0",
@@ -99,13 +100,13 @@
     "prop-types": "15.5.10",
     "react": "^15.6.2",
     "react-a11y": "^0.3.3",
-    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
     "react-i18next": "^7.6.1",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "^15.6.2",
+    "react-transition-group": "^2.3.1",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
     "sass-loader": "6.0.6",
@@ -114,8 +115,8 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.185.0",
-    "@talend/icons": "^0.185.0",
+    "@talend/bootstrap-theme": "^0.188.0",
+    "@talend/icons": "^0.188.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "d3-shape": "1.2.0",
@@ -124,10 +125,10 @@
     "keycode": "2.2.0",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
-    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-i18next": "^7.6.1",
+    "react-transition-group": "^2.3.1",
     "uuid": "3.0.1"
   },
   "jest": {
@@ -147,10 +148,10 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.185.0"
+  "version": "0.188.0"
 }
