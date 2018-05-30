@@ -59,9 +59,15 @@ const listWithTimestamp = {
 			key: 'created',
 			label: 'Created',
 			type: 'datetime',
-			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD', iconName: 'talend-scheduler' },
+			header: 'icon',
 		},
-		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+		{
+			key: 'modified',
+			label: 'Modified',
+			type: 'datetime',
+			data: { mode: 'ago' },
+		},
 	],
 	titleProps: {
 		key: 'label',
