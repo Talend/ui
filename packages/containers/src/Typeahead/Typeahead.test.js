@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
+import keycode from 'keycode';
 import Container, { DEFAULT_STATE } from './Typeahead.container';
 import Connect from './Typeahead.connect';
-import keycode from 'keycode';
 
 const defaultProps = {
 	id: 42,
