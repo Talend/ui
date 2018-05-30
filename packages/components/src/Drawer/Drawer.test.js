@@ -227,18 +227,6 @@ describe('Drawer', () => {
 			},
 		};
 
-		const result = {
-			actions: {
-				left: [
-					{
-						id: 'action-left-id',
-						key: 'action-left-key',
-						label: 'action-left-label',
-					},
-				],
-			},
-		};
-
-		expect(combinedFooterActions(undefined, footerActions)).toEqual(result);
+		expect(combinedFooterActions(undefined, footerActions)).toEqual(footerActions);
 	});
 });
