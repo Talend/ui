@@ -23,10 +23,14 @@ export default function TableBody({
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const bodyClassnames = classNames('tc-table-body', theme['tc-table-body'], getBodyClassName(classnames));
+	const bodyClassnames = classNames(
+		'tc-table-body',
+		theme['tc-table-body'],
+		getBodyClassName(classnames),
+	);
 	return (
 		<tbody className={bodyClassnames} onScroll={onScroll}>
-			{elements.map((element, index) =>
+			{elements.map((element, index) => (
 				<TableRow
 					key={getRowId(rowDataGetter, element, index)}
 					element={element}
@@ -37,7 +41,7 @@ export default function TableBody({
 					onEnterRow={onEnterRow}
 					onLeaveRow={onLeaveRow}
 				/>
-			)}
+			))}
 		</tbody>
 	);
 }

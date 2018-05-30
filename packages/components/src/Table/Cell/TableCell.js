@@ -7,13 +7,7 @@ function isClickable(extra) {
 }
 
 function renderCell(data, className) {
-	return (
-		<div
-			className={classNames('tc-table-cell', className)}
-		>
-			{data}
-		</div>
-	);
+	return <div className={classNames('tc-table-cell', className)}>{data}</div>;
 }
 
 function renderClickableCell(data, className, onClick, onDoubleClick, onKeyPress) {
@@ -64,14 +58,14 @@ export default class TableCell extends Component {
 	render() {
 		const { data, className, extra } = this.props;
 		if (isClickable(extra)) {
-    	return renderClickableCell(
+			return renderClickableCell(
 				data,
 				className,
 				this.onClick,
 				this.onDoubleClick,
-				this.onKeyPress
+				this.onKeyPress,
 			);
-  	}
+		}
 		return renderCell(data, className);
 	}
 }

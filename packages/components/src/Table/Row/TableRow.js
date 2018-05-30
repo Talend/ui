@@ -14,8 +14,12 @@ export function getRowId(rowDataGetter, element, index) {
 }
 
 function getRowClassName(classnames, index) {
-	if (classnames && classnames.rows &&
-		Array.isArray(classnames.rows) && classnames.rows.length >= index) {
+	if (
+		classnames &&
+		classnames.rows &&
+		Array.isArray(classnames.rows) &&
+		classnames.rows.length >= index
+	) {
 		return classnames.rows[index];
 	}
 	return null;
@@ -94,15 +98,13 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const {
-			element,
-			index,
-			classnames,
-			columns,
-			rowDataGetter,
-		} = this.props;
+		const { element, index, classnames, columns, rowDataGetter } = this.props;
 		const rowKey = getRowId(rowDataGetter, element, index);
-		const rowClassnames = classNames('tc-table-row',	theme['tc-table-row'], getRowClassName(classnames, index));
+		const rowClassnames = classNames(
+			'tc-table-row',
+			theme['tc-table-row'],
+			getRowClassName(classnames, index),
+		);
 		return (
 			<tr
 				key={rowKey}
@@ -111,9 +113,7 @@ export default class TableRow extends Component {
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
 			>
-				{columns.map(column =>
-					renderRowData(element, index, column, rowDataGetter),
-				)}
+				{columns.map(column => renderRowData(element, index, column, rowDataGetter))}
 			</tr>
 		);
 	}
@@ -125,12 +125,14 @@ TableRow.propTypes = {
 	classnames: PropTypes.shape({
 		rows: PropTypes.arrayOf(PropTypes.string),
 	}),
-	columns: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.string.isRequired, // column key
-    cellClassName: PropTypes.string, // cell classname
-    cellRenderer: PropTypes.func, // cell renderer
-    cellExtraProps: PropTypes.object, // cell extra props
-	})).isRequired,
+	columns: PropTypes.arrayOf(
+		PropTypes.shape({
+			key: PropTypes.string.isRequired, // column key
+			cellClassName: PropTypes.string, // cell classname
+			cellRenderer: PropTypes.func, // cell renderer
+			cellExtraProps: PropTypes.object, // cell extra props
+		}),
+	).isRequired,
 	rowDataGetter: PropTypes.shape({
 		/**
 		 * Return an unique identifier for the given element.

@@ -1,4 +1,3 @@
-
 export const element1 = {
 	id: 'elem_1',
 	name: 'element 1',
@@ -39,11 +38,7 @@ function getColumn(col) {
 	};
 }
 
-export const columns2 = [
-	getColumn(columns.NAME),
-	getColumn(columns.TYPE),
-	getColumn(columns.DESC),
-];
+export const columns2 = [getColumn(columns.NAME), getColumn(columns.TYPE), getColumn(columns.DESC)];
 
 export const classnames = {
 	table: 'classname-of-table',

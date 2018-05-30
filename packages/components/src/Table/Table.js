@@ -34,12 +34,7 @@ export default function Table({
 }) {
 	return (
 		<table className={classNames('tc-table', theme['tc-table'], getTableClassName(classnames))}>
-			{withHeader && (
-				<TableHeader
-					columns={columns}
-					classnames={classnames}
-				/>
-			)}
+			{withHeader && <TableHeader columns={columns} classnames={classnames} />}
 			<TableBody
 				elements={elements}
 				columns={columns}
@@ -55,16 +50,18 @@ export default function Table({
 
 Table.propTypes = {
 	elements: PropTypes.array.isRequired,
-	columns: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.string.isRequired, // column key
-    label: PropTypes.string, // label to display
-		headClassName: PropTypes.string, // header classname
-		headRenderer: PropTypes.func, // header renderer
-		headExtraProps: PropTypes.object, // header extra props
-    cellClassName: PropTypes.string, // cell classname
-    cellRenderer: PropTypes.func, // cell renderer
-    cellExtraProps: PropTypes.object, // cell extra props
-	})).isRequired,
+	columns: PropTypes.arrayOf(
+		PropTypes.shape({
+			key: PropTypes.string.isRequired, // column key
+			label: PropTypes.string, // label to display
+			headClassName: PropTypes.string, // header classname
+			headRenderer: PropTypes.func, // header renderer
+			headExtraProps: PropTypes.object, // header extra props
+			cellClassName: PropTypes.string, // cell classname
+			cellRenderer: PropTypes.func, // cell renderer
+			cellExtraProps: PropTypes.object, // cell extra props
+		}),
+	).isRequired,
 	classnames: PropTypes.shape({
 		table: PropTypes.string,
 		header: PropTypes.string,

@@ -50,7 +50,13 @@ function renderHeaderCell(column) {
  */
 export default function TableHeader({ columns, classnames }) {
 	return (
-		<thead className={classNames('tc-table-head', theme['tc-table-head'], getHeaderClassName(classnames))}>
+		<thead
+			className={classNames(
+				'tc-table-head',
+				theme['tc-table-head'],
+				getHeaderClassName(classnames),
+			)}
+		>
 			<tr className={theme['tc-table-head-row']}>
 				{columns.map(column => renderHeaderCell(column))}
 			</tr>
@@ -59,13 +65,15 @@ export default function TableHeader({ columns, classnames }) {
 }
 
 TableHeader.propTypes = {
-	columns: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.string.isRequired, // column key
-    label: PropTypes.string, // label to display
-		headClassName: PropTypes.string, // header classname
-		headRenderer: PropTypes.func, // header renderer
-		headExtraProps: PropTypes.object, // header extra props
-	})).isRequired,
+	columns: PropTypes.arrayOf(
+		PropTypes.shape({
+			key: PropTypes.string.isRequired, // column key
+			label: PropTypes.string, // label to display
+			headClassName: PropTypes.string, // header classname
+			headRenderer: PropTypes.func, // header renderer
+			headExtraProps: PropTypes.object, // header extra props
+		}),
+	).isRequired,
 	classnames: PropTypes.shape({
 		header: PropTypes.string,
 	}),

@@ -23,13 +23,7 @@ Element.propTypes = {
 function List({ elements, Comp, extra }) {
 	return (
 		<div className="list-class">
-			{elements.map(elem =>
-				<Comp
-					key={elem.symbol}
-					element={elem}
-					extra={extra}
-				/>
-			)}
+			{elements.map(elem => <Comp key={elem.symbol} element={elem} extra={extra} />)}
 		</div>
 	);
 }
@@ -71,11 +65,7 @@ it('display simple draggable-element content', () => {
 	// create React tree
 	const tree = renderer
 		.create(
-			<OriginalElement
-				element={ru}
-				connectDragSource={identity}
-				connectDropTarget={identity}
-			/>,
+			<OriginalElement element={ru} connectDragSource={identity} connectDropTarget={identity} />,
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
@@ -96,7 +86,6 @@ function wrapInTestContext(DecoratedComponent) {
  * This tests the drag and drop of the element ru onto the element rh.
  */
 it('drag-and-drop-on-multiple-elements', () => {
-
 	const draggableElement = draggable(Element, type);
 
 	const dndListener = {
@@ -108,13 +97,7 @@ it('drag-and-drop-on-multiple-elements', () => {
 
 	const ListTestContext = wrapInTestContext(List);
 
-	const list = (
-		<ListTestContext
-			elements={elements}
-			Comp={draggableElement}
-			extra={dndListener}
-		/>
-	);
+	const list = <ListTestContext elements={elements} Comp={draggableElement} extra={dndListener} />;
 
 	const root = TestUtils.renderIntoDocument(list);
 
@@ -156,5 +139,4 @@ it('drag-and-drop-on-multiple-elements', () => {
 	backend.simulateEndDrag();
 
 	expect(dndListener.endDrag).toBeCalled();
-
 });
