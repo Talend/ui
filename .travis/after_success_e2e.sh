@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 echo "E2E TESTS"
 cd packages/components/e2e/component-objects
