@@ -2,36 +2,6 @@
 
 exports[`Typeahead container should render 1`] = `
 <Typeahead
-  __altered={false}
-  __hash={undefined}
-  __ownerID={undefined}
-  _root={
-    ArrayMapNode {
-      "entries": Array [
-        Array [
-          "docked",
-          true,
-        ],
-        Array [
-          "searching",
-          false,
-        ],
-        Array [
-          "focusedSectionIndex",
-          null,
-        ],
-        Array [
-          "focusedItemIndex",
-          null,
-        ],
-        Array [
-          "items",
-          null,
-        ],
-      ],
-      "ownerID": OwnerID {},
-    }
-  }
   autoFocus={true}
   disabled={false}
   docked={true}
@@ -50,6 +20,5 @@ exports[`Typeahead container should render 1`] = `
   readOnly={false}
   searching={false}
   searchingText="Searching for matches…"
-  size={5}
 />
 `;

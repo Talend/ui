@@ -101,19 +101,15 @@ export default class Typeahead extends React.Component {
 	}
 
 	render() {
-		const { state = DEFAULT_STATE, items } = this.props;
-		const { docked, searching, focusedSectionIndex, focusedItemIndex } = state.toJS();
+		const { items } = this.props;
 		const props = {
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
+			...this.props.state.toJS(),
 			onToggle: this.onToggle,
 			onBlur: this.onBlur,
 			onSelect: this.onSelect,
 			onKeyDown: this.onKeyDown,
 			items: items && items.toJS ? items.toJS() : items,
-			docked,
-			searching,
-			focusedItemIndex,
-			focusedSectionIndex,
 		};
 
 		return <Component {...props} />;

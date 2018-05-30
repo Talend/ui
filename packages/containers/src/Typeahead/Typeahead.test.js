@@ -9,7 +9,7 @@ const defaultProps = {
 	id: 42,
 	icon: {},
 	items: [],
-	...DEFAULT_STATE,
+	state: DEFAULT_STATE,
 };
 
 describe('Connect', () => {
