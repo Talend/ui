@@ -42,7 +42,7 @@
     "angular-mocks": "^1.5.9",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "8.0.2",
     "babel-jest": "20.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -74,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.187.1"
+  "version": "0.188.0"
 }

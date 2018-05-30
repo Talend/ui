@@ -44,6 +44,7 @@ exports[`getMenuItem should return a MenuItem with divider 1`] = `
 exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
 <MenuItem
   bsClass="dropdown"
+  className="theme-tc-dropdown-item tc-dropdown-item"
   data-feature="action.feature"
   disabled={false}
   divider={false}
@@ -70,6 +71,7 @@ exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
 exports[`getMenuItem should return a MenuItem with label 1`] = `
 <MenuItem
   bsClass="dropdown"
+  className="theme-tc-dropdown-item tc-dropdown-item"
   data-feature="action.feature"
   disabled={false}
   divider={false}
