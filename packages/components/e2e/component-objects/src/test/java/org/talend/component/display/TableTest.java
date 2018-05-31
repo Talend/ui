@@ -1,7 +1,6 @@
 package org.talend.component.display;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.talend.component.StorybookTest;
@@ -94,7 +93,6 @@ public class TableTest extends StorybookTest {
         assertThat(title.getText(), is("Title with actions"));
     }
 
-    @Ignore
     @Test
     public void should_get_item_action_from_actionId() {
         // when
@@ -138,7 +136,6 @@ public class TableTest extends StorybookTest {
         assertThat(getActionLog(), startsWith("▶onTitleClick:"));
     }
 
-    @Ignore
     @Test
     public void should_mouseover_and_click_on_item_action() {
         // given
@@ -155,7 +152,6 @@ public class TableTest extends StorybookTest {
         assertThat(getActionLog(), startsWith("▶onEdit:"));
     }
 
-    @Ignore
     @Test
     public void should_scroll_and_click_on_item_action() {
         // given

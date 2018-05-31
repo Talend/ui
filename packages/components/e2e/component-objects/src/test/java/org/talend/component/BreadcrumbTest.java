@@ -1,7 +1,6 @@
 package org.talend.component;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
@@ -37,7 +36,6 @@ public class BreadcrumbTest extends StorybookTest {
         assertThat(items, hasSize(3));
     }
 
-    @Ignore
     @Test
     public void should_click_on_items() {
         // given
@@ -56,7 +54,6 @@ public class BreadcrumbTest extends StorybookTest {
         assertThat(getActionLog(), not(containsString("▶Text C clicked")));
     }
 
-    @Ignore
     @Test
     public void should_have_active_item() {
         // when
