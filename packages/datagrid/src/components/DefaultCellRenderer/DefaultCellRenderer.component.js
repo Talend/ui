@@ -15,11 +15,12 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 	let content;
 
 	if (data.loading) {
-		content = <Skeleton />;
+		content = <Skeleton key="1" />;
 	} else {
 		content = [
-			<QualityIndicator qualityIndex={value.quality} />,
+			<QualityIndicator key="1" qualityIndex={value.quality} />,
 			<AvroRenderer
+				key="2"
 				colDef={colDef}
 				data={value}
 				avroRenderer={avroRenderer}

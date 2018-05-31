@@ -26,12 +26,9 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	checkOverflow() {
-		let overflowing;
-		if (this.domElement.scrollWidth > this.domElement.clientWidth) {
-			overflowing = true;
-		} else {
-			overflowing = false;
-		}
+		const overflowing =
+			this.domElement.scrollWidth > this.domElement.clientWidth ||
+			this.domElement.scrollHeight > this.domElement.clientHeight + 1;
 
 		if (this.state.overflowing !== overflowing) {
 			this.setState(() => ({
@@ -45,39 +42,34 @@ export default class DefaultValueRenderer extends React.Component {
 		if (this.props.label !== undefined) {
 			tooltipContent = this.props.label;
 		} else {
-			tooltipContent = this.props.renderContentTooltip();
+			tooltipContent = this.props.contentRenderer();
 		}
 
+		const content = (
+			<div
+				ref={this.setDOMElement}
+				onMouseOver={this.checkOverflow}
+				onFocus={this.checkOverflow}
+				className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell')}
+			>
+				{tooltipContent}
+			</div>
+		);
+
 		if (!this.state.overflowing) {
-			return (
-				<div
-					ref={this.setDOMElement}
-					onMouseOver={this.checkOverflow}
-					onFocus={this.checkOverflow}
-					className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell')}
-				>
-					{tooltipContent}
-				</div>
-			);
+			return <span>{content}</span>;
 		}
 		const tooltipTrigger = {};
 
 		if (this.props.label !== undefined) {
 			tooltipTrigger.label = tooltipContent;
-		} else if (this.props.renderContentTooltip) {
-			tooltipTrigger.renderContentTooltip = () => <div>{tooltipContent}</div>;
+		} else if (this.props.contentRenderer) {
+			tooltipTrigger.contentRenderer = () => <div>{tooltipContent}</div>;
 		}
 
 		return (
 			<TooltipTrigger tooltipPlacement="bottom" {...tooltipTrigger}>
-				<div
-					ref={this.setDOMElement}
-					onMouseOver={this.checkOverflow}
-					onFocus={this.checkOverflow}
-					className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell')}
-				>
-					{tooltipContent}
-				</div>
+				{content}
 			</TooltipTrigger>
 		);
 	}
