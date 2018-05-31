@@ -7,9 +7,8 @@ import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
 
-sample.data[0].value.field0.value = `	Character invisible and
-return
-`;
+sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
+psum	 	 `;
 sample.data = [sample.data[0], sample.data[1], sample.data[2]];
 
 storiesOf('Component Datagrid')
