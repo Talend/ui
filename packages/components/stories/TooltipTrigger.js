@@ -19,31 +19,14 @@ storiesOf('TooltipTrigger', module).addWithInfo('default', () => (
 		<TooltipTrigger label="This is a tooltip demo" tooltipPlacement="bottom">
 			<Button>Bottom tooltip</Button>
 		</TooltipTrigger>
-		<p>With other elements</p>
+		<p>With a custom component in the tooltip</p>
 		<TooltipTrigger
-			label="This is a tooltip demo"
 			tooltipPlacement="bottom"
-			renderFn={() => (
+			contentRenderer={() => (
 				<div>
-					<span
-						style={{
-							display: 'inline-block',
-							width: '20px',
-							height: '20px',
-							backgroundColor: 'gray',
-							border: '1px dotted black',
-						}}
-					/>
-					<span style={{ verticalAlign: 'super' }}>some description</span>
-					<span
-						style={{
-							display: 'inline-block',
-							width: '20px',
-							height: '20px',
-							backgroundColor: 'gray',
-							border: '1px dotted black',
-						}}
-					/>
+					<span>I'm a custom component</span>
+					{'\n'}
+					<span>with a line feeding</span>
 				</div>
 			)}
 		>

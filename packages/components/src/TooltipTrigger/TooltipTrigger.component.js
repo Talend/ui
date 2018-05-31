@@ -76,8 +76,8 @@ class TooltipTrigger extends React.Component {
 		}
 
 		let tooltipContent;
-		if (this.props.renderContentTooltip) {
-			tooltipContent = this.props.renderContentTooltip();
+		if (this.props.contentRenderer) {
+			tooltipContent = this.props.contentRenderer();
 		} else {
 			tooltipContent = this.props.label;
 		}
