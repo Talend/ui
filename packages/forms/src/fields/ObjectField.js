@@ -90,7 +90,7 @@ class ObjectField extends Component {
 		} = this.props;
 		const { definitions, fields, formContext, widgets } = registry;
 		const { SchemaField, TitleField, DescriptionField } = fields;
-		const schema = retrieveSchema(this.props.schema, definitions, formData);
+		const schema = retrieveSchema(this.props.schema, definitions);
 		const { widget, ...options } = getUiOptions(uiSchema);
 
 		if (typeof widget === 'string') {
