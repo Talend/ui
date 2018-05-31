@@ -58,23 +58,26 @@ function getAvroRenderer(avroRenderer) {
  * @param {array} rowData the data of the datagrid
  */
 export function getRowDataInfos(rowData) {
-	let notLoaded = 0;
-	let loading = 0;
-	let loaded = 0;
-	rowData.forEach(item => {
-		if (item.loading === false && Object.keys(item).length === 2) {
-			notLoaded += 1;
-		} else if (item.loading === true) {
-			loading += 1;
-		} else {
-			loaded += 1;
-		}
-	});
-	return {
-		loaded,
-		loading,
-		notLoaded,
-	};
+	return rowData.reduce(
+		(acc, item) => {
+			if (item.loading === false && Object.keys(item).length === 2) {
+				// eslint-disable-next-line no-param-reassign
+				acc.notLoaded += 1;
+			} else if (item.loading === true) {
+				// eslint-disable-next-line no-param-reassign
+				acc.loading += 1;
+			} else {
+				// eslint-disable-next-line no-param-reassign
+				acc.loaded += 1;
+			}
+			return acc;
+		},
+		{
+			loaded: 0,
+			loading: 0,
+			notLoaded: 0,
+		},
+	);
 }
 
 export default class DataGrid extends React.Component {
