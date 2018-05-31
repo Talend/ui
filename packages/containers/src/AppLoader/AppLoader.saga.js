@@ -1,10 +1,11 @@
 import api from '@talend/react-cmf';
-import { call, select, all } from 'redux-saga/effects';
+import { call, select, all, take } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import invariant from 'invariant';
 
 export const ACTION_CREATORS = 'actionCreators';
 export const WAIT_FOR = 'waitFor';
+export const TAKE_ACTION = 'takeAction';
 
 /**
  * This function wait until a collection is here
@@ -23,6 +24,14 @@ export function* waitFor(collectionName, interval = 10) {
 }
 
 /**
+ * Allow to take an action in the process
+ * @param {string} actionName the name of the action we want to take
+ */
+export function* takeAction(actionName) {
+	yield take(actionName);
+}
+
+/**
  * This function handle a specific step
  * @param {object} step a bootstrap step that could contain a actionCreator list or a waitList
  */
@@ -33,6 +42,8 @@ export function* handleStep(step) {
 		);
 	} else if (step[WAIT_FOR]) {
 		return yield all(step[WAIT_FOR].map(collectionName => call(waitFor, collectionName)));
+	} else if (step[TAKE_ACTION]) {
+		return yield all(step[TAKE_ACTION].map(actionName => call(takeAction, actionName)));
 	}
 	return invariant(
 		process.env.NODE_ENV !== 'production',
