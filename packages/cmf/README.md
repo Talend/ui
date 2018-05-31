@@ -209,8 +209,12 @@ you may change the following using simple props:
 
 For 1.0
 
-* [x] embedable apps
-* [ ] router
-* [x] generator
-* [x] actionCreator should become first class
+* [ ] documentation review
+* [ ] provide an example OSS demo app
+* [ ] remove all deprecated code
+* [ ] update or remove react-router
 * [ ] move from peer dependencies to dependencies
+* [x] integrate redux-saga
+* [x] add a yeoman generator
+* [x] actionCreator should become first class
+* [x] embedable apps
