@@ -216,7 +216,6 @@ class List extends React.Component {
 			}, {});
 		}
 
-		console.log(props.headerDictionary);
 		if (props.headerDictionary) {
 			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce((acc, key) => {
 				const current = props.headerDictionary[key];

@@ -14,7 +14,7 @@ function HeaderIcon({ label, sortBy, dataKey, sortDirection, columnData }) {
 	return (
 		<div className={classnames(theme['tc-header-icon'], 'tc-header-icon')}>
 			{columnData.iconName && <Icon name={columnData.iconName} title={label} />}
-			{sortBy === dataKey && <SortIndicator key="SortIndicator" sortDirection={sortDirection} />}
+			{sortBy === dataKey && <SortIndicator sortDirection={sortDirection} />}
 		</div>
 	);
 }
