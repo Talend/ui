@@ -16,7 +16,7 @@
  */
 export default function deprecated(fn, msg, log) {
 	let called = false;
-	return function wrapper() {
+	function wrapper() {
 		if (!called) {
 			called = true;
 			let message = msg;
@@ -38,4 +38,6 @@ export default function deprecated(fn, msg, log) {
 		}
 		return fn.apply(this, arguments);
 	};
+	wrapper.wrappedFunction = fn;
+	return wrapper;
 }

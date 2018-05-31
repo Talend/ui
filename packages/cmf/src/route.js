@@ -8,6 +8,7 @@
 import PropTypes from 'prop-types';
 
 import React from 'react';
+import cmfConnect from './cmfConnect';
 import registry from './registry';
 import deprecated from './deprecated';
 import CONST from './constant';
@@ -49,10 +50,15 @@ function withProps(Component, item) {
 		// eslint-disable-next-line no-console
 		console.warn('DEPRECATED: view is deprecated please use componentId');
 	}
+	let CMFComponent = Component;
+	if (!Component.CMFContainer) {
+		CMFComponent = cmfConnect({})(Component);
+	}
 	const WithProps = props => (
-		<Component view={item.view} componentId={item.componentId} {...props} />
+		<CMFComponent view={item.view} componentId={item.componentId} {...props} />
 	);
 	WithProps.displayName = 'WithProps';
+	WithProps.WrappedComponent = CMFComponent;
 	WithProps.propTypes = {
 		view: PropTypes.string,
 		componentId: PropTypes.string,
