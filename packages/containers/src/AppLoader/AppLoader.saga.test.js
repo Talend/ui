@@ -1,12 +1,11 @@
 import api from '@talend/react-cmf';
 import registry from '@talend/react-cmf/lib/registry';
-import { call, all } from 'redux-saga/effects';
+import { call, all, take } from 'redux-saga/effects';
 import {
 	appLoaderSaga,
 	handleStep,
 	ACTION_CREATORS,
 	TAKE_ACTION,
-	takeAction,
 	WAIT_FOR,
 	waitFor,
 } from './AppLoader.saga';
@@ -65,9 +64,7 @@ describe('AppLoader saga', () => {
 			// when
 			const gen = handleStep(step);
 			// then
-			expect(gen.next().value).toEqual(
-				all([call(takeAction, 'action1'), call(takeAction, 'action2')]),
-			);
+			expect(gen.next().value).toEqual(all([take('action1'), take('action2')]));
 		});
 	});
 });
