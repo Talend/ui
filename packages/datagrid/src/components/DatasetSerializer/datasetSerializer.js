@@ -13,6 +13,44 @@ import {
 } from '../../constants/';
 
 /**
+ * sanatizeAvro - remove yje optional type
+ *
+ * @param  {object} 	avro field
+ * @return {object}   return the shallow avro
+ * @example
+ * 	sanitizeAvro({
+ *		 "name": "field0",
+ *		 "doc": "Nom de la gare",
+ *		 "type": [
+ *			 "null",
+ *			 {
+ *				 "type": "string",
+ *				 "dqType": "FR Commune",
+ *				 "dqTypeKey": "FR_COMMUNE"
+ *			 }
+ *		 ],
+ *		 "@talend-quality@": {
+ *				 "0": 0,
+ *				 "1": 38,
+ *				 "-1": 62,
+ *				 "total": 100
+ *		 }
+ *	}); {..., type: {type: "string", dqType: "FR Commune", dqTypeKey: "FR_COMMUNE"}}
+ */
+export function sanitizeAvro(avro) {
+	if (!isArray(avro.type)) {
+		return avro;
+	}
+
+	return {
+		...avro,
+		type: avro.type
+			.filter(subType => subType !== 'null')
+			.reduce((state, type) => ({ ...state, ...type }), {}),
+	};
+}
+
+/**
  * getType - manage the type from an AVRO type
  *
  * @param  {array|object} 	avro type
@@ -70,7 +108,7 @@ export function getColumnDefs(sample) {
 	const plainObjectSample = convertSample(sample);
 
 	return get(plainObjectSample, 'schema.fields', []).map(avroField => ({
-		avro: avroField,
+		avro: sanitizeAvro(avroField),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc,
 		type: getType(avroField.type),
