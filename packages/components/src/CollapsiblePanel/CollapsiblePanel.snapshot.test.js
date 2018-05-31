@@ -159,8 +159,22 @@ describe('CollapsiblePanel', () => {
 
 	it('should render themed without textual content', () => {
 		// when
-		const wrapper = renderer.create(
-			<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />)
+		const wrapper = renderer
+			.create(<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />)
+			.toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render custom content', () => {
+		// when
+		const wrapper = renderer
+			.create(
+				<CollapsiblePanel {...props} content={null}>
+					<h2>Custom Content</h2>
+				</CollapsiblePanel>,
+			)
 			.toJSON();
 
 		// then
