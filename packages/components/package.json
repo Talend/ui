@@ -61,12 +61,12 @@
     "@storybook/addon-info": "^3.3.14",
     "@storybook/addon-storyshots": "^3.3.14",
     "@storybook/react": "^3.3.14",
-    "@talend/bootstrap-theme": "^0.186.0",
-    "@talend/icons": "^0.186.0",
+    "@talend/bootstrap-theme": "^0.189.0",
+    "@talend/icons": "^0.189.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "8.0.2",
     "babel-jest": "20.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -82,6 +82,7 @@
     "d3-shape": "1.2.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.1",
+    "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.0.0",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
@@ -98,15 +99,15 @@
     "npm-watch": "^0.1.6",
     "postcss-loader": "2.0.8",
     "prop-types": "15.5.10",
-    "react": "^15.6.2",
+    "react": "^16.0.0",
     "react-a11y": "^0.3.3",
-    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
-    "react-dom": "^15.6.2",
+    "react-dom": "^16.0.0",
     "react-i18next": "^7.6.1",
     "react-storybook-addon-props-combinations": "^0.3.0",
-    "react-test-renderer": "^15.6.2",
+    "react-test-renderer": "^16.0.0",
+    "react-transition-group": "^2.3.1",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
     "sass-loader": "6.0.6",
@@ -115,8 +116,8 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.186.0",
-    "@talend/icons": "^0.186.0",
+    "@talend/bootstrap-theme": "^0.189.0",
+    "@talend/icons": "^0.189.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "d3-shape": "1.2.0",
@@ -124,11 +125,11 @@
     "invariant": "2.2.2",
     "keycode": "2.2.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.2",
-    "react-addons-css-transition-group": "15.6.2",
+    "react": "^15.6.2 || ^16.0.0",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-i18next": "^7.6.1",
+    "react-transition-group": "^2.3.1",
     "uuid": "3.0.1"
   },
   "jest": {
@@ -142,8 +143,7 @@
     },
     "roots": [
       "src",
-      "__mocks__",
-      "../../__mocks__"
+      "__mocks__"
     ],
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
@@ -154,5 +154,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.186.0"
+  "version": "0.189.0"
 }

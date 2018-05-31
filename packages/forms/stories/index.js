@@ -368,11 +368,9 @@ decoratedStories.add('Datalist empty', getEmptyDatalist);
 decoratedStories.add('Datalist in modal', () => {
 	const props = {
 		header: 'Datalist in modal',
-		bsDialogProps: {
-			show: true,
-			size: 'small',
-			keyboard: true,
-		},
+		show: true,
+		size: 'small',
+		keyboard: true,
 	};
 
 	// Need to override style for this demo (items-container must be scrollable)

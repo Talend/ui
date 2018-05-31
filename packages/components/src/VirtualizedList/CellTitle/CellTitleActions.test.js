@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { CellTitleActionsComponent } from './CellTitleActions.component';
-import { cellTitleDisplayModes } from '../utils/constants';
+import { cellTitleDisplayModes, listTypes } from '../utils/constants';
+
+const { LARGE } = listTypes;
 
 const simpleActions = [
 	{
@@ -89,6 +91,21 @@ describe('CellTitleActions', () => {
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ actions: simpleActions }}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+	});
+
+	it('should render all actions when the type is LARGE', () => {
+		// when
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ actions: simpleActions }}
+				type={LARGE}
 			/>,
 		);
 

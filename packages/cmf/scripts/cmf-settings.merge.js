@@ -48,7 +48,7 @@ function merge(options, errorCallback) {
 	const cmfconfig = options.cmfConfig || importAndValidate(cmfconfigPath, onError);
 	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
 	let destination = cmfconfig.settings.destination;
-	if (!path.isAbsolute(destination)) {
+	if (destination && !path.isAbsolute(destination)) {
 		destination = path.join(process.cwd(), cmfconfig.settings.destination);
 	}
 	let settings;
