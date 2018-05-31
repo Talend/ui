@@ -20,6 +20,7 @@ import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
 import TabBarExample from './ExampleTabBar';
+import TypeaheadExample from './ExampleTypeahead';
 
 export default {
 	ActionExample,
@@ -44,4 +45,5 @@ export default {
 	SubHeaderBarExample,
 	TabBarExample,
 	TreeViewExample,
+	TypeaheadExample,
 };
