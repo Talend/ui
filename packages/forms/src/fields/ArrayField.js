@@ -430,9 +430,7 @@ class ArrayField extends Component {
 		let items = this.props.formData;
 		const { ArrayFieldTemplate, definitions, fields } = registry;
 		const { TitleField } = fields;
-		const itemSchemas = schema.items.map(item =>
-			retrieveSchema(item, definitions)
-		);
+		const itemSchemas = schema.items.map(item => retrieveSchema(item, definitions));
 		const additionalSchema = allowAdditionalItems(schema)
 			? retrieveSchema(schema.additionalItems, definitions)
 			: null;
