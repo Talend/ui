@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer cententRenderer without the tooltip 1`] = `
+<span>
+  <div
+    className="theme-td-default-cell td-default-cell"
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    <div>
+      i'm a custom renderer
+    </div>
+  </div>
+</span>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer label with the tooltip when the label overflow in height 1`] = `
+<TooltipTrigger
+  label="loreum"
+  tooltipPlacement="bottom"
+>
+  <div
+    className="theme-td-default-cell td-default-cell"
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    loreum
+  </div>
+</TooltipTrigger>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer label with the tooltip when the label overflow in height 2`] = `
+<span>
+  <div
+    className="theme-td-default-cell td-default-cell"
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    loreum
+  </div>
+</span>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer label with the tooltip when the label overflow in width 1`] = `
+<TooltipTrigger
+  label="loreum"
+  tooltipPlacement="bottom"
+>
+  <div
+    className="theme-td-default-cell td-default-cell"
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    loreum
+  </div>
+</TooltipTrigger>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer label with the tooltip when the label overflow in width 2`] = `
+<span>
+  <div
+    className="theme-td-default-cell td-default-cell"
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    loreum
+  </div>
+</span>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer label without the tooltip 1`] = `
+<span>
+  <div
+    className="theme-td-default-cell td-default-cell"
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    loreum
+  </div>
+</span>
+`;
