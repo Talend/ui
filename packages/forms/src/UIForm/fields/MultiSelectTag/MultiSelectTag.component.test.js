@@ -44,7 +44,7 @@ describe('MultiSelectTag field', () => {
 			.simulate('change', { target: { value: 'titi' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'toto', value: 'titi' }]);
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'titi (new)', value: 'titi' }]);
 	});
 
 	it('should update suggestion on props.value change', () => {
@@ -73,7 +73,7 @@ describe('MultiSelectTag field', () => {
 			.simulate('change', { target: { value: 'az' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'az (new)', value: 'az (new)' }]);
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'az (new)', value: 'az' }]);
 	});
 
 	it('should NOT suggest new item creation when widget is restricted', () => {

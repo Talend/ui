@@ -161,11 +161,10 @@ export default class MultiSelectTag extends React.Component {
 			if (currentValue) {
 				const escapedValue = escapeRegexCharacters(currentValue.trim());
 				const regex = new RegExp(escapedValue, 'i');
-				suggestions = suggestions.filter(item => regex.test(item.value));
+				suggestions = suggestions.filter(item => regex.test(item.title));
 
 				if (!suggestions.length && currentProps.schema.restricted === false) {
-					const text = getNewItemText(currentValue);
-					suggestions.push({ value: text, title: text });
+					suggestions.push({ value: currentValue, title: getNewItemText(currentValue) });
 				}
 			}
 
