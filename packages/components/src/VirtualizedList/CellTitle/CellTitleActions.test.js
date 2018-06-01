@@ -169,6 +169,48 @@ describe('CellTitleActions', () => {
 		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
 
+	it('should keep definition order of dropdown and simple actions extracted out of the ellipsis dropdown', () => {
+		// 1°) simple action then dropdown action
+		const actionsSimpleFirst = [
+			fewSimpleActions[0],
+			dropdownActions[0],
+			...lotOfSimpleActions,
+		];
+
+		// when
+		const wrapperSimpleFirst = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ actions: actionsSimpleFirst }}
+			/>,
+		);
+
+		// then
+		expect(wrapperSimpleFirst.find('.cell-title-actions').childAt(1).props().displayMode).toEqual('dropdown');
+
+		// -------------
+
+		// 2°) dropdown action then simple action
+		const actionsDropdownFirst = [
+			dropdownActions[0],
+			fewSimpleActions[0],
+			...lotOfSimpleActions,
+		];
+
+		// when
+		const wrapperDropdownFirst = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ actions: actionsDropdownFirst }}
+			/>,
+		);
+
+		// then
+		expect(wrapperDropdownFirst.find('.cell-title-actions').childAt(0).props().displayMode).toEqual('dropdown');
+	});
+
 	it('should display all actions on LARGE display mode', () => {
 		// when
 		const wrapper = shallow(

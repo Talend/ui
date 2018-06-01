@@ -184,37 +184,28 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       link={true}
       onClick={[Function]}
     />
-    <Actions
-      actions={
+    <Action
+      displayMode="dropdown"
+      hideLabel={true}
+      icon="talend-folder"
+      id="related"
+      items={
         Array [
           Object {
-            "displayMode": "dropdown",
-            "icon": "talend-folder",
-            "id": "related",
-            "items": Array [
-              Object {
-                "data-feature": "list.item.related",
-                "label": "document 1",
-                "onClick": [Function],
-              },
-              Object {
-                "data-feature": "list.item.related",
-                "label": "document 2",
-                "onClick": [Function],
-              },
-            ],
-            "label": "related items",
-            "pullRight": true,
+            "data-feature": "list.item.related",
+            "label": "document 1",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 2",
+            "onClick": [Function],
           },
         ]
       }
-      hideLabel={true}
+      label="related items"
       link={true}
-      renderers={
-        Object {
-          "Action": [Function],
-        }
-      }
+      pullRight={true}
     />
     <ActionDropdown
       bsStyle="default"

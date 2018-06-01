@@ -13,6 +13,8 @@ import Action from '../../Actions/Action/Action.component';
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 const { LARGE } = listTypes;
 
+const MAX_DIRECT_NB_ICON = 3;
+
 function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
@@ -39,7 +41,7 @@ function getDefaultDisplayActions(actions, t) {
 	}
 
 	const actionsBlocs = [];
-	const hasFewActions = actions.length <= 3;
+	const hasFewActions = actions.length <= MAX_DIRECT_NB_ICON;
 
 	// few actions : display them
 	if (hasFewActions) {
@@ -48,34 +50,41 @@ function getDefaultDisplayActions(actions, t) {
 	// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
 	// the rest is in an ellipsis dropdown
 	else {
-		const dropdownDefinitions = actions.filter(isDropdown);
-		const simpleDefinitions = actions.filter(actionDef => !isDropdown(actionDef));
-		let restOfSimpleDefinitions = simpleDefinitions;
+		// always extract dropdowns
+		const extractedDropdownActions = actions.filter(isDropdown);
+		const simpleActions = actions.filter(action => !isDropdown(action));
 
-		// we extract
-		const nbOfSimpleToExtract = 2 - dropdownDefinitions.length;
-		if (nbOfSimpleToExtract > 0) {
-			for (let i = 0; i < nbOfSimpleToExtract; i++) {
+		// 1 slot taken by the ellipsis menu
+		const nbOfSimpleToExtract =
+			Math.max(0, MAX_DIRECT_NB_ICON - 1 - extractedDropdownActions.length);
+		const needToExtractSimple = nbOfSimpleToExtract > 0;
+
+		// extract simple actions if space remaining
+		const extractedSimpleActions = needToExtractSimple
+			? simpleActions.slice(0, nbOfSimpleToExtract)
+			: [];
+
+		const extractedActions = [
+			...extractedDropdownActions,
+			...extractedSimpleActions,
+		];
+
+		const remainingActions = simpleActions.slice(nbOfSimpleToExtract);
+
+		extractedActions
+			.sort((a, b) => actions.indexOf(a) - actions.indexOf(b))
+			.forEach((action, i) => {
 				actionsBlocs.push(
-					<Action {...simpleDefinitions[i]} key={`extracted-action-${i}`} hideLabel link />,
+					<Action {...action} key={`extracted-action-${i}`} hideLabel link />,
 				);
-			}
-			restOfSimpleDefinitions = simpleDefinitions.slice(nbOfSimpleToExtract);
-		}
-
-		// dropdown actions
-		if (dropdownDefinitions.length) {
-			actionsBlocs.push(
-				<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />,
-			);
-		}
+			});
 
 		// ellipsis dropdown
 		actionsBlocs.push(
 			<ActionDropdown
 				key={'ellipsis-actions'}
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
-				items={restOfSimpleDefinitions}
+				items={remainingActions}
 				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
 				hideLabel
 				link
