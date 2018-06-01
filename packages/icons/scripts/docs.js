@@ -41,7 +41,7 @@ const HTML_TPL = (icons, style) => `
 			}
 
 			.gammacolormapping > svg > g {
-				filter: url(#colormapping);
+				filter: url(#gammacolormapping);
 			}
 			.gammacolormapping:hover > svg > g {
 				filter: none;
