@@ -54,6 +54,7 @@
     "codacy-coverage": "^2.0.2",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.1",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -71,12 +72,12 @@
     "node-fetch": "^1.7.3",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "5.0.5",
     "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
-    "react-test-renderer": "^15.6.2",
+    "react-test-renderer": "^16.0.0",
     "redux": "3.6.0",
     "redux-batched-actions": "0.2.0",
     "redux-logger": "3.0.6",
@@ -97,8 +98,8 @@
     "lodash": "4.17.4",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^15.6.2 || ^16.0.0",
+    "react-dom": "^15.6.2 || ^16.0.0",
     "react-redux": "5.0.5",
     "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
@@ -130,5 +131,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.188.0"
+  "version": "0.190.0"
 }
