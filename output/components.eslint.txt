@@ -23,8 +23,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
   42:15  error  'renderContentTooltip' is missing in props validation  react/prop-types
-  79:18  error  'renderContentTooltip' is missing in props validation  react/prop-types
-  80:32  error  'renderContentTooltip' is missing in props validation  react/prop-types
+  79:18  error  'contentRenderer' is missing in props validation       react/prop-types
+  80:32  error  'contentRenderer' is missing in props validation       react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
