@@ -5,13 +5,6 @@ import TableHeader from './Header/TableHeader';
 import TableBody from './Body/TableBody';
 import theme from './Table.scss';
 
-function getTableClassName(classnames) {
-	if (classnames && classnames.table) {
-		return classnames.table;
-	}
-	return null;
-}
-
 /**
  * This component displays a table of elements.
  * Elements are provided as array.
@@ -33,7 +26,7 @@ export default function Table({
 	onLeaveRow,
 }) {
 	return (
-		<table className={classNames('tc-table', theme['tc-table'], getTableClassName(classnames))}>
+		<table className={classNames('tc-table', theme['tc-table'], classnames && classnames.table)}>
 			{withHeader && <TableHeader columns={columns} classnames={classnames} />}
 			<TableBody
 				elements={elements}
