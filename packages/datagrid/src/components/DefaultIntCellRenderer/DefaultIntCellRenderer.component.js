@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer';
+import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer.component';
 import theme from './DefaultIntCell.scss';
 
 export default function DefaultIntCellRenderer({ data }) {

@@ -7,7 +7,9 @@ import theme from './DefaultValueRenderer.scss';
 
 export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
-		value: PropTypes.string,
+		className: PropTypes.object,
+		contentRenderer: PropTypes.func,
+		label: PropTypes.string,
 	};
 
 	constructor(props) {
