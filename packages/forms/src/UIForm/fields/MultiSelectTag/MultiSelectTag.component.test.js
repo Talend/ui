@@ -59,7 +59,10 @@ describe('MultiSelectTag field', () => {
 		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
 
 		// then
-		expect(instance.state.suggestions).toEqual([{ title: 'toto', value: 'titi' }, { title: 'tata', value: 'tutu' }]);
+		expect(instance.state.suggestions).toEqual([
+			{ title: 'toto', value: 'titi' },
+			{ title: 'tata', value: 'tutu' },
+		]);
 	});
 
 	it('should suggest new item creation when widget is not restricted', () => {
@@ -99,7 +102,7 @@ describe('MultiSelectTag field', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('change', { target: { value : 'titi' } });
+		input.simulate('change', { target: { value: 'titi' } });
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
