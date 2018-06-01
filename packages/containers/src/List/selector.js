@@ -74,6 +74,14 @@ export function configureGetFilteredItems(configure) {
 			if (componentState) {
 				const sortBy = componentState.get('sortOn');
 				const sortAsc = componentState.get('sortAsc');
+				if (items && componentState) {
+					console.log(
+						localConfig.columns.filter(column => column.key === sortBy),
+						items.toJS(),
+						componentState.toJS(),
+					);
+				}
+
 				const compare = (a, b) => {
 					if (a.get(sortBy)) {
 						if (a.get(sortBy).localCompare) {
