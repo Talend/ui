@@ -4,7 +4,7 @@ exports[`FormatValue should replace the leading/trainling white space and the li
 <span>
   <Icon
     className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
-    name="talend-empty-space"
+    name="talend-empty-char"
   />
   <Icon
     className="theme-td-white-space-character td-white-space-character"
@@ -27,7 +27,7 @@ exports[`FormatValue should replace the leading/trainling white space and the li
   </span>
   <Icon
     className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
-    name="talend-empty-space"
+    name="talend-empty-char"
   />
   <Icon
     className="theme-td-white-space-character theme-td-tab-character td-white-space-character"

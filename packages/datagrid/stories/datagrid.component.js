@@ -9,7 +9,6 @@ import sample3 from './sample3.json';
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
-sample.data = [sample.data[0], sample.data[1], sample.data[2]];
 
 storiesOf('Component Datagrid')
 	.add('default', () => (

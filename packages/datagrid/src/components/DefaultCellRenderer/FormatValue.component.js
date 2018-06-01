@@ -56,7 +56,7 @@ function replaceCharacterByIcon(value) {
 							theme['td-other-characters'],
 							'td-white-space-character',
 						)}
-						name="talend-empty-space"
+						name="talend-empty-char"
 					/>
 				);
 			}
