@@ -1,12 +1,16 @@
+$svg-tab-width: $svg-md-size * 2 !default;
+$svg-other-caracters: 0.3rem !default;
+$svg-color: #ccc !default;
+
 .td-white-space-character {
 	vertical-align: text-bottom;
-	color: rgb(204, 204, 204);
+	color: $svg-color;
 }
 
 .td-tab-character {
-	width: 2.6rem;
+	width: $svg-md-size * 2;
 }
 
 .td-other-characters {
-	width: 0.8rem;
+	width: $svg-other-caracters;
 }
