@@ -139,7 +139,8 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_mouseover_and_click_on_item_action() {
         // given
-        final Item item = tableObject.getItem("Title with actions");
+        goToStory("Virtualized List", "List > Table");
+        final Item item = tableObject.getItem("Title with icon and actions");
         assertThat(item.getAction("edit").isDisplayed(), is(false));
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
