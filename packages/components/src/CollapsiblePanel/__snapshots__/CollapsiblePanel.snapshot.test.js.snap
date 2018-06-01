@@ -1,183 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CollapsiblePanel should render custom content 1`] = `
-<div
-  className="panel panel-default theme-tc-collapsible-panel theme-default-panel"
->
-  <div
-    className="theme-panel-heading panel-heading"
-  >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      <div
-        className="theme-panel-title panel-title"
-      >
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <div
-            className="theme-tc-status tc-status theme-action"
-            role="status"
-          >
-            <span
-              className="theme-tc-status-icon tc-status-icon theme-info"
-            >
-              <i
-                aria-hidden="true"
-                className="fa fa-check"
-                focusable="false"
-                title={null}
-              />
-            </span>
-            <span
-              className="theme-tc-status-label tc-status-label"
-            >
-              inProgress
-            </span>
-            <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
-            >
-              <button
-                aria-label="cancel"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <button
-            aria-label="edit"
-            className="theme-undefined btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseOver={[Function]}
-            role="link"
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-edit"
-              focusable="false"
-              title={null}
-            />
-          </button>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </span>
-        </div>
-        <div
-          className="theme-group theme-col-4"
-        >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </span>
-          <span
-            className="theme-undefined label label-default"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            XML
-          </span>
-        </div>
-      </div>
-    </button>
-    <button
-      className="theme-toggle toggle btn btn-link"
-      disabled={false}
-      onClick={[Function]}
-      title="Expand panel"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-caret-down"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
-    </button>
-  </div>
-  <div
-    className="panel panel-default"
-    id={null}
-  >
-    <div
-      aria-expanded={null}
-      aria-hidden={true}
-      className="panel-collapse collapse"
-      id={undefined}
-      role={undefined}
-    >
-      <div
-        className="panel-body"
-      >
-        <h2>
-          Custom Content
-        </h2>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`CollapsiblePanel should render default with expanded key/value content 1`] = `
 <div
   className="panel panel-default theme-tc-collapsible-panel theme-default-panel theme-open"
@@ -216,55 +38,56 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             >
               inProgress
             </span>
-            <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+            <span
+              className="theme-tc-status-actions tc-status-actions"
             >
-              <button
-                aria-label="cancel"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
+              <div
+                className="tc-actions btn-group"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    focusable="false"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    focusable="false"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
           </div>
         </div>
         <div
           className="theme-undefined theme-col-4"
         >
           <button
-            aria-label="edit"
             className="theme-undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -317,14 +140,12 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       className="theme-toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
-      title="Collapse panel"
       type="button"
     >
       <svg
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
-        name="talend-caret-down"
         title={null}
       >
         <use
@@ -347,23 +168,25 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       <div
         className="panel-body"
       >
-        <dl
-          className="theme-content"
-        >
-          <dt
-            className="theme-label"
+        <dl>
+          <div
+            className="theme-content"
           >
-            <span
-              className="label label-default"
+            <dt
+              className="theme-label"
             >
-              Content
-            </span>
-          </dt>
-          <dd
-            className="theme-description"
-          >
-            Description3
-          </dd>
+              <span
+                className="label label-default"
+              >
+                Content
+              </span>
+            </dt>
+            <dd
+              className="theme-description"
+            >
+              Description3
+            </dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -409,55 +232,56 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             >
               inProgress
             </span>
-            <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+            <span
+              className="theme-tc-status-actions tc-status-actions"
             >
-              <button
-                aria-label="cancel"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
+              <div
+                className="tc-actions btn-group"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    focusable="false"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    focusable="false"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
           </div>
         </div>
         <div
           className="theme-undefined theme-col-4"
         >
           <button
-            aria-label="edit"
             className="theme-undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -510,14 +334,12 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       className="theme-toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
-      title="Expand panel"
       type="button"
     >
       <svg
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
-        name="talend-caret-down"
         title={null}
       >
         <use
@@ -540,23 +362,25 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       <div
         className="panel-body"
       >
-        <dl
-          className="theme-content"
-        >
-          <dt
-            className="theme-label"
+        <dl>
+          <div
+            className="theme-content"
           >
-            <span
-              className="label label-default"
+            <dt
+              className="theme-label"
             >
-              Content
-            </span>
-          </dt>
-          <dd
-            className="theme-description"
-          >
-            Description3
-          </dd>
+              <span
+                className="label label-default"
+              >
+                Content
+              </span>
+            </dt>
+            <dd
+              className="theme-description"
+            >
+              Description3
+            </dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -602,55 +426,56 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             >
               inProgress
             </span>
-            <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+            <span
+              className="theme-tc-status-actions tc-status-actions"
             >
-              <button
-                aria-label="cancel"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
+              <div
+                className="tc-actions btn-group"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-cancel"
+                    focusable="false"
+                    title={null}
+                  />
+                  <span>
+                    cancel
+                  </span>
+                </button>
+                <button
+                  className="btn btn-default"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-delete"
+                    focusable="false"
+                    title={null}
+                  />
+                  <span>
+                    delete
+                  </span>
+                </button>
+              </div>
+            </span>
           </div>
         </div>
         <div
           className="theme-undefined theme-col-4"
         >
           <button
-            aria-label="edit"
             className="theme-undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -758,14 +583,12 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       className="theme-toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
-      title="Expand panel"
       type="button"
     >
       <svg
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
-        name="talend-caret-down"
         title={null}
       >
         <use
