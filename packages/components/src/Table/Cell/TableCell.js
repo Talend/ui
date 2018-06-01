@@ -34,7 +34,7 @@ export default class TableCell extends Component {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 		this.onDoubleClick = this.onDoubleClick.bind(this);
-		this.onDoubleClick = this.onDoubleClick.bind(this);
+		this.onKeyPress = this.onKeyPress.bind(this);
 	}
 
 	onClick(ev) {

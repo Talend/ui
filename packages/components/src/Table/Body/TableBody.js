@@ -4,13 +4,6 @@ import classNames from 'classnames';
 import TableRow, { getRowId } from '../Row/TableRow.js';
 import theme from './TableBody.scss';
 
-function getBodyClassName(classnames) {
-	if (classnames && classnames.body) {
-		return classnames.body;
-	}
-	return null;
-}
-
 /**
  * This component displays the body of the table. It is responsible for rendering the rows.
  */
@@ -26,7 +19,7 @@ export default function TableBody({
 	const bodyClassnames = classNames(
 		'tc-table-body',
 		theme['tc-table-body'],
-		getBodyClassName(classnames),
+		classnames && classnames.body,
 	);
 	return (
 		<tbody className={bodyClassnames} onScroll={onScroll}>

@@ -289,7 +289,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         className="th-name theme-tc-table-head-th"
       >
         <div
-          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label name"
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
         >
           Name
         </div>
@@ -298,7 +298,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         className="th-type theme-tc-table-head-th"
       >
         <div
-          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label type"
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
         >
           Type
         </div>
@@ -307,7 +307,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         className="th-desc theme-tc-table-head-th"
       >
         <div
-          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label desc"
+          className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
         >
           Description
         </div>

@@ -4,34 +4,13 @@ import classNames from 'classnames';
 import theme from './TableHeader.scss';
 import TableHeaderCell from './TableHeaderCell';
 
-function getHeaderClassName(classnames) {
-	if (classnames && classnames.header) {
-		return classnames.header;
-	}
-	return null;
-}
-
-function getHeaderCellClassName(column) {
-	if (column.headClassName) {
-		return column.headClassName;
-	}
-	return column.key;
-}
-
-function getHeaderComponent(column) {
-	if (column.headRenderer) {
-		return column.headRenderer;
-	}
-	return TableHeaderCell;
-}
-
 function renderHeaderCell(column) {
-	const HeaderComponent = getHeaderComponent(column);
+	const HeaderComponent = column.headRenderer || TableHeaderCell;
 	const thKey = `th-${column.key}`;
 	const cellClassnames = classNames(
 		'tc-table-head-label',
 		theme['tc-table-head-label'],
-		getHeaderCellClassName(column),
+		column.headClassName,
 	);
 	return (
 		<th key={thKey} className={classNames(thKey, theme['tc-table-head-th'])}>
@@ -54,7 +33,7 @@ export default function TableHeader({ columns, classnames }) {
 			className={classNames(
 				'tc-table-head',
 				theme['tc-table-head'],
-				getHeaderClassName(classnames),
+				classnames && classnames.header,
 			)}
 		>
 			<tr className={theme['tc-table-head-row']}>

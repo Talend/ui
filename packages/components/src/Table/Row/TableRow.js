@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import get from 'lodash/get';
 import TableCell from '../Cell/TableCell';
 import theme from './TableRow.scss';
 
@@ -10,42 +11,18 @@ export function getRowId(rowDataGetter, element, index) {
 	} else if (element.id && typeof element.id === 'string') {
 		return element.id;
 	}
-	return index.toString();
+	return index;
 }
 
 function getRowClassName(classnames, index) {
-	if (
-		classnames &&
-		classnames.rows &&
-		Array.isArray(classnames.rows) &&
-		classnames.rows.length >= index
-	) {
-		return classnames.rows[index];
-	}
-	return null;
-}
-
-function getRowDataClassName(column) {
-	if (column.cellClassName) {
-		return column.cellClassName;
-	}
-	return `tc-table-row-data-${column.key}`;
-}
-
-function getCellComponent(column) {
-	if (column.cellRenderer) {
-		return column.cellRenderer;
-	}
-	return TableCell;
+	return get(classnames, `rows[${index}]`);
 }
 
 function getRowData(rowDataGetter, element, columnKey) {
 	if (rowDataGetter && rowDataGetter.getRowData) {
 		return rowDataGetter.getRowData(element, columnKey);
-	} else if (element && element[columnKey]) {
-		return element[columnKey];
 	}
-	return null;
+	return element[columnKey];
 }
 
 /**
@@ -53,13 +30,13 @@ function getRowData(rowDataGetter, element, columnKey) {
  */
 function renderRowData(element, index, column, rowDataGetter) {
 	const key = column.key;
-	const CellComponent = getCellComponent(column);
+	const CellComponent = column.cellRenderer || TableCell;
 	const compKey = `${getRowId(rowDataGetter, element, index)}-${key}`;
 	const classnames = classNames(`td-${key}`, theme['tc-table-row-cell']);
 	const dataClassnames = classNames(
 		'tc-table-row-data',
 		theme['tc-table-row-data'],
-		getRowDataClassName(column),
+		column.cellClassName || `tc-table-row-data-${column.key}`,
 	);
 	return (
 		<td key={`td-${compKey}`} className={classnames}>
