@@ -833,15 +833,15 @@ exports[`Storyshots HeaderBar default 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -857,7 +857,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -1512,15 +1512,15 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -1536,7 +1536,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -2212,15 +2212,15 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -2236,7 +2236,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -2843,15 +2843,15 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -2867,7 +2867,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -3474,15 +3474,15 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -3498,7 +3498,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -4131,15 +4131,15 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -4155,7 +4155,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -4790,15 +4790,15 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -4814,7 +4814,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -5441,15 +5441,15 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -5465,7 +5465,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -6425,15 +6425,15 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -6449,7 +6449,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -7084,15 +7084,15 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -7108,7 +7108,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -7606,15 +7606,15 @@ exports[`Storyshots HeaderBar without products 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -7630,7 +7630,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -8237,15 +8237,15 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
-        <a
+        <button
           aria-label="Help"
           className="btn btn-link"
-          href="https://help.talend.com"
+          disabled={false}
           id="header-help"
           onClick={[Function]}
-          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
+          type="button"
         >
           <svg
             aria-hidden="true"
@@ -8261,7 +8261,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
           <span>
             Help
           </span>
-        </a>
+        </button>
       </li>
       <li
         className="theme-tc-header-bar-action tc-header-bar-action theme-separated"
@@ -8900,15 +8900,15 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -8924,7 +8924,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -9543,15 +9543,15 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -9567,7 +9567,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -10186,15 +10186,15 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -10210,7 +10210,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -10829,15 +10829,15 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -10853,7 +10853,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -11472,15 +11472,15 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -11496,7 +11496,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -12115,15 +12115,15 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -12139,7 +12139,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
@@ -12758,15 +12758,15 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
-              <a
+              <button
                 aria-label="Help"
                 className="btn btn-link"
-                href="https://help.talend.com"
+                disabled={false}
                 id="header-help"
                 onClick={[Function]}
-                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 role={null}
+                type="button"
               >
                 <svg
                   aria-hidden="true"
@@ -12782,7 +12782,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                 <span>
                   Help
                 </span>
-              </a>
+              </button>
             </li>
             <li
               className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
