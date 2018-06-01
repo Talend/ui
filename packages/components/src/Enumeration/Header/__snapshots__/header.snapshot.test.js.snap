@@ -127,7 +127,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         role="menu"
       >
         <li
-          className=""
+          className="theme-tc-dropdown-item tc-dropdown-item"
           role="presentation"
           style={undefined}
         >
@@ -139,12 +139,13 @@ exports[`Header should render header with one dropdown and two items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
+            title="Add values from a file"
           >
             Add values from a file
           </a>
         </li>
         <li
-          className=""
+          className="theme-tc-dropdown-item tc-dropdown-item"
           role="presentation"
           style={undefined}
         >
@@ -156,6 +157,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
             onKeyDown={[Function]}
             role="menuitem"
             tabIndex="-1"
+            title="Overwrite existing values"
           >
             Overwrite existing values
           </a>

@@ -1,11 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
+import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
 
 import { List } from '../src';
 import i18n from './config/i18n';
+
+/**
+ * Cell renderer that displays hello + text
+ */
+function CellWithHello({ cellData }) {
+	return <div>hello {cellData} !</div>;
+}
+
+CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
+CellWithHello.propTypes = {
+	cellData: PropTypes.string,
+};
+
+api.component.register('helloComp', CellWithHello);
 
 const list = {
 	columns: [
@@ -22,11 +38,16 @@ const list = {
 
 const listWithTimestamp = {
 	columns: [
-		{ key: 'id', label: 'Id' },
+		{ key: 'id', label: 'Id', type: 'hello' },
 		{ key: 'label', label: 'Name' },
 		{ key: 'author', label: 'Author' },
-		{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
-		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } }
+		{
+			key: 'created',
+			label: 'Created',
+			type: 'datetime',
+			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+		},
+		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
 	],
 	titleProps: {
 		key: 'label',
@@ -257,6 +278,21 @@ const ExampleList = {
 			</div>
 		);
 	},
+	'multi selection': () => {
+		const multiSelectionProps = cloneDeep(props);
+		multiSelectionProps.multiSelectActions = {
+			left: ['object:remove'],
+		};
+		multiSelectionProps.idKey = 'id';
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...multiSelectionProps} items={items} />
+				</div>
+			</div>
+		);
+	},
 	'no toolbar': () => (
 		<div>
 			<IconsProvider />
@@ -290,9 +326,32 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List {...propsTimestampSorted} items={itemsWithTimestamp} initialState={defaultSortedListState}/>
+				<List
+					{...propsTimestampSorted}
+					items={itemsWithTimestamp}
+					initialState={defaultSortedListState}
+				/>
 			</div>
 		</div>
-	)
+	),
+	'custom renderer': () => {
+		const cellDictionary = {
+			hello: { component: 'helloComp' },
+		};
+
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List
+						virtualized
+						{...propsTimestampSorted}
+						items={itemsWithTimestamp}
+						cellDictionary={cellDictionary}
+					/>
+				</div>
+			</div>
+		);
+	},
 };
 export default ExampleList;

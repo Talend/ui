@@ -22,9 +22,11 @@ export default class UIForm extends React.Component {
 	 * @param nextProps
 	 */
 	componentWillReceiveProps(nextProps) {
-		this.setState({
-			...nextProps.data,
-		});
+		if (nextProps.data !== this.props.data) {
+			this.setState({
+				...nextProps.data,
+			});
+		}
 	}
 
 	/**
@@ -41,11 +43,7 @@ export default class UIForm extends React.Component {
 			properties: payload.properties,
 		});
 
-		if (!this.props.onChange) {
-			return;
-		} else if (this.props.moz) {
-			this.props.onChange(payload);
-		} else {
+		if (this.props.onChange) {
 			this.props.onChange(event, payload);
 		}
 	}

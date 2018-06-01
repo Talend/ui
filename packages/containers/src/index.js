@@ -6,7 +6,6 @@ import {
 	IconsProvider,
 	Layout,
 	TooltipTrigger,
-	Typeahead,
 } from '@talend/react-components';
 
 import actionAPI from './actionAPI';
@@ -18,6 +17,7 @@ import ActionFile from './ActionFile';
 import ActionIconToggle from './ActionIconToggle';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
+import AppLoader from './AppLoader';
 import Badge from './Badge';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
@@ -32,6 +32,7 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import Typeahead from './Typeahead';
 import TabBar from './TabBar';
 
 export {
@@ -44,6 +45,7 @@ export {
 	ActionIconToggle,
 	Actions,
 	ActionSplitDropdown,
+	AppLoader,
 	Badge,
 	Breadcrumbs,
 	CircularProgress,

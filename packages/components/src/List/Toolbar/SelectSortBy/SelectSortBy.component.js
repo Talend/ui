@@ -3,16 +3,12 @@ import React from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
-import { getDefaultTranslate } from '../../../translate';
+import getDefaultT from '../../../translate';
 import theme from './SelectSortBy.scss';
 
 function SortByItem({ option, index, id }) {
 	return (
-		<MenuItem
-			id={id && `${id}-by-item-${option.id}`}
-			key={index}
-			eventKey={option}
-		>
+		<MenuItem id={id && `${id}-by-item-${option.id}`} key={index} eventKey={option}>
 			{option.name || option.id}
 		</MenuItem>
 	);
@@ -41,31 +37,29 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 	const getMenuItem = SortByItem;
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
-			{options.length === 1 ?
-				(<li className="navbar-text">{ options[0].name }</li>) :
-				(<NavDropdown
+			{options.length === 1 ? (
+				<li className="navbar-text">{options[0].name}</li>
+			) : (
+				<NavDropdown
 					id={id ? `${id}-by` : uuid.v4()}
-					title={selected ? (selected.name || selected.id) : 'N.C'}
+					title={selected ? selected.name || selected.id : 'N.C'}
 					onSelect={onChangeField}
 					className={theme['sort-by-items']}
 				>
-					{options.map((option, index) => getMenuItem({
-						option,
-						index,
-						id,
-					}))}
-				</NavDropdown>)
-			}
+					{options.map((option, index) =>
+						getMenuItem({
+							option,
+							index,
+							id,
+						}),
+					)}
+				</NavDropdown>
+			)}
 			{selected && (
-				<NavItem
-					id={id && `${id}-order`}
-					onClick={onChangeOrder}
-				>
-					{
-						order ?
-							t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' }) :
-							t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' })
-					}
+				<NavItem id={id && `${id}-order`} onClick={onChangeOrder}>
+					{order
+						? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
+						: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' })}
 				</NavItem>
 			)}
 		</Nav>
@@ -87,7 +81,7 @@ SelectSortBy.propTypes = {
 };
 
 SelectSortBy.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 export default SelectSortBy;
