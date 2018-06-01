@@ -139,7 +139,7 @@ function CollapsiblePanelHeader(props) {
 		),
 	];
 
-	if (content) {
+	if (content || props.children) {
 		const caretText = expanded
 			? t('COLLAPSIBLE_PANEL_COLLAPSE', { defaultValue: 'Collapse panel' })
 			: t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
@@ -228,8 +228,9 @@ function CollapsiblePanel(props) {
 	return (
 		<div className={className}>
 			<CollapsiblePanelHeader {...props} />
-			<Panel collapsible={!!content} expanded={expanded}>
+			<Panel collapsible={!!content || !!props.children} expanded={expanded}>
 				{children}
+				{props.children}
 			</Panel>
 		</div>
 	);
