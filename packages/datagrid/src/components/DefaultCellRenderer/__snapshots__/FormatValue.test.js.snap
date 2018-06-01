@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormatValue should replace the leading/trainling white space and the line feeding 1`] = `
+<span>
+  <Icon
+    className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
+    name="talend-empty-space"
+  />
+  <Icon
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+  <Icon
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+  <span>
+    loreum lo
+  </span>
+  <span>
+    <Icon
+      className="theme-td-white-space-character td-white-space-character"
+      name="talend-carriage-return"
+    />
+    
+    
+  </span>
+  <Icon
+    className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
+    name="talend-empty-space"
+  />
+  <Icon
+    className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
+    name="talend-empty-cell"
+  />
+  <Icon
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+  <Icon
+    className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
+    name="talend-empty-cell"
+  />
+  <Icon
+    className="theme-td-white-space-character td-white-space-character"
+    name="talend-empty-space"
+  />
+</span>
+`;

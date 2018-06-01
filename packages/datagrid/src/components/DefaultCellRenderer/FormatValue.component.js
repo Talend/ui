@@ -11,6 +11,12 @@ const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_LINE_FEEDING = /(\n)/g;
 const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/g;
 
+/**
+ * replaceCharacterByIcon - description
+ *
+ * @param  {string} value string to transform
+ * @return {Component}    component with the replaced special characters by icon
+ */
 function replaceCharacterByIcon(value) {
 	switch (value) {
 		case '\t':
@@ -58,14 +64,34 @@ function replaceCharacterByIcon(value) {
 	}
 }
 
+/**
+ * isEmptyCharacter - filter function to remove unused character
+ *
+ * @param  {string} value string to filter
+ * @return {string}       string (truthly if no empty)
+ */
 function isEmptyCharacter(value) {
 	return value;
 }
 
+/**
+ * addKeyAttribute - add key attribute in the array for avoid react warning
+ *
+ * @param  {Component} component component to modify
+ * @param  {int} index     current index
+ * @return {type}           shallow component with key attribute
+ */
 function addKeyAttribute(component, index) {
 	return { ...component, key: index };
 }
 
+/**
+ * replaceWhiteCharacters - description
+ *
+ * @param  {string} content string part to replace by corresponding HTML
+ * @param  {RegExp} regexp  string to replace
+ * @return {array}          replaced content
+ */
 function replaceWhiteCharacters(content, regexp) {
 	const splitting = content.split(regexp);
 	return splitting.filter(isEmptyCharacter).map(replaceCharacterByIcon);
@@ -101,3 +127,7 @@ export default function FormatValue(props) {
 
 	return <span>{content.map(addKeyAttribute)}</span>;
 }
+
+FormatValue.propTypes = {
+	value: PropTypes.string,
+};

@@ -44,9 +44,7 @@ export function sanitizeAvro(avro) {
 
 	return {
 		...avro,
-		type: avro.type
-			.filter(subType => subType !== 'null')
-			.reduce((state, type) => ({ ...state, ...type }), {}),
+		type: avro.type.find(subType => subType !== 'null'),
 	};
 }
 
