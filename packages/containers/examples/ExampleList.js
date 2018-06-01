@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
