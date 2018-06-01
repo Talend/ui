@@ -39,7 +39,7 @@ class TooltipTrigger extends React.Component {
 			this.state.hovered !== nextState.hovered ||
 			this.props.children !== nextProps.children ||
 			this.props.label !== nextProps.label ||
-			this.props.renderContentTooltip !== nextProps.renderContentTooltip
+			this.props.contentRenderer !== nextProps.contentRenderer
 		);
 	}
 
@@ -96,6 +96,7 @@ class TooltipTrigger extends React.Component {
 }
 
 TooltipTrigger.propTypes = {
+	contentRenderer: PropTypes.func,
 	children: PropTypes.element,
 	label: PropTypes.string,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
