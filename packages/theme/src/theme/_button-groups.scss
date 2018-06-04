@@ -42,7 +42,7 @@
 	}
 
 	> .dropdown-menu {
-		display: block;
+		display: none;
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-15px);
@@ -52,6 +52,7 @@
 
 	&.open {
 		> .dropdown-menu {
+			display: block;
 			visibility: visible;
 			opacity: 1;
 			max-height: 320px;
