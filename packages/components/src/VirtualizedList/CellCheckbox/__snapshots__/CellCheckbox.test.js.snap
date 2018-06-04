@@ -16,7 +16,9 @@ exports[`CellActions should render checked checkbox 1`] = `
         onChange={[Function]}
         type="checkbox"
       />
-      <span>
+      <span
+        className="tc-cell-checkbox"
+      >
         <span
           className="sr-only"
         >
@@ -44,7 +46,9 @@ exports[`CellActions should render unchecked checkbox 1`] = `
         onChange={[Function]}
         type="checkbox"
       />
-      <span>
+      <span
+        className="tc-cell-checkbox"
+      >
         <span
           className="sr-only"
         >
