@@ -118,7 +118,7 @@ const props = {
 	help: {
 		id: 'header-help',
 		icon: 'talend-question-circle',
-		href: 'https://help.talend.com',
+		onClick: action('onHelpClick'),
 	},
 	user: {
 		id: 'header-user',

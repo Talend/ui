@@ -133,7 +133,7 @@ $icon-size: $svg-md-size;
 	animation: tc-notification-slide-in $tc-notification-animation-duration linear;
 }
 
-:global(.tc-notification-leave) {
+:global(.tc-notification-exit) {
 	animation: tc-notification-slide-out $tc-notification-animation-duration linear;
 }
 
