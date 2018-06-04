@@ -176,7 +176,7 @@ const props = {
 					{
 						id: 'add',
 						label: 'Add Folder',
-						bsStyle: 'primary',
+						bsStyle: 'info',
 						icon: 'talend-plus-circle',
 						onClick: action('add.onClick'),
 					},

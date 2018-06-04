@@ -64,7 +64,11 @@ describe('MultiSelectTagWidget', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('focus');
+			.simulate('click');
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: '' } });
 
 		// then
 		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();

@@ -200,6 +200,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                 >
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -219,7 +220,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                     title="document 1"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
@@ -264,6 +265,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   </MenuItem>
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -281,7 +283,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                     title="document 2"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
@@ -340,6 +342,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
 >
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -362,6 +365,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -405,6 +409,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
 >
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -428,6 +433,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -471,6 +477,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
   >
     <MenuItem
       bsClass="dropdown"
+      className="theme-tc-dropdown-item tc-dropdown-item"
       disabled={false}
       divider={false}
       eventKey={
@@ -493,6 +500,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
     </MenuItem>
     <MenuItem
       bsClass="dropdown"
+      className="theme-tc-dropdown-item tc-dropdown-item"
       disabled={false}
       divider={false}
       eventKey={
@@ -534,6 +542,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
     >
       <MenuItem
         bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item"
         disabled={false}
         divider={false}
         eventKey={
@@ -555,7 +564,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
         title="document 1"
       >
         <li
-          className=""
+          className="theme-tc-dropdown-item tc-dropdown-item"
           role="presentation"
         >
           <SafeAnchor
@@ -601,6 +610,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
       </MenuItem>
       <MenuItem
         bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item"
         disabled={false}
         divider={false}
         eventKey={
@@ -620,7 +630,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
         title="document 2"
       >
         <li
-          className=""
+          className="theme-tc-dropdown-item tc-dropdown-item"
           role="presentation"
         >
           <SafeAnchor
@@ -794,6 +804,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                 >
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -813,7 +824,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                     title="document 1"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
@@ -858,6 +869,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   </MenuItem>
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -875,7 +887,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                     title="document 2"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
