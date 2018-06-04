@@ -19,7 +19,7 @@ import ActionSplitDropdown from './ActionSplitDropdown';
 import AppLoader from './AppLoader';
 import Badge from './Badge';
 import ConfirmDialog from './ConfirmDialog';
-import Drawer from './Drawer/Drawer.connect';
+import Drawer from './Drawer';
 import FilterBar from './FilterBar';
 import HomeListView from './HomeListView';
 import List from './List';

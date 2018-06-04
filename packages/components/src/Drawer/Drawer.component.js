@@ -11,6 +11,8 @@ import Inject from '../Inject';
 import theme from './Drawer.scss';
 
 const DEFAULT_TRANSITION_DURATION = 350;
+const ON_CANCEL_ACTION_POSITION_HEADER = 'header';
+const ON_CANCEL_ACTION_POSITION_FOOTER = 'footer';
 
 class DrawerAnimation extends React.Component {
 	constructor(props) {
@@ -82,7 +84,7 @@ DrawerContainer.propTypes = {
 };
 
 export function cancelActionComponent(onCancelAction, getComponent) {
-	if (!onCancelAction) {
+	if (!onCancelAction || onCancelAction.position !== ON_CANCEL_ACTION_POSITION_HEADER) {
 		return null;
 	}
 
@@ -160,14 +162,20 @@ DrawerFooter.propTypes = {
 };
 
 export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = []) {
-	if (!onCancelAction) {
-		return footerActions;
-	}
+	const onCancelItem =
+		onCancelAction.position === ON_CANCEL_ACTION_POSITION_FOOTER || !onCancelAction.position
+			? onCancelAction
+			: null;
 	const enhancedFooterActions = Object.assign({}, footerActions);
 	enhancedFooterActions.actions = {
 		...enhancedFooterActions.actions,
-		left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction, ...activeTabItem],
+		left: [...get(enhancedFooterActions, 'actions.left', []), ...activeTabItem],
 	};
+
+	if (onCancelItem) {
+		enhancedFooterActions.actions.left.push(onCancelItem);
+	}
+
 	return enhancedFooterActions;
 }
 
