@@ -120,3 +120,9 @@ export function decorateRowDoubleClick(onRowDoubleClick) {
 		onRowDoubleClick(event, rowData);
 	};
 }
+
+export function decorateRowClick(onRowClick) {
+	return function onRowClickCallback({ event, rowData }) {
+		return onRowClick(event, rowData);
+	}
+}

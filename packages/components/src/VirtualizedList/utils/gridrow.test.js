@@ -2,6 +2,7 @@ import React from 'react';
 import CellTitle from '../CellTitle';
 import VirtualizedList from '../VirtualizedList.component';
 import {
+	decorateRowClick,
 	decorateRowDoubleClick,
 	getCellRenderer,
 	getId,
@@ -262,6 +263,22 @@ describe('gridrow', () => {
 
 			decoratedRowDoubleClick({ event: nonActionEvent });
 			expect(onRowDoubleClick).toBeCalled();
+		});
+	});
+
+	describe('#decorateRowClick', () => {
+		it('should adapt arguments to row click callback', () => {
+			// given
+			const onRowClick = jest.fn();
+			const event = { target: { } };
+			const rowData = { value: 'toto' };
+			const decoratedRowClick = decorateRowClick(onRowClick);
+
+			// when
+			decoratedRowClick({ event, rowData });
+
+			// then
+			expect(onRowClick).toBeCalledWith(event, rowData);
 		});
 	});
 });

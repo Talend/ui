@@ -78,27 +78,4 @@ describe('ListGrid', () => {
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
-
-	it('should render noRows', () => {
-		// when
-		const wrapper = mount(
-			<ListGrid
-				collection={[]}
-				height={600}
-				id={'my-list'}
-				isSelected={jest.fn()}
-				rowHeight={130}
-				rowRenderer={RowLarge}
-				selectionToggle={jest.fn()}
-				width={1024}
-				noRowsRenderer={() => <div>No rows</div>}
-			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-			</ListGrid>,
-		);
-
-		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
-	});
 });
