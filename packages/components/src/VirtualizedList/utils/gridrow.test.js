@@ -237,7 +237,9 @@ describe('gridrow', () => {
 			const textareaEvent = { target: { tagName: 'TEXTAREA' } };
 			const buttonEvent = { target: { tagName: 'BUTTON' } };
 			const selectEvent = { target: { tagName: 'SELECT' } };
-			const innerActionEvent = { target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } } };
+			const innerActionEvent = {
+				target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } },
+			};
 			const nonActionEvent = { target: { tagName: 'SPAN', parentElement: { tagName: 'SPAN' } } };
 
 			const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
@@ -270,7 +272,7 @@ describe('gridrow', () => {
 		it('should adapt arguments to row click callback', () => {
 			// given
 			const onRowClick = jest.fn();
-			const event = { target: { } };
+			const event = { target: {} };
 			const rowData = { value: 'toto' };
 			const decoratedRowClick = decorateRowClick(onRowClick);
 

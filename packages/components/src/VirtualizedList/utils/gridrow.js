@@ -132,5 +132,5 @@ export function decorateRowDoubleClick(onRowDoubleClick) {
 export function decorateRowClick(onRowClick) {
 	return function onRowClickCallback({ event, rowData }) {
 		return onRowClick(event, rowData);
-	}
+	};
 }
