@@ -112,20 +112,36 @@ describe('Dropup', () => {
 	it('should switch to dropup when it is near the bottom of a tc-dropdown-container', () => {
 		// given
 		const dropdownContainer = {
-			classList: { contains() { return true; } },
-			getBoundingClientRect() { return { bottom: 35 }; }
+			classList: {
+				contains() {
+					return true;
+				},
+			},
+			getBoundingClientRect() {
+				return { bottom: 35 };
+			},
 		};
-		const dropdownMenu = { // dropdown that is not under the bottom of container
-			getBoundingClientRect() { return { bottom: 25 }; }
+		const dropdownMenu = {
+			// dropdown that is not under the bottom of container
+			getBoundingClientRect() {
+				return { bottom: 25 };
+			},
 		};
-		const overflowDropdownMenu = { // dropdown that is under the bottom of container
-			getBoundingClientRect() { return { bottom: 40 }; }
+		const overflowDropdownMenu = {
+			// dropdown that is under the bottom of container
+			getBoundingClientRect() {
+				return { bottom: 40 };
+			},
 		};
 		const event = {
 			target: {
 				nextSibling: dropdownMenu,
 				parentElement: {
-					classList: { contains() { return false; } },
+					classList: {
+						contains() {
+							return false;
+						},
+					},
 					parentElement: dropdownContainer,
 				},
 			},
@@ -134,17 +150,17 @@ describe('Dropup', () => {
 			target: {
 				nextSibling: overflowDropdownMenu,
 				parentElement: {
-					classList: { contains() { return false; } },
+					classList: {
+						contains() {
+							return false;
+						},
+					},
 					parentElement: dropdownContainer,
 				},
 			},
 		};
 
-		const wrapper = shallow(
-			<ActionDropdown
-				items={[{ label: 'item 1' }, { label: 'item 2' }]}
-			/>
-		);
+		const wrapper = shallow(<ActionDropdown items={[{ label: 'item 1' }, { label: 'item 2' }]} />);
 		expect(wrapper.state().dropup).toBe(false);
 
 		// when / then

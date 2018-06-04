@@ -124,10 +124,7 @@ class ActionDropdown extends React.Component {
 		const dropdownTrigger = event.target;
 		const dropdownMenu = event.target.nextSibling;
 		let dropdownContainer = dropdownTrigger.parentElement;
-		while (
-			dropdownContainer &&
-			!dropdownContainer.classList.contains('tc-dropdown-container')
-		) {
+		while (dropdownContainer && !dropdownContainer.classList.contains('tc-dropdown-container')) {
 			dropdownContainer = dropdownContainer.parentElement;
 		}
 
