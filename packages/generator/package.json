@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.2",
+    "babel-eslint": "8.0.3",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.14.0",
     "coveralls": "^2.11.12",
