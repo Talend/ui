@@ -8,8 +8,8 @@ describe('expressions', () => {
 		expect(expressions['cmf.router.location']).toBeDefined();
 		expect(expressions['cmf.collections.get']).toBeDefined();
 		expect(expressions['cmf.components.get']).toBeDefined();
-		expect(expressions['cmf.collections.getIn.includes']).toBeDefined();
-		expect(expressions['cmf.components.getIn.includes']).toBeDefined();
+		expect(expressions['cmf.collections.includes']).toBeDefined();
+		expect(expressions['cmf.components.includes']).toBeDefined();
 	});
 	describe('cmf.collections.get', () => {
 		it('should get collection content', () => {
@@ -36,7 +36,7 @@ describe('expressions', () => {
 		});
 	});
 
-	describe('cmf.collections.getIn.includes', () => {
+	describe('cmf.collections.includes', () => {
 		it('should return true if the value is present in the list', () => {
 			const context = mock.context();
 			const state = mock.state();
@@ -47,9 +47,9 @@ describe('expressions', () => {
 				}),
 			});
 			context.store.getState = () => state;
-			expect(
-				expressions['cmf.collections.getIn.includes']({ context }, 'article.tags', 'test2'),
-			).toBe(true);
+			expect(expressions['cmf.collections.includes']({ context }, 'article.tags', 'test2')).toBe(
+				true,
+			);
 		});
 		it('should return false if the value is not present in the list', () => {
 			const context = mock.context();
@@ -61,18 +61,18 @@ describe('expressions', () => {
 				}),
 			});
 			context.store.getState = () => state;
-			expect(
-				expressions['cmf.collections.getIn.includes']({ context }, 'article.tags', 'test4'),
-			).toBe(false);
+			expect(expressions['cmf.collections.includes']({ context }, 'article.tags', 'test4')).toBe(
+				false,
+			);
 		});
 		it("should return false if collection doesn't exists", () => {
 			const context = mock.context();
 			const state = mock.state();
 			context.store.getState = () => state;
 			state.cmf.collections = new Immutable.Map({});
-			expect(
-				expressions['cmf.collections.getIn.includes']({ context }, 'article.tags', 'test'),
-			).toBe(false);
+			expect(expressions['cmf.collections.includes']({ context }, 'article.tags', 'test')).toBe(
+				false,
+			);
 		});
 	});
 
@@ -103,7 +103,7 @@ describe('expressions', () => {
 		});
 	});
 
-	describe('cmf.components.getIn.includes', () => {
+	describe('cmf.components.includes', () => {
 		it('should return true if the value is present in the list', () => {
 			const context = mock.context();
 			const state = mock.state();
@@ -117,11 +117,7 @@ describe('expressions', () => {
 			});
 			context.store.getState = () => state;
 			expect(
-				expressions['cmf.components.getIn.includes'](
-					{ context },
-					'MyComponent.default.tags',
-					'tag1',
-				),
+				expressions['cmf.components.includes']({ context }, 'MyComponent.default.tags', 'tag1'),
 			).toBe(true);
 		});
 		it('should return default false if there is no component state', () => {
@@ -130,11 +126,7 @@ describe('expressions', () => {
 			state.cmf.components = new Immutable.Map({});
 			context.store.getState = () => state;
 			expect(
-				expressions['cmf.components.getIn.includes'](
-					{ context },
-					'MyComponent.default.tags',
-					'tag1',
-				),
+				expressions['cmf.components.includes']({ context }, 'MyComponent.default.tags', 'tag1'),
 			).toBe(false);
 		});
 	});
