@@ -76,13 +76,13 @@ export cmfConnect({mapStateToProps})(MyComponent)
 	}
 ```
 
-### getIn.includes
+### includes
 
 ```json
 	"props": {
 		"MyArticle#default": {
 			"renderIfExpression": {
-				"id": "cmf.collections.getIn.includes",
+				"id": "cmf.collections.includes",
 				"args": ["identity.entitlements", "ARTICLE_READ"]
 			},
 		}
@@ -106,13 +106,13 @@ let say you want to know the state of component
 	}
 ```
 
-### getIn.includes
+### includes
 
 ```json
 	"props": {
 		"AnOtherComponent#default": {
 			"enabledExpression": {
-				"id": "cmf.components.getIn.includes",
+				"id": "cmf.components.includes",
 				"args": ["MyArticle.default.myList","myAttriubte", false]
 			}
 		}
