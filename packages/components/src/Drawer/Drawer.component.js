@@ -159,14 +159,14 @@ DrawerFooter.propTypes = {
 	children: PropTypes.node,
 };
 
-export function combinedFooterActions(onCancelAction, footerActions) {
+export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = []) {
 	if (!onCancelAction) {
 		return footerActions;
 	}
 	const enhancedFooterActions = Object.assign({}, footerActions);
 	enhancedFooterActions.actions = {
 		...enhancedFooterActions.actions,
-		left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction],
+		left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction, ...activeTabItem],
 	};
 	return enhancedFooterActions;
 }
@@ -182,12 +182,23 @@ function Drawer({
 	tabs,
 	withTransition,
 	getComponent,
+	selectedTabKey,
 }) {
 	if (!children) {
 		return null;
 	}
 
 	const TabBarComponent = Inject.get(getComponent, 'TabBar', TabBar);
+
+	let activeTab = {};
+	let activeTabItem = {};
+	if (tabs && tabs.items.length > 0) {
+		if (selectedTabKey) {
+			activeTab = tabs.items.find(tab => tab.key === selectedTabKey);
+		}
+		activeTabItem = get(activeTab, 'footerActions.actions.left', []);
+	}
+
 	return (
 		<DrawerContainer
 			stacked={stacked}
@@ -200,6 +211,7 @@ function Drawer({
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBarComponent
 						{...tabs}
+						selectedKey={selectedTabKey}
 						className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])}
 					/>
 				</div>
@@ -213,7 +225,7 @@ function Drawer({
 					)}
 				>
 					<ActionBar
-						{...combinedFooterActions(onCancelAction, footerActions)}
+						{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
 						className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
 					/>
 				</div>
@@ -236,6 +248,7 @@ Drawer.propTypes = {
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
 	getComponent: PropTypes.func,
+	selectedTabKey: PropTypes.string,
 };
 
 Drawer.defaultProps = {
