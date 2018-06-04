@@ -13,7 +13,6 @@ cmf.registerInternals();
 Then you can use all internal expressions.
 For all the following example we take this component as example:
 
-
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -60,6 +59,8 @@ export cmfConnect({mapStateToProps})(MyComponent)
 
 ## cmf.collections
 
+### get
+
 ```json
 	"props": {
 		"MyArticle#default": {
@@ -75,16 +76,44 @@ export cmfConnect({mapStateToProps})(MyComponent)
 	}
 ```
 
+### getIn.includes
+
+```json
+	"props": {
+		"MyArticle#default": {
+			"renderIfExpression": {
+				"id": "cmf.collections.getIn.includes",
+				"args": ["identity.entitlements", "ARTICLE_READ"]
+			},
+		}
+	}
+```
+
 ## cmf.components
 
 let say you want to know the state of component
 
+### get
+
 ```json
 	"props": {
 		"AnOtherComponent#default": {
-			"active": {
+			"activeExpression": {
 				"id": "cmf.components.get",
 				"args": ["MyArticle.default.like", false]
+			}
+		}
+	}
+```
+
+### getIn.includes
+
+```json
+	"props": {
+		"AnOtherComponent#default": {
+			"enabledExpression": {
+				"id": "cmf.components.getIn.includes",
+				"args": ["MyArticle.default.myList","myAttriubte", false]
 			}
 		}
 	}
