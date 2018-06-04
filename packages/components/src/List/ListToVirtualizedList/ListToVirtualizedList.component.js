@@ -90,7 +90,7 @@ ListToVirtualizedList.propTypes = {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
-	cellDictionary: PropTypes.obj,
+	cellDictionary: PropTypes.object,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { MultiSelectTagWidgetComponent } from './MultiSelectTagWidget';
+import { MultiSelectTagWidgetComponent, transformOptions } from './MultiSelectTagWidget';
 
 describe('MultiSelectTagWidget', () => {
 	it('should render multiSelectTagWidget', () => {
@@ -64,7 +64,11 @@ describe('MultiSelectTagWidget', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('focus');
+			.simulate('click');
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: '' } });
 
 		// then
 		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
@@ -146,5 +150,9 @@ describe('MultiSelectTagWidget', () => {
 
 		// then
 		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
+	});
+
+	it('should return a default value', () => {
+		expect(transformOptions({})).toEqual([]);
 	});
 });
