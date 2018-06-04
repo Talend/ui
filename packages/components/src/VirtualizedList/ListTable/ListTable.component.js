@@ -7,11 +7,10 @@ import {
 } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
+import { decorateRowDoubleClick } from '../utils/gridrow';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
-
-const actionsTagNames = ['input', 'textarea', 'select', 'button'];
 
 /**
  * List renderer that renders a react-virtualized Table
@@ -50,16 +49,7 @@ function ListTable(props) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
 	}
 	if (onRowDoubleClick) {
-		onRowDoubleClickCallback = ({ event, rowData }) => {
-			if (
-				event.target.className === 'tc-cell-checkbox' ||
-				actionsTagNames.includes(event.target.tagName) ||
-				actionsTagNames.includes(event.target.parentElement.tagName)
-			) {
-				return;
-			}
-			onRowDoubleClick(event, rowData);
-		};
+		onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
 	}
 
 	return (

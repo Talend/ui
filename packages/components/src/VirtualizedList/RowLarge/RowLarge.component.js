@@ -37,10 +37,10 @@ function RowLarge({ className, index, key, parent, style }) {
 	let onRowClick;
 	let onRowDoubleClick;
 	if (parent.props.onRowClick) {
-		onRowClick = event => parent.props.onRowClick(event, rowData);
+		onRowClick = event => parent.props.onRowClick({ event, rowData });
 	}
 	if (parent.props.onRowDoubleClick) {
-		onRowDoubleClick = event => parent.props.onRowDoubleClick(event, rowData);
+		onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
 	}
 
 	return (

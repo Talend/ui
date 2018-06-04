@@ -106,3 +106,17 @@ export function renderCell(index, parent, field, type) {
 		type,
 	});
 }
+
+const actionsTagNames = ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'];
+export function decorateRowDoubleClick(onRowDoubleClick) {
+	return function onRowDoubleClickCallback({ event, rowData }) {
+		if (
+			event.target.className === 'tc-cell-checkbox' ||
+			actionsTagNames.includes(event.target.tagName) ||
+			actionsTagNames.includes(event.target.parentElement.tagName)
+		) {
+			return;
+		}
+		onRowDoubleClick(event, rowData);
+	};
+}

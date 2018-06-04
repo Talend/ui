@@ -2,6 +2,7 @@ import React from 'react';
 import CellTitle from '../CellTitle';
 import VirtualizedList from '../VirtualizedList.component';
 import {
+	decorateRowDoubleClick,
 	getCellRenderer,
 	getId,
 	getColumnData,
@@ -223,6 +224,44 @@ describe('gridrow', () => {
 
 			// then
 			expect(result).toMatchSnapshot();
+		});
+	});
+
+	describe('#decorateRowDoubleClick', () => {
+		it('should not trigger double click callbacks on action double click', () => {
+			// given
+			const onRowDoubleClick = jest.fn();
+			const checkboxEvent = { target: { tagName: 'SPAN', className: 'tc-cell-checkbox' } };
+			const inputEvent = { target: { tagName: 'INPUT' } };
+			const textareaEvent = { target: { tagName: 'TEXTAREA' } };
+			const buttonEvent = { target: { tagName: 'BUTTON' } };
+			const selectEvent = { target: { tagName: 'SELECT' } };
+			const innerActionEvent = { target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } } };
+			const nonActionEvent = { target: { tagName: 'SPAN', parentElement: { tagName: 'SPAN' } } };
+
+			const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
+
+			// when / then
+			decoratedRowDoubleClick({ event: checkboxEvent });
+			expect(onRowDoubleClick).not.toBeCalled();
+
+			decoratedRowDoubleClick({ event: inputEvent });
+			expect(onRowDoubleClick).not.toBeCalled();
+
+			decoratedRowDoubleClick({ event: textareaEvent });
+			expect(onRowDoubleClick).not.toBeCalled();
+
+			decoratedRowDoubleClick({ event: buttonEvent });
+			expect(onRowDoubleClick).not.toBeCalled();
+
+			decoratedRowDoubleClick({ event: selectEvent });
+			expect(onRowDoubleClick).not.toBeCalled();
+
+			decoratedRowDoubleClick({ event: innerActionEvent });
+			expect(onRowDoubleClick).not.toBeCalled();
+
+			decoratedRowDoubleClick({ event: nonActionEvent });
+			expect(onRowDoubleClick).toBeCalled();
 		});
 	});
 });

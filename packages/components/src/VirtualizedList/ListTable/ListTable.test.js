@@ -101,48 +101,4 @@ describe('ListGrid', () => {
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
-
-	it('should not trigger double click callbacks on action double click', () => {
-		// given
-		const onRowDoubleClick = jest.fn();
-		const checkboxEvent = { target: { tagName: 'span', classname: 'tc-cell-checkbox' } }; // click on the span that hides the input
-		const inputEvent = { target: { tagName: 'input' } };
-		const textareaEvent = { target: { tagName: 'textarea' } };
-		const buttonEvent = { target: { tagName: 'button' } };
-		const selectEvent = { target: { tagName: 'select' } };
-		const innerActionEvent = { target: { tagName: 'span', parentElement: { tagName: 'button' } } };
-		const nonActionEvent = { target: { tagName: 'span', parentElement: { tagName: 'span' } } };
-
-		const wrapper = shallow(
-			<ListTable
-				collection={[]}
-				height={600}
-				id={'my-list'}
-				width={1024}
-				onRowDoubleClick={onRowDoubleClick}
-			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-			</ListTable>,
-		);
-
-		// when / then
-		wrapper.props().onRowDoubleClick({ event: inputEvent });
-		expect(onRowDoubleClick).not.toBeCalled();
-
-		wrapper.props().onRowDoubleClick({ event: textareaEvent });
-		expect(onRowDoubleClick).not.toBeCalled();
-
-		wrapper.props().onRowDoubleClick({ event: buttonEvent });
-		expect(onRowDoubleClick).not.toBeCalled();
-
-		wrapper.props().onRowDoubleClick({ event: selectEvent });
-		expect(onRowDoubleClick).not.toBeCalled();
-
-		wrapper.props().onRowDoubleClick({ event: innerActionEvent });
-		expect(onRowDoubleClick).not.toBeCalled();
-
-		wrapper.props().onRowDoubleClick({ event: nonActionEvent });
-		expect(onRowDoubleClick).toBeCalled();
-	});
 });
