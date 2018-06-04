@@ -48,7 +48,7 @@ public class BreadcrumbTest extends StorybookTest {
         // when
         breadcrumb.clickOnItem("Text A");
         breadcrumb.clickOnItem("Text B");
-        breadcrumb.clickOnItem("Text C");
+        breadcrumb.clickOnItem("text c in lower case");
 
         // then
         assertThat(getActionLog(), containsString("▶Text A clicked"));
@@ -64,6 +64,6 @@ public class BreadcrumbTest extends StorybookTest {
 
         // then
         assertThat(activeItem, not(nullValue()));
-        assertThat(activeItem.getText(), is("Text C"));
+        assertThat(activeItem.getText(), is("text c in lower case"));
     }
 }

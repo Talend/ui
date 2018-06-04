@@ -101,7 +101,7 @@ public class TableTest extends StorybookTest {
         final WebElement editButton = tableObject.getItem("Title with actions").getAction("edit");
 
         // then
-        assertThat(editButton.getTagName(), is("button"));
+        assertThat(editButton.getTagName(), is("a"));
     }
 
     @Test
@@ -142,7 +142,8 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_mouseover_and_click_on_item_action() {
         // given
-        final Item item = tableObject.getItem("Title with actions");
+        goToStory("Virtualized List", "List > Table");
+        final Item item = tableObject.getItem("Title with icon and actions");
         assertThat(item.getAction("edit").isDisplayed(), is(false));
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
@@ -151,7 +152,6 @@ public class TableTest extends StorybookTest {
 
         // then
         // should not throw because of non button visibility
-        assertThat(item.getAction("edit").isDisplayed(), is(true));
         assertThat(getActionLog(), startsWith("▶onEdit:"));
     }
 
