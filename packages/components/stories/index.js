@@ -15,7 +15,6 @@ import './ConfirmDialog';
 import './Checkbox';
 import './Datalist';
 import './Dialog';
-import './DataMapper';
 import './Drawer';
 import './Emphasis';
 import './Enumeration';

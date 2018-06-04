@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import FilterBar from '../../FilterBar';
+
+function getClassName(extra) {
+	if (extra && extra.className) {
+		return extra.className;
+	}
+	return '';
+}
 
 function getPlaceHolder(extra) {
 	if (extra && extra.placeHolder) {
@@ -56,7 +62,7 @@ export default class StringFilterComponent extends Component {
 		const { extra, className } = this.props;
 		return (
 			<FilterBar
-				className={classNames('tc-string-filter', className)}
+				className={`tc-string-filter ${className} ${getClassName(extra)}`}
 				placeholder={getPlaceHolder(extra)}
 				dockable={isDockable(extra)}
 				docked={this.state.docked}
@@ -72,9 +78,5 @@ StringFilterComponent.propTypes = {
 	filter: PropTypes.object,
 	onFilterChange: PropTypes.func,
 	className: PropTypes.string,
-	extra: PropTypes.shape({
-		placeHolder: PropTypes.string,
-		dockable: PropTypes.bool,
-		navbar: PropTypes.bool,
-	}),
+	extra: PropTypes.object,
 };

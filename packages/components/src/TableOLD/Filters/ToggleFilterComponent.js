@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Toggle from '../../Toggle';
+
+function getClassName(extra) {
+	if (extra && extra.className) {
+		return extra.className;
+	}
+	return '';
+}
 
 function getLabel(extra) {
 	if (extra && extra.label) {
@@ -30,7 +36,7 @@ export default class ToggleFilterComponent extends Component {
 		const { filter, extra, className } = this.props;
 		return (
 			<Toggle
-				className={classNames('tc-boolean-filter', className)}
+				className={`tc-boolean-filter ${className} ${getClassName(extra)}`}
 				onChange={this.onChange}
 				label={getLabel(extra)}
 				checked={filter.isActive()}
@@ -44,6 +50,7 @@ ToggleFilterComponent.propTypes = {
 	onFilterChange: PropTypes.func,
 	className: PropTypes.string,
 	extra: PropTypes.shape({
+		className: PropTypes.string,
 		label: PropTypes.string,
 	}),
 };

@@ -9,62 +9,67 @@ const elements = [TestData.element1, TestData.element2];
  * Render a table with default configuration.
  * Only elements and column keys are specified.
  */
-it('default-table', () => {
-	// create React tree
-	const tree = renderer
-		.create(<Table elements={elements} columnKeys={TestData.columnKeys} />)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
+describe('Render a table width default configuration', () => {
+	it('default-table', () => {
+		// create React tree
+		const tree = renderer
+			.create(<Table elements={elements} columns={TestData.columns1} />)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });
 
 /**
  * Render a table with custom configuration.
  */
-it('custom-table', () => {
-	// create React tree
-	const tree = renderer
-		.create(
-			<Table
-				elements={elements}
-				columnKeys={TestData.columnKeys}
-				classNameProvider={TestData.classNameProvider}
-				rowDataGetter={TestData.rowDataGetter}
-				rowRenderer={TestData.rowRenderer}
-			/>,
-		)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
+describe('Render a table width custom configuration', () => {
+	it('custom-table', () => {
+		// create React tree
+		const tree = renderer
+			.create(
+				<Table
+					elements={elements}
+					columns={TestData.columns2}
+					classnames={TestData.classnames}
+					rowDataGetter={TestData.rowDataGetter}
+				/>,
+			)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });
 
 /**
  * Render a table with header and default configuration.
  * Header is rendered with default component.
  */
-it('default-table-with-header', () => {
-	// create React tree
-	const tree = renderer
-		.create(<Table elements={elements} columnKeys={TestData.columnKeys} withHeader />)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
+describe('Render a table width default header', () => {
+	it('default-table-with-header', () => {
+		// create React tree
+		const tree = renderer
+			.create(<Table elements={elements} columns={TestData.columns1} withHeader />)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });
 
 /**
  * Render a table with header and with custom configuration.
  */
-it('custom-table-with-header', () => {
-	// create React tree
-	const tree = renderer
-		.create(
-			<Table
-				elements={elements}
-				classNameProvider={TestData.classNameProvider}
-				columnKeys={TestData.columnKeys}
-				rowDataGetter={TestData.rowDataGetter}
-				rowRenderer={TestData.rowRenderer}
-				withHeader
-				headerRenderer={TestData.headerRenderer}
-			/>,
-		)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
+describe('Render a table width custom header', () => {
+	it('custom-table-with-header', () => {
+		// create React tree
+		const tree = renderer
+			.create(
+				<Table
+					elements={elements}
+					classnames={TestData.classnames}
+					columns={TestData.columns2}
+					rowDataGetter={TestData.rowDataGetter}
+					withHeader
+				/>,
+			)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });

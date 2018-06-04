@@ -1,35 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import theme from './FiltersBar.scss';
 
-function renderFilter(filter, filtersRenderer, onFilterChange) {
-	const filterId = filter.getId();
-	const FilterComponent = filtersRenderer.getFilterComponent(filterId);
-	const extraProps = filtersRenderer.getExtraProps(filterId);
-	if (FilterComponent) {
-		return (
-			<FilterComponent
-				className={'tc-filter'}
-				key={filterId}
-				filter={filter}
-				onFilterChange={onFilterChange}
-				extra={extraProps}
-			/>
-		);
+function getFiltersBarClassName(classnames) {
+	if (classnames && classnames.filtersBar) {
+		return classnames.filtersBar;
 	}
 	return null;
 }
 
-export default function FiltersBar({ filters, filtersRenderer, onFilterChange, className }) {
+function renderFilter(filterInfo, onFilterChange) {
+	const filter = filterInfo.filter;
+	const FilterComponent = filterInfo.renderer;
 	return (
-		<div className={className}>
-			{filters.map(filter => renderFilter(filter, filtersRenderer, onFilterChange))}
+		<FilterComponent
+			className={classNames('tc-filter', theme['tc-filter'], filterInfo.className)}
+			key={filter.getId()}
+			filter={filter}
+			onFilterChange={onFilterChange}
+			extra={filterInfo.extra}
+		/>
+	);
+}
+
+export default function FiltersBar({ filters, onFilterChange, classnames }) {
+	return (
+		<div className={classNames('tc-table-filters-bar', theme['tc-table-filters-bar'], getFiltersBarClassName(classnames))}>
+			{filters.map(filter => renderFilter(filter, onFilterChange))}
 		</div>
 	);
 }
 
 FiltersBar.propTypes = {
-	filters: PropTypes.array,
-	filtersRenderer: PropTypes.object,
+	classnames: PropTypes.shape({
+		filtersBar: PropTypes.string,
+	}),
+	filters: PropTypes.arrayOf(
+		PropTypes.shape({
+			filter: PropTypes.object,
+			renderer: PropTypes.func,
+			className: PropTypes.string,
+			extra: PropTypes.object,
+		}),
+	),
 	onFilterChange: PropTypes.func,
-	className: PropTypes.string,
 };

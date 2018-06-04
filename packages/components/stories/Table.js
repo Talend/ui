@@ -8,16 +8,10 @@ import { action } from '@storybook/addon-actions';  // eslint-disable-line impor
 import {
 	DataAccessorWithSorterAndFilter,
 	DraggableComponent as draggable,
-	FilterComponents,
 	FilterFactory,
-	Sorter,
-	SorterHeaderRenderer,
-	SortOrder,
-	Table,
-	TableClickableCell,
-	TableConfiguration,
-	TableCell,
 	IconsProvider,
+	Table,
+	TableCell,
 } from '../src/index';
 
 const dataPrepSchema = {
@@ -229,92 +223,81 @@ const schema1 = finalizeSchema(salesForceAccountSchema, 10);
 const schema2 = finalizeSchema(dataPrepSchema);
 const schema3 = finalizeSchema(salesForceAccountSchema);
 
-const ColumnKey = {
-  NAME: 'name',
-	DRAG_NAME: 'drag-name',
-  TYPE: 'type',
-  DESC: 'description',
-	MANDATORY: 'mandatory',
-};
-
-const columnKeys1 = [ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
-const columnKeys2 = [ColumnKey.NAME, ColumnKey.TYPE];
-const columnKeys3 = [ColumnKey.DRAG_NAME, ColumnKey.TYPE, ColumnKey.DESC];
-const columnKeys4 = [ColumnKey.MANDATORY, ColumnKey.NAME, ColumnKey.TYPE, ColumnKey.DESC];
-
-const draggableCell = draggable(TableClickableCell);
-
-const draggableRowRenderer = {
-	getCellComponent(columnKey) {
-		switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return draggableCell;
-			default:
-				return TableCell;
-		}
+const Columns = {
+	NAME: {
+		key: 'name',
+		label: 'Name',
 	},
-	getExtraProps(columnKey) {
-		switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return {
-					// for the drag and drop behaviour
-					beginDrag(element) {
-						action(`Begin drag element ${element.name}`).call();
-						return element;
-					},
-					canDrop(sourceItem, targetElement) {
-						return sourceItem.id !== targetElement.id;
-					},
-					drop(sourceItem, targetElement) {
-						action(`You have dropped element ${sourceItem.name} onto element ${targetElement.name}`).call();
-					},
-					endDrag() {
-						action(`Drag and drop is finished!`).call();
-					},
-					// for the click behaviour
-					onClick(element) {
-						action(`You have clicked on element ${element.name}`).call();
-					},
-				};
-			default:
-				return null;
-		}
+	TYPE: {
+		key: 'type',
+		label: 'Type',
+	},
+	DESC: {
+		key: 'description',
+		label: 'Description',
+	},
+	MANDATORY: {
+		key: 'mandatory',
+		label: '',
 	},
 };
 
-const headerRenderer = TableConfiguration.headerRenderer;
+const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
+const columns2 = [Columns.NAME, Columns.TYPE];
+const columns4 = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
+
+/*
+ * This constant allows to specify which drag sources and drop targets are compatible.
+ */
+const DRAGGABLE_ELEMENT_TYPE = 'element';
+
+const draggableCell = draggable(TableCell, DRAGGABLE_ELEMENT_TYPE);
+
+const draggableCellExtraProps = {
+	// for the drag and drop behaviour
+	beginDrag(element) {
+		action(`Begin drag element ${element.name}`).call();
+		return element;
+	},
+	canDrop(sourceItem, targetElement) {
+		return sourceItem.id !== targetElement.id;
+	},
+	drop(sourceItem, targetElement) {
+		action(`You have dropped element ${sourceItem.name} onto element ${targetElement.name}`).call();
+	},
+	endDrag() {
+		action('Drag and drop is finished!').call();
+	},
+	// for the click behaviour
+	onClick(element) {
+		action(`You have clicked on element ${element.name}`).call();
+	},
+};
+
+const columns3 = [
+	{
+		key: Columns.NAME.key,
+		label: Columns.NAME.label,
+		cellRenderer: draggableCell,
+		cellExtraProps: draggableCellExtraProps,
+	},
+	Columns.TYPE,
+	Columns.DESC,
+];
 
 const rowDataGetter = {
   getElementId(element) {
     return element.id;
 	},
-	getHeaderData(columnKey) {
-		switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return 'Name';
-			case ColumnKey.NAME:
-        return 'Name';
-			case ColumnKey.TYPE:
-				return 'Type';
-			case ColumnKey.DESC:
-				return 'Description';
-			case ColumnKey.MANDATORY:
-				return '';
-			default:
-				return columnKey;
-		}
-	},
 	getRowData(element, columnKey) {
     switch (columnKey) {
-			case ColumnKey.DRAG_NAME:
-				return element.name;
-			case ColumnKey.NAME:
+			case Columns.NAME.key:
         return element.name;
-			case ColumnKey.TYPE:
+			case Columns.TYPE.key:
 				return element.type;
-			case ColumnKey.DESC:
+			case Columns.DESC.key:
 				return element.description;
-			case ColumnKey.MANDATORY:
+			case Columns.MANDATORY.key:
 				return element.mandatory ? '*' : '';
 			default:
 				return 'No data available!';
@@ -322,18 +305,15 @@ const rowDataGetter = {
 	},
 };
 
-const classNameProvider = {
-	getForTable() {
-		return 'tc-table story-table default-table';
-	},
+const storyClassnames = {
+	root: 'story-table',
 };
 
-function getInitialState(elements, draggable) {
-	return {
-		elements,
-		draggable,
-	};
-}
+const defaultClassnames = {
+	root: 'default-table',
+};
+
+const initialStateWithDnD = { draggable: true };
 
 class ConnectedTable extends React.Component {
 
@@ -356,38 +336,46 @@ class ConnectedTable extends React.Component {
 		});
 	}
 
-	getForTable() {
+	getRootClassName() {
 		return classnames({
-			'tc-table': true,
-			'story-table': true,
 			'table-with-dnd': this.state.draggable,
 		});
 	}
 
-	getForRow(element) {
+	getRowClassName(element) {
 		const classNames = {
-			'tc-table-row': true,
 			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
 			'draggable-row': this.state.draggable,
 		};
 		return classnames(classNames);
 	}
 
+	getRowClassNames(elements) {
+		let rowClassNames = [];
+		for (let i = 0; i < elements.length; i += 1) {
+			rowClassNames = rowClassNames.concat(this.getRowClassName(elements[i]));
+		}
+		return rowClassNames;
+	}
+
 	render() {
 		const {
-			columnKeys,
+			elements,
+			columns,
 			withHeader,
 			onScroll,
 		} = this.props;
+		const allClassnames = {
+			root: this.getRootClassName(),
+			rows: this.getRowClassNames(elements),
+		};
 		return (
 			<Table
-				elements={this.state.elements}
-				columnKeys={columnKeys}
-				classNameProvider={this}
+				elements={elements}
+				columns={columns}
+				classnames={allClassnames}
 				rowDataGetter={rowDataGetter}
-				rowRenderer={draggableRowRenderer}
 				withHeader={withHeader}
-				headerRenderer={headerRenderer}
 				onScroll={onScroll}
 				onEnterRow={this.onEnterRow}
 				onLeaveRow={this.onLeaveRow}
@@ -400,65 +388,42 @@ class ConnectedTable extends React.Component {
 ConnectedTable.propTypes = {
 	initialState: PropTypes.object,
 	elements: PropTypes.array,
-	columnKeys: PropTypes.array,
+	columns: PropTypes.array,
 	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
 };
 
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
 
-function createSorters(keys) {
-	let sorters = [];
-	for (let i = 0; i < keys.length; i += 1) {
-		const key = keys[i];
-		const sorter = new Sorter(key, key, SortOrder.ASCENDING, key);
-		sorters = sorters.concat(sorter);
-	}
-	return sorters;
-}
-
 const nameFilterId = 'name-filter';
-const nameFilterComponent = FilterComponents.getFilterComponent(FilterComponents.classes.string);
+const nameFilterExtra = {
+	placeHolder: 'Filter...',
+	dockable: true,
+	navbar: true,
+};
 
 const mandatoryFieldFilterId = 'mandatory-field-filter';
-const mandatoryFieldFilterComponent = FilterComponents.getFilterComponent(FilterComponents.classes.toggle);
+const mandatoryFieldFilterExtra = {
+	label: 'Show Mandatory Fields (*) Only',
+};
 
 function createFilters() {
-	const nameFilter = FilterFactory.createRegexpFilter(nameFilterId, ColumnKey.NAME, false);
-	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(mandatoryFieldFilterId, ColumnKey.MANDATORY, false);
+	const nameFilter = FilterFactory.createRegexpFilter(
+		nameFilterId,
+		Columns.NAME.key,
+		false,
+		nameFilterId,
+		nameFilterExtra,
+	);
+	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(
+		mandatoryFieldFilterId,
+		Columns.MANDATORY.key,
+		false,
+		mandatoryFieldFilterId,
+		mandatoryFieldFilterExtra,
+	);
 	return [nameFilter, mandatoryFieldFilter];
 }
-
-const filtersRenderer = {
-	getFilterComponent(filterId) {
-		switch (filterId) {
-			case nameFilterId:
-				return nameFilterComponent;
-			case mandatoryFieldFilterId:
-				return mandatoryFieldFilterComponent;
-			default:
-				return null;
-		}
-	},
-	getExtraProps(filterId) {
-		switch (filterId) {
-			case nameFilterId:
-				return {
-					className: nameFilterId,
-					placeHolder: 'Filter...',
-					dockable: true,
-					navbar: true,
-				}
-			case mandatoryFieldFilterId:
-				return {
-					className: mandatoryFieldFilterId,
-					label: 'Show Mandatory Fields (*) Only',
-				}
-			default:
-				return null;
-		}
-	},
-};
 
 class SortedFilteredTable extends React.Component {
 
@@ -468,57 +433,19 @@ class SortedFilteredTable extends React.Component {
 			elements: props.elements,
 		};
 		this.dataAccessor = new DataAccessorWithSorterAndFilter(props.elements, rowDataGetter);
-		this.onSortChange = this.onSortChange.bind(this);
-		this.isSorterActive = this.isSorterActive.bind(this);
 		this.onFilterChange = this.onFilterChange.bind(this);
-		this.headerRenderer = new SorterHeaderRenderer(this);
-		this.registerSorters(props.sorters, this.headerRenderer);
 		this.registerFilters(props.filters, this.dataAccessor);
 	}
 
 	registerFilters(filters, dataAccessor) {
 		if (filters) {
 			for (let i = 0; i < filters.length; i += 1) {
-				const filter = filters[i];
+				const filter = filters[i].filter;
 				if (filter) {
 					dataAccessor.addFilter(filter);
 				}
 			}
 		}
-	}
-
-	registerSorters(sorters, headerRenderer) {
-		if (sorters) {
-			for (let i = 0; i < sorters.length; i += 1) {
-				headerRenderer.registerSorter(sorters[i]);
-			}
-		}
-	}
-
-	isSorterActive(sorter) {
-		return this.dataAccessor.isActiveSorter(sorter);
-	}
-
-	onSortChange(sorter) {
-		if (this.dataAccessor.isActiveSorter(sorter)) {
-			switch (sorter.getOrder()) {
-				case SortOrder.ASCENDING:
-					sorter.setOrder(SortOrder.DESCENDING);
-					this.dataAccessor.sort();
-					break;
-				case SortOrder.DESCENDING:
-					sorter.setOrder(SortOrder.ASCENDING);
-					this.dataAccessor.clearSorter();
-					break;
-				default:
-					break;
-			}
-		} else {
-			this.dataAccessor.setSorter(sorter);
-		}
-		this.setState({
-			elements: this.dataAccessor.getElements(true),
-		});
 	}
 
 	onFilterChange(filter) {
@@ -528,10 +455,8 @@ class SortedFilteredTable extends React.Component {
 		});
 	}
 
-	getForTable() {
+	getRootClassName() {
 		return classnames({
-			'tc-table': true,
-			'story-table': true,
 			'sorted-table': this.props.sorters,
 			'filtered-table': this.props.filters,
 		});
@@ -539,24 +464,22 @@ class SortedFilteredTable extends React.Component {
 
 	render() {
 		const {
-			columnKeys,
+			columns,
 			filters,
-			filtersRenderer,
-			withTitle,
 			title,
 		} = this.props;
+		const allClassnames = {
+			root: this.getRootClassName(),
+		};
 		return (
 			<Table
-				withTitle={withTitle}
 				title={title}
 				elements={this.state.elements}
-				columnKeys={columnKeys}
-				classNameProvider={this}
+				columns={columns}
+				classnames={allClassnames}
 				rowDataGetter={rowDataGetter}
 				withHeader={true}
-				headerRenderer={this.headerRenderer}
 				filters={filters}
-				filtersRenderer={filtersRenderer}
 				onFilterChange={this.onFilterChange}
 			/>
 		);
@@ -566,12 +489,8 @@ class SortedFilteredTable extends React.Component {
 
 SortedFilteredTable.propTypes = {
 	elements: PropTypes.array,
-	columnKeys: PropTypes.array,
-	sorters: PropTypes.array,
+	columns: PropTypes.array,
 	filters: PropTypes.array,
-	filtersRenderer: PropTypes.object,
-	onFilterChange: PropTypes.func,
-	withTitle: PropTypes.bool,
 	title: PropTypes.string,
 };
 
@@ -582,7 +501,7 @@ if (!stories.addWithInfo) {
 
 stories
 	.addDecorator(story => (
-		<div className="table-container">
+		<div style={{ display: 'flex', justifyContent: 'center' }}>
 			<IconsProvider />
 			{story()}
 		</div>
@@ -591,8 +510,8 @@ stories
 		return (
 			<Table
 			  elements={schema1.elements}
-	      columnKeys={columnKeys1}
-				classNameProvider={classNameProvider}
+	      columns={columns1}
+				classnames={storyClassnames}
 				withHeader={true}
 			/>
 		);
@@ -601,9 +520,9 @@ stories
 		return (
 			<Table
 			  elements={schema2.elements}
-	      columnKeys={columnKeys2}
-	      onScroll={action('onScroll called!')}
-				onEnterRow={action('onEnterRow called!')}
+	      columns={columns2}
+				classnames={defaultClassnames}
+	      onEnterRow={action('onEnterRow called!')}
 				onLeaveRow={action('onLeaveRow called!')}
 			/>
 		);
@@ -611,19 +530,11 @@ stories
 	.addWithInfo('Table with drag and drop', () => {
 		return (
 			<TableWithDND
-				initialState={getInitialState(schema3.elements, true)}
-				columnKeys={columnKeys3}
+				initialState={initialStateWithDnD}
+				elements={schema3.elements}
+				columns={columns3}
 				withHeader={true}
 				onScroll={action('onScroll called!')}
-			/>
-		);
-	})
-	.addWithInfo('Table with sort', () => {
-		return (
-			<SortedFilteredTable
-				elements={schema2.elements}
-				columnKeys={columnKeys2}
-				sorters={createSorters(columnKeys2)}
 			/>
 		);
 	})
@@ -631,10 +542,8 @@ stories
 		return (
 			<SortedFilteredTable
 				elements={schema3.elements}
-				columnKeys={columnKeys4}
+				columns={columns4}
 				filters={createFilters()}
-				filtersRenderer={filtersRenderer}
-				withTitle={true}
 				title={schema3.name}
 			/>
 		);

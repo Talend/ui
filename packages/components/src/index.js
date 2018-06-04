@@ -23,6 +23,7 @@ import ConfirmDialog from './ConfirmDialog';
 import DataMapper, { DataAccessorWithUndoRedo, MappingAccessor } from './DataMapper';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
+import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
@@ -44,17 +45,12 @@ import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import {
 	DataAccessorWithSorterAndFilter,
-	DraggableComponent,
-	FilterComponents,
 	FilterFactory,
 	Sorter,
-	SorterHeaderRenderer,
 	SortOrder,
 	Table,
-	TableClickableCell,
-	TableConfiguration,
 	TableCell,
-	TableHeader,
+	TableHeaderCell,
 } from './Table';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -154,6 +150,7 @@ export {
 	MappingAccessor,
 	Datalist,
 	Dialog,
+	DraggableComponent,
 	Drawer,
 	Emphasis,
 	Enumeration,
@@ -176,18 +173,13 @@ export {
 	Status,
 	SubHeaderBar,
 	TabBar,
-	Table,
-	TableClickableCell,
-	TableConfiguration,
-	TableCell,
-	TableHeader,
-	DraggableComponent,
-	FilterComponents,
+	DataAccessorWithSorterAndFilter,
 	FilterFactory,
 	Sorter,
-	SorterHeaderRenderer,
 	SortOrder,
-	DataAccessorWithSorterAndFilter,
+	Table,
+	TableCell,
+	TableHeaderCell,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
