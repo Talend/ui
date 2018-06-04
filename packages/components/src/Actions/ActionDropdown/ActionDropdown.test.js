@@ -107,3 +107,52 @@ describe('InjectDropdownMenuItem', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
+
+describe('Dropup', () => {
+	it('should switch to dropup when it is near the bottom of a tc-dropdown-container', () => {
+		// given
+		const dropdownContainer = {
+			classList: { contains() { return true; } },
+			getBoundingClientRect() { return { bottom: 35 }; }
+		};
+		const dropdownMenu = { // dropdown that is not under the bottom of container
+			getBoundingClientRect() { return { bottom: 25 }; }
+		};
+		const overflowDropdownMenu = { // dropdown that is under the bottom of container
+			getBoundingClientRect() { return { bottom: 40 }; }
+		};
+		const event = {
+			target: {
+				nextSibling: dropdownMenu,
+				parentElement: {
+					classList: { contains() { return false; } },
+					parentElement: dropdownContainer,
+				},
+			},
+		};
+		const overflowEvent = {
+			target: {
+				nextSibling: overflowDropdownMenu,
+				parentElement: {
+					classList: { contains() { return false; } },
+					parentElement: dropdownContainer,
+				},
+			},
+		};
+
+		const wrapper = shallow(
+			<ActionDropdown
+				items={[{ label: 'item 1' }, { label: 'item 2' }]}
+			/>
+		);
+		expect(wrapper.state().dropup).toBe(false);
+
+		// when / then
+		wrapper.props().onToggle(true, overflowEvent);
+		expect(wrapper.state().dropup).toBe(true);
+
+		// when / then
+		wrapper.props().onToggle(true, event);
+		expect(wrapper.state().dropup).toBe(false);
+	});
+});

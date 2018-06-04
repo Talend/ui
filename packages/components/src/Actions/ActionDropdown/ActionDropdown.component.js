@@ -121,23 +121,22 @@ class ActionDropdown extends React.Component {
 		if (!isOpen) {
 			return;
 		}
-		const dropdown = event.target;
-		let dropdownContainer = dropdown.parentElement;
+		const dropdownTrigger = event.target;
+		const dropdownMenu = event.target.nextSibling;
+		let dropdownContainer = dropdownTrigger.parentElement;
 		while (
-			dropdownContainer !== null &&
+			dropdownContainer &&
 			!dropdownContainer.classList.contains('tc-dropdown-container')
 		) {
 			dropdownContainer = dropdownContainer.parentElement;
 		}
 
 		if (dropdownContainer) {
-			const dropdownRect = dropdown.getBoundingClientRect();
+			const dropdownRect = dropdownMenu.getBoundingClientRect();
 			const containerRect = dropdownContainer.getBoundingClientRect();
-			const thirdOfContainer = (containerRect.bottom - containerRect.top) / 3;
 
-			if (containerRect.bottom - dropdownRect.bottom < thirdOfContainer) {
-				this.setState({ dropup: true });
-			}
+			const dropup = containerRect.bottom < dropdownRect.bottom;
+			this.setState({ dropup });
 		}
 	}
 
