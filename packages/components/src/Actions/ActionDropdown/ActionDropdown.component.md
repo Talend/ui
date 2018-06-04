@@ -1,4 +1,4 @@
-# ACTION DROPDOWN COMPONENT
+# ActionDropdown component
 
 This component display a dropdown with items in it. It used react-bootstrap component [DropdownButton](https://react-bootstrap.github.io/components/dropdowns/#btn-dropdowns), [MenuItem](https://react-bootstrap.github.io/components/dropdowns/#menu-items) and [TooltipTrigger](https://react-bootstrap.github.io/components/tooltips/#tooltips).
 
@@ -68,6 +68,8 @@ each composed item being an object composed of
 | hidelabel  | Bool            |
 | icons      | String          |
 
+or just {divider: true}
+
 ```javascript
 	items: [
 		{
@@ -85,7 +87,9 @@ each composed item being an object composed of
 
 #### 3 ) components
 
-Using this you can defined additionnal component that your `ActionDropdown` will show.
+This component support [Inject](../../Inject/Inject.md) api.
+
+Using this props you can define additionnal component that your `ActionDropdown` will show.
 (This do no permit to alter the render of `items`)
 
 They are 3 slots in the `ActionDropdown` component where you can inject your custom components.
