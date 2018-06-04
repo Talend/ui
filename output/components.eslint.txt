@@ -1,31 +1,15 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/components/src/ActionList/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
-  76:56  error  'properties' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
-  21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
-  56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
-  47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
-  33:3  warning  Unexpected console statement  no-console
-
-✖ 11 problems (10 errors, 1 warning)
-
+Cannot read property 'range' of null
+TypeError: Cannot read property 'range' of null
+    at TokenStore.getTokenBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/token-store/index.js:318:18)
+    at checkSpacingBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:51:42)
+    at EventEmitter.TemplateElement (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:116:17)
+    at emitOne (events.js:121:20)
+    at EventEmitter.emit (events.js:211:7)
+    at NodeEventGenerator.applySelector (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:265:26)
+    at NodeEventGenerator.applySelectors (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:294:22)
+    at NodeEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:308:14)
+    at CodePathAnalyzer.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/code-path-analysis/code-path-analyzer.js:602:23)
+    at CommentEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/comment-event-generator.js:98:23)

@@ -1,27 +1,15 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-  82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
-  10:36  error  Absolute imports should come before relative imports  import/imports-first
-  12:20  error  Absolute imports should come before relative imports  import/imports-first
-  13:19  error  Absolute imports should come before relative imports  import/imports-first
-  14:20  error  Absolute imports should come before relative imports  import/imports-first
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-  9:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
-  1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
-
-✖ 9 problems (9 errors, 0 warnings)
-
+Cannot read property 'range' of null
+TypeError: Cannot read property 'range' of null
+    at TokenStore.getTokenBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/token-store/index.js:318:18)
+    at checkSpacingBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:51:42)
+    at EventEmitter.TemplateElement (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:116:17)
+    at emitOne (events.js:121:20)
+    at EventEmitter.emit (events.js:211:7)
+    at NodeEventGenerator.applySelector (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:265:26)
+    at NodeEventGenerator.applySelectors (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:294:22)
+    at NodeEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:308:14)
+    at CodePathAnalyzer.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/code-path-analysis/code-path-analyzer.js:602:23)
+    at CommentEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/comment-event-generator.js:98:23)
