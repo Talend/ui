@@ -54,14 +54,6 @@ exports[`CellTitleActions should extract and render each dropdown actions 1`] = 
             "label": "edit",
             "onClick": [Function],
           },
-          Object {
-            "data-feature": "list.item.delete",
-            "hideLabel": true,
-            "icon": "talend-trash",
-            "id": "delete",
-            "label": "delete",
-            "onClick": [Function],
-          },
         ]
       }
       label="Open menu"
@@ -99,16 +91,6 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
   <div
     className="cell-title-actions theme-cell-title-actions"
   >
-    <Actions
-      actions={Array []}
-      hideLabel={true}
-      link={true}
-      renderers={
-        Object {
-          "Action": [Function],
-        }
-      }
-    />
     <ActionDropdown
       bsStyle="default"
       className="cell-title-actions-menu theme-cell-title-actions-menu"
@@ -122,14 +104,6 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
             "icon": "talend-pencil",
             "id": "edit",
             "label": "edit",
-            "onClick": [Function],
-          },
-          Object {
-            "data-feature": "list.item.delete",
-            "hideLabel": true,
-            "icon": "talend-trash",
-            "id": "delete",
-            "label": "delete",
             "onClick": [Function],
           },
         ]
@@ -167,14 +141,6 @@ exports[`CellTitleActions should render all actions when the type is LARGE 1`] =
           "icon": "talend-pencil",
           "id": "edit",
           "label": "edit",
-          "onClick": [Function],
-        },
-        Object {
-          "data-feature": "list.item.delete",
-          "hideLabel": true,
-          "icon": "talend-trash",
-          "id": "delete",
-          "label": "delete",
           "onClick": [Function],
         },
       ]

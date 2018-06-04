@@ -15,6 +15,7 @@ const simpleActions = [
 		hideLabel: true,
 	},
 	{
+		available: false,
 		id: 'delete',
 		label: 'delete',
 		'data-feature': 'list.item.delete',

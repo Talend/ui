@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import get from 'lodash/get';
 import { translate } from 'react-i18next';
 import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -30,7 +31,7 @@ export function CellTitleActionsComponent({
 	type,
 }) {
 	const actions = [];
-	const rowActions = rowData[actionsKey].filter(isAvailable);
+	const rowActions = get(rowData, actionsKey, []).filter(isAvailable);
 
 	if (displayMode === TITLE_MODE_TEXT) {
 		if (type === LARGE) {
