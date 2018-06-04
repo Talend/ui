@@ -199,7 +199,7 @@ function Drawer({
 	const TabBarComponent = Inject.get(getComponent, 'TabBar', TabBar);
 
 	let activeTab = {};
-	let activeTabItem = {};
+	let activeTabItem = [];
 	if (tabs && tabs.items.length > 0) {
 		if (selectedTabKey) {
 			activeTab = tabs.items.find(tab => tab.key === selectedTabKey);
