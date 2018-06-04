@@ -34,6 +34,10 @@ $tc-status-space-btn-icon-label: 5px !default;
 		&.muted {
 			color: $gray;
 		}
+
+		&.warning {
+			color: $brand-warning;
+		}
 	}
 
 	&-actions {
