@@ -16,6 +16,10 @@ function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
+function isAvailable(actionDef) {
+	return actionDef.available !== false;
+}
+
 export function CellTitleActionsComponent({
 	rowData,
 	actionsKey,
@@ -26,6 +30,7 @@ export function CellTitleActionsComponent({
 	type,
 }) {
 	const actions = [];
+	const rowActions = rowData[actionsKey].filter(isAvailable);
 
 	if (displayMode === TITLE_MODE_TEXT) {
 		if (type === LARGE) {
@@ -33,22 +38,22 @@ export function CellTitleActionsComponent({
 				<Actions
 					className={classNames('cell-title-actions', theme['cell-title-actions'])}
 					key={actions.length}
-					actions={rowData[actionsKey]}
+					actions={rowActions}
 					hideLabel
 					link
 				/>,
 			);
 		} else {
 			const actionDefinitions =
-				rowData[actionsKey] && rowData[actionsKey].filter(actionDef => !isDropdown(actionDef));
-			const dropdownDefinitions = rowData[actionsKey] && rowData[actionsKey].filter(isDropdown);
+				rowActions && rowActions.filter(actionDef => !isDropdown(actionDef));
+			const dropdownDefinitions = rowActions && rowActions.filter(isDropdown);
 
 			actions.push(
 				<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
-					{dropdownDefinitions && (
+					{dropdownDefinitions.length > 0 && (
 						<Actions key={'dropdown-actions'} actions={dropdownDefinitions} hideLabel link />
 					)}
-					{actionDefinitions && (
+					{actionDefinitions.length > 0 && (
 						<ActionDropdown
 							id={id}
 							className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
