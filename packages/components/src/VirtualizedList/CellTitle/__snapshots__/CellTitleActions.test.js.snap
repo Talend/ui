@@ -99,16 +99,6 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
   <div
     className="cell-title-actions theme-cell-title-actions"
   >
-    <Actions
-      actions={Array []}
-      hideLabel={true}
-      link={true}
-      renderers={
-        Object {
-          "Action": [Function],
-        }
-      }
-    />
     <ActionDropdown
       bsStyle="default"
       className="cell-title-actions-menu theme-cell-title-actions-menu"
