@@ -45,7 +45,7 @@ function renderRowData(element, index, column, rowDataGetter) {
 				element={element}
 				data={getRowData(rowDataGetter, element, key)}
 				className={dataClassnames}
-				extra={column.cellExtraProps}
+				{...column.cellExtraProps}
 			/>
 		</td>
 	);
@@ -104,10 +104,10 @@ TableRow.propTypes = {
 	}),
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			key: PropTypes.string.isRequired, // column key
-			cellClassName: PropTypes.string, // cell classname
-			cellRenderer: PropTypes.func, // cell renderer
-			cellExtraProps: PropTypes.object, // cell extra props
+			key: PropTypes.string.isRequired,
+			cellClassName: PropTypes.string,
+			cellRenderer: PropTypes.func,
+			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
 	rowDataGetter: PropTypes.shape({

@@ -18,7 +18,7 @@ function renderHeaderCell(column) {
 				key={column.key}
 				label={column.label}
 				className={cellClassnames}
-				extra={column.headExtraProps}
+				{...column.headExtraProps}
 			/>
 		</th>
 	);
@@ -46,11 +46,11 @@ export default function TableHeader({ columns, classnames }) {
 TableHeader.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			key: PropTypes.string.isRequired, // column key
-			label: PropTypes.string, // label to display
-			headClassName: PropTypes.string, // header classname
-			headRenderer: PropTypes.func, // header renderer
-			headExtraProps: PropTypes.object, // header extra props
+			key: PropTypes.string.isRequired,
+			label: PropTypes.string,
+			headClassName: PropTypes.string,
+			headRenderer: PropTypes.func,
+			headExtraProps: PropTypes.object,
 		}),
 	).isRequired,
 	classnames: PropTypes.shape({

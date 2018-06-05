@@ -20,11 +20,6 @@ it('single-cell', () => {
  */
 it('clickable-cell', () => {
 	const element = TestData.element1;
-	const extra = {
-		onClick: jest.fn(),
-		onDoubleClick: jest.fn(),
-		onKeyPress: jest.fn(),
-	};
 	// create React tree
 	const tree = renderer
 		.create(
@@ -32,7 +27,9 @@ it('clickable-cell', () => {
 				element={element}
 				data={element.name}
 				className="my-clickable-cell"
-				extra={extra}
+				onClick={jest.fn()}
+				onDoubleClick={jest.fn()}
+				onKeyPress={jest.fn()}
 			/>,
 		)
 		.toJSON();

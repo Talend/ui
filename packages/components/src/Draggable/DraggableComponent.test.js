@@ -20,10 +20,10 @@ Element.propTypes = {
 	element: PropTypes.object,
 };
 
-function List({ elements, Comp, extra }) {
+function List({ elements, Comp, ...rest }) {
 	return (
 		<div className="list-class">
-			{elements.map(elem => <Comp key={elem.symbol} element={elem} extra={extra} />)}
+			{elements.map(elem => <Comp key={elem.symbol} element={elem} {...rest} />)}
 		</div>
 	);
 }
@@ -86,18 +86,26 @@ function wrapInTestContext(DecoratedComponent) {
  * This tests the drag and drop of the element ru onto the element rh.
  */
 it('drag-and-drop-on-multiple-elements', () => {
+
 	const draggableElement = draggable(Element, type);
 
-	const dndListener = {
-		beginDrag: jest.fn().mockReturnValue(ru),
-		canDrop: jest.fn().mockReturnValue(true),
-		drop: jest.fn(),
-		endDrag: jest.fn(),
-	};
+	const beginDrag = jest.fn().mockReturnValue(ru);
+	const canDrop = jest.fn().mockReturnValue(true);
+	const drop = jest.fn();
+	const endDrag = jest.fn();
 
 	const ListTestContext = wrapInTestContext(List);
 
-	const list = <ListTestContext elements={elements} Comp={draggableElement} extra={dndListener} />;
+	const list = (
+		<ListTestContext
+			elements={elements}
+			Comp={draggableElement}
+			beginDrag={beginDrag}
+			canDrop={canDrop}
+			drop={drop}
+			endDrag={endDrag}
+		/>
+	);
 
 	const root = TestUtils.renderIntoDocument(list);
 
@@ -114,7 +122,7 @@ it('drag-and-drop-on-multiple-elements', () => {
 	// simulate begin drag source node
 	backend.simulateBeginDrag([decoratedSourceElem.getHandlerId()]);
 
-	expect(dndListener.beginDrag).toBeCalled();
+	expect(beginDrag).toBeCalled();
 
 	const targetElem = getComponentByName(draggableElements, rh.name);
 
@@ -124,19 +132,19 @@ it('drag-and-drop-on-multiple-elements', () => {
 	// simulate drop the source node on the current target node rh
 	backend.simulateDrop();
 
-	// dndListener.drop should be called
-	expect(dndListener.drop).toBeCalled();
+	// drop should be called
+	expect(drop).toBeCalled();
 
-	// The dndListener.drop function is called once
-	expect(dndListener.drop.mock.calls.length).toBe(1);
+	// The drop function is called once
+	expect(drop.mock.calls.length).toBe(1);
 
 	// The first argument of the first call to the function was ru
-	expect(dndListener.drop.mock.calls[0][0].symbol).toBe(ru.symbol);
+	expect(drop.mock.calls[0][0].symbol).toBe(ru.symbol);
 
 	// The second argument of the first call to the function was rh
-	expect(dndListener.drop.mock.calls[0][1].symbol).toBe(rh.symbol);
+	expect(drop.mock.calls[0][1].symbol).toBe(rh.symbol);
 
 	backend.simulateEndDrag();
 
-	expect(dndListener.endDrag).toBeCalled();
+	expect(endDrag).toBeCalled();
 });

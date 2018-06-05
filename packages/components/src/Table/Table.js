@@ -10,10 +10,8 @@ import theme from './Table.scss';
  * Elements are provided as array.
  * An element is displayed in a row and is divided in multiple data.
  * The rowDataGetter object provides the data for each element.
- * The columnKeys array provides the column keys. These keys are used to get the element data.
- * The rowRenderer object provides the components used to display the element data.
- * The headerRenderer object provides the components used to display the table header.
- * If the headerRenderer is null or undefined, no header is displayed.
+ * The columns array provides the column configuration (see PropTypes below).
+ * The table header is optional.
  */
 export default function Table({
 	elements,
@@ -45,14 +43,28 @@ Table.propTypes = {
 	elements: PropTypes.array.isRequired,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			key: PropTypes.string.isRequired, // column key
-			label: PropTypes.string, // label to display
-			headClassName: PropTypes.string, // header classname
-			headRenderer: PropTypes.func, // header renderer
-			headExtraProps: PropTypes.object, // header extra props
-			cellClassName: PropTypes.string, // cell classname
-			cellRenderer: PropTypes.func, // cell renderer
-			cellExtraProps: PropTypes.object, // cell extra props
+			// used to identify a column
+			key: PropTypes.string.isRequired,
+			// label displayed in the column header
+			label: PropTypes.string,
+			// classname of the column header
+			headClassName: PropTypes.string,
+			/**
+			 * Renderer used for the column header.
+			 * If not specify, a default renderer is used.
+			 */
+			headRenderer: PropTypes.func,
+			// optional extra props for the column header renderer above
+			headExtraProps: PropTypes.object,
+			// classname used for all the cell of the column
+			cellClassName: PropTypes.string,
+			/**
+			 * Renderer used for the all the cells of the column.
+			 * If not specify, a default renderer is used.
+			 */
+			cellRenderer: PropTypes.func,
+			// optional extra props for the cell renderer above
+			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
 	classnames: PropTypes.shape({

@@ -1,3 +1,5 @@
+// This module defines data, objects and functions used by the unit tests.
+
 export const element1 = {
 	id: 'elem_1',
 	name: 'element 1',
