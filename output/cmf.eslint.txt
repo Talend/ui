@@ -1,15 +1,31 @@
 > eslint --config ../../.eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-Cannot read property 'range' of null
-TypeError: Cannot read property 'range' of null
-    at TokenStore.getTokenBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/token-store/index.js:318:18)
-    at checkSpacingBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:51:42)
-    at EventEmitter.TemplateElement (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:116:17)
-    at emitOne (events.js:121:20)
-    at EventEmitter.emit (events.js:211:7)
-    at NodeEventGenerator.applySelector (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:265:26)
-    at NodeEventGenerator.applySelectors (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:294:22)
-    at NodeEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:308:14)
-    at CodePathAnalyzer.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/code-path-analysis/code-path-analyzer.js:602:23)
-    at CommentEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/comment-event-generator.js:98:23)
+
+/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
+  234:11  error  'displayName' is not defined     no-undef
+  235:11  error  'propTypes' is not defined       no-undef
+  239:11  error  'contextTypes' is not defined    no-undef
+  246:11  error  'setStateAction' is not defined  no-undef
+
+/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
+  87:3  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
+  39:9  error  'displayName' is not defined   no-undef
+  40:9  error  'propTypes' is not defined     no-undef
+  47:9  error  'contextTypes' is not defined  no-undef
+
+/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
+  23:2  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
+  158:2   warning  Unexpected constant condition                no-constant-condition
+  163:54  error    There should be no spaces inside this paren  space-in-parens
+  177:51  error    There should be no spaces inside this paren  space-in-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
+  10:1  error  Prefer default export  import/prefer-default-export
+
+✖ 13 problems (10 errors, 3 warnings)
+

@@ -1,15 +1,10 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-Cannot read property 'range' of null
-TypeError: Cannot read property 'range' of null
-    at TokenStore.getTokenBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/token-store/index.js:318:18)
-    at checkSpacingBefore (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:51:42)
-    at EventEmitter.TemplateElement (/home/travis/build/Talend/ui/node_modules/eslint/lib/rules/template-curly-spacing.js:116:17)
-    at emitOne (events.js:121:20)
-    at EventEmitter.emit (events.js:211:7)
-    at NodeEventGenerator.applySelector (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:265:26)
-    at NodeEventGenerator.applySelectors (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:294:22)
-    at NodeEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/node-event-generator.js:308:14)
-    at CodePathAnalyzer.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/code-path-analysis/code-path-analyzer.js:602:23)
-    at CommentEventGenerator.enterNode (/home/travis/build/Talend/ui/node_modules/eslint/lib/util/comment-event-generator.js:98:23)
+
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
+   84:9  error  'defaultProps' is not defined  no-undef
+  102:9  error  'propTypes' is not defined     no-undef
+
+✖ 2 problems (2 errors, 0 warnings)
+
