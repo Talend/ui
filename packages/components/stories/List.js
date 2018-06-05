@@ -117,6 +117,7 @@ const props = {
 				header: 'icon',
 				data: { iconName: 'talend-scheduler' },
 			},
+			{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 		],
 		items: [
 			{

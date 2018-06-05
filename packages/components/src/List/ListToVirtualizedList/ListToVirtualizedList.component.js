@@ -73,32 +73,35 @@ export function ListToVirtualizedList(props) {
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
 		>
-			{props.columns.sort(compareOrder).map((column, index) => {
-				const cProps = {
-					label: column.label,
-					dataKey: column.key,
-				};
-				if (titleProps && column.key === titleProps.key) {
-					Object.assign(cProps, CellTitle, {
-						columnData: titleProps,
-					});
-				} else if (supposedActions[column.key]) {
-					Object.assign(cProps, CellActions);
-				} else if (column.type && listCellDictionary[column.type]) {
-					Object.assign(cProps, listCellDictionary[column.type], {
-						columnData: column.data,
-					});
-				}
-				if (column.hideHeader) {
-					cProps.disableSort = true;
-					cProps.headerRenderer = HiddenHeader;
-				} else if (column.header && listHeaderDictionary[column.header]) {
-					Object.assign(cProps, listHeaderDictionary[column.header], {
-						columnData: column.data,
-					});
-				}
-				return <VirtualizedList.Content key={index} {...cProps} />;
-			})}
+			{props.columns
+				.filter(item => !item.hidden)
+				.sort(compareOrder)
+				.map((column, index) => {
+					const cProps = {
+						label: column.label,
+						dataKey: column.key,
+					};
+					if (titleProps && column.key === titleProps.key) {
+						Object.assign(cProps, CellTitle, {
+							columnData: titleProps,
+						});
+					} else if (supposedActions[column.key]) {
+						Object.assign(cProps, CellActions);
+					} else if (column.type && listCellDictionary[column.type]) {
+						Object.assign(cProps, listCellDictionary[column.type], {
+							columnData: column.data,
+						});
+					}
+					if (column.hideHeader) {
+						cProps.disableSort = true;
+						cProps.headerRenderer = HiddenHeader;
+					} else if (column.header && listHeaderDictionary[column.header]) {
+						Object.assign(cProps, listHeaderDictionary[column.header], {
+							columnData: column.data,
+						});
+					}
+					return <VirtualizedList.Content key={index} {...cProps} />;
+				})}
 		</VirtualizedList>
 	);
 }
