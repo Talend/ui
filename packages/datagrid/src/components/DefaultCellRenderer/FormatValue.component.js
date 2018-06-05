@@ -75,7 +75,7 @@ function isEmptyCharacter(value) {
 }
 
 /**
- * addKeyAttribute - add key attribute in the array for avoid react warning
+ * addKeyAttribute - add key attribute in the array to avoid react warning
  *
  * @param  {Component} component component to modify
  * @param  {int} index     current index

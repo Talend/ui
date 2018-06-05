@@ -48,7 +48,7 @@ class TooltipTrigger extends React.Component {
 			this.setState({ hovered: true });
 		}
 
-		if (this.childProps.onFocus) {
+		if (this.childProps.onMouseOver) {
 			this.childProps.onMouseOver(...args);
 		}
 	}
@@ -68,11 +68,10 @@ class TooltipTrigger extends React.Component {
 			const child = React.Children.only(this.props.children);
 			this.childProps = child.props;
 
-			const triggerProps = Object.assign({
+			return cloneElement(child, {
 				onMouseOver: this.onMouseOver,
 				onFocus: this.onFocus,
 			});
-			return cloneElement(child, triggerProps);
 		}
 
 		let tooltipContent;

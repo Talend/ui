@@ -72,7 +72,7 @@ describe('ActionTooltip', () => {
 		expect(wrapper.update().getElement()).toMatchSnapshot();
 	});
 
-	it('should render a custom tooltip when focus the children', () => {
+	it('should render a custom tooltip on child focus', () => {
 		// given
 		const props = {
 			tooltipPlacement: 'right',

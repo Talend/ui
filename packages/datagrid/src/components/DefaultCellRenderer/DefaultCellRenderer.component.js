@@ -18,9 +18,9 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 		content = <Skeleton key="1" />;
 	} else {
 		content = [
-			<QualityIndicator key="1" qualityIndex={value.quality} />,
+			<QualityIndicator key="2" qualityIndex={value.quality} />,
 			<AvroRenderer
-				key="2"
+				key="3"
 				colDef={colDef}
 				data={value}
 				avroRenderer={avroRenderer}

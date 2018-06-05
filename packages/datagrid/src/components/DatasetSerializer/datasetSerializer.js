@@ -13,7 +13,7 @@ import {
 } from '../../constants/';
 
 /**
- * sanatizeAvro - remove yje optional type
+ * sanitizeAvro - remove the optional type
  *
  * @param  {object} 	avro field
  * @return {object}   return the shallow avro
@@ -73,7 +73,7 @@ export function getType(type, mandatory = true) {
 
 export function getQuality(qualityTotal, rowsTotal) {
 	return {
-		percentage: rowsTotal ? round((qualityTotal / rowsTotal) * 100) : 0,
+		percentage: rowsTotal ? round(qualityTotal / rowsTotal * 100) : 0,
 		total: qualityTotal,
 	};
 }

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionTooltip should render a custom tooltip when focus the children 1`] = `
+exports[`ActionTooltip should render a custom tooltip on child focus 1`] = `
 <OverlayTrigger
   defaultOverlayShown={false}
   delayShow={400}
