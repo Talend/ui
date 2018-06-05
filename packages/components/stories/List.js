@@ -110,7 +110,13 @@ const props = {
 			{ key: 'name', label: 'Name', order: 1 },
 			{ key: 'author', label: 'Author', order: 3 },
 			{ key: 'created', label: 'Created', order: 2 },
-			{ key: 'modified', label: 'Modified', order: 4, header: 'icon', data: { iconName: 'talend-scheduler' } },
+			{
+				key: 'modified',
+				label: 'Modified',
+				order: 4,
+				header: 'icon',
+				data: { iconName: 'talend-scheduler' },
+			},
 		],
 		items: [
 			{
