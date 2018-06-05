@@ -23,6 +23,20 @@ CellWithHello.propTypes = {
 
 api.component.register('helloComp', CellWithHello);
 
+/**
+ * Cell renderer that displays hello + text
+ */
+function CustomHeader({ label }) {
+	return <div>hello {label} !</div>;
+}
+
+CustomHeader.displayName = 'VirtualizedList(CustomHeader)';
+CustomHeader.propTypes = {
+	label: PropTypes.string,
+};
+
+api.component.register('helloHeader', CustomHeader);
+
 const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
@@ -39,15 +53,21 @@ const list = {
 const listWithTimestamp = {
 	columns: [
 		{ key: 'id', label: 'Id', type: 'hello' },
-		{ key: 'label', label: 'Name', sortFunction: '_list_sort:sortByLength' },
+		{ key: 'label', label: 'Name', header: 'helloHeader', sortFunction: '_list_sort:sortByLength' },
 		{ key: 'author', label: 'Author' },
 		{
 			key: 'created',
 			label: 'Created',
 			type: 'datetime',
-			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD', iconName: 'talend-scheduler' },
+			header: 'icon',
 		},
-		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+		{
+			key: 'modified',
+			label: 'Modified',
+			type: 'datetime',
+			data: { mode: 'ago' },
+		},
 	],
 	titleProps: {
 		key: 'label',
@@ -334,7 +354,7 @@ const ExampleList = {
 			</div>
 		</div>
 	),
-	'custom renderer': () => {
+	'custom cell renderer': () => {
 		const cellDictionary = {
 			hello: { component: 'helloComp' },
 		};
@@ -353,7 +373,10 @@ const ExampleList = {
 			</div>
 		);
 	},
-	'custom sort': () => {
+	'custom header renderer': () => {
+		const headerDictionary = {
+			helloHeader: { component: 'helloHeader' },
+		};
 		return (
 			<div>
 				<IconsProvider />
@@ -362,7 +385,7 @@ const ExampleList = {
 						virtualized
 						{...propsTimestampSorted}
 						items={itemsWithTimestamp}
-						cellDictionary={cellDictionary}
+						headerDictionary={headerDictionary}
 					/>
 				</div>
 			</div>
