@@ -2,7 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
-import { ListToVirtualizedList, HiddenHeader } from './ListToVirtualizedList.component';
+import {
+	ListToVirtualizedList,
+	HiddenHeader,
+	compareOrder,
+} from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
 import CellBadge from '../../VirtualizedList/CellBadge';
 
@@ -242,5 +246,46 @@ describe('ListToVirtualizedList', () => {
 
 		// then
 		expect(isActive).toBeCalledWith(props.items[0]);
+	});
+
+	describe('compareOrder function', () => {
+		it('should return -1 to keep the lower order first', () => {
+			// given
+			const a = { order: 0 };
+			const b = { order: 1 };
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(-1);
+		});
+
+		it('should return 0 if there is no order set between 2 items', () => {
+			// given
+			const a = {};
+			const b = {};
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(0);
+		});
+
+		it('should return -1 if there is only a to pass an order to push b to the end', () => {
+			// given
+			const a = { order: 1 };
+			const b = {};
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(-1);
+		});
+		it('should return 1 if there is only b to pass an order to push a to the end', () => {
+			// given
+			const a = {};
+			const b = { order: 1 };
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(1);
+		});
 	});
 });

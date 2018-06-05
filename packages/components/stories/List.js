@@ -106,16 +106,11 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{
-				key: 'modified',
-				label: 'Modified',
-				header: 'icon',
-				data: { iconName: 'talend-scheduler' },
-			},
+			{ key: 'id', label: 'Id', order: 0 },
+			{ key: 'name', label: 'Name', order: 1 },
+			{ key: 'author', label: 'Author', order: 3 },
+			{ key: 'created', label: 'Created', order: 2 },
+			{ key: 'modified', label: 'Modified', order: 4, header: 'icon', data: { iconName: 'talend-scheduler' } },
 		],
 		items: [
 			{

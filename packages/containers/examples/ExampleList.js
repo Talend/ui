@@ -53,7 +53,7 @@ const list = {
 const listWithTimestamp = {
 	columns: [
 		{ key: 'id', label: 'Id', type: 'hello' },
-		{ key: 'label', label: 'Name', header: 'helloHeader' },
+		{ key: 'label', label: 'Name', header: 'helloHeader', sortFunction: '_list_sort:sortByLength' },
 		{ key: 'author', label: 'Author' },
 		{
 			key: 'created',
@@ -377,7 +377,6 @@ const ExampleList = {
 		const headerDictionary = {
 			helloHeader: { component: 'helloHeader' },
 		};
-
 		return (
 			<div>
 				<IconsProvider />
