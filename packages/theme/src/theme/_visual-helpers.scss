@@ -64,7 +64,8 @@
 			}
 
 			:global(.btn) {
-				&:hover {
+				&:hover,
+				&:focus {
 					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
 				}
 			}
