@@ -200,8 +200,12 @@ function Drawer({
 
 	let activeTab = {};
 	let activeTabItem = [];
+	let customTabs;
 	if (tabs && tabs.items.length > 0) {
+		customTabs = Object.assign({}, tabs);
+
 		if (selectedTabKey) {
+			Object.assign(customTabs, { selectedKey: selectedTabKey });
 			activeTab = tabs.items.find(tab => tab.key === selectedTabKey);
 		}
 		activeTabItem = get(activeTab, 'footerActions.actions.left', []);
@@ -218,8 +222,7 @@ function Drawer({
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBarComponent
-						{...tabs}
-						selectedKey={selectedTabKey}
+						{...customTabs}
 						className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])}
 					/>
 				</div>
