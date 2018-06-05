@@ -31,7 +31,7 @@ public class TableTest extends StorybookTest {
         assertThat(headers.get(1).getText(), equalToIgnoringCase("name"));
         assertThat(headers.get(2).getText(), equalToIgnoringCase("created"));
         assertThat(headers.get(3).getText(), equalToIgnoringCase("author"));
-        assertThat(headers.get(4).getText(), equalToIgnoringCase("modified"));
+        assertThat(headers.get(4).getText(), equalToIgnoringCase(""));
     }
 
     @Test
