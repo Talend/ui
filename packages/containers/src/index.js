@@ -19,7 +19,6 @@ import ActionSplitDropdown from './ActionSplitDropdown';
 import AppLoader from './AppLoader';
 import Badge from './Badge';
 import ConfirmDialog from './ConfirmDialog';
-import Drawer from './Drawer';
 import FilterBar from './FilterBar';
 import HomeListView from './HomeListView';
 import List from './List';
@@ -50,7 +49,6 @@ export {
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
-	Drawer,
 	DeleteResource,
 	FilterBar,
 	HomeListView,
