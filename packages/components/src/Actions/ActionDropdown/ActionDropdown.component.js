@@ -10,6 +10,8 @@ import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
 
+export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
+
 function InjectDropdownMenuItem({
 	getComponent,
 	component,
@@ -124,7 +126,7 @@ class ActionDropdown extends React.Component {
 		const dropdownTrigger = event.target;
 		const dropdownMenu = event.target.nextSibling;
 		let dropdownContainer = dropdownTrigger.parentElement;
-		while (dropdownContainer && !dropdownContainer.classList.contains('tc-dropdown-container')) {
+		while (dropdownContainer && !dropdownContainer.classList.contains(DROPDOWN_CONTAINER_CN)) {
 			dropdownContainer = dropdownContainer.parentElement;
 		}
 
