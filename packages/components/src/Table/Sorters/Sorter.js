@@ -1,27 +1,26 @@
 export const Order = {
+	NONE: 'none',
 	ASCENDING: 'ascending',
 	DESCENDING: 'descending',
 };
 
-function getCoef(order) {
-	if (order === Order.DESCENDING) {
-		return -1;
-	}
-	return 1;
-}
+const coefs = {
+	none: 0,
+	ascending: 1,
+	descending: -1,
+};
 
 /**
  * This class represents a sorter for the elements of a table.
  * A sorter is identified by a unique string identifier.
- * This class is intended to be subclassed.
  */
 export default class Sorter {
-	constructor(id, label, order, key) {
+	constructor(id, label, key, icons) {
 		this.id = id;
 		this.label = label;
-		this.order = order;
+		this.order = Order.NONE;
 		this.key = key;
-		this.coef = getCoef(order);
+		this.icons = icons ? icons : {};
 	}
 
 	getId() {
@@ -40,13 +39,17 @@ export default class Sorter {
 		return this.key;
 	}
 
+	getIcon() {
+		return this.icons[this.order];
+	}
+
 	setOrder(order) {
 		this.order = order;
-		this.coef = getCoef(order);
 	}
 
 	compareStrings(val1, val2) {
-		return val1 < val2 ? -1 * this.coef : val1 > val2 ? this.coef : 0;
+		const coef = coefs[this.order];
+		return val1 < val2 ? -1 * coef : val1 > val2 ? coef : 0;
 	}
 
 	getValueToCompare(dataAccessor, element) {

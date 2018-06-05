@@ -1,4 +1,4 @@
-$tc-table-head-height: 30px !default;
+$tc-table-head-height: 35px !default;
 $tc-table-head-label-padding: 0.3rem;
 
 .tc-table-head {
@@ -10,6 +10,7 @@ $tc-table-head-label-padding: 0.3rem;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
+		height: $tc-table-head-height;
 	}
 
 	&-th {
@@ -20,8 +21,9 @@ $tc-table-head-label-padding: 0.3rem;
 
 	&-label {
 		padding: $tc-table-head-label-padding;
-		width: 100%;
 		text-overflow: ellipsis;
+		text-align: left;
+		font-weight: bold;
 		overflow: hidden;
 	}
 }

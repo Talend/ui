@@ -51,6 +51,7 @@ import {
 	Table,
 	TableCell,
 	TableHeaderCell,
+	TableSortHeader,
 } from './Table';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -177,9 +178,10 @@ export {
 	FilterFactory,
 	Sorter,
 	SortOrder,
-	Table,
+	Table,	
 	TableCell,
 	TableHeaderCell,
+	TableSortHeader,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

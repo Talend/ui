@@ -24,6 +24,7 @@ export default function Table({
 	withHeader,
 	filters,
 	onFilterChange,
+	onSortChange,
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
@@ -44,6 +45,7 @@ export default function Table({
 				classnames={classnames}
 				rowDataGetter={rowDataGetter}
 				withHeader={withHeader}
+				onSortChange={onSortChange}
 				onScroll={onScroll}
 				onEnterRow={onEnterRow}
 				onLeaveRow={onLeaveRow}
@@ -58,10 +60,11 @@ Table.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired, // column key
-			label: PropTypes.string, // label to display
+			label: PropTypes.string.isRequired, // label to display
 			headClassName: PropTypes.string, // header classname
 			headRenderer: PropTypes.func, // header renderer
 			headExtraProps: PropTypes.object, // header extra props
+			sorter: PropTypes.object,
 			cellClassName: PropTypes.string, // cell classname
 			cellRenderer: PropTypes.func, // cell renderer
 			cellExtraProps: PropTypes.object, // cell extra props
@@ -81,13 +84,14 @@ Table.propTypes = {
 	withHeader: PropTypes.bool,
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
-			filter: PropTypes.object,
-			renderer: PropTypes.func,
+			filter: PropTypes.object.isRequired,
+			renderer: PropTypes.func.isRequired,
 			className: PropTypes.string,
 			extra: PropTypes.object,
 		}),
 	),
 	onFilterChange: PropTypes.func,
+	onSortChange: PropTypes.func,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

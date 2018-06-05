@@ -7,11 +7,11 @@ import classNames from 'classnames';
  * The label must be a string.
  * It uses a div element for layout purpose (text alignment in a header).
  */
-export default function TableHeaderCell({ label, className }) {
-	return <div className={classNames('tc-table-header-cell', className)}>{label}</div>;
+export default function TableHeaderCell({ column, className }) {
+	return <div className={classNames('tc-table-header-cell', className)}>{column.label}</div>;
 }
 
 TableHeaderCell.propTypes = {
-	label: PropTypes.string,
+	column: PropTypes.object,
 	className: PropTypes.string,
 };

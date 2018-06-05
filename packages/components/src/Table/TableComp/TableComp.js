@@ -11,13 +11,16 @@ export default function TableComp({
 	classnames,
 	rowDataGetter,
 	withHeader,
+	onSortChange,
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
 }) {
 	return (
 		<table className={classNames('tc-table', theme['tc-table'], classnames && classnames.table)}>
-			{withHeader && <TableHeader columns={columns} classnames={classnames} />}
+			{withHeader &&
+				<TableHeader columns={columns} classnames={classnames} onSortChange={onSortChange}/>
+			}
 			<TableBody
 				elements={elements}
 				columns={columns}
@@ -40,6 +43,7 @@ TableComp.propTypes = {
 			headClassName: PropTypes.string, // header classname
 			headRenderer: PropTypes.func, // header renderer
 			headExtraProps: PropTypes.object, // header extra props
+			sorter: PropTypes.object,
 			cellClassName: PropTypes.string, // cell classname
 			cellRenderer: PropTypes.func, // cell renderer
 			cellExtraProps: PropTypes.object, // cell extra props
@@ -50,6 +54,7 @@ TableComp.propTypes = {
 	}),
 	rowDataGetter: PropTypes.object,
 	withHeader: PropTypes.bool,
+	onSortChange: PropTypes.func,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

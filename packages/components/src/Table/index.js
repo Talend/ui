@@ -4,6 +4,7 @@ import Sorter, { Order as SortOrder } from './Sorters/Sorter';
 import Table from './Table';
 import TableCell from './Cell/TableCell';
 import TableHeaderCell from './Header/TableHeaderCell';
+import TableSortHeader from './Header/TableSortHeader';
 
 export {
   DataAccessorWithSorterAndFilter,
@@ -12,5 +13,6 @@ export {
   SortOrder,
   Table,
   TableCell,
-  TableHeaderCell
+  TableHeaderCell,
+  TableSortHeader,
 };

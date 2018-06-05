@@ -10,7 +10,10 @@ import {
 	DraggableComponent as draggable,
 	FilterFactory,
 	IconsProvider,
+	Sorter,
+	SortOrder,
 	Table,
+	TableActionHeader,
 	TableCell,
 } from '../src/index';
 
@@ -242,9 +245,28 @@ const Columns = {
 	},
 };
 
-const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
-const columns2 = [Columns.NAME, Columns.TYPE];
-const columns4 = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
+const sorterIcons = {
+	none: null,
+	ascending: 'talend-sort-asc',
+	descending: 'talend-sort-desc',
+};
+
+function newColumn(col) {
+	return {
+		key: col.key,
+		label: col.label,
+	};
+}
+
+function addSorter(column) {
+	const key = column.key;
+	column.sorter = new Sorter(key, key, key, sorterIcons);
+	column.headExtraProps = {
+		iconPosition: 'right',
+		link: true,
+	};
+	return column;
+}
 
 /*
  * This constant allows to specify which drag sources and drop targets are compatible.
@@ -274,15 +296,31 @@ const draggableCellExtraProps = {
 	},
 };
 
-const columns3 = [
-	{
-		key: Columns.NAME.key,
-		label: Columns.NAME.label,
-		cellRenderer: draggableCell,
-		cellExtraProps: draggableCellExtraProps,
-	},
-	Columns.TYPE,
-	Columns.DESC,
+function addDnd(column) {
+	column.cellRenderer = draggableCell;
+	column.cellExtraProps = draggableCellExtraProps;
+	return column;
+}
+
+const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
+
+const columns2 = [Columns.NAME, Columns.TYPE];
+
+const columns3 = [addDnd(newColumn(Columns.NAME)), Columns.TYPE, Columns.DESC];
+
+const columns4 = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
+
+const columns5 = [
+	addSorter(newColumn(Columns.NAME)),
+	addSorter(newColumn(Columns.TYPE)),
+	addSorter(newColumn(Columns.DESC)),
+];
+
+const columns6 = [
+	addDnd(newColumn(Columns.MANDATORY)),
+	addSorter(newColumn(Columns.NAME)),
+	addSorter(newColumn(Columns.TYPE)),
+	addSorter(newColumn(Columns.DESC)),
 ];
 
 const rowDataGetter = {
@@ -313,13 +351,14 @@ const defaultClassnames = {
 	root: 'default-table',
 };
 
-const initialStateWithDnD = { draggable: true };
-
 class ConnectedTable extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = props.initialState;
+		this.state = {
+			draggable: props.draggable,
+			highlighted: null,
+		};
 		this.onEnterRow = this.onEnterRow.bind(this);
 		this.onLeaveRow = this.onLeaveRow.bind(this);
 	}
@@ -391,6 +430,7 @@ ConnectedTable.propTypes = {
 	columns: PropTypes.array,
 	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
+	draggable: PropTypes.bool,
 };
 
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
@@ -431,9 +471,11 @@ class SortedFilteredTable extends React.Component {
 		super(props);
 		this.state = {
 			elements: props.elements,
+			draggable: props.draggable,
 		};
 		this.dataAccessor = new DataAccessorWithSorterAndFilter(props.elements, rowDataGetter);
 		this.onFilterChange = this.onFilterChange.bind(this);
+		this.onSortChange = this.onSortChange.bind(this);
 		this.registerFilters(props.filters, this.dataAccessor);
 	}
 
@@ -455,9 +497,49 @@ class SortedFilteredTable extends React.Component {
 		});
 	}
 
+	onSortChange(sorter) {
+		if (this.dataAccessor.isActiveSorter(sorter)) {
+			switch (sorter.getOrder()) {
+				case SortOrder.ASCENDING:
+					sorter.setOrder(SortOrder.DESCENDING);
+					this.dataAccessor.sort();
+					break;
+				case SortOrder.DESCENDING:
+					sorter.setOrder(SortOrder.NONE);
+					this.dataAccessor.clearSorter();
+					break;
+				default:
+					break;
+			}
+		} else {
+			const activeSorter = this.dataAccessor.getSorter();
+			if (activeSorter) {
+				activeSorter.setOrder(SortOrder.NONE);
+			}
+			sorter.setOrder(SortOrder.ASCENDING);
+			this.dataAccessor.setSorter(sorter);
+		}
+		this.setState({
+			elements: this.dataAccessor.getElements(true),
+		});
+	}
+
+	hasSorters(columns) {
+		return columns.find(col => col.sorter);
+	}
+
+	getRowClassNames() {
+		let rowClassNames = [];
+		for (let i = 0; i < this.state.elements.length; i += 1) {
+			rowClassNames = rowClassNames.concat(classnames({'draggable-row': this.state.draggable}));
+		}
+		return rowClassNames;
+	}
+
 	getRootClassName() {
 		return classnames({
-			'sorted-table': this.props.sorters,
+			'table-with-dnd': this.state.draggable,
+			'sorted-table': this.hasSorters(this.props.columns),
 			'filtered-table': this.props.filters,
 		});
 	}
@@ -470,6 +552,7 @@ class SortedFilteredTable extends React.Component {
 		} = this.props;
 		const allClassnames = {
 			root: this.getRootClassName(),
+			rows: this.getRowClassNames(),
 		};
 		return (
 			<Table
@@ -481,6 +564,7 @@ class SortedFilteredTable extends React.Component {
 				withHeader={true}
 				filters={filters}
 				onFilterChange={this.onFilterChange}
+				onSortChange={this.onSortChange}
 			/>
 		);
 	}
@@ -492,7 +576,10 @@ SortedFilteredTable.propTypes = {
 	columns: PropTypes.array,
 	filters: PropTypes.array,
 	title: PropTypes.string,
+	draggable: PropTypes.bool,
 };
+
+const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
 
 const stories = storiesOf('Table', module);
 if (!stories.addWithInfo) {
@@ -530,11 +617,11 @@ stories
 	.addWithInfo('Table with drag and drop', () => {
 		return (
 			<TableWithDND
-				initialState={initialStateWithDnD}
 				elements={schema3.elements}
 				columns={columns3}
 				withHeader={true}
 				onScroll={action('onScroll called!')}
+				draggable={true}
 			/>
 		);
 	})
@@ -545,6 +632,25 @@ stories
 				columns={columns4}
 				filters={createFilters()}
 				title={schema3.name}
+			/>
+		);
+	})
+	.addWithInfo('Table with sorters', () => {
+		return (
+			<SortedFilteredTable
+				elements={schema3.elements}
+				columns={columns5}
+			/>
+		);
+	})
+	.addWithInfo('Table with dnd, sorters & filters', () => {
+		return (
+			<SortedFilteredTableWithDND
+				elements={schema3.elements}
+				columns={columns6}
+				filters={createFilters()}
+				title={schema3.name}
+				draggable={true}
 			/>
 		);
 	});
