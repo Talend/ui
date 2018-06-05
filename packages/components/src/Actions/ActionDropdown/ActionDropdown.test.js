@@ -111,61 +111,56 @@ describe('InjectDropdownMenuItem', () => {
 describe('Dropup', () => {
 	it('should switch to dropup when it is near the bottom of a tc-dropdown-container', () => {
 		// given
-		const dropdownContainer = {
-			classList: {
-				contains() {
-					return true;
+		function getDropdownMenuElement(top, bottom) {
+			return {
+				getBoundingClientRect() {
+					return { top, bottom };
 				},
-			},
-			getBoundingClientRect() {
-				return { bottom: 35 };
-			},
-		};
-		const dropdownMenu = {
-			// dropdown that is not under the bottom of container
-			getBoundingClientRect() {
-				return { bottom: 25 };
-			},
-		};
-		const overflowDropdownMenu = {
-			// dropdown that is under the bottom of container
-			getBoundingClientRect() {
-				return { bottom: 40 };
-			},
-		};
-		const event = {
-			target: {
-				nextSibling: dropdownMenu,
-				parentElement: {
-					classList: {
-						contains() {
-							return false;
+			};
+		}
+		function getActionDropdownEvent(top, bottom) {
+			return {
+				target: {
+					nextSibling: getDropdownMenuElement(top, bottom),
+					parentElement: {
+						classList: {
+							contains() {
+								return false;
+							},
+						},
+						// dropdown container
+						// simulate the tc-dropdown-container className
+						parentElement: {
+							classList: {
+								contains() {
+									return true;
+								},
+							},
+							getBoundingClientRect() {
+								return { top: 0, bottom: 35 };
+							},
 						},
 					},
-					parentElement: dropdownContainer,
 				},
-			},
-		};
-		const overflowEvent = {
-			target: {
-				nextSibling: overflowDropdownMenu,
-				parentElement: {
-					classList: {
-						contains() {
-							return false;
-						},
-					},
-					parentElement: dropdownContainer,
-				},
-			},
-		};
+			};
+		}
+		// dropdown that doesn't overflow
+		const event = getActionDropdownEvent(0, 25);
+		// dropdown that is above the top of container
+		const topOverflowEvent = getActionDropdownEvent(-5, 10);
+		// dropdown that is under the bottom of container
+		const bottomOverflowEvent = getActionDropdownEvent(20, 40);
 
 		const wrapper = shallow(<ActionDropdown items={[{ label: 'item 1' }, { label: 'item 2' }]} />);
 		expect(wrapper.state().dropup).toBe(false);
 
 		// when / then
-		wrapper.props().onToggle(true, overflowEvent);
+		wrapper.props().onToggle(true, bottomOverflowEvent);
 		expect(wrapper.state().dropup).toBe(true);
+
+		// when / then
+		wrapper.props().onToggle(true, topOverflowEvent);
+		expect(wrapper.state().dropup).toBe(false);
 
 		// when / then
 		wrapper.props().onToggle(true, event);

@@ -132,7 +132,12 @@ class ActionDropdown extends React.Component {
 			const dropdownRect = dropdownMenu.getBoundingClientRect();
 			const containerRect = dropdownContainer.getBoundingClientRect();
 
-			const dropup = containerRect.bottom < dropdownRect.bottom;
+			let dropup = this.state.dropup;
+			if (!this.state.dropup && dropdownRect.bottom > containerRect.bottom) {
+				dropup = true;
+			} else if (this.state.dropup && dropdownRect.top < containerRect.top) {
+				dropup = false;
+			}
 			this.setState({ dropup });
 		}
 	}
@@ -179,7 +184,6 @@ class ActionDropdown extends React.Component {
 				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
 				aria-label={tooltipLabel || label}
 				{...rest}
-				ref="trigger"
 				dropup={this.state.dropup}
 				onToggle={this.onToggle}
 			>
