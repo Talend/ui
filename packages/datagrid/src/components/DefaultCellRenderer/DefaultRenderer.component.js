@@ -2,13 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DefaultValueRenderer from './DefaultValueRenderer.component';
-import FormatValue, { REG_EXP_HAS_WHITE_SPACE_CHARACTERS } from './FormatValue.component';
+import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
 
 export default function DefaultRenderer({ data }) {
-	const HIDDEN_CHARACTERS_REG_EXP = new RegExp(REG_EXP_HAS_WHITE_SPACE_CHARACTERS);
-	const hiddenCharsRegExpMatch = data.value.match(HIDDEN_CHARACTERS_REG_EXP);
-
-	if (!hiddenCharsRegExpMatch[1] && !hiddenCharsRegExpMatch[3]) {
+	if (!hasWhiteSpaceCharacters(data.value)) {
 		return <DefaultValueRenderer label={data.value} />;
 	}
 

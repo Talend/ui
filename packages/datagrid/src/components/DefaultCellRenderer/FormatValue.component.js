@@ -6,9 +6,10 @@ import { Icon } from '@talend/react-components';
 import theme from './FormatValue.scss';
 
 export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
-export const REG_EXP_HAS_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)|\n/;
+export const REG_EXP_HAS_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
-const REG_EXP_LINE_FEEDING = /(\n)/g;
+const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;
+const REG_EXP_LINE_FEEDING = /\n/g;
 const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/g;
 
 /**
@@ -65,6 +66,22 @@ function replaceCharacterByIcon(value) {
 }
 
 /**
+ * hasWhiteSpaceCharacters - test a string if there are empty space trailing/leading or line feeding
+ *
+ * @param  {string} value string to test
+ * @return {boolean}       indicate if the string to test has white space
+ */
+export function hasWhiteSpaceCharacters(value) {
+	const hiddenCharsRegExpMatch = value.match(REG_EXP_HAS_WHITE_SPACE_CHARACTERS);
+
+	if (hiddenCharsRegExpMatch[1] || hiddenCharsRegExpMatch[3]) {
+		return true;
+	}
+
+	return REG_EXP_LINE_FEEDING.test(value);
+}
+
+/**
  * isEmptyCharacter - filter function to remove unused character
  *
  * @param  {string} value string to filter
@@ -112,7 +129,7 @@ export default function FormatValue(props) {
 	if (hiddenCharsRegExpMatch[2]) {
 		const formattedContent = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[2],
-			REG_EXP_LINE_FEEDING,
+			REG_EXP_CAPTUR_LINE_FEEDING,
 		);
 		content = [...content, ...formattedContent];
 	}
