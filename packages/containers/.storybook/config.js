@@ -98,6 +98,14 @@ function httpPhotosGet2() {
 	});
 }
 
+function sortByLength(sortBy) {
+	return function sort(a, b) {
+		return a.get(sortBy).length - b.get(sortBy).length;
+	};
+}
+
+api.registry.addToRegistry('_list_sort:sortByLength', sortByLength);
+
 api.actionCreator.register('http:get:photos1', httpPhotosGet1);
 api.actionCreator.register('http:get:photos2', httpPhotosGet2);
 api.actionCreator.register('object:view', objectView);
