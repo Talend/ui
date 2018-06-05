@@ -1,26 +1,8 @@
 import invariant from 'invariant';
+import get from 'lodash/get';
 import { take, put, race, call, select } from 'redux-saga/effects';
-import cmf, { actions } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 import deleteResourceConst from './constants';
-
-/**
- * Wil be deprecated with the new http saga api.
- * Call the requested uri in delete mode.
- * Add a label param for the notification.
- * @param {string} uri
- * @param {string} labelResource
- * @param {string} responseType
- */
-export function buildHttpDelete(uri, labelResource, responseType) {
-	return actions.http.delete(uri, {
-		onResponse() {
-			return {
-				type: responseType,
-				model: { labelResource },
-			};
-		},
-	});
-}
 
 /**
  * from a resourceType and an optional resourcePath, return a resource locator
@@ -53,22 +35,29 @@ got ${resourcePath}`,
  * @param {Array<String>} [resourcePath]
  */
 export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath) {
-	debugger;
-	yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
-	const resourceLocator = getResourceLocator(resourceType, resourcePath);
-	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, itemId);
-	if (resource) {
+	const action = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
+	const safeURI = get(action, 'data.model.uri', uri);
+	const safeType = get(action, 'data.model.resourceType', resourceType);
+	const safeId = get(action, 'data.model.id', itemId);
+	const safePath = get(action, 'data.model.resourcePath', resourcePath);
+	const resourceLocator = getResourceLocator(safeType, safePath);
+	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
+	if (resource && safeURI && safeType && safeId) {
 		yield put(
-			buildHttpDelete(
-				`${uri}/${resourceType}/${itemId}`,
-				resource.get('label', ''),
-				deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
-			),
+			cmf.actions.http.delete(`${safeURI}/${safeType}/${safeId}`, {
+				onResponse() {
+					return {
+						type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+						model: { labelResource: resource.get('label', '') },
+					};
+				},
+			}),
 		);
 	}
 }
 
 /**
+ * For Backward compatibility
  * Return a saga for delete resource confirmation dialog box.
  * Race between cancel and confirm deleting the resource.
  * To be used with the sagaRouter
@@ -79,18 +68,21 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
  * @param {Array<String>} sagaParams.resourcePath optional
  * @param {string} sagaParams.routerParamsAttribute optional param in route to get the resource id
  */
-export function getDeleteResourceSagaRouter({
+function getDeleteResourceSagaRouter({
 	uri,
 	resourceType,
 	redirectUrl,
 	resourcePath,
 	routerParamsAttribute = 'id',
 } = {}) {
-	invariant(!!uri, 'DeleteResource saga : uri not defined');
-	invariant(!!resourceType, 'DeleteResource saga : resourceType not defined');
-	invariant(!!redirectUrl, 'DeleteResource saga : redirectUrl not defined');
-
+	console.warn(
+		`DEPRECATED: please move config to DeleteResource props and remove this sagaRouter config`,
+	);
 	return function* deleteResourceSaga(routerParams) {
+		invariant(!!uri, 'DeleteResource saga : uri not defined');
+		invariant(!!resourceType, 'DeleteResource saga : resourceType not defined');
+		invariant(!!redirectUrl, 'DeleteResource saga : redirectUrl not defined');
+
 		try {
 			yield race({
 				deleteConfirmationValidate: call(
@@ -117,33 +109,29 @@ export function getDeleteResourceSagaRouter({
 	};
 }
 
+function* callRedirect(action) {
+	yield put({
+		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+		cmf: {
+			routerReplace: action.data.redirectUrl,
+		},
+	});
+}
 
-function* handle(props) {
+function* handle() {
 	try {
 		yield race({
-			deleteConfirmationValidate: call(
-				deleteResourceValidate,
-				props.api,
-				props.resourceType,
-				props.resourceId,
-				props.resourcePath,
-			),
+			deleteConfirmationValidate: call(deleteResourceValidate),
 			deleteConfirmationCancel: call(function* deleteResourceCancel() {
-				yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
+				const action = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
+				callRedirect(action);
 			}),
 		});
 	} catch (error) {
 		invariant(process.env.NODE_ENV !== 'production', `DeleteResource race failed :${error}`);
-	} finally {
-		yield put({
-			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
-			cmf: {
-				routerReplace: props.redirectUrl,
-			},
-		});
 	}
 }
 
-export default {
-	'DeleteResource#handle': handle,
-};
+// Backward compatibility
+getDeleteResourceSagaRouter['DeleteResource#handle'] = handle;
+export default getDeleteResourceSagaRouter;

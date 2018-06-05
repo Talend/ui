@@ -36,6 +36,7 @@ export class DeleteResource extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.getLabel = this.getLabel.bind(this);
+		this.getResourceInfo = this.getResourceInfo.bind(this);
 	}
 
 	/**
@@ -61,34 +62,32 @@ export class DeleteResource extends React.Component {
 				: this.props.resourceType,
 			uri: this.props.uri,
 			...this.getLabel(),
-			id: this.props.resourceId || (this.props.params && this.props.params.id),
+			id: this.props.resourceId,
 		};
 	}
 
 	render() {
 		const resourceInfo = this.getResourceInfo();
 		const validateAction = {
-			actionId: this.props[deleteResourceConst.VALIDATE_ACTION],
+			// actionId: this.props[deleteResourceConst.VALIDATE_ACTION],
 			model: resourceInfo,
-			label: 'Yes',
+			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'Yes' }),
 			bsStyle: 'danger',
-			onClickDispatchActionCreator: 'DeleteResource#validate',
+			onClickActionCreator: 'DeleteResource#validate',
 		};
 		const cancelAction = {
-			actionId: this.props[deleteResourceConst.CANCEL_ACTION],
+			// actionId: this.props[deleteResourceConst.CANCEL_ACTION],
 			model: resourceInfo,
-			label: 'No',
-			onClickDispatchActionCreator: 'DeleteResource#cancel',
+			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'No' }),
+			onClickActionCreator: 'DeleteResource#cancel',
 		};
-		const i18nKey = this.props.female
-			? 'DELETE_RESOURCE_MESSAGE_female'
-			: 'DELETE_RESOURCE_MESSAGE';
 		return (
 			<ConfirmDialog
 				show
 				header={this.props.header}
 				cancelAction={cancelAction}
 				validateAction={validateAction}
+				getComponent={this.props.getComponent}
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {

@@ -7,8 +7,8 @@ DeleteResource.constants = deleteResourceConstants;
 DeleteResource.sagas = sagas;
 DeleteResource.actions = {
 	'deleteResource:open': actions.open,
-	'deleteResource:validate': actions.validate,
-	'deleteResource:cancel': actions.cancel,
+	'DeleteResource#validate': actions.validate,
+	'DeleteResource#cancel': actions.cancel,
 };
 
 export default DeleteResource;
