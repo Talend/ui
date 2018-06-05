@@ -110,6 +110,7 @@ const props = {
 			{ key: 'author', label: 'Author', order: 3 },
 			{ key: 'created', label: 'Created', order: 2 },
 			{ key: 'modified', label: 'Modified', order: 4 },
+			{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 		],
 		items: [
 			{

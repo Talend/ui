@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { cloneDeep } from 'lodash';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import {
@@ -132,6 +133,18 @@ describe('ListToVirtualizedList', () => {
 		// then
 		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
 		expect(column.props().cellRenderer).toBe(renderer);
+	});
+
+	it('should support column hide feature', () => {
+		const hideProps = cloneDeep(props);
+		hideProps.columns.find(column => column.label === 'Tag').hidden = true;
+		const wrapper = shallow(<ListToVirtualizedList {...hideProps} />);
+
+		// then
+		const columnId = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		const columnTag = wrapper.find(VirtualizedList.Content).find({ label: 'Tag' });
+		expect(columnId.length).toBe(1);
+		expect(columnTag.length).toBe(0);
 	});
 
 	it('should adapt sort info', () => {
