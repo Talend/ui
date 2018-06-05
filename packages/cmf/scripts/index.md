@@ -80,7 +80,7 @@ It will extract all object with a i18n attribute
 				}
 			],
 			"extract-namespaces": ["app-cmf"],
-			"extract-from": "src/settings",
+			"extract-from": ["src/settings"],
 			"extract-sort": true
 		},
 		"destination": "src/assets/settings.json"
