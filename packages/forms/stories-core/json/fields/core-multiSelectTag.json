@@ -56,6 +56,12 @@
           "value": "Grapefruit"
         }
       ]
+    },
+    {
+      "key": "restrictedtags",
+      "description": "This field doesn't accept new items",
+      "title": "Tags",
+      "widget": "multiSelectTag"
     }
   ],
   "properties": {
