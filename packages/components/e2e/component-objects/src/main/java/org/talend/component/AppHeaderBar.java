@@ -90,7 +90,7 @@ public class AppHeaderBar extends Component {
      */
     public WebElement getProduct(final String productLabel) {
         for (final WebElement product : this.getProducts()) {
-            if (product.getText().equals(productLabel)) {
+            if (product.getText().equalsIgnoreCase(productLabel)) {
                 return product;
             }
         }

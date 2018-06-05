@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
@@ -39,7 +39,7 @@ const list = {
 const listWithTimestamp = {
 	columns: [
 		{ key: 'id', label: 'Id', type: 'hello' },
-		{ key: 'label', label: 'Name' },
+		{ key: 'label', label: 'Name', sortFunction: '_list_sort:sortByLength' },
 		{ key: 'author', label: 'Author' },
 		{
 			key: 'created',
@@ -339,6 +339,21 @@ const ExampleList = {
 			hello: { component: 'helloComp' },
 		};
 
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List
+						virtualized
+						{...propsTimestampSorted}
+						items={itemsWithTimestamp}
+						cellDictionary={cellDictionary}
+					/>
+				</div>
+			</div>
+		);
+	},
+	'custom sort': () => {
 		return (
 			<div>
 				<IconsProvider />

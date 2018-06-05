@@ -1,4 +1,4 @@
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 import DefaultCellRenderer from './components/DefaultCellRenderer';
 import DefaultHeaderRenderer from './components/DefaultHeaderRenderer';
 import DefaultPinHeaderRenderer from './components/DefaultPinHeaderRenderer';
