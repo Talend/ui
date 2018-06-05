@@ -616,7 +616,7 @@ storiesOf('List', module)
 
 		customProps.list.columns = [
 			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name', disableSort: true },
+			{ key: 'name', label: 'Name' },
 			{ key: 'status', label: 'Status', type: 'hello' },
 			{ key: 'cat', label: 'Cat' },
 		];
