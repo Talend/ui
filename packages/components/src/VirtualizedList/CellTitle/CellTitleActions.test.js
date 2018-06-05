@@ -15,13 +15,20 @@ const simpleActions = [
 		hideLabel: true,
 	},
 	{
-		available: false,
 		id: 'delete',
 		label: 'delete',
 		'data-feature': 'list.item.delete',
 		icon: 'talend-trash',
 		onClick: jest.fn(),
 		hideLabel: true,
+	},
+	{
+		available: false,
+		id: 'error',
+		label: 'This should not be visible',
+		'data-feature': 'list.item.error',
+		icon: 'talend-cross',
+		onClick: jest.fn(),
 	},
 ];
 
