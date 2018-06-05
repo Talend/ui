@@ -28,7 +28,7 @@ function renderHeaderCell(column, onSortChange) {
 			<HeaderComponent
 				key={column.key}
 				column={column}
-				className={cellClassnames}				
+				className={cellClassnames}
 				onSortChange={onSortChange}
 			/>
 		</th>
@@ -57,11 +57,11 @@ export default function TableHeader({ columns, classnames, onSortChange }) {
 TableHeader.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			key: PropTypes.string.isRequired, // column key
-			label: PropTypes.string, // label to display
-			headClassName: PropTypes.string, // header classname
-			headRenderer: PropTypes.func, // header renderer
-			headExtraProps: PropTypes.object, // header extra props
+			key: PropTypes.string.isRequired,
+			label: PropTypes.string,
+			headClassName: PropTypes.string,
+			headRenderer: PropTypes.func,
+			headExtraProps: PropTypes.object,
 			sorter: PropTypes.object,
 		}),
 	).isRequired,

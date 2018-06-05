@@ -6,48 +6,43 @@ import flow from 'lodash/flow';
 /**
  * This function adds the 'drag & drop' behaviour on the given component.
  * Its returns a new component which encaspulates the given one.
- * The new component is draggable and dropppable.
- * The props of the component must have at least: 'element' (object) and 'extra' (object).
- * The props 'element' is used as dragged data.
- * The props 'extra' must provide dnd callback methods (see elementSource and elementTarget).
+ * The new component is draggable and dropppable: it is both a drag source and a drop target.
+ * The props of the component must have at least:
+ * - element (object): the dragged element;
+ * - beginDrag (function): called when the dragging starts;
+ * - canDrop (function): specify whether the drop target is able to accept the dragged item;
+ * - drop (function): called when the dragged item is dropped on the target;
+ * - endDrag (function): called when the dragging stops;
+ *
  * @param {Component} Comp - The component on which the dragd and drop behavior must be defined.
  * @param {string} type - Define the type of element which can be dragged and dropped.
  */
 export default function getDraggable(Comp, type) {
-	/*
-	 * This defines the drag source specifications.
-	 */
-	const elementSource = {
+
+	// This defines the drag source specifications.
+	const sourceSpecifications = {
 		/*
 		 * Callback method called when the dragging starts.
 		 * It returns a plain JavaScript object describing the data being dragged.
 		 */
 		beginDrag(props) {
-			return props.extra.beginDrag(props.element);
+			return props.beginDrag(props.element);
 		},
-		/*
-		 * Callback method called when the dragging stops.
-		 */
+		// Callback method called when the dragging stops.
 		endDrag(props) {
-			props.extra.endDrag();
+			props.endDrag();
 		},
 	};
 
-	/*
-	 * This defines the drop target specifications.
-	 */
-	const elementTarget = {
-		/*
-		 * Used to specify whether the drop target is able to accept the item.
-		 */
+	// This defines the drop target specifications.
+	const targetSpecifications = {
+		// Used to specify whether the drop target is able to accept the item.
 		canDrop(props, monitor) {
-			return props.extra.canDrop(monitor.getItem(), props.element);
+			return props.canDrop(monitor.getItem(), props.element);
 		},
-		/*
-		 * Called when a compatible item is dropped on the target.
-		 */
+		// Called when a compatible item is dropped on the target.
 		drop(props, monitor) {
-			props.extra.drop(monitor.getItem(), props.element);
+			props.drop(monitor.getItem(), props.element);
 		},
 	};
 
@@ -82,7 +77,7 @@ export default function getDraggable(Comp, type) {
 	};
 
 	return flow(
-		dragSource(type, elementSource, collectForDragSource),
-		dropTarget(type, elementTarget, collectForDropTarget),
+		dragSource(type, sourceSpecifications, collectForDragSource),
+		dropTarget(type, targetSpecifications, collectForDropTarget),
 	)(DraggableComponent);
 }
