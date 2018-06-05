@@ -38,9 +38,9 @@
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/react": "^3.3.14",
-    "@talend/icons": "^0.190.0",
-    "@talend/react-components": "^0.190.0",
-    "@talend/react-storybook-cmf": "^0.190.0",
+    "@talend/icons": "^0.191.0",
+    "@talend/react-components": "^0.191.0",
+    "@talend/react-storybook-cmf": "^0.191.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.0.1",
@@ -104,9 +104,9 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^0.190.0",
+    "@talend/icons": "^0.191.0",
     "@talend/react-cmf": "^0.162.0",
-    "@talend/react-components": "^0.190.0",
+    "@talend/react-components": "^0.191.0",
     "bson-objectid": "1.1.5",
     "classnames": "2.2.5",
     "i18next": "^9.0.0",
@@ -145,7 +145,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.190.0",
+  "version": "0.191.0",
   "dependencies": {
     "ag-grid": "^17.0.0",
     "ag-grid-react": "^17.0.0",
