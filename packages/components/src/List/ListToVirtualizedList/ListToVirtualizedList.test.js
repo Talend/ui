@@ -16,7 +16,7 @@ const props = {
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
 		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
-		{ key: 'label', label: 'Label' },
+		{ key: 'label', label: 'Label', disableSort: true },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
 	],

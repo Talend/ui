@@ -92,6 +92,9 @@ export function ListToVirtualizedList(props) {
 							columnData: column.data,
 						});
 					}
+					if (column.disableSort) {
+						cProps.disableSort = true;
+					}
 					if (column.hideHeader) {
 						cProps.disableSort = true;
 						cProps.headerRenderer = HiddenHeader;
