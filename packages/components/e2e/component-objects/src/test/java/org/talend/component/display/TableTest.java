@@ -99,7 +99,7 @@ public class TableTest extends StorybookTest {
         final WebElement editButton = tableObject.getItem("Title with actions").getAction("edit");
 
         // then
-        assertThat(editButton.getTagName(), is("a"));
+        assertThat(editButton.getTagName(), is("button"));
     }
 
     @Test
