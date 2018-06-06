@@ -179,11 +179,7 @@ describe('CellTitleActions', () => {
 
 	it('should keep definition order of dropdown and simple actions extracted out of the ellipsis dropdown', () => {
 		// 1°) simple action then dropdown action
-		const actionsSimpleFirst = [
-			fewSimpleActions[0],
-			dropdownActions[0],
-			...lotOfSimpleActions,
-		];
+		const actionsSimpleFirst = [fewSimpleActions[0], dropdownActions[0], ...lotOfSimpleActions];
 
 		// when
 		const wrapperSimpleFirst = shallow(
@@ -195,16 +191,17 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapperSimpleFirst.find('.cell-title-actions').childAt(1).props().displayMode).toEqual('dropdown');
+		expect(
+			wrapperSimpleFirst
+				.find('.cell-title-actions')
+				.childAt(1)
+				.props().displayMode,
+		).toEqual('dropdown');
 
 		// -------------
 
 		// 2°) dropdown action then simple action
-		const actionsDropdownFirst = [
-			dropdownActions[0],
-			fewSimpleActions[0],
-			...lotOfSimpleActions,
-		];
+		const actionsDropdownFirst = [dropdownActions[0], fewSimpleActions[0], ...lotOfSimpleActions];
 
 		// when
 		const wrapperDropdownFirst = shallow(
@@ -216,7 +213,12 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(wrapperDropdownFirst.find('.cell-title-actions').childAt(0).props().displayMode).toEqual('dropdown');
+		expect(
+			wrapperDropdownFirst
+				.find('.cell-title-actions')
+				.childAt(0)
+				.props().displayMode,
+		).toEqual('dropdown');
 	});
 
 	it('should display all actions on LARGE display mode', () => {

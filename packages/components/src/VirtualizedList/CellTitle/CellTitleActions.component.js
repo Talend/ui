@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import {translate} from 'react-i18next';
+import { translate } from 'react-i18next';
 import get from 'lodash/get';
-import {Actions, ActionDropdown} from '../../Actions';
-import {cellTitleDisplayModes, listTypes} from '../utils/constants';
+import { Actions, ActionDropdown } from '../../Actions';
+import { cellTitleDisplayModes, listTypes } from '../utils/constants';
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './CellTitleActions.scss';
 import Action from '../../Actions/Action/Action.component';
 
-const {TITLE_MODE_INPUT, TITLE_MODE_TEXT} = cellTitleDisplayModes;
-const {LARGE} = listTypes;
+const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
+const { LARGE } = listTypes;
 
 const MAX_DIRECT_NB_ICON = 3;
 
@@ -46,7 +46,7 @@ function getDefaultDisplayActions(actions, t) {
 
 	// few actions : display them
 	if (hasFewActions) {
-		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link/>);
+		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link />);
 	}
 	// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
 	// the rest is in an ellipsis dropdown
@@ -59,23 +59,17 @@ function getDefaultDisplayActions(actions, t) {
 		const nbOfSimpleToExtract = MAX_DIRECT_NB_ICON - 1 - extractedDropdownActions.length;
 
 		// extract simple actions if space remaining
-		const extractedSimpleActions = nbOfSimpleToExtract > 0
-			? simpleActions.slice(0, nbOfSimpleToExtract)
-			: [];
+		const extractedSimpleActions =
+			nbOfSimpleToExtract > 0 ? simpleActions.slice(0, nbOfSimpleToExtract) : [];
 
-		const extractedActions = [
-			...extractedDropdownActions,
-			...extractedSimpleActions,
-		];
+		const extractedActions = [...extractedDropdownActions, ...extractedSimpleActions];
 
 		const remainingActions = simpleActions.slice(nbOfSimpleToExtract);
 
 		extractedActions
 			.sort((a, b) => actions.indexOf(a) - actions.indexOf(b))
 			.forEach((action, i) => {
-				actionsBlocs.push(
-					<Action {...action} key={`extracted-action-${i}`} hideLabel link/>,
-				);
+				actionsBlocs.push(<Action {...action} key={`extracted-action-${i}`} hideLabel link />);
 			});
 
 		// ellipsis dropdown
@@ -84,7 +78,7 @@ function getDefaultDisplayActions(actions, t) {
 				key={'ellipsis-actions'}
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
-				label={t('LIST_OPEN_ACTION_MENU', {defaultValue: 'Open menu'})}
+				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
 				hideLabel
 				link
 				noCaret
