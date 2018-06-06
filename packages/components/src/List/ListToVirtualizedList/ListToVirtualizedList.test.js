@@ -72,6 +72,20 @@ describe('ListToVirtualizedList', () => {
 		expect(table.rowHeight).toBe(200);
 	});
 
+	it('should support disableSort', () => {
+		const table = shallow(<ListToVirtualizedList {...props} />);
+		const columns = table.find(VirtualizedList.Content);
+		columns.forEach(element => {
+			const eProps = element.props();
+			// Sort should be disabled when disableSort or hideHeader is true
+			if (eProps.label === 'Label' || eProps.label === 'Actions') {
+				expect(eProps.disableSort).toBeTruthy();
+			} else {
+				expect(eProps.disableSort).toBeFalsy();
+			}
+		});
+	});
+
 	it('should add actionsKey to titleProps', () => {
 		// when
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);

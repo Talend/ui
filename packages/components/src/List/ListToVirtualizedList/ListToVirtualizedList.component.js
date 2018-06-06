@@ -81,6 +81,7 @@ export function ListToVirtualizedList(props) {
 						label: column.label,
 						dataKey: column.key,
 					};
+					cProps.disableSort = column.disableSort;
 					if (titleProps && column.key === titleProps.key) {
 						Object.assign(cProps, CellTitle, {
 							columnData: titleProps,
@@ -91,9 +92,6 @@ export function ListToVirtualizedList(props) {
 						Object.assign(cProps, listCellDictionary[column.type], {
 							columnData: column.data,
 						});
-					}
-					if (column.disableSort) {
-						cProps.disableSort = true;
 					}
 					if (column.hideHeader) {
 						cProps.disableSort = true;
