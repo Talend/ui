@@ -12,7 +12,7 @@ function mergeFilterResults(result1, result2) {
 }
 
 /**
- * Internal class
+ * Internal class used to compare elements with a sorter.
  */
 class Comparator {
 	constructor(dataAccessor) {
@@ -33,12 +33,14 @@ class Comparator {
 /**
  * This class is responsible for storing and applying filters and sorter on an array of elements.
  * It makes no assumptions about the structure of the elements: it uses a dataAccessor in order to access element content.
- *
+ * You can add multiple filters, but only one sorter.
  */
 export default class DataAccessorWithSorterAndFilter {
 	/**
 	 * @param {array} elements - an array of elements
-	 * @param {object} dataAccessor - This provides access to element content
+	 * @param {object} dataAccessor - This provides access to element content.
+	 *
+	 * The provided data accessor is basically a rowDataGetter implementation.
 	 */
 	constructor(elements, dataAccessor) {
 		this.elements = elements;
@@ -47,14 +49,18 @@ export default class DataAccessorWithSorterAndFilter {
 		this.filters = {
 			// A Map storing the registered filters. Key is the identifier of a filter.
 			registry: {},
-			// The last result of applying filters.
+			// This stores the result of filters computation.
 			result: [],
-			// Allow result versioning.
+			/**
+			 * Versioning number used to know what is the last version of filters computation.
+			 * Each time a filter is applied, the version number is incremented.
+			 */
 			version: 0,
 		};
 		// Thos object stores the current sorter and its result.
 		this.sorterInfo = {
 			sorter: null,
+			// This stores the result of sorter computation.
 			result: [],
 		};
 		this.comparator = new Comparator(dataAccessor);
@@ -80,6 +86,9 @@ export default class DataAccessorWithSorterAndFilter {
 		}
 	}
 
+	/**
+	 * This returns the registered filters in an array.
+	 */
 	getFilters() {
 		let filters = [];
 		const filterIds = Object.keys(this.filters.registry);
@@ -92,10 +101,17 @@ export default class DataAccessorWithSorterAndFilter {
 		return filters;
 	}
 
+	/**
+	 * Returns the last main version number of filters computation.
+	 */
 	getFiltersVersion() {
 		return this.filters.version;
 	}
 
+	/**
+	 * Returns the last version number of a specific filter.
+	 * @param {string} filterId - the identifier of the filter
+	 */
 	getFilterVersion(filterId) {
 		if (!this.filters.registry[filterId]) {
 			return -1;
@@ -103,6 +119,11 @@ export default class DataAccessorWithSorterAndFilter {
 		return this.filters.registry[filterId].version;
 	}
 
+	/**
+	 * Remove the given filter from the data accessor.
+	 * It triggers a new filter(s) computation (and so increments the main version number).
+	 * @param {object} filter - The filter to be removed.
+	 */
 	removeFilter(filter) {
 		const filterId = filter.getId();
 		if (!this.filters.registry[filterId]) {
@@ -128,6 +149,12 @@ export default class DataAccessorWithSorterAndFilter {
 		}
 	}
 
+	/**
+	 * This triggers a new computation with the given filter (based on its identfier).
+	 * If the filter is not registered, nothing happens.
+	 * The result is then merged with another filter results and sorted (if a sorter is defined).
+	 * @param {string} filterId - the identifier of the filter
+	 */
 	filter(filterId) {
 		if (!this.filters.registry[filterId]) {
 			return;
@@ -138,6 +165,10 @@ export default class DataAccessorWithSorterAndFilter {
 		this.internalMergeFiltersAndSorter();
 	}
 
+	/**
+	 * This triggers a new computation for all registered filters.
+	 * The final result is then sorted if a sorter is defined.
+	 */
 	filterAll() {
 		if (!this.filters.registry) {
 			return;
@@ -188,10 +219,16 @@ export default class DataAccessorWithSorterAndFilter {
 		this.filters.version += 1;
 	}
 
+	/**
+	 * Indicates if at least one filter is registered.
+	 */
 	hasFilters() {
 		return Object.keys(this.filters.registry).length > 0;
 	}
 
+	/**
+	 * Iindicates if at least one registered filter is active.
+	 */
 	hasFiltersActive() {
 		const filterIds = Object.keys(this.filters.registry);
 		if (filterIds) {
@@ -204,6 +241,10 @@ export default class DataAccessorWithSorterAndFilter {
 		return false;
 	}
 
+	/**
+	 * Indicates if the given element is filtered.
+	 * @param {object} element - The element
+	 */
 	isFiltered(element) {
 		if (this.hasFiltersActive()) {
 			return !this.includes(this.filters.result, element);
@@ -221,27 +262,51 @@ export default class DataAccessorWithSorterAndFilter {
 		return this.internalGetElements();
 	}
 
+	/**
+	 * This defines a sorter. Only one sorter can be defined.
+	 * If a sorter is already defined, it is replaced by the new one.
+	 * This triggers a sort computation.
+	 * @param {object} sorter - The sorter
+	 * @see {@link Sorter} for further information.
+	 */
 	setSorter(sorter) {
 		this.sorterInfo.sorter = sorter;
 		this.sort();
 	}
 
+	/**
+	 * Indicates if a sorter is defined.
+	 */
 	hasSorter() {
 		return Boolean(this.sorterInfo.sorter);
 	}
 
+	/**
+	 * Indicates if the given sorter is the one defined in the data accessor.
+	 * @param {object} sorter - the sorter
+	 */
 	isActiveSorter(sorter) {
 		return this.hasSorter() && this.sorterInfo.sorter.getId() === sorter.getId();
 	}
 
+	/**
+	 * Returns the defined sorter if it exists.
+	 */
 	getSorter() {
 		return this.sorterInfo.sorter;
 	}
 
+	/**
+	 * Remove the sorter from the data accessor.
+	 */
 	clearSorter() {
 		this.sorterInfo.sorter = null;
 	}
 
+	/**
+	 * This triggers a sort computation.
+	 * The sort is done with the result of registered and activated filters.
+	 */
 	sort() {
 		if (this.hasSorter()) {
 			this.internalSortElements(this.internalGetFilteredElements());
@@ -259,6 +324,8 @@ export default class DataAccessorWithSorterAndFilter {
 
 	/**
 	 * Returns true if the array of elements contains the specified element.
+	 * @param {array} elements
+	 * @param {object} element
 	 */
 	includes(elements, element) {
 		if (this.dataAccessor.includes) {
@@ -275,6 +342,8 @@ export default class DataAccessorWithSorterAndFilter {
 	/**
 	 * Returns true if the two elements are equals.
 	 * Default implementation is based on element id.
+	 * @param {object} element1 - the first element to be compared
+	 * @param {object} element2 - the second element to be compared
 	 */
 	areElementsEqual(element1, element2) {
 		if (this.dataAccessor.areElementsEqual) {
@@ -286,6 +355,7 @@ export default class DataAccessorWithSorterAndFilter {
 	/**
 	 * Returns the identifier of the element.
 	 * Identifier must be unique.
+	 * @param {object} element - The element
 	 */
 	getElementId(element) {
 		return this.dataAccessor.getElementId(element);
@@ -317,6 +387,7 @@ export default class DataAccessorWithSorterAndFilter {
 
 	/**
 	 * Returns all the elements in an array.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters.
 	 */
 	getElements(withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
@@ -331,6 +402,8 @@ export default class DataAccessorWithSorterAndFilter {
 
 	/**
 	 * Returns the nth element.
+	 * @param {integer} index - The index of the wanted element.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters and sorter.
 	 */
 	getElement(index, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
@@ -350,6 +423,8 @@ export default class DataAccessorWithSorterAndFilter {
 	/**
 	 * Returns the index of the given element,
 	 * returns -1 if it is unknown.
+	 * @param {object} element - the element1
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters and sorter.
 	 */
 	getElementIndex(element, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
@@ -366,6 +441,10 @@ export default class DataAccessorWithSorterAndFilter {
 		return -1;
 	}
 
+	/**
+	 * Returns the element corresponding to the given identifier.
+	 * @param {string} elementId - the element identifier
+	 */
 	getElementFromId(elementId) {
 		const elements = this.getElements(false);
 		if (elements) {
