@@ -12,6 +12,7 @@ function renderCell(data, className) {
 
 function renderClickableCell(data, className, onClick, onDoubleClick, onKeyPress) {
 	return (
+		/* eslint-disable jsx-a11y/no-static-element-interactions */
 		<div
 			className={classNames('tc-table-clickable-cell', className)}
 			onClick={onClick}
@@ -22,6 +23,7 @@ function renderClickableCell(data, className, onClick, onDoubleClick, onKeyPress
 		>
 			{data}
 		</div>
+		/* eslint-enable jsx-a11y/no-static-element-interactions */
 	);
 }
 

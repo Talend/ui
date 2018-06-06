@@ -84,9 +84,9 @@ export default class DataAccessorWithSorterAndFilter {
 		let filters = [];
 		const filterIds = Object.keys(this.filters.registry);
 		for (let i = 0; i < filterIds.length; i += 1) {
-			const filter = this.filters.registry[filterIds[i]];
-			if (filter) {
-				filters = filters.concat(filter);
+			const registeredFilter = this.filters.registry[filterIds[i]];
+			if (registeredFilter) {
+				filters = filters.concat(registeredFilter.filter);
 			}
 		}
 		return filters;
@@ -292,6 +292,15 @@ export default class DataAccessorWithSorterAndFilter {
 	}
 
 	/**
+	 * Return the data corresponding to the given element and column key.
+	 * @param {object} element - An element of the table.
+	 * @param {string} key - The key identifying a column.
+	 */
+	getRowData(element, key) {
+		return this.dataAccessor.getRowData(element, key);
+	}
+
+	/**
 	 * Returns the number of elements.
 	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters.
 	 */
@@ -360,7 +369,7 @@ export default class DataAccessorWithSorterAndFilter {
 	getElementFromId(elementId) {
 		const elements = this.getElements(false);
 		if (elements) {
-			return elements.find(elem => this.getElementId(elem) === id);
+			return elements.find(elem => this.getElementId(elem) === elementId);
 		}
 		return null;
 	}

@@ -14,32 +14,32 @@ export const element2 = {
 	desc: 'This element is a string',
 };
 
-export const element3 = {
-	id: 'elem_3',
+export const firstname = {
+	id: 'elem_firstname',
 	name: 'Firstname',
 	type: 'string',
 	desc: 'The firstname of the customer (optional)',
 	mandatory: false,
 };
 
-export const element4 = {
-	id: 'elem_4',
+export const lastname = {
+	id: 'elem_lastname',
 	name: 'Lastname',
 	type: 'string',
 	desc: 'The lastname of the customer (mandatory)',
 	mandatory: true,
 };
 
-export const element5 = {
-	id: 'elem_5',
+export const birthday = {
+	id: 'elem_birthday',
 	name: 'Birthday',
 	type: 'date',
 	desc: 'The birthday of the customer (optional)',
 	mandatory: false,
 };
 
-export const element6 = {
-	id: 'elem_6',
+export const address = {
+	id: 'elem_address',
 	name: 'Address',
 	type: 'address',
 	desc: 'The address of the customer (mandatory)',

@@ -560,7 +560,7 @@ class SortedFilteredTable extends React.Component {
 				elements={this.state.elements}
 				columns={columns}
 				classnames={allClassnames}
-				rowDataGetter={rowDataGetter}
+				rowDataGetter={this.dataAccessor}
 				withHeader={true}
 				filters={filters}
 				onFilterChange={this.onFilterChange}
