@@ -118,16 +118,20 @@ function getDeleteResourceSagaRouter({
 				deleteConfirmationCancel: call(deleteResourceCancel),
 			});
 		} catch (error) {
-			invariant(process.env.NODE_ENV !== 'production', `DeleteResource race failed :${error}`);
+			throw new Error(`DeleteResource failed :${error}`);
 		}
 	};
 }
 
 function* handle() {
-	yield race({
-		deleteConfirmationValidate: call(deleteResourceValidate),
-		deleteConfirmationCancel: call(deleteResourceCancel),
-	});
+	try {
+		yield race({
+			deleteConfirmationValidate: call(deleteResourceValidate),
+			deleteConfirmationCancel: call(deleteResourceCancel),
+		});
+	} catch (error) {
+		throw new Error(`DeleteResource failed: ${error}`);
+	}
 }
 
 // Backward compatibility

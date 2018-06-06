@@ -1,7 +1,7 @@
 // import SagaTester from 'redux-saga-tester';
 import { Map, List } from 'immutable';
 import cmf from '@talend/react-cmf';
-import { take, put, race, call, select } from 'redux-saga/effects';
+import { take } from 'redux-saga/effects';
 import CONSTANTS from './constants';
 // import actions from './actions';
 import sagas, * as internals from './sagas';
@@ -99,6 +99,12 @@ describe('sagas', () => {
 				deleteConfirmationCancel: { CALL: { fn: internals.deleteResourceCancel } },
 				deleteConfirmationValidate: { CALL: { fn: internals.deleteResourceValidate } },
 			});
+		});
+		it('should throw a specific error if sth goes bad', () => {
+			const gen = sagas['DeleteResource#handle']();
+			gen.next();
+			const toThrow = () => gen.throw(new Error('no more internet')).value;
+			expect(toThrow).toThrow('DeleteResource failed: Error: no more interne');
 		});
 	});
 });

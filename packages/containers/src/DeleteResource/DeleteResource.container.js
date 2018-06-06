@@ -5,6 +5,7 @@ import { ConfirmDialog } from '@talend/react-components';
 import { translate } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
+import CONSTANTS from './constants';
 
 /**
  * DeleteResource is used to delete a specific resource.
@@ -68,14 +69,14 @@ export class DeleteResource extends React.Component {
 	render() {
 		const resourceInfo = this.getResourceInfo();
 		const validateAction = {
-			// actionId: this.props[deleteResourceConst.VALIDATE_ACTION],
+			componentId: this.props[CONSTANTS.VALIDATE_ACTION],
 			model: resourceInfo,
 			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'Yes' }),
 			bsStyle: 'danger',
 			onClickActionCreator: 'DeleteResource#validate',
 		};
 		const cancelAction = {
-			// actionId: this.props[deleteResourceConst.CANCEL_ACTION],
+			componentId: this.props[CONSTANTS.CANCEL_ACTION],
 			model: resourceInfo,
 			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'No' }),
 			onClickActionCreator: 'DeleteResource#cancel',

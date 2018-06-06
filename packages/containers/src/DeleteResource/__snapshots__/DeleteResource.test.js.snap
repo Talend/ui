@@ -4,6 +4,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 <ConfirmDialog
   cancelAction={
     Object {
+      "componentId": "dialog:delete:cancel",
       "label": "No",
       "model": Object {
         "found": true,
@@ -22,6 +23,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   validateAction={
     Object {
       "bsStyle": "danger",
+      "componentId": "dialog:delete:validate",
       "label": "Yes",
       "model": Object {
         "found": true,
@@ -50,6 +52,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
 <ConfirmDialog
   cancelAction={
     Object {
+      "componentId": "dialog:delete:cancel",
       "label": "No",
       "model": Object {
         "found": false,
@@ -68,6 +71,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   validateAction={
     Object {
       "bsStyle": "danger",
+      "componentId": "dialog:delete:validate",
       "label": "Yes",
       "model": Object {
         "found": false,
