@@ -8,8 +8,8 @@ import theme from './DefaultIntCell.scss';
 export default function DefaultIntCellRenderer({ data }) {
 	return (
 		<DefaultValueRenderer
+			value={data.value}
 			className={classNames(theme['td-cell-int'], 'td-cell-int')}
-			label={data.value}
 		/>
 	);
 }

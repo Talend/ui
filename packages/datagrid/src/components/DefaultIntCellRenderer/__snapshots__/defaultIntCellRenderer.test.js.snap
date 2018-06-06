@@ -3,6 +3,6 @@
 exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
 <DefaultValueRenderer
   className="theme-td-cell-int td-cell-int"
-  label={42.42}
+  value={42.42}
 />
 `;

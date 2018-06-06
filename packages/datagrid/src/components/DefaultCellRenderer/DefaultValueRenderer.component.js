@@ -28,9 +28,10 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	checkOverflow() {
+		// use 1.5 to avoid to show the tooltip when the element has slighty overflowed
 		const overflowing =
 			this.domElement.scrollWidth > this.domElement.clientWidth ||
-			this.domElement.scrollHeight > this.domElement.clientHeight + 1;
+			this.domElement.scrollHeight > this.domElement.clientHeight * 1.5;
 
 		if (this.state.overflowing !== overflowing) {
 			this.setState(() => ({
