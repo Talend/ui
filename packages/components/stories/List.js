@@ -591,6 +591,9 @@ storiesOf('List', module)
 	})
 	.add('Sort', () => {
 		const tprops = cloneDeep(props);
+		// disable sort on column author
+		let authorColumn = tprops.list.columns.find(e => e.key === 'author');
+		authorColumn.disableSort = true;
 		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -603,6 +606,7 @@ storiesOf('List', module)
 					isDescending);<br />
 					&lt;List ... list=&#123;listProps&#125; &gt;<br />
 				</pre>
+				<p>To disable sort on a column, add the <strong>disableSort</strong> props (see Author column).</p>
 				<List {...tprops} />
 			</div>
 		);
