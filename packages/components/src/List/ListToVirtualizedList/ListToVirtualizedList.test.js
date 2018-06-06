@@ -16,7 +16,7 @@ const props = {
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
 		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
-		{ key: 'label', label: 'Label' },
+		{ key: 'label', label: 'Label', disableSort: true },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
 	],
@@ -70,6 +70,19 @@ describe('ListToVirtualizedList', () => {
 		const rProps = { ...props, rowHeight: 200 };
 		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
 		expect(table.rowHeight).toBe(200);
+	});
+
+	it('columns should have disableSort prop to true if hideHeader or disableSort is true', () => {
+		const table = shallow(<ListToVirtualizedList {...props} />);
+		const columns = table.find(VirtualizedList.Content);
+		columns.forEach(element => {
+			const eProps = element.props();
+			if (eProps.label === 'Label' || eProps.label === 'Actions') {
+				expect(eProps.disableSort).toBeTruthy();
+			} else {
+				expect(eProps.disableSort).toBeFalsy();
+			}
+		});
 	});
 
 	it('should add actionsKey to titleProps', () => {
