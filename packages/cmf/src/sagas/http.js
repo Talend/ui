@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
-import immutable from 'immutable';
+import { Headers } from 'node-fetch';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -50,7 +50,7 @@ export class HTTPError extends Error {
 export function handleBody(response) {
 	let methodBody = 'text';
 
-	const headers = get(response, 'headers', new immutable.Map());
+	const headers = get(response, 'headers', new Headers());
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
