@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { TooltipTrigger } from '@talend/react-components';
+import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
 
 import theme from './DefaultValueRenderer.scss';
 
 export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
 		className: PropTypes.object,
-		contentRenderer: PropTypes.func,
-		label: PropTypes.string,
+		value: PropTypes.string,
 	};
 
 	constructor(props) {
@@ -28,7 +28,7 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	checkOverflow() {
-		// use 1.5 to avoid to show the tooltip when the element has slighty overflowed
+		// use a  1.5 ratio to avoid to show the tooltip when the element has slighty overflowed
 		const overflowing =
 			this.domElement.scrollWidth > this.domElement.clientWidth ||
 			this.domElement.scrollHeight > this.domElement.clientHeight * 1.5;
@@ -42,10 +42,12 @@ export default class DefaultValueRenderer extends React.Component {
 
 	render() {
 		let tooltipContent;
-		if (this.props.label !== undefined) {
-			tooltipContent = this.props.label;
+		let hasWhiteSpace = false;
+		if (!hasWhiteSpaceCharacters(this.props.value)) {
+			tooltipContent = this.props.value;
 		} else {
-			tooltipContent = this.props.contentRenderer();
+			hasWhiteSpace = true;
+			tooltipContent = <FormatValue value={this.props.value} />;
 		}
 
 		const content = (
@@ -64,9 +66,9 @@ export default class DefaultValueRenderer extends React.Component {
 		}
 		const tooltipTrigger = {};
 
-		if (this.props.label !== undefined) {
+		if (!hasWhiteSpace) {
 			tooltipTrigger.label = tooltipContent;
-		} else if (this.props.contentRenderer) {
+		} else {
 			tooltipTrigger.contentRenderer = () => <div>{tooltipContent}</div>;
 		}
 

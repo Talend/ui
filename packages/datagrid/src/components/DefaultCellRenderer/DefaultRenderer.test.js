@@ -12,11 +12,4 @@ describe('#DefaultRenderer', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-
-	it('should render DefaultRenderer with a label tooltip', () => {
-		const value = 'loreum';
-		const wrapper = shallow(<DefaultRenderer data={{ value }} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
 });
