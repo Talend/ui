@@ -13,7 +13,7 @@ const REG_EXP_LINE_FEEDING = /\n/g;
 const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/g;
 
 /**
- * replaceCharacterByIcon - description
+ * replaceCharacterByIcon - replace a character by the corresponding icon
  *
  * @param  {string} value string to transform
  * @return {Component}    component with the replaced special characters by icon
