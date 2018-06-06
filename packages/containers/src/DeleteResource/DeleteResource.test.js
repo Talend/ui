@@ -60,6 +60,9 @@ describe('Connected DeleteResource', () => {
 		it('should return empty object if no resourceType', () => {
 			expect(mapStateToProps({}, {})).toEqual({});
 		});
+		it('should return resourceId from router', () => {
+			expect(mapStateToProps({}, { params: { id: '123' } }).resourceId).toEqual('123');
+		});
 		it('should return the props.resource corresponding to resourceId', () => {
 			expect(mapStateToProps(state, { resourceType: 'foo', resourceId: '123' }).resource).toBe(
 				state.cmf.collections.get('foo').get(0),
@@ -67,7 +70,7 @@ describe('Connected DeleteResource', () => {
 		});
 		it('should return the props.resource corresponding to routeParams.id', () => {
 			expect(
-				mapStateToProps(state, { resourceType: 'foo', routeParams: { id: '123' } }).resource,
+				mapStateToProps(state, { resourceType: 'foo', params: { id: '123' } }).resource,
 			).toBe(state.cmf.collections.get('foo').get(0));
 		});
 	});
