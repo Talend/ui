@@ -54,7 +54,6 @@ export function handleBody(response) {
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
 	}
-
 	return response[methodBody]().then(data => ({ data, response }));
 }
 
