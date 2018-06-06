@@ -54,7 +54,6 @@ export default class DefaultValueRenderer extends React.Component {
 			<div
 				ref={this.setDOMElement}
 				onMouseOver={this.checkOverflow}
-				onFocus={this.checkOverflow}
 				className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell')}
 			>
 				{tooltipContent}
