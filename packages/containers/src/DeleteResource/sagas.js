@@ -94,6 +94,7 @@ function getDeleteResourceSagaRouter({
 	resourcePath,
 	routerParamsAttribute = 'id',
 } = {}) {
+	// eslint-disable-next-line no-console
 	console.warn(`DEPRECATED: please move the following sagaRouter config as props of DeleteResource container:
 	{
 		uri: ${uri},

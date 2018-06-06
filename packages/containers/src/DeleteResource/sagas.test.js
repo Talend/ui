@@ -1,5 +1,5 @@
 // import SagaTester from 'redux-saga-tester';
-import { Map, List } from 'immutable';
+import { Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 import { take } from 'redux-saga/effects';
 import CONSTANTS from './constants';
@@ -93,6 +93,7 @@ describe('sagas', () => {
 	});
 	describe('DeleteResource#handle', () => {
 		it('should race between cancel and validate', () => {
+			// eslint-disable-next-line new-cap
 			const gen = sagas['DeleteResource#handle']();
 			const effect = gen.next().value;
 			expect(effect.RACE).toMatchObject({
@@ -101,6 +102,7 @@ describe('sagas', () => {
 			});
 		});
 		it('should throw a specific error if sth goes bad', () => {
+			// eslint-disable-next-line new-cap
 			const gen = sagas['DeleteResource#handle']();
 			gen.next();
 			const toThrow = () => gen.throw(new Error('no more internet')).value;
