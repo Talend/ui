@@ -56,10 +56,7 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
 	const resourceLocator = getResourceLocator(safeType, safePath);
 	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
 	if (resource && safeURI && safeType && safeId) {
-		const { response } = yield call(
-			cmf.sagas.http.delete,
-			`${safeURI}/${safeType}/${safeId}`
-		);
+		const { response } = yield call(cmf.sagas.http.delete, `${safeURI}/${safeType}/${safeId}`);
 		if (response.ok) {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,

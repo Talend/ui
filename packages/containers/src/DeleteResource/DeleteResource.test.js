@@ -69,9 +69,9 @@ describe('Connected DeleteResource', () => {
 			);
 		});
 		it('should return the props.resource corresponding to routeParams.id', () => {
-			expect(
-				mapStateToProps(state, { resourceType: 'foo', params: { id: '123' } }).resource,
-			).toBe(state.cmf.collections.get('foo').get(0));
+			expect(mapStateToProps(state, { resourceType: 'foo', params: { id: '123' } }).resource).toBe(
+				state.cmf.collections.get('foo').get(0),
+			);
 		});
 	});
 });
