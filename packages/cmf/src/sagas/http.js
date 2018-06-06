@@ -56,7 +56,6 @@ export function handleBody(response) {
 			methodBody = 'json';
 		}
 	}
-
 	return response[methodBody]().then(data => ({ data, response }));
 }
 
