@@ -72,12 +72,11 @@ describe('ListToVirtualizedList', () => {
 		expect(table.rowHeight).toBe(200);
 	});
 
-	it('should support disableSort', () => {
+	it('columns should have disableSort prop to true if hideHeader or disableSort is true', () => {
 		const table = shallow(<ListToVirtualizedList {...props} />);
 		const columns = table.find(VirtualizedList.Content);
 		columns.forEach(element => {
 			const eProps = element.props();
-			// Sort should be disabled when disableSort or hideHeader is true
 			if (eProps.label === 'Label' || eProps.label === 'Actions') {
 				expect(eProps.disableSort).toBeTruthy();
 			} else {
