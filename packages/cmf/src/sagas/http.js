@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
+import immutable from 'immutable';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -49,12 +50,10 @@ export class HTTPError extends Error {
 export function handleBody(response) {
 	let methodBody = 'text';
 
-	if (response.headers) {
-		const contentType = response.headers.get('Content-Type');
+	const contentType = get(response, 'headers').get('Content-Type');
 
-		if (contentType && contentType.includes('application/json')) {
-			methodBody = 'json';
-		}
+	if (contentType && contentType.includes('application/json')) {
+		methodBody = 'json';
 	}
 
 	return response[methodBody]().then(data => ({ data, response }));
