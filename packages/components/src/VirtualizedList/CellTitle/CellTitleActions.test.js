@@ -97,6 +97,37 @@ const dropdownActions = [
 	},
 ];
 
+const lotsOfDropdownActions = dropdownActions.concat([
+	{
+		id: 'open-with-tfd',
+		displayMode: 'dropdown',
+		label: 'Open with Streams',
+		icon: 'talend-datastreams-colored',
+		items: [
+			{
+				label: 'Stream 1',
+				onClick: jest.fn(),
+			},
+			{
+				label: 'Stream 2',
+				onClick: jest.fn(),
+			},
+		],
+	},
+	{
+		id: 'open-with-tdp',
+		displayMode: 'dropdown',
+		label: 'Open with Data Preparation',
+		icon: 'talend-tdp-colored',
+		items: [
+			{
+				label: 'Prep 1',
+				onClick: jest.fn(),
+			},
+		],
+	},
+]);
+
 const persistentActions = [
 	{
 		label: 'favorite',
@@ -170,6 +201,20 @@ describe('CellTitleActions', () => {
 				{...props}
 				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
 				rowData={{ actions: lotOfSimpleActions.concat(dropdownActions) }}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
+	});
+
+	it('should extract only dropdown actions, when there are lot of them', () => {
+		// when
+		const wrapper = shallow(
+			<CellTitleActionsComponent
+				{...props}
+				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
+				rowData={{ actions: lotOfSimpleActions.concat(lotsOfDropdownActions) }}
 			/>,
 		);
 
