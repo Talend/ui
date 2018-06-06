@@ -9,6 +9,7 @@ import DataGrid, {
 	injectedCellRenderer,
 	injectedHeaderRenderer,
 	AG_GRID,
+	getRowDataInfos,
 } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
@@ -709,5 +710,48 @@ describe('#injectedHeaderRenderer', () => {
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
 		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
+	});
+});
+
+describe('getRowDataInfos', () => {
+	it('should return the metadata of the rowdata', () => {
+		// given
+		const rowData = [
+			{
+				loading: false,
+				'indexes.index': 0,
+			},
+			{
+				loading: false,
+				'indexes.index': 1,
+			},
+			{
+				loading: true,
+				'indexes.index': 2,
+			},
+			{
+				loading: false,
+				'indexes.index': 3,
+				'data.text': 'hello',
+			},
+			{
+				loading: false,
+				'indexes.index': 4,
+				'data.text': 'hello',
+			},
+			{
+				loading: false,
+				'indexes.index': 5,
+				'data.text': 'hello',
+			},
+		];
+		// when
+		const result = getRowDataInfos(rowData);
+		// then
+		expect(result).toEqual({
+			notLoaded: 2,
+			loading: 1,
+			loaded: 3,
+		});
 	});
 });

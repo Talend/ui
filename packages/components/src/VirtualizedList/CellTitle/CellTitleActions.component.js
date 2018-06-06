@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
-import { Actions, ActionDropdown } from '../../Actions';
-import { cellTitleDisplayModes, listTypes } from '../utils/constants';
+import {translate} from 'react-i18next';
+import get from 'lodash/get';
+import {Actions, ActionDropdown} from '../../Actions';
+import {cellTitleDisplayModes, listTypes} from '../utils/constants';
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './CellTitleActions.scss';
 import Action from '../../Actions/Action/Action.component';
 
-const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
-const { LARGE } = listTypes;
+const {TITLE_MODE_INPUT, TITLE_MODE_TEXT} = cellTitleDisplayModes;
+const {LARGE} = listTypes;
 
 const MAX_DIRECT_NB_ICON = 3;
 
@@ -45,7 +46,7 @@ function getDefaultDisplayActions(actions, t) {
 
 	// few actions : display them
 	if (hasFewActions) {
-		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link />);
+		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link/>);
 	}
 	// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
 	// the rest is in an ellipsis dropdown
@@ -75,7 +76,7 @@ function getDefaultDisplayActions(actions, t) {
 			.sort((a, b) => actions.indexOf(a) - actions.indexOf(b))
 			.forEach((action, i) => {
 				actionsBlocs.push(
-					<Action {...action} key={`extracted-action-${i}`} hideLabel link />,
+					<Action {...action} key={`extracted-action-${i}`} hideLabel link/>,
 				);
 			});
 
@@ -85,7 +86,7 @@ function getDefaultDisplayActions(actions, t) {
 				key={'ellipsis-actions'}
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
-				label={t('LIST_OPEN_ACTION_MENU', { defaultValue: 'Open menu' })}
+				label={t('LIST_OPEN_ACTION_MENU', {defaultValue: 'Open menu'})}
 				hideLabel
 				link
 				noCaret
@@ -115,6 +116,10 @@ function getPersistentActions(actions) {
 	);
 }
 
+function isAvailable(actionDef) {
+	return actionDef.available !== false;
+}
+
 export function CellTitleActionsComponent({
 	rowData,
 	actionsKey,
@@ -124,10 +129,9 @@ export function CellTitleActionsComponent({
 	t,
 	type,
 }) {
-	const dataActions = rowData[actionsKey];
-	const persistentActions = rowData[persistentActionsKey];
-	const hasActions =
-		(dataActions && dataActions.length) || (persistentActions && persistentActions.length);
+	const dataActions = get(rowData, actionsKey, []).filter(isAvailable);
+	const persistentActions = get(rowData, persistentActionsKey, []);
+	const hasActions = dataActions.length || persistentActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
 		return null;
 	}

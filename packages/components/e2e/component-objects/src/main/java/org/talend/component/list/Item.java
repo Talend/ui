@@ -137,6 +137,7 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnCellAction(final String columnKey, final String actionId) {
+        WebElement ellipsisButton = this.getEllipsisActionButton();
         WebElement button;
         By actionSelector;
 
@@ -145,6 +146,10 @@ public class Item extends Component {
                 .moveToElement(this.getElement())
                 .build()
                 .perform();
+        // on some list display, actions are in an ellipsis dropdown. Open it
+        if (ellipsisButton != null) {
+            wait.until(elementToBeClickable(ellipsisButton)).click();
+        }
 
         // when columnKey is not provided, we want to click on a row action, located in title cell
         if (columnKey == null) {

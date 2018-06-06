@@ -61,6 +61,6 @@ public class BreadcrumbTest extends StorybookTest {
 
         // then
         assertThat(activeItem, not(nullValue()));
-        assertThat(activeItem.getText(), is("Text C"));
+        assertThat(activeItem.getText(), is("text c in lower case"));
     }
 }

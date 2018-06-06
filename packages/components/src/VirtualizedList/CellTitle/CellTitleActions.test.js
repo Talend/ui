@@ -65,6 +65,14 @@ const lotOfSimpleActions = [
 		icon: 'talend-download',
 		onClick: jest.fn(),
 	},
+	{
+		available: false,
+		id: 'error',
+		label: 'This should not be visible',
+		'data-feature': 'list.item.error',
+		icon: 'talend-cross',
+		onClick: jest.fn(),
+	},
 ];
 
 const dropdownActions = [

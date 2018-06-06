@@ -29,9 +29,9 @@ public class TableTest extends StorybookTest {
         assertThat(headers, hasSize(5));
         assertThat(headers.get(0).getText(), equalToIgnoringCase("id"));
         assertThat(headers.get(1).getText(), equalToIgnoringCase("name"));
-        assertThat(headers.get(2).getText(), equalToIgnoringCase("author"));
-        assertThat(headers.get(3).getText(), equalToIgnoringCase("created"));
-        assertThat(headers.get(4).getText(), equalToIgnoringCase("modified"));
+        assertThat(headers.get(2).getText(), equalToIgnoringCase("created"));
+        assertThat(headers.get(3).getText(), equalToIgnoringCase("author"));
+        assertThat(headers.get(4).getText(), equalToIgnoringCase(""));
     }
 
     @Test
@@ -99,7 +99,7 @@ public class TableTest extends StorybookTest {
         final WebElement editButton = tableObject.getItem("Title with actions").getAction("edit");
 
         // then
-        assertThat(editButton.getTagName(), is("button"));
+        assertThat(editButton.getTagName(), is("a"));
     }
 
     @Test
