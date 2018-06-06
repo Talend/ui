@@ -2,7 +2,6 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
-import { Headers } from 'node-fetch';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
