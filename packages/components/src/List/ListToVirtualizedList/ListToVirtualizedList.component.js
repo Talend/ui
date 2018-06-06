@@ -80,8 +80,8 @@ export function ListToVirtualizedList(props) {
 					const cProps = {
 						label: column.label,
 						dataKey: column.key,
+						disableSort: column.disableSort,
 					};
-					cProps.disableSort = column.disableSort;
 					if (titleProps && column.key === titleProps.key) {
 						Object.assign(cProps, CellTitle, {
 							columnData: titleProps,
