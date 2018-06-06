@@ -1,0 +1,11 @@
+
+.container {
+    display: flex;
+    direction: column;
+
+    .day-of-week {
+        padding: 10px;
+        width: 2.5em;
+        text-align: center;
+    }
+}

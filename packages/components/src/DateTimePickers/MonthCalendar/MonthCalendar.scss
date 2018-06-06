@@ -1,0 +1,10 @@
+
+.container {
+    display: inline-block;
+
+    .separator {
+        width: calc(100% - 20px);
+        border-color: grey;
+        margin: 0 auto;
+    }
+}
