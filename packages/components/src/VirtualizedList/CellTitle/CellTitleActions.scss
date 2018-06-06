@@ -12,11 +12,7 @@ $tc-list-title-actions-menu-triangle: '\25b2';
 	height: 100%;
 
 	.cell-title-actions {
-		background: linear-gradient(
-			to right,
-			rgba(255, 255, 255, 0),
-			$tc-list-row-hover-bg $padding-large
-		);
+		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		visibility: hidden;
 
