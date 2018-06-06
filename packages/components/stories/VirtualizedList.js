@@ -52,7 +52,7 @@ const titleProps = {
 const fewTitleActions = [
 	{
 		id: 'edit',
-		label: 'edit',
+		label: 'Edit',
 		'data-feature': 'list.item.edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
@@ -60,7 +60,7 @@ const fewTitleActions = [
 	},
 	{
 		id: 'delete',
-		label: 'delete',
+		label: 'Delete',
 		'data-feature': 'list.item.delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
@@ -71,28 +71,28 @@ const fewTitleActions = [
 const lotOfTitleActions = [
 	{
 		id: 'edit',
-		label: 'edit',
+		label: 'Edit',
 		'data-feature': 'list.item.edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
 	},
 	{
 		id: 'delete',
-		label: 'delete',
+		label: 'Delete',
 		'data-feature': 'list.item.delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 	},
 	{
 		id: 'copy',
-		label: 'copy',
+		label: 'Copy',
 		'data-feature': 'list.item.copy',
 		icon: 'talend-files-o',
 		onClick: action('onCopy'),
 	},
 	{
 		id: 'parameters',
-		label: 'efit parameters',
+		label: 'Edit parameters',
 		'data-feature': 'list.item.params',
 		icon: 'talend-cog',
 		onClick: action('onEditParameters'),
