@@ -23,6 +23,7 @@ CellWithHello.propTypes = {
 };
 
 const icons = {
+	'talend-scheduler': talendIcons['talend-scheduler'],
 	'talend-apache': talendIcons['talend-apache'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
@@ -105,11 +106,18 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+			{ key: 'id', label: 'Id', order: 0 },
+			{ key: 'name', label: 'Name', order: 1 },
+			{ key: 'author', label: 'Author', order: 3 },
+			{ key: 'created', label: 'Created', order: 2 },
+			{
+				key: 'modified',
+				label: 'Modified',
+				order: 4,
+				header: 'icon',
+				data: { iconName: 'talend-scheduler' },
+			},
+			{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 		],
 		items: [
 			{
@@ -319,7 +327,7 @@ const itemPropsForItems = {
 };
 
 const sort = {
-	field: 'name',
+	field: 'modified',
 	isDescending: false,
 	onChange: action('sort.onChange'),
 };
@@ -589,7 +597,7 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>You add sort management with column header click.</p>
 				<pre>
-					listProps.sort.field = 'name';<br />
+					listProps.sort.field = 'modified';<br />
 					listProps.sort.isDescending = false;<br />
 					listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
 					isDescending);<br />
