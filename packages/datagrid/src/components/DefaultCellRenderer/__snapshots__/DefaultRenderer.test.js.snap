@@ -2,12 +2,7 @@
 
 exports[`#DefaultRenderer should render DefaultRenderer with a advanced tooltip 1`] = `
 <DefaultValueRenderer
-  contentRenderer={[Function]}
-/>
-`;
-
-exports[`#DefaultRenderer should render DefaultRenderer with a label tooltip 1`] = `
-<DefaultValueRenderer
-  label="loreum"
+  value="﻿﻿﻿﻿﻿﻿﻿  loreum lo
+		psum	 	 "
 />
 `;
