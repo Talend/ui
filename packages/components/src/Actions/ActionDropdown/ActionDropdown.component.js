@@ -95,8 +95,8 @@ function getDropdownContainer(dropdownElement) {
 	let dropdownContainer = dropdownElement;
 	do {
 		dropdownContainer = dropdownContainer.parentElement;
-	}
-	while (dropdownContainer &&
+	} while (
+		dropdownContainer &&
 		dropdownContainer.tagName !== 'BODY' &&
 		!dropdownContainer.classList.contains(DROPDOWN_CONTAINER_CN)
 	);
