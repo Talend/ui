@@ -1,3 +1,4 @@
+const path = require('path');
 const download = require('download');
 const packageJson = require('./package.json');
 
@@ -9,7 +10,7 @@ const packageJson = require('./package.json');
  */
 
 const url = `https://github.com/Talend/ui/releases/download/v${packageJson.version}/${packageJson.name}-locales.zip`;
-const output = 'locales';
+const output = path.join(__dirname, 'locales');
 const downloadOptions = {
 	extract: true,
 	options: { timeout: 5000 },
