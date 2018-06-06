@@ -8,8 +8,8 @@ const packageJson = require('./package.json');
  * Download zip with locales from current ui release on Github
  * This is meant to run when you install this package as a dependency
  */
-
-const url = `https://github.com/Talend/ui/releases/download/v${packageJson.version}/${packageJson.name}-locales.zip`;
+const packageName = packageJson.name.replace('@talend/', '');
+const url = `https://github.com/Talend/ui/releases/download/v${packageJson.version}/${packageName}-locales.zip`;
 const output = path.join(__dirname, 'locales');
 const downloadOptions = {
 	extract: true,
