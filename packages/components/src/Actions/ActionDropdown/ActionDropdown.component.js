@@ -83,6 +83,26 @@ function getMenuItem(item, index, getComponent) {
 	return renderMutableMenuItem(item, index, getComponent);
 }
 
+function getDropdownToggleFromInner(innerElement) {
+	let dropdownTrigger = innerElement;
+	while (!dropdownTrigger.classList.contains('dropdown-toggle')) {
+		dropdownTrigger = dropdownTrigger.parentElement;
+	}
+	return dropdownTrigger;
+}
+
+function getDropdownContainer(dropdownElement) {
+	let dropdownContainer = dropdownElement;
+	do {
+		dropdownContainer = dropdownContainer.parentElement;
+	}
+	while (dropdownContainer &&
+		dropdownContainer.tagName !== 'BODY' &&
+		!dropdownContainer.classList.contains(DROPDOWN_CONTAINER_CN)
+	);
+	return dropdownContainer;
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -115,20 +135,19 @@ class ActionDropdown extends React.Component {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
 		this.state = {
-			dropup: false,
+			dropup: props.dropup,
 		};
 	}
 
 	onToggle(isOpen, event) {
 		if (!isOpen) {
+			this.setState({ dropup: this.props.dropup });
 			return;
 		}
-		const dropdownTrigger = event.target;
-		const dropdownMenu = event.target.nextSibling;
-		let dropdownContainer = dropdownTrigger.parentElement;
-		while (dropdownContainer && !dropdownContainer.classList.contains(DROPDOWN_CONTAINER_CN)) {
-			dropdownContainer = dropdownContainer.parentElement;
-		}
+
+		const dropdownTrigger = getDropdownToggleFromInner(event.target);
+		const dropdownMenu = dropdownTrigger.nextSibling;
+		const dropdownContainer = getDropdownContainer(dropdownTrigger);
 
 		if (dropdownContainer) {
 			const dropdownRect = dropdownMenu.getBoundingClientRect();
@@ -215,6 +234,7 @@ ActionDropdown.displayName = 'ActionDropdown';
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
 	className: PropTypes.string,
+	dropup: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,
