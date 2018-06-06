@@ -108,13 +108,7 @@
 	}
 
 	&-lg {
-		@include button-size(
-			$padding-normal,
-			$padding-large-horizontal,
-			$font-size-large,
-			$line-height-large,
-			$btn-border-radius-large
-		);
+		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 		min-height: 5.6rem;
 		svg {
 			height: $svg-lg-size;
