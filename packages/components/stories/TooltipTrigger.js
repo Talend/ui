@@ -22,13 +22,13 @@ storiesOf('TooltipTrigger', module).addWithInfo('default', () => (
 		<p>With a custom component in the tooltip</p>
 		<TooltipTrigger
 			tooltipPlacement="bottom"
-			contentRenderer={() => (
+			label={
 				<div>
 					<span>I'm a custom component</span>
 					{'\n'}
 					<span>with a line feeding</span>
 				</div>
-			)}
+			}
 		>
 			<span>Loreum....</span>
 		</TooltipTrigger>

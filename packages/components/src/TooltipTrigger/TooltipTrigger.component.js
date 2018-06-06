@@ -74,15 +74,9 @@ class TooltipTrigger extends React.Component {
 			});
 		}
 
-		let tooltipContent;
-		if (this.props.contentRenderer) {
-			tooltipContent = this.props.contentRenderer();
-		} else {
-			tooltipContent = this.props.label;
-		}
 		const tooltip = (
 			<Tooltip className={getTooltipClass()} id={this.state.id}>
-				{tooltipContent}
+				{this.props.label}
 			</Tooltip>
 		);
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
@@ -97,7 +91,7 @@ class TooltipTrigger extends React.Component {
 TooltipTrigger.propTypes = {
 	contentRenderer: PropTypes.func,
 	children: PropTypes.element,
-	label: PropTypes.string,
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 

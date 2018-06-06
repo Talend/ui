@@ -10,11 +10,7 @@ exports[`ActionTooltip should render a custom tooltip on child focus 1`] = `
       className="theme-tooltip-container tooltip-container"
       id={42}
       placement="right"
-    >
-      <div>
-        custom component
-      </div>
-    </Tooltip>
+    />
   }
   placement="right"
   trigger={

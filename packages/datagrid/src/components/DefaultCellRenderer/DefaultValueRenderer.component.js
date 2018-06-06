@@ -34,21 +34,15 @@ export default class DefaultValueRenderer extends React.Component {
 			this.domElement.scrollHeight > this.domElement.clientHeight * 1.5;
 
 		if (this.state.overflowing !== overflowing) {
-			this.setState(() => ({
-				overflowing,
-			}));
+			this.setState({ overflowing });
 		}
 	}
 
 	render() {
-		let tooltipContent;
-		let hasWhiteSpace = false;
-		if (!hasWhiteSpaceCharacters(this.props.value)) {
-			tooltipContent = this.props.value;
-		} else {
-			hasWhiteSpace = true;
-			tooltipContent = <FormatValue value={this.props.value} />;
-		}
+		const hasWhiteSpace = hasWhiteSpaceCharacters(this.props.value);
+		const formattedContent = hasWhiteSpace ?
+			<FormatValue value={this.props.value} /> :
+			this.props.value;
 
 		const content = (
 			<div
@@ -56,25 +50,18 @@ export default class DefaultValueRenderer extends React.Component {
 				onMouseOver={this.checkOverflow}
 				className={classNames(theme['td-default-cell'], this.props.className, 'td-default-cell')}
 			>
-				{tooltipContent}
+				{formattedContent}
 			</div>
 		);
 
-		if (!this.state.overflowing) {
-			return <span>{content}</span>;
-		}
-		const tooltipTrigger = {};
-
-		if (!hasWhiteSpace) {
-			tooltipTrigger.label = tooltipContent;
-		} else {
-			tooltipTrigger.contentRenderer = () => <div>{tooltipContent}</div>;
+		if (this.state.overflowing) {
+			return (
+				<TooltipTrigger tooltipPlacement="bottom" label={formattedContent}>
+					{content}
+				</TooltipTrigger>
+			);
 		}
 
-		return (
-			<TooltipTrigger tooltipPlacement="bottom" {...tooltipTrigger}>
-				{content}
-			</TooltipTrigger>
-		);
+		return content;
 	}
 }
