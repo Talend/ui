@@ -1,5 +1,8 @@
 import DataAccessorWithSorterAndFilter from './DataAccessorWithSorterAndFilter';
 import FilterFactory from '../Filters/FilterFactory';
+import RegexpFilter from '../Filters/RegexpFilter';
+import BooleanFilter from '../Filters/BooleanFilter';
+import Sorter, { Order } from '../Sorters/Sorter';
 import * as TestData from '../TestData';
 
 const elements = [
@@ -19,9 +22,15 @@ const unknownElement = {
 const nameFilterId = 'name-filter';
 const mandatoryFieldFilterId = 'mandatory-field-filter';
 
+const nameSorterId = 'name-sorter';
+
+function createDataAccessor() {
+	return new DataAccessorWithSorterAndFilter(elements, TestData.rowDataGetter);
+}
+
 it('data-accessor', () => {
 
-  const dataAccessor = new DataAccessorWithSorterAndFilter(elements, TestData.rowDataGetter);
+  const dataAccessor = createDataAccessor();
 
   expect(dataAccessor.getSize()).toBe(4);
 
@@ -50,14 +59,14 @@ it('data-accessor', () => {
 
 });
 
-it('data-accessor--name-filter', () => {
+it('data-accessor-name-filter', () => {
 
-	const dataAccessor = new DataAccessorWithSorterAndFilter(elements, TestData.rowDataGetter);
+	const dataAccessor = createDataAccessor();
 
 	expect(dataAccessor.hasFilters()).toBe(false);
 	expect(dataAccessor.hasFiltersActive()).toBe(false);
 
-	const nameFilter = FilterFactory.createRegexpFilter(nameFilterId, TestData.Columns.NAME.key, false).filter;
+	const nameFilter = new RegexpFilter(nameFilterId, TestData.Columns.NAME.key, false, false);
 
 	dataAccessor.addFilter(nameFilter);
 	expect(dataAccessor.hasFilters()).toBe(true);
@@ -121,9 +130,9 @@ it('data-accessor--name-filter', () => {
 
 it('data-accessor-mandatory-field-filter', () => {
 
-	const dataAccessor = new DataAccessorWithSorterAndFilter(elements, TestData.rowDataGetter);
+	const dataAccessor = createDataAccessor();
 
-	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(mandatoryFieldFilterId, TestData.Columns.MANDATORY.key, false).filter;
+	const mandatoryFieldFilter = new BooleanFilter(mandatoryFieldFilterId, TestData.Columns.MANDATORY.key, false, false);
 
 	dataAccessor.addFilter(mandatoryFieldFilter);
 
@@ -162,10 +171,10 @@ it('data-accessor-mandatory-field-filter', () => {
 
 it('data-accessor-two-filters', () => {
 
-	const dataAccessor = new DataAccessorWithSorterAndFilter(elements, TestData.rowDataGetter);
+	const dataAccessor = createDataAccessor();
 
-	const nameFilter = FilterFactory.createRegexpFilter(nameFilterId, TestData.Columns.NAME.key, false).filter;
-	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(mandatoryFieldFilterId, TestData.Columns.MANDATORY.key, false).filter;
+	const nameFilter = new RegexpFilter(nameFilterId, TestData.Columns.NAME.key, false, false);
+	const mandatoryFieldFilter = new BooleanFilter(mandatoryFieldFilterId, TestData.Columns.MANDATORY.key, false, false);
 
 	dataAccessor.addFilter(nameFilter);
 	dataAccessor.addFilter(mandatoryFieldFilter);
@@ -173,7 +182,6 @@ it('data-accessor-two-filters', () => {
 	const filters = dataAccessor.getFilters();
 	expect(Array.isArray(filters)).toBe(true);
 	expect(filters.length).toBe(2);
-	console.log(JSON.stringify(filters));
 	expect(filters[0].getId()).toBe(nameFilterId);
 	expect(filters[1].getId()).toBe(mandatoryFieldFilterId);
 
@@ -225,4 +233,105 @@ it('data-accessor-two-filters', () => {
 
 	expect(dataAccessor.hasFilters()).toBe(false);
 	expect(dataAccessor.getFiltersVersion()).toBe(8);
+});
+
+function checkOrder(dataAccessor, elements, indices, withFiltersAndSorter) {
+	for (let i = 0; i < elements.length; i += 1) {
+		expect(dataAccessor.getElementIndex(elements[i], withFiltersAndSorter)).toBe(indices[i]);
+	}
+}
+
+it('data-accessor-name-sorter', () => {
+
+	const dataAccessor = createDataAccessor();
+
+	expect(dataAccessor.hasSorter()).toBe(false);
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], false);
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+
+	const nameSorter = new Sorter(nameSorterId, '', TestData.Columns.NAME.key);
+
+	dataAccessor.setSorter(nameSorter);
+	expect(dataAccessor.hasSorter()).toBe(true);
+	expect(dataAccessor.isActiveSorter(nameSorter)).toBe(true);
+
+	const activeSorter = dataAccessor.getSorter();
+	expect(activeSorter.getId()).toBe(nameSorterId);
+
+	expect(dataAccessor.getSize(true)).toBe(4);
+
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+
+	nameSorter.setOrder(Order.ASCENDING);
+	dataAccessor.sort();
+	checkOrder(dataAccessor, elements, [2, 3, 1, 0], true);
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], false);
+
+	nameSorter.setOrder(Order.DESCENDING);
+	dataAccessor.sort();
+	checkOrder(dataAccessor, elements, [1, 0, 2, 3], true);
+
+	expect(dataAccessor.getElement(1, true).id).toBe(TestData.firstname.id);
+	expect(dataAccessor.getElement(1, false).id).toBe(TestData.lastname.id);
+
+	const sortedElements = dataAccessor.getElements(true);
+	expect(Array.isArray(sortedElements)).toBe(true);
+	expect(sortedElements.length).toBe(4);
+	expect(sortedElements[1].id).toBe(TestData.firstname.id);
+	expect(sortedElements[3].id).toBe(TestData.address.id);
+
+	dataAccessor.clearSorter();
+	expect(dataAccessor.hasSorter()).toBe(false);
+	expect(dataAccessor.getSorter()).toBe(null);
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], false);
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+
+});
+
+it('data-accessor-name-sorter-and-filter', () => {
+
+	const dataAccessor = createDataAccessor();
+	expect(dataAccessor.hasSorter()).toBe(false);
+	expect(dataAccessor.hasFilters()).toBe(false);
+
+	const nameSorter = new Sorter(nameSorterId, '', TestData.Columns.NAME.key);
+	const nameFilter = new RegexpFilter(nameFilterId, TestData.Columns.NAME.key, false, false);
+
+	nameSorter.setOrder(Order.ASCENDING);
+	dataAccessor.setSorter(nameSorter);
+	expect(dataAccessor.hasSorter()).toBe(true);
+	checkOrder(dataAccessor, elements, [2, 3, 1, 0], true);
+	expect(dataAccessor.getSize(true)).toBe(4);
+
+	nameFilter.setActive(true);
+	nameFilter.setValue('name');
+	dataAccessor.addFilter(nameFilter);
+	expect(dataAccessor.getSize(true)).toBe(2);
+	expect(dataAccessor.isFiltered(TestData.firstname)).toBe(false);
+	expect(dataAccessor.isFiltered(TestData.birthday)).toBe(true);
+	checkOrder(dataAccessor, elements, [0, 1, -1, -1], true);
+
+	nameSorter.setOrder(Order.DESCENDING);
+	dataAccessor.sort();
+	checkOrder(dataAccessor, elements, [1, 0, -1, -1], true);
+
+	nameFilter.setValue('d');
+	dataAccessor.filter(nameFilterId);
+	expect(dataAccessor.getSize(true)).toBe(2);
+	expect(dataAccessor.isFiltered(TestData.firstname)).toBe(true);
+	expect(dataAccessor.isFiltered(TestData.birthday)).toBe(false);
+	checkOrder(dataAccessor, elements, [-1, -1, 0, 1], true);
+
+	nameSorter.setOrder(Order.ASCENDING);
+	dataAccessor.sort();
+	checkOrder(dataAccessor, elements, [-1, -1, 1, 0], true);
+
+	nameFilter.setActive(false);
+	dataAccessor.filter(nameFilterId);
+	expect(dataAccessor.getSize(true)).toBe(4);
+	checkOrder(dataAccessor, elements, [2, 3, 1, 0], true);
+
+	dataAccessor.clearSorter();
+	checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+
 });
