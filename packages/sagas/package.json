@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "0.187.1",
+  "version": "0.191.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "license": "Apache-2.0",
@@ -39,8 +39,8 @@
     "lodash": "4.17.4",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^15.6.2 || ^16.0.0",
+    "react-dom": "^15.6.2 || ^16.0.0",
     "react-redux": "5.0.5",
     "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
@@ -53,13 +53,13 @@
     "redux-thunk": "2.2.0"
   },
   "dependencies": {
-    "@talend/react-cmf": "^0.187.1",
+    "@talend/react-cmf": "^0.191.0",
     "redux-saga": "0.15.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "8.0.1",
     "babel-jest": "20.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -80,8 +80,8 @@
     "lodash": "4.17.4",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "5.0.5",
     "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
