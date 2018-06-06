@@ -7,21 +7,7 @@ import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
 
 const state = store.state();
-const settings = {
-	actions: {
-		'dialog:delete:validate': {
-			id: 'dialog:delete:validate',
-			label: 'Yes',
-			bsStyle: 'danger',
-			actionCreator: 'deleteResource:validate',
-		},
-		'dialog:delete:cancel': {
-			id: 'dialog:delete:cancel',
-			label: 'No',
-			actionCreator: 'deleteResource:cancel',
-		},
-	},
-};
+const settings = {};
 state.cmf = {
 	settings,
 };

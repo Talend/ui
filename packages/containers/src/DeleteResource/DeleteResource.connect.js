@@ -6,7 +6,7 @@ import Container from './DeleteResource.container';
 export function mapStateToProps(state, ownProps) {
 	let resourceId = ownProps.resourceId;
 	if (!resourceId) {
-		resourceId = get(ownProps, 'routeParams.id');
+		resourceId = get(ownProps, `params.${ownProps.routerParamAttribute || 'id'}`);
 	}
 	if (ownProps.resourceType) {
 		const resource = state.cmf.collections

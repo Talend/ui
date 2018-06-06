@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
 import { translate } from 'react-i18next';
-import deleteResourceConst from './constants';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 

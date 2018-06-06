@@ -32,6 +32,7 @@ describe('deleteResource actions', () => {
 			// Then
 			expect(result).toEqual({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data,
 			});
 		});
 	});
