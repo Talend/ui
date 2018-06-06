@@ -48,3 +48,6 @@ test
 .eslintrc
 docs.json
 yarn.lock
+
+# Will be downloaded on postinstall when adding package
+locales

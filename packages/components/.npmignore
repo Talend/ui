@@ -56,3 +56,6 @@ test
 .sass-lint.yml
 screenshots.config.json
 yarn.lock
+
+# Will be downloaded on postinstall when adding package
+locales

@@ -5,6 +5,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
+    "postinstall": "node download-locales.js",
     "start": "start-storybook -p 6007",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -148,6 +149,7 @@
   },
   "version": "0.191.0",
   "dependencies": {
+    "download": "^7.0.0",
     "react-immutable-proptypes": "2.1.0"
   }
 }
