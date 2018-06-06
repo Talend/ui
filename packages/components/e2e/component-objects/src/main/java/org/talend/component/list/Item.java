@@ -55,12 +55,22 @@ public class Item extends Component {
 
     /**
      * Extract current row id and build a specific action selector
-     * @param actionId
-     * @return
      */
     private By getActionSelector(final String actionId) {
         final String cellID = this.getElement().findElement(By.cssSelector(ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
         return By.cssSelector(String.format("#%s #%s", cellID, actionId));
+    }
+
+    /**
+     * Get the ellipsis action menu button
+     */
+    private WebElement getEllipsisActionButton() {
+        final String cellID = this.getElement().findElement(By.cssSelector(ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
+        final By buttonSelector = By.cssSelector(String.format("#%s .cell-title-actions-menu", cellID));
+        if (driver.findElements(buttonSelector).size() == 0) {
+            return null;
+        }
+        return this.driver.findElement(buttonSelector);
     }
 
     /**
@@ -130,8 +140,20 @@ public class Item extends Component {
         WebElement button;
         By actionSelector;
 
+        // hover on item
+        new Actions(driver)
+                .moveToElement(this.getElement())
+                .build()
+                .perform();
+
         // when columnKey is not provided, we want to click on a row action, located in title cell
         if (columnKey == null) {
+            // on some list display, actions are in an ellipsis dropdown. Open it
+            final WebElement ellipsisButton = this.getEllipsisActionButton();
+			if (ellipsisButton != null) {
+                wait.until(elementToBeClickable(ellipsisButton)).click();
+            }
+
             button = this.getAction(actionId);
             actionSelector = getActionSelector(actionId);
         } else {
@@ -140,11 +162,9 @@ public class Item extends Component {
         }
 
         new Actions(driver)
-                .moveToElement(this.getElement())
                 .moveToElement(button)
                 .build()
                 .perform();
-
         wait
                 .until(elementToBeClickable(actionSelector))
                 .click();

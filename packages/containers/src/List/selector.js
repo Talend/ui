@@ -1,3 +1,5 @@
+import cmf from '@talend/react-cmf';
+import get from 'lodash/get';
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
@@ -74,7 +76,7 @@ export function configureGetFilteredItems(configure) {
 			if (componentState) {
 				const sortBy = componentState.get('sortOn');
 				const sortAsc = componentState.get('sortAsc');
-				const compare = (a, b) => {
+				let compare = (a, b) => {
 					if (a.get(sortBy)) {
 						if (a.get(sortBy).localCompare) {
 							return a.get(sortBy).localeCompare(b.get(sortBy));
@@ -94,6 +96,13 @@ export function configureGetFilteredItems(configure) {
 					}
 					return -1;
 				};
+
+				const sortedColumn = get(localConfig, 'columns', [])
+					.filter(column => column.key === sortBy)
+					.pop();
+				if (sortedColumn && sortedColumn.sortFunction) {
+					compare = cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy);
+				}
 				results = results.sort(compare);
 				if (!sortAsc) {
 					results = results.reverse();
