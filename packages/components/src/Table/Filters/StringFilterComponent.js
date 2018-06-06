@@ -3,27 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FilterBar from '../../FilterBar';
 
-function getPlaceHolder(extra) {
-	if (extra && extra.placeHolder) {
-		return extra.placeHolder;
-	}
-	return '...';
-}
-
-function isDockable(extra) {
-	if (extra && extra.dockable) {
-		return extra.dockable;
-	}
-	return true;
-}
-
-function isNavbar(extra) {
-	if (extra && extra.navbar) {
-		return extra.navbar;
-	}
-	return true;
-}
-
 /**
  * Component used with a filter based on string value. It displays a FilterBar component.
  */
@@ -47,20 +26,20 @@ export default class StringFilterComponent extends Component {
 	}
 
 	onFilter(ev, value) {
-		this.props.filter.setActive(value);
+		this.props.filter.setActive(Boolean(value));
 		this.props.filter.setValue(value);
 		this.props.onFilterChange(this.props.filter);
 	}
 
 	render() {
-		const { extra, className } = this.props;
+		const { className, placeHolder, dockable, navbar } = this.props;
 		return (
 			<FilterBar
 				className={classNames('tc-string-filter', className)}
-				placeholder={getPlaceHolder(extra)}
-				dockable={isDockable(extra)}
+				placeholder={placeHolder}
+				dockable={dockable}
 				docked={this.state.docked}
-				navbar={isNavbar(extra)}
+				navbar={navbar}
 				onToggle={this.onToggle}
 				onFilter={this.onFilter}
 			/>
@@ -72,9 +51,7 @@ StringFilterComponent.propTypes = {
 	filter: PropTypes.object,
 	onFilterChange: PropTypes.func,
 	className: PropTypes.string,
-	extra: PropTypes.shape({
-		placeHolder: PropTypes.string,
-		dockable: PropTypes.bool,
-		navbar: PropTypes.bool,
-	}),
+	placeHolder: PropTypes.string,
+	dockable: PropTypes.bool,
+	navbar: PropTypes.bool,
 };

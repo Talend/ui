@@ -14,7 +14,39 @@ export const element2 = {
 	desc: 'This element is a string',
 };
 
-export const columns = {
+export const element3 = {
+	id: 'elem_3',
+	name: 'Firstname',
+	type: 'string',
+	desc: 'The firstname of the customer (optional)',
+	mandatory: false,
+};
+
+export const element4 = {
+	id: 'elem_4',
+	name: 'Lastname',
+	type: 'string',
+	desc: 'The lastname of the customer (mandatory)',
+	mandatory: true,
+};
+
+export const element5 = {
+	id: 'elem_5',
+	name: 'Birthday',
+	type: 'date',
+	desc: 'The birthday of the customer (optional)',
+	mandatory: false,
+};
+
+export const element6 = {
+	id: 'elem_6',
+	name: 'Address',
+	type: 'address',
+	desc: 'The address of the customer (mandatory)',
+	mandatory: true,
+};
+
+export const Columns = {
 	NAME: {
 		key: 'name',
 		label: 'Name',
@@ -27,9 +59,13 @@ export const columns = {
 		key: 'desc',
 		label: 'Description',
 	},
+	MANDATORY: {
+		key: 'mandatory',
+		label: '',
+	},
 };
 
-export const columns1 = [columns.NAME, columns.TYPE, columns.DESC];
+export const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
 
 function getColumn(col) {
 	return {
@@ -40,7 +76,7 @@ function getColumn(col) {
 	};
 }
 
-export const columns2 = [getColumn(columns.NAME), getColumn(columns.TYPE), getColumn(columns.DESC)];
+export const columns2 = [getColumn(Columns.NAME), getColumn(Columns.TYPE), getColumn(Columns.DESC)];
 
 export const classnames = {
 	table: 'classname-of-table',
@@ -55,12 +91,14 @@ export const rowDataGetter = {
 	},
 	getRowData(element, columnKey) {
 		switch (columnKey) {
-			case columns.NAME.key:
+			case Columns.NAME.key:
 				return element.name;
-			case columns.TYPE.key:
+			case Columns.TYPE.key:
 				return element.type;
-			case columns.DESC.key:
+			case Columns.DESC.key:
 				return element.desc;
+			case Columns.MANDATORY.key:
+				return element.mandatory ? '*' : '';
 			default:
 				return `No data available for ${columnKey}`;
 		}

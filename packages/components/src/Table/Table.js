@@ -99,8 +99,8 @@ Table.propTypes = {
 		PropTypes.shape({
 			filter: PropTypes.object.isRequired,
 			renderer: PropTypes.func.isRequired,
+			rendererProps: PropTypes.object,
 			className: PropTypes.string,
-			extra: PropTypes.object,
 		}),
 	),
 	onFilterChange: PropTypes.func,

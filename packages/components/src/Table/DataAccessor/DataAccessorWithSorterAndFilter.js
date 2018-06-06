@@ -11,6 +11,9 @@ function mergeFilterResults(result1, result2) {
 	return mergedResult;
 }
 
+/**
+ * Internal class
+ */
 class Comparator {
 	constructor(dataAccessor) {
 		this.dataAccessor = dataAccessor;
@@ -27,15 +30,29 @@ class Comparator {
 	}
 }
 
+/**
+ * This class is responsible for storing and applying filters and sorter on an array of elements.
+ * It makes no assumptions about the structure of the elements: it uses a dataAccessor in order to access element content.
+ *
+ */
 export default class DataAccessorWithSorterAndFilter {
+	/**
+	 * @param {array} elements - an array of elements
+	 * @param {object} dataAccessor - This provides access to element content
+	 */
 	constructor(elements, dataAccessor) {
 		this.elements = elements;
 		this.dataAccessor = dataAccessor;
+		// This object stores all information about filters.
 		this.filters = {
+			// A Map storing the registered filters. Key is the identifier of a filter.
 			registry: {},
+			// The last result of applying filters.
 			result: [],
+			// Allow result versioning.
 			version: 0,
 		};
+		// Thos object stores the current sorter and its result.
 		this.sorterInfo = {
 			sorter: null,
 			result: [],

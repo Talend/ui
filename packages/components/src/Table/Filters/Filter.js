@@ -2,9 +2,13 @@
  * This class represents a filter for the elements of a table.
  * A filter is identified by a unique string identifier.
  * A filter can be activated or deactivated.
- * This class is intended to be subclassed.
  */
 export default class Filter {
+	/**
+	 * @param {string} id - filter unique identifier
+	 * @param {string} key - the key used to get values from data accessor
+	 * @param {boolean} active - Initial state of the filter
+	 */
 	constructor(id, key, active) {
 		this.id = id;
 		this.key = key;
@@ -20,13 +24,16 @@ export default class Filter {
 	}
 
 	/**
-	 * Set active or inactive the current filter.
+	 * Set the filter active or inactive.
 	 * @param {boolean} active
 	 */
 	setActive(active) {
 		this.active = active;
 	}
 
+	/**
+	 * Indicates if the filter is active or not.
+	 */
 	isActive() {
 		return this.active;
 	}
