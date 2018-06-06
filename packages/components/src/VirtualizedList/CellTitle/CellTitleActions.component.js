@@ -56,7 +56,10 @@ function getDefaultDisplayActions(actions, t) {
 		const simpleActions = actions.filter(action => !isDropdown(action));
 
 		// 1 slot taken by the ellipsis menu
-		const nbOfSimpleToExtract = Math.max(0, MAX_DIRECT_NB_ICON - 1 - extractedDropdownActions.length);
+		const nbOfSimpleToExtract = Math.max(
+			0,
+			MAX_DIRECT_NB_ICON - 1 - extractedDropdownActions.length,
+		);
 
 		// extract simple actions if space remaining
 		const extractedSimpleActions =
