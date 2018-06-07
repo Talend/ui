@@ -58,11 +58,7 @@ export default class DefaultValueRenderer extends React.Component {
 
 		if (this.state.overflowing) {
 			return (
-				<TooltipTrigger
-					tooltipPlacement="bottom"
-					label={formattedContent}
-					ariaLabel={this.props.value}
-				>
+				<TooltipTrigger tooltipPlacement="bottom" label={formattedContent}>
 					{content}
 				</TooltipTrigger>
 			);

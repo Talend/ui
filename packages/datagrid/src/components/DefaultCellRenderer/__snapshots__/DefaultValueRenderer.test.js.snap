@@ -5,7 +5,7 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <Translate(FormatValue)
+  <Translate(FormatValueComponent)
     value=" loreum "
   />
 </div>
@@ -16,7 +16,7 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <Translate(FormatValue)
+  <Translate(FormatValueComponent)
     value=" loreum "
   />
 </div>
@@ -27,7 +27,7 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  <Translate(FormatValue)
+  <Translate(FormatValueComponent)
     value=" loreum "
   />
 </div>

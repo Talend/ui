@@ -74,11 +74,7 @@ class TooltipTrigger extends React.Component {
 		}
 
 		const tooltip = (
-			<Tooltip
-				className={getTooltipClass()}
-				id={this.state.id}
-				aria-label={this.props.ariaLabel || this.props.label}
-			>
+			<Tooltip className={getTooltipClass()} id={this.state.id}>
 				{this.props.label}
 			</Tooltip>
 		);
@@ -95,7 +91,6 @@ TooltipTrigger.propTypes = {
 	children: PropTypes.element,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
-	ariaLabel: PropTypes.string,
 };
 
 export default TooltipTrigger;

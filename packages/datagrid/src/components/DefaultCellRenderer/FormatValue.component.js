@@ -125,7 +125,7 @@ function replaceWhiteCharacters(content, regexp, t) {
 	return splitting.filter(isEmptyCharacter).map(value => replaceCharacterByIcon(value, t));
 }
 
-export function FormatValue(props) {
+export function FormatValueComponent(props) {
 	let content = [];
 
 	const hiddenCharsRegExpMatch = props.value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
@@ -159,13 +159,13 @@ export function FormatValue(props) {
 	return <span>{content.map(addKeyAttribute)}</span>;
 }
 
-FormatValue.propTypes = {
+FormatValueComponent.propTypes = {
 	value: PropTypes.string,
 	t: PropTypes.func,
 };
 
-FormatValue.defaultProps = {
+FormatValueComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_DATAGRID)(FormatValue);
+export default translate(I18N_DOMAIN_DATAGRID)(FormatValueComponent);
