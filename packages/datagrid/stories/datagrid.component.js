@@ -7,6 +7,9 @@ import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
 
+sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
+psum	 	 `;
+
 storiesOf('Component Datagrid')
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>

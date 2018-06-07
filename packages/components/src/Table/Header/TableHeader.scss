@@ -1,0 +1,27 @@
+$tc-table-head-height: 30px !default;
+$tc-table-head-label-padding: 0.3rem;
+
+.tc-table-head {
+	display: block;
+	width: 100%;
+	height: $tc-table-head-height;
+
+	&-row {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&-th {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+	}
+
+	&-label {
+		padding: $tc-table-head-label-padding;
+		width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}
