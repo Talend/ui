@@ -1,4 +1,4 @@
-import * as actions from '../../src/actions/settingsActions';
+import CONSTANT from '../../src/constant';
 import reducer, {
 	defaultState,
 	attachRef,
@@ -63,7 +63,7 @@ describe('CMF settinsReducers', () => {
 
 	it('should understand REQUEST_OK', () => {
 		const action = {
-			type: actions.REQUEST_OK,
+			type: CONSTANT.REQUEST_OK,
 			settings: {},
 		};
 		const state = reducer(undefined, action);
@@ -74,7 +74,7 @@ describe('CMF settinsReducers', () => {
 		const oldError = console.error;
 		console.error = jest.fn();
 		const action = {
-			type: actions.REQUEST_KO,
+			type: CONSTANT.REQUEST_KO,
 			error: {
 				message: 'Not Found',
 				stack: {

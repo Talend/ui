@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Typeahead } from '../src';
-import IconProvider from '../src/IconsProvider';
+import IconsProvider from '../src/IconsProvider';
 
 const items = [
 	{
@@ -67,7 +67,7 @@ const items = [
 const decoratedStories = storiesOf('Typeahead', module)
 	.addDecorator(story => (
 		<div>
-			<h2>Below is an example of a Typeahead</h2>
+			<IconsProvider />
 			{story()}
 		</div>
 	));
@@ -142,10 +142,7 @@ decoratedStories
 			docked: true,
 		};
 		return (
-			<div>
-				<IconProvider />
-				<Typeahead {...props} />
-			</div>
+			<Typeahead {...props} />
 		);
 	})
 	.addWithInfo('with focused item', () => {
@@ -161,9 +158,6 @@ decoratedStories
 			focusedItemIndex: 0,
 		};
 		return (
-			<div>
-				<IconProvider />
-				<Typeahead {...props} />
-			</div>
+			<Typeahead {...props} />
 		);
 	});

@@ -11,7 +11,7 @@ import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -228,8 +228,8 @@ ActionButton.defaultProps = {
 	inProgress: false,
 	loading: false,
 	disabled: false,
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 ActionButton.displayName = 'ActionButton';
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(ActionButton);
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);

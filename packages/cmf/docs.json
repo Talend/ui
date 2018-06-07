@@ -15,7 +15,6 @@
           "src/reducers/componentsReducers.js",
           "src/reducers/settingsReducers.js",
           "src/action.js",
-          "src/api.js",
           "src/App.js",
           "src/cmfConnect.js",
           "src/componentState.js",

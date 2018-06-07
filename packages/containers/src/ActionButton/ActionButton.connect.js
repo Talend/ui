@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { api, cmfConnect, Inject } from '@talend/react-cmf';
+import cmf, { cmfConnect, Inject } from '@talend/react-cmf';
 import { ActionButton } from '@talend/react-components';
 
 export function mapStateToProps(state, ownProps) {
 	let props = {};
 	if (ownProps.actionId) {
-		props = api.action.getActionInfo(
+		props = cmf.action.getActionInfo(
 			{
-				registry: api.registry.getRegistry(),
+				registry: cmf.registry.getRegistry(),
 				store: {
 					getState: () => state,
 				},

@@ -8,10 +8,11 @@ const intersection = require('lodash/intersection');
 const set = require('lodash/set');
 const mkdirp = require('mkdirp');
 
-const { getLogger } = require('./cmf-settings.utils');
+const { getLogger, sortObject } = require('./cmf-settings.utils');
 const { getJSON } = require('./getJSON');
 
 const JSON_PATH_EXPRESSION = '$..i18n';
+const NAMESPACE_SEPARATOR = ':';
 const PATTERN_REG_EXP = /{{namespace}}|{{locale}}/g;
 const DEFAULT_LOCALE = 'en';
 
@@ -39,6 +40,14 @@ function getPathFromPattern(pattern, namespace, locale) {
 	);
 }
 
+function manageEmptyNamespace(i18n) {
+	if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
+		throw new Error(
+			`The key '${i18n.key}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
+		);
+	}
+}
+
 /**
  * getLocalesFromNamespace - transform a JSON to a dictionary of key/value with a given namespace
  *
@@ -47,12 +56,14 @@ function getPathFromPattern(pattern, namespace, locale) {
  * @return {Map}              dictionary of key/value locales
  */
 function getLocalesFromNamespace(settings, namespace) {
-	return jsonpath
-		.query(settings, JSON_PATH_EXPRESSION)
-		.reduce(
-			(locale, i18n) => locale.set(i18n.key.split(`${namespace}:`)[1], i18n.options.defaultValue),
-			new Map(),
-		);
+	return jsonpath.query(settings, JSON_PATH_EXPRESSION).reduce((locale, i18n) => {
+		const extractKey = i18n.key.split(`${namespace}${NAMESPACE_SEPARATOR}`)[1];
+		if (!extractKey) {
+			manageEmptyNamespace(i18n);
+			return locale;
+		}
+		return locale.set(extractKey, i18n.options.defaultValue);
+	}, new Map());
 }
 
 /**
@@ -165,7 +176,7 @@ function getI18nextResources(locales, namespaces) {
  * @param  {string} pattern      pattern to get the locale
 
  */
-function updateLocale(i18nKeys, locale, namespace, pattern) {
+function updateLocale(i18nKeys, locale, namespace, pattern, sort) {
 	const filePath = getPathFromPattern(pattern, namespace, locale);
 	let savedLocale = {};
 	if (fs.existsSync(filePath)) {
@@ -191,7 +202,10 @@ function updateLocale(i18nKeys, locale, namespace, pattern) {
 	);
 
 	mkdirp.sync(path.dirname(filePath));
-	fs.writeFileSync(filePath, JSON.stringify(newLocale, null, '  ') + String.fromCharCode(10));
+	fs.writeFileSync(
+		filePath,
+		JSON.stringify(sort ? sortObject(newLocale) : newLocale, null, '  ') + String.fromCharCode(10),
+	);
 }
 
 /**
@@ -248,8 +262,10 @@ function getI18Next(languages, namespaces) {
  * @param  {string} pattern      pattern to get the locale
 
  */
-function updateLocales(i18nKeys, locales, namespace, pattern) {
-	locales.forEach(locale => updateLocale(i18nKeys, locale, namespace, pattern));
+function updateLocales(i18nKeys, locales, namespace, pattern, sort) {
+	locales.forEach(locale => {
+		updateLocale(i18nKeys, locale, namespace, pattern, sort);
+	});
 }
 
 /**
@@ -259,14 +275,21 @@ function updateLocales(i18nKeys, locales, namespace, pattern) {
  * @param  {array<string>} languages              Locales to extract
  * @param  {string} from                          folder to parse
  */
-function parseI18n(namespaces, languages, from) {
-	namespaces.forEach(namespace => {
-		const i18nKeys = getLocalesFromNamespaceInFolder(
-			path.join(process.cwd(), ...from.split('/')),
-			namespace.name,
-		);
+function parseI18n(namespaces, languages, froms, sort) {
+	if (typeof froms === 'string') {
+		// eslint-disable-next-line no-param-reassign
+		froms = [froms];
+	}
 
-		updateLocales(i18nKeys, languages, namespace.name, namespace.path);
+	froms.forEach(from => {
+		namespaces.forEach(namespace => {
+			const i18nKeys = getLocalesFromNamespaceInFolder(
+				path.join(process.cwd(), ...from.split('/')),
+				namespace.name,
+			);
+
+			updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
+		});
 	});
 }
 

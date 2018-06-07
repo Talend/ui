@@ -35,7 +35,7 @@ if (program.debug) {
 	console.log(`use stack version ${stack_version}`);
 }
 
-const REACT_VERSION = '^15.6.2';
+const REACT_VERSION = '^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -67,7 +67,7 @@ const ADDONS = {
 	'react-autowhatever': '10.1.0',
 	'react-debounce-input': '3.1.0',
 	'react-immutable-proptypes': '2.1.0',
-	'react-jsonschema-form': '0.42.0',
+	'react-jsonschema-form': '0.51.0',
 	'react-tap-event-plugin': '2.0.0',
 	'react-virtualized': '9.10.1',
 	slugify: '1.1.0',
@@ -88,18 +88,18 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'prop-types': '15.5.10',
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
-	'react-addons-css-transition-group': '15.6.2',
 	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
 	'i18next-parser': '^0.13.0',
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
-	'react-i18next': '^5.2.0',
+	'react-i18next': '^7.6.1',
 	'react-redux': '5.0.5',
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
+	'react-transition-group': '^2.3.1',
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
@@ -109,7 +109,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-mock-store': '1.2.3',
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1', // prefer bson-objectid
-	tv4: '^1.2.7',
+	tv4: '^1.3.0',
 
 	// script dep
 	deepmerge: '1.5.1',
@@ -122,19 +122,20 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'@storybook/addon-knobs': '^3.3.14',
 	'@storybook/addons': '^3.3.14',
 	autoprefixer: '^7.1.4',
-	'babel-cli': '6.26.0',
-	'babel-core': '6.26.0',
-	'babel-eslint': '8.0.2',
+	'babel-cli': '^6.26.0',
+	'babel-core': '^6.26.0',
+	'babel-eslint': '8.0.1',
 	'babel-jest': JEST_VERSION,
-	'babel-plugin-transform-class-properties': '6.24.1',
-	'babel-plugin-transform-export-extensions': '6.22.0',
-	'babel-plugin-transform-object-assign': '6.22.0',
-	'babel-plugin-transform-object-rest-spread': '6.26.0',
-	'babel-preset-env': '1.6.0',
-	'babel-preset-react': '6.24.1',
+	'babel-plugin-transform-class-properties': '^6.24.1',
+	'babel-plugin-transform-export-extensions': '^6.22.0',
+	'babel-plugin-transform-object-assign': '^6.22.0',
+	'babel-plugin-transform-object-rest-spread': '^6.26.0',
+	'babel-preset-env': '^1.6.0',
+	'babel-preset-react': '^6.24.1',
 	cpx: '1.5.0',
 	enzyme: '^3.1.0',
 	'enzyme-adapter-react-15': '^1.0.1',
+	'enzyme-adapter-react-16': '^1.1.1',
 	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
@@ -144,13 +145,13 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
-	'react-storybook-cmf': '^0.2.0',
+	'react-storybook-cmf': '^0.4.0',
 	'react-stub-context': '^0.7.0',
 	rimraf: '^2.6.1',
 	storyshots: '3.2.2',
 
 	// webpack
-	'babel-loader': '7.1.2',
+	'babel-loader': '^7.1.2',
 	'copy-webpack-plugin': '4.1.1',
 	'css-loader': '0.28.7',
 	'extract-text-webpack-plugin': '3.0.2',

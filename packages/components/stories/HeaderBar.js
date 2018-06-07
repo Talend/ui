@@ -117,6 +117,7 @@ const props = {
 	},
 	help: {
 		id: 'header-help',
+		icon: 'talend-question-circle',
 		onClick: action('onHelpClick'),
 	},
 	user: {
@@ -158,6 +159,7 @@ const props = {
 const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 	<I18nextProvider i18n={i18n}>
 		<div>
+			<IconsProvider defaultIcons={icons}/>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
 			<IconsProvider defaultIcons={icons} />

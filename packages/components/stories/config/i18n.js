@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 	i18next.createInstance({});
 }
 
+
 export const LanguageSwitcher = () => {
 	if (!i18nInitialized) {
 		return null;

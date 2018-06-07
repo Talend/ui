@@ -79,6 +79,14 @@ describe('PieChartButton', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should render nothing', () => {
+			const wrapper = shallow(
+				<PieChartButton available={false} display="medium" labelIndex={2} model={pieChartData} />,
+			);
+
+			expect(wrapper.getElement()).toBeNull();
+		});
+
 		it('should render a Skeleton when the state is loading', () => {
 			const wrapper = shallow(<PieChartButton loading model={pieChartData} />);
 
