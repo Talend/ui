@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import get from 'lodash/get';
 import TableCell from '../Cell/TableCell';
 import theme from './TableRow.scss';
 
@@ -14,8 +13,10 @@ export function getRowId(rowDataGetter, element, index) {
 	return index;
 }
 
-function getRowClassName(classnames, index) {
-	return get(classnames, `rows[${index}]`);
+function getRowClassName(classnames, element, rowDataGetter) {
+	return classNames(classnames && classnames.row,
+		classnames && classnames.rows &&
+		classnames.rows[rowDataGetter.getElementId(element)]);
 }
 
 function getRowData(rowDataGetter, element, columnKey) {
@@ -80,7 +81,7 @@ export default class TableRow extends Component {
 		const rowClassnames = classNames(
 			'tc-table-row',
 			theme['tc-table-row'],
-			getRowClassName(classnames, index),
+			getRowClassName(classnames, element, rowDataGetter),
 		);
 		return (
 			<tr
@@ -100,7 +101,8 @@ TableRow.propTypes = {
 	element: PropTypes.object.isRequired,
 	index: PropTypes.number.isRequired,
 	classnames: PropTypes.shape({
-		rows: PropTypes.arrayOf(PropTypes.string),
+		row: PropTypes.string,
+		rows: PropTypes.objectOf(PropTypes.string),
 	}),
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({

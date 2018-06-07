@@ -1,45 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import TableHeader from './Header/TableHeader';
-import TableBody from './Body/TableBody';
+import TitleBar, { displayFilters } from './TitleBar/TitleBar';
+import TableComp from './TableComp/TableComp';
 import theme from './Table.scss';
 
 /**
- * This component displays a table of elements.
+ * This component displays a table of elements with an optional title bar.
  * Elements are provided as array.
  * An element is displayed in a row and is divided in multiple data.
  * The rowDataGetter object provides the data for each element.
  * The columns array provides the column configuration (see PropTypes below).
  * The table header is optional.
+ * The title bar displays a title and an optional set of filters.
  */
 export default function Table({
+	title,
 	elements,
 	columns,
 	classnames,
 	rowDataGetter,
 	withHeader,
+	filters,
+	onFilterChange,
+	onSortChange,
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
 }) {
 	return (
-		<table className={classNames('tc-table', theme['tc-table'], classnames && classnames.table)}>
-			{withHeader && <TableHeader columns={columns} classnames={classnames} />}
-			<TableBody
+		<div className={classNames('tc-table-root', theme['tc-table-root'], classnames && classnames.root)}>
+			{(title || displayFilters(filters)) && (
+				<TitleBar
+					title={title}
+					classnames={classnames}
+					filters={filters}
+					onFilterChange={onFilterChange}
+				/>
+			)}
+			<TableComp
 				elements={elements}
 				columns={columns}
 				classnames={classnames}
 				rowDataGetter={rowDataGetter}
+				withHeader={withHeader}
+				onSortChange={onSortChange}
 				onScroll={onScroll}
 				onEnterRow={onEnterRow}
 				onLeaveRow={onLeaveRow}
 			/>
-		</table>
+		</div>
 	);
 }
 
 Table.propTypes = {
+	title: PropTypes.string,
 	elements: PropTypes.array.isRequired,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -56,6 +71,8 @@ Table.propTypes = {
 			headRenderer: PropTypes.func,
 			// optional extra props for the column header renderer above
 			headExtraProps: PropTypes.object,
+			// Column sorter
+			sorter: PropTypes.object,
 			// classname used for all the cell of the column
 			cellClassName: PropTypes.string,
 			/**
@@ -68,13 +85,28 @@ Table.propTypes = {
 		}),
 	).isRequired,
 	classnames: PropTypes.shape({
+		root: PropTypes.string,
+		titleBar: PropTypes.string,
+		title: PropTypes.string,
+		filtersBar: PropTypes.string,
 		table: PropTypes.string,
 		header: PropTypes.string,
 		body: PropTypes.string,
-		rows: PropTypes.arrayOf(PropTypes.string),
+		row: PropTypes.string,
+		rows: PropTypes.objectOf(PropTypes.string),
 	}),
 	rowDataGetter: PropTypes.object,
 	withHeader: PropTypes.bool,
+	filters: PropTypes.arrayOf(
+		PropTypes.shape({
+			filter: PropTypes.object.isRequired,
+			renderer: PropTypes.func.isRequired,
+			rendererProps: PropTypes.object,
+			className: PropTypes.string,
+		}),
+	),
+	onFilterChange: PropTypes.func,
+	onSortChange: PropTypes.func,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

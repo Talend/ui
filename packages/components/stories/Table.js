@@ -6,8 +6,12 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
+	DataAccessorWithSorterAndFilter,
 	DraggableComponent as draggable,
+	FilterFactory,
 	IconsProvider,
+	Sorter,
+	SortOrder,
 	Table,
 	TableCell,
 } from '../src/index';
@@ -147,9 +151,40 @@ const salesForceAccountSchema = {
 		'The timestamp for when the current user last viewed this record. If this value is null, this record might only have been referenced (LastReferencedDate) and not viewed.',
 		'',
 	],
+	mandatories: [
+		false,
+		false,
+		false,
+		true,
+		true,
+		true,
+		true,
+		false,
+		false,
+		false,
+		true,
+		true,
+		false,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		true,
+		false,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	],
 };
 
-function buildElement(elem, index, types, descriptions) {
+function buildElement(elem, index, types, descriptions, mandatories) {
 	const type = types[index];
 	let description = null;
 	if (descriptions) {
@@ -157,11 +192,16 @@ function buildElement(elem, index, types, descriptions) {
 	} else {
 		description = `Description of ${elem}: bla bla bla`;
 	}
+	let mandatory = false;
+	if (mandatories) {
+		mandatory = mandatories[index];
+	}
 	return {
 		id: `${index}`,
 		name: elem,
 		type,
 		description,
+		mandatory,
 	};
 }
 
@@ -175,7 +215,7 @@ function finalizeSchema(schema, size) {
 		sourceElements = schema.elements.slice(0, size);
 	}
 	const elements = sourceElements.map(
-		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions)
+		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions, schema.mandatories)
 	);
 	result.elements = elements;
 	return result;
@@ -198,10 +238,34 @@ const Columns = {
 		key: 'description',
 		label: 'Description',
 	},
+	MANDATORY: {
+		key: 'mandatory',
+		label: '',
+	},
 };
 
-const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
-const columns2 = [Columns.NAME, Columns.TYPE];
+const sorterIcons = {
+	none: null,
+	ascending: 'talend-sort-asc',
+	descending: 'talend-sort-desc',
+};
+
+function newColumn(col) {
+	return {
+		key: col.key,
+		label: col.label,
+	};
+}
+
+function addSorter(column) {
+	const key = column.key;
+	column.sorter = new Sorter(key, key, key, sorterIcons);
+	column.headExtraProps = {
+		iconPosition: 'right',
+		link: true,
+	};
+	return column;
+}
 
 /*
  * This constant allows to specify which drag sources and drop targets are compatible.
@@ -231,15 +295,31 @@ const draggableCellExtraProps = {
 	},
 };
 
-const columns3 = [
-	{
-		key: Columns.NAME.key,
-		label: Columns.NAME.label,
-		cellRenderer: draggableCell,
-		cellExtraProps: draggableCellExtraProps,
-	},
-	Columns.TYPE,
-	Columns.DESC,
+function addDnd(column) {
+	column.cellRenderer = draggableCell;
+	column.cellExtraProps = draggableCellExtraProps;
+	return column;
+}
+
+const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
+
+const columns2 = [Columns.NAME, Columns.TYPE];
+
+const columns3 = [addDnd(newColumn(Columns.NAME)), Columns.TYPE, Columns.DESC];
+
+const columns4 = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
+
+const columns5 = [
+	addSorter(newColumn(Columns.NAME)),
+	addSorter(newColumn(Columns.TYPE)),
+	addSorter(newColumn(Columns.DESC)),
+];
+
+const columns6 = [
+	addDnd(newColumn(Columns.MANDATORY)),
+	addSorter(newColumn(Columns.NAME)),
+	addSorter(newColumn(Columns.TYPE)),
+	addSorter(newColumn(Columns.DESC)),
 ];
 
 const rowDataGetter = {
@@ -254,6 +334,8 @@ const rowDataGetter = {
 				return element.type;
 			case Columns.DESC.key:
 				return element.description;
+			case Columns.MANDATORY.key:
+				return element.mandatory ? '*' : '';
 			default:
 				return 'No data available!';
 		}
@@ -261,20 +343,21 @@ const rowDataGetter = {
 };
 
 const storyClassnames = {
-	table: 'story-table',
+	root: 'story-table',
 };
 
 const defaultClassnames = {
-	table: 'default-table',
+	root: 'default-table',
 };
-
-const initialStateWithDnD = { draggable: true };
 
 class ConnectedTable extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = props.initialState;
+		this.state = {
+			draggable: props.draggable,
+			highlighted: null,
+		};
 		this.onEnterRow = this.onEnterRow.bind(this);
 		this.onLeaveRow = this.onLeaveRow.bind(this);
 	}
@@ -291,26 +374,18 @@ class ConnectedTable extends React.Component {
 		});
 	}
 
-	getTableClassName() {
+	getRootClassName() {
 		return classnames({
 			'table-with-dnd': this.state.draggable,
 		});
 	}
 
-	getRowClassName(element) {
-		const classNames = {
-			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
-			'draggable-row': this.state.draggable,
-		};
-		return classnames(classNames);
-	}
-
-	getRowClassNames(elements) {
-		let rowClassNames = [];
-		for (let i = 0; i < elements.length; i += 1) {
-			rowClassNames = rowClassNames.concat(this.getRowClassName(elements[i]));
+	getRowsClassNames() {
+		const rowsClassNames = {};
+		if (this.state.highlighted) {
+			rowsClassNames[this.state.highlighted.id] = 'highlighted';
 		}
-		return rowClassNames;
+		return rowsClassNames;
 	}
 
 	render() {
@@ -321,8 +396,9 @@ class ConnectedTable extends React.Component {
 			onScroll,
 		} = this.props;
 		const allClassnames = {
-			table: this.getTableClassName(),
-			rows: this.getRowClassNames(elements),
+			root: this.getRootClassName(),
+			row: classnames({'draggable-row': this.state.draggable}),
+			rows: this.getRowsClassNames(),
 		};
 		return (
 			<Table
@@ -346,9 +422,148 @@ ConnectedTable.propTypes = {
 	columns: PropTypes.array,
 	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
+	draggable: PropTypes.bool,
 };
 
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
+
+const nameFilterId = 'name-filter';
+const nameFilterExtra = {
+	placeHolder: 'Filter...',
+	dockable: true,
+	navbar: true,
+};
+
+const mandatoryFieldFilterId = 'mandatory-field-filter';
+const mandatoryFieldFilterExtra = {
+	label: 'Show Mandatory Fields (*) Only',
+};
+
+function createFilters() {
+	const nameFilter = FilterFactory.createRegexpFilter(
+		nameFilterId,
+		Columns.NAME.key,
+		false,
+		nameFilterId,
+		nameFilterExtra,
+	);
+	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(
+		mandatoryFieldFilterId,
+		Columns.MANDATORY.key,
+		false,
+		mandatoryFieldFilterId,
+		mandatoryFieldFilterExtra,
+	);
+	return [nameFilter, mandatoryFieldFilter];
+}
+
+class SortedFilteredTable extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			elements: props.elements,
+			draggable: props.draggable,
+		};
+		this.dataAccessor = new DataAccessorWithSorterAndFilter(props.elements, rowDataGetter);
+		this.onFilterChange = this.onFilterChange.bind(this);
+		this.onSortChange = this.onSortChange.bind(this);
+		this.registerFilters(props.filters, this.dataAccessor);
+	}
+
+	registerFilters(filters, dataAccessor) {
+		if (filters) {
+			for (let i = 0; i < filters.length; i += 1) {
+				const filter = filters[i].filter;
+				if (filter) {
+					dataAccessor.addFilter(filter);
+				}
+			}
+		}
+	}
+
+	onFilterChange(filter) {
+		this.dataAccessor.filter(filter.getId());
+		this.setState({
+			elements: this.dataAccessor.getElements(true),
+		});
+	}
+
+	onSortChange(sorter) {
+		if (this.dataAccessor.isActiveSorter(sorter)) {
+			switch (sorter.getOrder()) {
+				case SortOrder.ASCENDING:
+					sorter.setOrder(SortOrder.DESCENDING);
+					this.dataAccessor.sort();
+					break;
+				case SortOrder.DESCENDING:
+					sorter.setOrder(SortOrder.NONE);
+					this.dataAccessor.clearSorter();
+					break;
+				default:
+					break;
+			}
+		} else {
+			const activeSorter = this.dataAccessor.getSorter();
+			if (activeSorter) {
+				activeSorter.setOrder(SortOrder.NONE);
+			}
+			sorter.setOrder(SortOrder.ASCENDING);
+			this.dataAccessor.setSorter(sorter);
+		}
+		this.setState({
+			elements: this.dataAccessor.getElements(true),
+		});
+	}
+
+	hasSorters(columns) {
+		return columns.find(col => col.sorter);
+	}
+
+	getRootClassName() {
+		return classnames({
+			'table-with-dnd': this.state.draggable,
+			'sorted-table': this.hasSorters(this.props.columns),
+			'filtered-table': this.props.filters,
+		});
+	}
+
+	render() {
+		const {
+			columns,
+			filters,
+			title,
+		} = this.props;
+		const allClassnames = {
+			root: this.getRootClassName(),
+			row: classnames({'draggable-row': this.state.draggable}),
+		};
+		return (
+			<Table
+				title={title}
+				elements={this.state.elements}
+				columns={columns}
+				classnames={allClassnames}
+				rowDataGetter={this.dataAccessor}
+				withHeader={true}
+				filters={filters}
+				onFilterChange={this.onFilterChange}
+				onSortChange={this.onSortChange}
+			/>
+		);
+	}
+
+}
+
+SortedFilteredTable.propTypes = {
+	elements: PropTypes.array,
+	columns: PropTypes.array,
+	filters: PropTypes.array,
+	title: PropTypes.string,
+	draggable: PropTypes.bool,
+};
+
+const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
 
 const stories = storiesOf('Table', module);
 if (!stories.addWithInfo) {
@@ -386,11 +601,40 @@ stories
 	.addWithInfo('Table with drag and drop', () => {
 		return (
 			<TableWithDND
-				initialState={initialStateWithDnD}
 				elements={schema3.elements}
 				columns={columns3}
 				withHeader={true}
 				onScroll={action('onScroll called!')}
+				draggable={true}
+			/>
+		);
+	})
+	.addWithInfo('Table with filters', () => {
+		return (
+			<SortedFilteredTable
+				elements={schema3.elements}
+				columns={columns4}
+				filters={createFilters()}
+				title={schema3.name}
+			/>
+		);
+	})
+	.addWithInfo('Table with sorters', () => {
+		return (
+			<SortedFilteredTable
+				elements={schema3.elements}
+				columns={columns5}
+			/>
+		);
+	})
+	.addWithInfo('Table with dnd, sorters & filters', () => {
+		return (
+			<SortedFilteredTableWithDND
+				elements={schema3.elements}
+				columns={columns6}
+				filters={createFilters()}
+				title={schema3.name}
+				draggable={true}
 			/>
 		);
 	});
