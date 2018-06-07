@@ -1,5 +1,7 @@
-import MonthCalendar from './MonthCalendar';
+import DateTimeWrapper from './MonthCalendar';
+import MonthYearWrapper from './MonthYearWrapper';
 
 export {
-    MonthCalendar,
+    DateTimeWrapper,
+    MonthYearWrapper,
 };

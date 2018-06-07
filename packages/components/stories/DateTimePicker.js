@@ -1,13 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { MonthCalendar } from '../src/DateTimePickers';
+import { DateTimeWrapper, MonthYearWrapper } from '../src/DateTimePickers';
 
 
 storiesOf('DateTimePicker', module)
-	.add('Month Calendar structure', () => (
+	.add('Date/Time picker structure', () => (
 		<div>
 			<h1>Month Calendar structure</h1>
-			<MonthCalendar />
+			<DateTimeWrapper />
+		</div>
+	))
+	.add('Month/Year picker structure', () => (
+		<div>
+			<h1>Month Calendar structure</h1>
+			<MonthYearWrapper />
 		</div>
 	));

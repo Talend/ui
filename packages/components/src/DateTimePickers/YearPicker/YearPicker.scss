@@ -1,0 +1,15 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .year {
+        padding: 10px 0;
+        text-align: center;
+        border-bottom: 1px solid black;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+
+.container {
+    display: flex;
+
+    .months {
+        flex: 3;
+    }
+
+    .years {
+        flex: 1;
+    }
+}

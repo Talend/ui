@@ -1,0 +1,12 @@
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .month {
+        width: 33%;
+        padding: 10px;
+        border: 1px solid black;
+        text-align: center;
+    }
+}
