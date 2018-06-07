@@ -1,3 +1,7 @@
+/**
+ * This defines the sorting direction.
+ * NONE is used a default value, it has no effect on elements order.
+ */
 export const Order = {
 	NONE: 'none',
 	ASCENDING: 'ascending',
@@ -15,6 +19,12 @@ const coefs = {
  * A sorter is identified by a unique string identifier.
  */
 export default class Sorter {
+	/**
+	 * @param {string} id - the orter identifier, must be unique.
+	 * @param {string} label - an optional label associated to the sorter
+	 * @param {string} key - identify the column of data which will be sorted by this sorter
+	 * @param {object} icons - a map [Order, icon] providing icon for each order.
+	 */
 	constructor(id, label, key, icons) {
 		this.id = id;
 		this.label = label;

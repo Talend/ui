@@ -6,12 +6,13 @@ import TableComp from './TableComp/TableComp';
 import theme from './Table.scss';
 
 /**
- * This component displays a table of elements.
+ * This component displays a table of elements with an optional title bar.
  * Elements are provided as array.
  * An element is displayed in a row and is divided in multiple data.
  * The rowDataGetter object provides the data for each element.
  * The columns array provides the column configuration (see PropTypes below).
  * The table header is optional.
+ * The title bar displays a title and an optional set of filters.
  */
 export default function Table({
 	title,

@@ -5,6 +5,9 @@ import TableHeader from '../Header/TableHeader';
 import TableBody from '../Body/TableBody';
 import theme from './TableComp.scss';
 
+/**
+ * This component is responsible for rendering the table (i.e. head and body)
+ */
 export default function TableComp({
 	elements,
 	columns,
@@ -38,15 +41,15 @@ TableComp.propTypes = {
 	elements: PropTypes.array.isRequired,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			key: PropTypes.string.isRequired, // column key
-			label: PropTypes.string, // label to display
-			headClassName: PropTypes.string, // header classname
-			headRenderer: PropTypes.func, // header renderer
-			headExtraProps: PropTypes.object, // header extra props
+			key: PropTypes.string.isRequired,
+			label: PropTypes.string,
+			headClassName: PropTypes.string,
+			headRenderer: PropTypes.func,
+			headExtraProps: PropTypes.object,
 			sorter: PropTypes.object,
-			cellClassName: PropTypes.string, // cell classname
-			cellRenderer: PropTypes.func, // cell renderer
-			cellExtraProps: PropTypes.object, // cell extra props
+			cellClassName: PropTypes.string,
+			cellRenderer: PropTypes.func,
+			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
 	classnames: PropTypes.shape({

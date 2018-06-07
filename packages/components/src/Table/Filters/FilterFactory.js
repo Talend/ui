@@ -16,7 +16,7 @@ import ToggleFilterComponent from './ToggleFilterComponent';
  */
 export default {
 	/**
-	 * Create a filter and its renderer based on regular expression.
+	 * Create a regexp filter and its corresponding default renderer.
 	 */
 	createRegexpFilter(id, key, strict, className, rendererProps) {
 		const filter = new RegexpFilter(id, key, false, strict);
@@ -28,7 +28,7 @@ export default {
 		};
 	},
 	/**
-	 *
+	 * Create a boolean filter and its corresponding default renderer.
 	 */
 	createBooleanFilter(id, key, reverse, className, rendererProps) {
 		const filter = new BooleanFilter(id, key, false, reverse);

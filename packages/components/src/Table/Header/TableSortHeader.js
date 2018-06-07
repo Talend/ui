@@ -5,9 +5,7 @@ import { ActionButton } from '../../index';
 
 /**
  * This component displays a header of a table column as an ActionButton.
- * The action props { label } can be provided by data or by extra.label.
- * The other action props { icon, onClick, etc } are provided by extra props.
- *
+ * It is used for column with sorter.
  */
 export default class TableSortHeader extends React.Component {
 	constructor(props) {
