@@ -25,6 +25,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		display: block;
 
 		padding: 0 $padding-normal;
 
@@ -34,6 +35,10 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		letter-spacing: inherit;
 		text-transform: none;
 		text-align: left;
+
+		> span {
+			display: inline;
+		}
 
 		&:first-child {
 			padding-left: 0;
