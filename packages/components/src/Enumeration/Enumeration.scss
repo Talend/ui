@@ -8,7 +8,7 @@ $tc-enumeration-font-size: 1.4rem !default;
 	flex-direction: column;
 
 	:global {
-		input[type=text] {
+		input[type='text'] {
 			font-size: $tc-enumeration-font-size;
 			line-height: $tc-enumeration-font-size;
 		}
