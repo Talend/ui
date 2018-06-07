@@ -20,6 +20,7 @@ $tc-action-list-item-border-size: 2px !default;
 				padding: $padding-normal;
 				text-overflow: inherit;
 				text-transform: uppercase;
+				justify-content: flex-start;
 
 				> span {
 					margin-left: $padding-normal;
