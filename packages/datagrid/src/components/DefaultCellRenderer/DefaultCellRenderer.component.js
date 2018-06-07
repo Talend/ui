@@ -29,7 +29,11 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 		];
 	}
 
-	return <div className={classNames(theme['td-cell'], 'td-cell')}>{content}</div>;
+	return (
+		<div aria-label={value.value} className={classNames(theme['td-cell'], 'td-cell')}>
+			{content}
+		</div>
+	);
 }
 
 DefaultCellRenderer.defaultProps = {
