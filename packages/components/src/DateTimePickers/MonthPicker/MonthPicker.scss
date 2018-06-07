@@ -1,12 +1,29 @@
 
 .container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    height: 100%;
+
+    .row {
+        display: flex;
+        flex: 1;
+        border-bottom: 1px solid grey;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
 
     .month {
-        width: 33%;
-        padding: 10px;
-        border: 1px solid black;
-        text-align: center;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid grey;
+
+        &:last-child {
+            border-right: none;
+        }
     }
 }

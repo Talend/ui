@@ -1,12 +1,16 @@
 
 .container {
     width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 
     .header {
-
+        height: 35px;
     }
 
     .view {
-
+        flex: 1;
+        min-height: 0;
     }
 }

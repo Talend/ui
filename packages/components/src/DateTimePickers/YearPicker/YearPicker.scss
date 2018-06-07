@@ -2,14 +2,41 @@
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 
-    .year {
-        padding: 10px 0;
-        text-align: center;
-        border-bottom: 1px solid black;
+    .previous, .next {
+        background: none;
+        border: none;
+        width: 100%;
+        height: 25px;
 
-        &:last-child {
-            border-bottom: none;
+        span {
+            display: inline-block;
+        }
+    }
+
+    .previous {
+        span {
+            transform: rotate(90deg);
+        }
+    }
+
+    .next {
+        span {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .years {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        .year {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

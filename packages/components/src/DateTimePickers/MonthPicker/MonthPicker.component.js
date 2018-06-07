@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import theme from './MonthPicker.scss';
+import { chunk } from 'lodash';
 
 function MonthPicker(props) {
 	const months = [
@@ -18,11 +19,17 @@ function MonthPicker(props) {
 		'Dec',
 	];
 
+	const monthsRows = chunk(months, 3);
+
 	return (
 		<div className={theme.container}>
-			{months.map((month, i) =>
-				<div className={theme.month} key={i}>
-					{month}
+			{monthsRows.map((monthsRow, i) =>
+				<div className={theme.row} key={i}>
+					{monthsRow.map((month, j) =>
+						<div className={theme.month} key={j}>
+							{month}
+						</div>
+					)}
 				</div>
 			)}
 		</div>
