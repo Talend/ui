@@ -13227,6 +13227,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                           onFocus={[Function]}
                           onMouseOver={[Function]}
                           onSelect={[Function]}
+                          onToggle={[Function]}
                           pullRight={true}
                           role="button"
                           title={
@@ -13243,6 +13244,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             bsStyle="link"
                             id="upload"
                             onSelect={[Function]}
+                            onToggle={[Function]}
                             pullRight={true}
                             role="button"
                           >
@@ -16269,6 +16271,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           onFocus={[Function]}
                           onMouseOver={[Function]}
                           onSelect={[Function]}
+                          onToggle={[Function]}
                           pullRight={true}
                           role="button"
                           title={
@@ -16285,6 +16288,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             bsStyle="link"
                             id="upload"
                             onSelect={[Function]}
+                            onToggle={[Function]}
                             pullRight={true}
                             role="button"
                           >
