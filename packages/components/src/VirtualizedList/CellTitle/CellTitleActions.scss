@@ -9,22 +9,17 @@ $tc-list-title-actions-menu-triangle: '\25b2';
 	position: relative;
 	right: 0;
 	top: 0;
+	height: 100%;
 
 	.cell-title-actions {
-		background: linear-gradient(
-			to right,
-			rgba(255, 255, 255, 0),
-			$tc-list-row-hover-bg $padding-large
-		);
+		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		visibility: hidden;
 
 		position: absolute;
 		right: 100%;
-		top: 0;
 
 		padding-left: $padding-larger;
-		z-index: 1;
 
 		.cell-title-actions-menu {
 			&:after {

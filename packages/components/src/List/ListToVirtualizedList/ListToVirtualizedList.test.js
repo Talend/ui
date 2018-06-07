@@ -15,8 +15,8 @@ const props = {
 	id: 'mylistid',
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
-		{ key: 'id', label: 'Id', type: 'customType' },
-		{ key: 'label', label: 'Label' },
+		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
+		{ key: 'label', label: 'Label', disableSort: true },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
 	],
@@ -70,6 +70,19 @@ describe('ListToVirtualizedList', () => {
 		const rProps = { ...props, rowHeight: 200 };
 		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
 		expect(table.rowHeight).toBe(200);
+	});
+
+	it('columns should have disableSort prop to true if hideHeader or disableSort is true', () => {
+		const table = shallow(<ListToVirtualizedList {...props} />);
+		const columns = table.find(VirtualizedList.Content);
+		columns.forEach(element => {
+			const eProps = element.props();
+			if (eProps.label === 'Label' || eProps.label === 'Actions') {
+				expect(eProps.disableSort).toBeTruthy();
+			} else {
+				expect(eProps.disableSort).toBeFalsy();
+			}
+		});
 	});
 
 	it('should add actionsKey to titleProps', () => {
@@ -133,6 +146,20 @@ describe('ListToVirtualizedList', () => {
 		// then
 		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
 		expect(column.props().cellRenderer).toBe(renderer);
+	});
+
+	it('should support custom header renderer', () => {
+		const renderer = function test() {
+			return 'ok';
+		};
+		const customHeaderDictionary = { customType: { headerRenderer: renderer } };
+		const wrapper = shallow(
+			<ListToVirtualizedList {...props} headerDictionary={customHeaderDictionary} />,
+		);
+
+		// then
+		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		expect(column.props().headerRenderer).toBe(renderer);
 	});
 
 	it('should support column hide feature', () => {

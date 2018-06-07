@@ -52,6 +52,8 @@
     "rc-tooltip": "3.7.0",
     "react-autowhatever": "10.1.0",
     "react-debounce-input": "3.1.0",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4",
     "react-immutable-proptypes": "2.1.0",
     "react-virtualized": "9.10.1"
   },
@@ -61,12 +63,12 @@
     "@storybook/addon-info": "^3.3.14",
     "@storybook/addon-storyshots": "^3.3.14",
     "@storybook/react": "^3.3.14",
-    "@talend/bootstrap-theme": "^0.190.0",
-    "@talend/icons": "^0.190.0",
+    "@talend/bootstrap-theme": "^0.191.0",
+    "@talend/icons": "^0.191.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.2",
+    "babel-eslint": "8.0.1",
     "babel-jest": "20.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -87,7 +89,7 @@
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint-plugin-react": "^6.3.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^9.0.0",
@@ -103,6 +105,7 @@
     "react-a11y": "^0.3.3",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
+    "react-dnd-test-backend": "^2.5.4",
     "react-dom": "^16.0.0",
     "react-i18next": "^7.6.1",
     "react-storybook-addon-props-combinations": "^0.3.0",
@@ -116,8 +119,8 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.190.0",
-    "@talend/icons": "^0.190.0",
+    "@talend/bootstrap-theme": "^0.191.0",
+    "@talend/icons": "^0.191.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "d3-shape": "1.2.0",
@@ -154,5 +157,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.190.0"
+  "version": "0.191.0"
 }
