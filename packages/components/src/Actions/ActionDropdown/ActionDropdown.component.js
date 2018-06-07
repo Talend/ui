@@ -153,13 +153,14 @@ class ActionDropdown extends React.Component {
 			const dropdownRect = dropdownMenu.getBoundingClientRect();
 			const containerRect = dropdownContainer.getBoundingClientRect();
 
-			let dropup = this.state.dropup;
-			if (!this.state.dropup && dropdownRect.bottom > containerRect.bottom) {
-				dropup = true;
-			} else if (this.state.dropup && dropdownRect.top < containerRect.top) {
-				dropup = false;
-			}
-			this.setState({ dropup });
+			this.setState(oldState => {
+				if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
+					return { dropup: true };
+				} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
+					return { dropup: false };
+				}
+				return null;
+			});
 		}
 	}
 
