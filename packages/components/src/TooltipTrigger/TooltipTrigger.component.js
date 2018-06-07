@@ -26,6 +26,8 @@ class TooltipTrigger extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+
 		this.state = {
 			hovered: false,
 			id: uuid.v4(),
@@ -40,25 +42,37 @@ class TooltipTrigger extends React.Component {
 		);
 	}
 
-	onMouseOver() {
+	onMouseOver(...args) {
 		if (!this.state.hovered) {
 			this.setState({ hovered: true });
+		}
+
+		if (this.childProps.onMouseOver) {
+			this.childProps.onMouseOver(...args);
+		}
+	}
+
+	onFocus(...args) {
+		if (!this.state.hovered) {
+			this.setState({ hovered: true });
+		}
+
+		if (this.childProps.onFocus) {
+			this.childProps.onFocus(...args);
 		}
 	}
 
 	render() {
 		if (!this.state.hovered) {
 			const child = React.Children.only(this.props.children);
-			const childProps = child.props;
-			const triggerProps = Object.assign(
-				{
-					onMouseOver: this.onMouseOver,
-					onFocus: this.onMouseOver,
-				},
-				childProps,
-			);
-			return cloneElement(child, triggerProps);
+			this.childProps = child.props;
+
+			return cloneElement(child, {
+				onMouseOver: this.onMouseOver,
+				onFocus: this.onFocus,
+			});
 		}
+
 		const tooltip = (
 			<Tooltip className={getTooltipClass()} id={this.state.id}>
 				{this.props.label}
@@ -75,7 +89,7 @@ class TooltipTrigger extends React.Component {
 
 TooltipTrigger.propTypes = {
 	children: PropTypes.element,
-	label: PropTypes.string,
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 
