@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
+import { FormatValue, hasWhiteSpaceCharacters } from './FormatValue.component';
 
 describe('FormatValue', () => {
 	it('should replace the leading/trainling white space and the line feeding', () => {

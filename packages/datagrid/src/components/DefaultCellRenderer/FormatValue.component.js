@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Icon } from '@talend/react-components';
+import { translate } from 'react-i18next';
 
+import getDefaultT from '../../translate';
+import I18N_DOMAIN_DATAGRID from '../../constant';
 import theme from './FormatValue.scss';
 
 export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
@@ -18,11 +21,12 @@ const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/g;
  * @param  {string} value string to transform
  * @return {Component}    component with the replaced special characters by icon
  */
-function replaceCharacterByIcon(value) {
+function replaceCharacterByIcon(value, t) {
 	switch (value) {
 		case '\t':
 			return (
 				<Icon
+					aria-label={t('FORMAT_VALUE_TAB_CHARACTER', { defaultValue: 'tab character' })}
 					className={classNames(
 						theme['td-white-space-character'],
 						theme['td-tab-character'],
@@ -34,6 +38,7 @@ function replaceCharacterByIcon(value) {
 		case ' ':
 			return (
 				<Icon
+					aria-label={t('FORMAT_VALUE_SPACE_CHARACTER', { defaultValue: 'space character' })}
 					className={classNames(theme['td-white-space-character'], 'td-white-space-character')}
 					name="talend-empty-space"
 				/>
@@ -42,6 +47,9 @@ function replaceCharacterByIcon(value) {
 			return (
 				<span>
 					<Icon
+						aria-label={t('FORMAT_VALUE_LINE_FEEDING_CHARACTER', {
+							defaultValue: 'line feeding character',
+						})}
 						className={classNames(theme['td-white-space-character'], 'td-white-space-character')}
 						name="talend-carriage-return"
 					/>
@@ -52,6 +60,9 @@ function replaceCharacterByIcon(value) {
 			if (REG_EXP_WHITE_SPACE_CHARACTERS.test(value)) {
 				return (
 					<Icon
+						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
+							defaultValue: 'white space character',
+						})}
 						className={classNames(
 							theme['td-white-space-character'],
 							theme['td-other-characters'],
@@ -109,12 +120,12 @@ function addKeyAttribute(component, index) {
  * @param  {RegExp} regexp  string to replace
  * @return {array}          replaced content
  */
-function replaceWhiteCharacters(content, regexp) {
+function replaceWhiteCharacters(content, regexp, t) {
 	const splitting = content.split(regexp);
-	return splitting.filter(isEmptyCharacter).map(replaceCharacterByIcon);
+	return splitting.filter(isEmptyCharacter).map(value => replaceCharacterByIcon(value, t));
 }
 
-export default function FormatValue(props) {
+export function FormatValue(props) {
 	let content = [];
 
 	const hiddenCharsRegExpMatch = props.value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
@@ -123,6 +134,7 @@ export default function FormatValue(props) {
 		content = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[1],
 			REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
+			props.t,
 		);
 	}
 
@@ -130,6 +142,7 @@ export default function FormatValue(props) {
 		const formattedContent = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[2],
 			REG_EXP_CAPTUR_LINE_FEEDING,
+			props.t,
 		);
 		content = [...content, ...formattedContent];
 	}
@@ -138,6 +151,7 @@ export default function FormatValue(props) {
 		const formattedContent = replaceWhiteCharacters(
 			hiddenCharsRegExpMatch[3],
 			REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
+			props.t,
 		);
 		content = [...content, ...formattedContent];
 	}
@@ -147,4 +161,11 @@ export default function FormatValue(props) {
 
 FormatValue.propTypes = {
 	value: PropTypes.string,
+	t: PropTypes.func,
 };
+
+FormatValue.defaultProps = {
+	t: getDefaultT(),
+};
+
+export default translate(I18N_DOMAIN_DATAGRID)(FormatValue);
