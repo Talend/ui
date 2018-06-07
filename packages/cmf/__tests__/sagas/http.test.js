@@ -121,6 +121,16 @@ describe('http.delete', () => {
 });
 
 describe('handleBody', () => {
+	it('should manage the body of the response like text if no header', done => {
+		handleBody(
+			new Response('{"foo": 42}', {}),
+		).then(({ data, response }) => {
+			expect(data).toBe('{"foo": 42}');
+			expect(response instanceof Response).toBeTruthy();
+			done();
+		});
+	});
+
 	it('should manage the body of the response like a json', done => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');

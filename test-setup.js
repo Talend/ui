@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import 'isomorphic-fetch';
 import { configure } from 'enzyme';
 import AdapterReact15 from 'enzyme-adapter-react-15';
 import AdapterReact16 from 'enzyme-adapter-react-16';
@@ -19,3 +20,4 @@ const fetch = jest.fn(
 		}),
 );
 global.fetch = fetch;
+global.Headers = Headers;
