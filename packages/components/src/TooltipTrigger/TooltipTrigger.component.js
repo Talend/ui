@@ -38,8 +38,7 @@ class TooltipTrigger extends React.Component {
 		return (
 			this.state.hovered !== nextState.hovered ||
 			this.props.children !== nextProps.children ||
-			this.props.label !== nextProps.label ||
-			this.props.contentRenderer !== nextProps.contentRenderer
+			this.props.label !== nextProps.label
 		);
 	}
 
@@ -75,7 +74,11 @@ class TooltipTrigger extends React.Component {
 		}
 
 		const tooltip = (
-			<Tooltip className={getTooltipClass()} id={this.state.id}>
+			<Tooltip
+				className={getTooltipClass()}
+				id={this.state.id}
+				aria-label={this.props.ariaLabel || this.props.label}
+			>
 				{this.props.label}
 			</Tooltip>
 		);
@@ -89,10 +92,10 @@ class TooltipTrigger extends React.Component {
 }
 
 TooltipTrigger.propTypes = {
-	contentRenderer: PropTypes.func,
 	children: PropTypes.element,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	ariaLabel: PropTypes.string,
 };
 
 export default TooltipTrigger;

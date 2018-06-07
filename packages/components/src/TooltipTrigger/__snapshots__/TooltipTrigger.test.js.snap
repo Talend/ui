@@ -1,16 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionTooltip should render a custom tooltip on child focus 1`] = `
+exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
 <OverlayTrigger
   defaultOverlayShown={false}
   delayShow={400}
   overlay={
     <Tooltip
+      aria-label="a custom tooltip"
       bsClass="tooltip"
       className="theme-tooltip-container tooltip-container"
       id={42}
       placement="right"
-    />
+    >
+      <div>
+        a custom tooltip
+      </div>
+    </Tooltip>
   }
   placement="right"
   trigger={
@@ -41,6 +46,7 @@ exports[`ActionTooltip should render tooltip when focus the children 1`] = `
   delayShow={400}
   overlay={
     <Tooltip
+      aria-label="toto"
       bsClass="tooltip"
       className="theme-tooltip-container tooltip-container"
       id={42}
@@ -69,6 +75,7 @@ exports[`ActionTooltip should render tooltip when hover the children 1`] = `
   delayShow={400}
   overlay={
     <Tooltip
+      aria-label="toto"
       bsClass="tooltip"
       className="theme-tooltip-container tooltip-container"
       id={42}

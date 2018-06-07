@@ -49,6 +49,31 @@ describe('ActionTooltip', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render custom tooltip when focus the children', () => {
+		// given
+		const props = {
+			ariaLabel: 'a custom tooltip',
+			label: <div>a custom tooltip</div>,
+			tooltipPlacement: 'right',
+		};
+
+		// when
+		const wrapper = shallow(
+			<TooltipTrigger {...props}>
+				<div>Action</div>
+			</TooltipTrigger>,
+		);
+
+		wrapper
+			.find('div')
+			.at(0)
+			.simulate('focus');
+
+		// then
+		wrapper.update();
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render tooltip when hover the children', () => {
 		// given
 		const props = {
@@ -70,29 +95,5 @@ describe('ActionTooltip', () => {
 
 		// then
 		expect(wrapper.update().getElement()).toMatchSnapshot();
-	});
-
-	it('should render a custom tooltip on child focus', () => {
-		// given
-		const props = {
-			tooltipPlacement: 'right',
-			contentRenderer: () => <div>custom component</div>,
-		};
-
-		// when
-		const wrapper = shallow(
-			<TooltipTrigger {...props}>
-				<div>Action</div>
-			</TooltipTrigger>,
-		);
-
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
-
-		// then
-		wrapper.update();
-		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
