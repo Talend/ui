@@ -1,9 +1,9 @@
-import DateTimeWrapper from './MonthCalendar';
-import MonthYearWrapper from './MonthYearWrapper';
+import DateTimeView from './DateTimeView';
+import MonthYearView from './MonthYearView';
 import DateTimePicker from './DateTimePicker';
 
 export {
-    DateTimeWrapper,
-    MonthYearWrapper,
+    DateTimeView,
+    MonthYearView,
     DateTimePicker,
 };

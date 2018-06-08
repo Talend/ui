@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MonthPicker from '../MonthPicker';
 import YearPicker from '../YearPicker';
-import theme from './MonthYearWrapper.scss';
+import theme from './MonthYearView.scss';
 
-function MonthYearWrapper(props) {
+function MonthYearView(props) {
 
 	return (
 		<div className={theme.container}>
@@ -18,7 +18,7 @@ function MonthYearWrapper(props) {
 	);
 }
 
-MonthYearWrapper.propTypes = {
+MonthYearView.propTypes = {
 };
 
-export default MonthYearWrapper;
+export default MonthYearView;

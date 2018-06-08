@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MonthCalendar from '../MonthCalendar';
 
-function DateTimeWrapper(props) {
+function DateTimeView(props) {
 	return (
 		<div>
 			<MonthCalendar />
@@ -10,7 +10,7 @@ function DateTimeWrapper(props) {
 	);
 }
 
-DateTimeWrapper.propTypes = {
+DateTimeView.propTypes = {
 };
 
-export default DateTimeWrapper;
+export default DateTimeView;

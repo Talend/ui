@@ -2,28 +2,28 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import {
-	DateTimeWrapper,
-	MonthYearWrapper,
+	DateTimeView,
+	MonthYearView,
 	DateTimePicker,
 } from '../src/DateTimePickers';
 
 
 storiesOf('DateTimePicker', module)
-	.add('DateTimePicker structure', () => (
+	.add('Full DateTimePicker structure', () => (
 		<div>
-			<h1>DateTimePickers structure</h1>
+			<h1>DateTimePicker structure</h1>
 			<DateTimePicker />
 		</div>
 	))
-	.add('Date/Time picker structure', () => (
+	.add('Date/Time view structure', () => (
 		<div>
 			<h1>Date/Time structure</h1>
-			<DateTimeWrapper />
+			<DateTimeView />
 		</div>
 	))
-	.add('Month/Year picker structure', () => (
+	.add('Month/Year view structure', () => (
 		<div>
 			<h1>Month/Year structure</h1>
-			<MonthYearWrapper />
+			<MonthYearView />
 		</div>
 	));

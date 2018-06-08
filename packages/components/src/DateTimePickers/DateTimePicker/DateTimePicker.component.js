@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import theme from './DateTimePicker.scss';
 import PickerHeader from '../PickerHeader';
-import DateTimeWrapper from '../DateTimeWrapper';
-import MonthYearWrapper from '../MonthYearWrapper';
+import DateTimeView from '../DateTimeView';
+import MonthYearView from '../MonthYearView';
 
 function DateTimePicker(props) {
 	const isCalendarView = false;
 	const viewComponent = isCalendarView
-		? <DateTimeWrapper />
-		: <MonthYearWrapper />;
+		? <DateTimeView />
+		: <MonthYearView />;
 
 	return (
 		<div className={theme.container}>
