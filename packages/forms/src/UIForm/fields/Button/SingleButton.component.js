@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Action from '@talend/react-components/lib/Actions/Action';
+import Inject from '@talend/react-components/lib/Inject';
 import classNames from 'classnames';
 
-export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
+export default function SingleButton({ className, id, onTrigger, onClick, schema, getComponent }) {
 	const { triggers, type = 'button', title, label, ...props } = schema;
-
+	const Renderer = Inject.getAll(getComponent, { Action });
 	let localOnClick;
 	if (type === 'button' && triggers) {
 		localOnClick = event => onTrigger(event, { trigger: triggers[0], schema });
@@ -14,7 +15,7 @@ export default function SingleButton({ className, id, onTrigger, onClick, schema
 	}
 
 	return (
-		<Action
+		<Renderer.Action
 			{...props}
 			id={id}
 			className={classNames('btn', className)}
