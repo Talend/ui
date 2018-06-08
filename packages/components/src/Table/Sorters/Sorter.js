@@ -60,9 +60,9 @@ export default class Sorter {
 	compareStrings(val1, val2) {
 		const coef = coefs[this.order];
 		if (val1 < val2) {
-			return -1;
+			return -1 * coef;
 		} else if (val1 > val2) {
-			return 1;
+			return coef;
 		}
 		return 0;
 	}
