@@ -86,15 +86,14 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     onToggle={[Function]}
     role="button"
     title={
-      <span
-        className="tc-dropdown-button-title"
-      >
+      Array [
+        null,
         <span
           className="tc-dropdown-button-title-label"
-        >
+      >
           related items
-        </span>
-      </span>
+      </span>,
+      ]
     }
   >
     <Uncontrolled(Dropdown)
@@ -166,13 +165,10 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   type="button"
                 >
                   <span
-                    className="tc-dropdown-button-title"
+                    className="tc-dropdown-button-title-label"
+                    key="label"
                   >
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      related items
-                    </span>
+                    related items
                   </span>
                    
                   <span
@@ -333,15 +329,14 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   onToggle={[Function]}
   role="button"
   title={
-    <span
-      className="tc-dropdown-button-title"
-    >
+    Array [
+      null,
       <span
         className="tc-dropdown-button-title-label"
-      >
+    >
         related items
-      </span>
-    </span>
+    </span>,
+    ]
   }
 >
   <MenuItem
@@ -398,18 +393,16 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   onToggle={[Function]}
   role="button"
   title={
-    <span
-      className="tc-dropdown-button-title"
-    >
+    Array [
       <Icon
         name="fa fa-file-excel-o"
-      />
+    />,
       <span
         className="tc-dropdown-button-title-label"
-      >
+    >
         related items
-      </span>
-    </span>
+    </span>,
+    ]
   }
 >
   <MenuItem
@@ -473,13 +466,12 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
     onToggle={[Function]}
     role="button"
     title={
-      <span
-        className="tc-dropdown-button-title"
-      >
+      Array [
         <Icon
           name="fa fa-file-excel-o"
-        />
-      </span>
+      />,
+        null,
+      ]
     }
   >
     <MenuItem
@@ -697,15 +689,14 @@ exports[`ActionDropdown should render immutable items 1`] = `
     onToggle={[Function]}
     role="button"
     title={
-      <span
-        className="tc-dropdown-button-title"
-      >
+      Array [
+        null,
         <span
           className="tc-dropdown-button-title-label"
-        >
+      >
           related items
-        </span>
-      </span>
+      </span>,
+      ]
     }
   >
     <Uncontrolled(Dropdown)
@@ -777,13 +768,10 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   type="button"
                 >
                   <span
-                    className="tc-dropdown-button-title"
+                    className="tc-dropdown-button-title-label"
+                    key="label"
                   >
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      related items
-                    </span>
+                    related items
                   </span>
                    
                   <span
