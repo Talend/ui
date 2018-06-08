@@ -100,6 +100,7 @@ function getName(name) {
 
 export function LineItem({
 	name,
+	tag,
 	onMouseOver,
 	mouseOverData,
 	jsonpath,
@@ -130,6 +131,7 @@ export function LineItem({
 			{...props}
 		>
 			{getName(name)}
+			{tag}
 			{children}
 		</span>
 	);
@@ -137,6 +139,7 @@ export function LineItem({
 
 LineItem.propTypes = {
 	name: PropTypes.string,
+	tag: PropTypes.node,
 	onMouseOver: PropTypes.func,
 	children: PropTypes.node,
 	mouseOverData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -232,7 +235,18 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
-export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSelect, ...props }) {
+export function ComplexItem({
+	data,
+	name,
+	tag,
+	opened,
+	edited,
+	tagged,
+	jsonpath,
+	info,
+	onSelect,
+	...props
+}) {
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 
@@ -277,6 +291,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
+					{tag}
 					{isOpened ? (
 						<ul className={theme['vertical-line']}>
 							{info.keys.map((key, i) => (
@@ -288,6 +303,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 										jsonpath={getJSONPath(key, jsonpath, info.type)}
 										opened={opened}
 										edited={edited}
+										tagged={tagged}
 										onSelect={onSelect}
 									/>
 								</li>
@@ -309,6 +325,8 @@ ComplexItem.propTypes = {
 		PropTypes.array,
 	]),
 	name: PropTypes.string,
+	tag: PropTypes.node,
+	tagged: PropTypes.objectOf(PropTypes.node),
 	opened: PropTypes.arrayOf(PropTypes.string).isRequired,
 	edited: PropTypes.arrayOf(PropTypes.string).isRequired,
 	jsonpath: PropTypes.string,
@@ -328,17 +346,19 @@ ComplexItem.propTypes = {
 	}).isRequired,
 };
 
-export function Item({ data, name, opened, edited, jsonpath, ...props }) {
+export function Item({ data, name, opened, edited, tagged, jsonpath, ...props }) {
 	if (props.tupleLabel) {
 		COMPLEX_TYPES.push(props.tupleLabel);
 	}
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
+	const tag = tagged && tagged[jsonpath];
 
 	if (data === undefined || data === null) {
 		return (
 			<LineItem
 				name={name}
+				tag={tag}
 				onMouseOver={props.onMouseOver}
 				mouseOverData={{ data, isOpened, isEdited }}
 				onSelect={props.onSelect}
@@ -373,6 +393,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				{props.showType && (
 					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
 				)}
+				{tag}
 			</LineItem>
 		);
 	}
@@ -381,6 +402,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 		<ComplexItem
 			{...props}
 			name={name}
+			tag={tag}
 			jsonpath={jsonpath}
 			info={info}
 			data={data}
@@ -388,6 +410,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 			onSelect={props.onSelect}
 			opened={opened}
 			edited={edited}
+			tagged={tagged}
 			selectedJsonpath={props.selectedJsonpath}
 		/>
 	);
@@ -404,6 +427,7 @@ Item.propTypes = {
 	name: PropTypes.string,
 	opened: PropTypes.arrayOf(PropTypes.string),
 	edited: PropTypes.arrayOf(PropTypes.string),
+	tagged: PropTypes.objectOf(PropTypes.node),
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
