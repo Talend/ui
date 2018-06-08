@@ -1,13 +1,12 @@
 {
-  "name": "@talend/download-locales",
+  "name": "@talend/i18n-scripts",
   "version": "0.1.0",
   "description": "Download i18n locales for current version of package",
-  "main": "index.js",
   "bin": {
-    "download-locales": "./index.js"
+    "download-locales": "./download-locales/index.js"
   },
   "author": "Talend Frontend <frontend@talend.com>",
-  "homepage": "https://github.com/Talend/ui/tree/master/packages/download-locales#readme",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/i18n-scripts#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
   },
