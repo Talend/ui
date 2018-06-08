@@ -129,7 +129,11 @@ function ActionDropdown(props) {
 	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 	const title = [
 		icon ? <Icon name={icon} key={'icon'} /> : null,
-		hideLabel ? null : <span className="tc-dropdown-button-title-label" key={'label'}>{label}</span>
+		hideLabel ? null : (
+			<span className="tc-dropdown-button-title-label" key={'label'}>
+				{label}
+			</span>
+		),
 	];
 	const style = link ? 'link' : bsStyle;
 
