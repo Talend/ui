@@ -35,6 +35,7 @@ export const STATUS = {
 	SUCCESSFUL: 'successful',
 	FAILED: 'failed',
 	CANCELED: 'canceled',
+	WARNING: 'warning',
 };
 
 export function getbsStyleFromStatus(status) {
@@ -47,6 +48,8 @@ export function getbsStyleFromStatus(status) {
 			return 'danger';
 		case STATUS.CANCELED:
 			return 'muted';
+		case STATUS.WARNING:
+			return 'warning';
 		default:
 			return '';
 	}
@@ -77,9 +80,10 @@ export function Status({ status, label, icon, actions, progress }) {
 		<div role="status" className={rootClassnames}>
 			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
 			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>{label}</span>
-			<span className={classNames(css['tc-status-actions'], 'tc-status-actions')}>
-				<Actions actions={actions} />
-			</span>
+			<Actions
+				actions={actions}
+				className={classNames(css['tc-status-actions'], 'tc-status-actions')}
+			/>
 		</div>
 	);
 }
@@ -87,7 +91,13 @@ export function Status({ status, label, icon, actions, progress }) {
 Status.displayName = 'Status';
 
 Status.propTypes = {
-	status: PropTypes.oneOf([STATUS.IN_PROGRESS, STATUS.SUCCESSFUL, STATUS.FAILED, STATUS.CANCELED]),
+	status: PropTypes.oneOf([
+		STATUS.IN_PROGRESS,
+		STATUS.SUCCESSFUL,
+		STATUS.FAILED,
+		STATUS.CANCELED,
+		STATUS.WARNING,
+	]),
 	label: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,

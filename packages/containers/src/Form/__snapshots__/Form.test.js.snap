@@ -8,6 +8,7 @@ Object {
   "children": undefined,
   "className": "tc-form rjsf foo pristine",
   "customFormats": undefined,
+  "customValidation": undefined,
   "data": Object {
     "jsonSchema": Object {
       "schema": true,
@@ -20,6 +21,7 @@ Object {
   "fields": undefined,
   "language": undefined,
   "onChange": [Function],
+  "onErrors": [Function],
   "onSubmit": [Function],
   "onTrigger": [Function],
   "other": true,
@@ -35,6 +37,7 @@ exports[`Container(Form) should render a Form 1`] = `
   buttonBlockClass="form-actions"
   className="tc-form rjsf pristine"
   customFormats={undefined}
+  customValidation={undefined}
   data={
     Object {
       "jsonSchema": Object {
@@ -49,6 +52,7 @@ exports[`Container(Form) should render a Form 1`] = `
   fields={undefined}
   language={undefined}
   onChange={[Function]}
+  onErrors={[Function]}
   onSubmit={[Function]}
   onTrigger={undefined}
   other={true}

@@ -2,9 +2,9 @@ import 'babel-polyfill';
 import { storiesOf, configure, setAddon } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import createSagaMiddleware from 'redux-saga';
-import cmf from 'react-storybook-cmf';
+import cmf from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api, actions } from '@talend/react-cmf';
+import api, { actions } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
@@ -97,6 +97,14 @@ function httpPhotosGet2() {
 		},
 	});
 }
+
+function sortByLength(sortBy) {
+	return function sort(a, b) {
+		return a.get(sortBy).length - b.get(sortBy).length;
+	};
+}
+
+api.registry.addToRegistry('_list_sort:sortByLength', sortByLength);
 
 api.actionCreator.register('http:get:photos1', httpPhotosGet1);
 api.actionCreator.register('http:get:photos2', httpPhotosGet2);

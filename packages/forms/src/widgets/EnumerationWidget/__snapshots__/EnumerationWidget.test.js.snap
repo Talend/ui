@@ -13367,6 +13367,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                       >
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           data-feature="file.add"
                                           disabled={false}
                                           divider={false}
@@ -13385,9 +13386,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                           onSelect={[Function]}
+                                          title="Add values from a file"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -13399,6 +13401,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Add values from a file"
                                             >
                                               <a
                                                 data-feature="file.add"
@@ -13409,6 +13412,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
+                                                title="Add values from a file"
                                               >
                                                 Add values from a file
                                               </a>
@@ -13417,6 +13421,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         </MenuItem>
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           data-feature="file.overwrite"
                                           disabled={false}
                                           divider={false}
@@ -13435,9 +13440,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                           onSelect={[Function]}
+                                          title="Overwrite existing values"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -13449,6 +13455,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Overwrite existing values"
                                             >
                                               <a
                                                 data-feature="file.overwrite"
@@ -13459,6 +13466,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
+                                                title="Overwrite existing values"
                                               >
                                                 Overwrite existing values
                                               </a>
@@ -16398,6 +16406,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       >
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           disabled={false}
                                           divider={false}
                                           eventKey={
@@ -16415,9 +16424,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                           onSelect={[Function]}
+                                          title="Add values from a file"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -16428,6 +16438,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Add values from a file"
                                             >
                                               <a
                                                 href="#"
@@ -16437,6 +16448,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
+                                                title="Add values from a file"
                                               >
                                                 Add values from a file
                                               </a>
@@ -16445,6 +16457,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         </MenuItem>
                                         <MenuItem
                                           bsClass="dropdown"
+                                          className="theme-tc-dropdown-item tc-dropdown-item"
                                           disabled={false}
                                           divider={false}
                                           eventKey={
@@ -16462,9 +16475,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                           onSelect={[Function]}
+                                          title="Overwrite existing values"
                                         >
                                           <li
-                                            className=""
+                                            className="theme-tc-dropdown-item tc-dropdown-item"
                                             role="presentation"
                                           >
                                             <SafeAnchor
@@ -16475,6 +16489,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                               onKeyDown={[Function]}
                                               role="menuitem"
                                               tabIndex="-1"
+                                              title="Overwrite existing values"
                                             >
                                               <a
                                                 href="#"
@@ -16484,6 +16499,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
+                                                title="Overwrite existing values"
                                               >
                                                 Overwrite existing values
                                               </a>

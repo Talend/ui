@@ -35,7 +35,7 @@ if (program.debug) {
 	console.log(`use stack version ${stack_version}`);
 }
 
-const REACT_VERSION = '^15.6.2';
+const REACT_VERSION = '^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -67,7 +67,7 @@ const ADDONS = {
 	'react-autowhatever': '10.1.0',
 	'react-debounce-input': '3.1.0',
 	'react-immutable-proptypes': '2.1.0',
-	'react-jsonschema-form': '1.0.0',
+	'react-jsonschema-form': '0.51.0',
 	'react-tap-event-plugin': '2.0.0',
 	'react-virtualized': '9.10.1',
 	slugify: '1.1.0',
@@ -88,7 +88,6 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'prop-types': '15.5.10',
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
-	'react-addons-css-transition-group': '15.6.2',
 	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
@@ -100,6 +99,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
+	'react-transition-group': '^2.3.1',
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
@@ -124,7 +124,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	autoprefixer: '^7.1.4',
 	'babel-cli': '^6.26.0',
 	'babel-core': '^6.26.0',
-	'babel-eslint': '^8.0.2',
+	'babel-eslint': '8.0.1',
 	'babel-jest': JEST_VERSION,
 	'babel-plugin-transform-class-properties': '^6.24.1',
 	'babel-plugin-transform-export-extensions': '^6.22.0',
@@ -135,6 +135,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	cpx: '1.5.0',
 	enzyme: '^3.1.0',
 	'enzyme-adapter-react-15': '^1.0.1',
+	'enzyme-adapter-react-16': '^1.1.1',
 	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',

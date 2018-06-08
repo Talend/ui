@@ -6,11 +6,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionFile/ActionFile.component.js
-  65:9  error  'displayName' is not defined   no-undef
-  67:9  error  'propTypes' is not defined     no-undef
-  85:9  error  'defaultProps' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -26,26 +21,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
-  132:9  error  'displayName' is not defined  no-undef
-  134:9  error  'propTypes' is not defined    no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/InputTitleSubHeader/InlineFormSubHeader.component.js
-  11:9  error  'propTypes' is not defined     no-undef
-  19:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
-  24:9  error  'displayName' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-  62:9  error  'propTypes' is not defined     no-undef
-  85:9  error  'defaultProps' is not defined  no-undef
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
+  50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
-  44:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 21 problems (20 errors, 1 warning)
+✖ 12 problems (11 errors, 1 warning)
 

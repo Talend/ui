@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
-import curry from 'lodash/curry';
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
 import actions from '../actions';
+import curry from 'lodash/curry';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from '../middlewares/http/constants';
@@ -15,6 +15,25 @@ import {
 	onActionError,
 	onJSError,
 } from '../actions/http';
+
+/**
+ * Storage point for the doc setup using `setDefaultConfig`
+ */
+export const HTTP = {
+	defaultConfig: null,
+};
+
+/**
+ * merge the CSRFToken handling rule from the module defaultConfig
+ * into config argument
+ * @param {Object} config
+ * @returns {Function}
+ */
+export function handleCSRFToken(config) {
+	return mergeCSRFToken({
+		security: config.security,
+	})(config);
+}
 
 export class HTTPError extends Error {
 	constructor({ data, response }) {
@@ -36,11 +55,12 @@ export class HTTPError extends Error {
 export function handleBody(response) {
 	let methodBody = 'text';
 
-	const contentType = response.headers.get('Content-Type');
-
+	const headers = get(response, 'headers', new Headers());
+	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
 	}
+
 	return response[methodBody]().then(data => ({ data, response }));
 }
 
@@ -105,14 +125,19 @@ export function httpFetch(url, config, method, payload) {
 	}
 	return fetch(
 		url,
-		merge(
-			{
-				credentials: 'same-origin',
-				headers: defaultHeaders,
-				method,
-				body,
-			},
-			config,
+		handleCSRFToken(
+			merge(
+				{
+					credentials: 'same-origin',
+					headers: defaultHeaders,
+					method,
+					body,
+				},
+				{
+					...HTTP.defaultConfig,
+					...config,
+				},
+			),
 		),
 	)
 		.then(handleHttpResponse)
@@ -398,6 +423,52 @@ function createClient(defaultConfig = {}) {
 		},
 	};
 }
+ * setDefaultHeader - define a default config to use with the saga http
+ * this default config is stored in this module for the whole application
+ *
+ * @param  {object} config key/value of header to apply
+ * @example
+ * import { setDefaultConfig } from '@talend/react-cmf/sagas/http';
+ * setDefaultConfig({headers: {
+ *  'Accept-Language': preferredLanguage,
+ * }});
+ */
+export function setDefaultConfig(config) {
+	if (HTTP.defaultConfig) {
+		throw new Error(
+			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
+		);
+	}
+
+	HTTP.defaultConfig = config;
+}
+
+/**
+ * To change only the Accept-Language default headers
+ * on the global http defaultConfig
+ * @param {String} language
+ */
+export function setDefaultLanguage(language) {
+	if (get(HTTP, 'defaultConfig.headers')) {
+		HTTP.defaultConfig.headers['Accept-Language'] = language;
+	} else {
+		// eslint-disable-next-line no-console
+		throw new Error('ERROR: you should call setDefaultConfig.');
+	}
+}
+
+export const handleDefaultHttpConfiguration = curry((defaultHttpConfig, httpConfig) =>
+	merge(defaultHttpConfig, httpConfig),
+);
+
+/**
+ * getDefaultConfig - return the defaultConfig
+ *
+ * @return {object}  the defaultConfig used by cmf
+ */
+export function getDefaultConfig() {
+	return HTTP.defaultConfig;
+}
 
 export default {
 	delete: httpDelete,
@@ -407,4 +478,27 @@ export default {
 	patch: httpPatch,
 	request: httpRequest,
 	create: createClient,
+	setDefaultConfig,
+	setDefaultLanguage,
+	create(createConfig = {}) {
+		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
+
+		return {
+			delete: function* configuredDelete(url, config = {}, options = {}) {
+				return yield call(httpDelete, url, configEnhancer(config), options);
+			},
+			get: function* configuredGet(url, config = {}, options = {}) {
+				return yield call(httpGet, url, configEnhancer(config), options);
+			},
+			post: function* configuredPost(url, payload, config = {}, options = {}) {
+				return yield call(httpPost, url, payload, configEnhancer(config), options);
+			},
+			put: function* configuredPut(url, payload, config = {}, options = {}) {
+				return yield call(httpPut, url, payload, configEnhancer(config), options);
+			},
+			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
+				return yield call(httpPatch, url, payload, configEnhancer(config), options);
+			},
+		};
+	},
 };

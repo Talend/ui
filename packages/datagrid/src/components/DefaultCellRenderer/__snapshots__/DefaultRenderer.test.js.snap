@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultRenderer should render DefaultRenderer 1`] = `
-<span>
-  true
-</span>
+exports[`#DefaultRenderer should render DefaultRenderer with a advanced tooltip 1`] = `
+<DefaultValueRenderer
+  value="﻿﻿﻿﻿﻿﻿﻿  loreum lo
+		psum	 	 "
+/>
 `;

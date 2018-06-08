@@ -61,6 +61,7 @@ class List extends React.Component {
 				onChange: PropTypes.func,
 			}),
 		}),
+		cellDictionary: PropTypes.object,
 		displayMode: PropTypes.string,
 		items: ImmutablePropTypes.list.isRequired,
 		...cmfConnect.propTypes,
@@ -201,6 +202,30 @@ class List extends React.Component {
 					this.props.actions.editCancel,
 				);
 			}
+		}
+
+		if (props.cellDictionary) {
+			props.list.cellDictionary = Object.keys(props.cellDictionary).reduce((acc, key) => {
+				const current = props.cellDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = {
+					...omit(current, ['component']),
+					cellRenderer: props.getComponent(current.component),
+				};
+				return acc;
+			}, {});
+		}
+
+		if (props.headerDictionary) {
+			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce((acc, key) => {
+				const current = props.headerDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = {
+					...omit(current, ['component']),
+					headerRenderer: props.getComponent(current.component),
+				};
+				return acc;
+			}, {});
 		}
 
 		// toolbar

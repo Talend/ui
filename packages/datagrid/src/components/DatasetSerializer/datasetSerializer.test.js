@@ -10,6 +10,7 @@ import {
 	getQuality,
 	getRowData,
 	getType,
+	sanitizeAvro,
 } from './datasetSerializer';
 
 const sample = {
@@ -328,5 +329,44 @@ describe('convertSample', () => {
 			id: 42,
 		};
 		expect(convertSample(sampleData)).toBe(sampleData);
+	});
+
+	describe('sanitizeAvro', () => {
+		it('should sanitize the optional avro type', () => {
+			const avro = sanitizeAvro({
+				name: 'field0',
+				doc: 'Nom de la gare',
+				type: [
+					'null',
+					{
+						type: 'string',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+				],
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+			});
+			expect(avro).toEqual({
+				'@talend-quality@': { '-1': 62, 0: 0, 1: 38, total: 100 },
+				doc: 'Nom de la gare',
+				name: 'field0',
+				type: { dqType: 'FR Commune', dqTypeKey: 'FR_COMMUNE', type: 'string' },
+			});
+		});
+
+		it('should not sanitize', () => {
+			const avro = {
+				'@talend-quality@': { '-1': 62, 0: 0, 1: 38, total: 100 },
+				doc: 'Nom de la gare',
+				name: 'field0',
+				type: { dqType: 'FR Commune', dqTypeKey: 'FR_COMMUNE', type: 'string' },
+			};
+			expect(sanitizeAvro(avro)).toBe(avro);
+		});
 	});
 });
