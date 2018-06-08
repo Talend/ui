@@ -166,19 +166,8 @@ public class Item extends Component {
                 .build()
                 .perform();
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         wait
                 .until(elementToBeClickable(actionSelector))
                 .click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
