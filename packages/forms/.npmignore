@@ -50,6 +50,3 @@ storybook-static
 .eslintrc
 .sass-lint.yml
 yarn.lock
-
-# Will be downloaded on postinstall when adding package
-locales
