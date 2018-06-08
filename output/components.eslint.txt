@@ -21,9 +21,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Table/Sorters/Sorter.js
-  61:9  error  'coef' is assigned a value but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
@@ -33,5 +30,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 13 problems (12 errors, 1 warning)
+✖ 12 problems (11 errors, 1 warning)
 
