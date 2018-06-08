@@ -9,8 +9,8 @@ function ViewLayout(props) {
 			<div className={theme.header}>
 				<ViewHeader {...props.header} />
 			</div>
-			<div className={theme.view}>
-				{props.viewComponent}
+			<div className={theme.body}>
+				{props.bodyNode}
 			</div>
 		</div>
 	);
@@ -18,7 +18,7 @@ function ViewLayout(props) {
 
 ViewLayout.propTypes = {
 	header: ViewHeader.propTypes,
-	viewComponent: PropTypes.node,
+	bodyNode: PropTypes.node,
 };
 
 export default ViewLayout;

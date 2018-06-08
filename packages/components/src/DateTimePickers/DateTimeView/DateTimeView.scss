@@ -1,3 +1,16 @@
 .title {
     width: 100%;
 }
+
+.body {
+    display: flex;
+    height: 100%;
+
+    .date {
+        flex: 3;
+    }
+
+    .time {
+        flex: 1;
+    }
+}

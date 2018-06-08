@@ -18,12 +18,12 @@ function MonthYearView(props) {
 		rightItem: null,
 	};
 
-	const viewComponent = (
+	const bodyNode = (
 		<div className={theme.body}>
-			<div className={theme.months}>
+			<div className={theme.month}>
 				<MonthPicker />
 			</div>
-			<div className={theme.years}>
+			<div className={theme.year}>
 				<YearPicker />
 			</div>
 		</div>
@@ -32,7 +32,7 @@ function MonthYearView(props) {
 	return (
 		<ViewLayout
 			header={header}
-			viewComponent={viewComponent}
+			bodyNode={bodyNode}
 		/>
 	);
 }

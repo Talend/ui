@@ -26,7 +26,7 @@ function DateTimeView(props) {
 		/>,
 	};
 
-	const viewComponent = (
+	const bodyNode = (
 		<div className={theme.body}>
 			<div className={theme.date}>
 				<DatePicker />
@@ -40,7 +40,7 @@ function DateTimeView(props) {
 	return (
 		<ViewLayout
 			header={header}
-			viewComponent={viewComponent}
+			bodyNode={bodyNode}
 		/>
 	);
 }
