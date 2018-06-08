@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import theme from './MonthCalendarDays.scss';
+import theme from './CalendarBody.scss';
 
-function MonthCalendarDays(props) {
+function CalendarBody(props) {
 	const days = (new Array(7))
 					.fill(0)
 					.map((_, i) => i + 1);
@@ -30,8 +30,8 @@ function MonthCalendarDays(props) {
 	);
 }
 
-MonthCalendarDays.propTypes = {
+CalendarBody.propTypes = {
 
 };
 
-export default MonthCalendarDays;
+export default CalendarBody;

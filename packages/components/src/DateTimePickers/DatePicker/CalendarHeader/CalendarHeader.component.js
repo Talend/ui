@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import theme from './MonthCalendarHeader.scss';
+import theme from './CalendarHeader.scss';
 
-function MonthCalendarHeader(props) {
+function CalendarHeader(props) {
 	const dayNames = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 	return (
 		<div className={theme.container}>
@@ -13,7 +13,7 @@ function MonthCalendarHeader(props) {
 	);
 }
 
-MonthCalendarHeader.propTypes = {
+CalendarHeader.propTypes = {
 };
 
-export default MonthCalendarHeader;
+export default CalendarHeader;

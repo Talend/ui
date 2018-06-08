@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MonthCalendar from '../MonthCalendar';
+import DatePicker from '../DatePicker';
 
 function DateTimeView(props) {
 	return (
 		<div>
-			<MonthCalendar />
+			<DatePicker />
 		</div>
 	);
 }
