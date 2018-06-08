@@ -369,7 +369,6 @@ export function Item({ data, name, opened, edited, tagged, jsonpath, ...props })
 	}
 
 	const info = getDataInfo(data, props.tupleLabel);
-	console.log(info);
 	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 
 	if (isNativeType) {
