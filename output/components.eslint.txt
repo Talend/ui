@@ -21,6 +21,39 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Table/DataAccessor/DataAccessorWithSorterAndFilter.js
+    1:8  error  'Filter' is defined but never used                 no-unused-vars
+    2:8  error  'Sorter' is defined but never used                 no-unused-vars
+   35:1  error  Line 35 exceeds the maximum line length of 100     max-len
+  320:7  error  'result' is never reassigned. Use 'const' instead  prefer-const
+  406:1  error  Line 406 exceeds the maximum line length of 100    max-len
+  427:1  error  Line 427 exceeds the maximum line length of 100    max-len
+
+/home/travis/build/Talend/ui/packages/components/src/Table/DataAccessor/DataAccessorWithSorterAndFilter.test.js
+    2:8   error  'FilterFactory' is defined but never used          no-unused-vars
+  251:35  error  'elements' is already declared in the upper scope  no-shadow
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Filters/BooleanFilter.js
+  25:65  error  Redundant Boolean call  no-extra-boolean-cast
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Filters/BooleanFilter.test.js
+  10:22  error  'dataAccessor' is already declared in the upper scope  no-shadow
+  10:44  error  'elements' is already declared in the upper scope      no-shadow
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Filters/Filter.js
+  55:13  error  Expected 'this' to be used by class method 'selectValue'  class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Filters/RegexpFilter.test.js
+  10:22  error  'dataAccessor' is already declared in the upper scope  no-shadow
+  10:44  error  'elements' is already declared in the upper scope      no-shadow
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Header/TableSortHeader.js
+  22:24  error  'onClick' is assigned a value but never used  no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/Table/Sorters/Sorter.js
+  33:24  error  Unnecessary use of conditional expression for default assignment  no-unneeded-ternary
+  62:10  error  Do not nest ternary expressions                                   no-nested-ternary
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
@@ -30,5 +63,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 12 problems (11 errors, 1 warning)
+✖ 29 problems (28 errors, 1 warning)
 
