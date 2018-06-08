@@ -137,7 +137,7 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnCellAction(final String columnKey, final String actionId) {
-        WebElement button;
+        By actionSelector;
 
         // hover on item
         new Actions(driver)
@@ -153,13 +153,13 @@ public class Item extends Component {
                 wait.until(elementToBeClickable(ellipsisButton)).click();
             }
 
-            button = this.getAction(actionId);
+            actionSelector = getActionSelector(actionId);
         } else {
-            button = this.getCell(columnKey).getAction(actionId);
+            actionSelector = By.cssSelector(String.format("button[id=%s]", actionId));
         }
 
         wait
-                .until(elementToBeClickable(button))
+                .until(elementToBeClickable(actionSelector))
                 .click();
     }
 }
