@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import theme from './YearPicker.scss';
+import { ActionButton } from '../../Actions';
 
 function YearPicker(props) {
 	const years = [
@@ -16,9 +17,13 @@ function YearPicker(props) {
 
 	return (
 		<div className={theme.container}>
-			<button className={theme.previous}>
-				<span>&#60;</span>
-			</button>
+			<ActionButton
+				className={theme.previous}
+				icon="talend-chevron-left"
+				iconTransform="rotate-90"
+				hideLabel
+				link
+			/>
 			<div className={theme.years}>
 				{years.map((year, i) =>
 					<div className={theme.year} key={i} >
@@ -26,9 +31,13 @@ function YearPicker(props) {
 					</div>
 				)}
 			</div>
-			<button className={theme.next}>
-				<span>&#60;</span>
-			</button>
+			<ActionButton
+				className={theme.next}
+				icon="talend-chevron-left"
+				iconTransform="rotate-270"
+				hideLabel
+				link
+			/>
 		</div>
 	);
 }
