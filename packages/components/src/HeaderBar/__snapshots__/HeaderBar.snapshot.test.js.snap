@@ -797,7 +797,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -806,7 +806,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1428,7 +1428,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -2176,7 +2176,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -2185,7 +2185,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2807,7 +2807,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -2816,7 +2816,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -3438,7 +3438,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -3447,7 +3447,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -4069,7 +4069,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -4726,7 +4726,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -4735,7 +4735,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -5385,7 +5385,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -6036,7 +6036,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -7020,7 +7020,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -7029,7 +7029,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -7570,7 +7570,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -7579,7 +7579,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -8201,7 +8201,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
         role="presentation"
       >
         <form
@@ -8210,7 +8210,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -8864,7 +8864,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -8873,7 +8873,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -9507,7 +9507,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -9516,7 +9516,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -10150,7 +10150,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -10159,7 +10159,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -10793,7 +10793,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -10802,7 +10802,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -11436,7 +11436,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -11445,7 +11445,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -12079,7 +12079,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -12088,7 +12088,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -12722,7 +12722,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
               <form
@@ -12731,7 +12731,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
