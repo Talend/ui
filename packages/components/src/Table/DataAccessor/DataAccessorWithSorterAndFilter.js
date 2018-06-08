@@ -1,4 +1,3 @@
-
 function mergeFilterResults(result1, result2) {
 	let mergedResult = [];
 	for (let i = 0; i < result2.length; i += 1) {
