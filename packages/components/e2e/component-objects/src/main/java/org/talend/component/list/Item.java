@@ -137,6 +137,7 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnCellAction(final String columnKey, final String actionId) {
+        WebElement button;
         By actionSelector;
 
         // hover on item
@@ -153,13 +154,31 @@ public class Item extends Component {
                 wait.until(elementToBeClickable(ellipsisButton)).click();
             }
 
+            button = this.getAction(actionId);
             actionSelector = getActionSelector(actionId);
         } else {
+            button = this.getCell(columnKey).getAction(actionId);
             actionSelector = By.cssSelector(String.format("button[id=%s]", actionId));
+        }
+
+        new Actions(driver)
+                .moveToElement(button)
+                .build()
+                .perform();
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         wait
                 .until(elementToBeClickable(actionSelector))
                 .click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
