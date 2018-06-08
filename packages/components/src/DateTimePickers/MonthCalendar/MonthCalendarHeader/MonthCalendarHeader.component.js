@@ -7,9 +7,7 @@ function MonthCalendarHeader(props) {
 	return (
 		<div className={theme.container}>
 			{dayNames.map((dayName, i) =>
-				<div className={theme['day-of-week']} key={i}>
-					<abbr>{dayName}</abbr>
-				</div>
+				<abbr className={theme['day-of-week']} key={i}>{dayName}</abbr>
 			)}
 		</div>
 	);
