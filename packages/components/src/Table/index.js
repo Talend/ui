@@ -7,12 +7,12 @@ import TableHeaderCell from './Header/TableHeaderCell';
 import TableSortHeader from './Header/TableSortHeader';
 
 export {
-  DataAccessorWithSorterAndFilter,
-  FilterFactory,
-  Sorter,
-  SortOrder,
-  Table,
-  TableCell,
-  TableHeaderCell,
-  TableSortHeader,
+	DataAccessorWithSorterAndFilter,
+	FilterFactory,
+	Sorter,
+	SortOrder,
+	Table,
+	TableCell,
+	TableHeaderCell,
+	TableSortHeader,
 };

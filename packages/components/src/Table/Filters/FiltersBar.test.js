@@ -7,15 +7,11 @@ import * as TestData from '../TestData';
  * Render two filters
  */
 it('two-filters', () => {
-  const filters = [TestData.nameFilter, TestData.mandatoryFieldFilter];
+	const filters = [TestData.nameFilter, TestData.mandatoryFieldFilter];
 	// create React tree
 	const tree = renderer
 		.create(
-			<FiltersBar
-				classnames={TestData.classnames}
-        filters={filters}
-				onFilterChange={jest.fn()}
-			/>,
+			<FiltersBar classnames={TestData.classnames} filters={filters} onFilterChange={jest.fn()} />,
 		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();

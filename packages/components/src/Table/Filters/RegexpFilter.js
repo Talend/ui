@@ -50,7 +50,7 @@ export default class RegexpFilter extends Filter {
 	selectValue(value) {
 		return Boolean(
 			value.match(this.regexp) ||
-			(!this.strict && isString(this.regexp) && lowerCaseMatch(value, this.regexp))
+				(!this.strict && isString(this.regexp) && lowerCaseMatch(value, this.regexp)),
 		);
 	}
 }

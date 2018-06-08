@@ -7,15 +7,15 @@ import * as TestData from '../TestData';
  * Render title bar with a title and filters
  */
 it('title-bar', () => {
-  const title = 'TALEND.SCHEMA';
-  const filters = [TestData.nameFilter, TestData.mandatoryFieldFilter];
+	const title = 'TALEND.SCHEMA';
+	const filters = [TestData.nameFilter, TestData.mandatoryFieldFilter];
 	// create React tree
 	const tree = renderer
 		.create(
 			<TitleBar
-        title={title}
+				title={title}
 				classnames={TestData.classnames}
-        filters={filters}
+				filters={filters}
 				onFilterChange={jest.fn()}
 			/>,
 		)

@@ -29,7 +29,9 @@ export default function Table({
 	onLeaveRow,
 }) {
 	return (
-		<div className={classNames('tc-table-root', theme['tc-table-root'], classnames && classnames.root)}>
+		<div
+			className={classNames('tc-table-root', theme['tc-table-root'], classnames && classnames.root)}
+		>
 			{(title || displayFilters(filters)) && (
 				<TitleBar
 					title={title}

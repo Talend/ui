@@ -5,19 +5,14 @@ import BooleanFilter from '../Filters/BooleanFilter';
 import Sorter, { Order } from '../Sorters/Sorter';
 import * as TestData from '../TestData';
 
-const elements = [
-	TestData.firstname,
-	TestData.lastname,
-	TestData.birthday,
-	TestData.address,
-];
+const elements = [TestData.firstname, TestData.lastname, TestData.birthday, TestData.address];
 
 const unknownElement = {
 	id: 'elem_unknown',
 	name: 'Unknown',
 	type: 'unknown',
 	desc: 'An unknown element',
-}
+};
 
 const nameFilterId = 'name-filter';
 const mandatoryFieldFilterId = 'mandatory-field-filter';
@@ -30,20 +25,25 @@ function createDataAccessor() {
 
 describe('Test basic methods of data accessor', () => {
 	it('data-accessor', () => {
+		const dataAccessor = createDataAccessor();
 
-	  const dataAccessor = createDataAccessor();
+		expect(dataAccessor.getSize()).toBe(4);
 
-	  expect(dataAccessor.getSize()).toBe(4);
-
-	  const element1 = dataAccessor.getElement(0);
+		const element1 = dataAccessor.getElement(0);
 		const element1Id = dataAccessor.getElementId(element1);
-	  expect(element1Id).toBe(TestData.firstname.id);
-	  expect(dataAccessor.getElementIndex(element1)).toBe(0);
+		expect(element1Id).toBe(TestData.firstname.id);
+		expect(dataAccessor.getElementIndex(element1)).toBe(0);
 		expect(dataAccessor.getElementFromId(element1Id).id).toBe(element1Id);
 
-		expect(dataAccessor.getRowData(element1, TestData.Columns.NAME.key)).toBe(TestData.firstname.name);
-		expect(dataAccessor.getRowData(element1, TestData.Columns.TYPE.key)).toBe(TestData.firstname.type);
-		expect(dataAccessor.getRowData(element1, TestData.Columns.DESC.key)).toBe(TestData.firstname.desc);
+		expect(dataAccessor.getRowData(element1, TestData.Columns.NAME.key)).toBe(
+			TestData.firstname.name,
+		);
+		expect(dataAccessor.getRowData(element1, TestData.Columns.TYPE.key)).toBe(
+			TestData.firstname.type,
+		);
+		expect(dataAccessor.getRowData(element1, TestData.Columns.DESC.key)).toBe(
+			TestData.firstname.desc,
+		);
 		expect(dataAccessor.getRowData(element1, TestData.Columns.MANDATORY.key)).toBe('');
 
 		const elems = dataAccessor.getElements();
@@ -62,7 +62,6 @@ describe('Test basic methods of data accessor', () => {
 
 describe('Test data accessor with a regexp filter', () => {
 	it('data-accessor-name-filter', () => {
-
 		const dataAccessor = createDataAccessor();
 
 		expect(dataAccessor.hasFilters()).toBe(false);
@@ -132,10 +131,14 @@ describe('Test data accessor with a regexp filter', () => {
 
 describe('Test data accessor with a boolean filter', () => {
 	it('data-accessor-mandatory-field-filter', () => {
-
 		const dataAccessor = createDataAccessor();
 
-		const mandatoryFieldFilter = new BooleanFilter(mandatoryFieldFilterId, TestData.Columns.MANDATORY.key, false, false);
+		const mandatoryFieldFilter = new BooleanFilter(
+			mandatoryFieldFilterId,
+			TestData.Columns.MANDATORY.key,
+			false,
+			false,
+		);
 
 		dataAccessor.addFilter(mandatoryFieldFilter);
 
@@ -175,11 +178,15 @@ describe('Test data accessor with a boolean filter', () => {
 
 describe('Test data accessor with two filters', () => {
 	it('data-accessor-two-filters', () => {
-
 		const dataAccessor = createDataAccessor();
 
 		const nameFilter = new RegexpFilter(nameFilterId, TestData.Columns.NAME.key, false, false);
-		const mandatoryFieldFilter = new BooleanFilter(mandatoryFieldFilterId, TestData.Columns.MANDATORY.key, false, false);
+		const mandatoryFieldFilter = new BooleanFilter(
+			mandatoryFieldFilterId,
+			TestData.Columns.MANDATORY.key,
+			false,
+			false,
+		);
 
 		dataAccessor.addFilter(nameFilter);
 		dataAccessor.addFilter(mandatoryFieldFilter);
@@ -249,7 +256,6 @@ function checkOrder(dataAccessor, elements, indices, withFiltersAndSorter) {
 
 describe('Test data accessor with sorter on name data', () => {
 	it('data-accessor-name-sorter', () => {
-
 		const dataAccessor = createDataAccessor();
 
 		expect(dataAccessor.hasSorter()).toBe(false);
@@ -297,7 +303,6 @@ describe('Test data accessor with sorter on name data', () => {
 
 describe('Test data accessor with sorter and filter', () => {
 	it('data-accessor-name-sorter-and-filter', () => {
-
 		const dataAccessor = createDataAccessor();
 		expect(dataAccessor.hasSorter()).toBe(false);
 		expect(dataAccessor.hasFilters()).toBe(false);

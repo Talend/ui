@@ -23,13 +23,11 @@ function renderFilter(filterItem, onFilterChange) {
 export default function FiltersBar({ filters, onFilterChange, classnames }) {
 	return (
 		<div
-			className={
-				classNames(
-					'tc-table-filters-bar',
-					theme['tc-table-filters-bar'],
-					classnames && classnames.filtersBar
-				)
-			}
+			className={classNames(
+				'tc-table-filters-bar',
+				theme['tc-table-filters-bar'],
+				classnames && classnames.filtersBar,
+			)}
 		>
 			{filters.map(item => renderFilter(item, onFilterChange))}
 		</div>

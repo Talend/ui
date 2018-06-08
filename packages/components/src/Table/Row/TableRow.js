@@ -14,9 +14,10 @@ export function getRowId(rowDataGetter, element, index) {
 }
 
 function getRowClassName(classnames, element, rowDataGetter) {
-	return classNames(classnames && classnames.row,
-		classnames && classnames.rows &&
-		classnames.rows[rowDataGetter.getElementId(element)]);
+	return classNames(
+		classnames && classnames.row,
+		classnames && classnames.rows && classnames.rows[rowDataGetter.getElementId(element)],
+	);
 }
 
 function getRowData(rowDataGetter, element, columnKey) {

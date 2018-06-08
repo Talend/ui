@@ -21,9 +21,9 @@ export default function TableComp({
 }) {
 	return (
 		<table className={classNames('tc-table', theme['tc-table'], classnames && classnames.table)}>
-			{withHeader &&
-				<TableHeader columns={columns} classnames={classnames} onSortChange={onSortChange}/>
-			}
+			{withHeader && (
+				<TableHeader columns={columns} classnames={classnames} onSortChange={onSortChange} />
+			)}
 			<TableBody
 				elements={elements}
 				columns={columns}
