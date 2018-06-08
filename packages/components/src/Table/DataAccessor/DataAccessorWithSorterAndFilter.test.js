@@ -1,5 +1,4 @@
 import DataAccessorWithSorterAndFilter from './DataAccessorWithSorterAndFilter';
-import FilterFactory from '../Filters/FilterFactory';
 import RegexpFilter from '../Filters/RegexpFilter';
 import BooleanFilter from '../Filters/BooleanFilter';
 import Sorter, { Order } from '../Sorters/Sorter';
@@ -248,7 +247,7 @@ describe('Test data accessor with two filters', () => {
 	});
 });
 
-function checkOrder(dataAccessor, elements, indices, withFiltersAndSorter) {
+function checkOrder(dataAccessor, indices, withFiltersAndSorter) {
 	for (let i = 0; i < elements.length; i += 1) {
 		expect(dataAccessor.getElementIndex(elements[i], withFiltersAndSorter)).toBe(indices[i]);
 	}
@@ -259,8 +258,8 @@ describe('Test data accessor with sorter on name data', () => {
 		const dataAccessor = createDataAccessor();
 
 		expect(dataAccessor.hasSorter()).toBe(false);
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], false);
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+		checkOrder(dataAccessor, [0, 1, 2, 3], false);
+		checkOrder(dataAccessor, [0, 1, 2, 3], true);
 
 		const nameSorter = new Sorter(nameSorterId, '', TestData.Columns.NAME.key);
 
@@ -273,16 +272,16 @@ describe('Test data accessor with sorter on name data', () => {
 
 		expect(dataAccessor.getSize(true)).toBe(4);
 
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+		checkOrder(dataAccessor, [0, 1, 2, 3], true);
 
 		nameSorter.setOrder(Order.ASCENDING);
 		dataAccessor.sort();
-		checkOrder(dataAccessor, elements, [2, 3, 1, 0], true);
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], false);
+		checkOrder(dataAccessor, [2, 3, 1, 0], true);
+		checkOrder(dataAccessor, [0, 1, 2, 3], false);
 
 		nameSorter.setOrder(Order.DESCENDING);
 		dataAccessor.sort();
-		checkOrder(dataAccessor, elements, [1, 0, 2, 3], true);
+		checkOrder(dataAccessor, [1, 0, 2, 3], true);
 
 		expect(dataAccessor.getElement(1, true).id).toBe(TestData.firstname.id);
 		expect(dataAccessor.getElement(1, false).id).toBe(TestData.lastname.id);
@@ -296,8 +295,8 @@ describe('Test data accessor with sorter on name data', () => {
 		dataAccessor.clearSorter();
 		expect(dataAccessor.hasSorter()).toBe(false);
 		expect(dataAccessor.getSorter()).toBe(null);
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], false);
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+		checkOrder(dataAccessor, [0, 1, 2, 3], false);
+		checkOrder(dataAccessor, [0, 1, 2, 3], true);
 	});
 });
 
@@ -313,7 +312,7 @@ describe('Test data accessor with sorter and filter', () => {
 		nameSorter.setOrder(Order.ASCENDING);
 		dataAccessor.setSorter(nameSorter);
 		expect(dataAccessor.hasSorter()).toBe(true);
-		checkOrder(dataAccessor, elements, [2, 3, 1, 0], true);
+		checkOrder(dataAccessor, [2, 3, 1, 0], true);
 		expect(dataAccessor.getSize(true)).toBe(4);
 
 		nameFilter.setActive(true);
@@ -322,29 +321,29 @@ describe('Test data accessor with sorter and filter', () => {
 		expect(dataAccessor.getSize(true)).toBe(2);
 		expect(dataAccessor.isFiltered(TestData.firstname)).toBe(false);
 		expect(dataAccessor.isFiltered(TestData.birthday)).toBe(true);
-		checkOrder(dataAccessor, elements, [0, 1, -1, -1], true);
+		checkOrder(dataAccessor, [0, 1, -1, -1], true);
 
 		nameSorter.setOrder(Order.DESCENDING);
 		dataAccessor.sort();
-		checkOrder(dataAccessor, elements, [1, 0, -1, -1], true);
+		checkOrder(dataAccessor, [1, 0, -1, -1], true);
 
 		nameFilter.setValue('d');
 		dataAccessor.filter(nameFilterId);
 		expect(dataAccessor.getSize(true)).toBe(2);
 		expect(dataAccessor.isFiltered(TestData.firstname)).toBe(true);
 		expect(dataAccessor.isFiltered(TestData.birthday)).toBe(false);
-		checkOrder(dataAccessor, elements, [-1, -1, 0, 1], true);
+		checkOrder(dataAccessor, [-1, -1, 0, 1], true);
 
 		nameSorter.setOrder(Order.ASCENDING);
 		dataAccessor.sort();
-		checkOrder(dataAccessor, elements, [-1, -1, 1, 0], true);
+		checkOrder(dataAccessor, [-1, -1, 1, 0], true);
 
 		nameFilter.setActive(false);
 		dataAccessor.filter(nameFilterId);
 		expect(dataAccessor.getSize(true)).toBe(4);
-		checkOrder(dataAccessor, elements, [2, 3, 1, 0], true);
+		checkOrder(dataAccessor, [2, 3, 1, 0], true);
 
 		dataAccessor.clearSorter();
-		checkOrder(dataAccessor, elements, [0, 1, 2, 3], true);
+		checkOrder(dataAccessor, [0, 1, 2, 3], true);
 	});
 });

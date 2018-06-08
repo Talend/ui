@@ -52,7 +52,10 @@ export default class Filter {
 		return true;
 	}
 
+	// This method is intended to be subclassed.
+	/* eslint-disable class-methods-use-this */
 	selectValue(value) {
 		return Boolean(value);
 	}
+	/* eslint-enable class-methods-use-this */
 }

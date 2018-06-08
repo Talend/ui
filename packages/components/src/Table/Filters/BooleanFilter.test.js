@@ -7,7 +7,7 @@ const dataAccessor = TestData.rowDataGetter;
 
 const filterId = 'bool-filter';
 
-function checkFilter(dataAccessor, filter, elements, selected) {
+function checkFilter(filter, selected) {
 	for (let i = 0; i < elements.length; i += 1) {
 		expect(filter.select(dataAccessor, elements[i])).toBe(selected[i]);
 	}
@@ -16,16 +16,16 @@ function checkFilter(dataAccessor, filter, elements, selected) {
 it('boolean-filter', () => {
 	const filter = new BooleanFilter(filterId, TestData.Columns.MANDATORY.key, false, false);
 
-	checkFilter(dataAccessor, filter, elements, [true, true, true, true]);
+	checkFilter(filter, [true, true, true, true]);
 
 	filter.setActive(true);
 	expect(filter.isActive()).toBe(true);
-	checkFilter(dataAccessor, filter, elements, [false, true, false, true]);
+	checkFilter(filter, [false, true, false, true]);
 
 	filter.setReverse(true);
-	checkFilter(dataAccessor, filter, elements, [true, false, true, false]);
+	checkFilter(filter, [true, false, true, false]);
 
 	filter.setActive(false);
 	expect(filter.isActive()).toBe(false);
-	checkFilter(dataAccessor, filter, elements, [true, true, true, true]);
+	checkFilter(filter, [true, true, true, true]);
 });

@@ -22,6 +22,7 @@ export default class BooleanFilter extends Filter {
 	}
 
 	selectValue(value) {
-		return (!this.reverse && Boolean(value)) || (this.reverse && !Boolean(value));
+		const boolVal = Boolean(value);
+		return (!this.reverse && boolVal) || (this.reverse && !boolVal);
 	}
 }

@@ -19,7 +19,7 @@ export default class TableSortHeader extends React.Component {
 
 	render() {
 		const { className, column } = this.props;
-		const { icon, label, onClick, ...rest } = column.headExtraProps;
+		const { icon, label, ...rest } = column.headExtraProps;
 		const sorter = column.sorter;
 		return (
 			<ActionButton

@@ -30,7 +30,7 @@ export default class Sorter {
 		this.label = label;
 		this.order = Order.NONE;
 		this.key = key;
-		this.icons = icons ? icons : {};
+		this.icons = icons;
 	}
 
 	getId() {
@@ -50,7 +50,7 @@ export default class Sorter {
 	}
 
 	getIcon() {
-		return this.icons[this.order];
+		return this.icons && this.icons[this.order];
 	}
 
 	setOrder(order) {
@@ -59,7 +59,12 @@ export default class Sorter {
 
 	compareStrings(val1, val2) {
 		const coef = coefs[this.order];
-		return val1 < val2 ? -1 * coef : val1 > val2 ? coef : 0;
+		if (val1 < val2) {
+			return -1;
+		} else if (val1 > val2) {
+			return 1;
+		}
+		return 0;
 	}
 
 	getValueToCompare(dataAccessor, element) {

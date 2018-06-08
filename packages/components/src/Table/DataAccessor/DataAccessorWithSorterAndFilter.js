@@ -1,5 +1,3 @@
-import Filter from '../Filters/Filter';
-import Sorter from '../Sorters/Sorter';
 
 function mergeFilterResults(result1, result2) {
 	let mergedResult = [];
@@ -32,7 +30,8 @@ class Comparator {
 
 /**
  * This class is responsible for storing and applying filters and sorter on an array of elements.
- * It makes no assumptions about the structure of the elements: it uses a dataAccessor in order to access element content.
+ * It makes no assumptions about the structure of the elements:
+ *  it uses a dataAccessor in order to access element content.
  * You can add multiple filters, but only one sorter.
  */
 export default class DataAccessorWithSorterAndFilter {
@@ -317,7 +316,7 @@ export default class DataAccessorWithSorterAndFilter {
 	 * @private
 	 */
 	internalSortElements(elements) {
-		let result = elements.slice();
+		const result = elements.slice();
 		this.comparator.sort(result, this.sorterInfo.sorter);
 		this.sorterInfo.result = result;
 	}
@@ -403,7 +402,8 @@ export default class DataAccessorWithSorterAndFilter {
 	/**
 	 * Returns the nth element.
 	 * @param {integer} index - The index of the wanted element.
-	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters and sorter.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account
+	 *  the filters and sorter.
 	 */
 	getElement(index, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
@@ -424,7 +424,8 @@ export default class DataAccessorWithSorterAndFilter {
 	 * Returns the index of the given element,
 	 * returns -1 if it is unknown.
 	 * @param {object} element - the element1
-	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters and sorter.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account
+	 *  the filters and sorter.
 	 */
 	getElementIndex(element, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
