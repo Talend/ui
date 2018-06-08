@@ -5,7 +5,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx -v \"./src/**/*.scss\" lib",
-    "postinstall": "node download-locales.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

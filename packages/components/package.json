@@ -13,7 +13,6 @@
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" lib",
-    "postinstall": "node download-locales.js",
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
