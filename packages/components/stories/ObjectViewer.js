@@ -378,7 +378,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('tree with tags', () => {
+	.addWithInfo('tree with injected elements', () => {
 		return (
 			<div>
 				<IconsProvider defaultIcons={icons} />

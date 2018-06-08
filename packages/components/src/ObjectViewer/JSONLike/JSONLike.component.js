@@ -139,6 +139,7 @@ export function LineItem({
 
 LineItem.propTypes = {
 	name: PropTypes.string,
+	tag: PropTypes.node,
 	onMouseOver: PropTypes.func,
 	children: PropTypes.node,
 	mouseOverData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -234,7 +235,18 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
-export function ComplexItem({ data, name, tag, opened, edited, tagged, jsonpath, info, onSelect, ...props }) {
+export function ComplexItem({
+	data,
+	name,
+	tag,
+	opened,
+	edited,
+	tagged,
+	jsonpath,
+	info,
+	onSelect,
+	...props
+}) {
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 
@@ -313,6 +325,8 @@ ComplexItem.propTypes = {
 		PropTypes.array,
 	]),
 	name: PropTypes.string,
+	tag: PropTypes.node,
+	tagged: PropTypes.objectOf(PropTypes.node),
 	opened: PropTypes.arrayOf(PropTypes.string).isRequired,
 	edited: PropTypes.arrayOf(PropTypes.string).isRequired,
 	jsonpath: PropTypes.string,
@@ -414,6 +428,7 @@ Item.propTypes = {
 	name: PropTypes.string,
 	opened: PropTypes.arrayOf(PropTypes.string),
 	edited: PropTypes.arrayOf(PropTypes.string),
+	tagged: PropTypes.objectOf(PropTypes.node),
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
