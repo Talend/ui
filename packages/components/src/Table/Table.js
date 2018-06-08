@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TitleBar, { displayFilters } from './TitleBar/TitleBar';
 import TableComp from './TableComp/TableComp';
 import theme from './Table.scss';
@@ -18,7 +18,7 @@ export default function Table({
 	title,
 	elements,
 	columns,
-	classnames,
+	classNames,
 	rowDataGetter,
 	withHeader,
 	filters,
@@ -27,13 +27,14 @@ export default function Table({
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
+	renderingListener,
 }) {
 	return (
-		<div className={classNames('tc-table-root', theme['tc-table-root'], classnames && classnames.root)}>
+		<div className={classnames('tc-table-root', theme['tc-table-root'], classNames && classNames.root)}>
 			{(title || displayFilters(filters)) && (
 				<TitleBar
 					title={title}
-					classnames={classnames}
+					classNames={classNames}
 					filters={filters}
 					onFilterChange={onFilterChange}
 				/>
@@ -41,13 +42,14 @@ export default function Table({
 			<TableComp
 				elements={elements}
 				columns={columns}
-				classnames={classnames}
+				classNames={classNames}
 				rowDataGetter={rowDataGetter}
 				withHeader={withHeader}
 				onSortChange={onSortChange}
 				onScroll={onScroll}
 				onEnterRow={onEnterRow}
 				onLeaveRow={onLeaveRow}
+				renderingListener={renderingListener}
 			/>
 		</div>
 	);
@@ -84,7 +86,7 @@ Table.propTypes = {
 			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	classnames: PropTypes.shape({
+	classNames: PropTypes.shape({
 		root: PropTypes.string,
 		titleBar: PropTypes.string,
 		title: PropTypes.string,
@@ -92,6 +94,7 @@ Table.propTypes = {
 		table: PropTypes.string,
 		header: PropTypes.string,
 		body: PropTypes.string,
+		row: PropTypes.string,
 		rows: PropTypes.arrayOf(PropTypes.string),
 	}),
 	rowDataGetter: PropTypes.object,
@@ -109,4 +112,8 @@ Table.propTypes = {
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
+	renderingListener: PropTypes.shape({
+		onMounted: PropTypes.func,
+		onUpdated: PropTypes.func,
+	}),
 };

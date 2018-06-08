@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import FilterBar from '../../FilterBar';
 
 /**
@@ -35,7 +35,7 @@ export default class StringFilterComponent extends Component {
 		const { className, placeHolder, dockable, navbar } = this.props;
 		return (
 			<FilterBar
-				className={classNames('tc-string-filter', className)}
+				className={classnames('tc-string-filter', className)}
 				placeholder={placeHolder}
 				dockable={dockable}
 				docked={this.state.docked}

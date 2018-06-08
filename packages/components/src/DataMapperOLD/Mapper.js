@@ -116,8 +116,8 @@ export default class Mapper extends Component {
 		super(props);
 		this.visibleInputElements = null;
 		this.visibleOutputElements = null;
-		this.inputFilterVersion = props.dataAccessor.getFiltersVersion(props.input.schema);
-		this.outputFilterVersion = props.dataAccessor.getFiltersVersion(props.output.schema);
+		this.inputFilterVersion = props.dataAccessor.getFiltersVersion(props.inputSchema);
+		this.outputFilterVersion = props.dataAccessor.getFiltersVersion(props.outputSchema);
 		this.visibleMapping = null;
 		this.mappingVersion = props.dataAccessor.getMappingVersion();
 		this.anchors = initAnchors();
@@ -160,19 +160,19 @@ export default class Mapper extends Component {
 			this.anchors = resetAnchors(this.anchors);
 		}
 		if (
-			filtersHaveChanged(nextProps.dataAccessor, this.props.input.schema, this.inputFilterVersion)
+			filtersHaveChanged(nextProps.dataAccessor, this.props.inputSchema, this.inputFilterVersion)
 		) {
 			this.visibleMapping = null;
 			this.visibleInputElements = null;
-			this.inputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.input.schema);
+			this.inputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.inputSchema);
 			this.anchors = resetAnchors(this.anchors);
 		}
 		if (
-			filtersHaveChanged(nextProps.dataAccessor, this.props.output.schema, this.outputFilterVersion)
+			filtersHaveChanged(nextProps.dataAccessor, this.props.outputSchema, this.outputFilterVersion)
 		) {
 			this.visibleMapping = null;
 			this.visibleOutputElements = null;
-			this.outputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.output.schema);
+			this.outputFilterVersion = nextProps.dataAccessor.getFiltersVersion(this.props.outputSchema);
 			this.anchors = resetAnchors(this.anchors);
 		}
 	}
@@ -328,7 +328,7 @@ export default class Mapper extends Component {
 			this.visibleInputElements = this.inputSchemaRef.getVisibleElements();
 			return this.visibleInputElements;
 		}
-		return this.props.dataAccessor.getSchemaElements(this.props.input.schema, true);
+		return this.props.dataAccessor.getSchemaElements(this.props.inputSchema, true);
 	}
 
 	getOutputVisibleElements() {
@@ -339,7 +339,7 @@ export default class Mapper extends Component {
 			this.visibleOutputElements = this.outputSchemaRef.getVisibleElements();
 			return this.visibleOutputElements;
 		}
-		return this.props.dataAccessor.getSchemaElements(this.props.output.schema, true);
+		return this.props.dataAccessor.getSchemaElements(this.props.outputSchema, true);
 	}
 
 	getVisibleMapping() {
@@ -752,8 +752,10 @@ export default class Mapper extends Component {
 			mapperId,
 			mappingActions,
 			mapping,
-			input,
-			output,
+			inputSchema,
+			outputSchema,
+			schemaConfiguration,
+			filters,
 			...commonSchemaProps
 		} = this.props;
 		const {
@@ -773,33 +775,27 @@ export default class Mapper extends Component {
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}
-					schema={input.schema}
-					columns={input.columns}
-					classNames={input.classNames}
-					withTitle={input.withTitle}
-					withHeader={input.withHeader}
-					filters={input.filters}
+					schema={inputSchema}
+					schemaConfiguration={schemaConfiguration}
 					side={inputSide}
 					onScroll={this.onScroll}
 					revealConnectedElement={this.revealConnectedElement}
 					mappedElements={getMappedElements(dataAccessor, mapping, inputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
+					filters={filters.input}
 					isElementVisible={this.isElementVisible}
 				/>
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateOutputSchemaRef}
-					schema={output.schema}
-					columns={output.columns}
-					classNames={output.classNames}
-					withTitle={output.withTitle}
-					withHeader={output.withHeader}
-					filters={output.filters}
+					schema={outputSchema}
+					schemaConfiguration={schemaConfiguration}
 					side={outputSide}
 					onScroll={this.onScroll}
 					revealConnectedElement={this.revealConnectedElement}
 					mappedElements={getMappedElements(dataAccessor, mapping, outputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
+					filters={filters.output}
 					isElementVisible={this.isElementVisible}
 				/>
 				<Mapping
@@ -824,35 +820,23 @@ export default class Mapper extends Component {
 Mapper.propTypes = {
 	dataAccessor: PropTypes.object,
 	mapperId: PropTypes.string,
-	mapping: PropTypes.array,
 	mappingActions: PropTypes.object,
-	input: PropTypes.shape({
-		schema: PropTypes.object,
-		columns: PropTypes.array,
-		classNames: PropTypes.object,
-		withTitle: PropTypes.bool,
-		withHeader: PropTypes.bool,
-		filters: PropTypes.array,
-	}),
-	output: PropTypes.shape({
-		schema: PropTypes.object,
-		columns: PropTypes.array,
-		classNames: PropTypes.object,
-		withTitle: PropTypes.bool,
-		withHeader: PropTypes.bool,
-		filters: PropTypes.array,
-	}),
-	onFilterChange: PropTypes.func,
-	onSortChange: PropTypes.func,
+	mapping: PropTypes.array,
 	selection: PropTypes.object,
+	inputSchema: PropTypes.object,
+	outputSchema: PropTypes.object,
+	schemaConfiguration: PropTypes.object,
 	onSelect: PropTypes.func,
-	focused: PropTypes.object,
-	dnd: PropTypes.object,
-	dndListener: PropTypes.object,
 	pendingItem: PropTypes.object,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
+	focused: PropTypes.object,
 	preferences: PropTypes.object,
+	dnd: PropTypes.object,
+	dndListener: PropTypes.object,
+	filters: PropTypes.object,
+	filterComponents: PropTypes.object,
+	onFilterChange: PropTypes.func,
 	trigger: PropTypes.object,
 	status: PropTypes.number,
 };

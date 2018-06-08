@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Toggle from '../../Toggle';
 
 /**
@@ -23,7 +23,7 @@ export default class ToggleFilterComponent extends Component {
 		const { filter, label, className } = this.props;
 		return (
 			<Toggle
-				className={classNames('tc-boolean-filter', className)}
+				className={classnames('tc-boolean-filter', className)}
 				onChange={this.onChange}
 				label={label}
 				checked={filter.isActive()}

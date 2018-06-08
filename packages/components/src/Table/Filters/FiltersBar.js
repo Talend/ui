@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import theme from './FiltersBar.scss';
 
 function renderFilter(filterItem, onFilterChange) {
@@ -8,7 +8,7 @@ function renderFilter(filterItem, onFilterChange) {
 	const FilterComponent = filterItem.renderer;
 	return (
 		<FilterComponent
-			className={classNames('tc-filter', theme['tc-filter'], filterItem.className)}
+			className={classnames('tc-filter', theme['tc-filter'], filterItem.className)}
 			key={filter.getId()}
 			filter={filter}
 			onFilterChange={onFilterChange}
@@ -20,14 +20,14 @@ function renderFilter(filterItem, onFilterChange) {
 /**
  * This component is responsible for rendering a set of filters.
  */
-export default function FiltersBar({ filters, onFilterChange, classnames }) {
+export default function FiltersBar({ filters, onFilterChange, classNames }) {
 	return (
 		<div
 			className={
-				classNames(
+				classnames(
 					'tc-table-filters-bar',
 					theme['tc-table-filters-bar'],
-					classnames && classnames.filtersBar
+					classNames && classNames.filtersBar
 				)
 			}
 		>
@@ -37,7 +37,7 @@ export default function FiltersBar({ filters, onFilterChange, classnames }) {
 }
 
 FiltersBar.propTypes = {
-	classnames: PropTypes.shape({
+	classNames: PropTypes.shape({
 		filtersBar: PropTypes.string,
 	}),
 	filters: PropTypes.arrayOf(

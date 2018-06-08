@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 function isClickable(props) {
 	return props.onClick || props.onDoubleClick || props.onKeyPress;
 }
 
 function renderCell(data, className) {
-	return <div className={classNames('tc-table-cell', className)}>{data}</div>;
+	return <div className={classnames('tc-table-cell', className)}>{data}</div>;
 }
 
 function renderClickableCell(data, className, onClick, onDoubleClick, onKeyPress) {
 	return (
 		/* eslint-disable jsx-a11y/no-static-element-interactions */
 		<div
-			className={classNames('tc-table-clickable-cell', className)}
+			className={classnames('tc-table-clickable-cell', className)}
 			onClick={onClick}
 			onDoubleClick={onDoubleClick}
 			onKeyPress={onKeyPress}

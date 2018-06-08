@@ -78,7 +78,7 @@ function getColumn(col) {
 
 export const columns2 = [getColumn(Columns.NAME), getColumn(Columns.TYPE), getColumn(Columns.DESC)];
 
-export const classnames = {
+export const classNames = {
 	table: 'classname-of-table',
 	header: 'classname-of-table-header',
 	body: 'classname-of-table-body',

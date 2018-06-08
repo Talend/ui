@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import FiltersBar from '../Filters/FiltersBar';
 import theme from './TitleBar.scss';
 
@@ -16,18 +16,18 @@ export default function TitleBar({
 	title,
 	filters,
   onFilterChange,
-	classnames,
+	classNames,
 }) {
 	return (
-		<div className={classNames('tc-table-title-bar', theme['tc-table-title-bar'], classnames && classnames.titleBar)}>
+		<div className={classnames('tc-table-title-bar', theme['tc-table-title-bar'], classNames && classNames.titleBar)}>
 			{title && (
-				<span className={classNames('tc-table-title', theme['tc-table-title'], classnames && classnames.title)}>
+				<span className={classnames('tc-table-title', theme['tc-table-title'], classNames && classNames.title)}>
 					{title}
 				</span>
 			)}
 			{displayFilters(filters) && (
 				<FiltersBar
-					classnames={classnames}
+					classNames={classNames}
 					filters={filters}
 					onFilterChange={onFilterChange}
 				/>
@@ -38,7 +38,7 @@ export default function TitleBar({
 
 TitleBar.propTypes = {
 	title: PropTypes.string,
-	classnames: PropTypes.shape({
+	classNames: PropTypes.shape({
 		titleBar: PropTypes.string,
 		title: PropTypes.string,
 	}),

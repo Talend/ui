@@ -30,7 +30,7 @@ describe('Render a table width custom configuration', () => {
 				<Table
 					elements={elements}
 					columns={TestData.columns2}
-					classnames={TestData.classnames}
+					classNames={TestData.classNames}
 					rowDataGetter={TestData.rowDataGetter}
 				/>,
 			)
@@ -63,7 +63,7 @@ describe('Render a table width custom header', () => {
 			.create(
 				<Table
 					elements={elements}
-					classnames={TestData.classnames}
+					classNames={TestData.classNames}
 					columns={TestData.columns2}
 					rowDataGetter={TestData.rowDataGetter}
 					withHeader

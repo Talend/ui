@@ -13,7 +13,7 @@ it('single-row', () => {
 			<TableRow
 				element={TestData.element1}
 				index={0}
-				classnames={TestData.classnames}
+				classNames={TestData.classNames}
 				columns={TestData.columns1}
 				rowDataGetter={TestData.rowDataGetter}
 			/>,

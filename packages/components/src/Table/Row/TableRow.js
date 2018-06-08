@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import get from 'lodash/get';
+import classnames from 'classnames';
 import TableCell from '../Cell/TableCell';
 import theme from './TableRow.scss';
 
@@ -14,8 +13,9 @@ export function getRowId(rowDataGetter, element, index) {
 	return index;
 }
 
-function getRowClassName(classnames, index) {
-	return get(classnames, `rows[${index}]`);
+function getRowClassName(classNames, element, rowDataGetter) {
+	return classnames(classNames.row, classNames.rows &&
+		classNames.rows[rowDataGetter.getElementId(element)]);
 }
 
 function getRowData(rowDataGetter, element, columnKey) {
@@ -32,19 +32,19 @@ function renderRowData(element, index, column, rowDataGetter) {
 	const key = column.key;
 	const CellComponent = column.cellRenderer || TableCell;
 	const compKey = `${getRowId(rowDataGetter, element, index)}-${key}`;
-	const classnames = classNames(`td-${key}`, theme['tc-table-row-cell']);
-	const dataClassnames = classNames(
+	const tdClassName = classnames(`td-${key}`, theme['tc-table-row-cell']);
+	const dataClassNames = classnames(
 		'tc-table-row-data',
 		theme['tc-table-row-data'],
 		column.cellClassName || `tc-table-row-data-${column.key}`,
 	);
 	return (
-		<td key={`td-${compKey}`} className={classnames}>
+		<td key={`td-${compKey}`} className={tdClassName}>
 			<CellComponent
 				key={compKey}
 				element={element}
 				data={getRowData(rowDataGetter, element, key)}
-				className={dataClassnames}
+				className={dataClassNames}
 				{...column.cellExtraProps}
 			/>
 		</td>
@@ -75,17 +75,17 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const { element, index, classnames, columns, rowDataGetter } = this.props;
+		const { element, index, classNames, columns, rowDataGetter } = this.props;
 		const rowKey = getRowId(rowDataGetter, element, index);
-		const rowClassnames = classNames(
+		const rowClassNames = classnames(
 			'tc-table-row',
 			theme['tc-table-row'],
-			getRowClassName(classnames, index),
+			getRowClassName(classNames, element, rowDataGetter),
 		);
 		return (
 			<tr
 				key={rowKey}
-				className={rowClassnames}
+				className={rowClassNames}
 				data-id={rowKey}
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
@@ -99,7 +99,8 @@ export default class TableRow extends Component {
 TableRow.propTypes = {
 	element: PropTypes.object.isRequired,
 	index: PropTypes.number.isRequired,
-	classnames: PropTypes.shape({
+	classNames: PropTypes.shape({
+		row: PropTypes.string,
 		rows: PropTypes.arrayOf(PropTypes.string),
 	}),
 	columns: PropTypes.arrayOf(

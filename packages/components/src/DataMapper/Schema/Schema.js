@@ -35,49 +35,6 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 	return connected || pending || focused || isTarget;
 }
 
-function getColumns(schemaConfiguration, side) {
-	if (schemaConfiguration && schemaConfiguration.getColumns) {
-		return schemaConfiguration.getColumns(side);
-	}
-	return [];
-}
-
-function getClassNameProvider(schemaConfiguration, side) {
-	if (schemaConfiguration && schemaConfiguration.getClassNameProvider) {
-		return schemaConfiguration.getClassNameProvider(side);
-	}
-	return null;
-}
-
-function getRowRenderer(schemaConfiguration, side) {
-	if (schemaConfiguration && schemaConfiguration.getRowRenderer) {
-		return schemaConfiguration.getRowRenderer(side);
-	}
-	return null;
-}
-
-function withHeader(schemaConfiguration, side) {
-	if (schemaConfiguration && schemaConfiguration.withHeader(side)) {
-		return schemaConfiguration.withHeader(side);
-	}
-	return false;
-}
-
-function getHeaderRenderer(schemaConfiguration, side) {
-	const renderHeader = withHeader(schemaConfiguration, side);
-	if (renderHeader && schemaConfiguration && schemaConfiguration.getHeaderRenderer) {
-		return schemaConfiguration.getHeaderRenderer(side);
-	}
-	return null;
-}
-
-function withTitle(schemaConfiguration, side) {
-	if (schemaConfiguration && schemaConfiguration.withTitle(side)) {
-		return schemaConfiguration.withTitle(side);
-	}
-	return false;
-}
-
 export default class Schema extends Component {
 	constructor(props) {
 		super(props);
@@ -255,7 +212,7 @@ export default class Schema extends Component {
 	}
 
 	render() {
-		const { schemaConfiguration, ...tempProps } = this.props;
+		const { withTitle, ...tempProps } = this.props;
 		const { dataAccessor, schema, side } = this.props;
 		const contentProps = {
 			...tempProps,
@@ -264,19 +221,12 @@ export default class Schema extends Component {
 			isHighlighted,
 			onScroll: this.onContentScroll,
 		};
-		const title = dataAccessor.getSchemaName(schema);
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<TableRenderer
-					{...contentProps}
 					ref={this.updateRendererNodeRef}
-					withTitle={withTitle(schemaConfiguration, side)}
-					title={title}
-					columnKeys={getColumns(schemaConfiguration, side)}
-					classNameProvider={getClassNameProvider(schemaConfiguration, side)}
-					rowRenderer={getRowRenderer(schemaConfiguration, side)}
-					withHeader={withHeader(schemaConfiguration, side)}
-					headerRenderer={getHeaderRenderer(schemaConfiguration, side)}
+					title={withTitle && dataAccessor.getSchemaName(schema)}
+					{...contentProps}
 				/>
 			</div>
 		);
@@ -286,10 +236,13 @@ export default class Schema extends Component {
 Schema.propTypes = {
 	dataAccessor: PropTypes.object,
 	schema: PropTypes.object,
-	schemaConfiguration: PropTypes.object,
+	columns: PropTypes.array,
+	classNames: PropTypes.object,
+	withTitle: PropTypes.bool,
+	withHeader: PropTypes.bool,
 	filters: PropTypes.array,
-	filtersRenderer: PropTypes.object,
 	onFilterChange: PropTypes.func,
+	onSortChange: PropTypes.func,
 	focusedElements: PropTypes.array,
 	onScroll: PropTypes.func,
 	side: PropTypes.string,

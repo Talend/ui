@@ -13,7 +13,6 @@ import {
 	Sorter,
 	SortOrder,
 	Table,
-	TableActionHeader,
 	TableCell,
 } from '../src/index';
 
@@ -343,11 +342,11 @@ const rowDataGetter = {
 	},
 };
 
-const storyClassnames = {
+const storyClassNames = {
 	root: 'story-table',
 };
 
-const defaultClassnames = {
+const defaultClassNames = {
 	root: 'default-table',
 };
 
@@ -381,20 +380,12 @@ class ConnectedTable extends React.Component {
 		});
 	}
 
-	getRowClassName(element) {
-		const classNames = {
-			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
-			'draggable-row': this.state.draggable,
-		};
-		return classnames(classNames);
-	}
-
-	getRowClassNames(elements) {
-		let rowClassNames = [];
-		for (let i = 0; i < elements.length; i += 1) {
-			rowClassNames = rowClassNames.concat(this.getRowClassName(elements[i]));
+	getRowsClassNames() {
+		const rowsClassNames = {};
+		if (this.state.highlighted) {
+			rowsClassNames[this.state.highlighted.id] = 'highlighted';
 		}
-		return rowClassNames;
+		return rowsClassNames;
 	}
 
 	render() {
@@ -404,15 +395,16 @@ class ConnectedTable extends React.Component {
 			withHeader,
 			onScroll,
 		} = this.props;
-		const allClassnames = {
+		const allClassNames = {
 			root: this.getRootClassName(),
-			rows: this.getRowClassNames(elements),
+			row: classnames({'draggable-row': this.state.draggable}),
+			rows: this.getRowsClassNames(),
 		};
 		return (
 			<Table
 				elements={elements}
 				columns={columns}
-				classnames={allClassnames}
+				classNames={allClassNames}
 				rowDataGetter={rowDataGetter}
 				withHeader={withHeader}
 				onScroll={onScroll}
@@ -528,14 +520,6 @@ class SortedFilteredTable extends React.Component {
 		return columns.find(col => col.sorter);
 	}
 
-	getRowClassNames() {
-		let rowClassNames = [];
-		for (let i = 0; i < this.state.elements.length; i += 1) {
-			rowClassNames = rowClassNames.concat(classnames({'draggable-row': this.state.draggable}));
-		}
-		return rowClassNames;
-	}
-
 	getRootClassName() {
 		return classnames({
 			'table-with-dnd': this.state.draggable,
@@ -550,16 +534,16 @@ class SortedFilteredTable extends React.Component {
 			filters,
 			title,
 		} = this.props;
-		const allClassnames = {
+		const allClassNames = {
 			root: this.getRootClassName(),
-			rows: this.getRowClassNames(),
+			row: classnames({'draggable-row': this.state.draggable}),
 		};
 		return (
 			<Table
 				title={title}
 				elements={this.state.elements}
 				columns={columns}
-				classnames={allClassnames}
+				classNames={allClassNames}
 				rowDataGetter={this.dataAccessor}
 				withHeader={true}
 				filters={filters}
@@ -598,7 +582,7 @@ stories
 			<Table
 			  elements={schema1.elements}
 	      columns={columns1}
-				classnames={storyClassnames}
+				classNames={storyClassNames}
 				withHeader={true}
 			/>
 		);
@@ -608,7 +592,7 @@ stories
 			<Table
 			  elements={schema2.elements}
 	      columns={columns2}
-				classnames={defaultClassnames}
+				classNames={defaultClassNames}
 	      onEnterRow={action('onEnterRow called!')}
 				onLeaveRow={action('onLeaveRow called!')}
 			/>
