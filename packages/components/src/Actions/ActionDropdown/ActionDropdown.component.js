@@ -186,7 +186,7 @@ class ActionDropdown extends React.Component {
 		const title = [
 			icon ? <Icon name={icon} key={'icon'} /> : null,
 			hideLabel ? null : (
-				<span className="tc-dropdown-button-title-label"key={'label'}>
+				<span className="tc-dropdown-button-title-label" key={'label'}>
 					{label}
 				</span>
 			),
