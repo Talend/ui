@@ -43,6 +43,3 @@ build/
 lib/
 
 storybook-static
-
-# Will be downloaded on postinstall when adding package
-locales

@@ -148,7 +148,6 @@
   },
   "version": "0.191.0",
   "dependencies": {
-    "download": "^7.0.0",
     "react-immutable-proptypes": "2.1.0"
   }
 }

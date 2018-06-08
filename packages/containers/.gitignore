@@ -41,6 +41,3 @@ jspm_packages
 *.map
 /docs/jsdoc
 /docs/storybook
-
-# Will be downloaded on postinstall when adding package
-locales
