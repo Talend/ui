@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthPicker should render a MonthPicker 1`] = `
+<div
+  className="theme-container"
+>
+  <div
+    className="theme-row"
+  >
+    <div
+      className="theme-month"
+    >
+      Jan
+    </div>
+    <div
+      className="theme-month"
+    >
+      Fev
+    </div>
+    <div
+      className="theme-month"
+    >
+      Mars
+    </div>
+  </div>
+  <div
+    className="theme-row"
+  >
+    <div
+      className="theme-month"
+    >
+      Avr
+    </div>
+    <div
+      className="theme-month"
+    >
+      Mai
+    </div>
+    <div
+      className="theme-month"
+    >
+      Juin
+    </div>
+  </div>
+  <div
+    className="theme-row"
+  >
+    <div
+      className="theme-month"
+    >
+      Juil
+    </div>
+    <div
+      className="theme-month"
+    >
+      Aout
+    </div>
+    <div
+      className="theme-month"
+    >
+      Sept
+    </div>
+  </div>
+  <div
+    className="theme-row"
+  >
+    <div
+      className="theme-month"
+    >
+      Oct
+    </div>
+    <div
+      className="theme-month"
+    >
+      Nov
+    </div>
+    <div
+      className="theme-month"
+    >
+      Dec
+    </div>
+  </div>
+</div>
+`;

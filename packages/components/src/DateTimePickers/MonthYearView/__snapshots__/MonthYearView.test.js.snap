@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthYearView should render a MonthYearView 1`] = `
+<ViewLayout
+  bodyNode={
+    <div
+      className="theme-body"
+    >
+      <div
+        className="theme-month"
+      >
+        <MonthPicker />
+      </div>
+      <div
+        className="theme-year"
+      >
+        <YearPicker />
+      </div>
+    </div>
+  }
+  header={
+    Object {
+      "leftItem": <Action
+        hideLabel={true}
+        icon="talend-arrow-left"
+        link={true}
+    />,
+      "middleItem": <span
+        className="theme-title"
+    >
+        Septembre 2017
+    </span>,
+      "rightItem": null,
+    }
+  }
+/>
+`;

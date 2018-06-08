@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker should render a DatePicker 1`] = `
+<div
+  className="theme-container"
+>
+  <CalendarHeader />
+  <hr
+    className="theme-separator"
+  />
+  <CalendarBody />
+</div>
+`;

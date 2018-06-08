@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YearPicker should render a YearPicker 1`] = `
+<div
+  className="theme-container"
+>
+  <Translate(ActionButton)
+    className="theme-previous"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-90"
+    link={true}
+  />
+  <div
+    className="theme-years"
+  >
+    <div
+      className="theme-year"
+    >
+      2010
+    </div>
+    <div
+      className="theme-year"
+    >
+      2011
+    </div>
+    <div
+      className="theme-year"
+    >
+      2012
+    </div>
+    <div
+      className="theme-year"
+    >
+      2013
+    </div>
+    <div
+      className="theme-year"
+    >
+      2014
+    </div>
+  </div>
+  <Translate(ActionButton)
+    className="theme-next"
+    hideLabel={true}
+    icon="talend-chevron-left"
+    iconTransform="rotate-270"
+    link={true}
+  />
+</div>
+`;

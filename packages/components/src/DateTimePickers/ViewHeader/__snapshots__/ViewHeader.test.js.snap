@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewHeader should render a ViewHeader 1`] = `
+<div
+  className="theme-container"
+>
+  <div
+    className="theme-left"
+  >
+    <span>
+      left item
+    </span>
+  </div>
+  <div
+    className="theme-middle"
+  >
+    <span>
+      middle item
+    </span>
+  </div>
+  <div
+    className="theme-right"
+  >
+    <span>
+      right item
+    </span>
+  </div>
+</div>
+`;

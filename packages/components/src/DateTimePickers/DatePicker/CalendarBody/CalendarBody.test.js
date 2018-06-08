@@ -1,7 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import MonthCalendarDays from './MonthCalendarDays.component';
+import CalendarBody from './CalendarBody.component';
 
-describe('MonthCalendarDays', () => {
+describe('CalendarBody', () => {
+	it('should render a CalendarBody', () => {
+		// when
+		const wrapper = shallow(<CalendarBody />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });

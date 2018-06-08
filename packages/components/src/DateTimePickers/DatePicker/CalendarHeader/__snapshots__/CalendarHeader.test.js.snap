@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarHeader should render a CalendarHeader 1`] = `
+<div
+  className="theme-container"
+>
+  <abbr
+    className="theme-day-of-week"
+  >
+    L
+  </abbr>
+  <abbr
+    className="theme-day-of-week"
+  >
+    M
+  </abbr>
+  <abbr
+    className="theme-day-of-week"
+  >
+    M
+  </abbr>
+  <abbr
+    className="theme-day-of-week"
+  >
+    J
+  </abbr>
+  <abbr
+    className="theme-day-of-week"
+  >
+    V
+  </abbr>
+  <abbr
+    className="theme-day-of-week"
+  >
+    S
+  </abbr>
+  <abbr
+    className="theme-day-of-week"
+  >
+    D
+  </abbr>
+</div>
+`;
