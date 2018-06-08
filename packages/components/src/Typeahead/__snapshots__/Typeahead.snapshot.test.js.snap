@@ -611,7 +611,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
 exports[`Typeahead with toggle should render button 1`] = `
 <button
   aria-label="Toggle search bar"
-  className="theme-only-icon-cls btn btn-link"
+  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
   disabled={false}
   onClick={[Function]}
   onFocus={[Function]}

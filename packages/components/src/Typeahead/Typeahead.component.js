@@ -28,7 +28,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				hideLabel
 				icon={icon.name}
 				bsStyle={icon.bsStyle}
-				className={theme['only-icon-cls']}
+				className={classNames(theme['only-icon-cls'], 'tc-typeahead-toggle')}
 				tooltipPlacement={icon.tooltipPlacement}
 			/>
 		);
