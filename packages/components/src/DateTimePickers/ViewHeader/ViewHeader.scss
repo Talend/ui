@@ -1,0 +1,13 @@
+
+.container {
+    display: flex;
+    height: 100%;
+
+    .left, .right {
+        flex: 1;
+    }
+
+    .middle {
+        flex: 5;
+    }
+}

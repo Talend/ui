@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { IconsProvider } from '../src/index';
 
 import {
 	DateTimeView,
@@ -12,6 +13,7 @@ storiesOf('DateTimePicker', module)
 	.add('Full DateTimePicker structure', () => (
 		<div>
 			<h1>DateTimePicker structure</h1>
+			<IconsProvider />
 			<div style={{ width: '350px' }}>
 				<DateTimePicker />
 			</div>
@@ -20,6 +22,7 @@ storiesOf('DateTimePicker', module)
 	.add('Date/Time view structure', () => (
 		<div>
 			<h1>Date/Time structure</h1>
+			<IconsProvider />
 			<div style={{ width: '350px' }}>
 				<DateTimeView />
 			</div>
@@ -28,6 +31,7 @@ storiesOf('DateTimePicker', module)
 	.add('Month/Year view structure', () => (
 		<div>
 			<h1>Month/Year structure</h1>
+			<IconsProvider />
 			<div style={{ width: '350px' }}>
 				<MonthYearView />
 			</div>
