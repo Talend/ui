@@ -13,6 +13,15 @@ describe('FormatValue', () => {
 
 	it('should return true when there is leading empty space in the string', () => {
 		// eslint-disable-next-line no-irregular-whitespace
+		expect(
+			hasWhiteSpaceCharacters(`row3
+-2`),
+		).toBe(true);
+
+		expect(
+			hasWhiteSpaceCharacters(`row3
+-2`),
+		).toBe(true);
 		expect(hasWhiteSpaceCharacters('﻿l')).toBe(true);
 	});
 
