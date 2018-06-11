@@ -1,8 +1,9 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, take, takeEvery } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
 
+import actions from '../actions';
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
 	ACTION_TYPE_HTTP_ERRORS,
@@ -286,6 +287,78 @@ export function getDefaultConfig() {
 	return HTTP.defaultConfig;
 }
 
+function* handleHTTPAction({
+	method,
+	type,
+	url,
+	body,
+	transform,
+	onResponse,
+	onError,
+	cmf,
+	...config
+}) {
+	// TODO find a solution to split config, options, cmf related
+	const options = {};
+	let response;
+	if (type === HTTP_METHODS.DELETE) {
+		response = yield call(httpDelete, url, config, options);
+	} else if (type === HTTP_METHODS.GET) {
+		response = yield call(httpGet, url, config, options);
+	} else if (type === HTTP_METHODS.POST) {
+		response = yield call(httpPost, url, body, config, options);
+	} else if (type === HTTP_METHODS.PUT) {
+		response = yield call(httpPut, url, body, config, options);
+	} else if (type === HTTP_METHODS.PATCH) {
+		response = yield call(httpPatch, url, body, config, options);
+	}
+	if (!response.response.ok) {
+		if (typeof onError === 'function') {
+			yield put(onError(response.response));
+		} else if (typeof onError === 'string') {
+			yield put({
+				type: onError,
+				error: response.response,
+			});
+		} else {
+			yield put({
+				type: ACTION_TYPE_HTTP_ERRORS,
+				error: response.response,
+			});
+		}
+	} else {
+		let data = response.data;
+		if (transform) {
+			data = transform(data);
+		}
+		if (typeof onResponse === 'function') {
+			yield put(onResponse(data));
+		} else if (typeof onResponse === 'string') {
+			yield put({
+				type: onResponse,
+				response: response.data,
+			});
+		}
+		if (cmf) {
+			if (cmf.collectionId) {
+				yield put(actions.collections.addOrReplace(cmf.collectionId, data));
+			}
+		}
+	}
+}
+
+/**
+ * saga forked at bootstrap to take all actions.http signal
+ */
+function* takeAllHTTPAction() {
+	yield takeEvery(HTTP_METHODS.DELETE, handleHTTPAction);
+	yield takeEvery(HTTP_METHODS.GET, handleHTTPAction);
+	yield takeEvery(HTTP_METHODS.POST, handleHTTPAction);
+	yield takeEvery(HTTP_METHODS.PUT, handleHTTPAction);
+	yield takeEvery(HTTP_METHODS.PATCH, handleHTTPAction);
+	yield take('DO_NOT_QUIT');
+}
+
 export default {
 	delete: httpDelete,
 	get: httpGet,
@@ -294,6 +367,8 @@ export default {
 	patch: httpPatch,
 	setDefaultConfig,
 	setDefaultLanguage,
+	takeAllHTTPAction,
+	handleHTTPAction,
 	create(createConfig = {}) {
 		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
 
