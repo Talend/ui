@@ -169,9 +169,18 @@ export function combinedFooterActions(onCancelAction, footerActions, activeTabIt
 	const enhancedFooterActions = Object.assign({}, footerActions);
 	enhancedFooterActions.actions = {
 		...enhancedFooterActions.actions,
-		left: [...get(enhancedFooterActions, 'actions.left', []), ...get(activeTabItem, 'actions.left', [])],
-		center: [...get(enhancedFooterActions, 'actions.center', []), ...get(activeTabItem, 'actions.center', [])],
-		right: [...get(enhancedFooterActions, 'actions.right', []), ...get(activeTabItem, 'actions.right', [])],
+		left: [
+			...get(enhancedFooterActions, 'actions.left', []),
+			...get(activeTabItem, 'actions.left', []),
+		],
+		center: [
+			...get(enhancedFooterActions, 'actions.center', []),
+			...get(activeTabItem, 'actions.center', []),
+		],
+		right: [
+			...get(enhancedFooterActions, 'actions.right', []),
+			...get(activeTabItem, 'actions.right', []),
+		],
 	};
 
 	if (onCancelItem) {
