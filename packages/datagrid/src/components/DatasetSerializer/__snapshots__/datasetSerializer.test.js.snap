@@ -171,14 +171,11 @@ Array [
       },
       "doc": "Nom de la gare",
       "name": "field0",
-      "type": Array [
-        "null",
-        Object {
-          "dqType": "FR Commune",
-          "dqTypeKey": "FR_COMMUNE",
-          "type": "string",
-        },
-      ],
+      "type": Object {
+        "dqType": "FR Commune",
+        "dqTypeKey": "FR_COMMUNE",
+        "type": "string",
+      },
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
