@@ -161,7 +161,7 @@ DrawerFooter.propTypes = {
 	children: PropTypes.node,
 };
 
-export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = []) {
+export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = {}) {
 	const onCancelItem =
 		onCancelAction.position === ON_CANCEL_ACTION_POSITION_FOOTER || !onCancelAction.position
 			? onCancelAction
@@ -169,7 +169,9 @@ export function combinedFooterActions(onCancelAction, footerActions, activeTabIt
 	const enhancedFooterActions = Object.assign({}, footerActions);
 	enhancedFooterActions.actions = {
 		...enhancedFooterActions.actions,
-		left: [...get(enhancedFooterActions, 'actions.left', []), ...activeTabItem],
+		left: [...get(enhancedFooterActions, 'actions.left', []), ...get(activeTabItem, 'actions.left', [])],
+		center: [...get(enhancedFooterActions, 'actions.center', []), ...get(activeTabItem, 'actions.center', [])],
+		right: [...get(enhancedFooterActions, 'actions.right', []), ...get(activeTabItem, 'actions.right', [])],
 	};
 
 	if (onCancelItem) {
@@ -208,7 +210,7 @@ function Drawer({
 			Object.assign(customTabs, { selectedKey: selectedTabKey });
 			activeTab = tabs.items.find(tab => tab.key === selectedTabKey);
 		}
-		activeTabItem = get(activeTab, 'footerActions.actions.left', []);
+		activeTabItem = get(activeTab, 'footerActions', {});
 	}
 
 	return (
