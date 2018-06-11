@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import theme from './ViewLayout.scss';
 
 function ViewLayout(props) {
@@ -12,17 +13,17 @@ function ViewLayout(props) {
 	return (
 		<div className={theme.container}>
 			<div className={theme.header}>
-				<div className={theme.left}>
+				<div className={classNames(theme['node-container'], theme.left)}>
 					{leftNode}
 				</div>
-				<div className={theme.middle}>
+				<div className={classNames(theme['node-container'], theme.middle)}>
 					{middleNode}
 				</div>
-				<div className={theme.right}>
+				<div className={classNames(theme['node-container'], theme.right)}>
 					{rightNode}
 				</div>
 			</div>
-			<div className={theme.body}>
+			<div className={classNames(theme['node-container'], theme.body)}>
 				{props.bodyNode}
 			</div>
 		</div>

@@ -20,4 +20,9 @@
     .body {
         flex: 1;
     }
+
+    .node-container > * {
+        width: 100%;
+        height: 100%;
+    }
 }
