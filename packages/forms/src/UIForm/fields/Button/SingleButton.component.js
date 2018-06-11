@@ -32,6 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		onTrigger: PropTypes.func,
 		onClick: PropTypes.func,
+		getComponent: PropTypes.func,
 		schema: PropTypes.shape({
 			bsStyle: PropTypes.string,
 			disabled: PropTypes.bool,

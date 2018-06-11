@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import Form from '../src/Form';
+
 const SCHEMA = `{
 	"jsonSchema": {
 	  "title": "A registration form",
@@ -78,6 +79,7 @@ class SchemaInState extends React.Component {
 	onChange(event) {
 		this.setState({ schema: event.target.value });
 	}
+
 	render() {
 		return (
 			<div className="container">
