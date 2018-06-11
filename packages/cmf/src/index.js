@@ -61,7 +61,6 @@ export {
 	UIRouter,
 };
 
-
 /**
  * API exported
  * @type {Object}
