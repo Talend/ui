@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
+import { translate } from 'react-i18next';
 
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 function itemClasses(error) {
 	return classNames({
@@ -131,8 +133,15 @@ class ItemEdit extends React.Component {
 		);
 
 		return (
-			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
+			<div role="row" className={itemClasses(this.props.item.error)} id={this.props.id} style={this.props.style}>
 				<input
+					aria-label={
+						this.props.t(
+							'TC_ENUMERATION_EDIT_ENTRY',
+							{ defaultValue: 'Enter the new value' }
+						)
+					}
+					role="gridcell"
 					className={itemLabelClasses()}
 					ref={input => {
 						this.itemInput = input;
@@ -142,11 +151,11 @@ class ItemEdit extends React.Component {
 					onChange={this.itemChange}
 					autoFocus
 				/>
-				<div className={itemEditActionsClasses()}>
+				<div role="gridcell" className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
 				{this.props.item.error && <div className={itemErrorClasses()}>{this.props.item.error}</div>}
-			</li>
+			</div>
 		);
 	}
 }
@@ -164,4 +173,4 @@ ItemEdit.propTypes = {
 	}),
 };
 
-export default ItemEdit;
+export default translate(I18N_DOMAIN_COMPONENTS)(ItemEdit);

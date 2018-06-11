@@ -9,26 +9,6 @@ import ItemEdit from './Item/ItemEdit.component';
 import ItemEditPropTypes from './Item/ItemEdit.propTypes';
 import theme from './Items.scss';
 
-function listClasses() {
-	return classNames({
-		[theme['tc-list-items']]: true,
-	});
-}
-
-function itemsClasses() {
-	return classNames({
-		[theme['tc-enumeration-items']]: true,
-		'tc-enumeration-items': true,
-	});
-}
-
-function itemContainer() {
-	return classNames({
-		[theme['tc-item-container']]: true,
-		'tc-item-container': true,
-	});
-}
-
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 const virtualizedListClassName = 'ReactVirtualized__List';
@@ -44,7 +24,7 @@ class Items extends React.PureComponent {
 		this.scrollEnumeration = this.scrollEnumeration.bind(this);
 	}
 
-	getItem(item, index) {
+	getItem(item, index, style) {
 		// affecting index to the item
 		const itemWithIndex = {
 			...item,
@@ -68,6 +48,7 @@ class Items extends React.PureComponent {
 						id={`${index}-item`}
 						item={itemWithIndex}
 						currentEdit={this.props.currentEdit}
+						style={style}
 					/>
 				);
 			}
@@ -87,6 +68,7 @@ class Items extends React.PureComponent {
 						itemProps={itemPropDefault}
 						searchCriteria={this.props.searchCriteria}
 						showCheckboxes={this.props.showCheckboxes}
+						style={style}
 					/>
 				);
 			}
@@ -116,22 +98,19 @@ class Items extends React.PureComponent {
 
 
 	rowRenderer({
-		key,   // eslint-disable-line react/prop-types
 		index, // eslint-disable-line react/prop-types
 		style, // eslint-disable-line react/prop-types
 	}) {
-		return (
-			<div className={itemContainer()} key={key} style={style}>
-				{this.getItem(this.props.items[index], index)}
-			</div>
-		)
-			;
+		return this.getItem(this.props.items[index], index, style);
 	}
 
 	render() {
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
-			<ul className={itemsClasses()} onScroll={this.scrollEnumeration}>
+			<div
+				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
+				onScroll={this.scrollEnumeration}
+			>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -142,7 +121,7 @@ class Items extends React.PureComponent {
 							 */
 							items={this.props.items}
 							actions={actions}
-							className={listClasses()}
+							className={theme['tc-list-items']}
 							rowRenderer={this.rowRenderer}
 							width={width}
 							height={height}
@@ -151,7 +130,7 @@ class Items extends React.PureComponent {
 						/>
 					)}
 				</AutoSizer>
-			</ul>
+			</div>
 		);
 	}
 }

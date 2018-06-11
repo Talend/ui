@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import omit from 'lodash/omit';
 
 /**
  * The Toggle component is basically a fancy checkbox like you have in your iphone.
@@ -33,6 +34,7 @@ function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, cla
 					checked={checked}
 					autoFocus={autoFocus}
 					disabled={disabled}
+					{...omit(rest, 'data-feature')}
 				/>
 				<span>{label}</span>
 			</label>

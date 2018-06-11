@@ -30,7 +30,6 @@ $item-checkbox-size: 20px;
 	:global(.btn-link) {
 		padding: 0;
 		height: $tc-enumeration-item-font-size;
-		outline: none;
 
 		:global(.tc-svg-icon) {
 			height: $tc-enumeration-item-font-size;
@@ -48,7 +47,6 @@ $item-checkbox-size: 20px;
 		background-repeat: no-repeat;
 		border: none;
 		overflow: hidden;
-		outline: none;
 		box-shadow: none;
 		text-align: left;
 
@@ -112,13 +110,15 @@ $item-checkbox-size: 20px;
 	background-color: $selected-item-color;
 }
 
-.tc-enumeration-item:hover {
+.tc-enumeration-item:hover,
+.tc-enumeration-item:global(.ally-focus-within) {
 	.tc-enumeration-item-actions {
 		visibility: visible;
 	}
 }
 
 // disable hover if item is selected
-.tc-enumeration-item:hover:not(.selected-item) {
+.tc-enumeration-item:hover:not(.selected-item),
+.tc-enumeration-item:not(.selected-item):global(.ally-focus-within) {
 	background-color: rgba(250, 250, 250, 1);
 }

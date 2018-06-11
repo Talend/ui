@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 function headerClasses(headerError) {
 	return classNames({
@@ -53,6 +55,7 @@ function HeaderInput({
 	onAddKeyDown,
 	value,
 	inputRef,
+	t,
 }) {
 	let internalInputRef = null;
 
@@ -76,6 +79,7 @@ function HeaderInput({
 		<header className={headerClasses(headerError)}>
 			<input
 				type="text"
+				aria-label={t('TC_ENUMERATION_SEARCH', { defaultValue: 'Enter search term' })}
 				placeholder={inputPlaceholder}
 				ref={input => {
 					internalInputRef = input;
@@ -102,6 +106,7 @@ HeaderInput.propTypes = {
 	inputRef: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
 	value: PropTypes.string,
+	t: PropTypes.func,
 };
 
-export default HeaderInput;
+export default translate(I18N_DOMAIN_COMPONENTS)(HeaderInput);
