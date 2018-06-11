@@ -62,6 +62,10 @@
     "redux-saga-tester": "^1.0.345",
     "rimraf": "^2.6.1"
   },
+  "peerDependencies": {
+    "react": "^15.6.2 || ^16.0.0",
+    "react-dom": "^15.6.2 || ^16.0.0"
+  },
   "dependencies": {
     "ajv": "^6.2.1",
     "babel-polyfill": "^6.26.0",
@@ -75,8 +79,6 @@
     "mkdirp": "^0.5.1",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.5",
     "react-router": "^3.2.0",
