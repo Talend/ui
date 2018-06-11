@@ -7,23 +7,27 @@ exports[`ViewLayout should render a ViewLayout 1`] = `
   <div
     className="theme-header"
   >
-    <ViewHeader
-      leftItem={
-        <span>
-          left item
-        </span>
-      }
-      middleItem={
-        <span>
-          middle item
-        </span>
-      }
-      rightItem={
-        <span>
-          right item
-        </span>
-      }
-    />
+    <div
+      className="theme-left"
+    >
+      <span>
+        left item
+      </span>
+    </div>
+    <div
+      className="theme-middle"
+    >
+      <span>
+        middle item
+      </span>
+    </div>
+    <div
+      className="theme-right"
+    >
+      <span>
+        right item
+      </span>
+    </div>
   </div>
   <div
     className="theme-body"

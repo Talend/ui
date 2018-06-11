@@ -5,7 +5,16 @@
     flex-direction: column;
 
     .header {
+        display: flex;
         height: 35px;
+
+        .left, .right {
+            flex: 1;
+        }
+
+        .middle {
+            flex: 5;
+        }
     }
 
     .body {
