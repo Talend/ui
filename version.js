@@ -190,18 +190,14 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
-function check(source, dep, version, forceUpdate) {
+function check(source, dep, version) {
 	let modified = false;
-	let safeVersion = version;
-	if (forceUpdate && !version.startsWith('^')) {
-		safeVersion = `^${version}`;
-	}
-	if (source && source[dep] && source[dep] !== safeVersion) {
+	if (source && source[dep] && source[dep] !== version) {
 		if (!program.quiet) {
-			console.log(`update ${dep}: ${source[dep]} to '${safeVersion}'`);
+			console.log(`update ${dep}: ${source[dep]} to '${version}'`);
 		}
 		// eslint-disable-next-line no-param-reassign
-		source[dep] = safeVersion;
+		source[dep] = version;
 		modified = true;
 	}
 	return modified;
@@ -213,7 +209,7 @@ function checkAll(versions, source, dep) {
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
 	const isModDevDeps = check(devDeps, dep, version);
-	const isModDeps = check(deps, dep, version, true);
+	const isModDeps = check(deps, dep, version);
 	const isModPeers = check(peer, dep, version);
 	if (isModDevDeps || isModDeps || isModPeers) {
 		// eslint-disable-next-line no-param-reassign
@@ -225,14 +221,14 @@ function save(ppath, data) {
 	if (!program.quiet) {
 		console.log(`save ${ppath}`);
 	}
-	fs.open(ppath, 'w', (readError, fd) => {
-		if (readError) {
-			throw new Error(`error opening file: ${readError}`);
+	fs.open(ppath, 'w', (err, fd) => {
+		if (err) {
+			throw new Error(`error opening file: ${err}`);
 		}
 
-		fs.write(fd, data, 0, data.length, null, writeError => {
-			if (writeError) {
-				throw new Error(`error writing file: ${writeError}`);
+		fs.write(fd, data, 0, data.length, null, err => {
+			if (err) {
+				throw new Error(`error writing file: ${err}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
