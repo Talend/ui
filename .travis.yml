@@ -19,7 +19,7 @@ matrix:
   fast_finish: true
   include:
     - language: node_js
-      env: NAME=test_react_15 REACT_VERSION="ˆ15.6.2"
+      env: NAME=test_react_15 REACT_VERSION="^15.6.2"
       node_js:
         - '8'
       script:
@@ -27,7 +27,7 @@ matrix:
         - yarn test
 
     - language: node_js
-      env: NAME=test_react_16 REACT_VERSION="ˆ16.0.0"
+      env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
         - '8'
       script:
