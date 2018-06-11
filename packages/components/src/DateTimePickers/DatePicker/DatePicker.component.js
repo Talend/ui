@@ -20,7 +20,7 @@ function DatePicker(props) {
 		<div className={theme.container}>
 			<div className={theme['calendar-header']}>
 				{dayNames.map((dayName, i) =>
-					<abbr className={theme['day-of-week']} key={i}>{dayName}</abbr>
+					<abbr className={theme['day-item']} key={i}>{dayName}</abbr>
 				)}
 			</div>
 			<hr className={theme.separator} />
@@ -28,7 +28,7 @@ function DatePicker(props) {
 				{weeks.map((week, i) =>
 					<div className={theme.week} key={i}>
 						{week.map((day, j) =>
-							<div className={theme.day} key={j}>
+							<div className={theme['day-item']} key={j}>
 								{day.number}
 							</div>
 						)}

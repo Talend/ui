@@ -8,37 +8,37 @@ exports[`DatePicker should render a DatePicker 1`] = `
     className="theme-calendar-header"
   >
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       L
     </abbr>
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       M
     </abbr>
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       M
     </abbr>
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       J
     </abbr>
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       V
     </abbr>
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       S
     </abbr>
     <abbr
-      className="theme-day-of-week"
+      className="theme-day-item"
     >
       D
     </abbr>
@@ -53,37 +53,37 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-week"
     >
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         1
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         2
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         3
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         4
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         5
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         6
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         7
       </div>
@@ -92,37 +92,37 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-week"
     >
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         8
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         9
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         10
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         11
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         12
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         13
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         14
       </div>
@@ -131,37 +131,37 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-week"
     >
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         15
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         16
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         17
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         18
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         19
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         20
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         21
       </div>
@@ -170,37 +170,37 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-week"
     >
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         22
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         23
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         24
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         25
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         26
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         27
       </div>
       <div
-        className="theme-day"
+        className="theme-day-item"
       >
         28
       </div>

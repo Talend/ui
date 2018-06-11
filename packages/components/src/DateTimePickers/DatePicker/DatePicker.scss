@@ -2,14 +2,14 @@
 .container {
     display: inline-block;
 
+    .day-item {
+        padding: 10px;
+        width: 2.5em;
+        text-align: center;
+    }
+
     .calendar-header {
         display: flex;
-
-        .day-of-week {
-            padding: 10px;
-            width: 2.5em;
-            text-align: center;
-        }
     }
 
     .separator {
@@ -24,12 +24,6 @@
 
         .week {
             display: flex;
-
-            .day {
-                padding: 10px;
-                width: 2.5em;
-                text-align: center;
-            }
         }
     }
 }
