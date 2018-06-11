@@ -37,6 +37,7 @@ if (program.debug) {
 
 const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
+const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -194,10 +195,16 @@ function check(source, dep, version, category = 'dep') {
 	if (category === 'dep' && !version.startsWith('^')) {
 		safeVersion = `^${version}`;
 	}
+	if (category === 'peer' && dep === 'react') {
+		safeVersion = REACT_VERSION_PEER;
+	}
+	if (category === 'peer' && dep === 'react-dom') {
+		safeVersion = REACT_VERSION_PEER;
+	}
 	let modified = false;
 	if (source && source[dep] && source[dep] !== safeVersion) {
 		if (dep === 'react' && category === 'dep') {
-			console.warn(`WARNING: ${dep} should always be added as peer dependencies in library`);
+			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
 		}
 		if (!program.quiet) {
 			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
