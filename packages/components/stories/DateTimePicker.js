@@ -14,7 +14,7 @@ storiesOf('DateTimePicker', module)
 		<div>
 			<h1>DateTimePicker structure</h1>
 			<IconsProvider />
-			<div style={{ width: '350px' }}>
+			<div style={{ width: '320px' }}>
 				<DateTimePicker />
 			</div>
 		</div>
@@ -23,7 +23,7 @@ storiesOf('DateTimePicker', module)
 		<div>
 			<h1>Date/Time structure</h1>
 			<IconsProvider />
-			<div style={{ width: '350px' }}>
+			<div style={{ width: '320px' }}>
 				<DateTimeView />
 			</div>
 		</div>
@@ -32,7 +32,7 @@ storiesOf('DateTimePicker', module)
 		<div>
 			<h1>Month/Year structure</h1>
 			<IconsProvider />
-			<div style={{ width: '350px' }}>
+			<div style={{ width: '320px' }}>
 				<MonthYearView />
 			</div>
 		</div>
