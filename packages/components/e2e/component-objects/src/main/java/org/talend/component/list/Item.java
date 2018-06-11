@@ -165,6 +165,11 @@ public class Item extends Component {
                 .moveToElement(button)
                 .build()
                 .perform();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         wait
                 .until(elementToBeClickable(actionSelector))
