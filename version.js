@@ -142,7 +142,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
-	'eslint-plugin-jsx-a11y': '^6.0.0',
+	'eslint-plugin-jsx-a11y': '^2.2.2',
 	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
