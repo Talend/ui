@@ -166,9 +166,8 @@ public class Item extends Component {
                 .build()
                 .perform();
 
-        final WebElement buttonWithTooltip = this.getCell(columnKey).getAction(actionId);
         wait
-                .until(elementToBeClickable(buttonWithTooltip))
+                .until(elementToBeClickable(actionSelector))
                 .click();
     }
 }
