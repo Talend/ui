@@ -2,9 +2,34 @@
 .container {
     display: inline-block;
 
+    .calendar-header {
+        display: flex;
+
+        .day-of-week {
+            padding: 10px;
+            width: 2.5em;
+            text-align: center;
+        }
+    }
+
     .separator {
         width: calc(100% - 20px);
         border-color: grey;
         margin: 0 auto;
+    }
+
+    .calendar-body {
+        display: flex;
+        flex-direction: column;
+
+        .week {
+            display: flex;
+
+            .day {
+                padding: 10px;
+                width: 2.5em;
+                text-align: center;
+            }
+        }
     }
 }
