@@ -1,6 +1,7 @@
 import {
 	Breadcrumbs,
 	CircularProgress,
+	Drawer,
 	Icon,
 	IconsProvider,
 	Layout,
@@ -49,6 +50,7 @@ export {
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
+	Drawer,
 	DeleteResource,
 	FilterBar,
 	HomeListView,
