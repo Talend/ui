@@ -6,7 +6,6 @@ const download = require('download');
  * Download locales
  *
  * Download zip with locales from current ui release on Github
- * This is meant to run when you install this package as a dependency
  */
 const packageJson = require(path.join(process.cwd(), './package.json'));
 const packageName = packageJson.name.replace('@talend/', '');
