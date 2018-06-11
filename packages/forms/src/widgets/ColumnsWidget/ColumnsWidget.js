@@ -75,7 +75,7 @@ export default class ColumnsWidget extends React.Component {
 								onBlur={onBlur}
 								className={`tf-column-${key}`}
 							/>
-					))
+					  ))
 					: null}
 			</div>
 		);
