@@ -2,10 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IconsProvider } from '../src/index';
 
-import {
+import DateTimePicker, {
 	DateTimeView,
 	MonthYearView,
-	DateTimePicker,
 } from '../src/DateTimePickers';
 
 
