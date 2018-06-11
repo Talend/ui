@@ -1,3 +1,24 @@
 > eslint --config ../../.eslintrc --ext .js src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/node_modules/eslint-config-airbnb/rules/react-a11y.js:
+	Configuration for rule "jsx-a11y/anchor-has-content" is invalid:
+	Value "" is the wrong type.
+
+Referenced from: airbnb
+Referenced from: ../../.eslintrc
+Error: /home/travis/build/Talend/ui/node_modules/eslint-config-airbnb/rules/react-a11y.js:
+	Configuration for rule "jsx-a11y/anchor-has-content" is invalid:
+	Value "" is the wrong type.
+
+Referenced from: airbnb
+Referenced from: ../../.eslintrc
+    at validateRuleOptions (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-validator.js:109:15)
+    at Object.keys.forEach.id (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-validator.js:156:13)
+    at Array.forEach (<anonymous>)
+    at Object.validate (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-validator.js:155:35)
+    at load (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-file.js:559:19)
+    at configExtends.reduceRight (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-file.js:424:36)
+    at Array.reduceRight (<anonymous>)
+    at applyExtends (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-file.js:408:28)
+    at load (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-file.js:566:22)
+    at configExtends.reduceRight (/home/travis/build/Talend/ui/node_modules/eslint/lib/config/config-file.js:424:36)
