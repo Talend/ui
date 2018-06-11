@@ -169,6 +169,28 @@ describe('JSONLike', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should render injected elements next to name/sup', () => {
+			const mockHandler = jest.fn();
+			const wrapper = shallow(
+				<ComplexItem
+					opened={['$']}
+					edited={[]}
+					tag={<span id="injected">hello world</span>}
+					onToggle={mockHandler}
+					onSelect={mockHandler}
+					info={{
+						type: 'string',
+					}}
+				/>,
+			);
+			expect(
+				wrapper
+					.find('TooltipTrigger+#injected')
+					.at(0)
+					.text(),
+			).toEqual('hello world');
+		});
+
 		// skeletton test to be activated when enzyme will fix
 		// https://github.com/airbnb/enzyme/issues/308
 		xit('don"t trigger wrapping form submit when used', () => {

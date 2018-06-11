@@ -59,9 +59,16 @@ function renderMutableMenuItem(item, index, getComponent) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
 	return (
-		<Renderers.MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
+		<Renderers.MenuItem
+			{...item}
+			key={index}
+			eventKey={item}
+			onClick={wrapOnClick(item)}
+			title={item.title || item.label}
+			className={classNames(theme['tc-dropdown-item'], 'tc-dropdown-item')}
+		>
 			{item.icon && <Icon name={item.icon} />}
-			{item.label}
+			{!item.hideLabel && item.label}
 		</Renderers.MenuItem>
 	);
 }
@@ -114,17 +121,20 @@ function ActionDropdown(props) {
 		tooltipLabel,
 		getComponent,
 		components,
+		className,
 		...rest
 	} = props;
 
 	const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
-	const title = (
-		<span className="tc-dropdown-button-title">
-			{icon ? <Icon name={icon} /> : null}
-			{hideLabel ? null : <span className="tc-dropdown-button-title-label">{label}</span>}
-		</span>
-	);
+	const title = [
+		icon ? <Icon name={icon} key={'icon'} /> : null,
+		hideLabel ? null : (
+			<span className="tc-dropdown-button-title-label" key={'label'}>
+				{label}
+			</span>
+		),
+	];
 	const style = link ? 'link' : bsStyle;
 
 	function onItemSelect(object, event) {
@@ -139,7 +149,7 @@ function ActionDropdown(props) {
 			bsStyle={style}
 			role="button"
 			onSelect={onItemSelect}
-			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
+			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
 			aria-label={tooltipLabel || label}
 			{...rest}
 		>
@@ -167,6 +177,7 @@ ActionDropdown.displayName = 'ActionDropdown';
 
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
+	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,

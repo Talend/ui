@@ -128,7 +128,7 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 function CustomDatalist(...args) {
-	function renderItemsContainer({ children, containerProps }) {
+	function RenderItemsContainer({ children, containerProps }) {
 		return (
 			<div {...containerProps}>
 				{children}
@@ -157,12 +157,12 @@ function CustomDatalist(...args) {
 		);
 	}
 
-	renderItemsContainer.propTypes = {
+	RenderItemsContainer.propTypes = {
 		children: PropTypes.element,
 		containerProps: PropTypes.object,
 	};
 
-	function renderNoMatch({ ...containerProps }) {
+	function RenderNoMatch({ containerProps }) {
 		return (
 			<div
 				{...containerProps}
@@ -191,8 +191,11 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+	RenderNoMatch.propTypes = {
+		containerProps: PropTypes.object,
+	};
 
-	function renderEmptyList({ containerProps }) {
+	function RenderEmptyList({ containerProps }) {
 		return (
 			<div
 				{...containerProps}
@@ -216,18 +219,21 @@ function CustomDatalist(...args) {
 						bsStyle="primary"
 						id="default"
 						label="do some stuff"
-	 				/>
+					/>
 				</div>
 			</div>
 		);
 	}
+	RenderEmptyList.propTypes = {
+		containerProps: PropTypes.object,
+	};
 
 	return (
 		<DatalistWidget
 			{...args[0]}
-			renderItemsContainer={renderItemsContainer}
-			renderNoMatch={renderNoMatch}
-			renderEmptyList={renderEmptyList}
+			renderItemsContainer={RenderItemsContainer}
+			renderNoMatch={RenderNoMatch}
+			renderEmptyList={RenderEmptyList}
 		/>
 	);
 }
@@ -362,11 +368,9 @@ decoratedStories.add('Datalist empty', getEmptyDatalist);
 decoratedStories.add('Datalist in modal', () => {
 	const props = {
 		header: 'Datalist in modal',
-		bsDialogProps: {
-			show: true,
-			size: 'small',
-			keyboard: true,
-		},
+		show: true,
+		size: 'small',
+		keyboard: true,
 	};
 
 	// Need to override style for this demo (items-container must be scrollable)
@@ -736,11 +740,11 @@ decoratedStories.add('Form with live validation', () => {
 		jsonSchema: {
 			title: 'Form with live validation',
 			type: 'object',
+			required: ['name', 'email'],
 			properties: {
 				name: {
 					title: 'Name',
 					type: 'string',
-					required: true,
 					minLength: 3,
 				},
 				email: {
@@ -748,7 +752,6 @@ decoratedStories.add('Form with live validation', () => {
 					type: 'string',
 					pattern: '^\\S+@\\S+$',
 					minLength: 5,
-					required: true,
 				},
 			},
 		},

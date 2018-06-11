@@ -1,4 +1,4 @@
-# api.selectors.toJS
+# cmf.selectors.toJS
 
 With CMF we want all data structure to be Immutable into the store for performance reason.
 
@@ -12,7 +12,7 @@ source: https://redux.js.org/faq/immutable-data
 The solution comes with the following practice:
 
 * you should write a selector to get your data from the state (without any other params than the state).
-* then call the api.selectors.toJS(selector) to get your memoized selector
+* then call the cmf.selectors.toJS(selector) to get your memoized selector
 
 This memoized selector will return you the result of  `toJS` but it will be called only once.
 This garantie to do not have memory leak (only one instance is kept in cache)
@@ -32,11 +32,11 @@ function mapStateToProps(state) {
 which is very bad for performance, you should rewrite it like this:
 
 ```javascript
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 
 function mapStateToProps(state) {
   return {
-    mystuff: api.selectors.collections.toJS(state, pathToCollection),
+    mystuff: cmf.selectors.collections.toJS(state, pathToCollection),
   };
 }
 ```

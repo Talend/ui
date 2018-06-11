@@ -25,7 +25,7 @@ We will remove it from `cmfConnect` API.
 Redux console can be really hard to read and to track what happens.
 Each time you send an action, all reducers and middlewares are called.
 
-For example the `api.actions.http` action creator of CMF can send multiple
+For example the `cmf.actions.http` action creator of CMF can send multiple
 actions at every stage of an http request.
 So add the `onSend` only if you need it.
 
@@ -49,7 +49,7 @@ One component can be added in multiple contexts so the best is to set its action
 
 ## Use redux-saga and sagaRouter
 
-`fetch` is really easy to use but can not be canceled. 
+`fetch` is really easy to use but can not be canceled.
 It may have a lot of effects you don't want.
 A user may change screen fast, or a request can be really slow.
 
