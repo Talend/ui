@@ -35,7 +35,8 @@ if (program.debug) {
 	console.log(`use stack version ${stack_version}`);
 }
 
-const REACT_VERSION = '^16.0.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+console.log('REACT_VERSION: ', REACT_VERSION);
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -95,7 +96,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
 	'react-i18next': '^7.6.1',
-	'react-redux': '5.0.5',
+	'react-redux': '5.0.7',
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
@@ -103,7 +104,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
-	redux: '3.6.0',
+	redux: '3.7.2',
 	'redux-batched-actions': '0.2.0',
 	'redux-logger': '3.0.6',
 	'redux-mock-store': '1.2.3',
@@ -140,7 +141,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
-	'eslint-plugin-jsx-a11y': '^2.2.2',
+	'eslint-plugin-jsx-a11y': '^6.0.0',
 	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
@@ -177,7 +178,6 @@ const files = [
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
 	'./packages/icons/package.json',
-	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
 	'./packages/datagrid/package.json',
@@ -189,13 +189,21 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
-function check(source, dep, version) {
+function check(source, dep, version, category = 'dep') {
+	let safeVersion = version;
+	if (category === 'dep' && !version.startsWith('^')) {
+		safeVersion = `^${version}`;
+	}
 	let modified = false;
-	if (source && source[dep] && source[dep] !== version) {
-		if (!program.quiet) {
-			console.log(`update ${dep}: '${version}' from ${source[dep]}`);
+	if (source && source[dep] && source[dep] !== safeVersion) {
+		if (dep === 'react' && category === 'dep') {
+			console.warn(`WARNING: ${dep} should always be added as peer dependencies in library`);
 		}
-		source[dep] = version;
+		if (!program.quiet) {
+			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
+		}
+		// eslint-disable-next-line no-param-reassign
+		source[dep] = safeVersion;
 		modified = true;
 	}
 	return modified;
@@ -206,9 +214,9 @@ function checkAll(versions, source, dep) {
 	const devDeps = source.devDependencies;
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
-	const isModDevDeps = check(devDeps, dep, version);
+	const isModDevDeps = check(devDeps, dep, version, 'dev');
 	const isModDeps = check(deps, dep, version);
-	const isModPeers = check(peer, dep, version);
+	const isModPeers = check(peer, dep, version, 'peer');
 	if (isModDevDeps || isModDeps || isModPeers) {
 		source.modified = true;
 	}

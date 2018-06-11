@@ -31,11 +31,11 @@
   },
   "dependencies": {
     "tracekit": "^0.4.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "^2.0.3"
   },
   "peerDependencies": {
     "angular": "^1.5.9",
-    "react-dom": "^15.6.2"
+    "react-dom": "^15.6.2 || ^16.0.0"
   },
   "devDependencies": {
     "angular": "^1.5.9",
@@ -52,12 +52,12 @@
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint-plugin-react": "^6.3.0",
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^15.6.2 || ^16.0.0",
+    "react-dom": "^15.6.2 || ^16.0.0",
     "rimraf": "^2.6.1"
   },
   "jest": {
