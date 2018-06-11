@@ -9,12 +9,12 @@ import Action from '../../Actions/Action';
 function MonthYearView(props) {
 
 	const header = {
-		leftItem: <Action
+		leftNode: <Action
 			icon="talend-arrow-left"
 			hideLabel
 			link
 		/>,
-		middleItem: <span className={theme.title}>Septembre 2017</span>,
+		middleNode: <span className={theme.title}>Septembre 2017</span>,
 	};
 
 	const bodyNode = (

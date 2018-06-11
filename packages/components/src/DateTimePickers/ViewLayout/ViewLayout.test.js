@@ -6,9 +6,9 @@ import ViewLayout from './ViewLayout.component';
 describe('ViewLayout', () => {
 	it('should render a ViewLayout', () => {
 		const header = {
-			leftItem: <span>left item</span>,
-			middleItem: <span>middle item</span>,
-			rightItem: <span>right item</span>,
+			leftNode: <span>left item</span>,
+			middleNode: <span>middle item</span>,
+			rightNode: <span>right item</span>,
 		};
 
 		const bodyNode = (

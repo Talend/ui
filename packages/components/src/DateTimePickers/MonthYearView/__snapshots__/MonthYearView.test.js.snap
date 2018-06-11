@@ -20,12 +20,12 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
   }
   header={
     Object {
-      "leftItem": <Action
+      "leftNode": <Action
         hideLabel={true}
         icon="talend-arrow-left"
         link={true}
     />,
-      "middleItem": <span
+      "middleNode": <span
         className="theme-title"
     >
         Septembre 2017

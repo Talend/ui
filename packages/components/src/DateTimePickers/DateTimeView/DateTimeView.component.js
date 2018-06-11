@@ -8,17 +8,17 @@ import theme from './DateTimeView.scss';
 function DateTimeView(props) {
 
 	const header = {
-		leftItem: <ActionButton
+		leftNode: <ActionButton
 			icon="talend-chevron-left"
 			hideLabel
 			link
 		/>,
-		middleItem: <ActionButton
+		middleNode: <ActionButton
 			className={theme.title}
 			label="Septembre 2017"
 			link
 		/>,
-		rightItem: <ActionButton
+		rightNode: <ActionButton
 			icon="talend-chevron-left"
 			iconTransform="rotate-180"
 			hideLabel

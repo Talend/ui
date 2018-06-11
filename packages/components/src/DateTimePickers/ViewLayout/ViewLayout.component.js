@@ -4,22 +4,22 @@ import theme from './ViewLayout.scss';
 
 function ViewLayout(props) {
 	const {
-		leftItem,
-		middleItem,
-		rightItem,
+		leftNode,
+		middleNode,
+		rightNode,
 	} = props.header;
 
 	return (
 		<div className={theme.container}>
 			<div className={theme.header}>
 				<div className={theme.left}>
-					{leftItem}
+					{leftNode}
 				</div>
 				<div className={theme.middle}>
-					{middleItem}
+					{middleNode}
 				</div>
 				<div className={theme.right}>
-					{rightItem}
+					{rightNode}
 				</div>
 			</div>
 			<div className={theme.body}>
@@ -31,9 +31,9 @@ function ViewLayout(props) {
 
 ViewLayout.propTypes = {
 	header: PropTypes.shape({
-		leftItem: PropTypes.node,
-		middleItem: PropTypes.node,
-		rightItem: PropTypes.node,
+		leftNode: PropTypes.node,
+		middleNode: PropTypes.node,
+		rightNode: PropTypes.node,
 	}).isRequired,
 	bodyNode: PropTypes.node.isRequired,
 };

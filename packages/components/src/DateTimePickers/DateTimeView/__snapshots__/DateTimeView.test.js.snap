@@ -18,17 +18,17 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
   }
   header={
     Object {
-      "leftItem": <Translate(ActionButton)
+      "leftNode": <Translate(ActionButton)
         hideLabel={true}
         icon="talend-chevron-left"
         link={true}
     />,
-      "middleItem": <Translate(ActionButton)
+      "middleNode": <Translate(ActionButton)
         className="theme-title"
         label="Septembre 2017"
         link={true}
     />,
-      "rightItem": <Translate(ActionButton)
+      "rightNode": <Translate(ActionButton)
         hideLabel={true}
         icon="talend-chevron-left"
         iconTransform="rotate-180"
