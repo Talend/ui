@@ -17,8 +17,8 @@ function ViewLayout(props) {
 }
 
 ViewLayout.propTypes = {
-	header: ViewHeader.propTypes,
-	bodyNode: PropTypes.node,
+	header: PropTypes.shape(ViewHeader.propTypes).isRequired,
+	bodyNode: PropTypes.node.isRequired,
 };
 
 export default ViewLayout;
