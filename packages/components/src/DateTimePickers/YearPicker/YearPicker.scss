@@ -4,29 +4,6 @@
     flex-direction: column;
     height: 100%;
 
-    .previous, .next {
-        background: none;
-        border: none;
-        width: 100%;
-        height: 25px;
-
-        span {
-            display: inline-block;
-        }
-    }
-
-    .previous {
-        span {
-            transform: rotate(90deg);
-        }
-    }
-
-    .next {
-        span {
-            transform: rotate(-90deg);
-        }
-    }
-
     .years {
         display: flex;
         flex: 1;

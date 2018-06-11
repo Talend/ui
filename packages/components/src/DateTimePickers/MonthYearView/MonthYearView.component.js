@@ -15,7 +15,6 @@ function MonthYearView(props) {
 			link
 		/>,
 		middleItem: <span className={theme.title}>Septembre 2017</span>,
-		rightItem: null,
 	};
 
 	const bodyNode = (

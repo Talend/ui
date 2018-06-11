@@ -30,7 +30,6 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
     >
         Septembre 2017
     </span>,
-      "rightItem": null,
     }
   }
 />
