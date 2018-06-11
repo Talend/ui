@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import theme from './DatePicker.scss';
 
 function DatePicker(props) {
@@ -18,23 +19,32 @@ function DatePicker(props) {
 
 	return (
 		<div className={theme.container}>
-			<div className={theme['calendar-header']}>
+			<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
 				{dayNames.map((dayName, i) =>
-					<abbr className={theme['day-item']} key={i}>{dayName}</abbr>
+					<abbr
+						className={theme['calendar-item']}
+						key={i}
+
+					>
+						{dayName}
+					</abbr>
 				)}
 			</div>
+
 			<hr className={theme.separator} />
-			<div className={theme['calendar-body']}>
-				{weeks.map((week, i) =>
-					<div className={theme.week} key={i}>
-						{week.map((day, j) =>
-							<div className={theme['day-item']} key={j}>
-								{day.number}
-							</div>
-						)}
-					</div>
-				)}
-			</div>
+
+			{weeks.map((week, i) =>
+				<div
+					className={theme['calendar-row']}
+					key={i}
+				>
+					{week.map((day, j) =>
+						<div className={theme['calendar-item']} key={j}>
+							{day.number}
+						</div>
+					)}
+				</div>
+			)}
 		</div>
 	);
 }

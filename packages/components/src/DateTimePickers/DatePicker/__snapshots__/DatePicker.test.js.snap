@@ -5,40 +5,40 @@ exports[`DatePicker should render a DatePicker 1`] = `
   className="theme-container"
 >
   <div
-    className="theme-calendar-header"
+    className="theme-calendar-row theme-calendar-header-row"
   >
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       L
     </abbr>
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       M
     </abbr>
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       M
     </abbr>
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       J
     </abbr>
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       V
     </abbr>
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       S
     </abbr>
     <abbr
-      className="theme-day-item"
+      className="theme-calendar-item"
     >
       D
     </abbr>
@@ -47,163 +47,159 @@ exports[`DatePicker should render a DatePicker 1`] = `
     className="theme-separator"
   />
   <div
-    className="theme-calendar-body"
+    className="theme-calendar-row"
   >
     <div
-      className="theme-week"
+      className="theme-calendar-item"
     >
-      <div
-        className="theme-day-item"
-      >
-        1
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        2
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        3
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        4
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        5
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        6
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        7
-      </div>
+      1
     </div>
     <div
-      className="theme-week"
+      className="theme-calendar-item"
     >
-      <div
-        className="theme-day-item"
-      >
-        8
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        9
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        10
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        11
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        12
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        13
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        14
-      </div>
+      2
     </div>
     <div
-      className="theme-week"
+      className="theme-calendar-item"
     >
-      <div
-        className="theme-day-item"
-      >
-        15
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        16
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        17
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        18
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        19
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        20
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        21
-      </div>
+      3
     </div>
     <div
-      className="theme-week"
+      className="theme-calendar-item"
     >
-      <div
-        className="theme-day-item"
-      >
-        22
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        23
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        24
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        25
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        26
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        27
-      </div>
-      <div
-        className="theme-day-item"
-      >
-        28
-      </div>
+      4
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      5
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      6
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      7
+    </div>
+  </div>
+  <div
+    className="theme-calendar-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      8
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      9
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      10
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      11
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      12
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      13
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      14
+    </div>
+  </div>
+  <div
+    className="theme-calendar-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      15
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      16
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      17
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      18
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      19
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      20
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      21
+    </div>
+  </div>
+  <div
+    className="theme-calendar-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      22
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      23
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      24
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      25
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      26
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      27
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      28
     </div>
   </div>
 </div>
