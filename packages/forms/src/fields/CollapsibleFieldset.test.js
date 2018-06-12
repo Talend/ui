@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import Form from '../Form';
 
 import createCollapsibleFieldset from './CollapsibleFieldset';
@@ -53,13 +54,13 @@ describe('<CollapsibleFieldset />', () => {
 	};
 
 	it('should render', () => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Form fields={fields} data={schema}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
 			</Form>
 		);
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
 	});
 
 	it('should collapse on click on title', () => {
@@ -70,7 +71,7 @@ describe('<CollapsibleFieldset />', () => {
 			</Form>
 		);
 		wrapper.find('#root_filters_0__title_wrapper').simulate('click');
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
 	});
 
 	it('should collapse on click on toggle button', () => {
@@ -81,7 +82,7 @@ describe('<CollapsibleFieldset />', () => {
 			</Form>
 		);
 		wrapper.find('#root_filters_0__collapse').simulate('click');
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
 	});
 
 	it('should collapse on doubleClick on title bar', () => {
@@ -92,7 +93,7 @@ describe('<CollapsibleFieldset />', () => {
 			</Form>
 		);
 		wrapper.find('#root_filters_0__title_bar').simulate('doubleClick');
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
 	});
 
 	it('should handle minItems', () => {
