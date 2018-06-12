@@ -4,15 +4,17 @@
 
 import actions from './actions/';
 import actionCreator from './actionCreator';
+
+import bootstrap from './bootstrap';
+import cmfConnect from './cmfConnect';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
-import cmfConnect from './cmfConnect';
-import Inject from './Inject.component.js';
-import sagas from './sagas';
-import selectors from './selectors';
-import matchPath from './sagaRouter/matchPath';
 import expression from './expression';
 import expressions from './expressions';
+import Inject from './Inject.component.js';
+import matchPath from './sagaRouter/matchPath';
+import sagas from './sagas';
+import selectors from './selectors';
 
 // DEPRECATED APIs
 import action from './action';
@@ -31,6 +33,12 @@ import componentState from './componentState';
 
 const Dispatcher = ConnectedDispatcher;
 
+function registerInternals(context) {
+	actionCreator.register('cmf.saga.start', actions.saga.start, context);
+	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
+	expression.registerMany(expressions, context);
+}
+
 export {
 	App,
 	actions,
@@ -39,41 +47,40 @@ export {
 	Inject,
 	sagas,
 	selectors,
-	// DEPRECATED by bootstrap
+	// DEPRECATED
 	componentState,
 	getErrorMiddleware,
 	history,
 	httpMiddleware,
 	reducers,
+	registry,
+	route,
 	RegistryProvider,
 	sagaRouter,
 	store,
 	UIRouter,
 };
 
-function registerInternals(context) {
-	actionCreator.register('cmf.saga.start', actions.saga.start, context);
-	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
-	expression.registerMany(expressions, context);
-}
-
 /**
  * API exported
  * @type {Object}
  * @example
-import cmf from 'react-cmf';
-cmf.registry; cmf.route; cmf.action;
+import cmf from '@talend/react-cmf';
+cmf.actionCreator.register(...);
+cmf.connect()(MyComponent);
+cmf.actions.collections.addOrReplace(...);
  * @example
-import { App } from 'react-cmf';
- * @example
-import { Dispatcher, Icon } from 'react-cmf';
+import { Inject } from '@talend/react-cmf';
+import { Dispatcher } from '@talend/react-cmf';
+ * @see module:react-cmf/lib/api
  */
 export default {
 	action,
 	actions,
 	actionCreator,
-	cmfConnect,
+	bootstrap,
 	component,
+	connect: cmfConnect,
 	expression,
 	expressions,
 	registerInternals,
