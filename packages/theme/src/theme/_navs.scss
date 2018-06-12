@@ -2,12 +2,18 @@
 	.btn-link {
 		color: inherit;
 		border: none;
+		display: inline-block;
 
 		&:focus,
 		&:active,
 		&:hover {
 			text-decoration: none;
 			background: none;
+		}
+
+		> *,
+		> span > * {
+			vertical-align: middle;
 		}
 	}
 
@@ -49,7 +55,6 @@
 			text-overflow: ellipsis;
 			overflow: hidden;
 			white-space: nowrap;
-			justify-content: flex-start;
 
 			&.dropdown-toggle {
 				position: relative;
@@ -153,9 +158,5 @@
 		+ .tab-content {
 			padding-top: $padding-large;
 		}
-	}
-
-	> li > a > * {
-		vertical-align: middle;
 	}
 }

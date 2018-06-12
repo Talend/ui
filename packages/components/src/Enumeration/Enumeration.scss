@@ -17,7 +17,7 @@ $tc-enumeration-font-size: 1.4rem !default;
 			justify-content: flex-start;
 			min-height: auto;
 
-			.btn-link {
+			&.btn-link {
 				padding: 0 $padding-smaller;
 
 				svg {
