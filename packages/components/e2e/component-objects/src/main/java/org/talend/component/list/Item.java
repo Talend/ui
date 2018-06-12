@@ -166,12 +166,12 @@ public class Item extends Component {
                 .build()
                 .perform();
 
-        do {
-            button = driver.findElement(actionSelector);
-        } while (button.isEnabled());
-
-        wait
-                .until(elementToBeClickable(button))
-                .click();
+        // This is ugly but it's an issue we have with TooltipTrigger
+        // it creates a new DOM element on hover :/ we need to reselect the button after hover
+        button = this.driver.findElement(actionSelector);
+        if (!button.isEnabled()) {
+            button = wait.until(elementToBeClickable(actionSelector));
+        }
+        button.click();
     }
 }
