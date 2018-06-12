@@ -73,8 +73,8 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "deepmerge": "^1.5.1",
-    "immutable": "^3.8.1",
     "hoist-non-react-statics": "^1.2.0",
+    "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jsonpath": "^1.0.0",
     "lodash": "^4.17.4",
@@ -114,5 +114,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.191.0"
+  "version": "0.192.0"
 }
