@@ -56,7 +56,7 @@ const STACK_VERSION = {
 };
 
 const ADDONS = {
-	'babel-polyfill': '6.26.0',
+	'babel-polyfill': '^6.26.0',
 	'date-fns': '1.27.2',
 	'focus-outline-manager': '^1.0.2',
 	immutablediff: '0.4.4',
@@ -82,7 +82,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
-	classnames: '2.2.5',
+	classnames: '^2.2.5',
 	'd3-shape': '1.2.0',
 	keycode: '2.2.0',
 	lodash: '4.17.4',
@@ -193,6 +193,7 @@ if (program.debug) {
 
 function check(source, dep, version, category = 'dep') {
 	let safeVersion = version;
+	// force ^ in the dependencies
 	if (category === 'dep' && !version.startsWith('^')) {
 		safeVersion = `^${version}`;
 	}
