@@ -48,10 +48,10 @@ function updateClassNames(classNames, side, elements, dataAccessor, schemaProps)
 		titleBar: classNames && classNames.titleBar,
 		title: classNames && classNames.title,
 		filtersBar: classNames && classNames.filtersBar,
-		table: classnames('schema-content', classNames && classNames.table, side),
+		table: classnames('schema-content', classNames && classNames.table),
 		header: classNames && classNames.header,
 		body: classNames && classNames.body,
-		row: classnames(classNames && classNames.row, side, 'draggable-row'),
+		row: classnames(classNames && classNames.row, 'draggable-row'),
 		rows: getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps),
 	};
 }
@@ -135,14 +135,13 @@ class ColumnUpdater {
 		this.selectionHandler.update(schemaProps);
 	}
 
-	updateHeadClassName(column) {
-		// specific header className added for data-mapper context
+	updateClassNameWithIO(className) {
+		// specific input/output className added for data-mapper context
 		const classes = {
 			input: this.schemaProps.side === Constants.MappingSide.INPUT,
 			output: this.schemaProps.side === Constants.MappingSide.OUTPUT,
 		};
-		classes[column.key] = true;
-		return `${column.headClassName} ${classnames(classes)}`;
+		return classnames(classes, className);
 	}
 
 	addDnd(column) {
@@ -167,7 +166,8 @@ class ColumnUpdater {
 		const columnsWithDnd = copyColumns(columns);
 		// update columns classnames
 		for (let i = 0; i < columnsWithDnd.length; i += 1) {
-			columnsWithDnd[i].headClassName = this.updateHeadClassName(columnsWithDnd[i]);
+			columnsWithDnd[i].headClassName = this.updateClassNameWithIO(columnsWithDnd[i].headClassName);
+			columnsWithDnd[i].cellClassName = this.updateClassNameWithIO(columnsWithDnd[i].cellClassName);
 		}
 		// add dnd baheviour on the first column
 		this.addDnd(columnsWithDnd[0]);
@@ -259,8 +259,9 @@ export default class TableRenderer extends Component {
 
 	getChildOffsetTop(child) {
 		const childOffsetTop = child.offsetTop;
+		const bodyOffsetTop = this.renderingListener.getBodyNode().offsetTop;
 		const tableOffsetTop = this.renderingListener.getTableNode().offsetTop;
-		return childOffsetTop + tableOffsetTop;
+		return childOffsetTop;
 	}
 
 	getOffsetHeight() {

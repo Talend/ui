@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as Constants from '../Constants';
+import classnames from 'classnames';
 import TableRenderer from './TableRenderer';
+import theme from './Schema.scss';
+import * as Constants from '../Constants';
 
 function isMapped(dataAccessor, element, mappedElements) {
 	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);
@@ -221,6 +223,7 @@ export default class Schema extends Component {
 			isHighlighted,
 			onScroll: this.onContentScroll,
 		};
+		const className = classnames();
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<TableRenderer

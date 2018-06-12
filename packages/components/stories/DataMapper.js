@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import {
 	DataAccessorWithUndoRedo,
@@ -288,16 +289,18 @@ const schemaDataAccessor = {
 	},
 };
 
-const mapperClassNames = {
-	root: 'mapper-table-container',
-	titleBar: 'mapper-table-title-bar',
-	title: 'mapper-table-title',
-	filtersBar: 'mapper-table-filters-bar',
-	table: 'mapper-table',
-	header: 'mapper-table-header',
-	body: 'mapper-table-body',
-	row: 'mapper-table-row',
-};
+function getMapperClassNames(side) {
+	return {
+		root: classnames('mapper-table-container', side),
+		titleBar: classnames('mapper-table-title-bar', side),
+		title: classnames('mapper-table-title', side),
+		filtersBar: classnames('mapper-table-filters-bar', side),
+		table: classnames('mapper-table', side),
+		header: classnames('mapper-table-header', side),
+		body: classnames('mapper-table-body', side),
+		row: classnames('mapper-table-row', side),
+	};
+}
 
 const sorterIcons = {
 	none: null,
@@ -309,6 +312,8 @@ function newColumn(col) {
 	return {
 		key: col.key,
 		label: col.label,
+		headClassName: `tc-table-head-label-${col.key}`,
+		cellClassName: `tc-table-row-data-${col.key}`,
 	};
 }
 
@@ -341,12 +346,12 @@ const nameFilterExtra = {
 	navbar: true,
 };
 
-function createNameFilter() {
+function createNameFilter(side) {
 	return FilterFactory.createRegexpFilter(
 		nameFilterId,
 		Columns.NAME.key,
 		false,
-		nameFilterId,
+		classnames(nameFilterId, side),
 		nameFilterExtra,
 	);
 }
@@ -356,22 +361,25 @@ const mandatoryFieldFilterExtra = {
 	label: 'Show Mandatory Fields (*) Only',
 };
 
-function createMandatoryFieldFilter() {
+function createMandatoryFieldFilter(side) {
 	return FilterFactory.createBooleanFilter(
 		mandatoryFieldFilterId,
 		Columns.MANDATORY.key,
 		false,
-		mandatoryFieldFilterId,
+		classnames(mandatoryFieldFilterId, side),
 		mandatoryFieldFilterExtra,
 	);
 }
 
 function createInputFilters() {
-	return [createNameFilter()];
+	return [createNameFilter(Constants.MappingSide.INPUT)];
 }
 
 function createOutputFilters() {
-	return [createNameFilter(), createMandatoryFieldFilter()];
+	return [
+		createNameFilter(Constants.MappingSide.OUTPUT),
+		createMandatoryFieldFilter(Constants.MappingSide.OUTPUT),
+	];
 }
 
 const autoMapping = [];
@@ -465,7 +473,7 @@ const alternativePrefs = prefs(true, defaultGradientStops50, defaultGradientStop
 const input = {
 	schema: finalizeSchema(inputSchemaUX),
 	columns: inputColumns,
-	classNames: mapperClassNames,
+	classNames: getMapperClassNames(Constants.MappingSide.INPUT),
 	withTitle: true,
 	withHeader: true,
 	filters: createInputFilters(),
@@ -474,7 +482,7 @@ const input = {
 const output = {
 	schema: finalizeSchema(outputSchemaUX),
 	columns: outputColumns,
-	classNames: mapperClassNames,
+	classNames: getMapperClassNames(Constants.MappingSide.OUTPUT),
 	withTitle: true,
 	withHeader: true,
 	filters: createOutputFilters(),
@@ -1368,13 +1376,18 @@ class ConnectedDataMapper extends React.Component {
 					this.state.dataAccessor.sort(schema);
 					break;
 				case SortOrder.DESCENDING:
-					sorter.setOrder(SortOrder.ASCENDING);
+					sorter.setOrder(SortOrder.NONE);
 					this.state.dataAccessor.clearSorter(schema);
 					break;
 				default:
 					break;
 			}
 		} else {
+			const activeSorter = this.state.dataAccessor.getSorter(schema);
+			if (activeSorter) {
+				activeSorter.setOrder(SortOrder.NONE);
+			}
+			sorter.setOrder(SortOrder.ASCENDING);
 			this.state.dataAccessor.setSorter(schema, sorter);
 		}
 		if (this.state.dataAccessor.hasSorter(schema)) {
@@ -1396,11 +1409,6 @@ class ConnectedDataMapper extends React.Component {
 				status: Constants.StateStatus.SORT,
 			});
 		}
-	}
-
-	isSorterActive(sorter, side) {
-		const schema = getSchema(this.state, side);
-		return this.state.dataAccessor.isActiveSorter(schema, sorter);
 	}
 
 	getMainAction(actionId) {

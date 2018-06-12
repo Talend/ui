@@ -489,14 +489,14 @@ export default class Mapper extends Component {
 	getConnections(onlyDndInProgress) {
 		const {
 			dataAccessor,
-			inputSchema,
-			outputSchema,
 			selection,
 			pendingItem,
 			focused,
 			preferences,
 			dnd,
 		} = this.props;
+		const inputSchema = this.props.input.schema;
+		const outputSchema = this.props.output.schema;
 
 		if (onlyDndInProgress) {
 			return this.getDnDInProgressConnection(dnd);
