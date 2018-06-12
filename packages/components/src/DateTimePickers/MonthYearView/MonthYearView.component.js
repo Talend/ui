@@ -12,8 +12,9 @@ function MonthYearView(props) {
 		leftNode: <Action
 			icon="talend-arrow-left"
 			link
+			className={theme['action-left']}
 		/>,
-		middleNode: <span className={theme.title}>Septembre 2017</span>,
+		middleNode: <span className={theme['action-middle']}>Septembre 2017</span>,
 	};
 
 	const bodyNode = (
