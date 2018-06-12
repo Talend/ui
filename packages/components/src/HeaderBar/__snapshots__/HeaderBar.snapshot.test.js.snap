@@ -683,13 +683,9 @@ exports[`Storyshots HeaderBar default 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -878,25 +874,21 @@ exports[`Storyshots HeaderBar default 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -1314,13 +1306,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -1557,25 +1545,21 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -1993,13 +1977,9 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -2121,25 +2101,21 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-environment"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-environment"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-environment"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                Default
-              </span>
+              <use
+                xlinkHref="#talend-environment"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              Default
             </span>
              
             <span
@@ -2257,25 +2233,21 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -2693,13 +2665,9 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -2888,25 +2856,21 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -3324,13 +3288,9 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -3519,25 +3479,21 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -3955,13 +3911,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -4176,25 +4128,21 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -4612,13 +4560,9 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -4835,25 +4779,21 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -5271,13 +5211,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -5486,25 +5422,21 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -5922,13 +5854,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -6470,25 +6398,21 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -6906,13 +6830,9 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -7129,25 +7049,21 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -7651,25 +7567,21 @@ exports[`Storyshots HeaderBar without products 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -8087,13 +7999,9 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -8285,21 +8193,17 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-info-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-info-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-info-circle"
-                />
-              </svg>
-            </span>
+              <use
+                xlinkHref="#talend-info-circle"
+              />
+            </svg>
           </button>
           <ul
             aria-labelledby="header-info"
@@ -8750,13 +8654,9 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -8945,25 +8845,21 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -9393,13 +9289,9 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -9588,25 +9480,21 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -10036,13 +9924,9 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -10231,25 +10115,21 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -10679,13 +10559,9 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -10874,25 +10750,21 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -11322,13 +11194,9 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -11517,25 +11385,21 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -11965,13 +11829,9 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -12160,25 +12020,21 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -12608,13 +12464,9 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -12803,25 +12655,21 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span

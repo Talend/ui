@@ -13230,13 +13230,12 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                           pullRight={true}
                           role="button"
                           title={
-                            <span
-                              className="tc-dropdown-button-title"
-                            >
+                            Array [
                               <Icon
                                 name="talend-download"
-                              />
-                            </span>
+                            />,
+                              null,
+                            ]
                           }
                         >
                           <Uncontrolled(Dropdown)
@@ -13324,25 +13323,22 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         role="button"
                                         type="button"
                                       >
-                                        <span
-                                          className="tc-dropdown-button-title"
+                                        <Icon
+                                          key="icon"
+                                          name="talend-download"
                                         >
-                                          <Icon
+                                          <svg
+                                            aria-hidden="true"
+                                            className="theme-tc-svg-icon tc-svg-icon"
+                                            focusable="false"
                                             name="talend-download"
+                                            title={null}
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-download"
-                                              title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-download"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </span>
+                                            <use
+                                              xlinkHref="#talend-download"
+                                            />
+                                          </svg>
+                                        </Icon>
                                       </button>
                                     </Button>
                                   </DropdownToggle>
@@ -16272,13 +16268,12 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           pullRight={true}
                           role="button"
                           title={
-                            <span
-                              className="tc-dropdown-button-title"
-                            >
+                            Array [
                               <Icon
                                 name="talend-download"
-                              />
-                            </span>
+                            />,
+                              null,
+                            ]
                           }
                         >
                           <Uncontrolled(Dropdown)
@@ -16363,25 +16358,22 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         role="button"
                                         type="button"
                                       >
-                                        <span
-                                          className="tc-dropdown-button-title"
+                                        <Icon
+                                          key="icon"
+                                          name="talend-download"
                                         >
-                                          <Icon
+                                          <svg
+                                            aria-hidden="true"
+                                            className="theme-tc-svg-icon tc-svg-icon"
+                                            focusable="false"
                                             name="talend-download"
+                                            title={null}
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-download"
-                                              title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-download"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </span>
+                                            <use
+                                              xlinkHref="#talend-download"
+                                            />
+                                          </svg>
+                                        </Icon>
                                       </button>
                                     </Button>
                                   </DropdownToggle>
