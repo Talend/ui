@@ -11,7 +11,6 @@ function MonthYearView(props) {
 	const header = {
 		leftNode: <Action
 			icon="talend-arrow-left"
-			hideLabel
 			link
 		/>,
 		middleNode: <span className={theme.title}>Septembre 2017</span>,
