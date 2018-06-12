@@ -24,7 +24,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
+  68:8  error  Expected indentation of 6 tab characters but found 7  react/jsx-indent
+  78:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
 ✖ 10 problems (10 errors, 0 warnings)
 
