@@ -1,3 +1,4 @@
+@import '../common';
 
 .container {
     height: 100%;
@@ -38,12 +39,11 @@
                 border-radius: 50%;
 
                 &:hover {
-                    background-color: $concrete;
+                    @include hover;
                 }
 
                 &:disabled {
-                    color: $silver-chalice;
-                    background-color: transparent;
+                    @include disabled;
                 }
             }
 
@@ -52,8 +52,7 @@
             }
 
             &.active .calendar-day-action {
-                background-color: $scooter;
-                color: $white;
+                @include active;
             }
         }
     }

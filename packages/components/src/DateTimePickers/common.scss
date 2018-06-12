@@ -1,0 +1,14 @@
+
+@mixin hover {
+    background-color: $concrete;
+}
+
+@mixin active {
+    background-color: $scooter;
+    color: $white;
+}
+
+@mixin disabled {
+    color: $silver-chalice;
+    background-color: transparent;
+}
