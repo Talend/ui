@@ -1,5 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Items from './Items.component';
 
 jest.mock('../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -49,21 +50,9 @@ describe('Items', () => {
 
 		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';
 
-		function createNodeMock(element) {
-			if (element.type === 'input') {
-				return {};
-			}
-			return null;
-		}
-		const rendererOptions = { createNodeMock };
-
-		// when
-		const wrapper = renderer.create(
-			<Items {...props} />,
-			rendererOptions
-		).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(
+			<Items {...props} />
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

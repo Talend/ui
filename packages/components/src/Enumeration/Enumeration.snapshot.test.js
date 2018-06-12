@@ -1,5 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Enumeration from './Enumeration.component';
 
 jest.mock('../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -14,10 +15,10 @@ describe('Enumeration', () => {
 			headerInput: [],
 			headerDefault: [],
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with EmptyListPlaceholder in search mode when there\'s no items in list', () => {
@@ -27,10 +28,10 @@ describe('Enumeration', () => {
 			headerInput: [],
 			headerDefault: [],
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in default state, list in default state and required component', () => {
@@ -92,10 +93,10 @@ describe('Enumeration', () => {
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header without items', () => {
@@ -156,10 +157,10 @@ describe('Enumeration', () => {
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in add state and list in default state', () => {
@@ -221,10 +222,10 @@ describe('Enumeration', () => {
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in search state and list in default state', () => {
@@ -293,10 +294,10 @@ describe('Enumeration', () => {
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in default state and first item in edit mode, validate button disabled is disabled', () => {
@@ -369,21 +370,10 @@ describe('Enumeration', () => {
 		};
 		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';
 
-		function createNodeMock(element) {
-			if (element.type === 'input') {
-				return {};
-			}
-			return null;
-		}
-
-		const rendererOptions = { createNodeMock };
-
-		// when
-		const wrapper = renderer.create(
-			<Enumeration {...props} />,
-			rendererOptions
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(
+			<Enumeration {...props} />
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in selected state with trash icon, and two items in selected mode', () => {
@@ -451,21 +441,10 @@ describe('Enumeration', () => {
 		props.items[0].isSelected = true;
 		props.items[1].isSelected = true;
 
-		function createNodeMock(element) {
-			if (element.type === 'input') {
-				return {};
-			}
-			return null;
-		}
-
-		const rendererOptions = { createNodeMock };
-
-		// when
-		const wrapper = renderer.create(
-			<Enumeration {...props} />,
-			rendererOptions
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(
+			<Enumeration {...props} />
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in selected state with trash icon, and two items in selected mode with checkboxes', () => {
@@ -534,21 +513,10 @@ describe('Enumeration', () => {
 		props.items[0].isSelected = true;
 		props.items[1].isSelected = true;
 
-		function createNodeMock(element) {
-			if (element.type === 'input') {
-				return {};
-			}
-			return null;
-		}
-
-		const rendererOptions = { createNodeMock };
-
-		// when
-		const wrapper = renderer.create(
-			<Enumeration {...props} />,
-			rendererOptions
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(
+			<Enumeration {...props} />
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with header in default state with custom label', () => {
@@ -611,9 +579,9 @@ describe('Enumeration', () => {
 			onAddKeyDown: jest.fn(), // no click callback
 			label: 'Users',
 		};
-		const wrapper = renderer.create(
+		const wrapper = mount(
 			<Enumeration {...props} />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });
