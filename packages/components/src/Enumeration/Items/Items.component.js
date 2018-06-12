@@ -33,19 +33,18 @@ class Items extends React.PureComponent {
 
 		switch (item.displayMode) {
 			case DISPLAY_MODE_EDIT: {
-				const itemPropsEdit = {
+				itemWithIndex.itemProps = {
 					key: this.props.itemsProp.key,
 					actions: this.props.itemsProp.actionsEdit,
 					onSubmitItem: this.props.itemsProp.onSubmitItem,
 					onAbortItem: this.props.itemsProp.onAbortItem,
 					onChangeItem: this.props.itemsProp.onChangeItem,
 				};
-				itemWithIndex.itemProps = itemPropsEdit;
 
 				return (
 					<ItemEdit
 						key={`${index}-item`}
-						id={`${index}-item`}
+						id={`${this.props.id}-${index}-item`}
 						item={itemWithIndex}
 						currentEdit={this.props.currentEdit}
 						style={style}
@@ -63,7 +62,7 @@ class Items extends React.PureComponent {
 				return (
 					<Item
 						key={`${index}-item`}
-						id={`${index}-item`}
+						id={`${this.props.id}-${index}-item`}
 						item={itemWithIndex}
 						itemProps={itemPropDefault}
 						searchCriteria={this.props.searchCriteria}
@@ -136,6 +135,7 @@ class Items extends React.PureComponent {
 }
 
 Items.propTypes = {
+	id: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 	})),

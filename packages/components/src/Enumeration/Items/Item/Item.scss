@@ -3,7 +3,6 @@ $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-item-height: 3.3rem !default;
 
-$tc-enumeration-item-error-background-color: white !default;
 $tc-enumeration-item-error-color: red !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
@@ -21,6 +20,10 @@ $item-checkbox-size: 20px;
 	text-align: left;
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
+
+	&.has-error {
+		border-bottom: none;
+	}
 
 	:global(button:disabled) {
 		height: $tc-enumeration-item-height;
@@ -89,7 +92,6 @@ $item-checkbox-size: 20px;
 		font-size: 12px;
 		position: absolute;
 		top: calc(100% - #{$padding-small});
-		background-color: $tc-enumeration-item-error-background-color;
 		width: 100%;
 		color: $tc-enumeration-item-error-color;
 		padding: $tc-enumeration-item-error-padding;

@@ -29,7 +29,7 @@ function enumerationClasses() {
 
 function Enumeration(props) {
 	return (
-		<div className={enumerationClasses()}>
+		<div id={props.id} className={enumerationClasses()}>
 			<HeaderEnumeration {...props} />
 			<ItemsEnumeration {...props} />
 		</div>
@@ -38,6 +38,9 @@ function Enumeration(props) {
 
 Enumeration.displayName = 'Enumeration';
 
+Enumeration.defaultProps = {
+	id: 'tc-enumeration',
+};
 Enumeration.propTypes = {
 	displayMode: PropTypes.oneOf([
 		DISPLAY_MODE_DEFAULT,
@@ -52,6 +55,7 @@ Enumeration.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
+	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			values: PropTypes.arrayOf(PropTypes.string),
@@ -105,6 +109,7 @@ function ItemsEnumeration(props) {
 	if (props.items.length > 0) {
 		return (
 			<Items
+				id={props.id}
 				items={props.items}
 				itemsProp={props.itemsProp}
 				currentEdit={props.currentEdit}
@@ -117,6 +122,7 @@ function ItemsEnumeration(props) {
 }
 
 ItemsEnumeration.propTypes = {
+	id: Enumeration.propTypes.id,
 	items: Enumeration.propTypes.items,
 	itemsProp: Enumeration.propTypes.itemsProp,
 	searchCriteria: Enumeration.propTypes.searchCriteria,
@@ -133,6 +139,7 @@ function HeaderEnumeration({
 	headerInput,
 	headerDefault,
 	headerSelected,
+	id,
 	items,
 	required,
 	inputValue,
@@ -147,8 +154,10 @@ function HeaderEnumeration({
 				onInputChange,
 				onAddKeyDown,
 				headerError,
+				id: `${id}_search`,
 				inputRef,
 				inputPlaceholder: t('ENUMERATION_PLACEHOLDER_SEARCH', { defaultValue: 'Search' }),
+				inputLabel: t('ENUMERATION_SEARCH_LABEL', { defaultValue: 'Enter search term' }),
 			};
 			return <HeaderInput {...propsInput} />;
 		}
@@ -158,9 +167,11 @@ function HeaderEnumeration({
 				onInputChange,
 				onAddKeyDown,
 				headerError,
+				id: `${id}_add`,
 				inputRef,
 				value: inputValue,
 				inputPlaceholder: t('ENUMERATION_NEW_ENTRY', { defaultValue: 'New entry' }),
+				inputLabel: t('ENUMERATION_NEW_ENTRY_LABEL', { defaultValue: 'Enter new entry name' }),
 			};
 			return <HeaderInput {...propsInput} />;
 		}
@@ -193,6 +204,7 @@ HeaderEnumeration.propTypes = {
 	headerSelected: Enumeration.propTypes.headerSelected,
 	onInputChange: Enumeration.propTypes.onInputChange,
 	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
+	id: Enumeration.propTypes.id,
 	items: Enumeration.propTypes.items,
 	required: Enumeration.propTypes.required,
 	inputValue: Enumeration.propTypes.inputValue,
