@@ -13,31 +13,31 @@ exports[`YearPicker should render a YearPicker 1`] = `
   <div
     className="theme-years"
   >
-    <div
+    <Translate(ActionButton)
       className="theme-year"
-    >
-      2010
-    </div>
-    <div
+      label={2010}
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-year"
-    >
-      2011
-    </div>
-    <div
+      label={2011}
+      link={true}
+    />
+    <Translate(ActionButton)
+      className="theme-year theme-active"
+      label={2012}
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-year"
-    >
-      2012
-    </div>
-    <div
+      label={2013}
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-year"
-    >
-      2013
-    </div>
-    <div
-      className="theme-year"
-    >
-      2014
-    </div>
+      label={2014}
+      link={true}
+    />
   </div>
   <Translate(ActionButton)
     className="theme-action-down"

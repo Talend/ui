@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import theme from './YearPicker.scss';
 import { ActionButton } from '../../Actions';
 
@@ -15,6 +16,12 @@ function YearPicker(props) {
 		2017,
 	].slice(0, 5);
 
+	const activeYear = 2012;
+
+	function getClassIfActive(y) {
+		return activeYear === y ? theme.active : undefined;
+	}
+
 	return (
 		<div className={theme.container}>
 			<ActionButton
@@ -25,9 +32,15 @@ function YearPicker(props) {
 			/>
 			<div className={theme.years}>
 				{years.map((year, i) =>
-					<div className={theme.year} key={i} >
-						{year}
-					</div>
+					<ActionButton
+						key={i}
+						label={year}
+						link
+						className={classNames(
+							theme.year,
+							getClassIfActive(year),
+						)}
+					/>
 				)}
 			</div>
 			<ActionButton

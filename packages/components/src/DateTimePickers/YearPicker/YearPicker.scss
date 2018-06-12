@@ -17,10 +17,33 @@
         flex-direction: column;
 
         .year {
+            @include default;
             display: flex;
             flex: 1;
             justify-content: center;
             align-items: center;
+
+            span {
+                line-height: normal;
+                padding: 3px;
+            }
+
+            &:hover {
+                background-color: $gallery;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: none;
+            }
+
+            &.active {
+                background-color: transparent;
+                span {
+                    @include active;
+                }
+            }
         }
     }
 }
