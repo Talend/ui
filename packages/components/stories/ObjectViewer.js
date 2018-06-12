@@ -5,11 +5,14 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { ObjectViewer, IconsProvider } from '../src/index';
+import { ObjectViewer, Icon, IconsProvider, TooltipTrigger } from '../src/index';
 
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
+	'talend-chain': talendIcons['talend-chain'],
+	'talend-check': talendIcons['talend-check'],
+	'talend-warning': talendIcons['talend-warning'],
 };
 
 const schema = new Map();
@@ -258,6 +261,53 @@ const rootOpenedTypeHandler = {
 	onToggle: action('onToggle'),
 };
 
+const withTagOnly = (
+	<span className="label label-default" style={{ marginLeft: '10px' }}>
+		REUSE
+	</span>
+);
+
+const withTagAndLink = (
+	<span style={{ marginLeft: '10px' }}>
+		<span className="label label-info">REPLACE</span>
+		<TooltipTrigger label="link to artifact" tooltipPlacement="right">
+			<a href="">
+				<Icon name="talend-chain" style={{ marginLeft: '10px', verticalAlign: 'text-bottom' }} />
+			</a>
+		</TooltipTrigger>
+	</span>
+);
+
+const withInfo = (
+	<span style={{ marginLeft: '10px', color: '#f0ad4e' }}>
+		<Icon name="talend-warning" style={{ verticalAlign: 'text-bottom' }} />
+		<span style={{ verticalAlign: 'text-bottom' }}>
+			Command has been executed but with warnings
+		</span>
+	</span>
+);
+
+const handlerTags = {
+	edited: ["$[0]['int']"],
+	opened: ['$', '$[0]', "$[0]['attributes']"],
+	tagged: {
+		'$[0]': withTagOnly,
+		"$[0]['attributes']": withTagAndLink,
+		"$[0]['name']": withTagAndLink,
+		"$[0]['rating']": withInfo,
+		"$[0]['null_value']": withTagOnly,
+		"$[0]['location']": withInfo,
+	},
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
+		selectedJsonpath = jsonpath;
+		action('onSelect');
+	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+	onToggle: action('onToggle'),
+};
+
 const stories = storiesOf('ObjectViewer', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
@@ -328,6 +378,14 @@ stories
 			/>
 		</div>
 	))
+	.addWithInfo('tree with injected elements', () => {
+		return (
+			<div>
+				<IconsProvider defaultIcons={icons} />
+				<ObjectViewer data={data} {...handlerTags} />
+			</div>
+		);
+	})
 	.addWithInfo('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
