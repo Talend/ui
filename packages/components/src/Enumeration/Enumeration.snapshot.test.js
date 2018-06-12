@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Enumeration from './Enumeration.component';
 import toJsonWithoutI18n from '../../test/props-without-i18n';
