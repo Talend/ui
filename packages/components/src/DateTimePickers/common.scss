@@ -15,6 +15,7 @@ $border-default: 1px solid $gallery;
 @mixin nav-action-default($icon-size) {
     color: $silver;
     font-weight: 600;
+    padding: 0;
 
     &:global(.btn):hover {
         color: $scooter;
