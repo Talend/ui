@@ -18,38 +18,13 @@
 
     .month {
         @include main;
-        display: flex;
         flex: 1;
-        align-items: center;
-        justify-content: center;
         border-right: $border-default;
-        padding: 0;
-
-        span {
-            padding: 3px;
-            line-height: normal;
-        }
 
         &:last-child {
             border-right: none;
         }
 
-        &:hover {
-            background-color: $gallery;
-        }
-
-        &:hover,
-        &:focus,
-        &:active {
-            text-decoration: none;
-        }
-
-        &.active {
-            background-color: transparent;
-            span {
-                @include picker-action-active;
-            }
-        }
-
+        @include month-year-action;
     }
 }
