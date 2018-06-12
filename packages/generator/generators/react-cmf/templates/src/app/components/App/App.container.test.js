@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Provider, store } from '@talend/react-cmf/lib/mock';
-import { Map } from 'immutable';
+import mock from '@talend/react-cmf/lib/mock';
 
 import App from './App.container';
 
@@ -15,16 +14,13 @@ describe('App container', () => {
 	it('should render', () => {
 		// given
 		// get the CMF state mock and inject your mock in it
-		const state = store.state();
-		state.cmf.components = new Map();
+		const context = mock.context();
 
 		// when
 		// wrap your container with CMF Provider mock, injecting your state mock
 		const wrapper = shallow(
-			<Provider state={state}>
-				<App />
-			</Provider>,
-		);
+			<App />
+		, { context });
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
