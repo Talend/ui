@@ -1,9 +1,9 @@
 {
   "name": "@talend/i18n-scripts",
   "version": "0.1.0",
-  "description": "Download i18n locales for current version of package",
+  "description": "Scripts related to i18n",
   "bin": {
-    "download-locales": "./download-locales/index.js"
+    "get-ui-locales": "./get-ui-locales/index.js"
   },
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/i18n-scripts#readme",
@@ -16,6 +16,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "commander": "^2.15.1",
     "download": "^7.0.0"
   }
 }
