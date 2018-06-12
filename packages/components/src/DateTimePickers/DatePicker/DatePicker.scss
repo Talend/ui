@@ -1,12 +1,11 @@
 @import '../common';
 
 .container {
+    @include default;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    color: $dove-gray;
-    font-weight: 600;
 
     .calendar-row {
         display: flex;

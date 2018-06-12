@@ -1,4 +1,9 @@
 
+@mixin default {
+    color: $dove-gray;
+    font-weight: 600;
+}
+
 @mixin hover {
     background-color: $concrete;
 }
