@@ -1,4 +1,6 @@
 
+$border-default: 1px solid $gallery;
+
 @mixin default {
     color: $dove-gray;
     font-weight: 600;

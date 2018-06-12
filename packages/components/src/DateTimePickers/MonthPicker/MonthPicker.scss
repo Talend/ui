@@ -1,4 +1,6 @@
 
+@import '../common';
+
 .container {
     display: flex;
     flex-direction: column;
@@ -7,7 +9,7 @@
     .row {
         display: flex;
         flex: 1;
-        border-bottom: 1px solid grey;
+        border-bottom: $border-default;
 
         &:last-child {
             border-bottom: none;
@@ -19,7 +21,7 @@
         flex: 1;
         align-items: center;
         justify-content: center;
-        border-right: 1px solid grey;
+        border-right: $border-default;
 
         &:last-child {
             border-right: none;

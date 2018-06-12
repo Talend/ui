@@ -20,7 +20,7 @@
 
     .separator {
         width: calc(100% - 20px);
-        border-color: $gallery;
+        border-bottom: $border-default;
         margin: 0 auto;
     }
 

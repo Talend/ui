@@ -15,6 +15,7 @@
 
 .body {
     display: flex;
+    border-top: $border-default;
 
     .month {
         flex: 3;
@@ -22,5 +23,6 @@
 
     .year {
         flex: 1;
+        border-left: $border-default;
     }
 }
