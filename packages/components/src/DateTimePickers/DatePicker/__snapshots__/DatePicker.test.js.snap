@@ -47,159 +47,299 @@ exports[`DatePicker should render a DatePicker 1`] = `
     className="theme-separator"
   />
   <div
-    className="theme-calendar-row"
+    className="theme-calendar-row theme-calendar-body-row"
   >
     <div
       className="theme-calendar-item"
     >
-      1
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        1
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      2
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        2
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      3
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        3
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      4
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        4
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      5
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        5
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      6
+      <button
+        className="theme-calendar-day-action"
+        disabled={true}
+      >
+        6
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      7
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        7
+      </button>
     </div>
   </div>
   <div
-    className="theme-calendar-row"
+    className="theme-calendar-row theme-calendar-body-row"
   >
     <div
       className="theme-calendar-item"
     >
-      8
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        8
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      9
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        9
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      10
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        10
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      11
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        11
+      </button>
+    </div>
+    <div
+      className="theme-calendar-item theme-active"
+    >
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        12
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      12
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        13
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      13
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      14
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        14
+      </button>
     </div>
   </div>
   <div
-    className="theme-calendar-row"
+    className="theme-calendar-row theme-calendar-body-row"
   >
     <div
       className="theme-calendar-item"
     >
-      15
+      <button
+        className="theme-calendar-day-action"
+        disabled={true}
+      >
+        15
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      16
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        16
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      17
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        17
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      18
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        18
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      19
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        19
+      </button>
+    </div>
+    <div
+      className="theme-calendar-item theme-today"
+    >
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        20
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      20
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      21
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        21
+      </button>
     </div>
   </div>
   <div
-    className="theme-calendar-row"
+    className="theme-calendar-row theme-calendar-body-row"
   >
     <div
       className="theme-calendar-item"
     >
-      22
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        22
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      23
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        23
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      24
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        24
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      25
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        25
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      26
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        26
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      27
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        27
+      </button>
     </div>
     <div
       className="theme-calendar-item"
     >
-      28
+      <button
+        className="theme-calendar-day-action"
+        disabled={false}
+      >
+        28
+      </button>
     </div>
   </div>
 </div>

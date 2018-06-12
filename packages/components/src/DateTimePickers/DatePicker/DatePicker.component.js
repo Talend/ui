@@ -17,6 +17,22 @@ function DatePicker(props) {
 			}))
 		);
 
+	const activeDay = 12;
+	const currentDay = 20;
+	const disabledDays = [6, 15];
+
+	function getClassIfActive(n) {
+		return activeDay === n ? theme.active : undefined;
+	}
+
+	function getClassIfCurrentDay(n) {
+		return currentDay === n ? theme.today : undefined;
+	}
+
+	function isDisabledDay(n) {
+		return disabledDays.includes(n);
+	}
+
 	return (
 		<div className={theme.container}>
 			<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
@@ -35,12 +51,24 @@ function DatePicker(props) {
 
 			{weeks.map((week, i) =>
 				<div
-					className={theme['calendar-row']}
+					className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
 					key={i}
 				>
 					{week.map((day, j) =>
-						<div className={theme['calendar-item']} key={j}>
-							{day.number}
+						<div
+							className={classNames(
+								theme['calendar-item'],
+								getClassIfActive(day.number),
+								getClassIfCurrentDay(day.number),
+							)}
+							key={j}
+						>
+							<button
+								className={theme['calendar-day-action']}
+								disabled={isDisabledDay(day.number)}
+							>
+								{day.number}
+							</button>
 						</div>
 					)}
 				</div>
