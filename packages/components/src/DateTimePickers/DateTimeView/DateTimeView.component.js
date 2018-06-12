@@ -11,15 +11,18 @@ function DateTimeView(props) {
 		leftNode: <ActionButton
 			icon="talend-chevron-left"
 			link
+			className={theme['action-left']}
 		/>,
 		middleNode: <ActionButton
 			label="Septembre 2017"
 			link
+			className={theme['action-middle']}
 		/>,
 		rightNode: <ActionButton
 			icon="talend-chevron-left"
 			iconTransform="rotate-180"
 			link
+			className={theme['action-right']}
 		/>,
 	};
 

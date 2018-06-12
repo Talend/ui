@@ -17,3 +17,12 @@
     color: $silver-chalice;
     background-color: transparent;
 }
+
+@mixin nav-default {
+    color: $silver;
+    font-weight: 600;
+}
+
+@mixin nav-hover {
+    color: $scooter;
+}
