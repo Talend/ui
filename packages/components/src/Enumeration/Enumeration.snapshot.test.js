@@ -4,12 +4,14 @@ import toJson from 'enzyme-to-json';
 import Enumeration from './Enumeration.component';
 import toJsonWithoutI18n from '../../test/props-without-i18n';
 
-jest.mock('../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
-	<div id="autoSizer">{props.children({ height: 30, width: 30 })}</div> // eslint-disable-line react/prop-types
+jest.mock(
+	'../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
 );
 
-jest.mock('../Actions/Action', () => props =>
-	<div id="ActionMock" {...props} /> // eslint-disable-line react/prop-types
+jest.mock(
+	'../Actions/Action',
+	() => props => <div id="ActionMock" {...props} />, // eslint-disable-line react/prop-types
 );
 
 describe('Enumeration', () => {
@@ -18,15 +20,19 @@ describe('Enumeration', () => {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: [],
 			headerInput: [],
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(),
-			}],
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(),
+				},
+			],
 		};
 		const wrapper = mount(<Enumeration {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('HeaderEnumeration > Header > header'))).toMatchSnapshot();
+		expect(
+			toJsonWithoutI18n(wrapper.find('HeaderEnumeration > Header > header')),
+		).toMatchSnapshot();
 	});
 
 	it('should render Header in search mode', () => {
@@ -37,7 +43,9 @@ describe('Enumeration', () => {
 			headerDefault: [],
 		};
 		const wrapper = mount(<Enumeration {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderInput > header'))).toMatchSnapshot();
+		expect(
+			toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderInput > header')),
+		).toMatchSnapshot();
 	});
 
 	it('should render Header in add mode', () => {
@@ -45,23 +53,28 @@ describe('Enumeration', () => {
 			displayMode: 'DISPLAY_MODE_ADD',
 			inputPlaceholder: 'New entry',
 			headerDefault: [],
-			headerInput: [{
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(),
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(),
-			}],
+			headerInput: [
+				{
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(),
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(),
+				},
+			],
 			items: [],
 			onAddChange: jest.fn(),
 			onAddKeyDown: jest.fn(),
 		};
 		const wrapper = mount(<Enumeration {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderInput > header'))).toMatchSnapshot();
+		expect(
+			toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderInput > header')),
+		).toMatchSnapshot();
 	});
 
 	it('should render Header in add mode with error', () => {
@@ -70,37 +83,46 @@ describe('Enumeration', () => {
 			inputPlaceholder: 'New entry',
 			headerError: 'an error occurred',
 			headerDefault: [],
-			headerInput: [{
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(),
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(),
-			}],
+			headerInput: [
+				{
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(),
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(),
+				},
+			],
 			items: [],
 			onAddChange: jest.fn(),
 			onAddKeyDown: jest.fn(),
 		};
 		const wrapper = mount(<Enumeration {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderInput > header'))).toMatchSnapshot();
+		expect(
+			toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderInput > header')),
+		).toMatchSnapshot();
 	});
 
 	it('should render Header in selection mode', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_SELECTED',
 			headerDefault: [],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(),
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				getItemHeight: () => 42,
@@ -111,7 +133,9 @@ describe('Enumeration', () => {
 		props.items[1].isSelected = true;
 
 		const wrapper = mount(<Enumeration {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderSelected > header'))).toMatchSnapshot();
+		expect(
+			toJsonWithoutI18n(wrapper.find('HeaderEnumeration > HeaderSelected > header')),
+		).toMatchSnapshot();
 	});
 
 	it('should render Header with custom label', () => {
@@ -124,10 +148,12 @@ describe('Enumeration', () => {
 		};
 
 		const wrapper = mount(<Enumeration {...props} />);
-		expect(toJsonWithoutI18n(wrapper.find('HeaderEnumeration > Header > header'))).toMatchSnapshot();
+		expect(
+			toJsonWithoutI18n(wrapper.find('HeaderEnumeration > Header > header')),
+		).toMatchSnapshot();
 	});
 
-	it('should render with EmptyListPlaceholder in default mode when there\'s no items in list', () => {
+	it("should render with EmptyListPlaceholder in default mode when there's no items in list", () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: [],
@@ -138,7 +164,7 @@ describe('Enumeration', () => {
 		expect(toJsonWithoutI18n(wrapper.find('ItemsEnumeration'))).toMatchSnapshot();
 	});
 
-	it('should render with EmptyListPlaceholder in search mode when there\'s no items in list', () => {
+	it("should render with EmptyListPlaceholder in search mode when there's no items in list", () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_SEARCH',
 			items: [],
@@ -153,33 +179,40 @@ describe('Enumeration', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			required: true,
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(),
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
 				onSelectItem: jest.fn(),
 				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
-					onClick: jest.fn(),
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(),
-				}],
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(),
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(),
+					},
+				],
 			},
 			onAddChange: jest.fn(),
 			onAddKeyDown: jest.fn(),
@@ -192,34 +225,41 @@ describe('Enumeration', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			currentEdit: {},
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(),
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
 				getItemHeight: () => 42,
 				actionsDefault: [],
-				actionsEdit: [{
-					disabled: false,
-					label: 'Validate',
-					icon: 'talend-check',
-					id: 'validate',
-					onClick: jest.fn(),
-				}, {
-					disabled: false,
-					label: 'Cancel',
-					icon: 'talend-cross',
-					id: 'abort',
-					onClick: jest.fn(),
-				}],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(),
+					},
+					{
+						disabled: false,
+						label: 'Cancel',
+						icon: 'talend-cross',
+						id: 'abort',
+						onClick: jest.fn(),
+					},
+				],
 			},
 			onAddChange: jest.fn(),
 			onAddKeyDown: jest.fn(),
@@ -243,34 +283,41 @@ describe('Enumeration', () => {
 					disabled: true,
 				},
 			},
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(),
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(),
 				onAbortItem: jest.fn(),
 				getItemHeight: () => 42,
 				actionsDefault: [],
-				actionsEdit: [{
-					disabled: false,
-					label: 'Validate',
-					icon: 'talend-check',
-					id: 'validate',
-					onClick: jest.fn(),
-				}, {
-					disabled: false,
-					label: 'Cancel',
-					icon: 'talend-cross',
-					id: 'abort',
-					onClick: jest.fn(),
-				}],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(),
+					},
+					{
+						disabled: false,
+						label: 'Cancel',
+						icon: 'talend-cross',
+						id: 'abort',
+						onClick: jest.fn(),
+					},
+				],
 			},
 			onAddChange: jest.fn(),
 			onAddKeyDown: jest.fn(),
@@ -290,14 +337,18 @@ describe('Enumeration', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_SELECTED',
 			headerDefault: [],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(),
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				getItemHeight: () => 42,
@@ -319,14 +370,18 @@ describe('Enumeration', () => {
 		const props = {
 			showCheckboxes: true,
 			displayMode: 'DISPLAY_MODE_SELECTED',
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(),
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(),
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				getItemHeight: () => 42,

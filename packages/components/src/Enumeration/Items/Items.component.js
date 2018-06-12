@@ -14,7 +14,6 @@ const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const virtualizedListClassName = 'ReactVirtualized__List';
 
 class Items extends React.PureComponent {
-
 	constructor(props) {
 		super(props);
 		this.lazyLoadingTimer = null;
@@ -88,13 +87,14 @@ class Items extends React.PureComponent {
 
 		this.lazyLoadingTimer = setTimeout(() => {
 			// react-virtualized fire scroll events not to be considered
-			if (event.target.className.includes(virtualizedListClassName) &&
-				event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
+			if (
+				event.target.className.includes(virtualizedListClassName) &&
+				event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight
+			) {
 				this.props.itemsProp.onLoadData();
 			}
 		}, 500);
 	}
-
 
 	rowRenderer({
 		index, // eslint-disable-line react/prop-types
@@ -136,16 +136,15 @@ class Items extends React.PureComponent {
 
 Items.propTypes = {
 	id: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.shape({
-		values: PropTypes.arrayOf(PropTypes.string),
-	})),
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			values: PropTypes.arrayOf(PropTypes.string),
+		}),
+	),
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
-		getItemHeight: PropTypes.oneOfType([
-			PropTypes.func,
-			PropTypes.number,
-		]),
+		getItemHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		onSelectItem: PropTypes.func,

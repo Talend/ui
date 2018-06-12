@@ -9,7 +9,7 @@ $tc-enumeration-height: 40vh !default;
 	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
 	height: $tc-enumeration-height;
 
-	[role="row"]:first-child {
+	[role='row']:first-child {
 		&:hover,
 		&:global(.ally-focus-within) {
 			box-shadow: inset 0 21px 3px -20px $shadow;

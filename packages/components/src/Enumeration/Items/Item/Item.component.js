@@ -102,14 +102,17 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				role="gridcell"
 				onClick={event => onSelectItem(item, event)}
 				key={item.index}
-				aria-label={t(
-					'TC_ENUMERATION_SELECT',
-					{ defaultValue: 'Select item "{{label}}"', label: actualLabel }
-				)}
+				aria-label={t('TC_ENUMERATION_SELECT', {
+					defaultValue: 'Select item "{{label}}"',
+					label: actualLabel,
+				})}
 			>
 				{showCheckboxes && (
 					<Checkbox
-						aria-label={t('TC_ENUMERATION_CHECK', { defaultValue: 'Check item "{{label}}"', label: actualLabel })}
+						aria-label={t('TC_ENUMERATION_CHECK', {
+							defaultValue: 'Check item "{{label}}"',
+							label: actualLabel,
+						})}
 						className={classNames(theme['tc-enumeration-checkbox'], 'tc-enumeration-checkbox')}
 						checked={item.isSelected}
 					/>

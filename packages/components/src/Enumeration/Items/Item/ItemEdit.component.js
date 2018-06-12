@@ -11,35 +11,22 @@ import ItemEditPropTypes from './ItemEdit.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 function itemClasses(error) {
-	return classNames(
-		theme['tc-enumeration-item'],
-		'tc-enumeration-item',
-		{
-			[theme['has-error']]: !!error,
-			'has-error': !!error,
-		},
-	);
+	return classNames(theme['tc-enumeration-item'], 'tc-enumeration-item', {
+		[theme['has-error']]: !!error,
+		'has-error': !!error,
+	});
 }
 
 function itemErrorClasses() {
-	return classNames(
-		theme['tc-enumeration-item-error'],
-		'tc-enumeration-item-error',
-	);
+	return classNames(theme['tc-enumeration-item-error'], 'tc-enumeration-item-error');
 }
 
 function itemLabelClasses() {
-	return classNames(
-		theme['tc-enumeration-item-label'],
-		'tc-enumeration-item-label',
-	);
+	return classNames(theme['tc-enumeration-item-label'], 'tc-enumeration-item-label');
 }
 
 function itemEditActionsClasses() {
-	return classNames(
-		theme['tc-enumeration-item-actions'],
-		'tc-enumeration-item-actions',
-	);
+	return classNames(theme['tc-enumeration-item-actions'], 'tc-enumeration-item-actions');
 }
 
 class ItemEdit extends React.Component {
@@ -137,14 +124,16 @@ class ItemEdit extends React.Component {
 
 		const errorId = `${this.props.id}-error`;
 		return (
-			<div role="row" className={itemClasses(this.props.item.error)} id={this.props.id} style={this.props.style}>
+			<div
+				role="row"
+				className={itemClasses(this.props.item.error)}
+				id={this.props.id}
+				style={this.props.style}
+			>
 				<input
-					aria-label={
-						this.props.t(
-							'TC_ENUMERATION_EDIT_ENTRY',
-							{ defaultValue: 'Enter the new value' }
-						)
-					}
+					aria-label={this.props.t('TC_ENUMERATION_EDIT_ENTRY', {
+						defaultValue: 'Enter the new value',
+					})}
 					aria-describedby={errorId}
 					id={`${this.props.id}-input`}
 					role="gridcell"
@@ -160,15 +149,11 @@ class ItemEdit extends React.Component {
 				<div role="gridcell" className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
-				{this.props.item.error &&
-					<div
-						id={errorId}
-						className={itemErrorClasses()}
-						aria-live="assertive"
-					>
+				{this.props.item.error && (
+					<div id={errorId} className={itemErrorClasses()} aria-live="assertive">
 						{this.props.item.error}
 					</div>
-				}
+				)}
 			</div>
 		);
 	}

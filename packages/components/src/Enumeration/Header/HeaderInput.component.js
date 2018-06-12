@@ -6,11 +6,9 @@ import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
 function headerClasses(headerError) {
-	return classNames(
-		theme['tc-enumeration-header'],
-		'tc-enumeration-header',
-		{ 'has-error': !!headerError },
-	);
+	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header', {
+		'has-error': !!headerError,
+	});
 }
 
 function headerErrorClasses() {
@@ -91,15 +89,11 @@ function HeaderInput({
 				value={value}
 				autoFocus
 			/>
-			{headerError &&
-				<div
-					id={errorId}
-					className={headerErrorClasses()}
-					aria-live="assertive"
-				>
+			{headerError && (
+				<div id={errorId} className={headerErrorClasses()} aria-live="assertive">
 					{headerError}
 				</div>
-			}
+			)}
 			{headerInput.map((action, index) => getAction(action, index, getInternalInputRef.bind(this)))}
 		</header>
 	);
