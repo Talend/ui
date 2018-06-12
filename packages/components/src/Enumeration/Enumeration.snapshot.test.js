@@ -3,34 +3,31 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Enumeration from './Enumeration.component';
 
-jest.mock('../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
-	<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div> // eslint-disable-line react/prop-types
+jest.mock(
+	'../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
 );
 
 describe('Enumeration', () => {
-	it('should render with EmptyListPlaceholder in default mode when there\'s no items in list', () => {
+	it("should render with EmptyListPlaceholder in default mode when there's no items in list", () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			items: [],
 			headerInput: [],
 			headerDefault: [],
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should render with EmptyListPlaceholder in search mode when there\'s no items in list', () => {
+	it("should render with EmptyListPlaceholder in search mode when there's no items in list", () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_SEARCH',
 			items: [],
 			headerInput: [],
 			headerDefault: [],
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -38,64 +35,76 @@ describe('Enumeration', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			required: true,
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerInput: [
+				{
+					disabled: false,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(), // no click callback
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
 				onSelectItem: jest.fn(), // no click click callback
 				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
-					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
-					disabled: false,
-					label: 'Validate',
-					icon: 'talend-check',
-					id: 'validate',
-					onClick: jest.fn(), // no click callback
-				}],
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -104,29 +113,36 @@ describe('Enumeration', () => {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			inputPlaceholder: 'New entry',
 
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerInput: [
+				{
+					disabled: false,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(), // no click callback
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
 			items: [],
 			itemsProp: {
 				key: 'values',
@@ -134,32 +150,35 @@ describe('Enumeration', () => {
 				onAbortItem: jest.fn(), // no click callback
 				onSelectItem: jest.fn(), // no click click callback
 				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
-					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
-					disabled: false,
-					label: 'Validate',
-					icon: 'talend-check',
-					id: 'validate',
-					onClick: jest.fn(), // no click callback
-				}],
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -168,63 +187,75 @@ describe('Enumeration', () => {
 			displayMode: 'DISPLAY_MODE_ADD',
 			inputPlaceholder: 'New entry',
 
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
-			itemsProp: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // no click callback
-				onAbortItem: jest.fn(), // no click callback
-				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
 					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
+				},
+			],
+			headerInput: [
+				{
 					disabled: false,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				}],
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: jest.fn(), // no click callback
+				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -234,69 +265,83 @@ describe('Enumeration', () => {
 			searchCriteria: 'lorem',
 			inputPlaceholder: 'search',
 
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			searchInput: [{
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
-			itemsProp: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // no click callback
-				onAbortItem: jest.fn(), // no click callback
-				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
 					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
+				},
+			],
+			headerInput: [
+				{
 					disabled: false,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				}],
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			searchInput: [
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: jest.fn(), // no click callback
+				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -308,71 +353,84 @@ describe('Enumeration', () => {
 					disabled: true,
 				},
 			},
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
-			itemsProp: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // no click callback
-				onAbortItem: jest.fn(), // no click callback
-				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
 					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
+				},
+			],
+			headerInput: [
+				{
 					disabled: false,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				}, {
-					disabled: false,
-					label: 'Cancel',
+				},
+				{
+					label: 'Abort',
 					icon: 'talend-cross',
 					id: 'abort',
 					onClick: jest.fn(), // no click callback
-				}],
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: jest.fn(), // no click callback
+				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						disabled: false,
+						label: 'Cancel',
+						icon: 'talend-cross',
+						id: 'abort',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 		};
 		props.items[0].displayMode = 'DISPLAY_MODE_EDIT';
 
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -384,56 +442,70 @@ describe('Enumeration', () => {
 					disabled: false,
 				},
 			},
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
-			itemsProp: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // no click callback
-				onAbortItem: jest.fn(), // no click callback
-				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
 					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
+				},
+			],
+			headerInput: [
+				{
 					disabled: false,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				}],
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: jest.fn(), // no click callback
+				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
@@ -441,9 +513,7 @@ describe('Enumeration', () => {
 		props.items[0].isSelected = true;
 		props.items[1].isSelected = true;
 
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -456,56 +526,70 @@ describe('Enumeration', () => {
 					disabled: false,
 				},
 			},
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
-			itemsProp: {
-				key: 'values',
-				onSubmitItem: jest.fn(), // no click callback
-				onAbortItem: jest.fn(), // no click callback
-				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
 					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
+				},
+			],
+			headerInput: [
+				{
 					disabled: false,
 					label: 'Validate',
 					icon: 'talend-check',
 					id: 'validate',
 					onClick: jest.fn(), // no click callback
-				}],
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
+			itemsProp: {
+				key: 'values',
+				onSubmitItem: jest.fn(), // no click callback
+				onAbortItem: jest.fn(), // no click callback
+				getItemHeight: () => 42,
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
@@ -513,9 +597,7 @@ describe('Enumeration', () => {
 		props.items[0].isSelected = true;
 		props.items[1].isSelected = true;
 
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -523,65 +605,77 @@ describe('Enumeration', () => {
 		const props = {
 			displayMode: 'DISPLAY_MODE_DEFAULT',
 			required: true,
-			headerDefault: [{
-				label: 'Add item',
-				icon: 'talend-plus',
-				id: 'add',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // no click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // no click callback
-			}],
-			headerSelected: [{
-				label: 'Selected value',
-				id: 'select',
-				onClick: jest.fn(), // no click callback
-			}],
-			items: Array(3).fill('').map((item, index) => ({
-				values: [`Lorem ipsum dolor sit amet ${index}`],
-			})),
+			headerDefault: [
+				{
+					label: 'Add item',
+					icon: 'talend-plus',
+					id: 'add',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerInput: [
+				{
+					disabled: false,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(), // no click callback
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			headerSelected: [
+				{
+					label: 'Selected value',
+					id: 'select',
+					onClick: jest.fn(), // no click callback
+				},
+			],
+			items: Array(3)
+				.fill('')
+				.map((item, index) => ({
+					values: [`Lorem ipsum dolor sit amet ${index}`],
+				})),
 			itemsProp: {
 				key: 'values',
 				onSubmitItem: jest.fn(), // no click callback
 				onAbortItem: jest.fn(), // no click callback
 				onSelectItem: jest.fn(), // no click click callback
 				getItemHeight: () => 42,
-				actionsDefault: [{
-					disabled: false,
-					label: 'Edit',
-					icon: 'talend-pencil',
-					id: 'edit',
-					onClick: jest.fn(), // no click callback
-				}, {
-					label: 'Delete',
-					icon: 'talend-trash',
-					id: 'delete',
-					onClick: jest.fn(), // no click callback
-				}],
-				actionsEdit: [{
-					disabled: false,
-					label: 'Validate',
-					icon: 'talend-check',
-					id: 'validate',
-					onClick: jest.fn(), // no click callback
-				}],
+				actionsDefault: [
+					{
+						disabled: false,
+						label: 'Edit',
+						icon: 'talend-pencil',
+						id: 'edit',
+						onClick: jest.fn(), // no click callback
+					},
+					{
+						label: 'Delete',
+						icon: 'talend-trash',
+						id: 'delete',
+						onClick: jest.fn(), // no click callback
+					},
+				],
+				actionsEdit: [
+					{
+						disabled: false,
+						label: 'Validate',
+						icon: 'talend-check',
+						id: 'validate',
+						onClick: jest.fn(), // no click callback
+					},
+				],
 			},
 			onAddChange: jest.fn(), // no click callback
 			onAddKeyDown: jest.fn(), // no click callback
 			label: 'Users',
 		};
-		const wrapper = mount(
-			<Enumeration {...props} />
-		);
+		const wrapper = mount(<Enumeration {...props} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });
