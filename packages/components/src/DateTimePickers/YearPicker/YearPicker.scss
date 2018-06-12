@@ -8,15 +8,7 @@
 
 
     .action-up, .action-down {
-        @include nav-default;
-
-        :global(.tc-svg-icon) {
-            width: 12px;
-        }
-
-        &:global(.btn):hover {
-            @include nav-hover;
-        }
+        @include nav-action-default(12px);
     }
 
     .years {

@@ -18,11 +18,15 @@
     background-color: transparent;
 }
 
-@mixin nav-default {
+@mixin nav-action-default($icon-size) {
     color: $silver;
     font-weight: 600;
-}
 
-@mixin nav-hover {
-    color: $scooter;
+    &:global(.btn):hover {
+        color: $scooter;
+    }
+
+    :global(.tc-svg-icon) {
+        width: $icon-size;
+    }
 }

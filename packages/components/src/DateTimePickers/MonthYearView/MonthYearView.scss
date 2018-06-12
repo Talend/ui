@@ -2,15 +2,7 @@
 @import '../common';
 
 .action-left {
-    @include nav-default;
-
-    :global(.tc-svg-icon) {
-        width: 16px;
-    }
-
-    &:global(.btn):hover {
-        @include nav-hover;
-    }
+    @include nav-action-default(16px);
 }
 
 .action-middle {

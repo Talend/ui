@@ -2,21 +2,13 @@
 @import '../common';
 
 .action-left, .action-right  {
-    @include nav-default;
-    :global(.tc-svg-icon) {
-        width: 12px;
-    }
+    @include nav-action-default(12px);
 }
 
 .action-middle {
+    @include nav-action-default(null);
     @include default;
     font-size: 16px;
-}
-
-.action-left, .action-middle, .action-right {
-    &:global(.btn):hover {
-        @include nav-hover;
-    }
 }
 
 .body {
