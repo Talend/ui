@@ -7,7 +7,7 @@
 
 .action-middle {
     @include nav-action-default(null);
-    @include default;
+    @include main;
     font-size: 16px;
 }
 

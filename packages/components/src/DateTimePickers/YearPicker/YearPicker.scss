@@ -17,7 +17,7 @@
         flex-direction: column;
 
         .year {
-            @include default;
+            @include main;
             display: flex;
             flex: 1;
             justify-content: center;
@@ -41,7 +41,7 @@
             &.active {
                 background-color: transparent;
                 span {
-                    @include active;
+                    @include picker-action-active;
                 }
             }
         }

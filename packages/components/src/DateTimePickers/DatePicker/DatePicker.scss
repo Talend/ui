@@ -1,7 +1,7 @@
 @import '../common';
 
 .container {
-    @include default;
+    @include main;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -38,11 +38,12 @@
                 border-radius: 50%;
 
                 &:hover {
-                    @include hover;
+                    background-color: $concrete;
                 }
 
                 &:disabled {
-                    @include disabled;
+                    color: $silver-chalice;
+                    background-color: transparent;
                 }
             }
 
@@ -51,7 +52,7 @@
             }
 
             &.active .calendar-day-action {
-                @include active;
+                @include picker-action-active;
             }
         }
     }

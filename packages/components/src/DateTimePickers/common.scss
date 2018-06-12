@@ -1,23 +1,15 @@
 
 $border-default: 1px solid $gallery;
 
-@mixin default {
+@mixin main {
     color: $dove-gray;
     font-weight: 600;
 }
 
-@mixin hover {
-    background-color: $concrete;
-}
 
-@mixin active {
+@mixin picker-action-active {
     background-color: $scooter;
     color: $white;
-}
-
-@mixin disabled {
-    color: $silver-chalice;
-    background-color: transparent;
 }
 
 @mixin nav-action-default($icon-size) {

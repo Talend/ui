@@ -17,7 +17,7 @@
     }
 
     .month {
-        @include default;
+        @include main;
         display: flex;
         flex: 1;
         align-items: center;
@@ -47,7 +47,7 @@
         &.active {
             background-color: transparent;
             span {
-                @include active;
+                @include picker-action-active;
             }
         }
 
