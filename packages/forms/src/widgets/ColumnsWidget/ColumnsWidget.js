@@ -51,8 +51,8 @@ export default class ColumnsWidget extends React.Component {
 	}
 
 	onColumnChange(key) {
-		return change => {
-			this.props.onChange(Object.assign({}, this.props.formData, { [key]: change }));
+		return value => {
+			this.props.onChange(Object.assign({}, this.props.formData, { [key]: value }));
 		};
 	}
 
