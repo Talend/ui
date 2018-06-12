@@ -18,7 +18,7 @@ function YearPicker(props) {
 	return (
 		<div className={theme.container}>
 			<ActionButton
-				className={theme.previous}
+				className={theme['action-up']}
 				icon="talend-chevron-left"
 				iconTransform="rotate-90"
 				link
@@ -31,7 +31,7 @@ function YearPicker(props) {
 				)}
 			</div>
 			<ActionButton
-				className={theme.next}
+				className={theme['action-down']}
 				icon="talend-chevron-left"
 				iconTransform="rotate-270"
 				link

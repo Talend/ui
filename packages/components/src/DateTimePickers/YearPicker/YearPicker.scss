@@ -1,8 +1,23 @@
 
+@import '../common';
+
 .container {
     display: flex;
     flex-direction: column;
     height: 100%;
+
+
+    .action-up, .action-down {
+        @include nav-default;
+
+        :global(.tc-svg-icon) {
+            width: 12px;
+        }
+
+        &:global(.btn):hover {
+            @include nav-hover;
+        }
+    }
 
     .years {
         display: flex;
