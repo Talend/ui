@@ -25,12 +25,23 @@
         border-right: $border-default;
         padding: 0;
 
+        span {
+            padding: 3px;
+            line-height: normal;
+        }
+
         &:last-child {
             border-right: none;
         }
 
         &:hover {
             background-color: $gallery;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
         }
 
         &.active {
