@@ -165,14 +165,13 @@ public class Item extends Component {
                 .moveToElement(button)
                 .build()
                 .perform();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        do {
+            button = driver.findElement(actionSelector);
+        } while (button.isEnabled());
 
         wait
-                .until(elementToBeClickable(actionSelector))
+                .until(elementToBeClickable(button))
                 .click();
     }
 }
