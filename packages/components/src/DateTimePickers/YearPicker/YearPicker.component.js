@@ -21,7 +21,6 @@ function YearPicker(props) {
 				className={theme.previous}
 				icon="talend-chevron-left"
 				iconTransform="rotate-90"
-				hideLabel
 				link
 			/>
 			<div className={theme.years}>
@@ -35,7 +34,6 @@ function YearPicker(props) {
 				className={theme.next}
 				icon="talend-chevron-left"
 				iconTransform="rotate-270"
-				hideLabel
 				link
 			/>
 		</div>

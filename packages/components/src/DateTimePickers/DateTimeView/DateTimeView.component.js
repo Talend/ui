@@ -10,18 +10,15 @@ function DateTimeView(props) {
 	const header = {
 		leftNode: <ActionButton
 			icon="talend-chevron-left"
-			hideLabel
 			link
 		/>,
 		middleNode: <ActionButton
-			className={theme.title}
 			label="Septembre 2017"
 			link
 		/>,
 		rightNode: <ActionButton
 			icon="talend-chevron-left"
 			iconTransform="rotate-180"
-			hideLabel
 			link
 		/>,
 	};

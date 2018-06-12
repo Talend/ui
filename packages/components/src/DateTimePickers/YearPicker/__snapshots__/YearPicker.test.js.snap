@@ -6,7 +6,6 @@ exports[`YearPicker should render a YearPicker 1`] = `
 >
   <Translate(ActionButton)
     className="theme-previous"
-    hideLabel={true}
     icon="talend-chevron-left"
     iconTransform="rotate-90"
     link={true}
@@ -42,7 +41,6 @@ exports[`YearPicker should render a YearPicker 1`] = `
   </div>
   <Translate(ActionButton)
     className="theme-next"
-    hideLabel={true}
     icon="talend-chevron-left"
     iconTransform="rotate-270"
     link={true}
