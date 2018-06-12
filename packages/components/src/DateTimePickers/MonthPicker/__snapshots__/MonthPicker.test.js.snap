@@ -7,78 +7,78 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
   <div
     className="theme-row"
   >
-    <div
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Jan
-    </div>
-    <div
+      label="Janvier"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Fev
-    </div>
-    <div
+      label="Février"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Mars
-    </div>
+      label="Mars"
+      link={true}
+    />
   </div>
   <div
     className="theme-row"
   >
-    <div
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Avr
-    </div>
-    <div
+      label="Avril"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Mai
-    </div>
-    <div
+      label="Mai"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Juin
-    </div>
+      label="Juin"
+      link={true}
+    />
   </div>
   <div
     className="theme-row"
   >
-    <div
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Juil
-    </div>
-    <div
+      label="Juillet"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Aout
-    </div>
-    <div
-      className="theme-month"
-    >
-      Sept
-    </div>
+      label="Août"
+      link={true}
+    />
+    <Translate(ActionButton)
+      className="theme-month theme-active"
+      label="Septembre"
+      link={true}
+    />
   </div>
   <div
     className="theme-row"
   >
-    <div
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Oct
-    </div>
-    <div
+      label="Octobre"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Nov
-    </div>
-    <div
+      label="Novembre"
+      link={true}
+    />
+    <Translate(ActionButton)
       className="theme-month"
-    >
-      Dec
-    </div>
+      label="Décembre"
+      link={true}
+    />
   </div>
 </div>
 `;

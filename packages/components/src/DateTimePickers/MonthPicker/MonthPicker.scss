@@ -17,14 +17,28 @@
     }
 
     .month {
+        @include default;
         display: flex;
         flex: 1;
         align-items: center;
         justify-content: center;
         border-right: $border-default;
+        padding: 0;
 
         &:last-child {
             border-right: none;
         }
+
+        &:hover {
+            background-color: $gallery;
+        }
+
+        &.active {
+            background-color: transparent;
+            span {
+                @include active;
+            }
+        }
+
     }
 }
