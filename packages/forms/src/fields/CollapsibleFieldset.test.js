@@ -58,7 +58,7 @@ describe('<CollapsibleFieldset />', () => {
 			<Form fields={fields} data={schema}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
-			</Form>
+			</Form>,
 		);
 		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
 	});
@@ -68,7 +68,7 @@ describe('<CollapsibleFieldset />', () => {
 			<Form fields={fields} data={schema}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
-			</Form>
+			</Form>,
 		);
 		wrapper.find('#root_filters_0__title_wrapper').simulate('click');
 		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
@@ -79,7 +79,7 @@ describe('<CollapsibleFieldset />', () => {
 			<Form fields={fields} data={schema}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
-			</Form>
+			</Form>,
 		);
 		wrapper.find('#root_filters_0__collapse').simulate('click');
 		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
@@ -90,7 +90,7 @@ describe('<CollapsibleFieldset />', () => {
 			<Form fields={fields} data={schema}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
-			</Form>
+			</Form>,
 		);
 		wrapper.find('#root_filters_0__title_bar').simulate('doubleClick');
 		expect(toJSON(wrapper.find('CollapsibleFieldset'))).toMatchSnapshot();
@@ -101,7 +101,7 @@ describe('<CollapsibleFieldset />', () => {
 			<Form fields={fields} data={schema} ArrayFieldTemplate={ArrayFieldTemplate}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
-			</Form>
+			</Form>,
 		);
 		expect(wrapper.find("button[name='btn-delete-element-0']").prop('disabled')).toBeTruthy();
 	});
@@ -121,7 +121,7 @@ describe('<CollapsibleFieldset />', () => {
 			<Form fields={fields} data={schema} ArrayFieldTemplate={ArrayFieldTemplate}>
 				<h1>Child</h1>
 				<p>This is an inner child in the form</p>
-			</Form>
+			</Form>,
 		);
 		expect(wrapper.find("button[name='btn-new-element']").prop('disabled')).toBeTruthy();
 	});
