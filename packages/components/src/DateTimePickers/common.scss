@@ -1,4 +1,3 @@
-
 $border-default: 1px solid $gallery;
 
 @mixin main {
@@ -35,6 +34,7 @@ $border-default: 1px solid $gallery;
     justify-content: center;
     align-items: center;
     padding: 0;
+    overflow: hidden;
 
     span {
         padding: 3px;
