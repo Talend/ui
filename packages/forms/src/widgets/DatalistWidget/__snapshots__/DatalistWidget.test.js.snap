@@ -57,8 +57,12 @@ exports[`DatalistWidget should render "empty list" message 1`] = `
     }
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container"
       key="react-autowhatever-myWidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -66,9 +70,7 @@ exports[`DatalistWidget should render "empty list" message 1`] = `
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-myWidget"
+          aria-controls="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -79,16 +81,13 @@ exports[`DatalistWidget should render "empty list" message 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           required={true}
-          role="combobox"
           type="text"
           value=""
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-myWidget"
+            aria-controls="react-autowhatever-myWidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
@@ -96,7 +95,6 @@ exports[`DatalistWidget should render "empty list" message 1`] = `
             onFocus={[Function]}
             onKeyDown={[Function]}
             required={true}
-            role="combobox"
             type="text"
             value=""
           />
@@ -181,8 +179,12 @@ exports[`DatalistWidget should render "no match" message 1`] = `
     }
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container"
       key="react-autowhatever-myWidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -190,9 +192,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-myWidget"
+          aria-controls="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -203,16 +203,13 @@ exports[`DatalistWidget should render "no match" message 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           required={true}
-          role="combobox"
           type="text"
           value="noMatchingValue"
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-myWidget"
+            aria-controls="react-autowhatever-myWidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
@@ -220,7 +217,6 @@ exports[`DatalistWidget should render "no match" message 1`] = `
             onFocus={[Function]}
             onKeyDown={[Function]}
             required={true}
-            role="combobox"
             type="text"
             value="noMatchingValue"
           />
@@ -319,8 +315,12 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
     }
   >
     <div
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container theme-container-open"
       key="react-autowhatever-myWidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -328,9 +328,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={true}
-          aria-haspopup={true}
-          aria-owns="react-autowhatever-myWidget"
+          aria-controls="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -341,16 +339,13 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           required={true}
-          role="combobox"
           type="text"
           value=""
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={true}
-            aria-haspopup={true}
-            aria-owns="react-autowhatever-myWidget"
+            aria-controls="react-autowhatever-myWidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
@@ -358,7 +353,6 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             onFocus={[Function]}
             onKeyDown={[Function]}
             required={true}
-            role="combobox"
             type="text"
             value=""
           />
@@ -375,6 +369,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         className="theme-items-container"
         id="react-autowhatever-myWidget"
         key="react-autowhatever-myWidget-items-container"
+        role="listbox"
       >
         <ItemsList
           getItemId={[Function]}
@@ -412,6 +407,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             role="listbox"
           >
             <Item
+              aria-selected={false}
               id="react-autowhatever-myWidget--item-0"
               isHighlighted={false}
               item="aze"
@@ -430,6 +426,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               style={Object {}}
             >
               <li
+                aria-selected={false}
                 id="react-autowhatever-myWidget--item-0"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
@@ -452,6 +449,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               </li>
             </Item>
             <Item
+              aria-selected={false}
               id="react-autowhatever-myWidget--item-1"
               isHighlighted={false}
               item="banane"
@@ -470,6 +468,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               style={Object {}}
             >
               <li
+                aria-selected={false}
                 id="react-autowhatever-myWidget--item-1"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
@@ -492,6 +491,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               </li>
             </Item>
             <Item
+              aria-selected={false}
               id="react-autowhatever-myWidget--item-2"
               isHighlighted={false}
               item="bananAze"
@@ -510,6 +510,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               style={Object {}}
             >
               <li
+                aria-selected={false}
                 id="react-autowhatever-myWidget--item-2"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
@@ -532,6 +533,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               </li>
             </Item>
             <Item
+              aria-selected={false}
               id="react-autowhatever-myWidget--item-3"
               isHighlighted={false}
               item="   AzErTy   "
@@ -550,6 +552,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               style={Object {}}
             >
               <li
+                aria-selected={false}
                 id="react-autowhatever-myWidget--item-3"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
@@ -572,6 +575,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               </li>
             </Item>
             <Item
+              aria-selected={false}
               id="react-autowhatever-myWidget--item-4"
               isHighlighted={false}
               item="Toto"
@@ -590,6 +594,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
               style={Object {}}
             >
               <li
+                aria-selected={false}
                 id="react-autowhatever-myWidget--item-4"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
@@ -685,8 +690,12 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
     }
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container"
       key="react-autowhatever-myWidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -694,9 +703,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-myWidget"
+          aria-controls="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -707,16 +714,13 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
           onFocus={[Function]}
           onKeyDown={[Function]}
           required={true}
-          role="combobox"
           type="text"
           value="aze"
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-myWidget"
+            aria-controls="react-autowhatever-myWidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
@@ -724,7 +728,6 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
             onFocus={[Function]}
             onKeyDown={[Function]}
             required={true}
-            role="combobox"
             type="text"
             value="aze"
           />
@@ -751,7 +754,11 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
 
 exports[`DatalistWidget should render input 1`] = `
 <div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-myWidget"
   className="form-control theme-tf-typeahead-container tf-typeahead-container"
+  role="combobox"
 >
   <div
     className="theme-typeahead-input-icon"
@@ -759,9 +766,7 @@ exports[`DatalistWidget should render input 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-expanded={false}
-      aria-haspopup={false}
-      aria-owns="react-autowhatever-myWidget"
+      aria-controls="react-autowhatever-myWidget"
       autoComplete="off"
       className="theme-typeahead-input form-control"
       id={undefined}
@@ -771,7 +776,6 @@ exports[`DatalistWidget should render input 1`] = `
       onKeyDown={[Function]}
       placeholder={undefined}
       required={true}
-      role="combobox"
       type="text"
       value=""
     />
@@ -786,6 +790,7 @@ exports[`DatalistWidget should render input 1`] = `
   <div
     className="theme-items-container"
     id="react-autowhatever-myWidget"
+    role="listbox"
   />
 </div>
 `;
@@ -884,8 +889,12 @@ exports[`DatalistWidget should render items under category when it has "category
     }
   >
     <div
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-datawidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container theme-container-open"
       key="react-autowhatever-datawidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -893,9 +902,7 @@ exports[`DatalistWidget should render items under category when it has "category
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={true}
-          aria-haspopup={true}
-          aria-owns="react-autowhatever-datawidget"
+          aria-controls="react-autowhatever-datawidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -905,23 +912,19 @@ exports[`DatalistWidget should render items under category when it has "category
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          role="combobox"
           type="text"
           value=""
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={true}
-            aria-haspopup={true}
-            aria-owns="react-autowhatever-datawidget"
+            aria-controls="react-autowhatever-datawidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            role="combobox"
             type="text"
             value=""
           />
@@ -938,6 +941,7 @@ exports[`DatalistWidget should render items under category when it has "category
         className="theme-items-container"
         id="react-autowhatever-datawidget"
         key="react-autowhatever-datawidget-items-container"
+        role="listbox"
       >
         <div
           key="react-autowhatever-datawidget-section-0-container"
@@ -1005,6 +1009,7 @@ exports[`DatalistWidget should render items under category when it has "category
               role="listbox"
             >
               <Item
+                aria-selected={false}
                 id="react-autowhatever-datawidget-section-0-item-0"
                 isHighlighted={false}
                 item={
@@ -1028,6 +1033,7 @@ exports[`DatalistWidget should render items under category when it has "category
                 style={Object {}}
               >
                 <li
+                  aria-selected={false}
                   id="react-autowhatever-datawidget-section-0-item-0"
                   onMouseDown={[Function]}
                   onMouseEnter={[Function]}
@@ -1118,6 +1124,7 @@ exports[`DatalistWidget should render items under category when it has "category
               role="listbox"
             >
               <Item
+                aria-selected={false}
                 id="react-autowhatever-datawidget-section-1-item-0"
                 isHighlighted={false}
                 item={
@@ -1141,6 +1148,7 @@ exports[`DatalistWidget should render items under category when it has "category
                 style={Object {}}
               >
                 <li
+                  aria-selected={false}
                   id="react-autowhatever-datawidget-section-1-item-0"
                   onMouseDown={[Function]}
                   onMouseEnter={[Function]}
@@ -1241,8 +1249,12 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
     }
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container"
       key="react-autowhatever-myWidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -1250,9 +1262,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-myWidget"
+          aria-controls="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -1263,16 +1273,13 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           required={true}
-          role="combobox"
           type="text"
           value=""
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-myWidget"
+            aria-controls="react-autowhatever-myWidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
@@ -1280,7 +1287,6 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
             onFocus={[Function]}
             onKeyDown={[Function]}
             required={true}
-            role="combobox"
             type="text"
             value=""
           />
@@ -1297,6 +1303,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
         className="theme-items-container"
         id="react-autowhatever-myWidget"
         key="react-autowhatever-myWidget-items-container"
+        role="listbox"
       />
     </div>
   </Autowhatever>
@@ -1377,8 +1384,12 @@ exports[`DatalistWidget should select item under category when press enter on fo
     }
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-datawidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container"
       key="react-autowhatever-datawidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -1386,9 +1397,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-datawidget"
+          aria-controls="react-autowhatever-datawidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -1398,23 +1407,19 @@ exports[`DatalistWidget should select item under category when press enter on fo
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          role="combobox"
           type="text"
           value="Apple"
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-datawidget"
+            aria-controls="react-autowhatever-datawidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            role="combobox"
             type="text"
             value="Apple"
           />
@@ -1431,6 +1436,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
         className="theme-items-container"
         id="react-autowhatever-datawidget"
         key="react-autowhatever-datawidget-items-container"
+        role="listbox"
       />
     </div>
   </Autowhatever>
@@ -1503,8 +1509,12 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
     }
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
       className="form-control theme-tf-typeahead-container tf-typeahead-container"
       key="react-autowhatever-myWidget-container"
+      role="combobox"
     >
       <div
         className="theme-typeahead-input-icon"
@@ -1512,9 +1522,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
-          aria-owns="react-autowhatever-myWidget"
+          aria-controls="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           className="theme-typeahead-input"
@@ -1525,16 +1533,13 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
           onFocus={[Function]}
           onKeyDown={[Function]}
           required={true}
-          role="combobox"
           type="text"
           value="aze"
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
-            aria-owns="react-autowhatever-myWidget"
+            aria-controls="react-autowhatever-myWidget"
             autoComplete="off"
             className="theme-typeahead-input form-control"
             onBlur={[Function]}
@@ -1542,7 +1547,6 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
             onFocus={[Function]}
             onKeyDown={[Function]}
             required={true}
-            role="combobox"
             type="text"
             value="aze"
           />
@@ -1559,6 +1563,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
         className="theme-items-container"
         id="react-autowhatever-myWidget"
         key="react-autowhatever-myWidget-items-container"
+        role="listbox"
       />
     </div>
   </Autowhatever>

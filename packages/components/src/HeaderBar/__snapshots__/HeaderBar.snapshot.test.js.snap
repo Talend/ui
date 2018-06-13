@@ -1424,7 +1424,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           role="search"
         >
           <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -1438,9 +1442,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={false}
-                aria-haspopup={false}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -1452,7 +1454,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value="le"
               />
@@ -1463,6 +1464,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container theme-is-searching"
                 id="react-autowhatever-42"
+                role="listbox"
               >
                 <span
                   className="is-searching"
@@ -4029,7 +4031,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           role="search"
         >
           <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -4043,9 +4049,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={false}
-                aria-haspopup={false}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -4057,7 +4061,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value="le"
               />
@@ -4068,6 +4071,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container theme-no-result"
                 id="react-autowhatever-42"
+                role="listbox"
               >
                 <span
                   className="no-result"
@@ -5329,7 +5333,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           role="search"
         >
           <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -5343,9 +5351,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={false}
-                aria-haspopup={false}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -5357,7 +5363,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 onKeyDown={undefined}
                 placeholder="Search..."
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value={undefined}
               />
@@ -5368,6 +5373,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container"
                 id="react-autowhatever-42"
+                role="listbox"
               />
             </div>
           </div>
@@ -5972,7 +5978,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           role="search"
         >
           <div
+            aria-expanded={true}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container theme-right theme-container-open tc-typeahead-container-open"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -5986,9 +5996,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={true}
-                aria-haspopup={true}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -6000,7 +6008,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value="le"
               />
@@ -6011,6 +6018,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container"
                 id="react-autowhatever-42"
+                role="listbox"
               >
                 <div
                   className="theme-section-container tc-typeahead-section-container"
@@ -6044,6 +6052,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     role="listbox"
                   >
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-0-item-0"
                       onMouseDown={[Function]}
                       role="option"
@@ -6087,6 +6096,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </div>
                     </li>
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-0-item-1"
                       onMouseDown={[Function]}
                       role="option"
@@ -6176,6 +6186,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     role="listbox"
                   >
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-1-item-0"
                       onMouseDown={[Function]}
                       role="option"
@@ -6247,6 +6258,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     role="listbox"
                   >
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-2-item-0"
                       onMouseDown={[Function]}
                       role="option"
@@ -6279,6 +6291,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </div>
                     </li>
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-2-item-1"
                       onMouseDown={[Function]}
                       role="option"
@@ -6311,6 +6324,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </div>
                     </li>
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-2-item-2"
                       onMouseDown={[Function]}
                       role="option"
