@@ -36,8 +36,9 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@storybook/addon-actions": "^3.3.14",
-    "@storybook/react": "^3.3.14",
+    "@storybook/addon-a11y": "^3.4.7",
+    "@storybook/addon-actions": "^3.4.7",
+    "@storybook/react": "^3.4.7",
     "@talend/icons": "^0.192.0",
     "@talend/react-components": "^0.192.0",
     "@talend/react-storybook-cmf": "^0.192.0",

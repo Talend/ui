@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionDropdown, IconsProvider, FilterBar, Action } from '../src/index';
 
@@ -163,52 +164,54 @@ const oneEventAction = {
 	onSelect: action('onItemSelect'),
 };
 
-storiesOf('ActionDropdown', module).addWithInfo('default', () => (
-	<div>
-		<p>By default :</p>
-		<div id="default">
-			<ActionDropdown {...myAction} />
+storiesOf('ActionDropdown', module)
+	.addDecorator(checkA11y)
+	.addWithInfo('default', () => (
+		<div>
+			<p>By default :</p>
+			<div id="default">
+				<ActionDropdown {...myAction} />
+			</div>
+			<p>With one event handler:</p>
+			<div id="oneEvent">
+				<ActionDropdown {...oneEventAction} />
+			</div>
+			<p>With hideLabel option</p>
+			<div id="hidelabel">
+				<ActionDropdown {...myAction} hideLabel />
+			</div>
+			<p>Empty option</p>
+			<div id="empty">
+				<ActionDropdown {...myAction} items={[]} hideLabel />
+			</div>
+			<p>Dropup</p>
+			<div id="dropup">
+				<ActionDropdown {...myAction} dropup />
+			</div>
+			<p>Type link</p>
+			<div id="typeLink">
+				<ActionDropdown {...myAction} link />
+			</div>
+			<p>Components Items</p>
+			<div id="withComponents">
+				<ActionDropdown {...withComponents} />
+			</div>
+			<p>Mix Items</p>
+			<div id="mixComponents">
+				<ActionDropdown {...mixItemsComponents} />
+			</div>
+			<p>Tool tip</p>
+			<div id="toolTip">
+				<ActionDropdown {...propsTooltip} />
+			</div>
+			<p>With immutable items :</p>
+			<div id="default">
+				<ActionDropdown {...withImmutable} />
+			</div>
+			<p>Opened and with immutable items :</p>
+			<div id="openImmutable">
+				<ActionDropdown {...openWithImmutable} />
+			</div>
+			<IconsProvider />
 		</div>
-		<p>With one event handler:</p>
-		<div id="oneEvent">
-			<ActionDropdown {...oneEventAction} />
-		</div>
-		<p>With hideLabel option</p>
-		<div id="hidelabel">
-			<ActionDropdown {...myAction} hideLabel />
-		</div>
-		<p>Empty option</p>
-		<div id="empty">
-			<ActionDropdown {...myAction} items={[]} hideLabel />
-		</div>
-		<p>Dropup</p>
-		<div id="dropup">
-			<ActionDropdown {...myAction} dropup />
-		</div>
-		<p>Type link</p>
-		<div id="typeLink">
-			<ActionDropdown {...myAction} link />
-		</div>
-		<p>Components Items</p>
-		<div id="withComponents">
-			<ActionDropdown {...withComponents} />
-		</div>
-		<p>Mix Items</p>
-		<div id="mixComponents">
-			<ActionDropdown {...mixItemsComponents} />
-		</div>
-		<p>Tool tip</p>
-		<div id="toolTip">
-			<ActionDropdown {...propsTooltip} />
-		</div>
-		<p>With immutable items :</p>
-		<div id="default">
-			<ActionDropdown {...withImmutable} />
-		</div>
-		<p>Opened and with immutable items :</p>
-		<div id="openImmutable">
-			<ActionDropdown {...openWithImmutable} />
-		</div>
-		<IconsProvider />
-	</div>
-));
+	));
