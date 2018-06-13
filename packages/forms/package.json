@@ -4,7 +4,7 @@
   "main": "lib/Form.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx -v \"./src/**/*.scss\" lib",
+    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx -v \"./src/**/*.scss\" lib && npm run parse-i18n",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6008",
     "start": "start-storybook -p 6008",
     "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/forms --fileFilter '*.js' --default-values"
+    "parse-i18n": "i18next ./src -r --default-values -o locales -l template -n tui-forms --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
   },
   "keywords": [
     "react",

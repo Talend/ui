@@ -12,13 +12,13 @@
     "lint:style": "sass-lint -v -q",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" lib",
+    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" lib && npm run parse-i18n",
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "watch": "npm-watch",
     "cpx": "cpx './src/**/*.scss' ./lib",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter '*.js' --default-values"
+    "parse-i18n": "i18next ./src -r --default-values -o locales -n tui-components -l template --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
   },
   "watch": {
     "prepublish": {

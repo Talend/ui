@@ -2,3 +2,6 @@ node_modules
 .idea
 lib
 storybook-static
+locales/fr
+locales/en
+locales/ja

@@ -2,44 +2,6 @@
 
 exports[`Storyshots SidePanel default 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -130,7 +92,7 @@ exports[`Storyshots SidePanel default 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
+      title={undefined}
     >
       <button
         aria-controls="context"
@@ -263,44 +225,6 @@ exports[`Storyshots SidePanel default 1`] = `
 
 exports[`Storyshots SidePanel docked 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -391,7 +315,7 @@ exports[`Storyshots SidePanel docked 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Expand"
+      title={undefined}
     >
       <button
         aria-controls={undefined}
@@ -524,44 +448,6 @@ exports[`Storyshots SidePanel docked 1`] = `
 
 exports[`Storyshots SidePanel large docked 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -652,7 +538,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Expand"
+      title={undefined}
     >
       <button
         aria-controls={undefined}
@@ -785,44 +671,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
 
 exports[`Storyshots SidePanel large reverse 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -913,7 +761,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
+      title={undefined}
     >
       <button
         aria-controls={undefined}
@@ -1046,44 +894,6 @@ exports[`Storyshots SidePanel large reverse 1`] = `
 
 exports[`Storyshots SidePanel links 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -1174,7 +984,7 @@ exports[`Storyshots SidePanel links 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
+      title={undefined}
     >
       <button
         aria-controls="context"
@@ -1307,44 +1117,6 @@ exports[`Storyshots SidePanel links 1`] = `
 
 exports[`Storyshots SidePanel not dockable 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -1537,44 +1309,6 @@ exports[`Storyshots SidePanel not dockable 1`] = `
 
 exports[`Storyshots SidePanel reverse 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -1665,7 +1399,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
+      title={undefined}
     >
       <button
         aria-controls={undefined}
@@ -1798,44 +1532,6 @@ exports[`Storyshots SidePanel reverse 1`] = `
 
 exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -1936,7 +1632,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
-            title="Collapse"
+            title={undefined}
           >
             <button
               aria-controls={undefined}
@@ -2426,44 +2122,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
 
 exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -2564,7 +2222,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
-            title="Collapse"
+            title={undefined}
           >
             <button
               aria-controls={undefined}
@@ -3054,44 +2712,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -3193,7 +2813,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"
@@ -3328,44 +2948,6 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -3467,7 +3049,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"
@@ -3602,44 +3184,6 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -3741,7 +3285,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"
@@ -3876,44 +3420,6 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -4015,7 +3521,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"
@@ -4150,44 +3656,6 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -4289,7 +3757,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"
@@ -4424,44 +3892,6 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -4563,7 +3993,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"
@@ -4698,44 +4128,6 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
 
 exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
 <div>
-  <nav
-    style={
-      Object {
-        "bottom": 0,
-        "position": "fixed",
-        "textAlign": "center",
-        "width": "100vw",
-        "zIndex": 1,
-      }
-    }
-  >
-    <div
-      className="btn-group"
-    >
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        en
-         
-        (default)
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        fr
-         
-      </button>
-      <button
-        className="btn"
-        onClick={[Function]}
-      >
-        it
-         
-      </button>
-    </div>
-  </nav>
   <svg
     focusable="false"
     style={
@@ -4837,7 +4229,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
+          title={undefined}
         >
           <button
             aria-controls="context"

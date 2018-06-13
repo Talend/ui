@@ -339,6 +339,10 @@ add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
 
+adm-zip@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.4.9.tgz#1a574627d3aa4ea6b8b4948e066cbd6fed4ae2f6"
+
 ag-grid-react@^17.0.0:
   version "17.1.0"
   resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-17.1.0.tgz#8c9cee63e32183787bafb2a2b85e1e966ad0be39"
