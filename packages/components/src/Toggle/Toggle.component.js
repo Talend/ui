@@ -7,34 +7,30 @@ import omit from 'lodash/omit';
  * The Toggle component is basically a fancy checkbox like you have in your iphone.
  * Properties:
  * @param id {string}: the id to be used for htmlFor and maybe QA
- * @param onChange {function}: an event callback called each time the state is changed
- * @param checked {boolean}: sets the state of the toggle to be On or Off
- * @param disabled {boolean}: enables the read-only no-interaction mode
  * @param label {string}: a status label to be shown near toggle
  * @param className {string}: className to be added to root div
+ * @param props {object}: all props passed down to the input
  *
  * Required: [ id, onChange ]
  * Defaults: { checked: false, disabled: false, label: '', className: 'switch checkbox' }
  *
  * @return XML(JSX) React pure component
  * **/
-function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, className, ...rest }) {
-	let dataFeature = rest['data-feature'];
-	if (dataFeature) {
-		dataFeature += checked ? '.disable' : '.enable';
+function Toggle({ id, label, className, ...props }) {
+	let dataFeature;
+
+	if (!props.disabled && props['data-feature']) {
+		dataFeature = props['data-feature'];
+		dataFeature += props.checked ? '.disable' : '.enable';
 	}
+
 	return (
 		<div className={classNames('checkbox tc-toggle', className)}>
-			<label htmlFor={id} data-feature={disabled === true ? undefined : dataFeature}>
+			<label htmlFor={id} data-feature={dataFeature}>
 				<input
 					type="checkbox"
 					id={id}
-					onChange={onChange}
-					onBlur={onBlur}
-					checked={checked}
-					autoFocus={autoFocus}
-					disabled={disabled}
-					{...omit(rest, 'data-feature')}
+					{...omit(props, 'data-feature')}
 				/>
 				<span>{label}</span>
 			</label>
@@ -60,6 +56,7 @@ Toggle.propTypes = {
 	autoFocus: PropTypes.bool,
 	disabled: PropTypes.bool,
 	className: PropTypes.string,
+	'data-feature': PropTypes.string,
 };
 
 export default Toggle;
