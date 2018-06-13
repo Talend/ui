@@ -56,15 +56,15 @@ function DatePicker(props) {
 				>
 					{week.map((day, j) =>
 						<div
-							className={classNames(
-								theme['calendar-item'],
-								getClassIfSelected(day.number),
-								getClassIfCurrentDay(day.number),
-							)}
+							className={theme['calendar-item']}
 							key={j}
 						>
 							<button
-								className={theme['calendar-day-action']}
+								className={classNames(
+									theme['calendar-day-action'],
+									getClassIfSelected(day.number),
+									getClassIfCurrentDay(day.number),
+								)}
 								disabled={isDisabledDay(day.number)}
 								aria-label={isDisabledDay(day.number)
 									? 'Unselectable date'

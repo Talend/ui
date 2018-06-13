@@ -52,14 +52,14 @@
                     color: $silver-chalice;
                     background-color: transparent;
                 }
-            }
 
-            &.today .calendar-day-action  {
-                background-color: rgba($slate-gray, 0.12);
-            }
+                &.today {
+                    background-color: rgba($slate-gray, 0.12);
+                }
 
-            &.selected .calendar-day-action {
-                @include picker-action-selected;
+                &.selected {
+                    @include picker-action-selected;
+                }
             }
         }
     }

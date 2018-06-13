@@ -182,11 +182,11 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </button>
     </div>
     <div
-      className="theme-calendar-item theme-selected"
+      className="theme-calendar-item"
     >
       <button
         aria-label="Select '12'"
-        className="theme-calendar-day-action"
+        className="theme-calendar-day-action theme-selected"
         disabled={false}
       >
         12
@@ -274,11 +274,11 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </button>
     </div>
     <div
-      className="theme-calendar-item theme-today"
+      className="theme-calendar-item"
     >
       <button
         aria-label="Select '20'"
-        className="theme-calendar-day-action"
+        className="theme-calendar-day-action theme-today"
         disabled={false}
       >
         20
