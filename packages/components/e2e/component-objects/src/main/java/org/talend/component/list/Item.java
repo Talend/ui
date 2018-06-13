@@ -54,11 +54,18 @@ public class Item extends Component {
     }
 
     /**
-     * Extract current row id and build a specific action selector
+     * Extract current row id and build a specific action id
      */
     private By getActionSelector(final String actionId) {
+        return getActionSelector(actionId, "");
+    }
+
+    /**
+     * Extract current row id and build a specific action id having the passed attribute
+     */
+    private By getActionSelector(final String actionId, final String attribute) {
         final String cellID = this.getElement().findElement(By.cssSelector(ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
-        return By.cssSelector(String.format("#%s #%s", cellID, actionId));
+        return By.cssSelector(String.format("#%s #%s%s", cellID, actionId, attribute));
     }
 
     /**
@@ -71,6 +78,15 @@ public class Item extends Component {
             return null;
         }
         return this.driver.findElement(buttonSelector);
+    }
+
+    /**
+     * Get the ellipsis action menu
+     */
+    private WebElement getEllipsisMenu() {
+        final String cellID = this.getElement().findElement(By.cssSelector(ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
+        final By menuSelector = By.cssSelector(String.format("#%s .cell-title-actions-menu + ul", cellID));
+        return this.driver.findElement(menuSelector);
     }
 
     /**
@@ -138,7 +154,7 @@ public class Item extends Component {
      */
     public void clickOnCellAction(final String columnKey, final String actionId) {
         WebElement button;
-        By actionSelector;
+        By actionWithTooltipSelector;
 
         // hover on item
         new Actions(driver)
@@ -149,29 +165,31 @@ public class Item extends Component {
         // when columnKey is not provided, we want to click on a row action, located in title cell
         if (columnKey == null) {
             // on some list display, actions are in an ellipsis dropdown. Open it
+            boolean isInEllipsis = false;
             final WebElement ellipsisButton = this.getEllipsisActionButton();
 			if (ellipsisButton != null) {
+                isInEllipsis = !getEllipsisMenu().findElements(By.cssSelector("#" + actionId)).isEmpty();
                 wait.until(elementToBeClickable(ellipsisButton)).click();
             }
 
             button = this.getAction(actionId);
-            actionSelector = getActionSelector(actionId);
+			// after mouseover on the action, the DOM element changes because of TooltipTrigger
+            // we need to add the presence of the tooltip to make sure it's the right button
+            // in ellipsis menu there is no tooltip
+            actionWithTooltipSelector = isInEllipsis ?
+                    getActionSelector(actionId) :
+                    getActionSelector(actionId, "[aria-describedby]");
         } else {
             button = this.getCell(columnKey).getAction(actionId);
-            actionSelector = By.cssSelector(String.format("button[id=%s]", actionId));
+            actionWithTooltipSelector = By.cssSelector(String.format("button[id=%s][aria-describedby]", actionId));
         }
 
         new Actions(driver)
                 .moveToElement(button)
                 .build()
                 .perform();
-
-        // This is ugly but it's an issue we have with TooltipTrigger
-        // it creates a new DOM element on hover :/ we need to reselect the button after hover
-        button = this.driver.findElement(actionSelector);
-        if (!button.isEnabled()) {
-            button = wait.until(elementToBeClickable(actionSelector));
-        }
-        button.click();
+        wait
+                .until(elementToBeClickable(actionWithTooltipSelector))
+                .click();
     }
 }
