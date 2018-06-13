@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { chunk } from 'lodash';
 import theme from './MonthPicker.scss';
 import { ActionButton } from '../../Actions';
-import { chunk } from 'lodash';
 
 function MonthPicker(props) {
 	const months = [
