@@ -362,7 +362,6 @@ describe('Enumeration', () => {
 		const wrapper = mount(<Enumeration {...props} />);
 
 		// then
-		console.log(wrapper.find('Items').debug());
 		const selectedItems = wrapper.find('.tc-enumeration-item.selected-item');
 		expect(selectedItems.length).toBe(2);
 	});
