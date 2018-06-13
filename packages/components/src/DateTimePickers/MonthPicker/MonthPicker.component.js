@@ -41,6 +41,7 @@ function MonthPicker(props) {
 								theme.month,
 								getClassIfActive(month),
 							)}
+							aria-label={`Select '${month}' as active month`}
 						/>
 					)}
 				</div>

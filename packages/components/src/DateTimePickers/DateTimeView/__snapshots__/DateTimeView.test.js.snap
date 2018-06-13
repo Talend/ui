@@ -19,16 +19,19 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
   header={
     Object {
       "leftNode": <Translate(ActionButton)
+        aria-label="Display previous calendar month"
         className="theme-action-left"
         icon="talend-chevron-left"
         link={true}
     />,
       "middleNode": <Translate(ActionButton)
+        aria-label="Switch to month and year pickers view"
         className="theme-action-middle"
         label="Septembre 2017"
         link={true}
     />,
       "rightNode": <Translate(ActionButton)
+        aria-label="Display next calendar month"
         className="theme-action-right"
         icon="talend-chevron-left"
         iconTransform="rotate-180"

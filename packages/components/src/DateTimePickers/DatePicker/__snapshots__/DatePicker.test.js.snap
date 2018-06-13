@@ -9,36 +9,43 @@ exports[`DatePicker should render a DatePicker 1`] = `
   >
     <abbr
       className="theme-calendar-item"
+      title="Lundi"
     >
       L
     </abbr>
     <abbr
       className="theme-calendar-item"
+      title="Mardi"
     >
       M
     </abbr>
     <abbr
       className="theme-calendar-item"
+      title="Mercredi"
     >
       M
     </abbr>
     <abbr
       className="theme-calendar-item"
+      title="Jeudi"
     >
       J
     </abbr>
     <abbr
       className="theme-calendar-item"
+      title="Vendredi"
     >
       V
     </abbr>
     <abbr
       className="theme-calendar-item"
+      title="Samedi"
     >
       S
     </abbr>
     <abbr
       className="theme-calendar-item"
+      title="Dimanche"
     >
       D
     </abbr>
@@ -53,6 +60,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '1' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -63,6 +71,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '2' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -73,6 +82,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '3' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -83,6 +93,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '4' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -93,6 +104,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '5' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -103,6 +115,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Unselectable date"
         className="theme-calendar-day-action"
         disabled={true}
       >
@@ -113,6 +126,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '7' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -127,6 +141,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '8' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -137,6 +152,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '9' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -147,6 +163,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '10' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -157,6 +174,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '11' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -167,6 +185,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item theme-active"
     >
       <button
+        aria-label="Select '12' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -177,6 +196,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '13' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -187,6 +207,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '14' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -201,6 +222,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Unselectable date"
         className="theme-calendar-day-action"
         disabled={true}
       >
@@ -211,6 +233,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '16' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -221,6 +244,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '17' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -231,6 +255,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '18' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -241,6 +266,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '19' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -251,6 +277,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item theme-today"
     >
       <button
+        aria-label="Select '20' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -261,6 +288,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '21' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -275,6 +303,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '22' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -285,6 +314,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '23' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -295,6 +325,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '24' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -305,6 +336,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '25' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -315,6 +347,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '26' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -325,6 +358,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '27' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >
@@ -335,6 +369,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       className="theme-calendar-item"
     >
       <button
+        aria-label="Select '28' as the active date"
         className="theme-calendar-day-action"
         disabled={false}
       >

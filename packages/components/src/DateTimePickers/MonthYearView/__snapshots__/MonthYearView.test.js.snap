@@ -21,6 +21,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
   header={
     Object {
       "leftNode": <Action
+        aria-label="Switch back to date and time pickers view"
         className="theme-action-left"
         icon="talend-arrow-left"
         link={true}

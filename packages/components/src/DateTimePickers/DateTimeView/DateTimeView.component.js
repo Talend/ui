@@ -12,17 +12,20 @@ function DateTimeView(props) {
 			icon="talend-chevron-left"
 			link
 			className={theme['action-left']}
+			aria-label="Display previous calendar month"
 		/>,
 		middleNode: <ActionButton
 			label="Septembre 2017"
 			link
 			className={theme['action-middle']}
+			aria-label="Switch to month and year pickers view"
 		/>,
 		rightNode: <ActionButton
 			icon="talend-chevron-left"
 			iconTransform="rotate-180"
 			link
 			className={theme['action-right']}
+			aria-label="Display next calendar month"
 		/>,
 	};
 

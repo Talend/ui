@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import theme from './DatePicker.scss';
 
 function DatePicker(props) {
-	const dayNames = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+	const dayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 	const days = (new Array(7))
 					.fill(0)
 					.map((_, i) => i + 1);
@@ -40,9 +40,9 @@ function DatePicker(props) {
 					<abbr
 						className={theme['calendar-item']}
 						key={i}
-
+						title={dayName}
 					>
-						{dayName}
+						{dayName.charAt(0)}
 					</abbr>
 				)}
 			</div>
@@ -66,6 +66,9 @@ function DatePicker(props) {
 							<button
 								className={theme['calendar-day-action']}
 								disabled={isDisabledDay(day.number)}
+								aria-label={isDisabledDay(day.number)
+									? 'Unselectable date'
+									: `Select '${day.number}' as the active date`}
 							>
 								{day.number}
 							</button>

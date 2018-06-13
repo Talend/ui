@@ -5,6 +5,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
   className="theme-container"
 >
   <Translate(ActionButton)
+    aria-label="Scroll to previous years"
     className="theme-action-up"
     icon="talend-chevron-left"
     iconTransform="rotate-90"
@@ -14,32 +15,38 @@ exports[`YearPicker should render a YearPicker 1`] = `
     className="theme-years"
   >
     <Translate(ActionButton)
+      aria-label="Select '2010' as active year"
       className="theme-year"
       label={2010}
       link={true}
     />
     <Translate(ActionButton)
+      aria-label="Select '2011' as active year"
       className="theme-year"
       label={2011}
       link={true}
     />
     <Translate(ActionButton)
+      aria-label="Select '2012' as active year"
       className="theme-year theme-active"
       label={2012}
       link={true}
     />
     <Translate(ActionButton)
+      aria-label="Select '2013' as active year"
       className="theme-year"
       label={2013}
       link={true}
     />
     <Translate(ActionButton)
+      aria-label="Select '2014' as active year"
       className="theme-year"
       label={2014}
       link={true}
     />
   </div>
   <Translate(ActionButton)
+    aria-label="Scroll to next years"
     className="theme-action-down"
     icon="talend-chevron-left"
     iconTransform="rotate-270"

@@ -26,6 +26,11 @@
 
     .calendar-header-row {
         color: $gray;
+        abbr[title] {
+           font-variant: none;
+           border: none;
+           text-decoration: none;
+        }
     }
 
     .calendar-body-row {

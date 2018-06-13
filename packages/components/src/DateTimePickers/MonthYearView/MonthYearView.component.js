@@ -13,6 +13,7 @@ function MonthYearView(props) {
 			icon="talend-arrow-left"
 			link
 			className={theme['action-left']}
+			aria-label="Switch back to date and time pickers view"
 		/>,
 		middleNode: <span className={theme['action-middle']}>Septembre 2017</span>,
 	};

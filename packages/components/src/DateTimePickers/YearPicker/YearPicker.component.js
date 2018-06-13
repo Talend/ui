@@ -29,6 +29,7 @@ function YearPicker(props) {
 				icon="talend-chevron-left"
 				iconTransform="rotate-90"
 				link
+				aria-label="Scroll to previous years"
 			/>
 			<div className={theme.years}>
 				{years.map((year, i) =>
@@ -40,6 +41,7 @@ function YearPicker(props) {
 							theme.year,
 							getClassIfActive(year),
 						)}
+						aria-label={`Select '${year}' as active year`}
 					/>
 				)}
 			</div>
@@ -48,6 +50,7 @@ function YearPicker(props) {
 				icon="talend-chevron-left"
 				iconTransform="rotate-270"
 				link
+				aria-label="Scroll to next years"
 			/>
 		</div>
 	);
