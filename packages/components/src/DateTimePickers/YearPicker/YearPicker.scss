@@ -8,7 +8,7 @@
 
 
     .action-up, .action-down {
-        @include nav-action-default(12px);
+        @include nav-action-icon(12px);
     }
 
     .years {

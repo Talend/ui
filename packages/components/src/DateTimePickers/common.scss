@@ -12,14 +12,18 @@ $border-default: 1px solid $gallery;
     color: $white;
 }
 
-@mixin nav-action-default($icon-size) {
-    color: $silver;
+@mixin nav-action-default {
     font-weight: 600;
     padding: 0;
 
     &:global(.btn):hover {
         color: $scooter;
     }
+}
+
+@mixin nav-action-icon($icon-size) {
+    @include nav-action-default;
+    color: $silver;
 
     :global(.tc-svg-icon) {
         width: $icon-size;

@@ -2,7 +2,7 @@
 @import '../common';
 
 .action-left {
-    @include nav-action-default(16px);
+    @include nav-action-icon(16px);
 }
 
 .action-middle {
