@@ -23,6 +23,8 @@ matrix:
       node_js:
         - '8'
       before_install:
+        # this install is necessary to get version.js dependencies
+        - yarn install
         - ./version.js
       script:
         - yarn test
