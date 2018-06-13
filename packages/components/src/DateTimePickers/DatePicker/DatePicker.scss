@@ -20,6 +20,7 @@
 
     .separator {
         width: calc(100% - 20px);
+        border: none;
         border-bottom: $border-default;
         margin: 0 auto;
     }
