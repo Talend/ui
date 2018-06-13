@@ -84,7 +84,10 @@ DrawerContainer.propTypes = {
 };
 
 export function cancelActionComponent(onCancelAction, getComponent) {
-	if (!onCancelAction || onCancelAction.position !== ON_CANCEL_ACTION_POSITION_HEADER) {
+	if (
+		!onCancelAction ||
+		(onCancelAction && onCancelAction.position !== ON_CANCEL_ACTION_POSITION_HEADER)
+	) {
 		return null;
 	}
 
@@ -163,7 +166,8 @@ DrawerFooter.propTypes = {
 
 export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = {}) {
 	const onCancelItem =
-		onCancelAction.position === ON_CANCEL_ACTION_POSITION_FOOTER || !onCancelAction.position
+		(onCancelAction && onCancelAction.position === ON_CANCEL_ACTION_POSITION_FOOTER) ||
+		(onCancelAction && !onCancelAction.position)
 			? onCancelAction
 			: null;
 	const enhancedFooterActions = Object.assign({}, footerActions);

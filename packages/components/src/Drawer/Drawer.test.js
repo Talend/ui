@@ -60,7 +60,7 @@ describe('Drawer', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render cancelActionComponent', () => {
-		const wrapper = mount(cancelActionComponent({}));
+		const wrapper = mount(cancelActionComponent({ id: 'test', position: 'header' }));
 		expect(wrapper.find('button')).toBeTruthy();
 	});
 	it('should not render cancelActionComponent', () => {
@@ -84,6 +84,81 @@ describe('Drawer', () => {
 		const wrapper = renderer
 			.create(
 				<Drawer tabs={tabs}>
+					<h1>Hello world</h1>
+				</Drawer>,
+			)
+			.toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render with tabs specific actions by tab with selectedTabKey', () => {
+		const tabs = {
+			items: [
+				{
+					key: '1',
+					label: 'Tab 1',
+					footerActions: {
+						actions: {
+							left: [
+								{
+									id: 'view-left',
+									key: 'view-left',
+									label: 'ActionLeft',
+								},
+							],
+							center: [
+								{
+									id: 'view-center',
+									key: 'view-center',
+									label: 'ActionCenter',
+								},
+							],
+							right: [
+								{
+									id: 'view-right',
+									key: 'view-right',
+									label: 'ActionRight',
+								},
+							],
+						},
+					},
+				},
+				{
+					key: '2',
+					label: 'Tab 2',
+					footerActions: {
+						actions: {
+							center: [
+								{
+									id: 'view-center',
+									key: 'view-center',
+									label: 'ActionCenter',
+								},
+							],
+						},
+					},
+				},
+				{
+					key: '3',
+					label: 'Tab 3',
+					footerActions: {
+						actions: {
+							center: [
+								{
+									id: 'view-center',
+									key: 'view-center',
+									label: 'ActionCenter',
+								},
+							],
+						},
+					},
+				},
+			],
+			onSelect: jest.fn(),
+		};
+		const wrapper = renderer
+			.create(
+				<Drawer tabs={tabs} selectedTabKey="2">
 					<h1>Hello world</h1>
 				</Drawer>,
 			)
@@ -131,7 +206,7 @@ describe('Drawer', () => {
 			getComponent,
 			title: 'test',
 			tabs: { items: [{ item: { key: 'tab1', label: 'tab1' }, onClick: jest.fn() }] },
-			onCancelAction: { id: 'cacel-button-id' },
+			onCancelAction: { id: 'cacel-button-id', position: 'header' },
 			footerActions: { actions: { left: [] } },
 		};
 
@@ -185,6 +260,8 @@ describe('Drawer', () => {
 						actionId: 'drawer:closeDrawer',
 					},
 				],
+				center: [],
+				right: [],
 			},
 		};
 
@@ -208,6 +285,8 @@ describe('Drawer', () => {
 						actionId: 'drawer:closeDrawer',
 					},
 				],
+				center: [],
+				right: [],
 			},
 		};
 
@@ -224,6 +303,8 @@ describe('Drawer', () => {
 						label: 'action-left-label',
 					},
 				],
+				center: [],
+				right: [],
 			},
 		};
 
@@ -258,6 +339,8 @@ describe('Drawer', () => {
 						actionId: 'drawer:closeDrawer',
 					},
 				],
+				center: [],
+				right: [],
 			},
 		};
 

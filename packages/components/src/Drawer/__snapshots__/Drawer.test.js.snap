@@ -52,7 +52,17 @@ exports[`Drawer should render 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -89,7 +99,17 @@ exports[`Drawer should render stacked 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -126,7 +146,17 @@ exports[`Drawer should render using custom className 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -167,7 +197,17 @@ exports[`Drawer should render using custom styles 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -250,7 +290,142 @@ exports[`Drawer should render with tabs 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer should render with tabs specific actions by tab with selectedTabKey 1`] = `
+<div
+  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
+  style={undefined}
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
+    >
+      <nav
+        className="nav tc-tab-bar tc-drawer-tabs theme-tc-drawer-tabs theme-tc-tab-bar"
+      >
+        <ul
+          className="nav nav-tabs tc-tab-bar-actions"
+        >
+          <li
+            className="tc-tab-bar-action"
+          >
+            <button
+              aria-label="Tab 1"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Tab 1
+              </span>
+            </button>
+          </li>
+          <li
+            className="tc-tab-bar-action active"
+          >
+            <button
+              aria-label="Tab 2"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Tab 2
+              </span>
+            </button>
+          </li>
+          <li
+            className="tc-tab-bar-action"
+          >
+            <button
+              aria-label="Tab 3"
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Tab 3
+              </span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <h1>
+          Hello world
+        </h1>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <nav
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          >
+            <button
+              aria-label="ActionCenter"
+              className="btn btn-default"
+              disabled={false}
+              id="view-center"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                ActionCenter
+              </span>
+            </button>
+          </div>
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -287,7 +462,17 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
