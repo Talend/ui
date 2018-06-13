@@ -27,11 +27,7 @@ function Toggle({ id, label, className, ...props }) {
 	return (
 		<div className={classNames('checkbox tc-toggle', className)}>
 			<label htmlFor={id} data-feature={dataFeature}>
-				<input
-					type="checkbox"
-					id={id}
-					{...omit(props, 'data-feature')}
-				/>
+				<input type="checkbox" id={id} {...omit(props, 'data-feature')} />
 				<span>{label}</span>
 			</label>
 		</div>
