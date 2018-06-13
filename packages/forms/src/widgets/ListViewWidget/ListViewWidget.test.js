@@ -4,7 +4,7 @@ import ListViewWidget from './ListViewWidget';
 
 /* eslint-disable */
 jest.mock(
-	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
 	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>,
 );
 jest.useFakeTimers();

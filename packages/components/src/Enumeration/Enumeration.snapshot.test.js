@@ -5,8 +5,8 @@ import Enumeration from './Enumeration.component';
 import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 jest.mock(
-	'../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
-	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
+	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	() => props => <div id="autoSizer">{props.children({ height: 1000, width: 1000 })}</div>, // eslint-disable-line react/prop-types
 );
 
 jest.mock(
@@ -362,6 +362,7 @@ describe('Enumeration', () => {
 		const wrapper = mount(<Enumeration {...props} />);
 
 		// then
+		console.log(wrapper.find('Items').debug());
 		const selectedItems = wrapper.find('.tc-enumeration-item.selected-item');
 		expect(selectedItems.length).toBe(2);
 	});
