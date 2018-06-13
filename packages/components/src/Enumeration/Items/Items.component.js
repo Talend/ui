@@ -9,32 +9,11 @@ import ItemEdit from './Item/ItemEdit.component';
 import ItemEditPropTypes from './Item/ItemEdit.propTypes';
 import theme from './Items.scss';
 
-function listClasses() {
-	return classNames({
-		[theme['tc-list-items']]: true,
-	});
-}
-
-function itemsClasses() {
-	return classNames({
-		[theme['tc-enumeration-items']]: true,
-		'tc-enumeration-items': true,
-	});
-}
-
-function itemContainer() {
-	return classNames({
-		[theme['tc-item-container']]: true,
-		'tc-item-container': true,
-	});
-}
-
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 const virtualizedListClassName = 'ReactVirtualized__List';
 
 class Items extends React.PureComponent {
-
 	constructor(props) {
 		super(props);
 		this.lazyLoadingTimer = null;
@@ -44,7 +23,7 @@ class Items extends React.PureComponent {
 		this.scrollEnumeration = this.scrollEnumeration.bind(this);
 	}
 
-	getItem(item, index) {
+	getItem(item, index, style) {
 		// affecting index to the item
 		const itemWithIndex = {
 			...item,
@@ -53,21 +32,21 @@ class Items extends React.PureComponent {
 
 		switch (item.displayMode) {
 			case DISPLAY_MODE_EDIT: {
-				const itemPropsEdit = {
+				itemWithIndex.itemProps = {
 					key: this.props.itemsProp.key,
 					actions: this.props.itemsProp.actionsEdit,
 					onSubmitItem: this.props.itemsProp.onSubmitItem,
 					onAbortItem: this.props.itemsProp.onAbortItem,
 					onChangeItem: this.props.itemsProp.onChangeItem,
 				};
-				itemWithIndex.itemProps = itemPropsEdit;
 
 				return (
 					<ItemEdit
 						key={`${index}-item`}
-						id={`${index}-item`}
+						id={`${this.props.id}-${index}-item`}
 						item={itemWithIndex}
 						currentEdit={this.props.currentEdit}
+						style={style}
 					/>
 				);
 			}
@@ -82,11 +61,12 @@ class Items extends React.PureComponent {
 				return (
 					<Item
 						key={`${index}-item`}
-						id={`${index}-item`}
+						id={`${this.props.id}-${index}-item`}
 						item={itemWithIndex}
 						itemProps={itemPropDefault}
 						searchCriteria={this.props.searchCriteria}
 						showCheckboxes={this.props.showCheckboxes}
+						style={style}
 					/>
 				);
 			}
@@ -107,31 +87,29 @@ class Items extends React.PureComponent {
 
 		this.lazyLoadingTimer = setTimeout(() => {
 			// react-virtualized fire scroll events not to be considered
-			if (event.target.className.includes(virtualizedListClassName) &&
-				event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight) {
+			if (
+				event.target.className.includes(virtualizedListClassName) &&
+				event.target.scrollTop + event.target.clientHeight >= event.target.scrollHeight
+			) {
 				this.props.itemsProp.onLoadData();
 			}
 		}, 500);
 	}
 
-
 	rowRenderer({
-		key,   // eslint-disable-line react/prop-types
 		index, // eslint-disable-line react/prop-types
 		style, // eslint-disable-line react/prop-types
 	}) {
-		return (
-			<div className={itemContainer()} key={key} style={style}>
-				{this.getItem(this.props.items[index], index)}
-			</div>
-		)
-			;
+		return this.getItem(this.props.items[index], index, style);
 	}
 
 	render() {
 		const actions = this.props.itemsProp && this.props.itemsProp.actionsDefault;
 		return (
-			<ul className={itemsClasses()} onScroll={this.scrollEnumeration}>
+			<div
+				className={classNames(theme['tc-enumeration-items'], 'tc-enumeration-items')}
+				onScroll={this.scrollEnumeration}
+			>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -142,7 +120,7 @@ class Items extends React.PureComponent {
 							 */
 							items={this.props.items}
 							actions={actions}
-							className={listClasses()}
+							className={theme['tc-list-items']}
 							rowRenderer={this.rowRenderer}
 							width={width}
 							height={height}
@@ -151,22 +129,22 @@ class Items extends React.PureComponent {
 						/>
 					)}
 				</AutoSizer>
-			</ul>
+			</div>
 		);
 	}
 }
 
 Items.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.shape({
-		values: PropTypes.arrayOf(PropTypes.string),
-	})),
+	id: PropTypes.string,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			values: PropTypes.arrayOf(PropTypes.string),
+		}),
+	),
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string.isRequired,
-		getItemHeight: PropTypes.oneOfType([
-			PropTypes.func,
-			PropTypes.number,
-		]),
+		getItemHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
 		onSubmitItem: PropTypes.func,
 		onAbortItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
