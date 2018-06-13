@@ -18,11 +18,14 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
   }
   header={
     Object {
-      "leftNode": <Translate(ActionButton)
+      "leftNode": <IconButton
         aria-label="Display previous calendar month"
         className="theme-action-left"
-        icon="talend-chevron-left"
-        link={true}
+        icon={
+            Object {
+                "name": "talend-chevron-left",
+              }
+        }
     />,
       "middleNode": <Translate(ActionButton)
         aria-label="Switch to month and year pickers view"
@@ -30,12 +33,15 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
         label="Septembre 2017"
         link={true}
     />,
-      "rightNode": <Translate(ActionButton)
+      "rightNode": <IconButton
         aria-label="Display next calendar month"
         className="theme-action-right"
-        icon="talend-chevron-left"
-        iconTransform="rotate-180"
-        link={true}
+        icon={
+            Object {
+                "name": "talend-chevron-left",
+                "transform": "rotate-180",
+              }
+        }
     />,
     }
   }

@@ -4,12 +4,15 @@ exports[`YearPicker should render a YearPicker 1`] = `
 <div
   className="theme-container"
 >
-  <Translate(ActionButton)
+  <IconButton
     aria-label="Scroll to previous years"
     className="theme-action-up"
-    icon="talend-chevron-left"
-    iconTransform="rotate-90"
-    link={true}
+    icon={
+      Object {
+        "name": "talend-chevron-left",
+        "transform": "rotate-90",
+      }
+    }
   />
   <div
     className="theme-years"
@@ -45,12 +48,15 @@ exports[`YearPicker should render a YearPicker 1`] = `
       link={true}
     />
   </div>
-  <Translate(ActionButton)
+  <IconButton
     aria-label="Scroll to next years"
     className="theme-action-down"
-    icon="talend-chevron-left"
-    iconTransform="rotate-270"
-    link={true}
+    icon={
+      Object {
+        "name": "talend-chevron-left",
+        "transform": "rotate-270",
+      }
+    }
   />
 </div>
 `;

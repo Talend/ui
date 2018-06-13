@@ -1,0 +1,15 @@
+@import '../common';
+
+.btn {
+    @include nav-action;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: none;
+    border: none;
+    color: $silver;
+
+    .icon {
+        width: 12px;
+    }
+}

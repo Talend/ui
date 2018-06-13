@@ -2,7 +2,9 @@
 @import '../common';
 
 .action-left {
-    @include nav-action-icon(16px);
+    .action-left-icon {
+        width: 16px;
+    }
 }
 
 .action-middle {

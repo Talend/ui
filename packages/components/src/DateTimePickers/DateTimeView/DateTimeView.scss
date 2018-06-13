@@ -1,12 +1,8 @@
 @import '../common';
 
-.action-left, .action-right  {
-    @include nav-action-icon(12px);
-}
-
 .action-middle {
     @include main;
-    @include nav-action-default;
+    @include nav-action;
     font-size: 16px;
 }
 

@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import DatePicker from '../DatePicker';
 import ViewLayout from '../ViewLayout';
 import { ActionButton } from '../../Actions';
+import IconButton from '../IconButton';
 import theme from './DateTimeView.scss';
 
 function DateTimeView(props) {
-
 	const header = {
-		leftNode: <ActionButton
-			icon="talend-chevron-left"
-			link
+		leftNode: <IconButton
+			icon={{
+				name: 'talend-chevron-left',
+			}}
 			className={theme['action-left']}
 			aria-label="Display previous calendar month"
 		/>,
@@ -20,10 +21,11 @@ function DateTimeView(props) {
 			className={theme['action-middle']}
 			aria-label="Switch to month and year pickers view"
 		/>,
-		rightNode: <ActionButton
-			icon="talend-chevron-left"
-			iconTransform="rotate-180"
-			link
+		rightNode: <IconButton
+			icon={{
+				name: 'talend-chevron-left',
+				transform: 'rotate-180',
+			}}
 			className={theme['action-right']}
 			aria-label="Display next calendar month"
 		/>,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from './YearPicker.scss';
 import { ActionButton } from '../../Actions';
+import IconButton from '../IconButton';
 
 function YearPicker(props) {
 	const years = [
@@ -24,11 +25,12 @@ function YearPicker(props) {
 
 	return (
 		<div className={theme.container}>
-			<ActionButton
+			<IconButton
+				icon={{
+					name: 'talend-chevron-left',
+					transform: 'rotate-90',
+				}}
 				className={theme['action-up']}
-				icon="talend-chevron-left"
-				iconTransform="rotate-90"
-				link
 				aria-label="Scroll to previous years"
 			/>
 			<div className={theme.years}>
@@ -45,11 +47,12 @@ function YearPicker(props) {
 					/>
 				)}
 			</div>
-			<ActionButton
+			<IconButton
+				icon={{
+					name: 'talend-chevron-left',
+					transform: 'rotate-270',
+				}}
 				className={theme['action-down']}
-				icon="talend-chevron-left"
-				iconTransform="rotate-270"
-				link
 				aria-label="Scroll to next years"
 			/>
 		</div>

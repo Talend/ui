@@ -8,12 +8,12 @@
 
 
     .action-up, .action-down {
-        @include nav-action-icon(12px);
+        flex: 1;
     }
 
     .years {
         display: flex;
-        flex: 1;
+        flex: 5;
         flex-direction: column;
 
         .year {

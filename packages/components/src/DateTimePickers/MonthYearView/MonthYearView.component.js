@@ -4,14 +4,16 @@ import MonthPicker from '../MonthPicker';
 import YearPicker from '../YearPicker';
 import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
-import Action from '../../Actions/Action';
+import IconButton from '../IconButton';
 
 function MonthYearView(props) {
 
 	const header = {
-		leftNode: <Action
-			icon="talend-arrow-left"
-			link
+		leftNode: <IconButton
+			icon={{
+				name: 'talend-arrow-left',
+				className: theme['action-left-icon'],
+			}}
 			className={theme['action-left']}
 			aria-label="Switch back to date and time pickers view"
 		/>,
