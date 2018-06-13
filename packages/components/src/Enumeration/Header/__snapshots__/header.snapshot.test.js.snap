@@ -105,21 +105,17 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         role="button"
         type="button"
       >
-        <span
-          className="tc-dropdown-button-title"
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          name="talend-plus"
+          title={null}
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
-            focusable="false"
-            name="talend-plus"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-plus"
-            />
-          </svg>
-        </span>
+          <use
+            xlinkHref="#talend-plus"
+          />
+        </svg>
       </button>
       <ul
         aria-labelledby="add"

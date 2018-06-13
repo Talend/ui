@@ -27,6 +27,11 @@ describe('FormatValue', () => {
 			hasWhiteSpaceCharacters(`loreum
 lopsum`),
 		).toBe(true);
+
+		expect(
+			hasWhiteSpaceCharacters(`loreum
+lopsum`),
+		).toBe(true);
 	});
 
 	it('should return false when there is no white space', () => {
