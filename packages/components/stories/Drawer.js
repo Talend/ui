@@ -59,6 +59,7 @@ const primary = {
 const onCancelAction = {
 	label: 'Cancel',
 	onClick: action('You clicked on cancel action'),
+	position: 'header',
 };
 
 const panelActions = {
@@ -125,6 +126,59 @@ const tabs = {
 	],
 	onSelect: action('Tab clicked'),
 	selectedKey: 'navigator',
+};
+
+const tabsActionFooter = {
+	items: [
+		{
+			id: '1',
+			key: 'info',
+			label: 'Info',
+			footerActions: {
+				actions: {
+					left: [
+						{
+							id: 'view-left',
+							key: 'view-left',
+							label: 'ActionRight',
+						},
+					],
+					center: [
+						{
+							id: 'view-center',
+							key: 'view-center',
+							label: 'ActionCenter',
+						},
+					],
+					right: [
+						{
+							id: 'view-right',
+							key: 'view-right',
+							label: 'ActionRight',
+						},
+					],
+				},
+			},
+		},
+		{
+			id: '2',
+			key: 'navigator',
+			label: 'Navigator',
+			footerActions: {
+				actions: {
+					left: [
+						{
+							id: 'view-left-hidden',
+							key: 'view-left-hidden',
+							bsStyle: 'danger',
+							label: 'Action not visible in the tab "info"',
+						},
+					],
+				},
+			},
+		},
+	],
+	onSelect: action('Tab clicked'),
 };
 
 function scrollableContent() {
@@ -251,6 +305,35 @@ storiesOf('Drawer', module)
 			</Drawer>,
 			<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs}>
 				<p>The content</p>
+			</Drawer>,
+		];
+		return (
+			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
+				<span>zone with drawer</span>
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('With tabs with specific footers', () => {
+		const drawersWithTabs = [
+			<Drawer
+				stacked
+				title="I'm a stacked drawer with tabs"
+				selectedTabKey={'info'}
+				tabs={tabsActionFooter}
+			>
+				<p>This tab contain specific actions in left, center and right parts of the footer.</p>
+				<p>
+					An other specific action with the label "Action not visible in the tab 'info'" is define
+					in the tab "navigator" but not visible in the tab "info".
+				</p>
+			</Drawer>,
+			<Drawer title="I'm a drawer with tabs" selectedTabKey={'info'} tabs={tabsActionFooter}>
+				<p>This tab contain specific actions in left, center and right parts of the footer.</p>
+				<p>
+					An other specific action with the label "Action not visible in the tab 'info'" is define
+					in the tab "navigator" but not visible in the tab "info".
+				</p>
 			</Drawer>,
 		];
 		return (
