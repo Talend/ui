@@ -17,12 +17,12 @@ function DatePicker(props) {
 			}))
 		);
 
-	const activeDay = 12;
+	const selectedDay = 12;
 	const currentDay = 20;
 	const disabledDays = [6, 15];
 
-	function getClassIfActive(n) {
-		return activeDay === n ? theme.active : undefined;
+	function getClassIfSelected(n) {
+		return selectedDay === n ? theme.selected : undefined;
 	}
 
 	function getClassIfCurrentDay(n) {
@@ -58,7 +58,7 @@ function DatePicker(props) {
 						<div
 							className={classNames(
 								theme['calendar-item'],
-								getClassIfActive(day.number),
+								getClassIfSelected(day.number),
 								getClassIfCurrentDay(day.number),
 							)}
 							key={j}
@@ -68,7 +68,7 @@ function DatePicker(props) {
 								disabled={isDisabledDay(day.number)}
 								aria-label={isDisabledDay(day.number)
 									? 'Unselectable date'
-									: `Select '${day.number}' as the active date`}
+									: `Select '${day.number}'`}
 							>
 								{day.number}
 							</button>

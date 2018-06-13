@@ -8,19 +8,19 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
     className="theme-row"
   >
     <Translate(ActionButton)
-      aria-label="Select 'Janvier' as active month"
+      aria-label="Select 'Janvier'"
       className="theme-month"
       label="Janvier"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Février' as active month"
+      aria-label="Select 'Février'"
       className="theme-month"
       label="Février"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Mars' as active month"
+      aria-label="Select 'Mars'"
       className="theme-month"
       label="Mars"
       link={true}
@@ -30,19 +30,19 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
     className="theme-row"
   >
     <Translate(ActionButton)
-      aria-label="Select 'Avril' as active month"
+      aria-label="Select 'Avril'"
       className="theme-month"
       label="Avril"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Mai' as active month"
+      aria-label="Select 'Mai'"
       className="theme-month"
       label="Mai"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Juin' as active month"
+      aria-label="Select 'Juin'"
       className="theme-month"
       label="Juin"
       link={true}
@@ -52,20 +52,20 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
     className="theme-row"
   >
     <Translate(ActionButton)
-      aria-label="Select 'Juillet' as active month"
+      aria-label="Select 'Juillet'"
       className="theme-month"
       label="Juillet"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Août' as active month"
+      aria-label="Select 'Août'"
       className="theme-month"
       label="Août"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Septembre' as active month"
-      className="theme-month theme-active"
+      aria-label="Select 'Septembre'"
+      className="theme-month theme-selected"
       label="Septembre"
       link={true}
     />
@@ -74,19 +74,19 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
     className="theme-row"
   >
     <Translate(ActionButton)
-      aria-label="Select 'Octobre' as active month"
+      aria-label="Select 'Octobre'"
       className="theme-month"
       label="Octobre"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Novembre' as active month"
+      aria-label="Select 'Novembre'"
       className="theme-month"
       label="Novembre"
       link={true}
     />
     <Translate(ActionButton)
-      aria-label="Select 'Décembre' as active month"
+      aria-label="Select 'Décembre'"
       className="theme-month"
       label="Décembre"
       link={true}

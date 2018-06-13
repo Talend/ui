@@ -16,10 +16,10 @@ function YearPicker(props) {
 		2017,
 	].slice(0, 5);
 
-	const activeYear = 2012;
+	const selectedYear = 2012;
 
-	function getClassIfActive(y) {
-		return activeYear === y ? theme.active : undefined;
+	function getClassIfSelected(y) {
+		return selectedYear === y ? theme.selected : undefined;
 	}
 
 	return (
@@ -39,9 +39,9 @@ function YearPicker(props) {
 						link
 						className={classNames(
 							theme.year,
-							getClassIfActive(year),
+							getClassIfSelected(year),
 						)}
-						aria-label={`Select '${year}' as active year`}
+						aria-label={`Select '${year}'`}
 					/>
 				)}
 			</div>

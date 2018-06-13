@@ -58,8 +58,8 @@
                 background-color: rgba($slate-gray, 0.12);
             }
 
-            &.active .calendar-day-action {
-                @include picker-action-active;
+            &.selected .calendar-day-action {
+                @include picker-action-selected;
             }
         }
     }

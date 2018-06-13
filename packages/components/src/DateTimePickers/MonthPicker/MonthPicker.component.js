@@ -22,10 +22,10 @@ function MonthPicker(props) {
 	];
 
 	const monthsRows = chunk(months, 3);
-	const activeMonth = 'Septembre';
+	const selectedMonth = 'Septembre';
 
-	function getClassIfActive(m) {
-		return activeMonth === m ? theme.active : undefined;
+	function getClassIfSelected(m) {
+		return selectedMonth === m ? theme.selected : undefined;
 	}
 
 	return (
@@ -39,9 +39,9 @@ function MonthPicker(props) {
 							link
 							className={classNames(
 								theme.month,
-								getClassIfActive(month),
+								getClassIfSelected(month),
 							)}
-							aria-label={`Select '${month}' as active month`}
+							aria-label={`Select '${month}'`}
 						/>
 					)}
 				</div>

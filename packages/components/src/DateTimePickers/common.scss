@@ -6,7 +6,7 @@ $border-default: 1px solid $gallery;
 }
 
 
-@mixin picker-action-active {
+@mixin picker-action-selected {
     background-color: $scooter;
     color: $white;
 }
@@ -51,10 +51,10 @@ $border-default: 1px solid $gallery;
         text-decoration: none;
     }
 
-    &.active {
+    &.selected {
         background-color: transparent;
         span {
-            @include picker-action-active;
+            @include picker-action-selected;
         }
     }
 }
