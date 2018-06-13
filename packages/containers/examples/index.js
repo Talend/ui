@@ -7,6 +7,7 @@ import ActionsExample from './ExampleActions';
 import AppLoader from './ExampleAppLoader';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
+import FormExample from './ExampleForm';
 import HeaderBarExample from './ExampleHeaderBar';
 import HomeListViewExample from './ExampleHomeListView';
 import ListExample from './ExampleList';
@@ -33,6 +34,7 @@ export default {
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,
+	FormExample,
 	HeaderBarExample,
 	HomeListViewExample,
 	ListExample,

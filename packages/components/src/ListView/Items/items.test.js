@@ -4,7 +4,7 @@ import { ItemsComponent } from './Items.component';
 import toJsonWithoutI18n from './../../../test/props-without-i18n';
 
 jest.mock(
-	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
 	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
 );
 
