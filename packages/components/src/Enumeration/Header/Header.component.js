@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import { Action, ActionDropdown } from '../../Actions/';
+import { Action, ActionDropdown } from '../../Actions';
 import theme from './Header.scss';
 
 function headerClasses() {

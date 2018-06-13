@@ -6,18 +6,13 @@ import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
 function headerClasses(headerError) {
-	return classNames({
-		[theme['tc-enumeration-header']]: true,
-		'tc-enumeration-header': true,
+	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header', {
 		'has-error': !!headerError,
 	});
 }
 
 function headerErrorClasses() {
-	return classNames({
-		[theme['tc-enumeration-header-error']]: true,
-		'tc-enumeration-header-error': true,
-	});
+	return classNames(theme['tc-enumeration-header-error'], 'tc-enumeration-header-error');
 }
 
 function getAction(action, index, getInternalInputRef) {
@@ -49,6 +44,8 @@ function HeaderInput({
 	headerInput,
 	headerError,
 	onInputChange,
+	id,
+	inputLabel,
 	inputPlaceholder,
 	onAddKeyDown,
 	value,
@@ -72,10 +69,14 @@ function HeaderInput({
 		return internalInputRef;
 	}
 
+	const errorId = `${id}_error`;
 	return (
 		<header className={headerClasses(headerError)}>
 			<input
 				type="text"
+				aria-label={inputLabel}
+				aria-describedby={errorId}
+				id={id}
 				placeholder={inputPlaceholder}
 				ref={input => {
 					internalInputRef = input;
@@ -88,16 +89,22 @@ function HeaderInput({
 				value={value}
 				autoFocus
 			/>
-			{headerError && <div className={headerErrorClasses()}>{headerError}</div>}
+			{headerError && (
+				<div id={errorId} className={headerErrorClasses()} aria-live="assertive">
+					{headerError}
+				</div>
+			)}
 			{headerInput.map((action, index) => getAction(action, index, getInternalInputRef.bind(this)))}
 		</header>
 	);
 }
 
 HeaderInput.propTypes = {
+	id: PropTypes.string.isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 	headerError: PropTypes.string,
 	onInputChange: PropTypes.func,
+	inputLabel: PropTypes.string,
 	inputPlaceholder: PropTypes.string,
 	inputRef: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
