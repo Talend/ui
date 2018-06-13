@@ -36,7 +36,9 @@ if (program.debug) {
 	console.log(`use stack version ${stackVersion}`);
 }
 
-const REACT_VERSION = '^16.0.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+console.log('REACT_VERSION: ', REACT_VERSION);
+const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -54,7 +56,7 @@ const STACK_VERSION = {
 };
 
 const ADDONS = {
-	'babel-polyfill': '6.26.0',
+	'babel-polyfill': '^6.26.0',
 	'date-fns': '1.27.2',
 	'focus-outline-manager': '^1.0.2',
 	immutablediff: '0.4.4',
@@ -80,7 +82,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
-	classnames: '2.2.5',
+	classnames: '^2.2.5',
 	'd3-shape': '1.2.0',
 	keycode: '2.2.0',
 	lodash: '4.17.4',
@@ -96,7 +98,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
 	'react-i18next': '^7.6.1',
-	'react-redux': '5.0.5',
+	'react-redux': '5.0.7',
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
@@ -104,7 +106,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
-	redux: '3.6.0',
+	redux: '3.7.2',
 	'redux-batched-actions': '0.2.0',
 	'redux-logger': '3.0.6',
 	'redux-mock-store': '1.2.3',
@@ -178,7 +180,6 @@ const files = [
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
 	'./packages/icons/package.json',
-	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
 	'./packages/datagrid/package.json',
@@ -190,14 +191,28 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
-function check(source, dep, version) {
+function check(source, dep, version, category = 'dep') {
+	let safeVersion = version;
+	// force ^ in the dependencies
+	if (category === 'dep' && !version.startsWith('^')) {
+		safeVersion = `^${version}`;
+	}
+	if (category === 'peer' && dep === 'react') {
+		safeVersion = REACT_VERSION_PEER;
+	}
+	if (category === 'peer' && dep === 'react-dom') {
+		safeVersion = REACT_VERSION_PEER;
+	}
 	let modified = false;
-	if (source && source[dep] && source[dep] !== version) {
+	if (source && source[dep] && source[dep] !== safeVersion) {
+		if (dep === 'react' && category === 'dep') {
+			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
+		}
 		if (!program.quiet) {
-			console.log(`update ${dep}: ${source[dep]} to '${version}'`);
+			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
 		}
 		// eslint-disable-next-line no-param-reassign
-		source[dep] = version;
+		source[dep] = safeVersion;
 		modified = true;
 	}
 	return modified;
@@ -208,9 +223,9 @@ function checkAll(versions, source, dep) {
 	const devDeps = source.devDependencies;
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
-	const isModDevDeps = check(devDeps, dep, version);
+	const isModDevDeps = check(devDeps, dep, version, 'dev');
 	const isModDeps = check(deps, dep, version);
-	const isModPeers = check(peer, dep, version);
+	const isModPeers = check(peer, dep, version, 'peer');
 	if (isModDevDeps || isModDeps || isModPeers) {
 		// eslint-disable-next-line no-param-reassign
 		source.modified = true;

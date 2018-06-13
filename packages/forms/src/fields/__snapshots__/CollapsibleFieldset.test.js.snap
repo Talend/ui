@@ -1,9 +1,2681 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `"<form class=\\"rjsf\\"><div class=\\"form-group field field-object\\"><fieldset><legend id=\\"root__title\\">A filter form</legend><div class=\\"form-group field field-array\\"><fieldset class=\\"field field-array field-array-of-object\\"><legend id=\\"root_filters__title\\">A list of strings</legend><div class=\\"row array-item-list\\"><div class=\\"array-item\\"><div class=\\"col-xs-9\\"><div class=\\"form-group field field-object\\"><fieldset class=\\"theme-collapsible\\"><div id=\\"root_filters_0__title_bar\\" role=\\"button\\"><div id=\\"root_filters_0__title_wrapper\\" role=\\"button\\"><legend id=\\"root_filters_0__title\\"><h1>Titre</h1></legend><button id=\\"root_filters_0__collapse\\" title=\\"Collapse\\" type=\\"button\\" class=\\"toggle\\"><svg name=\\"talend-caret-down\\" class=\\"theme-tc-svg-icon tc-svg-icon\\" focusable=\\"false\\" aria-hidden=\\"true\\"><use xlink:href=\\"#talend-caret-down\\"></use></svg></button></div></div><div class=\\"form-group field field-string\\"><select id=\\"root_filters_0_function\\" class=\\"form-control\\"><option value=\\"\\"></option><option value=\\"upperCase\\">upperCase</option><option value=\\"lowerCase\\">lowerCase</option></select><label for=\\"root_filters_0_function\\" class=\\"control-label\\">function</label><div></div><div></div><div></div></div></fieldset><div></div><div></div></div></div><div class=\\"col-xs-3 array-item-toolbox\\"><div class=\\"btn-group\\" style=\\"display: flex;\\"><button type=\\"button\\" class=\\"btn btn-danger array-item-remove\\" tabindex=\\"-1\\" style=\\"padding-left: 6px; padding-right: 6px; font-weight: bold;\\"><i class=\\"glyphicon glyphicon-remove\\"></i></button></div></div></div></div><div class=\\"row\\"><p class=\\"col-xs-3 col-xs-offset-9 array-item-add text-right\\"><button type=\\"button\\" class=\\"btn btn-info btn-add col-xs-12\\" tabindex=\\"0\\"><i class=\\"glyphicon glyphicon-plus\\"></i></button></p></div></fieldset><div></div><div></div></div></fieldset><div></div><div></div></div><h1>Child</h1><p>This is an inner child in the form</p><div class=\\"form-actions\\"><button aria-label=\\"Submit\\" type=\\"submit\\" class=\\"btn btn-primary\\"><span>Submit</span></button></div></form>"`;
+exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
+<CollapsibleFieldset
+  autofocus={false}
+  disabled={false}
+  errorSchema={Object {}}
+  formContext={
+    Object {
+      "handleAction": undefined,
+      "handleSchemaChange": [Function],
+    }
+  }
+  formData={
+    Object {
+      "function": "upperCase",
+      "isClosed": true,
+    }
+  }
+  idSchema={
+    Object {
+      "$id": "root_filters_0",
+      "function": Object {
+        "$id": "root_filters_0_function",
+      },
+      "isClosed": Object {
+        "$id": "root_filters_0_isClosed",
+      },
+    }
+  }
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  readonly={false}
+  registry={
+    Object {
+      "ArrayFieldTemplate": undefined,
+      "FieldTemplate": [Function],
+      "ObjectFieldTemplate": undefined,
+      "definitions": Object {},
+      "fields": Object {
+        "ArrayField": [Function],
+        "BooleanField": [Function],
+        "CollapsibleFieldset": [Function],
+        "DescriptionField": [Function],
+        "NumberField": [Function],
+        "ObjectField": [Function],
+        "SchemaField": [Function],
+        "StringField": [Function],
+        "TitleField": [Function],
+        "UnsupportedField": [Function],
+      },
+      "formContext": Object {
+        "handleAction": undefined,
+        "handleSchemaChange": [Function],
+      },
+      "widgets": Object {
+        "AltDateTimeWidget": [Function],
+        "AltDateWidget": [Function],
+        "BaseInput": [Function],
+        "CheckboxWidget": [Function],
+        "CheckboxesWidget": [Function],
+        "ColorWidget": [Function],
+        "DateTimeWidget": [Function],
+        "DateWidget": [Function],
+        "EmailWidget": [Function],
+        "FileWidget": [Function],
+        "HiddenWidget": [Function],
+        "PasswordWidget": [Function],
+        "RadioWidget": [Function],
+        "RangeWidget": [Function],
+        "SelectWidget": [Function],
+        "TextWidget": [Function],
+        "TextareaWidget": [Function],
+        "URLWidget": [Function],
+        "UpDownWidget": [Function],
+        "code": [Function],
+        "columns": [Function],
+        "datalist": [Function],
+        "enumeration": [Function],
+        "keyValue": [Function],
+        "listview": [Function],
+        "multiSelectTag": [Function],
+        "tabs": [Function],
+        "toggle": [Function],
+      },
+    }
+  }
+  required={false}
+  schema={
+    Object {
+      "properties": Object {
+        "function": Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        },
+        "isClosed": Object {
+          "type": "boolean",
+        },
+      },
+      "title": undefined,
+      "type": "object",
+    }
+  }
+  uiSchema={
+    Object {
+      "classNames": undefined,
+      "ui:field": "CollapsibleFieldset",
+    }
+  }
+>
+  <fieldset
+    className="theme-collapsible"
+  >
+    <div
+      id="root_filters_0__title_bar"
+      onDoubleClick={[Function]}
+      role="button"
+    >
+      <div
+        id="root_filters_0__title_wrapper"
+        onClick={[Function]}
+        role="button"
+      >
+        <TitleField
+          formContext={
+            Object {
+              "handleAction": undefined,
+              "handleSchemaChange": [Function],
+            }
+          }
+          id="root_filters_0__title"
+          required={false}
+          title={
+            <h1>
+              Titre
+            </h1>
+          }
+        >
+          <legend
+            id="root_filters_0__title"
+          >
+            <h1>
+              Titre
+            </h1>
+          </legend>
+        </TitleField>
+        <button
+          className="toggle"
+          id="root_filters_0__collapse"
+          onClick={[Function]}
+          title="Collapse"
+          type="button"
+        >
+          <Icon
+            name="talend-caret-down"
+            transform=""
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </Icon>
+        </button>
+      </div>
+    </div>
+    <SchemaField
+      autofocus={false}
+      disabled={false}
+      errorSchema={Object {}}
+      formData="upperCase"
+      idSchema={
+        Object {
+          "$id": "root_filters_0_function",
+        }
+      }
+      key="1"
+      name="function"
+      onBlur={[Function]}
+      onChange={[Function]}
+      readonly={false}
+      registry={
+        Object {
+          "ArrayFieldTemplate": undefined,
+          "FieldTemplate": [Function],
+          "ObjectFieldTemplate": undefined,
+          "definitions": Object {},
+          "fields": Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          },
+          "formContext": Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          },
+          "widgets": Object {
+            "AltDateTimeWidget": [Function],
+            "AltDateWidget": [Function],
+            "BaseInput": [Function],
+            "CheckboxWidget": [Function],
+            "CheckboxesWidget": [Function],
+            "ColorWidget": [Function],
+            "DateTimeWidget": [Function],
+            "DateWidget": [Function],
+            "EmailWidget": [Function],
+            "FileWidget": [Function],
+            "HiddenWidget": [Function],
+            "PasswordWidget": [Function],
+            "RadioWidget": [Function],
+            "RangeWidget": [Function],
+            "SelectWidget": [Function],
+            "TextWidget": [Function],
+            "TextareaWidget": [Function],
+            "URLWidget": [Function],
+            "UpDownWidget": [Function],
+            "code": [Function],
+            "columns": [Function],
+            "datalist": [Function],
+            "enumeration": [Function],
+            "keyValue": [Function],
+            "listview": [Function],
+            "multiSelectTag": [Function],
+            "tabs": [Function],
+            "toggle": [Function],
+          },
+        }
+      }
+      required={false}
+      schema={
+        Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        }
+      }
+      uiSchema={Object {}}
+    >
+      <CustomFieldTemplate
+        classNames="form-group field field-string"
+        description={
+          <DescriptionField
+            description={undefined}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          />
+        }
+        displayLabel={true}
+        errors={
+          <ErrorList
+            errors={undefined}
+          />
+        }
+        fields={
+          Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          }
+        }
+        formContext={
+          Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          }
+        }
+        help={
+          <Help
+            help={undefined}
+          />
+        }
+        hidden={false}
+        id="root_filters_0_function"
+        label="function"
+        readonly={false}
+        required={false}
+        schema={
+          Object {
+            "enum": Array [
+              "upperCase",
+              "lowerCase",
+            ],
+            "title": "function",
+            "type": "string",
+          }
+        }
+        uiSchema={Object {}}
+      >
+        <div
+          className="form-group field field-string"
+        >
+          <StringField
+            autofocus={false}
+            disabled={false}
+            errorSchema={Object {}}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            formData="upperCase"
+            idSchema={
+              Object {
+                "$id": "root_filters_0_function",
+              }
+            }
+            name="function"
+            onBlur={[Function]}
+            onChange={[Function]}
+            readonly={false}
+            registry={
+              Object {
+                "ArrayFieldTemplate": undefined,
+                "FieldTemplate": [Function],
+                "ObjectFieldTemplate": undefined,
+                "definitions": Object {},
+                "fields": Object {
+                  "ArrayField": [Function],
+                  "BooleanField": [Function],
+                  "CollapsibleFieldset": [Function],
+                  "DescriptionField": [Function],
+                  "NumberField": [Function],
+                  "ObjectField": [Function],
+                  "SchemaField": [Function],
+                  "StringField": [Function],
+                  "TitleField": [Function],
+                  "UnsupportedField": [Function],
+                },
+                "formContext": Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                },
+                "widgets": Object {
+                  "AltDateTimeWidget": [Function],
+                  "AltDateWidget": [Function],
+                  "BaseInput": [Function],
+                  "CheckboxWidget": [Function],
+                  "CheckboxesWidget": [Function],
+                  "ColorWidget": [Function],
+                  "DateTimeWidget": [Function],
+                  "DateWidget": [Function],
+                  "EmailWidget": [Function],
+                  "FileWidget": [Function],
+                  "HiddenWidget": [Function],
+                  "PasswordWidget": [Function],
+                  "RadioWidget": [Function],
+                  "RangeWidget": [Function],
+                  "SelectWidget": [Function],
+                  "TextWidget": [Function],
+                  "TextareaWidget": [Function],
+                  "URLWidget": [Function],
+                  "UpDownWidget": [Function],
+                  "code": [Function],
+                  "columns": [Function],
+                  "datalist": [Function],
+                  "enumeration": [Function],
+                  "keyValue": [Function],
+                  "listview": [Function],
+                  "multiSelectTag": [Function],
+                  "tabs": [Function],
+                  "toggle": [Function],
+                },
+              }
+            }
+            required={false}
+            schema={
+              Object {
+                "enum": Array [
+                  "upperCase",
+                  "lowerCase",
+                ],
+                "title": "function",
+                "type": "string",
+              }
+            }
+            uiSchema={
+              Object {
+                "classNames": undefined,
+              }
+            }
+          >
+            <Component
+              autofocus={false}
+              disabled={false}
+              formContext={
+                Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                }
+              }
+              id="root_filters_0_function"
+              label="function"
+              onBlur={[Function]}
+              onChange={[Function]}
+              options={
+                Object {
+                  "enumOptions": Array [
+                    Object {
+                      "label": "upperCase",
+                      "value": "upperCase",
+                    },
+                    Object {
+                      "label": "lowerCase",
+                      "value": "lowerCase",
+                    },
+                  ],
+                }
+              }
+              placeholder=""
+              readonly={false}
+              registry={
+                Object {
+                  "ArrayFieldTemplate": undefined,
+                  "FieldTemplate": [Function],
+                  "ObjectFieldTemplate": undefined,
+                  "definitions": Object {},
+                  "fields": Object {
+                    "ArrayField": [Function],
+                    "BooleanField": [Function],
+                    "CollapsibleFieldset": [Function],
+                    "DescriptionField": [Function],
+                    "NumberField": [Function],
+                    "ObjectField": [Function],
+                    "SchemaField": [Function],
+                    "StringField": [Function],
+                    "TitleField": [Function],
+                    "UnsupportedField": [Function],
+                  },
+                  "formContext": Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  },
+                  "widgets": Object {
+                    "AltDateTimeWidget": [Function],
+                    "AltDateWidget": [Function],
+                    "BaseInput": [Function],
+                    "CheckboxWidget": [Function],
+                    "CheckboxesWidget": [Function],
+                    "ColorWidget": [Function],
+                    "DateTimeWidget": [Function],
+                    "DateWidget": [Function],
+                    "EmailWidget": [Function],
+                    "FileWidget": [Function],
+                    "HiddenWidget": [Function],
+                    "PasswordWidget": [Function],
+                    "RadioWidget": [Function],
+                    "RangeWidget": [Function],
+                    "SelectWidget": [Function],
+                    "TextWidget": [Function],
+                    "TextareaWidget": [Function],
+                    "URLWidget": [Function],
+                    "UpDownWidget": [Function],
+                    "code": [Function],
+                    "columns": [Function],
+                    "datalist": [Function],
+                    "enumeration": [Function],
+                    "keyValue": [Function],
+                    "listview": [Function],
+                    "multiSelectTag": [Function],
+                    "tabs": [Function],
+                    "toggle": [Function],
+                  },
+                }
+              }
+              required={false}
+              schema={
+                Object {
+                  "enum": Array [
+                    "upperCase",
+                    "lowerCase",
+                  ],
+                  "title": "function",
+                  "type": "string",
+                }
+              }
+              value="upperCase"
+            >
+              <SelectWidget
+                autofocus={false}
+                disabled={false}
+                formContext={
+                  Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  }
+                }
+                id="root_filters_0_function"
+                label="function"
+                onBlur={[Function]}
+                onChange={[Function]}
+                options={
+                  Object {
+                    "enumOptions": Array [
+                      Object {
+                        "label": "upperCase",
+                        "value": "upperCase",
+                      },
+                      Object {
+                        "label": "lowerCase",
+                        "value": "lowerCase",
+                      },
+                    ],
+                  }
+                }
+                placeholder=""
+                readonly={false}
+                registry={
+                  Object {
+                    "ArrayFieldTemplate": undefined,
+                    "FieldTemplate": [Function],
+                    "ObjectFieldTemplate": undefined,
+                    "definitions": Object {},
+                    "fields": Object {
+                      "ArrayField": [Function],
+                      "BooleanField": [Function],
+                      "CollapsibleFieldset": [Function],
+                      "DescriptionField": [Function],
+                      "NumberField": [Function],
+                      "ObjectField": [Function],
+                      "SchemaField": [Function],
+                      "StringField": [Function],
+                      "TitleField": [Function],
+                      "UnsupportedField": [Function],
+                    },
+                    "formContext": Object {
+                      "handleAction": undefined,
+                      "handleSchemaChange": [Function],
+                    },
+                    "widgets": Object {
+                      "AltDateTimeWidget": [Function],
+                      "AltDateWidget": [Function],
+                      "BaseInput": [Function],
+                      "CheckboxWidget": [Function],
+                      "CheckboxesWidget": [Function],
+                      "ColorWidget": [Function],
+                      "DateTimeWidget": [Function],
+                      "DateWidget": [Function],
+                      "EmailWidget": [Function],
+                      "FileWidget": [Function],
+                      "HiddenWidget": [Function],
+                      "PasswordWidget": [Function],
+                      "RadioWidget": [Function],
+                      "RangeWidget": [Function],
+                      "SelectWidget": [Function],
+                      "TextWidget": [Function],
+                      "TextareaWidget": [Function],
+                      "URLWidget": [Function],
+                      "UpDownWidget": [Function],
+                      "code": [Function],
+                      "columns": [Function],
+                      "datalist": [Function],
+                      "enumeration": [Function],
+                      "keyValue": [Function],
+                      "listview": [Function],
+                      "multiSelectTag": [Function],
+                      "tabs": [Function],
+                      "toggle": [Function],
+                    },
+                  }
+                }
+                required={false}
+                schema={
+                  Object {
+                    "enum": Array [
+                      "upperCase",
+                      "lowerCase",
+                    ],
+                    "title": "function",
+                    "type": "string",
+                  }
+                }
+                value="upperCase"
+              >
+                <select
+                  autoFocus={false}
+                  className="form-control"
+                  disabled={false}
+                  id="root_filters_0_function"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={false}
+                  value="upperCase"
+                >
+                  <option
+                    value=""
+                  />
+                  <option
+                    key="0"
+                    value="upperCase"
+                  >
+                    upperCase
+                  </option>
+                  <option
+                    key="1"
+                    value="lowerCase"
+                  >
+                    lowerCase
+                  </option>
+                </select>
+              </SelectWidget>
+            </Component>
+          </StringField>
+          <Label
+            className="control-label"
+            id="root_filters_0_function"
+            label="function"
+          >
+            <label
+              className="control-label"
+              htmlFor="root_filters_0_function"
+            >
+              function
+            </label>
+          </Label>
+          <DescriptionField
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          >
+            <div />
+          </DescriptionField>
+          <ErrorList>
+            <div />
+          </ErrorList>
+          <Help>
+            <div />
+          </Help>
+        </div>
+      </CustomFieldTemplate>
+    </SchemaField>
+  </fieldset>
+</CollapsibleFieldset>
+`;
 
-exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] = `"<form class=\\"rjsf\\"><div class=\\"form-group field field-object\\"><fieldset><legend id=\\"root__title\\">A filter form</legend><div class=\\"form-group field field-array\\"><fieldset class=\\"field field-array field-array-of-object\\"><legend id=\\"root_filters__title\\">A list of strings</legend><div class=\\"row array-item-list\\"><div class=\\"array-item\\"><div class=\\"col-xs-9\\"><div class=\\"form-group field field-object\\"><fieldset class=\\"theme-collapsible\\"><div id=\\"root_filters_0__title_bar\\" role=\\"button\\"><div id=\\"root_filters_0__title_wrapper\\" role=\\"button\\"><legend id=\\"root_filters_0__title\\"><h1>Titre</h1></legend><button id=\\"root_filters_0__collapse\\" title=\\"Collapse\\" type=\\"button\\" class=\\"toggle\\"><svg name=\\"talend-caret-down\\" class=\\"theme-tc-svg-icon tc-svg-icon\\" focusable=\\"false\\" aria-hidden=\\"true\\"><use xlink:href=\\"#talend-caret-down\\"></use></svg></button></div></div><div class=\\"form-group field field-string\\"><select id=\\"root_filters_0_function\\" class=\\"form-control\\"><option value=\\"\\"></option><option value=\\"upperCase\\">upperCase</option><option value=\\"lowerCase\\">lowerCase</option></select><label for=\\"root_filters_0_function\\" class=\\"control-label\\">function</label><div></div><div></div><div></div></div></fieldset><div></div><div></div></div></div><div class=\\"col-xs-3 array-item-toolbox\\"><div class=\\"btn-group\\" style=\\"display: flex;\\"><button type=\\"button\\" class=\\"btn btn-danger array-item-remove\\" tabindex=\\"-1\\" style=\\"padding-left: 6px; padding-right: 6px; font-weight: bold;\\"><i class=\\"glyphicon glyphicon-remove\\"></i></button></div></div></div></div><div class=\\"row\\"><p class=\\"col-xs-3 col-xs-offset-9 array-item-add text-right\\"><button type=\\"button\\" class=\\"btn btn-info btn-add col-xs-12\\" tabindex=\\"0\\"><i class=\\"glyphicon glyphicon-plus\\"></i></button></p></div></fieldset><div></div><div></div></div></fieldset><div></div><div></div></div><h1>Child</h1><p>This is an inner child in the form</p><div class=\\"form-actions\\"><button aria-label=\\"Submit\\" type=\\"submit\\" class=\\"btn btn-primary\\"><span>Submit</span></button></div></form>"`;
+exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] = `
+<CollapsibleFieldset
+  autofocus={false}
+  disabled={false}
+  errorSchema={Object {}}
+  formContext={
+    Object {
+      "handleAction": undefined,
+      "handleSchemaChange": [Function],
+    }
+  }
+  formData={
+    Object {
+      "function": "upperCase",
+      "isClosed": true,
+    }
+  }
+  idSchema={
+    Object {
+      "$id": "root_filters_0",
+      "function": Object {
+        "$id": "root_filters_0_function",
+      },
+      "isClosed": Object {
+        "$id": "root_filters_0_isClosed",
+      },
+    }
+  }
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  readonly={false}
+  registry={
+    Object {
+      "ArrayFieldTemplate": undefined,
+      "FieldTemplate": [Function],
+      "ObjectFieldTemplate": undefined,
+      "definitions": Object {},
+      "fields": Object {
+        "ArrayField": [Function],
+        "BooleanField": [Function],
+        "CollapsibleFieldset": [Function],
+        "DescriptionField": [Function],
+        "NumberField": [Function],
+        "ObjectField": [Function],
+        "SchemaField": [Function],
+        "StringField": [Function],
+        "TitleField": [Function],
+        "UnsupportedField": [Function],
+      },
+      "formContext": Object {
+        "handleAction": undefined,
+        "handleSchemaChange": [Function],
+      },
+      "widgets": Object {
+        "AltDateTimeWidget": [Function],
+        "AltDateWidget": [Function],
+        "BaseInput": [Function],
+        "CheckboxWidget": [Function],
+        "CheckboxesWidget": [Function],
+        "ColorWidget": [Function],
+        "DateTimeWidget": [Function],
+        "DateWidget": [Function],
+        "EmailWidget": [Function],
+        "FileWidget": [Function],
+        "HiddenWidget": [Function],
+        "PasswordWidget": [Function],
+        "RadioWidget": [Function],
+        "RangeWidget": [Function],
+        "SelectWidget": [Function],
+        "TextWidget": [Function],
+        "TextareaWidget": [Function],
+        "URLWidget": [Function],
+        "UpDownWidget": [Function],
+        "code": [Function],
+        "columns": [Function],
+        "datalist": [Function],
+        "enumeration": [Function],
+        "keyValue": [Function],
+        "listview": [Function],
+        "multiSelectTag": [Function],
+        "tabs": [Function],
+        "toggle": [Function],
+      },
+    }
+  }
+  required={false}
+  schema={
+    Object {
+      "properties": Object {
+        "function": Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        },
+        "isClosed": Object {
+          "type": "boolean",
+        },
+      },
+      "title": undefined,
+      "type": "object",
+    }
+  }
+  uiSchema={
+    Object {
+      "classNames": undefined,
+      "ui:field": "CollapsibleFieldset",
+    }
+  }
+>
+  <fieldset
+    className="theme-collapsible"
+  >
+    <div
+      id="root_filters_0__title_bar"
+      onDoubleClick={[Function]}
+      role="button"
+    >
+      <div
+        id="root_filters_0__title_wrapper"
+        onClick={[Function]}
+        role="button"
+      >
+        <TitleField
+          formContext={
+            Object {
+              "handleAction": undefined,
+              "handleSchemaChange": [Function],
+            }
+          }
+          id="root_filters_0__title"
+          required={false}
+          title={
+            <h1>
+              Titre
+            </h1>
+          }
+        >
+          <legend
+            id="root_filters_0__title"
+          >
+            <h1>
+              Titre
+            </h1>
+          </legend>
+        </TitleField>
+        <button
+          className="toggle"
+          id="root_filters_0__collapse"
+          onClick={[Function]}
+          title="Collapse"
+          type="button"
+        >
+          <Icon
+            name="talend-caret-down"
+            transform=""
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </Icon>
+        </button>
+      </div>
+    </div>
+    <SchemaField
+      autofocus={false}
+      disabled={false}
+      errorSchema={Object {}}
+      formData="upperCase"
+      idSchema={
+        Object {
+          "$id": "root_filters_0_function",
+        }
+      }
+      key="1"
+      name="function"
+      onBlur={[Function]}
+      onChange={[Function]}
+      readonly={false}
+      registry={
+        Object {
+          "ArrayFieldTemplate": undefined,
+          "FieldTemplate": [Function],
+          "ObjectFieldTemplate": undefined,
+          "definitions": Object {},
+          "fields": Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          },
+          "formContext": Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          },
+          "widgets": Object {
+            "AltDateTimeWidget": [Function],
+            "AltDateWidget": [Function],
+            "BaseInput": [Function],
+            "CheckboxWidget": [Function],
+            "CheckboxesWidget": [Function],
+            "ColorWidget": [Function],
+            "DateTimeWidget": [Function],
+            "DateWidget": [Function],
+            "EmailWidget": [Function],
+            "FileWidget": [Function],
+            "HiddenWidget": [Function],
+            "PasswordWidget": [Function],
+            "RadioWidget": [Function],
+            "RangeWidget": [Function],
+            "SelectWidget": [Function],
+            "TextWidget": [Function],
+            "TextareaWidget": [Function],
+            "URLWidget": [Function],
+            "UpDownWidget": [Function],
+            "code": [Function],
+            "columns": [Function],
+            "datalist": [Function],
+            "enumeration": [Function],
+            "keyValue": [Function],
+            "listview": [Function],
+            "multiSelectTag": [Function],
+            "tabs": [Function],
+            "toggle": [Function],
+          },
+        }
+      }
+      required={false}
+      schema={
+        Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        }
+      }
+      uiSchema={Object {}}
+    >
+      <CustomFieldTemplate
+        classNames="form-group field field-string"
+        description={
+          <DescriptionField
+            description={undefined}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          />
+        }
+        displayLabel={true}
+        errors={
+          <ErrorList
+            errors={undefined}
+          />
+        }
+        fields={
+          Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          }
+        }
+        formContext={
+          Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          }
+        }
+        help={
+          <Help
+            help={undefined}
+          />
+        }
+        hidden={false}
+        id="root_filters_0_function"
+        label="function"
+        readonly={false}
+        required={false}
+        schema={
+          Object {
+            "enum": Array [
+              "upperCase",
+              "lowerCase",
+            ],
+            "title": "function",
+            "type": "string",
+          }
+        }
+        uiSchema={Object {}}
+      >
+        <div
+          className="form-group field field-string"
+        >
+          <StringField
+            autofocus={false}
+            disabled={false}
+            errorSchema={Object {}}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            formData="upperCase"
+            idSchema={
+              Object {
+                "$id": "root_filters_0_function",
+              }
+            }
+            name="function"
+            onBlur={[Function]}
+            onChange={[Function]}
+            readonly={false}
+            registry={
+              Object {
+                "ArrayFieldTemplate": undefined,
+                "FieldTemplate": [Function],
+                "ObjectFieldTemplate": undefined,
+                "definitions": Object {},
+                "fields": Object {
+                  "ArrayField": [Function],
+                  "BooleanField": [Function],
+                  "CollapsibleFieldset": [Function],
+                  "DescriptionField": [Function],
+                  "NumberField": [Function],
+                  "ObjectField": [Function],
+                  "SchemaField": [Function],
+                  "StringField": [Function],
+                  "TitleField": [Function],
+                  "UnsupportedField": [Function],
+                },
+                "formContext": Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                },
+                "widgets": Object {
+                  "AltDateTimeWidget": [Function],
+                  "AltDateWidget": [Function],
+                  "BaseInput": [Function],
+                  "CheckboxWidget": [Function],
+                  "CheckboxesWidget": [Function],
+                  "ColorWidget": [Function],
+                  "DateTimeWidget": [Function],
+                  "DateWidget": [Function],
+                  "EmailWidget": [Function],
+                  "FileWidget": [Function],
+                  "HiddenWidget": [Function],
+                  "PasswordWidget": [Function],
+                  "RadioWidget": [Function],
+                  "RangeWidget": [Function],
+                  "SelectWidget": [Function],
+                  "TextWidget": [Function],
+                  "TextareaWidget": [Function],
+                  "URLWidget": [Function],
+                  "UpDownWidget": [Function],
+                  "code": [Function],
+                  "columns": [Function],
+                  "datalist": [Function],
+                  "enumeration": [Function],
+                  "keyValue": [Function],
+                  "listview": [Function],
+                  "multiSelectTag": [Function],
+                  "tabs": [Function],
+                  "toggle": [Function],
+                },
+              }
+            }
+            required={false}
+            schema={
+              Object {
+                "enum": Array [
+                  "upperCase",
+                  "lowerCase",
+                ],
+                "title": "function",
+                "type": "string",
+              }
+            }
+            uiSchema={
+              Object {
+                "classNames": undefined,
+              }
+            }
+          >
+            <Component
+              autofocus={false}
+              disabled={false}
+              formContext={
+                Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                }
+              }
+              id="root_filters_0_function"
+              label="function"
+              onBlur={[Function]}
+              onChange={[Function]}
+              options={
+                Object {
+                  "enumOptions": Array [
+                    Object {
+                      "label": "upperCase",
+                      "value": "upperCase",
+                    },
+                    Object {
+                      "label": "lowerCase",
+                      "value": "lowerCase",
+                    },
+                  ],
+                }
+              }
+              placeholder=""
+              readonly={false}
+              registry={
+                Object {
+                  "ArrayFieldTemplate": undefined,
+                  "FieldTemplate": [Function],
+                  "ObjectFieldTemplate": undefined,
+                  "definitions": Object {},
+                  "fields": Object {
+                    "ArrayField": [Function],
+                    "BooleanField": [Function],
+                    "CollapsibleFieldset": [Function],
+                    "DescriptionField": [Function],
+                    "NumberField": [Function],
+                    "ObjectField": [Function],
+                    "SchemaField": [Function],
+                    "StringField": [Function],
+                    "TitleField": [Function],
+                    "UnsupportedField": [Function],
+                  },
+                  "formContext": Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  },
+                  "widgets": Object {
+                    "AltDateTimeWidget": [Function],
+                    "AltDateWidget": [Function],
+                    "BaseInput": [Function],
+                    "CheckboxWidget": [Function],
+                    "CheckboxesWidget": [Function],
+                    "ColorWidget": [Function],
+                    "DateTimeWidget": [Function],
+                    "DateWidget": [Function],
+                    "EmailWidget": [Function],
+                    "FileWidget": [Function],
+                    "HiddenWidget": [Function],
+                    "PasswordWidget": [Function],
+                    "RadioWidget": [Function],
+                    "RangeWidget": [Function],
+                    "SelectWidget": [Function],
+                    "TextWidget": [Function],
+                    "TextareaWidget": [Function],
+                    "URLWidget": [Function],
+                    "UpDownWidget": [Function],
+                    "code": [Function],
+                    "columns": [Function],
+                    "datalist": [Function],
+                    "enumeration": [Function],
+                    "keyValue": [Function],
+                    "listview": [Function],
+                    "multiSelectTag": [Function],
+                    "tabs": [Function],
+                    "toggle": [Function],
+                  },
+                }
+              }
+              required={false}
+              schema={
+                Object {
+                  "enum": Array [
+                    "upperCase",
+                    "lowerCase",
+                  ],
+                  "title": "function",
+                  "type": "string",
+                }
+              }
+              value="upperCase"
+            >
+              <SelectWidget
+                autofocus={false}
+                disabled={false}
+                formContext={
+                  Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  }
+                }
+                id="root_filters_0_function"
+                label="function"
+                onBlur={[Function]}
+                onChange={[Function]}
+                options={
+                  Object {
+                    "enumOptions": Array [
+                      Object {
+                        "label": "upperCase",
+                        "value": "upperCase",
+                      },
+                      Object {
+                        "label": "lowerCase",
+                        "value": "lowerCase",
+                      },
+                    ],
+                  }
+                }
+                placeholder=""
+                readonly={false}
+                registry={
+                  Object {
+                    "ArrayFieldTemplate": undefined,
+                    "FieldTemplate": [Function],
+                    "ObjectFieldTemplate": undefined,
+                    "definitions": Object {},
+                    "fields": Object {
+                      "ArrayField": [Function],
+                      "BooleanField": [Function],
+                      "CollapsibleFieldset": [Function],
+                      "DescriptionField": [Function],
+                      "NumberField": [Function],
+                      "ObjectField": [Function],
+                      "SchemaField": [Function],
+                      "StringField": [Function],
+                      "TitleField": [Function],
+                      "UnsupportedField": [Function],
+                    },
+                    "formContext": Object {
+                      "handleAction": undefined,
+                      "handleSchemaChange": [Function],
+                    },
+                    "widgets": Object {
+                      "AltDateTimeWidget": [Function],
+                      "AltDateWidget": [Function],
+                      "BaseInput": [Function],
+                      "CheckboxWidget": [Function],
+                      "CheckboxesWidget": [Function],
+                      "ColorWidget": [Function],
+                      "DateTimeWidget": [Function],
+                      "DateWidget": [Function],
+                      "EmailWidget": [Function],
+                      "FileWidget": [Function],
+                      "HiddenWidget": [Function],
+                      "PasswordWidget": [Function],
+                      "RadioWidget": [Function],
+                      "RangeWidget": [Function],
+                      "SelectWidget": [Function],
+                      "TextWidget": [Function],
+                      "TextareaWidget": [Function],
+                      "URLWidget": [Function],
+                      "UpDownWidget": [Function],
+                      "code": [Function],
+                      "columns": [Function],
+                      "datalist": [Function],
+                      "enumeration": [Function],
+                      "keyValue": [Function],
+                      "listview": [Function],
+                      "multiSelectTag": [Function],
+                      "tabs": [Function],
+                      "toggle": [Function],
+                    },
+                  }
+                }
+                required={false}
+                schema={
+                  Object {
+                    "enum": Array [
+                      "upperCase",
+                      "lowerCase",
+                    ],
+                    "title": "function",
+                    "type": "string",
+                  }
+                }
+                value="upperCase"
+              >
+                <select
+                  autoFocus={false}
+                  className="form-control"
+                  disabled={false}
+                  id="root_filters_0_function"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={false}
+                  value="upperCase"
+                >
+                  <option
+                    value=""
+                  />
+                  <option
+                    key="0"
+                    value="upperCase"
+                  >
+                    upperCase
+                  </option>
+                  <option
+                    key="1"
+                    value="lowerCase"
+                  >
+                    lowerCase
+                  </option>
+                </select>
+              </SelectWidget>
+            </Component>
+          </StringField>
+          <Label
+            className="control-label"
+            id="root_filters_0_function"
+            label="function"
+          >
+            <label
+              className="control-label"
+              htmlFor="root_filters_0_function"
+            >
+              function
+            </label>
+          </Label>
+          <DescriptionField
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          >
+            <div />
+          </DescriptionField>
+          <ErrorList>
+            <div />
+          </ErrorList>
+          <Help>
+            <div />
+          </Help>
+        </div>
+      </CustomFieldTemplate>
+    </SchemaField>
+  </fieldset>
+</CollapsibleFieldset>
+`;
 
-exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`] = `"<form class=\\"rjsf\\"><div class=\\"form-group field field-object\\"><fieldset><legend id=\\"root__title\\">A filter form</legend><div class=\\"form-group field field-array\\"><fieldset class=\\"field field-array field-array-of-object\\"><legend id=\\"root_filters__title\\">A list of strings</legend><div class=\\"row array-item-list\\"><div class=\\"array-item\\"><div class=\\"col-xs-9\\"><div class=\\"form-group field field-object\\"><fieldset class=\\"theme-collapsible\\"><div id=\\"root_filters_0__title_bar\\" role=\\"button\\"><div id=\\"root_filters_0__title_wrapper\\" role=\\"button\\"><legend id=\\"root_filters_0__title\\"><h1>Titre</h1></legend><button id=\\"root_filters_0__collapse\\" title=\\"Collapse\\" type=\\"button\\" class=\\"toggle\\"><svg name=\\"talend-caret-down\\" class=\\"theme-tc-svg-icon tc-svg-icon\\" focusable=\\"false\\" aria-hidden=\\"true\\"><use xlink:href=\\"#talend-caret-down\\"></use></svg></button></div></div><div class=\\"form-group field field-string\\"><select id=\\"root_filters_0_function\\" class=\\"form-control\\"><option value=\\"\\"></option><option value=\\"upperCase\\">upperCase</option><option value=\\"lowerCase\\">lowerCase</option></select><label for=\\"root_filters_0_function\\" class=\\"control-label\\">function</label><div></div><div></div><div></div></div></fieldset><div></div><div></div></div></div><div class=\\"col-xs-3 array-item-toolbox\\"><div class=\\"btn-group\\" style=\\"display: flex;\\"><button type=\\"button\\" class=\\"btn btn-danger array-item-remove\\" tabindex=\\"-1\\" style=\\"padding-left: 6px; padding-right: 6px; font-weight: bold;\\"><i class=\\"glyphicon glyphicon-remove\\"></i></button></div></div></div></div><div class=\\"row\\"><p class=\\"col-xs-3 col-xs-offset-9 array-item-add text-right\\"><button type=\\"button\\" class=\\"btn btn-info btn-add col-xs-12\\" tabindex=\\"0\\"><i class=\\"glyphicon glyphicon-plus\\"></i></button></p></div></fieldset><div></div><div></div></div></fieldset><div></div><div></div></div><h1>Child</h1><p>This is an inner child in the form</p><div class=\\"form-actions\\"><button aria-label=\\"Submit\\" type=\\"submit\\" class=\\"btn btn-primary\\"><span>Submit</span></button></div></form>"`;
+exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`] = `
+<CollapsibleFieldset
+  autofocus={false}
+  disabled={false}
+  errorSchema={Object {}}
+  formContext={
+    Object {
+      "handleAction": undefined,
+      "handleSchemaChange": [Function],
+    }
+  }
+  formData={
+    Object {
+      "function": "upperCase",
+      "isClosed": true,
+    }
+  }
+  idSchema={
+    Object {
+      "$id": "root_filters_0",
+      "function": Object {
+        "$id": "root_filters_0_function",
+      },
+      "isClosed": Object {
+        "$id": "root_filters_0_isClosed",
+      },
+    }
+  }
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  readonly={false}
+  registry={
+    Object {
+      "ArrayFieldTemplate": undefined,
+      "FieldTemplate": [Function],
+      "ObjectFieldTemplate": undefined,
+      "definitions": Object {},
+      "fields": Object {
+        "ArrayField": [Function],
+        "BooleanField": [Function],
+        "CollapsibleFieldset": [Function],
+        "DescriptionField": [Function],
+        "NumberField": [Function],
+        "ObjectField": [Function],
+        "SchemaField": [Function],
+        "StringField": [Function],
+        "TitleField": [Function],
+        "UnsupportedField": [Function],
+      },
+      "formContext": Object {
+        "handleAction": undefined,
+        "handleSchemaChange": [Function],
+      },
+      "widgets": Object {
+        "AltDateTimeWidget": [Function],
+        "AltDateWidget": [Function],
+        "BaseInput": [Function],
+        "CheckboxWidget": [Function],
+        "CheckboxesWidget": [Function],
+        "ColorWidget": [Function],
+        "DateTimeWidget": [Function],
+        "DateWidget": [Function],
+        "EmailWidget": [Function],
+        "FileWidget": [Function],
+        "HiddenWidget": [Function],
+        "PasswordWidget": [Function],
+        "RadioWidget": [Function],
+        "RangeWidget": [Function],
+        "SelectWidget": [Function],
+        "TextWidget": [Function],
+        "TextareaWidget": [Function],
+        "URLWidget": [Function],
+        "UpDownWidget": [Function],
+        "code": [Function],
+        "columns": [Function],
+        "datalist": [Function],
+        "enumeration": [Function],
+        "keyValue": [Function],
+        "listview": [Function],
+        "multiSelectTag": [Function],
+        "tabs": [Function],
+        "toggle": [Function],
+      },
+    }
+  }
+  required={false}
+  schema={
+    Object {
+      "properties": Object {
+        "function": Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        },
+        "isClosed": Object {
+          "type": "boolean",
+        },
+      },
+      "title": undefined,
+      "type": "object",
+    }
+  }
+  uiSchema={
+    Object {
+      "classNames": undefined,
+      "ui:field": "CollapsibleFieldset",
+    }
+  }
+>
+  <fieldset
+    className="theme-collapsible"
+  >
+    <div
+      id="root_filters_0__title_bar"
+      onDoubleClick={[Function]}
+      role="button"
+    >
+      <div
+        id="root_filters_0__title_wrapper"
+        onClick={[Function]}
+        role="button"
+      >
+        <TitleField
+          formContext={
+            Object {
+              "handleAction": undefined,
+              "handleSchemaChange": [Function],
+            }
+          }
+          id="root_filters_0__title"
+          required={false}
+          title={
+            <h1>
+              Titre
+            </h1>
+          }
+        >
+          <legend
+            id="root_filters_0__title"
+          >
+            <h1>
+              Titre
+            </h1>
+          </legend>
+        </TitleField>
+        <button
+          className="toggle"
+          id="root_filters_0__collapse"
+          onClick={[Function]}
+          title="Collapse"
+          type="button"
+        >
+          <Icon
+            name="talend-caret-down"
+            transform=""
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </Icon>
+        </button>
+      </div>
+    </div>
+    <SchemaField
+      autofocus={false}
+      disabled={false}
+      errorSchema={Object {}}
+      formData="upperCase"
+      idSchema={
+        Object {
+          "$id": "root_filters_0_function",
+        }
+      }
+      key="1"
+      name="function"
+      onBlur={[Function]}
+      onChange={[Function]}
+      readonly={false}
+      registry={
+        Object {
+          "ArrayFieldTemplate": undefined,
+          "FieldTemplate": [Function],
+          "ObjectFieldTemplate": undefined,
+          "definitions": Object {},
+          "fields": Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          },
+          "formContext": Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          },
+          "widgets": Object {
+            "AltDateTimeWidget": [Function],
+            "AltDateWidget": [Function],
+            "BaseInput": [Function],
+            "CheckboxWidget": [Function],
+            "CheckboxesWidget": [Function],
+            "ColorWidget": [Function],
+            "DateTimeWidget": [Function],
+            "DateWidget": [Function],
+            "EmailWidget": [Function],
+            "FileWidget": [Function],
+            "HiddenWidget": [Function],
+            "PasswordWidget": [Function],
+            "RadioWidget": [Function],
+            "RangeWidget": [Function],
+            "SelectWidget": [Function],
+            "TextWidget": [Function],
+            "TextareaWidget": [Function],
+            "URLWidget": [Function],
+            "UpDownWidget": [Function],
+            "code": [Function],
+            "columns": [Function],
+            "datalist": [Function],
+            "enumeration": [Function],
+            "keyValue": [Function],
+            "listview": [Function],
+            "multiSelectTag": [Function],
+            "tabs": [Function],
+            "toggle": [Function],
+          },
+        }
+      }
+      required={false}
+      schema={
+        Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        }
+      }
+      uiSchema={Object {}}
+    >
+      <CustomFieldTemplate
+        classNames="form-group field field-string"
+        description={
+          <DescriptionField
+            description={undefined}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          />
+        }
+        displayLabel={true}
+        errors={
+          <ErrorList
+            errors={undefined}
+          />
+        }
+        fields={
+          Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          }
+        }
+        formContext={
+          Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          }
+        }
+        help={
+          <Help
+            help={undefined}
+          />
+        }
+        hidden={false}
+        id="root_filters_0_function"
+        label="function"
+        readonly={false}
+        required={false}
+        schema={
+          Object {
+            "enum": Array [
+              "upperCase",
+              "lowerCase",
+            ],
+            "title": "function",
+            "type": "string",
+          }
+        }
+        uiSchema={Object {}}
+      >
+        <div
+          className="form-group field field-string"
+        >
+          <StringField
+            autofocus={false}
+            disabled={false}
+            errorSchema={Object {}}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            formData="upperCase"
+            idSchema={
+              Object {
+                "$id": "root_filters_0_function",
+              }
+            }
+            name="function"
+            onBlur={[Function]}
+            onChange={[Function]}
+            readonly={false}
+            registry={
+              Object {
+                "ArrayFieldTemplate": undefined,
+                "FieldTemplate": [Function],
+                "ObjectFieldTemplate": undefined,
+                "definitions": Object {},
+                "fields": Object {
+                  "ArrayField": [Function],
+                  "BooleanField": [Function],
+                  "CollapsibleFieldset": [Function],
+                  "DescriptionField": [Function],
+                  "NumberField": [Function],
+                  "ObjectField": [Function],
+                  "SchemaField": [Function],
+                  "StringField": [Function],
+                  "TitleField": [Function],
+                  "UnsupportedField": [Function],
+                },
+                "formContext": Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                },
+                "widgets": Object {
+                  "AltDateTimeWidget": [Function],
+                  "AltDateWidget": [Function],
+                  "BaseInput": [Function],
+                  "CheckboxWidget": [Function],
+                  "CheckboxesWidget": [Function],
+                  "ColorWidget": [Function],
+                  "DateTimeWidget": [Function],
+                  "DateWidget": [Function],
+                  "EmailWidget": [Function],
+                  "FileWidget": [Function],
+                  "HiddenWidget": [Function],
+                  "PasswordWidget": [Function],
+                  "RadioWidget": [Function],
+                  "RangeWidget": [Function],
+                  "SelectWidget": [Function],
+                  "TextWidget": [Function],
+                  "TextareaWidget": [Function],
+                  "URLWidget": [Function],
+                  "UpDownWidget": [Function],
+                  "code": [Function],
+                  "columns": [Function],
+                  "datalist": [Function],
+                  "enumeration": [Function],
+                  "keyValue": [Function],
+                  "listview": [Function],
+                  "multiSelectTag": [Function],
+                  "tabs": [Function],
+                  "toggle": [Function],
+                },
+              }
+            }
+            required={false}
+            schema={
+              Object {
+                "enum": Array [
+                  "upperCase",
+                  "lowerCase",
+                ],
+                "title": "function",
+                "type": "string",
+              }
+            }
+            uiSchema={
+              Object {
+                "classNames": undefined,
+              }
+            }
+          >
+            <Component
+              autofocus={false}
+              disabled={false}
+              formContext={
+                Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                }
+              }
+              id="root_filters_0_function"
+              label="function"
+              onBlur={[Function]}
+              onChange={[Function]}
+              options={
+                Object {
+                  "enumOptions": Array [
+                    Object {
+                      "label": "upperCase",
+                      "value": "upperCase",
+                    },
+                    Object {
+                      "label": "lowerCase",
+                      "value": "lowerCase",
+                    },
+                  ],
+                }
+              }
+              placeholder=""
+              readonly={false}
+              registry={
+                Object {
+                  "ArrayFieldTemplate": undefined,
+                  "FieldTemplate": [Function],
+                  "ObjectFieldTemplate": undefined,
+                  "definitions": Object {},
+                  "fields": Object {
+                    "ArrayField": [Function],
+                    "BooleanField": [Function],
+                    "CollapsibleFieldset": [Function],
+                    "DescriptionField": [Function],
+                    "NumberField": [Function],
+                    "ObjectField": [Function],
+                    "SchemaField": [Function],
+                    "StringField": [Function],
+                    "TitleField": [Function],
+                    "UnsupportedField": [Function],
+                  },
+                  "formContext": Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  },
+                  "widgets": Object {
+                    "AltDateTimeWidget": [Function],
+                    "AltDateWidget": [Function],
+                    "BaseInput": [Function],
+                    "CheckboxWidget": [Function],
+                    "CheckboxesWidget": [Function],
+                    "ColorWidget": [Function],
+                    "DateTimeWidget": [Function],
+                    "DateWidget": [Function],
+                    "EmailWidget": [Function],
+                    "FileWidget": [Function],
+                    "HiddenWidget": [Function],
+                    "PasswordWidget": [Function],
+                    "RadioWidget": [Function],
+                    "RangeWidget": [Function],
+                    "SelectWidget": [Function],
+                    "TextWidget": [Function],
+                    "TextareaWidget": [Function],
+                    "URLWidget": [Function],
+                    "UpDownWidget": [Function],
+                    "code": [Function],
+                    "columns": [Function],
+                    "datalist": [Function],
+                    "enumeration": [Function],
+                    "keyValue": [Function],
+                    "listview": [Function],
+                    "multiSelectTag": [Function],
+                    "tabs": [Function],
+                    "toggle": [Function],
+                  },
+                }
+              }
+              required={false}
+              schema={
+                Object {
+                  "enum": Array [
+                    "upperCase",
+                    "lowerCase",
+                  ],
+                  "title": "function",
+                  "type": "string",
+                }
+              }
+              value="upperCase"
+            >
+              <SelectWidget
+                autofocus={false}
+                disabled={false}
+                formContext={
+                  Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  }
+                }
+                id="root_filters_0_function"
+                label="function"
+                onBlur={[Function]}
+                onChange={[Function]}
+                options={
+                  Object {
+                    "enumOptions": Array [
+                      Object {
+                        "label": "upperCase",
+                        "value": "upperCase",
+                      },
+                      Object {
+                        "label": "lowerCase",
+                        "value": "lowerCase",
+                      },
+                    ],
+                  }
+                }
+                placeholder=""
+                readonly={false}
+                registry={
+                  Object {
+                    "ArrayFieldTemplate": undefined,
+                    "FieldTemplate": [Function],
+                    "ObjectFieldTemplate": undefined,
+                    "definitions": Object {},
+                    "fields": Object {
+                      "ArrayField": [Function],
+                      "BooleanField": [Function],
+                      "CollapsibleFieldset": [Function],
+                      "DescriptionField": [Function],
+                      "NumberField": [Function],
+                      "ObjectField": [Function],
+                      "SchemaField": [Function],
+                      "StringField": [Function],
+                      "TitleField": [Function],
+                      "UnsupportedField": [Function],
+                    },
+                    "formContext": Object {
+                      "handleAction": undefined,
+                      "handleSchemaChange": [Function],
+                    },
+                    "widgets": Object {
+                      "AltDateTimeWidget": [Function],
+                      "AltDateWidget": [Function],
+                      "BaseInput": [Function],
+                      "CheckboxWidget": [Function],
+                      "CheckboxesWidget": [Function],
+                      "ColorWidget": [Function],
+                      "DateTimeWidget": [Function],
+                      "DateWidget": [Function],
+                      "EmailWidget": [Function],
+                      "FileWidget": [Function],
+                      "HiddenWidget": [Function],
+                      "PasswordWidget": [Function],
+                      "RadioWidget": [Function],
+                      "RangeWidget": [Function],
+                      "SelectWidget": [Function],
+                      "TextWidget": [Function],
+                      "TextareaWidget": [Function],
+                      "URLWidget": [Function],
+                      "UpDownWidget": [Function],
+                      "code": [Function],
+                      "columns": [Function],
+                      "datalist": [Function],
+                      "enumeration": [Function],
+                      "keyValue": [Function],
+                      "listview": [Function],
+                      "multiSelectTag": [Function],
+                      "tabs": [Function],
+                      "toggle": [Function],
+                    },
+                  }
+                }
+                required={false}
+                schema={
+                  Object {
+                    "enum": Array [
+                      "upperCase",
+                      "lowerCase",
+                    ],
+                    "title": "function",
+                    "type": "string",
+                  }
+                }
+                value="upperCase"
+              >
+                <select
+                  autoFocus={false}
+                  className="form-control"
+                  disabled={false}
+                  id="root_filters_0_function"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={false}
+                  value="upperCase"
+                >
+                  <option
+                    value=""
+                  />
+                  <option
+                    key="0"
+                    value="upperCase"
+                  >
+                    upperCase
+                  </option>
+                  <option
+                    key="1"
+                    value="lowerCase"
+                  >
+                    lowerCase
+                  </option>
+                </select>
+              </SelectWidget>
+            </Component>
+          </StringField>
+          <Label
+            className="control-label"
+            id="root_filters_0_function"
+            label="function"
+          >
+            <label
+              className="control-label"
+              htmlFor="root_filters_0_function"
+            >
+              function
+            </label>
+          </Label>
+          <DescriptionField
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          >
+            <div />
+          </DescriptionField>
+          <ErrorList>
+            <div />
+          </ErrorList>
+          <Help>
+            <div />
+          </Help>
+        </div>
+      </CustomFieldTemplate>
+    </SchemaField>
+  </fieldset>
+</CollapsibleFieldset>
+`;
 
-exports[`<CollapsibleFieldset /> should render 1`] = `"<form class=\\"rjsf\\"><div class=\\"form-group field field-object\\"><fieldset><legend id=\\"root__title\\">A filter form</legend><div class=\\"form-group field field-array\\"><fieldset class=\\"field field-array field-array-of-object\\"><legend id=\\"root_filters__title\\">A list of strings</legend><div class=\\"row array-item-list\\"><div class=\\"array-item\\"><div class=\\"col-xs-9\\"><div class=\\"form-group field field-object\\"><fieldset class=\\"theme-collapsible\\"><div id=\\"root_filters_0__title_bar\\" role=\\"button\\"><div id=\\"root_filters_0__title_wrapper\\" role=\\"button\\"><legend id=\\"root_filters_0__title\\"><h1>Titre</h1></legend><button id=\\"root_filters_0__collapse\\" title=\\"Collapse\\" type=\\"button\\" class=\\"toggle\\"><svg name=\\"talend-caret-down\\" class=\\"theme-tc-svg-icon tc-svg-icon theme-flip-vertical\\" focusable=\\"false\\" aria-hidden=\\"true\\"><use xlink:href=\\"#talend-caret-down\\"></use></svg></button></div></div><div class=\\"form-group field field-string\\"><select id=\\"root_filters_0_function\\" class=\\"form-control\\"><option value=\\"\\"></option><option selected=\\"\\" value=\\"upperCase\\">upperCase</option><option value=\\"lowerCase\\">lowerCase</option></select><label for=\\"root_filters_0_function\\" class=\\"control-label\\">function</label><div></div><div></div><div></div></div></fieldset><div></div><div></div></div></div><div class=\\"col-xs-3 array-item-toolbox\\"><div class=\\"btn-group\\" style=\\"display:flex;justify-content:space-around\\"><button type=\\"button\\" class=\\"btn btn-danger array-item-remove\\" tabindex=\\"-1\\" style=\\"flex:1;padding-left:6px;padding-right:6px;font-weight:bold\\"><i class=\\"glyphicon glyphicon-remove\\"></i></button></div></div></div></div><div class=\\"row\\"><p class=\\"col-xs-3 col-xs-offset-9 array-item-add text-right\\"><button type=\\"button\\" class=\\"btn btn-info btn-add col-xs-12\\" tabindex=\\"0\\"><i class=\\"glyphicon glyphicon-plus\\"></i></button></p></div></fieldset><div></div><div></div></div></fieldset><div></div><div></div></div><h1>Child</h1><p>This is an inner child in the form</p><div class=\\"form-actions\\"><button aria-label=\\"Submit\\" type=\\"submit\\" class=\\"btn btn-primary\\"><span>Submit</span></button></div></form>"`;
+exports[`<CollapsibleFieldset /> should render 1`] = `
+<CollapsibleFieldset
+  autofocus={false}
+  disabled={false}
+  errorSchema={Object {}}
+  formContext={
+    Object {
+      "handleAction": undefined,
+      "handleSchemaChange": [Function],
+    }
+  }
+  formData={
+    Object {
+      "function": "upperCase",
+      "isClosed": false,
+    }
+  }
+  idSchema={
+    Object {
+      "$id": "root_filters_0",
+      "function": Object {
+        "$id": "root_filters_0_function",
+      },
+      "isClosed": Object {
+        "$id": "root_filters_0_isClosed",
+      },
+    }
+  }
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  readonly={false}
+  registry={
+    Object {
+      "ArrayFieldTemplate": undefined,
+      "FieldTemplate": [Function],
+      "ObjectFieldTemplate": undefined,
+      "definitions": Object {},
+      "fields": Object {
+        "ArrayField": [Function],
+        "BooleanField": [Function],
+        "CollapsibleFieldset": [Function],
+        "DescriptionField": [Function],
+        "NumberField": [Function],
+        "ObjectField": [Function],
+        "SchemaField": [Function],
+        "StringField": [Function],
+        "TitleField": [Function],
+        "UnsupportedField": [Function],
+      },
+      "formContext": Object {
+        "handleAction": undefined,
+        "handleSchemaChange": [Function],
+      },
+      "widgets": Object {
+        "AltDateTimeWidget": [Function],
+        "AltDateWidget": [Function],
+        "BaseInput": [Function],
+        "CheckboxWidget": [Function],
+        "CheckboxesWidget": [Function],
+        "ColorWidget": [Function],
+        "DateTimeWidget": [Function],
+        "DateWidget": [Function],
+        "EmailWidget": [Function],
+        "FileWidget": [Function],
+        "HiddenWidget": [Function],
+        "PasswordWidget": [Function],
+        "RadioWidget": [Function],
+        "RangeWidget": [Function],
+        "SelectWidget": [Function],
+        "TextWidget": [Function],
+        "TextareaWidget": [Function],
+        "URLWidget": [Function],
+        "UpDownWidget": [Function],
+        "code": [Function],
+        "columns": [Function],
+        "datalist": [Function],
+        "enumeration": [Function],
+        "keyValue": [Function],
+        "listview": [Function],
+        "multiSelectTag": [Function],
+        "tabs": [Function],
+        "toggle": [Function],
+      },
+    }
+  }
+  required={false}
+  schema={
+    Object {
+      "properties": Object {
+        "function": Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        },
+        "isClosed": Object {
+          "type": "boolean",
+        },
+      },
+      "title": undefined,
+      "type": "object",
+    }
+  }
+  uiSchema={
+    Object {
+      "classNames": undefined,
+      "ui:field": "CollapsibleFieldset",
+    }
+  }
+>
+  <fieldset
+    className="theme-collapsible"
+  >
+    <div
+      id="root_filters_0__title_bar"
+      onDoubleClick={[Function]}
+      role="button"
+    >
+      <div
+        id="root_filters_0__title_wrapper"
+        onClick={[Function]}
+        role="button"
+      >
+        <TitleField
+          formContext={
+            Object {
+              "handleAction": undefined,
+              "handleSchemaChange": [Function],
+            }
+          }
+          id="root_filters_0__title"
+          required={false}
+          title={
+            <h1>
+              Titre
+            </h1>
+          }
+        >
+          <legend
+            id="root_filters_0__title"
+          >
+            <h1>
+              Titre
+            </h1>
+          </legend>
+        </TitleField>
+        <button
+          className="toggle"
+          id="root_filters_0__collapse"
+          onClick={[Function]}
+          title="Collapse"
+          type="button"
+        >
+          <Icon
+            name="talend-caret-down"
+            transform="flip-vertical"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon theme-flip-vertical"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </Icon>
+        </button>
+      </div>
+    </div>
+    <SchemaField
+      autofocus={false}
+      disabled={false}
+      errorSchema={Object {}}
+      formData="upperCase"
+      idSchema={
+        Object {
+          "$id": "root_filters_0_function",
+        }
+      }
+      key="1"
+      name="function"
+      onBlur={[Function]}
+      onChange={[Function]}
+      readonly={false}
+      registry={
+        Object {
+          "ArrayFieldTemplate": undefined,
+          "FieldTemplate": [Function],
+          "ObjectFieldTemplate": undefined,
+          "definitions": Object {},
+          "fields": Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          },
+          "formContext": Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          },
+          "widgets": Object {
+            "AltDateTimeWidget": [Function],
+            "AltDateWidget": [Function],
+            "BaseInput": [Function],
+            "CheckboxWidget": [Function],
+            "CheckboxesWidget": [Function],
+            "ColorWidget": [Function],
+            "DateTimeWidget": [Function],
+            "DateWidget": [Function],
+            "EmailWidget": [Function],
+            "FileWidget": [Function],
+            "HiddenWidget": [Function],
+            "PasswordWidget": [Function],
+            "RadioWidget": [Function],
+            "RangeWidget": [Function],
+            "SelectWidget": [Function],
+            "TextWidget": [Function],
+            "TextareaWidget": [Function],
+            "URLWidget": [Function],
+            "UpDownWidget": [Function],
+            "code": [Function],
+            "columns": [Function],
+            "datalist": [Function],
+            "enumeration": [Function],
+            "keyValue": [Function],
+            "listview": [Function],
+            "multiSelectTag": [Function],
+            "tabs": [Function],
+            "toggle": [Function],
+          },
+        }
+      }
+      required={false}
+      schema={
+        Object {
+          "enum": Array [
+            "upperCase",
+            "lowerCase",
+          ],
+          "title": "function",
+          "type": "string",
+        }
+      }
+      uiSchema={Object {}}
+    >
+      <CustomFieldTemplate
+        classNames="form-group field field-string"
+        description={
+          <DescriptionField
+            description={undefined}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          />
+        }
+        displayLabel={true}
+        errors={
+          <ErrorList
+            errors={undefined}
+          />
+        }
+        fields={
+          Object {
+            "ArrayField": [Function],
+            "BooleanField": [Function],
+            "CollapsibleFieldset": [Function],
+            "DescriptionField": [Function],
+            "NumberField": [Function],
+            "ObjectField": [Function],
+            "SchemaField": [Function],
+            "StringField": [Function],
+            "TitleField": [Function],
+            "UnsupportedField": [Function],
+          }
+        }
+        formContext={
+          Object {
+            "handleAction": undefined,
+            "handleSchemaChange": [Function],
+          }
+        }
+        help={
+          <Help
+            help={undefined}
+          />
+        }
+        hidden={false}
+        id="root_filters_0_function"
+        label="function"
+        readonly={false}
+        required={false}
+        schema={
+          Object {
+            "enum": Array [
+              "upperCase",
+              "lowerCase",
+            ],
+            "title": "function",
+            "type": "string",
+          }
+        }
+        uiSchema={Object {}}
+      >
+        <div
+          className="form-group field field-string"
+        >
+          <StringField
+            autofocus={false}
+            disabled={false}
+            errorSchema={Object {}}
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            formData="upperCase"
+            idSchema={
+              Object {
+                "$id": "root_filters_0_function",
+              }
+            }
+            name="function"
+            onBlur={[Function]}
+            onChange={[Function]}
+            readonly={false}
+            registry={
+              Object {
+                "ArrayFieldTemplate": undefined,
+                "FieldTemplate": [Function],
+                "ObjectFieldTemplate": undefined,
+                "definitions": Object {},
+                "fields": Object {
+                  "ArrayField": [Function],
+                  "BooleanField": [Function],
+                  "CollapsibleFieldset": [Function],
+                  "DescriptionField": [Function],
+                  "NumberField": [Function],
+                  "ObjectField": [Function],
+                  "SchemaField": [Function],
+                  "StringField": [Function],
+                  "TitleField": [Function],
+                  "UnsupportedField": [Function],
+                },
+                "formContext": Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                },
+                "widgets": Object {
+                  "AltDateTimeWidget": [Function],
+                  "AltDateWidget": [Function],
+                  "BaseInput": [Function],
+                  "CheckboxWidget": [Function],
+                  "CheckboxesWidget": [Function],
+                  "ColorWidget": [Function],
+                  "DateTimeWidget": [Function],
+                  "DateWidget": [Function],
+                  "EmailWidget": [Function],
+                  "FileWidget": [Function],
+                  "HiddenWidget": [Function],
+                  "PasswordWidget": [Function],
+                  "RadioWidget": [Function],
+                  "RangeWidget": [Function],
+                  "SelectWidget": [Function],
+                  "TextWidget": [Function],
+                  "TextareaWidget": [Function],
+                  "URLWidget": [Function],
+                  "UpDownWidget": [Function],
+                  "code": [Function],
+                  "columns": [Function],
+                  "datalist": [Function],
+                  "enumeration": [Function],
+                  "keyValue": [Function],
+                  "listview": [Function],
+                  "multiSelectTag": [Function],
+                  "tabs": [Function],
+                  "toggle": [Function],
+                },
+              }
+            }
+            required={false}
+            schema={
+              Object {
+                "enum": Array [
+                  "upperCase",
+                  "lowerCase",
+                ],
+                "title": "function",
+                "type": "string",
+              }
+            }
+            uiSchema={
+              Object {
+                "classNames": undefined,
+              }
+            }
+          >
+            <Component
+              autofocus={false}
+              disabled={false}
+              formContext={
+                Object {
+                  "handleAction": undefined,
+                  "handleSchemaChange": [Function],
+                }
+              }
+              id="root_filters_0_function"
+              label="function"
+              onBlur={[Function]}
+              onChange={[Function]}
+              options={
+                Object {
+                  "enumOptions": Array [
+                    Object {
+                      "label": "upperCase",
+                      "value": "upperCase",
+                    },
+                    Object {
+                      "label": "lowerCase",
+                      "value": "lowerCase",
+                    },
+                  ],
+                }
+              }
+              placeholder=""
+              readonly={false}
+              registry={
+                Object {
+                  "ArrayFieldTemplate": undefined,
+                  "FieldTemplate": [Function],
+                  "ObjectFieldTemplate": undefined,
+                  "definitions": Object {},
+                  "fields": Object {
+                    "ArrayField": [Function],
+                    "BooleanField": [Function],
+                    "CollapsibleFieldset": [Function],
+                    "DescriptionField": [Function],
+                    "NumberField": [Function],
+                    "ObjectField": [Function],
+                    "SchemaField": [Function],
+                    "StringField": [Function],
+                    "TitleField": [Function],
+                    "UnsupportedField": [Function],
+                  },
+                  "formContext": Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  },
+                  "widgets": Object {
+                    "AltDateTimeWidget": [Function],
+                    "AltDateWidget": [Function],
+                    "BaseInput": [Function],
+                    "CheckboxWidget": [Function],
+                    "CheckboxesWidget": [Function],
+                    "ColorWidget": [Function],
+                    "DateTimeWidget": [Function],
+                    "DateWidget": [Function],
+                    "EmailWidget": [Function],
+                    "FileWidget": [Function],
+                    "HiddenWidget": [Function],
+                    "PasswordWidget": [Function],
+                    "RadioWidget": [Function],
+                    "RangeWidget": [Function],
+                    "SelectWidget": [Function],
+                    "TextWidget": [Function],
+                    "TextareaWidget": [Function],
+                    "URLWidget": [Function],
+                    "UpDownWidget": [Function],
+                    "code": [Function],
+                    "columns": [Function],
+                    "datalist": [Function],
+                    "enumeration": [Function],
+                    "keyValue": [Function],
+                    "listview": [Function],
+                    "multiSelectTag": [Function],
+                    "tabs": [Function],
+                    "toggle": [Function],
+                  },
+                }
+              }
+              required={false}
+              schema={
+                Object {
+                  "enum": Array [
+                    "upperCase",
+                    "lowerCase",
+                  ],
+                  "title": "function",
+                  "type": "string",
+                }
+              }
+              value="upperCase"
+            >
+              <SelectWidget
+                autofocus={false}
+                disabled={false}
+                formContext={
+                  Object {
+                    "handleAction": undefined,
+                    "handleSchemaChange": [Function],
+                  }
+                }
+                id="root_filters_0_function"
+                label="function"
+                onBlur={[Function]}
+                onChange={[Function]}
+                options={
+                  Object {
+                    "enumOptions": Array [
+                      Object {
+                        "label": "upperCase",
+                        "value": "upperCase",
+                      },
+                      Object {
+                        "label": "lowerCase",
+                        "value": "lowerCase",
+                      },
+                    ],
+                  }
+                }
+                placeholder=""
+                readonly={false}
+                registry={
+                  Object {
+                    "ArrayFieldTemplate": undefined,
+                    "FieldTemplate": [Function],
+                    "ObjectFieldTemplate": undefined,
+                    "definitions": Object {},
+                    "fields": Object {
+                      "ArrayField": [Function],
+                      "BooleanField": [Function],
+                      "CollapsibleFieldset": [Function],
+                      "DescriptionField": [Function],
+                      "NumberField": [Function],
+                      "ObjectField": [Function],
+                      "SchemaField": [Function],
+                      "StringField": [Function],
+                      "TitleField": [Function],
+                      "UnsupportedField": [Function],
+                    },
+                    "formContext": Object {
+                      "handleAction": undefined,
+                      "handleSchemaChange": [Function],
+                    },
+                    "widgets": Object {
+                      "AltDateTimeWidget": [Function],
+                      "AltDateWidget": [Function],
+                      "BaseInput": [Function],
+                      "CheckboxWidget": [Function],
+                      "CheckboxesWidget": [Function],
+                      "ColorWidget": [Function],
+                      "DateTimeWidget": [Function],
+                      "DateWidget": [Function],
+                      "EmailWidget": [Function],
+                      "FileWidget": [Function],
+                      "HiddenWidget": [Function],
+                      "PasswordWidget": [Function],
+                      "RadioWidget": [Function],
+                      "RangeWidget": [Function],
+                      "SelectWidget": [Function],
+                      "TextWidget": [Function],
+                      "TextareaWidget": [Function],
+                      "URLWidget": [Function],
+                      "UpDownWidget": [Function],
+                      "code": [Function],
+                      "columns": [Function],
+                      "datalist": [Function],
+                      "enumeration": [Function],
+                      "keyValue": [Function],
+                      "listview": [Function],
+                      "multiSelectTag": [Function],
+                      "tabs": [Function],
+                      "toggle": [Function],
+                    },
+                  }
+                }
+                required={false}
+                schema={
+                  Object {
+                    "enum": Array [
+                      "upperCase",
+                      "lowerCase",
+                    ],
+                    "title": "function",
+                    "type": "string",
+                  }
+                }
+                value="upperCase"
+              >
+                <select
+                  autoFocus={false}
+                  className="form-control"
+                  disabled={false}
+                  id="root_filters_0_function"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={false}
+                  value="upperCase"
+                >
+                  <option
+                    value=""
+                  />
+                  <option
+                    key="0"
+                    value="upperCase"
+                  >
+                    upperCase
+                  </option>
+                  <option
+                    key="1"
+                    value="lowerCase"
+                  >
+                    lowerCase
+                  </option>
+                </select>
+              </SelectWidget>
+            </Component>
+          </StringField>
+          <Label
+            className="control-label"
+            id="root_filters_0_function"
+            label="function"
+          >
+            <label
+              className="control-label"
+              htmlFor="root_filters_0_function"
+            >
+              function
+            </label>
+          </Label>
+          <DescriptionField
+            formContext={
+              Object {
+                "handleAction": undefined,
+                "handleSchemaChange": [Function],
+              }
+            }
+            id="root_filters_0_function__description"
+          >
+            <div />
+          </DescriptionField>
+          <ErrorList>
+            <div />
+          </ErrorList>
+          <Help>
+            <div />
+          </Help>
+        </div>
+      </CustomFieldTemplate>
+    </SchemaField>
+  </fieldset>
+</CollapsibleFieldset>
+`;
