@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import QualityBar from './QualityBar.component';
+import QualityBar, { QUALITY_PROPTYPE } from './QualityBar.component';
 import theme from './DefaultHeaderRenderer.scss';
 import {
 	QUALITY_KEY,
@@ -54,9 +54,9 @@ DefaultHeaderRenderer.propTypes = {
 	column: PropTypes.shape({
 		colDef: PropTypes.shape({
 			[QUALITY_KEY]: PropTypes.shape({
-				[QUALITY_EMPTY_KEY]: PropTypes.number,
-				[QUALITY_INVALID_KEY]: PropTypes.number,
-				[QUALITY_VALID_KEY]: PropTypes.number,
+				[QUALITY_EMPTY_KEY]: PropTypes.shape(QUALITY_PROPTYPE),
+				[QUALITY_INVALID_KEY]: PropTypes.shape(QUALITY_PROPTYPE),
+				[QUALITY_VALID_KEY]: PropTypes.shape(QUALITY_PROPTYPE),
 			}),
 		}),
 	}),

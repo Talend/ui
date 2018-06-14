@@ -263,6 +263,7 @@ export class UIFormComponent extends React.Component {
 					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
 					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
 				/>
 			</form>
 		);
@@ -316,6 +317,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
+		getComponent: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
