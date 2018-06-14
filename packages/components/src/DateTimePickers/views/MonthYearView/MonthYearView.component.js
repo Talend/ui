@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MonthPicker from '../MonthPicker';
-import YearPicker from '../YearPicker';
+import MonthPicker from '../../subpickers/MonthPicker';
+import YearPicker from '../../subpickers/YearPicker';
 import theme from './MonthYearView.scss';
-import ViewLayout from '../ViewLayout';
-import IconButton from '../IconButton';
-import HeaderTitle from '../HeaderTitle';
+import ViewLayout from '../common/ViewLayout';
+import IconButton from '../../shared/IconButton';
+import HeaderTitle from '../common/HeaderTitle';
 
 function MonthYearView(props) {
 	const header = {

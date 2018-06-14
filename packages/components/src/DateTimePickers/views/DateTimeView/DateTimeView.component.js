@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DatePicker from '../DatePicker';
-import ViewLayout from '../ViewLayout';
-import IconButton from '../IconButton';
-import HeaderTitle from '../HeaderTitle';
+import DatePicker from '../../subpickers/DatePicker';
+import ViewLayout from '../common/ViewLayout';
+import IconButton from '../../shared/IconButton';
+import HeaderTitle from '../common/HeaderTitle';
 import theme from './DateTimeView.scss';
 
 function DateTimeView(props) {

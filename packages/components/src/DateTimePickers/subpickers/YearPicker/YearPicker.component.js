@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from './YearPicker.scss';
-import IconButton from '../IconButton';
-import PickerAction from '../PickerAction';
+import IconButton from '../../shared/IconButton';
+import PickerAction from '../../shared/PickerAction';
 
 function YearPicker(props) {
 	const years = [

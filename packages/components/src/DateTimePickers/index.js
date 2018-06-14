@@ -1,5 +1,5 @@
-import DateTimeView from './DateTimeView';
-import MonthYearView from './MonthYearView';
+import DateTimeView from './views/DateTimeView';
+import MonthYearView from './views/MonthYearView';
 import DateTimePicker from './DateTimePicker';
 
 export default DateTimePicker;
