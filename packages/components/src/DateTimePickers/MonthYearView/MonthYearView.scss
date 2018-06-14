@@ -7,16 +7,6 @@
     }
 }
 
-.action-middle {
-    @include main;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .body {
     display: flex;
     border-top: $border-default;

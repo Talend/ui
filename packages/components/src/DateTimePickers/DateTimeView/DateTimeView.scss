@@ -1,11 +1,5 @@
 @import '../common';
 
-.action-middle {
-    @include main;
-    @include nav-action;
-    font-size: 16px;
-}
-
 .body {
     display: flex;
 

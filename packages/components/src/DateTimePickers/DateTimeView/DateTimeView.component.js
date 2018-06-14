@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from '../DatePicker';
 import ViewLayout from '../ViewLayout';
-import { ActionButton } from '../../Actions';
 import IconButton from '../IconButton';
+import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
 
 function DateTimeView(props) {
@@ -12,21 +12,19 @@ function DateTimeView(props) {
 			icon={{
 				name: 'talend-chevron-left',
 			}}
-			className={theme['action-left']}
 			aria-label="Display previous calendar month"
 		/>,
-		middleNode: <ActionButton
+		middleNode: <HeaderTitle
 			label="Septembre 2017"
-			link
-			className={theme['action-middle']}
-			aria-label="Switch to month and year pickers view"
+			button={{
+				'aria-label': 'Switch to month and year pickers view',
+			}}
 		/>,
 		rightNode: <IconButton
 			icon={{
 				name: 'talend-chevron-left',
 				transform: 'rotate-180',
 			}}
-			className={theme['action-right']}
 			aria-label="Display next calendar month"
 		/>,
 	};

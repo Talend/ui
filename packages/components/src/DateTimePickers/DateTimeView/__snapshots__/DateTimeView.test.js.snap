@@ -20,22 +20,22 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
     Object {
       "leftNode": <IconButton
         aria-label="Display previous calendar month"
-        className="theme-action-left"
         icon={
             Object {
                 "name": "talend-chevron-left",
               }
         }
     />,
-      "middleNode": <Translate(ActionButton)
-        aria-label="Switch to month and year pickers view"
-        className="theme-action-middle"
+      "middleNode": <HeaderTitle
+        button={
+            Object {
+                "aria-label": "Switch to month and year pickers view",
+              }
+        }
         label="Septembre 2017"
-        link={true}
     />,
       "rightNode": <IconButton
         aria-label="Display next calendar month"
-        className="theme-action-right"
         icon={
             Object {
                 "name": "talend-chevron-left",

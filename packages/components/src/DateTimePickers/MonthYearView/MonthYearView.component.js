@@ -5,9 +5,9 @@ import YearPicker from '../YearPicker';
 import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
 import IconButton from '../IconButton';
+import HeaderTitle from '../HeaderTitle';
 
 function MonthYearView(props) {
-
 	const header = {
 		leftNode: <IconButton
 			icon={{
@@ -17,7 +17,9 @@ function MonthYearView(props) {
 			className={theme['action-left']}
 			aria-label="Switch back to date and time pickers view"
 		/>,
-		middleNode: <span className={theme['action-middle']}>Septembre 2017</span>,
+		middleNode: <HeaderTitle
+			label="Septembre 2017"
+		/>,
 	};
 
 	const bodyNode = (

@@ -1,0 +1,16 @@
+@import '../common';
+
+.common {
+    @include main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.button {
+    @include nav-action;
+    border: none;
+    background: none;
+}

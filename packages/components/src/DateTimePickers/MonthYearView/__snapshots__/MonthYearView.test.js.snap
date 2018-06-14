@@ -30,11 +30,9 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
               }
         }
     />,
-      "middleNode": <span
-        className="theme-action-middle"
-    >
-        Septembre 2017
-    </span>,
+      "middleNode": <HeaderTitle
+        label="Septembre 2017"
+    />,
     }
   }
 />
