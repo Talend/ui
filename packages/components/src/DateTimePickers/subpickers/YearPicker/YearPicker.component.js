@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import theme from './YearPicker.scss';
 import IconButton from '../../shared/IconButton';
 import PickerAction from '../../shared/PickerAction';
