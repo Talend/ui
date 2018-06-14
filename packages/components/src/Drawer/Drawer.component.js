@@ -11,8 +11,8 @@ import Inject from '../Inject';
 import theme from './Drawer.scss';
 
 const DEFAULT_TRANSITION_DURATION = 350;
-const ON_CANCEL_ACTION_POSITION_HEADER = 'header';
-const ON_CANCEL_ACTION_POSITION_FOOTER = 'footer';
+export const ON_CANCEL_ACTION_POSITION_HEADER = 'header';
+export const ON_CANCEL_ACTION_POSITION_FOOTER = 'footer';
 
 class DrawerAnimation extends React.Component {
 	constructor(props) {
@@ -220,7 +220,7 @@ function Drawer({
 		customTabs = Object.assign({}, tabs);
 
 		if (selectedTabKey) {
-			Object.assign(customTabs, { selectedKey: selectedTabKey });
+			customTabs.selectedKey = selectedTabKey;
 			activeTab = tabs.items.find(tab => tab.key === selectedTabKey);
 		}
 		activeTabItem = get(activeTab, 'footerActions', {});

@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 
-import Drawer, { cancelActionComponent, combinedFooterActions } from './Drawer.component';
+import Drawer, { cancelActionComponent, combinedFooterActions, ON_CANCEL_ACTION_POSITION_HEADER } from './Drawer.component';
 
 describe('Drawer', () => {
 	it('should render', () => {
@@ -60,7 +60,7 @@ describe('Drawer', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render cancelActionComponent', () => {
-		const wrapper = mount(cancelActionComponent({ id: 'test', position: 'header' }));
+		const wrapper = mount(cancelActionComponent({ id: 'test', position: ON_CANCEL_ACTION_POSITION_HEADER }));
 		expect(wrapper.find('button')).toBeTruthy();
 	});
 	it('should not render cancelActionComponent', () => {
@@ -206,7 +206,7 @@ describe('Drawer', () => {
 			getComponent,
 			title: 'test',
 			tabs: { items: [{ item: { key: 'tab1', label: 'tab1' }, onClick: jest.fn() }] },
-			onCancelAction: { id: 'cacel-button-id', position: 'header' },
+			onCancelAction: { id: 'cacel-button-id', position: ON_CANCEL_ACTION_POSITION_HEADER },
 			footerActions: { actions: { left: [] } },
 		};
 

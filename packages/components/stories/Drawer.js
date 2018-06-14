@@ -15,6 +15,8 @@ import {
 	ActionBar,
 } from '../src/index';
 
+import { ON_CANCEL_ACTION_POSITION_HEADER } from '../src/Drawer/Drawer.component';
+
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
 const icons = {
@@ -59,7 +61,7 @@ const primary = {
 const onCancelAction = {
 	label: 'Cancel',
 	onClick: action('You clicked on cancel action'),
-	position: 'header',
+	position: ON_CANCEL_ACTION_POSITION_HEADER,
 };
 
 const panelActions = {
