@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PickerAction should render 1`] = `
+<button
+  className="theme-action"
+>
+  <span
+    className="theme-text"
+  >
+    whatever
+  </span>
+</button>
+`;

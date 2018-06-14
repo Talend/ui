@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from './YearPicker.scss';
-import { ActionButton } from '../../Actions';
 import IconButton from '../IconButton';
+import PickerAction from '../PickerAction';
 
 function YearPicker(props) {
 	const years = [
@@ -19,8 +19,8 @@ function YearPicker(props) {
 
 	const selectedYear = 2012;
 
-	function getClassIfSelected(y) {
-		return selectedYear === y ? theme.selected : undefined;
+	function isSelected(y) {
+		return selectedYear === y;
 	}
 
 	return (
@@ -35,16 +35,16 @@ function YearPicker(props) {
 			/>
 			<div className={theme.years}>
 				{years.map((year, i) =>
-					<ActionButton
+					<div
 						key={i}
-						label={year}
-						link
-						className={classNames(
-							theme.year,
-							getClassIfSelected(year),
-						)}
-						aria-label={`Select '${year}'`}
-					/>
+						className={theme.year}
+					>
+						<PickerAction
+							aria-label={`Select '${year}'`}
+							isSelected={isSelected(year)}
+							label={year}
+						/>
+					</div>
 				)}
 			</div>
 			<IconButton

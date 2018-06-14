@@ -17,36 +17,51 @@ exports[`YearPicker should render a YearPicker 1`] = `
   <div
     className="theme-years"
   >
-    <Translate(ActionButton)
-      aria-label="Select '2010'"
+    <div
       className="theme-year"
-      label={2010}
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select '2011'"
+    >
+      <PickerAction
+        aria-label="Select '2010'"
+        isSelected={false}
+        label={2010}
+      />
+    </div>
+    <div
       className="theme-year"
-      label={2011}
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select '2012'"
-      className="theme-year theme-selected"
-      label={2012}
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select '2013'"
+    >
+      <PickerAction
+        aria-label="Select '2011'"
+        isSelected={false}
+        label={2011}
+      />
+    </div>
+    <div
       className="theme-year"
-      label={2013}
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select '2014'"
+    >
+      <PickerAction
+        aria-label="Select '2012'"
+        isSelected={true}
+        label={2012}
+      />
+    </div>
+    <div
       className="theme-year"
-      label={2014}
-      link={true}
-    />
+    >
+      <PickerAction
+        aria-label="Select '2013'"
+        isSelected={false}
+        label={2013}
+      />
+    </div>
+    <div
+      className="theme-year"
+    >
+      <PickerAction
+        aria-label="Select '2014'"
+        isSelected={false}
+        label={2014}
+      />
+    </div>
   </div>
   <IconButton
     aria-label="Scroll to next years"

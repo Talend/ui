@@ -19,33 +19,3 @@ $border-default: 1px solid $gallery;
         color: $scooter;
     }
 }
-
-@mixin month-year-action {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    overflow: hidden;
-
-    span {
-        padding: 3px;
-        line-height: normal;
-    }
-
-    &:hover {
-        background-color: $gallery;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: none;
-    }
-
-    &.selected {
-        background-color: transparent;
-        span {
-            @include picker-action-selected;
-        }
-    }
-}

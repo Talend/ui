@@ -1,0 +1,35 @@
+@import '../common';
+
+.action {
+    @include main;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+
+    &:hover {
+        background-color: $gallery;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+
+    .text {
+        padding: 3px;
+    }
+
+    &.selected {
+        background-color: transparent;
+        .text {
+            @include picker-action-selected;
+        }
+    }
+}

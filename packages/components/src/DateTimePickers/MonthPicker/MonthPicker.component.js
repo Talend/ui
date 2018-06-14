@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { chunk } from 'lodash';
 import theme from './MonthPicker.scss';
-import { ActionButton } from '../../Actions';
+import PickerAction from '../PickerAction';
 
 function MonthPicker(props) {
 	const months = [
@@ -24,8 +23,8 @@ function MonthPicker(props) {
 	const monthsRows = chunk(months, 3);
 	const selectedMonth = 'Septembre';
 
-	function getClassIfSelected(m) {
-		return selectedMonth === m ? theme.selected : undefined;
+	function isSelected(m) {
+		return selectedMonth === m;
 	}
 
 	return (
@@ -33,16 +32,16 @@ function MonthPicker(props) {
 			{monthsRows.map((monthsRow, i) =>
 				<div className={theme.row} key={i}>
 					{monthsRow.map((month, j) =>
-						<ActionButton
+						<div
 							key={j}
-							label={month}
-							link
-							className={classNames(
-								theme.month,
-								getClassIfSelected(month),
-							)}
-							aria-label={`Select '${month}'`}
-						/>
+							className={theme.month}
+						>
+							<PickerAction
+								aria-label={`Select '${month}'`}
+								isSelected={isSelected(month)}
+								label={month}
+							/>
+						</div>
 					)}
 				</div>
 			)}

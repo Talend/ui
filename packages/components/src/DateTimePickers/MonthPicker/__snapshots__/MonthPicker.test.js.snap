@@ -7,90 +7,126 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
   <div
     className="theme-row"
   >
-    <Translate(ActionButton)
-      aria-label="Select 'Janvier'"
+    <div
       className="theme-month"
-      label="Janvier"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Février'"
+    >
+      <PickerAction
+        aria-label="Select 'Janvier'"
+        isSelected={false}
+        label="Janvier"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Février"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Mars'"
+    >
+      <PickerAction
+        aria-label="Select 'Février'"
+        isSelected={false}
+        label="Février"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Mars"
-      link={true}
-    />
+    >
+      <PickerAction
+        aria-label="Select 'Mars'"
+        isSelected={false}
+        label="Mars"
+      />
+    </div>
   </div>
   <div
     className="theme-row"
   >
-    <Translate(ActionButton)
-      aria-label="Select 'Avril'"
+    <div
       className="theme-month"
-      label="Avril"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Mai'"
+    >
+      <PickerAction
+        aria-label="Select 'Avril'"
+        isSelected={false}
+        label="Avril"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Mai"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Juin'"
+    >
+      <PickerAction
+        aria-label="Select 'Mai'"
+        isSelected={false}
+        label="Mai"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Juin"
-      link={true}
-    />
+    >
+      <PickerAction
+        aria-label="Select 'Juin'"
+        isSelected={false}
+        label="Juin"
+      />
+    </div>
   </div>
   <div
     className="theme-row"
   >
-    <Translate(ActionButton)
-      aria-label="Select 'Juillet'"
+    <div
       className="theme-month"
-      label="Juillet"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Août'"
+    >
+      <PickerAction
+        aria-label="Select 'Juillet'"
+        isSelected={false}
+        label="Juillet"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Août"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Septembre'"
-      className="theme-month theme-selected"
-      label="Septembre"
-      link={true}
-    />
+    >
+      <PickerAction
+        aria-label="Select 'Août'"
+        isSelected={false}
+        label="Août"
+      />
+    </div>
+    <div
+      className="theme-month"
+    >
+      <PickerAction
+        aria-label="Select 'Septembre'"
+        isSelected={true}
+        label="Septembre"
+      />
+    </div>
   </div>
   <div
     className="theme-row"
   >
-    <Translate(ActionButton)
-      aria-label="Select 'Octobre'"
+    <div
       className="theme-month"
-      label="Octobre"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Novembre'"
+    >
+      <PickerAction
+        aria-label="Select 'Octobre'"
+        isSelected={false}
+        label="Octobre"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Novembre"
-      link={true}
-    />
-    <Translate(ActionButton)
-      aria-label="Select 'Décembre'"
+    >
+      <PickerAction
+        aria-label="Select 'Novembre'"
+        isSelected={false}
+        label="Novembre"
+      />
+    </div>
+    <div
       className="theme-month"
-      label="Décembre"
-      link={true}
-    />
+    >
+      <PickerAction
+        aria-label="Select 'Décembre'"
+        isSelected={false}
+        label="Décembre"
+      />
+    </div>
   </div>
 </div>
 `;

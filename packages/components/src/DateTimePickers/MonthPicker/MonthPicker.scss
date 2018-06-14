@@ -17,14 +17,11 @@
     }
 
     .month {
-        @include main;
         flex: 1;
         border-right: $border-default;
 
         &:last-child {
             border-right: none;
         }
-
-        @include month-year-action;
     }
 }

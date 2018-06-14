@@ -1,6 +1,3 @@
-
-@import '../common';
-
 .container {
     display: flex;
     flex-direction: column;
@@ -17,14 +14,7 @@
         flex-direction: column;
 
         .year {
-            @include main;
             flex: 1;
-
-            &:hover {
-                background-color: $gallery;
-            }
-
-            @include month-year-action;
         }
     }
 }
