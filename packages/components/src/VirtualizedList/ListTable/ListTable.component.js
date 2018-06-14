@@ -8,7 +8,7 @@ import {
 import getRowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
-import { decorateRowClick, decorateRowDoubleClick } from '../utils/gridrow';
+import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
@@ -44,14 +44,8 @@ function ListTable(props) {
 		});
 	}
 
-	let onRowClickCallback;
-	let onRowDoubleClickCallback;
-	if (onRowClick) {
-		onRowClickCallback = decorateRowClick(onRowDoubleClick);
-	}
-	if (onRowDoubleClick) {
-		onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
-	}
+	const onRowClickCallback = decorateRowClick(onRowClick);
+	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
 
 	return (
 		<VirtualizedTable

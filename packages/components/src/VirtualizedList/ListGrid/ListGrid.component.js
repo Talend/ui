@@ -5,7 +5,7 @@ import { List as VirtualizedList } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
 
 import theme from './ListGrid.scss';
-import { decorateRowClick, decorateRowDoubleClick } from '../utils/gridrow';
+import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 /**
  * List renderer that accepts a custom row renderer.
@@ -35,14 +35,8 @@ function ListGrid(props) {
 			getRowData: ({ index }) => collection[index],
 		});
 	}
-	let onRowClickCallback;
-	if (onRowClick) {
-		onRowClickCallback = decorateRowClick(onRowClick);
-	}
-	let onRowDoubleClickCallback;
-	if (onRowDoubleClick) {
-		onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
-	}
+	const onRowClickCallback = decorateRowClick(onRowClick);
+	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
 
 	return (
 		<VirtualizedList
