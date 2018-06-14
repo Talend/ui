@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import talendIcons from '@talend/icons/dist/react';
 import {
@@ -177,6 +178,7 @@ const drawersNoTransition = [
 const sidePanel = <SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} />;
 
 storiesOf('Drawer', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('Default', () => {
 		const rows = [];
 		for (let index = 0; index < 20; index++) {

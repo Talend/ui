@@ -19,16 +19,18 @@ matrix:
   fast_finish: true
   include:
     - language: node_js
-      env: NAME=test_react_15 REACT_VERSION=15
+      env: NAME=test_react_15 REACT_VERSION="^15.6.2"
       node_js:
         - '8'
-      script:
-        - sed -i "s/const REACT_VERSION =.*/const REACT_VERSION = '^15.6.2';/" version.js
+      before_install:
+        # this install is necessary to get version.js dependencies
+        - npm install commander@^2.9.0
         - ./version.js
+      script:
         - yarn test
 
     - language: node_js
-      env: NAME=test_react_16
+      env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
         - '8'
       script:
