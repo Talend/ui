@@ -20,7 +20,6 @@ const view = {
 		},
 	],
 	selectedKey: 'office',
-	actionCreatorSelect: 'tabbar:select',
 };
 
 const ExampleTabBar = {
