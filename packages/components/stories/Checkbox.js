@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Checkbox } from '../src/index';
 
@@ -28,6 +29,7 @@ const withLabel = {
 
 
 storiesOf('Checkbox', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<h1>Checkbox</h1>

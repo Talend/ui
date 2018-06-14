@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint no-console: 0 */
 
 const fs = require('fs');
 const path = require('path');
@@ -29,31 +30,33 @@ program.on('--help', () => {
 
 program.parse(process.argv);
 
-const stack_version = program.stack || require('./lerna.json').version;
+const stackVersion = program.stack || require('./lerna.json').version;
 
 if (program.debug) {
-	console.log(`use stack version ${stack_version}`);
+	console.log(`use stack version ${stackVersion}`);
 }
 
-const REACT_VERSION = '^16.0.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+console.log('REACT_VERSION: ', REACT_VERSION);
+const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
-	'@talend/bootstrap-theme': stack_version,
-	'@talend/react-cmf': stack_version,
-	'@talend/react-cmf-cqrs': stack_version,
-	'@talend/react-cmf-webpack-plugin': stack_version,
-	'@talend/react-sagas': stack_version,
-	'@talend/react-components': stack_version,
-	'@talend/react-containers': stack_version,
-	'@talend/react-datagrid': stack_version,
-	'@talend/react-forms': stack_version,
-	'@talend/icons': stack_version,
-	'@talend/log': stack_version,
+	'@talend/bootstrap-theme': stackVersion,
+	'@talend/react-cmf': stackVersion,
+	'@talend/react-cmf-cqrs': stackVersion,
+	'@talend/react-cmf-webpack-plugin': stackVersion,
+	'@talend/react-sagas': stackVersion,
+	'@talend/react-components': stackVersion,
+	'@talend/react-containers': stackVersion,
+	'@talend/react-datagrid': stackVersion,
+	'@talend/react-forms': stackVersion,
+	'@talend/icons': stackVersion,
+	'@talend/log': stackVersion,
 };
 
 const ADDONS = {
-	'babel-polyfill': '6.26.0',
+	'babel-polyfill': '^6.26.0',
 	'date-fns': '1.27.2',
 	'focus-outline-manager': '^1.0.2',
 	immutablediff: '0.4.4',
@@ -79,7 +82,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
-	classnames: '2.2.5',
+	classnames: '^2.2.5',
 	'd3-shape': '1.2.0',
 	keycode: '2.2.0',
 	lodash: '4.17.4',
@@ -95,7 +98,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
 	'react-i18next': '^7.6.1',
-	'react-redux': '5.0.5',
+	'react-redux': '5.0.7',
 	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
@@ -103,7 +106,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
-	redux: '3.6.0',
+	redux: '3.7.2',
 	'redux-batched-actions': '0.2.0',
 	'redux-logger': '3.0.6',
 	'redux-mock-store': '1.2.3',
@@ -115,16 +118,16 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	deepmerge: '1.5.1',
 
 	// dev deps
-	'@storybook/react': '^3.3.14',
-	'@storybook/addon-storyshots': '^3.3.14',
-	'@storybook/addon-actions': '^3.3.14',
-	'@storybook/addon-info': '^3.3.14',
-	'@storybook/addon-knobs': '^3.3.14',
-	'@storybook/addons': '^3.3.14',
+	'@storybook/react': '^3.4.7',
+	'@storybook/addon-storyshots': '^3.4.7',
+	'@storybook/addon-actions': '^3.4.7',
+	'@storybook/addon-info': '^3.4.7',
+	'@storybook/addon-knobs': '^3.4.7',
+	'@storybook/addons': '^3.4.7',
 	autoprefixer: '^7.1.4',
 	'babel-cli': '^6.26.0',
 	'babel-core': '^6.26.0',
-	'babel-eslint': '8.0.2',
+	'babel-eslint': '8.0.1',
 	'babel-jest': JEST_VERSION,
 	'babel-plugin-transform-class-properties': '^6.24.1',
 	'babel-plugin-transform-export-extensions': '^6.22.0',
@@ -177,7 +180,6 @@ const files = [
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
 	'./packages/icons/package.json',
-	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
 	'./packages/datagrid/package.json',
@@ -189,13 +191,28 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
-function check(source, dep, version) {
+function check(source, dep, version, category = 'dep') {
+	let safeVersion = version;
+	// force ^ in the dependencies
+	if (category === 'dep' && !version.startsWith('^')) {
+		safeVersion = `^${version}`;
+	}
+	if (category === 'peer' && dep === 'react') {
+		safeVersion = REACT_VERSION_PEER;
+	}
+	if (category === 'peer' && dep === 'react-dom') {
+		safeVersion = REACT_VERSION_PEER;
+	}
 	let modified = false;
-	if (source && source[dep] && source[dep] !== version) {
-		if (!program.quiet) {
-			console.log(`update ${dep}: '${version}' from ${source[dep]}`);
+	if (source && source[dep] && source[dep] !== safeVersion) {
+		if (dep === 'react' && category === 'dep') {
+			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
 		}
-		source[dep] = version;
+		if (!program.quiet) {
+			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
+		}
+		// eslint-disable-next-line no-param-reassign
+		source[dep] = safeVersion;
 		modified = true;
 	}
 	return modified;
@@ -206,10 +223,11 @@ function checkAll(versions, source, dep) {
 	const devDeps = source.devDependencies;
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
-	const isModDevDeps = check(devDeps, dep, version);
+	const isModDevDeps = check(devDeps, dep, version, 'dev');
 	const isModDeps = check(deps, dep, version);
-	const isModPeers = check(peer, dep, version);
+	const isModPeers = check(peer, dep, version, 'peer');
 	if (isModDevDeps || isModDeps || isModPeers) {
+		// eslint-disable-next-line no-param-reassign
 		source.modified = true;
 	}
 }
@@ -220,12 +238,12 @@ function save(ppath, data) {
 	}
 	fs.open(ppath, 'w', (err, fd) => {
 		if (err) {
-			throw `error opening file: ${err}`;
+			throw new Error(`error opening file: ${err}`);
 		}
 
 		fs.write(fd, data, 0, data.length, null, err => {
 			if (err) {
-				throw `error writing file: ${err}`;
+				throw new Error(`error writing file: ${err}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
@@ -238,6 +256,7 @@ function save(ppath, data) {
 
 function updateFiles(filesList, versions) {
 	filesList.forEach(ppath => {
+		// eslint-disable-next-line global-require
 		const packageJSON = require(ppath);
 		if (!program.quiet) {
 			console.log(`=== check ${packageJSON.name} ===`);
