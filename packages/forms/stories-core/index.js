@@ -4,6 +4,7 @@ import a11y from 'react-a11y';
 import { Provider } from 'react-redux';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Well from 'react-bootstrap/lib/Well';
 
@@ -56,18 +57,22 @@ const forStoryDecorator = story => (
 );
 
 const coreConceptsStories = storiesOf('Core concepts', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsetsStories = storiesOf('Core fieldsets', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsStories = storiesOf('Core fields', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const oldStories = storiesOf('Migration', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
