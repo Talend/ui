@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -181,6 +182,7 @@ const infoStyle = stylesheet => ({
 });
 
 decoratedStories
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		return <HeaderBar {...headerProps} />;

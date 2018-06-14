@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { CollapsiblePanel, IconsProvider } from '../src/index';
@@ -247,6 +248,7 @@ const propsCollapsibleSelectablePanelWithoutTag = {
 };
 
 storiesOf('CollapsiblePanel', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('Key/Value content', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />

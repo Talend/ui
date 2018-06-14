@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import { storiesOf, configure, setAddon } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
 import cmf from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
@@ -418,6 +419,7 @@ function loadStories() {
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
 
 		const story = storiesOf(example);
+		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {
 			story.addWithCMF('Default', examples[example], {
