@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { hashHistory } from 'react-router';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { batchedSubscribe } from 'redux-batched-subscribe';
-import { call, fork } from 'redux-saga/effects';
+import { all, call, fork } from 'redux-saga/effects';
 import compose from 'redux';
 
 import App from './App';
@@ -34,7 +34,7 @@ export function bootstrapRegistry(options) {
 	if (options.modules) {
 		options.modules.forEach(mod => {
 			bootstrapRegistry(mod);
-		})
+		});
 	}
 	if (options.components) {
 		component.registerMany(options.components);
