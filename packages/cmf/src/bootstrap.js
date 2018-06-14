@@ -27,7 +27,15 @@ export function bootstrapRegistry(options) {
 	assertTypeOf(options, 'components', 'object');
 	assertTypeOf(options, 'expressions', 'object');
 	assertTypeOf(options, 'actionCreators', 'object');
+	assertTypeOf(options, 'modules', 'Array');
+
 	registerInternals();
+
+	if (options.modules) {
+		options.modules.forEach(mod => {
+			bootstrapRegistry(mod);
+		})
+	}
 	if (options.components) {
 		component.registerMany(options.components);
 	}
@@ -44,6 +52,29 @@ export function bootstrapRegistry(options) {
 
 export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
+	assertTypeOf(options, 'sagaRouterConfig', 'object');
+	assertTypeOf(options, 'modules', 'Array');
+
+	const sagas = [];
+	const sagaRouterConfig = {};
+	if (options.saga) {
+		sagas.push(call(options.saga));
+	}
+	if (options.modules) {
+		options.modules.forEach(mod => {
+			assertTypeOf(mod, 'saga', 'function');
+			assertTypeOf(mod, 'sagaRouterConfig', 'object');
+			if (mod.saga) {
+				sagas.push(call(mod.saga));
+			}
+			if (mod.sagaRouterConfig) {
+				Object.assign(sagaRouterConfig, mod.sagaRouterConfig);
+			}
+		})
+	}
+	if (options.sagaRouterConfig) {
+		Object.assign(sagaRouterConfig, options.sagaRouterConfig);
+	}
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
 		if (options.sagaRouterConfig) {
@@ -51,9 +82,7 @@ export function bootstrapSaga(options) {
 			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
 			yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
 		}
-		if (typeof options.saga === 'function') {
-			yield call(options.saga);
-		}
+		yield all(sagas);
 	}
 	const middleware = createSagaMiddleware();
 	return {
