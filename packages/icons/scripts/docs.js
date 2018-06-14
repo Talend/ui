@@ -39,6 +39,13 @@ const HTML_TPL = (icons, style) => `
 			.colormapping:hover > svg > g {
 				filter: none;
 			}
+
+			.gammacolormapping > svg > g {
+				filter: url(#gammacolormapping);
+			}
+			.gammacolormapping:hover > svg > g {
+				filter: none;
+			}
 		</style>
 		<script>
 			function setSize(size) {
@@ -91,6 +98,7 @@ const HTML_TPL = (icons, style) => `
 				<select id="select-filter" class="form-control" onChange="setFilter(this.value)">
 					<option value="no-filter">No filter</option>
 					<option value="colormapping">Color mapping</option>
+					<option value="gammacolormapping">Gamma color mapping</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -108,6 +116,19 @@ const HTML_TPL = (icons, style) => `
 					0.47 0 0 0 0.53 
 					0.33 0 0 0 0.67 
 					0 0 0 1 0" />
+			</filter>
+			<filter id="gammacolormapping" color-interpolation-filters="sRGB">
+				<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale" />
+				<feComponentTransfer in="grayscale" result="gammadarken">
+					<feFuncR type="gamma" amplitude="1" exponent="7" offset="0.0" />
+					<feFuncG type="gamma" amplitude="1" exponent="7" offset="0.0" />
+					<feFuncB type="gamma" amplitude="1" exponent="7" offset="0.0" />
+					<feFuncA type="gamma" amplitude="1" exponent="1" offset="0.0" />
+				</feComponentTransfer>
+				<feColorMatrix in="gammadarken" type="matrix" values="0.77 0 0 0 0.33
+				0 0.77 0 0 0.33 
+				0 0 0.77 0 0.33 
+				0    0 0 1 0" />
 			</filter>
 		</svg>
 	</body>
