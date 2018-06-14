@@ -49,11 +49,12 @@ export class HTTPError extends Error {
 export function handleBody(response) {
 	let methodBody = 'text';
 
-	const contentType = response.headers.get('Content-Type');
-
+	const headers = get(response, 'headers', new Headers());
+	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
 	}
+
 	return response[methodBody]().then(data => ({ data, response }));
 }
 

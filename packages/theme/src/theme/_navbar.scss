@@ -38,6 +38,9 @@
 				display: flex;
 				align-items: center;
 				height: $navbar-height;
+				line-height: $navbar-height;
+				padding-top: 0;
+				padding-bottom: 0;
 			}
 		}
 	}
