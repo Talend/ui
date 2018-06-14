@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from './DatePicker.scss';
+import DayPickerAction from './DayPickerAction';
 
 function DatePicker(props) {
 	const dayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
@@ -21,12 +22,12 @@ function DatePicker(props) {
 	const currentDay = 20;
 	const disabledDays = [6, 15];
 
-	function getClassIfSelected(n) {
-		return selectedDay === n ? theme.selected : undefined;
+	function isSelectedDay(n) {
+		return selectedDay === n;
 	}
 
-	function getClassIfCurrentDay(n) {
-		return currentDay === n ? theme.today : undefined;
+	function isCurrentDay(n) {
+		return currentDay === n;
 	}
 
 	function isDisabledDay(n) {
@@ -59,19 +60,15 @@ function DatePicker(props) {
 							className={theme['calendar-item']}
 							key={j}
 						>
-							<button
-								className={classNames(
-									theme['calendar-day-action'],
-									getClassIfSelected(day.number),
-									getClassIfCurrentDay(day.number),
-								)}
-								disabled={isDisabledDay(day.number)}
+							<DayPickerAction
+								label={day.number.toString()}
+								isSelectedDay={isSelectedDay(day.number)}
+								isDisabledDay={isDisabledDay(day.number)}
+								isCurrentDay={isCurrentDay(day.number)}
 								aria-label={isDisabledDay(day.number)
 									? 'Unselectable date'
 									: `Select '${day.number}'`}
-							>
-								{day.number}
-							</button>
+							/>
 						</div>
 					)}
 				</div>

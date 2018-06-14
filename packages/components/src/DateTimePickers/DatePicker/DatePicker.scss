@@ -34,33 +34,4 @@
         border-bottom: $border-default;
         margin: 0 auto;
     }
-
-    .calendar-body-row {
-        .calendar-item {
-            .calendar-day-action {
-                background: none;
-                border: none;
-                width: 2em;
-                height: 2em;
-                border-radius: 50%;
-
-                &:hover {
-                    background-color: $concrete;
-                }
-
-                &:disabled {
-                    color: $silver-chalice;
-                    background-color: transparent;
-                }
-
-                &.today {
-                    background-color: rgba($slate-gray, 0.12);
-                }
-
-                &.selected {
-                    @include picker-action-selected;
-                }
-            }
-        }
-    }
 }

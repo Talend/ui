@@ -59,79 +59,79 @@ exports[`DatePicker should render a DatePicker 1`] = `
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '1'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        1
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="1"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '2'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        2
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="2"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '3'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        3
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="3"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '4'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        4
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="4"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '5'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        5
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="5"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Unselectable date"
-        className="theme-calendar-day-action"
-        disabled={true}
-      >
-        6
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={true}
+        isSelectedDay={false}
+        label="6"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '7'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        7
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="7"
+      />
     </div>
   </div>
   <div
@@ -140,79 +140,79 @@ exports[`DatePicker should render a DatePicker 1`] = `
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '8'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        8
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="8"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '9'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        9
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="9"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '10'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        10
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="10"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '11'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        11
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="11"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '12'"
-        className="theme-calendar-day-action theme-selected"
-        disabled={false}
-      >
-        12
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={true}
+        label="12"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '13'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        13
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="13"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '14'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        14
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="14"
+      />
     </div>
   </div>
   <div
@@ -221,79 +221,79 @@ exports[`DatePicker should render a DatePicker 1`] = `
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Unselectable date"
-        className="theme-calendar-day-action"
-        disabled={true}
-      >
-        15
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={true}
+        isSelectedDay={false}
+        label="15"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '16'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        16
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="16"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '17'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        17
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="17"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '18'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        18
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="18"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '19'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        19
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="19"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '20'"
-        className="theme-calendar-day-action theme-today"
-        disabled={false}
-      >
-        20
-      </button>
+        isCurrentDay={true}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="20"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '21'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        21
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="21"
+      />
     </div>
   </div>
   <div
@@ -302,79 +302,79 @@ exports[`DatePicker should render a DatePicker 1`] = `
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '22'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        22
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="22"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '23'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        23
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="23"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '24'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        24
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="24"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '25'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        25
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="25"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '26'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        26
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="26"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '27'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        27
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="27"
+      />
     </div>
     <div
       className="theme-calendar-item"
     >
-      <button
+      <DayPickerAction
         aria-label="Select '28'"
-        className="theme-calendar-day-action"
-        disabled={false}
-      >
-        28
-      </button>
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="28"
+      />
     </div>
   </div>
 </div>

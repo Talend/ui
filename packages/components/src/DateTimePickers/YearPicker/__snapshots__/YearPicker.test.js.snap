@@ -23,7 +23,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
       <PickerAction
         aria-label="Select '2010'"
         isSelected={false}
-        label={2010}
+        label="2010"
       />
     </div>
     <div
@@ -32,7 +32,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
       <PickerAction
         aria-label="Select '2011'"
         isSelected={false}
-        label={2011}
+        label="2011"
       />
     </div>
     <div
@@ -41,7 +41,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
       <PickerAction
         aria-label="Select '2012'"
         isSelected={true}
-        label={2012}
+        label="2012"
       />
     </div>
     <div
@@ -50,7 +50,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
       <PickerAction
         aria-label="Select '2013'"
         isSelected={false}
-        label={2013}
+        label="2013"
       />
     </div>
     <div
@@ -59,7 +59,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
       <PickerAction
         aria-label="Select '2014'"
         isSelected={false}
-        label={2014}
+        label="2014"
       />
     </div>
   </div>

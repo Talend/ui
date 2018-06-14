@@ -5,12 +5,6 @@ $border-default: 1px solid $gallery;
     font-weight: 600;
 }
 
-
-@mixin picker-action-selected {
-    background-color: $scooter;
-    color: $white;
-}
-
 @mixin nav-action {
     font-weight: 600;
     padding: 0;
@@ -18,4 +12,9 @@ $border-default: 1px solid $gallery;
     &:hover {
         color: $scooter;
     }
+}
+
+@mixin picker-action-selected {
+    background-color: $scooter;
+    color: $white;
 }

@@ -42,7 +42,7 @@ function YearPicker(props) {
 						<PickerAction
 							aria-label={`Select '${year}'`}
 							isSelected={isSelected(year)}
-							label={year}
+							label={year.toString()}
 						/>
 					</div>
 				)}
