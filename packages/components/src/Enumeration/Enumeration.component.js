@@ -27,18 +27,21 @@ function enumerationClasses() {
 	});
 }
 
-function Enumeration(props) {
+export function EnumerationComponent(props) {
 	return (
-		<div className={enumerationClasses()}>
+		<div id={props.id} className={enumerationClasses()}>
 			<HeaderEnumeration {...props} />
 			<ItemsEnumeration {...props} />
 		</div>
 	);
 }
 
-Enumeration.displayName = 'Enumeration';
+EnumerationComponent.displayName = 'Enumeration';
 
-Enumeration.propTypes = {
+EnumerationComponent.defaultProps = {
+	id: 'tc-enumeration',
+};
+EnumerationComponent.propTypes = {
 	displayMode: PropTypes.oneOf([
 		DISPLAY_MODE_DEFAULT,
 		DISPLAY_MODE_ADD,
@@ -52,6 +55,7 @@ Enumeration.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
+	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			values: PropTypes.arrayOf(PropTypes.string),
@@ -97,7 +101,7 @@ function EmptyListPlaceholder({ displayMode, t }) {
 }
 
 EmptyListPlaceholder.propTypes = {
-	displayMode: Enumeration.propTypes.displayMode,
+	displayMode: EnumerationComponent.propTypes.displayMode,
 	t: PropTypes.func.isRequired,
 };
 
@@ -105,6 +109,7 @@ function ItemsEnumeration(props) {
 	if (props.items.length > 0) {
 		return (
 			<Items
+				id={props.id}
 				items={props.items}
 				itemsProp={props.itemsProp}
 				currentEdit={props.currentEdit}
@@ -117,10 +122,11 @@ function ItemsEnumeration(props) {
 }
 
 ItemsEnumeration.propTypes = {
-	items: Enumeration.propTypes.items,
-	itemsProp: Enumeration.propTypes.itemsProp,
-	searchCriteria: Enumeration.propTypes.searchCriteria,
-	showCheckboxes: Enumeration.propTypes.showCheckboxes,
+	id: EnumerationComponent.propTypes.id,
+	items: EnumerationComponent.propTypes.items,
+	itemsProp: EnumerationComponent.propTypes.itemsProp,
+	searchCriteria: EnumerationComponent.propTypes.searchCriteria,
+	showCheckboxes: EnumerationComponent.propTypes.showCheckboxes,
 	t: PropTypes.func.isRequired,
 	...ItemEditPropTypes,
 };
@@ -133,6 +139,7 @@ function HeaderEnumeration({
 	headerInput,
 	headerDefault,
 	headerSelected,
+	id,
 	items,
 	required,
 	inputValue,
@@ -147,8 +154,10 @@ function HeaderEnumeration({
 				onInputChange,
 				onAddKeyDown,
 				headerError,
+				id: `${id}_search`,
 				inputRef,
 				inputPlaceholder: t('ENUMERATION_PLACEHOLDER_SEARCH', { defaultValue: 'Search' }),
+				inputLabel: t('ENUMERATION_SEARCH_LABEL', { defaultValue: 'Enter search term' }),
 			};
 			return <HeaderInput {...propsInput} />;
 		}
@@ -158,9 +167,11 @@ function HeaderEnumeration({
 				onInputChange,
 				onAddKeyDown,
 				headerError,
+				id: `${id}_add`,
 				inputRef,
 				value: inputValue,
 				inputPlaceholder: t('ENUMERATION_NEW_ENTRY', { defaultValue: 'New entry' }),
+				inputLabel: t('ENUMERATION_NEW_ENTRY_LABEL', { defaultValue: 'Enter new entry name' }),
 			};
 			return <HeaderInput {...propsInput} />;
 		}
@@ -186,18 +197,19 @@ function HeaderEnumeration({
 }
 
 HeaderEnumeration.propTypes = {
-	headerError: Enumeration.propTypes.headerError,
-	displayMode: Enumeration.propTypes.displayMode,
-	headerInput: Enumeration.propTypes.headerInput,
-	headerDefault: Enumeration.propTypes.headerDefault,
-	headerSelected: Enumeration.propTypes.headerSelected,
-	onInputChange: Enumeration.propTypes.onInputChange,
-	onAddKeyDown: Enumeration.propTypes.onAddKeyDown,
-	items: Enumeration.propTypes.items,
-	required: Enumeration.propTypes.required,
-	inputValue: Enumeration.propTypes.inputValue,
-	inputRef: Enumeration.propTypes.inputRef,
-	label: Enumeration.propTypes.label,
+	headerError: EnumerationComponent.propTypes.headerError,
+	displayMode: EnumerationComponent.propTypes.displayMode,
+	headerInput: EnumerationComponent.propTypes.headerInput,
+	headerDefault: EnumerationComponent.propTypes.headerDefault,
+	headerSelected: EnumerationComponent.propTypes.headerSelected,
+	onInputChange: EnumerationComponent.propTypes.onInputChange,
+	onAddKeyDown: EnumerationComponent.propTypes.onAddKeyDown,
+	id: EnumerationComponent.propTypes.id,
+	items: EnumerationComponent.propTypes.items,
+	required: EnumerationComponent.propTypes.required,
+	inputValue: EnumerationComponent.propTypes.inputValue,
+	inputRef: EnumerationComponent.propTypes.inputRef,
+	label: EnumerationComponent.propTypes.label,
 	t: PropTypes.func.isRequired,
 };
 
@@ -205,4 +217,4 @@ HeaderEnumeration.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);

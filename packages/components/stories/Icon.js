@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { checkA11y } from '@storybook/addon-a11y';
 import icons from '@talend/icons/dist/react';
 
 import { Icon, IconsProvider } from '../src/index';
@@ -15,6 +16,7 @@ const defaultIcons = {
 };
 
 storiesOf('Icon', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default use svg', () => (
 		<div>
 			<h1>Icon</h1>
