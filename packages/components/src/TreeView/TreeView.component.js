@@ -6,7 +6,6 @@ import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
 
-
 /**
  * A view component to display any tree structure, like folders or categories.
  *
