@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ActionIconToggle, IconsProvider } from '../src/index';
@@ -29,6 +30,7 @@ const activeIconToggle = {
 };
 
 storiesOf('Action Icon Toggle', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
