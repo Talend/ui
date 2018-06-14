@@ -120,8 +120,8 @@ const structureWithActions = [{
 
 const defaultProps = {
 	structure,
-	itemSelectCallback: action('itemSelectCallback'),
-	itemToggleCallback: action('itemToggleCallback'),
+	onSelect: action('onSelect'),
+	onClick: action('onClick'),
 };
 
 const withAddAction = {
