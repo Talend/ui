@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionBar, FilterBar, IconsProvider } from '../src/';
 
@@ -47,6 +48,7 @@ const divStyle = {
 };
 
 stories
+	.addDecorator(checkA11y)
 	.addWithInfo('default-dock and dockable', () => (
 		<div style={divStyle}>
 			<IconsProvider />

@@ -27,7 +27,6 @@ $tc-enumeration-header-error-padding: 2px !default;
 
 	input {
 		box-shadow: none;
-		outline: none;
 		border: none;
 		flex-grow: 1;
 		height: 100%;
@@ -38,7 +37,6 @@ $tc-enumeration-header-error-padding: 2px !default;
 		margin-left: auto;
 		padding: 0 $tc-enumeration-smaller-padding;
 		height: 30px;
-		outline: none;
 
 		:global(.tc-svg-icon) {
 			fill: $tc-enumeration-svg-color;
