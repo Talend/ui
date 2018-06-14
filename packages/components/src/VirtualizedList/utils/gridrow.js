@@ -106,4 +106,3 @@ export function renderCell(index, parent, field, type) {
 		type,
 	});
 }
-

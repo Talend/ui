@@ -1,7 +1,4 @@
-import {
-	decorateRowClick,
-	decorateRowDoubleClick,
-} from './rowclick';
+import { decorateRowClick, decorateRowDoubleClick } from './rowclick';
 
 describe('rowclick', () => {
 	describe('#decorateRowDoubleClick', () => {
