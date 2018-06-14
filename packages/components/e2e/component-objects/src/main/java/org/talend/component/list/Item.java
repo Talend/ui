@@ -134,11 +134,13 @@ public class Item extends Component {
         jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
-    private void hoverOn(final WebElement element) {
+    private void hoverOnButton(final WebElement element) throws InterruptedException {
         new Actions(driver)
                 .moveToElement(element)
                 .build()
                 .perform();
+        // TooltipTrigger has a 400ms delay
+        Thread.sleep(500);
     }
 
     private void clickOn(final By selector) {
@@ -153,8 +155,8 @@ public class Item extends Component {
      *
      * @param actionId The item action id
      */
-    public void clickOnAction(final String actionId) {
-        hoverOn(this.getElement());
+    public void clickOnAction(final String actionId) throws InterruptedException {
+        hoverOnButton(this.getElement());
 
         // on some list display, actions are in an ellipsis dropdown. Open it
         boolean isInEllipsis = false;
@@ -165,13 +167,13 @@ public class Item extends Component {
         }
 
         final WebElement button = this.getAction(actionId);
-        hoverOn(button);
+        hoverOnButton(button);
 
         // after button hover, TooltipTrigger replace the DOM element
         // we reselect it, then click on it
         final By actionWithTooltipSelector = isInEllipsis ?
                 getActionSelector(actionId) :
-                getActionSelector(actionId, "[aria-describedby]");;
+                getActionSelector(actionId, "[aria-describedby]");
         clickOn(actionWithTooltipSelector);
     }
 
@@ -183,11 +185,11 @@ public class Item extends Component {
      * @param columnKey The columnKey
      * @param actionId The item action id
      */
-    public void clickOnCellAction(final String columnKey, final String actionId) {
-        hoverOn(this.getElement());
+    public void clickOnCellAction(final String columnKey, final String actionId) throws InterruptedException {
+        hoverOnButton(this.getElement());
 
         final WebElement button = this.getCell(columnKey).getAction(actionId);
-        hoverOn(button);
+        hoverOnButton(button);
 
         // after button hover, TooltipTrigger replace the DOM element
         // we reselect it, then click on it
