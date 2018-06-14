@@ -1,6 +1,7 @@
 /**
  * @module react-cmf/lib/actions/collectionsActions
  */
+import curry from 'lodash/curry';
 import CONSTANTS from '../constant';
 
 // keep backward compatibility
@@ -8,16 +9,15 @@ export const { COLLECTION_ADD_OR_REPLACE, COLLECTION_REMOVE, COLLECTION_MUTATE }
 
 /**
  * Add or replace collection data in store
+ * curried function
  * @param {string} collectionId identifier
  * @param {any} data element that represent business data
  */
-export function addOrReplace(collectionId, data) {
-	return {
-		type: CONSTANTS.COLLECTION_ADD_OR_REPLACE,
-		collectionId,
-		data,
-	};
-}
+export const addOrReplace = curry((collectionId, data) => ({
+	type: CONSTANTS.COLLECTION_ADD_OR_REPLACE,
+	collectionId,
+	data,
+}));
 
 /**
  * Remove collection data in store to free space
@@ -34,7 +34,7 @@ export function remove(collectionId) {
 
 /**
  * mutateCollection let's you apply operations on a given collection
- *
+ * curried function
  * @param {string} id collection identifier
  * @param {object} operations operations to be applied on the collection
  * {
@@ -43,13 +43,11 @@ export function remove(collectionId) {
  * 		delete: []
  * }
  */
-export function mutate(id, operations) {
-	return {
-		type: CONSTANTS.COLLECTION_MUTATE,
-		id,
-		operations,
-	};
-}
+export const mutate = curry((id, operations) => ({
+	type: CONSTANTS.COLLECTION_MUTATE,
+	id,
+	operations,
+}));
 
 // backward compatibility
 export const addOrReplaceCollection = addOrReplace;
