@@ -5,6 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
+import { checkA11y } from '@storybook/addon-a11y';
 import {
 	DraggableComponent as draggable,
 	IconsProvider,
@@ -243,13 +244,13 @@ const columns3 = [
 ];
 
 const rowDataGetter = {
-  getElementId(element) {
-    return element.id;
+	getElementId(element) {
+		return element.id;
 	},
 	getRowData(element, columnKey) {
-    switch (columnKey) {
+		switch (columnKey) {
 			case Columns.NAME.key:
-        return element.name;
+				return element.name;
 			case Columns.TYPE.key:
 				return element.type;
 			case Columns.DESC.key:
@@ -356,41 +357,36 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div style={{ display: 'flex', justifyContent: 'center' }}>
 			<IconsProvider />
 			{story()}
 		</div>
 	))
-	.addWithInfo('Table', () => {
-		return (
-			<Table
-			  elements={schema1.elements}
-	      columns={columns1}
-				classnames={storyClassnames}
-				withHeader={true}
-			/>
-		);
-	})
-	.addWithInfo('Table (as list)', () => {
-		return (
-			<Table
-			  elements={schema2.elements}
-	      columns={columns2}
-				classnames={defaultClassnames}
-	      onEnterRow={action('onEnterRow called!')}
-				onLeaveRow={action('onLeaveRow called!')}
-			/>
-		);
-	})
-	.addWithInfo('Table with drag and drop', () => {
-		return (
-			<TableWithDND
-				initialState={initialStateWithDnD}
-				elements={schema3.elements}
-				columns={columns3}
-				withHeader={true}
-				onScroll={action('onScroll called!')}
-			/>
-		);
-	});
+	.addWithInfo('Table', () => (
+		<Table
+			elements={schema1.elements}
+			columns={columns1}
+			classnames={storyClassnames}
+			withHeader
+		/>
+		))
+	.addWithInfo('Table (as list)', () => (
+		<Table
+			elements={schema2.elements}
+			columns={columns2}
+			classnames={defaultClassnames}
+			onEnterRow={action('onEnterRow called!')}
+			onLeaveRow={action('onLeaveRow called!')}
+		/>
+		))
+	.addWithInfo('Table with drag and drop', () => (
+		<TableWithDND
+			initialState={initialStateWithDnD}
+			elements={schema3.elements}
+			columns={columns3}
+			withHeader
+			onScroll={action('onScroll called!')}
+		/>
+		));

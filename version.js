@@ -118,12 +118,12 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	deepmerge: '1.5.1',
 
 	// dev deps
-	'@storybook/react': '^3.3.14',
-	'@storybook/addon-storyshots': '^3.3.14',
-	'@storybook/addon-actions': '^3.3.14',
-	'@storybook/addon-info': '^3.3.14',
-	'@storybook/addon-knobs': '^3.3.14',
-	'@storybook/addons': '^3.3.14',
+	'@storybook/react': '^3.4.7',
+	'@storybook/addon-storyshots': '^3.4.7',
+	'@storybook/addon-actions': '^3.4.7',
+	'@storybook/addon-info': '^3.4.7',
+	'@storybook/addon-knobs': '^3.4.7',
+	'@storybook/addons': '^3.4.7',
 	autoprefixer: '^7.1.4',
 	'babel-cli': '^6.26.0',
 	'babel-core': '^6.26.0',
