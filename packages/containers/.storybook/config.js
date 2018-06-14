@@ -1,9 +1,11 @@
 import 'babel-polyfill';
 import { storiesOf, configure, setAddon } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import cmf from 'react-storybook-cmf';
+import { checkA11y } from '@storybook/addon-a11y';
+import createSagaMiddleware from 'redux-saga';
+import cmf from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api } from '@talend/react-cmf';
+import api, { actions } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
@@ -19,6 +21,7 @@ setAddon({ addWithCMF: cmf.addWithCMF });
 
 registerAllContainers();
 const actionLogger = action('dispatch');
+const sagaMiddleware = createSagaMiddleware();
 
 const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
 function flagToggleReducer(state = {}, { type, flagId }) {
@@ -81,22 +84,51 @@ function selectTab(event, data) {
 	};
 }
 
-const registerActionCreator = api.action.registerActionCreator;
-registerActionCreator('object:view', objectView);
-registerActionCreator('cancel:hide:dialog', hideDialog);
-registerActionCreator('confirm:dialog', confirmDialog);
-registerActionCreator('item1:action', chooseItem1);
-registerActionCreator('item2:action', chooseItem2);
+function httpPhotosGet1() {
+	return actions.http.get('https://jsonplaceholder.typicode.com/photos/', {
+		cmf: {
+			collectionId: 'photos1',
+		},
+	});
+}
+function httpPhotosGet2() {
+	return actions.http.get('https://jsonplaceholder.typicode.com/photos/', {
+		cmf: {
+			collectionId: 'photos2',
+		},
+	});
+}
 
-registerActionCreator('subheaderbar:display-sharing', actionsCreatorsSubHeader.sharingSubHeader);
-registerActionCreator('subheaderbar:display-bubbles', actionsCreatorsSubHeader.bubblesSubHeader);
-registerActionCreator('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
-registerActionCreator('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
-registerActionCreator('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
-registerActionCreator('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
-registerActionCreator('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
+function sortByLength(sortBy) {
+	return function sort(a, b) {
+		return a.get(sortBy).length - b.get(sortBy).length;
+	};
+}
 
-registerActionCreator('tabbar:select', selectTab);
+api.registry.addToRegistry('_list_sort:sortByLength', sortByLength);
+
+api.actionCreator.register('http:get:photos1', httpPhotosGet1);
+api.actionCreator.register('http:get:photos2', httpPhotosGet2);
+api.actionCreator.register('object:view', objectView);
+api.actionCreator.register('cancel:hide:dialog', hideDialog);
+api.actionCreator.register('confirm:dialog', confirmDialog);
+api.actionCreator.register('item1:action', chooseItem1);
+api.actionCreator.register('item2:action', chooseItem2);
+
+api.actionCreator.register(
+	'subheaderbar:display-sharing',
+	actionsCreatorsSubHeader.sharingSubHeader,
+);
+api.actionCreator.register(
+	'subheaderbar:display-bubbles',
+	actionsCreatorsSubHeader.bubblesSubHeader,
+);
+api.actionCreator.register('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
+api.actionCreator.register('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
+api.actionCreator.register('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
+api.actionCreator.register('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
+api.actionCreator.register('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
+api.actionCreator.register('tabbar:select', selectTab);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);
@@ -287,6 +319,14 @@ function loadStories() {
 				type: 'APP_OBJECT_ADD',
 			},
 		};
+		actions['object:remove'] = {
+			label: 'Remove',
+			icon: 'talend-trash',
+			bsStyle: 'danger',
+			payload: {
+				type: 'APP_OBJECT_REMOVE',
+			},
+		};
 		actions['object:upload'] = {
 			label: 'Upload',
 			icon: 'talend-upload',
@@ -379,17 +419,20 @@ function loadStories() {
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
 
 		const story = storiesOf(example);
+		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {
 			story.addWithCMF('Default', examples[example], {
 				state,
 				reducer,
+				sagaMiddleware,
 			});
 		} else {
 			Object.keys(examples[example]).forEach(usecase => {
 				story.addWithCMF(usecase, examples[example][usecase], {
 					state,
 					reducer,
+					sagaMiddleware,
 				});
 			});
 		}

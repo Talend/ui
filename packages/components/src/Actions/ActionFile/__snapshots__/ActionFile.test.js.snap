@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionFile should apply transformation on icon 1`] = `
-<span>
+<span
+  className={undefined}
+>
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
@@ -26,9 +28,11 @@ exports[`ActionFile should apply transformation on icon 1`] = `
 `;
 
 exports[`ActionFile should display a Progress indicator if set 1`] = `
-<span>
+<span
+  className="navbar-btn"
+>
   <input
-    className="theme-action-file-input sr-only navbar-btn"
+    className="theme-action-file-input sr-only"
     disabled={true}
     id={42}
     name={undefined}
@@ -39,7 +43,7 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
     className="btn theme-btn-file disabled"
     htmlFor={42}
   >
-    <CircularProgress
+    <Translate(CircularProgress)
       size="small"
     />
     <span>
@@ -50,9 +54,11 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
 `;
 
 exports[`ActionFile should display a disabled Icon 1`] = `
-<span>
+<span
+  className="navbar-btn"
+>
   <input
-    className="theme-action-file-input sr-only navbar-btn"
+    className="theme-action-file-input sr-only"
     disabled={true}
     id={42}
     name={undefined}
@@ -75,9 +81,11 @@ exports[`ActionFile should display a disabled Icon 1`] = `
 `;
 
 exports[`ActionFile should pass all props to the Button 1`] = `
-<span>
+<span
+  className="navbar-btn"
+>
   <input
-    className="theme-action-file-input sr-only navbar-btn"
+    className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
     name={undefined}
@@ -100,7 +108,9 @@ exports[`ActionFile should pass all props to the Button 1`] = `
 `;
 
 exports[`ActionFile should render a div with a input[type="file"] and a label to mimic a button 1`] = `
-<span>
+<span
+  className={undefined}
+>
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
@@ -125,9 +135,11 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
 `;
 
 exports[`ActionFile should render a div with a input[type="file"] with some classname on it 1`] = `
-<span>
+<span
+  className="testClassName"
+>
   <input
-    className="theme-action-file-input sr-only testClassName"
+    className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
     name={undefined}
@@ -150,7 +162,9 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
 `;
 
 exports[`ActionFile should render action with html property name = props.name if set 1`] = `
-<span>
+<span
+  className={undefined}
+>
   <input
     className="theme-action-file-input sr-only"
     disabled={false}
@@ -175,7 +189,9 @@ exports[`ActionFile should render action with html property name = props.name if
 `;
 
 exports[`ActionFile should reverse icon/label 1`] = `
-<span>
+<span
+  className={undefined}
+>
   <input
     className="theme-action-file-input sr-only"
     disabled={false}

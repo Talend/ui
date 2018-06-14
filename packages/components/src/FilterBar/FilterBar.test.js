@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import FilterBar from './FilterBar.component';
+import { FilterBarComponent } from './FilterBar.component';
 import Icon from '../Icon';
 
 jest.useFakeTimers();
@@ -21,7 +21,7 @@ describe('FilterBar', () => {
 	});
 	it('should call onToggle on search icon click', () => {
 		// given
-		const filterInstance = shallow(<FilterBar {...defaultProps} docked />);
+		const filterInstance = shallow(<FilterBarComponent {...defaultProps} docked />);
 		// when
 		filterInstance.find('Action').simulate('click');
 		// then
@@ -30,28 +30,30 @@ describe('FilterBar', () => {
 
 	it('should render the filter if not dockabled', () => {
 		// given
-		const filterInstance = shallow(<FilterBar {...defaultProps} dockable={false} />);
+		const filterInstance = shallow(<FilterBarComponent {...defaultProps} dockable={false} />);
 		// then
 		expect(filterInstance.find('FilterInput').length).toBe(1);
 	});
 
 	it('should support external props', () => {
 		// given
-		const filterInstance = shallow(<FilterBar {...defaultProps} className="custom-test" />);
+		const filterInstance = shallow(
+			<FilterBarComponent {...defaultProps} className="custom-test" />,
+		);
 		// then
 		expect(filterInstance.props().className).toContain('custom-test');
 	});
 
 	it('should be able to switch autofocus to false', () => {
 		// given
-		const filterInstance = shallow(<FilterBar {...defaultProps} autoFocus={false} />);
+		const filterInstance = shallow(<FilterBarComponent {...defaultProps} autoFocus={false} />);
 		// then
 		expect(filterInstance.find('FilterInput').props().autoFocus).toBe(false);
 	});
 
 	it('should setstate focus to true onFocus event', () => {
 		// given
-		const instance = shallow(<FilterBar {...defaultProps} />);
+		const instance = shallow(<FilterBarComponent {...defaultProps} />);
 		expect(instance.state('focus')).toBe(false);
 		// when
 		instance.find('FilterInput').simulate('focus');
@@ -62,7 +64,7 @@ describe('FilterBar', () => {
 
 	it('should setstate focus to false onBlur event', () => {
 		// given
-		const instance = shallow(<FilterBar {...defaultProps} />);
+		const instance = shallow(<FilterBarComponent {...defaultProps} />);
 		expect(instance.state('focus')).toBe(false);
 		// when
 		instance.find('FilterInput').simulate('focus');
@@ -74,7 +76,7 @@ describe('FilterBar', () => {
 
 	it('should call onToggle on cross icon click', () => {
 		// given
-		const filterInstance = mount(<FilterBar {...defaultProps} />);
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} />);
 		// when
 		filterInstance.find('button').simulate('click');
 		// then
@@ -84,7 +86,7 @@ describe('FilterBar', () => {
 	it('should not have the icon visible on click', () => {
 		const props = { ...defaultProps, iconAlwaysVisible: false };
 		// given
-		const filterInstance = shallow(<FilterBar {...props} />);
+		const filterInstance = shallow(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('FilterInput').simulate('focus');
 		// then
@@ -94,7 +96,7 @@ describe('FilterBar', () => {
 	it('should still have the icon visible on click', () => {
 		const props = { ...defaultProps, iconAlwaysVisible: true };
 		// given
-		const filterInstance = shallow(<FilterBar {...props} />);
+		const filterInstance = shallow(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('FilterInput').simulate('focus');
 		// then
@@ -103,7 +105,7 @@ describe('FilterBar', () => {
 
 	it('should call onFilter when input value change', () => {
 		// given
-		const filterInstance = mount(<FilterBar {...defaultProps} />);
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} />);
 		// when
 		filterInstance.find('input').simulate('change');
 		// then
@@ -113,7 +115,7 @@ describe('FilterBar', () => {
 	it('should call onBlur on input blur', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<FilterBar {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('blur');
 		// then
@@ -123,7 +125,7 @@ describe('FilterBar', () => {
 	it('should call onToggle on ESC keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<FilterBar {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
 		// then
@@ -133,7 +135,7 @@ describe('FilterBar', () => {
 	it('should call onToggle on ENTER keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<FilterBar {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 13 });
 		// then
@@ -148,7 +150,7 @@ describe('FilterBar', () => {
 			...defaultProps,
 			debounceTimeout,
 		};
-		const filterInstance = mount(<FilterBar {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('change');
 		// then
@@ -167,7 +169,7 @@ describe('FilterBar', () => {
 		};
 		const underMinLengthEvent = { target: { value: '2' } };
 		const overMinLengthEvent = { target: { value: 'toto' } };
-		const filterInstance = mount(<FilterBar {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('change', underMinLengthEvent);
 		// then
@@ -182,7 +184,7 @@ describe('FilterBar', () => {
 	it('when value is reset to undefined form outside search icon should be displayed', () => {
 		// given
 		const props = { dockable: false };
-		const filterInstance = mount(<FilterBar {...props} />);
+		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		// value is change by the user
 		filterInstance.setState({ value: 'test' });

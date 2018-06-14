@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Notification, IconsProvider } from '../src/index';
@@ -87,21 +88,23 @@ class NotificationWrapper extends React.Component {
 	}
 }
 
-storiesOf('Notification', module).addWithInfo('default', () => (
-	<nav>
-		<h1>Notification</h1>
-		<IconsProvider defaultIcons={icons} />
-		<h2>Definition</h2>
-		<p>
-			The Notification component display notification
+storiesOf('Notification', module)
+	.addDecorator(checkA11y)
+	.addWithInfo('default', () => (
+		<nav>
+			<h1>Notification</h1>
+			<IconsProvider defaultIcons={icons} />
+			<h2>Definition</h2>
+			<p>
+				The Notification component display notification
+			</p>
 			<ul>
 				<li>Type: info, error, warning</li>
 				<li>Slide in, auto slide out after timeout(except error)</li>
 				<li>Timerbar show remaining time before slide out</li>
 				<li>Hover or click to pin</li>
 			</ul>
-		</p>
-		<h2>Examples</h2>
-		<NotificationWrapper />
-	</nav>
-));
+			<h2>Examples</h2>
+			<NotificationWrapper />
+		</nav>
+	));

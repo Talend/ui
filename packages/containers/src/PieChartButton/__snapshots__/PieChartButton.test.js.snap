@@ -1,12 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Filter container should render 1`] = `
+exports[`PieChartButton container should render 1`] = `
 <PieChartButton
+  available={true}
   display="small"
   inProgress={undefined}
   labelIndex={0}
+  loading={undefined}
   minimumPercentage={5}
-  model={undefined}
+  model={
+    Array [
+      Object {
+        "color": "red",
+        "percentage": 10,
+      },
+      Object {
+        "color": "blue",
+        "percentage": 15,
+      },
+      Object {
+        "color": "cyan",
+        "percentage": 5,
+      },
+      Object {
+        "color": "yellow",
+        "percentage": 20,
+      },
+      Object {
+        "color": "black",
+        "percentage": 15,
+      },
+    ]
+  }
+  onClick={[Function]}
+  overlayComponent={null}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
+  tooltipPlacement="top"
+/>
+`;
+
+exports[`PieChartButton container should render 2`] = `
+<PieChartButton
+  available={true}
+  display="small"
+  inProgress={undefined}
+  labelIndex={0}
+  loading={undefined}
+  minimumPercentage={5}
+  model={
+    Array [
+      Object {
+        "color": "red",
+        "percentage": 10,
+      },
+      Object {
+        "color": "blue",
+        "percentage": 15,
+      },
+      Object {
+        "color": "cyan",
+        "percentage": 5,
+      },
+      Object {
+        "color": "yellow",
+        "percentage": 20,
+      },
+      Object {
+        "color": "black",
+        "percentage": 15,
+      },
+    ]
+  }
   onClick={[Function]}
   overlayComponent={null}
   overlayId="pie-chart-popover"

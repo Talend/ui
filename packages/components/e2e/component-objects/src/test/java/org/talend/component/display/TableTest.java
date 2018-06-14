@@ -29,9 +29,9 @@ public class TableTest extends StorybookTest {
         assertThat(headers, hasSize(5));
         assertThat(headers.get(0).getText(), equalToIgnoringCase("id"));
         assertThat(headers.get(1).getText(), equalToIgnoringCase("name"));
-        assertThat(headers.get(2).getText(), equalToIgnoringCase("author"));
-        assertThat(headers.get(3).getText(), equalToIgnoringCase("created"));
-        assertThat(headers.get(4).getText(), equalToIgnoringCase("modified"));
+        assertThat(headers.get(2).getText(), equalToIgnoringCase("created"));
+        assertThat(headers.get(3).getText(), equalToIgnoringCase("author"));
+        assertThat(headers.get(4).getText(), equalToIgnoringCase(""));
     }
 
     @Test
@@ -103,6 +103,15 @@ public class TableTest extends StorybookTest {
     }
 
     @Test
+    public void should_get_item_action_from_actionId_within_ellipsis_dropdown() {
+        // when
+        final WebElement editButton = tableObject.getItem("Title with a lot of actions").getAction("delete");
+
+        // then
+        assertThat(editButton.getTagName(), is("a"));
+    }
+
+    @Test
     public void should_get_item_cell_from_column_key() {
         // when
         final Cell cell = tableObject.getItem("Title with actions").getCell("author");
@@ -139,7 +148,8 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_mouseover_and_click_on_item_action() {
         // given
-        final Item item = tableObject.getItem("Title with actions");
+        goToStory("Virtualized List", "List > Table");
+        final Item item = tableObject.getItem("Title with lot of actions");
         assertThat(item.getAction("edit").isDisplayed(), is(false));
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
@@ -148,8 +158,23 @@ public class TableTest extends StorybookTest {
 
         // then
         // should not throw because of non button visibility
-        assertThat(item.getAction("edit").isDisplayed(), is(true));
         assertThat(getActionLog(), startsWith("▶onEdit:"));
+    }
+
+    @Test
+    public void should_mouseover_and_click_on_item_action_within_ellipsis_dropdown() {
+        // given
+        goToStory("Virtualized List", "List > Table");
+        final Item item = tableObject.getItem("Title with lot of actions");
+        assertThat(item.getAction("copy").isDisplayed(), is(false));
+        assertThat(getActionLog(), not(startsWith("▶onCopy:")));
+
+        // when
+        item.clickOnAction("copy");
+
+        // then
+        // should not throw because of non button visibility
+        assertThat(getActionLog(), startsWith("▶onCopy:"));
     }
 
     @Test
@@ -159,7 +184,9 @@ public class TableTest extends StorybookTest {
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
         // when
-        tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
+        tableObject
+                .getItem("Title with icon and actions 25")
+                .clickOnAction("edit");
 
         // then
         assertThat(getActionLog(), startsWith("▶onEdit:"));

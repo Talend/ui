@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
 import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
@@ -17,7 +17,7 @@ class Form extends React.Component {
 	static displayName = 'Container(Form)';
 	static propTypes = {
 		formId: PropTypes.string.isRequired,
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 
 	/**
@@ -40,6 +40,7 @@ class Form extends React.Component {
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onErrors = this.onErrors.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
 		this.data = this.data.bind(this);
@@ -62,6 +63,12 @@ class Form extends React.Component {
 		this.props.setState({ data: form.formData, dirty: true });
 		if (this.props.onChange) {
 			this.props.onChange(form);
+		}
+	}
+
+	onErrors(event, errors) {
+		if (this.props.onErrors) {
+			this.props.onErrors(event, errors);
 		}
 	}
 
@@ -127,12 +134,15 @@ class Form extends React.Component {
 			onChange: this.onChange,
 			onTrigger: this.props.onTrigger,
 			onSubmit: this.onSubmit,
+			onErrors: this.onErrors,
 			customFormats: this.props.customFormats,
+			customValidation: this.props.customValidation,
 			buttonBlockClass: this.props.buttonBlockClass,
 			children: this.props.children,
 			uiform: this.props.uiform,
 			language: this.props.language,
 			widgets: this.props.widgets,
+			getComponent: this.props.getComponent,
 			...this.props.formProps,
 		};
 		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;

@@ -4,8 +4,10 @@ import ActionDropdown from './ExampleActionDropdown';
 import ActionIconToggle from './ExampleActionIconToggle';
 import ActionSplitDropdown from './ExampleActionSplitDropdown';
 import ActionsExample from './ExampleActions';
+import AppLoader from './ExampleAppLoader';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
+import FormExample from './ExampleForm';
 import HeaderBarExample from './ExampleHeaderBar';
 import HomeListViewExample from './ExampleHomeListView';
 import ListExample from './ExampleList';
@@ -19,6 +21,7 @@ import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
 import TabBarExample from './ExampleTabBar';
+import TypeaheadExample from './ExampleTypeahead';
 
 export default {
 	ActionExample,
@@ -27,9 +30,11 @@ export default {
 	ActionIconToggle,
 	ActionSplitDropdown,
 	ActionsExample,
+	AppLoader,
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,
+	FormExample,
 	HeaderBarExample,
 	HomeListViewExample,
 	ListExample,
@@ -42,4 +47,5 @@ export default {
 	SubHeaderBarExample,
 	TabBarExample,
 	TreeViewExample,
+	TypeaheadExample,
 };

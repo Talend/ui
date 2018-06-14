@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
+<OverlayTrigger
+  defaultOverlayShown={false}
+  delayShow={400}
+  overlay={
+    <Tooltip
+      bsClass="tooltip"
+      className="theme-tooltip-container tooltip-container"
+      id={42}
+      placement="right"
+    >
+      <div>
+        a custom tooltip
+      </div>
+    </Tooltip>
+  }
+  placement="right"
+  trigger={
+    Array [
+      "hover",
+      "focus",
+    ]
+  }
+>
+  <div>
+    Action
+  </div>
+</OverlayTrigger>
+`;
+
 exports[`ActionTooltip should render only the children 1`] = `
 <div
   onFocus={[Function]}

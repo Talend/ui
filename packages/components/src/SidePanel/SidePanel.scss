@@ -9,11 +9,10 @@ $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-width: 200px !default;
-$tc-side-panel-large-width: 250px !default;
+$tc-side-panel-minwidth: 200px !default;
+$tc-side-panel-large-minwidth: 250px !default;
 $tc-side-panel-docked-width: 50px !default;
 $tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-labels-width: 165px !default;
 $tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: 20px !default;
 $tc-side-panel-border-size: 2px !default;
@@ -28,8 +27,8 @@ $toggle-button-padding: $padding-small - 1;
 
 	&,
 	> ul {
-		width: $tc-side-panel-width;
-		transition: 0.2s width ease-out;
+		min-width: $tc-side-panel-minwidth;
+		transition: 0.2s min-width ease-out;
 	}
 
 	:global(.tc-svg-icon) {
@@ -83,6 +82,7 @@ $toggle-button-padding: $padding-small - 1;
 	&.docked {
 		&,
 		> ul {
+			min-width: $tc-side-panel-docked-width;
 			width: $tc-side-panel-docked-width;
 		}
 
@@ -110,7 +110,7 @@ $toggle-button-padding: $padding-small - 1;
 	&.large {
 		&,
 		> ul {
-			width: $tc-side-panel-large-width;
+			min-width: $tc-side-panel-large-minwidth;
 		}
 
 		.toggle-btn {
@@ -125,10 +125,6 @@ $toggle-button-padding: $padding-small - 1;
 			.btn.btn-link {
 				padding: $padding-normal $tc-side-panel-large-padding;
 
-				> span {
-					width: $tc-side-panel-large-labels-width;
-				}
-
 				.tc-svg-icon + span {
 					margin-left: $tc-side-panel-large-padding;
 				}
@@ -139,6 +135,7 @@ $toggle-button-padding: $padding-small - 1;
 			&,
 			> ul,
 			:global(.tc-action-list-item) {
+				min-width: $tc-side-panel-large-docked-width;
 				width: $tc-side-panel-large-docked-width;
 			}
 		}

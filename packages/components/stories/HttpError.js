@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { HttpError } from '../src/index';
 
@@ -36,5 +37,6 @@ const notFoundProps = {
 // Style here is for demonstration purpose, you should use generated className with its status code.
 
 storiesOf('HttpError', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
 	.addWithInfo('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />);

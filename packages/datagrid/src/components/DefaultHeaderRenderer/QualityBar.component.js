@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_DATAGRID from '../../constant';
-import DEFAULT_I18N from '../../translate';
+import getDefaultT from '../../translate';
 
 import theme from './QualityBar.scss';
 
@@ -67,7 +67,7 @@ export function QualityBarComponent(props) {
 	);
 }
 
-const QUALITY_PROPTYPE = {
+export const QUALITY_PROPTYPE = {
 	total: PropTypes.number,
 	percentage: PropTypes.number,
 };
@@ -80,7 +80,7 @@ QualityBarComponent.propTypes = {
 };
 
 QualityBarComponent.defaultProps = {
-	t: DEFAULT_I18N.t.bind(DEFAULT_I18N),
+	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_DATAGRID, { i18n: DEFAULT_I18N })(QualityBarComponent);
+export default translate(I18N_DOMAIN_DATAGRID)(QualityBarComponent);

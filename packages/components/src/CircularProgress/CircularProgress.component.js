@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
+import { translate } from 'react-i18next';
 
+import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 import theme from './CircularProgress.scss';
+import getDefaultT from '../translate';
 
 const RADIUS = 20;
 const DIAMETER = 50;
@@ -14,7 +16,7 @@ function getCircleStyle(percent) {
 	if (percent) {
 		return {
 			strokeDasharray: CIRCUMFERENCE,
-			strokeDashoffset: (100 - percent) / 100 * CIRCUMFERENCE,
+			strokeDashoffset: ((100 - percent) / 100) * CIRCUMFERENCE,
 		};
 	}
 	return {
@@ -28,7 +30,7 @@ function getCircleStyle(percent) {
  * @example
  <CircularProgress size="large" />
  */
-function CircularProgress({ size, light, percent, className }) {
+function CircularProgress({ size, light, percent, className, t }) {
 	const classes = classNames('tc-circular-progress', className, theme.loader, {
 		[theme.loaderlight]: light,
 		[theme.animate]: !percent,
@@ -38,8 +40,23 @@ function CircularProgress({ size, light, percent, className }) {
 		[theme.large]: size === SIZE.large,
 	});
 
+	const percentLabel =
+		percent &&
+		t('CIRCULAR_PROGRESS_LOADING_PERCENT', {
+			defaultValue: '{{percent}}%',
+			percent,
+		});
 	return (
-		<svg focusable="false" className={classes} viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}>
+		<svg
+			focusable="false"
+			className={classes}
+			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
+			aria-busy="true"
+			aria-label={t('CIRCULAR_PROGRESS_LOADING', {
+				defaultValue: 'Loading {{percent}}',
+				percent: percentLabel,
+			})}
+		>
 			<circle
 				className={theme.path}
 				r={RADIUS}
@@ -59,10 +76,12 @@ CircularProgress.propTypes = {
 	size: PropTypes.oneOf(Object.keys(SIZE).map(key => SIZE[key])),
 	light: PropTypes.bool,
 	percent: PropTypes.number,
+	t: PropTypes.func.isRequired,
 };
 
 CircularProgress.defaultProps = {
 	size: SIZE.default,
+	t: getDefaultT(),
 };
 
-export default CircularProgress;
+export default translate(I18N_DOMAIN_COMPONENTS)(CircularProgress);

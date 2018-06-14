@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -158,16 +159,15 @@ DrawerFooter.propTypes = {
 	children: PropTypes.node,
 };
 
-function combinedFooterActions(onCancelAction, footerActions) {
+export function combinedFooterActions(onCancelAction, footerActions) {
 	if (!onCancelAction) {
 		return footerActions;
 	}
 	const enhancedFooterActions = Object.assign({}, footerActions);
-	if (footerActions && footerActions.actions && footerActions.actions.left) {
-		enhancedFooterActions.actions.left.push(onCancelAction);
-	} else {
-		enhancedFooterActions.actions.left = [].push(onCancelAction);
-	}
+	enhancedFooterActions.actions = {
+		...enhancedFooterActions.actions,
+		left: [...get(enhancedFooterActions, 'actions.left', []), onCancelAction],
+	};
 	return enhancedFooterActions;
 }
 

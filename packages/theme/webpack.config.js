@@ -39,7 +39,7 @@ module.exports = () => {
 								options: {
 									plugins: () => [
 										autoprefixer({
-											browsers: ['last 2 versions'],
+											browsers: ['>0.25%', 'IE 11', 'not op_mini all'],
 										}),
 									],
 								},
