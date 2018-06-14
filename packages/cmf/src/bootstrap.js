@@ -70,7 +70,7 @@ export function bootstrapSaga(options) {
 			if (mod.sagaRouterConfig) {
 				Object.assign(sagaRouterConfig, mod.sagaRouterConfig);
 			}
-		})
+		});
 	}
 	if (options.sagaRouterConfig) {
 		Object.assign(sagaRouterConfig, options.sagaRouterConfig);
