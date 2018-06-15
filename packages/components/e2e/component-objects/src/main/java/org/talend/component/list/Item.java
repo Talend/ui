@@ -37,7 +37,7 @@ public class Item extends Component {
      */
     public Item(final WebDriver driver, final WebElement root) {
         super(driver, NAME, root);
-        this.wait = new WebDriverWait(driver, 1);
+        this.wait = new WebDriverWait(driver, 3);
     }
 
     /**
@@ -57,8 +57,15 @@ public class Item extends Component {
      * Extract current row id and build a specific action id
      */
     private By getActionSelector(final String actionId) {
+        return getActionSelector(actionId, "");
+    }
+
+    /**
+     * Extract current row id and build a specific action id having the passed attribute
+     */
+    private By getActionSelector(final String actionId, final String attribute) {
         final String cellID = this.getElement().findElement(By.cssSelector(ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
-        return By.cssSelector(String.format("#%s #%s", cellID, actionId));
+        return By.cssSelector(String.format("#%s #%s%s", cellID, actionId, attribute));
     }
 
     /**
@@ -132,13 +139,6 @@ public class Item extends Component {
                 .moveToElement(element)
                 .build()
                 .perform();
-
-        // TooltipTrigger has a 400ms delay
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     private void clickOn(final By selector) {
@@ -157,8 +157,10 @@ public class Item extends Component {
         hoverOnButton(this.getElement());
 
         // on some list display, actions are in an ellipsis dropdown. Open it
+        boolean isInEllipsis = false;
         final WebElement ellipsisButton = this.getEllipsisActionButton();
         if (ellipsisButton != null) {
+            isInEllipsis = !getEllipsisMenu().findElements(By.cssSelector("#" + actionId)).isEmpty();
             wait.until(elementToBeClickable(ellipsisButton)).click();
         }
 
@@ -167,7 +169,9 @@ public class Item extends Component {
 
         // after button hover, TooltipTrigger replace the DOM element
         // we reselect it, then click on it
-        final By actionWithTooltipSelector = getActionSelector(actionId);
+        final By actionWithTooltipSelector = isInEllipsis ?
+                getActionSelector(actionId) :
+                getActionSelector(actionId, "[aria-describedby]");
         clickOn(actionWithTooltipSelector);
     }
 
@@ -187,7 +191,7 @@ public class Item extends Component {
 
         // after button hover, TooltipTrigger replace the DOM element
         // we reselect it, then click on it
-        final By actionWithTooltipSelector = By.cssSelector(String.format("button[id=%s]", actionId));
+        final By actionWithTooltipSelector = By.cssSelector(String.format("button[id=%s][aria-describedby]", actionId));
         clickOn(actionWithTooltipSelector);
     }
 }

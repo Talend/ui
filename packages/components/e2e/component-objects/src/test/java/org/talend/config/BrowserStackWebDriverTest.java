@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class BrowserStackWebDriverTest extends WebDriverTest {
 
     private Local bsLocalInstance;
@@ -43,6 +45,7 @@ public class BrowserStackWebDriverTest extends WebDriverTest {
 
         final URL browserStackUrl = new URL("http://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub");
         driver = new RemoteWebDriver(browserStackUrl, capabilities);
+        driver.manage().timeouts().implicitlyWait(3, SECONDS);
     }
 
     public void tearDown() throws Exception {
