@@ -22,6 +22,7 @@ function DayPickerAction(props) {
 
 	return (
 		<button
+			type="button"
 			disabled={isDisabledDay}
 			className={className}
 			{...rest}

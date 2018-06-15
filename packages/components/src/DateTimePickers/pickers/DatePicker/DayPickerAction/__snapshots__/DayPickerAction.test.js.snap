@@ -4,5 +4,6 @@ exports[`DayPickerAction should render 1`] = `
 <button
   className="theme-action"
   disabled={undefined}
+  type="button"
 />
 `;
