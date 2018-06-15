@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chunk } from 'lodash';
 import theme from './MonthPicker.scss';
-import PickerAction from '../../shared/PickerAction';
+import PickerAction from '../../PickerAction';
 
 function MonthPicker(props) {
 	const months = [
