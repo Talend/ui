@@ -4,14 +4,17 @@
 ////
 
 .navbar {
-	.btn {
+	a,
+	button {
 		display: inline-flex;
 		align-items: center;
 		padding-top: 0;
 		padding-bottom: 0;
 		height: $navbar-height;
 		min-height: $navbar-height;
+	}
 
+	.btn {
 		&:hover,
 		&:active,
 		&:focus {
