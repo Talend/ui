@@ -21,14 +21,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Table/TestData.js
-  101:2   error    Expected method shorthand                  object-shorthand
-  101:9   warning  Unexpected unnamed method 'match'          func-names
-  101:17  error    Missing space before function parentheses  space-before-function-paren
-  117:2   error    Expected method shorthand                  object-shorthand
-  117:9   warning  Unexpected unnamed method 'match'          func-names
-  117:17  error    Missing space before function parentheses  space-before-function-paren
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
@@ -38,5 +30,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 18 problems (15 errors, 3 warnings)
+✖ 12 problems (11 errors, 1 warning)
 
