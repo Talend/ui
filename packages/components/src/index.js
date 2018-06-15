@@ -40,14 +40,12 @@ import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import {
-	DataAccessorWithSorterAndFilter,
-	FilterFactory,
-	Sorter,
-	SortOrder,
+	StringFilterComponent,
 	Table,
 	TableCell,
 	TableHeaderCell,
 	TableSortHeader,
+	ToggleFilterComponent,
 } from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
@@ -170,14 +168,12 @@ export {
 	Status,
 	SubHeaderBar,
 	TabBar,
-	DataAccessorWithSorterAndFilter,
-	FilterFactory,
-	Sorter,
-	SortOrder,
+	StringFilterComponent,
 	Table,
 	TableCell,
 	TableHeaderCell,
 	TableSortHeader,
+	ToggleFilterComponent,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import TableRow, { getRowId } from '../Row/TableRow.js';
+import TableRow from '../Row/TableRow.js';
 import theme from './TableBody.scss';
 
 /**
@@ -11,7 +11,6 @@ export default function TableBody({
 	elements,
 	columns,
 	classnames,
-	rowDataGetter,
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
@@ -23,14 +22,12 @@ export default function TableBody({
 	);
 	return (
 		<tbody className={bodyClassnames} onScroll={onScroll}>
-			{elements.map((element, index) => (
+			{elements.map(element => (
 				<TableRow
-					key={getRowId(rowDataGetter, element, index)}
-					element={element}
-					index={index}
+					key={element.id}
+					element={element}					
 					classnames={classnames}
 					columns={columns}
-					rowDataGetter={rowDataGetter}
 					onEnterRow={onEnterRow}
 					onLeaveRow={onLeaveRow}
 				/>
@@ -45,7 +42,6 @@ TableBody.propTypes = {
 	classnames: PropTypes.shape({
 		body: PropTypes.string,
 	}),
-	rowDataGetter: PropTypes.object,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

@@ -6,14 +6,12 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
 import {
-	DataAccessorWithSorterAndFilter,
 	DraggableComponent as draggable,
-	FilterFactory,
 	IconsProvider,
-	Sorter,
-	SortOrder,
+	StringFilterComponent,
 	Table,
 	TableCell,
+	ToggleFilterComponent,
 } from '../src/index';
 
 const dataPrepSchema = {
@@ -192,9 +190,9 @@ function buildElement(elem, index, types, descriptions, mandatories) {
 	} else {
 		description = `Description of ${elem}: bla bla bla`;
 	}
-	let mandatory = false;
-	if (mandatories) {
-		mandatory = mandatories[index];
+	let mandatory = '';
+	if (mandatories && mandatories[index]) {
+		mandatory = '*';
 	}
 	return {
 		id: `${index}`,
@@ -244,11 +242,32 @@ const Columns = {
 	},
 };
 
+const SortDirection = {
+	NONE: 'none',
+	ASCENDING: 'ascending',
+	DESCENDING: 'descending',
+};
+
+function nextDirection(direction) {
+	switch (direction) {
+		case SortDirection.NONE:
+			return SortDirection.ASCENDING;
+		case SortDirection.ASCENDING:
+			return SortDirection.DESCENDING;
+		case SortDirection.DESCENDING:
+			return SortDirection.NONE;
+		default:
+			return direction;
+	}
+}
+
 const sorterIcons = {
 	none: null,
 	ascending: 'talend-sort-asc',
 	descending: 'talend-sort-desc',
 };
+
+const sorterKeys = [Columns.NAME.key, Columns.TYPE.key, Columns.DESC.key];
 
 function newColumn(col) {
 	return {
@@ -257,9 +276,8 @@ function newColumn(col) {
 	};
 }
 
-function addSorter(column) {
+function addSortExtraProps(column) {
 	const key = column.key;
-	column.sorter = new Sorter(key, key, key, sorterIcons);
 	column.headExtraProps = {
 		iconPosition: 'right',
 		link: true,
@@ -310,37 +328,17 @@ const columns3 = [addDnd(newColumn(Columns.NAME)), Columns.TYPE, Columns.DESC];
 const columns4 = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
 
 const columns5 = [
-	addSorter(newColumn(Columns.NAME)),
-	addSorter(newColumn(Columns.TYPE)),
-	addSorter(newColumn(Columns.DESC)),
+	addSortExtraProps(newColumn(Columns.NAME)),
+	addSortExtraProps(newColumn(Columns.TYPE)),
+	addSortExtraProps(newColumn(Columns.DESC)),
 ];
 
 const columns6 = [
 	addDnd(newColumn(Columns.MANDATORY)),
-	addSorter(newColumn(Columns.NAME)),
-	addSorter(newColumn(Columns.TYPE)),
-	addSorter(newColumn(Columns.DESC)),
+	addSortExtraProps(newColumn(Columns.NAME)),
+	addSortExtraProps(newColumn(Columns.TYPE)),
+	addSortExtraProps(newColumn(Columns.DESC)),
 ];
-
-const rowDataGetter = {
-  getElementId(element) {
-    return element.id;
-	},
-	getRowData(element, columnKey) {
-    switch (columnKey) {
-			case Columns.NAME.key:
-        return element.name;
-			case Columns.TYPE.key:
-				return element.type;
-			case Columns.DESC.key:
-				return element.description;
-			case Columns.MANDATORY.key:
-				return element.mandatory ? '*' : '';
-			default:
-				return 'No data available!';
-		}
-	},
-};
 
 const storyClassnames = {
 	root: 'story-table',
@@ -405,7 +403,6 @@ class ConnectedTable extends React.Component {
 				elements={elements}
 				columns={columns}
 				classnames={allClassnames}
-				rowDataGetter={rowDataGetter}
 				withHeader={withHeader}
 				onScroll={onScroll}
 				onEnterRow={this.onEnterRow}
@@ -428,33 +425,173 @@ ConnectedTable.propTypes = {
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
 
 const nameFilterId = 'name-filter';
-const nameFilterExtra = {
-	placeHolder: 'Filter...',
-	dockable: true,
-	navbar: true,
-};
+
+function matchName(element, filterParams) {
+	const value = filterParams.value;
+	const name = element.name;
+	return Boolean(name.match(value) || name.toLowerCase().match(value));
+}
+
+function createNameFilter() {
+	return {
+		id: nameFilterId,
+		active: false,
+		params: {
+			value: null,
+		},
+		match: matchName,
+		renderer: StringFilterComponent,
+		rendererProps: {
+			placeHolder: 'Filter...',
+			dockable: true,
+			navbar: true,
+		},
+		className: nameFilterId,
+	};
+}
 
 const mandatoryFieldFilterId = 'mandatory-field-filter';
-const mandatoryFieldFilterExtra = {
-	label: 'Show Mandatory Fields (*) Only',
-};
+
+function matchMandatory(element) {
+	return element.mandatory;
+}
+
+function createMandatoryFieldFilter() {
+	return {
+		id: mandatoryFieldFilterId,
+		active: false,
+		match: matchMandatory,
+		renderer: ToggleFilterComponent,
+		rendererProps: {
+			label: 'Show Mandatory Fields (*) Only',
+		},
+		className: mandatoryFieldFilterId,
+	};
+}
 
 function createFilters() {
-	const nameFilter = FilterFactory.createRegexpFilter(
-		nameFilterId,
-		Columns.NAME.key,
-		false,
-		nameFilterId,
-		nameFilterExtra,
-	);
-	const mandatoryFieldFilter = FilterFactory.createBooleanFilter(
-		mandatoryFieldFilterId,
-		Columns.MANDATORY.key,
-		false,
-		mandatoryFieldFilterId,
-		mandatoryFieldFilterExtra,
-	);
+	const nameFilter = createNameFilter();
+	const mandatoryFieldFilter = createMandatoryFieldFilter();
 	return [nameFilter, mandatoryFieldFilter];
+}
+
+function createSorter() {
+	return {
+		direction: SortDirection.NONE,
+		icons: sorterIcons,
+	}
+}
+
+function createSorters(keys) {
+	const sorters = {};
+	for (let i = 0; i < keys.length; i += 1) {
+		sorters[keys[i]] = createSorter();
+	}
+	return sorters;
+}
+
+function indexOfFilter(filters, id) {
+	for (let i = 0; i < filters.length; i += 1) {
+		if (filters[i].id === id) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+function updateFilters(filters, id, active, params) {
+	const index = indexOfFilter(filters, id);
+	if (index === -1) {
+		return filters;
+	}
+	const updatedFilters = filters.slice();
+	updatedFilters[index].active = active;
+	updatedFilters[index].params = params;
+	return updatedFilters;
+}
+
+function computeFilter(elements, filter, active, params) {
+	if (active) {
+		return elements.filter(elem => filter.match(elem, params));
+	}
+	return elements;
+}
+
+function updateFilteredElements(elements, filters, id, active, params) {
+	let result = elements.slice();
+	for (let i = 0; i < filters.length; i += 1) {
+		const filter = filters[i];
+		if (filter.id === id) {
+			result = computeFilter(result, filter, active, params);
+		} else {
+			result = computeFilter(result, filter, filter.active, filter.params);
+		}
+	}
+	return result;
+}
+
+function getCompare(key, direction) {
+
+	const coefs = {
+		none: 0,
+		ascending: 1,
+		descending: -1,
+	};
+
+	function compare(element1, element2) {
+		const val1 = element1[key];
+		const val2 = element2[key];
+		const coef = coefs[direction];
+		if (val1 < val2) {
+			return -1 * coef;
+		} else if (val1 > val2) {
+			return coef;
+		}
+		return 0;
+	}
+
+	return compare;
+}
+
+function sort(elements, key, direction) {
+	if (direction === SortDirection.ASCENDING || direction === SortDirection.DESCENDING) {
+		const compare = getCompare(key, direction);
+		const sortedElements = elements.slice();
+		return sortedElements.sort(compare);
+	}
+	return elements;
+}
+
+function isActiveSorter(sorter) {
+	return sorter.direction === SortDirection.ASCENDING || sorter.direction === SortDirection.DESCENDING;
+}
+
+function updateSortedElements(elements, sorters, columns) {
+	const sortedColumn = columns.find(col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]));
+	if (sortedColumn) {
+		const sortedKey = sortedColumn.key;
+		return sort(elements, sortedKey, sorters[sortedKey].direction);
+	}
+	return elements;
+}
+
+function updateSorters(sorters, columns, columnKey) {
+	// get the current direction of the modified sorter
+	const prevDirection = sorters[columnKey].direction;
+	// clone sorters
+	const updatedSorters = {};
+	// reset all the sorters to NONE direction
+	for (let i = 0; i < columns.length; i += 1) {
+		const key = columns[i].key;
+		if (sorters[key]) {
+			updatedSorters[key] = {};
+			updatedSorters[key].direction = SortDirection.NONE;
+			updatedSorters[key].icons = sorters[key].icons;
+		}
+	}
+	// update the modified sorter to the next direction
+	updatedSorters[columnKey].direction = nextDirection(prevDirection);
+	return updatedSorters;
 }
 
 class SortedFilteredTable extends React.Component {
@@ -463,91 +600,58 @@ class SortedFilteredTable extends React.Component {
 		super(props);
 		this.state = {
 			elements: props.elements,
+			columns: props.columns,
+			filters: props.filters,
+			filteredElements: props.elements,
+			sorters: props.sorters,
+			sortedElements: props.elements,
 			draggable: props.draggable,
 		};
-		this.dataAccessor = new DataAccessorWithSorterAndFilter(props.elements, rowDataGetter);
 		this.onFilterChange = this.onFilterChange.bind(this);
 		this.onSortChange = this.onSortChange.bind(this);
-		this.registerFilters(props.filters, this.dataAccessor);
 	}
 
-	registerFilters(filters, dataAccessor) {
-		if (filters) {
-			for (let i = 0; i < filters.length; i += 1) {
-				const filter = filters[i].filter;
-				if (filter) {
-					dataAccessor.addFilter(filter);
-				}
-			}
-		}
+	onFilterChange(id, active, params) {
+		const filteredElements = updateFilteredElements(this.state.elements, this.state.filters, id, active, params);
+		const sortedElements = updateSortedElements(filteredElements, this.state.sorters, this.state.columns);
+		this.setState(prevState => ({
+			filteredElements,
+			filters: updateFilters(prevState.filters, id, active, params),
+			sortedElements,
+		}));
 	}
 
-	onFilterChange(filter) {
-		this.dataAccessor.filter(filter.getId());
-		this.setState({
-			elements: this.dataAccessor.getElements(true),
-		});
-	}
-
-	onSortChange(sorter) {
-		if (this.dataAccessor.isActiveSorter(sorter)) {
-			switch (sorter.getOrder()) {
-				case SortOrder.ASCENDING:
-					sorter.setOrder(SortOrder.DESCENDING);
-					this.dataAccessor.sort();
-					break;
-				case SortOrder.DESCENDING:
-					sorter.setOrder(SortOrder.NONE);
-					this.dataAccessor.clearSorter();
-					break;
-				default:
-					break;
-			}
-		} else {
-			const activeSorter = this.dataAccessor.getSorter();
-			if (activeSorter) {
-				activeSorter.setOrder(SortOrder.NONE);
-			}
-			sorter.setOrder(SortOrder.ASCENDING);
-			this.dataAccessor.setSorter(sorter);
-		}
-		this.setState({
-			elements: this.dataAccessor.getElements(true),
-		});
-	}
-
-	hasSorters(columns) {
-		return columns.find(col => col.sorter);
+	onSortChange(columnKey) {
+		const updatedSorters = updateSorters(this.state.sorters, this.state.columns, columnKey);
+		this.setState(prevState => ({
+			sorters: updatedSorters,
+			sortedElements: updateSortedElements(prevState.filteredElements, updatedSorters, prevState.columns),
+		}));
 	}
 
 	getRootClassName() {
 		return classnames({
 			'table-with-dnd': this.state.draggable,
-			'sorted-table': this.hasSorters(this.props.columns),
-			'filtered-table': this.props.filters,
+			'sorted-table': this.state.sorters,
+			'filtered-table': this.state.filters,
 		});
 	}
 
 	render() {
-		const {
-			columns,
-			filters,
-			title,
-		} = this.props;
 		const allClassnames = {
 			root: this.getRootClassName(),
 			row: classnames({'draggable-row': this.state.draggable}),
 		};
 		return (
 			<Table
-				title={title}
-				elements={this.state.elements}
-				columns={columns}
+				title={this.props.title}
+				elements={this.state.sortedElements}
+				columns={this.state.columns}
 				classnames={allClassnames}
-				rowDataGetter={this.dataAccessor}
 				withHeader={true}
-				filters={filters}
+				filters={this.state.filters}
 				onFilterChange={this.onFilterChange}
+				sorters={this.state.sorters}
 				onSortChange={this.onSortChange}
 			/>
 		);
@@ -559,6 +663,7 @@ SortedFilteredTable.propTypes = {
 	elements: PropTypes.array,
 	columns: PropTypes.array,
 	filters: PropTypes.array,
+	sorters: PropTypes.object,
 	title: PropTypes.string,
 	draggable: PropTypes.bool,
 };
@@ -624,6 +729,7 @@ stories
 			<SortedFilteredTable
 				elements={schema3.elements}
 				columns={columns5}
+				sorters={createSorters(sorterKeys)}
 			/>
 		);
 	})
@@ -633,6 +739,7 @@ stories
 				elements={schema3.elements}
 				columns={columns6}
 				filters={createFilters()}
+				sorters={createSorters(sorterKeys)}
 				title={schema3.name}
 				draggable={true}
 			/>

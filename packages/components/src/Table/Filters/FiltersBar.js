@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from './FiltersBar.scss';
 
-function renderFilter(filterItem, onFilterChange) {
-	const filter = filterItem.filter;
-	const FilterComponent = filterItem.renderer;
+function renderFilter(filter, onFilterChange) {
+	const FilterComponent = filter.renderer;
 	return (
 		<FilterComponent
-			className={classNames('tc-filter', theme['tc-filter'], filterItem.className)}
-			key={filter.getId()}
+			className={classNames('tc-filter', theme['tc-filter'], filter.className)}
+			key={filter.id}
 			filter={filter}
 			onFilterChange={onFilterChange}
-			{...filterItem.rendererProps}
+			{...filter.rendererProps}
 		/>
 	);
 }
@@ -29,7 +28,7 @@ export default function FiltersBar({ filters, onFilterChange, classnames }) {
 				classnames && classnames.filtersBar,
 			)}
 		>
-			{filters.map(item => renderFilter(item, onFilterChange))}
+			{filters.map(filter => renderFilter(filter, onFilterChange))}
 		</div>
 	);
 }
@@ -40,7 +39,10 @@ FiltersBar.propTypes = {
 	}),
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
-			filter: PropTypes.object.isRequired,
+			id: PropTypes.string.isRequired,			
+			active: PropTypes.bool.isRequired,
+			params: PropTypes.object,
+			match: PropTypes.func.isRequired,
 			renderer: PropTypes.func.isRequired,
 			rendererProps: PropTypes.object,
 			className: PropTypes.string,

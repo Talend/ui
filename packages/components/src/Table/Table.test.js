@@ -31,7 +31,6 @@ describe('Render a table width custom configuration', () => {
 					elements={elements}
 					columns={TestData.columns2}
 					classnames={TestData.classnames}
-					rowDataGetter={TestData.rowDataGetter}
 				/>,
 			)
 			.toJSON();
@@ -65,7 +64,6 @@ describe('Render a table width custom header', () => {
 					elements={elements}
 					classnames={TestData.classnames}
 					columns={TestData.columns2}
-					rowDataGetter={TestData.rowDataGetter}
 					withHeader
 				/>,
 			)

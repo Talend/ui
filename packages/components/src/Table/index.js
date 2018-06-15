@@ -1,18 +1,15 @@
-import DataAccessorWithSorterAndFilter from './DataAccessor/DataAccessorWithSorterAndFilter';
-import FilterFactory from './Filters/FilterFactory';
-import Sorter, { Order as SortOrder } from './Sorters/Sorter';
+import StringFilterComponent from './Filters/StringFilterComponent';
 import Table from './Table';
 import TableCell from './Cell/TableCell';
 import TableHeaderCell from './Header/TableHeaderCell';
 import TableSortHeader from './Header/TableSortHeader';
+import ToggleFilterComponent from './Filters/ToggleFilterComponent';
 
 export {
-	DataAccessorWithSorterAndFilter,
-	FilterFactory,
-	Sorter,
-	SortOrder,
+	StringFilterComponent,
 	Table,
 	TableCell,
 	TableHeaderCell,
 	TableSortHeader,
+	ToggleFilterComponent,
 };

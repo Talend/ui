@@ -47,7 +47,10 @@ TitleBar.propTypes = {
 	}),
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
-			filter: PropTypes.object.isRequired,
+			id: PropTypes.string.isRequired,
+			active: PropTypes.bool.isRequired,
+			params: PropTypes.object,
+			match: PropTypes.func.isRequired,
 			renderer: PropTypes.func.isRequired,
 			rendererProps: PropTypes.object,
 			className: PropTypes.string,

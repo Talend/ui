@@ -1,5 +1,5 @@
-import FilterFactory from './Filters/FilterFactory';
-
+import StringFilterComponent from './Filters/StringFilterComponent';
+import ToggleFilterComponent from './Filters/ToggleFilterComponent';
 // This module defines data, objects and functions used by the unit tests.
 
 export const element1 = {
@@ -94,49 +94,28 @@ export const classnames = {
 	},
 };
 
-export const rowDataGetter = {
-	getElementId(element) {
-		return element.id;
-	},
-	getRowData(element, columnKey) {
-		switch (columnKey) {
-			case Columns.NAME.key:
-				return element.name;
-			case Columns.TYPE.key:
-				return element.type;
-			case Columns.DESC.key:
-				return element.desc;
-			case Columns.MANDATORY.key:
-				return element.mandatory ? '*' : '';
-			default:
-				return `No data available for ${columnKey}`;
-		}
-	},
-};
-
 const nameFilterId = 'name-filter';
-const nameFilterExtra = {
-	placeHolder: 'Filter...',
-	dockable: true,
-	navbar: true,
+export const nameFilter = {
+	id: nameFilterId,
+	active: false,
+	match: function() { return true },
+	renderer: StringFilterComponent,
+	rendererProps: {
+		placeHolder: 'Filter...',
+		dockable: true,
+		navbar: true,
+	},
+	className: nameFilterId,
 };
+
 const mandatoryFieldFilterId = 'mandatory-field-filter';
-const mandatoryFieldFilterExtra = {
-	label: 'Show Mandatory Fields (*) Only',
+export const mandatoryFieldFilter = {
+	id: mandatoryFieldFilterId,
+	active: false,
+	match: function() { return true },
+	renderer: ToggleFilterComponent,
+	rendererProps: {
+		label: 'Show Mandatory Fields (*) Only',
+	},
+	className: mandatoryFieldFilterId,
 };
-
-export const nameFilter = FilterFactory.createRegexpFilter(
-	nameFilterId,
-	'name',
-	false,
-	nameFilterId,
-	nameFilterExtra,
-);
-
-export const mandatoryFieldFilter = FilterFactory.createBooleanFilter(
-	mandatoryFieldFilterId,
-	'mandatory',
-	false,
-	mandatoryFieldFilterId,
-	mandatoryFieldFilterExtra,
-);

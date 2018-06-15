@@ -11,11 +11,9 @@ it('single-row', () => {
 	const tree = renderer
 		.create(
 			<TableRow
-				element={TestData.element1}
-				index={0}
+				element={TestData.element1}				
 				classnames={TestData.classnames}
 				columns={TestData.columns1}
-				rowDataGetter={TestData.rowDataGetter}
 			/>,
 		)
 		.toJSON();
