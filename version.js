@@ -107,7 +107,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-ace': '5.2.0',
 	'react-bootstrap': '0.31.5',
 	'rc-slider': '8.6.1',
-	'rc-tooltip': '3.7.0',
+	'rc-tooltip': '3.7.2',
 	'react-autowhatever': '10.1.0',
 	'react-debounce-input': '3.2.0',
 	'react-jsonschema-form': '0.51.0',
