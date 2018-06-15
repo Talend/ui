@@ -98,7 +98,7 @@ const nameFilterId = 'name-filter';
 export const nameFilter = {
 	id: nameFilterId,
 	active: false,
-	match: function() {
+	match() {
 		return true;
 	},
 	renderer: StringFilterComponent,
@@ -114,7 +114,7 @@ const mandatoryFieldFilterId = 'mandatory-field-filter';
 export const mandatoryFieldFilter = {
 	id: mandatoryFieldFilterId,
 	active: false,
-	match: function() {
+	match() {
 		return true;
 	},
 	renderer: ToggleFilterComponent,

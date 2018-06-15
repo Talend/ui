@@ -36,11 +36,9 @@ exports[`two-filters 1`] = `
       htmlFor="mandatory-field-filter"
     >
       <input
-        autoFocus={undefined}
         checked={false}
         disabled={false}
         id="mandatory-field-filter"
-        onBlur={undefined}
         onChange={[Function]}
         type="checkbox"
       />
