@@ -17,11 +17,11 @@ function HeaderTitle(props) {
 		...(isButton ? props.button : {}),
 	};
 
-	const children = props.label;
+	const element = isButton
+		? <button {... propsToSpread}>{props.label}</button>
+		: <span {...propsToSpread}>{props.label}</span>;
 
-	const elementType = isButton ? 'button' : 'span';
-
-	return React.createElement(elementType, propsToSpread, children);
+	return element;
 }
 
 HeaderTitle.propTypes = {
