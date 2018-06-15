@@ -11,7 +11,7 @@ it('single-row', () => {
 	const tree = renderer
 		.create(
 			<TableRow
-				element={TestData.element1}				
+				element={TestData.element1}
 				classnames={TestData.classnames}
 				columns={TestData.columns1}
 			/>,

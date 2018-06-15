@@ -39,7 +39,7 @@ FiltersBar.propTypes = {
 	}),
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
-			id: PropTypes.string.isRequired,			
+			id: PropTypes.string.isRequired,
 			active: PropTypes.bool.isRequired,
 			params: PropTypes.object,
 			match: PropTypes.func.isRequired,

@@ -27,11 +27,7 @@ describe('Render a table width custom configuration', () => {
 		// create React tree
 		const tree = renderer
 			.create(
-				<Table
-					elements={elements}
-					columns={TestData.columns2}
-					classnames={TestData.classnames}
-				/>,
+				<Table elements={elements} columns={TestData.columns2} classnames={TestData.classnames} />,
 			)
 			.toJSON();
 		expect(tree).toMatchSnapshot();

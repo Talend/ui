@@ -98,7 +98,9 @@ const nameFilterId = 'name-filter';
 export const nameFilter = {
 	id: nameFilterId,
 	active: false,
-	match: function() { return true },
+	match: function() {
+		return true;
+	},
 	renderer: StringFilterComponent,
 	rendererProps: {
 		placeHolder: 'Filter...',
@@ -112,7 +114,9 @@ const mandatoryFieldFilterId = 'mandatory-field-filter';
 export const mandatoryFieldFilter = {
 	id: mandatoryFieldFilterId,
 	active: false,
-	match: function() { return true },
+	match: function() {
+		return true;
+	},
 	renderer: ToggleFilterComponent,
 	rendererProps: {
 		label: 'Show Mandatory Fields (*) Only',

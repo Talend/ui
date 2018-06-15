@@ -18,11 +18,11 @@ export default class StringFilterComponent extends Component {
 		this.setState(prevState => ({
 			docked: !prevState.docked,
 		}));
-		this.props.onFilterChange(this.props.filter.id, false, {value: null});
+		this.props.onFilterChange(this.props.filter.id, false, { value: null });
 	}
 
 	onFilter(ev, value) {
-		this.props.onFilterChange(this.props.filter.id, Boolean(value), {value});
+		this.props.onFilterChange(this.props.filter.id, Boolean(value), { value });
 	}
 
 	render() {

@@ -25,7 +25,7 @@ export default function TableBody({
 			{elements.map(element => (
 				<TableRow
 					key={element.id}
-					element={element}					
+					element={element}
 					classnames={classnames}
 					columns={columns}
 					onEnterRow={onEnterRow}
