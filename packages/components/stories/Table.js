@@ -5,6 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
+import { checkA11y } from '@storybook/addon-a11y';
 import {
 	DraggableComponent as draggable,
 	IconsProvider,
@@ -676,6 +677,7 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div style={{ display: 'flex', justifyContent: 'center' }}>
 			<IconsProvider />

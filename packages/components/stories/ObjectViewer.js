@@ -3,6 +3,7 @@ import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ObjectViewer, Icon, IconsProvider, TooltipTrigger } from '../src/index';
@@ -314,6 +315,7 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addWithInfo('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
