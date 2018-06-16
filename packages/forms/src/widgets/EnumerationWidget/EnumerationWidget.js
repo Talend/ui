@@ -854,8 +854,12 @@ class EnumerationForm extends React.Component {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value, prevState);
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
+			if (!validateAction && !abortAction) {
+				return prevState;
+			}
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
+
 			let headerError = '';
 			if (valueExist) {
 				headerError = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
