@@ -855,7 +855,7 @@ class EnumerationForm extends React.Component {
 			const valueExist = this.valueAlreadyExist(value, prevState);
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
 			if (!validateAction && !abortAction) {
-				return prevState;
+				return null;
 			}
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
