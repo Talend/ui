@@ -70,7 +70,7 @@ class EnumerationForm extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
-		this.disabledAction = props.schema.disabled;
+		this.disabledAction = props.schema ? props.schema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
@@ -215,7 +215,6 @@ class EnumerationForm extends React.Component {
 				}),
 				icon: 'talend-trash',
 				id: 'delete',
-				disabled: this.disabledAction,
 				onClick: this.onDeleteItems.bind(this),
 			},
 		];

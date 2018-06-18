@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { Button } from 'react-bootstrap';
 import toJsonWithoutI18n from '../../../__mocks__/props-without-i18n';
 import TranslatedEnumeration, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
@@ -25,6 +26,24 @@ describe('EnumerationWidget', () => {
 			/>,
 		);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-enumeration-header').at(0).find(Button).length).toBe(2);
+	});
+
+	it('should be in disabled mode', () => {
+		// given
+		const wrapper = mount(
+			<EnumerationWidget
+				schema={{
+					disabled: true,
+				}}
+				formData={[
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
+				]}
+			/>,
+		);
+		expect(wrapper.find('.tc-enumeration-header').at(0).find(Button).length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-item-actions').at(0).find(Button).length).toBe(0);
 	});
 
 	it('should be in add mode', () => {
@@ -72,6 +91,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-enumeration-item-actions').at(0).find(Button).length).toBe(2);
 	});
 
 	it('should delete an item', () => {
