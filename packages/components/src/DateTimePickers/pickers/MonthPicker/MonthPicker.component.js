@@ -1,30 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { chunk } from 'lodash';
+import add_months from 'date-fns/add_months';
+import format from 'date-fns/format';
 import theme from './MonthPicker.scss';
 import PickerAction from '../../PickerAction';
 
+const baseDate = new Date(0);
+const indexes = (new Array(12))
+	.fill(0)
+	.map((_, i) => i);
+
+const months = indexes.map(index => ({
+	index,
+	name: format(add_months(baseDate, index), 'MMMM'),
+}));
+const monthsRows = chunk(months, 3);
+
 function MonthPicker(props) {
-	const months = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December',
-	].map((month, i) => ({
-		name: month,
-		index: i,
-	}));
-
-	const monthsRows = chunk(months, 3);
-
 	function isSelected(index) {
 		return index === props.currentMonth;
 	}
