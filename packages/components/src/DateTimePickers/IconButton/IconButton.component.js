@@ -6,19 +6,30 @@ import theme from './IconButton.scss';
 
 function IconButton(props) {
 	const {
-		icon,
-		...buttonProps
+		icon: iconProps,
+		className: buttonClassNameProp,
+		...buttonPropsRest
 	} = props;
 
-	buttonProps.className = classNames(buttonProps.className, theme.btn);
-	icon.className = classNames(icon.className, theme.icon);
+	const {
+		className: iconClassNameProp,
+		...iconPropsRest
+	} = iconProps;
+
+	const buttonClassName = classNames(buttonClassNameProp, theme.btn);
+	const iconClassName = classNames(iconClassNameProp, theme.icon);
 
 	return (
 		<button
 			type="button"
-			{...buttonProps}
+			className={buttonClassName}
+			{...buttonPropsRest}
 		>
-			<Icon key="icon" {...icon} />
+			<Icon
+				key="icon"
+				className={iconClassName}
+				{...iconPropsRest}
+			/>
 		</button>
 	);
 }
@@ -28,6 +39,7 @@ IconButton.propTypes = {
 	icon: PropTypes.shape({
 		...Icon.propTypes,
 	}).isRequired,
+	className: PropTypes.string,
 };
 
 export default IconButton;
