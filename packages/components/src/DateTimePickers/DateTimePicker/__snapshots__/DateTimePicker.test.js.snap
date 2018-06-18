@@ -4,6 +4,8 @@ exports[`DateTimePicker should render a DateTimePicker 1`] = `
 <div
   className="theme-container"
 >
-  <DateTimeView />
+  <DateTimeView
+    onTitleClick={[Function]}
+  />
 </div>
 `;
