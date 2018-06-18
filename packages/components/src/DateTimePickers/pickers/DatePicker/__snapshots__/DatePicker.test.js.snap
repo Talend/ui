@@ -9,45 +9,45 @@ exports[`DatePicker should render a DatePicker 1`] = `
   >
     <abbr
       className="theme-calendar-item"
-      title="Lundi"
-    >
-      L
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Mardi"
+      title="Monday"
     >
       M
     </abbr>
     <abbr
       className="theme-calendar-item"
-      title="Mercredi"
+      title="Tuesday"
     >
-      M
+      T
     </abbr>
     <abbr
       className="theme-calendar-item"
-      title="Jeudi"
+      title="Wednesday"
     >
-      J
+      W
     </abbr>
     <abbr
       className="theme-calendar-item"
-      title="Vendredi"
+      title="Thursday"
     >
-      V
+      T
     </abbr>
     <abbr
       className="theme-calendar-item"
-      title="Samedi"
+      title="Friday"
+    >
+      F
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Saturday"
     >
       S
     </abbr>
     <abbr
       className="theme-calendar-item"
-      title="Dimanche"
+      title="Sunday"
     >
-      D
+      S
     </abbr>
   </div>
   <hr

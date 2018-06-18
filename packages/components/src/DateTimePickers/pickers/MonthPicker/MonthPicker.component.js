@@ -6,22 +6,22 @@ import PickerAction from '../../PickerAction';
 
 function MonthPicker(props) {
 	const months = [
-		'Janvier',
-		'Février',
-		'Mars',
-		'Avril',
-		'Mai',
-		'Juin',
-		'Juillet',
-		'Août',
-		'Septembre',
-		'Octobre',
-		'Novembre',
-		'Décembre',
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'Décember',
 	];
 
 	const monthsRows = chunk(months, 3);
-	const selectedMonth = 'Septembre';
+	const selectedMonth = 'September';
 
 	function isSelected(m) {
 		return selectedMonth === m;

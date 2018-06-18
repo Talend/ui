@@ -11,58 +11,27 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Janvier'"
+        aria-label="Select 'January'"
         isSelected={false}
-        label="Janvier"
+        label="January"
       />
     </div>
     <div
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Février'"
+        aria-label="Select 'February'"
         isSelected={false}
-        label="Février"
+        label="February"
       />
     </div>
     <div
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Mars'"
+        aria-label="Select 'March'"
         isSelected={false}
-        label="Mars"
-      />
-    </div>
-  </div>
-  <div
-    className="theme-row"
-  >
-    <div
-      className="theme-month"
-    >
-      <PickerAction
-        aria-label="Select 'Avril'"
-        isSelected={false}
-        label="Avril"
-      />
-    </div>
-    <div
-      className="theme-month"
-    >
-      <PickerAction
-        aria-label="Select 'Mai'"
-        isSelected={false}
-        label="Mai"
-      />
-    </div>
-    <div
-      className="theme-month"
-    >
-      <PickerAction
-        aria-label="Select 'Juin'"
-        isSelected={false}
-        label="Juin"
+        label="March"
       />
     </div>
   </div>
@@ -73,27 +42,58 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Juillet'"
+        aria-label="Select 'April'"
         isSelected={false}
-        label="Juillet"
+        label="April"
       />
     </div>
     <div
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Août'"
+        aria-label="Select 'May'"
         isSelected={false}
-        label="Août"
+        label="May"
       />
     </div>
     <div
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Septembre'"
+        aria-label="Select 'June'"
+        isSelected={false}
+        label="June"
+      />
+    </div>
+  </div>
+  <div
+    className="theme-row"
+  >
+    <div
+      className="theme-month"
+    >
+      <PickerAction
+        aria-label="Select 'July'"
+        isSelected={false}
+        label="July"
+      />
+    </div>
+    <div
+      className="theme-month"
+    >
+      <PickerAction
+        aria-label="Select 'August'"
+        isSelected={false}
+        label="August"
+      />
+    </div>
+    <div
+      className="theme-month"
+    >
+      <PickerAction
+        aria-label="Select 'September'"
         isSelected={true}
-        label="Septembre"
+        label="September"
       />
     </div>
   </div>
@@ -104,27 +104,27 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Octobre'"
+        aria-label="Select 'October'"
         isSelected={false}
-        label="Octobre"
+        label="October"
       />
     </div>
     <div
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Novembre'"
+        aria-label="Select 'November'"
         isSelected={false}
-        label="Novembre"
+        label="November"
       />
     </div>
     <div
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Décembre'"
+        aria-label="Select 'Décember'"
         isSelected={false}
-        label="Décembre"
+        label="Décember"
       />
     </div>
   </div>

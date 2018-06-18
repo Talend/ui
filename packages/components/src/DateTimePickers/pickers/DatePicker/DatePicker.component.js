@@ -5,7 +5,7 @@ import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
 
 function DatePicker(props) {
-	const dayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+	const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 	const days = (new Array(7))
 					.fill(0)
 					.map((_, i) => i + 1);
