@@ -16,10 +16,14 @@ function YearPicker(props) {
 		2017,
 	].slice(0, 5);
 
-	const selectedYear = 2012;
+	function isSelected(year) {
+		return year === props.currentYear;
+	}
 
-	function isSelected(y) {
-		return selectedYear === y;
+	function onYearSelected(year) {
+		return () => {
+			props.onYearSelected(year);
+		};
 	}
 
 	return (
@@ -33,15 +37,16 @@ function YearPicker(props) {
 				aria-label="Scroll to previous years"
 			/>
 			<div className={theme.years}>
-				{years.map((year, i) =>
+				{years.map(year =>
 					<div
-						key={i}
+						key={year}
 						className={theme.year}
 					>
 						<PickerAction
 							aria-label={`Select '${year}'`}
 							isSelected={isSelected(year)}
 							label={year.toString()}
+							onClick={onYearSelected(year)}
 						/>
 					</div>
 				)}
@@ -59,6 +64,8 @@ function YearPicker(props) {
 }
 
 YearPicker.propTypes = {
+	currentYear: PropTypes.number,
+	onYearSelected: PropTypes.func,
 };
 
 export default YearPicker;

@@ -13,10 +13,15 @@ class MonthYearView extends React.Component {
 		super(props);
 
 		this.onMonthSelected = this.onMonthSelected.bind(this);
+		this.onYearSelected = this.onYearSelected.bind(this);
 	}
 
 	onMonthSelected(index) {
 		console.log(index);
+	}
+
+	onYearSelected(year) {
+		console.log(year);
 	}
 
 	render() {
@@ -45,7 +50,10 @@ class MonthYearView extends React.Component {
 					/>
 				</div>
 				<div className={theme.year}>
-					<YearPicker />
+					<YearPicker
+						currentYear={2012}
+						onYearSelected={this.onYearSelected}
+					/>
 				</div>
 			</div>
 		);
