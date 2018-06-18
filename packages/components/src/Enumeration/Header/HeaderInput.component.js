@@ -25,7 +25,7 @@ function getAction(action, index, getInternalInputRef) {
 		}
 	}
 
-	return (
+	return (!action.disabled ?
 		<Action
 			key={`${index}-enum-header-action`}
 			label={action.label}
@@ -36,7 +36,7 @@ function getAction(action, index, getInternalInputRef) {
 			inProgress={action.inProgress}
 			hideLabel
 			link
-		/>
+		/> : null
 	);
 }
 

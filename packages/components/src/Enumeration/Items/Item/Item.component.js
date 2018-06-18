@@ -48,7 +48,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 			}
 		}
 
-		return (
+		return (!action.disabled ?
 			<Action
 				key={index}
 				label={action.label}
@@ -58,7 +58,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				tooltipPlacement="bottom"
 				hideLabel
 				link
-			/>
+			/> : null
 		);
 	}
 

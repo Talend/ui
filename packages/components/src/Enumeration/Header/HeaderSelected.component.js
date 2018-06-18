@@ -18,7 +18,7 @@ function getAction(action, index) {
 		}
 	}
 
-	return (
+	return (!action.disabled ?
 		<Action
 			key={`${index}-enum-header-action`}
 			label={action.label}
@@ -29,7 +29,7 @@ function getAction(action, index) {
 			inProgress={action.inProgress}
 			hideLabel
 			link
-		/>
+		/> : null
 	);
 }
 
