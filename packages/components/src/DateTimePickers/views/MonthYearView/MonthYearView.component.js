@@ -11,17 +11,6 @@ class MonthYearView extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		this.onMonthSelected = this.onMonthSelected.bind(this);
-		this.onYearSelected = this.onYearSelected.bind(this);
-	}
-
-	onMonthSelected(index) {
-		console.log(index);
-	}
-
-	onYearSelected(year) {
-		console.log(year);
 	}
 
 	render() {
@@ -45,14 +34,14 @@ class MonthYearView extends React.Component {
 			<div className={theme.body}>
 				<div className={theme.month}>
 					<MonthPicker
-						currentMonth={8}
-						onMonthSelected={this.onMonthSelected}
+						currentMonth={this.props.monthSelected}
+						onMonthSelected={this.props.onMonthSelected}
 					/>
 				</div>
 				<div className={theme.year}>
 					<YearPicker
-						currentYear={2012}
-						onYearSelected={this.onYearSelected}
+						currentYear={this.props.yearSelected}
+						onYearSelected={this.props.onYearSelected}
 					/>
 				</div>
 			</div>
@@ -69,6 +58,10 @@ class MonthYearView extends React.Component {
 
 MonthYearView.propTypes = {
 	onBackClick: PropTypes.func,
+	monthSelected: PropTypes.number,
+	yearSelected: PropTypes.number,
+	onMonthSelected: PropTypes.func,
+	onYearSelected: PropTypes.func,
 };
 
 export default MonthYearView;

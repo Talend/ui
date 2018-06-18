@@ -35,7 +35,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
                 "name": "talend-arrow-left",
               }
         }
-        onClick={undefined}
+        onClick={[Function]}
     />,
       "middleElement": <HeaderTitle
         label="Septembre 2017"
