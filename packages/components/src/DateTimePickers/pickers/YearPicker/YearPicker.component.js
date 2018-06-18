@@ -21,9 +21,9 @@ function YearPicker(props) {
 	}
 
 	function onYearSelected(year) {
-		return () => {
+		return props.onYearSelected && (() => {
 			props.onYearSelected(year);
-		};
+		});
 	}
 
 	return (

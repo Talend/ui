@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { chunk } from 'lodash';
-import add_months from 'date-fns/add_months';
+import addMonths from 'date-fns/add_months';
 import format from 'date-fns/format';
 import theme from './MonthPicker.scss';
 import PickerAction from '../../PickerAction';
@@ -13,7 +13,7 @@ const indexes = (new Array(12))
 
 const months = indexes.map(index => ({
 	index,
-	name: format(add_months(baseDate, index), 'MMMM'),
+	name: format(addMonths(baseDate, index), 'MMMM'),
 }));
 const monthsRows = chunk(months, 3);
 
@@ -23,9 +23,9 @@ function MonthPicker(props) {
 	}
 
 	function onMonthSelected(index) {
-		return () => {
+		return props.onMonthSelected && (() => {
 			props.onMonthSelected(index);
-		};
+		});
 	}
 
 	return (
