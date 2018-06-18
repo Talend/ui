@@ -9,18 +9,14 @@ src/theme/_dropdowns.scss
   44:28  warning  Space expected around operator  space-around-operator
 
 src/theme/_forms.scss
-    9:1   error    Mixin 'checkOutline' should be written in lowercase with hyphens  mixin-name-format
-    9:20  error    Parenthesis should be removed                                     empty-args
-   10:20  warning  Vendor prefixes should not be used                                no-vendor-prefixes
-   34:8   error    Qualifying elements are not allowed for class selectors           no-qualifying-elements
-   69:7   error    Qualifying elements are not allowed for class selectors           no-qualifying-elements
-  120:8   error    Qualifying elements are not allowed for class selectors           no-qualifying-elements
-  135:6   warning  Vendor prefixes should not be used                                no-vendor-prefixes
-  230:4   error    Mixin 'checkOutline' should be written in lowercase with hyphens  mixin-name-format
-  286:4   error    Mixin 'checkOutline' should be written in lowercase with hyphens  mixin-name-format
-  372:23  error    Qualifying elements are not allowed for class selectors           no-qualifying-elements
-  385:10  error    Qualifying elements are not allowed for class selectors           no-qualifying-elements
-  474:8   warning  Vendor prefixes should not be used                                no-vendor-prefixes
+    9:24  error    Parenthesis should be removed                            empty-args
+   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  120:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  135:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  371:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  384:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  473:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_navbar.scss
   18:6  warning  Expected indentation of 4 tabs but found 5  indentation
@@ -31,5 +27,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 20 problems (14 errors, 6 warnings)
+✖ 16 problems (11 errors, 5 warnings)
 
