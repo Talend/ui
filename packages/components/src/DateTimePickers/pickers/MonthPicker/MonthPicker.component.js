@@ -17,7 +17,7 @@ function MonthPicker(props) {
 		'September',
 		'October',
 		'November',
-		'Décember',
+		'December',
 	];
 
 	const monthsRows = chunk(months, 3);

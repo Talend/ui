@@ -122,9 +122,9 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
       className="theme-month"
     >
       <PickerAction
-        aria-label="Select 'Décember'"
+        aria-label="Select 'December'"
         isSelected={false}
-        label="Décember"
+        label="December"
       />
     </div>
   </div>
