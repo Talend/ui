@@ -27,4 +27,24 @@ describe('Header', () => {
 		expect(buttons.length).toBe(1);
 		expect(props.headerDefault[0].onClick).toBeCalled();
 	});
+	it('should not render disabled button', () => {
+		// given
+		const props = {
+			headerDefault: [{
+				disabled: true,
+				label: 'Add item',
+				icon: 'talend-plus',
+				id: 'add',
+				onClick: jest.fn(), // provided click callback
+			}],
+		};
+		const headerInstance = <Header {...props} />;
+
+		// when
+		const wrapper = mount(headerInstance);
+		const buttons = wrapper.find(Button);
+
+		// then
+		expect(buttons.length).toBe(0);
+	});
 });
