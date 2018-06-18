@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import Inject from '../Inject';
 import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
@@ -38,12 +39,15 @@ function Layout({
 	tabs,
 	hasTheme,
 	children,
+	getComponent,
+	components,
 	...rest
 }) {
 	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
+	const injected = Inject.all(getComponent, components);
 	switch (mode) {
 		case DISPLAY_MODE_ONE_COLUMN:
 			Component = OneColumn;
@@ -54,22 +58,26 @@ function Layout({
 		default:
 			Component = OneColumn;
 	}
+	const injectedHeader = injected('header');
+	const injectedFooter = injected('footer');
 	return (
 		<div id={id} className={appCSS}>
-			{header && (
+			{(header || injectedHeader) && (
 				<header role="banner" className={headerCSS}>
-					{header}
+					{header || injectedHeader}
 				</header>
 			)}
+			{injected('after-header')}
 			{subHeader}
+			{injected('after-subheader')}
 			{Component && (
-				<Component drawers={drawers} tabs={tabs} {...rest}>
+				<Component drawers={drawers} tabs={tabs} injected={injected} {...rest}>
 					{children}
 				</Component>
 			)}
-			{footer && (
+			{(footer || injectedFooter) && (
 				<footer role="contentinfo" className={footerCSS}>
-					{footer}
+					{footer || injectedFooter}
 				</footer>
 			)}
 		</div>
@@ -88,6 +96,8 @@ Layout.propTypes = {
 	tabs: PropTypes.shape(TabBar.propTypes),
 	hasTheme: PropTypes.bool,
 	children: PropTypes.node,
+	getComponent: PropTypes.func,
+	components: PropTypes.object,
 };
 
 export default Layout;
