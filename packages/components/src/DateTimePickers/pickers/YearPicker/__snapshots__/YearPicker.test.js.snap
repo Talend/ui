@@ -42,7 +42,7 @@ exports[`YearPicker should render 1`] = `
     >
       <PickerAction
         aria-label="Select '2012'"
-        isSelected={false}
+        isSelected={true}
         label="2012"
         onClick={undefined}
       />

@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import addYears from 'date-fns/add_years';
+import setYear from 'date-fns/set_year';
 import theme from './YearPicker.scss';
 import IconButton from '../../IconButton';
 import PickerAction from '../../PickerAction';
 
+const baseDate = new Date(0);
+
 function YearPicker(props) {
-	const years = [
-		2010,
-		2011,
-		2012,
-		2013,
-		2014,
-		2015,
-		2016,
-		2017,
-	].slice(0, 5);
+	const now = new Date();
+	const middleYear = props.currentYear !== undefined
+		? props.currentYear
+		: now.getFullYear();
+
+	const middleDate = setYear(baseDate, middleYear);
+	const firstDate = addYears(middleDate, -2);
+
+	const years = (new Array(5))
+		.fill(0)
+		.map((_, i) => addYears(firstDate, i))
+		.map(date => date.getFullYear());
 
 	function isSelected(year) {
 		return year === props.currentYear;

@@ -2,11 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import YearPicker from './YearPicker.component';
-import theme from './YearPicker.test';
 
 describe('YearPicker', () => {
 	it('should render', () => {
-		const wrapper = shallow(<YearPicker />);
+		const wrapper = shallow(<YearPicker
+			currentYear={2012}
+		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -40,6 +41,7 @@ describe('YearPicker', () => {
 		const spy = jest.fn();
 
 		const wrapper = shallow(<YearPicker
+			currentYear={2012}
 			onYearSelected={spy}
 		/>);
 
