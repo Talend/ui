@@ -1,0 +1,98 @@
+{
+    "metadata": {
+        "children": [],
+        "id": "datastore",
+        "label": "datastore",
+        "name": "datastore",
+        "version": 0
+    },
+    "ui": {
+        "jsonSchema": {
+            "properties": {
+                "_datasetMetadata": {
+                    "properties": {
+                        "name": {
+                            "required": [],
+                            "title": "Name",
+                            "type": "string"
+                        },
+                        "description": {
+                            "required": [],
+                            "title": "Description",
+                            "type": "string"
+                        },
+                        "type": {
+                            "required": [],
+                            "title": "Types",
+                            "type": "string"
+                        }
+                    },
+                    "required": [],
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "datastore",
+            "type": "object"
+        },
+        "properties": {
+            "_datasetMetadata": {}
+        },
+        "uiSchema": [
+            {
+                "conditions": [],
+                "items": [
+                    {
+                        "conditions": [],
+                        "key": "_datasetMetadata.name",
+                        "required": false,
+                        "title": "Name",
+                        "widget": "text"
+                    },
+                    {
+                        "conditions": [],
+                        "key": "_datasetMetadata.type",
+                        "required": false,
+                        "schema": {
+                            "enum": [
+                                "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
+                            ],
+                            "type": "string"
+                        },
+                        "title": "Types",
+                        "titleMap": [
+                            {
+                                "name": "Basic Auth",
+                                "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "action": "builtin::root::reloadFromId",
+                                "family": "builtin::family",
+                                "parameters": [
+                                    {
+                                        "key": "id",
+                                        "path": "_datasetMetadata.type"
+                                    }
+                                ],
+                                "type": "reloadForm"
+                            }
+                        ],
+                        "widget": "datalist"
+                    },
+                    {
+                        "conditions": [],
+                        "key": "_datasetMetadata.description",
+                        "required": false,
+                        "title": "Description",
+                        "widget": "textarea"
+                    }
+                ],
+                "key": "_datasetMetadata",
+                "required": false,
+                "widget": "fieldset"
+            }
+        ]
+    }
+}

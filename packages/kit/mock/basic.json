@@ -1,0 +1,198 @@
+{
+    "jsonSchema": {
+        "title": "Basic Auth",
+        "type": "object",
+        "properties": {
+            "dataStore": {
+                "title": "dataStore",
+                "type": "object",
+                "properties": {
+                    "password": {
+                        "title": "Password",
+                        "type": "string",
+                        "required": []
+                    },
+                    "url": {
+                        "title": "API URL",
+                        "type": "string",
+                        "required": []
+                    },
+                    "username": {
+                        "title": "Username",
+                        "type": "string",
+                        "required": []
+                    }
+                },
+                "required": []
+            },
+            "_datasetMetadata": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string",
+                        "required": []
+                    },
+                    "type": {
+                        "title": "Types",
+                        "type": "string",
+                        "required": []
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string",
+                        "required": []
+                    }
+                },
+                "required": []
+            }
+        },
+        "required": []
+    },
+    "metadata": {
+        "familyId": "U2VydmljZU5vdw",
+        "children": [
+            "U2VydmljZU5vdyNkYXRhc2V0I3RhYmxl"
+        ],
+        "icon": "ServiceNowConnection",
+        "name": "basicAuth",
+        "familyLabel": "Service Now",
+        "id": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
+        "label": "Basic Auth",
+        "version": -1
+    },
+    "uiSchema": [
+        {
+            "widget": "fieldset",
+            "conditions": [],
+            "items": [
+                {
+                    "widget": "text",
+                    "conditions": [],
+                    "title": "Name",
+                    "key": "_datasetMetadata.name",
+                    "required": false
+                },
+                {
+                    "schema": {
+                        "type": "string",
+                        "enum": [
+                            "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
+                        ]
+                    },
+                    "widget": "datalist",
+                    "conditions": [],
+                    "title": "Types",
+                    "triggers": [
+                        {
+                            "action": "builtin::root::reloadFromId",
+                            "family": "builtin::family",
+                            "type": "reloadForm",
+                            "parameters": [
+                                {
+                                    "path": "_datasetMetadata.type",
+                                    "key": "id"
+                                }
+                            ]
+                        }
+                    ],
+                    "titleMap": [
+                        {
+                            "name": "Basic Auth",
+                            "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
+                        }
+                    ],
+                    "key": "_datasetMetadata.type",
+                    "required": false
+                },
+                {
+                    "widget": "textarea",
+                    "conditions": [],
+                    "title": "Description",
+                    "key": "_datasetMetadata.description",
+                    "required": false
+                }
+            ],
+            "key": "_datasetMetadata",
+            "required": false
+        },
+        {
+            "placeholder": "dataStore",
+            "conditions": [],
+            "title": "dataStore",
+            "items": [
+                {
+                    "widget": "text",
+                    "placeholder": "ServiceNow instance url...",
+                    "conditions": [],
+                    "title": "API URL",
+                    "triggers": [
+                        {
+                            "action": "urlValidation",
+                            "family": "ServiceNow",
+                            "type": "validation",
+                            "parameters": [
+                                {
+                                    "path": "dataStore.url",
+                                    "key": "arg0"
+                                }
+                            ]
+                        }
+                    ],
+                    "key": "dataStore.url",
+                    "required": false
+                },
+                {
+                    "items": [
+                        {
+                            "placeholder": "username",
+                            "widget": "text",
+                            "conditions": [],
+                            "title": "Username",
+                            "key": "dataStore.username",
+                            "required": false
+                        },
+                        {
+                            "widget": "text",
+                            "placeholder": "password",
+                            "conditions": [],
+                            "title": "Password",
+                            "type": "password",
+                            "key": "dataStore.password",
+                            "required": false
+                        }
+                    ],
+                    "widget": "columns"
+                },
+                {
+                    "widget": "button",
+                    "title": "Validate Datastore",
+                    "triggers": [
+                        {
+                            "action": "basicAuth",
+                            "family": "ServiceNow",
+                            "type": "healthcheck",
+                            "parameters": [
+                                {
+                                    "path": "dataStore.password",
+                                    "key": "basicAuth.password"
+                                },
+                                {
+                                    "path": "dataStore.url",
+                                    "key": "basicAuth.url"
+                                },
+                                {
+                                    "path": "dataStore.username",
+                                    "key": "basicAuth.username"
+                                }
+                            ]
+                        }
+                    ],
+                    "key": "button_healthcheck_dataStore"
+                }
+            ],
+            "key": "dataStore",
+            "required": false
+        }
+    ]
+}

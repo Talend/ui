@@ -1,0 +1,74 @@
+{
+  "props": {
+    "indexRouteRedirect": {
+      "path": "/ComponentForm"
+    },
+    "AppLoader#default":{
+      "components": {
+        "before-children": [
+          {
+            "component": "Notification"
+          },
+          {
+            "component": "IconsProvider"
+          }
+        ]
+      }
+    },
+    "HeaderBar#default": {
+      "logo": {
+        "icon": "talend-logo-square",
+        "isFull": false
+      },
+      "brand": {
+        "label": "Talend Component Kit React Components"
+      }
+    },
+    "ActionButton#menu-form": {
+      "icon": "burger",
+      "label":"ComponentForm",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm"
+        }
+      }
+    },
+    "SidePanel#default":{
+      "actions": [
+        { "componentId": "menu-form" }
+      ]
+    },
+    "Layout#form": {
+      "mode": "TwoColumns",
+      "components":{
+        "header":[{ "component": "HeaderBar" }],
+        "one":[{ "component": "SidePanel" }],
+        "content":[{ "component": "ComponentForm" }]
+      }
+    },
+    "ComponentForm#default":{
+      "definitionURL": "/api/v1/application/detail/c2VydmljZW5vdyNTZXJ2aWNlTm93I1NlcnZpY2VOb3dPdXRwdXQ",
+      "triggerURL": "/api/v1/application/action"
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "AppLoader",
+    "indexRoute": {
+      "component": "Redirect",
+      "view": "indexRouteRedirect"
+    },
+    "childRoutes": [
+      {
+        "path": "ComponentForm",
+        "component": "Layout",
+        "componentId": "form"
+      }
+    ]
+  },
+  "ref": {
+    "SidePanel#default" : {
+    }
+  }
+}
