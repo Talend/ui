@@ -6,6 +6,11 @@
 $form-shadow: inset 0 -1px 0 $gallery;
 $form-focus-shadow: inset 0 -2px 0 $scooter;
 
+@mixin checkbox-outline() {
+	outline: 2px solid Highlight;
+	outline-offset: 1px;
+}
+
 @import 'forms.switch';
 @import 'forms.switch-nested';
 
@@ -220,6 +225,11 @@ form {
 			border-color: $brand-primary;
 		}
 
+		&:focus:after,
+		&:focus + span:after {
+			@include checkbox-outline;
+		}
+
 		&:disabled:after,
 		&:disabled:checked:after,
 		&:disabled + *:after,
@@ -273,7 +283,7 @@ form {
 
 		&:focus:after,
 		&:focus + *:after {
-			border-color: $brand-primary;
+			@include checkbox-outline;
 		}
 
 		&:checked:after,
