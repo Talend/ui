@@ -6,6 +6,8 @@
 @mixin nav-action {
     font-weight: 600;
     padding: 0;
+    background: none;
+    border: none;
 
     &:hover {
         color: $scooter;
