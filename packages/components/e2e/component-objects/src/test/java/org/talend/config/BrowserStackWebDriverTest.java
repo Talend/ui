@@ -8,8 +8,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 public class BrowserStackWebDriverTest extends WebDriverTest {
 
     private Local bsLocalInstance;
