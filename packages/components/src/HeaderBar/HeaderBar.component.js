@@ -47,13 +47,10 @@ function Brand({ label, isSeparated, getComponent, t, ...props }) {
 	let ariaLabel;
 	if (props && props.items) {
 		ActionComponent = Renderers.ActionDropdown;
-		ariaLabel = t(
-			'HEADER_BAR_APP_SWITCHER',
-			{
-				defaultValue: 'Switch to another application. Current application: {{appName}}',
-				appName: label,
-			}
-		);
+		ariaLabel = t('HEADER_BAR_APP_SWITCHER', {
+			defaultValue: 'Switch to another application. Current application: {{appName}}',
+			appName: label,
+		});
 	} else {
 		ActionComponent = Renderers.Action;
 		clickAction = props.onClick;
@@ -175,7 +172,10 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	}
 
 	const displayName = getDisplayName({ name, firstName, lastName });
-	const ariaLabel = t('HEADERBAR_USER_MENU', { defaultValue: 'Open user menu. Current user: {{name}}', name: displayName });
+	const ariaLabel = t('HEADERBAR_USER_MENU', {
+		defaultValue: 'Open user menu. Current user: {{name}}',
+		name: displayName,
+	});
 
 	return (
 		<li role="presentation" className={className}>
@@ -198,10 +198,14 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	let label;
 	if (hasUnread) {
 		icon = 'talend-bell-notification';
-		label = t('HEADERBAR_NOTIFICATION_UNREAD', { defaultValue: 'Notifications (you have unread notifications)' });
+		label = t('HEADERBAR_NOTIFICATION_UNREAD', {
+			defaultValue: 'Notifications (you have unread notifications)',
+		});
 	} else {
 		icon = 'talend-bell';
-		label = t('HEADERBAR_NOTIFICATION', { defaultValue: 'Notifications (you don\'t have unread notifications)' });
+		label = t('HEADERBAR_NOTIFICATION', {
+			defaultValue: "Notifications (you don't have unread notifications)",
+		});
 	}
 
 	const global = {
@@ -283,7 +287,9 @@ function HeaderBar(props) {
 							t={props.t}
 						/>
 					)}
-				{props.user && <Components.User getComponent={props.getComponent} {...props.user} t={props.t} />}
+				{props.user && (
+					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
+				)}
 			</ul>
 		</nav>
 	);
