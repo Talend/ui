@@ -6,7 +6,6 @@ import toJsonWithoutI18n from '../../test/props-without-i18n';
 import Drawer, {
 	cancelActionComponent,
 	combinedFooterActions,
-	ON_CANCEL_ACTION_POSITION_HEADER,
 } from './Drawer.component';
 
 describe('Drawer', () => {
@@ -66,7 +65,7 @@ describe('Drawer', () => {
 	});
 	it('should render cancelActionComponent', () => {
 		const wrapper = mount(
-			cancelActionComponent({ id: 'test', position: ON_CANCEL_ACTION_POSITION_HEADER }),
+			cancelActionComponent({ id: 'test' }),
 		);
 		expect(wrapper.find('button')).toBeTruthy();
 	});
@@ -212,7 +211,7 @@ describe('Drawer', () => {
 			getComponent,
 			title: 'test',
 			tabs: { items: [{ item: { key: 'tab1', label: 'tab1' }, onClick: jest.fn() }] },
-			onCancelAction: { id: 'cacel-button-id', position: ON_CANCEL_ACTION_POSITION_HEADER },
+			onCancelAction: { id: 'cacel-button-id' },
 			footerActions: { actions: { left: [] } },
 		};
 
