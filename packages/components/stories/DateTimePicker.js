@@ -13,7 +13,7 @@ storiesOf('DateTimePicker', module)
 		<div>
 			<h1>DateTimePicker structure</h1>
 			<IconsProvider />
-			<div style={{ width: '320px' }}>
+			<div style={{ width: '320px', border: '1px solid black' }}>
 				<DateTimePicker />
 			</div>
 		</div>

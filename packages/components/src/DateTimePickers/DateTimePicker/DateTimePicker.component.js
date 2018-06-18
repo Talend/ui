@@ -4,17 +4,55 @@ import theme from './DateTimePicker.scss';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 
-function DateTimePicker(props) {
-	const isCalendarView = true;
-	const viewComponent = isCalendarView
-		? <DateTimeView />
-		: <MonthYearView />;
+class DateTimePicker extends React.Component {
 
-	return (
-		<div className={theme.container}>
-			{viewComponent}
-		</div>
-	);
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isCalendarView: true,
+		};
+
+		this.onDateTimeViewTitleClick = this.onDateTimeViewTitleClick.bind(this);
+		this.onMonthYearViewBackClick = this.onMonthYearViewBackClick.bind(this);
+
+
+		this.dateTimeView = (
+			<DateTimeView
+				onTitleClick={this.onDateTimeViewTitleClick}
+			/>
+		);
+
+		this.monthYearView = (
+			<MonthYearView
+				onBackClick={this.onMonthYearViewBackClick}
+			/>
+		);
+	}
+
+	onDateTimeViewTitleClick() {
+		this.setState({
+			isCalendarView: false,
+		});
+	}
+
+	onMonthYearViewBackClick() {
+		this.setState({
+			isCalendarView: true,
+		});
+	}
+
+	render() {
+		const viewComponent = this.state.isCalendarView
+			? this.dateTimeView
+			: this.monthYearView;
+
+		return (
+			<div className={theme.container}>
+				{viewComponent}
+			</div>
+		);
+	}
 }
 
 DateTimePicker.propTypes = {

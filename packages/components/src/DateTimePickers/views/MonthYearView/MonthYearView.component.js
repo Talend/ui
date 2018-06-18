@@ -16,6 +16,7 @@ function MonthYearView(props) {
 			}}
 			className={theme['action-left']}
 			aria-label="Switch back to date and time pickers view"
+			onClick={props.onBackClick}
 		/>,
 		middleElement: <HeaderTitle
 			label="Septembre 2017"
@@ -42,6 +43,7 @@ function MonthYearView(props) {
 }
 
 MonthYearView.propTypes = {
+	onBackClick: PropTypes.func,
 };
 
 export default MonthYearView;

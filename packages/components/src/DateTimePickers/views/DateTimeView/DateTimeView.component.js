@@ -18,6 +18,7 @@ function DateTimeView(props) {
 			label="Septembre 2017"
 			button={{
 				'aria-label': 'Switch to month and year pickers view',
+				onClick: props.onTitleClick,
 			}}
 		/>,
 		rightElement: <IconButton
@@ -49,6 +50,7 @@ function DateTimeView(props) {
 }
 
 DateTimeView.propTypes = {
+	onTitleClick: PropTypes.func,
 };
 
 export default DateTimeView;
