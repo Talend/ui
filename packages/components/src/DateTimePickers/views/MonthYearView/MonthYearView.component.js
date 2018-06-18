@@ -9,7 +9,7 @@ import HeaderTitle from '../HeaderTitle';
 
 function MonthYearView(props) {
 	const header = {
-		leftNode: <IconButton
+		leftElement: <IconButton
 			icon={{
 				name: 'talend-arrow-left',
 				className: theme['action-left-icon'],
@@ -17,12 +17,12 @@ function MonthYearView(props) {
 			className={theme['action-left']}
 			aria-label="Switch back to date and time pickers view"
 		/>,
-		middleNode: <HeaderTitle
+		middleElement: <HeaderTitle
 			label="Septembre 2017"
 		/>,
 	};
 
-	const bodyNode = (
+	const bodyElement = (
 		<div className={theme.body}>
 			<div className={theme.month}>
 				<MonthPicker />
@@ -36,7 +36,7 @@ function MonthYearView(props) {
 	return (
 		<ViewLayout
 			header={header}
-			bodyNode={bodyNode}
+			bodyElement={bodyElement}
 		/>
 	);
 }

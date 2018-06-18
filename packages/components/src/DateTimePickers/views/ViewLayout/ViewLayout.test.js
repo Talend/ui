@@ -6,17 +6,17 @@ import ViewLayout from './ViewLayout.component';
 describe('ViewLayout', () => {
 	it('should render a ViewLayout', () => {
 		const header = {
-			leftNode: <span>left item</span>,
-			middleNode: <span>middle item</span>,
-			rightNode: <span>right item</span>,
+			leftElement: <span>left item</span>,
+			middleElement: <span>middle item</span>,
+			rightElement: <span>right item</span>,
 		};
 
-		const bodyNode = (
-			<whateverBodyNode />
+		const bodyElement = (
+			<whateverBodyElement />
 		);
 
 		// when
-		const wrapper = shallow(<ViewLayout header={header} bodyNode={bodyNode} />);
+		const wrapper = shallow(<ViewLayout header={header} bodyElement={bodyElement} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

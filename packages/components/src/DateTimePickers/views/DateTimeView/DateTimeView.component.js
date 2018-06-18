@@ -8,19 +8,19 @@ import theme from './DateTimeView.scss';
 
 function DateTimeView(props) {
 	const header = {
-		leftNode: <IconButton
+		leftElement: <IconButton
 			icon={{
 				name: 'talend-chevron-left',
 			}}
 			aria-label="Display previous calendar month"
 		/>,
-		middleNode: <HeaderTitle
+		middleElement: <HeaderTitle
 			label="Septembre 2017"
 			button={{
 				'aria-label': 'Switch to month and year pickers view',
 			}}
 		/>,
-		rightNode: <IconButton
+		rightElement: <IconButton
 			icon={{
 				name: 'talend-chevron-left',
 				transform: 'rotate-180',
@@ -29,7 +29,7 @@ function DateTimeView(props) {
 		/>,
 	};
 
-	const bodyNode = (
+	const bodyElement = (
 		<div className={theme.body}>
 			<div className={theme.date}>
 				<DatePicker />
@@ -43,7 +43,7 @@ function DateTimeView(props) {
 	return (
 		<ViewLayout
 			header={header}
-			bodyNode={bodyNode}
+			bodyElement={bodyElement}
 		/>
 	);
 }

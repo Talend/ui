@@ -2,7 +2,7 @@
 
 exports[`DateTimeView should render a DateTimeView 1`] = `
 <ViewLayout
-  bodyNode={
+  bodyElement={
     <div
       className="theme-body"
     >
@@ -18,7 +18,7 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
   }
   header={
     Object {
-      "leftNode": <IconButton
+      "leftElement": <IconButton
         aria-label="Display previous calendar month"
         icon={
             Object {
@@ -26,7 +26,7 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
               }
         }
     />,
-      "middleNode": <HeaderTitle
+      "middleElement": <HeaderTitle
         button={
             Object {
                 "aria-label": "Switch to month and year pickers view",
@@ -34,7 +34,7 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
         }
         label="Septembre 2017"
     />,
-      "rightNode": <IconButton
+      "rightElement": <IconButton
         aria-label="Display next calendar month"
         icon={
             Object {

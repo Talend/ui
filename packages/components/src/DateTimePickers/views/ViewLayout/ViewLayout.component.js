@@ -5,26 +5,26 @@ import theme from './ViewLayout.scss';
 
 function ViewLayout(props) {
 	const {
-		leftNode,
-		middleNode,
-		rightNode,
+		leftElement,
+		middleElement,
+		rightElement,
 	} = props.header;
 
 	return (
 		<div className={theme.container}>
 			<div className={theme.header}>
-				<div className={classNames(theme['node-container'], theme.left)}>
-					{leftNode}
+				<div className={classNames(theme['element-container'], theme.left)}>
+					{leftElement}
 				</div>
-				<div className={classNames(theme['node-container'], theme.middle)}>
-					{middleNode}
+				<div className={classNames(theme['element-container'], theme.middle)}>
+					{middleElement}
 				</div>
-				<div className={classNames(theme['node-container'], theme.right)}>
-					{rightNode}
+				<div className={classNames(theme['element-container'], theme.right)}>
+					{rightElement}
 				</div>
 			</div>
-			<div className={classNames(theme['node-container'], theme.body)}>
-				{props.bodyNode}
+			<div className={classNames(theme['element-container'], theme.body)}>
+				{props.bodyElement}
 			</div>
 		</div>
 	);
@@ -32,11 +32,11 @@ function ViewLayout(props) {
 
 ViewLayout.propTypes = {
 	header: PropTypes.shape({
-		leftNode: PropTypes.node,
-		middleNode: PropTypes.node,
-		rightNode: PropTypes.node,
+		leftElement: PropTypes.element,
+		middleElement: PropTypes.element,
+		rightElement: PropTypes.element,
 	}).isRequired,
-	bodyNode: PropTypes.node.isRequired,
+	bodyElement: PropTypes.element.isRequired,
 };
 
 export default ViewLayout;
