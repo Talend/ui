@@ -18,28 +18,37 @@ function MonthPicker(props) {
 		'October',
 		'November',
 		'December',
-	];
+	].map((month, i) => ({
+		name: month,
+		index: i,
+	}));
 
 	const monthsRows = chunk(months, 3);
-	const selectedMonth = 'September';
 
-	function isSelected(m) {
-		return selectedMonth === m;
+	function isSelected(index) {
+		return index === props.currentMonth;
+	}
+
+	function onMonthSelected(index) {
+		return () => {
+			props.onMonthSelected(index);
+		};
 	}
 
 	return (
 		<div className={theme.container}>
 			{monthsRows.map((monthsRow, i) =>
 				<div className={theme.row} key={i}>
-					{monthsRow.map((month, j) =>
+					{monthsRow.map(month =>
 						<div
-							key={j}
+							key={month.index}
 							className={theme.month}
 						>
 							<PickerAction
-								aria-label={`Select '${month}'`}
-								isSelected={isSelected(month)}
-								label={month}
+								aria-label={`Select '${month.name}'`}
+								isSelected={isSelected(month.index)}
+								label={month.name}
+								onClick={onMonthSelected(month.index)}
 							/>
 						</div>
 					)}
@@ -50,6 +59,8 @@ function MonthPicker(props) {
 }
 
 MonthPicker.propTypes = {
+	currentMonth: PropTypes.number,
+	onMonthSelected: PropTypes.func,
 };
 
 export default MonthPicker;

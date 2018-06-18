@@ -7,39 +7,56 @@ import ViewLayout from '../ViewLayout';
 import IconButton from '../../IconButton';
 import HeaderTitle from '../HeaderTitle';
 
-function MonthYearView(props) {
-	const header = {
-		leftElement: <IconButton
-			icon={{
-				name: 'talend-arrow-left',
-				className: theme['action-left-icon'],
-			}}
-			className={theme['action-left']}
-			aria-label="Switch back to date and time pickers view"
-			onClick={props.onBackClick}
-		/>,
-		middleElement: <HeaderTitle
-			label="Septembre 2017"
-		/>,
-	};
+class MonthYearView extends React.Component {
 
-	const bodyElement = (
-		<div className={theme.body}>
-			<div className={theme.month}>
-				<MonthPicker />
-			</div>
-			<div className={theme.year}>
-				<YearPicker />
-			</div>
-		</div>
-	);
+	constructor(props) {
+		super(props);
 
-	return (
-		<ViewLayout
-			header={header}
-			bodyElement={bodyElement}
-		/>
-	);
+		this.onMonthSelected = this.onMonthSelected.bind(this);
+	}
+
+	onMonthSelected(index) {
+		console.log(index);
+	}
+
+	render() {
+		const header = {
+			leftElement: <IconButton
+				icon={{
+					name: 'talend-arrow-left',
+					className: theme['action-left-icon'],
+				}}
+				className={theme['action-left']}
+				aria-label="Switch back to date and time pickers view"
+				onClick={this.props.onBackClick}
+			/>,
+			middleElement: <HeaderTitle
+				label="Septembre 2017"
+			/>,
+		};
+
+
+		const bodyElement = (
+			<div className={theme.body}>
+				<div className={theme.month}>
+					<MonthPicker
+						currentMonth={8}
+						onMonthSelected={this.onMonthSelected}
+					/>
+				</div>
+				<div className={theme.year}>
+					<YearPicker />
+				</div>
+			</div>
+		);
+
+		return (
+			<ViewLayout
+				header={header}
+				bodyElement={bodyElement}
+			/>
+		);
+	}
 }
 
 MonthYearView.propTypes = {
