@@ -58,4 +58,23 @@ describe('YearPicker', () => {
 		// The correct index
 		expect(spy.mock.calls[0][0]).toBe(yearToSelect);
 	});
+
+	it('should default render with current year in middle', () => {
+		const wrapper = shallow(<YearPicker />);
+		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const now = new Date();
+		const currentYear = now.getFullYear().toString();
+
+		expect(actions.at(2).prop('label')).toBe(currentYear);
+	});
+
+	it('should render with yearSelected prop as the middle year if provided', () => {
+		const year = 2005;
+		const wrapper = shallow(<YearPicker
+			yearSelected={year}
+		/>);
+		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+
+		expect(actions.at(2).prop('label')).toBe(year.toString());
+	});
 });
