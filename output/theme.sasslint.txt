@@ -9,13 +9,14 @@ src/theme/_dropdowns.scss
   44:28  warning  Space expected around operator  space-around-operator
 
 src/theme/_forms.scss
-   29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   64:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  115:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  130:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  361:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  374:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  463:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+    9:24  error    Parenthesis should be removed                            empty-args
+   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  120:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  135:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  371:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  384:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  473:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_navbar.scss
   18:6  warning  Expected indentation of 4 tabs but found 5  indentation
@@ -26,5 +27,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 15 problems (10 errors, 5 warnings)
+✖ 16 problems (11 errors, 5 warnings)
 
