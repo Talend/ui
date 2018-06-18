@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
+import omit from 'lodash/omit';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -166,29 +167,20 @@ DrawerFooter.propTypes = {
 
 export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = {}) {
 	const onCancelItem =
-		(onCancelAction && onCancelAction.position === ON_CANCEL_ACTION_POSITION_FOOTER) ||
-		(onCancelAction && !onCancelAction.position)
+		onCancelAction && onCancelAction.position !== ON_CANCEL_ACTION_POSITION_HEADER
 			? onCancelAction
 			: null;
-	const enhancedFooterActions = Object.assign({}, footerActions);
-	enhancedFooterActions.actions = {
-		...enhancedFooterActions.actions,
-		left: [
-			...get(enhancedFooterActions, 'actions.left', []),
-			...get(activeTabItem, 'actions.left', []),
-		],
-		center: [
-			...get(enhancedFooterActions, 'actions.center', []),
-			...get(activeTabItem, 'actions.center', []),
-		],
-		right: [
-			...get(enhancedFooterActions, 'actions.right', []),
-			...get(activeTabItem, 'actions.right', []),
-		],
-	};
+	const enhancedFooterActions = Object.assign({}, omit(footerActions, 'actions'));
+	enhancedFooterActions.actions = {};
+	['left', 'center', 'right'].forEach(item => {
+		enhancedFooterActions.actions[item] = [
+			...get(footerActions, `actions.${item}`, []),
+			...get(activeTabItem, `actions.${item}`, []),
+		];
+	});
 
 	if (onCancelItem) {
-		enhancedFooterActions.actions.left.push(onCancelItem);
+		enhancedFooterActions.actions.left.unshift(onCancelItem);
 	}
 
 	return enhancedFooterActions;

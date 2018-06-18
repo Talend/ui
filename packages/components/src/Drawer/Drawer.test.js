@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
+import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 import Drawer, {
 	cancelActionComponent,
@@ -107,9 +108,9 @@ describe('Drawer', () => {
 						actions: {
 							left: [
 								{
-									id: 'view-left',
-									key: 'view-left',
-									label: 'ActionLeft',
+									id: 'view-left-tab-1',
+									key: 'view-left-tab-1',
+									label: 'ActionLeft-tab-1',
 								},
 							],
 							center: [
@@ -136,9 +137,9 @@ describe('Drawer', () => {
 						actions: {
 							center: [
 								{
-									id: 'view-center',
-									key: 'view-center',
-									label: 'ActionCenter',
+									id: 'view-center-tab-2',
+									key: 'view-center-tab-2',
+									label: 'ActionCenter-tab-2',
 								},
 							],
 						},
@@ -151,9 +152,9 @@ describe('Drawer', () => {
 						actions: {
 							center: [
 								{
-									id: 'view-center',
-									key: 'view-center',
-									label: 'ActionCenter',
+									id: 'view-center-tab-3',
+									key: 'view-center-tab-3',
+									label: 'ActionCenter-tab-3',
 								},
 							],
 						},
@@ -162,14 +163,13 @@ describe('Drawer', () => {
 			],
 			onSelect: jest.fn(),
 		};
-		const wrapper = renderer
-			.create(
-				<Drawer tabs={tabs} selectedTabKey="2">
-					<h1>Hello world</h1>
-				</Drawer>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(
+			<Drawer tabs={tabs} selectedTabKey="2">
+				<h1>Hello world</h1>
+			</Drawer>,
+		);
+		expect(wrapper.find('ActionBar')).toHaveLength(1);
+		expect(toJsonWithoutI18n(wrapper.find('ActionBar'))).toMatchSnapshot();
 	});
 
 	it('render drawer content without extra className', () => {
@@ -258,12 +258,12 @@ describe('Drawer', () => {
 			actions: {
 				left: [
 					{
+						actionId: 'drawer:closeDrawer',
+					},
+					{
 						id: 'action-left-id',
 						key: 'action-left-key',
 						label: 'action-left-label',
-					},
-					{
-						actionId: 'drawer:closeDrawer',
 					},
 				],
 				center: [],
@@ -337,12 +337,12 @@ describe('Drawer', () => {
 			actions: {
 				left: [
 					{
+						actionId: 'drawer:closeDrawer',
+					},
+					{
 						id: 'action-left-id',
 						key: 'action-left-key',
 						label: 'action-left-label',
-					},
-					{
-						actionId: 'drawer:closeDrawer',
 					},
 				],
 				center: [],
