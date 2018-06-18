@@ -4,20 +4,28 @@ import classNames from 'classnames';
 import theme from './PickerAction.scss';
 
 function PickerAction(props) {
+	const {
+		label,
+		isSelected,
+		className: classNameProp,
+		...rest
+	} = props;
+
 	const className = classNames(
 		theme.action,
-		props.isSelected ? theme.selected : undefined,
-		props.className,
+		isSelected ? theme.selected : undefined,
+		classNameProp,
 	);
 
 	return (
 		<button
 			className={className}
+			{...rest}
 		>
 			<span
 				className={theme.text}
 			>
-				{props.label}
+				{label}
 			</span>
 		</button>
 	);
