@@ -857,6 +857,7 @@ class EnumerationForm extends React.Component {
 			// in this case, we could have the loading state that implied we have just one icon
 			if (!validateAction && !abortAction) {
 				// returning null in setState prevent re-rendering
+				// see here for documentation https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes
 				return null;
 			}
 			validateAndAddAction.disabled = value === '' || valueExist;
