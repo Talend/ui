@@ -6,7 +6,7 @@ import YearPicker from './YearPicker.component';
 describe('YearPicker', () => {
 	it('should render', () => {
 		const wrapper = shallow(<YearPicker
-			currentYear={2012}
+			yearSelected={2012}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -14,7 +14,7 @@ describe('YearPicker', () => {
 
 	it('should have exactly one selected year', () => {
 		const wrapper = shallow(<YearPicker
-			currentYear={2012}
+			yearSelected={2012}
 		/>);
 
 		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
@@ -41,11 +41,11 @@ describe('YearPicker', () => {
 		const spy = jest.fn();
 
 		const wrapper = shallow(<YearPicker
-			currentYear={2012}
+			yearSelected={2012}
 			onYearSelected={spy}
 		/>);
 
-		const nextYearAction = wrapper.findWhere(n => n.name() === 'PickerAction' && n.parent().key() === yearToSelect.toString());
+		const nextYearAction = wrapper.findWhere(n => n.name() === 'PickerAction' && n.prop('label') === yearToSelect.toString());
 
 		expect(nextYearAction.length).toBe(1);
 

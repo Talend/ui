@@ -34,13 +34,13 @@ class MonthYearView extends React.Component {
 			<div className={theme.body}>
 				<div className={theme.month}>
 					<MonthPicker
-						currentMonth={this.props.monthSelected}
+						monthSelected={this.props.monthSelected}
 						onMonthSelected={this.props.onMonthSelected}
 					/>
 				</div>
 				<div className={theme.year}>
 					<YearPicker
-						currentYear={this.props.yearSelected}
+						yearSelected={this.props.yearSelected}
 						onYearSelected={this.props.onYearSelected}
 					/>
 				</div>

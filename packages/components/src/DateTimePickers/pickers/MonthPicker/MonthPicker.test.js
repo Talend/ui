@@ -12,7 +12,7 @@ describe('MonthPicker', () => {
 
 	it('should have exactly one selected month', () => {
 		const wrapper = shallow(<MonthPicker
-			currentMonth={8}
+			monthSelected={8}
 		/>);
 
 		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');

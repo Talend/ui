@@ -19,7 +19,7 @@ const monthsRows = chunk(months, 3);
 
 function MonthPicker(props) {
 	function isSelected(index) {
-		return index === props.currentMonth;
+		return index === props.monthSelected;
 	}
 
 	function onMonthSelected(index) {
@@ -52,7 +52,7 @@ function MonthPicker(props) {
 }
 
 MonthPicker.propTypes = {
-	currentMonth: PropTypes.number,
+	monthSelected: PropTypes.number,
 	onMonthSelected: PropTypes.func,
 };
 

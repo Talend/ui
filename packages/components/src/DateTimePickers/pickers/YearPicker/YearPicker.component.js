@@ -10,8 +10,8 @@ const baseDate = new Date(0);
 
 function YearPicker(props) {
 	const now = new Date();
-	const middleYear = props.currentYear !== undefined
-		? props.currentYear
+	const middleYear = props.yearSelected !== undefined
+		? props.yearSelected
 		: now.getFullYear();
 
 	const middleDate = setYear(baseDate, middleYear);
@@ -23,7 +23,7 @@ function YearPicker(props) {
 		.map(date => date.getFullYear());
 
 	function isSelected(year) {
-		return year === props.currentYear;
+		return year === props.yearSelected;
 	}
 
 	function onYearSelected(year) {
@@ -70,7 +70,7 @@ function YearPicker(props) {
 }
 
 YearPicker.propTypes = {
-	currentYear: PropTypes.number,
+	yearSelected: PropTypes.number,
 	onYearSelected: PropTypes.func,
 };
 

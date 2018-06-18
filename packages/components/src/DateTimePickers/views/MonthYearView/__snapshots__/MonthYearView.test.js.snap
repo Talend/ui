@@ -10,7 +10,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         className="theme-month"
       >
         <MonthPicker
-          currentMonth={8}
+          monthSelected={8}
           onMonthSelected={[Function]}
         />
       </div>
@@ -18,7 +18,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         className="theme-year"
       >
         <YearPicker
-          currentYear={2012}
+          yearSelected={2012}
           onYearSelected={[Function]}
         />
       </div>
