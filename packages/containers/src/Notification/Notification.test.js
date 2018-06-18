@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { store, Provider } from '@talend/react-cmf/lib/mock';
-import { fromJS } from 'immutable';
+import Immutable, { fromJS } from 'immutable';
 import Container from './Notification.container';
 import Connected, { mergeProps, deleteNotification } from './Notification.connect';
 import pushNotification from './pushNotification';
@@ -69,6 +69,20 @@ describe('Notification.pushNotification', () => {
 		const notification = { message: 'hello world' };
 		const newState = pushNotification(state, notification);
 		expect(newState).not.toBe(state);
+		const notifications = newState.cmf.components.getIn([
+			'Container(Notification)',
+			'Notification',
+			'notifications',
+		]);
+		expect(notifications.size).toBe(1);
+		expect(notifications.get(0).message).toBe('hello world');
+	});
+
+	it('should add a Notification in the state even if the state slot is not yet available', () => {
+		const state = store.state();
+		state.cmf.components = new Immutable.Map();
+		const notification = { message: 'hello world' };
+		const newState = pushNotification(state, notification);
 		const notifications = newState.cmf.components.getIn([
 			'Container(Notification)',
 			'Notification',
