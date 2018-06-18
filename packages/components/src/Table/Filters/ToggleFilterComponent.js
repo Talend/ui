@@ -14,9 +14,8 @@ export default class ToggleFilterComponent extends Component {
 	}
 
 	onChange() {
-		const active = this.props.filter.isActive();
-		this.props.filter.setActive(!active);
-		this.props.onFilterChange(this.props.filter);
+		const { filter } = this.props;
+		this.props.onFilterChange(filter.id, !filter.active);
 	}
 
 	render() {
@@ -26,7 +25,8 @@ export default class ToggleFilterComponent extends Component {
 				className={classnames('tc-boolean-filter', className)}
 				onChange={this.onChange}
 				label={label}
-				checked={filter.isActive()}
+				checked={filter.active}
+				id={filter.id}
 			/>
 		);
 	}

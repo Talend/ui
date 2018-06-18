@@ -7,20 +7,20 @@ import theme from './TableHeader.scss';
 
 const PART = 'head';
 
-function getHeaderComponent(column, onSortChange) {
+function getHeaderComponent(column, sorters, onSortChange) {
 	if (column.headRenderer) {
 		return column.headRenderer;
 	}
-	if (onSortChange && column.sorter) {
+	if (onSortChange && sorters && sorters[column.key]) {
 		return TableSortHeader;
 	}
 	return TableHeaderCell;
 }
 
-function renderHeaderCell(column, onSortChange) {
-	const HeaderComponent = getHeaderComponent(column, onSortChange);
+function renderHeaderCell(column, sorters, onSortChange) {
+	const HeaderComponent = getHeaderComponent(column, sorters, onSortChange);
 	const thKey = `th-${column.key}`;
-	const cellClassName = classnames(
+	const cellClassNames = classnames(
 		'tc-table-head-label',
 		theme['tc-table-head-label'],
 		column.headClassName,
@@ -30,7 +30,8 @@ function renderHeaderCell(column, onSortChange) {
 			<HeaderComponent
 				key={column.key}
 				column={column}
-				className={cellClassName}
+				className={cellClassNames}
+				sorter={sorters && sorters[column.key]}
 				onSortChange={onSortChange}
 			/>
 		</th>
@@ -63,7 +64,7 @@ export default class TableHeader extends React.Component {
 	}
 
 	render() {
-		const { columns, classNames, onSortChange } = this.props;
+		const { columns, classNames, sorters, onSortChange } = this.props;
 		return (
 			<thead
 				ref={this.updateHeadNodeRef}
@@ -74,7 +75,7 @@ export default class TableHeader extends React.Component {
 				)}
 			>
 				<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
-					{columns.map(column => renderHeaderCell(column, onSortChange))}
+					{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
 				</tr>
 			</thead>
 		);
@@ -89,12 +90,12 @@ TableHeader.propTypes = {
 			headClassName: PropTypes.string,
 			headRenderer: PropTypes.func,
 			headExtraProps: PropTypes.object,
-			sorter: PropTypes.object,
 		}),
 	).isRequired,
 	classNames: PropTypes.shape({
 		header: PropTypes.string,
 	}),
+	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
 	renderingListener: PropTypes.shape({
 		onMounted: PropTypes.func,

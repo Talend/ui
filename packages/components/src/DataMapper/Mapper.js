@@ -779,6 +779,7 @@ export default class Mapper extends Component {
 					withTitle={input.withTitle}
 					withHeader={input.withHeader}
 					filters={input.filters}
+					sorters={input.sorters}
 					side={inputSide}
 					onScroll={this.onScroll}
 					revealConnectedElement={this.revealConnectedElement}
@@ -795,6 +796,7 @@ export default class Mapper extends Component {
 					withTitle={output.withTitle}
 					withHeader={output.withHeader}
 					filters={output.filters}
+					sorters={output.sorters}
 					side={outputSide}
 					onScroll={this.onScroll}
 					revealConnectedElement={this.revealConnectedElement}
@@ -833,6 +835,7 @@ Mapper.propTypes = {
 		withTitle: PropTypes.bool,
 		withHeader: PropTypes.bool,
 		filters: PropTypes.array,
+		sorters: PropTypes.object,
 	}),
 	output: PropTypes.shape({
 		schema: PropTypes.object,
@@ -841,6 +844,7 @@ Mapper.propTypes = {
 		withTitle: PropTypes.bool,
 		withHeader: PropTypes.bool,
 		filters: PropTypes.array,
+		sorters: PropTypes.object,
 	}),
 	onFilterChange: PropTypes.func,
 	onSortChange: PropTypes.func,

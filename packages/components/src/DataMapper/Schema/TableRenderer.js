@@ -237,12 +237,12 @@ export default class TableRenderer extends Component {
 		this.props.onLeaveElement(element, this.props.side);
 	}
 
-	onFilterChange(filter) {
-		this.props.onFilterChange(filter, this.props.side);
+	onFilterChange(id, active, params) {
+		this.props.onFilterChange(id, active, params, this.props.side);
 	}
 
-	onSortChange(sorter) {
-		this.props.onSortChange(sorter, this.props.side);
+	onSortChange(columnKey) {
+		this.props.onSortChange(columnKey, this.props.side);
 	}
 
 	getChildNodes() {
@@ -282,6 +282,7 @@ export default class TableRenderer extends Component {
 			classNames,
 			withHeader,
 			filters,
+			sorters,
 			title,
 			side,
 		} = this.props;
@@ -294,10 +295,10 @@ export default class TableRenderer extends Component {
 				elements={elements}
 				columns={columnsWithDnd}
 				classNames={tableClassNames}
-				rowDataGetter={dataAccessor}
 				withHeader={withHeader}
 				filters={filters}
 				onFilterChange={this.onFilterChange}
+				sorters={sorters}
 				onSortChange={this.onSortChange}
 				onScroll={onScroll}
 				onEnterRow={this.onEnterElement}
@@ -317,6 +318,7 @@ TableRenderer.propTypes = {
 	withHeader: PropTypes.bool,
 	filters: PropTypes.array,
 	onFilterChange: PropTypes.func,
+	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
 	onScroll: PropTypes.func,
 	side: PropTypes.string,

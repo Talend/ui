@@ -4,46 +4,32 @@ import classnames from 'classnames';
 import TableCell from '../Cell/TableCell';
 import theme from './TableRow.scss';
 
-export function getRowId(rowDataGetter, element, index) {
-	if (rowDataGetter && rowDataGetter.getElementId) {
-		return rowDataGetter.getElementId(element);
-	} else if (element.id && typeof element.id === 'string') {
-		return element.id;
-	}
-	return index;
-}
-
-function getRowClassName(classNames, element, rowDataGetter) {
-	return classnames(classNames.row, classNames.rows &&
-		classNames.rows[rowDataGetter.getElementId(element)]);
-}
-
-function getRowData(rowDataGetter, element, columnKey) {
-	if (rowDataGetter && rowDataGetter.getRowData) {
-		return rowDataGetter.getRowData(element, columnKey);
-	}
-	return element[columnKey];
+function getRowClassName(classNames, element) {
+	return classnames(
+		classNames && classNames.row,
+		classNames && classNames.rows && classNames.rows[element.id],
+	);
 }
 
 /**
  * This function is responsible for rendering a piece of data for an element.
  */
-function renderRowData(element, index, column, rowDataGetter) {
+function renderRowData(element, column) {
 	const key = column.key;
 	const CellComponent = column.cellRenderer || TableCell;
-	const compKey = `${getRowId(rowDataGetter, element, index)}-${key}`;
-	const tdClassName = classnames(`td-${key}`, theme['tc-table-row-cell']);
+	const compKey = `${element.id}-${key}`;
+	const classNames = classnames(`td-${key}`, theme['tc-table-row-cell']);
 	const dataClassNames = classnames(
 		'tc-table-row-data',
 		theme['tc-table-row-data'],
 		column.cellClassName || `tc-table-row-data-${column.key}`,
 	);
 	return (
-		<td key={`td-${compKey}`} className={tdClassName}>
+		<td key={`td-${compKey}`} className={classNames}>
 			<CellComponent
 				key={compKey}
 				element={element}
-				data={getRowData(rowDataGetter, element, key)}
+				data={element[key]}
 				className={dataClassNames}
 				{...column.cellExtraProps}
 			/>
@@ -75,22 +61,21 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const { element, index, classNames, columns, rowDataGetter } = this.props;
-		const rowKey = getRowId(rowDataGetter, element, index);
+		const { element, classNames, columns } = this.props;
 		const rowClassNames = classnames(
 			'tc-table-row',
 			theme['tc-table-row'],
-			getRowClassName(classNames, element, rowDataGetter),
+			getRowClassName(classNames, element),
 		);
 		return (
 			<tr
-				key={rowKey}
+				key={element.id}
 				className={rowClassNames}
-				data-id={rowKey}
+				data-id={element.id}
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
 			>
-				{columns.map(column => renderRowData(element, index, column, rowDataGetter))}
+				{columns.map(column => renderRowData(element, column))}
 			</tr>
 		);
 	}
@@ -98,10 +83,9 @@ export default class TableRow extends Component {
 
 TableRow.propTypes = {
 	element: PropTypes.object.isRequired,
-	index: PropTypes.number.isRequired,
 	classNames: PropTypes.shape({
 		row: PropTypes.string,
-		rows: PropTypes.arrayOf(PropTypes.string),
+		rows: PropTypes.objectOf(PropTypes.string),
 	}),
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -111,20 +95,6 @@ TableRow.propTypes = {
 			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	rowDataGetter: PropTypes.shape({
-		/**
-		 * Return an unique identifier for the given element.
-		 * Each element is displayed in a row.
-		 * @param {object} element - An element of the table.
-		 */
-		getElementId: PropTypes.func,
-		/**
-		 * Return the data corresponding to the given row and column.
-		 * @param {object} row - A row of the table.
-		 * @param {string} columnKey - The key identifying a column.
-		 */
-		getRowData: PropTypes.func,
-	}),
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
 };

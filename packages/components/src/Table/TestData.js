@@ -1,3 +1,5 @@
+import StringFilterComponent from './Filters/StringFilterComponent';
+import ToggleFilterComponent from './Filters/ToggleFilterComponent';
 // This module defines data, objects and functions used by the unit tests.
 
 export const element1 = {
@@ -78,29 +80,46 @@ function getColumn(col) {
 
 export const columns2 = [getColumn(Columns.NAME), getColumn(Columns.TYPE), getColumn(Columns.DESC)];
 
-export const classNames = {
+export const classnames = {
+	titleBar: 'classname-of-title-bar',
+	title: 'classname-of-title',
+	filtersBar: 'classname-of-filters-bar',
 	table: 'classname-of-table',
 	header: 'classname-of-table-header',
 	body: 'classname-of-table-body',
-	rows: ['classname-of-row-1', 'classname-of-row-2'],
+	row: 'classname-of-row',
+	rows: {
+		elem_1: 'classname-of-row-1',
+		elem_2: 'classname-of-row-2',
+	},
 };
 
-export const rowDataGetter = {
-	getElementId(element) {
-		return element.id;
+const nameFilterId = 'name-filter';
+export const nameFilter = {
+	id: nameFilterId,
+	active: false,
+	match() {
+		return true;
 	},
-	getRowData(element, columnKey) {
-		switch (columnKey) {
-			case Columns.NAME.key:
-				return element.name;
-			case Columns.TYPE.key:
-				return element.type;
-			case Columns.DESC.key:
-				return element.desc;
-			case Columns.MANDATORY.key:
-				return element.mandatory ? '*' : '';
-			default:
-				return `No data available for ${columnKey}`;
-		}
+	renderer: StringFilterComponent,
+	rendererProps: {
+		placeHolder: 'Filter...',
+		dockable: true,
+		navbar: true,
 	},
+	className: nameFilterId,
+};
+
+const mandatoryFieldFilterId = 'mandatory-field-filter';
+export const mandatoryFieldFilter = {
+	id: mandatoryFieldFilterId,
+	active: false,
+	match() {
+		return true;
+	},
+	renderer: ToggleFilterComponent,
+	rendererProps: {
+		label: 'Show Mandatory Fields (*) Only',
+	},
+	className: mandatoryFieldFilterId,
 };

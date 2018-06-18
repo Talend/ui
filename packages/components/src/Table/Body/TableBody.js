@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import TableRow, { getRowId } from '../Row/TableRow.js';
+import TableRow from '../Row/TableRow.js';
 import theme from './TableBody.scss';
 
 const PART = 'body';
@@ -9,39 +9,38 @@ const PART = 'body';
 /**
  * This component displays the body of the table. It is responsible for rendering the rows.
  */
-export default class TableBody extends React.Component {
-	constructor(props) {
-		super(props);
-		this.updateBodyNodeRef = this.updateBodyNodeRef.bind(this);
-	}
+ export default class TableBody extends React.Component {
+ 	constructor(props) {
+ 		super(props);
+ 		this.updateBodyNodeRef = this.updateBodyNodeRef.bind(this);
+ 	}
 
-	componentDidMount() {
-		if (this.props.renderingListener && this.props.renderingListener.onMounted) {
-			this.props.renderingListener.onMounted(PART, this.bodyNode);
-		}
-	}
+ 	componentDidMount() {
+ 		if (this.props.renderingListener && this.props.renderingListener.onMounted) {
+ 			this.props.renderingListener.onMounted(PART, this.bodyNode);
+ 		}
+ 	}
 
-	componentDidUpdate() {
-		if (this.props.renderingListener && this.props.renderingListener.onUpdated) {
-			this.props.renderingListener.onUpdated(PART, this.bodyNode);
-		}
-	}
+ 	componentDidUpdate() {
+ 		if (this.props.renderingListener && this.props.renderingListener.onUpdated) {
+ 			this.props.renderingListener.onUpdated(PART, this.bodyNode);
+ 		}
+ 	}
 
-	updateBodyNodeRef(ref) {
-		this.bodyNode = ref;
-	}
+ 	updateBodyNodeRef(ref) {
+ 		this.bodyNode = ref;
+ 	}
 
 	render() {
 		const {
 			elements,
 			columns,
 			classNames,
-			rowDataGetter,
 			onScroll,
 			onEnterRow,
 			onLeaveRow,
 		} = this.props;
-		const bodyClassName = classnames(
+		const bodyClassNames = classnames(
 			'tc-table-body',
 			theme['tc-table-body'],
 			classNames && classNames.body,
@@ -49,17 +48,15 @@ export default class TableBody extends React.Component {
 		return (
 			<tbody
 				ref={this.updateBodyNodeRef}
-				className={bodyClassName}
+				className={bodyClassNames}
 				onScroll={onScroll}
 			>
-				{elements.map((element, index) => (
+				{elements.map(element => (
 					<TableRow
-						key={getRowId(rowDataGetter, element, index)}
+						key={element.id}
 						element={element}
-						index={index}
 						classNames={classNames}
 						columns={columns}
-						rowDataGetter={rowDataGetter}
 						onEnterRow={onEnterRow}
 						onLeaveRow={onLeaveRow}
 					/>
@@ -75,7 +72,6 @@ TableBody.propTypes = {
 	classNames: PropTypes.shape({
 		body: PropTypes.string,
 	}),
-	rowDataGetter: PropTypes.object,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

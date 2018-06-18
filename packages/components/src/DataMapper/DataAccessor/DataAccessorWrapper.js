@@ -1,5 +1,5 @@
 import * as Constants from '../Constants';
-import DataAccessorWithSorterAndFilter from '../../Table/DataAccessor/DataAccessorWithSorterAndFilter';
+import DataAccessorWithSorterAndFilter from './DataAccessorWithSorterAndFilter';
 
 /**
  * This class wraps a data accessor and a mapping accessor
@@ -8,8 +8,7 @@ import DataAccessorWithSorterAndFilter from '../../Table/DataAccessor/DataAccess
  * It manages the filtering and sorting of the data.
  */
 export default class DataAccessorWrapper {
-	constructor(dataAccessor, mappingAccessor) {
-		this.dataAccessor = dataAccessor;
+	constructor(mappingAccessor) {
 		this.mappingAccessor = mappingAccessor;
 		this.cache = {};
 		this.schema2side = {};
@@ -31,19 +30,8 @@ export default class DataAccessorWrapper {
 	registerSchema(schema, side) {
 		const schemaId = this.getSchemaId(schema);
 		this.schema2side[schemaId] = side;
-		this.initializeInternalDataAccessor(schema, side);
+		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(schema.elements);
 		this.populateCache(schema, side);
-	}
-
-	/**
-	 * @private
-	 */
-	initializeInternalDataAccessor(schema, side) {
-		const elements = this.dataAccessor.getSchemaElements(schema);
-		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(
-			elements,
-			this.dataAccessor,
-		);
 	}
 
 	/**
@@ -51,7 +39,7 @@ export default class DataAccessorWrapper {
 	 */
 	populateCache(schema, side) {
 		this.cache[side] = {};
-		const elements = this.dataAccessor.getSchemaElements(schema);
+		const elements = schema.elements;
 		for (let i = 0; i < elements.length; i += 1) {
 			this.cache[side][this.getElementId(elements[i])] = elements[i];
 		}
@@ -76,60 +64,28 @@ export default class DataAccessorWrapper {
 		return this.cache[side][id];
 	}
 
-	addFilter(schema, filter) {
-		this.access(schema).addFilter(filter);
+	setFilteredElements(schema, filteredElements) {
+		this.access(schema).setFilteredElements(filteredElements);
+	}
+
+	getFilteredElements() {
+		return this.access(schema).getFilteredElements();
+	}
+
+	setSortedElements(sortedElements) {
+		this.access(schema).setSortedElements(sortedElements);
+	}
+
+	getSortedElements() {
+		return this.access(schema).getSortedElements();
 	}
 
 	getFiltersVersion(schema) {
 		return this.access(schema).getFiltersVersion();
 	}
 
-	removeFilter(schema, filter) {
-		this.access(schema).removeFilter(filter);
-	}
-
-	filterSchema(schema, filterId) {
-		this.access(schema).filter(filterId);
-	}
-
-	filterAll(schema) {
-		this.access(schema).filterAll();
-	}
-
-	hasFilters(schema) {
-		return this.access(schema).hasFilters();
-	}
-
-	hasFiltersActive(schema) {
-		return this.access(schema).hasFiltersActive();
-	}
-
 	isFiltered(schema, element) {
 		return this.access(schema).isFiltered(element);
-	}
-
-	setSorter(schema, sorter) {
-		this.access(schema).setSorter(sorter);
-	}
-
-	hasSorter(schema) {
-		return this.access(schema).hasSorter();
-	}
-
-	isActiveSorter(schema, sorter) {
-		return this.access(schema).isActiveSorter(sorter);
-	}
-
-	getSorter(schema) {
-		return this.access(schema).getSorter();
-	}
-
-	clearSorter(schema) {
-		this.access(schema).clearSorter();
-	}
-
-	sort(schema) {
-		this.access(schema).sort();
 	}
 
 	/**
@@ -137,21 +93,18 @@ export default class DataAccessorWrapper {
 	 * Default implementation is based on element id.
 	 */
 	areElementsEqual(element1, element2) {
-		if (this.dataAccessor.areElementsEqual) {
-			return this.dataAccessor.areElementsEqual(element1, element2);
-		}
 		return this.getElementId(element1) === this.getElementId(element2);
 	}
 
 	getSchemaId(schema) {
-		return this.dataAccessor.getSchemaId(schema);
+		return schema.id;
 	}
 
 	/**
 	 * Returns the name of the schema.
 	 */
 	getSchemaName(schema) {
-		return this.dataAccessor.getSchemaName(schema);
+		return schema.name;
 	}
 
 	/**
@@ -202,23 +155,20 @@ export default class DataAccessorWrapper {
 	 * Identifier must be unique.
 	 */
 	getElementId(element) {
-		return this.dataAccessor.getElementId(element);
+		return element.id;
 	}
 
 	/**
 	 * Returns a label for the given element.
 	 */
 	getElementLabel(element) {
-		return this.dataAccessor.getElementLabel(element);
+		return element.name;
 	}
 
 	/**
 	 * Returns true if the array of elements contains the specified element.
 	 */
 	includes(elements, element) {
-		if (this.dataAccessor.includes) {
-			return this.dataAccessor.includes(elements, element);
-		}
 		for (let i = 0; i < elements.length; i += 1) {
 			if (this.areElementsEqual(elements[i], element)) {
 				return true;
@@ -227,17 +177,9 @@ export default class DataAccessorWrapper {
 		return false;
 	}
 
-	getRowData(element, key) {
-		return this.dataAccessor.getRowData(element, key);
-	}
-
-	getHeaderData(key) {
-		return this.dataAccessor.getHeaderData(key);
-	}
-
 	haveSameData(element1, element2, key) {
-		const data1 = this.getRowData(element1, key);
-		const data2 = this.getRowData(element2, key);
+		const data1 = element1[key];
+		const data2 = element2[key];
 		return data1 && data2 && data1 === data2;
 	}
 

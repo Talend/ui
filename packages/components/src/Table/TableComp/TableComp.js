@@ -38,8 +38,8 @@ export default class TableComp extends React.Component {
 			elements,
 			columns,
 			classNames,
-			rowDataGetter,
 			withHeader,
+			sorters,
 			onSortChange,
 			onScroll,
 			onEnterRow,
@@ -51,19 +51,19 @@ export default class TableComp extends React.Component {
 				ref={this.updateTableNodeRef}
 				className={classnames('tc-table', theme['tc-table'], classNames && classNames.table)}
 			>
-				{withHeader &&
+				{withHeader && (
 					<TableHeader
 						columns={columns}
 						classNames={classNames}
+						sorters={sorters}
 						onSortChange={onSortChange}
 						renderingListener={renderingListener}
 					/>
-				}
+				)}
 				<TableBody
 					elements={elements}
 					columns={columns}
 					classNames={classNames}
-					rowDataGetter={rowDataGetter}
 					onScroll={onScroll}
 					onEnterRow={onEnterRow}
 					onLeaveRow={onLeaveRow}
@@ -83,7 +83,6 @@ TableComp.propTypes = {
 			headClassName: PropTypes.string,
 			headRenderer: PropTypes.func,
 			headExtraProps: PropTypes.object,
-			sorter: PropTypes.object,
 			cellClassName: PropTypes.string,
 			cellRenderer: PropTypes.func,
 			cellExtraProps: PropTypes.object,
@@ -92,8 +91,8 @@ TableComp.propTypes = {
 	classNames: PropTypes.shape({
 		table: PropTypes.string,
 	}),
-	rowDataGetter: PropTypes.object,
 	withHeader: PropTypes.bool,
+	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,

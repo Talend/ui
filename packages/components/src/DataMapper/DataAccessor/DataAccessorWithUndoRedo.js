@@ -24,8 +24,8 @@ function clone(cmd) {
 }
 
 export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
-	constructor(dataAccessor, mappingAccessor) {
-		super(dataAccessor, mappingAccessor);
+	constructor(mappingAccessor) {
+		super(mappingAccessor);
 		this.undoStack = [];
 		this.redoStack = [];
 	}
@@ -36,8 +36,8 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		const cmd = {
 			code: Constants.Commands.ADD_MAPPING,
 			label: `Map ${sourceLabel} to ${targetLabel}`,
-			sourceId: this.dataAccessor.getElementId(source),
-			targetId: this.dataAccessor.getElementId(target),
+			sourceId: this.getElementId(source),
+			targetId: this.getElementId(target),
 		};
 		this.undoStack.push(cmd);
 		this.clearRedoStack();
@@ -50,8 +50,8 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		const cmd = {
 			code: Constants.Commands.REMOVE_MAPPING,
 			label: `Clear mapping between ${sourceLabel} and ${targetLabel}`,
-			sourceId: this.dataAccessor.getElementId(source),
-			targetId: this.dataAccessor.getElementId(target),
+			sourceId: this.getElementId(source),
+			targetId: this.getElementId(target),
 		};
 		this.undoStack.push(cmd);
 		this.clearRedoStack();

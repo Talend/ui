@@ -4,12 +4,10 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import {
 	DataAccessorWithUndoRedo,
-	DataAccessorWithSorterAndFilter,
-	DraggableComponent as draggable,
-	FilterFactory,
 	MappingAccessor,
-	Sorter,
-	SortOrder,
+	StringFilterComponent,
+	TableCell,
+	ToggleFilterComponent,
 } from '../src/index';
 import { DataMapper as Mapper } from '../src/index';
 import * as Constants from '../src/DataMapper/Constants';
@@ -198,6 +196,21 @@ const outputSchemaUX = {
 	],
 };
 
+function getMapperClassNames(side) {
+	return {
+		root: classnames('mapper-table-container', side),
+		titleBar: classnames('mapper-table-title-bar', side),
+		title: classnames('mapper-table-title', side),
+		filtersBar: classnames('mapper-table-filters-bar', side),
+		table: classnames('mapper-table', side),
+		header: classnames('mapper-table-header', side),
+		body: classnames('mapper-table-body', side),
+		row: classnames('mapper-table-row', side),
+	};
+}
+
+// COLUMNS DEFINITION
+
 const Columns = {
 	NAME: {
 		key: 'name',
@@ -217,97 +230,6 @@ const Columns = {
 	},
 };
 
-/**
- * This interface provides all the needed methods to access/update the
- * schema data.
- */
-const schemaDataAccessor = {
-	/**
-	 * Returns the unique identifier as string of the schema.
-	 */
-	getSchemaId(schema) {
-		return schema.id;
-	},
-	/**
-	 * Returns the name of the schema.
-	 */
-	getSchemaName(schema) {
-		return schema.name;
-	},
-	/**
-	 * Returns the number of elements in the schema.
-	 */
-	getSchemaSize(schema) {
-		return schema.elements.length;
-	},
-	/**
-	 * Returns all the elements of the schema in an array.
-	 */
-	getSchemaElements(schema) {
-		return schema.elements;
-	},
-	/**
-	 * Returns the nth element of the schema.
-	 */
-	getSchemaElement(schema, index) {
-		return schema.elements[index];
-	},
-	/**
-	 * Returns the index of the given element,
-	 * returns -1 if it is not in the schema.
-	 */
-	getSchemaElementIndex(schema, element) {
-		return schema.elements.findIndex(elem => this.areElementsEqual(elem, element));
-	},
-	/**
-	 * Returns the identifier of the element.
-	 * Identifier must be a unique string.
-	 */
-	getElementId(element) {
-		return element.id;
-	},
-	/**
-	* Returns a label for the given element.
-	*/
-	getElementLabel(element) {
-		return element.name;
-	},
-	/**
-	* Returns the data corresponding to the given element and key.
-	*/
-  getRowData(element, key) {
-		if (key === Columns.MANDATORY.key) {
-			return element.mandatory ? '*' : '';
-		}
-    return element[key];
-  },
-	/**
-	* Indicates if the two given elements are equal.
-	*/
-	areElementsEqual(element1, element2) {
-		return element1.id === element2.id;
-	},
-};
-
-function getMapperClassNames(side) {
-	return {
-		root: classnames('mapper-table-container', side),
-		titleBar: classnames('mapper-table-title-bar', side),
-		title: classnames('mapper-table-title', side),
-		filtersBar: classnames('mapper-table-filters-bar', side),
-		table: classnames('mapper-table', side),
-		header: classnames('mapper-table-header', side),
-		body: classnames('mapper-table-body', side),
-		row: classnames('mapper-table-row', side),
-	};
-}
-
-const sorterIcons = {
-	none: null,
-	ascending: 'talend-sort-asc',
-	descending: 'talend-sort-desc',
-};
-
 function newColumn(col) {
 	return {
 		key: col.key,
@@ -317,9 +239,8 @@ function newColumn(col) {
 	};
 }
 
-function addSorter(column) {
+function addSortExtraProps(column) {
 	const key = column.key;
-	column.sorter = new Sorter(key, key, key, sorterIcons);
 	column.headExtraProps = {
 		iconPosition: 'right',
 		link: true,
@@ -328,47 +249,107 @@ function addSorter(column) {
 }
 
 const inputColumns = [
-	addSorter(newColumn(Columns.TYPE)),
-	addSorter(newColumn(Columns.NAME)),
+	addSortExtraProps(newColumn(Columns.TYPE)),
+	addSortExtraProps(newColumn(Columns.NAME)),
 ];
 
 const outputColumns = [
 	newColumn(Columns.MANDATORY),
-	addSorter(newColumn(Columns.NAME)),
-	addSorter(newColumn(Columns.TYPE)),
-	addSorter(newColumn(Columns.DESC)),
+	addSortExtraProps(newColumn(Columns.NAME)),
+	addSortExtraProps(newColumn(Columns.TYPE)),
+	addSortExtraProps(newColumn(Columns.DESC)),
 ];
 
-const nameFilterId = 'name-filter';
-const nameFilterExtra = {
-	placeHolder: 'Filter...',
-	dockable: true,
-	navbar: true,
+// SORTERS DEFINITION
+
+const SortDirection = {
+	NONE: 'none',
+	ASCENDING: 'ascending',
+	DESCENDING: 'descending',
 };
 
+function nextDirection(direction) {
+	switch (direction) {
+		case SortDirection.NONE:
+			return SortDirection.ASCENDING;
+		case SortDirection.ASCENDING:
+			return SortDirection.DESCENDING;
+		case SortDirection.DESCENDING:
+			return SortDirection.NONE;
+		default:
+			return direction;
+	}
+}
+
+const inputSorterKeys = [Columns.NAME.key, Columns.TYPE.key];
+const outputSorterKeys = [Columns.NAME.key, Columns.TYPE.key, Columns.DESC.key];
+
+const sorterIcons = {
+	none: null,
+	ascending: 'talend-sort-asc',
+	descending: 'talend-sort-desc',
+};
+
+function createSorter() {
+	return {
+		direction: SortDirection.NONE,
+		icons: sorterIcons,
+	}
+}
+
+function createSorters(keys) {
+	const sorters = {};
+	for (let i = 0; i < keys.length; i += 1) {
+		sorters[keys[i]] = createSorter();
+	}
+	return sorters;
+}
+
+// FILTERS DEFINITION
+
+const nameFilterId = 'name-filter';
+
+function matchName(element, filterParams) {
+	const value = filterParams.value;
+	const name = element.name;
+	return Boolean(name.match(value) || name.toLowerCase().match(value));
+}
+
 function createNameFilter(side) {
-	return FilterFactory.createRegexpFilter(
-		nameFilterId,
-		Columns.NAME.key,
-		false,
-		classnames(nameFilterId, side),
-		nameFilterExtra,
-	);
+	return {
+		id: nameFilterId,
+		active: false,
+		params: {
+			value: null,
+		},
+		match: matchName,
+		renderer: StringFilterComponent,
+		rendererProps: {
+			placeHolder: 'Filter...',
+			dockable: true,
+			navbar: true,
+		},
+		className: classnames(nameFilterId, side),
+	};
 }
 
 const mandatoryFieldFilterId = 'mandatory-field-filter';
-const mandatoryFieldFilterExtra = {
-	label: 'Show Mandatory Fields (*) Only',
-};
+
+function matchMandatory(element) {
+	return element.mandatory;
+}
 
 function createMandatoryFieldFilter(side) {
-	return FilterFactory.createBooleanFilter(
-		mandatoryFieldFilterId,
-		Columns.MANDATORY.key,
-		false,
-		classnames(mandatoryFieldFilterId, side),
-		mandatoryFieldFilterExtra,
-	);
+	return {
+		id: mandatoryFieldFilterId,
+		active: false,
+		match: matchMandatory,
+		renderer: ToggleFilterComponent,
+		rendererProps: {
+			label: 'Show Mandatory Fields (*) Only',
+		},
+		className: classnames(mandatoryFieldFilterId, side),
+	};
 }
 
 function createInputFilters() {
@@ -411,7 +392,7 @@ function finalizeSchema(schema) {
 }
 
 function createDataAccessor() {
-	return new DataAccessorWithUndoRedo(schemaDataAccessor, new MappingAccessor(schemaDataAccessor));
+	return new DataAccessorWithUndoRedo(new MappingAccessor());
 }
 
 function prefs(showAll, gradientStops50, gradientStops100) {
@@ -477,6 +458,7 @@ const input = {
 	withTitle: true,
 	withHeader: true,
 	filters: createInputFilters(),
+	sorters: createSorters(inputSorterKeys),
 };
 
 const output = {
@@ -486,6 +468,7 @@ const output = {
 	withTitle: true,
 	withHeader: true,
 	filters: createOutputFilters(),
+	sorters: createSorters(outputSorterKeys),
 };
 
 const MainActions = {
@@ -585,9 +568,9 @@ function isSelectionEmpty(selection) {
 /** Returns the schema corresponding to the given side */
 function getSchema(state, side) {
 	if (side === Constants.MappingSide.INPUT) {
-		return state.inputSchema;
+		return state.input.schema;
 	} else if (side === Constants.MappingSide.OUTPUT) {
-		return state.outputSchema;
+		return state.output.schema;
 	}
 	return null;
 }
@@ -654,9 +637,9 @@ function getCurrentSelectedSchema(state) {
     return null;
   }
   if (state.selection.side === Constants.MappingSide.INPUT) {
-    return state.inputSchema;
+    return state.input.schema;
   } else if (state.selection.side === Constants.MappingSide.OUTPUT) {
-    return state.outputSchema;
+    return state.output.schema;
   }
   return null;
 }
@@ -883,14 +866,118 @@ function focusElement(elementId) {
 	}
 }
 
+function indexOfFilter(filters, id) {
+	for (let i = 0; i < filters.length; i += 1) {
+		if (filters[i].id === id) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+function updateFilters(filters, id, active, params) {
+	const index = indexOfFilter(filters, id);
+	if (index === -1) {
+		return filters;
+	}
+	const updatedFilters = filters.slice();
+	updatedFilters[index].active = active;
+	updatedFilters[index].params = params;
+	return updatedFilters;
+}
+
+function computeFilter(elements, filter, active, params) {
+	if (active) {
+		return elements.filter(elem => filter.match(elem, params));
+	}
+	return elements;
+}
+
+function updateFilteredElements(elements, filters, id, active, params) {
+	let result = elements.slice();
+	for (let i = 0; i < filters.length; i += 1) {
+		const filter = filters[i];
+		if (filter.id === id) {
+			result = computeFilter(result, filter, active, params);
+		} else {
+			result = computeFilter(result, filter, filter.active, filter.params);
+		}
+	}
+	return result;
+}
+
+function getCompare(key, direction) {
+
+	const coefs = {
+		none: 0,
+		ascending: 1,
+		descending: -1,
+	};
+
+	function compare(element1, element2) {
+		const val1 = element1[key];
+		const val2 = element2[key];
+		const coef = coefs[direction];
+		if (val1 < val2) {
+			return -1 * coef;
+		} else if (val1 > val2) {
+			return coef;
+		}
+		return 0;
+	}
+
+	return compare;
+}
+
+function sort(elements, key, direction) {
+	if (direction === SortDirection.ASCENDING || direction === SortDirection.DESCENDING) {
+		const compare = getCompare(key, direction);
+		const sortedElements = elements.slice();
+		return sortedElements.sort(compare);
+	}
+	return elements;
+}
+
+function isActiveSorter(sorter) {
+	return sorter.direction === SortDirection.ASCENDING || sorter.direction === SortDirection.DESCENDING;
+}
+
+function updateSortedElements(elements, sorters, columns) {
+	const sortedColumn = columns.find(col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]));
+	if (sortedColumn) {
+		const sortedKey = sortedColumn.key;
+		return sort(elements, sortedKey, sorters[sortedKey].direction);
+	}
+	return elements;
+}
+
+function updateSorters(sorters, columns, columnKey) {
+	// get the current direction of the modified sorter
+	const prevDirection = sorters[columnKey].direction;
+	// clone sorters
+	const updatedSorters = {};
+	// reset all the sorters to NONE direction
+	for (let i = 0; i < columns.length; i += 1) {
+		const key = columns[i].key;
+		if (sorters[key]) {
+			updatedSorters[key] = {};
+			updatedSorters[key].direction = SortDirection.NONE;
+			updatedSorters[key].icons = sorters[key].icons;
+		}
+	}
+	// update the modified sorter to the next direction
+	updatedSorters[columnKey].direction = nextDirection(prevDirection);
+	return updatedSorters;
+}
+
 class ConnectedDataMapper extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
 			dataAccessor: createDataAccessor(),
-			inputSchema: this.props.input.schema,
-			outputSchema: this.props.output.schema,
+			input: this.props.input,
+			output: this.props.output,
 			mapping: [],
 			dnd: null,
 			pendingItem: null,
@@ -922,17 +1009,9 @@ class ConnectedDataMapper extends React.Component {
 		this.initialize(this.state.dataAccessor, this.props.input, this.props.output);
 	}
 
-	registerFilters(dataAccessor, schema, filters) {
-		for (let i = 0; i < filters.length; i += 1) {
-			dataAccessor.addFilter(schema, filters[i].filter);
-		}
-	}
-
 	initialize(dataAccessor, input, output) {
 		dataAccessor.registerSchema(input.schema, Constants.MappingSide.INPUT);
-		this.registerFilters(dataAccessor, input.schema, input.filters);
 		dataAccessor.registerSchema(output.schema, Constants.MappingSide.OUTPUT);
-		this.registerFilters(dataAccessor, output.schema, output.filters);
 	}
 
 	handleKeyEvent(ev) {
@@ -1306,19 +1385,57 @@ class ConnectedDataMapper extends React.Component {
 		});
 	}
 
-	onFilterChange(filter, side) {
-		this.state.dataAccessor.filterSchema(getSchema(this.state, side), filter.getId());
+	onFilterChange(id, active, params, side) {
+		const schema = getSchema(this.state, side);
+		const elements = this.state[side].schema.elements;
+		const filters = this.state[side].filters;
+		const sorters = this.state[side].sorters;
+		const columns = this.state[side].columns;
+		const filteredElements = updateFilteredElements(elements, filters, id, active, params);
+		const sortedElements = updateSortedElements(filteredElements, sorters, columns);
+		const updatedFilters = updateFilters(filters, id, active, params);
+		this.state.dataAccessor.setFilteredElements(schema, filteredElements);
+		this.state.dataAccessor.setSortedElements(schema, sortedElements);
 		this.setState(prevState => ({
 			trigger: {
 				code: Constants.Events.FILTERING,
-				filterId: filter.getId(),
+				filterId: id,
 				side,
 			},
 			pendingItem: null,
 			dnd: null,
 			selection: filterSelection(prevState, prevState.selection),
 			focused: filterFocused(prevState, prevState.focused),
+			input: {
+				filters: side === Constants.MappingSide.INPUT ? updatedFilters : prevState.input.filters,
+			},
+			output: {
+				filters: side === Constants.MappingSide.OUTPUT ? updatedFilters : prevState.output.filters,
+			},
 			status: Constants.FILTERING_STATE_STATUS,
+		}));
+	}
+
+	onSortChange(columnKey, side) {
+		const schema = getSchema(this.state, side);
+		const sorters = this.state[side].sorters;
+		const columns = this.state[side].columns;
+		const updatedSorters = updateSorters(sorters, columns, columnKey);
+		const updatedSortedElements = updateSortedElements(this.state.dataAccessor.getFilteredElements(schema), updatedSorters, columns);
+		this.state.dataAccessor.setSortedElements(schema, updatedSortedElements);
+		this.setState(prevState => ({
+			trigger: {
+				code: Constants.Events.SORT,
+				sorterId: columnKey,
+				side,
+			},
+			input: {
+				sorters: side === Constants.MappingSide.INPUT ? updatedSorters : prevState.input.sorters,
+			},
+			output: {
+				sorters: side === Constants.MappingSide.OUTPUT ? updatedSorters : prevState.output.sorters,
+			},
+			status: Constants.StateStatus.SORT,
 		}));
 	}
 
@@ -1365,50 +1482,6 @@ class ConnectedDataMapper extends React.Component {
 				this.revealConnection(cmd.sourceId, cmd.targetId);
 			}
 		});
-	}
-
-	onSortChange(sorter, side) {
-		const schema = getSchema(this.state, side);
-		if (this.state.dataAccessor.isActiveSorter(schema, sorter)) {
-			switch (sorter.getOrder()) {
-				case SortOrder.ASCENDING:
-					sorter.setOrder(SortOrder.DESCENDING);
-					this.state.dataAccessor.sort(schema);
-					break;
-				case SortOrder.DESCENDING:
-					sorter.setOrder(SortOrder.NONE);
-					this.state.dataAccessor.clearSorter(schema);
-					break;
-				default:
-					break;
-			}
-		} else {
-			const activeSorter = this.state.dataAccessor.getSorter(schema);
-			if (activeSorter) {
-				activeSorter.setOrder(SortOrder.NONE);
-			}
-			sorter.setOrder(SortOrder.ASCENDING);
-			this.state.dataAccessor.setSorter(schema, sorter);
-		}
-		if (this.state.dataAccessor.hasSorter(schema)) {
-			this.setState({
-				trigger: {
-					code: Constants.Events.SORT,
-					sorterId: sorter.getId(),
-					order: sorter.getOrder(),
-					side,
-				},
-				status: Constants.StateStatus.SORT,
-			});
-		} else {
-			this.setState({
-				trigger: {
-					code: Constants.Events.CLEAR_SORT,
-					side,
-				},
-				status: Constants.StateStatus.SORT,
-			});
-		}
 	}
 
 	getMainAction(actionId) {

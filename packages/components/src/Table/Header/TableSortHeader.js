@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import { ActionButton } from '../../index';
+
+function getIcon(sorter) {
+	return sorter.icons && sorter.icons[sorter.direction];
+}
 
 /**
  * This component displays a header of a table column as an ActionButton.
@@ -14,19 +18,18 @@ export default class TableSortHeader extends React.Component {
 	}
 
 	onClick() {
-		this.props.onSortChange(this.props.column.sorter);
+		this.props.onSortChange(this.props.column.key);
 	}
 
 	render() {
-		const { className, column } = this.props;
-		const {	icon, label, onClick, ...rest } = column.headExtraProps;
-		const sorter = column.sorter;
+		const { className, column, sorter } = this.props;
+		const { icon, label, ...rest } = column.headExtraProps;
 		return (
 			<ActionButton
-				className={classnames('tc-table-sort-header',  className)}
-				label={column.label || label || sorter.getLabel()}
+				className={classNames('tc-table-sort-header', className)}
+				label={column.label || label}
 				onClick={this.onClick}
-				icon={sorter.getIcon() || icon}
+				icon={getIcon(sorter) || icon}
 				{...rest}
 			/>
 		);
@@ -36,5 +39,6 @@ export default class TableSortHeader extends React.Component {
 TableSortHeader.propTypes = {
 	className: PropTypes.string,
 	column: PropTypes.object,
+	sorter: PropTypes.object,
 	onSortChange: PropTypes.func,
 };

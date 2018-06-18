@@ -1,7 +1,7 @@
 import * as Constants from '../Constants';
 
 /**
- * Internal function only used by the dataAccessor.
+ * Internal function.
  */
 function removeMappingItem(mapping, index) {
 	const updatedMapping = mapping.slice();
@@ -9,13 +9,10 @@ function removeMappingItem(mapping, index) {
 	return updatedMapping;
 }
 
-export default class MappingAccessor {
-	constructor(dataAccessor) {
-		this.dataAccessor = dataAccessor;
-	}
+export default class MappingAccessor {	
 
 	internalAreEqual(elem1, elem2) {
-		return this.dataAccessor.areElementsEqual(elem1, elem2);
+		return elem1.id === elem2.id;
 	}
 
 	internalGetMappingItemIndex(mapping, source, target) {

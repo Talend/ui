@@ -1,11 +1,10 @@
 .tc-table-filters-bar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 
-  .tc-filter {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
+	.tc-filter {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 }

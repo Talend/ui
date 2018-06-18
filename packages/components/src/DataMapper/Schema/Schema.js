@@ -245,6 +245,7 @@ Schema.propTypes = {
 	withHeader: PropTypes.bool,
 	filters: PropTypes.array,
 	onFilterChange: PropTypes.func,
+	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
 	focusedElements: PropTypes.array,
 	onScroll: PropTypes.func,

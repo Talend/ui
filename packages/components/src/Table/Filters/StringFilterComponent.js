@@ -15,20 +15,14 @@ export default class StringFilterComponent extends Component {
 	}
 
 	onToggle() {
-		this.props.filter.setActive(false);
-		this.props.filter.setValue(null);
 		this.setState(prevState => ({
 			docked: !prevState.docked,
 		}));
-		if (!this.state.docked) {
-			this.props.onFilterChange(this.props.filter);
-		}
+		this.props.onFilterChange(this.props.filter.id, false, { value: null });
 	}
 
 	onFilter(ev, value) {
-		this.props.filter.setActive(Boolean(value));
-		this.props.filter.setValue(value);
-		this.props.onFilterChange(this.props.filter);
+		this.props.onFilterChange(this.props.filter.id, Boolean(value), { value });
 	}
 
 	render() {
