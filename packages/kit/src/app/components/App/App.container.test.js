@@ -18,9 +18,7 @@ describe('App container', () => {
 
 		// when
 		// wrap your container with CMF Provider mock, injecting your state mock
-		const wrapper = shallow(
-			<App />
-		, { context });
+		const wrapper = shallow(<App />, { context });
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

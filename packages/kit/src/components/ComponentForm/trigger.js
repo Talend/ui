@@ -16,7 +16,9 @@ function extractRequestPayload({ parameters = [] } = {}, properties) {
 }
 
 function getURL(base, trigger) {
-	return `${base}?action=${encodeURIComponent(trigger.action)}&family=${encodeURIComponent(trigger.family)}&type=${encodeURIComponent(trigger.type)}`;
+	return `${base}?action=${encodeURIComponent(trigger.action)}&family=${encodeURIComponent(
+		trigger.family,
+	)}&type=${encodeURIComponent(trigger.type)}`;
 }
 
 // customRegistry can be used to add extensions or custom trigger (not portable accross integrations)
@@ -27,24 +29,21 @@ export default function getDefaultTrigger({ url, services }) {
 			...services,
 		};
 		const payload = extractRequestPayload(trigger, properties);
-		return fetch(
-			getURL(url, trigger),
-			{
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-				body: JSON.stringify(payload),
-				credentials: 'include',
-			}
-		)
-		.then(resp => resp.json())
-		.then(body => {
-			return allServices[trigger.type]({
-				body,
-				errors,
-				properties,
-				schema,
-				trigger,
+		return fetch(getURL(url, trigger), {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+			body: JSON.stringify(payload),
+			credentials: 'include',
+		})
+			.then(resp => resp.json())
+			.then(body => {
+				return allServices[trigger.type]({
+					body,
+					errors,
+					properties,
+					schema,
+					trigger,
+				});
 			});
-		});
 	};
 }

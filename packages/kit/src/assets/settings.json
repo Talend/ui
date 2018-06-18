@@ -3,7 +3,7 @@
     "indexRouteRedirect": {
       "path": "/ComponentForm"
     },
-    "AppLoader#default":{
+    "AppLoader#default": {
       "components": {
         "before-children": [
           {
@@ -26,7 +26,7 @@
     },
     "ActionButton#menu-form": {
       "icon": "burger",
-      "label":"ComponentForm",
+      "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
@@ -34,21 +34,20 @@
         }
       }
     },
-    "SidePanel#default":{
-      "actions": [
-        { "componentId": "menu-form" }
-      ]
+    "SidePanel#default": {
+      "actions": [{ "componentId": "menu-form" }]
     },
     "Layout#form": {
       "mode": "TwoColumns",
-      "components":{
-        "header":[{ "component": "HeaderBar" }],
-        "one":[{ "component": "SidePanel" }],
-        "content":[{ "component": "ComponentForm" }]
+      "components": {
+        "header": [{ "component": "HeaderBar" }],
+        "one": [{ "component": "SidePanel" }],
+        "content": [{ "component": "ComponentForm" }]
       }
     },
-    "ComponentForm#default":{
-      "definitionURL": "/api/v1/application/detail/c2VydmljZW5vdyNTZXJ2aWNlTm93I1NlcnZpY2VOb3dPdXRwdXQ",
+    "ComponentForm#default": {
+      "definitionURL":
+        "/api/v1/application/detail/c2VydmljZW5vdyNTZXJ2aWNlTm93I1NlcnZpY2VOb3dPdXRwdXQ",
       "triggerURL": "/api/v1/application/action"
     }
   },
@@ -68,7 +67,6 @@
     ]
   },
   "ref": {
-    "SidePanel#default" : {
-    }
+    "SidePanel#default": {}
   }
 }

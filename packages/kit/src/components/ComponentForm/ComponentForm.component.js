@@ -35,8 +35,8 @@ class ComponentForm extends React.Component {
 
 	componentDidUpdate(props) {
 		if (
-			(props.triggerURL !== this.props.triggerURL) ||
-			(props.customTriggers !== this.props.customTriggers)
+			props.triggerURL !== this.props.triggerURL ||
+			props.customTriggers !== this.props.customTriggers
 		) {
 			this.trigger = this.setupTrigger(this.props);
 		}
@@ -115,19 +115,14 @@ class ComponentForm extends React.Component {
 	}
 
 	render() {
-		const props = Object.assign(
-			{},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-			this.getUISpec(),
-			{
-				onTrigger: this.onTrigger,
-				onChange: this.onChange,
-			},
-		);
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), this.getUISpec(), {
+			onTrigger: this.onTrigger,
+			onChange: this.onChange,
+		});
 		const response = this.props.state.get('response');
 		if (!props.jsonSchema) {
 			if (response) {
-				return <p className="danger">{response.get('statusText')}</p>
+				return <p className="danger">{response.get('statusText')}</p>;
 			}
 			return <CircularProgress />;
 		}
