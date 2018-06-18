@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTimeView should render a DateTimeView 1`] = `
+<ViewLayout
+  bodyElement={
+    <div
+      className="theme-body"
+    >
+      <div
+        className="theme-date"
+      >
+        <DatePicker />
+      </div>
+      <div
+        className="theme-time"
+      />
+    </div>
+  }
+  header={
+    Object {
+      "leftElement": <IconButton
+        aria-label="Display previous calendar month"
+        icon={
+            Object {
+                "name": "talend-chevron-left",
+              }
+        }
+    />,
+      "middleElement": <HeaderTitle
+        button={
+            Object {
+                "aria-label": "Switch to month and year pickers view",
+              }
+        }
+        label="Septembre 2017"
+    />,
+      "rightElement": <IconButton
+        aria-label="Display next calendar month"
+        icon={
+            Object {
+                "name": "talend-chevron-left",
+                "transform": "rotate-180",
+              }
+        }
+    />,
+    }
+  }
+/>
+`;

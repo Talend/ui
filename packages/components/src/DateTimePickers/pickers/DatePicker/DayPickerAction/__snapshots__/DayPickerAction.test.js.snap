@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayPickerAction should render a disabled day 1`] = `
+<button
+  className="theme-action my-day-picker-class"
+  disabled={true}
+  type="button"
+>
+  36
+</button>
+`;
+
+exports[`DayPickerAction should render a selected day 1`] = `
+<button
+  className="theme-action theme-selected my-day-picker-class"
+  disabled={undefined}
+  type="button"
+>
+  36
+</button>
+`;
+
+exports[`DayPickerAction should render a simple day 1`] = `
+<button
+  className="theme-action my-day-picker-class"
+  disabled={undefined}
+  type="button"
+>
+  36
+</button>
+`;
+
+exports[`DayPickerAction should render a today day 1`] = `
+<button
+  className="theme-action theme-today my-day-picker-class"
+  disabled={undefined}
+  type="button"
+>
+  36
+</button>
+`;

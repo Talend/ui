@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YearPicker should render a YearPicker 1`] = `
+<div
+  className="theme-container"
+>
+  <IconButton
+    aria-label="Scroll to previous years"
+    className="theme-action-up"
+    icon={
+      Object {
+        "name": "talend-chevron-left",
+        "transform": "rotate-90",
+      }
+    }
+  />
+  <div
+    className="theme-years"
+  >
+    <div
+      className="theme-year"
+    >
+      <PickerAction
+        aria-label="Select '2010'"
+        isSelected={false}
+        label="2010"
+      />
+    </div>
+    <div
+      className="theme-year"
+    >
+      <PickerAction
+        aria-label="Select '2011'"
+        isSelected={false}
+        label="2011"
+      />
+    </div>
+    <div
+      className="theme-year"
+    >
+      <PickerAction
+        aria-label="Select '2012'"
+        isSelected={true}
+        label="2012"
+      />
+    </div>
+    <div
+      className="theme-year"
+    >
+      <PickerAction
+        aria-label="Select '2013'"
+        isSelected={false}
+        label="2013"
+      />
+    </div>
+    <div
+      className="theme-year"
+    >
+      <PickerAction
+        aria-label="Select '2014'"
+        isSelected={false}
+        label="2014"
+      />
+    </div>
+  </div>
+  <IconButton
+    aria-label="Scroll to next years"
+    className="theme-action-down"
+    icon={
+      Object {
+        "name": "talend-chevron-left",
+        "transform": "rotate-270",
+      }
+    }
+  />
+</div>
+`;

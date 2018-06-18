@@ -1,0 +1,381 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker should render a DatePicker 1`] = `
+<div
+  className="theme-container"
+>
+  <div
+    className="theme-calendar-row theme-calendar-header-row"
+  >
+    <abbr
+      className="theme-calendar-item"
+      title="Monday"
+    >
+      M
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Tuesday"
+    >
+      T
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Wednesday"
+    >
+      W
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Thursday"
+    >
+      T
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Friday"
+    >
+      F
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Saturday"
+    >
+      S
+    </abbr>
+    <abbr
+      className="theme-calendar-item"
+      title="Sunday"
+    >
+      S
+    </abbr>
+  </div>
+  <hr
+    className="theme-separator"
+  />
+  <div
+    className="theme-calendar-row theme-calendar-body-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '1'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="1"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '2'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="2"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '3'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="3"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '4'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="4"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '5'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="5"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Unselectable date"
+        isCurrentDay={false}
+        isDisabledDay={true}
+        isSelectedDay={false}
+        label="6"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '7'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="7"
+      />
+    </div>
+  </div>
+  <div
+    className="theme-calendar-row theme-calendar-body-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '8'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="8"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '9'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="9"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '10'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="10"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '11'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="11"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '12'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={true}
+        label="12"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '13'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="13"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '14'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="14"
+      />
+    </div>
+  </div>
+  <div
+    className="theme-calendar-row theme-calendar-body-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Unselectable date"
+        isCurrentDay={false}
+        isDisabledDay={true}
+        isSelectedDay={false}
+        label="15"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '16'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="16"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '17'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="17"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '18'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="18"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '19'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="19"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '20'"
+        isCurrentDay={true}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="20"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '21'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="21"
+      />
+    </div>
+  </div>
+  <div
+    className="theme-calendar-row theme-calendar-body-row"
+  >
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '22'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="22"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '23'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="23"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '24'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="24"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '25'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="25"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '26'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="26"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '27'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="27"
+      />
+    </div>
+    <div
+      className="theme-calendar-item"
+    >
+      <DayPickerAction
+        aria-label="Select '28'"
+        isCurrentDay={false}
+        isDisabledDay={false}
+        isSelectedDay={false}
+        label="28"
+      />
+    </div>
+  </div>
+</div>
+`;
