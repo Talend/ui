@@ -3,10 +3,7 @@ import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import toJsonWithoutI18n from '../../test/props-without-i18n';
 
-import Drawer, {
-	cancelActionComponent,
-	combinedFooterActions,
-} from './Drawer.component';
+import Drawer, { cancelActionComponent, combinedFooterActions } from './Drawer.component';
 
 describe('Drawer', () => {
 	it('should render', () => {
@@ -64,9 +61,7 @@ describe('Drawer', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render cancelActionComponent', () => {
-		const wrapper = mount(
-			cancelActionComponent({ id: 'test' }),
-		);
+		const wrapper = mount(cancelActionComponent({ id: 'test' }));
 		expect(wrapper.find('button')).toBeTruthy();
 	});
 	it('should not render cancelActionComponent', () => {
