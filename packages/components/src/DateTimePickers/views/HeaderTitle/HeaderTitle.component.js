@@ -8,7 +8,9 @@ function HeaderTitle(props) {
 
 	const className = classNames(
 		theme.common,
-		isButton ? theme.button : undefined,
+		{
+			[theme.button]: isButton,
+		},
 		props.className,
 	);
 

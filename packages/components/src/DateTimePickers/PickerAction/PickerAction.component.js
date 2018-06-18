@@ -13,7 +13,9 @@ function PickerAction(props) {
 
 	const className = classNames(
 		theme.action,
-		isSelected ? theme.selected : undefined,
+		{
+			[theme.selected]: isSelected,
+		},
 		classNameProp,
 	);
 

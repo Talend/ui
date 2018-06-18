@@ -15,8 +15,10 @@ function DayPickerAction(props) {
 
 	const className = classNames(
 		theme.action,
-		isSelectedDay ? theme.selected : undefined,
-		isCurrentDay ? theme.today : undefined,
+		{
+			[theme.selected]: isSelectedDay,
+			[theme.today]: isCurrentDay,
+		},
 		propClassName,
 	);
 
