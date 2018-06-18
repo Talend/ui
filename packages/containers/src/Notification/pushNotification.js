@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import objectId from 'bson-objectid';
-import invariant from 'invariant';
 import Immutable from 'immutable';
 
 /**
@@ -16,10 +15,6 @@ export default function pushNotification(state, notification) {
 	}
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path, new Immutable.List());
-	if (!notifs) {
-		invariant(true, 'Notifications are not yet available.', notification);
-		return state;
-	}
 	notifs = notifs.push(
 		Object.assign(
 			{
