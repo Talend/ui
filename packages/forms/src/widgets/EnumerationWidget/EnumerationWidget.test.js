@@ -26,7 +26,12 @@ describe('EnumerationWidget', () => {
 			/>,
 		);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		expect(wrapper.find('.tc-enumeration-header').at(0).find(Button).length).toBe(2);
+		expect(
+			wrapper
+				.find('.tc-enumeration-header')
+				.at(0)
+				.find(Button).length,
+		).toBe(2);
 	});
 
 	it('should be in disabled mode', () => {
@@ -42,8 +47,18 @@ describe('EnumerationWidget', () => {
 				]}
 			/>,
 		);
-		expect(wrapper.find('.tc-enumeration-header').at(0).find(Button).length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-item-actions').at(0).find(Button).length).toBe(0);
+		expect(
+			wrapper
+				.find('.tc-enumeration-header')
+				.at(0)
+				.find(Button).length,
+		).toBe(1);
+		expect(
+			wrapper
+				.find('.tc-enumeration-item-actions')
+				.at(0)
+				.find(Button).length,
+		).toBe(0);
 	});
 
 	it('should be in add mode', () => {
@@ -91,7 +106,12 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		expect(wrapper.find('.tc-enumeration-item-actions').at(0).find(Button).length).toBe(2);
+		expect(
+			wrapper
+				.find('.tc-enumeration-item-actions')
+				.at(0)
+				.find(Button).length,
+		).toBe(2);
 	});
 
 	it('should delete an item', () => {

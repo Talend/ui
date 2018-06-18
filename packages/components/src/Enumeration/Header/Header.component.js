@@ -20,7 +20,7 @@ function getAction(action, index) {
 	}
 
 	if (action.displayMode === 'dropdown') {
-		return (!action.disabled ?
+		return !action.disabled ? (
 			<ActionDropdown
 				{...action}
 				noCaret
@@ -30,10 +30,10 @@ function getAction(action, index) {
 				hideLabel
 				pullRight
 				link
-			/> : null
-		);
+			/>
+		) : null;
 	}
-	return (!action.disabled ?
+	return !action.disabled ? (
 		<Action
 			key={`${index}-enum-header-action`}
 			label={action.label}
@@ -43,8 +43,8 @@ function getAction(action, index) {
 			inProgress={action.inProgress}
 			hideLabel
 			link
-		/> : null
-	);
+		/>
+	) : null;
 }
 
 function Header({ headerDefault, required, label }) {

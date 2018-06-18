@@ -8,18 +8,21 @@ describe('Header input', () => {
 	it('should trigger callback when clicking on header button', () => {
 		// given
 		const props = {
-			headerInput: [{
-				disabled: false,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // provided click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // provided click callback
-			}],
+			headerInput: [
+				{
+					disabled: false,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(), // provided click callback
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 		const headerInputInstance = <HeaderInput {...props} />;
 
@@ -37,18 +40,21 @@ describe('Header input', () => {
 	it('should render only button which are not disabled', () => {
 		// given
 		const props = {
-			headerInput: [{
-				disabled: true,
-				label: 'Validate',
-				icon: 'talend-check',
-				id: 'validate',
-				onClick: jest.fn(), // provided click callback
-			}, {
-				label: 'Abort',
-				icon: 'talend-cross',
-				id: 'abort',
-				onClick: jest.fn(), // provided click callback
-			}],
+			headerInput: [
+				{
+					disabled: true,
+					label: 'Validate',
+					icon: 'talend-check',
+					id: 'validate',
+					onClick: jest.fn(), // provided click callback
+				},
+				{
+					label: 'Abort',
+					icon: 'talend-cross',
+					id: 'abort',
+					onClick: jest.fn(), // provided click callback
+				},
+			],
 		};
 		const headerInputInstance = <HeaderInput {...props} />;
 
