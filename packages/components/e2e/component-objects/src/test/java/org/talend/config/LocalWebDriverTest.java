@@ -5,8 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 public class LocalWebDriverTest extends WebDriverTest {
     private static final Logger LOGGER = LogManager.getLogger(LocalWebDriverTest.class);
 
