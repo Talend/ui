@@ -6,7 +6,7 @@
 $form-shadow: inset 0 -1px 0 $gallery;
 $form-focus-shadow: inset 0 -2px 0 $scooter;
 
-@mixin checkOutline() {
+@mixin checkbox-outline() {
 	outline: 2px solid Highlight;
 	outline-offset: 1px;
 }
@@ -227,7 +227,7 @@ form {
 
 		&:focus:after,
 		&:focus + span:after {
-			@include checkOutline;
+			@include checkbox-outline;
 		}
 
 		&:disabled:after,
@@ -283,7 +283,7 @@ form {
 
 		&:focus:after,
 		&:focus + *:after {
-			@include checkOutline;
+			@include checkbox-outline;
 		}
 
 		&:checked:after,
