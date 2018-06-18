@@ -37,7 +37,7 @@ public class Item extends Component {
      */
     public Item(final WebDriver driver, final WebElement root) {
         super(driver, NAME, root);
-        this.wait = new WebDriverWait(driver, 1);
+        this.wait = new WebDriverWait(driver, 3);
     }
 
     /**
@@ -134,6 +134,19 @@ public class Item extends Component {
         jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
+    private void hoverOnButton(final WebElement element) {
+        new Actions(driver)
+                .moveToElement(element)
+                .build()
+                .perform();
+    }
+
+    private void clickOn(final By selector) {
+        wait
+                .until(elementToBeClickable(selector))
+                .click();
+    }
+
     /**
      * Move the mouse to the action and click.
      * The item action is identified by its id.
@@ -141,7 +154,25 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        clickOnCellAction(null, actionId);
+        hoverOnButton(this.getElement());
+
+        // on some list display, actions are in an ellipsis dropdown. Open it
+        boolean isInEllipsis = false;
+        final WebElement ellipsisButton = this.getEllipsisActionButton();
+        if (ellipsisButton != null) {
+            isInEllipsis = !getEllipsisMenu().findElements(By.cssSelector("#" + actionId)).isEmpty();
+            wait.until(elementToBeClickable(ellipsisButton)).click();
+        }
+
+        final WebElement button = this.getAction(actionId);
+        hoverOnButton(button);
+
+        // after button hover, TooltipTrigger replace the DOM element
+        // we reselect it, then click on it
+        final By actionWithTooltipSelector = isInEllipsis ?
+                getActionSelector(actionId) :
+                getActionSelector(actionId, "[aria-describedby]");
+        clickOn(actionWithTooltipSelector);
     }
 
     /**
@@ -153,43 +184,14 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnCellAction(final String columnKey, final String actionId) {
-        WebElement button;
-        By actionWithTooltipSelector;
+        hoverOnButton(this.getElement());
 
-        // hover on item
-        new Actions(driver)
-                .moveToElement(this.getElement())
-                .build()
-                .perform();
+        final WebElement button = this.getCell(columnKey).getAction(actionId);
+        hoverOnButton(button);
 
-        // when columnKey is not provided, we want to click on a row action, located in title cell
-        if (columnKey == null) {
-            // on some list display, actions are in an ellipsis dropdown. Open it
-            boolean isInEllipsis = false;
-            final WebElement ellipsisButton = this.getEllipsisActionButton();
-			if (ellipsisButton != null) {
-                isInEllipsis = !getEllipsisMenu().findElements(By.cssSelector("#" + actionId)).isEmpty();
-                wait.until(elementToBeClickable(ellipsisButton)).click();
-            }
-
-            button = this.getAction(actionId);
-			// after mouseover on the action, the DOM element changes because of TooltipTrigger
-            // we need to add the presence of the tooltip to make sure it's the right button
-            // in ellipsis menu there is no tooltip
-            actionWithTooltipSelector = isInEllipsis ?
-                    getActionSelector(actionId) :
-                    getActionSelector(actionId, "[aria-describedby]");
-        } else {
-            button = this.getCell(columnKey).getAction(actionId);
-            actionWithTooltipSelector = By.cssSelector(String.format("button[id=%s][aria-describedby]", actionId));
-        }
-
-        new Actions(driver)
-                .moveToElement(button)
-                .build()
-                .perform();
-        wait
-                .until(elementToBeClickable(actionWithTooltipSelector))
-                .click();
+        // after button hover, TooltipTrigger replace the DOM element
+        // we reselect it, then click on it
+        final By actionWithTooltipSelector = By.cssSelector(String.format("button[id=%s][aria-describedby]", actionId));
+        clickOn(actionWithTooltipSelector);
     }
 }
