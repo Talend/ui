@@ -81,6 +81,8 @@ function ActionList(props) {
 		return action.active;
 	};
 
+	const ActionListItemComponent = Inject.get(props.getComponent, 'ActionListItem', ActionListItem);
+
 	return (
 		<ul
 			className={classNames(
@@ -93,7 +95,7 @@ function ActionList(props) {
 			)}
 		>
 			{actions.map((action, index) => (
-				<ActionListItem
+				<ActionListItemComponent
 					key={action.id || index}
 					action={action}
 					isSelected={isActionSelected(action)}
@@ -136,6 +138,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		selected: actionPropType,
 		className: PropTypes.string,
+		getComponent: PropTypes.func,
 	};
 }
 
