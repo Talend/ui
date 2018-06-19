@@ -15,7 +15,6 @@
 
 .btn-group {
 	display: inline-flex;
-	overflow: hidden;
 
 	.btn {
 		.caret {
@@ -51,6 +50,10 @@
 				margin-left: 0;
 			}
 		}
+	}
+
+	.dropdown-toggle {
+		border-left-width: 1px;
 	}
 
 	&-justified {
