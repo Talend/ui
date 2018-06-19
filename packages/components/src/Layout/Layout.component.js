@@ -47,6 +47,7 @@ function Layout({
 	id,
 	header,
 	subHeader,
+	content,
 	footer,
 	mode,
 	drawers,
@@ -76,6 +77,7 @@ function Layout({
 	const safeDrawers = getDrawers(getComponent, drawers, components);
 	const safeHeader = Inject.getReactElement(getComponent, header);
 	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
+	const safeContent = Inject.getReactElement(getComponent, content);
 	const safeFooter = Inject.getReactElement(getComponent, footer);
 
 	return (
@@ -85,16 +87,17 @@ function Layout({
 					{safeHeader}
 				</header>
 			)}
-			{safeSubHeader && (
-				<div className="subheader">
-					{safeSubHeader}
-				</div>
-			)}
-			{Component && (
-				<Component drawers={safeDrawers} tabs={tabs} inject={inject} {...rest}>
-					{children}
-				</Component>
-			)}
+			{safeSubHeader && <div className="subheader">{safeSubHeader}</div>}
+			<Component
+				drawers={safeDrawers}
+				tabs={tabs}
+				getComponent={getComponent}
+				{...rest}
+			>
+				{inject('content')}
+				{safeContent}
+				{children}
+			</Component>
 			{safeFooter && (
 				<footer role="contentinfo" className={footerCSS}>
 					{safeFooter}
@@ -109,6 +112,7 @@ Layout.displayName = 'Layout';
 Layout.propTypes = {
 	id: PropTypes.string,
 	header: Inject.getReactElement.propTypes,
+	content: Inject.getReactElement.propTypes,
 	footer: Inject.getReactElement.propTypes,
 	subHeader: Inject.getReactElement.propTypes,
 	mode: PropTypes.oneOf(DISPLAY_MODES),

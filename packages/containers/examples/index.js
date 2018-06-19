@@ -10,6 +10,7 @@ import ConfirmDialogExample from './ExampleConfirmDialog';
 import FormExample from './ExampleForm';
 import HeaderBarExample from './ExampleHeaderBar';
 import HomeListViewExample from './ExampleHomeListView';
+import LayoutExample from './ExampleLayout';
 import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
@@ -37,6 +38,7 @@ export default {
 	FormExample,
 	HeaderBarExample,
 	HomeListViewExample,
+	LayoutExample,
 	ListExample,
 	NotificationExample,
 	PieChartButtonExample,

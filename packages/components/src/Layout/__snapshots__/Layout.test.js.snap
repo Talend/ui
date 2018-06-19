@@ -15,7 +15,7 @@ exports[`Layout should render layout with footer component 1`] = `
   </header>
   <OneColumn
     drawers={undefined}
-    inject={[Function]}
+    getComponent={undefined}
     tabs={undefined}
   >
     <h1>
