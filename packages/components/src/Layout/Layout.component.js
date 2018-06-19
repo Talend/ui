@@ -58,8 +58,6 @@ function Layout({
 		default:
 			Component = OneColumn;
 	}
-	const injectedHeader = injected('header');
-	const injectedFooter = injected('footer');
 
 	let withInjectDrawers = [];
 	if (Array.isArray(drawers)) {
@@ -75,11 +73,12 @@ function Layout({
 	const safeHeader = Inject.getReactElement(getComponent, header);
 	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
 	const safeFooter = Inject.getReactElement(getComponent, footer);
+
 	return (
 		<div id={id} className={appCSS}>
-			{(safeHeader || injectedHeader) && (
+			{(safeHeader) && (
 				<header role="banner" className={headerCSS}>
-					{safeHeader || injectedHeader}
+					{safeHeader}
 				</header>
 			)}
 			{injected('after-header')}
@@ -91,9 +90,9 @@ function Layout({
 				</Component>
 			)}
 			{injected('after-content')}
-			{(safeFooter || injectedFooter) && (
+			{(safeFooter) && (
 				<footer role="contentinfo" className={footerCSS}>
-					{safeFooter || injectedFooter}
+					{safeFooter}
 				</footer>
 			)}
 		</div>
