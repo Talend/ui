@@ -88,6 +88,12 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	}
 }
 
+.tc-drawer-header-action-icon {
+	top: $padding-normal / 2;
+	right: 0;
+	position: absolute;
+}
+
 .tc-drawer-header-with-tabs {
 	padding: 0;
 	background-color: $gray-lighter;

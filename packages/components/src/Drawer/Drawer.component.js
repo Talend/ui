@@ -7,6 +7,7 @@ import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
 import Inject from '../Inject';
+import ActionIconToggle from '../Actions/ActionIconToggle';
 
 import theme from './Drawer.scss';
 
@@ -105,7 +106,19 @@ export function subtitleComponent(subtitle) {
 	return <h2 title={subtitle}>{subtitle}</h2>;
 }
 
-function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }) {
+export function actionIconComponent(actionIcon) {
+	if (!actionIcon) {
+		return null;
+	}
+	return (
+		<ActionIconToggle
+			className={classnames('tc-drawer-header-action-icon', theme['tc-drawer-header-action-icon'])}
+			{...actionIcon}
+		/>
+	);
+}
+
+function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent, actionIcon }) {
 	if (!title) {
 		return null;
 	}
@@ -115,6 +128,7 @@ function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }
 				<h1 title={title}>{title}</h1>
 				{subtitleComponent(subtitle)}
 				{cancelActionComponent(onCancelAction, getComponent)}
+				{actionIconComponent(actionIcon)}
 			</div>
 			<div
 				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
@@ -131,6 +145,7 @@ DrawerTitle.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
+	actionIcon: PropTypes.object,
 };
 
 function DrawerContent({ children, className, ...rest }) {
