@@ -196,6 +196,28 @@ describe('Inject.getAll', () => {
 	});
 });
 
+describe('Inject.getReactElement', () => {
+	it('should support element as string', () => {
+		const getComponent = jest.fn();
+		const data = 'what';
+		expect(Inject.getReactElement(getComponent, data)).toEqual(
+			<Inject getComponent={getComponent} component="what" />,
+		);
+	});
+	it('should support element as object', () => {
+		const getComponent = jest.fn();
+		const data = { component: 'what', extra: true };
+		expect(Inject.getReactElement(getComponent, data)).toEqual(
+			<Inject getComponent={getComponent} component="what" extra />,
+		);
+	});
+	it('should support element as valid react element', () => {
+		const getComponent = jest.fn();
+		const data = <p>foo</p>;
+		expect(Inject.getReactElement(getComponent, data)).toEqual(data);
+	});
+});
+
 describe('NotFoundComponent', () => {
 	it('should render', () => {
 		const wrapper = shallow(<NotFoundComponent error="MyError" />);

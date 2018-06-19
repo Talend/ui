@@ -107,6 +107,34 @@ function MyUse() {
 
 In this case Action will not be wrapped but WhatEver will be.
 
+# How to support injectable props (Inject.getReactElement)
+
+injectable props are props that can have three types:
+* react valid element
+* string (the component name wanted)
+* object (the component name + props)
+
+So Inject component provide the getReactElement api.
+You can use this way:
+
+```javascript
+function ArticlePage({ header, article, footer}) {
+	return (
+		<header>
+			{Inject.getReactElement(getComponent, header)}
+		</header>
+		<article>
+			{Inject.getReactElement(getComponent, article)}
+		</article>
+		<footer>
+			{Inject.getReactElement(getComponent, footer)}
+		</footer>
+	);
+}
+```
+
+So ArticlePage is only responsible to give the global structure.
+
 # How it works
 
 The Inject component looks like this

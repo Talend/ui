@@ -72,24 +72,28 @@ function Layout({
 		withInjectDrawers = undefined;
 	}
 
+	const safeHeader = Inject.getReactElement(getComponent, header);
+	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
+	const safeFooter = Inject.getReactElement(getComponent, footer);
 	return (
 		<div id={id} className={appCSS}>
-			{(header || injectedHeader) && (
+			{(safeHeader || injectedHeader) && (
 				<header role="banner" className={headerCSS}>
-					{header || injectedHeader}
+					{safeHeader || injectedHeader}
 				</header>
 			)}
 			{injected('after-header')}
-			{subHeader}
+			{safeSubHeader}
 			{injected('after-subheader')}
 			{Component && (
 				<Component drawers={withInjectDrawers} tabs={tabs} injected={injected} {...rest}>
 					{children}
 				</Component>
 			)}
-			{(footer || injectedFooter) && (
+			{injected('after-content')}
+			{(safeFooter || injectedFooter) && (
 				<footer role="contentinfo" className={footerCSS}>
-					{footer || injectedFooter}
+					{safeFooter || injectedFooter}
 				</footer>
 			)}
 		</div>

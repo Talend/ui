@@ -107,6 +107,24 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 	return components;
 };
 
+/**
+ * Allow `injectable` prop support in a Component.
+ * That props will support three shape: string, object, react element
+ * @param {function} getComponent
+ * @param {object|string|React Element} data
+ */
+Inject.getReactElement = function getReactElement(getComponent, data) {
+	let element;
+	if (typeof data === 'string') {
+		element = <Inject getComponent={getComponent} component={data} />;
+	} else if (React.isValidElement(data)) {
+		element = data;
+	} else if (typeof data === 'object') {
+		element = <Inject getComponent={getComponent} {...data} />;
+	}
+	return element;
+};
+
 Inject.displayName = 'Inject';
 
 export { Inject as default, NotFoundComponent };

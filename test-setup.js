@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import 'isomorphic-fetch';
+import 'raf/polyfill';
 import { configure } from 'enzyme';
 
 function getMajorVersion() {
