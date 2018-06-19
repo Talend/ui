@@ -409,6 +409,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                     block={false}
                     bsClass="btn"
                     bsStyle="default"
+                    className=""
                     disabled={false}
                     id="view-center-tab-2"
                     onClick={[Function]}
