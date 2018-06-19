@@ -11,7 +11,7 @@ import theme from './TwoColumns.scss';
  * @example
  <TwoColumns name="Hello world"></TwoColumns>
  */
-function TwoColumns({ one, drawers, children, tabs, injected, ...props }) {
+function TwoColumns({ one, drawers, children, tabs, inject, ...props }) {
 	const containerCSS = classnames('tc-layout-two-columns', theme.container);
 	const sidemenuCSS = classnames('tc-layout-two-columns-left', theme.sidemenu);
 	const mainCSS = classnames('tc-layout-two-columns-main', theme.main);
@@ -24,12 +24,12 @@ function TwoColumns({ one, drawers, children, tabs, injected, ...props }) {
 
 	return (
 		<div className={containerCSS} {...props}>
-			<div className={sidemenuCSS}>{one || injected('one')}</div>
+			<div className={sidemenuCSS}>{one || inject('one')}</div>
 			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
 					<div style={style}>
-						{injected('content')}
+						{inject('content')}
 						{children}
 					</div>
 				</WithDrawer>
@@ -45,10 +45,10 @@ TwoColumns.propTypes = {
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),
 	tabs: PropTypes.shape(TabBar.propTypes),
-	injected: PropTypes.func,
+	inject: PropTypes.func,
 };
 TwoColumns.defaultProps = {
-	injected: () => null,
+	inject: () => null,
 };
 
 export default TwoColumns;

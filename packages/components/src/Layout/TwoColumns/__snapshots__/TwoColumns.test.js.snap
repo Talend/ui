@@ -19,9 +19,7 @@ exports[`TwoColumns should render two columns 1`] = `
   <div
     className="tc-layout-two-columns-main theme-main"
   >
-    <div
-      className="theme-tc-with-drawer"
-    >
+    <WithDrawer>
       <div
         style={
           Object {
@@ -36,10 +34,7 @@ exports[`TwoColumns should render two columns 1`] = `
           children
         </span>
       </div>
-      <div
-        className="theme-tc-with-drawer-container"
-      />
-    </div>
+    </WithDrawer>
   </div>
 </div>
 `;
