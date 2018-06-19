@@ -77,7 +77,6 @@ PasswordRenderer.propTypes = {
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-
 /**
  * booleanRenderer renders boolean properties
  */
@@ -97,7 +96,11 @@ BooleanRenderer.propTypes = {
  */
 function ArrayRenderer({ propertyKey, title, properties }) {
 	return [<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>].concat(
-		properties.map((val, i) => <dd key={`${propertyKey}-value-${i}`} className={css['array-value']}>{val}</dd>)
+		properties.map((val, i) => (
+			<dd key={`${propertyKey}-value-${i}`} className={css['array-value']}>
+				{val}
+			</dd>
+		)),
 	);
 }
 ArrayRenderer.propTypes = {
@@ -197,7 +200,9 @@ function orderProperties(order, properties) {
  */
 function ObjectRenderer({ propertyKey, title, uiSchema, schema, properties, ...props }) {
 	return [
-		<dt key={`${propertyKey}_key`}><h2>{title || propertyKey}</h2></dt>,
+		<dt key={`${propertyKey}_key`}>
+			<h2>{title || propertyKey}</h2>
+		</dt>,
 		<dd key={`${propertyKey}_value`}>
 			<JSONSchemaRenderer
 				schema={{
