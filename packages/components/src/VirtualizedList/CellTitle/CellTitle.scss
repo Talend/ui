@@ -25,6 +25,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		display: block;
 
 		padding: 0 $padding-normal;
 
@@ -34,6 +35,10 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		letter-spacing: inherit;
 		text-transform: none;
 		text-align: left;
+
+		> span {
+			display: inline;
+		}
 
 		&:first-child {
 			padding-left: 0;
@@ -66,11 +71,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(
-				to right,
-				transparent,
-				$tc-list-row-active-hover-bg $padding-large
-			);
+			background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
 		}
 	}
 }
@@ -81,11 +82,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(
-				to right,
-				transparent,
-				$tc-list-row-selected-hover-bg $padding-large
-			);
+			background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
 		}
 	}
 }

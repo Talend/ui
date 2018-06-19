@@ -142,9 +142,10 @@ export function ActionButton(props) {
 			});
 	}
 
-	if (btnIsDisabled) {
-		buttonProps.className = classNames(buttonProps.className, theme['btn-disabled']);
-	}
+	buttonProps.className = classNames(buttonProps.className, {
+		'btn-icon-only': hideLabel || !label,
+		[theme['btn-disabled']]: btnIsDisabled,
+	});
 
 	let ariaLabel = tooltipLabel || label;
 	if (inProgress) {
