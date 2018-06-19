@@ -8,6 +8,7 @@
 	@include btn-inverse-colors;
 	border: none;
 	font-size: $btn-font-size;
+	font-weight: 600;
 	letter-spacing: 1px;
 	line-height: $btn-line-height;
 	min-height: $btn-line-height;
@@ -39,11 +40,6 @@
 	&-warning,
 	&-danger {
 		border-color: transparent;
-	}
-
-	&-success,
-	&-danger {
-		font-weight: 600;
 	}
 
 	&-primary {

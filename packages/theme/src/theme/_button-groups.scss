@@ -81,9 +81,5 @@
 			max-height: 320px;
 			transform: translateY(0);
 		}
-
-		.btn.btn-inverse .caret {
-			@include dropdown-caret-color($navbar-inverse-link-color);
-		}
 	}
 }
