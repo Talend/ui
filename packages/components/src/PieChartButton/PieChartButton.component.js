@@ -31,7 +31,7 @@ const displaySizes = {
  * @param {number} percentage the percentage to calculate the angle
  */
 export function getAngle(percentage) {
-	return percentage * 2 / 100 * Math.PI;
+	return ((percentage * 2) / 100) * Math.PI;
 }
 
 /**
@@ -377,6 +377,7 @@ function PieChartButton({
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
 				className={classnames(theme['tc-pie-chart-graph'], 'tc-pie-chart-graph')}
+				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
 			>
 				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
 				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}

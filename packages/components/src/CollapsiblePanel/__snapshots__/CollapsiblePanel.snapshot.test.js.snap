@@ -87,7 +87,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <button
             aria-label="edit"
-            className="theme-undefined btn btn-link"
+            className="theme-undefined btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -280,7 +280,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <button
             aria-label="edit"
-            className="theme-undefined btn btn-link"
+            className="theme-undefined btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -473,7 +473,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         >
           <button
             aria-label="edit"
-            className="theme-undefined btn btn-link"
+            className="theme-undefined btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
