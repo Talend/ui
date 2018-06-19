@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Checkbox } from '../src/index';
 
@@ -28,8 +29,9 @@ const withLabel = {
 
 
 storiesOf('Checkbox', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
-		<div>
+		<div style={{ padding: 30 }}>
 			<h1>Checkbox</h1>
 			<h2>Definition</h2>
 			<p>
@@ -38,7 +40,7 @@ storiesOf('Checkbox', module)
 			<h2>Examples</h2>
 			<form>
 				<h3>Default Checkbox</h3>
-				<Checkbox {...defaultProps}>On/Off</Checkbox>
+				<Checkbox {...defaultProps} />
 
 				<h3>Checkbox with <code>checked: true</code></h3>
 				<Checkbox {...checked} />

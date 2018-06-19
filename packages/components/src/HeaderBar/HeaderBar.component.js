@@ -77,7 +77,9 @@ function Environment({ getComponent, ...props }) {
 function Search({ getComponent, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		'tc-header-bar-action',
 		theme['tc-header-bar-search'],
+		'tc-header-bar-search',
 		theme.separated,
 		theme.flex,
 	);

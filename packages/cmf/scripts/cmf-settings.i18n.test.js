@@ -381,6 +381,34 @@ describe('i18n scripts', () => {
 			);
 		});
 
+		it('should parse many folders and extract the keys', () => {
+			const readdirSync = jest.fn(() => ['foo', 'bar']);
+			const writeFileSync = jest.fn();
+			fs.writeFileSync = writeFileSync;
+			fs.readdirSync = readdirSync;
+			fs.existsSync = () => true;
+
+			parseI18n(
+				[{ name: 'ns1', path: '{{namespace}}/{{locale}}.json' }],
+				['en'],
+				['root', 'root2'],
+			);
+
+			expect(writeFileSync).toHaveBeenCalledWith(
+				getPathFromPattern('{{namespace}}/{{locale}}.json', 'ns1', 'en'),
+				JSON.stringify(
+					{
+						KEY2: 'key2',
+						KEY1: 'key1',
+						KEY3: 'key3',
+						KEY4: 'key4',
+					},
+					null,
+					'  ',
+				) + String.fromCharCode(10),
+			);
+		});
+
 		it('should parse a folder and extract the sorted keys', () => {
 			const readdirSync = jest.fn(() => ['foo', 'bar']);
 			const writeFileSync = jest.fn();

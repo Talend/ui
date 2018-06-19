@@ -126,6 +126,7 @@ class ActionFile extends React.Component {
 			'btn',
 			theme['btn-file'],
 			(disabled || inProgress) && 'disabled',
+			(hideLabel || !label) && 'btn-icon-only',
 		);
 		const btn = (
 			<span className={className}>

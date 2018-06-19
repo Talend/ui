@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
@@ -18,6 +19,7 @@ const myAction = {
 };
 
 storiesOf('ActionFile', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
@@ -41,13 +43,4 @@ storiesOf('ActionFile', module)
 			<p>Custom tooltip</p>
 			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
 		</div>
-	))
-	.addWithPropsCombinations('combinations', Action, {
-		label: ['Click me'],
-		icon: ['talend-dataprep'],
-		onClick: [action('You clicked me')],
-		hideLabel: [false, true],
-		inProgress: [true, false],
-		disabled: [false, true],
-		tooltipLabel: [undefined, 'Tooltip custom label'],
-	});
+	));

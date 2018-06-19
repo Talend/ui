@@ -2,29 +2,25 @@
 
 $tc-list-title-actions-color: $brand-primary-darker !default;
 $tc-list-title-actions-ellipsis: '\22ee';
-$tc-list-title-actions-menu-triangle: '\25b2';
+$tc-list-title-dropdown-menu-triangle: '\25b2';
+$tc-list-title-dropup-menu-triangle: '\25bc';
 
 .main-title-actions-group {
 	flex-grow: 0;
 	position: relative;
 	right: 0;
 	top: 0;
+	height: 100%;
 
 	.cell-title-actions {
-		background: linear-gradient(
-			to right,
-			rgba(255, 255, 255, 0),
-			$tc-list-row-hover-bg $padding-large
-		);
+		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		visibility: hidden;
 
 		position: absolute;
 		right: 100%;
-		top: 0;
 
 		padding-left: $padding-larger;
-		z-index: 1;
 
 		.cell-title-actions-menu {
 			&:after {
@@ -40,26 +36,46 @@ $tc-list-title-actions-menu-triangle: '\25b2';
 		}
 	}
 
-	:global(.btn-group .dropdown-menu) {
-		margin-top: 5px;
-		overflow: visible;
-		left: 50%;
-		transform: translateX(-50%);
+	:global {
+		.btn-link {
+			color: $tc-list-title-actions-color;
+			padding: 0 $padding-small;
+			min-height: auto;
+		}
 
-		&:before {
-			content: $tc-list-title-actions-menu-triangle;
-			position: absolute;
-			top: -1em;
-			font-size: 1.4em;
+		.dropup.btn-group > .dropdown-menu,
+		.btn-group > .dropdown-menu {
+			margin-top: 5px;
+			overflow: visible;
 			left: 50%;
 			transform: translateX(-50%);
-			color: white;
-			text-shadow: 0 -2px 2px rgba(0, 0, 0, 0.175);
-		}
-	}
 
-	:global(.btn-link) {
-		color: $tc-list-title-actions-color;
-		padding: 0 $padding-small;
+			&:before {
+				content: $tc-list-title-dropdown-menu-triangle;
+				position: absolute;
+				top: -1em;
+				font-size: 1.4em;
+				left: 50%;
+				transform: translateX(-50%);
+				color: white;
+				text-shadow: 0 -2px 2px rgba(0, 0, 0, 0.175);
+			}
+		}
+
+		.dropup.btn-group > .dropdown-menu {
+			&:before {
+				content: none;
+			}
+
+			&:after {
+				content: $tc-list-title-dropup-menu-triangle;
+				position: absolute;
+				font-size: 1.4em;
+				left: 50%;
+				transform: translateX(-50%);
+				color: white;
+				text-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
+			}
+		}
 	}
 }
