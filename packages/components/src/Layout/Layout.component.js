@@ -88,12 +88,7 @@ function Layout({
 				</header>
 			)}
 			{safeSubHeader && <div className="subheader">{safeSubHeader}</div>}
-			<Component
-				drawers={safeDrawers}
-				tabs={tabs}
-				getComponent={getComponent}
-				{...rest}
-			>
+			<Component drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
 				{inject('content')}
 				{safeContent}
 				{children}
