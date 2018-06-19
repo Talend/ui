@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimeView should render a DateTimeView 1`] = `
+exports[`DateTimeView should render 1`] = `
 <ViewLayout
   bodyElement={
     <div
@@ -25,6 +25,7 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
                 "name": "talend-chevron-left",
               }
         }
+        onClick={[Function]}
     />,
       "middleElement": <HeaderTitle
         button={
@@ -44,6 +45,7 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
                 "transform": "rotate-180",
               }
         }
+        onClick={[Function]}
     />,
     }
   }

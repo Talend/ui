@@ -56,6 +56,8 @@ class DateTimePicker extends React.Component {
 				onTitleClick={this.onDateTimeViewTitleClick}
 				monthSelected={this.state.currentCalendar.get('monthIndex')}
 				yearSelected={this.state.currentCalendar.get('year')}
+				onMonthSelected={this.onMonthSelected}
+				onYearSelected={this.onYearSelected}
 			/>
 		);
 
