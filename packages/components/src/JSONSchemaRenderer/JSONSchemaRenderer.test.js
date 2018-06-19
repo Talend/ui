@@ -8,7 +8,7 @@ import JSONSchemaRenderer, {
 } from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
-	it('should render nothing', () => {
+	it('should render the empty properties list', () => {
 		const schema = { jsonSchema: {}, properties: {} };
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(toJson(wrapper)).toMatchSnapshot();
