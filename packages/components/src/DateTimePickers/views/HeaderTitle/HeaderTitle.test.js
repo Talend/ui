@@ -7,7 +7,10 @@ describe('HeaderTitle', () => {
 	it('should render a span', () => {
 		// When
 		const wrapper = shallow(
-			<HeaderTitle />
+			<HeaderTitle
+				month={8}
+				year={2012}
+			/>
 		);
 
 		// Then
@@ -18,11 +21,34 @@ describe('HeaderTitle', () => {
 	it('should render a button', () => {
 		// When
 		const wrapper = shallow(
-			<HeaderTitle button={{ whateverButtonProp: 'whateverValue' }} />
+			<HeaderTitle
+				month={8}
+				year={2012}
+				button={{ whateverButtonProp: 'whateverValue' }}
+			/>
 		);
 
 		// Then
 		expect(wrapper.name()).toEqual('button');
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render the correct date and format', () => {
+		const wrapperSpan = shallow(
+			<HeaderTitle
+				month={2}
+				year={2001}
+			/>
+		);
+		const wrapperButton = shallow(
+			<HeaderTitle
+				month={11}
+				year={2002}
+				button={{ whateverButtonProp: 'whateverValue' }}
+			/>
+		);
+
+		expect(wrapperSpan.text()).toBe('March 2001');
+		expect(wrapperButton.text()).toBe('December 2002');
 	});
 });

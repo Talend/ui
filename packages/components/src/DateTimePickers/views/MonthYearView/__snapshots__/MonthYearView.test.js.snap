@@ -38,7 +38,8 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         onClick={[Function]}
     />,
       "middleElement": <HeaderTitle
-        label="Septembre 2017"
+        month={8}
+        year={2017}
     />,
     }
   }

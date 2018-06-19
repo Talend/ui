@@ -25,7 +25,8 @@ class MonthYearView extends React.Component {
 				onClick={this.props.onBackClick}
 			/>,
 			middleElement: <HeaderTitle
-				label="Septembre 2017"
+				month={8}
+				year={2017}
 			/>,
 		};
 

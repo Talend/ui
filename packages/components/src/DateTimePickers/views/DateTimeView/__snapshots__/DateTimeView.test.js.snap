@@ -33,7 +33,8 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
                 "onClick": undefined,
               }
         }
-        label="Septembre 2017"
+        month={8}
+        year={2017}
     />,
       "rightElement": <IconButton
         aria-label="Display next calendar month"
