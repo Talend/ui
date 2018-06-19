@@ -15,13 +15,7 @@ it('title-bar', () => {
 	];
 	// create React tree
 	const tree = renderer
-		.create(
-			<TitleBar
-				title={title}
-				filters={filters}
-				onFilterChange={jest.fn()}
-			/>,
-		)
+		.create(<TitleBar title={title} filters={filters} onFilterChange={jest.fn()} />)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

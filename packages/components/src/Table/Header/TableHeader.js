@@ -41,12 +41,7 @@ function renderHeaderCell(column, sorters, onSortChange) {
  */
 export default function TableHeader({ columns, sorters, onSortChange }) {
 	return (
-		<thead
-			className={classnames(
-				'tc-table-head',
-				theme['tc-table-head'],
-			)}
-		>
+		<thead className={classnames('tc-table-head', theme['tc-table-head'])}>
 			<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
 				{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
 			</tr>
