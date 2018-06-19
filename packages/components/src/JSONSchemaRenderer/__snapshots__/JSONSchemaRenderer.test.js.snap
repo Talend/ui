@@ -157,21 +157,6 @@ exports[`JSONSchemaRenderer should render arrays 1`] = `
 </JSONSchemaRenderer>
 `;
 
-exports[`JSONSchemaRenderer should render nothing 1`] = `
-<JSONSchemaRenderer
-  schema={
-    Object {
-      "jsonSchema": Object {},
-      "properties": Object {},
-    }
-  }
->
-  <dl
-    className="theme-json-schema-renderer json-schema-renderer"
-  />
-</JSONSchemaRenderer>
-`;
-
 exports[`JSONSchemaRenderer should render strings and integers 1`] = `
 <JSONSchemaRenderer
   schema={
@@ -219,5 +204,20 @@ exports[`JSONSchemaRenderer should render strings and integers 1`] = `
       42
     </dd>
   </dl>
+</JSONSchemaRenderer>
+`;
+
+exports[`JSONSchemaRenderer should render the empty properties list 1`] = `
+<JSONSchemaRenderer
+  schema={
+    Object {
+      "jsonSchema": Object {},
+      "properties": Object {},
+    }
+  }
+>
+  <dl
+    className="theme-json-schema-renderer json-schema-renderer"
+  />
 </JSONSchemaRenderer>
 `;
