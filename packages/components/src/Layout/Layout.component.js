@@ -85,11 +85,7 @@ function Layout({
 					{safeHeader}
 				</header>
 			)}
-			{safeSubHeader && (
-				<div className="subheader">
-					{safeSubHeader}
-				</div>
-			)}
+			{safeSubHeader && <div className="subheader">{safeSubHeader}</div>}
 			{Component && (
 				<Component drawers={safeDrawers} tabs={tabs} inject={inject} {...rest}>
 					{children}
