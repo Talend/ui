@@ -11,14 +11,14 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
       >
         <MonthPicker
           monthSelected={8}
-          onMonthSelected={[Function]}
+          onMonthSelected={undefined}
         />
       </div>
       <div
         className="theme-year"
       >
         <YearPicker
-          onYearSelected={[Function]}
+          onYearSelected={undefined}
           yearSelected={2012}
         />
       </div>
@@ -35,11 +35,11 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
                 "name": "talend-arrow-left",
               }
         }
-        onClick={[Function]}
+        onClick={undefined}
     />,
       "middleElement": <HeaderTitle
         month={8}
-        year={2017}
+        year={2012}
     />,
     }
   }

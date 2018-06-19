@@ -25,11 +25,10 @@ class MonthYearView extends React.Component {
 				onClick={this.props.onBackClick}
 			/>,
 			middleElement: <HeaderTitle
-				month={8}
-				year={2017}
+				month={this.props.monthSelected}
+				year={this.props.yearSelected}
 			/>,
 		};
-
 
 		const bodyElement = (
 			<div className={theme.body}>
@@ -59,8 +58,8 @@ class MonthYearView extends React.Component {
 
 MonthYearView.propTypes = {
 	onBackClick: PropTypes.func,
-	monthSelected: PropTypes.number,
-	yearSelected: PropTypes.number,
+	monthSelected: PropTypes.number.isRequired,
+	yearSelected: PropTypes.number.isRequired,
 	onMonthSelected: PropTypes.func,
 	onYearSelected: PropTypes.func,
 };

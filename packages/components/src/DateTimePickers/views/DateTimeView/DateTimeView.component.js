@@ -15,8 +15,8 @@ function DateTimeView(props) {
 			aria-label="Display previous calendar month"
 		/>,
 		middleElement: <HeaderTitle
-			month={8}
-			year={2017}
+			month={props.monthSelected}
+			year={props.yearSelected}
 			button={{
 				'aria-label': 'Switch to month and year pickers view',
 				onClick: props.onTitleClick,
@@ -52,6 +52,8 @@ function DateTimeView(props) {
 
 DateTimeView.propTypes = {
 	onTitleClick: PropTypes.func,
+	monthSelected: PropTypes.number.isRequired,
+	yearSelected: PropTypes.number.isRequired,
 };
 
 export default DateTimeView;
