@@ -27,7 +27,6 @@ registerAllContainers();
  */
 cmf.bootstrap({
 	components: Object.assign({}, components, tcomponents),
-	reducer,
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 });

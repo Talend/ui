@@ -12,6 +12,7 @@
     "packages/forms",
     "packages/generator",
     "packages/icons",
+    "packages/kit",
     "packages/sagas",
     "packages/storybook-cmf",
     "packages/theme",
