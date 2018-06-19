@@ -43,13 +43,4 @@ storiesOf('ActionFile', module)
 			<p>Custom tooltip</p>
 			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
 		</div>
-	))
-	.addWithPropsCombinations('combinations', Action, {
-		label: ['Click me'],
-		icon: ['talend-dataprep'],
-		onClick: [action('You clicked me')],
-		hideLabel: [false, true],
-		inProgress: [true, false],
-		disabled: [false, true],
-		tooltipLabel: [undefined, 'Tooltip custom label'],
-	});
+	));
