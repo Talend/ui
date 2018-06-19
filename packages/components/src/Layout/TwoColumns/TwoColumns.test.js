@@ -12,7 +12,7 @@ describe('TwoColumns', () => {
 		const wrapper = shallow(
 			<TwoColumns one={one} style={{ display: 'flex' }}>
 				<span>children</span>
-			</TwoColumns>
+			</TwoColumns>,
 		);
 
 		// then

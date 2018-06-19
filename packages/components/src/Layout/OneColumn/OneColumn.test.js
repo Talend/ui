@@ -8,7 +8,7 @@ describe('OneColumn', () => {
 		const wrapper = shallow(
 			<OneColumn>
 				<span>children</span>
-			</OneColumn>
+			</OneColumn>,
 		);
 		expect(toJSON(wrapper)).toMatchSnapshot();
 	});
