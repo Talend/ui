@@ -36,22 +36,24 @@ exports[`JSONSchemaRenderer should render arrays 1`] = `
 <dl
   className="theme-json-schema-renderer json-schema-renderer"
 >
-  <div
-    className="theme-array array-renderer-a"
+  <dt>
+    test string
+  </dt>
+  <dd
+    className="theme-array-value"
   >
-    <dt>
-      test string
-    </dt>
-    <dd>
-      b
-    </dd>
-    <dd>
-      d
-    </dd>
-    <dd>
-      f
-    </dd>
-  </div>
+    b
+  </dd>
+  <dd
+    className="theme-array-value"
+  >
+    d
+  </dd>
+  <dd
+    className="theme-array-value"
+  >
+    f
+  </dd>
 </dl>
 `;
 
@@ -59,25 +61,17 @@ exports[`JSONSchemaRenderer should render strings and integers 1`] = `
 <dl
   className="theme-json-schema-renderer json-schema-renderer"
 >
-  <div
-    className="text-renderer text-renderer-a"
-  >
-    <dt>
-      test string
-    </dt>
-    <dd>
-      A big a
-    </dd>
-  </div>
-  <div
-    className="text-renderer text-renderer-b"
-  >
-    <dt>
-      test integer
-    </dt>
-    <dd>
-      42
-    </dd>
-  </div>
+  <dt>
+    test string
+  </dt>
+  <dd>
+    A big a
+  </dd>
+  <dt>
+    test integer
+  </dt>
+  <dd>
+    42
+  </dd>
 </dl>
 `;
