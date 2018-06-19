@@ -77,4 +77,25 @@ describe('YearPicker', () => {
 
 		expect(actions.at(2).prop('label')).toBe(year.toString());
 	});
+
+	it('should not update the years range if the selected year change', () => {
+		const defaultYear = 2005;
+		const yearToSelect = 2020;
+
+		const wrapper = shallow(<YearPicker
+			yearSelected={defaultYear}
+		/>);
+		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+
+		expect(actions.at(2).prop('label')).toBe(defaultYear.toString());
+
+		// When year selected change
+		wrapper.setProps({
+			yearSelected: yearToSelect,
+		});
+
+		// The middle year still remain the same
+		const newActions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		expect(newActions.at(2).prop('label')).toBe(defaultYear.toString());
+	});
 });
