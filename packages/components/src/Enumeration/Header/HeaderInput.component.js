@@ -24,8 +24,10 @@ function getAction(action, index, getInternalInputRef) {
 			});
 		}
 	}
-
-	return !action.disabled ? (
+	if (action.disabled) {
+		return null;
+	}
+	return (
 		<Action
 			key={`${index}-enum-header-action`}
 			label={action.label}
@@ -37,7 +39,7 @@ function getAction(action, index, getInternalInputRef) {
 			hideLabel
 			link
 		/>
-	) : null;
+	);
 }
 
 function HeaderInput({

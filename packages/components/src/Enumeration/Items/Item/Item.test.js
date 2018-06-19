@@ -64,6 +64,24 @@ describe('Item', () => {
 		expect(props.item.itemProps.onSelectItem).toBeCalled();
 	});
 
+	it('should display value with only button which are not disabled', () => {
+		// given
+		const itemWithDisabled = { ...item };
+		itemWithDisabled.itemProps.actions[0].disabled = true;
+		const props = {
+			item: itemWithDisabled,
+		};
+
+		const itemInstance = <Item {...props} />;
+
+		// when
+		const wrapper = mount(itemInstance);
+		const buttons = wrapper.find(Button);
+
+		// then
+		expect(buttons.length).toBe(2);
+	});
+
 	it('should display a label if "item[key]" is a string', () => {
 		const props = {
 			item: {

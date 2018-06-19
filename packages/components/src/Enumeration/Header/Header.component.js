@@ -18,9 +18,12 @@ function getAction(action, index) {
 			action.onClick(event, { value: event.target.value });
 		}
 	}
-
+	if (action.disabled) {
+		// no rendering when action is disabled
+		return null;
+	}
 	if (action.displayMode === 'dropdown') {
-		return !action.disabled ? (
+		return (
 			<ActionDropdown
 				{...action}
 				noCaret
@@ -31,9 +34,9 @@ function getAction(action, index) {
 				pullRight
 				link
 			/>
-		) : null;
+		);
 	}
-	return !action.disabled ? (
+	return (
 		<Action
 			key={`${index}-enum-header-action`}
 			label={action.label}
@@ -44,7 +47,7 @@ function getAction(action, index) {
 			hideLabel
 			link
 		/>
-	) : null;
+	);
 }
 
 function Header({ headerDefault, required, label }) {

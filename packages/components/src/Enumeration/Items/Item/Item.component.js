@@ -47,8 +47,10 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				});
 			}
 		}
-
-		return !action.disabled ? (
+		if (action.disabled) {
+			return null;
+		}
+		return (
 			<Action
 				key={index}
 				label={action.label}
@@ -59,7 +61,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				hideLabel
 				link
 			/>
-		) : null;
+		);
 	}
 
 	/**

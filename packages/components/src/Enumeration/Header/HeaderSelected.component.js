@@ -17,8 +17,10 @@ function getAction(action, index) {
 			action.onClick(event);
 		}
 	}
-
-	return !action.disabled ? (
+	if (action.disabled) {
+		return null;
+	}
+	return (
 		<Action
 			key={`${index}-enum-header-action`}
 			label={action.label}
@@ -30,7 +32,7 @@ function getAction(action, index) {
 			hideLabel
 			link
 		/>
-	) : null;
+	);
 }
 
 function HeaderSelected({ headerSelected, nbItemsSelected }) {
