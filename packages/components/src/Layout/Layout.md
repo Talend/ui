@@ -14,11 +14,12 @@ This component use [Inject](../Inject/Inject.md).
 
 | name | type | description |
 | -- | -- | -- |
-| mode | string | `OneColumn` (default) or `TwoColums` |
-| header | `injectable` | display the header |
+| mode | `string` | `OneColumn` (default) or `TwoColums` |
+| header | `string|object|react element` | display the header |
+| subheader | `string|object|react element` | displayed after the header |
 | getComponent | `function`| optional function to get a component.|
 | components | `object` | define slots to Inject some components |
-| footer | `injectable` | display the footer |
+| footer | `string|object|react element` | display the footer |
 
 `components` props support the following slots are:
 

@@ -61,7 +61,7 @@ function Layout({
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
-	const injected = Inject.all(getComponent, components);
+	const inject = Inject.all(getComponent, components);
 	switch (mode) {
 		case DISPLAY_MODE_ONE_COLUMN:
 			Component = OneColumn;
@@ -85,15 +85,15 @@ function Layout({
 					{safeHeader}
 				</header>
 			)}
-			{injected('after-header')}
+			{inject('after-header')}
 			{safeSubHeader}
-			{injected('after-subheader')}
+			{inject('after-subheader')}
 			{Component && (
-				<Component drawers={safeDrawers} tabs={tabs} injected={injected} {...rest}>
+				<Component drawers={safeDrawers} tabs={tabs} inject={inject} {...rest}>
 					{children}
 				</Component>
 			)}
-			{injected('after-content')}
+			{inject('after-content')}
 			{(safeFooter) && (
 				<footer role="contentinfo" className={footerCSS}>
 					{safeFooter}
