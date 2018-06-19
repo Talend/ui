@@ -13,7 +13,7 @@ import {
 	TALEND_T7_THEME_CLASSNAME,
 } from './constants';
 
-function getDrawers(drawers, components, getComponent) {
+function getDrawers(getComponent, drawers, components) {
 	let withInjectDrawers = [];
 	if (Array.isArray(drawers)) {
 		withInjectDrawers = withInjectDrawers.concat(drawers);
@@ -73,7 +73,7 @@ function Layout({
 			Component = OneColumn;
 	}
 
-	const withInjectDrawers = getDrawers(drawers, components, getComponent);
+	const safeDrawers = getDrawers(getComponent, drawers, components);
 	const safeHeader = Inject.getReactElement(getComponent, header);
 	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
 	const safeFooter = Inject.getReactElement(getComponent, footer);
@@ -89,7 +89,7 @@ function Layout({
 			{safeSubHeader}
 			{injected('after-subheader')}
 			{Component && (
-				<Component drawers={withInjectDrawers} tabs={tabs} injected={injected} {...rest}>
+				<Component drawers={safeDrawers} tabs={tabs} injected={injected} {...rest}>
 					{children}
 				</Component>
 			)}

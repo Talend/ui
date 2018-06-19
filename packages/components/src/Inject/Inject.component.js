@@ -114,15 +114,14 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {object|string|React Element} data
  */
 Inject.getReactElement = function getReactElement(getComponent, data) {
-	let element;
 	if (typeof data === 'string') {
-		element = <Inject getComponent={getComponent} component={data} />;
+		return <Inject getComponent={getComponent} component={data} />;
 	} else if (React.isValidElement(data)) {
-		element = data;
+		return data;
 	} else if (typeof data === 'object') {
-		element = <Inject getComponent={getComponent} {...data} />;
+		return <Inject getComponent={getComponent} {...data} />;
 	}
-	return element;
+	return null;
 };
 
 Inject.displayName = 'Inject';

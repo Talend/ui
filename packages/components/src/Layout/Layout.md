@@ -13,9 +13,10 @@ Props table:
 This component use [Inject](../Inject/Inject.md).
 
 | name | type | description |
+| -- | -- | -- |
 | mode | string | `OneColumn` (default) or `TwoColums` |
 | header | `injectable` | display the header |
-| getComponent | `function`| optional function to get a component.  |
+| getComponent | `function`| optional function to get a component.|
 | components | `object` | define slots to Inject some components |
 | footer | `injectable` | display the footer |
 
