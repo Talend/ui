@@ -26,6 +26,7 @@ $breadcrumb-li-margin-right: $padding-normal + 7px;
 		& > .btn {
 			background-color: $white;
 			color: tint($black, 40);
+			display: block;
 			flex: 1;
 			flex-basis: auto; // https://github.com/philipwalton/flexbugs#6-the-default-flex-value-has-changed
 			font-size: $font-size-base;
