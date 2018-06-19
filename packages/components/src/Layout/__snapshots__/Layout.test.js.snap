@@ -385,6 +385,7 @@ exports[`Layout should render layout with subHeader in OneColumn mode 1`] = `
   />
   <OneColumn
     drawers={undefined}
+    injected={[Function]}
     tabs={undefined}
   >
     <h1>
@@ -406,6 +407,7 @@ exports[`Layout should render layout with subHeader in TwoColumns mode 1`] = `
   />
   <TwoColumns
     drawers={undefined}
+    injected={[Function]}
     tabs={undefined}
   >
     <h1>

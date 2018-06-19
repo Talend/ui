@@ -45,6 +45,10 @@ TwoColumns.propTypes = {
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),
 	tabs: PropTypes.shape(TabBar.propTypes),
+	injected: PropTypes.func,
+};
+TwoColumns.defaultProps = {
+	injected: () => null,
 };
 
 export default TwoColumns;

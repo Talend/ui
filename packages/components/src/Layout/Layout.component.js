@@ -60,6 +60,18 @@ function Layout({
 	}
 	const injectedHeader = injected('header');
 	const injectedFooter = injected('footer');
+
+	let withInjectDrawers = [];
+	if (Array.isArray(drawers)) {
+		withInjectDrawers = withInjectDrawers.concat(drawers);
+	}
+	if (components && components.drawers) {
+		withInjectDrawers = withInjectDrawers.concat(Inject.map(getComponent, components.drawers));
+	}
+	if (withInjectDrawers.length === 0) {
+		withInjectDrawers = undefined;
+	}
+
 	return (
 		<div id={id} className={appCSS}>
 			{(header || injectedHeader) && (
@@ -71,7 +83,7 @@ function Layout({
 			{subHeader}
 			{injected('after-subheader')}
 			{Component && (
-				<Component drawers={drawers} tabs={tabs} injected={injected} {...rest}>
+				<Component drawers={withInjectDrawers} tabs={tabs} injected={injected} {...rest}>
 					{children}
 				</Component>
 			)}

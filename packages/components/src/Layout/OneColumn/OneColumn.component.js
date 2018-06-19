@@ -11,7 +11,7 @@ import WithDrawer from '../../WithDrawer';
  * @example
  <OneColumn name="Hello world"></OneColumn>
  */
-function OneColumn({ drawers, children, tabs, ...props }) {
+function OneColumn({ drawers, children, tabs, injected, ...props }) {
 	const container = classnames('tc-layout-one-column', theme.main);
 	const style = {
 		overflow: 'auto',
@@ -23,7 +23,10 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		<div className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
-				<div style={style}>{children}</div>
+				<div style={style}>
+					{injected('content')}
+					{children}
+				</div>
 			</WithDrawer>
 		</div>
 	);
@@ -35,6 +38,11 @@ OneColumn.propTypes = {
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),
 	tabs: PropTypes.shape(TabBar.propTypes),
+	injected: PropTypes.func,
+};
+
+OneColumn.defaultProps = {
+	injected: () => null,
 };
 
 export default OneColumn;
