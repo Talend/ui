@@ -108,8 +108,8 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 };
 
 /**
- * Allow `injectable` prop support in a Component.
- * Those props will support three shapes: string, object, react element
+ * Allow a props to have multiple shape with a target to be a react valid element.
+ * It supports three shapes: string, object, react element
  * @param {function} getComponent
  * @param {object|string|React Element} data
  */
