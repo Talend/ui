@@ -12,7 +12,7 @@ import theme from './DateTimeView.scss';
  * @param {number} b Divisor
  * @return The positive euclidean modulo
  */
-function euclideanModulo(a, b) {
+export function euclideanModulo(a, b) {
 	const m = ((a % b) + b) % b;
 	return m < 0 ? m + Math.abs(b) : m;
 }
