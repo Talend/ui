@@ -1,18 +1,17 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import JSONSchemaRenderer, {
 	InvalidSchemaException,
 	UnkownTypeException,
-	isPassword,
 } from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
-	it('should render', () => {
+	it('should render the empty properties list', () => {
 		const schema = { jsonSchema: {}, properties: {} };
-		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should support custom className', () => {
@@ -46,114 +45,13 @@ describe('JSONSchemaRenderer', () => {
 				b: 42,
 			},
 		};
-		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render arrays', () => {
-		const schema = {
-			jsonSchema: {
-				properties: {
-					a: {
-						title: 'test string',
-						type: 'array',
-						items: {
-							enum: ['a', 'b', 'c', 'd', 'e', 'f'],
-						},
-					},
-				},
-			},
-			properties: {
-				a: ['b', 'd', 'f'],
-			},
-		};
-		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should handle nested objects', () => {
-		const schema = {
-			jsonSchema: {
-				properties: {
-					a: {
-						type: 'object',
-						properties: {
-							b: {
-								type: 'string',
-							},
-						},
-					},
-				},
-			},
-			properties: {
-				a: {
-					b: 'test',
-				},
-			},
-		};
-		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should handle order', () => {
-		const schema = {
-			jsonSchema: {
-				properties: {
-					d: { type: 'string' },
-					b: { type: 'string' },
-					c: { type: 'string' },
-					a: { type: 'string' },
-				},
-			},
-			uiSchema: {
-				'ui:order': ['a', 'e', 'b', 'c'],
-			},
-			properties: {
-				c: 'test c',
-				d: 'test d',
-				b: 'test b',
-				a: 'test a',
-			},
-		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'b', 'c', 'd']);
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should handle object level order', () => {
-		const schema = {
-			jsonSchema: {
-				properties: {
-					d: { type: 'string' },
-					obj: {
-						type: 'object',
-						properties: {
-							b: { type: 'string' },
-							c: { type: 'string' },
-							a: { type: 'string' },
-						},
-					},
-				},
-			},
-			uiSchema: {
-				obj: { 'ui:order': ['a', 'c', 'b'] },
-				'ui:order': ['obj', 'd'],
-			},
-			properties: {
-				d: 'test d',
-				obj: {
-					c: 'test c',
-					a: 'test a',
-					b: 'test b',
-				},
-			},
-		};
-		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'c', 'b', 'd']);
-	});
-
-	it('should render bullets for properties with a password ui:schema', () => {
+	it('should render passwords', () => {
 		const password = 'some_very_secure_password';
-		const hidenPassword = '\u2022'.repeat(5);
+		const hiddenPassword = '\u2022'.repeat(5);
 		const schema = {
 			jsonSchema: {
 				properties: {
@@ -173,19 +71,10 @@ describe('JSONSchemaRenderer', () => {
 				.find('dd')
 				.first()
 				.text(),
-		).toEqual(hidenPassword);
+		).toEqual(hiddenPassword);
 	});
 
-	it('should detect that the "credentials" property is a password property', () => {
-		const uiSchema = {
-			credentials: { 'ui:widget': 'password' },
-		};
-
-		expect(isPassword(uiSchema, 'credentials')).toEqual(true);
-		expect(isPassword(uiSchema, 'other_property')).toEqual(false);
-	});
-
-	it("shouldn't render hidden fields", () => {
+	it('should not render hidden fields', () => {
 		const schema = {
 			jsonSchema: {
 				properties: {
@@ -207,22 +96,115 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt')).toHaveLength(2);
-		expect(
-			wrapper
-				.find('dt')
-				.first()
-				.text(),
-		).toEqual('b');
-		expect(
-			wrapper
-				.find('dt')
-				.last()
-				.text(),
-		).toEqual('d');
+		expect(wrapper.find('dt').map(item => item.text())).toEqual(['b', 'd']);
 	});
 
-	it("shouldn't render properties without a schema", () => {
+	it('should render arrays', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					a: {
+						title: 'test string',
+						type: 'array',
+						items: {
+							enum: ['a', 'b', 'c', 'd', 'e', 'f'],
+						},
+					},
+				},
+			},
+			properties: {
+				a: ['b', 'd', 'f'],
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	it('should handle nested objects', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					a: {
+						type: 'object',
+						properties: {
+							b: {
+								type: 'string',
+							},
+							c: {
+								type: 'string',
+							},
+						},
+					},
+				},
+			},
+			properties: {
+				a: {
+					b: 'test',
+					c: 'test 2',
+				},
+			},
+			uiSchema: {},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	it('should handle order', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					d: { type: 'string' },
+					b: { type: 'string' },
+					c: { type: 'string' },
+					a: { type: 'string' },
+				},
+			},
+			uiSchema: {
+				'ui:order': ['a', 'd', 'b', 'c'],
+			},
+			properties: {
+				c: 'test c',
+				d: 'test d',
+				b: 'test b',
+				a: 'test a',
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'd', 'b', 'c']);
+	});
+
+	it('should handle object level order', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					d: { type: 'string' },
+					obj: {
+						type: 'object',
+						properties: {
+							b: { type: 'string' },
+							c: { type: 'string' },
+							a: { type: 'string' },
+						},
+					},
+				},
+			},
+			uiSchema: {
+				obj: { 'ui:order': ['a', 'c', 'b'] },
+			},
+			properties: {
+				d: 'test d',
+				obj: {
+					c: 'test c',
+					a: 'test a',
+					b: 'test b',
+				},
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dl.theme-nested dt').map(item => item.text())).toEqual(['a', 'c', 'b']);
+	});
+
+	it('should not render properties without a schema', () => {
 		const schema = {
 			jsonSchema: {
 				properties: {
@@ -241,15 +223,11 @@ describe('JSONSchemaRenderer', () => {
 				.find('dt')
 				.first()
 				.text(),
-		).toEqual('a');
+		).toBe('a');
 	});
 
-	// TODO: Add $ref handling
-	// Not required for a first implementation
-	xit('should handle $ref', () => {});
-
 	it('should throw an exception in case of invalid schema', () => {
-		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={{}} />).toJSON();
+		const wrapper = () => shallow(<JSONSchemaRenderer schema={{}} />);
 		expect(wrapper).toThrow(InvalidSchemaException);
 	});
 
@@ -258,7 +236,7 @@ describe('JSONSchemaRenderer', () => {
 			jsonSchema: {
 				properties: {
 					a: {
-						type: 'test',
+						type: 'unknown',
 					},
 				},
 			},
@@ -266,7 +244,7 @@ describe('JSONSchemaRenderer', () => {
 				a: 'test',
 			},
 		};
-		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
+		const wrapper = () => shallow(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper).toThrow(UnkownTypeException);
 	});
 });
