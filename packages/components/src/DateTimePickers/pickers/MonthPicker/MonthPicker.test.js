@@ -11,8 +11,9 @@ describe('MonthPicker', () => {
 	});
 
 	it('should have exactly one selected month', () => {
+		const monthIndex = 8;
 		const wrapper = shallow(<MonthPicker
-			monthSelected={8}
+			monthIndexSelected={monthIndex}
 		/>);
 
 		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
@@ -25,12 +26,12 @@ describe('MonthPicker', () => {
 		expect(unselectedActions.length).toBe(11);
 
 		unselectedActions.forEach(action => {
-			expect(action.parent().key()).not.toBe('8');
+			expect(action.parent().key()).not.toBe(monthIndex.toString());
 		});
 
 		expect(selectedActions.length).toBe(1);
 		const selectedAction = selectedActions.first();
-		expect(selectedAction.parent().key()).toBe('8');
+		expect(selectedAction.parent().key()).toBe(monthIndex.toString());
 	});
 
 	it('should callback with the month index picked', () => {
@@ -41,7 +42,10 @@ describe('MonthPicker', () => {
 			onMonthSelected={spy}
 		/>);
 
-		const juneAction = wrapper.findWhere(n => n.name() === 'PickerAction' && n.parent().key() === monthIndexToSelect.toString());
+		const juneAction = wrapper.findWhere(n =>
+			n.name() === 'PickerAction'
+			&& n.parent().key() === monthIndexToSelect.toString()
+		);
 
 		expect(juneAction.length).toBe(1);
 

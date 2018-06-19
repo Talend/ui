@@ -13,29 +13,17 @@ class DateTimePicker extends React.Component {
 		const now = new Date();
 
 		this.state = {
-			isCalendarView: true,
+			isDateTimeView: true,
 			currentCalendar: Immutable.Map({
 				monthIndex: now.getMonth(),
 				year: now.getFullYear(),
 			}),
 		};
 
-		this.onDateTimeViewTitleClick = this.onDateTimeViewTitleClick.bind(this);
-		this.onMonthYearViewBackClick = this.onMonthYearViewBackClick.bind(this);
+		this.setDateTimeView = this.setView.bind(this, true);
+		this.setMonthYearView = this.setView.bind(this, false);
 		this.onMonthSelected = this.onMonthSelected.bind(this);
 		this.onYearSelected = this.onYearSelected.bind(this);
-	}
-
-	onDateTimeViewTitleClick() {
-		this.setState({
-			isCalendarView: false,
-		});
-	}
-
-	onMonthYearViewBackClick() {
-		this.setState({
-			isCalendarView: true,
-		});
 	}
 
 	onMonthSelected(monthIndex) {
@@ -50,11 +38,17 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
+	setView(isDateTime) {
+		this.setState({
+			isDateTimeView: isDateTime,
+		});
+	}
+
 	render() {
 		const dateTimeView = (
 			<DateTimeView
-				onTitleClick={this.onDateTimeViewTitleClick}
-				monthSelected={this.state.currentCalendar.get('monthIndex')}
+				onTitleClick={this.setMonthYearView}
+				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
 				yearSelected={this.state.currentCalendar.get('year')}
 				onMonthSelected={this.onMonthSelected}
 				onYearSelected={this.onYearSelected}
@@ -63,8 +57,8 @@ class DateTimePicker extends React.Component {
 
 		const monthYearView = (
 			<MonthYearView
-				onBackClick={this.onMonthYearViewBackClick}
-				monthSelected={this.state.currentCalendar.get('monthIndex')}
+				onBackClick={this.setDateTimeView}
+				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
 				yearSelected={this.state.currentCalendar.get('year')}
 				onMonthSelected={this.onMonthSelected}
 				onYearSelected={this.onYearSelected}
@@ -72,7 +66,7 @@ class DateTimePicker extends React.Component {
 		);
 
 
-		const viewComponent = this.state.isCalendarView
+		const viewComponent = this.state.isDateTimeView
 			? dateTimeView
 			: monthYearView;
 

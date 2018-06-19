@@ -22,7 +22,7 @@ function HeaderTitle(props) {
 		...(isButton ? props.button : {}),
 	};
 
-	const date = setYear(setMonth(new Date(0), props.month), props.year);
+	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
 	const label = format(date, 'MMMM YYYY');
 
 	const element = isButton
@@ -33,7 +33,7 @@ function HeaderTitle(props) {
 }
 
 HeaderTitle.propTypes = {
-	month: PropTypes.number.isRequired,
+	monthIndex: PropTypes.number.isRequired,
 	year: PropTypes.number.isRequired,
 	button: PropTypes.object,
 	className: PropTypes.string,

@@ -16,7 +16,7 @@ describe('DateTimePicker', () => {
 		const wrapper = shallow(<DateTimePicker />);
 
 		wrapper.setState({
-			isCalendarView: true,
+			isDateTimeView: true,
 		});
 
 		expect(wrapper.find(DateTimeView).exists()).toBe(true);
@@ -27,7 +27,7 @@ describe('DateTimePicker', () => {
 		const wrapper = shallow(<DateTimePicker />);
 
 		wrapper.setState({
-			isCalendarView: false,
+			isDateTimeView: false,
 		});
 
 		expect(wrapper.find(DateTimeView).exists()).toBe(false);

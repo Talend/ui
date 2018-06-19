@@ -27,7 +27,7 @@ class DateTimeView extends React.Component {
 	}
 
 	incrementMonthIndex(monthIncrement) {
-		const monthIndexIncremented = this.props.monthSelected + monthIncrement;
+		const monthIndexIncremented = this.props.monthIndexSelected + monthIncrement;
 		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
 		const yearIncrement = Math.floor(monthIndexIncremented / 12);
 
@@ -54,7 +54,7 @@ class DateTimeView extends React.Component {
 				onClick={this.incrementMonthIndexDown}
 			/>,
 			middleElement: <HeaderTitle
-				month={this.props.monthSelected}
+				monthIndex={this.props.monthIndexSelected}
 				year={this.props.yearSelected}
 				button={{
 					'aria-label': 'Switch to month and year pickers view',
@@ -92,7 +92,7 @@ class DateTimeView extends React.Component {
 }
 
 DateTimeView.propTypes = {
-	monthSelected: PropTypes.number.isRequired,
+	monthIndexSelected: PropTypes.number.isRequired,
 	yearSelected: PropTypes.number.isRequired,
 	onTitleClick: PropTypes.func,
 	onMonthSelected: PropTypes.func,

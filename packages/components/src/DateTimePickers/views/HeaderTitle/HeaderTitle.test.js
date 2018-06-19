@@ -8,7 +8,7 @@ describe('HeaderTitle', () => {
 		// When
 		const wrapper = shallow(
 			<HeaderTitle
-				month={8}
+				monthIndex={8}
 				year={2012}
 			/>
 		);
@@ -22,7 +22,7 @@ describe('HeaderTitle', () => {
 		// When
 		const wrapper = shallow(
 			<HeaderTitle
-				month={8}
+				monthIndex={8}
 				year={2012}
 				button={{ whateverButtonProp: 'whateverValue' }}
 			/>
@@ -36,15 +36,14 @@ describe('HeaderTitle', () => {
 	it('should render the correct date and format', () => {
 		const wrapperSpan = shallow(
 			<HeaderTitle
-				month={2}
+				monthIndex={2}
 				year={2001}
 			/>
 		);
 		const wrapperButton = shallow(
 			<HeaderTitle
-				month={11}
+				monthIndex={11}
 				year={2002}
-				button={{ whateverButtonProp: 'whateverValue' }}
 			/>
 		);
 

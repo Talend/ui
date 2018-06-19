@@ -18,15 +18,18 @@ const months = indexes.map(index => ({
 const monthsRows = chunk(months, 3);
 
 function MonthPicker(props) {
-	function isSelected(index) {
-		return index === props.monthSelected;
-	}
+	const isSelected = index =>
+		index === props.monthIndexSelected;
 
-	function onMonthSelected(index) {
-		return props.onMonthSelected && (() => {
+	const onMonthSelected = index => {
+		const eventHandler = () => {
 			props.onMonthSelected(index);
-		});
-	}
+		};
+
+		return props.onMonthSelected === undefined
+			? undefined
+			: eventHandler;
+	};
 
 	return (
 		<div className={theme.container}>
@@ -52,7 +55,7 @@ function MonthPicker(props) {
 }
 
 MonthPicker.propTypes = {
-	monthSelected: PropTypes.number,
+	monthIndexSelected: PropTypes.number,
 	onMonthSelected: PropTypes.func,
 };
 

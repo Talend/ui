@@ -45,7 +45,10 @@ describe('YearPicker', () => {
 			onYearSelected={spy}
 		/>);
 
-		const nextYearAction = wrapper.findWhere(n => n.name() === 'PickerAction' && n.prop('label') === yearToSelect.toString());
+		const nextYearAction = wrapper.findWhere(n =>
+			n.name() === 'PickerAction'
+			&& n.prop('label') === yearToSelect.toString()
+		);
 
 		expect(nextYearAction.length).toBe(1);
 
@@ -59,7 +62,7 @@ describe('YearPicker', () => {
 		expect(spy.mock.calls[0][0]).toBe(yearToSelect);
 	});
 
-	it('should default render with current year in middle', () => {
+	it('should default render with current year in middle when "yearSelected" prop not provided', () => {
 		const wrapper = shallow(<YearPicker />);
 		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
 		const now = new Date();
@@ -68,7 +71,7 @@ describe('YearPicker', () => {
 		expect(actions.at(2).prop('label')).toBe(currentYear);
 	});
 
-	it('should render with yearSelected prop as the middle year if provided', () => {
+	it('should render with "yearSelected" prop as the middle year if provided', () => {
 		const year = 2005;
 		const wrapper = shallow(<YearPicker
 			yearSelected={year}

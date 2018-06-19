@@ -34,7 +34,7 @@ exports[`DateTimeView should render 1`] = `
                 "onClick": undefined,
               }
         }
-        month={5}
+        monthIndex={5}
         year={2006}
     />,
       "rightElement": <IconButton

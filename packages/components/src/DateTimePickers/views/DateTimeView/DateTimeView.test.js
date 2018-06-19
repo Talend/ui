@@ -6,7 +6,7 @@ import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 describe('DateTimeView', () => {
 	it('should render', () => {
 		const wrapper = shallow(<DateTimeView
-			monthSelected={5}
+			monthIndexSelected={5}
 			yearSelected={2006}
 		/>);
 
@@ -16,7 +16,7 @@ describe('DateTimeView', () => {
 	it('should callback when title is clicked', () => {
 		const spy = jest.fn();
 		const wrapper = shallow(<DateTimeView
-			monthSelected={5}
+			monthIndexSelected={5}
 			yearSelected={2006}
 			onTitleClick={spy}
 		/>);
@@ -31,7 +31,7 @@ describe('DateTimeView', () => {
 	it('should callback with the month index updated', () => {
 		const spy = jest.fn();
 		const wrapper = shallow(<DateTimeView
-			monthSelected={5}
+			monthIndexSelected={5}
 			yearSelected={2006}
 			onMonthSelected={spy}
 		/>);
@@ -42,7 +42,7 @@ describe('DateTimeView', () => {
 
 		// Simple previous case
 		wrapper.setProps({
-			monthSelected: 5,
+			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -52,7 +52,7 @@ describe('DateTimeView', () => {
 
 		// Simple next case
 		wrapper.setProps({
-			monthSelected: 5,
+			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -62,7 +62,7 @@ describe('DateTimeView', () => {
 
 		// Advance previous case
 		wrapper.setProps({
-			monthSelected: 0,
+			monthIndexSelected: 0,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -72,7 +72,7 @@ describe('DateTimeView', () => {
 
 		// Advance next case
 		wrapper.setProps({
-			monthSelected: 11,
+			monthIndexSelected: 11,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -84,7 +84,7 @@ describe('DateTimeView', () => {
 	it('should callback with the year updated', () => {
 		const spy = jest.fn();
 		const wrapper = shallow(<DateTimeView
-			monthSelected={5}
+			monthIndexSelected={5}
 			yearSelected={2006}
 			onYearSelected={spy}
 		/>);
@@ -95,7 +95,7 @@ describe('DateTimeView', () => {
 
 		// Simple previous case
 		wrapper.setProps({
-			monthSelected: 5,
+			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -104,7 +104,7 @@ describe('DateTimeView', () => {
 
 		// Simple next case
 		wrapper.setProps({
-			monthSelected: 5,
+			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -113,7 +113,7 @@ describe('DateTimeView', () => {
 
 		// Advance previous case
 		wrapper.setProps({
-			monthSelected: 0,
+			monthIndexSelected: 0,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
@@ -123,7 +123,7 @@ describe('DateTimeView', () => {
 
 		// Advance next case
 		wrapper.setProps({
-			monthSelected: 11,
+			monthIndexSelected: 11,
 			yearSelected: 2006,
 		});
 		spy.mockClear();
