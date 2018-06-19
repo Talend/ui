@@ -1,19 +1,22 @@
 {
-  "name": "tmp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app/index.js",
+  "name": "@talend/react-components-kit",
+  "version": "0.1.0",
+  "description": "React CMF Containers for Talend Component Kit",
+  "main": "lib/index.js",
   "scripts": {
     "start": "talend-scripts start",
-    "prepublish": "talend-scripts build",
+    "prepublish": "babel -d lib ./src/components && rimraf lib/**/*.test.js",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage"
   },
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
     "react",
