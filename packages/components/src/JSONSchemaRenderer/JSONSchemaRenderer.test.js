@@ -218,7 +218,12 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(1);
-		expect(wrapper.find('dt').first().text()).toBe('a');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toBe('a');
 	});
 
 	it('should throw an exception in case of invalid schema', () => {
