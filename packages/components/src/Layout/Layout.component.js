@@ -107,9 +107,9 @@ Layout.displayName = 'Layout';
 
 Layout.propTypes = {
 	id: PropTypes.string,
-	header: PropTypes.element,
-	footer: PropTypes.element,
-	subHeader: PropTypes.element,
+	header: Inject.getReactElement.propTypes,
+	footer: Inject.getReactElement.propTypes,
+	subHeader: Inject.getReactElement.propTypes,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),

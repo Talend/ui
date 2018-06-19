@@ -123,6 +123,11 @@ Inject.getReactElement = function getReactElement(getComponent, data) {
 	}
 	return null;
 };
+Inject.getReactElement.propTypes = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.shape({ component: PropTypes.string }),
+	PropTypes.element,
+]);
 
 Inject.displayName = 'Inject';
 
