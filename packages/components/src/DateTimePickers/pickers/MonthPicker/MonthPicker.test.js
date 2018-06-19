@@ -23,15 +23,14 @@ describe('MonthPicker', () => {
 		const selectedActions = actions.filterWhere(action => action.prop('isSelected') === true);
 
 		expect(unselectedActions.length).toBe(11);
-		expect(selectedActions.length).toBe(1);
 
 		unselectedActions.forEach(action => {
 			expect(action.parent().key()).not.toBe('8');
 		});
 
-		selectedActions.forEach(action => {
-			expect(action.parent().key()).toBe('8');
-		});
+		expect(selectedActions.length).toBe(1);
+		const selectedAction = selectedActions.first();
+		expect(selectedAction.parent().key()).toBe('8');
 	});
 
 	it('should callback with the month index picked', () => {
