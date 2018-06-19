@@ -26,7 +26,7 @@ function HeaderTitle(props) {
 	const label = format(date, 'MMMM YYYY');
 
 	const element = isButton
-		? <button {... propsToSpread}>{label}</button>
+		? <button type="button" {... propsToSpread}>{label}</button>
 		: <span {...propsToSpread}>{label}</span>;
 
 	return element;

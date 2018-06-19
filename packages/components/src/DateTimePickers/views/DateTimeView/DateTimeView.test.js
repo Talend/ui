@@ -13,7 +13,22 @@ describe('DateTimeView', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should callback with the new month index selected', () => {
+	it('should callback when title is clicked', () => {
+		const spy = jest.fn();
+		const wrapper = shallow(<DateTimeView
+			monthSelected={5}
+			yearSelected={2006}
+			onTitleClick={spy}
+		/>);
+
+		const headerClickFn = wrapper.find('ViewLayout').shallow()
+			.find('HeaderTitle').props().button.onClick;
+
+		headerClickFn();
+		expect(spy.mock.calls.length).toBe(1);
+	});
+
+	it('should callback with the month index updated', () => {
 		const spy = jest.fn();
 		const wrapper = shallow(<DateTimeView
 			monthSelected={5}
@@ -32,6 +47,7 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		previousAction.simulate('click');
+		expect(spy.mock.calls.length).toBe(1);
 		expect(spy.mock.calls[0][0]).toBe(4);
 
 		// Simple next case
@@ -41,6 +57,7 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		nextAction.simulate('click');
+		expect(spy.mock.calls.length).toBe(1);
 		expect(spy.mock.calls[0][0]).toBe(6);
 
 		// Advance previous case
@@ -50,6 +67,7 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		previousAction.simulate('click');
+		expect(spy.mock.calls.length).toBe(1);
 		expect(spy.mock.calls[0][0]).toBe(11);
 
 		// Advance next case
@@ -59,10 +77,11 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		nextAction.simulate('click');
+		expect(spy.mock.calls.length).toBe(1);
 		expect(spy.mock.calls[0][0]).toBe(0);
 	});
 
-	it('should callback with the new year selected if changed', () => {
+	it('should callback with the year updated', () => {
 		const spy = jest.fn();
 		const wrapper = shallow(<DateTimeView
 			monthSelected={5}
