@@ -69,19 +69,6 @@ export const Columns = {
 
 export const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
 
-function getColumn(col) {
-	return {
-		key: col.key,
-		label: col.label,
-		headClassName: `classname-of-head-${col.key}`,
-		cellClassName: `classname-of-row-data-${col.key}`,
-	};
-}
-
-export const columns2 = [getColumn(Columns.NAME), getColumn(Columns.TYPE), getColumn(Columns.DESC)];
-
-export const mainClassName = 'classname-of-table-root';
-
 export const rowsClassName = {
 	elem_1: 'classname-of-row-1',
 	elem_2: 'classname-of-row-2',
@@ -104,7 +91,6 @@ export function getNameFilter(id, match) {
 			dockable: true,
 			navbar: true,
 		},
-		className: id,
 	};
 }
 
@@ -119,7 +105,6 @@ export function getMandatoryFieldFilter(id, match) {
 		rendererProps: {
 			label: 'Show Mandatory Fields (*) Only',
 		},
-		className: id,
 	};
 }
 
@@ -143,7 +128,6 @@ export function addSortExtraProps(column) {
 			iconPosition: 'right',
 			link: true,
 		},
-		headClassName: column.key,
 	};
 }
 

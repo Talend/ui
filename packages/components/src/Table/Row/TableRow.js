@@ -11,19 +11,17 @@ function renderRowData(element, column) {
 	const key = column.key;
 	const CellComponent = column.cellRenderer || TableCell;
 	const compKey = `${element.id}-${key}`;
-	const tdClassNames = classnames(`td-${key}`, theme['tc-table-row-cell']);
-	const dataClassNames = classnames(
-		'tc-table-row-data',
-		theme['tc-table-row-data'],
-		column.cellClassName || `tc-table-row-data-${column.key}`,
-	);
 	return (
-		<td key={`td-${compKey}`} className={tdClassNames}>
+		<td key={`td-${compKey}`} className={classnames(`td-${key}`, theme['tc-table-row-cell'])}>
 			<CellComponent
 				key={compKey}
 				element={element}
 				data={element[key]}
-				className={dataClassNames}
+				className={classnames(
+					'tc-table-row-data',
+					theme['tc-table-row-data'],
+					`tc-table-row-data-${column.key}`,
+				)}
 				{...column.cellExtraProps}
 			/>
 		</td>
@@ -80,7 +78,6 @@ TableRow.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
-			cellClassName: PropTypes.string,
 			cellRenderer: PropTypes.func,
 			cellExtraProps: PropTypes.object,
 		}),

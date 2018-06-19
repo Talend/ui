@@ -11,7 +11,7 @@ exports[`three-columns 1`] = `
       className="th-name theme-tc-table-head-th"
     >
       <div
-        className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
+        className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
       >
         Name
       </div>
@@ -20,7 +20,7 @@ exports[`three-columns 1`] = `
       className="th-type theme-tc-table-head-th"
     >
       <div
-        className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
+        className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
       >
         Type
       </div>
@@ -29,7 +29,7 @@ exports[`three-columns 1`] = `
       className="th-desc theme-tc-table-head-th"
     >
       <div
-        className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
+        className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
       >
         Description
       </div>
@@ -50,7 +50,7 @@ exports[`three-columns-with-sorters 1`] = `
     >
       <button
         aria-label="Name"
-        className="tc-table-sort-header tc-table-head-label theme-tc-table-head-label name btn btn-link"
+        className="tc-table-sort-header tc-table-head-label theme-tc-table-head-label tc-table-head-label-name btn btn-link"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -78,7 +78,7 @@ exports[`three-columns-with-sorters 1`] = `
     >
       <button
         aria-label="Type"
-        className="tc-table-sort-header tc-table-head-label theme-tc-table-head-label type btn btn-link"
+        className="tc-table-sort-header tc-table-head-label theme-tc-table-head-label tc-table-head-label-type btn btn-link"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -106,7 +106,7 @@ exports[`three-columns-with-sorters 1`] = `
     >
       <button
         aria-label="Description"
-        className="tc-table-sort-header tc-table-head-label theme-tc-table-head-label desc btn btn-link"
+        className="tc-table-sort-header tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc btn btn-link"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}

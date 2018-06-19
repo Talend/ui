@@ -274,7 +274,7 @@ function newColumn(col) {
 	};
 }
 
-function addSortExtraProps(column) {	
+function addSortExtraProps(column) {
 	column.headExtraProps = {
 		iconPosition: 'right',
 		link: true,
@@ -342,7 +342,6 @@ class ConnectedTable extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			draggable: props.draggable,
 			highlighted: null,
 		};
 		this.onEnterRow = this.onEnterRow.bind(this);
@@ -358,12 +357,6 @@ class ConnectedTable extends React.Component {
 	onLeaveRow() {
 		this.setState({
 			highlighted: null,
-		});
-	}
-
-	getMainClassName() {
-		return classnames({
-			'table-with-dnd': this.state.draggable,
 		});
 	}
 
@@ -386,7 +379,6 @@ class ConnectedTable extends React.Component {
 			<Table
 				elements={elements}
 				columns={columns}
-				mainClassName={this.getMainClassName()}
 				rowsClassName={this.getRowsClassName()}
 				withHeader={withHeader}
 				onScroll={onScroll}
@@ -591,7 +583,6 @@ class SortedFilteredTable extends React.Component {
 			filteredElements: props.elements,
 			sorters: props.sorters,
 			sortedElements: props.elements,
-			draggable: props.draggable,
 		};
 		this.onFilterChange = this.onFilterChange.bind(this);
 		this.onSortChange = this.onSortChange.bind(this);
@@ -615,21 +606,12 @@ class SortedFilteredTable extends React.Component {
 		}));
 	}
 
-	getMainClassName() {
-		return classnames({
-			'table-with-dnd': this.state.draggable,
-			'sorted-table': this.state.sorters,
-			'filtered-table': this.state.filters,
-		});
-	}
-
 	render() {
 		return (
 			<Table
 				title={this.props.title}
 				elements={this.state.sortedElements}
 				columns={this.state.columns}
-				mainClassName={this.getMainClassName()}
 				withHeader={true}
 				filters={this.state.filters}
 				onFilterChange={this.onFilterChange}
@@ -647,7 +629,6 @@ SortedFilteredTable.propTypes = {
 	filters: PropTypes.array,
 	sorters: PropTypes.object,
 	title: PropTypes.string,
-	draggable: PropTypes.bool,
 };
 
 const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
@@ -667,64 +648,72 @@ stories
 	))
 	.addWithInfo('Table', () => {
 		return (
-			<Table
-			  elements={schema1.elements}
-	      columns={columns1}
-				mainClassName={'story-table'}
-				withHeader={true}
-			/>
+			<div className="story-table" >
+				<Table
+				  elements={schema1.elements}
+		      columns={columns1}
+					withHeader={true}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('Table (as list)', () => {
 		return (
-			<Table
-			  elements={schema2.elements}
-	      columns={columns2}
-				mainClassName={'default-table'}
-	      onEnterRow={action('onEnterRow called!')}
-				onLeaveRow={action('onLeaveRow called!')}
-			/>
+			<div className="default-table" >
+				<Table
+				  elements={schema2.elements}
+		      columns={columns2}
+		      onEnterRow={action('onEnterRow called!')}
+					onLeaveRow={action('onLeaveRow called!')}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('Table with drag and drop', () => {
 		return (
-			<TableWithDND
-				elements={schema3.elements}
-				columns={columns3}
-				withHeader={true}
-				onScroll={action('onScroll called!')}
-				draggable={true}
-			/>
+			<div className="table-with-dnd" >
+				<TableWithDND
+					elements={schema3.elements}
+					columns={columns3}
+					withHeader={true}
+					onScroll={action('onScroll called!')}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('Table with filters', () => {
 		return (
-			<SortedFilteredTable
-				elements={schema3.elements}
-				columns={columns4}
-				filters={createFilters()}
-				title={schema3.name}
-			/>
+			<div className="filtered-table" >
+				<SortedFilteredTable
+					elements={schema3.elements}
+					columns={columns4}
+					filters={createFilters()}
+					title={schema3.name}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('Table with sorters', () => {
 		return (
-			<SortedFilteredTable
-				elements={schema3.elements}
-				columns={columns5}
-				sorters={createSorters(sorterKeys)}
-			/>
+			<div className="sorted-table" >
+				<SortedFilteredTable
+					elements={schema3.elements}
+					columns={columns5}
+					sorters={createSorters(sorterKeys)}
+				/>
+			</div>
 		);
 	})
 	.addWithInfo('Table with dnd, sorters & filters', () => {
 		return (
-			<SortedFilteredTableWithDND
-				elements={schema3.elements}
-				columns={columns6}
-				filters={createFilters()}
-				sorters={createSorters(sorterKeys)}
-				title={schema3.name}
-				draggable={true}
-			/>
+			<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')} >
+				<SortedFilteredTableWithDND
+					elements={schema3.elements}
+					columns={columns6}
+					filters={createFilters()}
+					sorters={createSorters(sorterKeys)}
+					title={schema3.name}
+				/>
+			</div>
 		);
 	});

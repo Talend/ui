@@ -17,18 +17,18 @@ function getHeaderComponent(column, sorters, onSortChange) {
 
 function renderHeaderCell(column, sorters, onSortChange) {
 	const HeaderComponent = getHeaderComponent(column, sorters, onSortChange);
-	const thKey = `th-${column.key}`;
-	const cellClassNames = classnames(
-		'tc-table-head-label',
-		theme['tc-table-head-label'],
-		column.headClassName,
-	);
+	const key = column.key;
+	const thKey = `th-${key}`;
 	return (
 		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])}>
 			<HeaderComponent
 				key={column.key}
 				column={column}
-				className={cellClassNames}
+				className={classnames(
+					'tc-table-head-label',
+					theme['tc-table-head-label'],
+					`tc-table-head-label-${key}`,
+				)}
 				sorter={sorters && sorters[column.key]}
 				onSortChange={onSortChange}
 			/>
@@ -54,7 +54,6 @@ TableHeader.propTypes = {
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
 			label: PropTypes.string,
-			headClassName: PropTypes.string,
 			headRenderer: PropTypes.func,
 			headExtraProps: PropTypes.object,
 		}),

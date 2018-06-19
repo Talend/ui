@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import FilterBar from '../../FilterBar';
+import theme from './FiltersBar.scss';
 
 /**
  * Component used with a filter based on string value. It displays a FilterBar component.
@@ -30,10 +31,10 @@ export default class StringFilterComponent extends Component {
 	}
 
 	render() {
-		const { className, placeHolder, dockable, navbar } = this.props;
+		const { placeHolder, dockable, navbar, filter } = this.props;
 		return (
 			<FilterBar
-				className={classnames('tc-string-filter', className)}
+				className={classnames('tc-string-filter', 'tc-filter', theme['tc-filter'], filter.id)}
 				placeholder={placeHolder}
 				dockable={dockable}
 				docked={this.props.filter.params.docked}
@@ -48,7 +49,6 @@ export default class StringFilterComponent extends Component {
 StringFilterComponent.propTypes = {
 	filter: PropTypes.object,
 	onFilterChange: PropTypes.func,
-	className: PropTypes.string,
 	placeHolder: PropTypes.string,
 	dockable: PropTypes.bool,
 	navbar: PropTypes.bool,

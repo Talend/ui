@@ -1,3 +1,10 @@
-.tc-table-root {
+.tc-table {
 	position: relative;
+
+	.tc-table-comp {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
 }

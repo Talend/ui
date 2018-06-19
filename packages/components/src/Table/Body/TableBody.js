@@ -15,9 +15,11 @@ export default function TableBody({
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const bodyClassNames = classnames('tc-table-body', theme['tc-table-body']);
 	return (
-		<tbody className={bodyClassNames} onScroll={onScroll}>
+		<tbody
+			className={classnames('tc-table-body', theme['tc-table-body'])}
+			onScroll={onScroll}
+		>
 			{elements.map(element => (
 				<TableRow
 					key={element.id}

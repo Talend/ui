@@ -7,7 +7,6 @@ function renderFilter(filter, onFilterChange) {
 	const FilterComponent = filter.renderer;
 	return (
 		<FilterComponent
-			className={classnames('tc-filter', theme['tc-filter'], filter.className)}
 			key={filter.id}
 			filter={filter}
 			onFilterChange={onFilterChange}
@@ -36,7 +35,6 @@ FiltersBar.propTypes = {
 			match: PropTypes.func.isRequired,
 			renderer: PropTypes.func.isRequired,
 			rendererProps: PropTypes.object,
-			className: PropTypes.string,
 		}),
 	),
 	onFilterChange: PropTypes.func,

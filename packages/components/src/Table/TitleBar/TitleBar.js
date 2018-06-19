@@ -33,7 +33,6 @@ TitleBar.propTypes = {
 			match: PropTypes.func.isRequired,
 			renderer: PropTypes.func.isRequired,
 			rendererProps: PropTypes.object,
-			className: PropTypes.string,
 		}),
 	),
 	onFilterChange: PropTypes.func,
