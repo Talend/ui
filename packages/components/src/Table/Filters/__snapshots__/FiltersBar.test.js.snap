@@ -2,7 +2,7 @@
 
 exports[`two-filters 1`] = `
 <div
-  className="tc-table-filters-bar theme-tc-table-filters-bar classname-of-filters-bar"
+  className="tc-table-filters-bar theme-tc-table-filters-bar"
 >
   <button
     aria-label="Toggle filter"

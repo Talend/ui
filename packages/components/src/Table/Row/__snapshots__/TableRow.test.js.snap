@@ -2,7 +2,7 @@
 
 exports[`single-row 1`] = `
 <tr
-  className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-1"
+  className="tc-table-row theme-tc-table-row classname-of-row-1"
   data-id="elem_1"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

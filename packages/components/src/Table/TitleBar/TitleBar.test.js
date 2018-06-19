@@ -8,13 +8,16 @@ import * as TestData from '../TestData';
  */
 it('title-bar', () => {
 	const title = 'TALEND.SCHEMA';
-	const filters = [TestData.nameFilter, TestData.mandatoryFieldFilter];
+	const match = jest.fn().mockReturnValue(true);
+	const filters = [
+		TestData.getNameFilter(TestData.nameFilterId, match),
+		TestData.getMandatoryFieldFilter(TestData.mandatoryFieldFilterId, match),
+	];
 	// create React tree
 	const tree = renderer
 		.create(
 			<TitleBar
 				title={title}
-				classnames={TestData.classnames}
 				filters={filters}
 				onFilterChange={jest.fn()}
 			/>,

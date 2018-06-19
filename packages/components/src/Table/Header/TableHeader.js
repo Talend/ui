@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TableHeaderCell from './TableHeaderCell';
 import TableSortHeader from './TableSortHeader';
 import theme from './TableHeader.scss';
@@ -18,17 +18,17 @@ function getHeaderComponent(column, sorters, onSortChange) {
 function renderHeaderCell(column, sorters, onSortChange) {
 	const HeaderComponent = getHeaderComponent(column, sorters, onSortChange);
 	const thKey = `th-${column.key}`;
-	const cellClassnames = classNames(
+	const cellClassNames = classnames(
 		'tc-table-head-label',
 		theme['tc-table-head-label'],
 		column.headClassName,
 	);
 	return (
-		<th key={thKey} className={classNames(thKey, theme['tc-table-head-th'])}>
+		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])}>
 			<HeaderComponent
 				key={column.key}
 				column={column}
-				className={cellClassnames}
+				className={cellClassNames}
 				sorter={sorters && sorters[column.key]}
 				onSortChange={onSortChange}
 			/>
@@ -39,16 +39,15 @@ function renderHeaderCell(column, sorters, onSortChange) {
 /**
  * This component displays the header of the table.
  */
-export default function TableHeader({ columns, classnames, sorters, onSortChange }) {
+export default function TableHeader({ columns, sorters, onSortChange }) {
 	return (
 		<thead
-			className={classNames(
+			className={classnames(
 				'tc-table-head',
 				theme['tc-table-head'],
-				classnames && classnames.header,
 			)}
 		>
-			<tr className={theme['tc-table-head-row']}>
+			<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
 				{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
 			</tr>
 		</thead>
@@ -65,9 +64,6 @@ TableHeader.propTypes = {
 			headExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	classnames: PropTypes.shape({
-		header: PropTypes.string,
-	}),
 	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
 };

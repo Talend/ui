@@ -5,14 +5,14 @@ exports[`Render a table width custom configuration custom-table 1`] = `
   className="tc-table-root theme-tc-table-root"
 >
   <table
-    className="tc-table theme-tc-table classname-of-table"
+    className="tc-table theme-tc-table"
   >
     <tbody
-      className="tc-table-body theme-tc-table-body classname-of-table-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-1"
+        className="tc-table-row theme-tc-table-row classname-of-row-1"
         data-id="elem_1"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -46,7 +46,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-2"
+        className="tc-table-row theme-tc-table-row classname-of-row-2"
         data-id="elem_2"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -86,16 +86,16 @@ exports[`Render a table width custom configuration custom-table 1`] = `
 
 exports[`Render a table width custom header custom-table-with-header 1`] = `
 <div
-  className="tc-table-root theme-tc-table-root"
+  className="tc-table-root theme-tc-table-root classname-of-table-root"
 >
   <table
-    className="tc-table theme-tc-table classname-of-table"
+    className="tc-table theme-tc-table"
   >
     <thead
-      className="tc-table-head theme-tc-table-head classname-of-table-header"
+      className="tc-table-head theme-tc-table-head"
     >
       <tr
-        className="theme-tc-table-head-row"
+        className="tc-table-head-row theme-tc-table-head-row"
       >
         <th
           className="th-name theme-tc-table-head-th"
@@ -127,11 +127,11 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
       </tr>
     </thead>
     <tbody
-      className="tc-table-body theme-tc-table-body classname-of-table-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-1"
+        className="tc-table-row theme-tc-table-row classname-of-row-1"
         data-id="elem_1"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -165,7 +165,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-2"
+        className="tc-table-row theme-tc-table-row classname-of-row-2"
         data-id="elem_2"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -298,7 +298,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
       className="tc-table-head theme-tc-table-head"
     >
       <tr
-        className="theme-tc-table-head-row"
+        className="tc-table-head-row theme-tc-table-head-row"
       >
         <th
           className="th-name theme-tc-table-head-th"

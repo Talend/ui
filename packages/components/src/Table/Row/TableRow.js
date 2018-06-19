@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TableCell from '../Cell/TableCell';
 import theme from './TableRow.scss';
-
-function getRowClassName(classnames, element) {
-	return classNames(
-		classnames && classnames.row,
-		classnames && classnames.rows && classnames.rows[element.id],
-	);
-}
 
 /**
  * This function is responsible for rendering a piece of data for an element.
@@ -18,19 +11,19 @@ function renderRowData(element, column) {
 	const key = column.key;
 	const CellComponent = column.cellRenderer || TableCell;
 	const compKey = `${element.id}-${key}`;
-	const classnames = classNames(`td-${key}`, theme['tc-table-row-cell']);
-	const dataClassnames = classNames(
+	const tdClassNames = classnames(`td-${key}`, theme['tc-table-row-cell']);
+	const dataClassNames = classnames(
 		'tc-table-row-data',
 		theme['tc-table-row-data'],
 		column.cellClassName || `tc-table-row-data-${column.key}`,
 	);
 	return (
-		<td key={`td-${compKey}`} className={classnames}>
+		<td key={`td-${compKey}`} className={tdClassNames}>
 			<CellComponent
 				key={compKey}
 				element={element}
 				data={element[key]}
-				className={dataClassnames}
+				className={dataClassNames}
 				{...column.cellExtraProps}
 			/>
 		</td>
@@ -61,16 +54,16 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const { element, classnames, columns } = this.props;
-		const rowClassnames = classNames(
+		const { element, rowsClassName, columns } = this.props;
+		const rowClassNames = classnames(
 			'tc-table-row',
 			theme['tc-table-row'],
-			getRowClassName(classnames, element),
+			rowsClassName && rowsClassName[element.id],
 		);
 		return (
 			<tr
 				key={element.id}
-				className={rowClassnames}
+				className={rowClassNames}
 				data-id={element.id}
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
@@ -83,10 +76,7 @@ export default class TableRow extends Component {
 
 TableRow.propTypes = {
 	element: PropTypes.object.isRequired,
-	classnames: PropTypes.shape({
-		row: PropTypes.string,
-		rows: PropTypes.objectOf(PropTypes.string),
-	}),
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,

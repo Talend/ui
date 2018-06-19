@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TitleBar, { displayFilters } from './TitleBar/TitleBar';
 import TableComp from './TableComp/TableComp';
 import theme from './Table.scss';
@@ -17,7 +17,8 @@ export default function Table({
 	title,
 	elements,
 	columns,
-	classnames,
+	mainClassName,
+	rowsClassName,
 	withHeader,
 	filters,
 	onFilterChange,
@@ -29,12 +30,11 @@ export default function Table({
 }) {
 	return (
 		<div
-			className={classNames('tc-table-root', theme['tc-table-root'], classnames && classnames.root)}
+			className={classnames('tc-table-root', theme['tc-table-root'], mainClassName)}
 		>
 			{(title || displayFilters(filters)) && (
 				<TitleBar
 					title={title}
-					classnames={classnames}
 					filters={filters}
 					onFilterChange={onFilterChange}
 				/>
@@ -42,7 +42,7 @@ export default function Table({
 			<TableComp
 				elements={elements}
 				columns={columns}
-				classnames={classnames}
+				rowsClassName={rowsClassName}
 				withHeader={withHeader}
 				sorters={sorters}
 				onSortChange={onSortChange}
@@ -89,17 +89,8 @@ Table.propTypes = {
 			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	classnames: PropTypes.shape({
-		root: PropTypes.string,
-		titleBar: PropTypes.string,
-		title: PropTypes.string,
-		filtersBar: PropTypes.string,
-		table: PropTypes.string,
-		header: PropTypes.string,
-		body: PropTypes.string,
-		row: PropTypes.string,
-		rows: PropTypes.objectOf(PropTypes.string),
-	}),
+	mainClassName: PropTypes.string,
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	withHeader: PropTypes.bool,
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({

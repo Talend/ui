@@ -1,5 +1,7 @@
 $tc-table-title-bar-padding: 0 1rem;
 $tc-table-title-bar-height: 45px !default;
+$tc-table-title-bar-border-color: #ddd;
+$tc-table-title-color: #000;
 
 .tc-table-title-bar {
 	width: 100%;
@@ -7,11 +9,11 @@ $tc-table-title-bar-height: 45px !default;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $tc-table-title-bar-border-color;
 	padding: $tc-table-title-bar-padding;
 
 	.tc-table-title {
-		color: #000;
+		color: $tc-table-title-color;
 		font-weight: bold;
 		font-size: 1.2em;
 		text-transform: uppercase;

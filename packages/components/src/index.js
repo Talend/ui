@@ -39,14 +39,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
-import {
-	StringFilterComponent,
-	Table,
-	TableCell,
-	TableHeaderCell,
-	TableSortHeader,
-	ToggleFilterComponent,
-} from './Table';
+import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -168,12 +161,7 @@ export {
 	Status,
 	SubHeaderBar,
 	TabBar,
-	StringFilterComponent,
 	Table,
-	TableCell,
-	TableHeaderCell,
-	TableSortHeader,
-	ToggleFilterComponent,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

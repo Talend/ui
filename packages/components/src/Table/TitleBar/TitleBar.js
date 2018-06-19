@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import FiltersBar from '../Filters/FiltersBar';
 import theme from './TitleBar.scss';
 
@@ -12,28 +12,26 @@ export function displayFilters(filters) {
  * This component is responsible for rendering the title bar of the table component.
  * It renders a title and a set of filters.
  */
-export default function TitleBar({ title, filters, onFilterChange, classnames }) {
+export default function TitleBar({ title, filters, onFilterChange }) {
 	return (
 		<div
-			className={classNames(
+			className={classnames(
 				'tc-table-title-bar',
 				theme['tc-table-title-bar'],
-				classnames && classnames.titleBar,
 			)}
 		>
 			{title && (
 				<span
-					className={classNames(
+					className={classnames(
 						'tc-table-title',
 						theme['tc-table-title'],
-						classnames && classnames.title,
 					)}
 				>
 					{title}
 				</span>
 			)}
 			{displayFilters(filters) && (
-				<FiltersBar classnames={classnames} filters={filters} onFilterChange={onFilterChange} />
+				<FiltersBar filters={filters} onFilterChange={onFilterChange} />
 			)}
 		</div>
 	);
@@ -41,10 +39,6 @@ export default function TitleBar({ title, filters, onFilterChange, classnames })
 
 TitleBar.propTypes = {
 	title: PropTypes.string,
-	classnames: PropTypes.shape({
-		titleBar: PropTypes.string,
-		title: PropTypes.string,
-	}),
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
 			id: PropTypes.string.isRequired,

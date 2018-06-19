@@ -9,10 +9,7 @@ import { checkA11y } from '@storybook/addon-a11y';
 import {
 	DraggableComponent as draggable,
 	IconsProvider,
-	StringFilterComponent,
 	Table,
-	TableCell,
-	ToggleFilterComponent,
 } from '../src/index';
 
 const dataPrepSchema = {
@@ -277,8 +274,7 @@ function newColumn(col) {
 	};
 }
 
-function addSortExtraProps(column) {
-	const key = column.key;
+function addSortExtraProps(column) {	
 	column.headExtraProps = {
 		iconPosition: 'right',
 		link: true,
@@ -291,7 +287,7 @@ function addSortExtraProps(column) {
  */
 const DRAGGABLE_ELEMENT_TYPE = 'element';
 
-const draggableCell = draggable(TableCell, DRAGGABLE_ELEMENT_TYPE);
+const draggableCell = draggable(Table.Cell, DRAGGABLE_ELEMENT_TYPE);
 
 const draggableCellExtraProps = {
 	// for the drag and drop behaviour
@@ -341,14 +337,6 @@ const columns6 = [
 	addSortExtraProps(newColumn(Columns.DESC)),
 ];
 
-const storyClassnames = {
-	root: 'story-table',
-};
-
-const defaultClassnames = {
-	root: 'default-table',
-};
-
 class ConnectedTable extends React.Component {
 
 	constructor(props) {
@@ -373,18 +361,18 @@ class ConnectedTable extends React.Component {
 		});
 	}
 
-	getRootClassName() {
+	getMainClassName() {
 		return classnames({
 			'table-with-dnd': this.state.draggable,
 		});
 	}
 
-	getRowsClassNames() {
-		const rowsClassNames = {};
+	getRowsClassName() {
+		const rowsClassName = {};
 		if (this.state.highlighted) {
-			rowsClassNames[this.state.highlighted.id] = 'highlighted';
+			rowsClassName[this.state.highlighted.id] = 'highlighted';
 		}
-		return rowsClassNames;
+		return rowsClassName;
 	}
 
 	render() {
@@ -394,16 +382,12 @@ class ConnectedTable extends React.Component {
 			withHeader,
 			onScroll,
 		} = this.props;
-		const allClassnames = {
-			root: this.getRootClassName(),
-			row: classnames({'draggable-row': this.state.draggable}),
-			rows: this.getRowsClassNames(),
-		};
 		return (
 			<Table
 				elements={elements}
 				columns={columns}
-				classnames={allClassnames}
+				mainClassName={this.getMainClassName()}
+				rowsClassName={this.getRowsClassName()}
 				withHeader={withHeader}
 				onScroll={onScroll}
 				onEnterRow={this.onEnterRow}
@@ -439,9 +423,10 @@ function createNameFilter() {
 		active: false,
 		params: {
 			value: null,
+			docked: true,
 		},
 		match: matchName,
-		renderer: StringFilterComponent,
+		renderer: Table.StringFilterComponent,
 		rendererProps: {
 			placeHolder: 'Filter...',
 			dockable: true,
@@ -462,7 +447,7 @@ function createMandatoryFieldFilter() {
 		id: mandatoryFieldFilterId,
 		active: false,
 		match: matchMandatory,
-		renderer: ToggleFilterComponent,
+		renderer: Table.ToggleFilterComponent,
 		rendererProps: {
 			label: 'Show Mandatory Fields (*) Only',
 		},
@@ -630,7 +615,7 @@ class SortedFilteredTable extends React.Component {
 		}));
 	}
 
-	getRootClassName() {
+	getMainClassName() {
 		return classnames({
 			'table-with-dnd': this.state.draggable,
 			'sorted-table': this.state.sorters,
@@ -639,16 +624,12 @@ class SortedFilteredTable extends React.Component {
 	}
 
 	render() {
-		const allClassnames = {
-			root: this.getRootClassName(),
-			row: classnames({'draggable-row': this.state.draggable}),
-		};
 		return (
 			<Table
 				title={this.props.title}
 				elements={this.state.sortedElements}
 				columns={this.state.columns}
-				classnames={allClassnames}
+				mainClassName={this.getMainClassName()}
 				withHeader={true}
 				filters={this.state.filters}
 				onFilterChange={this.onFilterChange}
@@ -689,7 +670,7 @@ stories
 			<Table
 			  elements={schema1.elements}
 	      columns={columns1}
-				classnames={storyClassnames}
+				mainClassName={'story-table'}
 				withHeader={true}
 			/>
 		);
@@ -699,7 +680,7 @@ stories
 			<Table
 			  elements={schema2.elements}
 	      columns={columns2}
-				classnames={defaultClassnames}
+				mainClassName={'default-table'}
 	      onEnterRow={action('onEnterRow called!')}
 				onLeaveRow={action('onLeaveRow called!')}
 			/>

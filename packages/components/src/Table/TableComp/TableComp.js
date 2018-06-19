@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TableHeader from '../Header/TableHeader';
 import TableBody from '../Body/TableBody';
 import theme from './TableComp.scss';
@@ -11,7 +11,7 @@ import theme from './TableComp.scss';
 export default function TableComp({
 	elements,
 	columns,
-	classnames,
+	rowsClassName,
 	withHeader,
 	sorters,
 	onSortChange,
@@ -20,11 +20,10 @@ export default function TableComp({
 	onLeaveRow,
 }) {
 	return (
-		<table className={classNames('tc-table', theme['tc-table'], classnames && classnames.table)}>
+		<table className={classnames('tc-table', theme['tc-table'])}>
 			{withHeader && (
 				<TableHeader
 					columns={columns}
-					classnames={classnames}
 					sorters={sorters}
 					onSortChange={onSortChange}
 				/>
@@ -32,7 +31,7 @@ export default function TableComp({
 			<TableBody
 				elements={elements}
 				columns={columns}
-				classnames={classnames}
+				rowsClassName={rowsClassName}
 				onScroll={onScroll}
 				onEnterRow={onEnterRow}
 				onLeaveRow={onLeaveRow}
@@ -55,9 +54,7 @@ TableComp.propTypes = {
 			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	classnames: PropTypes.shape({
-		table: PropTypes.string,
-	}),
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	withHeader: PropTypes.bool,
 	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,

@@ -27,7 +27,12 @@ describe('Render a table width custom configuration', () => {
 		// create React tree
 		const tree = renderer
 			.create(
-				<Table elements={elements} columns={TestData.columns2} classnames={TestData.classnames} />,
+				<Table
+					elements={elements}
+					columns={TestData.columns2}
+					mainClassnames={TestData.mainClassName}
+					rowsClassName={TestData.rowsClassName}
+				/>,
 			)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
@@ -58,7 +63,8 @@ describe('Render a table width custom header', () => {
 			.create(
 				<Table
 					elements={elements}
-					classnames={TestData.classnames}
+					mainClassName={TestData.mainClassName}
+					rowsClassName={TestData.rowsClassName}
 					columns={TestData.columns2}
 					withHeader
 				/>,

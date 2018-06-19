@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TableRow from '../Row/TableRow.js';
 import theme from './TableBody.scss';
 
@@ -10,23 +10,22 @@ import theme from './TableBody.scss';
 export default function TableBody({
 	elements,
 	columns,
-	classnames,
+	rowsClassName,
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
 }) {
-	const bodyClassnames = classNames(
+	const bodyClassNames = classnames(
 		'tc-table-body',
 		theme['tc-table-body'],
-		classnames && classnames.body,
 	);
 	return (
-		<tbody className={bodyClassnames} onScroll={onScroll}>
+		<tbody className={bodyClassNames} onScroll={onScroll}>
 			{elements.map(element => (
 				<TableRow
 					key={element.id}
 					element={element}
-					classnames={classnames}
+					rowsClassName={rowsClassName}
 					columns={columns}
 					onEnterRow={onEnterRow}
 					onLeaveRow={onLeaveRow}
@@ -39,9 +38,7 @@ export default function TableBody({
 TableBody.propTypes = {
 	elements: PropTypes.array.isRequired,
 	columns: PropTypes.array.isRequired,
-	classnames: PropTypes.shape({
-		body: PropTypes.string,
-	}),
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,

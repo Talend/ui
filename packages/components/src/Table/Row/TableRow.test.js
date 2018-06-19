@@ -12,7 +12,7 @@ it('single-row', () => {
 		.create(
 			<TableRow
 				element={TestData.element1}
-				classnames={TestData.classnames}
+				rowsClassName={TestData.rowsClassName}
 				columns={TestData.columns1}
 			/>,
 		)

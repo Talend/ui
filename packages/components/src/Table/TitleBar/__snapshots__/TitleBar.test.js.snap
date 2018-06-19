@@ -2,15 +2,15 @@
 
 exports[`title-bar 1`] = `
 <div
-  className="tc-table-title-bar theme-tc-table-title-bar classname-of-title-bar"
+  className="tc-table-title-bar theme-tc-table-title-bar"
 >
   <span
-    className="tc-table-title theme-tc-table-title classname-of-title"
+    className="tc-table-title theme-tc-table-title"
   >
     TALEND.SCHEMA
   </span>
   <div
-    className="tc-table-filters-bar theme-tc-table-filters-bar classname-of-filters-bar"
+    className="tc-table-filters-bar theme-tc-table-filters-bar"
   >
     <button
       aria-label="Toggle filter"
