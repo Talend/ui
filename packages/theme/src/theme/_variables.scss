@@ -194,7 +194,7 @@ $btn-border-radius-base: $border-radius-base !default;
 $btn-border-radius-large: $border-radius-large !default;
 $btn-border-radius-small: $border-radius-small !default;
 
-$btn-line-height: 3.3rem !default;
+$btn-line-height: 3.5rem !default;
 
 //== Forms
 //
@@ -228,13 +228,9 @@ $input-color-placeholder: #999 !default;
 //** Default `.form-control` height
 $input-height-base: ($line-height-computed + ($padding-smaller * 2) + 2) !default;
 //** Large `.form-control` height
-$input-height-large: (
-	ceil($font-size-large * $line-height-large) + ($padding-small * 2) + 2
-) !default;
+$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-small * 2) + 2) !default;
 //** Small `.form-control` height
-$input-height-small: (
-	floor($font-size-small * $line-height-small) + ($padding-smaller * 2) + 2
-) !default;
+$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-smaller * 2) + 2) !default;
 
 //** `.form-group` margin
 $form-group-margin-bottom: 25px !default;
