@@ -10,7 +10,7 @@ function nothing() {
 }
 
 /**
- * T>his is to render an not found componenent to alert developers
+ * This is to render an not found componenent to alert developers
  * @param {object} props container of the error
  */
 function NotFoundComponent({ error }) {
@@ -109,7 +109,7 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 
 /**
  * Allow `injectable` prop support in a Component.
- * That props will support three shape: string, object, react element
+ * Those props will support three shapes: string, object, react element
  * @param {function} getComponent
  * @param {object|string|React Element} data
  */
