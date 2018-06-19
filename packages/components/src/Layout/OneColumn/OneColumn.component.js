@@ -23,9 +23,7 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		<div className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
-				<div style={style}>
-					{children}
-				</div>
+				<div style={style}>{children}</div>
 			</WithDrawer>
 		</div>
 	);

@@ -30,9 +30,7 @@ function TwoColumns({ one, drawers, children, tabs, getComponent, ...props }) {
 			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
-					<div style={style}>
-						{children}
-					</div>
+					<div style={style}>{children}</div>
 				</WithDrawer>
 			</div>
 		</div>
