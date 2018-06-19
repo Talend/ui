@@ -48,7 +48,7 @@ describe('Layout', () => {
 		const wrapper = shallow(
 			<Layout mode="OneColumn" header={header}>
 				{one}
-			</Layout>
+			</Layout>,
 		);
 		expect(wrapper.find('OneColumn').length).toBe(1);
 	});
@@ -57,7 +57,7 @@ describe('Layout', () => {
 		const wrapper = shallow(
 			<Layout mode="TwoColumns" one={one} header={header}>
 				{two}
-			</Layout>
+			</Layout>,
 		);
 		expect(wrapper.find('TwoColumns').length).toBe(1);
 	});
@@ -75,16 +75,14 @@ describe('Layout', () => {
 		const wrapper = shallow(
 			<Layout mode="OneColumn" header={header} footer={footer}>
 				{one}
-			</Layout>
+			</Layout>,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render layout without header', () => {
-		const wrapper = shallow(
-			<Layout mode="OneColumn">{one}</Layout>
-		);
+		const wrapper = shallow(<Layout mode="OneColumn">{one}</Layout>);
 
 		expect(wrapper.find('header').length).toBe(0);
 	});
@@ -93,7 +91,7 @@ describe('Layout', () => {
 		const wrapper = shallow(
 			<Layout mode="TwoColumns" one={one} header={header} tabs={tabs}>
 				{two}
-			</Layout>
+			</Layout>,
 		);
 		expect(wrapper.find('TwoColumns').props().tabs).toBe(tabs);
 	});
@@ -102,7 +100,7 @@ describe('Layout', () => {
 		const wrapper = shallow(
 			<Layout subHeader={subHeader} mode="OneColumn">
 				{one}
-			</Layout>
+			</Layout>,
 		);
 		expect(wrapper.find('SubHeaderBar').length).toBe(1);
 		expect(wrapper.find('OneColumn').length).toBe(1);
