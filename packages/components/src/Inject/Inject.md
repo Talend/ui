@@ -134,6 +134,11 @@ function ArticlePage({ header, article, footer}) {
 		</footer>
 	);
 }
+ArticlePage.propTypes = {
+	header: Inject.getReactElement.propTypes,
+	article: Inject.getReactElement.propTypes,
+	footer: Inject.getReactElement.propTypes,
+};
 ```
 
 So ArticlePage is only responsible to give the global structure.
