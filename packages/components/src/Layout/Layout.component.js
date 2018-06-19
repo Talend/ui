@@ -80,7 +80,7 @@ function Layout({
 
 	return (
 		<div id={id} className={appCSS}>
-			{(safeHeader) && (
+			{safeHeader && (
 				<header role="banner" className={headerCSS}>
 					{safeHeader}
 				</header>
@@ -94,7 +94,7 @@ function Layout({
 				</Component>
 			)}
 			{injected('after-content')}
-			{(safeFooter) && (
+			{safeFooter && (
 				<footer role="contentinfo" className={footerCSS}>
 					{safeFooter}
 				</footer>
