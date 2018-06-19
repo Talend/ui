@@ -22,11 +22,7 @@ export default function TableComp({
 	return (
 		<table className={classnames('tc-table', theme['tc-table'])}>
 			{withHeader && (
-				<TableHeader
-					columns={columns}
-					sorters={sorters}
-					onSortChange={onSortChange}
-				/>
+				<TableHeader columns={columns} sorters={sorters} onSortChange={onSortChange} />
 			)}
 			<TableBody
 				elements={elements}

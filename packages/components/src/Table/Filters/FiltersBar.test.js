@@ -14,9 +14,7 @@ it('two-filters', () => {
 	];
 	// create React tree
 	const tree = renderer
-		.create(
-			<FiltersBar filters={filters} onFilterChange={jest.fn()} />,
-		)
+		.create(<FiltersBar filters={filters} onFilterChange={jest.fn()} />)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

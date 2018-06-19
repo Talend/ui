@@ -14,25 +14,11 @@ export function displayFilters(filters) {
  */
 export default function TitleBar({ title, filters, onFilterChange }) {
 	return (
-		<div
-			className={classnames(
-				'tc-table-title-bar',
-				theme['tc-table-title-bar'],
-			)}
-		>
+		<div className={classnames('tc-table-title-bar', theme['tc-table-title-bar'])}>
 			{title && (
-				<span
-					className={classnames(
-						'tc-table-title',
-						theme['tc-table-title'],
-					)}
-				>
-					{title}
-				</span>
+				<span className={classnames('tc-table-title', theme['tc-table-title'])}>{title}</span>
 			)}
-			{displayFilters(filters) && (
-				<FiltersBar filters={filters} onFilterChange={onFilterChange} />
-			)}
+			{displayFilters(filters) && <FiltersBar filters={filters} onFilterChange={onFilterChange} />}
 		</div>
 	);
 }
