@@ -85,15 +85,16 @@ function Layout({
 					{safeHeader}
 				</header>
 			)}
-			{inject('after-header')}
-			{safeSubHeader}
-			{inject('after-subheader')}
+			{safeSubHeader && (
+				<div className="subheader">
+					{safeSubHeader}
+				</div>
+			)}
 			{Component && (
 				<Component drawers={safeDrawers} tabs={tabs} inject={inject} {...rest}>
 					{children}
 				</Component>
 			)}
-			{inject('after-content')}
 			{safeFooter && (
 				<footer role="contentinfo" className={footerCSS}>
 					{safeFooter}

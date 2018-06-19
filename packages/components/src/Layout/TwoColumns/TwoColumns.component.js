@@ -24,7 +24,7 @@ function TwoColumns({ one, drawers, children, tabs, inject, ...props }) {
 
 	return (
 		<div className={containerCSS} {...props}>
-			<div className={sidemenuCSS}>{one || inject('one')}</div>
+			<div className={sidemenuCSS}>{one}</div>
 			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}

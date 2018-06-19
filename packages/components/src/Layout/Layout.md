@@ -24,6 +24,4 @@ This component use [Inject](../Inject/Inject.md).
 `components` props support the following slots are:
 
 * drawers
-* after-header
-* after-subheader
-* after-content
+* content
