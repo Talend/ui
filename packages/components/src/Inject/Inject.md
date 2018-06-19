@@ -110,7 +110,7 @@ In this case Action will not be wrapped but WhatEver will be.
 # How to support props with React Element and Inject fallback.
 
 Sometimes we want a component which is just a layout structure.
-So it s props should only be the element we want in each part.
+So its props should only be the element we want in each part.
 
 The possible types
 * react element (pass the test React.isValidElement)
