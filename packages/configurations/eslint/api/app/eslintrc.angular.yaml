@@ -1,12 +1,6 @@
-extends: ../.eslintrc.base.json
+extends: ./.eslintrc.vanilla.yaml
 env:
-  browser: true
   jquery: true
-rules:
-  import/no-commonjs:
-    - error
-  import/no-nodejs-modules:
-    - error
 globals:
-  _: false
+  _: false # To be removed when all our angular code uses proper imports
   angular: false

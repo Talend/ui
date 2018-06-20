@@ -1,4 +1,4 @@
-extends: ./.eslintrc.base.json
+extends: ./.eslintrc.base.yaml
 root: true
 env:
   node: true
