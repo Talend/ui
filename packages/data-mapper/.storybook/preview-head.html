@@ -18,23 +18,25 @@
     font-weight: bold;
   }
 
-  .th-mandatory,
-  .td-mandatory {
+  .tc-table th:nth-child(1),
+  .tc-table td:nth-child(1) {
     width: 10px;
   }
 
-  .th-name,
-  .td-name {
+  .tc-table th:nth-child(2),
+  .tc-table td:nth-child(2) {
     width: 150px;
   }
 
-  .th-type,
-  .td-type {
+
+  .tc-table th:nth-child(3),
+  .tc-table td:nth-child(3) {
     width: 100px;
   }
 
-  .th-description,
-  .td-description {
+
+  .tc-table th:nth-child(4),
+  .tc-table td:nth-child(4) {
     width: 400px;
   }
 
@@ -54,4 +56,25 @@
     width: 100vw;
   }
 
+  #mapper-container > div {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+      flex-direction: column;
+  }
+
+  #mapper-container nav {
+      justify-content: center;
+  }
+
+  #mapper {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      padding: 8px;
+      margin: 8px;
+      background-color: #e9e9e9;
+      height: 500px;
+      width: 80vw;
+  }
 </style>
