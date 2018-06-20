@@ -16,7 +16,7 @@ exports[`ListGrid should render noRows 1`] = `
     className="tc-list-table theme-tc-list-table"
     disableHeader={false}
     estimatedRowSize={30}
-    gridClassName="theme-grid"
+    gridClassName="theme-grid tc-dropdown-container"
     headerHeight={35}
     headerRowRenderer={[Function]}
     headerStyle={Object {}}
@@ -105,7 +105,7 @@ exports[`ListGrid should render noRows 1`] = `
         autoWidth={false}
         cellRangeRenderer={[Function]}
         cellRenderer={[Function]}
-        className="ReactVirtualized__Table__Grid theme-grid"
+        className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
         columnCount={1}
         columnWidth={1024}
         containerRole="rowgroup"
@@ -114,7 +114,7 @@ exports[`ListGrid should render noRows 1`] = `
         estimatedColumnSize={100}
         estimatedRowSize={30}
         getScrollbarSize={[Function]}
-        gridClassName="theme-grid"
+        gridClassName="theme-grid tc-dropdown-container"
         headerHeight={35}
         headerRowRenderer={[Function]}
         headerStyle={Object {}}
@@ -152,7 +152,7 @@ exports[`ListGrid should render noRows 1`] = `
         <div
           aria-label="grid"
           aria-readonly={true}
-          className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid"
+          className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
           onScroll={[Function]}
           role="rowgroup"
           style={
@@ -185,7 +185,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
   className="tc-list-table theme-tc-list-table"
   disableHeader={false}
   estimatedRowSize={30}
-  gridClassName="theme-grid"
+  gridClassName="theme-grid tc-dropdown-container"
   headerHeight={35}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
@@ -222,6 +222,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-id"
@@ -239,6 +240,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       }
     }
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-name"
@@ -256,6 +258,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       }
     }
     dataKey="description"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-description"
@@ -271,7 +274,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
   className="tc-list-table theme-tc-list-table"
   disableHeader={true}
   estimatedRowSize={30}
-  gridClassName="theme-grid"
+  gridClassName="theme-grid tc-dropdown-container"
   headerHeight={35}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
@@ -308,6 +311,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-id"
@@ -325,6 +329,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       }
     }
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-name"
@@ -342,6 +347,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       }
     }
     dataKey="description"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-description"
@@ -357,7 +363,7 @@ exports[`ListGrid should render table with sort props 1`] = `
   className="tc-list-table theme-tc-list-table"
   disableHeader={false}
   estimatedRowSize={30}
-  gridClassName="theme-grid"
+  gridClassName="theme-grid tc-dropdown-container"
   headerHeight={35}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
@@ -394,6 +400,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-id"
@@ -411,6 +418,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       }
     }
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-name"
@@ -428,6 +436,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       }
     }
     dataKey="description"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="theme-header tc-list-cell-description"

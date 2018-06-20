@@ -18,7 +18,6 @@ import flow from 'lodash/flow';
  * @param {string} type - Define the type of element which can be dragged and dropped.
  */
 export default function getDraggable(Comp, type) {
-
 	// This defines the drag source specifications.
 	const sourceSpecifications = {
 		/*

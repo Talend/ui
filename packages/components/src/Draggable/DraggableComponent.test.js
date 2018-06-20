@@ -86,7 +86,6 @@ function wrapInTestContext(DecoratedComponent) {
  * This tests the drag and drop of the element ru onto the element rh.
  */
 it('drag-and-drop-on-multiple-elements', () => {
-
 	const draggableElement = draggable(Element, type);
 
 	const beginDrag = jest.fn().mockReturnValue(ru);

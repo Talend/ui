@@ -3,29 +3,27 @@ import PropTypes from 'prop-types';
 import { shallow, mount } from 'enzyme';
 import { Dispatcher, checkIfActionInfoExist } from '../src/Dispatcher';
 
-jest.mock('../src/api', () => ({
-	actionCreator: {
-		get(context, id) {
-			if (
-				id !== 'existingActionCreator:id' &&
-				id !== 'actionCreator:id' &&
-				id !== 'noOp' &&
-				id !== 'another:actionCreator:id'
-			) {
-				throw new Error(`action not found id: ${id}`);
-			}
-		},
-	},
-	action: {
-		getOnProps() {
-			return ['onClick', 'onDoubleClick'];
-		},
-	},
-}));
-
 const mockContext = {
 	registry: {},
 };
+
+jest.mock('../src/action', () => ({
+	getOnProps() {
+		return ['onClick', 'onDoubleClick'];
+	},
+}));
+jest.mock('../src/actionCreator', () => ({
+	get(context, id) {
+		if (
+			id !== 'existingActionCreator:id' &&
+			id !== 'actionCreator:id' &&
+			id !== 'noOp' &&
+			id !== 'another:actionCreator:id'
+		) {
+			throw new Error(`action not found id: ${id}`);
+		}
+	},
+}));
 
 describe('Testing <Dispatcher />', () => {
 	function replacer(k, v) {
@@ -90,7 +88,7 @@ describe('Testing <Dispatcher />', () => {
 	});
 
 	it(
-		'should call api.actionCreator.get and reThrow at mount time' +
+		'should call cmf.actionCreator.get and reThrow at mount time' +
 			"if action info bind onto on[eventName] can't be found in settings",
 		() => {
 			expect(() => {
@@ -107,7 +105,7 @@ describe('Testing <Dispatcher />', () => {
 	);
 
 	it(
-		'should call api.actionCreator.get and reThrow at willreceivePropsTime' +
+		'should call cmf.actionCreator.get and reThrow at willreceivePropsTime' +
 			"if action info bind onto on[eventName] can't be found in settings",
 		() => {
 			const wrapper = mount(

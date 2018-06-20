@@ -36,8 +36,11 @@ export class UIFormComponent extends React.Component {
 		this.onActionClick = this.onActionClick.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
-		if (typeof props.language === 'function') {
+		if (props.language != null) {
 			Object.assign(language, props.language);
+			// Force update of language @talend even if already set
+			tv4.addLanguage('@talend', language);
+			tv4.language('@talend');
 		}
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', language);
@@ -260,6 +263,7 @@ export class UIFormComponent extends React.Component {
 					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
 					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
 				/>
 			</form>
 		);
@@ -313,6 +317,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
+		getComponent: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }

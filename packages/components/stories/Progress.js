@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Progress } from '../src/index';
 
@@ -11,6 +12,7 @@ const containerStyle = {
 
 
 storiesOf('Progress', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('Without tooltip', () => (
 		<div>
 			<h1>Action</h1>

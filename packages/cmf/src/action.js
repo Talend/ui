@@ -108,12 +108,12 @@ function mapDispatchToProps(dispatch, props) {
 
 const registerActionCreator = deprecated(
 	(id, actionCreator, context) => actionCreatorAPI.register(id, actionCreator, context),
-	'stop use api.action.registerActionCreator. please use api.actionCreator.register',
+	'stop use cmf.action.registerActionCreator. please use cmf.actionCreator.register',
 );
 
 const getActionCreatorFunction = deprecated(
 	(context, id) => actionCreatorAPI.get(context, id),
-	'stop use api.action.getActionCreatorFunction. please use api.actionCreator.get',
+	'stop use cmf.action.getActionCreatorFunction. please use cmf.actionCreator.get',
 );
 
 export default {

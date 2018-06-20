@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint no-console: 0 */
 
 const fs = require('fs');
 const path = require('path');
@@ -29,103 +30,104 @@ program.on('--help', () => {
 
 program.parse(process.argv);
 
-const stack_version = program.stack || require('./lerna.json').version;
+const stackVersion = program.stack || require('./lerna.json').version;
 
 if (program.debug) {
-	console.log(`use stack version ${stack_version}`);
+	console.log(`use stack version ${stackVersion}`);
 }
 
-const REACT_VERSION = '^15.6.2';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+console.log('REACT_VERSION: ', REACT_VERSION);
+const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
-	'@talend/bootstrap-theme': stack_version,
-	'@talend/react-cmf': stack_version,
-	'@talend/react-cmf-cqrs': stack_version,
-	'@talend/react-cmf-webpack-plugin': stack_version,
-	'@talend/react-sagas': stack_version,
-	'@talend/react-components': stack_version,
-	'@talend/react-containers': stack_version,
-	'@talend/react-datagrid': stack_version,
-	'@talend/react-data-mapper': stack_version,
-	'@talend/react-forms': stack_version,
-	'@talend/icons': stack_version,
-	'@talend/log': stack_version,
+	'@talend/bootstrap-theme': stackVersion,
+	'@talend/react-cmf': stackVersion,
+	'@talend/react-cmf-cqrs': stackVersion,
+	'@talend/react-cmf-webpack-plugin': stackVersion,
+	'@talend/react-sagas': stackVersion,
+	'@talend/react-components': stackVersion,
+	'@talend/react-containers': stackVersion,
+	'@talend/react-datagrid': stackVersion,
+	'@talend/react-data-mapper': stackVersion,
+	'@talend/react-forms': stackVersion,
+	'@talend/icons': stackVersion,
+	'@talend/log': stackVersion,
 };
 
 const ADDONS = {
-	'babel-polyfill': '6.26.0',
-	'date-fns': '1.27.2',
+	'babel-polyfill': '^6.26.0',
 	'focus-outline-manager': '^1.0.2',
-	immutablediff: '0.4.4',
 	'normalize.css': '5.0.0',
-	'path-to-regexp': '2.0.0',
-	prettier: '1.6.1',
-	'redux-batched-subscribe': '0.1.6',
-	'redux-undo': 'beta',
-	'redux-saga': '0.15.4',
-	'react-addons-perf': '15.4.2',
-	'react-autowhatever': '10.1.0',
-	'react-debounce-input': '3.1.0',
-	'react-immutable-proptypes': '2.1.0',
-	'react-jsonschema-form': '1.0.0',
-	'react-tap-event-plugin': '2.0.0',
-	'react-virtualized': '9.10.1',
-	slugify: '1.1.0',
-	'whatwg-fetch': '2.0.3',
+	'path-to-regexp': '^2.0.0',
+	'react-addons-perf': '^15.4.2',
+	'react-tap-event-plugin': '^2.0.0',
+	'whatwg-fetch': '^2.0.3',
 };
 
 const VERSIONS = Object.assign({}, ADDONS, {
-	// deps
+	// deps: non component libs
 	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
-	'bson-objectid': '1.1.5',
-	classnames: '2.2.5',
-	'd3-shape': '1.2.0',
-	keycode: '2.2.0',
-	lodash: '4.17.4',
-	immutable: '3.8.1',
-	invariant: '2.2.2',
-	'prop-types': '15.5.10',
+	'bson-objectid': '^1.1.5',
+	classnames: '^2.2.5',
+	'date-fns': '^1.27.2',
+	keycode: '^2.2.0',
+	immutable: '^3.8.1',
+	immutablediff: '^0.4.4',
+	invariant: '^2.2.2',
+	lodash: '^4.17.4',
+	'prop-types': '^15.5.10',
 	react: REACT_VERSION,
-	'react-ace': '5.2.0',
-	'react-addons-css-transition-group': '15.6.2',
-	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
+	'react-immutable-proptypes': '^2.1.0',
 	i18next: '^9.0.0',
 	'i18next-parser': '^0.13.0',
-	'rc-slider': '8.4.1',
-	'rc-tooltip': '3.7.0',
 	'react-i18next': '^7.6.1',
-	'react-redux': '5.0.5',
-	'react-router': '3.2.0',
-	'react-router-redux': '4.0.8',
+	'react-redux': '^5.0.7',
+	'react-router': '^3.2.0',
+	'react-router-redux': '^4.0.8',
 	'react-test-renderer': REACT_VERSION,
-	'react-virtualized': '9.10.1',
+	'react-transition-group': '^2.3.1',
+	redux: '^3.7.2',
+	'redux-batched-actions': '^0.2.0',
+	'redux-batched-subscribe': '^0.1.6',
+	'redux-logger': '^3.0.6',
+	'redux-mock-store': '^1.2.3',
+	'redux-saga': '^0.15.4',
+	'redux-thunk': '^2.2.0',
+	'redux-undo': 'beta',
 	reselect: '^2.5.4',
-
-	redux: '3.6.0',
-	'redux-batched-actions': '0.2.0',
-	'redux-logger': '3.0.6',
-	'redux-mock-store': '1.2.3',
-	'redux-thunk': '2.2.0',
-	uuid: '3.0.1', // prefer bson-objectid
+	slugify: '^1.1.0',
+	uuid: '^3.0.1', // prefer bson-objectid
 	tv4: '^1.3.0',
 
+	// deps: libs that interact with the DOM
+	'd3-shape': '1.2.0',
+	'react-ace': '5.2.0',
+	'react-bootstrap': '0.31.5',
+	'rc-slider': '8.6.1',
+	'rc-tooltip': '3.7.2',
+	'react-autowhatever': '10.1.2',
+	'react-debounce-input': '3.2.0',
+	'react-jsonschema-form': '0.51.0',
+	'react-virtualized': '9.19.1',
+
 	// script dep
-	deepmerge: '1.5.1',
+	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@storybook/react': '^3.3.14',
-	'@storybook/addon-storyshots': '^3.3.14',
-	'@storybook/addon-actions': '^3.3.14',
-	'@storybook/addon-info': '^3.3.14',
-	'@storybook/addon-knobs': '^3.3.14',
-	'@storybook/addons': '^3.3.14',
+	'@storybook/react': '^3.4.7',
+	'@storybook/addon-storyshots': '^3.4.7',
+	'@storybook/addon-actions': '^3.4.7',
+	'@storybook/addon-info': '^3.4.7',
+	'@storybook/addon-knobs': '^3.4.7',
+	'@storybook/addons': '^3.4.7',
 	autoprefixer: '^7.1.4',
 	'babel-cli': '^6.26.0',
 	'babel-core': '^6.26.0',
-	'babel-eslint': '^8.0.2',
+	'babel-eslint': '8.0.1',
 	'babel-jest': JEST_VERSION,
 	'babel-plugin-transform-class-properties': '^6.24.1',
 	'babel-plugin-transform-export-extensions': '^6.22.0',
@@ -133,9 +135,10 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-plugin-transform-object-rest-spread': '^6.26.0',
 	'babel-preset-env': '^1.6.0',
 	'babel-preset-react': '^6.24.1',
-	cpx: '1.5.0',
+	cpx: '^1.5.0',
 	enzyme: '^3.1.0',
 	'enzyme-adapter-react-15': '^1.0.1',
+	'enzyme-adapter-react-16': '^1.1.1',
 	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
@@ -145,27 +148,27 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
+	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
 	'react-stub-context': '^0.7.0',
 	rimraf: '^2.6.1',
-	storyshots: '3.2.2',
 
 	// webpack
 	'babel-loader': '^7.1.2',
-	'copy-webpack-plugin': '4.1.1',
-	'css-loader': '0.28.7',
-	'extract-text-webpack-plugin': '3.0.2',
-	'file-loader': '1.1.5',
-	'fontgen-loader': '0.2.1',
-	'node-sass': '4.7.2',
-	'postcss-loader': '2.0.8',
-	'sass-loader': '6.0.6',
-	'style-loader': '0.19.0',
-	'url-loader': '0.6.2',
-	webpack: '3.8.1',
-	'webpack-bundle-analyzer': '2.9.0',
-	'webpack-dashboard': '1.0.0-7',
-	'webpack-dev-server': '2.9.3',
+	'copy-webpack-plugin': '^4.1.1',
+	'css-loader': '^0.28.7',
+	'extract-text-webpack-plugin': '^3.0.2',
+	'file-loader': '^1.1.5',
+	'fontgen-loader': '^0.2.1',
+	'node-sass': '^4.7.2',
+	'postcss-loader': '^2.0.8',
+	'sass-loader': '^6.0.6',
+	'style-loader': '^0.19.0',
+	'url-loader': '^0.6.2',
+	webpack: '^3.8.1',
+	'webpack-bundle-analyzer': '^2.9.0',
+	'webpack-dashboard': '^1.0.0-7',
+	'webpack-dev-server': '^2.9.3',
 });
 
 const files = [
@@ -177,7 +180,6 @@ const files = [
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
 	'./packages/icons/package.json',
-	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
 	'./packages/datagrid/package.json',
@@ -190,13 +192,24 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
-function check(source, dep, version) {
+function check(source, dep, version, category = 'dep') {
+	let safeVersion = version;
+	if (category === 'peer' && dep === 'react') {
+		safeVersion = REACT_VERSION_PEER;
+	}
+	if (category === 'peer' && dep === 'react-dom') {
+		safeVersion = REACT_VERSION_PEER;
+	}
 	let modified = false;
-	if (source && source[dep] && source[dep] !== version) {
-		if (!program.quiet) {
-			console.log(`update ${dep}: '${version}' from ${source[dep]}`);
+	if (source && source[dep] && source[dep] !== safeVersion) {
+		if (dep === 'react' && category === 'dep') {
+			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
 		}
-		source[dep] = version;
+		if (!program.quiet) {
+			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
+		}
+		// eslint-disable-next-line no-param-reassign
+		source[dep] = safeVersion;
 		modified = true;
 	}
 	return modified;
@@ -207,10 +220,11 @@ function checkAll(versions, source, dep) {
 	const devDeps = source.devDependencies;
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
-	const isModDevDeps = check(devDeps, dep, version);
+	const isModDevDeps = check(devDeps, dep, version, 'dev');
 	const isModDeps = check(deps, dep, version);
-	const isModPeers = check(peer, dep, version);
+	const isModPeers = check(peer, dep, version, 'peer');
 	if (isModDevDeps || isModDeps || isModPeers) {
+		// eslint-disable-next-line no-param-reassign
 		source.modified = true;
 	}
 }
@@ -221,12 +235,12 @@ function save(ppath, data) {
 	}
 	fs.open(ppath, 'w', (err, fd) => {
 		if (err) {
-			throw `error opening file: ${err}`;
+			throw new Error(`error opening file: ${err}`);
 		}
 
 		fs.write(fd, data, 0, data.length, null, err => {
 			if (err) {
-				throw `error writing file: ${err}`;
+				throw new Error(`error writing file: ${err}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
@@ -239,6 +253,7 @@ function save(ppath, data) {
 
 function updateFiles(filesList, versions) {
 	filesList.forEach(ppath => {
+		// eslint-disable-next-line global-require
 		const packageJSON = require(ppath);
 		if (!program.quiet) {
 			console.log(`=== check ${packageJSON.name} ===`);

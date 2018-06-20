@@ -83,23 +83,24 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     className="theme-tc-dropdown-button tc-dropdown-button"
     id="dropdown-id"
     onSelect={[Function]}
+    onToggle={[Function]}
     role="button"
     title={
-      <span
-        className="tc-dropdown-button-title"
-      >
+      Array [
+        null,
         <span
           className="tc-dropdown-button-title-label"
-        >
+      >
           related items
-        </span>
-      </span>
+      </span>,
+      ]
     }
   >
     <Uncontrolled(Dropdown)
       bsStyle="default"
       id="dropdown-id"
       onSelect={[Function]}
+      onToggle={[Function]}
       role="button"
     >
       <Dropdown
@@ -164,13 +165,10 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   type="button"
                 >
                   <span
-                    className="tc-dropdown-button-title"
+                    className="tc-dropdown-button-title-label"
+                    key="label"
                   >
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      related items
-                    </span>
+                    related items
                   </span>
                    
                   <span
@@ -200,6 +198,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                 >
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -219,7 +218,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                     title="document 1"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
@@ -264,6 +263,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   </MenuItem>
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -281,7 +281,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                     title="document 2"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
@@ -323,23 +323,25 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   aria-label="related items"
   bsStyle="link"
   className="theme-tc-dropdown-button tc-dropdown-button"
+  dropup={undefined}
   id="dropdown-id"
   onSelect={[Function]}
+  onToggle={[Function]}
   role="button"
   title={
-    <span
-      className="tc-dropdown-button-title"
-    >
+    Array [
+      null,
       <span
         className="tc-dropdown-button-title-label"
-      >
+    >
         related items
-      </span>
-    </span>
+    </span>,
+    ]
   }
 >
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -362,6 +364,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -387,24 +390,24 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   className="theme-tc-dropdown-button tc-dropdown-button"
   id="dropdown-id"
   onSelect={[Function]}
+  onToggle={[Function]}
   role="button"
   title={
-    <span
-      className="tc-dropdown-button-title"
-    >
+    Array [
       <Icon
         name="fa fa-file-excel-o"
-      />
+    />,
       <span
         className="tc-dropdown-button-title-label"
-      >
+    >
         related items
-      </span>
-    </span>
+    </span>,
+    ]
   }
 >
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -428,6 +431,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
+    className="theme-tc-dropdown-item tc-dropdown-item"
     disabled={false}
     divider={false}
     eventKey={
@@ -456,21 +460,23 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
     aria-label="related items"
     bsStyle="default"
     className="theme-tc-dropdown-button tc-dropdown-button"
+    dropup={undefined}
     id="dropdown-id"
     onSelect={[Function]}
+    onToggle={[Function]}
     role="button"
     title={
-      <span
-        className="tc-dropdown-button-title"
-      >
+      Array [
         <Icon
           name="fa fa-file-excel-o"
-        />
-      </span>
+      />,
+        null,
+      ]
     }
   >
     <MenuItem
       bsClass="dropdown"
+      className="theme-tc-dropdown-item tc-dropdown-item"
       disabled={false}
       divider={false}
       eventKey={
@@ -493,6 +499,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
     </MenuItem>
     <MenuItem
       bsClass="dropdown"
+      className="theme-tc-dropdown-item tc-dropdown-item"
       disabled={false}
       divider={false}
       eventKey={
@@ -534,6 +541,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
     >
       <MenuItem
         bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item"
         disabled={false}
         divider={false}
         eventKey={
@@ -555,7 +563,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
         title="document 1"
       >
         <li
-          className=""
+          className="theme-tc-dropdown-item tc-dropdown-item"
           role="presentation"
         >
           <SafeAnchor
@@ -601,6 +609,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
       </MenuItem>
       <MenuItem
         bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item"
         disabled={false}
         divider={false}
         eventKey={
@@ -620,7 +629,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
         title="document 2"
       >
         <li
-          className=""
+          className="theme-tc-dropdown-item tc-dropdown-item"
           role="presentation"
         >
           <SafeAnchor
@@ -677,23 +686,24 @@ exports[`ActionDropdown should render immutable items 1`] = `
     className="theme-tc-dropdown-button tc-dropdown-button"
     id="dropdown-id"
     onSelect={[Function]}
+    onToggle={[Function]}
     role="button"
     title={
-      <span
-        className="tc-dropdown-button-title"
-      >
+      Array [
+        null,
         <span
           className="tc-dropdown-button-title-label"
-        >
+      >
           related items
-        </span>
-      </span>
+      </span>,
+      ]
     }
   >
     <Uncontrolled(Dropdown)
       bsStyle="default"
       id="dropdown-id"
       onSelect={[Function]}
+      onToggle={[Function]}
       role="button"
     >
       <Dropdown
@@ -758,13 +768,10 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   type="button"
                 >
                   <span
-                    className="tc-dropdown-button-title"
+                    className="tc-dropdown-button-title-label"
+                    key="label"
                   >
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      related items
-                    </span>
+                    related items
                   </span>
                    
                   <span
@@ -794,6 +801,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                 >
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -813,7 +821,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                     title="document 1"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor
@@ -858,6 +866,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   </MenuItem>
                   <MenuItem
                     bsClass="dropdown"
+                    className="theme-tc-dropdown-item tc-dropdown-item"
                     disabled={false}
                     divider={false}
                     eventKey={
@@ -875,7 +884,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                     title="document 2"
                   >
                     <li
-                      className=""
+                      className="theme-tc-dropdown-item tc-dropdown-item"
                       role="presentation"
                     >
                       <SafeAnchor

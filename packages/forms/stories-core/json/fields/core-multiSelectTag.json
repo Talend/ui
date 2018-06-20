@@ -29,7 +29,33 @@
       "description": "This field accepts new items",
       "restricted": false,
       "title": "Tags",
-      "widget": "multiSelectTag"
+      "widget": "multiSelectTag",
+      "titleMap": [
+        {
+          "name": "Apple12",
+          "value": "Apple"
+        },
+        {
+          "name": "Pine[apple]12",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "Banana12",
+          "value": "Banana"
+        },
+        {
+          "name": "Cher[ry12",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "Lemo}n12",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "Grapefruit12",
+          "value": "Grapefruit"
+        }
+      ]
     },
     {
       "key": "restrictedtags",
@@ -39,6 +65,8 @@
     }
   ],
   "properties": {
-    "tags": ["Pine[apple]"]
+    "tags": [
+      "Pine[apple]"
+    ]
   }
 }

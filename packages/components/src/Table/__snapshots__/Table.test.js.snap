@@ -4,9 +4,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
 <div
   className="tc-table theme-tc-table"
 >
-  <table
-    className="tc-table-comp theme-tc-table-comp"
-  >
+  <table>
     <tbody
       className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
@@ -88,9 +86,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
 <div
   className="tc-table theme-tc-table"
 >
-  <table
-    className="tc-table-comp theme-tc-table-comp"
-  >
+  <table>
     <thead
       className="tc-table-head theme-tc-table-head"
     >
@@ -207,9 +203,7 @@ exports[`Render a table width default configuration default-table 1`] = `
 <div
   className="tc-table theme-tc-table"
 >
-  <table
-    className="tc-table-comp theme-tc-table-comp"
-  >
+  <table>
     <tbody
       className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
@@ -291,9 +285,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
 <div
   className="tc-table theme-tc-table"
 >
-  <table
-    className="tc-table-comp theme-tc-table-comp"
-  >
+  <table>
     <thead
       className="tc-table-head theme-tc-table-head"
     >

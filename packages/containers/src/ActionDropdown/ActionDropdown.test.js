@@ -63,7 +63,7 @@ describe('Connect(CMF(Container(ActionDropdown)))', () => {
 describe('Container(ActionDropdown)', () => {
 	it('should render', () => {
 		const wrapper = shallow(<ContainerActionDropdown />);
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with items', () => {
 		const context = mock.context();

@@ -40,6 +40,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
+import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -174,14 +175,7 @@ export {
 	Status,
 	SubHeaderBar,
 	TabBar,
-	DataAccessorWithSorterAndFilter,
-	FilterFactory,
-	Sorter,
-	SortOrder,
-	Table,	
-	TableCell,
-	TableHeaderCell,
-	TableSortHeader,
+	Table,
 	Toggle,
 	TooltipTrigger,
 	TreeView,

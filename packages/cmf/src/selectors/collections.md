@@ -1,13 +1,13 @@
 # collections selectors
 
-## api.selectors.collections.get
+## cmf.selectors.collections.get
 
 How to use:
 
 ```javascript
 function mapStateToProps(state) {
     return {
-        my: api.selectors.collections.get(state, 'my.data');
+        my: cmf.selectors.collections.get(state, 'my.data');
     }
 }
 ```
@@ -22,6 +22,6 @@ This selector accept the following arguments:
 
 Be warned if you build a new value each time in a mapStateToProps you introduce a performance issue.
 
-## api.selectors.collections.toJS
+## cmf.selectors.collections.toJS
 
 This is the same as above but the results is a POJO and it do not create a new reference on each state mutation, so you keep good performance.

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { api, cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
 import omit from 'lodash/omit';
 
@@ -10,19 +10,19 @@ import getOnClick from '../actionOnClick';
 export function mapStateToProps(state, ownProps = {}) {
 	let props = {};
 	const context = {
-		registry: api.registry.getRegistry(),
+		registry: cmf.registry.getRegistry(),
 		store: {
 			getState: () => state,
 		},
 	};
 	if (ownProps.actionId) {
 		// deprecated
-		props = api.action.getActionInfo(context, ownProps.actionId);
+		props = cmf.action.getActionInfo(context, ownProps.actionId);
 	}
 	const actionIds = ownProps.actionIds || props.actionIds;
 	if (actionIds) {
 		// deprecated
-		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+		props.items = actionIds.map(itemId => cmf.action.getActionInfo(context, itemId));
 	}
 	return props;
 }

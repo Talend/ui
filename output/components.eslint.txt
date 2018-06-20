@@ -6,11 +6,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionFile/ActionFile.component.js
-  65:9  error  'displayName' is not defined   no-undef
-  67:9  error  'propTypes' is not defined     no-undef
-  85:9  error  'defaultProps' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Constants.js
   21:13  error  Unexpected use of '<<'  no-bitwise
   22:11  error  Unexpected use of '<<'  no-bitwise
@@ -315,9 +310,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
-  76:56  error  'properties' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
   56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -326,45 +318,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Slider/Slider.component.js
-  132:9  error  'displayName' is not defined  no-undef
-  134:9  error  'propTypes' is not defined    no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/InputTitleSubHeader/InlineFormSubHeader.component.js
-  11:9  error  'propTypes' is not defined     no-undef
-  19:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Table/DataAccessor/DataAccessorWithSorterAndFilter.js
-    1:8   error  'Filter' is defined but never used                 no-unused-vars
-    2:8   error  'Sorter' is defined but never used                 no-unused-vars
-  238:7   error  'result' is never reassigned. Use 'const' instead  prefer-const
-  343:19  error  'elementId' is defined but never used              no-unused-vars
-  346:61  error  'id' is not defined                                no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Table/Sorters/Sorter.js
-  49:10  error  Do not nest ternary expressions  no-nested-ternary
-
-/home/travis/build/Talend/ui/packages/components/src/Table/TableActionHeader.js
-  6:17  error  Unnecessary use of conditional expression for default assignment  no-unneeded-ternary
-
-/home/travis/build/Talend/ui/packages/components/src/Table/TableClickableCell.js
-  37:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
-  24:9  error  'displayName' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-  62:9  error  'propTypes' is not defined     no-undef
-  85:9  error  'defaultProps' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  7:23  error  'DEFAULT_I18N' is defined but never used  no-unused-vars
+  50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
-  44:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 242 problems (241 errors, 1 warning)
+✖ 11 problems (10 errors, 1 warning)
 

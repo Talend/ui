@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-
+import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import theme from './TabBar.scss';
 
@@ -21,6 +21,7 @@ Tab.propTypes = {
 		id: PropTypes.string,
 		key: PropTypes.string.isRequired,
 		label: PropTypes.string.isRequired,
+		footerActions: PropTypes.shape(ActionBar.propTypes),
 	}).isRequired,
 	onClick: PropTypes.func.isRequired,
 	isSelected: PropTypes.bool,
@@ -46,7 +47,7 @@ function TabBar({ items, onSelect, selectedKey, className }) {
 TabBar.displayName = 'TabBar';
 
 TabBar.propTypes = {
-	items: PropTypes.arrayOf(Tab.propTypes).isRequired,
+	items: PropTypes.arrayOf(Tab.propTypes.item).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedKey: PropTypes.string,
 	className: PropTypes.string,

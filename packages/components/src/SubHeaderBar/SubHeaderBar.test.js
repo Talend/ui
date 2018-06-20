@@ -45,7 +45,6 @@ describe('SubHeaderBarActions', () => {
 				<Icon name="talend-bell" />
 			</SubHeaderBarActions>,
 		);
-		expect(wrapper.instance().props.center).toBeTruthy();
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.find(ActionBar.Content).get(0).props.center).toBeTruthy();
 		expect(wrapper.find(Icon)).toHaveLength(1);
@@ -77,7 +76,6 @@ describe('SubHeaderBarActions', () => {
 				<Icon name="talend-bell" />
 			</SubHeaderBarActions>,
 		);
-		expect(wrapper.instance().props.right).toBeTruthy();
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.find(ActionBar.Content).get(0).props.right).toBeTruthy();
 		expect(wrapper.find(Icon)).toHaveLength(1);

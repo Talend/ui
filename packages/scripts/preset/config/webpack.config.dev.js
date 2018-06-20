@@ -37,5 +37,6 @@ module.exports = ({ getUserConfig }) => {
 			contentBase: path.join(process.cwd(), '/dist'),
 		},
 		plugins,
+		devtool: 'source-map',
 	};
 };

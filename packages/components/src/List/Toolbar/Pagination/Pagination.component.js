@@ -68,7 +68,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 	function getNavigationItems() {
 		return [
 			<NavItem
-				key={'first'}
+				key={FIRST}
 				eventKey={FIRST}
 				id={id && `${id}-nav-to-first`}
 				className={'btn-link'}
@@ -77,7 +77,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<Icon {...first} />
 			</NavItem>,
 			<NavItem
-				key={'prev'}
+				key={PREV}
 				eventKey={PREV}
 				id={id && `${id}-nav-to-prev`}
 				className={'btn-link'}
@@ -91,7 +91,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				</span>
 			</NavItem>,
 			<NavItem
-				key={'next'}
+				key={NEXT}
 				eventKey={NEXT}
 				id={id && `${id}-nav-to-next`}
 				className={'btn-link'}
@@ -100,7 +100,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<Icon {...next} />
 			</NavItem>,
 			<NavItem
-				key={'last'}
+				key={LAST}
 				eventKey={LAST}
 				id={id && `${id}-nav-to-last`}
 				className={'btn-link'}

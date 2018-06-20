@@ -4,10 +4,10 @@ import {
 	Drawer,
 	Icon,
 	IconsProvider,
-	Layout,
+	Layout as PureLayout,
 	TooltipTrigger,
-	Typeahead,
 } from '@talend/react-components';
+import { cmfConnect } from '@talend/react-cmf';
 
 import actionAPI from './actionAPI';
 import Action from './Action';
@@ -33,7 +33,11 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import Typeahead from './Typeahead';
 import TabBar from './TabBar';
+
+// keep backward compat
+const Layout = cmfConnect({})(PureLayout);
 
 export {
 	actionAPI,

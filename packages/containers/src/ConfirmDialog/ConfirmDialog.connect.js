@@ -1,10 +1,10 @@
-import { cmfConnect, api } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { getActionsProps } from '../actionAPI';
 import Container, { DEFAULT_STATE } from './ConfirmDialog.container';
 
 export function mapStateToProps(state, props, cmfProps) {
 	const context = {
-		registry: api.registry.getRegistry(),
+		registry: cmf.registry.getRegistry(),
 		store: {
 			getState: () => state,
 		},

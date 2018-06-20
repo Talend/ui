@@ -26,6 +26,7 @@ This is a sample of configuration :
     "steps":[
         { "actionCreators":["user:fetchIdentity"] },
         { "waitFor":["identity"] },
+        { "takeAction": ["SOME_ACTION_TYPE"] },
         { "actionCreators":["datastore:fetch.types", "datastore:fetch:cloudAgents"]}
         { "waitFor":["datastore-types", "cloud-agents"] },
         { "actionCreators":["datastore:fetchAll", "dataset:fetchAll"] }
@@ -35,6 +36,7 @@ This is a sample of configuration :
 ```
 
 To use the inject feature to add component within the children, you have 2 placeholders
+
 * before-children
 * after-children
 
@@ -59,12 +61,12 @@ This is a sample of inject configuration :
 }
 ```
 
-
 ### Props
 
 * saga : required cause this is how the action creator are dispatched
 * components : injected components
 * steps, you can pass objects, this objects can have an attribute ( exclusive ) :
 * actionCreators : an array of action creators to dispatch in parallel.
-* waitFor : an array of collection ids to have in cmf store before we can trigger the next step
-* hasCollections : an array of collection ids to have in cmf store before it can render the children
+  * takeAction : an array of actions we want to wait to be dispatched
+  * waitFor : an array of collection ids to have in cmf store before we can trigger the next step
+  * hasCollections : an array of collection ids to have in cmf store before it can render the children

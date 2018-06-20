@@ -27,11 +27,11 @@ function mapValueToLabel(enumOptions) {
  * @param options
  * @returns {Array}
  */
-function transformOptions(options) {
+export function transformOptions(options) {
 	if (options && options.groupBy) {
 		return options.enumOptions.map(opt => ({ ...opt.label, value: opt.value }));
 	}
-	return options.enumOptions;
+	return options.enumOptions || [];
 }
 
 /**
@@ -281,7 +281,7 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 	}
 
 	render() {
-		const { value, readonly, options, id, noAvailableMessage, t } = this.props;
+		const { value = [], readonly, options, id, noAvailableMessage, t } = this.props;
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;

@@ -221,6 +221,45 @@ If you want to render some component conditionally, just pass "renderIf" prop (t
 You can also use Expression for this and customize this prop like "renderIfExpression" in
 CMF json configuration files
 
+## How to read and update component state from the outside
+
+Every cmfConnected component expose two static functions:
+* getState
+* setStateAction
+
+So if we take back the `Clock` example from below and we try to write a saga:
+
+```javascript
+import Clock from './Clock.connect';
+
+export default function* myDeLorean() {
+	const clockState = yield select(Clock.getState);
+	const action = Clock.setStateAction(clockState.set('date', new Date('2025/12/25')));
+	yield put(action);
+}
+```
+
+If you have multiple instance of the same component those api support `id` as a second argument.
+
+```javascript
+const componentState = Clock.getState(state, 'a-component-id');
+// mutation
+Clock.setStateAction(componentState, 'a-component-id');
+```
+
+If your setState rely on the previous state value and you have some async operations between you can still rely on the callback function:
+
+```javascript
+Clock.setStateAction(
+	prevState => prevState.set(
+		'minutes',
+		prevState.get('date').getMinutes()
+	),
+	'a-component-id'
+);
+```
+
+
 ## How to test
 
 

@@ -1,3 +1,3 @@
 import { focusWithin } from 'ally.js/style/_style';
 
-focusWithin();
+setTimeout(focusWithin);

@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionDropdown, IconsProvider, FilterBar, Action } from '../src/index';
 
@@ -163,52 +164,73 @@ const oneEventAction = {
 	onSelect: action('onItemSelect'),
 };
 
-storiesOf('ActionDropdown', module).addWithInfo('default', () => (
-	<div>
-		<p>By default :</p>
-		<div id="default">
-			<ActionDropdown {...myAction} />
+storiesOf('ActionDropdown', module)
+	.addDecorator(checkA11y)
+	.addWithInfo('default', () => (
+		<div>
+			<h3>By default :</h3>
+			<div id="default">
+				<ActionDropdown {...myAction} />
+			</div>
+			<h3>With one event handler:</h3>
+			<div id="oneEvent">
+				<ActionDropdown {...oneEventAction} />
+			</div>
+			<h3>With hideLabel option</h3>
+			<div id="hidelabel">
+				<ActionDropdown {...myAction} hideLabel />
+			</div>
+			<h3>Empty option</h3>
+			<div id="empty">
+				<ActionDropdown {...myAction} items={[]} hideLabel />
+			</div>
+			<h3>Dropup</h3>
+			<div id="dropup">
+				<ActionDropdown {...myAction} dropup />
+			</div>
+			<h3>Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.</h3>
+			<div id="auto-dropup" className={'tc-dropdown-container'} style={{ border: '1px solid black', overflow: 'scroll', height: '300px' }}>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
+				<br /><br /><br />
+				<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
+				<ActionDropdown {...myAction} />
+				<br /><br /><br />
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la
+			</div>
+			<h3>Type link</h3>
+			<div id="typeLink">
+				<ActionDropdown {...myAction} link />
+			</div>
+			<h3>Components Items</h3>
+			<div id="withComponents">
+				<ActionDropdown {...withComponents} />
+			</div>
+			<h3>Mix Items</h3>
+			<div id="mixComponents">
+				<ActionDropdown {...mixItemsComponents} />
+			</div>
+			<h3>Tool tip</h3>
+			<div id="toolTip">
+				<ActionDropdown {...propsTooltip} />
+			</div>
+			<h3>With immutable items :</h3>
+			<div id="default">
+				<ActionDropdown {...withImmutable} />
+			</div>
+			<h3>Opened and with immutable items :</h3>
+			<div id="openImmutable">
+				<ActionDropdown {...openWithImmutable} />
+			</div>
+			<IconsProvider />
 		</div>
-		<p>With one event handler:</p>
-		<div id="oneEvent">
-			<ActionDropdown {...oneEventAction} />
-		</div>
-		<p>With hideLabel option</p>
-		<div id="hidelabel">
-			<ActionDropdown {...myAction} hideLabel />
-		</div>
-		<p>Empty option</p>
-		<div id="empty">
-			<ActionDropdown {...myAction} items={[]} hideLabel />
-		</div>
-		<p>Dropup</p>
-		<div id="dropup">
-			<ActionDropdown {...myAction} dropup />
-		</div>
-		<p>Type link</p>
-		<div id="typeLink">
-			<ActionDropdown {...myAction} link />
-		</div>
-		<p>Components Items</p>
-		<div id="withComponents">
-			<ActionDropdown {...withComponents} />
-		</div>
-		<p>Mix Items</p>
-		<div id="mixComponents">
-			<ActionDropdown {...mixItemsComponents} />
-		</div>
-		<p>Tool tip</p>
-		<div id="toolTip">
-			<ActionDropdown {...propsTooltip} />
-		</div>
-		<p>With immutable items :</p>
-		<div id="default">
-			<ActionDropdown {...withImmutable} />
-		</div>
-		<p>Opened and with immutable items :</p>
-		<div id="openImmutable">
-			<ActionDropdown {...openWithImmutable} />
-		</div>
-		<IconsProvider />
-	</div>
-));
+	));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Dialog } from '../src/index';
 
@@ -43,14 +44,12 @@ const largeProps = {
 };
 const bsProps = {
 	header: 'OnHide + no backdrop + esc',
-	bsDialogProps: {
-		show: true,
-		size: 'small',
-		onHide: action('onHide'),
-		dialogClassName: 'customDialogClassName',
-		keyboard: true,
-		backdrop: false,
-	},
+	show: true,
+	size: 'small',
+	onHide: action('onHide'),
+	dialogClassName: 'customDialogClassName',
+	keyboard: true,
+	backdrop: false,
 	action: {
 		label: 'OK',
 		onClick: action('ok'),
@@ -61,6 +60,7 @@ const children = (<div>BODY content. You can put what ever you want here</div>);
 
 
 storiesOf('Dialog', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<h1>Dialog</h1>

@@ -10,7 +10,8 @@ describe('CMF action', () => {
 	beforeEach(() => {
 		settings = mock.settings();
 		state = mock.state();
-		context = mock.context();
+		state.cmf.settings = settings;
+		context = mock.context(state);
 		emptyContext = mock.emptyContext();
 	});
 	it('getActionsById should return action from settings', () => {

@@ -72,13 +72,11 @@ exports[`<Form/> actions should render form with custom css 1`] = `
             
           </option>
           <option
-            disabled={undefined}
             value="dev"
           >
             dev
           </option>
           <option
-            disabled={undefined}
             value="pm"
           >
             pm
