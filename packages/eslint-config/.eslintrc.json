@@ -3,22 +3,35 @@
   "parser": "babel-eslint",
   "rules": {
     "arrow-parens": [2, "as-needed"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "ignore",
+      "exports": "ignore",
+      "functions": "ignore"
+    }],
+    "function-paren-newline": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
     "new-cap": [
-        2,
-        {
-            "capIsNewExceptions": ["List", "Map"]
-        }
+      2,
+      {
+        "capIsNewExceptions": ["List", "Map"]
+      }
     ],
     "no-mixed-operators": "off",
     "no-tabs": "off",
+    "object-curly-newline": "off",
+
     "react/forbid-prop-types": [0],
-    "react/prefer-es6-class": 0,
+    "react/jsx-curly-brace-presence": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
-    "react/no-unused-prop-types": [2, { "skipShapeProps": true }]
+    "react/no-array-index-key": "off",
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
+    "react/prefer-es6-class": 0,
+    "react/require-default-props": "off"
   },
   "env": {
     "es6": true,

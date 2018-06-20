@@ -28,7 +28,8 @@
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers",
     "extract-i18n-components": "i18next packages/components/src -r --default-values -o i18n/components -n tui-components -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
     "extract-i18n-forms": "i18next packages/forms/src -r --default-values -o i18n/forms -n tui-forms -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
-    "extract-i18n-containers": "i18next packages/containers/src -r --default-values -o i18n/containers -n tui-containers -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
+    "extract-i18n-containers": "i18next packages/containers/src -r --default-values -o i18n/containers -n tui-containers -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
+    "lint:jso": "(lerna exec --scope=@talend/react-components -- npm run lint:es | awk '{if(NR>2)print}') 1> output/components.eslint.txt"
   },
   "watch": {
     "build-cmf": {
@@ -72,6 +73,7 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
+    "packages/eslint-config",
     "packages/cmf",
     "packages/cmf-cqrs",
     "packages/cmf-webpack-plugin",
