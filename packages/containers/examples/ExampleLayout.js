@@ -2,7 +2,7 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import talendIcons from '@talend/icons/dist/react';
 
-import cmf, { Inject } from '@talend/react-cmf';
+import { Inject } from '@talend/react-cmf';
 import Immutable from 'immutable';
 
 const icons = {
