@@ -1,5 +1,6 @@
 const emailRegExp = /[a-zA-Z][a-zA-Z0-9-.]+@[a-zA-Z-]+\.[a-zA-Z-]+/;
 const urlHttpOrHttpsRegExp = /^(http|https):\/\/[a-zA-Z0-9.\-/_]+$/;
+// eslint-disable-next-line max-len
 const urlGit = /(http:\/\/[a-zA-Z0-9.\-_:]+\/[a-zA-Z0-9.\-/_]+)|(https:\/\/[a-zA-Z0-9.\-_:]+\/[a-zA-Z0-9.\-/_]+)|(ssh:\/\/[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+:[a-zA-Z0-9.\-/_]+\.git\b)|([a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+:[a-zA-Z0-9.\-/_]+\.git\b)/;
 const leadingTralingSpaceRegExp = /^\s|\s$/;
 const stringWithoutSpaceRegExp = /^\S+$/;
