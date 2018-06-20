@@ -7,8 +7,7 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 import cmf from '@talend/react-cmf';
 import { registerAllContainers } from '@talend/react-containers/lib/register';
 import actions from './actions';
-import components from './components';
-import tcomponents from '../components';
+import components from '../components';
 import './index.scss';
 
 /**
@@ -26,7 +25,7 @@ registerAllContainers();
  * - render react-dom in the dom 'app' element
  */
 cmf.bootstrap({
-	components: Object.assign({}, components, tcomponents),
+	components,
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 });

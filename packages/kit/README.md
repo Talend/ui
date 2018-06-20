@@ -2,6 +2,10 @@
 
 This package provides [react-cmf](https://github.com/Talend/ui/blob/master/packages/cmf/README.md) containers which work with [Talend Component Kit](https://github.com/Talend/component-runtime)
 
+## How to dev
+
+`yarn start` will start a webpack with a mock of the backend so you can play with it.
+
 ## ComponentForm
 
 The first citizen component every body wants is the form to let the enduser create instance of components.
