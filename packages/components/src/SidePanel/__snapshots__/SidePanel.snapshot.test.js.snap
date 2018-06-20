@@ -135,7 +135,7 @@ exports[`Storyshots SidePanel default 1`] = `
       <button
         aria-controls="context"
         aria-label=""
-        className="btn btn-link"
+        className="btn-icon-only btn btn-link"
         disabled={false}
         id="context-toggle-dock"
         onClick={[Function]}
@@ -396,7 +396,7 @@ exports[`Storyshots SidePanel docked 1`] = `
       <button
         aria-controls={undefined}
         aria-label=""
-        className="btn btn-link"
+        className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
@@ -657,7 +657,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
       <button
         aria-controls={undefined}
         aria-label=""
-        className="btn btn-link"
+        className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
@@ -918,7 +918,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       <button
         aria-controls={undefined}
         aria-label=""
-        className="btn btn-link"
+        className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
@@ -1179,7 +1179,7 @@ exports[`Storyshots SidePanel links 1`] = `
       <button
         aria-controls="context"
         aria-label=""
-        className="btn btn-link"
+        className="btn-icon-only btn btn-link"
         disabled={false}
         id="context-toggle-dock"
         onClick={[Function]}
@@ -1670,7 +1670,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
       <button
         aria-controls={undefined}
         aria-label=""
-        className="btn btn-link"
+        className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
@@ -1941,7 +1941,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             <button
               aria-controls={undefined}
               aria-label=""
-              className="btn btn-link"
+              className="btn-icon-only btn btn-link"
               disabled={false}
               id={undefined}
               onClick={[Function]}
@@ -2569,7 +2569,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             <button
               aria-controls={undefined}
               aria-label=""
-              className="btn btn-link"
+              className="btn-icon-only btn btn-link"
               disabled={false}
               id={undefined}
               onClick={[Function]}
@@ -3198,7 +3198,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -3472,7 +3472,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -3746,7 +3746,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4020,7 +4020,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4294,7 +4294,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4568,7 +4568,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4842,7 +4842,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           <button
             aria-controls="context"
             aria-label=""
-            className="btn btn-link"
+            className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}

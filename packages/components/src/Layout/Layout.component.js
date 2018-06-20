@@ -33,6 +33,7 @@ function Layout({
 	id,
 	header,
 	subHeader,
+	content,
 	footer,
 	mode,
 	drawers,
@@ -40,14 +41,12 @@ function Layout({
 	hasTheme,
 	children,
 	getComponent,
-	components,
 	...rest
 }) {
 	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
-	const injected = Inject.all(getComponent, components);
 	switch (mode) {
 		case DISPLAY_MODE_ONE_COLUMN:
 			Component = OneColumn;
@@ -58,26 +57,28 @@ function Layout({
 		default:
 			Component = OneColumn;
 	}
-	const injectedHeader = injected('header');
-	const injectedFooter = injected('footer');
+
+	const safeDrawers = Inject.getReactElement(getComponent, drawers);
+	const safeHeader = Inject.getReactElement(getComponent, header);
+	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
+	const safeContent = Inject.getReactElement(getComponent, content);
+	const safeFooter = Inject.getReactElement(getComponent, footer);
+
 	return (
 		<div id={id} className={appCSS}>
-			{(header || injectedHeader) && (
+			{safeHeader && (
 				<header role="banner" className={headerCSS}>
-					{header || injectedHeader}
+					{safeHeader}
 				</header>
 			)}
-			{injected('after-header')}
-			{subHeader}
-			{injected('after-subheader')}
-			{Component && (
-				<Component drawers={drawers} tabs={tabs} injected={injected} {...rest}>
-					{children}
-				</Component>
-			)}
-			{(footer || injectedFooter) && (
+			{safeSubHeader && <div className="subheader">{safeSubHeader}</div>}
+			<Component drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
+				{safeContent}
+				{children}
+			</Component>
+			{safeFooter && (
 				<footer role="contentinfo" className={footerCSS}>
-					{footer || injectedFooter}
+					{safeFooter}
 				</footer>
 			)}
 		</div>
@@ -88,16 +89,16 @@ Layout.displayName = 'Layout';
 
 Layout.propTypes = {
 	id: PropTypes.string,
-	header: PropTypes.element,
-	footer: PropTypes.element,
-	subHeader: PropTypes.element,
+	header: Inject.getReactElement.propTypes,
+	content: Inject.getReactElement.propTypes,
+	footer: Inject.getReactElement.propTypes,
+	subHeader: Inject.getReactElement.propTypes,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	hasTheme: PropTypes.bool,
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
-	components: PropTypes.object,
 };
 
 export default Layout;

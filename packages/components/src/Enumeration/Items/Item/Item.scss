@@ -31,7 +31,7 @@ $item-checkbox-size: 20px;
 	}
 
 	:global(.btn-link) {
-		padding: 0;
+		padding: 0 $padding-smaller;
 		height: $tc-enumeration-item-font-size;
 
 		:global(.tc-svg-icon) {
