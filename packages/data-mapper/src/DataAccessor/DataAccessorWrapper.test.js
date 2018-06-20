@@ -1,5 +1,6 @@
 import * as TestData from '../TestData';
-import * as Constants from '../Constants';
+import { Constants } from '../index';
+
 import MappingAccessor from './MappingAccessor';
 
 const dataAccessor = new DataAccessorWrapper(new MappingAccessor());

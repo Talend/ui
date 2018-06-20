@@ -4,7 +4,7 @@ import Schema from './Schema.js';
 import MappingAccessor from '../DataAccessor/MappingAccessor';
 import DataAccessorWrapper from '../DataAccessor/DataAccessorWrapper';
 import * as TestData from '../TestData';
-import * as Constants from '../Constants';
+import { Constants } from '../index';
 
 const dataAccessor = new DataAccessorWrapper(new MappingAccessor());
 

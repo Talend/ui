@@ -7,7 +7,7 @@ import Mapper from './Mapper.js';
 import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
-import * as Constants from '../Constants';
+import { Constants } from '../index';
 import SchemaConfiguration from '../Schema/SchemaConfiguration';
 import MappingConfiguration from './MappingConfiguration.js';
 import MappingSVG from './MappingSVG.js';

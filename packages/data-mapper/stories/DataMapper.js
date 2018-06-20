@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+
 import { storiesOf } from '@storybook/react';
+
 import {
-	Table, ActionBar, IconsProvider
+	Table,
+	ActionBar,
+	IconsProvider,
 } from '@talend/react-components';
+
 import Mapper, {
 	Constants,
 	DataAccessorWithUndoRedo,
 	MappingAccessor,
 } from '../src/index';
+
 import { isSelected } from '../src/Schema/Schema';
 
 const Keys = {
@@ -167,7 +172,7 @@ const outputSchemaUX = {
 		'Estimated annual revenue of the account.',
 		'The compound form of the billing address. Read-only. See Address Compound Fields for details on compound address fields.',
 		'Details for the billing address of this account. Maximum size is 40 characters.',
- 		'Details for the billing address of this account. Maximum size is 80 characters.',
+		'Details for the billing address of this account. Maximum size is 80 characters.',
 		'The ISO country code for the account’s billing address.',
 		'Accuracy level of the geocode for the billing address. See Compound Field Considerations and Limitations for details on geolocation compound fields.',
 		'Used with BillingLongitude to specify the precise geolocation of a billing address. Acceptable values are numbers between –90 and 90 with up to 15 decimal places. See Compound Field Considerations and Limitations for details on geolocation compound fields.',
@@ -546,8 +551,8 @@ function getMainActions(state, getAction) {
 }
 
 /**
-* isSelectionEmpty returns true if the given selection is empty
-*/
+ * isSelectionEmpty returns true if the given selection is empty
+ */
 function isSelectionEmpty(selection) {
 	return selection == null || selection.element == null || selection.side == null;
 }
@@ -620,37 +625,37 @@ function removeConnections(dataAccessor, mapping, selection) {
 }
 
 function getCurrentSelectedSchema(state) {
-  if (isSelectionEmpty(state.selection)) {
-    return null;
-  }
-  if (state.selection.side === Constants.MappingSide.INPUT) {
-    return state.input.schema;
-  } else if (state.selection.side === Constants.MappingSide.OUTPUT) {
-    return state.output.schema;
-  }
-  return null;
+	if (isSelectionEmpty(state.selection)) {
+		return null;
+	}
+	if (state.selection.side === Constants.MappingSide.INPUT) {
+		return state.input.schema;
+	} else if (state.selection.side === Constants.MappingSide.OUTPUT) {
+		return state.output.schema;
+	}
+	return null;
 }
 
 function getNextElement(dataAccessor, schema, element, nav) {
 	const selectedElemIndex = dataAccessor.getSchemaElementIndex(schema, element, true);
-  const size = dataAccessor.getSchemaSize(schema, true);
-  let newSelectedElemIndex = selectedElemIndex;
-  switch (nav) {
-    case Keys.UP:
-      newSelectedElemIndex = selectedElemIndex - 1;
-      if (newSelectedElemIndex < 0) {
-        newSelectedElemIndex = size - 1;
-      }
-      break;
-    case Keys.DOWN:
-      newSelectedElemIndex = selectedElemIndex + 1;
-      if (newSelectedElemIndex >= size) {
-        newSelectedElemIndex = 0;
-      }
-      break;
+	const size = dataAccessor.getSchemaSize(schema, true);
+	let newSelectedElemIndex = selectedElemIndex;
+	switch (nav) {
+		case Keys.UP:
+			newSelectedElemIndex = selectedElemIndex - 1;
+			if (newSelectedElemIndex < 0) {
+				newSelectedElemIndex = size - 1;
+			}
+			break;
+		case Keys.DOWN:
+			newSelectedElemIndex = selectedElemIndex + 1;
+			if (newSelectedElemIndex >= size) {
+				newSelectedElemIndex = 0;
+			}
+			break;
 		default:
 			return element;
-  }
+	}
 	return dataAccessor.getSchemaElement(schema, newSelectedElemIndex, true);
 }
 
@@ -689,7 +694,7 @@ function navigatePage(state, nav, mapper) {
 function navigateUpDown(state, nav) {
 	const dataAccessor = state.dataAccessor;
 	const selection = state.selection;
-  const schema = getCurrentSelectedSchema(state);
+	const schema = getCurrentSelectedSchema(state);
 	let newSelectedElement = getNextElement(dataAccessor, schema, selection.element, nav);
 
 	if (state.pendingItem != null
@@ -701,7 +706,7 @@ function navigateUpDown(state, nav) {
 		}
 	}
 
-  return {
+	return {
 		element: newSelectedElement,
 		connected: dataAccessor.getConnectedElements(state.mapping, newSelectedElement, selection.side),
 		side: selection.side,
@@ -709,16 +714,16 @@ function navigateUpDown(state, nav) {
 }
 
 /**
-* This method tries to find an element in the schema with the same name as
-* given element.
-*/
+ * This method tries to find an element in the schema with the same name as
+ * given element.
+ */
 function findTargetElement(dataAccessor, schema, selection, mappingInProgress) {
 	const elements = dataAccessor.getSchemaElements(schema, true);
 	return elements.find(elem =>
 		(!mappingInProgress && dataAccessor.haveSameData(elem, selection.element, Columns.NAME.key))
 		|| (mappingInProgress
-				&& dataAccessor.haveSameData(elem, selection.element, Columns.NAME.key)
-				&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem)))
+		&& dataAccessor.haveSameData(elem, selection.element, Columns.NAME.key)
+		&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem)))
 	);
 }
 
@@ -741,35 +746,35 @@ function findNonConnectedTargetElement(dataAccessor, schema, mapping, side) {
 
 function switchSchema(state, mappingInProgress, mapper, usePosition) {
 	const dataAccessor = state.dataAccessor;
-  const selection = state.selection;
+	const selection = state.selection;
 	const targetSide = Constants.switchMappingSide(selection.side);
 	let targetElem = null;
-  if (!mappingInProgress
+	if (!mappingInProgress
 		&& selection.connected != null
 		&& selection.connected.length > 0
 		&& !usePosition) {
 		targetElem = selection.connected[0];
-  }
+	}
 	const targetSchema = getSchema(state, targetSide);
 	if (targetElem == null) {
 		if (usePosition) {
 			targetElem = findTargetElementByPosition(selection, mapper);
 		} else {
-  		// try to find an element with the same name
-   		targetElem = findTargetElement(dataAccessor, targetSchema, selection, mappingInProgress);
+			// try to find an element with the same name
+			targetElem = findTargetElement(dataAccessor, targetSchema, selection, mappingInProgress);
 		}
 	}
-  if (targetElem == null) {
-    // get the first element in target schema
+	if (targetElem == null) {
+		// get the first element in target schema
 		if (mappingInProgress) {
 			// for connexion context we try to get a non connected element
 			targetElem = findNonConnectedTargetElement(dataAccessor, targetSchema, state.mapping, targetSide);
 		} else {
 			// by default select the first element
-    	targetElem = dataAccessor.getSchemaElement(targetSchema, 0, true);
+			targetElem = dataAccessor.getSchemaElement(targetSchema, 0, true);
 		}
-  }
-  return {
+	}
+	return {
 		element: targetElem,
 		connected: dataAccessor.getConnectedElements(state.mapping, targetElem, targetSide),
 		side: targetSide,
@@ -792,25 +797,25 @@ function firstSelect(state, code) {
 }
 
 function navigate(state, nav, mapper, usePosition) {
-  switch (nav) {
-    case Keys.UP:
-      return navigateUpDown(state, nav);
-    case Keys.DOWN:
-      return navigateUpDown(state, nav);
+	switch (nav) {
+		case Keys.UP:
+			return navigateUpDown(state, nav);
+		case Keys.DOWN:
+			return navigateUpDown(state, nav);
 		case Keys.PAGE_UP:
 			return navigatePage(state, nav, mapper);
 		case Keys.PAGE_DOWN:
-				return navigatePage(state, nav, mapper);
-    case Keys.LEFT:
+			return navigatePage(state, nav, mapper);
+		case Keys.LEFT:
 			return switchSchema(state, false, mapper, usePosition);
 		case Keys.RIGHT:
 			return switchSchema(state, false, mapper, usePosition);
 		case Keys.ENTER:
-      return switchSchema(state, true, mapper, usePosition);
+			return switchSchema(state, true, mapper, usePosition);
 		default:
 			break;
-  }
-  return state.selection;
+	}
+	return state.selection;
 }
 
 function filterSelection(state, selection) {
@@ -1038,12 +1043,12 @@ class ConnectedDataMapper extends React.Component {
 			ev.preventDefault();
 			if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
 				this.performMapping(this.state.pendingItem.element,
-														this.state.selection.element,
-														this.state.pendingItem.side);
+					this.state.selection.element,
+					this.state.pendingItem.side);
 			} else {
 				this.performMapping(this.state.selection.element,
-														this.state.pendingItem.element,
-														this.state.pendingItem.side);
+					this.state.pendingItem.element,
+					this.state.pendingItem.side);
 			}
 			reveal = true;
 		} else if (this.handleEscape(ev)) {
@@ -1125,9 +1130,9 @@ class ConnectedDataMapper extends React.Component {
 	handleNavigation(ev) {
 		const key = ev.keyCode;
 		const isValidKey = key === Keys.UP
-										|| key === Keys.DOWN
-										|| key === Keys.PAGE_UP
-										|| key === Keys.PAGE_DOWN;
+			|| key === Keys.DOWN
+			|| key === Keys.PAGE_UP
+			|| key === Keys.PAGE_DOWN;
 		const isValidSwitch = (key === Keys.LEFT || key === Keys.RIGHT)
 			&& this.state.pendingItem == null;
 		return !isSelectionEmpty(this.state.selection)
@@ -1175,10 +1180,10 @@ class ConnectedDataMapper extends React.Component {
 			selection: {
 				element: selectedSourceElement,
 				connected: appendConnected(prevState.dataAccessor,
-																	prevState.mapping,
-																	selectedSourceElement,
-																	selectedTargetElement,
-																	selectionSide),
+					prevState.mapping,
+					selectedSourceElement,
+					selectedTargetElement,
+					selectionSide),
 				side: selectionSide,
 			},
 			pendingItem: null,
@@ -1233,12 +1238,12 @@ class ConnectedDataMapper extends React.Component {
 			}));
 		} else if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
 			this.performMapping(this.state.pendingItem.element,
-													element,
-													side);
+				element,
+				side);
 		} else {
 			this.performMapping(element,
-													this.state.pendingItem.element,
-													side);
+				this.state.pendingItem.element,
+				side);
 		}
 	}
 
@@ -1285,7 +1290,7 @@ class ConnectedDataMapper extends React.Component {
 	onShowAll() {
 		this.setState(prevState => ({
 			trigger: null,
-			preferences : {
+			preferences: {
 				showAll: !prevState.preferences.showAll,
 				gradientStops50: prevState.preferences.gradientStops50,
 				gradientStops100: prevState.preferences.gradientStops100,
@@ -1327,7 +1332,7 @@ class ConnectedDataMapper extends React.Component {
 			if (this.state.dnd.target != null
 				&& this.state.dataAccessor.areElementsEqual(this.state.dnd.target.element, targetItem.element)
 				&& this.state.dnd.target.side === targetItem.side) {
-					update = false;
+				update = false;
 			}
 			if (this.state.dnd.source.side === targetItem.side) {
 				update = false;
@@ -1346,13 +1351,13 @@ class ConnectedDataMapper extends React.Component {
 		}
 		return targetItem.side !== sourceItem.side
 			&& ((targetItem.side === Constants.MappingSide.INPUT
-						&& !this.state.dataAccessor.isElementMapped(
-							this.state.mapping, sourceItem.element, sourceItem.side
-						))
+					&& !this.state.dataAccessor.isElementMapped(
+						this.state.mapping, sourceItem.element, sourceItem.side
+					))
 				|| (targetItem.side === Constants.MappingSide.OUTPUT
-						&& !this.state.dataAccessor.isElementMapped(
-							this.state.mapping, targetItem.element, targetItem.side
-						))
+					&& !this.state.dataAccessor.isElementMapped(
+						this.state.mapping, targetItem.element, targetItem.side
+					))
 			);
 	}
 
@@ -1553,11 +1558,11 @@ stories
 			{story()}
 		</div>
 	)).addWithInfo('UX proto', () => {
-		return <ConnectedDataMapper
-			mapperId="mapper"
-			mappingActions={autoMapping}
-			input={input}
-			output={output}
-			preferences={alternativePrefs}
-		/>;
-	});
+	return <ConnectedDataMapper
+		mapperId="mapper"
+		mappingActions={autoMapping}
+		input={input}
+		output={output}
+		preferences={alternativePrefs}
+	/>;
+});

@@ -6,7 +6,7 @@ import Mapping from './Mapping.js';
 import MappingConfiguration from './MappingConfiguration.js';
 import MappingSVG from './MappingSVG.js';
 import MappingActions from './MappingActions.js';
-import * as Constants from '../Constants';
+import { Constants } from '../index';
 
 const mappingConfig = new MappingConfiguration(MappingSVG, MappingActions);
 

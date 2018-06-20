@@ -5,7 +5,6 @@ import {
 	Table,
 	DraggableComponent as draggable,
 } from '@talend/react-components';
-import * as Constants from '../Constants';
 
 function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaProps) {
 	const {

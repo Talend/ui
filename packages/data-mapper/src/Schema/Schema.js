@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TableRenderer from './TableRenderer';
 import theme from './Schema.scss';
-import * as Constants from '../Constants';
+import { Constants } from '../index';
 
 function isMapped(dataAccessor, element, mappedElements) {
 	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);

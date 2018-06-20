@@ -1,5 +1,5 @@
 import * as TestData from './TestData';
-import * as Constants from './Constants';
+import { Constants } from '../index';
 import DataAccessorWithUndoRedo from './DataAccessorWithUndoRedo';
 import MappingAccessor from './MappingAccessor';
 

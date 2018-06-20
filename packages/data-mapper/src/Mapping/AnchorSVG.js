@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as Constants from '../Constants';
+import { Constants } from '../index';
 
 function getStyles(anchor) {
 	let styles = '';
