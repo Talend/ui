@@ -1,2 +1,57 @@
 <style>
+
+  .tc-table-row-data-type {
+    font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+    font-size: 0.9em;
+    text-align: left;
+    color: #66bdff;
+  }
+
+  .tc-table-row-data-description {
+    color: #aaa;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .tc-table-row-data-mandatory {
+    color: #f00;
+    font-weight: bold;
+  }
+
+  .th-mandatory,
+  .td-mandatory {
+    width: 10px;
+  }
+
+  .th-name,
+  .td-name {
+    width: 150px;
+  }
+
+  .th-type,
+  .td-type {
+    width: 100px;
+  }
+
+  .th-description,
+  .td-description {
+    width: 400px;
+  }
+
+  .tc-table-row.highlighted {
+    background-color: #f2f2f2;
+  }
+
+  .tc-table tr td:first-child {
+    position: relative;
+  }
+
+  [draggable='true'] .tc-table-clickable-cell {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+  }
+
 </style>

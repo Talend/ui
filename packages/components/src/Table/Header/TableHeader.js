@@ -66,7 +66,10 @@ export default class TableHeader extends React.Component {
 	render() {
 		const { columns, sorters, onSortChange } = this.props;
 		return (
-			<thead className={classnames('tc-table-head', theme['tc-table-head'])}>
+			<thead
+				ref={this.updateHeadNodeRef}
+				className={classnames('tc-table-head', theme['tc-table-head'])}
+			>
 				<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
 					{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
 				</tr>

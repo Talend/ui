@@ -1,4 +1,4 @@
-import * as Constants from '../Constants';
+import { Constants } from '../index';
 
 /**
  * Internal function.

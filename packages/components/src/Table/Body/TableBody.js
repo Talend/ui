@@ -34,7 +34,11 @@ export default class TableBody extends React.Component {
 	render() {
 		const { elements, columns, rowsClassName, onScroll, onEnterRow, onLeaveRow } = this.props;
 		return (
-			<tbody className={classnames('tc-table-body', theme['tc-table-body'])} onScroll={onScroll}>
+			<tbody
+				ref={this.updateBodyNodeRef}
+				className={classnames('tc-table-body', theme['tc-table-body'])}
+				onScroll={onScroll}
+			>
 				{elements.map(element => (
 					<TableRow
 						key={element.id}
