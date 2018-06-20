@@ -54,6 +54,7 @@ $tc-filter-bar-width: 250px !default;
 		color: opacify($gray, 0.2);
 		padding: $padding-smaller 0;
 		line-height: 2rem;
+		height: 100%;
 		// sorry magic number
 		// can't quite mix pixel units and rem
 		// $padding-small & $svg-xs-size
