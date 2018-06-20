@@ -171,11 +171,9 @@ class ColumnUpdater {
 		this.addSelection(columnsWithDnd[0]);
 		return columnsWithDnd;
 	}
-
 }
 
 class TableRenderingListener {
-
 	onMounted(part, node) {
 		this.updateRef(part, node);
 	}
