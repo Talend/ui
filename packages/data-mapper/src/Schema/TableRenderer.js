@@ -279,6 +279,7 @@ export default class TableRenderer extends Component {
 			title,
 			side,
 		} = this.props;
+		console.log(sorters);
 		const elements = dataAccessor.getSchemaElements(schema, true);
 		//const tableClassNames = updateClassNames(classNames, side, elements, dataAccessor, this.props)
 		const columnsWithDnd = this.columnUpdater.updateColumns(columns);

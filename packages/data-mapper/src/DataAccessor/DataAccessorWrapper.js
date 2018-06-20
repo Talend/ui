@@ -68,15 +68,15 @@ export default class DataAccessorWrapper {
 		this.access(schema).setFilteredElements(filteredElements);
 	}
 
-	getFilteredElements() {
+	getFilteredElements(schema) {
 		return this.access(schema).getFilteredElements();
 	}
 
-	setSortedElements(sortedElements) {
+	setSortedElements(schema, sortedElements) {
 		this.access(schema).setSortedElements(sortedElements);
 	}
 
-	getSortedElements() {
+	getSortedElements(schema) {
 		return this.access(schema).getSortedElements();
 	}
 

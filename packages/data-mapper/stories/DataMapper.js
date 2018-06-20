@@ -1399,9 +1399,11 @@ class ConnectedDataMapper extends React.Component {
 			selection: filterSelection(prevState, prevState.selection),
 			focused: filterFocused(prevState, prevState.focused),
 			input: {
+				...prevState.input,
 				filters: side === Constants.MappingSide.INPUT ? updatedFilters : prevState.input.filters,
 			},
 			output: {
+				...prevState.output,
 				filters: side === Constants.MappingSide.OUTPUT ? updatedFilters : prevState.output.filters,
 			},
 			status: Constants.FILTERING_STATE_STATUS,
@@ -1422,9 +1424,11 @@ class ConnectedDataMapper extends React.Component {
 				side,
 			},
 			input: {
+				...prevState.input,
 				sorters: side === Constants.MappingSide.INPUT ? updatedSorters : prevState.input.sorters,
 			},
 			output: {
+				...prevState.output,
 				sorters: side === Constants.MappingSide.OUTPUT ? updatedSorters : prevState.output.sorters,
 			},
 			status: Constants.StateStatus.SORT,
