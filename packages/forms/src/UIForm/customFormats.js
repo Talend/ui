@@ -1,5 +1,6 @@
-const emailRegExp = /^\S+@\S+$/;
-const urlHttpOrHttpsRegExp = /^(http|https):\/\/\S+$/;
+const emailRegExp = /[a-zA-Z][a-zA-Z0-9-.]+@[a-zA-Z-]+\.[a-zA-Z-]+/;
+const urlHttpOrHttpsRegExp = /^(http|https):\/\/[a-zA-Z0-9.\-/_]+$/;
+const urlGit = /(http:\/\/[a-zA-Z0-9.\-_:]+\/[a-zA-Z0-9.\-/_]+)|(https:\/\/[a-zA-Z0-9.\-_:]+\/[a-zA-Z0-9.\-/_]+)|(ssh:\/\/[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+:[a-zA-Z0-9.\-/_]+\.git\b)|([a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+:[a-zA-Z0-9.\-/_]+\.git\b)/;
 const leadingTralingSpaceRegExp = /^\s|\s$/;
 const stringWithoutSpaceRegExp = /^\S+$/;
 
@@ -16,6 +17,15 @@ const customFormats = t => ({
 		if (typeof fieldData === 'string' && !urlHttpOrHttpsRegExp.test(fieldData)) {
 			return t('FORMAT_URL_HTTP_HTTPS', {
 				defaultValue: 'must be a valid url (e.g.: http://my.domain.com or https://my.domain.com)',
+			});
+		}
+		return null;
+	},
+	'url-git': fieldData => {
+		if (typeof fieldData === 'string' && !urlGit.test(fieldData)) {
+			return t('FORMAT_URL_GIT', {
+				defaultValue:
+					'must be a valid url http (e.g.: http(s)://my.domain.com/my-repo(.git)) or  ssh (e.g. ssh://user@host/my-repo.git)',
 			});
 		}
 		return null;
