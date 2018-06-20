@@ -114,7 +114,11 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {object|string|React Element} data
  */
 Inject.getReactElement = function getReactElement(getComponent, data, CustomInject = Inject) {
-	if (typeof data === 'string') {
+	if (data === undefined || data === null) {
+		return data;
+	} else if (typeof data === 'boolean') {
+		return data;
+	} else if (typeof data === 'string') {
 		return <CustomInject getComponent={getComponent} component={data} />;
 	} else if (React.isValidElement(data)) {
 		return data;
@@ -123,7 +127,7 @@ Inject.getReactElement = function getReactElement(getComponent, data, CustomInje
 	} else if (typeof data === 'object') {
 		return <CustomInject getComponent={getComponent} {...data} />;
 	}
-	return null;
+	throw new Error(`Can't get React element. not supported data: ${typeof data} ${data}`);
 };
 
 Inject.getReactElement.propTypes = PropTypes.oneOfType([

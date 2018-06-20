@@ -215,8 +215,21 @@ describe('Inject.getReactElement', () => {
 		const getComponent = jest.fn();
 		const data = [{ component: 'what', extra: true }];
 		expect(Inject.getReactElement(getComponent, data)).toEqual([
-			<Inject key={0} getComponent={getComponent} component="what" extra />,
+			<Inject getComponent={getComponent} component="what" extra />,
 		]);
+	});
+	it('should return undefined if data is undefined', () => {
+		expect(Inject.getReactElement()).toBe();
+	});
+	it('should return null if data is null', () => {
+		expect(Inject.getReactElement(jest.fn(), null)).toBe(null);
+	});
+	it('should return data if it s unknown', () => {
+		expect(Inject.getReactElement(jest.fn(), false)).toBe(false);
+		expect(Inject.getReactElement(jest.fn(), true)).toBe(true);
+	});
+	it('should throw if data is not supported', () => {
+		expect(() => Inject.getReactElement(jest.fn(), NaN)).toThrow();
 	});
 	it('should support element as valid react element', () => {
 		const getComponent = jest.fn();
