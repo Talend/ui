@@ -24,9 +24,6 @@ function getAction(action, index, getInternalInputRef) {
 			});
 		}
 	}
-	if (action.disabled) {
-		return null;
-	}
 	return (
 		<Action
 			key={`${index}-enum-header-action`}
@@ -96,7 +93,11 @@ function HeaderInput({
 					{headerError}
 				</div>
 			)}
-			{headerInput.map((action, index) => getAction(action, index, getInternalInputRef.bind(this)))}
+			{
+				headerInput
+					.filter(action => !action.disabled)
+					.map((action, index) => getAction(action, index, getInternalInputRef.bind(this)))
+			}
 		</header>
 	);
 }

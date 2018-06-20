@@ -18,10 +18,6 @@ function getAction(action, index) {
 			action.onClick(event, { value: event.target.value });
 		}
 	}
-	if (action.disabled) {
-		// no rendering when action is disabled
-		return null;
-	}
 	if (action.displayMode === 'dropdown') {
 		return (
 			<ActionDropdown
@@ -57,7 +53,9 @@ function Header({ headerDefault, required, label }) {
 				{label}
 				{required && '*'}
 			</span>
-			<div className="actions">{headerDefault.map(getAction)}</div>
+			<div className="actions">
+				{ headerDefault.filter(action => !action.disabled).map(getAction) }
+			</div>
 		</header>
 	);
 }
