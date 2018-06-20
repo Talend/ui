@@ -237,10 +237,10 @@ export default class Schema extends Component {
 }
 
 Schema.propTypes = {
-	dataAccessor: PropTypes.object,
-	schema: PropTypes.object,
-	columns: PropTypes.array,
-	classNames: PropTypes.object,
+	dataAccessor: PropTypes.object.isRequired,
+	schema: PropTypes.object.isRequired,
+	columns: PropTypes.array.isRequired,
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	withTitle: PropTypes.bool,
 	withHeader: PropTypes.bool,
 	filters: PropTypes.array,

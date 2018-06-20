@@ -55,11 +55,11 @@
 		width: 450px;
 	}
 
-	.tc-table-body.mapper-table-body {
+	.schema .tc-table-body {
 		height: 390px;
 	}
 
-	.input .th-name {
+	.schema.input .th-name {
 		text-align: right;
 	}
 
@@ -67,7 +67,7 @@
 		font-weight: bold;
 	}
 
-	.tc-table-row-data-name.input {
+	.schema.input .tc-table-row-data-name {
 		text-align: right;
 	}
 
@@ -75,11 +75,11 @@
 		background-color: #ddd;
 	}
 
-	.mapper-table-header.input .tc-table-head-row {
+	.schema.input .tc-table-head .tc-table-head-row {
 		justify-content: space-between;
 	}
 
-	.mapper-table-row.input {
+	.schema.input .tc-table-row {
 		justify-content: space-between;
 	}
 

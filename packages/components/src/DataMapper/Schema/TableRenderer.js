@@ -11,7 +11,7 @@ import * as Constants from '../Constants';
 
 const DRAGGABLE_ELEMENT_TYPE = 'element';
 
-function getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps) {
+function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaProps) {
 	const {
 		selection,
 		pendingItem,
@@ -25,7 +25,8 @@ function getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps
 	const rowsClassNames = {};
 	for (let i = 0; i < elements.length; i += 1) {
 		const element = elements[i];
-		rowsClassNames[dataAccessor.getElementId(element)] = classnames({
+		const elementId = dataAccessor.getElementId(element);
+		rowsClassNames[elementId] = classnames({
 			highlighted: isHighlighted(
 				dataAccessor,
 				element,
@@ -37,24 +38,24 @@ function getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps
 			),
 			mapped: isMapped(dataAccessor, element, mappedElements),
 			selected: isSelected(dataAccessor, selection, element, side),
-		});
+		}, rowsClassName && rowsClassName[elementId]);
 	}
 	return rowsClassNames;
 }
 
-function updateClassNames(classNames, side, elements, dataAccessor, schemaProps) {
-	return {
-		root: classNames && classNames.root,
-		titleBar: classNames && classNames.titleBar,
-		title: classNames && classNames.title,
-		filtersBar: classNames && classNames.filtersBar,
-		table: classnames('schema-content', classNames && classNames.table),
-		header: classNames && classNames.header,
-		body: classNames && classNames.body,
-		row: classnames(classNames && classNames.row, 'draggable-row'),
-		rows: getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps),
-	};
-}
+// function updateClassNames(classNames, side, elements, dataAccessor, schemaProps) {
+// 	return {
+// 		root: classNames && classNames.root,
+// 		titleBar: classNames && classNames.titleBar,
+// 		title: classNames && classNames.title,
+// 		filtersBar: classNames && classNames.filtersBar,
+// 		table: classnames('schema-content', classNames && classNames.table),
+// 		header: classNames && classNames.header,
+// 		body: classNames && classNames.body,
+// 		row: classnames(classNames && classNames.row, 'draggable-row'),
+// 		rows: getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps),
+// 	};
+// }
 
 function copyColumn(column) {
 	const newColumn = {};
@@ -135,14 +136,14 @@ class ColumnUpdater {
 		this.selectionHandler.update(schemaProps);
 	}
 
-	updateClassNameWithIO(className) {
-		// specific input/output className added for data-mapper context
-		const classes = {
-			input: this.schemaProps.side === Constants.MappingSide.INPUT,
-			output: this.schemaProps.side === Constants.MappingSide.OUTPUT,
-		};
-		return classnames(classes, className);
-	}
+	// updateClassNameWithIO(className) {
+	// 	// specific input/output className added for data-mapper context
+	// 	const classes = {
+	// 		input: this.schemaProps.side === Constants.MappingSide.INPUT,
+	// 		output: this.schemaProps.side === Constants.MappingSide.OUTPUT,
+	// 	};
+	// 	return classnames(classes, className);
+	// }
 
 	addDnd(column) {
 		if (!this.draggableCell) {
@@ -165,10 +166,10 @@ class ColumnUpdater {
 	updateColumns(columns) {
 		const columnsWithDnd = copyColumns(columns);
 		// update columns classnames
-		for (let i = 0; i < columnsWithDnd.length; i += 1) {
-			columnsWithDnd[i].headClassName = this.updateClassNameWithIO(columnsWithDnd[i].headClassName);
-			columnsWithDnd[i].cellClassName = this.updateClassNameWithIO(columnsWithDnd[i].cellClassName);
-		}
+		// for (let i = 0; i < columnsWithDnd.length; i += 1) {
+		// 	columnsWithDnd[i].headClassName = this.updateClassNameWithIO(columnsWithDnd[i].headClassName);
+		// 	columnsWithDnd[i].cellClassName = this.updateClassNameWithIO(columnsWithDnd[i].cellClassName);
+		// }
 		// add dnd baheviour on the first column
 		this.addDnd(columnsWithDnd[0]);
 		// add selection behaviour on the first column
@@ -279,7 +280,7 @@ export default class TableRenderer extends Component {
 			schema,
 			onScroll,
 			columns,
-			classNames,
+			rowsClassName,
 			withHeader,
 			filters,
 			sorters,
@@ -287,14 +288,14 @@ export default class TableRenderer extends Component {
 			side,
 		} = this.props;
 		const elements = dataAccessor.getSchemaElements(schema, true);
-		const tableClassNames = updateClassNames(classNames, side, elements, dataAccessor, this.props)
+		//const tableClassNames = updateClassNames(classNames, side, elements, dataAccessor, this.props)
 		const columnsWithDnd = this.columnUpdater.updateColumns(columns);
 		return (
 			<Table
 				title={title}
 				elements={elements}
 				columns={columnsWithDnd}
-				classNames={tableClassNames}
+				rowsClassName={getRowsClassNames(rowsClassName, side, elements, dataAccessor, this.props)}
 				withHeader={withHeader}
 				filters={filters}
 				onFilterChange={this.onFilterChange}
@@ -314,7 +315,7 @@ TableRenderer.propTypes = {
 	schema: PropTypes.object,
 	title: PropTypes.string,
 	columns: PropTypes.array,
-	classNames: PropTypes.object,
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	withHeader: PropTypes.bool,
 	filters: PropTypes.array,
 	onFilterChange: PropTypes.func,

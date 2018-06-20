@@ -5,8 +5,6 @@ import TableHeaderCell from './TableHeaderCell';
 import TableSortHeader from './TableSortHeader';
 import theme from './TableHeader.scss';
 
-const PART = 'head';
-
 function getHeaderComponent(column, sorters, onSortChange) {
 	if (column.headRenderer) {
 		return column.headRenderer;
@@ -19,18 +17,18 @@ function getHeaderComponent(column, sorters, onSortChange) {
 
 function renderHeaderCell(column, sorters, onSortChange) {
 	const HeaderComponent = getHeaderComponent(column, sorters, onSortChange);
-	const thKey = `th-${column.key}`;
-	const cellClassNames = classnames(
-		'tc-table-head-label',
-		theme['tc-table-head-label'],
-		column.headClassName,
-	);
+	const key = column.key;
+	const thKey = `th-${key}`;
 	return (
 		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])}>
 			<HeaderComponent
 				key={column.key}
 				column={column}
-				className={cellClassNames}
+				className={classnames(
+					'tc-table-head-label',
+					theme['tc-table-head-label'],
+					`tc-table-head-label-${key}`,
+				)}
 				sorter={sorters && sorters[column.key]}
 				onSortChange={onSortChange}
 			/>
@@ -41,45 +39,14 @@ function renderHeaderCell(column, sorters, onSortChange) {
 /**
  * This component displays the header of the table.
  */
-export default class TableHeader extends React.Component {
-	constructor(props) {
-		super(props);
-		this.updateHeadNodeRef = this.updateHeadNodeRef.bind(this);
-	}
-
-	componentDidMount() {
-		if (this.props.renderingListener && this.props.renderingListener.onMounted) {
-			this.props.renderingListener.onMounted(PART, this.headNode);
-		}
-	}
-
-	componentDidUpdate() {
-		if (this.props.renderingListener && this.props.renderingListener.onUpdated) {
-			this.props.renderingListener.onUpdated(PART, this.headNode);
-		}
-	}
-
-	updateHeadNodeRef(ref) {
-		this.headNode = ref;
-	}
-
-	render() {
-		const { columns, classNames, sorters, onSortChange } = this.props;
-		return (
-			<thead
-				ref={this.updateHeadNodeRef}
-				className={classnames(
-					'tc-table-head',
-					theme['tc-table-head'],
-					classNames && classNames.header,
-				)}
-			>
-				<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
-					{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
-				</tr>
-			</thead>
-		);
-	}
+export default function TableHeader({ columns, sorters, onSortChange }) {
+	return (
+		<thead className={classnames('tc-table-head', theme['tc-table-head'])}>
+			<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
+				{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
+			</tr>
+		</thead>
+	);
 }
 
 TableHeader.propTypes = {
@@ -87,18 +54,10 @@ TableHeader.propTypes = {
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
 			label: PropTypes.string,
-			headClassName: PropTypes.string,
 			headRenderer: PropTypes.func,
 			headExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	classNames: PropTypes.shape({
-		header: PropTypes.string,
-	}),
 	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
-	renderingListener: PropTypes.shape({
-		onMounted: PropTypes.func,
-		onUpdated: PropTypes.func,
-	}),
 };

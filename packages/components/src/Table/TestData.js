@@ -69,57 +69,71 @@ export const Columns = {
 
 export const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
 
-function getColumn(col) {
+export const rowsClassName = {
+	elem_1: 'classname-of-row-1',
+	elem_2: 'classname-of-row-2',
+};
+
+export const nameFilterId = 'name-filter';
+
+export function getNameFilter(id, match) {
 	return {
-		key: col.key,
-		label: col.label,
-		headClassName: `classname-of-head-${col.key}`,
-		cellClassName: `classname-of-row-data-${col.key}`,
+		id,
+		active: false,
+		params: {
+			value: null,
+			docked: true,
+		},
+		match,
+		renderer: StringFilterComponent,
+		rendererProps: {
+			placeHolder: 'Filter...',
+			dockable: true,
+			navbar: true,
+		},
 	};
 }
 
-export const columns2 = [getColumn(Columns.NAME), getColumn(Columns.TYPE), getColumn(Columns.DESC)];
+export const mandatoryFieldFilterId = 'mandatory-field-filter';
 
-export const classnames = {
-	titleBar: 'classname-of-title-bar',
-	title: 'classname-of-title',
-	filtersBar: 'classname-of-filters-bar',
-	table: 'classname-of-table',
-	header: 'classname-of-table-header',
-	body: 'classname-of-table-body',
-	row: 'classname-of-row',
-	rows: {
-		elem_1: 'classname-of-row-1',
-		elem_2: 'classname-of-row-2',
-	},
+export function getMandatoryFieldFilter(id, match) {
+	return {
+		id,
+		active: false,
+		match,
+		renderer: ToggleFilterComponent,
+		rendererProps: {
+			label: 'Show Mandatory Fields (*) Only',
+		},
+	};
+}
+
+export const SortDirection = {
+	NONE: 'none',
+	ASCENDING: 'ascending',
+	DESCENDING: 'descending',
 };
 
-const nameFilterId = 'name-filter';
-export const nameFilter = {
-	id: nameFilterId,
-	active: false,
-	match() {
-		return true;
-	},
-	renderer: StringFilterComponent,
-	rendererProps: {
-		placeHolder: 'Filter...',
-		dockable: true,
-		navbar: true,
-	},
-	className: nameFilterId,
+export const sorterIcons = {
+	none: 'none-icon',
+	ascending: 'ascending-icon',
+	descending: 'descending-icon',
 };
 
-const mandatoryFieldFilterId = 'mandatory-field-filter';
-export const mandatoryFieldFilter = {
-	id: mandatoryFieldFilterId,
-	active: false,
-	match() {
-		return true;
-	},
-	renderer: ToggleFilterComponent,
-	rendererProps: {
-		label: 'Show Mandatory Fields (*) Only',
-	},
-	className: mandatoryFieldFilterId,
-};
+export function addSortExtraProps(column) {
+	return {
+		key: column.key,
+		label: column.label,
+		headExtraProps: {
+			iconPosition: 'right',
+			link: true,
+		},
+	};
+}
+
+export function getSorter() {
+	return {
+		direction: SortDirection.NONE,
+		icons: sorterIcons,
+	};
+}

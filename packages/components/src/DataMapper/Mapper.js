@@ -775,7 +775,7 @@ export default class Mapper extends Component {
 					ref={this.updateInputSchemaRef}
 					schema={input.schema}
 					columns={input.columns}
-					classNames={input.classNames}
+					rowsClassName={input.rowsClassName}
 					withTitle={input.withTitle}
 					withHeader={input.withHeader}
 					filters={input.filters}
@@ -792,7 +792,7 @@ export default class Mapper extends Component {
 					ref={this.updateOutputSchemaRef}
 					schema={output.schema}
 					columns={output.columns}
-					classNames={output.classNames}
+					rowsClassName={output.rowsClassName}
 					withTitle={output.withTitle}
 					withHeader={output.withHeader}
 					filters={output.filters}
@@ -831,7 +831,7 @@ Mapper.propTypes = {
 	input: PropTypes.shape({
 		schema: PropTypes.object,
 		columns: PropTypes.array,
-		classNames: PropTypes.object,
+		rowsClassName: PropTypes.objectOf(PropTypes.string),
 		withTitle: PropTypes.bool,
 		withHeader: PropTypes.bool,
 		filters: PropTypes.array,
@@ -840,7 +840,7 @@ Mapper.propTypes = {
 	output: PropTypes.shape({
 		schema: PropTypes.object,
 		columns: PropTypes.array,
-		classNames: PropTypes.object,
+		rowsClassName: PropTypes.objectOf(PropTypes.string),
 		withTitle: PropTypes.bool,
 		withHeader: PropTypes.bool,
 		filters: PropTypes.array,

@@ -4,13 +4,6 @@ import classnames from 'classnames';
 import TableCell from '../Cell/TableCell';
 import theme from './TableRow.scss';
 
-function getRowClassName(classNames, element) {
-	return classnames(
-		classNames && classNames.row,
-		classNames && classNames.rows && classNames.rows[element.id],
-	);
-}
-
 /**
  * This function is responsible for rendering a piece of data for an element.
  */
@@ -18,19 +11,17 @@ function renderRowData(element, column) {
 	const key = column.key;
 	const CellComponent = column.cellRenderer || TableCell;
 	const compKey = `${element.id}-${key}`;
-	const classNames = classnames(`td-${key}`, theme['tc-table-row-cell']);
-	const dataClassNames = classnames(
-		'tc-table-row-data',
-		theme['tc-table-row-data'],
-		column.cellClassName || `tc-table-row-data-${column.key}`,
-	);
 	return (
-		<td key={`td-${compKey}`} className={classNames}>
+		<td key={`td-${compKey}`} className={classnames(`td-${key}`, theme['tc-table-row-cell'])}>
 			<CellComponent
 				key={compKey}
 				element={element}
 				data={element[key]}
-				className={dataClassNames}
+				className={classnames(
+					'tc-table-row-data',
+					theme['tc-table-row-data'],
+					`tc-table-row-data-${column.key}`,
+				)}
 				{...column.cellExtraProps}
 			/>
 		</td>
@@ -61,11 +52,11 @@ export default class TableRow extends Component {
 	}
 
 	render() {
-		const { element, classNames, columns } = this.props;
+		const { element, rowsClassName, columns } = this.props;
 		const rowClassNames = classnames(
 			'tc-table-row',
 			theme['tc-table-row'],
-			getRowClassName(classNames, element),
+			rowsClassName && rowsClassName[element.id],
 		);
 		return (
 			<tr
@@ -83,14 +74,10 @@ export default class TableRow extends Component {
 
 TableRow.propTypes = {
 	element: PropTypes.object.isRequired,
-	classNames: PropTypes.shape({
-		row: PropTypes.string,
-		rows: PropTypes.objectOf(PropTypes.string),
-	}),
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
-			cellClassName: PropTypes.string,
 			cellRenderer: PropTypes.func,
 			cellExtraProps: PropTypes.object,
 		}),

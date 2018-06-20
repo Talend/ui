@@ -7,7 +7,6 @@ function renderFilter(filter, onFilterChange) {
 	const FilterComponent = filter.renderer;
 	return (
 		<FilterComponent
-			className={classnames('tc-filter', theme['tc-filter'], filter.className)}
 			key={filter.id}
 			filter={filter}
 			onFilterChange={onFilterChange}
@@ -19,24 +18,15 @@ function renderFilter(filter, onFilterChange) {
 /**
  * This component is responsible for rendering a set of filters.
  */
-export default function FiltersBar({ filters, onFilterChange, classNames }) {
+export default function FiltersBar({ filters, onFilterChange }) {
 	return (
-		<div
-			className={classnames(
-				'tc-table-filters-bar',
-				theme['tc-table-filters-bar'],
-				classNames && classNames.filtersBar,
-			)}
-		>
+		<div className={classnames('tc-table-filters-bar', theme['tc-table-filters-bar'])}>
 			{filters.map(filter => renderFilter(filter, onFilterChange))}
 		</div>
 	);
 }
 
 FiltersBar.propTypes = {
-	classNames: PropTypes.shape({
-		filtersBar: PropTypes.string,
-	}),
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
 			id: PropTypes.string.isRequired,
@@ -45,7 +35,6 @@ FiltersBar.propTypes = {
 			match: PropTypes.func.isRequired,
 			renderer: PropTypes.func.isRequired,
 			rendererProps: PropTypes.object,
-			className: PropTypes.string,
 		}),
 	),
 	onFilterChange: PropTypes.func,

@@ -1,5 +1,5 @@
-import * as TestData from './TestData';
-import * as Constants from './Constants';
+import * as TestData from '../TestData';
+import * as Constants from '../Constants';
 import DefaultDataAccessor from './DefaultDataAccessor';
 import DataAccessorWrapper, { isObjectEmpty } from './DataAccessorWrapper';
 import MandatoryFieldFilter from './Schema/Filters/MandatoryFieldFilter';

@@ -84,3 +84,22 @@ export const mapping = [
 		target: element8,
 	},
 ];
+
+export const Columns = {
+	NAME: {
+		key: 'name',
+		label: 'Name',
+	},
+	TYPE: {
+		key: 'type',
+		label: 'Type',
+	},
+	DESC: {
+		key: 'description',
+		label: 'Description',
+	},
+	MANDATORY: {
+		key: 'mandatory',
+		label: '',
+	},
+};

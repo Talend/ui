@@ -2,17 +2,17 @@
 
 exports[`Render a table width custom configuration custom-table 1`] = `
 <div
-  className="tc-table-root theme-tc-table-root"
+  className="tc-table theme-tc-table"
 >
   <table
-    className="tc-table theme-tc-table classname-of-table"
+    className="tc-table-comp theme-tc-table-comp"
   >
     <tbody
-      className="tc-table-body theme-tc-table-body classname-of-table-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-1"
+        className="tc-table-row theme-tc-table-row classname-of-row-1"
         data-id="elem_1"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -21,7 +21,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
           className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 1
           </div>
@@ -30,7 +30,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
           className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
@@ -39,14 +39,14 @@ exports[`Render a table width custom configuration custom-table 1`] = `
           className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             Description of element 1
           </div>
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-2"
+        className="tc-table-row theme-tc-table-row classname-of-row-2"
         data-id="elem_2"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -55,7 +55,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
           className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 2
           </div>
@@ -64,7 +64,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
           className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
@@ -73,7 +73,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
           className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             This element is a string
           </div>
@@ -86,22 +86,22 @@ exports[`Render a table width custom configuration custom-table 1`] = `
 
 exports[`Render a table width custom header custom-table-with-header 1`] = `
 <div
-  className="tc-table-root theme-tc-table-root"
+  className="tc-table theme-tc-table"
 >
   <table
-    className="tc-table theme-tc-table classname-of-table"
+    className="tc-table-comp theme-tc-table-comp"
   >
     <thead
-      className="tc-table-head theme-tc-table-head classname-of-table-header"
+      className="tc-table-head theme-tc-table-head"
     >
       <tr
-        className="theme-tc-table-head-row"
+        className="tc-table-head-row theme-tc-table-head-row"
       >
         <th
           className="th-name theme-tc-table-head-th"
         >
           <div
-            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label classname-of-head-name"
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
           >
             Name
           </div>
@@ -110,7 +110,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="th-type theme-tc-table-head-th"
         >
           <div
-            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label classname-of-head-type"
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
           >
             Type
           </div>
@@ -119,7 +119,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="th-desc theme-tc-table-head-th"
         >
           <div
-            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label classname-of-head-desc"
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
           >
             Description
           </div>
@@ -127,11 +127,11 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
       </tr>
     </thead>
     <tbody
-      className="tc-table-body theme-tc-table-body classname-of-table-body"
+      className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
     >
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-1"
+        className="tc-table-row theme-tc-table-row classname-of-row-1"
         data-id="elem_1"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -140,7 +140,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 1
           </div>
@@ -149,7 +149,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
@@ -158,14 +158,14 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             Description of element 1
           </div>
         </td>
       </tr>
       <tr
-        className="tc-table-row theme-tc-table-row classname-of-row classname-of-row-2"
+        className="tc-table-row theme-tc-table-row classname-of-row-2"
         data-id="elem_2"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -174,7 +174,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="td-name theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-name"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
           >
             element 2
           </div>
@@ -183,7 +183,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="td-type theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-type"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
           >
             string
           </div>
@@ -192,7 +192,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
           className="td-desc theme-tc-table-row-cell"
         >
           <div
-            className="tc-table-cell tc-table-row-data theme-tc-table-row-data classname-of-row-data-desc"
+            className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
           >
             This element is a string
           </div>
@@ -205,10 +205,10 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
 
 exports[`Render a table width default configuration default-table 1`] = `
 <div
-  className="tc-table-root theme-tc-table-root"
+  className="tc-table theme-tc-table"
 >
   <table
-    className="tc-table theme-tc-table"
+    className="tc-table-comp theme-tc-table-comp"
   >
     <tbody
       className="tc-table-body theme-tc-table-body"
@@ -289,22 +289,22 @@ exports[`Render a table width default configuration default-table 1`] = `
 
 exports[`Render a table width default header default-table-with-header 1`] = `
 <div
-  className="tc-table-root theme-tc-table-root"
+  className="tc-table theme-tc-table"
 >
   <table
-    className="tc-table theme-tc-table"
+    className="tc-table-comp theme-tc-table-comp"
   >
     <thead
       className="tc-table-head theme-tc-table-head"
     >
       <tr
-        className="theme-tc-table-head-row"
+        className="tc-table-head-row theme-tc-table-head-row"
       >
         <th
           className="th-name theme-tc-table-head-th"
         >
           <div
-            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
           >
             Name
           </div>
@@ -313,7 +313,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
           className="th-type theme-tc-table-head-th"
         >
           <div
-            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
           >
             Type
           </div>
@@ -322,7 +322,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
           className="th-desc theme-tc-table-head-th"
         >
           <div
-            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label"
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
           >
             Description
           </div>

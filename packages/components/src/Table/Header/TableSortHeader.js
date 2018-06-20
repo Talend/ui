@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { ActionButton } from '../../index';
 
 function getIcon(sorter) {
@@ -23,10 +23,10 @@ export default class TableSortHeader extends React.Component {
 
 	render() {
 		const { className, column, sorter } = this.props;
-		const { icon, label, ...rest } = column.headExtraProps;
+		const { icon, label, ...rest } = column.headExtraProps || {};
 		return (
 			<ActionButton
-				className={classNames('tc-table-sort-header', className)}
+				className={classnames('tc-table-sort-header', className)}
 				label={column.label || label}
 				onClick={this.onClick}
 				icon={getIcon(sorter) || icon}

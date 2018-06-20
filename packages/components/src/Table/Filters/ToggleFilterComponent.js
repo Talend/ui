@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Toggle from '../../Toggle';
+import theme from './FiltersBar.scss';
 
 /**
  * Component used with a filter based on boolean value.
@@ -19,10 +20,10 @@ export default class ToggleFilterComponent extends Component {
 	}
 
 	render() {
-		const { filter, label, className } = this.props;
+		const { filter, label } = this.props;
 		return (
 			<Toggle
-				className={classnames('tc-boolean-filter', className)}
+				className={classnames('tc-boolean-filter', 'tc-filter', theme['tc-filter'], filter.id)}
 				onChange={this.onChange}
 				label={label}
 				checked={filter.active}
@@ -35,6 +36,5 @@ export default class ToggleFilterComponent extends Component {
 ToggleFilterComponent.propTypes = {
 	filter: PropTypes.object,
 	onFilterChange: PropTypes.func,
-	className: PropTypes.string,
 	label: PropTypes.string,
 };

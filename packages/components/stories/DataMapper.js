@@ -196,18 +196,18 @@ const outputSchemaUX = {
 	],
 };
 
-function getMapperClassNames(side) {
-	return {
-		root: classnames('mapper-table-container', side),
-		titleBar: classnames('mapper-table-title-bar', side),
-		title: classnames('mapper-table-title', side),
-		filtersBar: classnames('mapper-table-filters-bar', side),
-		table: classnames('mapper-table', side),
-		header: classnames('mapper-table-header', side),
-		body: classnames('mapper-table-body', side),
-		row: classnames('mapper-table-row', side),
-	};
-}
+// function getMapperClassNames(side) {
+// 	return {
+// 		root: classnames('mapper-table-container', side),
+// 		titleBar: classnames('mapper-table-title-bar', side),
+// 		title: classnames('mapper-table-title', side),
+// 		filtersBar: classnames('mapper-table-filters-bar', side),
+// 		table: classnames('mapper-table', side),
+// 		header: classnames('mapper-table-header', side),
+// 		body: classnames('mapper-table-body', side),
+// 		row: classnames('mapper-table-row', side),
+// 	};
+// }
 
 // COLUMNS DEFINITION
 
@@ -230,17 +230,7 @@ const Columns = {
 	},
 };
 
-function newColumn(col) {
-	return {
-		key: col.key,
-		label: col.label,
-		headClassName: `tc-table-head-label-${col.key}`,
-		cellClassName: `tc-table-row-data-${col.key}`,
-	};
-}
-
 function addSortExtraProps(column) {
-	const key = column.key;
 	column.headExtraProps = {
 		iconPosition: 'right',
 		link: true,
@@ -249,15 +239,15 @@ function addSortExtraProps(column) {
 }
 
 const inputColumns = [
-	addSortExtraProps(newColumn(Columns.TYPE)),
-	addSortExtraProps(newColumn(Columns.NAME)),
+	addSortExtraProps(Columns.TYPE),
+	addSortExtraProps(Columns.NAME),
 ];
 
 const outputColumns = [
-	newColumn(Columns.MANDATORY),
-	addSortExtraProps(newColumn(Columns.NAME)),
-	addSortExtraProps(newColumn(Columns.TYPE)),
-	addSortExtraProps(newColumn(Columns.DESC)),
+	Columns.MANDATORY,
+	addSortExtraProps(Columns.NAME),
+	addSortExtraProps(Columns.TYPE),
+	addSortExtraProps(Columns.DESC),
 ];
 
 // SORTERS DEFINITION
@@ -315,12 +305,13 @@ function matchName(element, filterParams) {
 	return Boolean(name.match(value) || name.toLowerCase().match(value));
 }
 
-function createNameFilter(side) {
+function createNameFilter() {
 	return {
 		id: nameFilterId,
 		active: false,
 		params: {
 			value: null,
+			docked: true,
 		},
 		match: matchName,
 		renderer: StringFilterComponent,
@@ -329,7 +320,6 @@ function createNameFilter(side) {
 			dockable: true,
 			navbar: true,
 		},
-		className: classnames(nameFilterId, side),
 	};
 }
 
@@ -339,7 +329,7 @@ function matchMandatory(element) {
 	return element.mandatory;
 }
 
-function createMandatoryFieldFilter(side) {
+function createMandatoryFieldFilter() {
 	return {
 		id: mandatoryFieldFilterId,
 		active: false,
@@ -348,18 +338,17 @@ function createMandatoryFieldFilter(side) {
 		rendererProps: {
 			label: 'Show Mandatory Fields (*) Only',
 		},
-		className: classnames(mandatoryFieldFilterId, side),
 	};
 }
 
 function createInputFilters() {
-	return [createNameFilter(Constants.MappingSide.INPUT)];
+	return [createNameFilter()];
 }
 
 function createOutputFilters() {
 	return [
-		createNameFilter(Constants.MappingSide.OUTPUT),
-		createMandatoryFieldFilter(Constants.MappingSide.OUTPUT),
+		createNameFilter(),
+		createMandatoryFieldFilter(),
 	];
 }
 
@@ -454,7 +443,7 @@ const alternativePrefs = prefs(true, defaultGradientStops50, defaultGradientStop
 const input = {
 	schema: finalizeSchema(inputSchemaUX),
 	columns: inputColumns,
-	classNames: getMapperClassNames(Constants.MappingSide.INPUT),
+	rowsClassName: {},
 	withTitle: true,
 	withHeader: true,
 	filters: createInputFilters(),
@@ -464,7 +453,7 @@ const input = {
 const output = {
 	schema: finalizeSchema(outputSchemaUX),
 	columns: outputColumns,
-	classNames: getMapperClassNames(Constants.MappingSide.OUTPUT),
+	rowsClassName: {},
 	withTitle: true,
 	withHeader: true,
 	filters: createOutputFilters(),

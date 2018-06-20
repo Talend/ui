@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TitleBar, { displayFilters } from './TitleBar/TitleBar';
-import TableComp from './TableComp/TableComp';
+import TableHeader from './Header/TableHeader';
+import TableBody from './Body/TableBody';
 import theme from './Table.scss';
 
 /**
@@ -17,7 +18,7 @@ export default function Table({
 	title,
 	elements,
 	columns,
-	classNames,
+	rowsClassName,
 	withHeader,
 	filters,
 	onFilterChange,
@@ -26,32 +27,25 @@ export default function Table({
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
-	renderingListener,
 }) {
 	return (
-		<div
-			className={classnames('tc-table-root', theme['tc-table-root'], classNames && classNames.root)}
-		>
+		<div className={classnames('tc-table', theme['tc-table'])}>
 			{(title || displayFilters(filters)) && (
-				<TitleBar
-					title={title}
-					classNames={classNames}
-					filters={filters}
-					onFilterChange={onFilterChange}
-				/>
+				<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
-			<TableComp
-				elements={elements}
-				columns={columns}
-				classNames={classNames}
-				withHeader={withHeader}
-				sorters={sorters}
-				onSortChange={onSortChange}
-				onScroll={onScroll}
-				onEnterRow={onEnterRow}
-				onLeaveRow={onLeaveRow}
-				renderingListener={renderingListener}
-			/>
+			<table className={classnames('tc-table-comp', theme['tc-table-comp'])}>
+				{withHeader && (
+					<TableHeader columns={columns} sorters={sorters} onSortChange={onSortChange} />
+				)}
+				<TableBody
+					elements={elements}
+					columns={columns}
+					rowsClassName={rowsClassName}
+					onScroll={onScroll}
+					onEnterRow={onEnterRow}
+					onLeaveRow={onLeaveRow}
+				/>
+			</table>
 		</div>
 	);
 }
@@ -71,8 +65,6 @@ Table.propTypes = {
 			key: PropTypes.string.isRequired,
 			// label displayed in the column header
 			label: PropTypes.string,
-			// classname of the column header
-			headClassName: PropTypes.string,
 			/**
 			 * Renderer used for the column header.
 			 * If not specify, a default renderer is used.
@@ -80,8 +72,6 @@ Table.propTypes = {
 			headRenderer: PropTypes.func,
 			// optional extra props for the column header renderer above
 			headExtraProps: PropTypes.object,
-			// classname used for all the cell of the column
-			cellClassName: PropTypes.string,
 			/**
 			 * Renderer used for the all the cells of the column.
 			 * If not specify, a default renderer is used.
@@ -91,17 +81,7 @@ Table.propTypes = {
 			cellExtraProps: PropTypes.object,
 		}),
 	).isRequired,
-	classNames: PropTypes.shape({
-		root: PropTypes.string,
-		titleBar: PropTypes.string,
-		title: PropTypes.string,
-		filtersBar: PropTypes.string,
-		table: PropTypes.string,
-		header: PropTypes.string,
-		body: PropTypes.string,
-		row: PropTypes.string,
-		rows: PropTypes.objectOf(PropTypes.string),
-	}),
+	rowsClassName: PropTypes.objectOf(PropTypes.string),
 	withHeader: PropTypes.bool,
 	filters: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -117,8 +97,6 @@ Table.propTypes = {
 			renderer: PropTypes.func.isRequired,
 			// additional props for the above renderer
 			rendererProps: PropTypes.object,
-			// classname used for the above renderer
-			className: PropTypes.string,
 		}),
 	),
 	onFilterChange: PropTypes.func,
@@ -134,8 +112,4 @@ Table.propTypes = {
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
-	renderingListener: PropTypes.shape({
-		onMounted: PropTypes.func,
-		onUpdated: PropTypes.func,
-	}),
 };

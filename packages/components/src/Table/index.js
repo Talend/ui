@@ -5,11 +5,10 @@ import TableHeaderCell from './Header/TableHeaderCell';
 import TableSortHeader from './Header/TableSortHeader';
 import ToggleFilterComponent from './Filters/ToggleFilterComponent';
 
-export {
-	StringFilterComponent,
-	Table,
-	TableCell,
-	TableHeaderCell,
-	TableSortHeader,
-	ToggleFilterComponent,
-};
+Table.StringFilterComponent = StringFilterComponent;
+Table.Cell = TableCell;
+Table.HeaderCell = TableHeaderCell;
+Table.SortHeader = TableSortHeader;
+Table.ToggleFilterComponent = ToggleFilterComponent;
+
+export default Table;
