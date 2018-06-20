@@ -10,7 +10,7 @@ function nothing() {
 }
 
 /**
- * T>his is to render an not found componenent to alert developers
+ * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
 function NotFoundComponent({ error }) {
@@ -106,6 +106,38 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 	});
 	return components;
 };
+
+/**
+ * Allow a props to have multiple shape with a target to be a react valid element.
+ * It supports three shapes: string, object, react element
+ * @param {function} getComponent
+ * @param {object|string|React Element} data
+ */
+Inject.getReactElement = function getReactElement(getComponent, data, CustomInject = Inject) {
+	if (typeof data === 'string') {
+		return <CustomInject getComponent={getComponent} component={data} />;
+	} else if (React.isValidElement(data)) {
+		return data;
+	} else if (Array.isArray(data)) {
+		return data.map(info => getReactElement(getComponent, info, CustomInject));
+	} else if (typeof data === 'object') {
+		return <CustomInject getComponent={getComponent} {...data} />;
+	}
+	return null;
+};
+
+Inject.getReactElement.propTypes = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.shape({ component: PropTypes.string }),
+	PropTypes.element,
+	PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({ component: PropTypes.string }),
+			PropTypes.element,
+		]),
+	),
+]);
 
 Inject.displayName = 'Inject';
 
