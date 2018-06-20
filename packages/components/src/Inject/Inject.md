@@ -107,6 +107,43 @@ function MyUse() {
 
 In this case Action will not be wrapped but WhatEver will be.
 
+# How to support props with React Element and Inject fallback.
+
+Sometimes we want a component which is just a layout structure.
+So its props should only be the element we want in each part.
+
+The possible types
+* react element (pass the test React.isValidElement)
+* string (wanted component name)
+* object (component name + props)
+* Array of the three types below
+
+So Inject component provide the getReactElement api.
+You can use it this way:
+
+```javascript
+function ArticlePage({ header, article, footer}) {
+	return (
+		<header>
+			{Inject.getReactElement(getComponent, header)}
+		</header>
+		<article>
+			{Inject.getReactElement(getComponent, article)}
+		</article>
+		<footer>
+			{Inject.getReactElement(getComponent, footer)}
+		</footer>
+	);
+}
+ArticlePage.propTypes = {
+	header: Inject.getReactElement.propTypes,
+	article: Inject.getReactElement.propTypes,
+	footer: Inject.getReactElement.propTypes,
+};
+```
+
+So ArticlePage is only responsible to give the global structure.
+
 # How it works
 
 The Inject component looks like this
