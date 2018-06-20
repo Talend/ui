@@ -16,7 +16,7 @@ const PART = 'table';
  * The table header is optional.
  * The title bar displays a title and an optional set of filters.
  */
-export default Table extends React.Component {
+export default class Table extends React.Component {
 
 	constructor(props) {
 		super(props);
