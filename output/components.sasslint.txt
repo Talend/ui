@@ -7,52 +7,35 @@ src/DataMapper/DataMapper.scss
     4:2   error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
     5:2   error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
    26:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
-   99:11  error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
-  108:16  error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
-  112:10  error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
-  179:39  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  185:40  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  191:39  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  196:40  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  232:4   error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  237:4   error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  375:15  error  Quotes around URLs are required                                                 url-quotes
-  379:15  error  Quotes around URLs are required                                                 url-quotes
-  383:15  error  Quotes around URLs are required                                                 url-quotes
-  387:15  error  Quotes around URLs are required                                                 url-quotes
-  391:15  error  Quotes around URLs are required                                                 url-quotes
-  395:15  error  Quotes around URLs are required                                                 url-quotes
-  399:15  error  Quotes around URLs are required                                                 url-quotes
-  403:15  error  Quotes around URLs are required                                                 url-quotes
+  145:15  error  Quotes around URLs are required                                                 url-quotes
+  149:15  error  Quotes around URLs are required                                                 url-quotes
+  153:15  error  Quotes around URLs are required                                                 url-quotes
+  157:15  error  Quotes around URLs are required                                                 url-quotes
+  161:15  error  Quotes around URLs are required                                                 url-quotes
+  165:15  error  Quotes around URLs are required                                                 url-quotes
+  169:15  error  Quotes around URLs are required                                                 url-quotes
+  173:15  error  Quotes around URLs are required                                                 url-quotes
 
-src/DataMapperOLD/DataMapper.scss
+src/DataMapper/Schema/Schema.scss
+  1:12  error  No empty blocks allowed  no-empty-rulesets
+
+src/DataMapperDemo/DataMapper.scss
     2:2   error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
     3:2   error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
     4:2   error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
     5:2   error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
-   22:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
-   29:11  error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
-   52:16  error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
-   57:10  error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
-  168:15  error  Quotes around URLs are required                                                 url-quotes
-  172:15  error  Quotes around URLs are required                                                 url-quotes
-  176:15  error  Quotes around URLs are required                                                 url-quotes
-  180:15  error  Quotes around URLs are required                                                 url-quotes
-  184:15  error  Quotes around URLs are required                                                 url-quotes
-  188:15  error  Quotes around URLs are required                                                 url-quotes
-  192:15  error  Quotes around URLs are required                                                 url-quotes
-  196:15  error  Quotes around URLs are required                                                 url-quotes
-  311:11  error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
-  320:16  error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
-  324:10  error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
-  381:44  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  387:45  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  393:44  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  398:45  error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  418:4   error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  423:4   error  Qualifying elements are not allowed for class selectors                         no-qualifying-elements
-  433:6   error  Nesting depth 4 greater than max of 3                                           nesting-depth
-  465:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
+   26:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
+  145:15  error  Quotes around URLs are required                                                 url-quotes
+  149:15  error  Quotes around URLs are required                                                 url-quotes
+  153:15  error  Quotes around URLs are required                                                 url-quotes
+  157:15  error  Quotes around URLs are required                                                 url-quotes
+  161:15  error  Quotes around URLs are required                                                 url-quotes
+  165:15  error  Quotes around URLs are required                                                 url-quotes
+  169:15  error  Quotes around URLs are required                                                 url-quotes
+  173:15  error  Quotes around URLs are required                                                 url-quotes
+
+src/DataMapperDemo/Schema/Schema.scss
+  1:12  error  No empty blocks allowed  no-empty-rulesets
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -60,5 +43,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 51 problems (49 errors, 2 warnings)
+✖ 30 problems (28 errors, 2 warnings)
 

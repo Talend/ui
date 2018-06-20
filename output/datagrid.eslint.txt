@@ -1,3 +1,13 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
+   84:9  error  'defaultProps' is not defined  no-undef
+  102:9  error  'propTypes' is not defined     no-undef
+
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
+  10:9  error  'propTypes' is not defined  no-undef
+
+✖ 3 problems (3 errors, 0 warnings)
+
