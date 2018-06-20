@@ -113,13 +113,15 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {function} getComponent
  * @param {object|string|React Element} data
  */
-Inject.getReactElement = function getReactElement(getComponent, data) {
+Inject.getReactElement = function getReactElement(getComponent, data, CustomInject = Inject) {
 	if (typeof data === 'string') {
-		return <Inject getComponent={getComponent} component={data} />;
+		return <CustomInject getComponent={getComponent} component={data} />;
 	} else if (React.isValidElement(data)) {
 		return data;
+	} else if (Array.isArray(data)) {
+		return Inject.map(getComponent, data, CustomInject);
 	} else if (typeof data === 'object') {
-		return <Inject getComponent={getComponent} {...data} />;
+		return <CustomInject getComponent={getComponent} {...data} />;
 	}
 	return null;
 };

@@ -62,7 +62,6 @@ function Layout({
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
-	const inject = Inject.all(getComponent, components);
 	switch (mode) {
 		case DISPLAY_MODE_ONE_COLUMN:
 			Component = OneColumn;
@@ -89,7 +88,6 @@ function Layout({
 			)}
 			{safeSubHeader && <div className="subheader">{safeSubHeader}</div>}
 			<Component drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
-				{inject('content')}
 				{safeContent}
 				{children}
 			</Component>

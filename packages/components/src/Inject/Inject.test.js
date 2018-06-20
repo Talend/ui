@@ -211,6 +211,13 @@ describe('Inject.getReactElement', () => {
 			<Inject getComponent={getComponent} component="what" extra />,
 		);
 	});
+	it('should support element as Array', () => {
+		const getComponent = jest.fn();
+		const data = [{ component: 'what', extra: true }];
+		expect(Inject.getReactElement(getComponent, data)).toEqual([
+			<Inject key={0} getComponent={getComponent} component="what" extra />,
+		]);
+	});
 	it('should support element as valid react element', () => {
 		const getComponent = jest.fn();
 		const data = <p>foo</p>;
