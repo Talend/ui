@@ -1,8 +1,17 @@
 [
 	{
-		"icon": "talend-tdc-colored",
-		"key": "TDC",
-		"url": "www.tdc.fr",
-		"label": "APPS_TDC"
+		"icon": "talend-tdp-colored",
+		"key": "tdp",
+		"label": "My"
+	},
+	{
+		"icon": "talend-tic-colored",
+		"key": "tic",
+		"label": "applications"
+	},
+	{
+		"icon": "talend-tmc-colored",
+		"key": "tmc",
+		"label": "list"
 	}
 ]

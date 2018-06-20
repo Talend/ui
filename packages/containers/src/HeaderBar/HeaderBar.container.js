@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
-import { cmfConnect } from '@talend/react-cmf';
-import { HeaderBar as HeaderBarComponent } from '@talend/react-components';
+import { cmfConnect, Inject } from '@talend/react-cmf';
 
-export const DEFAULT_STATE = new Map({
-	loadingProducts: false,
-});
+export const DEFAULT_STATE = new Map({});
 
 class HeaderBar extends React.Component {
 	static displayName = 'Container(HeaderBar)';
@@ -15,35 +12,33 @@ class HeaderBar extends React.Component {
 	static PRODUCTS_COLLECTION_ID = 'header_bar_products_collection';
 
 	static propTypes = {
-		productsUrl: PropTypes.string,
+		products: PropTypes.shape({
+			url: PropTypes.string,
+			lang: PropTypes.string,
+			env: PropTypes.string,
+		}),
 		...cmfConnect.propTypes,
 	};
 
 	render() {
-		console.log('******** render()');
-		// debugger;
-		// const products = cmf.selectors.collections.toJS(this.props.state, this.PRODUCTS_COLLECTION_ID);
+		const { products } = this.props;
 
-		const { brand } = this.props;
+		if (products) {
+			const { url, language, env, items } = products;
 
-		if (brand) {
-			const { productsUrl, products } = brand;
-
-			if (productsUrl && !products) {
+			if (url && !items) {
 				// A products URL has been provided and no product is available,
 				// trigger products list fetching
 				this.props.dispatch({
 					type: 'HEADER_BAR_RECEIVE_PRODUCT_URL',
-					productsUrl,
+					payload: { url, language, env },
 				});
 			}
 		}
 
-		const props = Object.assign({}, omit(this.props, ['brand.productUrl', ...cmfConnect.INJECTED_PROPS]));
+		const props = Object.assign({}, omit(this.props, ['products.url', ...cmfConnect.INJECTED_PROPS]));
 
-		console.log('--> HeaderBarContainer render props', props);
-
-		return <HeaderBarComponent {...props} />;
+		return <Inject component="HeaderBar" {...props} />;
 	}
 }
 
