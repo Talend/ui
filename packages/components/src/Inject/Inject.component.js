@@ -119,7 +119,7 @@ Inject.getReactElement = function getReactElement(getComponent, data, CustomInje
 	} else if (React.isValidElement(data)) {
 		return data;
 	} else if (Array.isArray(data)) {
-		return Inject.map(getComponent, data, CustomInject);
+		return data.map(info => getReactElement(getComponent, info, CustomInject));
 	} else if (typeof data === 'object') {
 		return <CustomInject getComponent={getComponent} {...data} />;
 	}
@@ -130,7 +130,13 @@ Inject.getReactElement.propTypes = PropTypes.oneOfType([
 	PropTypes.string,
 	PropTypes.shape({ component: PropTypes.string }),
 	PropTypes.element,
-	PropTypes.arrayOf(PropTypes.shape({ component: PropTypes.string })),
+	PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({ component: PropTypes.string }),
+			PropTypes.element,
+		]),
+	),
 ]);
 
 Inject.displayName = 'Inject';
