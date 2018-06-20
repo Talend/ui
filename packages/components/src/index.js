@@ -44,16 +44,6 @@ import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
-import {
-	DataAccessorWithSorterAndFilter,
-	FilterFactory,
-	Sorter,
-	SortOrder,
-	Table,
-	TableCell,
-	TableHeaderCell,
-	TableSortHeader,
-} from './Table';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
 import getTranslated from './TranslateWrapper';
