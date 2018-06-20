@@ -78,6 +78,7 @@
     "packages/components",
     "packages/containers",
     "packages/datagrid",
+    "packages/data-mapper",
     "packages/forms",
     "packages/generator",
     "packages/icons",

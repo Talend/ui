@@ -15,6 +15,9 @@ echo "✓ Copy containers showcase to .static"
 cp -R packages/datagrid/storybook-static/* .static/datagrid
 echo "✓ Copy datagrid showcase to .static"
 
+cp -R packages/data-mapper/storybook-static/* .static/data-mapper
+echo "✓ Copy data-mapper showcase to .static"
+
 cp -R packages/forms/storybook-static/* .static/forms
 echo "✓ Copy forms showcase to .static"
 

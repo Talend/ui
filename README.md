@@ -25,6 +25,7 @@ front-end stack.
 - [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
 - [talend-log](https://github.com/Talend/ui/tree/master/packages/logging)
 - [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
+- [react-data-mapper](https://github.com/Talend/ui/tree/master/packages/data-mapper)
 
 ## Tools (dev environment)
 

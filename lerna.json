@@ -15,6 +15,7 @@
     "packages/logging",
     "packages/sagas",
     "packages/theme",
-    "packages/datagrid"
+    "packages/datagrid",
+    "packages/data-mapper"
   ]
 }

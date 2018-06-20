@@ -27,6 +27,10 @@ if [ "$ACTION" == 'test' ]; then
     rm -rf .static/datagrid/coverage
     cp -R packages/datagrid/coverage/lcov-report/ .static/datagrid/coverage
     echo "✓ Copy datagrid coverage to .static"
+
+    rm -rf .static/data-mapper/coverage
+    cp -R packages/data-mapper/coverage/lcov-report/ .static/data-mapper/coverage
+    echo "✓ Copy data-mapper coverage to .static"
 else
     echo "✓ no COVERAGE to copy"
 fi

@@ -1,5 +1,5 @@
 {
-  "name": "@talend/data-mapper",
+  "name": "@talend/react-data-mapper",
   "description": "Drag and drop data mapper component",
   "main": "lib/index.js",
   "license": "Apache-2.0",
