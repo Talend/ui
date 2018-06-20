@@ -125,14 +125,13 @@ Inject.getReactElement = function getReactElement(getComponent, data, CustomInje
 	}
 	return null;
 };
-const supportedTypes = [
+
+Inject.getReactElement.propTypes = PropTypes.oneOfType([
 	PropTypes.string,
 	PropTypes.shape({ component: PropTypes.string }),
 	PropTypes.element,
-];
-Inject.getReactElement.propTypes = PropTypes.oneOfType(
-	supportedTypes.concat(PropTypes.arrayOf(PropTypes.oneOfType(supportedTypes)))
-);
+	PropTypes.arrayOf(PropTypes.shape({ component: PropTypes.string })),
+]);
 
 Inject.displayName = 'Inject';
 
