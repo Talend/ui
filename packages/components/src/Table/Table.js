@@ -33,7 +33,7 @@ export default function Table({
 			{(title || displayFilters(filters)) && (
 				<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
-			<table className={classnames('tc-table-comp', theme['tc-table-comp'])}>
+			<table>
 				{withHeader && (
 					<TableHeader columns={columns} sorters={sorters} onSortChange={onSortChange} />
 				)}
