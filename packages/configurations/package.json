@@ -1,0 +1,21 @@
+{
+  "name": "@talend/configurations",
+  "version": "0.1.0",
+  "description": "Tools configurations",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "babel-eslint": "8.0.1",
+    "eslint-config-airbnb": "^11.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

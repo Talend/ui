@@ -1,0 +1,20 @@
+extends: ../.eslintrc.base.json
+env:
+  browser: true
+rules:
+  import/no-commonjs:
+    - error
+  import/no-nodejs-modules:
+    - error
+  react/prefer-es6-class: off
+  react/jsx-filename-extension:
+    - warn
+    - { extensions: [ .js ] }
+  react/no-unused-prop-types:
+    - error
+    - { skipShapeProps: true }
+  react/forbid-prop-types:
+    - off
+  new-cap:
+    - error
+    - { capIsNewExceptions: [ List, Map ] }

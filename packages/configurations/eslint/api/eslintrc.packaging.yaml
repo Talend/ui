@@ -1,0 +1,8 @@
+extends: ./.eslintrc.base.json
+root: true
+env:
+  node: true
+rules:
+  import/no-extraneous-dependencies:
+    - error
+    - { devDependencies: true }

@@ -1,0 +1,12 @@
+extends: ../.eslintrc.base.json
+env:
+  browser: true
+  jquery: true
+rules:
+  import/no-commonjs:
+    - error
+  import/no-nodejs-modules:
+    - error
+globals:
+  _: false
+  angular: false
