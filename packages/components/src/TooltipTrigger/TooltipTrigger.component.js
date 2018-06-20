@@ -27,9 +27,12 @@ class TooltipTrigger extends React.Component {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onMouseUp = this.onMouseUp.bind(this);
+		this.onMouseDown = this.onMouseDown.bind(this);
 
 		this.state = {
 			hovered: false,
+			clicked: false,
 			id: uuid.v4(),
 		};
 	}
@@ -37,6 +40,7 @@ class TooltipTrigger extends React.Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
 			this.state.hovered !== nextState.hovered ||
+			this.state.clicked !== nextState.clicked ||
 			this.props.children !== nextProps.children ||
 			this.props.label !== nextProps.label
 		);
@@ -47,8 +51,8 @@ class TooltipTrigger extends React.Component {
 			this.setState({ hovered: true });
 		}
 
-		if (this.childProps.onMouseOver) {
-			this.childProps.onMouseOver(...args);
+		if (this.props.children.props.onMouseOver) {
+			this.props.children.props.onMouseOver(...args);
 		}
 	}
 
@@ -57,16 +61,38 @@ class TooltipTrigger extends React.Component {
 			this.setState({ hovered: true });
 		}
 
-		if (this.childProps.onFocus) {
-			this.childProps.onFocus(...args);
+		if (this.props.children.props.onFocus) {
+			this.props.children.props.onFocus(...args);
+		}
+	}
+
+	onMouseDown(...args) {
+		this.setState({ clicked: true });
+		if (this.props.children.props.onMouseDown) {
+			this.props.children.props.onMouseDown(...args);
+		}
+		if (this.props.children.props.onClick) {
+			this.props.children.props.onClick(...args);
+		}
+	}
+
+	onMouseUp(...args) {
+		this.setState({ clicked: false });
+		if (this.props.children.props.onMouseUp) {
+			this.props.children.props.onMouseUp(...args);
 		}
 	}
 
 	render() {
-		if (!this.state.hovered) {
-			const child = React.Children.only(this.props.children);
-			this.childProps = child.props;
+		const child = React.Children.only(this.props.children);
 
+		if (this.state.clicked) {
+			return cloneElement(child, {
+				onMouseUp: this.onMouseUp,
+			});
+		}
+
+		if (!this.state.hovered) {
 			return cloneElement(child, {
 				onMouseOver: this.onMouseOver,
 				onFocus: this.onFocus,
@@ -81,7 +107,9 @@ class TooltipTrigger extends React.Component {
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
 		return (
 			<OverlayTrigger placement={this.props.tooltipPlacement} overlay={tooltip} delayShow={400}>
-				{this.props.children}
+				{cloneElement(child, {
+					onMouseDown: this.onMouseDown,
+				})}
 			</OverlayTrigger>
 		);
 	}
