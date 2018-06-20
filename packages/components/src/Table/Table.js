@@ -6,6 +6,8 @@ import TableHeader from './Header/TableHeader';
 import TableBody from './Body/TableBody';
 import theme from './Table.scss';
 
+const PART = 'table';
+
 /**
  * This component displays a table of elements with an optional title bar.
  * Elements are provided as array.
@@ -14,40 +16,72 @@ import theme from './Table.scss';
  * The table header is optional.
  * The title bar displays a title and an optional set of filters.
  */
-export default function Table({
-	title,
-	elements,
-	columns,
-	rowsClassName,
-	withHeader,
-	filters,
-	onFilterChange,
-	sorters,
-	onSortChange,
-	onScroll,
-	onEnterRow,
-	onLeaveRow,
-}) {
-	return (
-		<div className={classnames('tc-table', theme['tc-table'])}>
-			{(title || displayFilters(filters)) && (
-				<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
-			)}
-			<table>
-				{withHeader && (
-					<TableHeader columns={columns} sorters={sorters} onSortChange={onSortChange} />
+export default Table extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
+	}
+
+	componentDidMount() {
+		if (this.props.renderingListener && this.props.renderingListener.onMounted) {
+			this.props.renderingListener.onMounted(PART, this.tableNode);
+		}
+	}
+
+	componentDidUpdate() {
+		if (this.props.renderingListener && this.props.renderingListener.onUpdated) {
+			this.props.renderingListener.onUpdated(PART, this.tableNode);
+		}
+	}
+
+	updateTableNodeRef(ref) {
+		this.tableNode = ref;
+	}
+
+	render() {
+		const {
+			title,
+			elements,
+			columns,
+			rowsClassName,
+			withHeader,
+			filters,
+			onFilterChange,
+			sorters,
+			onSortChange,
+			onScroll,
+			onEnterRow,
+			onLeaveRow,
+			renderingListener,
+		} = this.props;
+		return (
+			<div className={classnames('tc-table', theme['tc-table'])}>
+				{(title || displayFilters(filters)) && (
+					<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
 				)}
-				<TableBody
-					elements={elements}
-					columns={columns}
-					rowsClassName={rowsClassName}
-					onScroll={onScroll}
-					onEnterRow={onEnterRow}
-					onLeaveRow={onLeaveRow}
-				/>
-			</table>
-		</div>
-	);
+				<table ref={this.updateTableNodeRef} >
+					{withHeader && (
+						<TableHeader
+							columns={columns}
+							sorters={sorters}
+							onSortChange={onSortChange}
+							renderingListener={renderingListener}
+						/>
+					)}
+					<TableBody
+						elements={elements}
+						columns={columns}
+						rowsClassName={rowsClassName}
+						onScroll={onScroll}
+						onEnterRow={onEnterRow}
+						onLeaveRow={onLeaveRow}
+						renderingListener={renderingListener}
+					/>
+				</table>
+			</div>
+		);
+	}
 }
 
 Table.propTypes = {
@@ -112,4 +146,8 @@ Table.propTypes = {
 	onScroll: PropTypes.func,
 	onEnterRow: PropTypes.func,
 	onLeaveRow: PropTypes.func,
+	renderingListener: PropTypes.shape({
+		onMounted: PropTypes.func,
+		onUpdated: PropTypes.func,
+	}),
 };
