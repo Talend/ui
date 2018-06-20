@@ -487,14 +487,7 @@ export default class Mapper extends Component {
 	//	 dndInProgress: {sourceYPos, pos}
 	// }
 	getConnections(onlyDndInProgress) {
-		const {
-			dataAccessor,
-			selection,
-			pendingItem,
-			focused,
-			preferences,
-			dnd,
-		} = this.props;
+		const { dataAccessor, selection, pendingItem, focused, preferences, dnd } = this.props;
 		const inputSchema = this.props.input.schema;
 		const outputSchema = this.props.output.schema;
 
@@ -748,14 +741,7 @@ export default class Mapper extends Component {
 			this.updateVisibleInfo();
 			this.needUpdateVisibleInfo = false;
 		}
-		const {
-			mapperId,
-			mappingActions,
-			mapping,
-			input,
-			output,
-			...commonSchemaProps
-		} = this.props;
+		const { mapperId, mappingActions, mapping, input, output, ...commonSchemaProps } = this.props;
 		const {
 			dataAccessor,
 			selection,

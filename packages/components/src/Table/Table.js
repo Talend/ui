@@ -17,7 +17,6 @@ const PART = 'table';
  * The title bar displays a title and an optional set of filters.
  */
 export default class Table extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
@@ -60,7 +59,7 @@ export default class Table extends React.Component {
 				{(title || displayFilters(filters)) && (
 					<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
 				)}
-				<table ref={this.updateTableNodeRef} >
+				<table ref={this.updateTableNodeRef}>
 					{withHeader && (
 						<TableHeader
 							columns={columns}

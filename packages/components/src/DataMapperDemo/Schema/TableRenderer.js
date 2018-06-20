@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-	Table,
-	TableCell,
-	TableHeader,
-	DraggableComponent as draggable,
-} from '../../index';
+import { Table, TableCell, TableHeader, DraggableComponent as draggable } from '../../index';
 import * as Constants from '../Constants';
 
 const DRAGGABLE_ELEMENT_TYPE = 'element';
@@ -175,11 +170,9 @@ class ColumnUpdater {
 		this.addSelection(columnsWithDnd[0]);
 		return columnsWithDnd;
 	}
-
 }
 
 class TableRenderingListener {
-
 	onMounted(part, node) {
 		this.updateRef(part, node);
 	}
@@ -215,7 +208,6 @@ class TableRenderingListener {
 	getBodyNode() {
 		return this.bodyNode;
 	}
-
 }
 
 export default class TableRenderer extends Component {
@@ -286,7 +278,7 @@ export default class TableRenderer extends Component {
 			side,
 		} = this.props;
 		const elements = dataAccessor.getSchemaElements(schema, true);
-		const tableClassNames = updateClassNames(classNames, side, elements, dataAccessor, this.props)
+		const tableClassNames = updateClassNames(classNames, side, elements, dataAccessor, this.props);
 		const columnsWithDnd = this.columnUpdater.updateColumns(columns);
 		return (
 			<Table

@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-	Table,
-	TableCell,
-	TableHeader,
-	DraggableComponent as draggable,
-} from '../../index';
+import { Table, TableCell, TableHeader, DraggableComponent as draggable } from '../../index';
 import * as Constants from '../Constants';
 
 const DRAGGABLE_ELEMENT_TYPE = 'element';
@@ -26,19 +21,22 @@ function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaPr
 	for (let i = 0; i < elements.length; i += 1) {
 		const element = elements[i];
 		const elementId = dataAccessor.getElementId(element);
-		rowsClassNames[elementId] = classnames({
-			highlighted: isHighlighted(
-				dataAccessor,
-				element,
-				selection,
-				side,
-				pendingItem,
-				focusedElements,
-				dnd,
-			),
-			mapped: isMapped(dataAccessor, element, mappedElements),
-			selected: isSelected(dataAccessor, selection, element, side),
-		}, rowsClassName && rowsClassName[elementId]);
+		rowsClassNames[elementId] = classnames(
+			{
+				highlighted: isHighlighted(
+					dataAccessor,
+					element,
+					selection,
+					side,
+					pendingItem,
+					focusedElements,
+					dnd,
+				),
+				mapped: isMapped(dataAccessor, element, mappedElements),
+				selected: isSelected(dataAccessor, selection, element, side),
+			},
+			rowsClassName && rowsClassName[elementId],
+		);
 	}
 	return rowsClassNames;
 }
@@ -176,11 +174,9 @@ class ColumnUpdater {
 		this.addSelection(columnsWithDnd[0]);
 		return columnsWithDnd;
 	}
-
 }
 
 class TableRenderingListener {
-
 	onMounted(part, node) {
 		this.updateRef(part, node);
 	}
@@ -216,7 +212,6 @@ class TableRenderingListener {
 	getBodyNode() {
 		return this.bodyNode;
 	}
-
 }
 
 export default class TableRenderer extends Component {
