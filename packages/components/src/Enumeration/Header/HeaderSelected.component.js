@@ -17,9 +17,6 @@ function getAction(action, index) {
 			action.onClick(event);
 		}
 	}
-	if (action.disabled) {
-		return null;
-	}
 	return (
 		<Action
 			key={`${index}-enum-header-action`}
