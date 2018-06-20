@@ -479,6 +479,6 @@ MappingSVG.propTypes = {
 	onLeaveAnchor: PropTypes.func,
 };
 
-export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(
+export default DropTarget('element', elementTarget, collectForDropTarget)(
 	MappingSVG,
 );

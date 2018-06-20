@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Actions } from '../../index';
+import { Actions } from '@talend/react-components';
 import MappingSVG from './MappingSVG';
 
 export default class Mapping extends Component {

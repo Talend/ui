@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Schema from './Schema/Schema.js';
 import Mapping from './Mapping/Mapping';
-import * as Constants from './Constants';
+import { Constants } from './index';
 
 function getMappedElements(dataAccessor, mapping, side) {
 	const mappingItems = dataAccessor.getMappingItems(mapping);

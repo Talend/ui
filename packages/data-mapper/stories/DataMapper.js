@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import {
+	Table, ActionBar, IconsProvider
+} from '@talend/react-components';
+import Mapper, {
+	Constants,
 	DataAccessorWithUndoRedo,
 	MappingAccessor,
-	Table,
 } from '../src/index';
-import { DataMapper as Mapper } from '../src/index';
-import * as Constants from '../src/Constants';
 import { isSelected } from '../src/Schema/Schema';
-import { ActionBar, IconsProvider } from '../src/index';
 
 const Keys = {
 	PAGE_UP: 33,
@@ -312,7 +312,7 @@ function createNameFilter() {
 			docked: true,
 		},
 		match: matchName,
-		renderer: StringFilterComponent,
+		renderer: Table.StringFilterComponent,
 		rendererProps: {
 			placeHolder: 'Filter...',
 			dockable: true,
@@ -332,7 +332,7 @@ function createMandatoryFieldFilter() {
 		id: mandatoryFieldFilterId,
 		active: false,
 		match: matchMandatory,
-		renderer: ToggleFilterComponent,
+		renderer: Table.ToggleFilterComponent,
 		rendererProps: {
 			label: 'Show Mandatory Fields (*) Only',
 		},

@@ -3,13 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
 	Table,
-	TableCell,
-	TableHeader,
 	DraggableComponent as draggable,
-} from '../../index';
+} from '@talend/react-components';
 import * as Constants from '../Constants';
-
-const DRAGGABLE_ELEMENT_TYPE = 'element';
 
 function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaProps) {
 	const {
@@ -147,7 +143,7 @@ class ColumnUpdater {
 
 	addDnd(column) {
 		if (!this.draggableCell) {
-			this.draggableCell = draggable(column.cellRenderer || TableCell, DRAGGABLE_ELEMENT_TYPE);
+			this.draggableCell = draggable(column.cellRenderer || Table.Cell, 'element');
 		}
 		column.cellRenderer = this.draggableCell;
 		// add dnd callback methods

@@ -1,7 +1,7 @@
 /**
  * Defines the type of user interaction event
  */
-export const Events = {
+const Events = {
 	ENTER_ELEM: 'enter-elem',
 	LEAVE_ELEM: 'leave-elem',
 	FILTERING: 'filtering',
@@ -15,7 +15,7 @@ export const Events = {
 	DND_IN_PROGRESS: 'dnd-in-progress',
 };
 
-export const StateStatus = {
+const StateStatus = {
 	NONE: 0,
 	FOCUSED: 1,
 	SELECTION: 1 << 1,
@@ -27,31 +27,24 @@ export const StateStatus = {
 	SORT: 1 << 7,
 };
 
-export const MAPPING_STATE_STATUS =
+const MAPPING_STATE_STATUS =
 	StateStatus.MAPPING | StateStatus.SELECTION | StateStatus.PENDING | StateStatus.DND;
 
-export const FILTERING_STATE_STATUS =
+const FILTERING_STATE_STATUS =
 	StateStatus.FOCUSED | StateStatus.SELECTION | StateStatus.PENDING | StateStatus.DND;
 
-export const UNDO_REDO_STATE_STATUS = StateStatus.MAPPING | StateStatus.PENDING | StateStatus.DND;
+const UNDO_REDO_STATE_STATUS = StateStatus.MAPPING | StateStatus.PENDING | StateStatus.DND;
 
-export const Commands = {
+const Commands = {
 	ADD_MAPPING: 'add-mapping',
 	REMOVE_MAPPING: 'remove-mapping',
 	CLEAR_MAPPING: 'clear-mapping',
 };
 
 /**
- * Defines the type of draggable element.
- */
-export const ItemTypes = {
-	ELEMENT: 'element',
-};
-
-/**
  * Defines the two sides of a mapping (input and output)
  */
-export const MappingSide = {
+const MappingSide = {
 	INPUT: 'input',
 	OUTPUT: 'output',
 };
@@ -61,7 +54,7 @@ export const MappingSide = {
  * @param {string} side - the side of the mapping
  * @returns {string}
  */
-export function switchMappingSide(side) {
+function switchMappingSide(side) {
 	if (side === MappingSide.INPUT) {
 		return MappingSide.OUTPUT;
 	}
@@ -71,7 +64,7 @@ export function switchMappingSide(side) {
 /**
  * Defines style and part of a connection anchor.
  */
-export const Anchor = {
+const Anchor = {
 	STYLE: {
 		UNMAPPED: 'unmapped',
 		MAPPED: 'mapped',
@@ -83,7 +76,7 @@ export const Anchor = {
 /**
  * Defines parameters of a connection.
  */
-export const Connection = {
+const Connection = {
 	STYLE: {
 		ALL: 'all',
 		CURRENT: 'current',
@@ -102,3 +95,17 @@ export const Connection = {
 		NONE: 'none',
 	},
 };
+
+export default {
+	Events,
+	StateStatus,
+	MAPPING_STATE_STATUS,
+	FILTERING_STATE_STATUS,
+	UNDO_REDO_STATE_STATUS,
+	UNDO_REDO_STATE_STATUS,
+	Commands,
+	MappingSide,
+	switchMappingSide,
+	Anchor,
+	Connection,
+}

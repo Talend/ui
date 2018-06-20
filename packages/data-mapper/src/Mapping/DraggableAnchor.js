@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import flow from 'lodash/flow';
-import { ItemTypes } from '../Constants';
 
 const elementSource = {
 	beginDrag(props) {
@@ -93,6 +92,6 @@ DraggableAnchor.propTypes = {
 };
 
 export default flow(
-	DragSource(ItemTypes.ELEMENT, elementSource, collectForDragSource),
-	DropTarget(ItemTypes.ELEMENT, elementTarget, collectForDropTarget),
+	DragSource('element', elementSource, collectForDragSource),
+	DropTarget('element', elementTarget, collectForDropTarget),
 )(DraggableAnchor);
