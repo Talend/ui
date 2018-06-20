@@ -77,7 +77,10 @@ describe('Item', () => {
 
 		// when
 		const wrapper = mount(itemInstance);
-		const buttons = wrapper.find('.tc-enumeration-item-actions').at(0).find(Button);
+		const buttons = wrapper
+			.find('.tc-enumeration-item-actions')
+			.at(0)
+			.find(Button);
 
 		// then
 		expect(buttons.length).toBe(1);

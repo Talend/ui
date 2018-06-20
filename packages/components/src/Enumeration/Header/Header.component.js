@@ -54,7 +54,7 @@ function Header({ headerDefault, required, label }) {
 				{required && '*'}
 			</span>
 			<div className="actions">
-				{ headerDefault.filter(action => !action.disabled).map(getAction) }
+				{headerDefault.filter(action => !action.disabled).map(getAction)}
 			</div>
 		</header>
 	);

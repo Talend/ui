@@ -39,7 +39,7 @@ function HeaderSelected({ headerSelected, nbItemsSelected }) {
 	return (
 		<header className={headerClasses()}>
 			<span>{txtHeader}</span>
-			{ headerSelected.filter(action => !action.disabled).map(getAction) }
+			{headerSelected.filter(action => !action.disabled).map(getAction)}
 		</header>
 	);
 }
