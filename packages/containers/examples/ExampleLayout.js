@@ -111,18 +111,16 @@ const list = {
 	]),
 };
 
-const components = {
-	content: [
-		tabs,
-		list,
-	],
-};
+const content = [
+	tabs,
+	list,
+];
 
 const ExampleLayout = {
 	default: () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<Inject component="Layout" mode="TwoColumns" header={header} one={sidepanel} components={components} />
+			<Inject component="Layout" mode="TwoColumns" header={header} one={sidepanel} content={content} />
 		</div>
 	),
 };

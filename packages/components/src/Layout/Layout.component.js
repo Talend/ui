@@ -13,20 +13,6 @@ import {
 	TALEND_T7_THEME_CLASSNAME,
 } from './constants';
 
-function getDrawers(getComponent, drawers, components) {
-	let withInjectDrawers = [];
-	if (Array.isArray(drawers)) {
-		withInjectDrawers = withInjectDrawers.concat(drawers);
-	}
-	if (components && components.drawers) {
-		withInjectDrawers = withInjectDrawers.concat(Inject.map(getComponent, components.drawers));
-	}
-	if (withInjectDrawers.length === 0) {
-		withInjectDrawers = undefined;
-	}
-	return withInjectDrawers;
-}
-
 /**
  * The Layout component is a container
  * that should follow the body of your App.
@@ -55,7 +41,6 @@ function Layout({
 	hasTheme,
 	children,
 	getComponent,
-	components,
 	...rest
 }) {
 	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
@@ -73,7 +58,7 @@ function Layout({
 			Component = OneColumn;
 	}
 
-	const safeDrawers = getDrawers(getComponent, drawers, components);
+	const safeDrawers = Inject.getReactElement(getComponent, drawers);
 	const safeHeader = Inject.getReactElement(getComponent, header);
 	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
 	const safeContent = Inject.getReactElement(getComponent, content);
@@ -114,7 +99,6 @@ Layout.propTypes = {
 	hasTheme: PropTypes.bool,
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
-	components: PropTypes.object,
 };
 
 export default Layout;
