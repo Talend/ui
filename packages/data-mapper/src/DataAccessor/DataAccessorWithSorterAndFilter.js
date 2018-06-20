@@ -1,4 +1,3 @@
-
 /**
  * This class is responsible for storing results of filtering and sorting.
  */

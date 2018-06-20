@@ -1,4 +1,4 @@
-import { Constants } from '../index';
+import * as Constants from '../Constants';
 
 /**
  * Internal function.
@@ -10,7 +10,6 @@ function removeMappingItem(mapping, index) {
 }
 
 export default class MappingAccessor {
-
 	internalAreEqual(elem1, elem2) {
 		return elem1.id === elem2.id;
 	}

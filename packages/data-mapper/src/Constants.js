@@ -108,4 +108,4 @@ export default {
 	switchMappingSide,
 	Anchor,
 	Connection,
-}
+};

@@ -43,22 +43,12 @@ const schema = {
 
 const noFilters = [];
 
-const columns = [
-	TestData.Columns.NAME,
-	TestData.Columns.TYPE,
-	TestData.Columns.DESC,
-];
+const columns = [TestData.Columns.NAME, TestData.Columns.TYPE, TestData.Columns.DESC];
 
 it('single-schema', () => {
 	// create React tree
 	const tree = renderer
-		.create(
-			<Schema
-				dataAccessor={dataAccessor}
-				schema={schema}
-				columns={columns}
-			/>,
-		)
+		.create(<Schema dataAccessor={dataAccessor} schema={schema} columns={columns} />)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
@@ -66,13 +56,7 @@ it('single-schema', () => {
 it('empty-schema', () => {
 	// create React tree
 	const tree = renderer
-		.create(
-			<Schema
-				dataAccessor={dataAccessor}
-				schema={emptySchema}
-				columns={columns}
-			/>,
-		)
+		.create(<Schema dataAccessor={dataAccessor} schema={emptySchema} columns={columns} />)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
