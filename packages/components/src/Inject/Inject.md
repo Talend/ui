@@ -114,8 +114,9 @@ So its props should only be the element we want in each part.
 
 The possible types
 * react element (pass the test React.isValidElement)
-* string (the component name wanted)
-* object (the component name + props)
+* string (wanted component name)
+* object (component name + props)
+* Array of the three types below
 
 So Inject component provide the getReactElement api.
 You can use it this way:

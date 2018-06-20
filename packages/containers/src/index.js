@@ -36,6 +36,7 @@ import SubHeaderBar from './SubHeaderBar';
 import Typeahead from './Typeahead';
 import TabBar from './TabBar';
 
+// keep backward compat
 const Layout = cmfConnect({})(PureLayout);
 
 export {

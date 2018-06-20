@@ -10,7 +10,7 @@ function nothing() {
 }
 
 /**
- * This is to render an not found componenent to alert developers
+ * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
 function NotFoundComponent({ error }) {
