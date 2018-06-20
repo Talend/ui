@@ -70,7 +70,7 @@ class EnumerationForm extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
-		this.disabledAction = props.schema ? props.schema.disabled : false;
+		const disabledAction = props.uiSchema ? props.uiSchema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
@@ -140,14 +140,14 @@ class EnumerationForm extends React.Component {
 		];
 		this.defaultActions = [
 			{
-				disabled: this.disabledAction,
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_EDIT', { defaultValue: 'Edit' }),
 				icon: 'talend-pencil',
 				id: 'edit',
 				onClick: this.onEnterEditModeItem.bind(this),
 			},
 			{
-				disabled: this.disabledAction,
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_REMOVE_VALUE', { defaultValue: 'Remove value' }),
 				icon: 'talend-trash',
 				id: 'delete',
@@ -169,7 +169,7 @@ class EnumerationForm extends React.Component {
 		if (this.allowImport) {
 			const dataFeature = this.props.uiSchema['data-feature'];
 			this.defaultHeaderActions.push({
-				disabled: this.disabledAction,
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', {
 					defaultValue: 'Import values from a file',
 				}),
@@ -203,13 +203,13 @@ class EnumerationForm extends React.Component {
 			label: t('ENUMERATION_WIDGET_ADD_ITEM', { defaultValue: 'Add item' }),
 			icon: 'talend-plus',
 			id: 'add',
-			disabled: this.disabledAction,
+			disabled: disabledAction,
 			onClick: this.changeDisplayToAddMode.bind(this),
 		});
 
 		this.selectedHeaderActions = [
 			{
-				disabled: this.disabledAction,
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES', {
 					defaultValue: 'Remove selected values',
 				}),
@@ -241,7 +241,7 @@ class EnumerationForm extends React.Component {
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
-				onSelectItem: !this.disabledAction ? this.onSelectItem.bind(this) : () => {},
+				onSelectItem: !disabledAction ? this.onSelectItem.bind(this) : () => {},
 				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: this.itemEditActions,

@@ -3230,7 +3230,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             "onClick": [Function],
           },
           Object {
-            "disabled": undefined,
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -3268,7 +3268,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       headerSelected={
         Array [
           Object {
-            "disabled": undefined,
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -3282,14 +3282,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
         Object {
           "actionsDefault": Array [
             Object {
-              "disabled": undefined,
+              "disabled": false,
               "icon": "talend-pencil",
               "id": "edit",
               "label": "Edit",
               "onClick": [Function],
             },
             Object {
-              "disabled": undefined,
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -3340,7 +3340,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "onClick": [Function],
             },
             Object {
-              "disabled": undefined,
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -3378,7 +3378,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
         headerSelected={
           Array [
             Object {
-              "disabled": undefined,
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -3393,14 +3393,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           Object {
             "actionsDefault": Array [
               Object {
-                "disabled": undefined,
+                "disabled": false,
                 "icon": "talend-pencil",
                 "id": "edit",
                 "label": "Edit",
                 "onClick": [Function],
               },
               Object {
-                "disabled": undefined,
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -3459,7 +3459,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "onClick": [Function],
               },
               Object {
-                "disabled": undefined,
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -3497,7 +3497,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           headerSelected={
             Array [
               Object {
-                "disabled": undefined,
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -3513,14 +3513,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": undefined,
+                  "disabled": false,
                   "icon": "talend-pencil",
                   "id": "edit",
                   "label": "Edit",
                   "onClick": [Function],
                 },
                 Object {
-                  "disabled": undefined,
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -3575,7 +3575,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     "onClick": [Function],
                   },
                   Object {
-                    "disabled": undefined,
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -3613,7 +3613,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               headerSelected={
                 Array [
                   Object {
-                    "disabled": undefined,
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -3629,14 +3629,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": undefined,
+                      "disabled": false,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
-                      "disabled": undefined,
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -3686,7 +3686,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       "onClick": [Function],
                     },
                     Object {
-                      "disabled": undefined,
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -3937,7 +3937,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     "onClick": [Function],
                   },
                   Object {
-                    "disabled": undefined,
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -3975,7 +3975,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               headerSelected={
                 Array [
                   Object {
-                    "disabled": undefined,
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -3991,14 +3991,14 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": undefined,
+                      "disabled": false,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
-                      "disabled": undefined,
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",

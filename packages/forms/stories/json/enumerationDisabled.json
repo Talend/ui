@@ -8,7 +8,6 @@
         "type": "array",
         "required": true,
         "allowDuplicates": true,
-        "disabled": true,
         "items": {
           "type": "object",
           "properties": {
@@ -25,7 +24,8 @@
   },
   "uiSchema": {
     "documents": {
-      "ui:widget": "enumeration"
+      "ui:widget": "enumeration",
+      "disabled": true
     }
   },
   "properties": {

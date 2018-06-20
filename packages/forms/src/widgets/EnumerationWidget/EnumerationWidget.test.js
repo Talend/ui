@@ -38,7 +38,7 @@ describe('EnumerationWidget', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
-				schema={{
+				uiSchema={{
 					disabled: true,
 				}}
 				formData={[
