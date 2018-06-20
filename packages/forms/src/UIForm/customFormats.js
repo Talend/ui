@@ -26,7 +26,7 @@ const customFormats = t => ({
 		if (typeof fieldData === 'string' && !urlGit.test(fieldData)) {
 			return t('FORMAT_URL_GIT', {
 				defaultValue:
-					'must be a valid url http (e.g.: http(s)://my.domain.com/my-repo(.git)) or  ssh (e.g. ssh://user@host/my-repo.git)',
+					'must be a valid url http (e.g.: http(s)://my.domain.com/my-repo(.git)) or  ssh (e.g. ssh://user@host:my-repo.git)',
 			});
 		}
 		return null;
