@@ -23,7 +23,7 @@ function calculatePath(sourcePosition: Position, targetPosition: Position) {
 	return { path, xInterpolate, yInterpolate };
 }
 
-class AbstractLink extends React.Component {
+class AbstractLink extends React.PureComponent {
 	static propTypes = {
 		source: PortType.isRequired,
 		target: PortType.isRequired,
@@ -46,14 +46,6 @@ class AbstractLink extends React.Component {
 	};
 
 	static calculatePath = calculatePath;
-
-	shouldComponentUpdate(nextProps) {
-		return (
-			nextProps.source !== this.props.source ||
-			nextProps.target !== this.props.target ||
-			nextProps.targetHandlePosition !== this.props.targetHandlePosition
-		);
-	}
 
 	renderLinkSourceHandle() {
 		if (this.props.linkSourceHandleComponent) {
