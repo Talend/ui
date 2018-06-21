@@ -39,7 +39,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
-import { Table, TableCell, TableHeaderCell } from './Table';
+import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -158,12 +158,10 @@ export {
 	ObjectViewer,
 	Progress,
 	SidePanel,
-	Table,
-	TableCell,
-	TableHeaderCell,
 	Status,
 	SubHeaderBar,
 	TabBar,
+	Table,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
