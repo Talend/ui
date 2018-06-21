@@ -8,13 +8,12 @@ function* fecthDefinition({ definitionURL, componentId, uiSpecPath }) {
 	if (!response.ok) {
 		yield put(
 			Component.setStateAction(prev => {
-				return prev
-					.set({
-						jsonSchema: undefined,
-						uiSchema: undefined,
-						response,
-						dirty: false,
-					});
+				return prev.set({
+					jsonSchema: undefined,
+					uiSchema: undefined,
+					response,
+					dirty: false,
+				});
 			}, componentId),
 		);
 	} else {
