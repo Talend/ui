@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import { Constants } from '../index';
 
 function renderLine(params, style, connectionId) {
-	return (
-		<line
-			id={connectionId}
-			className={style}
-			{...params}
-		/>
-	);
+	return <line id={connectionId} className={style} {...params} />;
 }
 
 function getClassname(part, params, style) {

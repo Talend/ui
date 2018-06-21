@@ -62,5 +62,4 @@ describe('Schema', () => {
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
-
 });
