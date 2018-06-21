@@ -29,7 +29,12 @@ describe('UIForm component', () => {
 		const wrapper = shallow(<UIFormComponent {...data} {...props} formContext={{ check: true }} />);
 
 		// then
-		expect(wrapper.find('Widget').first().props().formContext.check).toBeTruthy();
+		expect(
+			wrapper
+				.find('Widget')
+				.first()
+				.props().formContext.check,
+		).toBeTruthy();
 	});
 
 	it('should render provided actions', () => {
