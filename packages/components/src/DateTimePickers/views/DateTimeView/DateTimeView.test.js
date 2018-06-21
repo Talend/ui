@@ -21,10 +21,15 @@ describe('DateTimeView', () => {
 			onTitleClick={onTitleClick}
 		/>);
 
-		const headerClickFn = wrapper.find('ViewLayout').shallow()
-			.find('HeaderTitle').props().button.onClick;
+		const titleAction = wrapper
+			.find('ViewLayout')
+			.shallow()
+			.find('HeaderTitle')
+			.first()
+			.shallow()
+			.find('button');
 
-		headerClickFn();
+		titleAction.simulate('click');
 		expect(onTitleClick).toHaveBeenCalledTimes(1);
 	});
 
@@ -50,6 +55,7 @@ describe('DateTimeView', () => {
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
+
 			previousAction.simulate('click');
 
 			expect(onMonthYearSelected).toHaveBeenCalledTimes(1);
