@@ -82,7 +82,7 @@ export function Notification({ notification, leaveFn, ...props }) {
 	};
 	const classes = classNames(notificationClasses);
 	return (
-		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+		<div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
 			role="status"
 			className={classes}
 			onMouseEnter={event => props.onMouseEnter(event, notification)}

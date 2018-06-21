@@ -45,7 +45,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 						role="button"
 						className={theme['title-bar']}
 					>
-						<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+						<div
 							onClick={this.toggle}
 							id={id && `${id}__title_wrapper`}
 							role="button"

@@ -20,7 +20,6 @@ function createCollapsibleFieldset(title) {
 		constructor(props) {
 			super(props);
 			this.toggle = this.toggle.bind(this);
-			this.state = { toggled: false };
 		}
 
 		onPropertyChange = name => (value, options) => {

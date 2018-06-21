@@ -15,7 +15,7 @@ import omit from 'lodash/omit';
  * Defaults: { checked: false, disabled: false, label: '', className: 'switch checkbox' }
  *
  * @return XML(JSX) React pure component
- * **/
+ */
 function Toggle({ id, label, className, ...props }) {
 	let dataFeature;
 
