@@ -17,7 +17,7 @@
     {
       "key": "codeWidgetSmall",
       "widget": "code",
-      "description": "This widget wis custom prop 'height: 100px'",
+      "description": "This widget with custom prop 'height: 100px'",
       "options": {
         "language": "python",
         "height": "100px"
@@ -26,7 +26,7 @@
     {
       "key": "codeWidgetFontSize",
       "widget": "code",
-      "description": "This widget wis custom prop 'fontSize: 30'",
+      "description": "This widget with custom prop 'fontSize: 30'",
       "options": {
         "language": "python",
         "height": "200px",
