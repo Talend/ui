@@ -102,7 +102,7 @@ export default {
 	MAPPING_STATE_STATUS,
 	FILTERING_STATE_STATUS,
 	UNDO_REDO_STATE_STATUS,
-		Commands,
+	Commands,
 	MappingSide,
 	switchMappingSide,
 	Anchor,
