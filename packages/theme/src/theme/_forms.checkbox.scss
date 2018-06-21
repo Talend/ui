@@ -1,0 +1,88 @@
+$tt-checkbox-size: 1.3rem !default;
+$tt-checkbox-background-color: $white !default;
+$tt-checkbox-border-color: $silver !default;
+$tt-checkbox-checked-background-color: $scooter !default;
+$tt-checkbox-checked-border-color: $scooter !default;
+$tt-checkbox-focus-border-color: $alto !default;
+$tt-checkbox-ripple-size: 1.7rem !default;
+$margin-ripple: -0.9rem;
+$tt-checkbox-ripple-color: rgba(111, 148, 182, 0.1) !default;
+
+input[type='checkbox'],
+.checkbox input[type='checkbox'],
+.checkbox-inline input[type='checkbox'] {
+
+	&:before,
+	+ *:before {
+		@include rotate(90deg);
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: $tt-checkbox-size;
+		height: $tt-checkbox-size;
+		background-color: $tt-checkbox-background-color;
+		border: 0.1rem solid $tt-checkbox-border-color;
+		border-radius: 0.2rem;
+	}
+
+	&:hover {
+		&:before,
+		+ *:before {
+			border-color: $silver-chalice;
+		}
+	}
+
+	&:checked:before,
+	&:checked + *:before {
+		@include transition(240ms);
+		box-shadow: inset 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+		background-color: $tt-checkbox-checked-background-color;
+		border-color: $tt-checkbox-checked-border-color;
+	}
+
+	&:focus {
+		&:before {
+			border-color: $tt-checkbox-focus-border-color;
+		}
+	}
+
+	&:disabled:before,
+	&:disabled + *:before {
+		border-color: tint($tt-checkbox-border-color, 40);
+	}
+
+	&:checked:disabled:before,
+	&:checked:disabled + *:before {
+		background-color: tint($tt-checkbox-checked-background-color, 40);
+		border-color: tint($tt-checkbox-checked-border-color, 40);
+		box-shadow: inset 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+	}
+
+	&:after,
+	+ * :after {
+		position: absolute;
+		content: '';
+		top: 50%;
+		left: 50%;
+		margin-top: $margin-ripple;
+		margin-left: $margin-ripple;
+		width: $tt-checkbox-ripple-size;
+		height: $tt-checkbox-ripple-size;
+		border-radius: 50%;
+		opacity: 0;
+		background-color: $tt-checkbox-ripple-color;
+		animation: ripple 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+	&:focus:after,
+	&:focus + *:after {
+		visibility: visible;
+	}
+}
+
+.checkbox label {
+	line-height: $tt-checkbox-size;
+}
