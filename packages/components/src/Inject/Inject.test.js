@@ -224,12 +224,9 @@ describe('Inject.getReactElement', () => {
 	it('should return null if data is null', () => {
 		expect(Inject.getReactElement(jest.fn(), null)).toBe(null);
 	});
-	it('should return data if it s unknown', () => {
+	it('should return data if it s not supported type', () => {
 		expect(Inject.getReactElement(jest.fn(), false)).toBe(false);
 		expect(Inject.getReactElement(jest.fn(), true)).toBe(true);
-	});
-	it('should throw if data is not supported', () => {
-		expect(() => Inject.getReactElement(jest.fn(), NaN)).toThrow();
 	});
 	it('should support element as valid react element', () => {
 		const getComponent = jest.fn();

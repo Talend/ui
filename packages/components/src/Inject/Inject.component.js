@@ -114,20 +114,18 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {object|string|React Element} data
  */
 Inject.getReactElement = function getReactElement(getComponent, data, CustomInject = Inject) {
-	if (data === undefined || data === null) {
-		return data;
-	} else if (typeof data === 'boolean') {
+	if (Array.isArray(data)) {
+		return data.map(info => getReactElement(getComponent, info, CustomInject));
+	} else if (data === null) {
 		return data;
 	} else if (typeof data === 'string') {
 		return <CustomInject getComponent={getComponent} component={data} />;
 	} else if (React.isValidElement(data)) {
 		return data;
-	} else if (Array.isArray(data)) {
-		return data.map(info => getReactElement(getComponent, info, CustomInject));
 	} else if (typeof data === 'object') {
 		return <CustomInject getComponent={getComponent} {...data} />;
 	}
-	throw new Error(`Can't get React element. not supported data: ${typeof data} ${data}`);
+	return data;  // We do not throw anything, proptypes should do the job
 };
 
 Inject.getReactElement.propTypes = PropTypes.oneOfType([
