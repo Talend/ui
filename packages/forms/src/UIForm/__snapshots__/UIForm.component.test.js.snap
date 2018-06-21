@@ -17,11 +17,6 @@ exports[`UIForm component should render form 1`] = `
 >
   <Widget
     errors={Object {}}
-    formContext={
-      Object {
-        "check": true,
-      }
-    }
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -53,11 +48,6 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
-    formContext={
-      Object {
-        "check": true,
-      }
-    }
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -90,11 +80,6 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
-    formContext={
-      Object {
-        "check": true,
-      }
-    }
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -158,7 +143,6 @@ exports[`UIForm component should render provided actions 1`] = `
 >
   <Widget
     errors={Object {}}
-    formContext={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -190,7 +174,6 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
-    formContext={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -223,7 +206,6 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
-    formContext={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
