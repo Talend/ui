@@ -1,9 +1,2 @@
 > eslint --config ../../.eslintrc --ext .js src
 
-
-/home/travis/build/Talend/ui/packages/cmf-webpack-plugin/src/index.js
-  35:20  error  Calls to require() should use string literals  import/no-dynamic-require
-  36:8   error  Use object destructuring                       prefer-destructuring
-
-✖ 2 problems (2 errors, 0 warnings)
-

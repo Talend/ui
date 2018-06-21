@@ -1,144 +1,26 @@
 > eslint --config ../../.eslintrc src
 
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-  23:19  error  Unused state field: 'toggled'                                                                   react/no-unused-state
-  32:10  error  Use object destructuring                                                                        prefer-destructuring
-  80:6   error  Elements with the 'button' interactive role must be focusable                                   jsx-a11y/interactive-supports-focus
-  82:8   error  Elements with the 'button' interactive role must be focusable                                   jsx-a11y/interactive-supports-focus
-  82:8   error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/fields/CollapsibleFieldset.js
+  81:8  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.test.js
+/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/fields/CollapsibleFieldset.test.js
   2:10  error  'shallow' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
-  72:9  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
-  86:2  error  defaultProp "uiSchema" defined for isRequired propType  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
+/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/Form.test.js
   10:36  error  Absolute imports should come before relative imports  import/first
   12:20  error  Absolute imports should come before relative imports  import/first
   13:19  error  Absolute imports should come before relative imports  import/first
   14:20  error  Absolute imports should come before relative imports  import/first
 
-/home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
-  91:2  error  defaultProp "readonly" has no corresponding propTypes declaration  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/templates/LabelTemplate.js
-  14:3  error  Form label must have associated control  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-   9:4  error  Form label must have associated control                                                        jsx-a11y/label-has-for
-  12:6  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/FieldTemplate/FieldTemplate.component.js
-  10:3  error  Form label must have associated control  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ListView/ListView.component.test.js
-  100:4  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  112:4  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/RadioOrSelect/RadioOrSelect.component.js
-  21:32  error  defaultProp "schema" defined for isRequired propType  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  24:7  error  Form label must have associated control                                                        jsx-a11y/label-has-for
-  27:9  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.js
-  34:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.js
-  31:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/TextArea/TextArea.component.js
-  29:5  error  The autoFocus prop should not be used, as it can reduce usability and accessibility for users  jsx-a11y/no-autofocus
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
-   81:9  error  Use object destructuring                                        prefer-destructuring
-  101:9  error  Use object destructuring                                        prefer-destructuring
-  163:2  error  defaultProp "items" has no corresponding propTypes declaration  react/default-props-match-prop-types
-  164:2  error  defaultProp "value" defined for isRequired propType             react/default-props-match-prop-types
-  165:2  error  defaultProp "templates" defined for isRequired propType         react/default-props-match-prop-types
-  166:2  error  defaultProp "widgets" defined for isRequired propType           react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
-  54:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
-  77:1  error  Expected indentation of 5 tabs but found 6       indent
-  78:1  error  Expected indentation of 5 tabs but found 6       indent
-  79:1  error  Expected indentation of 4 tabs but found 5       indent
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/DefaultArrayTemplate.component.js
-  48:2  error  defaultProp "t" defined for isRequired propType  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/DefaultArrayTemplate.component.test.js
+/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/UIForm/fieldsets/Array/DefaultArrayTemplate.component.test.js
   100:5  error  JSX props should not use functions  react/jsx-no-bind
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
-  42:6  error  Elements with the 'button' interactive role must be focusable                                   jsx-a11y/interactive-supports-focus
-  48:7  error  Elements with the 'button' interactive role must be focusable                                   jsx-a11y/interactive-supports-focus
+/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
   48:7  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/merge.js
-  104:10  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
+/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/validation.js
-  202:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  68:1  error  Expected indentation of 6 tabs but found 7            indent
-  68:8  error  Expected indentation of 6 tab characters but found 7  react/jsx-indent
-  69:1  error  Expected indentation of 7 tabs but found 8            indent
-  70:1  error  Expected indentation of 7 tabs but found 8            indent
-  71:1  error  Expected indentation of 7 tabs but found 8            indent
-  72:1  error  Expected indentation of 7 tabs but found 8            indent
-  73:1  error  Expected indentation of 7 tabs but found 8            indent
-  74:1  error  Expected indentation of 7 tabs but found 8            indent
-  75:1  error  Expected indentation of 7 tabs but found 8            indent
-  76:1  error  Expected indentation of 7 tabs but found 8            indent
-  77:1  error  Expected indentation of 6 tabs but found 7            indent
-  78:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  400:9  error  Use object destructuring  prefer-destructuring
-  414:4  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-   44:2  error  getItemHeight should be placed after onImportButtonClick  react/sort-comp
-   68:9  error  Use object destructuring                                  prefer-destructuring
-  287:8  error  Use object destructuring                                  prefer-destructuring
-  338:9  error  Use object destructuring                                  prefer-destructuring
-  373:9  error  Use object destructuring                                  prefer-destructuring
-  391:9  error  Use object destructuring                                  prefer-destructuring
-  851:9  error  Use object destructuring                                  prefer-destructuring
-  896:7  error  Use object destructuring                                  prefer-destructuring
-  926:2  error  defaultProp "t" defined for isRequired propType           react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/utils/utils.test.js
-  1:80  error  Unexpected use of file extension "js" for "./utils.js"  import/extensions
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
-  44:8  error  Use object destructuring  prefer-destructuring
-  45:8  error  Use object destructuring  prefer-destructuring
-  94:8  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-   98:9  error  Use object destructuring                               prefer-destructuring
-  172:2  error  defaultProp "options" defined for isRequired propType  react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-  194:10  error  Use object destructuring                    prefer-destructuring
-  290:1   error  Expected indentation of 3 tabs but found 4  indent
-  290:5   error  Form label must have associated control     jsx-a11y/label-has-for
-  291:1   error  Expected indentation of 4 tabs but found 5  indent
-  292:1   error  Expected indentation of 3 tabs but found 4  indent
-  293:1   error  Expected indentation of 2 tabs but found 3  indent
-
-✖ 78 problems (78 errors, 0 warnings)
-  18 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 9 problems (9 errors, 0 warnings)
 

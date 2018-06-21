@@ -85,9 +85,7 @@ describe('Container ActionBar', () => {
 		expect(wrapper.props()).toMatchSnapshot();
 	});
 	it('should compute props using CMF with array of string', () => {
-		const wrapper = shallow(
-			<Container actionIds={actionIds} />
-		, { context: mock.context() });
+		const wrapper = shallow(<Container actionIds={actionIds} />, { context: mock.context() });
 		expect(wrapper.props()).toMatchSnapshot();
 	});
 });

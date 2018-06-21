@@ -73,7 +73,8 @@ function ArrayItem(props) {
 		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
 			<div className={theme.control}>
 				{!isClosed &&
-					onReorder && [
+					onReorder &&
+					[
 						<TranslatedReorderButton {...props} index={index} />,
 						<TranslatedReorderButton {...props} index={index} isMoveDown />,
 					]}

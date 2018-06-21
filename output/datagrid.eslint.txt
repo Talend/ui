@@ -1,15 +1,2 @@
 > eslint --config ../../.eslintrc src
 
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
-   84:2  error  defaultProps should be placed after propTypes                                                                                                                              react/sort-comp
-  136:9  error  Use object destructuring                                                                                                                                                   prefer-destructuring
-  196:7  error  Use object destructuring                                                                                                                                                   prefer-destructuring
-  285:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-  302:3  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultValueRenderer.component.js
-  50:4  error  onMouseOver must be accompanied by onFocus for accessibility  jsx-a11y/mouse-events-have-key-events
-
-✖ 6 problems (6 errors, 0 warnings)
-

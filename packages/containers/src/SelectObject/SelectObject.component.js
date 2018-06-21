@@ -37,7 +37,8 @@ function SelectObject({
 			/>
 			<div className={theme.container}>
 				{!tree &&
-					!filteredData && (
+					!filteredData &&
+					(
 						<List
 							{...props.list}
 							id={`${props.id}-list`}
@@ -46,7 +47,8 @@ function SelectObject({
 						/>
 					)}
 				{tree &&
-					!filteredData && (
+					!filteredData &&
+					(
 						<TreeView
 							{...tree}
 							componentId={props.id}

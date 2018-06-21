@@ -12,6 +12,7 @@
     }],
     "function-paren-newline": "off",
     "import/extensions": "off",
+    "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
     "new-cap": [
@@ -21,6 +22,7 @@
       }
     ],
     "no-mixed-operators": "off",
+    "no-restricted-syntax": "off",
     "no-return-assign": "off",
     "no-tabs": "off",
     "object-curly-newline": "off",
@@ -43,7 +45,8 @@
     "react/no-unescaped-entities": "off",
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
     "react/prefer-es6-class": 0,
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/sort-comp": "off"
   },
   "env": {
     "es6": true,

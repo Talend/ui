@@ -46,7 +46,7 @@ function loadInitialState(options = {}) {
 
 function saveOnReload({ engine, store }) {
 	window.addEventListener('beforeunload', () => {
-		engine.save(store.getState());  // localstorage is sync
+		engine.save(store.getState()); // localstorage is sync
 	});
 }
 
