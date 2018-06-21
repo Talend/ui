@@ -1,14 +1,32 @@
 > eslint --config ../../.eslintrc src
 
 
-/Users/jsomsanith/Documents/workspace/ui/packages/containers/src/Notification/Notification.test.js
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-/Users/jsomsanith/Documents/workspace/ui/packages/containers/src/register.js
+/home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
 
-/Users/jsomsanith/Documents/workspace/ui/packages/containers/src/SidePanel/SidePanel.connect.js
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
+  41:1  error  Expected indentation of 5 tabs but found 6  indent
+  42:1  error  Expected indentation of 6 tabs but found 7  indent
+  43:1  error  Expected indentation of 6 tabs but found 7  indent
+  44:1  error  Expected indentation of 6 tabs but found 7  indent
+  45:1  error  Expected indentation of 6 tabs but found 7  indent
+  46:1  error  Expected indentation of 5 tabs but found 6  indent
+  47:1  error  Expected indentation of 4 tabs but found 5  indent
+  50:1  error  Expected indentation of 5 tabs but found 6  indent
+  51:1  error  Expected indentation of 6 tabs but found 7  indent
+  52:1  error  Expected indentation of 6 tabs but found 7  indent
+  53:1  error  Expected indentation of 6 tabs but found 7  indent
+  54:1  error  Expected indentation of 6 tabs but found 7  indent
+  55:1  error  Expected indentation of 6 tabs but found 7  indent
+  56:1  error  Expected indentation of 5 tabs but found 6  indent
+  57:1  error  Expected indentation of 4 tabs but found 5  indent
+
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 3 problems (3 errors, 0 warnings)
+✖ 18 problems (18 errors, 0 warnings)
+  15 errors, 0 warnings potentially fixable with the `--fix` option.
 
