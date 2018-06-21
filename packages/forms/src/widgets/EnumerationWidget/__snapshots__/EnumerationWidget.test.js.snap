@@ -2129,7 +2129,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   <Action
                     hideLabel={true}
                     icon="talend-cross"
-                    key="2-enum-header-action"
+                    key="0-enum-header-action"
                     label="Abort"
                     link={true}
                     onClick={[Function]}
@@ -6184,7 +6184,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   <Action
                     hideLabel={true}
                     icon="talend-cross"
-                    key="2-enum-header-action"
+                    key="0-enum-header-action"
                     label="Abort"
                     link={true}
                     onClick={[Function]}
