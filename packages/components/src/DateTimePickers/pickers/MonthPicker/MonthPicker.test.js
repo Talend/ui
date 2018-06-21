@@ -16,7 +16,7 @@ describe('MonthPicker', () => {
 			monthIndexSelected={monthIndex}
 		/>);
 
-		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const actions = wrapper.find('PickerAction');
 
 		expect(actions.length).toBe(12);
 

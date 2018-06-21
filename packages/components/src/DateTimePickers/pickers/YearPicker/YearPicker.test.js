@@ -17,7 +17,7 @@ describe('YearPicker', () => {
 			yearSelected={2012}
 		/>);
 
-		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const actions = wrapper.find('PickerAction');
 
 		expect(actions.length).toBe(5);
 
@@ -60,7 +60,7 @@ describe('YearPicker', () => {
 
 	it('should default render with current year in middle when "yearSelected" prop not provided', () => {
 		const wrapper = shallow(<YearPicker />);
-		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const actions = wrapper.find('PickerAction');
 		const now = new Date();
 		const currentYear = now.getFullYear().toString();
 
@@ -72,7 +72,7 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker
 			yearSelected={year}
 		/>);
-		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const actions = wrapper.find('PickerAction');
 
 		expect(actions.at(2).prop('label')).toBe(year.toString());
 	});
@@ -84,7 +84,7 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker
 			yearSelected={defaultYear}
 		/>);
-		const actions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const actions = wrapper.find('PickerAction');
 
 		expect(actions.at(2).prop('label')).toBe(defaultYear.toString());
 
@@ -94,7 +94,7 @@ describe('YearPicker', () => {
 		});
 
 		// The middle year still remain the same
-		const newActions = wrapper.findWhere(n => n.name() === 'PickerAction');
+		const newActions = wrapper.find('PickerAction');
 		expect(newActions.at(2).prop('label')).toBe(defaultYear.toString());
 	});
 });
