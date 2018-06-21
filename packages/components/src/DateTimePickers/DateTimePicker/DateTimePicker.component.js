@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
@@ -14,10 +13,10 @@ class DateTimePicker extends React.Component {
 
 		this.state = {
 			isDateTimeView: true,
-			currentCalendar: Immutable.Map({
+			currentCalendar: {
 				monthIndex: now.getMonth(),
 				year: now.getFullYear(),
-			}),
+			},
 		};
 
 		this.setDateTimeView = this.setView.bind(this, true);
@@ -29,7 +28,10 @@ class DateTimePicker extends React.Component {
 
 	onMonthYearSelected(newCalendar) {
 		this.setState(previousState => ({
-			currentCalendar: previousState.currentCalendar.merge(newCalendar),
+			currentCalendar: {
+				...previousState.currentCalendar,
+				...newCalendar,
+			},
 		}));
 	}
 
@@ -51,15 +53,15 @@ class DateTimePicker extends React.Component {
 		if (this.state.isDateTimeView) {
 			viewElement = (<DateTimeView
 				onTitleClick={this.setMonthYearView}
-				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
-				yearSelected={this.state.currentCalendar.get('year')}
+				monthIndexSelected={this.state.currentCalendar.monthIndex}
+				yearSelected={this.state.currentCalendar.year}
 				onMonthYearSelected={this.onMonthYearSelected}
 			/>);
 		} else {
 			viewElement = (<MonthYearView
 				onBackClick={this.setDateTimeView}
-				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
-				yearSelected={this.state.currentCalendar.get('year')}
+				monthIndexSelected={this.state.currentCalendar.monthIndex}
+				yearSelected={this.state.currentCalendar.year}
 				onMonthSelected={this.onMonthSelected}
 				onYearSelected={this.onYearSelected}
 			/>);
