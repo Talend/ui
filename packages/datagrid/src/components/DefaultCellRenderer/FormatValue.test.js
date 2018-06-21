@@ -53,4 +53,14 @@ lopsum`),
 		// eslint-disable-next-line no-irregular-whitespace
 		expect(hasWhiteSpaceCharacters(' ')).toBe(true);
 	});
+
+	it('test return true when the string has only white characters', () => {
+		// eslint-disable-next-line no-irregular-whitespace
+		expect(hasWhiteSpaceCharacters()).toBe(false);
+	});
+
+	it('test return true when the string has only white characters', () => {
+		// eslint-disable-next-line no-irregular-whitespace
+		expect(hasWhiteSpaceCharacters(1)).toBe(false);
+	});
 });
