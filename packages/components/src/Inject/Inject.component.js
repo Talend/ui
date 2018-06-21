@@ -125,7 +125,7 @@ Inject.getReactElement = function getReactElement(getComponent, data, CustomInje
 	} else if (typeof data === 'object') {
 		return <CustomInject getComponent={getComponent} {...data} />;
 	}
-	return data;  // We do not throw anything, proptypes should do the job
+	return data; // We do not throw anything, proptypes should do the job
 };
 
 Inject.getReactElement.propTypes = PropTypes.oneOfType([
