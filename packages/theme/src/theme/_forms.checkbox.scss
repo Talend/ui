@@ -11,7 +11,6 @@ $tt-checkbox-ripple-color: rgba(111, 148, 182, 0.1) !default;
 input[type='checkbox'],
 .checkbox input[type='checkbox'],
 .checkbox-inline input[type='checkbox'] {
-
 	&:before,
 	+ *:before {
 		@include rotate(90deg);
