@@ -32,7 +32,6 @@ class TooltipTrigger extends React.Component {
 
 		this.state = {
 			hovered: false,
-			clicked: false,
 			id: uuid.v4(),
 		};
 	}
@@ -40,7 +39,6 @@ class TooltipTrigger extends React.Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
 			this.state.hovered !== nextState.hovered ||
-			this.state.clicked !== nextState.clicked ||
 			this.props.children !== nextProps.children ||
 			this.props.label !== nextProps.label
 		);
@@ -67,7 +65,7 @@ class TooltipTrigger extends React.Component {
 	}
 
 	onMouseDown(...args) {
-		this.setState({ clicked: true });
+		this.setState({ hovered: false });
 		if (this.props.children.props.onMouseDown) {
 			this.props.children.props.onMouseDown(...args);
 		}
@@ -77,7 +75,7 @@ class TooltipTrigger extends React.Component {
 	}
 
 	onMouseUp(...args) {
-		this.setState({ clicked: false });
+		this.setState({ hovered: true });
 		if (this.props.children.props.onMouseUp) {
 			this.props.children.props.onMouseUp(...args);
 		}
@@ -86,16 +84,11 @@ class TooltipTrigger extends React.Component {
 	render() {
 		const child = React.Children.only(this.props.children);
 
-		if (this.state.clicked) {
-			return cloneElement(child, {
-				onMouseUp: this.onMouseUp,
-			});
-		}
-
 		if (!this.state.hovered) {
 			return cloneElement(child, {
 				onMouseOver: this.onMouseOver,
 				onFocus: this.onFocus,
+				onMouseUp: this.onMouseUp,
 			});
 		}
 
