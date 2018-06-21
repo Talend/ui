@@ -84,7 +84,6 @@
     "packages/json-schema-form-core",
     "packages/kit",
     "packages/sagas",
-    "packages/scripts",
     "packages/storybook-cmf",
     "packages/theme"
   ]
