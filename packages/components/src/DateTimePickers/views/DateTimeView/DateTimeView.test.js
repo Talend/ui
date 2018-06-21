@@ -28,108 +28,140 @@ describe('DateTimeView', () => {
 		expect(onTitleClick).toHaveBeenCalledTimes(1);
 	});
 
-	it('should callback with the month index updated', () => {
-		const onMonthSelected = jest.fn();
-		const wrapper = shallow(<DateTimeView
-			monthIndexSelected={5}
-			yearSelected={2006}
-			onMonthSelected={onMonthSelected}
-		/>);
+	describe('should callback when switch month', () => {
+		function getActions(wrapper) {
+			return wrapper.find('ViewLayout').shallow().find('IconButton');
+		}
 
-		const monthActions = wrapper.find('ViewLayout').shallow().find('IconButton');
-		const previousAction = monthActions.first();
-		const nextAction = monthActions.last();
+		function getPreviousAction(wrapper) {
+			return getActions(wrapper).first();
+		}
 
-		// Simple previous case
-		wrapper.setProps({
-			monthIndexSelected: 5,
-			yearSelected: 2006,
+		function getNextAction(wrapper) {
+			return getActions(wrapper).last();
+		}
+
+		describe('with the month index updated', () => {
+			it('in simple previous case', () => {
+				const onMonthSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={5}
+					yearSelected={2006}
+					onMonthSelected={onMonthSelected}
+				/>);
+
+				const previousAction = getPreviousAction(wrapper);
+				previousAction.simulate('click');
+
+				expect(onMonthSelected).toHaveBeenCalledTimes(1);
+				expect(onMonthSelected).toHaveBeenCalledWith(4);
+			});
+
+			it('in simple next case', () => {
+				const onMonthSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={5}
+					yearSelected={2006}
+					onMonthSelected={onMonthSelected}
+				/>);
+
+				const nextAction = getNextAction(wrapper);
+				nextAction.simulate('click');
+
+				expect(onMonthSelected).toHaveBeenCalledTimes(1);
+				expect(onMonthSelected).toHaveBeenCalledWith(6);
+			});
+
+			it('in advance previous case', () => {
+				const onMonthSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={0}
+					yearSelected={2006}
+					onMonthSelected={onMonthSelected}
+				/>);
+
+				const previousAction = getPreviousAction(wrapper);
+				previousAction.simulate('click');
+
+				expect(onMonthSelected).toHaveBeenCalledTimes(1);
+				expect(onMonthSelected).toHaveBeenCalledWith(11);
+			});
+
+			it('in advance next case', () => {
+				const onMonthSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={11}
+					yearSelected={2006}
+					onMonthSelected={onMonthSelected}
+				/>);
+
+				const nextAction = getNextAction(wrapper);
+				nextAction.simulate('click');
+
+				expect(onMonthSelected).toHaveBeenCalledTimes(1);
+				expect(onMonthSelected).toHaveBeenCalledWith(0);
+			});
 		});
-		onMonthSelected.mockClear();
-		previousAction.simulate('click');
-		expect(onMonthSelected).toHaveBeenCalledTimes(1);
-		expect(onMonthSelected).toHaveBeenCalledWith(4);
 
-		// Simple next case
-		wrapper.setProps({
-			monthIndexSelected: 5,
-			yearSelected: 2006,
+		describe('with the year updated if needed', () => {
+			it('in simple previous case', () => {
+				const onYearSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={5}
+					yearSelected={2006}
+					onYearSelected={onYearSelected}
+				/>);
+
+				const previousAction = getPreviousAction(wrapper);
+				previousAction.simulate('click');
+
+				expect(onYearSelected).not.toHaveBeenCalled();
+			});
+
+			it('in simple next case', () => {
+				const onYearSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={5}
+					yearSelected={2006}
+					onYearSelected={onYearSelected}
+				/>);
+
+				const nextAction = getNextAction(wrapper);
+				nextAction.simulate('click');
+
+				expect(onYearSelected).not.toHaveBeenCalled();
+			});
+
+			it('in advance previous case', () => {
+				const onYearSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={0}
+					yearSelected={2006}
+					onYearSelected={onYearSelected}
+				/>);
+
+				const previousAction = getPreviousAction(wrapper);
+				previousAction.simulate('click');
+
+				expect(onYearSelected).toHaveBeenCalledTimes(1);
+				expect(onYearSelected).toHaveBeenCalledWith(2005);
+			});
+
+			it('in advance next case', () => {
+				const onYearSelected = jest.fn();
+				const wrapper = shallow(<DateTimeView
+					monthIndexSelected={11}
+					yearSelected={2006}
+					onYearSelected={onYearSelected}
+				/>);
+
+				const nextAction = getNextAction(wrapper);
+				nextAction.simulate('click');
+
+				expect(onYearSelected).toHaveBeenCalledTimes(1);
+				expect(onYearSelected).toHaveBeenCalledWith(2007);
+			});
 		});
-		onMonthSelected.mockClear();
-		nextAction.simulate('click');
-		expect(onMonthSelected).toHaveBeenCalledTimes(1);
-		expect(onMonthSelected).toHaveBeenCalledWith(6);
-
-		// Advance previous case
-		wrapper.setProps({
-			monthIndexSelected: 0,
-			yearSelected: 2006,
-		});
-		onMonthSelected.mockClear();
-		previousAction.simulate('click');
-		expect(onMonthSelected).toHaveBeenCalledTimes(1);
-		expect(onMonthSelected).toHaveBeenCalledWith(11);
-
-		// Advance next case
-		wrapper.setProps({
-			monthIndexSelected: 11,
-			yearSelected: 2006,
-		});
-		onMonthSelected.mockClear();
-		nextAction.simulate('click');
-		expect(onMonthSelected).toHaveBeenCalledTimes(1);
-		expect(onMonthSelected).toHaveBeenCalledWith(0);
-	});
-
-	it('should callback with the year updated', () => {
-		const onYearSelected = jest.fn();
-		const wrapper = shallow(<DateTimeView
-			monthIndexSelected={5}
-			yearSelected={2006}
-			onYearSelected={onYearSelected}
-		/>);
-
-		const monthActions = wrapper.find('ViewLayout').shallow().find('IconButton');
-		const previousAction = monthActions.first();
-		const nextAction = monthActions.last();
-
-		// Simple previous case
-		wrapper.setProps({
-			monthIndexSelected: 5,
-			yearSelected: 2006,
-		});
-		onYearSelected.mockClear();
-		previousAction.simulate('click');
-		expect(onYearSelected).not.toHaveBeenCalled();
-
-		// Simple next case
-		wrapper.setProps({
-			monthIndexSelected: 5,
-			yearSelected: 2006,
-		});
-		onYearSelected.mockClear();
-		nextAction.simulate('click');
-		expect(onYearSelected).not.toHaveBeenCalled();
-
-		// Advance previous case
-		wrapper.setProps({
-			monthIndexSelected: 0,
-			yearSelected: 2006,
-		});
-		onYearSelected.mockClear();
-		previousAction.simulate('click');
-		expect(onYearSelected).toHaveBeenCalledTimes(1);
-		expect(onYearSelected).toHaveBeenCalledWith(2005);
-
-		// Advance next case
-		wrapper.setProps({
-			monthIndexSelected: 11,
-			yearSelected: 2006,
-		});
-		onYearSelected.mockClear();
-		nextAction.simulate('click');
-		expect(onYearSelected).toHaveBeenCalledTimes(1);
-		expect(onYearSelected).toHaveBeenCalledWith(2007);
 	});
 });
 
