@@ -20,14 +20,7 @@ describe('MonthPicker', () => {
 
 		expect(actions.length).toBe(12);
 
-		const unselectedActions = actions.filterWhere(action => action.prop('isSelected') === false);
 		const selectedActions = actions.filterWhere(action => action.prop('isSelected') === true);
-
-		expect(unselectedActions.length).toBe(11);
-
-		unselectedActions.forEach(action => {
-			expect(action.parent().key()).not.toBe(monthIndex.toString());
-		});
 
 		expect(selectedActions.length).toBe(1);
 		const selectedAction = selectedActions.first();

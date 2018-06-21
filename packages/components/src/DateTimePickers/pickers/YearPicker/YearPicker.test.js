@@ -21,15 +21,9 @@ describe('YearPicker', () => {
 
 		expect(actions.length).toBe(5);
 
-		const unselectedActions = actions.filterWhere(action => action.prop('isSelected') === false);
 		const selectedActions = actions.filterWhere(action => action.prop('isSelected') === true);
 
-		expect(unselectedActions.length).toBe(4);
 		expect(selectedActions.length).toBe(1);
-
-		unselectedActions.forEach(action => {
-			expect(action.prop('label')).not.toBe('2012');
-		});
 
 		selectedActions.forEach(action => {
 			expect(action.prop('label')).toBe('2012');
