@@ -43,34 +43,29 @@ class DateTimePicker extends React.Component {
 	}
 
 	render() {
-		const dateTimeView = (
-			<DateTimeView
+		let viewElement;
+
+		if (this.state.isDateTimeView) {
+			viewElement = (<DateTimeView
 				onTitleClick={this.setMonthYearView}
 				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
 				yearSelected={this.state.currentCalendar.get('year')}
 				onMonthSelected={this.onMonthSelected}
 				onYearSelected={this.onYearSelected}
-			/>
-		);
-
-		const monthYearView = (
-			<MonthYearView
+			/>);
+		} else {
+			viewElement = (<MonthYearView
 				onBackClick={this.setDateTimeView}
 				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
 				yearSelected={this.state.currentCalendar.get('year')}
 				onMonthSelected={this.onMonthSelected}
 				onYearSelected={this.onYearSelected}
-			/>
-		);
-
-
-		const viewComponent = this.state.isDateTimeView
-			? dateTimeView
-			: monthYearView;
+			/>);
+		}
 
 		return (
 			<div className={theme.container}>
-				{viewComponent}
+				{viewElement}
 			</div>
 		);
 	}
