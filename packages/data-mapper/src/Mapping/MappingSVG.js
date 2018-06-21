@@ -287,8 +287,10 @@ function renderDraggableAnchor(anchor, onEnterAnchor, onLeaveAnchor, dndListener
 	);
 }
 
-function renderGradientStop(stop) {
-	return <stop id={`grad-stop-${stop.key}`} offset={`${stop.offset}%`} />;
+function renderGradientStops(gradientStops) {
+	return gradientStops.map((stop, i) => (
+		<stop key={i} id={`grad-stop-${stop.key}`} offset={`${stop.offset}%`} />
+	));
 }
 
 function renderLinearGradients(gradientStops, key) {
@@ -296,19 +298,19 @@ function renderLinearGradients(gradientStops, key) {
 		return (
 			<defs>
 				<linearGradient id={`grad-left-top-${key}`} x1="0%" y1="0%" x2="100%" y2="100%">
-					{gradientStops.map(stop => renderGradientStop(stop))}
+					{renderGradientStops(gradientStops)}
 				</linearGradient>
 				<linearGradient id={`grad-left-bottom-${key}`} x1="0%" y1="100%" x2="100%" y2="0%">
-					{gradientStops.map(stop => renderGradientStop(stop))}
+					{renderGradientStops(gradientStops)}
 				</linearGradient>
 				<linearGradient id={`grad-right-top-${key}`} x1="100%" y1="0%" x2="0%" y2="100%">
-					{gradientStops.map(stop => renderGradientStop(stop))}
+					{renderGradientStops(gradientStops)}
 				</linearGradient>
 				<linearGradient id={`grad-right-bottom-${key}`} x1="100%" y1="100%" x2="0%" y2="0%">
-					{gradientStops.map(stop => renderGradientStop(stop))}
+					{renderGradientStops(gradientStops)}
 				</linearGradient>
 				<linearGradient id={`grad-left-right-${key}`} x1="0%" x2="100%">
-					{gradientStops.map(stop => renderGradientStop(stop))}
+					{renderGradientStops(gradientStops)}
 				</linearGradient>
 			</defs>
 		);

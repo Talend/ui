@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
-import Mapper from './Mapper.js';
+import MapperComponent from './Mapper.js';
 import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
@@ -78,7 +78,7 @@ const preferences = {
 
 it('auto-mapping', () => {
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
-	const MapperTestContext = wrapInTestContext(Mapper);
+	const MapperTestContext = wrapInTestContext(MapperComponent);
 
 	const mapper = (
 		<MapperTestContext
@@ -117,7 +117,7 @@ it('perform-mapping', () => {
 	const mapping = [];
 	const draggable = true;
 
-	const MapperTestContext = wrapInTestContext(Mapper);
+	const MapperTestContext = wrapInTestContext(MapperComponent);
 
 	const mapper = (
 		<MapperTestContext

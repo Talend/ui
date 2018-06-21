@@ -1,8 +1,8 @@
-import Mapper from './MapperWithDnd';
+import Mapper from './Mapper.container';
 import DataAccessorWithUndoRedo from './DataAccessor/DataAccessorWithUndoRedo';
 import MappingAccessor from './DataAccessor/MappingAccessor';
 import Constants from './Constants';
-import './DataMapper.scss';
+import './Mapper.scss';
 
 export { Constants, DataAccessorWithUndoRedo, MappingAccessor };
 

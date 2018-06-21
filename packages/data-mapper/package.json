@@ -29,6 +29,7 @@
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/react": "^3.3.14",
+    "@talend/bootstrap-theme": "0.194.0",
     "@talend/icons": "0.194.0",
     "@talend/react-components": "^0.194.0",
     "babel-cli": "^6.26.0",

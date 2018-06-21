@@ -1,8 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 import Schema from './Schema/Schema.js';
 import Mapping from './Mapping/Mapping';
 import { Constants } from './index';
+
+// COLUMNS DEFINITION
+export const Columns = {
+	NAME: {
+		key: 'name',
+		label: 'Name',
+	},
+	TYPE: {
+		key: 'type',
+		label: 'Type',
+	},
+	DESC: {
+		key: 'description',
+		label: 'Description',
+	},
+	MANDATORY: {
+		key: 'mandatory',
+		label: '',
+	},
+};
 
 function getMappedElements(dataAccessor, mapping, side) {
 	const mappingItems = dataAccessor.getMappingItems(mapping);
@@ -111,7 +135,7 @@ function sortHasChanged(status) {
 	return (status & Constants.StateStatus.SORT) !== 0;
 }
 
-export default class Mapper extends Component {
+class MapperComponent extends Component {
 	constructor(props) {
 		super(props);
 		this.visibleInputElements = null;
@@ -520,7 +544,7 @@ export default class Mapper extends Component {
 			// then build connections
 			if (filteredMappingItems) {
 				if (preferences.gradientStops50 || preferences.gradientStops100) {
-					// build connections with visibility informations
+					// build connections with visibility information
 					allConnections = filteredMappingItems.map(item =>
 						this.getConnectionWithVisibilityFromItem(
 							dataAccessor,
@@ -755,7 +779,7 @@ export default class Mapper extends Component {
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;
 		return (
-			<div id={mapperId} tabindex="0">
+			<div id={mapperId} tabIndex="0">
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}
@@ -809,7 +833,7 @@ export default class Mapper extends Component {
 	}
 }
 
-Mapper.propTypes = {
+MapperComponent.propTypes = {
 	dataAccessor: PropTypes.object,
 	mapperId: PropTypes.string,
 	mapping: PropTypes.array,
@@ -846,3 +870,5 @@ Mapper.propTypes = {
 	trigger: PropTypes.object,
 	status: PropTypes.number,
 };
+
+export default DragDropContext(HTML5Backend)(MapperComponent);
