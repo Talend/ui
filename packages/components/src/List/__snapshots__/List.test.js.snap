@@ -1560,44 +1560,15 @@ exports[`List should render 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <NavItem
-                              active={false}
-                              disabled={true}
-                              key=".1:$current"
+                            <div
+                              className="theme-page-index"
+                              key=".1:2"
                               onSelect={[Function]}
                             >
-                              <li
-                                className="disabled"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  componentClass="a"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                    style={
-                                      Object {
-                                        "pointerEvents": "none",
-                                      }
-                                    }
-                                    tabIndex={-1}
-                                  >
-                                    <span
-                                      className="btn-link"
-                                    >
-                                      2
-                                      /
-                                      3
-                                    </span>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
+                              2
+                              /
+                              3
+                            </div>
                             <NavItem
                               active={false}
                               className="btn-link"
@@ -3401,44 +3372,15 @@ exports[`List should render id if provided 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <NavItem
-                              active={false}
-                              disabled={true}
-                              key=".1:$current"
+                            <div
+                              className="theme-page-index"
+                              key=".1:2"
                               onSelect={[Function]}
                             >
-                              <li
-                                className="disabled"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  componentClass="a"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                    style={
-                                      Object {
-                                        "pointerEvents": "none",
-                                      }
-                                    }
-                                    tabIndex={-1}
-                                  >
-                                    <span
-                                      className="btn-link"
-                                    >
-                                      2
-                                      /
-                                      3
-                                    </span>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
+                              2
+                              /
+                              3
+                            </div>
                             <NavItem
                               active={false}
                               className="btn-link"
