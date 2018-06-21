@@ -7,53 +7,46 @@ import ViewLayout from '../ViewLayout';
 import IconButton from '../../IconButton';
 import HeaderTitle from '../HeaderTitle';
 
-class MonthYearView extends React.Component {
+function MonthYearView(props) {
+	const header = {
+		leftElement: <IconButton
+			icon={{
+				name: 'talend-arrow-left',
+				className: theme['action-left-icon'],
+			}}
+			className={theme['action-left']}
+			aria-label="Switch back to date and time pickers view"
+			onClick={props.onBackClick}
+		/>,
+		middleElement: <HeaderTitle
+			monthIndex={props.monthIndexSelected}
+			year={props.yearSelected}
+		/>,
+	};
 
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		const header = {
-			leftElement: <IconButton
-				icon={{
-					name: 'talend-arrow-left',
-					className: theme['action-left-icon'],
-				}}
-				className={theme['action-left']}
-				aria-label="Switch back to date and time pickers view"
-				onClick={this.props.onBackClick}
-			/>,
-			middleElement: <HeaderTitle
-				monthIndex={this.props.monthIndexSelected}
-				year={this.props.yearSelected}
-			/>,
-		};
-
-		const bodyElement = (
-			<div className={theme.body}>
-				<div className={theme.month}>
-					<MonthPicker
-						monthIndexSelected={this.props.monthIndexSelected}
-						onMonthSelected={this.props.onMonthSelected}
-					/>
-				</div>
-				<div className={theme.year}>
-					<YearPicker
-						yearSelected={this.props.yearSelected}
-						onYearSelected={this.props.onYearSelected}
-					/>
-				</div>
+	const bodyElement = (
+		<div className={theme.body}>
+			<div className={theme.month}>
+				<MonthPicker
+					monthIndexSelected={props.monthIndexSelected}
+					onMonthSelected={props.onMonthSelected}
+				/>
 			</div>
-		);
+			<div className={theme.year}>
+				<YearPicker
+					yearSelected={props.yearSelected}
+					onYearSelected={props.onYearSelected}
+				/>
+			</div>
+		</div>
+	);
 
-		return (
-			<ViewLayout
-				header={header}
-				bodyElement={bodyElement}
-			/>
-		);
-	}
+	return (
+		<ViewLayout
+			header={header}
+			bodyElement={bodyElement}
+		/>
+	);
 }
 
 MonthYearView.propTypes = {
