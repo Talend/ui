@@ -39,10 +39,9 @@ describe('YearPicker', () => {
 			onYearSelected={onYearSelected}
 		/>);
 
-		const nextYearAction = wrapper.findWhere(n =>
-			n.name() === 'PickerAction'
-			&& n.prop('label') === yearToSelect.toString()
-		);
+		const nextYearAction = wrapper
+			.find('PickerAction')
+			.findWhere(n => n.prop('label') === yearToSelect.toString());
 
 		expect(nextYearAction.length).toBe(1);
 

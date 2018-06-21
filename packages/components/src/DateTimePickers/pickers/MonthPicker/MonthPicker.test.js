@@ -35,10 +35,10 @@ describe('MonthPicker', () => {
 			onMonthSelected={onMonthSelected}
 		/>);
 
-		const juneAction = wrapper.findWhere(n =>
-			n.name() === 'PickerAction'
-			&& n.parent().key() === monthIndexToSelect.toString()
-		);
+		const juneAction = wrapper
+			.findWhere(n => n.key() === monthIndexToSelect.toString())
+			.first()
+			.find('PickerAction');
 
 		expect(juneAction.length).toBe(1);
 
