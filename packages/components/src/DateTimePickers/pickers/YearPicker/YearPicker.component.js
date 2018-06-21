@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import addYears from 'date-fns/add_years';
-import setYear from 'date-fns/set_year';
 import theme from './YearPicker.scss';
 import IconButton from '../../IconButton';
 import PickerAction from '../../PickerAction';
-
-const baseDate = new Date(0);
 
 class YearPicker extends React.Component {
 
@@ -18,13 +14,11 @@ class YearPicker extends React.Component {
 			? props.yearSelected
 			: now.getFullYear();
 
-		const middleDate = setYear(baseDate, middleYear);
-		const firstDate = addYears(middleDate, -2);
+		const firstYear = middleYear - 2;
 
 		this.years = (new Array(5))
 			.fill(0)
-			.map((_, i) => addYears(firstDate, i))
-			.map(date => date.getFullYear());
+			.map((_, i) => firstYear + i);
 	}
 
 	render() {
