@@ -24,7 +24,6 @@ describe('UIForm component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-
 	it('should render provided actions', () => {
 		// when
 		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={actions} />);
