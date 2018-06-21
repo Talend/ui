@@ -25,7 +25,7 @@ describe('DateTimeView', () => {
 			.find('HeaderTitle').props().button.onClick;
 
 		headerClickFn();
-		expect(spy.mock.calls.length).toBe(1);
+		expect(spy).toHaveBeenCalledTimes(1);
 	});
 
 	it('should callback with the month index updated', () => {
@@ -47,8 +47,8 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		previousAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(1);
-		expect(spy.mock.calls[0][0]).toBe(4);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(4);
 
 		// Simple next case
 		wrapper.setProps({
@@ -57,8 +57,8 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		nextAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(1);
-		expect(spy.mock.calls[0][0]).toBe(6);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(6);
 
 		// Advance previous case
 		wrapper.setProps({
@@ -67,8 +67,8 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		previousAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(1);
-		expect(spy.mock.calls[0][0]).toBe(11);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(11);
 
 		// Advance next case
 		wrapper.setProps({
@@ -77,8 +77,8 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		nextAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(1);
-		expect(spy.mock.calls[0][0]).toBe(0);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(0);
 	});
 
 	it('should callback with the year updated', () => {
@@ -100,7 +100,7 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		previousAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(0);
+		expect(spy).not.toHaveBeenCalled();
 
 		// Simple next case
 		wrapper.setProps({
@@ -109,7 +109,7 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		nextAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(0);
+		expect(spy).not.toHaveBeenCalled();
 
 		// Advance previous case
 		wrapper.setProps({
@@ -118,8 +118,8 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		previousAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(1);
-		expect(spy.mock.calls[0][0]).toBe(2005);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(2005);
 
 		// Advance next case
 		wrapper.setProps({
@@ -128,8 +128,8 @@ describe('DateTimeView', () => {
 		});
 		spy.mockClear();
 		nextAction.simulate('click');
-		expect(spy.mock.calls.length).toBe(1);
-		expect(spy.mock.calls[0][0]).toBe(2007);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(2007);
 	});
 });
 

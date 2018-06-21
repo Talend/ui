@@ -51,11 +51,7 @@ describe('MonthPicker', () => {
 
 		juneAction.simulate('click');
 
-		// One call
-		expect(spy.mock.calls.length).toBe(1);
-		// One argument
-		expect(spy.mock.calls[0].length).toBe(1);
-		// The correct index
-		expect(spy.mock.calls[0][0]).toBe(monthIndexToSelect);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(monthIndexToSelect);
 	});
 });

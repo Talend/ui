@@ -54,12 +54,8 @@ describe('YearPicker', () => {
 
 		nextYearAction.simulate('click');
 
-		// One call
-		expect(spy.mock.calls.length).toBe(1);
-		// One argument
-		expect(spy.mock.calls[0].length).toBe(1);
-		// The correct index
-		expect(spy.mock.calls[0][0]).toBe(yearToSelect);
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith(yearToSelect);
 	});
 
 	it('should default render with current year in middle when "yearSelected" prop not provided', () => {
