@@ -24,18 +24,21 @@ class DateTimePicker extends React.Component {
 		this.setMonthYearView = this.setView.bind(this, false);
 		this.onMonthSelected = this.onMonthSelected.bind(this);
 		this.onYearSelected = this.onYearSelected.bind(this);
+		this.onMonthYearSelected = this.onMonthYearSelected.bind(this);
+	}
+
+	onMonthYearSelected(newCalendar) {
+		this.setState(previousState => ({
+			currentCalendar: previousState.currentCalendar.merge(newCalendar),
+		}));
 	}
 
 	onMonthSelected(monthIndex) {
-		this.setState(previousState => ({
-			currentCalendar: previousState.currentCalendar.merge({ monthIndex }),
-		}));
+		this.onMonthYearSelected({ monthIndex });
 	}
 
 	onYearSelected(year) {
-		this.setState(previousState => ({
-			currentCalendar: previousState.currentCalendar.merge({ year }),
-		}));
+		this.onMonthYearSelected({ year });
 	}
 
 	setView(isDateTimeView) {
@@ -50,8 +53,7 @@ class DateTimePicker extends React.Component {
 				onTitleClick={this.setMonthYearView}
 				monthIndexSelected={this.state.currentCalendar.get('monthIndex')}
 				yearSelected={this.state.currentCalendar.get('year')}
-				onMonthSelected={this.onMonthSelected}
-				onYearSelected={this.onYearSelected}
+				onMonthYearSelected={this.onMonthYearSelected}
 			/>);
 		} else {
 			viewElement = (<MonthYearView

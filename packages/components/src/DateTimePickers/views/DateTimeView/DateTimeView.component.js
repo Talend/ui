@@ -30,17 +30,14 @@ class DateTimeView extends React.Component {
 		const monthIndexIncremented = this.props.monthIndexSelected + monthIncrement;
 		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
 		const yearIncrement = Math.floor(monthIndexIncremented / 12);
+		const newYear = this.props.yearSelected + yearIncrement;
 
-		if (this.props.onMonthSelected !== undefined) {
-			this.props.onMonthSelected(newMonthIndex);
-		}
 
-		if (
-			this.props.onYearSelected !== undefined
-			&& yearIncrement !== 0
-		) {
-			const newYear = this.props.yearSelected + yearIncrement;
-			this.props.onYearSelected(newYear);
+		if (this.props.onMonthYearSelected !== undefined) {
+			this.props.onMonthYearSelected({
+				monthIndex: newMonthIndex,
+				year: newYear,
+			});
 		}
 	}
 
@@ -95,8 +92,7 @@ DateTimeView.propTypes = {
 	monthIndexSelected: PropTypes.number.isRequired,
 	yearSelected: PropTypes.number.isRequired,
 	onTitleClick: PropTypes.func,
-	onMonthSelected: PropTypes.func,
-	onYearSelected: PropTypes.func,
+	onMonthYearSelected: PropTypes.func,
 };
 
 export default DateTimeView;
