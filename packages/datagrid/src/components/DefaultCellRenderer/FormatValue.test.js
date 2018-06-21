@@ -54,12 +54,12 @@ lopsum`),
 		expect(hasWhiteSpaceCharacters(' ')).toBe(true);
 	});
 
-	it('test return true when the string has only white characters', () => {
+	it('test return false when the string is empty', () => {
 		// eslint-disable-next-line no-irregular-whitespace
 		expect(hasWhiteSpaceCharacters()).toBe(false);
 	});
 
-	it('test return true when the string has only white characters', () => {
+	it('test return false when the string is not a string', () => {
 		// eslint-disable-next-line no-irregular-whitespace
 		expect(hasWhiteSpaceCharacters(1)).toBe(false);
 	});
