@@ -8,7 +8,7 @@
     "prepublish": "echo nothing to prepublish",
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",
-    "test:lint": "eslint generator/**/index.js",
+    "test:lint": "eslint --config ../../.eslintrc generator/**/index.js",
     "test:unit": "mocha --compilers js:babel-register",
     "test": "npm run test:lint && npm run test:unit"
   },
@@ -42,12 +42,11 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
+    "@talend/eslint-config": "0.1.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "8.2.3",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.14.0",
     "coveralls": "^2.11.12",
-    "eslint": "4.19.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
     "yeoman-assert": "^2.0.0",
