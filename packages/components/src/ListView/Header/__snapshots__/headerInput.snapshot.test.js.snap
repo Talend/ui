@@ -14,7 +14,7 @@ exports[`Header should render filter header 1`] = `
   />
   <button
     aria-label="Abort"
-    className="btn btn-link"
+    className="btn-icon-only btn btn-link"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}

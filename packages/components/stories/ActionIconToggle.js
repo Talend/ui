@@ -80,7 +80,7 @@ $my-btn-icon-size: 2.5rem;
 
 					.tc-icon-toggle.my-custom-icon-toggle svg {
 						height: 2.5rem;
-						width: 205rem;
+						width: 2.5rem;
 					}`
 				}
 			</style>

@@ -612,6 +612,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -621,7 +622,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -718,6 +719,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -727,7 +729,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -1419,6 +1421,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -1428,7 +1431,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -1524,6 +1527,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -1533,7 +1537,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -2156,7 +2160,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
-                                className="theme-btn-disabled"
+                                className="btn-icon-only theme-btn-disabled"
                                 disabled={true}
                                 onClick={[Function]}
                                 onMouseDown={[Function]}
@@ -2164,7 +2168,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                               >
                                 <button
                                   aria-label="Validate and Add"
-                                  className="theme-btn-disabled btn btn-link"
+                                  className="btn-icon-only theme-btn-disabled btn btn-link"
                                   disabled={true}
                                   onClick={[Function]}
                                   onMouseDown={[Function]}
@@ -2266,7 +2270,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
-                                className="theme-btn-disabled"
+                                className="btn-icon-only theme-btn-disabled"
                                 disabled={true}
                                 onClick={[Function]}
                                 onMouseDown={[Function]}
@@ -2274,7 +2278,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                               >
                                 <button
                                   aria-label="Validate"
-                                  className="theme-btn-disabled btn btn-link"
+                                  className="btn-icon-only theme-btn-disabled btn btn-link"
                                   disabled={true}
                                   onClick={[Function]}
                                   onMouseDown={[Function]}
@@ -2369,6 +2373,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                               block={false}
                               bsClass="btn"
                               bsStyle="link"
+                              className="btn-icon-only"
                               disabled={false}
                               onClick={[Function]}
                               onFocus={[Function]}
@@ -2378,7 +2383,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                             >
                               <button
                                 aria-label="Abort"
-                                className="btn btn-link"
+                                className="btn-icon-only btn btn-link"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -3086,6 +3091,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -3095,7 +3101,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -3192,6 +3198,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -3201,7 +3208,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -3916,6 +3923,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -3925,7 +3933,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -4022,6 +4030,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -4031,7 +4040,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -4832,6 +4841,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -4841,7 +4851,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -4938,6 +4948,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -4947,7 +4958,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -5616,6 +5627,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -5625,7 +5637,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Validate"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -5724,6 +5736,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -5733,7 +5746,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Abort"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -6356,7 +6369,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
-                                className="theme-btn-disabled"
+                                className="btn-icon-only theme-btn-disabled"
                                 disabled={true}
                                 onClick={[Function]}
                                 onMouseDown={[Function]}
@@ -6364,7 +6377,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                               >
                                 <button
                                   aria-label="Validate and Add"
-                                  className="theme-btn-disabled btn btn-link"
+                                  className="btn-icon-only theme-btn-disabled btn btn-link"
                                   disabled={true}
                                   onClick={[Function]}
                                   onMouseDown={[Function]}
@@ -6466,7 +6479,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
-                                className="theme-btn-disabled"
+                                className="btn-icon-only theme-btn-disabled"
                                 disabled={true}
                                 onClick={[Function]}
                                 onMouseDown={[Function]}
@@ -6474,7 +6487,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                               >
                                 <button
                                   aria-label="Validate"
-                                  className="theme-btn-disabled btn btn-link"
+                                  className="btn-icon-only theme-btn-disabled btn btn-link"
                                   disabled={true}
                                   onClick={[Function]}
                                   onMouseDown={[Function]}
@@ -6569,6 +6582,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                               block={false}
                               bsClass="btn"
                               bsStyle="link"
+                              className="btn-icon-only"
                               disabled={false}
                               onClick={[Function]}
                               onFocus={[Function]}
@@ -6578,7 +6592,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                             >
                               <button
                                 aria-label="Abort"
-                                className="btn btn-link"
+                                className="btn-icon-only btn btn-link"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -7298,6 +7312,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -7307,7 +7322,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -7404,6 +7419,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -7413,7 +7429,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -8153,6 +8169,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -8162,7 +8179,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -8259,6 +8276,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -8268,7 +8286,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -8883,7 +8901,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                       block={false}
                                                       bsClass="btn"
                                                       bsStyle="link"
-                                                      className="theme-btn-disabled"
+                                                      className="btn-icon-only theme-btn-disabled"
                                                       disabled={true}
                                                       onClick={[Function]}
                                                       onMouseDown={[Function]}
@@ -8891,7 +8909,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                     >
                                                       <button
                                                         aria-label="Loading (in progress)"
-                                                        className="theme-btn-disabled btn btn-link"
+                                                        className="btn-icon-only theme-btn-disabled btn btn-link"
                                                         disabled={true}
                                                         onClick={[Function]}
                                                         onMouseDown={[Function]}
@@ -9571,6 +9589,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                               block={false}
                               bsClass="btn"
                               bsStyle="link"
+                              className="btn-icon-only"
                               disabled={false}
                               onClick={[Function]}
                               onFocus={[Function]}
@@ -9580,7 +9599,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                             >
                               <button
                                 aria-label="Remove selected values"
-                                className="btn btn-link"
+                                className="btn-icon-only btn btn-link"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -10271,6 +10290,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -10280,7 +10300,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -10376,6 +10396,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -10385,7 +10406,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -11087,6 +11108,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -11096,7 +11118,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -11193,6 +11215,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -11202,7 +11225,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -11930,6 +11953,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -11939,7 +11963,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -12035,6 +12059,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -12044,7 +12069,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -12397,6 +12422,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -12406,7 +12432,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -12502,6 +12528,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -12511,7 +12538,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -13128,6 +13155,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     block={false}
                                     bsClass="btn"
                                     bsStyle="link"
+                                    className="btn-icon-only"
                                     disabled={false}
                                     onClick={[Function]}
                                     onFocus={[Function]}
@@ -13137,7 +13165,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                   >
                                     <button
                                       aria-label="Search for specific values"
-                                      className="btn btn-link"
+                                      className="btn-icon-only btn btn-link"
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
@@ -13234,6 +13262,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     block={false}
                                     bsClass="btn"
                                     bsStyle="link"
+                                    className="btn-icon-only"
                                     disabled={false}
                                     onClick={[Function]}
                                     onFocus={[Function]}
@@ -13243,7 +13272,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                   >
                                     <button
                                       aria-label="Add item"
-                                      className="btn btn-link"
+                                      className="btn-icon-only btn btn-link"
                                       disabled={false}
                                       onClick={[Function]}
                                       onFocus={[Function]}
@@ -14083,6 +14112,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -14092,7 +14122,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -14492,6 +14522,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -14501,7 +14532,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -15309,7 +15340,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   block={false}
                                   bsClass="btn"
                                   bsStyle="link"
-                                  className="theme-btn-disabled"
+                                  className="btn-icon-only theme-btn-disabled"
                                   disabled={true}
                                   onClick={[Function]}
                                   onMouseDown={[Function]}
@@ -15317,7 +15348,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 >
                                   <button
                                     aria-label="Loading (in progress)"
-                                    className="theme-btn-disabled btn btn-link"
+                                    className="btn-icon-only theme-btn-disabled btn btn-link"
                                     disabled={true}
                                     onClick={[Function]}
                                     onMouseDown={[Function]}
@@ -16049,6 +16080,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -16058,7 +16090,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -16154,6 +16186,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -16163,7 +16196,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -16510,6 +16543,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -16519,7 +16553,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -16615,6 +16649,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -16624,7 +16659,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -17438,6 +17473,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -17447,7 +17483,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               >
                                 <button
                                   aria-label="Search for specific values"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -17836,6 +17872,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 block={false}
                                 bsClass="btn"
                                 bsStyle="link"
+                                className="btn-icon-only"
                                 disabled={false}
                                 onClick={[Function]}
                                 onFocus={[Function]}
@@ -17845,7 +17882,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               >
                                 <button
                                   aria-label="Add item"
-                                  className="btn btn-link"
+                                  className="btn-icon-only btn btn-link"
                                   disabled={false}
                                   onClick={[Function]}
                                   onFocus={[Function]}
@@ -18573,6 +18610,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -18582,7 +18620,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -18678,6 +18716,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -18687,7 +18726,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -19034,6 +19073,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -19043,7 +19083,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Edit"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}
@@ -19139,6 +19179,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                     block={false}
                                                     bsClass="btn"
                                                     bsStyle="link"
+                                                    className="btn-icon-only"
                                                     disabled={false}
                                                     onClick={[Function]}
                                                     onFocus={[Function]}
@@ -19148,7 +19189,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                   >
                                                     <button
                                                       aria-label="Remove value"
-                                                      className="btn btn-link"
+                                                      className="btn-icon-only btn btn-link"
                                                       disabled={false}
                                                       onClick={[Function]}
                                                       onFocus={[Function]}

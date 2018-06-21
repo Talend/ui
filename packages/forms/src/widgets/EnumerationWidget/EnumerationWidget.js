@@ -854,8 +854,15 @@ class EnumerationForm extends React.Component {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value, prevState);
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
+			// in this case, we could have the loading state that implied we have just one icon
+			if (!validateAction && !abortAction) {
+				// returning null in setState prevent re-rendering
+				// see here for documentation https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes
+				return null;
+			}
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
+
 			let headerError = '';
 			if (valueExist) {
 				headerError = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
