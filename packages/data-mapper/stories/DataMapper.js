@@ -432,6 +432,7 @@ stories
 		<DataMapper
 			mapperId="mapper"
 			mappingActions={autoMapping}
+			mappingKey={Columns.NAME.key}
 			input={input}
 			output={output}
 			preferences={alternativePrefs}

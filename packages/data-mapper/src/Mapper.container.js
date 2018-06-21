@@ -16,26 +16,6 @@ const SortDirection = {
 	DESCENDING: 'descending',
 };
 
-// FIXME REMOVE COLUMNS DEFINITION
-const Columns = {
-	NAME: {
-		key: 'name',
-		label: 'Name',
-	},
-	TYPE: {
-		key: 'type',
-		label: 'Type',
-	},
-	DESC: {
-		key: 'description',
-		label: 'Description',
-	},
-	MANDATORY: {
-		key: 'mandatory',
-		label: '',
-	},
-};
-
 // FIXME ?
 const MainActions = {
 	UNDO: 'undo',
@@ -260,9 +240,15 @@ function switchSchema(state, mappingInProgress, mapper, usePosition) {
 	if (targetElem == null) {
 		if (usePosition) {
 			targetElem = findTargetElementByPosition(selection, mapper);
-		} else {
+		} else if (state.mappingKey) {
 			// try to find an element with the same name
-			targetElem = findTargetElement(dataAccessor, targetSchema, selection, mappingInProgress);
+			targetElem = findTargetElement(
+				dataAccessor,
+				targetSchema,
+				selection,
+				mappingInProgress,
+				state.mappingKey
+			);
 		}
 	}
 	if (targetElem == null) {
@@ -297,12 +283,12 @@ function updateFilters(filters, id, active, params) {
  * This method tries to find an element in the schema with the same name as
  * given element.
  */
-function findTargetElement(dataAccessor, schema, selection, mappingInProgress) {
+function findTargetElement(dataAccessor, schema, selection, mappingInProgress, mappingKey) {
 	const elements = dataAccessor.getSchemaElements(schema, true);
 	return elements.find(elem =>
-		(!mappingInProgress && dataAccessor.haveSameData(elem, selection.element, Columns.NAME.key))
+		(!mappingInProgress && dataAccessor.haveSameData(elem, selection.element, mappingKey))
 		|| (mappingInProgress
-		&& dataAccessor.haveSameData(elem, selection.element, Columns.NAME.key)
+		&& dataAccessor.haveSameData(elem, selection.element, mappingKey)
 		&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem)))
 	);
 }
@@ -564,6 +550,7 @@ class DataMapperContainer extends React.Component {
 			input: this.props.input,
 			output: this.props.output,
 			mapping: [],
+			mappingKey: this.props.mappingKey,
 			dnd: null,
 			pendingItem: null,
 			selection: null,
@@ -1138,6 +1125,7 @@ class DataMapperContainer extends React.Component {
 DataMapperContainer.propTypes = {
 	mapperId: PropTypes.string,
 	mappingActions: PropTypes.object,
+	mappingKey: PropTypes.string,
 	input: PropTypes.object.isRequired,
 	output: PropTypes.object.isRequired,
 	preferences: PropTypes.object,
