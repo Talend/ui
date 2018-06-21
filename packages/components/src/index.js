@@ -20,7 +20,6 @@ import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
-import DataMapper, { DataAccessorWithUndoRedo, MappingAccessor } from './DataMapper';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
@@ -137,9 +136,6 @@ export {
 	CircularProgress,
 	CollapsiblePanel,
 	ConfirmDialog,
-	DataAccessorWithUndoRedo,
-	DataMapper,
-	MappingAccessor,
 	Datalist,
 	Dialog,
 	DraggableComponent,

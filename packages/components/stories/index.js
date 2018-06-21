@@ -14,7 +14,6 @@ import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Checkbox';
 import './Datalist';
-import './DataMapper';
 import './Dialog';
 import './Drawer';
 import './Emphasis';
