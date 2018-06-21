@@ -199,19 +199,6 @@ const outputSchemaUX = {
 	],
 };
 
-// function getMapperClassNames(side) {
-// 	return {
-// 		root: classnames('mapper-table-container', side),
-// 		titleBar: classnames('mapper-table-title-bar', side),
-// 		title: classnames('mapper-table-title', side),
-// 		filtersBar: classnames('mapper-table-filters-bar', side),
-// 		table: classnames('mapper-table', side),
-// 		header: classnames('mapper-table-header', side),
-// 		body: classnames('mapper-table-body', side),
-// 		row: classnames('mapper-table-row', side),
-// 	};
-// }
-
 // COLUMNS DEFINITION
 
 const Columns = {
@@ -360,7 +347,10 @@ const autoMapping = [];
 function buildElement(elem, index, types, descriptions, mandatories) {
 	const type = types ? types[index] : 'string';
 	const description = descriptions ? descriptions[index] : `Description of ${elem}: bla bla bla`;
-	const mandatory = mandatories ? mandatories[index] : false;
+	let mandatory = '';
+	if (mandatories && mandatories[index]) {
+		mandatory = '*';
+	}
 	return {
 		id: `${index}`,
 		name: elem,
@@ -1105,7 +1095,7 @@ class ConnectedDataMapper extends React.Component {
 				// at least one output element must be free (i.e. not connected)
 				return !this.state.dataAccessor.isFullMapped(
 					this.state.mapping,
-					this.state.outputSchema,
+					this.state.output.schema,
 					Constants.MappingSide.OUTPUT
 				);
 			}
