@@ -38,10 +38,8 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
-	setView(isDateTime) {
-		this.setState({
-			isDateTimeView: isDateTime,
-		});
+	setView(isDateTimeView) {
+		this.setState({ isDateTimeView });
 	}
 
 	render() {
