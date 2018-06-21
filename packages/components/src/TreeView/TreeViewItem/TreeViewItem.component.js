@@ -188,9 +188,9 @@ class TreeViewItem extends React.Component {
 					</div>
 				</div>
 				{children &&
-					toggled && (
-						<ul className={css['tc-treeview-ul']}>{children.map(this.renderTreeViewItem)}</ul>
-					)}
+					toggled &&
+					(<ul className={css['tc-treeview-ul']}>{children.map(this.renderTreeViewItem)}</ul>)
+				}
 			</li>
 		);
 	}
