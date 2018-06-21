@@ -36,10 +36,10 @@ describe('MonthPicker', () => {
 
 	it('should callback with the month index picked', () => {
 		const monthIndexToSelect = 5;
-		const spy = jest.fn();
+		const onMonthSelected = jest.fn();
 
 		const wrapper = shallow(<MonthPicker
-			onMonthSelected={spy}
+			onMonthSelected={onMonthSelected}
 		/>);
 
 		const juneAction = wrapper.findWhere(n =>
@@ -51,7 +51,7 @@ describe('MonthPicker', () => {
 
 		juneAction.simulate('click');
 
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(monthIndexToSelect);
+		expect(onMonthSelected).toHaveBeenCalledTimes(1);
+		expect(onMonthSelected).toHaveBeenCalledWith(monthIndexToSelect);
 	});
 });

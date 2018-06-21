@@ -14,26 +14,26 @@ describe('DateTimeView', () => {
 	});
 
 	it('should callback when title is clicked', () => {
-		const spy = jest.fn();
+		const onTitleClick = jest.fn();
 		const wrapper = shallow(<DateTimeView
 			monthIndexSelected={5}
 			yearSelected={2006}
-			onTitleClick={spy}
+			onTitleClick={onTitleClick}
 		/>);
 
 		const headerClickFn = wrapper.find('ViewLayout').shallow()
 			.find('HeaderTitle').props().button.onClick;
 
 		headerClickFn();
-		expect(spy).toHaveBeenCalledTimes(1);
+		expect(onTitleClick).toHaveBeenCalledTimes(1);
 	});
 
 	it('should callback with the month index updated', () => {
-		const spy = jest.fn();
+		const onMonthSelected = jest.fn();
 		const wrapper = shallow(<DateTimeView
 			monthIndexSelected={5}
 			yearSelected={2006}
-			onMonthSelected={spy}
+			onMonthSelected={onMonthSelected}
 		/>);
 
 		const monthActions = wrapper.find('ViewLayout').shallow().find('IconButton');
@@ -45,48 +45,48 @@ describe('DateTimeView', () => {
 			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onMonthSelected.mockClear();
 		previousAction.simulate('click');
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(4);
+		expect(onMonthSelected).toHaveBeenCalledTimes(1);
+		expect(onMonthSelected).toHaveBeenCalledWith(4);
 
 		// Simple next case
 		wrapper.setProps({
 			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onMonthSelected.mockClear();
 		nextAction.simulate('click');
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(6);
+		expect(onMonthSelected).toHaveBeenCalledTimes(1);
+		expect(onMonthSelected).toHaveBeenCalledWith(6);
 
 		// Advance previous case
 		wrapper.setProps({
 			monthIndexSelected: 0,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onMonthSelected.mockClear();
 		previousAction.simulate('click');
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(11);
+		expect(onMonthSelected).toHaveBeenCalledTimes(1);
+		expect(onMonthSelected).toHaveBeenCalledWith(11);
 
 		// Advance next case
 		wrapper.setProps({
 			monthIndexSelected: 11,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onMonthSelected.mockClear();
 		nextAction.simulate('click');
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(0);
+		expect(onMonthSelected).toHaveBeenCalledTimes(1);
+		expect(onMonthSelected).toHaveBeenCalledWith(0);
 	});
 
 	it('should callback with the year updated', () => {
-		const spy = jest.fn();
+		const onYearSelected = jest.fn();
 		const wrapper = shallow(<DateTimeView
 			monthIndexSelected={5}
 			yearSelected={2006}
-			onYearSelected={spy}
+			onYearSelected={onYearSelected}
 		/>);
 
 		const monthActions = wrapper.find('ViewLayout').shallow().find('IconButton');
@@ -98,38 +98,38 @@ describe('DateTimeView', () => {
 			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onYearSelected.mockClear();
 		previousAction.simulate('click');
-		expect(spy).not.toHaveBeenCalled();
+		expect(onYearSelected).not.toHaveBeenCalled();
 
 		// Simple next case
 		wrapper.setProps({
 			monthIndexSelected: 5,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onYearSelected.mockClear();
 		nextAction.simulate('click');
-		expect(spy).not.toHaveBeenCalled();
+		expect(onYearSelected).not.toHaveBeenCalled();
 
 		// Advance previous case
 		wrapper.setProps({
 			monthIndexSelected: 0,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onYearSelected.mockClear();
 		previousAction.simulate('click');
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(2005);
+		expect(onYearSelected).toHaveBeenCalledTimes(1);
+		expect(onYearSelected).toHaveBeenCalledWith(2005);
 
 		// Advance next case
 		wrapper.setProps({
 			monthIndexSelected: 11,
 			yearSelected: 2006,
 		});
-		spy.mockClear();
+		onYearSelected.mockClear();
 		nextAction.simulate('click');
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(2007);
+		expect(onYearSelected).toHaveBeenCalledTimes(1);
+		expect(onYearSelected).toHaveBeenCalledWith(2007);
 	});
 });
 

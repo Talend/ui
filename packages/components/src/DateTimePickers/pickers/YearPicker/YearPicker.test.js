@@ -38,11 +38,11 @@ describe('YearPicker', () => {
 
 	it('should callback with the year picked', () => {
 		const yearToSelect = 2013;
-		const spy = jest.fn();
+		const onYearSelected = jest.fn();
 
 		const wrapper = shallow(<YearPicker
 			yearSelected={2012}
-			onYearSelected={spy}
+			onYearSelected={onYearSelected}
 		/>);
 
 		const nextYearAction = wrapper.findWhere(n =>
@@ -54,8 +54,8 @@ describe('YearPicker', () => {
 
 		nextYearAction.simulate('click');
 
-		expect(spy).toHaveBeenCalledTimes(1);
-		expect(spy).toHaveBeenCalledWith(yearToSelect);
+		expect(onYearSelected).toHaveBeenCalledTimes(1);
+		expect(onYearSelected).toHaveBeenCalledWith(yearToSelect);
 	});
 
 	it('should default render with current year in middle when "yearSelected" prop not provided', () => {
