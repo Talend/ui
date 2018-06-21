@@ -286,8 +286,7 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 		let badgeValue;
 		let badgeProps;
 		const defaultLabel = readonly &&
-			(!options.enumOptions || !options.enumOptions.length) &&
-			(
+			(!options.enumOptions || !options.enumOptions.length) && (
 				<label className="control-label" htmlFor={id}>
 					{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
 				</label>
