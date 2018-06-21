@@ -1,6 +1,54 @@
 > eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.test.js
+  19:9  error  Use object destructuring  prefer-destructuring
+  57:9  error  Use object destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
+  90:1  error  Expected indentation of 3 tabs but found 2  indent
+
+/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.js
+  51:2  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
+
+/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
+  14:1  error  Component should be written as a pure function  react/prefer-stateless-function
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.connect.js
+  8:6  error  Use object destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
+  33:3  error  defaultProp "t" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
+  21:2  error  contextTypes should be placed after propTypes  react/sort-comp
+  58:8  error  Use object destructuring                       prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
+   34:2  error  getFormData should be placed after onSubmit                    react/sort-comp
+  152:2  error  defaultProp "data" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
+  110:5  error  Do not pass children as props. Instead, nest children between the opening and closing tags  react/no-children-prop
+
+/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
+   70:2   error  defaultProps should be placed after contextTypes                react/sort-comp
+   71:3   error  defaultProp "state" has no corresponding propTypes declaration  react/default-props-match-prop-types
+  135:9   error  Use object destructuring                                        prefer-destructuring
+  270:10  error  Use object destructuring                                        prefer-destructuring
+  271:10  error  Use object destructuring                                        prefer-destructuring
+  298:11  error  Use object destructuring                                        prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
+  153:9  error  Use object destructuring  prefer-destructuring
+  158:9  error  Use object destructuring  prefer-destructuring
+  186:9  error  Use object destructuring  prefer-destructuring
+  191:9  error  Use object destructuring  prefer-destructuring
+  219:9  error  Use object destructuring  prefer-destructuring
+  224:9  error  Use object destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/containers/src/List/selector.js
+  11:2  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
@@ -8,8 +56,40 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
 
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
+  41:1  error  Expected indentation of 5 tabs but found 6  indent
+  42:1  error  Expected indentation of 6 tabs but found 7  indent
+  43:1  error  Expected indentation of 6 tabs but found 7  indent
+  44:1  error  Expected indentation of 6 tabs but found 7  indent
+  45:1  error  Expected indentation of 6 tabs but found 7  indent
+  46:1  error  Expected indentation of 5 tabs but found 6  indent
+  47:1  error  Expected indentation of 4 tabs but found 5  indent
+  50:1  error  Expected indentation of 5 tabs but found 6  indent
+  51:1  error  Expected indentation of 6 tabs but found 7  indent
+  52:1  error  Expected indentation of 6 tabs but found 7  indent
+  53:1  error  Expected indentation of 6 tabs but found 7  indent
+  54:1  error  Expected indentation of 6 tabs but found 7  indent
+  55:1  error  Expected indentation of 6 tabs but found 7  indent
+  56:1  error  Expected indentation of 5 tabs but found 6  indent
+  57:1  error  Expected indentation of 4 tabs but found 5  indent
+
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.container.js
+  18:2  error  contextTypes should be placed after propTypes  react/sort-comp
+
+/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.test.js
+  25:22  error  Arrow function should not return assignment  no-return-assign
+  64:22  error  Arrow function should not return assignment  no-return-assign
+  99:22  error  Arrow function should not return assignment  no-return-assign
+
+/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
+  15:2  error  defaultProp "childrenAttr" has no corresponding propTypes declaration  react/default-props-match-prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.test.js
+  34:22  error  Arrow function should not return assignment  no-return-assign
+
+✖ 49 problems (49 errors, 0 warnings)
+  16 errors, 0 warnings potentially fixable with the `--fix` option.
 
