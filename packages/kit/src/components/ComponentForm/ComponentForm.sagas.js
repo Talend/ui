@@ -27,10 +27,19 @@ function* onDidMount({ componentId = 'default', definitionURL }) {
 
 function* handle(props) {
 	yield call(onDidMount, props);
-	yield takeEvery(Component.DEFINITION_URL_CHANGED, fecthDefinition);
+	yield takeEvery(Component.ON_DEFINITION_URL_CHANGED, fecthDefinition);
 	yield take('DO_NOT_QUIT');
+}
+
+function* syncPropertiesInStore() {
+	// eslint-disable-next-line no-constant-condition
+	while (true) {
+		const action = yield take(Component.ON_CHANGE);
+		yield put(Component.setStateAction({ properties: action }, action.event.props.componentId));
+	}
 }
 
 export default {
 	'ComponentForm#default': handle,
+	'ComponentForm#syncPropertiesInStore': syncPropertiesInStore,
 };

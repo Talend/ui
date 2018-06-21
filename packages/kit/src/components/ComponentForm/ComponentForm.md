@@ -11,13 +11,33 @@ export default function MyComponent(props) {
         <ComponentForm
             definitionURL="/api/v1/mycomponents/component-id"
             triggerURL="/api/v1/components/action/execute"
-            onSubmit={(event, data) => props.dispatch({
-                type: 'MY_FORM_SUBMITED',
-                event,
-                data,
-            })}
         />
     );
+}
+
+// in a saga
+function* handleForm() {
+    const action = yield take(ComponentForm.ON_SUBMIT);
+    // do what you want with it
+    action === {
+        type: ComponentForm.ON_SUBMIT,
+        event,
+        jsonSchema,
+        uiSchema,
+        properties,  // your data
+    }
+}
+
+function* syncProperties() {
+    const action = yield take(ComponentForm.ON_SUBMIT);
+    // do what you want with it
+    action === {
+        type: ComponentForm.ON_SUBMIT,
+        event,
+        jsonSchema,
+        uiSchema,
+        properties,  // your data
+    }
 }
 ```
 

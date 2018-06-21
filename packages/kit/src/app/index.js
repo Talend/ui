@@ -6,7 +6,6 @@
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import cmf from '@talend/react-cmf';
 import { registerAllContainers } from '@talend/react-containers/lib/register';
-import actions from './actions';
 import components from '../components';
 import './index.scss';
 
@@ -27,5 +26,4 @@ registerAllContainers();
 cmf.bootstrap({
 	components,
 	settingsURL: '/settings.json',
-	actionCreators: actions,
 });

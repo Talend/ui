@@ -19,17 +19,20 @@ class ComponentForm extends React.Component {
 		customTriggers: () => {},
 	};
 
-	static TCOMP_FORM_ON_CHANGE = 'TCOMP_FORM_ON_CHANGE';
-	static TCOMP_FORM_ON_TRIGGER = 'TCOMP_FORM_ON_TRIGGER';
-	static DEFINITION_URL_CHANGED = 'TCOMP_DEFINITION_URL_CHANGED';
+	static ON_CHANGE = 'TCOMP_FORM_CHANGE';
+	static ON_TRIGGER = 'TCOMP_FORM_TRIGGER';
+	static ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
+	static ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
 
 	constructor(props) {
 		super(props);
 		this.state = {};
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
+		this.getTriggers = this.getTriggers.bind(this);
 		this.setupTrigger(props);
 	}
 
@@ -42,16 +45,32 @@ class ComponentForm extends React.Component {
 		}
 		if (this.props.definitionURL !== props.definitionURL) {
 			this.props.dispatch({
-				type: ComponentForm.DEFINITION_URL_CHANGED,
+				type: ComponentForm.ON_DEFINITION_URL_CHANGED,
 				...this.props,
 			});
 		}
 	}
 
 	onChange(event, data) {
-		this.setState({ properties: data.properties });
+		const properties = data.properties;
+		if (data.schema.titleMap && data.value) {
+			// Here we add a field side by side with the value
+			// to keep the title associated to the value
+			const info = data.schema.titleMap.find(titleMap => titleMap.value === data.value);
+			let currentProp = properties;
+			let currentKey;
+			data.schema.key.forEach((key, index) => {
+				if (index !== data.schema.key.length - 1) {
+					currentProp = currentProp[key];
+				} else {
+					currentKey = key;
+				}
+			});
+			currentProp[`$${currentKey}_name`] = info.name;
+		}
+		this.setState({ properties });
 		this.props.dispatch({
-			type: ComponentForm.TCOMP_FORM_ON_CHANGE,
+			type: ComponentForm.ON_CHANGE,
 			event: {
 				type: 'onChange',
 				component: 'TCompForm',
@@ -60,6 +79,7 @@ class ComponentForm extends React.Component {
 				source: event,
 			},
 			data,
+			properties,
 			uiSpec: this.getUISpec(),
 		});
 	}
@@ -69,14 +89,11 @@ class ComponentForm extends React.Component {
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
-			if (data.errors) {
-				this.props.setState({ errors: data.errors });
-			}
-			if (data.jsonSchema || data.uiSchema) {
+			if (data.errors || data.jsonSchema || data.uiSchema) {
 				this.props.setState(data);
 			}
 			this.props.dispatch({
-				type: ComponentForm.TCOMP_FORM_ON_TRIGGER,
+				type: ComponentForm.ON_TRIGGER,
 				event: {
 					type: 'onTrigger',
 					component: ComponentForm,
@@ -90,17 +107,40 @@ class ComponentForm extends React.Component {
 		});
 	}
 
+	onSubmit(event, data) {
+		if (this.props.onSubmit) {
+			this.props.onSubmit(event, data);
+		}
+		this.props.dispatch({
+			type: ComponentForm.ON_SUBMIT,
+			event,
+			...this.getUISpec(),
+			properties: data,
+		});
+	}
+
 	setupTrigger(props) {
 		this.trigger = kit.createTriggers({
 			url: props.triggerURL,
-			customRegistry: props.customTriggers(this),
+			customRegistry: this.getTriggers(),
 		});
+	}
+
+	getTriggers() {
+		return {
+			reloadForm: ({ body }) => ({
+				...body,
+				properties: { _datasetMetadata: this.state.properties._datasetMetadata },
+			}),
+		};
 	}
 
 	getUISpec() {
 		const spec = { properties: this.state.properties };
 		let immutableSpec = this.props.state;
-		if (this.props.uiSpecPath) {
+		// It seems definitionURL may returned a wrapped payload but not the trigger
+		// so we give priority to higher uiSpec
+		if (!immutableSpec.get('jsonSchema') && this.props.uiSpecPath) {
 			immutableSpec = immutableSpec.getIn(this.props.uiSpecPath.split('.'), new Map());
 		}
 		const jsonSchema = immutableSpec.get('jsonSchema');
@@ -118,6 +158,7 @@ class ComponentForm extends React.Component {
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), this.getUISpec(), {
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
+			onSubmit: this.onSubmit,
 		});
 		const response = this.props.state.get('response');
 		if (!props.jsonSchema) {

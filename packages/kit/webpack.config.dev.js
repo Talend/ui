@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-var url = require("url");
+const url = require('url');
 const add = require('./mock/add.json');
 const basic = require('./mock/basic.json');
 const components = require('./mock/components.json');
@@ -50,9 +50,12 @@ function urlValidation(args) {
 	return { status: 'OK' };
 }
 
-function guessTableSchema(args) {
-	// TODO
+function guessTableSchema() {
 	return { status: 'OK' };
+}
+
+function reloadForm() {
+	return basic;
 }
 
 const TRIGGERS = {
@@ -65,15 +68,18 @@ const TRIGGERS = {
 	schema: {
 		guessTableSchema,
 	},
+	reloadForm: {
+		'builtin::root::reloadFromId': reloadForm,
+	},
 };
 
 function trigger(req) {
 	const info = getTriggerInfo(req);
-	console.log(info);
 	return TRIGGERS[info.type][info.action](info.args);
 }
 
 module.exports = {
+	mode: undefined,
 	devServer: {
 		before: function proxy(app) {
 			app.use(bodyParser.json()); // for parsing application/json
