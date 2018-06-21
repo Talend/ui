@@ -5,10 +5,10 @@ exports[`DateTimePicker should render 1`] = `
   className="theme-container"
 >
   <DateTimeView
-    monthIndexSelected={5}
-    onMonthYearSelected={[Function]}
-    onTitleClick={[Function]}
-    yearSelected={2018}
+    onSelectMonthYear={[Function]}
+    onClickTitle={[Function]}
+    selectedMonthIndex={5}
+    selectedYear={2018}
   />
 </div>
 `;

@@ -21,12 +21,12 @@ class DateTimePicker extends React.Component {
 
 		this.setDateTimeView = this.setView.bind(this, true);
 		this.setMonthYearView = this.setView.bind(this, false);
-		this.onMonthSelected = this.onMonthSelected.bind(this);
-		this.onYearSelected = this.onYearSelected.bind(this);
-		this.onMonthYearSelected = this.onMonthYearSelected.bind(this);
+		this.onSelectMonth = this.onSelectMonth.bind(this);
+		this.onSelectYear = this.onSelectYear.bind(this);
+		this.onSelectMonthYear = this.onSelectMonthYear.bind(this);
 	}
 
-	onMonthYearSelected(newCalendar) {
+	onSelectMonthYear(newCalendar) {
 		this.setState(previousState => ({
 			currentCalendar: {
 				...previousState.currentCalendar,
@@ -35,12 +35,12 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
-	onMonthSelected(monthIndex) {
-		this.onMonthYearSelected({ monthIndex });
+	onSelectMonth(monthIndex) {
+		this.onSelectMonthYear({ monthIndex });
 	}
 
-	onYearSelected(year) {
-		this.onMonthYearSelected({ year });
+	onSelectYear(year) {
+		this.onSelectMonthYear({ year });
 	}
 
 	setView(isDateTimeView) {
@@ -52,18 +52,18 @@ class DateTimePicker extends React.Component {
 
 		if (this.state.isDateTimeView) {
 			viewElement = (<DateTimeView
-				onTitleClick={this.setMonthYearView}
-				monthIndexSelected={this.state.currentCalendar.monthIndex}
-				yearSelected={this.state.currentCalendar.year}
-				onMonthYearSelected={this.onMonthYearSelected}
+				onClickTitle={this.setMonthYearView}
+				selectedMonthIndex={this.state.currentCalendar.monthIndex}
+				selectedYear={this.state.currentCalendar.year}
+				onSelectMonthYear={this.onSelectMonthYear}
 			/>);
 		} else {
 			viewElement = (<MonthYearView
-				onBackClick={this.setDateTimeView}
-				monthIndexSelected={this.state.currentCalendar.monthIndex}
-				yearSelected={this.state.currentCalendar.year}
-				onMonthSelected={this.onMonthSelected}
-				onYearSelected={this.onYearSelected}
+				onClickBack={this.setDateTimeView}
+				selectedMonthIndex={this.state.currentCalendar.monthIndex}
+				selectedYear={this.state.currentCalendar.year}
+				onSelectMonth={this.onSelectMonth}
+				onSelectYear={this.onSelectYear}
 			/>);
 		}
 

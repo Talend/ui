@@ -10,16 +10,16 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         className="theme-month"
       >
         <MonthPicker
-          monthIndexSelected={8}
-          onMonthSelected={undefined}
+          onSelectMonth={undefined}
+          selectedMonthIndex={8}
         />
       </div>
       <div
         className="theme-year"
       >
         <YearPicker
-          onYearSelected={undefined}
-          yearSelected={2012}
+          onSelect={undefined}
+          selectedYear={2012}
         />
       </div>
     </div>

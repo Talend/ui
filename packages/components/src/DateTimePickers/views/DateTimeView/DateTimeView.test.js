@@ -6,19 +6,19 @@ import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 describe('DateTimeView', () => {
 	it('should render', () => {
 		const wrapper = shallow(<DateTimeView
-			monthIndexSelected={5}
-			yearSelected={2006}
+			selectedMonthIndex={5}
+			selectedYear={2006}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should callback when title is clicked', () => {
-		const onTitleClick = jest.fn();
+		const onClickTitle = jest.fn();
 		const wrapper = shallow(<DateTimeView
-			monthIndexSelected={5}
-			yearSelected={2006}
-			onTitleClick={onTitleClick}
+			selectedMonthIndex={5}
+			selectedYear={2006}
+			onClickTitle={onClickTitle}
 		/>);
 
 		const titleAction = wrapper
@@ -30,7 +30,7 @@ describe('DateTimeView', () => {
 			.find('button');
 
 		titleAction.simulate('click');
-		expect(onTitleClick).toHaveBeenCalledTimes(1);
+		expect(onClickTitle).toHaveBeenCalledTimes(1);
 	});
 
 	describe('should callback when month switched with the new month index and year', () => {
@@ -47,73 +47,73 @@ describe('DateTimeView', () => {
 		}
 
 		it('in simple previous case', () => {
-			const onMonthYearSelected = jest.fn();
+			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				monthIndexSelected={5}
-				yearSelected={2006}
-				onMonthYearSelected={onMonthYearSelected}
+				selectedMonthIndex={5}
+				selectedYear={2006}
+				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
 
 			previousAction.simulate('click');
 
-			expect(onMonthYearSelected).toHaveBeenCalledTimes(1);
-			expect(onMonthYearSelected).toHaveBeenCalledWith({
+			expect(onSelectMonthYear).toHaveBeenCalledTimes(1);
+			expect(onSelectMonthYear).toHaveBeenCalledWith({
 				monthIndex: 4,
 				year: 2006,
 			});
 		});
 
 		it('in simple next case', () => {
-			const onMonthYearSelected = jest.fn();
+			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				monthIndexSelected={5}
-				yearSelected={2006}
-				onMonthYearSelected={onMonthYearSelected}
+				selectedMonthIndex={5}
+				selectedYear={2006}
+				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
 			const nextAction = getNextAction(wrapper);
 			nextAction.simulate('click');
 
-			expect(onMonthYearSelected).toHaveBeenCalledTimes(1);
-			expect(onMonthYearSelected).toHaveBeenCalledWith({
+			expect(onSelectMonthYear).toHaveBeenCalledTimes(1);
+			expect(onSelectMonthYear).toHaveBeenCalledWith({
 				monthIndex: 6,
 				year: 2006,
 			});
 		});
 
 		it('in advance previous case', () => {
-			const onMonthYearSelected = jest.fn();
+			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				monthIndexSelected={0}
-				yearSelected={2006}
-				onMonthYearSelected={onMonthYearSelected}
+				selectedMonthIndex={0}
+				selectedYear={2006}
+				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
 			previousAction.simulate('click');
 
-			expect(onMonthYearSelected).toHaveBeenCalledTimes(1);
-			expect(onMonthYearSelected).toHaveBeenCalledWith({
+			expect(onSelectMonthYear).toHaveBeenCalledTimes(1);
+			expect(onSelectMonthYear).toHaveBeenCalledWith({
 				monthIndex: 11,
 				year: 2005,
 			});
 		});
 
 		it('in advance next case', () => {
-			const onMonthYearSelected = jest.fn();
+			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				monthIndexSelected={11}
-				yearSelected={2006}
-				onMonthYearSelected={onMonthYearSelected}
+				selectedMonthIndex={11}
+				selectedYear={2006}
+				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
 			const nextAction = getNextAction(wrapper);
 			nextAction.simulate('click');
 
-			expect(onMonthYearSelected).toHaveBeenCalledTimes(1);
-			expect(onMonthYearSelected).toHaveBeenCalledWith({
+			expect(onSelectMonthYear).toHaveBeenCalledTimes(1);
+			expect(onSelectMonthYear).toHaveBeenCalledWith({
 				monthIndex: 0,
 				year: 2007,
 			});

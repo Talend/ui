@@ -13,7 +13,7 @@ describe('MonthPicker', () => {
 	it('should have exactly one selected month', () => {
 		const monthIndex = 8;
 		const wrapper = shallow(<MonthPicker
-			monthIndexSelected={monthIndex}
+			selectedMonthIndex={monthIndex}
 		/>);
 
 		const actions = wrapper.find('PickerAction');
@@ -29,10 +29,10 @@ describe('MonthPicker', () => {
 
 	it('should callback with the month index picked', () => {
 		const monthIndexToSelect = 5;
-		const onMonthSelected = jest.fn();
+		const onSelect = jest.fn();
 
 		const wrapper = shallow(<MonthPicker
-			onMonthSelected={onMonthSelected}
+			onSelect={onSelect}
 		/>);
 
 		const juneAction = wrapper
@@ -44,6 +44,6 @@ describe('MonthPicker', () => {
 
 		juneAction.simulate('click');
 
-		expect(onMonthSelected).toHaveBeenCalledWith(monthIndexToSelect);
+		expect(onSelect).toHaveBeenCalledWith(monthIndexToSelect);
 	});
 });

@@ -19,15 +19,15 @@ const monthsRows = chunk(months, 3);
 
 function MonthPicker(props) {
 	const isSelected = index =>
-		index === props.monthIndexSelected;
+		index === props.selectedMonthIndex;
 
-	const onMonthSelected = index => {
-		if (props.onMonthSelected === undefined) {
+	const onSelect = index => {
+		if (props.onSelect === undefined) {
 			return undefined;
 		}
 
 		return () => {
-			props.onMonthSelected(index);
+			props.onSelect(index);
 		};
 	};
 
@@ -44,7 +44,7 @@ function MonthPicker(props) {
 								aria-label={`Select '${month.name}'`}
 								isSelected={isSelected(month.index)}
 								label={month.name}
-								onClick={onMonthSelected(month.index)}
+								onClick={onSelect(month.index)}
 							/>
 						</div>
 					)}
@@ -55,8 +55,8 @@ function MonthPicker(props) {
 }
 
 MonthPicker.propTypes = {
-	monthIndexSelected: PropTypes.number,
-	onMonthSelected: PropTypes.func,
+	selectedMonthIndex: PropTypes.number,
+	onSelect: PropTypes.func,
 };
 
 export default MonthPicker;

@@ -7,8 +7,8 @@ describe('MonthYearView', () => {
 	it('should render a MonthYearView', () => {
 		// when
 		const wrapper = shallow(<MonthYearView
-			monthIndexSelected={8}
-			yearSelected={2012}
+			selectedMonthIndex={8}
+			selectedYear={2012}
 		/>);
 
 		// then

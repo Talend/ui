@@ -10,8 +10,8 @@ class YearPicker extends React.Component {
 		super(props);
 
 		const now = new Date();
-		const middleYear = props.yearSelected !== undefined
-			? props.yearSelected
+		const middleYear = props.selectedYear !== undefined
+			? props.selectedYear
 			: now.getFullYear();
 
 		const firstYear = middleYear - 2;
@@ -23,15 +23,15 @@ class YearPicker extends React.Component {
 
 	render() {
 		const isSelected = year =>
-			year === this.props.yearSelected;
+			year === this.props.selectedYear;
 
-		const onYearSelected = year => {
-			if (this.props.onYearSelected === undefined) {
+		const onSelect = year => {
+			if (this.props.onSelect === undefined) {
 				return undefined;
 			}
 
 			return () => {
-				this.props.onYearSelected(year);
+				this.props.onSelect(year);
 			};
 		};
 
@@ -55,7 +55,7 @@ class YearPicker extends React.Component {
 								aria-label={`Select '${year}'`}
 								isSelected={isSelected(year)}
 								label={year.toString()}
-								onClick={onYearSelected(year)}
+								onClick={onSelect(year)}
 							/>
 						</div>
 					)}
@@ -74,8 +74,8 @@ class YearPicker extends React.Component {
 }
 
 YearPicker.propTypes = {
-	yearSelected: PropTypes.number,
-	onYearSelected: PropTypes.func,
+	selectedYear: PropTypes.number,
+	onSelect: PropTypes.func,
 };
 
 export default YearPicker;

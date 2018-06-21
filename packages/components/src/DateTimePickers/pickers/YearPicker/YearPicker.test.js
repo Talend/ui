@@ -6,7 +6,7 @@ import YearPicker from './YearPicker.component';
 describe('YearPicker', () => {
 	it('should render', () => {
 		const wrapper = shallow(<YearPicker
-			yearSelected={2012}
+			selectedYear={2012}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -14,7 +14,7 @@ describe('YearPicker', () => {
 
 	it('should have exactly one selected year', () => {
 		const wrapper = shallow(<YearPicker
-			yearSelected={2012}
+			selectedYear={2012}
 		/>);
 
 		const actions = wrapper.find('PickerAction');
@@ -32,11 +32,11 @@ describe('YearPicker', () => {
 
 	it('should callback with the year picked', () => {
 		const yearToSelect = 2013;
-		const onYearSelected = jest.fn();
+		const onSelect = jest.fn();
 
 		const wrapper = shallow(<YearPicker
-			yearSelected={2012}
-			onYearSelected={onYearSelected}
+			selectedYear={2012}
+			onSelect={onSelect}
 		/>);
 
 		const nextYearAction = wrapper
@@ -47,10 +47,10 @@ describe('YearPicker', () => {
 
 		nextYearAction.simulate('click');
 
-		expect(onYearSelected).toHaveBeenCalledWith(yearToSelect);
+		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
 	});
 
-	it('should default render with current year in middle when "yearSelected" prop not provided', () => {
+	it('should default render with current year in middle when "selectedYear" prop not provided', () => {
 		const wrapper = shallow(<YearPicker />);
 		const actions = wrapper.find('PickerAction');
 		const now = new Date();
@@ -59,10 +59,10 @@ describe('YearPicker', () => {
 		expect(actions.at(2).prop('label')).toBe(currentYear);
 	});
 
-	it('should render with "yearSelected" prop as the middle year if provided', () => {
+	it('should render with "selectedYear" prop as the middle year if provided', () => {
 		const year = 2005;
 		const wrapper = shallow(<YearPicker
-			yearSelected={year}
+			selectedYear={year}
 		/>);
 		const actions = wrapper.find('PickerAction');
 
@@ -74,7 +74,7 @@ describe('YearPicker', () => {
 		const yearToSelect = 2020;
 
 		const wrapper = shallow(<YearPicker
-			yearSelected={defaultYear}
+			selectedYear={defaultYear}
 		/>);
 		const actions = wrapper.find('PickerAction');
 
@@ -82,7 +82,7 @@ describe('YearPicker', () => {
 
 		// When year selected change
 		wrapper.setProps({
-			yearSelected: yearToSelect,
+			selectedYear: yearToSelect,
 		});
 
 		// The middle year still remain the same

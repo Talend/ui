@@ -16,11 +16,11 @@ function MonthYearView(props) {
 			}}
 			className={theme['action-left']}
 			aria-label="Switch back to date and time pickers view"
-			onClick={props.onBackClick}
+			onClick={props.onClickBack}
 		/>,
 		middleElement: <HeaderTitle
-			monthIndex={props.monthIndexSelected}
-			year={props.yearSelected}
+			monthIndex={props.selectedMonthIndex}
+			year={props.selectedYear}
 		/>,
 	};
 
@@ -28,14 +28,14 @@ function MonthYearView(props) {
 		<div className={theme.body}>
 			<div className={theme.month}>
 				<MonthPicker
-					monthIndexSelected={props.monthIndexSelected}
-					onMonthSelected={props.onMonthSelected}
+					selectedMonthIndex={props.selectedMonthIndex}
+					onSelect={props.onSelectMonth}
 				/>
 			</div>
 			<div className={theme.year}>
 				<YearPicker
-					yearSelected={props.yearSelected}
-					onYearSelected={props.onYearSelected}
+					selectedYear={props.selectedYear}
+					onSelect={props.onSelectYear}
 				/>
 			</div>
 		</div>
@@ -50,11 +50,11 @@ function MonthYearView(props) {
 }
 
 MonthYearView.propTypes = {
-	monthIndexSelected: PropTypes.number.isRequired,
-	yearSelected: PropTypes.number.isRequired,
-	onBackClick: PropTypes.func,
-	onMonthSelected: PropTypes.func,
-	onYearSelected: PropTypes.func,
+	selectedMonthIndex: PropTypes.number.isRequired,
+	selectedYear: PropTypes.number.isRequired,
+	onClickBack: PropTypes.func,
+	onSelectMonth: PropTypes.func,
+	onSelectYear: PropTypes.func,
 };
 
 export default MonthYearView;
