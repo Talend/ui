@@ -18,10 +18,18 @@ describe('UIForm component', () => {
 
 	it('should render form', () => {
 		// when
-		const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+		const wrapper = shallow(<UIFormComponent {...data} {...props} formContext={{ check: true }} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should propagate formContext', () => {
+		// when
+		const wrapper = shallow(<UIFormComponent {...data} {...props} formContext={{ check: true }} />);
+
+		// then
+		expect(wrapper.find('Widget').first().props().formContext.check).toBeTruthy();
 	});
 
 	it('should render provided actions', () => {

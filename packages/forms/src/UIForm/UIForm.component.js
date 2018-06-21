@@ -254,6 +254,7 @@ export class UIFormComponent extends React.Component {
 						errors={this.props.errors}
 						templates={this.props.templates}
 						widgets={this.state.widgets}
+						formContext={this.props.formContext}
 					/>
 				))}
 				{this.props.children}
