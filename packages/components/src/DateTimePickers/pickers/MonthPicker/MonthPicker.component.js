@@ -22,13 +22,13 @@ function MonthPicker(props) {
 		index === props.monthIndexSelected;
 
 	const onMonthSelected = index => {
-		const eventHandler = () => {
+		if (props.onMonthSelected === undefined) {
+			return undefined;
+		}
+
+		return () => {
 			props.onMonthSelected(index);
 		};
-
-		return props.onMonthSelected === undefined
-			? undefined
-			: eventHandler;
 	};
 
 	return (

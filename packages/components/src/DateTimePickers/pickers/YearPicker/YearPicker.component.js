@@ -26,13 +26,13 @@ class YearPicker extends React.Component {
 			year === this.props.yearSelected;
 
 		const onYearSelected = year => {
-			const eventHandler = () => {
+			if (this.props.onYearSelected === undefined) {
+				return undefined;
+			}
+
+			return () => {
 				this.props.onYearSelected(year);
 			};
-
-			return this.props.onYearSelected === undefined
-				? undefined
-				: eventHandler;
 		};
 
 		return (
