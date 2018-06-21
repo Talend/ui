@@ -38,20 +38,6 @@ function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaPr
 	return rowsClassNames;
 }
 
-// function updateClassNames(classNames, side, elements, dataAccessor, schemaProps) {
-// 	return {
-// 		root: classNames && classNames.root,
-// 		titleBar: classNames && classNames.titleBar,
-// 		title: classNames && classNames.title,
-// 		filtersBar: classNames && classNames.filtersBar,
-// 		table: classnames('schema-content', classNames && classNames.table),
-// 		header: classNames && classNames.header,
-// 		body: classNames && classNames.body,
-// 		row: classnames(classNames && classNames.row, 'draggable-row'),
-// 		rows: getRowsClassNames(classNames, side, elements, dataAccessor, schemaProps),
-// 	};
-// }
-
 function copyColumn(column) {
 	const newColumn = {};
 	for (let k in column) {
@@ -131,15 +117,6 @@ class ColumnUpdater {
 		this.selectionHandler.update(schemaProps);
 	}
 
-	// updateClassNameWithIO(className) {
-	// 	// specific input/output className added for data-mapper context
-	// 	const classes = {
-	// 		input: this.schemaProps.side === Constants.MappingSide.INPUT,
-	// 		output: this.schemaProps.side === Constants.MappingSide.OUTPUT,
-	// 	};
-	// 	return classnames(classes, className);
-	// }
-
 	addDnd(column) {
 		if (!this.draggableCell) {
 			this.draggableCell = draggable(column.cellRenderer || Table.Cell, 'element');
@@ -160,11 +137,6 @@ class ColumnUpdater {
 
 	updateColumns(columns) {
 		const columnsWithDnd = copyColumns(columns);
-		// update columns classnames
-		// for (let i = 0; i < columnsWithDnd.length; i += 1) {
-		// 	columnsWithDnd[i].headClassName = this.updateClassNameWithIO(columnsWithDnd[i].headClassName);
-		// 	columnsWithDnd[i].cellClassName = this.updateClassNameWithIO(columnsWithDnd[i].cellClassName);
-		// }
 		// add dnd baheviour on the first column
 		this.addDnd(columnsWithDnd[0]);
 		// add selection behaviour on the first column
@@ -279,9 +251,7 @@ export default class TableRenderer extends Component {
 			title,
 			side,
 		} = this.props;
-		console.log(sorters);
 		const elements = dataAccessor.getSchemaElements(schema, true);
-		//const tableClassNames = updateClassNames(classNames, side, elements, dataAccessor, this.props)
 		const columnsWithDnd = this.columnUpdater.updateColumns(columns);
 		return (
 			<Table

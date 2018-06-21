@@ -1505,8 +1505,6 @@ class ConnectedDataMapper extends React.Component {
 		const {
 			mapperId,
 			mappingActions,
-			input,
-			output,
 			preferences,
 		} = this.props;
 		return (
@@ -1521,8 +1519,8 @@ class ConnectedDataMapper extends React.Component {
 					mapperId={mapperId}
 					mapping={this.state.mapping}
 					mappingActions={mappingActions}
-					input={input}
-					output={output}
+					input={this.state.input}
+					output={this.state.output}
 					onFilterChange={this.onFilterChange}
 					onSortChange={this.onSortChange}
 					selection={this.state.selection}

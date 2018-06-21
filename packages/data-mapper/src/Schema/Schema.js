@@ -223,7 +223,6 @@ export default class Schema extends Component {
 			isHighlighted,
 			onScroll: this.onContentScroll,
 		};
-		const className = classnames();
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<TableRenderer
