@@ -181,7 +181,6 @@ const files = [
 	'./packages/icons/package.json',
 	'./packages/kit/package.json',
 	'./packages/sagas/package.json',
-	'./packages/scripts/package.json',
 	'./packages/theme/package.json',
 	'./packages/datagrid/package.json',
 ];
