@@ -8,26 +8,6 @@ import Schema from './Schema/Schema.js';
 import Mapping from './Mapping/Mapping';
 import { Constants } from './index';
 
-// COLUMNS DEFINITION
-export const Columns = {
-	NAME: {
-		key: 'name',
-		label: 'Name',
-	},
-	TYPE: {
-		key: 'type',
-		label: 'Type',
-	},
-	DESC: {
-		key: 'description',
-		label: 'Description',
-	},
-	MANDATORY: {
-		key: 'mandatory',
-		label: '',
-	},
-};
-
 function getMappedElements(dataAccessor, mapping, side) {
 	const mappingItems = dataAccessor.getMappingItems(mapping);
 	return mappingItems.map(item => dataAccessor.getMappedElement(item, side));
@@ -75,6 +55,7 @@ function filterMappingItems(
 	visibleInputElements,
 	visibleOutputElements,
 ) {
+	// TODO Simplify
 	return mappingItems.filter(
 		item =>
 			(dataAccessor.includes(
@@ -490,7 +471,7 @@ class MapperComponent extends Component {
 				}
 			}
 
-			// TODO
+			// TODO Remove
 			// if (dnd) {
 			// 	this.updatePropertyValue(dataAccessor, dnd.source, visibleElements, anchors,
 			// 'visible', false);
@@ -765,7 +746,7 @@ class MapperComponent extends Component {
 			this.updateVisibleInfo();
 			this.needUpdateVisibleInfo = false;
 		}
-		const { mapperId, mappingActions, mapping, input, output, ...commonSchemaProps } = this.props;
+		const { mappingActions, mapping, input, output, ...commonSchemaProps } = this.props;
 		const {
 			dataAccessor,
 			selection,
@@ -779,7 +760,7 @@ class MapperComponent extends Component {
 		const inputSide = Constants.MappingSide.INPUT;
 		const outputSide = Constants.MappingSide.OUTPUT;
 		return (
-			<div id={mapperId} tabIndex="0">
+			<div className="mapper" data-focusable tabIndex="0">
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateInputSchemaRef}
@@ -796,6 +777,20 @@ class MapperComponent extends Component {
 					mappedElements={getMappedElements(dataAccessor, mapping, inputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
 					isElementVisible={this.isElementVisible}
+				/>
+				<Mapping
+					ref={this.updateGMapRef}
+					mapping={mapping}
+					mappingActions={mappingActions}
+					getConnections={this.getConnections}
+					getAnchors={this.getAnchors}
+					getYPosition={this.getYPosition}
+					selection={selection}
+					preferences={preferences}
+					dnd={dnd}
+					dndListener={this}
+					onEnterAnchor={onEnterElement}
+					onLeaveAnchor={onLeaveElement}
 				/>
 				<Schema
 					{...commonSchemaProps}
@@ -814,20 +809,6 @@ class MapperComponent extends Component {
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
 					isElementVisible={this.isElementVisible}
 				/>
-				<Mapping
-					ref={this.updateGMapRef}
-					mapping={mapping}
-					mappingActions={mappingActions}
-					getConnections={this.getConnections}
-					getAnchors={this.getAnchors}
-					getYPosition={this.getYPosition}
-					selection={selection}
-					preferences={preferences}
-					dnd={dnd}
-					dndListener={this}
-					onEnterAnchor={onEnterElement}
-					onLeaveAnchor={onLeaveElement}
-				/>
 			</div>
 		);
 	}
@@ -835,7 +816,6 @@ class MapperComponent extends Component {
 
 MapperComponent.propTypes = {
 	dataAccessor: PropTypes.object,
-	mapperId: PropTypes.string,
 	mapping: PropTypes.array,
 	mappingActions: PropTypes.object,
 	input: PropTypes.shape({

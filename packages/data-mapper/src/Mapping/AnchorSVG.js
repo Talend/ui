@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Constants } from '../index';
 
 function getStyles(anchor) {
+	// FIXME WAT
 	let styles = '';
 	for (let i = 0; i < anchor.styles.length; i += 1) {
 		styles += anchor.styles[i];

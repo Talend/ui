@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Actions } from '@talend/react-components';
 import MappingSVG from './MappingSVG';
 
+// TODO should have fixed size
 export default class Mapping extends Component {
 	constructor(props) {
 		super(props);

@@ -10,6 +10,7 @@ function removeMappingItem(mapping, index) {
 }
 
 export default class MappingAccessor {
+	// FIXME Useless
 	internalAreEqual(elem1, elem2) {
 		return elem1.id === elem2.id;
 	}
@@ -26,6 +27,7 @@ export default class MappingAccessor {
 	 * a mapping betwwen an input and an output element.
 	 */
 	getMappingItems(mapping) {
+		// FIXME REMOVE
 		return mapping;
 	}
 
@@ -52,6 +54,7 @@ export default class MappingAccessor {
 	 * Returns the updated mapping.
 	 */
 	removeMapping(mapping, source, target) {
+		// FIXME Use ES6 feature instead
 		const index = this.internalGetMappingItemIndex(mapping, source, target);
 		if (index >= 0) {
 			return removeMappingItem(mapping, index);

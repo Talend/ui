@@ -8,6 +8,7 @@ import { Constants } from '../index';
 
 const dataAccessor = new DataAccessorWrapper(new MappingAccessor());
 
+// FIXME extract to .fixtures.js
 const emptySchema = {
 	id: 'empty_schema',
 	name: 'Empty schema',
@@ -45,18 +46,21 @@ const noFilters = [];
 
 const columns = [TestData.Columns.NAME, TestData.Columns.TYPE, TestData.Columns.DESC];
 
-it('single-schema', () => {
-	// create React tree
-	const tree = renderer
-		.create(<Schema dataAccessor={dataAccessor} schema={schema} columns={columns} />)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
-});
+describe('Schema', () => {
+	it('should accept a single schema', () => {
+		// create React tree
+		const tree = renderer
+			.create(<Schema dataAccessor={dataAccessor} schema={schema} columns={columns} />)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 
-it('empty-schema', () => {
-	// create React tree
-	const tree = renderer
-		.create(<Schema dataAccessor={dataAccessor} schema={emptySchema} columns={columns} />)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
+	it('empty-schema', () => {
+		// create React tree
+		const tree = renderer
+			.create(<Schema dataAccessor={dataAccessor} schema={emptySchema} columns={columns} />)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
+
 });

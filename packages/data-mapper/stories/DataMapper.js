@@ -430,7 +430,6 @@ stories
 		</div>
 	)).addWithInfo('UX proto', () => (
 		<DataMapper
-			mapperId="mapper"
 			mappingActions={autoMapping}
 			mappingKey={Columns.NAME.key}
 			input={input}

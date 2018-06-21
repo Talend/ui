@@ -54,6 +54,7 @@ function copyColumns(columns) {
 	return result;
 }
 
+// FIXME place it to Schema
 class InternalDndListener {
 	constructor() {
 		this.beginDrag = this.beginDrag.bind(this);

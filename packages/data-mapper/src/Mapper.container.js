@@ -4,10 +4,12 @@ import keycode from 'keycode';
 
 import { ActionBar, Table } from '@talend/react-components';
 
+// TODO replace
 import { isSelected } from './Schema/Schema';
-import Mapper from './Mapper.component';
-import { Constants, DataAccessorWithUndoRedo, MappingAccessor } from './index';
 
+import Mapper from './Mapper.component';
+
+import { Constants, DataAccessorWithUndoRedo, MappingAccessor } from './index';
 
 // SORTERS DEFINITION
 const SortDirection = {
@@ -46,9 +48,10 @@ function createDataAccessor() {
  * isSelectionEmpty returns true if the given selection is empty
  */
 function isSelectionEmpty(selection) {
-	return selection == null || selection.element == null || selection.side == null;
+	return !selection || !selection.element || !selection.side;
 }
 
+// TODO only alter dynamic parameters from render()
 function getShowHideAction(state, getAction) {
 	const action = {
 		id: MainActions.SHOW_ALL,
@@ -91,6 +94,7 @@ function getClearAllAction(state, getAction) {
 	return action;
 }
 
+// TODO should be initialized into constructor
 function getMainActions(state, getAction) {
 	const dataAccessor = state.dataAccessor;
 	return {
@@ -136,12 +140,11 @@ function removeConnections(dataAccessor, mapping, selection) {
 	if (items != null) {
 		// remove items
 		let updatedMapping = mapping;
-		for (let i = 0; i < items.length; i += 1) {
-			const item = items[i];
+		items.forEach(item => {
 			const source = dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT);
 			const target = dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT);
 			updatedMapping = dataAccessor.removeMapping(updatedMapping, source, target);
-		}
+		});
 		return updatedMapping;
 	}
 	return mapping;
@@ -165,15 +168,12 @@ function firstSelect(state, code) {
 function navigate(state, nav, mapper, usePosition) {
 	switch (nav) {
 		case keycode.codes.up:
-			return navigateUpDown(state, nav);
 		case keycode.codes.down:
 			return navigateUpDown(state, nav);
 		case keycode.codes.pgup:
-			return navigatePage(state, nav, mapper);
 		case keycode.codes.pgdn:
 			return navigatePage(state, nav, mapper);
 		case keycode.codes.left:
-			return switchSchema(state, false, mapper, usePosition);
 		case keycode.codes.right:
 			return switchSchema(state, false, mapper, usePosition);
 		case keycode.codes.enter:
@@ -196,6 +196,7 @@ function filterSelection(state, selection) {
 	return null;
 }
 
+// FIXME Same as above
 function filterFocused(state, focused) {
 	if (focused) {
 		const schema = getSchema(state, focused.side);
@@ -208,23 +209,14 @@ function filterFocused(state, focused) {
 	return null;
 }
 
-function focusElement(elementId) {
-	let activeElemId = null;
-	if (document.activeElement) {
-		activeElemId = document.activeElement.id;
-	}
-	if (!activeElemId || elementId !== activeElemId) {
-		if (document.activeElement) {
-			document.activeElement.blur();
-		}
-	}
-	const element = document.getElementById(elementId);
+function focusElement(selector) {
+	const element = document.querySelector(selector);
 	if (element && element.focus) {
 		element.focus();
 	}
 }
 
-
+// TODO split into several fn
 function switchSchema(state, mappingInProgress, mapper, usePosition) {
 	const dataAccessor = state.dataAccessor;
 	const selection = state.selection;
@@ -301,6 +293,7 @@ function findTargetElementByPosition(selection, mapper) {
 }
 
 function findNonConnectedTargetElement(dataAccessor, schema, mapping, side) {
+	// use forEach
 	for (let i = 0; i < dataAccessor.getSchemaSize(schema, true); i += 1) {
 		const elem = dataAccessor.getSchemaElement(schema, i, true);
 		if (!dataAccessor.isElementMapped(mapping, elem, side)) {
@@ -311,6 +304,8 @@ function findNonConnectedTargetElement(dataAccessor, schema, mapping, side) {
 }
 
 function indexOfFilter(filters, id) {
+	// TODO test if it's fit
+	// return filters.findIndex(filter => filter.id = id);
 	for (let i = 0; i < filters.length; i += 1) {
 		if (filters[i].id === id) {
 			return i;
@@ -321,14 +316,13 @@ function indexOfFilter(filters, id) {
 
 function updateFilteredElements(elements, filters, id, active, params) {
 	let result = elements.slice();
-	for (let i = 0; i < filters.length; i += 1) {
-		const filter = filters[i];
+	filters.forEach(filter => {
 		if (filter.id === id) {
 			result = computeFilter(result, filter, active, params);
 		} else {
 			result = computeFilter(result, filter, filter.active, filter.params);
 		}
-	}
+	});
 	return result;
 }
 
@@ -354,14 +348,14 @@ function updateSorters(sorters, columns, columnKey) {
 	// clone sorters
 	const updatedSorters = {};
 	// reset all the sorters to NONE direction
-	for (let i = 0; i < columns.length; i += 1) {
-		const key = columns[i].key;
+	columns.forEach(column => {
+		const key = column.key;
 		if (sorters[key]) {
 			updatedSorters[key] = {};
 			updatedSorters[key].direction = SortDirection.NONE;
 			updatedSorters[key].icons = sorters[key].icons;
 		}
-	}
+	});
 	// update the modified sorter to the next direction
 	updatedSorters[columnKey].direction = nextDirection(prevDirection);
 	return updatedSorters;
@@ -376,7 +370,7 @@ function getCompare(key, direction) {
 		descending: -1,
 	};
 
-	function compare(element1, element2) {
+	return function compare(element1, element2) {
 		const val1 = element1[key];
 		const val2 = element2[key];
 		const coef = coefs[direction];
@@ -386,9 +380,7 @@ function getCompare(key, direction) {
 			return coef;
 		}
 		return 0;
-	}
-
-	return compare;
+	};
 }
 
 function navigatePage(state, nav, mapper) {
@@ -497,12 +489,7 @@ function getCurrentSelectedSchema(state) {
 	if (isSelectionEmpty(state.selection)) {
 		return null;
 	}
-	if (state.selection.side === Constants.MappingSide.INPUT) {
-		return state.input.schema;
-	} else if (state.selection.side === Constants.MappingSide.OUTPUT) {
-		return state.output.schema;
-	}
-	return null;
+	return getSchema(state, state.selection.side);
 }
 
 function getNextElement(dataAccessor, schema, element, nav) {
@@ -530,16 +517,15 @@ function getNextElement(dataAccessor, schema, element, nav) {
 
 
 function sort(elements, key, direction) {
-	if (direction === SortDirection.ASCENDING || direction === SortDirection.DESCENDING) {
-		const compare = getCompare(key, direction);
+	if (isActiveSorter({ direction })) {
 		const sortedElements = elements.slice();
-		return sortedElements.sort(compare);
+		return sortedElements.sort(getCompare(key, direction));
 	}
 	return elements;
 }
 
-function isActiveSorter(sorter) {
-	return sorter.direction === SortDirection.ASCENDING || sorter.direction === SortDirection.DESCENDING;
+function isActiveSorter({ direction }) {
+	return [SortDirection.ASCENDING, SortDirection.DESCENDING].includes(direction);
 }
 
 class DataMapperContainer extends React.Component {
@@ -578,6 +564,7 @@ class DataMapperContainer extends React.Component {
 		this.onRedo = this.onRedo.bind(this);
 		this.getMainAction = this.getMainAction.bind(this);
 		// initialize
+		// TODO init actions
 		this.initialize(this.state.dataAccessor, this.props.input, this.props.output);
 	}
 
@@ -589,6 +576,7 @@ class DataMapperContainer extends React.Component {
 	handleKeyEvent(ev) {
 		let reveal = false;
 		let focus = false;
+		// TODO preventDefault for all
 		if (this.handleFirstSelect(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
@@ -652,11 +640,12 @@ class DataMapperContainer extends React.Component {
 		}
 		if (reveal) {
 			// reveal
-			const mapperInstance = this.mapper.getDecoratedComponentInstance();
-			mapperInstance.revealSelection(this.state.selection);
+			this.mapper
+				.getDecoratedComponentInstance()
+				.revealSelection(this.state.selection);
 		}
 		if (focus) {
-			focusElement(this.props.mapperId);
+			focusElement('[data-focusable]');
 		}
 	}
 
@@ -701,6 +690,7 @@ class DataMapperContainer extends React.Component {
 	}
 
 	handleEndConnection(ev) {
+		// FIXME DRY same if as in handleStartConnection
 		return ev.keyCode === keycode.codes.enter
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem != null
@@ -957,12 +947,14 @@ class DataMapperContainer extends React.Component {
 		});
 	}
 
+	// Split into several fn
 	onFilterChange(id, active, params, side) {
 		const schema = getSchema(this.state, side);
-		const elements = this.state[side].schema.elements;
-		const filters = this.state[side].filters;
-		const sorters = this.state[side].sorters;
-		const columns = this.state[side].columns;
+		const stateSide = this.state[side];
+		const elements = stateSide.schema.elements;
+		const filters = stateSide.filters;
+		const sorters = stateSide.sorters;
+		const columns = stateSide.columns;
 		const filteredElements = updateFilteredElements(elements, filters, id, active, params);
 		const sortedElements = updateSortedElements(filteredElements, sorters, columns);
 		const updatedFilters = updateFilters(filters, id, active, params);
@@ -1042,6 +1034,7 @@ class DataMapperContainer extends React.Component {
 	}
 
 	onRedo() {
+		// TODO check if copy is mandatory
 		const cmd = this.state.dataAccessor.getACopyOfRedoCommand();
 		const mapping = this.state.dataAccessor.redo(this.state.mapping);
 		this.setState({
@@ -1084,9 +1077,7 @@ class DataMapperContainer extends React.Component {
 
 	render() {
 		const {
-			mapperId,
 			mappingActions,
-			preferences,
 			...rest,
 		} = this.props;
 		return (
@@ -1098,7 +1089,6 @@ class DataMapperContainer extends React.Component {
 				<Mapper
 					ref={this.updateMapperRef}
 					dataAccessor={this.state.dataAccessor}
-					mapperId={mapperId}
 					mapping={this.state.mapping}
 					mappingActions={mappingActions}
 					input={this.state.input}
