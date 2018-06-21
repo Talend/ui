@@ -3,22 +3,21 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Constants.js
-   21:13  error  Unexpected use of '<<'                  no-bitwise
-   22:11  error  Unexpected use of '<<'                  no-bitwise
-   23:7   error  Unexpected use of '<<'                  no-bitwise
-   24:11  error  Unexpected use of '<<'                  no-bitwise
-   25:11  error  Unexpected use of '<<'                  no-bitwise
-   26:15  error  Unexpected use of '<<'                  no-bitwise
-   27:8   error  Unexpected use of '<<'                  no-bitwise
-   31:2   error  Unexpected use of '|'                   no-bitwise
-   31:2   error  Unexpected use of '|'                   no-bitwise
-   31:2   error  Unexpected use of '|'                   no-bitwise
-   34:2   error  Unexpected use of '|'                   no-bitwise
-   34:2   error  Unexpected use of '|'                   no-bitwise
-   34:2   error  Unexpected use of '|'                   no-bitwise
-   36:32  error  Unexpected use of '|'                   no-bitwise
-   36:32  error  Unexpected use of '|'                   no-bitwise
-  105:2   error  Duplicate key 'UNDO_REDO_STATE_STATUS'  no-dupe-keys
+  21:13  error  Unexpected use of '<<'  no-bitwise
+  22:11  error  Unexpected use of '<<'  no-bitwise
+  23:7   error  Unexpected use of '<<'  no-bitwise
+  24:11  error  Unexpected use of '<<'  no-bitwise
+  25:11  error  Unexpected use of '<<'  no-bitwise
+  26:15  error  Unexpected use of '<<'  no-bitwise
+  27:8   error  Unexpected use of '<<'  no-bitwise
+  31:2   error  Unexpected use of '|'   no-bitwise
+  31:2   error  Unexpected use of '|'   no-bitwise
+  31:2   error  Unexpected use of '|'   no-bitwise
+  34:2   error  Unexpected use of '|'   no-bitwise
+  34:2   error  Unexpected use of '|'   no-bitwise
+  34:2   error  Unexpected use of '|'   no-bitwise
+  36:32  error  Unexpected use of '|'   no-bitwise
+  36:32  error  Unexpected use of '|'   no-bitwise
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/DataAccessor/DataAccessorWithSorterAndFilter.js
    91:14  error  Expected 'this' to be used by class method 'getElementId'  class-methods-use-this
@@ -48,21 +47,55 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   66:14  error  Expected 'this' to be used by class method 'clearMapping'      class-methods-use-this
   73:16  error  Expected 'this' to be used by class method 'isMappingEmpty'    class-methods-use-this
 
-/home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.js
-  104:26  error  Unexpected use of '&'                                                no-bitwise
-  105:28  error  Unexpected use of '&'                                                no-bitwise
-  106:26  error  Unexpected use of '&'                                                no-bitwise
-  111:10  error  Unexpected use of '&'                                                no-bitwise
-  180:2   error  updateVisibleInfo should be placed after getDnDInProgressConnection  react/sort-comp
-  274:15  error  Expected 'this' to be used by class method 'getVisibility'           class-methods-use-this
-  274:62  error  'targetYPos' is defined but never used                               no-unused-vars
-  373:21  error  Expected 'this' to be used by class method 'updatePropertyValue'     class-methods-use-this
-  376:4   error  Assignment to property of function parameter 'anchors'               no-param-reassign
-  385:4   error  Assignment to property of function parameter 'anchors'               no-param-reassign
-  751:4   error  'dndListener' is assigned a value but never used                     no-unused-vars
-  758:23  error  Unknown property 'tabindex' found, use 'tabIndex' instead            react/no-unknown-property
+/home/travis/build/Talend/ui/packages/data-mapper/src/index.js
+  1:20  error  Parse errors in imported module './Mapper.container': Line 1103: A trailing comma is not permitted after the rest element
+
+  1101 | 			mappingActions,
+  1102 | 			preferences,
+> 1103 | 			...rest,
+       | 			       ^
+  1104 | 		} = this.props;
+  1105 | 		return (
+  1106 | 			<div {...rest}> (1103:11)  import/no-named-as-default
+  1:20  error  Parse errors in imported module './Mapper.container': Line 1103: A trailing comma is not permitted after the rest element
+
+  1101 | 			mappingActions,
+  1102 | 			preferences,
+> 1103 | 			...rest,
+       | 			       ^
+  1104 | 		} = this.props;
+  1105 | 		return (
+  1106 | 			<div {...rest}> (1103:11)  import/no-named-as-default-member
+
+/home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.component.js
+    4:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+    5:1   error  'react-dnd-html5-backend' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  128:26  error  Unexpected use of '&'                                                                          no-bitwise
+  129:28  error  Unexpected use of '&'                                                                          no-bitwise
+  130:26  error  Unexpected use of '&'                                                                          no-bitwise
+  135:10  error  Unexpected use of '&'                                                                          no-bitwise
+  204:2   error  updateVisibleInfo should be placed after getDnDInProgressConnection                            react/sort-comp
+  298:15  error  Expected 'this' to be used by class method 'getVisibility'                                     class-methods-use-this
+  298:62  error  'targetYPos' is defined but never used                                                         no-unused-vars
+  397:21  error  Expected 'this' to be used by class method 'updatePropertyValue'                               class-methods-use-this
+  400:4   error  Assignment to property of function parameter 'anchors'                                         no-param-reassign
+  409:4   error  Assignment to property of function parameter 'anchors'                                         no-param-reassign
+  775:4   error  'dndListener' is assigned a value but never used                                               no-unused-vars
+  874:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.container.js
+  1103:11  error  Parsing error: A trailing comma is not permitted after the rest element
+
+  1101 | 			mappingActions,
+  1102 | 			preferences,
+> 1103 | 			...rest,
+       | 			       ^
+  1104 | 		} = this.props;
+  1105 | 		return (
+  1106 | 			<div {...rest}>
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.test.js
+   6:29  error  Unable to resolve path to module './Mapper.js'                                                 import/no-unresolved
    7:36  error  Unable to resolve path to module '../Schema/SchemaElement/DraggableSchemaElement.js'           import/no-unresolved
    8:33  error  Unable to resolve path to module '../DefaultDataAccessor'                                      import/no-unresolved
    9:33  error  Unable to resolve path to module '../DataAccessorWrapper'                                      import/no-unresolved
@@ -73,11 +106,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   14:25  error  Unable to resolve path to module './AutoMapping.js'                                            import/no-unresolved
   64:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   65:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
-
-/home/travis/build/Talend/ui/packages/data-mapper/src/MapperWithDnd.js
-  1:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
-  2:1   error  'react-dnd-html5-backend' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  5:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/DraggableAnchor.js
    2:1  error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -97,10 +125,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
     2:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
    19:10  error  'props' is defined but never used                                                              no-unused-vars
   104:26  error  'buildDndInProgressSVGConnection' was used before it was defined                               no-use-before-define
-  350:21  error  'height' is missing in props validation                                                        react/prop-types
-  353:2   error  reveal should be placed after getBounds                                                        react/sort-comp
-  353:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
-  482:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  352:21  error  'height' is missing in props validation                                                        react/prop-types
+  355:2   error  reveal should be placed after getBounds                                                        react/sort-comp
+  355:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
+  484:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.js
     3:8   error  'classnames' is defined but never used          no-unused-vars
@@ -134,5 +162,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   290:26  error  'revealConnectedElement' PropType is defined but prop is never used                                         react/no-unused-prop-types
   293:20  error  'isElementVisible' PropType is defined but prop is never used                                               react/no-unused-prop-types
 
-✖ 100 problems (100 errors, 0 warnings)
+✖ 102 problems (102 errors, 0 warnings)
 
