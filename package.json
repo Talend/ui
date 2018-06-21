@@ -72,7 +72,6 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/eslint-config",
     "packages/cmf",
     "packages/cmf-cqrs",
     "packages/cmf-webpack-plugin",
