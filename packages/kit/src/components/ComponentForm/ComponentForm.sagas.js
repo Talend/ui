@@ -18,10 +18,15 @@ function* fecthDefinition({ definitionURL, componentId, uiSpecPath }) {
 		);
 	} else {
 		if (uiSpecPath) {
-			yield put(Component.setStateAction({
-				definition: data,
-				...get(data, uiSpecPath),
-			}, componentId));
+			yield put(
+				Component.setStateAction(
+					{
+						definition: data,
+						...get(data, uiSpecPath),
+					},
+					componentId,
+				),
+			);
 		} else {
 			yield put(Component.setStateAction(data, componentId));
 		}
