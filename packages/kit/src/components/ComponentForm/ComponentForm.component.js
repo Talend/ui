@@ -144,14 +144,8 @@ class ComponentForm extends React.Component {
 
 	getUISpec() {
 		const spec = { properties: this.state.properties };
-		let immutableSpec = this.props.state;
-		// It seems definitionURL may returned a wrapped payload but not the trigger
-		// so we give priority to higher uiSpec
-		if (!immutableSpec.get('jsonSchema') && this.props.uiSpecPath) {
-			immutableSpec = immutableSpec.getIn(this.props.uiSpecPath.split('.'), new Map());
-		}
-		const jsonSchema = immutableSpec.get('jsonSchema');
-		const uiSchema = immutableSpec.get('uiSchema');
+		const jsonSchema = this.props.state.get('jsonSchema');
+		const uiSchema = this.props.state.get('uiSchema');
 		if (jsonSchema) {
 			spec.jsonSchema = jsonSchema.toJS();
 		}

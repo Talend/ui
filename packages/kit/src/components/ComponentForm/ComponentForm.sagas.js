@@ -1,8 +1,9 @@
 import { call, put, select, take, takeEvery } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
+import get from 'lodash/get';
 import Component from './ComponentForm.component';
 
-function* fecthDefinition({ definitionURL, componentId }) {
+function* fecthDefinition({ definitionURL, componentId, uiSpecPath }) {
 	const { data, response } = yield call(cmf.sagas.http.get, definitionURL);
 	if (!response.ok) {
 		yield put(
@@ -17,14 +18,21 @@ function* fecthDefinition({ definitionURL, componentId }) {
 			}, componentId),
 		);
 	} else {
-		yield put(Component.setStateAction(data, componentId));
+		if (uiSpecPath) {
+			yield put(Component.setStateAction({
+				definition: data,
+				...get(data, uiSpecPath),
+			}, componentId));
+		} else {
+			yield put(Component.setStateAction(data, componentId));
+		}
 	}
 }
 
-function* onDidMount({ componentId = 'default', definitionURL }) {
+function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath }) {
 	const state = yield select();
 	if (!Component.getState(state, componentId).get('jsonSchema')) {
-		yield fecthDefinition({ definitionURL, componentId });
+		yield fecthDefinition({ definitionURL, componentId, uiSpecPath });
 	}
 }
 

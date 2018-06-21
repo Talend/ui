@@ -120,6 +120,7 @@
             "placeholder": "dataStore",
             "conditions": [],
             "title": "Connection",
+            "widget": "fieldset",
             "items": [
                 {
                     "widget": "text",
