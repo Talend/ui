@@ -1,35 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import keycode from 'keycode';
 import { storiesOf } from '@storybook/react';
-
 import {
 	Table,
 	ActionBar,
 	IconsProvider,
 } from '@talend/react-components';
-
 import Mapper, {
 	Constants,
 	DataAccessorWithUndoRedo,
 	MappingAccessor,
 } from '../src/index';
-
 import { isSelected } from '../src/Schema/Schema';
-
-const Keys = {
-	PAGE_UP: 33,
-	PAGE_DOWN: 34,
-	LEFT: 37,
-	UP: 38,
-	RIGHT: 39,
-	DOWN: 40,
-	ENTER: 13,
-	ESCAPE: 27,
-	DELETE: 46,
-	REDO: 89,
-	UNDO: 90,
-};
 
 const inputSchemaUX = {
 	id: 'd1fg158sc',
@@ -631,13 +614,13 @@ function getNextElement(dataAccessor, schema, element, nav) {
 	const size = dataAccessor.getSchemaSize(schema, true);
 	let newSelectedElemIndex = selectedElemIndex;
 	switch (nav) {
-		case Keys.UP:
+		case keycode.codes.up:
 			newSelectedElemIndex = selectedElemIndex - 1;
 			if (newSelectedElemIndex < 0) {
 				newSelectedElemIndex = size - 1;
 			}
 			break;
-		case Keys.DOWN:
+		case keycode.codes.down:
 			newSelectedElemIndex = selectedElemIndex + 1;
 			if (newSelectedElemIndex >= size) {
 				newSelectedElemIndex = 0;
@@ -661,10 +644,10 @@ function navigatePage(state, nav, mapper) {
 		const index = dataAccessor.getSchemaElementIndex(schema, selection.element, true);
 		let targetIndex = -1;
 		switch (nav) {
-			case Keys.PAGE_UP:
+			case keycode.codes.pgup:
 				targetIndex = Math.max(0, index - pageSize);
 				break;
-			case Keys.PAGE_DOWN:
+			case keycode.codes.pgdn:
 				targetIndex = Math.min(index + pageSize, dataAccessor.getSchemaSize(schema, true) - 1);
 				break;
 			default:
@@ -774,7 +757,7 @@ function switchSchema(state, mappingInProgress, mapper, usePosition) {
 function firstSelect(state, code) {
 	const dataAccessor = state.dataAccessor;
 	let side = Constants.MappingSide.INPUT;
-	if (code === Keys.RIGHT) {
+	if (code === keycode.codes.right) {
 		side = Constants.MappingSide.OUTPUT;
 	}
 	const schema = getSchema(state, side);
@@ -788,19 +771,16 @@ function firstSelect(state, code) {
 
 function navigate(state, nav, mapper, usePosition) {
 	switch (nav) {
-		case Keys.UP:
+		case keycode.codes.up:
+		case keycode.codes.down:
 			return navigateUpDown(state, nav);
-		case Keys.DOWN:
-			return navigateUpDown(state, nav);
-		case Keys.PAGE_UP:
+		case keycode.codes.pgup:
+		case keycode.codes.pgdn:
 			return navigatePage(state, nav, mapper);
-		case Keys.PAGE_DOWN:
-			return navigatePage(state, nav, mapper);
-		case Keys.LEFT:
+		case keycode.codes.left:
+		case keycode.codes.right:
 			return switchSchema(state, false, mapper, usePosition);
-		case Keys.RIGHT:
-			return switchSchema(state, false, mapper, usePosition);
-		case Keys.ENTER:
+		case keycode.codes.enter:
 			return switchSchema(state, true, mapper, usePosition);
 		default:
 			break;
@@ -1079,15 +1059,15 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	handleUndo(ev) {
-		return ev.keyCode === Keys.UNDO && ev.ctrlKey;
+		return ev.keyCode === keycode.codes.z && ev.ctrlKey;
 	}
 
 	handleRedo(ev) {
-		return ev.keyCode === Keys.REDO && ev.ctrlKey;
+		return ev.keyCode === keycode.codes.y && ev.ctrlKey;
 	}
 
 	handleStartConnection(ev) {
-		if (ev.keyCode === Keys.ENTER
+		if (ev.keyCode === keycode.codes.enter
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem == null) {
 			if (this.state.selection.side === Constants.MappingSide.INPUT) {
@@ -1111,7 +1091,7 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	handleEndConnection(ev) {
-		return ev.keyCode === Keys.ENTER
+		return ev.keyCode === keycode.codes.enter
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem != null
 			&& this.state.selection.side !== this.state.pendingItem.side;
@@ -1119,38 +1099,38 @@ class ConnectedDataMapper extends React.Component {
 
 	handleNavigation(ev) {
 		const key = ev.keyCode;
-		const isValidKey = key === Keys.UP
-			|| key === Keys.DOWN
-			|| key === Keys.PAGE_UP
-			|| key === Keys.PAGE_DOWN;
-		const isValidSwitch = (key === Keys.LEFT || key === Keys.RIGHT)
+		const isValidKey = key === keycode.codes.up
+			|| key === keycode.codes.down
+			|| key === keycode.codes.pgup
+			|| key === keycode.codes.pgdn;
+		const isValidSwitch = (key === keycode.codes.left || key === keycode.codes.right)
 			&& this.state.pendingItem == null;
 		return !isSelectionEmpty(this.state.selection)
 			&& (isValidKey || isValidSwitch);
 	}
 
 	handleFirstSelect(ev) {
-		const isValidKey = ev.keyCode === Keys.LEFT
-			|| ev.keyCode === Keys.RIGHT;
+		const isValidKey = ev.keyCode === keycode.codes.left
+			|| ev.keyCode === keycode.codes.right;
 		return isValidKey && isSelectionEmpty(this.state.selection);
 	}
 
 	handleEscape(ev) {
-		const isValidKey = ev.keyCode === Keys.ESCAPE;
+		const isValidKey = ev.keyCode === keycode.codes.esc;
 		return isValidKey && this.state.pendingItem != null;
 	}
 
 	handleDelete(ev) {
-		const isValidKey = ev.keyCode === Keys.DELETE;
+		const isValidKey = ev.keyCode === keycode.codes.del;
 		return isValidKey
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.selection.connected != null;
 	}
 
 	isPreventDefaultNeeded(ev) {
-		return ((ev.keyCode === Keys.LEFT || ev.keyCode === Keys.RIGHT)
+		return ((ev.keyCode === keycode.codes.left || ev.keyCode === keycode.codes.right)
 			&& this.state.pendingItem != null)
-			|| ev.keyCode === Keys.ENTER;
+			|| ev.keyCode === keycode.codes.enter;
 	}
 
 	performMapping(sourceElement, targetElement, selectionSide) {
