@@ -1,7 +1,7 @@
 {
   "webpack": {
     "config": {
-      "development": "./webpack.config.dev.js"
+      "development": "webpack.config.dev.js"
     }
   }
 }

@@ -10,6 +10,7 @@ module.exports = function getWebpackConfiguration(presetApi) {
 	} else if (presetApi.mode === 'production') {
 		webpackConfigurations.push(getProdWebpackConfig(presetApi));
 	}
-
+	console.log('#######################');
+	delete presetApi.mode;
 	return webpackConfigurations;
 };
