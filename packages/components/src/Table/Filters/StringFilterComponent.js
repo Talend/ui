@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import FilterBar from '../../FilterBar';
+import { FilterBar } from '@talend/react-components';
 import theme from './FiltersBar.scss';
 
 /**
@@ -37,7 +37,7 @@ export default class StringFilterComponent extends Component {
 				className={classnames('tc-string-filter', 'tc-filter', theme['tc-filter'], filter.id)}
 				placeholder={placeHolder}
 				dockable={dockable}
-				docked={this.props.filter.params.docked}
+				docked={filter.params.docked}
 				navbar={navbar}
 				onToggle={this.onToggle}
 				onFilter={this.onFilter}

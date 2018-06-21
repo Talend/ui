@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Toggle from '../../Toggle';
+import { Toggle } from '@talend/react-components';
 import theme from './FiltersBar.scss';
 
 /**
