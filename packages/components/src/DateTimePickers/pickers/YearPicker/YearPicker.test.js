@@ -47,7 +47,6 @@ describe('YearPicker', () => {
 
 		nextYearAction.simulate('click');
 
-		expect(onYearSelected).toHaveBeenCalledTimes(1);
 		expect(onYearSelected).toHaveBeenCalledWith(yearToSelect);
 	});
 

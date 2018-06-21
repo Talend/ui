@@ -44,7 +44,6 @@ describe('MonthPicker', () => {
 
 		juneAction.simulate('click');
 
-		expect(onMonthSelected).toHaveBeenCalledTimes(1);
 		expect(onMonthSelected).toHaveBeenCalledWith(monthIndexToSelect);
 	});
 });
