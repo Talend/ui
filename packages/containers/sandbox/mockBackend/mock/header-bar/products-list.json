@@ -1,17 +1,17 @@
 [
 	{
 		"icon": "talend-tdp-colored",
-		"key": "tdp",
+		"url": "http://www.talend.com/products#tdp",
 		"label": "My"
 	},
 	{
 		"icon": "talend-tic-colored",
-		"key": "tic",
+		"url": "http://www.talend.com/products#tic",
 		"label": "applications"
 	},
 	{
 		"icon": "talend-tmc-colored",
-		"key": "tmc",
+		"url": "http://www.talend.com/products#tmc",
 		"label": "list"
 	}
 ]

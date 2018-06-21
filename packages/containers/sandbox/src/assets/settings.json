@@ -46,8 +46,13 @@
         },
         "brand": {
           "id": "header-bar-demo-brand",
-          "label": "Choose a product",
-          "productsUrl": "/api/mock/header-bar/products-list"
+          "label": "Choose a product"
+        },
+        "products": {
+          "id": "header-bar-demo-brands",
+          "url": "/api/mock/header-bar/products-list",
+          "language": "en-EN",
+          "env": "dev"
         }
       }
     }

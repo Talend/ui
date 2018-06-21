@@ -20,7 +20,8 @@ const server = app => {
 	const API_MOCK_ENDPOINT = '/api/mock';
 
 	app.get(`${API_MOCK_ENDPOINT}/*`, (req, res) => {
-		const mockFilePath = `${__dirname}/mock/${req.url.substr(API_MOCK_ENDPOINT.length)}.json`;
+		const urlPath = req.url.split('?')[0];
+		const mockFilePath = `${__dirname}/mock/${urlPath.substr(API_MOCK_ENDPOINT.length)}.json`;
 
 		readFile(mockFilePath)
 			.then(content => res.json(JSON.parse(content)))
