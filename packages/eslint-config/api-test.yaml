@@ -1,1 +1,16 @@
-extends: ./api/test/.eslintrc.jasmine.yaml
+extends:
+  - ./api/eslintrc.base.yaml
+  - 'plugin:jasmine/recommended'
+env:
+  shared-node-browser: true
+  phantomjs: true
+  jasmine: true
+plugins:
+  - jasmine
+globals:
+  inject: false
+  since: false
+rules:
+  import/no-extraneous-dependencies:
+    - error
+    - { devDependencies: true }

@@ -1,1 +1,13 @@
-extends: ./api/test/.eslintrc.codecept.yaml
+extends: ./api/eslintrc.base.yaml
+env:
+  shared-node-browser: true
+globals:
+  Before: false
+  I: false
+  Helper: false
+  Feature: false
+  Scenario: false
+rules:
+  import/no-extraneous-dependencies:
+    - error
+    - { devDependencies: true }
