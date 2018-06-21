@@ -87,11 +87,6 @@ const value = [
 
 describe('Default Array Template component', () => {
 	it('should render default array template', () => {
-		// given
-		function translate(key, options) {
-			return options.defaultValue;
-		}
-
 		// when
 		const wrapper = shallow(
 			<DefaultArrayTemplate
@@ -102,7 +97,9 @@ describe('Default Array Template component', () => {
 				onReorder={jest.fn()}
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
-				t={translate}
+				t={function translate(key, options) {
+					return options.defaultValue;
+				}}
 				value={value}
 			/>,
 		);

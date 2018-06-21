@@ -306,7 +306,6 @@ HeaderBar.displayName = 'HeaderBar';
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
-		getComponent: PropTypes.func,
 		isFull: PropTypes.bool,
 		renderers: PropTypes.shape({
 			Action: PropTypes.func,
@@ -315,19 +314,13 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Brand.propTypes = {
-		onClick: PropTypes.func,
-		getComponent: PropTypes.func,
 		isSeparated: PropTypes.bool,
-		items: PropTypes.array,
-		label: PropTypes.string,
 		renderers: PropTypes.shape({
 			Action: PropTypes.func,
 		}),
-		t: PropTypes.func.isRequired,
 	};
 
 	Environment.propTypes = {
-		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			ActionDropdown: PropTypes.func,
 		}),
@@ -335,14 +328,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 	Search.propTypes = {
 		...Typeahead.propTypes,
-		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			Typeahead: PropTypes.func,
 		}),
 	};
 
 	Help.propTypes = {
-		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({
 			ActionSplitDropdown: PropTypes.func,
 			Action: PropTypes.func,
@@ -351,8 +342,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	Information.propTypes = {
-		getComponent: PropTypes.func,
-		items: PropTypes.array,
 		renderers: PropTypes.shape({
 			ActionSplitDropdown: PropTypes.func,
 			Action: PropTypes.func,
@@ -361,7 +350,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	User.propTypes = {
-		getComponent: PropTypes.func,
 		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		name: PropTypes.string,
 		firstName: PropTypes.string,
@@ -370,7 +358,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	AppNotification.propTypes = {
-		getComponent: PropTypes.func,
 		hasUnread: PropTypes.bool,
 		renderers: PropTypes.shape({ Action: PropTypes.func }),
 		t: PropTypes.func.isRequired,

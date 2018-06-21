@@ -3,9 +3,15 @@ import createEngine from 'redux-storage-engine-localstorage';
 import filter from 'redux-storage-decorator-filter';
 import immutablejs from './redux-storage-decorator-immutablejs';
 
-const CMF_IMMUTABLE_PATHS = [['cmf', 'components'], ['cmf', 'collections']];
+const CMF_IMMUTABLE_PATHS = [
+	['cmf', 'components'],
+	['cmf', 'collections'],
+];
 
-const CMF_MIDDLEWARE_BLACK_LIST = ['@@INIT', '@@router/LOCATION_CHANGE'];
+const CMF_MIDDLEWARE_BLACK_LIST = [
+	'@@INIT',
+	'@@router/LOCATION_CHANGE',
+];
 
 function loadInitialState(options = {}) {
 	const {
@@ -29,20 +35,18 @@ function loadInitialState(options = {}) {
 	middlewareBlacklist.forEach(m => mblack.push(m));
 	const storageMiddleware = storage.createMiddleware(engine, mblack, middlewareWhitelist);
 
-	return storage
-		.createLoader(engine)({
-			dispatch: () => {},
-		})
-		.then(initialState => ({
-			initialState,
-			storageMiddleware,
-			engine,
-		}));
+	return storage.createLoader(engine)({
+		dispatch: () => {},
+	}).then(initialState => ({
+		initialState,
+		storageMiddleware,
+		engine,
+	}));
 }
 
 function saveOnReload({ engine, store }) {
 	window.addEventListener('beforeunload', () => {
-		engine.save(store.getState()); // localstorage is sync
+		engine.save(store.getState());  // localstorage is sync
 	});
 }
 

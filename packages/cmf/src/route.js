@@ -3,7 +3,7 @@
  * @module react-cmf/lib/route
  */
 
-/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }] */
+/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 
 import PropTypes from 'prop-types';
 
