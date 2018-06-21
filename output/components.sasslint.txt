@@ -1,47 +1,11 @@
 > sass-lint -v -q
 
 
-src/DataMapper/DataMapper.scss
-    2:2   error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
-    3:2   error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
-    4:2   error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
-    5:2   error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
-   26:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
-  145:15  error  Quotes around URLs are required                                                 url-quotes
-  149:15  error  Quotes around URLs are required                                                 url-quotes
-  153:15  error  Quotes around URLs are required                                                 url-quotes
-  157:15  error  Quotes around URLs are required                                                 url-quotes
-  161:15  error  Quotes around URLs are required                                                 url-quotes
-  165:15  error  Quotes around URLs are required                                                 url-quotes
-  169:15  error  Quotes around URLs are required                                                 url-quotes
-  173:15  error  Quotes around URLs are required                                                 url-quotes
-
-src/DataMapper/Schema/Schema.scss
-  1:12  error  No empty blocks allowed  no-empty-rulesets
-
-src/DataMapperDemo/DataMapper.scss
-    2:2   error  Variable 'font_family_for_type' should be written in lowercase with hyphens     variable-name-format
-    3:2   error  Variable 'row_height' should be written in lowercase with hyphens               variable-name-format
-    4:2   error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
-    5:2   error  Variable 'type_field_color' should be written in lowercase with hyphens         variable-name-format
-   26:21  error  Variable 'mapper_background_color' should be written in lowercase with hyphens  variable-name-format
-  145:15  error  Quotes around URLs are required                                                 url-quotes
-  149:15  error  Quotes around URLs are required                                                 url-quotes
-  153:15  error  Quotes around URLs are required                                                 url-quotes
-  157:15  error  Quotes around URLs are required                                                 url-quotes
-  161:15  error  Quotes around URLs are required                                                 url-quotes
-  165:15  error  Quotes around URLs are required                                                 url-quotes
-  169:15  error  Quotes around URLs are required                                                 url-quotes
-  173:15  error  Quotes around URLs are required                                                 url-quotes
-
-src/DataMapperDemo/Schema/Schema.scss
-  1:12  error  No empty blocks allowed  no-empty-rulesets
-
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 30 problems (28 errors, 2 warnings)
+✖ 2 problems (0 errors, 2 warnings)
 
