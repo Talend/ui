@@ -27,19 +27,12 @@ function* handleForm() {
         properties,  // your data
     }
 }
-
-function* syncProperties() {
-    const action = yield take(ComponentForm.ON_SUBMIT);
-    // do what you want with it
-    action === {
-        type: ComponentForm.ON_SUBMIT,
-        event,
-        jsonSchema,
-        uiSchema,
-        properties,  // your data
-    }
-}
 ```
 
 definitionURL: url to fetch to get the form uiSpec
 triggerURL: url to fetch on trigger
+
+# TODO:
+
+* add option to sync in redux the properties (props ?)
+* onSubmit automatic POST request (REST) ?

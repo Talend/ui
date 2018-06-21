@@ -40,7 +40,8 @@
         },
         "uiSchema": [
             {
-                "conditions": [],
+              "title": "Metadata",
+              "conditions": [],
                 "items": [
                     {
                         "conditions": [],
@@ -70,6 +71,7 @@
                             {
                                 "action": "builtin::root::reloadFromId",
                                 "family": "builtin::family",
+                                "event": "focus",
                                 "parameters": [
                                     {
                                         "key": "id",
@@ -89,7 +91,6 @@
                         "widget": "textarea"
                     }
                 ],
-                "key": "_datasetMetadata",
                 "required": false,
                 "widget": "fieldset"
             }

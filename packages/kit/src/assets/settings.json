@@ -34,7 +34,7 @@
       "actions": [{ "componentId": "menu-form" }]
     },
     "ActionButton#menu-form": {
-      "icon": "burger",
+      "icon": "talend-burger",
       "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",

@@ -52,6 +52,10 @@ class ComponentForm extends React.Component {
 	}
 
 	onChange(event, data) {
+		event.persist();
+		if (!this.props.state.get('dirty')) {
+			this.props.setState({ dirty: true });
+		}
 		const properties = data.properties;
 		if (data.schema.titleMap && data.value) {
 			// Here we add a field side by side with the value
@@ -69,19 +73,21 @@ class ComponentForm extends React.Component {
 			currentProp[`$${currentKey}_name`] = info.name;
 		}
 		this.setState({ properties });
-		this.props.dispatch({
-			type: ComponentForm.ON_CHANGE,
-			event: {
-				type: 'onChange',
-				component: 'TCompForm',
-				props: this.props,
-				state: this.state,
-				source: event,
-			},
-			data,
-			properties,
-			uiSpec: this.getUISpec(),
-		});
+		if (this.props.dispatchOnChange) {
+			this.props.dispatch({
+				type: ComponentForm.ON_CHANGE,
+				event: {
+					type: 'onChange',
+					component: 'TCompForm',
+					props: this.props,
+					state: this.state,
+					source: event,
+				},
+				data,
+				properties,
+				uiSpec: this.getUISpec(),
+			});
+		}
 	}
 
 	onTrigger(event, payload) {
@@ -108,6 +114,7 @@ class ComponentForm extends React.Component {
 	}
 
 	onSubmit(event, data) {
+		event.persist();
 		if (this.props.onSubmit) {
 			this.props.onSubmit(event, data);
 		}

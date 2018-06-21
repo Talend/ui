@@ -7,10 +7,13 @@ function* fecthDefinition({ definitionURL, componentId }) {
 	if (!response.ok) {
 		yield put(
 			Component.setStateAction(prev => {
-				let newState = prev.set('jsonSchema', undefined);
-				newState = prev.set('uiSchema', undefined);
-				newState.set({ response });
-				return newState;
+				return prev
+					.set({
+						jsonSchema: undefined,
+						uiSchema: undefined,
+						response,
+						dirty: false,
+					});
 			}, componentId),
 		);
 	} else {
