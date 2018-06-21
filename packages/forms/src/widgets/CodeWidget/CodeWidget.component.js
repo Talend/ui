@@ -52,7 +52,6 @@ try {
 				setOptions = Object.assign({}, SET_OPTIONS, contextProps.setOptions);
 				delete contextProps.setOptions;
 			}
-			const customProps = { ...contextProps, ...options };
 			return (
 				<AceEditor
 					className="tf-widget-code form-control"
@@ -70,7 +69,8 @@ try {
 					theme="chrome"
 					showGutter={false}
 					showPrintMargin={false}
-					{...customProps}
+					{...contextProps}
+					{...options}
 				/>
 			);
 		}
