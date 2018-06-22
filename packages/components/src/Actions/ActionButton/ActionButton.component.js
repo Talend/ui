@@ -8,6 +8,7 @@ import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
+import Inject from '../../Inject';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -181,7 +182,11 @@ export function ActionButton(props) {
 					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
-					overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
+					overlay={
+						<Popover id={overlayId}>
+							{Inject.getReactElement(props.getComponent, props.overlayComponent)}
+						</Popover>
+					}
 				>
 					{btn}
 				</OverlayTrigger>
@@ -204,6 +209,7 @@ ActionButton.propTypes = {
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
+	getComponent: PropTypes.func,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
@@ -213,7 +219,7 @@ ActionButton.propTypes = {
 	name: PropTypes.string,
 	onClick: PropTypes.func,
 	overlayId: PropTypes.string,
-	overlayComponent: PropTypes.element,
+	overlayComponent: Inject.getReactElement.propTypes,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
