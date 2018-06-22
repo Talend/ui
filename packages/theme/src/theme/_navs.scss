@@ -2,12 +2,18 @@
 	.btn-link {
 		color: inherit;
 		border: none;
+		display: inline-block;
 
 		&:focus,
 		&:active,
 		&:hover {
 			text-decoration: none;
 			background: none;
+		}
+
+		> *,
+		> span > * {
+			vertical-align: middle;
 		}
 	}
 

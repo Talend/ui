@@ -1,4 +1,4 @@
-import deleteResourceConst from './deleteResource.constants';
+import deleteResourceConst from './constants';
 
 /**
  * Action called at the dialog opening|mounting.
@@ -21,18 +21,20 @@ function deleteResource(event, data, context) {
 /**
  * Action to delete a resource and close the confirm dialog.
  */
-function validate() {
+function validate(event, data) {
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
+		data,
 	};
 }
 
 /**
  * Action to cancel and close the confirm dialog.
  */
-function cancel() {
+function cancel(event, data) {
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL,
+		data,
 	};
 }
 
