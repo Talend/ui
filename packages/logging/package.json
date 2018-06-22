@@ -38,7 +38,7 @@
     "react-dom": "^15.6.2"
   },
   "devDependencies": {
-    "@talend/eslint-config": "0.1.0",
+    "@talend/eslint-config": "1.0.0",
     "angular": "^1.5.9",
     "angular-mocks": "^1.5.9",
     "babel-cli": "^6.26.0",

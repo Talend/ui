@@ -21,7 +21,7 @@
   },
   "main": "lib/index.js",
   "devDependencies": {
-    "@talend/eslint-config": "0.1.0",
+    "@talend/eslint-config": "1.0.0",
     "@storybook/react": "^3.3.14",
     "@talend/react-cmf": "^0.195.0",
     "babel-cli": "^6.26.0",

@@ -35,7 +35,7 @@
     "mock-socket": "^7.0.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "0.1.0",
+    "@talend/eslint-config": "1.0.0",
     "@talend/react-cmf": "^0.195.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

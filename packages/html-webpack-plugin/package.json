@@ -13,7 +13,7 @@
     "url": "github:Talend/ui"
   },
   "devDependencies": {
-    "@talend/eslint-config": "0.1.0",
+    "@talend/eslint-config": "1.0.0",
     "@talend/react-components": "^0.180.0",
     "jest-cli": "20.0.3"
   },

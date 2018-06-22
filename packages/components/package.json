@@ -65,7 +65,7 @@
     "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^3.4.7",
     "@talend/bootstrap-theme": "^0.195.0",
-    "@talend/eslint-config": "0.1.0",
+    "@talend/eslint-config": "1.0.0",
     "@talend/icons": "^0.195.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",

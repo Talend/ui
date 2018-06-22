@@ -117,6 +117,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	deepmerge: '^1.5.1',
 
 	// dev deps
+	'@talend/eslint-config': '1.0.0',
 	'@storybook/react': '^3.4.7',
 	'@storybook/addon-storyshots': '^3.4.7',
 	'@storybook/addon-actions': '^3.4.7',
