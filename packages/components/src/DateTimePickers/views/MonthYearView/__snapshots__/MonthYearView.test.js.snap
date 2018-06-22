@@ -10,7 +10,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         className="theme-month"
       >
         <MonthPicker
-          onSelectMonth={undefined}
+          onSelect={undefined}
           selectedMonthIndex={8}
         />
       </div>
