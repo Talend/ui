@@ -17,36 +17,41 @@ const months = indexes.map(index => ({
 }));
 const monthsRows = chunk(months, 3);
 
-function MonthPicker(props) {
-	const isSelected = index =>
-		index === props.selectedMonthIndex;
+class MonthPicker extends React.PureComponent {
 
-	const onSelect = index => (
-		() => {
-			props.onSelect(index);
-		});
+	onSelect(index) {
+		return () => {
+			this.props.onSelect(index);
+		};
+	}
 
-	return (
-		<div className={theme.container}>
-			{monthsRows.map((monthsRow, i) =>
-				<div className={theme.row} key={i}>
-					{monthsRow.map(month =>
-						<div
-							key={month.index}
-							className={theme.month}
-						>
-							<PickerAction
-								aria-label={`Select '${month.name}'`}
-								isSelected={isSelected(month.index)}
-								label={month.name}
-								onClick={onSelect(month.index)}
-							/>
-						</div>
-					)}
-				</div>
-			)}
-		</div>
-	);
+	isSelected(index) {
+		return index === this.props.selectedMonthIndex;
+	}
+
+	render() {
+		return (
+			<div className={theme.container}>
+				{monthsRows.map((monthsRow, i) =>
+					<div className={theme.row} key={i}>
+						{monthsRow.map(month =>
+							<div
+								key={month.index}
+								className={theme.month}
+							>
+								<PickerAction
+									aria-label={`Select '${month.name}'`}
+									isSelected={this.isSelected(month.index)}
+									label={month.name}
+									onClick={this.onSelect(month.index)}
+								/>
+							</div>
+						)}
+					</div>
+				)}
+			</div>
+		);
+	}
 }
 
 MonthPicker.propTypes = {
