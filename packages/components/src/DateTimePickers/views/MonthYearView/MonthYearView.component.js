@@ -16,19 +16,27 @@ function MonthYearView(props) {
 			}}
 			className={theme['action-left']}
 			aria-label="Switch back to date and time pickers view"
+			onClick={props.onClickBack}
 		/>,
 		middleElement: <HeaderTitle
-			label="Septembre 2017"
+			monthIndex={props.selectedMonthIndex}
+			year={props.selectedYear}
 		/>,
 	};
 
 	const bodyElement = (
 		<div className={theme.body}>
 			<div className={theme.month}>
-				<MonthPicker />
+				<MonthPicker
+					selectedMonthIndex={props.selectedMonthIndex}
+					onSelect={props.onSelectMonth}
+				/>
 			</div>
 			<div className={theme.year}>
-				<YearPicker />
+				<YearPicker
+					selectedYear={props.selectedYear}
+					onSelect={props.onSelectYear}
+				/>
 			</div>
 		</div>
 	);
@@ -42,6 +50,11 @@ function MonthYearView(props) {
 }
 
 MonthYearView.propTypes = {
+	selectedMonthIndex: PropTypes.number.isRequired,
+	selectedYear: PropTypes.number.isRequired,
+	onClickBack: PropTypes.func.isRequired,
+	onSelectMonth: PropTypes.func.isRequired,
+	onSelectYear: PropTypes.func.isRequired,
 };
 
 export default MonthYearView;

@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimePicker should render a DateTimePicker 1`] = `
+exports[`DateTimePicker should render 1`] = `
 <div
   className="theme-container"
 >
-  <DateTimeView />
+  <DateTimeView
+    onClickTitle={[Function]}
+    onSelectMonthYear={[Function]}
+    selectedMonthIndex={5}
+    selectedYear={2018}
+  />
 </div>
 `;

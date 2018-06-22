@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import setYear from 'date-fns/set_year';
+import setMonth from 'date-fns/set_month';
+import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
 
 function HeaderTitle(props) {
@@ -19,16 +22,18 @@ function HeaderTitle(props) {
 		...(isButton ? props.button : {}),
 	};
 
-	const element = isButton
-		? <button {... propsToSpread}>{props.label}</button>
-		: <span {...propsToSpread}>{props.label}</span>;
+	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
+	const label = format(date, 'MMMM YYYY');
 
-	return element;
+	return isButton
+		? <button type="button" {... propsToSpread}>{label}</button>
+		: <span {...propsToSpread}>{label}</span>;
 }
 
 HeaderTitle.propTypes = {
+	monthIndex: PropTypes.number.isRequired,
+	year: PropTypes.number.isRequired,
 	button: PropTypes.object,
-	label: PropTypes.string,
 	className: PropTypes.string,
 };
 

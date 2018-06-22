@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`YearPicker should render a YearPicker 1`] = `
+exports[`YearPicker should render 1`] = `
 <div
   className="theme-container"
 >
@@ -24,6 +24,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
         aria-label="Select '2010'"
         isSelected={false}
         label="2010"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -33,6 +34,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
         aria-label="Select '2011'"
         isSelected={false}
         label="2011"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -42,6 +44,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
         aria-label="Select '2012'"
         isSelected={true}
         label="2012"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -51,6 +54,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
         aria-label="Select '2013'"
         isSelected={false}
         label="2013"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -60,6 +64,7 @@ exports[`YearPicker should render a YearPicker 1`] = `
         aria-label="Select '2014'"
         isSelected={false}
         label="2014"
+        onClick={[Function]}
       />
     </div>
   </div>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimeView should render a DateTimeView 1`] = `
+exports[`DateTimeView should render 1`] = `
 <ViewLayout
   bodyElement={
     <div
@@ -25,14 +25,17 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
                 "name": "talend-chevron-left",
               }
         }
+        onClick={[Function]}
     />,
       "middleElement": <HeaderTitle
         button={
             Object {
                 "aria-label": "Switch to month and year pickers view",
+                "onClick": [Function],
               }
         }
-        label="Septembre 2017"
+        monthIndex={5}
+        year={2006}
     />,
       "rightElement": <IconButton
         aria-label="Display next calendar month"
@@ -42,6 +45,7 @@ exports[`DateTimeView should render a DateTimeView 1`] = `
                 "transform": "rotate-180",
               }
         }
+        onClick={[Function]}
     />,
     }
   }

@@ -35,10 +35,10 @@ function IconButton(props) {
 }
 
 IconButton.propTypes = {
-	onClick: PropTypes.func,
 	icon: PropTypes.shape({
 		...Icon.propTypes,
 	}).isRequired,
+	onClick: PropTypes.func,
 	className: PropTypes.string,
 };
 

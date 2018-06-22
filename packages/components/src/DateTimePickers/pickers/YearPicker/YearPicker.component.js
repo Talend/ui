@@ -4,61 +4,71 @@ import theme from './YearPicker.scss';
 import IconButton from '../../IconButton';
 import PickerAction from '../../PickerAction';
 
-function YearPicker(props) {
-	const years = [
-		2010,
-		2011,
-		2012,
-		2013,
-		2014,
-		2015,
-		2016,
-		2017,
-	].slice(0, 5);
+class YearPicker extends React.Component {
 
-	const selectedYear = 2012;
+	constructor(props) {
+		super(props);
 
-	function isSelected(y) {
-		return selectedYear === y;
+		const now = new Date();
+		const middleYear = props.selectedYear !== undefined
+			? props.selectedYear
+			: now.getFullYear();
+
+		const firstYear = middleYear - 2;
+
+		this.years = (new Array(5))
+			.fill(0)
+			.map((_, i) => firstYear + i);
+
+		this.isSelected = this.isSelected.bind(this);
 	}
 
-	return (
-		<div className={theme.container}>
-			<IconButton
-				icon={{
-					name: 'talend-chevron-left',
-					transform: 'rotate-90',
-				}}
-				className={theme['action-up']}
-				aria-label="Scroll to previous years"
-			/>
-			<div className={theme.years}>
-				{years.map((year, i) =>
-					<div
-						key={i}
-						className={theme.year}
-					>
-						<PickerAction
-							aria-label={`Select '${year}'`}
-							isSelected={isSelected(year)}
-							label={year.toString()}
-						/>
-					</div>
-				)}
+	isSelected(year) {
+		return year === this.props.selectedYear;
+	}
+
+	render() {
+		return (
+			<div className={theme.container}>
+				<IconButton
+					icon={{
+						name: 'talend-chevron-left',
+						transform: 'rotate-90',
+					}}
+					className={theme['action-up']}
+					aria-label="Scroll to previous years"
+				/>
+				<div className={theme.years}>
+					{this.years.map(year =>
+						<div
+							key={year}
+							className={theme.year}
+						>
+							<PickerAction
+								aria-label={`Select '${year}'`}
+								isSelected={this.isSelected(year)}
+								label={year.toString()}
+								onClick={() => this.props.onSelect(year)}
+							/>
+						</div>
+					)}
+				</div>
+				<IconButton
+					icon={{
+						name: 'talend-chevron-left',
+						transform: 'rotate-270',
+					}}
+					className={theme['action-down']}
+					aria-label="Scroll to next years"
+				/>
 			</div>
-			<IconButton
-				icon={{
-					name: 'talend-chevron-left',
-					transform: 'rotate-270',
-				}}
-				className={theme['action-down']}
-				aria-label="Scroll to next years"
-			/>
-		</div>
-	);
+		);
+	}
 }
 
 YearPicker.propTypes = {
+	selectedYear: PropTypes.number,
+	onSelect: PropTypes.func.isRequired,
 };
 
 export default YearPicker;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MonthPicker should render a MonthPicker 1`] = `
+exports[`MonthPicker should render 1`] = `
 <div
   className="theme-container"
 >
@@ -14,6 +14,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'January'"
         isSelected={false}
         label="January"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -23,6 +24,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'February'"
         isSelected={false}
         label="February"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -32,6 +34,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'March'"
         isSelected={false}
         label="March"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -45,6 +48,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'April'"
         isSelected={false}
         label="April"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -54,6 +58,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'May'"
         isSelected={false}
         label="May"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -63,6 +68,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'June'"
         isSelected={false}
         label="June"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -76,6 +82,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'July'"
         isSelected={false}
         label="July"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -85,6 +92,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'August'"
         isSelected={false}
         label="August"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -92,8 +100,9 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
     >
       <PickerAction
         aria-label="Select 'September'"
-        isSelected={true}
+        isSelected={false}
         label="September"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -107,6 +116,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'October'"
         isSelected={false}
         label="October"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -116,6 +126,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'November'"
         isSelected={false}
         label="November"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -125,6 +136,7 @@ exports[`MonthPicker should render a MonthPicker 1`] = `
         aria-label="Select 'December'"
         isSelected={false}
         label="December"
+        onClick={[Function]}
       />
     </div>
   </div>

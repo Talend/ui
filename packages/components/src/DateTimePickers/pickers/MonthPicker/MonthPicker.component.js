@@ -1,55 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { chunk } from 'lodash';
+import addMonths from 'date-fns/add_months';
+import format from 'date-fns/format';
 import theme from './MonthPicker.scss';
 import PickerAction from '../../PickerAction';
 
-function MonthPicker(props) {
-	const months = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December',
-	];
+const baseDate = new Date(0);
+const indexes = (new Array(12))
+	.fill(0)
+	.map((_, i) => i);
 
-	const monthsRows = chunk(months, 3);
-	const selectedMonth = 'September';
+const months = indexes.map(index => ({
+	index,
+	name: format(addMonths(baseDate, index), 'MMMM'),
+}));
+const monthsRows = chunk(months, 3);
 
-	function isSelected(m) {
-		return selectedMonth === m;
+class MonthPicker extends React.PureComponent {
+
+	isSelected(index) {
+		return index === this.props.selectedMonthIndex;
 	}
 
-	return (
-		<div className={theme.container}>
-			{monthsRows.map((monthsRow, i) =>
-				<div className={theme.row} key={i}>
-					{monthsRow.map((month, j) =>
-						<div
-							key={j}
-							className={theme.month}
-						>
-							<PickerAction
-								aria-label={`Select '${month}'`}
-								isSelected={isSelected(month)}
-								label={month}
-							/>
-						</div>
-					)}
-				</div>
-			)}
-		</div>
-	);
+	render() {
+		return (
+			<div className={theme.container}>
+				{monthsRows.map((monthsRow, i) =>
+					<div className={theme.row} key={i}>
+						{monthsRow.map(month =>
+							<div
+								key={month.index}
+								className={theme.month}
+							>
+								<PickerAction
+									aria-label={`Select '${month.name}'`}
+									isSelected={this.isSelected(month.index)}
+									label={month.name}
+									onClick={() => this.props.onSelect(month.index)}
+								/>
+							</div>
+						)}
+					</div>
+				)}
+			</div>
+		);
+	}
 }
 
 MonthPicker.propTypes = {
+	selectedMonthIndex: PropTypes.number,
+	onSelect: PropTypes.func.isRequired,
 };
 
 export default MonthPicker;
