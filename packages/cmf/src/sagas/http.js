@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
+import cloneDeep from 'lodash/cloneDeep';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -274,7 +275,17 @@ export function setDefaultLanguage(language) {
 }
 
 export const handleDefaultHttpConfiguration = curry((defaultHttpConfig, httpConfig) =>
-	merge(defaultHttpConfig, httpConfig),
+	/**
+	 * Wall of explain
+	 * merge mutate your object see https://lodash.com/docs/4.17.10#merge little note at the
+	 * end of the documentation, so why ? don't know but its bad.
+	 *
+	 * so defaultHttpConfig was mutated inside the curried function and applied to
+	 * all other call providing httpConfig, leading to interesting bug like having one time
+	 * httpConfig override merged into defaultHttConfig.
+	 * a test with two sccessive call will detect this issue.
+	 */
+	merge(cloneDeep(defaultHttpConfig), httpConfig),
 );
 
 /**
