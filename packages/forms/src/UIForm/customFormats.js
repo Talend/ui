@@ -34,11 +34,10 @@ const customFormats = t => ({
 		return null;
 	},
 	'url-git': fieldData => {
-		const urlGIT_TEST = urlGit;
 		if (typeof fieldData === 'string' && !urlGit.test(fieldData)) {
 			return t('FORMAT_URL_GIT', {
 				defaultValue:
-					'must be a valid url http (e.g.: http(s)://my.domain.com/my-repo(.git)) or  ssh (e.g. ssh://user@host:my-repo.git)',
+					'must be a valid url http (e.g.: http(s)://host/my-repo[.git]), ssh (e.g. ssh://[user@]host:[port/]my-repo.git) or git (e.g git://host[:port]/my-repo.git)',
 			});
 		}
 		return null;
