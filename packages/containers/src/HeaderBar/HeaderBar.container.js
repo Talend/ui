@@ -36,7 +36,10 @@ class HeaderBar extends React.Component {
 			}
 		}
 
-		const props = Object.assign({}, omit(this.props, ['products.url', ...cmfConnect.INJECTED_PROPS]));
+		const props = Object.assign(
+			{},
+			omit(this.props, ['products.url', ...cmfConnect.INJECTED_PROPS]),
+		);
 
 		return <Inject component="HeaderBar" {...props} />;
 	}

@@ -3,15 +3,11 @@ import { shallow } from 'enzyme';
 import { Map, List } from 'immutable';
 
 import Container from './HeaderBar.container';
-import Connected, {
-	mapStateToProps,
-} from './HeaderBar.connect';
+import Connected, { mapStateToProps } from './HeaderBar.connect';
 
 describe('Container HeaderBar', () => {
 	it('should render', () => {
-		const wrapper = shallow(
-			<Container />
-		);
+		const wrapper = shallow(<Container />);
 		expect(wrapper.props()).toMatchSnapshot();
 	});
 });
@@ -50,10 +46,11 @@ describe('Connected HeaderBar', () => {
 		};
 		const ownProps = {};
 
-		const { products: { items } } = mapStateToProps(state, ownProps);
+		const {
+			products: { items },
+		} = mapStateToProps(state, ownProps);
 
 		expect(items.length).toEqual(apps.length);
 		expect(Object.keys(items[0])).toEqual(['onClickDispatch', 'url']);
 	});
 });
-

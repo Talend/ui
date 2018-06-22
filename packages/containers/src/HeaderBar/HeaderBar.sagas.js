@@ -1,4 +1,3 @@
-
 import cmf from '@talend/react-cmf';
 import { call, put, select, takeEvery, take } from 'redux-saga/effects';
 import HeaderBarContainer from './HeaderBar.container';
@@ -10,7 +9,7 @@ import HeaderBarContainer from './HeaderBar.container';
  */
 function* fetchProducts(action) {
 	const collection = yield select(state =>
-		cmf.selectors.collections.toJS(state, HeaderBarContainer.PRODUCTS_COLLECTION_ID)
+		cmf.selectors.collections.toJS(state, HeaderBarContainer.PRODUCTS_COLLECTION_ID),
 	);
 
 	if (collection) {
