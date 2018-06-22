@@ -1,23 +1,49 @@
 > eslint --config ../../.eslintrc src
 
 
-/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/fields/CollapsibleFieldset.js
+/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   81:8  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
-/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/fields/CollapsibleFieldset.test.js
+/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.test.js
   2:10  error  'shallow' is defined but never used  no-unused-vars
 
-/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/Form.test.js
+/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
   10:36  error  Absolute imports should come before relative imports  import/first
   12:20  error  Absolute imports should come before relative imports  import/first
   13:19  error  Absolute imports should come before relative imports  import/first
   14:20  error  Absolute imports should come before relative imports  import/first
 
-/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
+  77:1  error  Expected indentation of 5 tabs but found 6  indent
+  78:1  error  Expected indentation of 5 tabs but found 6  indent
+  79:1  error  Expected indentation of 4 tabs but found 5  indent
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
   48:7  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
-/Users/jsomsanith/Documents/workspace/ui/packages/forms/src/UIForm/utils/templates.js
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
 
-✖ 8 problems (8 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
+  68:1  error  Expected indentation of 6 tabs but found 7            indent
+  68:8  error  Expected indentation of 6 tab characters but found 7  react/jsx-indent
+  69:1  error  Expected indentation of 7 tabs but found 8            indent
+  70:1  error  Expected indentation of 7 tabs but found 8            indent
+  71:1  error  Expected indentation of 7 tabs but found 8            indent
+  72:1  error  Expected indentation of 7 tabs but found 8            indent
+  73:1  error  Expected indentation of 7 tabs but found 8            indent
+  74:1  error  Expected indentation of 7 tabs but found 8            indent
+  75:1  error  Expected indentation of 7 tabs but found 8            indent
+  76:1  error  Expected indentation of 7 tabs but found 8            indent
+  77:1  error  Expected indentation of 6 tabs but found 7            indent
+  78:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+  290:1  error  Expected indentation of 3 tabs but found 4  indent
+  291:1  error  Expected indentation of 4 tabs but found 5  indent
+  292:1  error  Expected indentation of 3 tabs but found 4  indent
+  293:1  error  Expected indentation of 2 tabs but found 3  indent
+
+✖ 27 problems (27 errors, 0 warnings)
+  18 errors, 0 warnings potentially fixable with the `--fix` option.
 
