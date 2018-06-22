@@ -1,0 +1,6 @@
+extends: ./api-app.yaml
+env:
+  jquery: true
+globals:
+  _: false # To be removed when all our angular code uses proper imports
+  angular: false

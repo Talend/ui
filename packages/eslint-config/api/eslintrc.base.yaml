@@ -1,0 +1,29 @@
+extends:
+  - 'eslint:recommended'
+  - airbnb
+parser: babel-eslint
+env:
+  es6: true
+parserOptions:
+  sourceType: module
+rules:
+  no-plusplus: off
+  padded-blocks: off
+  func-names:
+    - error
+    - as-needed
+  computed-property-spacing:
+    - warn
+    - always
+  array-bracket-spacing:
+    - warn
+    - always
+    - { arraysInArrays: false }
+  space-before-function-paren:
+    - error
+    - { anonymous: always, named: always, asyncArrow: always }
+  max-len:
+    - error
+    - 120
+    - 2
+    - { ignoreUrls: true, ignoreComments: false, ignoreRegExpLiterals: true, ignoreStrings: true, ignoreTemplateLiterals: true }
