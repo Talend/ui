@@ -10,7 +10,7 @@ import theme from './DateTimeView.scss';
  * Get the positive euclidean modulo number from a dividend and a divisor
  * @param {number} dividend Dividend
  * @param {number} divisor Divisor
- * @return The positive euclidean modulo
+ * @return {number} The positive euclidean modulo
  */
 export function euclideanModulo(dividend, divisor) {
 	const modulo = ((dividend % divisor) + divisor) % divisor;
