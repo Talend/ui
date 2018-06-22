@@ -57,6 +57,10 @@ export class ItemsComponent extends React.PureComponent {
 		return this.props.getItemHeight() + extraHeight;
 	}
 
+	componentDidUpdate() {
+		this.node.recomputeRowHeights();
+	}
+
 	getRowCount() {
 		if (this.hasToggleAll) {
 			return this.props.items.length + 1;
@@ -165,10 +169,6 @@ export class ItemsComponent extends React.PureComponent {
 				</AutoSizer>
 			</div>
 		);
-	}
-
-	componentDidUpdate() {
-		this.node.recomputeRowHeights();
 	}
 }
 

@@ -83,6 +83,15 @@ input[type='checkbox'],
 	}
 }
 
-.checkbox label {
-	line-height: $tt-checkbox-size;
+.checkbox {
+	input {
+		cursor: pointer;
+	}
+	label {
+		line-height: $tt-checkbox-size;
+		color: $dove-gray;
+	}
+	&.disabled label {
+		opacity: 0.4;
+	}
 }
