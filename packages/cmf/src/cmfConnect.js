@@ -40,7 +40,6 @@ import actionCreator from './actionCreator';
 import component from './component';
 import CONST from './constant';
 import expression from './expression';
-import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
