@@ -10,16 +10,38 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
+  68:24  error  'getComponent' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
   56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/RichTooltip/RichTooltip.component.js
+   52:11  error  'tabs' is missing in props validation          react/prop-types
+   58:23  error  'filter' is missing in props validation        react/prop-types
+   59:13  error  'tabs' is missing in props validation          react/prop-types
+   59:18  error  'tabs.map' is missing in props validation      react/prop-types
+   62:11  error  'items' is missing in props validation         react/prop-types
+   62:36  error  'filter' is missing in props validation        react/prop-types
+   63:25  error  'items' is missing in props validation         react/prop-types
+   72:83  error  'content' is missing in props validation       react/prop-types
+  132:34  error  'getComponent' is missing in props validation  react/prop-types
+  133:60  error  'getComponent' is missing in props validation  react/prop-types
+  134:34  error  'getComponent' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.component.js
+  21:44  error  'parent' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
+  129:2  error  'getComponent' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
+  23:3  error  'getComponent' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -27,5 +49,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 25 problems (24 errors, 1 warning)
 
