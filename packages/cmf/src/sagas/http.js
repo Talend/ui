@@ -2,7 +2,6 @@ import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
 import curry from 'lodash/curry';
-import cloneDeep from 'lodash/cloneDeep';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
@@ -285,7 +284,7 @@ export const handleDefaultHttpConfiguration = curry((defaultHttpConfig, httpConf
 	 * httpConfig override merged into defaultHttConfig.
 	 * a test with two sccessive call will detect this issue.
 	 */
-	merge(cloneDeep(defaultHttpConfig), httpConfig),
+	merge({}, defaultHttpConfig, httpConfig),
 );
 
 /**
