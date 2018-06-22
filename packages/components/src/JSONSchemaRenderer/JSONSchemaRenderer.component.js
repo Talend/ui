@@ -43,21 +43,12 @@ function InvalidSchemaException() {
 }
 
 /**
- * HiddenRenderer renders nothing to hide specified properties
+ * NullRenderer renders nothing to hide specified properties
+ * or properties that don't have a corresponding schema definition
  *
  * @returns null
  */
-function HiddenRenderer() {
-	return null;
-}
-
-/**
- * UnkownRenderer renders nothing in case the property doesn't have a
- * coresponding schema definition
- *
- * @returns {undefined}
- */
-function UnkownRenderer() {
+function NullRenderer() {
 	return null;
 }
 
@@ -65,29 +56,23 @@ function UnkownRenderer() {
  * TextRenderer renders text based properties (string and numbers)
  */
 function TextRenderer({ propertyKey, title, properties }) {
-	return (
-		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
-			<dt>{title || propertyKey}</dt>
-			<dd>{properties}</dd>
-		</div>
-	);
+	return [
+		<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>,
+		<dd key={`${propertyKey}_value`}>{properties}</dd>,
+	];
 }
-
-export function PasswordRenderer({ propertyKey, title, properties }) {
-	return (
-		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
-			<dt>{title || propertyKey}</dt>
-			<dd>{'\u2022'.repeat(5)}</dd>
-		</div>
-	);
-}
-
-PasswordRenderer.propTypes = {
+TextRenderer.propTypes = {
 	...RendererProptypes,
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-TextRenderer.propTypes = {
+export function PasswordRenderer({ propertyKey, title }) {
+	return [
+		<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>,
+		<dd key={`${propertyKey}_value`}>{'\u2022'.repeat(5)}</dd>,
+	];
+}
+PasswordRenderer.propTypes = {
 	...RendererProptypes,
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
@@ -96,17 +81,11 @@ TextRenderer.propTypes = {
  * booleanRenderer renders boolean properties
  */
 function BooleanRenderer({ propertyKey, title, properties }) {
-	return (
-		<div
-			className={classNames('boolean-renderer', `boolean-renderer-${propertyKey}`)}
-			key={propertyKey}
-		>
-			<dt>{title || propertyKey}</dt>
-			<dd>{properties.toString()}</dd>
-		</div>
-	);
+	return [
+		<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>,
+		<dd key={`${propertyKey}_value`}>{properties}</dd>,
+	];
 }
-
 BooleanRenderer.propTypes = {
 	...RendererProptypes,
 	properties: PropTypes.bool.isRequired,
@@ -116,14 +95,14 @@ BooleanRenderer.propTypes = {
  * arrayRenderer renders an array of properties
  */
 function ArrayRenderer({ propertyKey, title, properties }) {
-	return (
-		<div className={classNames(css.array, `array-renderer-${propertyKey}`)} key={propertyKey}>
-			<dt>{title || propertyKey}</dt>
-			{properties.map((val, i) => <dd key={`propertyKey-${i}`}>{val}</dd>)}
-		</div>
+	return [<dt key={`${propertyKey}_key`}>{title || propertyKey}</dt>].concat(
+		properties.map((val, i) => (
+			<dd key={`${propertyKey}-value-${i}`} className={css['array-value']}>
+				{val}
+			</dd>
+		)),
 	);
 }
-
 ArrayRenderer.propTypes = {
 	...RendererProptypes,
 	properties: PropTypes.arrayOf(PropTypes.shape({ ...RendererProptypes })).isRequired,
@@ -156,10 +135,10 @@ export function isPassword(uiSchema, element) {
 function typeResolver(schema, uiSchema) {
 	return function resolver(e) {
 		if (!schema[e[0]]) {
-			return { Renderer: UnkownRenderer };
+			return { render: NullRenderer };
 		}
 		if (isHidden(uiSchema, e[0])) {
-			return { Renderer: HiddenRenderer };
+			return { render: NullRenderer };
 		}
 
 		const type = schema[e[0]].type;
@@ -167,7 +146,7 @@ function typeResolver(schema, uiSchema) {
 
 		if (isPassword(uiSchema, e[0])) {
 			return {
-				Renderer: PasswordRenderer,
+				render: PasswordRenderer,
 				propertyKey: e[0],
 				title,
 				properties: e[1],
@@ -182,7 +161,7 @@ function typeResolver(schema, uiSchema) {
 		}
 
 		return {
-			Renderer: renderer,
+			render: renderer,
 			propertyKey: e[0],
 			title,
 			properties: e[1],
@@ -219,20 +198,23 @@ function orderProperties(order, properties) {
 /**
  * objectRenderer renders nested properties
  */
-function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
-	const flattenProperties = orderProperties(
-		get(uiSchema, [propertyKey, 'ui:order']),
-		entries(properties),
-	);
-	const elements = flattenProperties.map(
-		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
-	);
-	return (
-		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
+function ObjectRenderer({ propertyKey, title, uiSchema, schema, properties, ...props }) {
+	return [
+		<dt key={`${propertyKey}_key`}>
 			<h2>{title || propertyKey}</h2>
-			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
-		</div>
-	);
+		</dt>,
+		<dd key={`${propertyKey}_value`}>
+			<JSONSchemaRenderer
+				schema={{
+					jsonSchema: schema[propertyKey],
+					uiSchema: uiSchema[propertyKey],
+					properties,
+				}}
+				className={css.nested}
+				{...props}
+			/>
+		</dd>,
+	];
 }
 
 ObjectRenderer.propTypes = {
@@ -258,7 +240,7 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (
 		<dl className={classNames(css[CLASS_NAME], 'json-schema-renderer', className)} {...props}>
-			{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
+			{elements.map(({ render, ...rest }) => render(rest))}
 		</dl>
 	);
 }

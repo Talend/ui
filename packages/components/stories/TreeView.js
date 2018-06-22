@@ -274,6 +274,20 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
+	.addWithInfo('without header', () => (
+		<div>
+			<h1>TreeView</h1>
+			<h3>Definition</h3>
+			<p>
+				A view component to display any tree structure, like folders or categories.
+			</p>
+			<h3>Default property-set without header example: </h3>
+			<div style={style}>
+				<IconsProvider />
+				<TreeView {...defaultProps} noHeader />
+			</div>
+		</div>
+	))
 	.addWithInfo('with remove action and counter', () => (
 		<div>
 			<h1>TreeView</h1>
