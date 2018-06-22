@@ -269,7 +269,7 @@ function save(ppath, data) {
  * for each file three steps
  * - load the file
  * - transform dependencies versions
- * - writte new dependencies version into file
+ * - write new dependencies version into file
  * @param {Array<String>} filesList
  * @param {Object<dependency, version>} versions
  */
