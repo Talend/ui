@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
 import { translate } from 'react-i18next';
-import { getActionsProps } from '../actionAPI';
-import deleteResourceConst from './deleteResource.constants';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
+import CONSTANTS from './constants';
 
 /**
  * DeleteResource is used to delete a specific resource.
@@ -23,6 +22,7 @@ export class DeleteResource extends React.Component {
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
+		resourceId: PropTypes.string,
 		female: PropTypes.string,
 	};
 	static contextTypes = {
@@ -35,8 +35,8 @@ export class DeleteResource extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
-		this.getActions = this.getActions.bind(this);
 		this.getLabel = this.getLabel.bind(this);
+		this.getResourceInfo = this.getResourceInfo.bind(this);
 	}
 
 	/**
@@ -62,32 +62,32 @@ export class DeleteResource extends React.Component {
 				: this.props.resourceType,
 			uri: this.props.uri,
 			...this.getLabel(),
-			id: this.props.params.id,
+			id: this.props.resourceId,
 		};
-	}
-
-	/**
-	 * Call the registry to fetch the actions with the resourceInfo data.
-	 * @param {object} resourceInfo data add to the model.
-	 * @return {object} the fetched actions.
-	 */
-	getActions(key, resourceInfo) {
-		return getActionsProps(this.context, this.props[key], {
-			resourceInfo,
-		});
 	}
 
 	render() {
 		const resourceInfo = this.getResourceInfo();
-		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
-		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
-
+		const validateAction = {
+			componentId: this.props[CONSTANTS.VALIDATE_ACTION],
+			model: resourceInfo,
+			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'Yes' }),
+			bsStyle: 'danger',
+			onClickActionCreator: 'DeleteResource#validate',
+		};
+		const cancelAction = {
+			componentId: this.props[CONSTANTS.CANCEL_ACTION],
+			model: resourceInfo,
+			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'No' }),
+			onClickActionCreator: 'DeleteResource#cancel',
+		};
 		return (
 			<ConfirmDialog
 				show
 				header={this.props.header}
 				cancelAction={cancelAction}
 				validateAction={validateAction}
+				getComponent={this.props.getComponent}
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {

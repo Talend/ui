@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
+import cloneDeep from 'lodash/cloneDeep';
 
 import Item from './Item.component';
 
@@ -62,6 +63,27 @@ describe('Item', () => {
 		// then
 		expect(buttons.length).toBe(3);
 		expect(props.item.itemProps.onSelectItem).toBeCalled();
+	});
+
+	it('should display value with only button which are not disabled', () => {
+		// given
+		const itemWithDisabled = cloneDeep(item);
+		itemWithDisabled.itemProps.actions[0].disabled = true;
+		const props = {
+			item: itemWithDisabled,
+		};
+
+		const itemInstance = <Item {...props} />;
+
+		// when
+		const wrapper = mount(itemInstance);
+		const buttons = wrapper
+			.find('.tc-enumeration-item-actions')
+			.at(0)
+			.find(Button);
+
+		// then
+		expect(buttons.length).toBe(1);
 	});
 
 	it('should display a label if "item[key]" is a string', () => {

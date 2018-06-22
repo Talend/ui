@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf, setAddon } from '@storybook/react';
+import { checkA11y } from '@storybook/addon-a11y';
 import cmf from '@talend/react-storybook-cmf';
 import { I18nextProvider } from 'react-i18next';
 import mock from '@talend/react-cmf/lib/mock';
@@ -188,6 +189,7 @@ const options = {
 };
 
 storiesOf('Container Datagrid')
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
