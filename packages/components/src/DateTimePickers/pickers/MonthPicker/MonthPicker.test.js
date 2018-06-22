@@ -43,8 +43,6 @@ describe('MonthPicker', () => {
 			.first()
 			.find('PickerAction');
 
-		expect(juneAction.length).toBe(1);
-
 		juneAction.simulate('click');
 
 		expect(onSelect).toHaveBeenCalledWith(monthIndexToSelect);

@@ -45,8 +45,6 @@ describe('YearPicker', () => {
 			.find('PickerAction')
 			.findWhere(n => n.prop('label') === yearToSelect.toString());
 
-		expect(nextYearAction.length).toBe(1);
-
 		nextYearAction.simulate('click');
 
 		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
@@ -61,17 +59,6 @@ describe('YearPicker', () => {
 		const currentYear = now.getFullYear().toString();
 
 		expect(actions.at(2).prop('label')).toBe(currentYear);
-	});
-
-	it('should render with "selectedYear" prop as the middle year if provided', () => {
-		const year = 2005;
-		const wrapper = shallow(<YearPicker
-			selectedYear={year}
-			onSelect={() => {}}
-		/>);
-		const actions = wrapper.find('PickerAction');
-
-		expect(actions.at(2).prop('label')).toBe(year.toString());
 	});
 
 	it('should not update the years range if the selected year change', () => {
