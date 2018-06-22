@@ -154,32 +154,17 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       </svg>
     </a>
   </li>
-  <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+  <div
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        1
-        /
-        2
-      </span>
-    </a>
-  </li>
+    1
+    /
+    2
+  </div>
   <li
     className="btn-link"
     role="presentation"
@@ -375,32 +360,17 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       </svg>
     </a>
   </li>
-  <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+  <div
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        2
-        /
-        2
-      </span>
-    </a>
-  </li>
+    2
+    /
+    2
+  </div>
   <li
     className="btn-link disabled"
     role="presentation"
@@ -893,32 +863,17 @@ exports[`Pagination should render 1`] = `
       </svg>
     </a>
   </li>
-  <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+  <div
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        2
-        /
-        4
-      </span>
-    </a>
-  </li>
+    2
+    /
+    4
+  </div>
   <li
     className="btn-link"
     role="presentation"
@@ -1114,32 +1069,17 @@ exports[`Pagination should render id if provided 1`] = `
       </svg>
     </a>
   </li>
-  <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+  <div
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        2
-        /
-        4
-      </span>
-    </a>
-  </li>
+    2
+    /
+    4
+  </div>
   <li
     className="btn-link"
     role="presentation"
