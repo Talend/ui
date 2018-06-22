@@ -4,77 +4,84 @@ import classNames from 'classnames';
 import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
 
-function DatePicker(props) {
-	const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-	const days = (new Array(7))
-					.fill(0)
-					.map((_, i) => i + 1);
+class DatePicker extends React.Component {
 
-	const weeks = (new Array(4))
-		.fill(0)
-		.map((_, i) =>
-			days.map(x => ({
-				number: x + (i * 7),
-			}))
-		);
+	constructor(props) {
+		super(props);
 
-	const selectedDay = 12;
-	const currentDay = 20;
-	const disabledDays = [6, 15];
+		this.dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		const days = (new Array(7))
+						.fill(0)
+						.map((_, i) => i + 1);
 
-	function isSelectedDay(n) {
-		return selectedDay === n;
+		this.weeks = (new Array(4))
+			.fill(0)
+			.map((_, i) =>
+				days.map(x => ({
+					number: x + (i * 7),
+				}))
+			);
+
+		this.selectedDay = 12;
+		this.currentDay = 20;
+		this.disabledDays = [6, 15];
 	}
 
-	function isCurrentDay(n) {
-		return currentDay === n;
+	isSelectedDay(n) {
+		return this.selectedDay === n;
 	}
 
-	function isDisabledDay(n) {
-		return disabledDays.includes(n);
+	isCurrentDay(n) {
+		return this.currentDay === n;
 	}
 
-	return (
-		<div className={theme.container}>
-			<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
-				{dayNames.map((dayName, i) =>
-					<abbr
-						className={theme['calendar-item']}
-						key={i}
-						title={dayName}
-					>
-						{dayName.charAt(0)}
-					</abbr>
-				)}
-			</div>
+	isDisabledDay(n) {
+		return this.disabledDays.includes(n);
+	}
 
-			<hr className={theme.separator} />
-
-			{weeks.map((week, i) =>
-				<div
-					className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
-					key={i}
-				>
-					{week.map((day, j) =>
-						<div
+	render() {
+		return (
+			<div className={theme.container}>
+				<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
+					{this.dayNames.map((dayName, i) =>
+						<abbr
 							className={theme['calendar-item']}
-							key={j}
+							key={i}
+							title={dayName}
 						>
-							<DayPickerAction
-								label={day.number.toString()}
-								isSelectedDay={isSelectedDay(day.number)}
-								isDisabledDay={isDisabledDay(day.number)}
-								isCurrentDay={isCurrentDay(day.number)}
-								aria-label={isDisabledDay(day.number)
-									? 'Unselectable date'
-									: `Select '${day.number}'`}
-							/>
-						</div>
+							{dayName.charAt(0)}
+						</abbr>
 					)}
 				</div>
-			)}
-		</div>
-	);
+
+				<hr className={theme.separator} />
+
+				{this.weeks.map((week, i) =>
+					<div
+						className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
+						key={i}
+					>
+						{week.map((day, j) =>
+							<div
+								className={theme['calendar-item']}
+								key={j}
+							>
+								<DayPickerAction
+									label={day.number.toString()}
+									isSelectedDay={this.isSelectedDay(day.number)}
+									isDisabledDay={this.isDisabledDay(day.number)}
+									isCurrentDay={this.isCurrentDay(day.number)}
+									aria-label={this.isDisabledDay(day.number)
+										? 'Unselectable date'
+										: `Select '${day.number}'`}
+								/>
+							</div>
+						)}
+					</div>
+				)}
+			</div>
+		);
+	}
 }
 
 DatePicker.propTypes = {
