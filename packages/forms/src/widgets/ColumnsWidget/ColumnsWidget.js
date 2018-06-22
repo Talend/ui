@@ -64,8 +64,9 @@ export default class ColumnsWidget extends React.Component {
 					<TitleField id={`${name}__title`} title={schema.title || name} />
 				)}
 				{schema.properties
-					? Object.keys(schema.properties).map(key => (
-							<Column
+					? Object.keys(schema.properties)
+						.map(key =>
+							(<Column
 								{...props}
 								key={key}
 								columnKey={key}
@@ -74,8 +75,8 @@ export default class ColumnsWidget extends React.Component {
 								onChange={this.onColumnChange(key)}
 								onBlur={onBlur}
 								className={`tf-column-${key}`}
-							/>
-					  ))
+							/>)
+						)
 					: null}
 			</div>
 		);

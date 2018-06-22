@@ -365,7 +365,7 @@
     react-split-pane "^0.1.77"
     react-treebeard "^2.1.0"
 
-"@talend/eslint-config@0.1.0", "@talend/eslint-config@1.0.0":
+"@talend/eslint-config@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@talend/eslint-config/-/eslint-config-1.0.0.tgz#1caf7ab4deafdffb4d18018651409d4ab63da2c2"
   dependencies:
