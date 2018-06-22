@@ -11,7 +11,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Items/Items.component.js
-  170:2  error  componentDidUpdate should be placed before getRowCount  react/sort-comp
+  42:2  error  getItemByIndex should be placed after componentDidUpdate  react/sort-comp
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
