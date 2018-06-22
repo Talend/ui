@@ -30,5 +30,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:8  error  Expected indentation of 6 tab characters but found 7  react/jsx-indent
   78:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
-✖ 11 problems (11 errors, 0 warnings)
+✖ 12 problems (12 errors, 0 warnings)
 
