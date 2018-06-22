@@ -12,13 +12,16 @@
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
 	transition: all 0.1s ease-out;
+	min-height: 3.5rem;
 
 	&,
 	& > span {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 
 		> * {
-			vertical-align: middle;
+			flex-shrink: 0;
 		}
 	}
 
@@ -73,7 +76,11 @@
 	}
 
 	&-icon-only {
-		padding: 0 $padding-smaller;
+		display: inline-block;
+
+		svg {
+			vertical-align: middle;
+		}
 	}
 
 	&-xs {
@@ -81,6 +88,7 @@
 		padding: 0 $padding-xs-horizontal;
 		font-size: 1rem;
 		line-height: 1.5rem;
+		min-height: 1.5rem;
 
 		svg {
 			height: $svg-xs-size;
@@ -91,6 +99,7 @@
 	&-sm {
 		padding: 0 $padding-small-horizontal;
 		line-height: 2rem;
+		min-height: 2rem;
 
 		svg {
 			height: $svg-sm-size;
@@ -100,7 +109,7 @@
 
 	&-lg {
 		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
-
+		min-height: 5.6rem;
 		svg {
 			height: $svg-lg-size;
 			width: $svg-lg-size;
