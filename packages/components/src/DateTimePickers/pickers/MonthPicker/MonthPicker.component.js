@@ -19,12 +19,6 @@ const monthsRows = chunk(months, 3);
 
 class MonthPicker extends React.PureComponent {
 
-	onSelect(index) {
-		return () => {
-			this.props.onSelect(index);
-		};
-	}
-
 	isSelected(index) {
 		return index === this.props.selectedMonthIndex;
 	}
@@ -43,7 +37,7 @@ class MonthPicker extends React.PureComponent {
 									aria-label={`Select '${month.name}'`}
 									isSelected={this.isSelected(month.index)}
 									label={month.name}
-									onClick={this.onSelect(month.index)}
+									onClick={() => this.props.onSelect(month.index)}
 								/>
 							</div>
 						)}

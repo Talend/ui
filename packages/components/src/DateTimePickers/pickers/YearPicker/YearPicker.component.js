@@ -20,14 +20,7 @@ class YearPicker extends React.Component {
 			.fill(0)
 			.map((_, i) => firstYear + i);
 
-		this.onSelect = this.onSelect.bind(this);
 		this.isSelected = this.isSelected.bind(this);
-	}
-
-	onSelect(year) {
-		return () => {
-			this.props.onSelect(year);
-		};
 	}
 
 	isSelected(year) {
@@ -55,7 +48,7 @@ class YearPicker extends React.Component {
 								aria-label={`Select '${year}'`}
 								isSelected={this.isSelected(year)}
 								label={year.toString()}
-								onClick={this.onSelect(year)}
+								onClick={() => this.props.onSelect(year)}
 							/>
 						</div>
 					)}
