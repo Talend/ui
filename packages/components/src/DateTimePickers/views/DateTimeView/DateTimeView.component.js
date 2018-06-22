@@ -8,13 +8,13 @@ import theme from './DateTimeView.scss';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor
- * @param {number} a Dividend
- * @param {number} b Divisor
+ * @param {number} dividend Dividend
+ * @param {number} divisor Divisor
  * @return The positive euclidean modulo
  */
-export function euclideanModulo(a, b) {
-	const m = ((a % b) + b) % b;
-	return m < 0 ? m + Math.abs(b) : m;
+export function euclideanModulo(dividend, divisor) {
+	const modulo = ((dividend % divisor) + divisor) % divisor;
+	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
 class DateTimeView extends React.Component {
