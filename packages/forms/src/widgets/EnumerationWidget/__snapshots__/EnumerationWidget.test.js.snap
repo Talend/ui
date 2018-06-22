@@ -36,6 +36,7 @@ exports[`EnumerationWidget delete all 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -73,6 +74,7 @@ exports[`EnumerationWidget delete all 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -105,6 +107,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -155,6 +158,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -192,6 +196,7 @@ exports[`EnumerationWidget delete all 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -225,6 +230,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -283,6 +289,7 @@ exports[`EnumerationWidget delete all 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -320,6 +327,7 @@ exports[`EnumerationWidget delete all 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -354,6 +362,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -408,6 +417,7 @@ exports[`EnumerationWidget delete all 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -445,6 +455,7 @@ exports[`EnumerationWidget delete all 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -479,6 +490,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -528,6 +540,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -777,6 +790,7 @@ exports[`EnumerationWidget delete all 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -814,6 +828,7 @@ exports[`EnumerationWidget delete all 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -848,6 +863,7 @@ exports[`EnumerationWidget delete all 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -912,6 +928,7 @@ exports[`EnumerationWidget delete all 1`] = `
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": false,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove value",
@@ -963,6 +980,7 @@ exports[`EnumerationWidget delete all 1`] = `
                               "onClick": [Function],
                             },
                             Object {
+                              "disabled": false,
                               "icon": "talend-trash",
                               "id": "delete",
                               "label": "Remove value",
@@ -1011,6 +1029,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                 "onClick": [Function],
                               },
                               Object {
+                                "disabled": false,
                                 "icon": "talend-trash",
                                 "id": "delete",
                                 "label": "Remove value",
@@ -1123,6 +1142,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -1149,6 +1169,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": false,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -1191,6 +1212,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -1217,6 +1239,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -1266,6 +1289,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": false,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -1292,6 +1316,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -1608,6 +1633,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -1645,6 +1671,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -1665,6 +1692,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -1715,6 +1743,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -1752,6 +1781,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -1773,6 +1803,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -1831,6 +1862,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -1868,6 +1900,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -1890,6 +1923,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -1944,6 +1978,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -1981,6 +2016,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -2003,6 +2039,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -2090,229 +2127,9 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     type="text"
                   />
                   <Action
-                    disabled={true}
-                    hideLabel={true}
-                    icon="talend-check-plus"
-                    key="0-enum-header-action"
-                    label="Validate and Add"
-                    link={true}
-                    onClick={[Function]}
-                    tooltipPlacement="bottom"
-                  >
-                    <Translate(ActionButton)
-                      disabled={true}
-                      hideLabel={true}
-                      icon="talend-check-plus"
-                      label="Validate and Add"
-                      link={true}
-                      onClick={[Function]}
-                      tooltipPlacement="bottom"
-                    >
-                      <I18n
-                        bindI18n="languageChanged loaded"
-                        bindStore="added removed"
-                        disabled={true}
-                        hideLabel={true}
-                        i18n={Object {}}
-                        icon="talend-check-plus"
-                        label="Validate and Add"
-                        link={true}
-                        ns={
-                          Array [
-                            "tui-components",
-                          ]
-                        }
-                        nsMode="default"
-                        onClick={[Function]}
-                        tooltipPlacement="bottom"
-                        translateFuncName="t"
-                        usePureComponent={false}
-                        wait={false}
-                        withRef={false}
-                      >
-                        <ActionButton
-                          available={true}
-                          bsStyle="default"
-                          disabled={true}
-                          hideLabel={true}
-                          i18n={Object {}}
-                          icon="talend-check-plus"
-                          inProgress={false}
-                          label="Validate and Add"
-                          link={true}
-                          loading={false}
-                          onClick={[Function]}
-                          t={[Function]}
-                          tReady={false}
-                          tooltipPlacement="bottom"
-                        >
-                          <TooltipTrigger
-                            label="Validate and Add"
-                            tooltipPlacement="bottom"
-                          >
-                            <span
-                              onFocus={[Function]}
-                              onMouseOver={[Function]}
-                            >
-                              <Button
-                                active={false}
-                                aria-label="Validate and Add"
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="link"
-                                className="btn-icon-only theme-btn-disabled"
-                                disabled={true}
-                                onClick={[Function]}
-                                onMouseDown={[Function]}
-                                role="link"
-                              >
-                                <button
-                                  aria-label="Validate and Add"
-                                  className="btn-icon-only theme-btn-disabled btn btn-link"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                  onMouseDown={[Function]}
-                                  role="link"
-                                  type="button"
-                                >
-                                  <Icon
-                                    key="icon"
-                                    name="talend-check-plus"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      className="theme-tc-svg-icon tc-svg-icon"
-                                      focusable="false"
-                                      name="talend-check-plus"
-                                      title={null}
-                                    >
-                                      <use
-                                        xlinkHref="#talend-check-plus"
-                                      />
-                                    </svg>
-                                  </Icon>
-                                </button>
-                              </Button>
-                            </span>
-                          </TooltipTrigger>
-                        </ActionButton>
-                      </I18n>
-                    </Translate(ActionButton)>
-                  </Action>
-                  <Action
-                    disabled={true}
-                    hideLabel={true}
-                    icon="talend-check"
-                    key="1-enum-header-action"
-                    label="Validate"
-                    link={true}
-                    onClick={[Function]}
-                    tooltipPlacement="bottom"
-                  >
-                    <Translate(ActionButton)
-                      disabled={true}
-                      hideLabel={true}
-                      icon="talend-check"
-                      label="Validate"
-                      link={true}
-                      onClick={[Function]}
-                      tooltipPlacement="bottom"
-                    >
-                      <I18n
-                        bindI18n="languageChanged loaded"
-                        bindStore="added removed"
-                        disabled={true}
-                        hideLabel={true}
-                        i18n={Object {}}
-                        icon="talend-check"
-                        label="Validate"
-                        link={true}
-                        ns={
-                          Array [
-                            "tui-components",
-                          ]
-                        }
-                        nsMode="default"
-                        onClick={[Function]}
-                        tooltipPlacement="bottom"
-                        translateFuncName="t"
-                        usePureComponent={false}
-                        wait={false}
-                        withRef={false}
-                      >
-                        <ActionButton
-                          available={true}
-                          bsStyle="default"
-                          disabled={true}
-                          hideLabel={true}
-                          i18n={Object {}}
-                          icon="talend-check"
-                          inProgress={false}
-                          label="Validate"
-                          link={true}
-                          loading={false}
-                          onClick={[Function]}
-                          t={[Function]}
-                          tReady={false}
-                          tooltipPlacement="bottom"
-                        >
-                          <TooltipTrigger
-                            label="Validate"
-                            tooltipPlacement="bottom"
-                          >
-                            <span
-                              onFocus={[Function]}
-                              onMouseOver={[Function]}
-                            >
-                              <Button
-                                active={false}
-                                aria-label="Validate"
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="link"
-                                className="btn-icon-only theme-btn-disabled"
-                                disabled={true}
-                                onClick={[Function]}
-                                onMouseDown={[Function]}
-                                role="link"
-                              >
-                                <button
-                                  aria-label="Validate"
-                                  className="btn-icon-only theme-btn-disabled btn btn-link"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                  onMouseDown={[Function]}
-                                  role="link"
-                                  type="button"
-                                >
-                                  <Icon
-                                    key="icon"
-                                    name="talend-check"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      className="theme-tc-svg-icon tc-svg-icon"
-                                      focusable="false"
-                                      name="talend-check"
-                                      title={null}
-                                    >
-                                      <use
-                                        xlinkHref="#talend-check"
-                                      />
-                                    </svg>
-                                  </Icon>
-                                </button>
-                              </Button>
-                            </span>
-                          </TooltipTrigger>
-                        </ActionButton>
-                      </I18n>
-                    </Translate(ActionButton)>
-                  </Action>
-                  <Action
                     hideLabel={true}
                     icon="talend-cross"
-                    key="2-enum-header-action"
+                    key="0-enum-header-action"
                     label="Abort"
                     link={true}
                     onClick={[Function]}
@@ -2430,6 +2247,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -2467,6 +2285,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -2489,6 +2308,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -2563,6 +2383,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -2600,6 +2421,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -2620,6 +2442,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -2670,6 +2493,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -2707,6 +2531,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -2728,6 +2553,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -2786,6 +2612,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -2823,6 +2650,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -2845,6 +2673,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -2899,6 +2728,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -2936,6 +2766,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -2958,6 +2789,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -3007,6 +2839,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -3256,6 +3089,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -3293,6 +3127,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -3315,6 +3150,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -3394,6 +3230,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -3431,6 +3268,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -3451,6 +3289,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -3501,6 +3340,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -3538,6 +3378,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -3559,6 +3400,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -3617,6 +3459,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -3654,6 +3497,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -3676,6 +3520,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -3730,6 +3575,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -3767,6 +3613,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -3789,6 +3636,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -3838,6 +3686,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -4088,6 +3937,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -4125,6 +3975,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -4147,6 +3998,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -4240,6 +4092,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -4277,6 +4130,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -4310,6 +4164,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -4367,6 +4222,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -4404,6 +4260,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -4438,6 +4295,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -4503,6 +4361,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -4540,6 +4399,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -4575,6 +4435,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -4636,6 +4497,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -4673,6 +4535,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -4708,6 +4571,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -4757,6 +4621,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -5013,6 +4878,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -5050,6 +4916,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -5085,6 +4952,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -5157,6 +5025,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": false,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove value",
@@ -5208,6 +5077,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                               "onClick": [Function],
                             },
                             Object {
+                              "disabled": false,
                               "icon": "talend-trash",
                               "id": "delete",
                               "label": "Remove value",
@@ -5257,6 +5127,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 "onClick": [Function],
                               },
                               Object {
+                                "disabled": false,
                                 "icon": "talend-trash",
                                 "id": "delete",
                                 "label": "Remove value",
@@ -5817,6 +5688,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -5854,6 +5726,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -5874,6 +5747,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -5924,6 +5798,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -5961,6 +5836,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -5982,6 +5858,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -6040,6 +5917,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -6077,6 +5955,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -6099,6 +5978,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -6153,6 +6033,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -6190,6 +6071,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -6212,6 +6094,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -6299,229 +6182,9 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     type="text"
                   />
                   <Action
-                    disabled={true}
-                    hideLabel={true}
-                    icon="talend-check-plus"
-                    key="0-enum-header-action"
-                    label="Validate and Add"
-                    link={true}
-                    onClick={[Function]}
-                    tooltipPlacement="bottom"
-                  >
-                    <Translate(ActionButton)
-                      disabled={true}
-                      hideLabel={true}
-                      icon="talend-check-plus"
-                      label="Validate and Add"
-                      link={true}
-                      onClick={[Function]}
-                      tooltipPlacement="bottom"
-                    >
-                      <I18n
-                        bindI18n="languageChanged loaded"
-                        bindStore="added removed"
-                        disabled={true}
-                        hideLabel={true}
-                        i18n={Object {}}
-                        icon="talend-check-plus"
-                        label="Validate and Add"
-                        link={true}
-                        ns={
-                          Array [
-                            "tui-components",
-                          ]
-                        }
-                        nsMode="default"
-                        onClick={[Function]}
-                        tooltipPlacement="bottom"
-                        translateFuncName="t"
-                        usePureComponent={false}
-                        wait={false}
-                        withRef={false}
-                      >
-                        <ActionButton
-                          available={true}
-                          bsStyle="default"
-                          disabled={true}
-                          hideLabel={true}
-                          i18n={Object {}}
-                          icon="talend-check-plus"
-                          inProgress={false}
-                          label="Validate and Add"
-                          link={true}
-                          loading={false}
-                          onClick={[Function]}
-                          t={[Function]}
-                          tReady={false}
-                          tooltipPlacement="bottom"
-                        >
-                          <TooltipTrigger
-                            label="Validate and Add"
-                            tooltipPlacement="bottom"
-                          >
-                            <span
-                              onFocus={[Function]}
-                              onMouseOver={[Function]}
-                            >
-                              <Button
-                                active={false}
-                                aria-label="Validate and Add"
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="link"
-                                className="btn-icon-only theme-btn-disabled"
-                                disabled={true}
-                                onClick={[Function]}
-                                onMouseDown={[Function]}
-                                role="link"
-                              >
-                                <button
-                                  aria-label="Validate and Add"
-                                  className="btn-icon-only theme-btn-disabled btn btn-link"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                  onMouseDown={[Function]}
-                                  role="link"
-                                  type="button"
-                                >
-                                  <Icon
-                                    key="icon"
-                                    name="talend-check-plus"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      className="theme-tc-svg-icon tc-svg-icon"
-                                      focusable="false"
-                                      name="talend-check-plus"
-                                      title={null}
-                                    >
-                                      <use
-                                        xlinkHref="#talend-check-plus"
-                                      />
-                                    </svg>
-                                  </Icon>
-                                </button>
-                              </Button>
-                            </span>
-                          </TooltipTrigger>
-                        </ActionButton>
-                      </I18n>
-                    </Translate(ActionButton)>
-                  </Action>
-                  <Action
-                    disabled={true}
-                    hideLabel={true}
-                    icon="talend-check"
-                    key="1-enum-header-action"
-                    label="Validate"
-                    link={true}
-                    onClick={[Function]}
-                    tooltipPlacement="bottom"
-                  >
-                    <Translate(ActionButton)
-                      disabled={true}
-                      hideLabel={true}
-                      icon="talend-check"
-                      label="Validate"
-                      link={true}
-                      onClick={[Function]}
-                      tooltipPlacement="bottom"
-                    >
-                      <I18n
-                        bindI18n="languageChanged loaded"
-                        bindStore="added removed"
-                        disabled={true}
-                        hideLabel={true}
-                        i18n={Object {}}
-                        icon="talend-check"
-                        label="Validate"
-                        link={true}
-                        ns={
-                          Array [
-                            "tui-components",
-                          ]
-                        }
-                        nsMode="default"
-                        onClick={[Function]}
-                        tooltipPlacement="bottom"
-                        translateFuncName="t"
-                        usePureComponent={false}
-                        wait={false}
-                        withRef={false}
-                      >
-                        <ActionButton
-                          available={true}
-                          bsStyle="default"
-                          disabled={true}
-                          hideLabel={true}
-                          i18n={Object {}}
-                          icon="talend-check"
-                          inProgress={false}
-                          label="Validate"
-                          link={true}
-                          loading={false}
-                          onClick={[Function]}
-                          t={[Function]}
-                          tReady={false}
-                          tooltipPlacement="bottom"
-                        >
-                          <TooltipTrigger
-                            label="Validate"
-                            tooltipPlacement="bottom"
-                          >
-                            <span
-                              onFocus={[Function]}
-                              onMouseOver={[Function]}
-                            >
-                              <Button
-                                active={false}
-                                aria-label="Validate"
-                                block={false}
-                                bsClass="btn"
-                                bsStyle="link"
-                                className="btn-icon-only theme-btn-disabled"
-                                disabled={true}
-                                onClick={[Function]}
-                                onMouseDown={[Function]}
-                                role="link"
-                              >
-                                <button
-                                  aria-label="Validate"
-                                  className="btn-icon-only theme-btn-disabled btn btn-link"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                  onMouseDown={[Function]}
-                                  role="link"
-                                  type="button"
-                                >
-                                  <Icon
-                                    key="icon"
-                                    name="talend-check"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      className="theme-tc-svg-icon tc-svg-icon"
-                                      focusable="false"
-                                      name="talend-check"
-                                      title={null}
-                                    >
-                                      <use
-                                        xlinkHref="#talend-check"
-                                      />
-                                    </svg>
-                                  </Icon>
-                                </button>
-                              </Button>
-                            </span>
-                          </TooltipTrigger>
-                        </ActionButton>
-                      </I18n>
-                    </Translate(ActionButton)>
-                  </Action>
-                  <Action
                     hideLabel={true}
                     icon="talend-cross"
-                    key="2-enum-header-action"
+                    key="0-enum-header-action"
                     label="Abort"
                     link={true}
                     onClick={[Function]}
@@ -6639,6 +6302,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -6676,6 +6340,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -6698,6 +6363,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -6784,6 +6450,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -6821,6 +6488,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -6841,6 +6509,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -6891,6 +6560,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -6928,6 +6598,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -6949,6 +6620,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -7007,6 +6679,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -7044,6 +6717,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -7066,6 +6740,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -7120,6 +6795,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -7157,6 +6833,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -7179,6 +6856,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -7228,6 +6906,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -7477,6 +7156,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -7514,6 +7194,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -7536,6 +7217,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -7629,6 +7311,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -7666,6 +7349,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -7739,6 +7423,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -7776,6 +7461,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -7858,6 +7544,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -7895,6 +7582,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -7974,6 +7662,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -8011,6 +7700,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -8085,6 +7775,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -8334,6 +8025,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -8371,6 +8063,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -9025,6 +8718,7 @@ exports[`EnumerationWidget should select an item 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -9062,6 +8756,7 @@ exports[`EnumerationWidget should select an item 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -9094,6 +8789,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -9144,6 +8840,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -9181,6 +8878,7 @@ exports[`EnumerationWidget should select an item 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -9214,6 +8912,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -9272,6 +8971,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -9309,6 +9009,7 @@ exports[`EnumerationWidget should select an item 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -9343,6 +9044,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -9397,6 +9099,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -9434,6 +9137,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -9468,6 +9172,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -9510,6 +9215,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                 headerSelected={
                   Array [
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove selected values",
@@ -9526,6 +9232,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     1 selected value
                   </span>
                   <Action
+                    disabled={false}
                     hideLabel={true}
                     icon="talend-trash"
                     key="0-enum-header-action"
@@ -9535,6 +9242,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     tooltipPlacement="bottom"
                   >
                     <Translate(ActionButton)
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-trash"
                       label="Remove selected values"
@@ -9545,6 +9253,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       <I18n
                         bindI18n="languageChanged loaded"
                         bindStore="added removed"
+                        disabled={false}
                         hideLabel={true}
                         i18n={Object {}}
                         icon="talend-trash"
@@ -9646,6 +9355,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -9683,6 +9393,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -9717,6 +9428,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -9781,6 +9493,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": false,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove value",
@@ -9832,6 +9545,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                               "onClick": [Function],
                             },
                             Object {
+                              "disabled": false,
                               "icon": "talend-trash",
                               "id": "delete",
                               "label": "Remove value",
@@ -9880,6 +9594,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                 "onClick": [Function],
                               },
                               Object {
+                                "disabled": false,
                                 "icon": "talend-trash",
                                 "id": "delete",
                                 "label": "Remove value",
@@ -9992,6 +9707,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -10018,6 +9734,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": false,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -10060,6 +9777,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -10086,6 +9804,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -10135,6 +9854,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": false,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -10161,6 +9881,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -10496,6 +10217,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
             "onClick": [Function],
           },
           Object {
+            "disabled": false,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -10533,6 +10255,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
       headerSelected={
         Array [
           Object {
+            "disabled": false,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -10574,6 +10297,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -10624,6 +10348,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "onClick": [Function],
             },
             Object {
+              "disabled": false,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -10661,6 +10386,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
         headerSelected={
           Array [
             Object {
+              "disabled": false,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -10703,6 +10429,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -10761,6 +10488,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -10798,6 +10526,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -10841,6 +10570,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -10895,6 +10625,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -10932,6 +10663,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -10975,6 +10707,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -11024,6 +10757,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -11273,6 +11007,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -11310,6 +11045,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -11353,6 +11089,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -11426,6 +11163,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": false,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove value",
@@ -11477,6 +11215,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                               "onClick": [Function],
                             },
                             Object {
+                              "disabled": false,
                               "icon": "talend-trash",
                               "id": "delete",
                               "label": "Remove value",
@@ -11534,6 +11273,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 "onClick": [Function],
                               },
                               Object {
+                                "disabled": false,
                                 "icon": "talend-trash",
                                 "id": "delete",
                                 "label": "Remove value",
@@ -11655,6 +11395,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -11681,6 +11422,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": false,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -11723,6 +11465,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -11749,6 +11492,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -11798,6 +11542,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": false,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -11824,6 +11569,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -12124,6 +11870,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -12150,6 +11897,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": false,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -12192,6 +11940,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -12218,6 +11967,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": false,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -12267,6 +12017,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": false,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -12293,6 +12044,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": false,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -12627,6 +12379,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                 "onClick": [Function],
               },
               Object {
+                "disabled": false,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -12664,6 +12417,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
           headerSelected={
             Array [
               Object {
+                "disabled": false,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -12684,6 +12438,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -12734,6 +12489,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": false,
                   "icon": "talend-plus",
                   "id": "add",
                   "label": "Add item",
@@ -12771,6 +12527,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
             headerSelected={
               Array [
                 Object {
+                  "disabled": false,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove selected values",
@@ -12792,6 +12549,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove value",
@@ -12850,6 +12608,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": false,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -12887,6 +12646,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
               headerSelected={
                 Array [
                   Object {
+                    "disabled": false,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -12909,6 +12669,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": false,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -12963,6 +12724,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": false,
                         "icon": "talend-plus",
                         "id": "add",
                         "label": "Add item",
@@ -13000,6 +12762,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                   headerSelected={
                     Array [
                       Object {
+                        "disabled": false,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove selected values",
@@ -13022,6 +12785,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                           "onClick": [Function],
                         },
                         Object {
+                          "disabled": false,
                           "icon": "talend-trash",
                           "id": "delete",
                           "label": "Remove value",
@@ -13071,6 +12835,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                           "onClick": [Function],
                         },
                         Object {
+                          "disabled": false,
                           "icon": "talend-plus",
                           "id": "add",
                           "label": "Add item",
@@ -13320,6 +13085,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": false,
                         "icon": "talend-plus",
                         "id": "add",
                         "label": "Add item",
@@ -13357,6 +13123,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                   headerSelected={
                     Array [
                       Object {
+                        "disabled": false,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove selected values",
@@ -13379,6 +13146,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                           "onClick": [Function],
                         },
                         Object {
+                          "disabled": false,
                           "icon": "talend-trash",
                           "id": "delete",
                           "label": "Remove value",
@@ -13475,6 +13243,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
           },
           Object {
             "data-feature": "file.import",
+            "disabled": undefined,
             "displayMode": "dropdown",
             "icon": "talend-download",
             "id": "upload",
@@ -13496,6 +13265,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
             "onClick": [Function],
           },
           Object {
+            "disabled": undefined,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -13533,6 +13303,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
       headerSelected={
         Array [
           Object {
+            "disabled": undefined,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -13546,13 +13317,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
         Object {
           "actionsDefault": Array [
             Object {
-              "disabled": false,
+              "disabled": undefined,
               "icon": "talend-pencil",
               "id": "edit",
               "label": "Edit",
               "onClick": [Function],
             },
             Object {
+              "disabled": undefined,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -13604,6 +13376,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
             },
             Object {
               "data-feature": "file.import",
+              "disabled": undefined,
               "displayMode": "dropdown",
               "icon": "talend-download",
               "id": "upload",
@@ -13625,6 +13398,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
               "onClick": [Function],
             },
             Object {
+              "disabled": undefined,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -13662,6 +13436,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
         headerSelected={
           Array [
             Object {
+              "disabled": undefined,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -13676,13 +13451,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
           Object {
             "actionsDefault": Array [
               Object {
-                "disabled": false,
+                "disabled": undefined,
                 "icon": "talend-pencil",
                 "id": "edit",
                 "label": "Edit",
                 "onClick": [Function],
               },
               Object {
+                "disabled": undefined,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -13742,6 +13518,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
               },
               Object {
                 "data-feature": "file.import",
+                "disabled": undefined,
                 "displayMode": "dropdown",
                 "icon": "talend-download",
                 "id": "upload",
@@ -13763,6 +13540,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                 "onClick": [Function],
               },
               Object {
+                "disabled": undefined,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -13800,6 +13578,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
           headerSelected={
             Array [
               Object {
+                "disabled": undefined,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -13815,13 +13594,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
+                  "disabled": undefined,
                   "icon": "talend-pencil",
                   "id": "edit",
                   "label": "Edit",
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": undefined,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -13877,6 +13657,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                   },
                   Object {
                     "data-feature": "file.import",
+                    "disabled": undefined,
                     "displayMode": "dropdown",
                     "icon": "talend-download",
                     "id": "upload",
@@ -13898,6 +13679,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -13935,6 +13717,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
               headerSelected={
                 Array [
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -13950,13 +13733,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": false,
+                      "disabled": undefined,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -14007,6 +13791,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     },
                     Object {
                       "data-feature": "file.import",
+                      "disabled": undefined,
                       "displayMode": "dropdown",
                       "icon": "talend-download",
                       "id": "upload",
@@ -14028,6 +13813,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -14581,6 +14367,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                   },
                   Object {
                     "data-feature": "file.import",
+                    "disabled": undefined,
                     "displayMode": "dropdown",
                     "icon": "talend-download",
                     "id": "upload",
@@ -14602,6 +14389,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -14639,6 +14427,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
               headerSelected={
                 Array [
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -14654,13 +14443,14 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": false,
+                      "disabled": undefined,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -14802,6 +14592,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       headerSelected={
         Array [
           Object {
+            "disabled": undefined,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -14832,13 +14623,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
         Object {
           "actionsDefault": Array [
             Object {
-              "disabled": false,
+              "disabled": undefined,
               "icon": "talend-pencil",
               "id": "edit",
               "label": "Edit",
               "onClick": [Function],
             },
             Object {
+              "disabled": undefined,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -14919,6 +14711,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
         headerSelected={
           Array [
             Object {
+              "disabled": undefined,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -14950,13 +14743,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           Object {
             "actionsDefault": Array [
               Object {
-                "disabled": false,
+                "disabled": undefined,
                 "icon": "talend-pencil",
                 "id": "edit",
                 "label": "Edit",
                 "onClick": [Function],
               },
               Object {
+                "disabled": undefined,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -15045,6 +14839,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           headerSelected={
             Array [
               Object {
+                "disabled": undefined,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -15077,13 +14872,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
+                  "disabled": undefined,
                   "icon": "talend-pencil",
                   "id": "edit",
                   "label": "Edit",
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": undefined,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -15168,6 +14964,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               headerSelected={
                 Array [
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -15200,13 +14997,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": false,
+                      "disabled": undefined,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -15459,6 +15257,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               headerSelected={
                 Array [
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -15491,13 +15290,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": false,
+                      "disabled": undefined,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -15560,13 +15360,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   Object {
                     "actionsDefault": Array [
                       Object {
-                        "disabled": false,
+                        "disabled": undefined,
                         "icon": "talend-pencil",
                         "id": "edit",
                         "label": "Edit",
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": undefined,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove value",
@@ -15611,13 +15412,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         actions={
                           Array [
                             Object {
-                              "disabled": false,
+                              "disabled": undefined,
                               "icon": "talend-pencil",
                               "id": "edit",
                               "label": "Edit",
                               "onClick": [Function],
                             },
                             Object {
+                              "disabled": undefined,
                               "icon": "talend-trash",
                               "id": "delete",
                               "label": "Remove value",
@@ -15664,13 +15466,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           actions={
                             Array [
                               Object {
-                                "disabled": false,
+                                "disabled": undefined,
                                 "icon": "talend-pencil",
                                 "id": "edit",
                                 "label": "Edit",
                                 "onClick": [Function],
                               },
                               Object {
+                                "disabled": undefined,
                                 "icon": "talend-trash",
                                 "id": "delete",
                                 "label": "Remove value",
@@ -15779,13 +15582,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     "itemProps": Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -15805,13 +15609,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   Object {
                                     "actions": Array [
                                       Object {
-                                        "disabled": false,
+                                        "disabled": undefined,
                                         "icon": "talend-pencil",
                                         "id": "edit",
                                         "label": "Edit",
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": undefined,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -15845,13 +15650,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       "itemProps": Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -15871,13 +15677,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -15918,13 +15725,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "itemProps": Object {
                                           "actions": Array [
                                             Object {
-                                              "disabled": false,
+                                              "disabled": undefined,
                                               "icon": "talend-pencil",
                                               "id": "edit",
                                               "label": "Edit",
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": undefined,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -15944,13 +15752,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -16242,13 +16051,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     "itemProps": Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -16268,13 +16078,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   Object {
                                     "actions": Array [
                                       Object {
-                                        "disabled": false,
+                                        "disabled": undefined,
                                         "icon": "talend-pencil",
                                         "id": "edit",
                                         "label": "Edit",
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": undefined,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -16308,13 +16119,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       "itemProps": Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -16334,13 +16146,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -16381,13 +16194,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "itemProps": Object {
                                           "actions": Array [
                                             Object {
-                                              "disabled": false,
+                                              "disabled": undefined,
                                               "icon": "talend-pencil",
                                               "id": "edit",
                                               "label": "Edit",
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": undefined,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -16407,13 +16221,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -16768,6 +16583,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           },
           Object {
             "data-feature": undefined,
+            "disabled": undefined,
             "displayMode": "dropdown",
             "icon": "talend-download",
             "id": "upload",
@@ -16789,6 +16605,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             "onClick": [Function],
           },
           Object {
+            "disabled": undefined,
             "icon": "talend-plus",
             "id": "add",
             "label": "Add item",
@@ -16826,6 +16643,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
       headerSelected={
         Array [
           Object {
+            "disabled": undefined,
             "icon": "talend-trash",
             "id": "delete",
             "label": "Remove selected values",
@@ -16856,13 +16674,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
         Object {
           "actionsDefault": Array [
             Object {
-              "disabled": false,
+              "disabled": undefined,
               "icon": "talend-pencil",
               "id": "edit",
               "label": "Edit",
               "onClick": [Function],
             },
             Object {
+              "disabled": undefined,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove value",
@@ -16914,6 +16733,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             },
             Object {
               "data-feature": undefined,
+              "disabled": undefined,
               "displayMode": "dropdown",
               "icon": "talend-download",
               "id": "upload",
@@ -16935,6 +16755,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               "onClick": [Function],
             },
             Object {
+              "disabled": undefined,
               "icon": "talend-plus",
               "id": "add",
               "label": "Add item",
@@ -16972,6 +16793,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
         headerSelected={
           Array [
             Object {
+              "disabled": undefined,
               "icon": "talend-trash",
               "id": "delete",
               "label": "Remove selected values",
@@ -17003,13 +16825,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           Object {
             "actionsDefault": Array [
               Object {
-                "disabled": false,
+                "disabled": undefined,
                 "icon": "talend-pencil",
                 "id": "edit",
                 "label": "Edit",
                 "onClick": [Function],
               },
               Object {
+                "disabled": undefined,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove value",
@@ -17069,6 +16892,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               },
               Object {
                 "data-feature": undefined,
+                "disabled": undefined,
                 "displayMode": "dropdown",
                 "icon": "talend-download",
                 "id": "upload",
@@ -17090,6 +16914,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 "onClick": [Function],
               },
               Object {
+                "disabled": undefined,
                 "icon": "talend-plus",
                 "id": "add",
                 "label": "Add item",
@@ -17127,6 +16952,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           headerSelected={
             Array [
               Object {
+                "disabled": undefined,
                 "icon": "talend-trash",
                 "id": "delete",
                 "label": "Remove selected values",
@@ -17159,13 +16985,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
             Object {
               "actionsDefault": Array [
                 Object {
-                  "disabled": false,
+                  "disabled": undefined,
                   "icon": "talend-pencil",
                   "id": "edit",
                   "label": "Edit",
                   "onClick": [Function],
                 },
                 Object {
+                  "disabled": undefined,
                   "icon": "talend-trash",
                   "id": "delete",
                   "label": "Remove value",
@@ -17221,6 +17048,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   },
                   Object {
                     "data-feature": undefined,
+                    "disabled": undefined,
                     "displayMode": "dropdown",
                     "icon": "talend-download",
                     "id": "upload",
@@ -17242,6 +17070,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -17279,6 +17108,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               headerSelected={
                 Array [
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -17311,13 +17141,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": false,
+                      "disabled": undefined,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -17368,6 +17199,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     },
                     Object {
                       "data-feature": undefined,
+                      "disabled": undefined,
                       "displayMode": "dropdown",
                       "icon": "talend-download",
                       "id": "upload",
@@ -17389,6 +17221,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-plus",
                       "id": "add",
                       "label": "Add item",
@@ -17931,6 +17764,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   },
                   Object {
                     "data-feature": undefined,
+                    "disabled": undefined,
                     "displayMode": "dropdown",
                     "icon": "talend-download",
                     "id": "upload",
@@ -17952,6 +17786,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     "onClick": [Function],
                   },
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-plus",
                     "id": "add",
                     "label": "Add item",
@@ -17989,6 +17824,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               headerSelected={
                 Array [
                   Object {
+                    "disabled": undefined,
                     "icon": "talend-trash",
                     "id": "delete",
                     "label": "Remove selected values",
@@ -18021,13 +17857,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                 Object {
                   "actionsDefault": Array [
                     Object {
-                      "disabled": false,
+                      "disabled": undefined,
                       "icon": "talend-pencil",
                       "id": "edit",
                       "label": "Edit",
                       "onClick": [Function],
                     },
                     Object {
+                      "disabled": undefined,
                       "icon": "talend-trash",
                       "id": "delete",
                       "label": "Remove value",
@@ -18090,13 +17927,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   Object {
                     "actionsDefault": Array [
                       Object {
-                        "disabled": false,
+                        "disabled": undefined,
                         "icon": "talend-pencil",
                         "id": "edit",
                         "label": "Edit",
                         "onClick": [Function],
                       },
                       Object {
+                        "disabled": undefined,
                         "icon": "talend-trash",
                         "id": "delete",
                         "label": "Remove value",
@@ -18141,13 +17979,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         actions={
                           Array [
                             Object {
-                              "disabled": false,
+                              "disabled": undefined,
                               "icon": "talend-pencil",
                               "id": "edit",
                               "label": "Edit",
                               "onClick": [Function],
                             },
                             Object {
+                              "disabled": undefined,
                               "icon": "talend-trash",
                               "id": "delete",
                               "label": "Remove value",
@@ -18194,13 +18033,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           actions={
                             Array [
                               Object {
-                                "disabled": false,
+                                "disabled": undefined,
                                 "icon": "talend-pencil",
                                 "id": "edit",
                                 "label": "Edit",
                                 "onClick": [Function],
                               },
                               Object {
+                                "disabled": undefined,
                                 "icon": "talend-trash",
                                 "id": "delete",
                                 "label": "Remove value",
@@ -18309,13 +18149,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     "itemProps": Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -18335,13 +18176,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   Object {
                                     "actions": Array [
                                       Object {
-                                        "disabled": false,
+                                        "disabled": undefined,
                                         "icon": "talend-pencil",
                                         "id": "edit",
                                         "label": "Edit",
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": undefined,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -18375,13 +18217,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       "itemProps": Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -18401,13 +18244,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -18448,13 +18292,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "itemProps": Object {
                                           "actions": Array [
                                             Object {
-                                              "disabled": false,
+                                              "disabled": undefined,
                                               "icon": "talend-pencil",
                                               "id": "edit",
                                               "label": "Edit",
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": undefined,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -18474,13 +18319,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -18772,13 +18618,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     "itemProps": Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -18798,13 +18645,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   Object {
                                     "actions": Array [
                                       Object {
-                                        "disabled": false,
+                                        "disabled": undefined,
                                         "icon": "talend-pencil",
                                         "id": "edit",
                                         "label": "Edit",
                                         "onClick": [Function],
                                       },
                                       Object {
+                                        "disabled": undefined,
                                         "icon": "talend-trash",
                                         "id": "delete",
                                         "label": "Remove value",
@@ -18838,13 +18686,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       "itemProps": Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
@@ -18864,13 +18713,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     Object {
                                       "actions": Array [
                                         Object {
-                                          "disabled": false,
+                                          "disabled": undefined,
                                           "icon": "talend-pencil",
                                           "id": "edit",
                                           "label": "Edit",
                                           "onClick": [Function],
                                         },
                                         Object {
+                                          "disabled": undefined,
                                           "icon": "talend-trash",
                                           "id": "delete",
                                           "label": "Remove value",
@@ -18911,13 +18761,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "itemProps": Object {
                                           "actions": Array [
                                             Object {
-                                              "disabled": false,
+                                              "disabled": undefined,
                                               "icon": "talend-pencil",
                                               "id": "edit",
                                               "label": "Edit",
                                               "onClick": [Function],
                                             },
                                             Object {
+                                              "disabled": undefined,
                                               "icon": "talend-trash",
                                               "id": "delete",
                                               "label": "Remove value",
@@ -18937,13 +18788,14 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       Object {
                                         "actions": Array [
                                           Object {
-                                            "disabled": false,
+                                            "disabled": undefined,
                                             "icon": "talend-pencil",
                                             "id": "edit",
                                             "label": "Edit",
                                             "onClick": [Function],
                                           },
                                           Object {
+                                            "disabled": undefined,
                                             "icon": "talend-trash",
                                             "id": "delete",
                                             "label": "Remove value",
