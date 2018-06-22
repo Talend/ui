@@ -36,7 +36,7 @@ describe('DateTimeView', () => {
 		expect(onClickTitle).toHaveBeenCalledTimes(1);
 	});
 
-	describe('should callback when month switched with the new month index and year', () => {
+	describe('month switch management', () => {
 		function getActions(wrapper) {
 			return wrapper.find('ViewLayout').shallow().find('IconButton');
 		}
@@ -49,7 +49,7 @@ describe('DateTimeView', () => {
 			return getActions(wrapper).last();
 		}
 
-		it('in simple previous case', () => {
+		it('should trigger callback when previous month is clicked with previous month and current year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={5}
@@ -69,7 +69,7 @@ describe('DateTimeView', () => {
 			});
 		});
 
-		it('in simple next case', () => {
+		it('should trigger callback when next month is clicked with next month and current year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={5}
@@ -88,7 +88,7 @@ describe('DateTimeView', () => {
 			});
 		});
 
-		it('in advance previous case', () => {
+		it('should trigger callback when previous month is clicked with last month of year and previous year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={0}
@@ -107,7 +107,7 @@ describe('DateTimeView', () => {
 			});
 		});
 
-		it('in advance next case', () => {
+		it('should trigger callback when next month is clicked with first month of year and next year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={11}
