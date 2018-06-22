@@ -8,6 +8,8 @@ describe('DateTimeView', () => {
 		const wrapper = shallow(<DateTimeView
 			selectedMonthIndex={5}
 			selectedYear={2006}
+			onClickTitle={() => {}}
+			onSelectMonthYear={() => {}}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -19,6 +21,7 @@ describe('DateTimeView', () => {
 			selectedMonthIndex={5}
 			selectedYear={2006}
 			onClickTitle={onClickTitle}
+			onSelectMonthYear={() => {}}
 		/>);
 
 		const titleAction = wrapper
@@ -51,6 +54,7 @@ describe('DateTimeView', () => {
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={5}
 				selectedYear={2006}
+				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
@@ -70,6 +74,7 @@ describe('DateTimeView', () => {
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={5}
 				selectedYear={2006}
+				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
@@ -88,6 +93,7 @@ describe('DateTimeView', () => {
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={0}
 				selectedYear={2006}
+				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 			/>);
 
@@ -106,6 +112,7 @@ describe('DateTimeView', () => {
 			const wrapper = shallow(<DateTimeView
 				selectedMonthIndex={11}
 				selectedYear={2006}
+				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 			/>);
 

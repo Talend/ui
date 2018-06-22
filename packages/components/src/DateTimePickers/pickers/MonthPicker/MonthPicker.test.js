@@ -5,7 +5,9 @@ import MonthPicker from './MonthPicker.component';
 
 describe('MonthPicker', () => {
 	it('should render', () => {
-		const wrapper = shallow(<MonthPicker />);
+		const wrapper = shallow(<MonthPicker
+			onSelect={() => {}}
+		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -14,6 +16,7 @@ describe('MonthPicker', () => {
 		const monthIndex = 8;
 		const wrapper = shallow(<MonthPicker
 			selectedMonthIndex={monthIndex}
+			onSelect={() => {}}
 		/>);
 
 		const actions = wrapper.find('PickerAction');

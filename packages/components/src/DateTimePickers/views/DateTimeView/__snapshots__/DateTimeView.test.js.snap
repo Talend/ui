@@ -31,7 +31,7 @@ exports[`DateTimeView should render 1`] = `
         button={
             Object {
                 "aria-label": "Switch to month and year pickers view",
-                "onClick": undefined,
+                "onClick": [Function],
               }
         }
         monthIndex={5}

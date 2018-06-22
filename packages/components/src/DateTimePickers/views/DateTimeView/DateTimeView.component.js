@@ -32,13 +32,10 @@ class DateTimeView extends React.Component {
 		const yearIncrement = Math.floor(monthIndexIncremented / 12);
 		const newYear = this.props.selectedYear + yearIncrement;
 
-
-		if (this.props.onSelectMonthYear !== undefined) {
-			this.props.onSelectMonthYear({
-				monthIndex: newMonthIndex,
-				year: newYear,
-			});
-		}
+		this.props.onSelectMonthYear({
+			monthIndex: newMonthIndex,
+			year: newYear,
+		});
 	}
 
 	render() {
@@ -91,8 +88,8 @@ class DateTimeView extends React.Component {
 DateTimeView.propTypes = {
 	selectedMonthIndex: PropTypes.number.isRequired,
 	selectedYear: PropTypes.number.isRequired,
-	onClickTitle: PropTypes.func,
-	onSelectMonthYear: PropTypes.func,
+	onClickTitle: PropTypes.func.isRequired,
+	onSelectMonthYear: PropTypes.func.isRequired,
 };
 
 export default DateTimeView;

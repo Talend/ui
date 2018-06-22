@@ -52,9 +52,9 @@ function MonthYearView(props) {
 MonthYearView.propTypes = {
 	selectedMonthIndex: PropTypes.number.isRequired,
 	selectedYear: PropTypes.number.isRequired,
-	onClickBack: PropTypes.func,
-	onSelectMonth: PropTypes.func,
-	onSelectYear: PropTypes.func,
+	onClickBack: PropTypes.func.isRequired,
+	onSelectMonth: PropTypes.func.isRequired,
+	onSelectYear: PropTypes.func.isRequired,
 };
 
 export default MonthYearView;

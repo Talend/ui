@@ -21,15 +21,10 @@ function MonthPicker(props) {
 	const isSelected = index =>
 		index === props.selectedMonthIndex;
 
-	const onSelect = index => {
-		if (props.onSelect === undefined) {
-			return undefined;
-		}
-
-		return () => {
+	const onSelect = index => (
+		() => {
 			props.onSelect(index);
-		};
-	};
+		});
 
 	return (
 		<div className={theme.container}>
@@ -56,7 +51,7 @@ function MonthPicker(props) {
 
 MonthPicker.propTypes = {
 	selectedMonthIndex: PropTypes.number,
-	onSelect: PropTypes.func,
+	onSelect: PropTypes.func.isRequired,
 };
 
 export default MonthPicker;

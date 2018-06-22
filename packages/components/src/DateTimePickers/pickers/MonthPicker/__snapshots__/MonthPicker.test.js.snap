@@ -14,7 +14,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'January'"
         isSelected={false}
         label="January"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -24,7 +24,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'February'"
         isSelected={false}
         label="February"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -34,7 +34,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'March'"
         isSelected={false}
         label="March"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -48,7 +48,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'April'"
         isSelected={false}
         label="April"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -58,7 +58,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'May'"
         isSelected={false}
         label="May"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -68,7 +68,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'June'"
         isSelected={false}
         label="June"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -82,7 +82,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'July'"
         isSelected={false}
         label="July"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -92,7 +92,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'August'"
         isSelected={false}
         label="August"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -102,7 +102,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'September'"
         isSelected={false}
         label="September"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -116,7 +116,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'October'"
         isSelected={false}
         label="October"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -126,7 +126,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'November'"
         isSelected={false}
         label="November"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
     <div
@@ -136,7 +136,7 @@ exports[`MonthPicker should render 1`] = `
         aria-label="Select 'December'"
         isSelected={false}
         label="December"
-        onClick={undefined}
+        onClick={[Function]}
       />
     </div>
   </div>

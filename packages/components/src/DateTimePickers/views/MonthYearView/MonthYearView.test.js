@@ -9,6 +9,9 @@ describe('MonthYearView', () => {
 		const wrapper = shallow(<MonthYearView
 			selectedMonthIndex={8}
 			selectedYear={2012}
+			onClickBack={() => {}}
+			onSelectMonth={() => {}}
+			onSelectYear={() => {}}
 		/>);
 
 		// then

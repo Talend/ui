@@ -7,6 +7,7 @@ describe('YearPicker', () => {
 	it('should render', () => {
 		const wrapper = shallow(<YearPicker
 			selectedYear={2012}
+			onSelect={() => {}}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -15,6 +16,7 @@ describe('YearPicker', () => {
 	it('should have exactly one selected year', () => {
 		const wrapper = shallow(<YearPicker
 			selectedYear={2012}
+			onSelect={() => {}}
 		/>);
 
 		const actions = wrapper.find('PickerAction');
@@ -51,7 +53,9 @@ describe('YearPicker', () => {
 	});
 
 	it('should default render with current year in middle when "selectedYear" prop not provided', () => {
-		const wrapper = shallow(<YearPicker />);
+		const wrapper = shallow(<YearPicker
+			onSelect={() => {}}
+		/>);
 		const actions = wrapper.find('PickerAction');
 		const now = new Date();
 		const currentYear = now.getFullYear().toString();
@@ -63,6 +67,7 @@ describe('YearPicker', () => {
 		const year = 2005;
 		const wrapper = shallow(<YearPicker
 			selectedYear={year}
+			onSelect={() => {}}
 		/>);
 		const actions = wrapper.find('PickerAction');
 
@@ -75,6 +80,7 @@ describe('YearPicker', () => {
 
 		const wrapper = shallow(<YearPicker
 			selectedYear={defaultYear}
+			onSelect={() => {}}
 		/>);
 		const actions = wrapper.find('PickerAction');
 

@@ -25,10 +25,6 @@ class YearPicker extends React.Component {
 	}
 
 	onSelect(year) {
-		if (this.props.onSelect === undefined) {
-			return undefined;
-		}
-
 		return () => {
 			this.props.onSelect(year);
 		};
@@ -79,7 +75,7 @@ class YearPicker extends React.Component {
 
 YearPicker.propTypes = {
 	selectedYear: PropTypes.number,
-	onSelect: PropTypes.func,
+	onSelect: PropTypes.func.isRequired,
 };
 
 export default YearPicker;

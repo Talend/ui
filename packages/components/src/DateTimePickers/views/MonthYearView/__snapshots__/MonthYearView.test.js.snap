@@ -10,7 +10,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         className="theme-month"
       >
         <MonthPicker
-          onSelect={undefined}
+          onSelect={[Function]}
           selectedMonthIndex={8}
         />
       </div>
@@ -18,7 +18,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
         className="theme-year"
       >
         <YearPicker
-          onSelect={undefined}
+          onSelect={[Function]}
           selectedYear={2012}
         />
       </div>
@@ -35,7 +35,7 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
                 "name": "talend-arrow-left",
               }
         }
-        onClick={undefined}
+        onClick={[Function]}
     />,
       "middleElement": <HeaderTitle
         monthIndex={8}
