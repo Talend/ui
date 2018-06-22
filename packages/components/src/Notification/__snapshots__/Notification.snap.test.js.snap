@@ -4,12 +4,7 @@ exports[`Notification should render 1`] = `
 <div
   className="theme-tc-notification-container tc-notification-container"
 >
-  <div
-    className="react-addons-css-transition-group"
-    transitionEnterTimeout={300}
-    transitionLeaveTimeout={280}
-    transitionName="tc-notification"
-  >
+  <div>
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-info tc-notification-info"
       onClick={[Function]}
@@ -19,7 +14,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -87,7 +82,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -157,7 +152,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -206,7 +201,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}

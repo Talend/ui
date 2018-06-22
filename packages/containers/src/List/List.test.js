@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { Map, fromJS } from 'immutable';
+import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Container, { DEFAULT_STATE } from './List.container';
@@ -85,9 +85,7 @@ const items = fromJS([
 
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
@@ -107,6 +105,19 @@ describe('Container List', () => {
 		expect(props).toMatchSnapshot();
 	});
 
+	it('should add multiSelection props', () => {
+		const multiSelectionSetting = cloneDeep(settings);
+		multiSelectionSetting.idKey = 'id';
+		multiSelectionSetting.multiSelectActions = {
+			left: ['object:remove'],
+		};
+		const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />);
+		const props = wrapper.props();
+		expect(typeof props.list.itemProps.onToggle).toBe('function');
+		expect(typeof props.list.itemProps.onToggleAll).toBe('function');
+		expect(typeof props.list.itemProps.isSelected).toBe('function');
+	});
+
 	it('should render without toolbar', () => {
 		const wrapper = shallow(<Container items={items} />, { lifecycleExperimental: true });
 		const props = wrapper.props();
@@ -114,9 +125,7 @@ describe('Container List', () => {
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = shallow(<Container displayMode="large" items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const wrapper = shallow(<Container displayMode="large" items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -294,6 +303,111 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.rowHeight).toBe(3);
+	});
+
+	describe('Toggle selection', () => {
+		it('should select one item', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			// then
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([1]),
+			});
+		});
+
+		it('should deselect one item', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [1] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			// then
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([]),
+			});
+		});
+		it('should select all items', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleAllMultiSelection();
+			// then
+
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([1, 2, 3]),
+			});
+		});
+
+		it('should deselect all items', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [1, 2, 3] });
+			multiSelectionSetting.state = state;
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// when
+			wrapper.instance().onToggleAllMultiSelection();
+			// then
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: new ImmutableList([]),
+			});
+		});
+
+		it('should compute the number of selected items', () => {
+			// given
+			const multiSelectionSetting = cloneDeep(settings);
+			multiSelectionSetting.idKey = 'id';
+			multiSelectionSetting.multiSelectActions = {
+				left: ['object:remove'],
+			};
+			multiSelectionSetting.setState = jest.fn();
+			const state = fromJS({ selectedItems: [1, 2, 3] });
+			multiSelectionSetting.state = state;
+
+			// when
+			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
+				lifecycleExperimental: true,
+			});
+			// then
+			expect(wrapper.props().toolbar.actionBar.selected).toBe(3);
+		});
 	});
 });
 

@@ -46,27 +46,27 @@ describe('@talend/html-webpack-plugin', () => {
 	});
 	it('should not modify data when no option is provided', () => {
 		refresh();
-		pluginExecFn(DATA, pluginExecCallback);
-		expect(pluginExecCallback).toHaveBeenCalledWith(null, DATA);
+		const result = pluginExecFn(DATA, pluginExecCallback);
+		expect(result).toEqual(DATA);
 	});
 	it('should add data before content based on bodyBefore option', () => {
 		const item = { foo: 'bar' };
 		refresh({ bodyBefore: [item] });
-		pluginExecFn(DATA, pluginExecCallback);
-		expect(pluginExecCallback.mock.calls[0][1].body[0]).toBe(item);
+		const result = pluginExecFn(DATA, pluginExecCallback);
+		expect(result.body[0]).toBe(item);
 	});
-	it('hould modify <link> media with loadCSSAsync option', () => {
+	it('should modify <link> media with loadCSSAsync option', () => {
 		refresh({ loadCSSAsync: true });
-		pluginExecFn(DATA, pluginExecCallback);
-		expect(pluginExecCallback.mock.calls[0][1].head[0].attributes).toMatchObject({
+		const result = pluginExecFn(DATA, pluginExecCallback);
+		expect(result.head[0].attributes).toMatchObject({
 			media: 'none',
-			onload: 'media=\'all\'',
+			onload: 'if(media!=\'all\')media=\'all\'',
 		});
 	});
 	it('should add TALEND_APP_INFO global var with versions option', () => {
 		refresh({ versions: { '@talend/my-app': '1.2.3' } });
-		pluginExecFn(DATA, pluginExecCallback);
-		expect(pluginExecCallback.mock.calls[0][1].body[0]).toMatchObject({
+		const result = pluginExecFn(DATA, pluginExecCallback);
+		expect(result.body[0]).toMatchObject({
 			tagName: 'script',
 			innerHTML: 'TALEND_APP_INFO={"@talend/my-app":"1.2.3"}',
 		});
@@ -74,8 +74,8 @@ describe('@talend/html-webpack-plugin', () => {
 	it('should inline style in head with appLoaderIcon option', () => {
 		const options = { appLoaderIcon: "url('data:image/svg+xml;base64,PHN2...')" };
 		refresh(options);
-		pluginExecFn(DATA, pluginExecCallback);
-		expect(pluginExecCallback.mock.calls[0][1].head[0].innerHTML).toBe(
+		const result = pluginExecFn(DATA, pluginExecCallback);
+		expect(result.head[0].innerHTML).toBe(
 			AppLoader.getLoaderStyle(options.appLoaderIcon)
 		);
 	});

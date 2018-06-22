@@ -24,7 +24,9 @@ yarn add --dev @talend/scripts
 {
   "start": "talend-scripts start",
   "prepublish": "talend-scripts build",
-  "lint:es": "talend-scripts lint:es"
+  "lint:es": "talend-scripts lint:es",
+  "test": "talend-scripts test",
+  "test:watch": "talend-scripts test --watch"
 }
 ```
 
@@ -64,14 +66,16 @@ A preset is a node module `talend-scripts-preset-${presetName}`. It exports 3 fu
 
 ```javascript
 module.exports = {
-	getWebpackConfiguration(presetApi) { },
 	getEslintConfigurationPath(presetApi) { },
+	getJestConfigurationPath(presetApi) { },
+	getWebpackConfiguration(presetApi) { },
 }
 ```
 | Preset function | Description |
 |---|---|
-| getWebpackConfiguration | Returns the webpack configuration object. |
 | getEslintConfigurationPath | Returns the path to .eslintrc file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
+| getJestConfigurationPath | Returns the path to jest config file (js/json). It will be passed to jest --config option. This path should be absolute or relative from cwd. |
+| getWebpackConfiguration | Returns the webpack configuration object. |
 
 
 The preset api contains the run mode and utility functions
@@ -106,33 +110,31 @@ yarn add --dev talend-scripts-preset-${presetName}
 
 3. Add any preset variables in talend-scripts.json, following your preset documentation.
 
-### Preset talend configuration
+### Preset talend (default)
 
-```json
-{
-  "preset": "talend",
-  "html": {
-    "title": "Talend Data Preparation"
-  },
-  "sass": {
-    "data": {
-      "$brand-primary": "#4F93A7",
-      "$brand-primary-t7": "#00A1B3",
-      "$brand-secondary-t7": "#168AA6"
-    }
-  },
-  "webpack": {
-    "config": {
-      "development": "./webpack.config.dev.js",
-      "production": "./webpack.config.prod.js"
-    },
-    "api-url": "http://localhost:3030"
-  }
-}
+Preset documentation is available [here](./preset/README.md).
+
+## Possible issues
+
+@talend/scripts uses `jest` to run tests. On mac and watch mode, if you have a lot of files to watch, you can bump into this error
+```
+$ jest --watch
+2016-09-22 10:49 node[79167] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+2016-09-22 10:49 node[79167] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+2016-09-22 10:49 node[79167] (FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Error watching file for changes: EMFILE
+    at exports._errnoException (util.js:1036:11)
+    at FSEvent.FSWatcher._handle.onchange (fs.js:1406:11)
 ```
 
-| Preset variable | Description |
-|---|---|
-| html.title | The title to display on the browser tab. |
-| sass.data | Define a set of sass variables to customise @talend/theme. |
-| webpack.api-url | Default: `http://localhost`. The preset adds a proxy to `/api` urls. |
+The issue is well known, still not fixed in the lib or any of its dependencies.
+This [github issue](https://github.com/facebook/jest/issues/1767) brings you a lot of info.
+
+As a workaround, consider installing [`watchman`](https://facebook.github.io/watchman/).
+```
+brew install watchman
+```

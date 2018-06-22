@@ -22,6 +22,38 @@ describe('UIForm container', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	describe('#componentWillReceiveProps', () => {
+		it('should update state if form data structure changed', () => {
+			// given
+			const wrapper = shallow(<UIForm data={data} {...props} />);
+
+			const previousState = wrapper.state();
+
+			// when
+			wrapper.setProps({
+				data: Object.assign({}, data),
+			});
+
+			// then
+			expect(wrapper.state()).not.toBe(previousState);
+		});
+
+		it("should not update state if form data structure didn't change", () => {
+			// given
+			const wrapper = shallow(<UIForm data={data} {...props} />);
+
+			const previousState = wrapper.state();
+
+			// when
+			wrapper.setProps({
+				whateverOtherThanData: 'something',
+			});
+
+			// then
+			expect(wrapper.state()).toBe(previousState);
+		});
+	});
+
 	describe('#onChange', () => {
 		it('should update state properties', () => {
 			// given

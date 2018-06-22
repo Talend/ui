@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
-import { getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 function TitleSubHeader({ title, subTitle, onEdit, editable, disabled, t }) {
 	return (
@@ -76,7 +76,7 @@ TitleSubHeader.propTypes = {
 };
 
 TitleSubHeader.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 	editable: false,
 };
 

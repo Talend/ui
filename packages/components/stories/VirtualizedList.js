@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { checkA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
@@ -19,11 +20,13 @@ function NoRowsRenderer() {
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-cog': talendIcons['talend-cog'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],
 	'talend-file-json-o': talendIcons['talend-file-json-o'],
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-files-o': talendIcons['talend-files-o'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-icons': talendIcons['talend-icons'],
 	'talend-pencil': talendIcons['talend-pencil'],
@@ -47,6 +50,56 @@ const titleProps = {
 	onEditSubmit: action('submit-edit'),
 };
 
+const fewTitleActions = [
+	{
+		id: 'edit',
+		label: 'Edit',
+		'data-feature': 'list.item.edit',
+		icon: 'talend-pencil',
+		onClick: action('onEdit'),
+		hideLabel: true,
+	},
+	{
+		id: 'delete',
+		label: 'Delete',
+		'data-feature': 'list.item.delete',
+		icon: 'talend-trash',
+		onClick: action('onDelete'),
+		hideLabel: true,
+	}
+];
+
+const lotOfTitleActions = [
+	{
+		id: 'edit',
+		label: 'Edit',
+		'data-feature': 'list.item.edit',
+		icon: 'talend-pencil',
+		onClick: action('onEdit'),
+	},
+	{
+		id: 'delete',
+		label: 'Delete',
+		'data-feature': 'list.item.delete',
+		icon: 'talend-trash',
+		onClick: action('onDelete'),
+	},
+	{
+		id: 'copy',
+		label: 'Copy',
+		'data-feature': 'list.item.copy',
+		icon: 'talend-files-o',
+		onClick: action('onCopy'),
+	},
+	{
+		id: 'parameters',
+		label: 'Edit parameters',
+		'data-feature': 'list.item.params',
+		icon: 'talend-cog',
+		onClick: action('onEditParameters'),
+	},
+];
+
 const titleActions = [
 	{
 		id: 'edit',
@@ -61,6 +114,20 @@ const titleActions = [
 		'data-feature': 'list.item.delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
+	},
+	{
+		id: 'copy',
+		label: 'copy',
+		'data-feature': 'list.item.copy',
+		icon: 'talend-files-o',
+		onClick: action('onCopy'),
+	},
+	{
+		id: 'parameters',
+		label: 'edit parameters',
+		'data-feature': 'list.item.params',
+		icon: 'talend-cog',
+		onClick: action('onEditParameters'),
 	},
 	{
 		id: 'related',
@@ -103,72 +170,63 @@ const persistentActions = [
 const collection = [
 	{
 		id: 0,
-		name: 'Title with icon and actions',
+		name: 'Title with few actions',
+		tag: 'test',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Simple row with few actions',
+		author: 'Jean-Pierre DUPONT',
+		display: 'text',
+		className: 'item-0-class',
+		titleActions: fewTitleActions,
+	},
+	{
+		id: 1,
+		name: 'Title with lot of actions',
+		tag: 'test',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Simple row with lot of actions',
+		author: 'Jean-Pierre DUPONT',
+		display: 'text',
+		className: 'item-1-class',
+		titleActions: lotOfTitleActions,
+	},
+	{
+		id: 2,
+		name: 'Title with persistant actions',
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',
 		author: 'Jean-Pierre DUPONT',
-		icon: 'talend-file-xls-o',
 		display: 'text',
-		className: 'item-0-class',
-		persistentActions,
-		titleActions,
-	},
-	{
-		id: 1,
-		name: 'Title without actions',
-		'data-feature': 'list.item.title_without_actions',
-		tag: 'test',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		description: 'Simple row without actions',
-		author: 'Jean-Pierre DUPONT',
-		icon: 'talend-file-xls-o',
-		display: 'text',
-		className: 'item-0-class',
+		className: 'item-2-class',
 		persistentActions,
 	},
 	{
-		id: 2,
-		name: 'Title without icon',
+		id: 3,
+		name: 'Title with icon',
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row without icon',
 		author: 'Jean-Pierre DUPONT',
+		icon: 'talend-file-xls-o',
 		display: 'text',
-		className: 'item-0-class',
-		persistentActions,
-		titleActions,
+		className: 'item-3-class',
 	},
 	{
-		id: 3,
+		id: 4,
 		name: 'Title in input mode',
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		description: 'Simple row with title in edit mode, displaying an input instead of button',
+		description: 'Simple row with title in edit mode',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-json-o',
 		display: 'input',
-		className: 'item-1-class',
-		persistentActions,
-		titleActions,
-	},
-	{
-		id: 4,
-		name: 'Super long author',
-		tag: 'test',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		description: 'Row with a super super long author to show the ellipsis',
-		author:
-			'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
-		icon: 'talend-file-json-o',
-		className: 'item-2-class',
-		persistentActions,
-		titleActions,
+		className: 'item-4-class',
 	},
 	{
 		id: 5,
@@ -176,27 +234,11 @@ const collection = [
 		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		description: 'Row with a super super long title to show the ellipsis',
-		author: 'Jean-Pierre DUPONT',
-		icon: 'talend-file-xls-o',
-		display: 'text',
-		className: 'item-3-class',
-		persistentActions,
-		titleActions,
-	},
-	{
-		id: 6,
-		name: 'Selected row',
-		tag: 'test',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		description: 'Selected row with highlighted background',
-		author: 'Jean-Pierre DUPONT',
-		icon: 'talend-file-xls-o',
-		display: 'text',
-		className: 'item-3-class',
-		persistentActions,
-		titleActions,
+		description: 'Row with a super super long text to show the ellipsis',
+		author:
+			'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+		icon: 'talend-file-json-o',
+		className: 'item-5-class',
 	},
 ];
 
@@ -218,6 +260,7 @@ for (let i = collection.length; i < 100; i += 1) {
 }
 
 storiesOf('Virtualized List', module)
+	.addDecorator(checkA11y)
 	.add('List > Table', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>

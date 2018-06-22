@@ -14,7 +14,7 @@ import ActionBar from '../../ActionBar';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N } from '../../translate';
+import '../../translate';
 import Inject from '../../Inject';
 
 function adaptActionsIds(actions, parentId) {
@@ -153,4 +153,4 @@ Toolbar.propTypes = {
 
 Toolbar.defaultProps = {};
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Toolbar);
+export default translate(I18N_DOMAIN_COMPONENTS)(Toolbar);

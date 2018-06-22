@@ -1,18 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filter container should render 1`] = `
-<FilterBar
-  autoFocus={true}
-  className=""
+<Translate(FilterBar)
   collectionToFilter="myCollectionToFilter"
   dockable={true}
   docked={false}
-  focus={false}
-  iconAlwaysVisible={false}
   navbar={true}
   onFilter={[Function]}
   onToggle={[Function]}
-  placeholder="Filter"
   t={[Function]}
   value="a filter"
 />

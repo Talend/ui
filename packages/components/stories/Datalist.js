@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Datalist } from '../src/index';
 
@@ -27,16 +28,17 @@ const singleSectionProps = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ name: 'foo', value: 'foo' },
-		{ name: 'bar', value: 'bar' },
-		{ name: 'foobar', value: 'foobar' },
-		{ name: 'lol', value: 'lol' },
+		{ name: 'My foo', value: 'foo' },
+		{ name: 'My bar', value: 'bar' },
+		{ name: 'My foobar', value: 'foobar' },
+		{ name: 'My lol', value: 'lol' },
 	],
 	onFinish: action('onFinish'),
 	onChange: action('onChange'),
 };
 
 storiesOf('Datalist', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			{story()}

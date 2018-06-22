@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import Immutable, { List } from 'immutable';
 
 import Component from './SelectObject.component';
@@ -91,7 +91,7 @@ export function filter(
 class SelectObject extends React.Component {
 	static displayName = DISPLAY_NAME;
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		sourceData: PropTypes.array,
 		selectedId: PropTypes.string,
 		tree: PropTypes.object,

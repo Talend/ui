@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -854,8 +854,15 @@ class EnumerationForm extends React.Component {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value, prevState);
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
+			// in this case, we could have the loading state that implied we have just one icon
+			if (!validateAction && !abortAction) {
+				// returning null in setState prevent re-rendering
+				// see here for documentation https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes
+				return null;
+			}
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
+
 			let headerError = '';
 			if (valueExist) {
 				headerError = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -916,10 +923,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 EnumerationForm.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 export { EnumerationForm };
-export default translate(I18N_DOMAIN_FORMS, {
-	i18n: DEFAULT_I18N,
-})(EnumerationForm);
+export default translate(I18N_DOMAIN_FORMS)(EnumerationForm);

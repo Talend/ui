@@ -4,9 +4,11 @@ import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
+import { translate } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
-import { getDefaultTranslate } from '../translate';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -87,12 +89,13 @@ FilterInput.propTypes = {
  * @example
  <FilterBar id="my-filter" docked="false" onFilter="filter()"></Filter>
  */
-class FilterBar extends React.Component {
+export class FilterBarComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
 	}
 
@@ -189,8 +192,8 @@ class FilterBar extends React.Component {
 	}
 }
 
-FilterBar.displayName = 'FilterBar';
-FilterBar.propTypes = {
+FilterBarComponent.displayName = 'FilterBar';
+FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
 	iconAlwaysVisible: PropTypes.bool,
 	id: PropTypes.string,
@@ -212,7 +215,7 @@ FilterBar.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-FilterBar.defaultProps = {
+FilterBarComponent.defaultProps = {
 	autoFocus: true,
 	dockable: true,
 	docked: true,
@@ -220,8 +223,8 @@ FilterBar.defaultProps = {
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 	className: '',
 };
 
-export default FilterBar;
+export default translate(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);

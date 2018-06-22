@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
-import { Map } from 'immutable';
+import { Map, List as ImmutableList } from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
@@ -12,6 +12,7 @@ import { getActionsProps } from '../actionAPI';
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
+	selectedItems: new ImmutableList(),
 	searchQuery: '',
 	itemsPerPage: 10,
 	startIndex: 1,
@@ -43,6 +44,12 @@ class List extends React.Component {
 			left: PropTypes.arrayOf(PropTypes.string),
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
+		multiSelectActions: PropTypes.shape({
+			title: PropTypes.string,
+			left: PropTypes.arrayOf(PropTypes.string),
+			right: PropTypes.arrayOf(PropTypes.string),
+		}),
+		idKey: PropTypes.string,
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -54,6 +61,7 @@ class List extends React.Component {
 				onChange: PropTypes.func,
 			}),
 		}),
+		cellDictionary: PropTypes.object,
 		displayMode: PropTypes.string,
 		items: ImmutablePropTypes.list.isRequired,
 		...cmfConnect.propTypes,
@@ -76,7 +84,11 @@ class List extends React.Component {
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onChangePage = this.onChangePage.bind(this);
+		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
+		this.onToggleAllMultiSelection = this.onToggleAllMultiSelection.bind(this);
+		this.isSelected = this.isSelected.bind(this);
 	}
+
 	onSelectSortBy(event, payload) {
 		this.props.setState({
 			sortOn: payload.field,
@@ -104,10 +116,47 @@ class List extends React.Component {
 		this.props.setState({ displayMode: payload });
 	}
 
+	onToggleMultiSelection(event, data) {
+		const selectedItems = this.getSelectedItems();
+		const dataIndex = selectedItems.indexOf(data[this.props.idKey]);
+		if (dataIndex > -1) {
+			this.props.setState({
+				selectedItems: selectedItems.splice(dataIndex, 1),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: selectedItems.push(data[this.props.idKey]),
+			});
+		}
+	}
+
+	onToggleAllMultiSelection() {
+		const selectedItems = this.getSelectedItems();
+		const items = this.props.items;
+		if (selectedItems.size !== items.size) {
+			this.props.setState({
+				selectedItems: items.map(item => item.get(this.props.idKey)),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: new ImmutableList([]),
+			});
+		}
+	}
+
+	getSelectedItems() {
+		return this.props.state.get('selectedItems', new ImmutableList());
+	}
+
 	getGenericDispatcher(property) {
 		return (event, data) => {
 			this.props.dispatchActionCreator(property, event, data, this.context);
 		};
+	}
+
+	isSelected(item) {
+		const selectedItems = this.getSelectedItems();
+		return selectedItems.some(itemKey => itemKey === item[this.props.idKey]);
 	}
 
 	render() {
@@ -132,6 +181,10 @@ class List extends React.Component {
 			isDescending: !state.sortAsc,
 			onChange: this.onSelectSortBy,
 		};
+		if (!props.list.itemProps) {
+			props.list.itemProps = {};
+		}
+
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
@@ -149,6 +202,30 @@ class List extends React.Component {
 					this.props.actions.editCancel,
 				);
 			}
+		}
+
+		if (props.cellDictionary) {
+			props.list.cellDictionary = Object.keys(props.cellDictionary).reduce((acc, key) => {
+				const current = props.cellDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = {
+					...omit(current, ['component']),
+					cellRenderer: props.getComponent(current.component),
+				};
+				return acc;
+			}, {});
+		}
+
+		if (props.headerDictionary) {
+			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce((acc, key) => {
+				const current = props.headerDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = {
+					...omit(current, ['component']),
+					headerRenderer: props.getComponent(current.component),
+				};
+				return acc;
+			}, {});
 		}
 
 		// toolbar
@@ -180,8 +257,32 @@ class List extends React.Component {
 				props.toolbar.filter.value = state.searchQuery;
 			}
 
-			props.toolbar.actionBar = { actions: {} };
+			props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
+
+			// settings up multi selection
+			if (props.multiSelectActions && props.idKey) {
+				props.list.itemProps.onToggle = this.onToggleMultiSelection;
+				props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
+				props.list.itemProps.isSelected = this.isSelected;
+				props.toolbar.actionBar.selected = this.getSelectedItems().size;
+			}
+
 			const actions = this.props.actions;
+			const multiSelectActions = this.props.multiSelectActions;
+			if (multiSelectActions) {
+				if (multiSelectActions.left) {
+					props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({
+						actionId: action,
+					}));
+				}
+				if (multiSelectActions.right) {
+					props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(
+						action => ({
+							actionId: action,
+						}),
+					);
+				}
+			}
 			if (actions) {
 				if (actions.left) {
 					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));

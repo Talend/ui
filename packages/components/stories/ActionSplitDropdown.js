@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionSplitDropdown, IconsProvider } from '../src/index';
 
@@ -53,6 +54,7 @@ const decoratedStories = storiesOf('ActionSplitDropdown', module).addDecorator(s
 ));
 
 decoratedStories
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<p>By default :</p>

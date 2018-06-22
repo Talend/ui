@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import { api, componentState } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 
 import { deleteACK } from '../../actions/ack';
 
@@ -24,7 +24,7 @@ class ACKDispatcher extends React.Component {
 	static displayName = 'Container(ACKDispatcher)';
 	static propTypes = {
 		acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 	static contextTypes = {
 		registry: PropTypes.object,
@@ -56,7 +56,7 @@ class ACKDispatcher extends React.Component {
 	}
 
 	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = api.actionCreator.get(this.context, actionCreator)({}, data, this.context);
+		const action = cmf.actionCreator.get(this.context, actionCreator)({}, data, this.context);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
 		this.setState(oldState => {
@@ -79,8 +79,8 @@ class ACKDispatcher extends React.Component {
 			});
 	}
 
+	// eslint-disable-next-line class-methods-use-this
 	render() {
-		// eslint-disable-line class-methods-use-this
 		return null;
 	}
 }

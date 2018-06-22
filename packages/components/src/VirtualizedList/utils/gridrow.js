@@ -95,7 +95,7 @@ export function extractSpecialFields(parent) {
  * @param parent The row parent instance
  * @param field The VirtualizedList.Content instance
  */
-export function renderCell(index, parent, field) {
+export function renderCell(index, parent, field, type) {
 	const cellRenderer = getCellRenderer(field);
 	return cellRenderer({
 		cellData: getCellData(field, parent, index),
@@ -103,5 +103,6 @@ export function renderCell(index, parent, field) {
 		dataKey: getDataKey(field),
 		rowData: getRowData(parent, index),
 		rowIndex: index,
+		type,
 	});
 }

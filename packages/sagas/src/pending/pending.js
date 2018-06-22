@@ -1,11 +1,11 @@
 import { delay } from 'redux-saga';
 import { call, put, select, take } from 'redux-saga/effects';
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 import { Map } from 'immutable';
 
 import { PENDING_DELAY_TO_SHOW, PENDING_COLLECTION_NAME, SHOW_PENDING } from '../constants';
 
-const addOrReplace = api.actions.collections.addOrReplace;
+const addOrReplace = cmf.actions.collections.addOrReplace;
 
 /**
  * find a datastore by its id

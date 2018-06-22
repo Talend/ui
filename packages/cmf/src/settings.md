@@ -152,10 +152,10 @@ You can use onEnter/onLeave lifecycle hooks. To do that, you need to:
 
 ```javascript
 // configure.js
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 import onEnter from './routeHooks.js';
 
-const registerRouteFunction = api.route.registerFunction;
+const registerRouteFunction = cmf.route.registerFunction;
 registerRouteFunction('my:route:onEnter', onEnterFetchThings);
 ```
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cmfConnect, componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import { TreeView as Component } from '@talend/react-components';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
@@ -73,7 +73,7 @@ class TreeView extends React.Component {
 		onClickActionCreator: PropTypes.string,
 		onSelectActionCreator: PropTypes.string,
 
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 	static defaultProps = DEFAULT_PROPS;
 

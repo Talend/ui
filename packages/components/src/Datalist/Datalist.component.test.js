@@ -8,6 +8,7 @@ const props = {
 	autoFocus: true,
 	disabled: false,
 	placeholder: 'Type here',
+	noResultText: 'there is nothing ...',
 	readOnly: false,
 	title: 'My List',
 	titleMap: [
@@ -44,7 +45,7 @@ describe('Datalist component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should update grouped suggestions on value change', () => {
+	it('should show label', () => {
 		// given
 		const multiSectionProps = { ...props, titleMap: multiSectionMap };
 		const wrapper = mount(
@@ -71,6 +72,36 @@ describe('Datalist component', () => {
 			{ suggestions: [{ title: 'foo' }], title: 'cat 1' },
 			{ suggestions: [{ title: 'foobar' }], title: 'cat 3' },
 		]);
+	});
+
+	it('should update grouped suggestions on value change', () => {
+		const wrapper = mount(
+			<Datalist
+				autoFocus
+				id={'my-datalist'}
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				{...props}
+				titleMap={[{ name: 'A', value: 'a' }, { name: 'B', value: 'b' }]}
+				value={'a'}
+			/>,
+		);
+
+		function findInput() {
+			return wrapper.find('input').at(0);
+		}
+		function findLabel() {
+			return findInput().props().value;
+		}
+
+		// ensure the shown value is the label
+		expect(findLabel()).toEqual('A');
+
+		// now change the value and ensures it still show the label
+		findInput().simulate('change', { target: { value: 'b' } });
+		expect(findLabel()).toEqual('B');
 	});
 
 	it('should update suggestions on value change', () => {

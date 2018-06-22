@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Filter from './FilterBar.component';
+import { FilterBarComponent } from './FilterBar.component';
 
 jest.mock('react-dom');
 
@@ -10,7 +10,7 @@ describe('Filter', () => {
 
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<Filter onFilter={noOp} onToggle={noOp} />);
+		const wrapper = shallow(<FilterBarComponent onFilter={noOp} onToggle={noOp} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -18,7 +18,9 @@ describe('Filter', () => {
 
 	it('should render id if provided', () => {
 		// when
-		const wrapper = shallow(<Filter id="toolbar-filter" onFilter={noOp} onToggle={noOp} />);
+		const wrapper = shallow(
+			<FilterBarComponent id="toolbar-filter" onFilter={noOp} onToggle={noOp} />,
+		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -26,7 +28,7 @@ describe('Filter', () => {
 
 	it('should render highlighted filter', () => {
 		// when
-		const wrapper = shallow(<Filter highlight onFilter={noOp} onToggle={noOp} />);
+		const wrapper = shallow(<FilterBarComponent highlight onFilter={noOp} onToggle={noOp} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -34,7 +36,7 @@ describe('Filter', () => {
 
 	it('should render only toggle icon', () => {
 		// when
-		const wrapper = shallow(<Filter onFilter={noOp} onToggle={noOp} docked />);
+		const wrapper = shallow(<FilterBarComponent onFilter={noOp} onToggle={noOp} docked />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -46,7 +48,7 @@ describe('Filter', () => {
 			docked: false,
 			placeholder: 'find something',
 		};
-		const wrapper = shallow(<Filter {...defaultProps} />);
+		const wrapper = shallow(<FilterBarComponent {...defaultProps} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -57,7 +59,7 @@ describe('Filter', () => {
 		const defaultProps = {
 			docked: false,
 		};
-		const wrapper = shallow(<Filter {...defaultProps} />);
+		const wrapper = shallow(<FilterBarComponent {...defaultProps} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

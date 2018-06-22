@@ -4,10 +4,11 @@ import classNames from 'classnames';
 import Icon from '../../Icon';
 import CellTitleSelector from './CellTitleSelector.component';
 import CellTitleActions from './CellTitleActions.component';
-import { cellTitleDisplayModes } from '../utils/constants';
+import { cellTitleDisplayModes, listTypes } from '../utils/constants';
 
 import theme from './CellTitle.scss';
 
+const { LARGE } = listTypes;
 const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
 /**
@@ -17,7 +18,7 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
  * - a button with a click action (columnData.onClick)
  * - actions (rowData[columnData.actionsKey])
  */
-function CellTitle({ cellData, columnData, rowData, rowIndex }) {
+function CellTitle({ cellData, columnData, rowData, rowIndex, type }) {
 	const {
 		id,
 		onClick,
@@ -31,6 +32,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 	} = columnData;
 	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
 	const titleId = id && `${id}-${rowIndex}-title-cell`;
+	const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
 	return (
 		<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
@@ -48,10 +50,12 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				columnData={columnDataRest}
 			/>
 			<CellTitleActions
+				id={actionsId}
 				rowData={rowData}
 				actionsKey={actionsKey}
 				persistentActionsKey={persistentActionsKey}
 				displayMode={displayMode}
+				type={type}
 			/>
 		</div>
 	);
@@ -84,6 +88,8 @@ CellTitle.propTypes = {
 	rowData: PropTypes.object, // eslint-disable-line
 	// The collection item index.
 	rowIndex: PropTypes.number,
+	// The type of display
+	type: PropTypes.oneOf([LARGE]),
 };
 
 export default CellTitle;

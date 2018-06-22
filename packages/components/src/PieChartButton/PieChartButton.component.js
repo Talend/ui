@@ -31,7 +31,7 @@ const displaySizes = {
  * @param {number} percentage the percentage to calculate the angle
  */
 export function getAngle(percentage) {
-	return percentage * 2 / 100 * Math.PI;
+	return ((percentage * 2) / 100) * Math.PI;
 }
 
 /**
@@ -189,12 +189,18 @@ export function setMinimumPercentage(model, minimumPercentage) {
  * @param {string} overlayPlacement the overlay placement
  * @param {Element} overlayComponent the overlay component
  * @param {string} overlayId the id to be set for the overlay
+ * @param {callback} overlayRef the callback to be set for the overlay to bind ref
  */
-export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
+export function decorateWithOverlay(
+	btn,
+	overlayPlacement,
+	overlayComponent,
+	overlayId,
+	overlayRef,
+) {
 	if (!overlayComponent) {
 		return btn;
 	}
-
 	return (
 		<span>
 			<OverlayTrigger
@@ -202,6 +208,7 @@ export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, ove
 				rootClose
 				placement={overlayPlacement}
 				overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
+				ref={overlayRef}
 			>
 				{btn}
 			</OverlayTrigger>
@@ -305,6 +312,7 @@ function getShowedValue(model, index) {
 }
 
 function PieChartButton({
+	available,
 	model,
 	labelIndex,
 	className,
@@ -321,8 +329,13 @@ function PieChartButton({
 	size,
 	tooltip,
 	tooltipPlacement,
+	buttonRef,
+	overlayRef,
 	...rest
 }) {
+	if (!available) {
+		return null;
+	}
 	const sizeObject = getDisplaySize(size, display);
 
 	if (loading) {
@@ -357,12 +370,14 @@ function PieChartButton({
 			className={classnames(theme['tc-pie-chart'], 'tc-pie-chart', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
+			ref={buttonRef}
 			{...rest}
 		>
 			<svg
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
 				className={classnames(theme['tc-pie-chart-graph'], 'tc-pie-chart-graph')}
+				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
 			>
 				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
 				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
@@ -380,13 +395,14 @@ function PieChartButton({
 		</Button>
 	);
 
-	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId);
+	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
 	btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
 
 	return btn;
 }
 
 PieChartButton.propTypes = {
+	available: PropTypes.bool,
 	className: PropTypes.string,
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
 	loading: PropTypes.bool,
@@ -415,9 +431,12 @@ PieChartButton.propTypes = {
 	size: propTypeCheckSize,
 	tooltip: PropTypes.bool,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	buttonRef: PropTypes.func,
+	overlayRef: PropTypes.func,
 };
 
 PieChartButton.defaultProps = {
+	available: true,
 	labelIndex: 0,
 	minimumPercentage: 5,
 	display: 'small',

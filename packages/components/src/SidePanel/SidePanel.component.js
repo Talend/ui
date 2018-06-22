@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
-
+import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
@@ -129,4 +128,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);
+export default translate(I18N_DOMAIN_COMPONENTS)(SidePanel);

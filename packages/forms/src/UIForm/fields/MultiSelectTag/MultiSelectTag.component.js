@@ -107,7 +107,7 @@ export default class MultiSelectTag extends React.Component {
 	 */
 	onAddTag(event, { itemIndex }) {
 		const currentValue = this.state.value;
-		const selectedOption = this.state.suggestions[itemIndex];
+		const selectedOption = this.state.suggestions[itemIndex].value;
 		const isCreation = getNewItemText(currentValue) === selectedOption;
 
 		const newValue = isCreation ? currentValue : selectedOption;
@@ -155,16 +155,16 @@ export default class MultiSelectTag extends React.Component {
 			const currentValue = value === undefined ? oldState.value : value;
 			const currentProps = props === undefined ? this.props : props;
 			let suggestions = currentProps.schema.titleMap
-				.map(item => item.value)
-				.filter(item => currentProps.value.indexOf(item) < 0);
+				.map(item => ({ value: item.value, title: item.name }))
+				.filter(item => currentProps.value.indexOf(item.value) < 0);
 
 			if (currentValue) {
 				const escapedValue = escapeRegexCharacters(currentValue.trim());
 				const regex = new RegExp(escapedValue, 'i');
-				suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+				suggestions = suggestions.filter(item => regex.test(item.title));
 
 				if (!suggestions.length && currentProps.schema.restricted === false) {
-					suggestions.push(getNewItemText(currentValue));
+					suggestions.push({ value: currentValue, title: getNewItemText(currentValue) });
 				}
 			}
 

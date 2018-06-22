@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
@@ -81,7 +81,7 @@ HeaderInput.propTypes = {
 };
 
 HeaderInput.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(HeaderInput);
+export default translate(I18N_DOMAIN_COMPONENTS)(HeaderInput);

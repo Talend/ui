@@ -1,5 +1,9 @@
 import { createInstance } from 'i18next';
+import { setI18n, getI18n } from 'react-i18next';
+
+export default function getDefaultT() {
+	return getI18n().t.bind(getI18n());
+}
 
 // https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-const DEFAULT_I18N = createInstance({}, () => {});
-export default DEFAULT_I18N;
+setI18n(createInstance({}, () => {}));

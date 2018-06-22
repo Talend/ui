@@ -4,62 +4,46 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 <ConfirmDialog
   cancelAction={
     Object {
-      "actionCreator": "deleteResource:cancel",
-      "id": "dialog:delete:cancel",
+      "componentId": "dialog:delete:cancel",
       "label": "No",
       "model": Object {
-        "resourceInfo": Object {
-          "found": true,
-          "id": "myResourceID",
-          "label": "myLabel",
-          "resourceType": "myResourceType",
-          "resourceTypeLabel": "resourceLabel",
-          "uri": "/myEndpoint",
-        },
+        "found": true,
+        "id": undefined,
+        "label": "myLabel",
+        "resourceType": "myResourceType",
+        "resourceTypeLabel": "resourceLabel",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#cancel",
     }
   }
+  getComponent={undefined}
   header="My header title"
   show={true}
   validateAction={
     Object {
-      "actionCreator": "deleteResource:validate",
       "bsStyle": "danger",
-      "id": "dialog:delete:validate",
+      "componentId": "dialog:delete:validate",
       "label": "Yes",
       "model": Object {
-        "resourceInfo": Object {
-          "found": true,
-          "id": "myResourceID",
-          "label": "myLabel",
-          "resourceType": "myResourceType",
-          "resourceTypeLabel": "resourceLabel",
-          "uri": "/myEndpoint",
-        },
+        "found": true,
+        "id": undefined,
+        "label": "myLabel",
+        "resourceType": "myResourceType",
+        "resourceTypeLabel": "resourceLabel",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#validate",
     }
   }
 >
   <div>
-    <Trans
-      i18nKey="DELETE_RESOURCE_MESSAGE_female"
-      parent="div"
-    >
-      Are you sure you want to remove the 
-      Object {
-        "resourceLabel": "resourceLabel",
-      }
-      <strong>
-         
-        Object {
-          "resourceName": "myLabel",
-        }
-         
-      </strong>
-       ?
-    </Trans>
+    Are you sure you want to remove the resourceLabel
+     
+    <strong>
+      myLabel
+    </strong>
+    ?
   </div>
 </ConfirmDialog>
 `;
@@ -68,62 +52,44 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
 <ConfirmDialog
   cancelAction={
     Object {
-      "actionCreator": "deleteResource:cancel",
-      "id": "dialog:delete:cancel",
+      "componentId": "dialog:delete:cancel",
       "label": "No",
       "model": Object {
-        "resourceInfo": Object {
-          "found": false,
-          "id": "myResourceID",
-          "label": "",
-          "resourceType": "unknownResourceType",
-          "resourceTypeLabel": "unknownResourceType",
-          "uri": "/myEndpoint",
-        },
+        "found": false,
+        "id": undefined,
+        "label": "",
+        "resourceType": "unknownResourceType",
+        "resourceTypeLabel": "unknownResourceType",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#cancel",
     }
   }
+  getComponent={undefined}
   header="My header title"
   show={true}
   validateAction={
     Object {
-      "actionCreator": "deleteResource:validate",
       "bsStyle": "danger",
-      "id": "dialog:delete:validate",
+      "componentId": "dialog:delete:validate",
       "label": "Yes",
       "model": Object {
-        "resourceInfo": Object {
-          "found": false,
-          "id": "myResourceID",
-          "label": "",
-          "resourceType": "unknownResourceType",
-          "resourceTypeLabel": "unknownResourceType",
-          "uri": "/myEndpoint",
-        },
+        "found": false,
+        "id": undefined,
+        "label": "",
+        "resourceType": "unknownResourceType",
+        "resourceTypeLabel": "unknownResourceType",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#validate",
     }
   }
 >
   <div>
-    <Trans
-      i18nKey="DELETE_RESOURCE_MESSAGE"
-      parent="div"
-    >
-      Are you sure you want to remove the 
-      Object {
-        "resourceLabel": "unknownResourceType",
-      }
-      <strong>
-         
-        Object {
-          "resourceName": "",
-        }
-         
-      </strong>
-       ?
-    </Trans>
+    Are you sure you want to remove the unknownResourceType
+     
+    <strong />
+    ?
   </div>
 </ConfirmDialog>
 `;

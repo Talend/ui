@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import getDefaultT from '../../../translate';
 
 import theme from './Array.scss';
 
@@ -45,7 +45,7 @@ export function DefaultArrayTemplate(props) {
 }
 
 DefaultArrayTemplate.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -62,4 +62,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(DefaultArrayTemplate);
+export default translate(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);

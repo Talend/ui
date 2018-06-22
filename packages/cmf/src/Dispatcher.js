@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import cmfConnect from './cmfConnect';
-import api from './api';
+import action from './action';
+import actionCreator from './actionCreator';
 
 /**
  * check if on[event] string relate to a declared action handler
@@ -17,9 +18,9 @@ import api from './api';
  * @throws invariant
  */
 export function checkIfActionInfoExist(props, context) {
-	api.action.getOnProps(props).forEach(name => {
+	action.getOnProps(props).forEach(name => {
 		if (typeof props[name] === 'string') {
-			api.actionCreator.get(context, props[name]);
+			actionCreator.get(context, props[name]);
 		}
 	});
 }
@@ -92,7 +93,7 @@ export class Dispatcher extends React.Component {
 	 * @return {object} ReactElement
 	 */
 	render() {
-		const onProps = api.action.getOnProps(this.props);
+		const onProps = action.getOnProps(this.props);
 		const childrenWithProps = React.Children.map(this.props.children, child => {
 			const props = {};
 			onProps.forEach(name => {

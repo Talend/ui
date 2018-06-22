@@ -38,52 +38,48 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             >
               inProgress
             </span>
-            <span
-              className="theme-tc-status-actions tc-status-actions"
+            <div
+              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
             >
-              <div
-                className="tc-actions btn-group"
+              <button
+                aria-label="cancel"
+                className="btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
               >
-                <button
-                  aria-label="cancel"
-                  className="btn btn-default"
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-cancel"
-                    focusable="false"
-                    title={null}
-                  />
-                  <span>
-                    cancel
-                  </span>
-                </button>
-                <button
-                  aria-label="delete"
-                  className="btn btn-default"
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-delete"
-                    focusable="false"
-                    title={null}
-                  />
-                  <span>
-                    delete
-                  </span>
-                </button>
-              </div>
-            </span>
+                <i
+                  aria-hidden="true"
+                  className="fa fa-cancel"
+                  focusable="false"
+                  title={null}
+                />
+                <span>
+                  cancel
+                </span>
+              </button>
+              <button
+                aria-label="delete"
+                className="btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-delete"
+                  focusable="false"
+                  title={null}
+                />
+                <span>
+                  delete
+                </span>
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -91,7 +87,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <button
             aria-label="edit"
-            className="theme-undefined btn btn-link"
+            className="theme-undefined btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -143,6 +139,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       className="theme-toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
+      title="Collapse panel"
       type="button"
     >
       <svg
@@ -172,25 +169,23 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       <div
         className="panel-body"
       >
-        <dl>
-          <div
-            className="theme-content"
+        <dl
+          className="theme-content"
+        >
+          <dt
+            className="theme-label"
           >
-            <dt
-              className="theme-label"
+            <span
+              className="label label-default"
             >
-              <span
-                className="label label-default"
-              >
-                Content
-              </span>
-            </dt>
-            <dd
-              className="theme-description"
-            >
-              Description3
-            </dd>
-          </div>
+              Content
+            </span>
+          </dt>
+          <dd
+            className="theme-description"
+          >
+            Description3
+          </dd>
         </dl>
       </div>
     </div>
@@ -236,52 +231,48 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             >
               inProgress
             </span>
-            <span
-              className="theme-tc-status-actions tc-status-actions"
+            <div
+              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
             >
-              <div
-                className="tc-actions btn-group"
+              <button
+                aria-label="cancel"
+                className="btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
               >
-                <button
-                  aria-label="cancel"
-                  className="btn btn-default"
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-cancel"
-                    focusable="false"
-                    title={null}
-                  />
-                  <span>
-                    cancel
-                  </span>
-                </button>
-                <button
-                  aria-label="delete"
-                  className="btn btn-default"
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-delete"
-                    focusable="false"
-                    title={null}
-                  />
-                  <span>
-                    delete
-                  </span>
-                </button>
-              </div>
-            </span>
+                <i
+                  aria-hidden="true"
+                  className="fa fa-cancel"
+                  focusable="false"
+                  title={null}
+                />
+                <span>
+                  cancel
+                </span>
+              </button>
+              <button
+                aria-label="delete"
+                className="btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-delete"
+                  focusable="false"
+                  title={null}
+                />
+                <span>
+                  delete
+                </span>
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -289,7 +280,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <button
             aria-label="edit"
-            className="theme-undefined btn btn-link"
+            className="theme-undefined btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -341,6 +332,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       className="theme-toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
+      title="Expand panel"
       type="button"
     >
       <svg
@@ -370,25 +362,23 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       <div
         className="panel-body"
       >
-        <dl>
-          <div
-            className="theme-content"
+        <dl
+          className="theme-content"
+        >
+          <dt
+            className="theme-label"
           >
-            <dt
-              className="theme-label"
+            <span
+              className="label label-default"
             >
-              <span
-                className="label label-default"
-              >
-                Content
-              </span>
-            </dt>
-            <dd
-              className="theme-description"
-            >
-              Description3
-            </dd>
-          </div>
+              Content
+            </span>
+          </dt>
+          <dd
+            className="theme-description"
+          >
+            Description3
+          </dd>
         </dl>
       </div>
     </div>
@@ -434,52 +424,48 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             >
               inProgress
             </span>
-            <span
-              className="theme-tc-status-actions tc-status-actions"
+            <div
+              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
             >
-              <div
-                className="tc-actions btn-group"
+              <button
+                aria-label="cancel"
+                className="btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
               >
-                <button
-                  aria-label="cancel"
-                  className="btn btn-default"
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-cancel"
-                    focusable="false"
-                    title={null}
-                  />
-                  <span>
-                    cancel
-                  </span>
-                </button>
-                <button
-                  aria-label="delete"
-                  className="btn btn-default"
-                  disabled={false}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
-                >
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-delete"
-                    focusable="false"
-                    title={null}
-                  />
-                  <span>
-                    delete
-                  </span>
-                </button>
-              </div>
-            </span>
+                <i
+                  aria-hidden="true"
+                  className="fa fa-cancel"
+                  focusable="false"
+                  title={null}
+                />
+                <span>
+                  cancel
+                </span>
+              </button>
+              <button
+                aria-label="delete"
+                className="btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-delete"
+                  focusable="false"
+                  title={null}
+                />
+                <span>
+                  delete
+                </span>
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -487,7 +473,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         >
           <button
             aria-label="edit"
-            className="theme-undefined btn btn-link"
+            className="theme-undefined btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -594,6 +580,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       className="theme-toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
+      title="Expand panel"
       type="button"
     >
       <svg

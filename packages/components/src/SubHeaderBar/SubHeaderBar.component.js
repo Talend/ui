@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
+import getDefaultT from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import InputTitleSubHeader from './InputTitleSubHeader';
@@ -144,9 +144,9 @@ SubHeaderBar.propTypes = {
 };
 
 SubHeaderBar.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 SubHeaderBar.Content = SubHeaderBarActions;
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SubHeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS)(SubHeaderBar);
 export { SubHeaderBar, SubHeaderBarActions, CustomInject };

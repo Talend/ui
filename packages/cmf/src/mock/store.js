@@ -1,4 +1,5 @@
 import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 import settings from './settings';
 import collections from './collections';
 import components from './components';
@@ -51,16 +52,31 @@ const emptyContext = {
 };
 
 function copy(obj) {
-	return Object.assign({}, obj);
+	return cloneDeep(obj);
 }
 
 const mock = {
-	context: () => copy(context),
+	context: (myState, myRegistry) => {
+		const myContext = copy(context);
+		if (myState) {
+			myContext.store.getState = () => myState;
+		}
+		if (myRegistry) {
+			myContext.registry = myRegistry;
+		}
+		return myContext;
+	},
 	emptyContext: () => copy(emptyContext),
 	notInitializedState: () => copy(notInitializedState),
 	registry: () => copy(registry),
 	state: () => copy(state),
 	settings: () => copy(settings),
-	store: () => copy(store),
+	store: myState => {
+		const myStore = copy(store);
+		if (myState) {
+			myStore.getState = () => myState;
+		}
+		return myStore;
+	},
 };
 export default mock;

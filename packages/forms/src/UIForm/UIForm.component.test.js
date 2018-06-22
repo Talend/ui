@@ -215,6 +215,23 @@ describe('UIForm component', () => {
 			});
 		});
 
+		it('should validate all fields with custom error messages', () => {
+			const props2 = {
+				...props,
+				language: { OBJECT_REQUIRED: 'is required' },
+			};
+			// given
+			const wrapper = shallow(<UIFormComponent {...data} {...props2} />);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				firstname: 'is required',
+			});
+		});
+
 		it('should not call submit callback when form is invalid', () => {
 			// given
 			const wrapper = shallow(<UIFormComponent {...data} {...props} />);

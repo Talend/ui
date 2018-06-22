@@ -1,23 +1,23 @@
 /**
  * @module react-cmf/lib/actions/collectionsActions
  */
+import curry from 'lodash/curry';
+import CONSTANTS from '../constant';
 
-export const COLLECTION_ADD_OR_REPLACE = 'REACT_CMF.COLLECTION_ADD_OR_REPLACE';
-export const COLLECTION_REMOVE = 'REACT_CMF.COLLECTION_REMOVE';
-export const COLLECTION_MUTATE = 'REACT_CMF.COLLECTION_MUTATE';
+// keep backward compatibility
+export const { COLLECTION_ADD_OR_REPLACE, COLLECTION_REMOVE, COLLECTION_MUTATE } = CONSTANTS;
 
 /**
  * Add or replace collection data in store
+ * curried function
  * @param {string} collectionId identifier
  * @param {any} data element that represent business data
  */
-export function addOrReplace(collectionId, data) {
-	return {
-		type: COLLECTION_ADD_OR_REPLACE,
-		collectionId,
-		data,
-	};
-}
+export const addOrReplace = curry((collectionId, data) => ({
+	type: CONSTANTS.COLLECTION_ADD_OR_REPLACE,
+	collectionId,
+	data,
+}));
 
 /**
  * Remove collection data in store to free space
@@ -27,14 +27,14 @@ export function addOrReplace(collectionId, data) {
  */
 export function remove(collectionId) {
 	return {
-		type: COLLECTION_REMOVE,
+		type: CONSTANTS.COLLECTION_REMOVE,
 		collectionId,
 	};
 }
 
 /**
  * mutateCollection let's you apply operations on a given collection
- *
+ * curried function
  * @param {string} id collection identifier
  * @param {object} operations operations to be applied on the collection
  * {
@@ -43,13 +43,11 @@ export function remove(collectionId) {
  * 		delete: []
  * }
  */
-export function mutate(id, operations) {
-	return {
-		type: COLLECTION_MUTATE,
-		id,
-		operations,
-	};
-}
+export const mutate = curry((id, operations) => ({
+	type: CONSTANTS.COLLECTION_MUTATE,
+	id,
+	operations,
+}));
 
 // backward compatibility
 export const addOrReplaceCollection = addOrReplace;

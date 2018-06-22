@@ -7,6 +7,7 @@ import {
 } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
+import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
@@ -54,7 +55,7 @@ function ListTable(props) {
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
-			gridClassName={theme.grid}
+			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
 			headerHeight={35}
 			height={height}
 			id={id}

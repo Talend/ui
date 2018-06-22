@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
 import includes from 'lodash/includes';
-import { sfPath } from 'talend-json-schema-form-core';
+import { sfPath } from '@talend/json-schema-form-core';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';

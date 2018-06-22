@@ -14,7 +14,7 @@ import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import '../translate';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -36,8 +36,11 @@ export class UIFormComponent extends React.Component {
 		this.onActionClick = this.onActionClick.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
-		if (typeof props.language === 'function') {
+		if (props.language != null) {
 			Object.assign(language, props.language);
+			// Force update of language @talend even if already set
+			tv4.addLanguage('@talend', language);
+			tv4.language('@talend');
 		}
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', language);
@@ -204,7 +207,7 @@ export class UIFormComponent extends React.Component {
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit({ formData: properties });
+				this.props.onSubmit(null, { formData: properties });
 			} else {
 				this.props.onSubmit(event, properties);
 			}
@@ -260,12 +263,13 @@ export class UIFormComponent extends React.Component {
 					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
 					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
 				/>
 			</form>
 		);
 	}
 }
-const I18NUIForm = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(UIFormComponent);
+const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
 	I18NUIForm.propTypes = {
@@ -313,6 +317,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
+		getComponent: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
