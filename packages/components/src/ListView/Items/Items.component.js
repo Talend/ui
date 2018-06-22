@@ -39,6 +39,10 @@ export class ItemsComponent extends React.PureComponent {
 		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 	}
 
+	componentDidUpdate() {
+		this.node.recomputeRowHeights();
+	}
+
 	getItemByIndex(index) {
 		return this.props.items[index - Number(this.hasToggleAll)];
 	}
@@ -55,10 +59,6 @@ export class ItemsComponent extends React.PureComponent {
 		}
 
 		return this.props.getItemHeight() + extraHeight;
-	}
-
-	componentDidUpdate() {
-		this.node.recomputeRowHeights();
 	}
 
 	getRowCount() {
