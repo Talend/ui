@@ -1,0 +1,13 @@
+extends: ./api-app.yaml
+rules:
+  react/prefer-es6-class: off
+  react/forbid-prop-types: off
+  react/jsx-filename-extension: # Won't be linted if they don't end in .js
+    - error
+    - { extensions: [ .js ] }
+  react/no-unused-prop-types:
+    - error
+    - { skipShapeProps: true }
+  new-cap:
+    - error
+    - { capIsNewExceptions: [ List, Map ] }
