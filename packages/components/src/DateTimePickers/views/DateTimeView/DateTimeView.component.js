@@ -65,10 +65,17 @@ class DateTimeView extends React.Component {
 			/>,
 		};
 
+		const currentCalendar = {
+			year: this.props.selectedYear,
+			monthIndex: this.props.selectedMonthIndex,
+		};
+
 		const bodyElement = (
 			<div className={theme.body}>
 				<div className={theme.date}>
-					<DatePicker />
+					<DatePicker
+						calendar={currentCalendar}
+					/>
 				</div>
 				<div className={theme.time}>
 

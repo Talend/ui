@@ -1,26 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import memoize from 'lodash/memoize';
 import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
 
 class DatePicker extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-		this.dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+	static buildWeeks(year, monthIndex) {
 		const days = (new Array(7))
 						.fill(0)
 						.map((_, i) => i + 1);
 
-		this.weeks = (new Array(4))
+		return (new Array(4))
 			.fill(0)
 			.map((_, i) =>
 				days.map(x => ({
 					number: x + (i * 7),
 				}))
 			);
+	}
+
+	constructor(props) {
+		super(props);
+
+		this.dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex) => `${year}-${monthIndex}`);
 
 		this.selectedDay = 12;
 		this.currentDay = 20;
@@ -40,6 +46,10 @@ class DatePicker extends React.Component {
 	}
 
 	render() {
+		const { year, monthIndex } = this.props.calendar;
+
+		const weeks = this.getWeeks(year, monthIndex);
+
 		return (
 			<div className={theme.container}>
 				<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
@@ -56,7 +66,7 @@ class DatePicker extends React.Component {
 
 				<hr className={theme.separator} />
 
-				{this.weeks.map((week, i) =>
+				{weeks.map((week, i) =>
 					<div
 						className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
 						key={i}
@@ -85,6 +95,10 @@ class DatePicker extends React.Component {
 }
 
 DatePicker.propTypes = {
+	calendar: PropTypes.shape({
+		monthIndex: PropTypes.number.isRequired,
+		year: PropTypes.number.isRequired,
+	}).isRequired,
 };
 
 export default DatePicker;
