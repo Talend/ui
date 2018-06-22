@@ -17,7 +17,6 @@ function getAction(action, index) {
 			action.onClick(event);
 		}
 	}
-
 	return (
 		<Action
 			key={`${index}-enum-header-action`}
@@ -40,7 +39,7 @@ function HeaderSelected({ headerSelected, nbItemsSelected }) {
 	return (
 		<header className={headerClasses()}>
 			<span>{txtHeader}</span>
-			{headerSelected.map(getAction)}
+			{headerSelected.filter(action => !action.disabled).map(getAction)}
 		</header>
 	);
 }

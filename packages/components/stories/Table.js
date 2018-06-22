@@ -10,7 +10,6 @@ import {
 	DraggableComponent as draggable,
 	IconsProvider,
 	Table,
-	TableCell,
 } from '../src/index';
 
 const dataPrepSchema = {
@@ -148,9 +147,40 @@ const salesForceAccountSchema = {
 		'The timestamp for when the current user last viewed this record. If this value is null, this record might only have been referenced (LastReferencedDate) and not viewed.',
 		'',
 	],
+	mandatories: [
+		false,
+		false,
+		false,
+		true,
+		true,
+		true,
+		true,
+		false,
+		false,
+		false,
+		true,
+		true,
+		false,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		true,
+		false,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	],
 };
 
-function buildElement(elem, index, types, descriptions) {
+function buildElement(elem, index, types, descriptions, mandatories) {
 	const type = types[index];
 	let description = null;
 	if (descriptions) {
@@ -158,11 +188,16 @@ function buildElement(elem, index, types, descriptions) {
 	} else {
 		description = `Description of ${elem}: bla bla bla`;
 	}
+	let mandatory = '';
+	if (mandatories && mandatories[index]) {
+		mandatory = '*';
+	}
 	return {
 		id: `${index}`,
 		name: elem,
 		type,
 		description,
+		mandatory,
 	};
 }
 
@@ -176,7 +211,7 @@ function finalizeSchema(schema, size) {
 		sourceElements = schema.elements.slice(0, size);
 	}
 	const elements = sourceElements.map(
-		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions)
+		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions, schema.mandatories)
 	);
 	result.elements = elements;
 	return result;
@@ -199,17 +234,60 @@ const Columns = {
 		key: 'description',
 		label: 'Description',
 	},
+	MANDATORY: {
+		key: 'mandatory',
+		label: '',
+	},
 };
 
-const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
-const columns2 = [Columns.NAME, Columns.TYPE];
+const SortDirection = {
+	NONE: 'none',
+	ASCENDING: 'ascending',
+	DESCENDING: 'descending',
+};
+
+function nextDirection(direction) {
+	switch (direction) {
+		case SortDirection.NONE:
+			return SortDirection.ASCENDING;
+		case SortDirection.ASCENDING:
+			return SortDirection.DESCENDING;
+		case SortDirection.DESCENDING:
+			return SortDirection.NONE;
+		default:
+			return direction;
+	}
+}
+
+const sorterIcons = {
+	none: null,
+	ascending: 'talend-sort-asc',
+	descending: 'talend-sort-desc',
+};
+
+const sorterKeys = [Columns.NAME.key, Columns.TYPE.key, Columns.DESC.key];
+
+function newColumn(col) {
+	return {
+		key: col.key,
+		label: col.label,
+	};
+}
+
+function addSortExtraProps(column) {
+	column.headExtraProps = {
+		iconPosition: 'right',
+		link: true,
+	};
+	return column;
+}
 
 /*
  * This constant allows to specify which drag sources and drop targets are compatible.
  */
 const DRAGGABLE_ELEMENT_TYPE = 'element';
 
-const draggableCell = draggable(TableCell, DRAGGABLE_ELEMENT_TYPE);
+const draggableCell = draggable(Table.Cell, DRAGGABLE_ELEMENT_TYPE);
 
 const draggableCellExtraProps = {
 	// for the drag and drop behaviour
@@ -232,50 +310,40 @@ const draggableCellExtraProps = {
 	},
 };
 
-const columns3 = [
-	{
-		key: Columns.NAME.key,
-		label: Columns.NAME.label,
-		cellRenderer: draggableCell,
-		cellExtraProps: draggableCellExtraProps,
-	},
-	Columns.TYPE,
-	Columns.DESC,
+function addDnd(column) {
+	column.cellRenderer = draggableCell;
+	column.cellExtraProps = draggableCellExtraProps;
+	return column;
+}
+
+const columns1 = [Columns.NAME, Columns.TYPE, Columns.DESC];
+
+const columns2 = [Columns.NAME, Columns.TYPE];
+
+const columns3 = [addDnd(newColumn(Columns.NAME)), Columns.TYPE, Columns.DESC];
+
+const columns4 = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
+
+const columns5 = [
+	addSortExtraProps(newColumn(Columns.NAME)),
+	addSortExtraProps(newColumn(Columns.TYPE)),
+	addSortExtraProps(newColumn(Columns.DESC)),
 ];
 
-const rowDataGetter = {
-	getElementId(element) {
-		return element.id;
-	},
-	getRowData(element, columnKey) {
-		switch (columnKey) {
-			case Columns.NAME.key:
-				return element.name;
-			case Columns.TYPE.key:
-				return element.type;
-			case Columns.DESC.key:
-				return element.description;
-			default:
-				return 'No data available!';
-		}
-	},
-};
-
-const storyClassnames = {
-	table: 'story-table',
-};
-
-const defaultClassnames = {
-	table: 'default-table',
-};
-
-const initialStateWithDnD = { draggable: true };
+const columns6 = [
+	addDnd(newColumn(Columns.MANDATORY)),
+	addSortExtraProps(newColumn(Columns.NAME)),
+	addSortExtraProps(newColumn(Columns.TYPE)),
+	addSortExtraProps(newColumn(Columns.DESC)),
+];
 
 class ConnectedTable extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = props.initialState;
+		this.state = {
+			highlighted: null,
+		};
 		this.onEnterRow = this.onEnterRow.bind(this);
 		this.onLeaveRow = this.onLeaveRow.bind(this);
 	}
@@ -292,26 +360,12 @@ class ConnectedTable extends React.Component {
 		});
 	}
 
-	getTableClassName() {
-		return classnames({
-			'table-with-dnd': this.state.draggable,
-		});
-	}
-
-	getRowClassName(element) {
-		const classNames = {
-			highlighted: this.state.highlighted && this.state.highlighted.id === element.id,
-			'draggable-row': this.state.draggable,
-		};
-		return classnames(classNames);
-	}
-
-	getRowClassNames(elements) {
-		let rowClassNames = [];
-		for (let i = 0; i < elements.length; i += 1) {
-			rowClassNames = rowClassNames.concat(this.getRowClassName(elements[i]));
+	getRowsClassName() {
+		const rowsClassName = {};
+		if (this.state.highlighted) {
+			rowsClassName[this.state.highlighted.id] = 'highlighted';
 		}
-		return rowClassNames;
+		return rowsClassName;
 	}
 
 	render() {
@@ -321,16 +375,11 @@ class ConnectedTable extends React.Component {
 			withHeader,
 			onScroll,
 		} = this.props;
-		const allClassnames = {
-			table: this.getTableClassName(),
-			rows: this.getRowClassNames(elements),
-		};
 		return (
 			<Table
 				elements={elements}
 				columns={columns}
-				classnames={allClassnames}
-				rowDataGetter={rowDataGetter}
+				rowsClassName={this.getRowsClassName()}
 				withHeader={withHeader}
 				onScroll={onScroll}
 				onEnterRow={this.onEnterRow}
@@ -347,9 +396,242 @@ ConnectedTable.propTypes = {
 	columns: PropTypes.array,
 	withHeader: PropTypes.bool,
 	onScroll: PropTypes.func,
+	draggable: PropTypes.bool,
 };
 
 const TableWithDND = dndContext(HTML5Backend)(ConnectedTable);
+
+const nameFilterId = 'name-filter';
+
+function matchName(element, filterParams) {
+	const value = filterParams.value;
+	const name = element.name;
+	return Boolean(name.match(value) || name.toLowerCase().match(value));
+}
+
+function createNameFilter() {
+	return {
+		id: nameFilterId,
+		active: false,
+		params: {
+			value: null,
+			docked: true,
+		},
+		match: matchName,
+		renderer: Table.StringFilterComponent,
+		rendererProps: {
+			placeHolder: 'Filter...',
+			dockable: true,
+			navbar: true,
+		},
+		className: nameFilterId,
+	};
+}
+
+const mandatoryFieldFilterId = 'mandatory-field-filter';
+
+function matchMandatory(element) {
+	return element.mandatory;
+}
+
+function createMandatoryFieldFilter() {
+	return {
+		id: mandatoryFieldFilterId,
+		active: false,
+		match: matchMandatory,
+		renderer: Table.ToggleFilterComponent,
+		rendererProps: {
+			label: 'Show Mandatory Fields (*) Only',
+		},
+		className: mandatoryFieldFilterId,
+	};
+}
+
+function createFilters() {
+	const nameFilter = createNameFilter();
+	const mandatoryFieldFilter = createMandatoryFieldFilter();
+	return [nameFilter, mandatoryFieldFilter];
+}
+
+function createSorter() {
+	return {
+		direction: SortDirection.NONE,
+		icons: sorterIcons,
+	}
+}
+
+function createSorters(keys) {
+	const sorters = {};
+	for (let i = 0; i < keys.length; i += 1) {
+		sorters[keys[i]] = createSorter();
+	}
+	return sorters;
+}
+
+function indexOfFilter(filters, id) {
+	for (let i = 0; i < filters.length; i += 1) {
+		if (filters[i].id === id) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+function updateFilters(filters, id, active, params) {
+	const index = indexOfFilter(filters, id);
+	if (index === -1) {
+		return filters;
+	}
+	const updatedFilters = filters.slice();
+	updatedFilters[index].active = active;
+	updatedFilters[index].params = params;
+	return updatedFilters;
+}
+
+function computeFilter(elements, filter, active, params) {
+	if (active) {
+		return elements.filter(elem => filter.match(elem, params));
+	}
+	return elements;
+}
+
+function updateFilteredElements(elements, filters, id, active, params) {
+	let result = elements.slice();
+	for (let i = 0; i < filters.length; i += 1) {
+		const filter = filters[i];
+		if (filter.id === id) {
+			result = computeFilter(result, filter, active, params);
+		} else {
+			result = computeFilter(result, filter, filter.active, filter.params);
+		}
+	}
+	return result;
+}
+
+function getCompare(key, direction) {
+
+	const coefs = {
+		none: 0,
+		ascending: 1,
+		descending: -1,
+	};
+
+	function compare(element1, element2) {
+		const val1 = element1[key];
+		const val2 = element2[key];
+		const coef = coefs[direction];
+		if (val1 < val2) {
+			return -1 * coef;
+		} else if (val1 > val2) {
+			return coef;
+		}
+		return 0;
+	}
+
+	return compare;
+}
+
+function sort(elements, key, direction) {
+	if (direction === SortDirection.ASCENDING || direction === SortDirection.DESCENDING) {
+		const compare = getCompare(key, direction);
+		const sortedElements = elements.slice();
+		return sortedElements.sort(compare);
+	}
+	return elements;
+}
+
+function isActiveSorter(sorter) {
+	return sorter.direction === SortDirection.ASCENDING || sorter.direction === SortDirection.DESCENDING;
+}
+
+function updateSortedElements(elements, sorters, columns) {
+	const sortedColumn = columns.find(col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]));
+	if (sortedColumn) {
+		const sortedKey = sortedColumn.key;
+		return sort(elements, sortedKey, sorters[sortedKey].direction);
+	}
+	return elements;
+}
+
+function updateSorters(sorters, columns, columnKey) {
+	// get the current direction of the modified sorter
+	const prevDirection = sorters[columnKey].direction;
+	// clone sorters
+	const updatedSorters = {};
+	// reset all the sorters to NONE direction
+	for (let i = 0; i < columns.length; i += 1) {
+		const key = columns[i].key;
+		if (sorters[key]) {
+			updatedSorters[key] = {};
+			updatedSorters[key].direction = SortDirection.NONE;
+			updatedSorters[key].icons = sorters[key].icons;
+		}
+	}
+	// update the modified sorter to the next direction
+	updatedSorters[columnKey].direction = nextDirection(prevDirection);
+	return updatedSorters;
+}
+
+class SortedFilteredTable extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			elements: props.elements,
+			columns: props.columns,
+			filters: props.filters,
+			filteredElements: props.elements,
+			sorters: props.sorters,
+			sortedElements: props.elements,
+		};
+		this.onFilterChange = this.onFilterChange.bind(this);
+		this.onSortChange = this.onSortChange.bind(this);
+	}
+
+	onFilterChange(id, active, params) {
+		const filteredElements = updateFilteredElements(this.state.elements, this.state.filters, id, active, params);
+		const sortedElements = updateSortedElements(filteredElements, this.state.sorters, this.state.columns);
+		this.setState(prevState => ({
+			filteredElements,
+			filters: updateFilters(prevState.filters, id, active, params),
+			sortedElements,
+		}));
+	}
+
+	onSortChange(columnKey) {
+		const updatedSorters = updateSorters(this.state.sorters, this.state.columns, columnKey);
+		this.setState(prevState => ({
+			sorters: updatedSorters,
+			sortedElements: updateSortedElements(prevState.filteredElements, updatedSorters, prevState.columns),
+		}));
+	}
+
+	render() {
+		return (
+			<Table
+				title={this.props.title}
+				elements={this.state.sortedElements}
+				columns={this.state.columns}
+				withHeader={true}
+				filters={this.state.filters}
+				onFilterChange={this.onFilterChange}
+				sorters={this.state.sorters}
+				onSortChange={this.onSortChange}
+			/>
+		);
+	}
+
+}
+
+SortedFilteredTable.propTypes = {
+	elements: PropTypes.array,
+	columns: PropTypes.array,
+	filters: PropTypes.array,
+	sorters: PropTypes.object,
+	title: PropTypes.string,
+};
+
+const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
 
 const stories = storiesOf('Table', module);
 if (!stories.addWithInfo) {
@@ -364,29 +646,74 @@ stories
 			{story()}
 		</div>
 	))
-	.addWithInfo('Table', () => (
-		<Table
-			elements={schema1.elements}
-			columns={columns1}
-			classnames={storyClassnames}
-			withHeader
-		/>
-		))
-	.addWithInfo('Table (as list)', () => (
-		<Table
-			elements={schema2.elements}
-			columns={columns2}
-			classnames={defaultClassnames}
-			onEnterRow={action('onEnterRow called!')}
-			onLeaveRow={action('onLeaveRow called!')}
-		/>
-		))
-	.addWithInfo('Table with drag and drop', () => (
-		<TableWithDND
-			initialState={initialStateWithDnD}
-			elements={schema3.elements}
-			columns={columns3}
-			withHeader
-			onScroll={action('onScroll called!')}
-		/>
-		));
+	.addWithInfo('Table', () => {
+		return (
+			<div className="story-table" >
+				<Table
+				  elements={schema1.elements}
+		      columns={columns1}
+					withHeader={true}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('Table (as list)', () => {
+		return (
+			<div className="default-table" >
+				<Table
+				  elements={schema2.elements}
+		      columns={columns2}
+		      onEnterRow={action('onEnterRow called!')}
+					onLeaveRow={action('onLeaveRow called!')}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('Table with drag and drop', () => {
+		return (
+			<div className="table-with-dnd" >
+				<TableWithDND
+					elements={schema3.elements}
+					columns={columns3}
+					withHeader={true}
+					onScroll={action('onScroll called!')}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('Table with filters', () => {
+		return (
+			<div className="filtered-table" >
+				<SortedFilteredTable
+					elements={schema3.elements}
+					columns={columns4}
+					filters={createFilters()}
+					title={schema3.name}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('Table with sorters', () => {
+		return (
+			<div className="sorted-table" >
+				<SortedFilteredTable
+					elements={schema3.elements}
+					columns={columns5}
+					sorters={createSorters(sorterKeys)}
+				/>
+			</div>
+		);
+	})
+	.addWithInfo('Table with dnd, sorters & filters', () => {
+		return (
+			<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')} >
+				<SortedFilteredTableWithDND
+					elements={schema3.elements}
+					columns={columns6}
+					filters={createFilters()}
+					sorters={createSorters(sorterKeys)}
+					title={schema3.name}
+				/>
+			</div>
+		);
+	});
