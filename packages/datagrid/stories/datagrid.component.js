@@ -11,6 +11,12 @@ import sample3 from './sample3.json';
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
 
+sample.data[1].value.field0.value = `loreum lo
+very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value`;
+
+sample.data[2].value.field0.value =
+	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
+
 storiesOf('Component Datagrid')
 	.addDecorator(checkA11y)
 	.add('default', () => (
