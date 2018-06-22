@@ -156,7 +156,7 @@ export class ItemsComponent extends React.PureComponent {
 							 * but only way to refresh component when items or actions change
 							 * See https://github.com/bvaughn/react-virtualized/#pure-components
 							 */
-							ref={node => this.node = node}
+							ref={node => (this.node = node)}
 							items={this.props.items}
 							className={listClasses()}
 							rowRenderer={this.rowRenderer}

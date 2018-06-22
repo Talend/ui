@@ -10,13 +10,13 @@ src/theme/_dropdowns.scss
 
 src/theme/_forms.scss
     9:24  error    Parenthesis should be removed                            empty-args
-   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  120:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  135:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  371:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  384:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  473:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   35:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   70:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  121:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  136:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  306:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  319:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  408:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_navbar.scss
   18:6  warning  Expected indentation of 4 tabs but found 5  indentation
