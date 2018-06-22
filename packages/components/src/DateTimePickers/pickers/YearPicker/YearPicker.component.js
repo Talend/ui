@@ -19,22 +19,26 @@ class YearPicker extends React.Component {
 		this.years = (new Array(5))
 			.fill(0)
 			.map((_, i) => firstYear + i);
+
+		this.onSelect = this.onSelect.bind(this);
+		this.isSelected = this.isSelected.bind(this);
+	}
+
+	onSelect(year) {
+		if (this.props.onSelect === undefined) {
+			return undefined;
+		}
+
+		return () => {
+			this.props.onSelect(year);
+		};
+	}
+
+	isSelected(year) {
+		return year === this.props.selectedYear;
 	}
 
 	render() {
-		const isSelected = year =>
-			year === this.props.selectedYear;
-
-		const onSelect = year => {
-			if (this.props.onSelect === undefined) {
-				return undefined;
-			}
-
-			return () => {
-				this.props.onSelect(year);
-			};
-		};
-
 		return (
 			<div className={theme.container}>
 				<IconButton
@@ -53,9 +57,9 @@ class YearPicker extends React.Component {
 						>
 							<PickerAction
 								aria-label={`Select '${year}'`}
-								isSelected={isSelected(year)}
+								isSelected={this.isSelected(year)}
 								label={year.toString()}
-								onClick={onSelect(year)}
+								onClick={this.onSelect(year)}
 							/>
 						</div>
 					)}
