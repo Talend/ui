@@ -47,7 +47,6 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				});
 			}
 		}
-
 		return (
 			<Action
 				key={index}
@@ -126,7 +125,9 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 		<div role="row" className={itemClasses(item.isSelected)} id={id} style={style}>
 			{getActionLabel()}
 			<div className={itemDefaultActionsClasses()} role="gridcell">
-				{actions.map((action, index) => getAction(action, index))}
+				{actions
+					.filter(action => !action.disabled)
+					.map((action, index) => getAction(action, index))}
 			</div>
 		</div>
 	);

@@ -1,14 +1,14 @@
 import DeleteResource from './DeleteResource.connect';
-import deleteResourceConstants from './deleteResource.constants';
-import deleteResourceSagas from './deleteResource.sagas';
-import actions from './deleteResource.actions';
+import deleteResourceConstants from './constants';
+import sagas from './sagas';
+import actions from './actions';
 
 DeleteResource.constants = deleteResourceConstants;
-DeleteResource.sagas = deleteResourceSagas;
+DeleteResource.sagas = sagas;
 DeleteResource.actions = {
 	'deleteResource:open': actions.open,
-	'deleteResource:validate': actions.validate,
-	'deleteResource:cancel': actions.cancel,
+	'DeleteResource#validate': actions.validate,
+	'DeleteResource#cancel': actions.cancel,
 };
 
 export default DeleteResource;

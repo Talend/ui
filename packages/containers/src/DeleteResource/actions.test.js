@@ -1,5 +1,5 @@
-import actions from './deleteResource.actions';
-import deleteResourceConst from './deleteResource.constants';
+import actions from './actions';
+import deleteResourceConst from './constants';
 
 describe('deleteResource actions', () => {
 	describe('deleteResource:open', () => {
@@ -32,6 +32,7 @@ describe('deleteResource actions', () => {
 			// Then
 			expect(result).toEqual({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data,
 			});
 		});
 	});

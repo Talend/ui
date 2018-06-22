@@ -2,42 +2,40 @@
 	margin-top: $padding-large;
 	margin-left: $padding-large;
 
-	div {
+	&.nested {
+		margin: 0;
+	}
+
+	dt {
+		font-weight: 400;
+		font-size: 1.4rem;
+		color: $dark-silver;
+	}
+
+	dd {
+		font-size: 1.6rem;
+		font-weight: 400;
+		color: $black;
+		padding-top: $padding-smaller;
 		margin-bottom: $padding-normal;
 
-		dt {
-			font-weight: 400;
-			font-size: 14px;
-			color: $dark-silver;
-		}
+		&.array-value {
+			display: inline;
 
-		dd {
-			font-size: 16px;
-			font-weight: 400;
-			color: $black;
-			padding-top: $padding-smaller;
-		}
-
-		&.array {
-			dd {
-				display: inline;
-			}
-
-			dd:after {
+			&:after {
 				content: ', ';
 			}
 
-			dd:last-child:after {
+			&:last-child:after {
 				content: '';
 			}
 		}
+	}
 
-		&.object {
-			h2 {
-				font-size: 1.7rem;
-				font-weight: 700;
-				text-transform: uppercase;
-			}
-		}
+	h2 {
+		font-size: 1.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: $dove-gray;
 	}
 }
