@@ -17,104 +17,48 @@ front-end stack.
 
 ## The stack
 
-- [react-cmf](https://github.com/Talend/ui/tree/master/packages/cmf)
-- [react-talend-containers](https://github.com/Talend/ui/tree/master/packages/containers)
-- [react-talend-components](https://github.com/Talend/ui/tree/master/packages/components)
-- [react-talend-forms](https://github.com/Talend/ui/tree/master/packages/forms)
+- [@talend/react-cmf](https://github.com/Talend/ui/tree/master/packages/cmf)
+- [@talend/react-cmf-cqrs](https://github.com/Talend/ui/tree/master/packages/cmf-cqrs)
+- [@talend/react-cmf-webpack-plugin](https://github.com/Talend/ui/tree/master/packages/cmf-webpack-plugin)
+- [@talend/react-containers](https://github.com/Talend/ui/tree/master/packages/containers)
+- [@talend/react-components](https://github.com/Talend/ui/tree/master/packages/components)
+- [@talend/react-datagrid](https://github.com/Talend/ui/tree/master/packages/datagrid)
+- [@talend/react-forms](https://github.com/Talend/ui/tree/master/packages/forms)
 - [generator-talend](https://github.com/Talend/ui/tree/master/packages/generator)
-- [talend-icons](https://github.com/Talend/ui/tree/master/packages/icons)
-- [talend-log](https://github.com/Talend/ui/tree/master/packages/logging)
-- [bootstrap-talend-theme](https://github.com/Talend/ui/tree/master/packages/theme)
+- [@talend/html-webpack-plugin](https://github.com/Talend/ui/tree/master/packages/html-webpack-plugin)
+- [@talend/log](https://github.com/Talend/ui/tree/master/packages/logging)
+- [@talend/icons](https://github.com/Talend/ui/tree/master/packages/icons)
+- [@talend/react-sagas](https://github.com/Talend/ui/tree/master/packages/sagas)
+- [@talend/scripts](https://github.com/Talend/ui/tree/master/packages/scripts)
+- [@talend/react-storybook-cmf](https://github.com/Talend/ui/tree/master/packages/storybook-cmf)
+- [@talend/bootstrap-theme](https://github.com/Talend/ui/tree/master/packages/theme)
 
 ## Tools (dev environment)
 
 ### Installation
 
-Make sure you you have [node](https://nodejs.org/) in version 8.x. *Check [nvm](https://github.com/creationix/nvm) to easily manage multiple node versions.*
+Make sure you you have [node](https://nodejs.org/) in version 8.x. *Check [nvm](https://github.com/creationix/nvm) to easily manage multiple node versions*. We use [yarn](https://yarnpkg.com) so please install it globally.
 
-Install [yarn](https://yarnpkg.com) command line tool globally.
-
-Install the dependencies at the root and for all packages sub respositories with :
 ```
 yarn install
 ```
+
+It will install the dependencies using yarn workspace so the node_modules will be at root for all common dependencies.
 
 ### Usage
 
 #### Globally
 
-*TODO: Update commands and readme for global 'yarn start' and 'yarn watch'*
+* `lerna exec -- yarn prepublish` to prepublish all packages (build each lib)
+* `yarn changelog` to get the changelog
+* `yarn update-versions` after update the versions.js script to update a version of a package.
+* `./screenshots.js -p 125` where 125 is the PR number. EXPERIMENTAL
+* `yarn build-storybook` to get all storybook built
+* `yarn extract-i18n` to extract i18n from all packages.
 
-#### Locally
+#### Locally (each packages)
 
-From one package sub respository
+We use the usual workflow:
 
-Launch the story book :
-```
-yarn start
-```
-
-Launch the tests :
-```
-yarn test
-```
-
-### yarn run watch
-
-The stack has one entry point:
-
-```
-yarn run watch
-```
-
-This watcher will trigger build and sync inside the stack for you.
-
-For example if you modify a component, it will rebuild component into lib folder and copy the content through forms and containers.
-
-Be warned the [delete or rename are not taken into account](https://github.com/remy/nodemon/issues/656).
-
-### yarn run build
-
-Just build all the packages for static purpose.
-It use the prepublish command.
-
-### copylibs
-
-```
-./copylibs.js
-```
-
-This script will copy all the *lib* folders of the stach into their dependencies.
-
-This script for example will copy the *lib* folders of components into containers and forms node_modules.
-
-It accepts options:
-
-```
-./copylibs.js --watch
-```
-
-If the content of a lib folder change it triggers the copy.
-
-```
-./copylibs.js --scope=components
-```
-
-Only copy components into forms and containers.
-
-Same with all subfolders of packges.
-
-### yarn start
-
-It will start all the stack for you:
-
-- components on localhost:6006
-- containers on localhost:6007
-- forms on localhost:6008
-- theme on localhost:1337
-
-If you want to work accross the stack you should launch
-
-```
-./copylibs.js --watch
-```
+Launch the dev environment using `yarn start`
+Launch the tests using `yarn test`
