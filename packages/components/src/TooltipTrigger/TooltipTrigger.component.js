@@ -3,10 +3,37 @@ import React, { cloneElement } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import uuid from 'uuid';
 import classNames from 'classnames';
+import keycode from 'keycode';
 import theme from './TooltipTrigger.scss';
 
 function getTooltipClass() {
 	return classNames({ [theme['tooltip-container']]: true, 'tooltip-container': true });
+}
+
+/**
+ * Safe chained function
+ *
+ * Will only create a new function if needed,
+ * otherwise will pass back existing functions or null.
+ *
+ * @param {function} functions to chain
+ * @returns {function|null}
+ */
+function createChainedFunction(...funcs) {
+	return funcs.filter(f => f != null).reduce((acc, f) => {
+		if (typeof f !== 'function') {
+			throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
+		}
+
+		if (acc === null) {
+			return f;
+		}
+
+		return function chainedFunction(...args) {
+			acc.apply(this, args);
+			f.apply(this, args);
+		};
+	}, null);
 }
 
 /**
@@ -25,10 +52,6 @@ class TooltipTrigger extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onMouseOver = this.onMouseOver.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onMouseUp = this.onMouseUp.bind(this);
-		this.onMouseDown = this.onMouseDown.bind(this);
 
 		this.state = {
 			hovered: false,
@@ -38,57 +61,68 @@ class TooltipTrigger extends React.Component {
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
-			this.state.hovered !== nextState.hovered ||
+			this.state !== nextState ||
 			this.props.children !== nextProps.children ||
 			this.props.label !== nextProps.label
 		);
 	}
 
-	onMouseOver(...args) {
-		if (!this.state.hovered) {
-			this.setState({ hovered: true });
-		}
-
-		if (this.props.children.props.onMouseOver) {
-			this.props.children.props.onMouseOver(...args);
-		}
-	}
-
-	onFocus(...args) {
-		if (!this.state.hovered) {
-			this.setState({ hovered: true });
-		}
-
-		if (this.props.children.props.onFocus) {
-			this.props.children.props.onFocus(...args);
-		}
-	}
-
-	onMouseDown(...args) {
-		this.setState({ hovered: false });
-		if (this.props.children.props.onMouseDown) {
-			this.props.children.props.onMouseDown(...args);
-		}
-		if (this.props.children.props.onClick) {
-			this.props.children.props.onClick(...args);
-		}
-	}
-
-	onMouseUp(...args) {
+	/**
+	 * Activate the tooltip when the children is hovered
+	 */
+	onMouseOver = () => {
 		this.setState({ hovered: true });
-		if (this.props.children.props.onMouseUp) {
-			this.props.children.props.onMouseUp(...args);
+	};
+
+	/**
+	 * Activate the tooltip when the children is focused
+	 */
+	onFocus = () => {
+		this.setState({ hovered: true });
+	};
+
+	/**
+	 * Hide the tooltip between mouseDown & mouseUp
+	 */
+	onMouseDown = () => {
+		this.overlay.handleDelayedHide();
+	};
+
+	/**
+	 * Show the tooltip after mouse up
+	 */
+	onMouseUp = () => {
+		this.overlay.handleDelayedShow();
+	};
+
+	/**
+	 * when activate an element, hide the tooltip between keydown & keyup
+	 * @param {object} event the keyDown event
+	 */
+	onKeyDown = event => {
+		if (event.which === keycode.codes.enter || event.which === keycode.codes.space) {
+			this.overlay.handleDelayedHide();
 		}
-	}
+	};
+
+	/**
+	 * when activate an element, hide the tooltip between keydown & keyup
+	 * @param {object} event the keyup event
+	 */
+	onKeyUp = event => {
+		if (event.which === keycode.codes.enter || event.which === keycode.codes.space) {
+			this.overlay.handleDelayedShow();
+		}
+	};
 
 	render() {
 		const child = React.Children.only(this.props.children);
+		const childrenProps = this.props.children.props;
 
 		if (!this.state.hovered) {
 			return cloneElement(child, {
-				onMouseOver: this.onMouseOver,
-				onFocus: this.onFocus,
-				onMouseUp: this.onMouseUp,
+				onMouseOver: createChainedFunction(this.onMouseOver, childrenProps.onMouseOver),
+				onFocus: createChainedFunction(this.onFocus, childrenProps.onFocus),
 			});
 		}
 
@@ -99,9 +133,20 @@ class TooltipTrigger extends React.Component {
 		);
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
 		return (
-			<OverlayTrigger placement={this.props.tooltipPlacement} overlay={tooltip} delayShow={400}>
+			<OverlayTrigger
+				ref={ref => {
+					this.overlay = ref;
+				}}
+				placement={this.props.tooltipPlacement}
+				overlay={tooltip}
+				delayShow={400}
+				animation={false}
+			>
 				{cloneElement(child, {
-					onMouseDown: this.onMouseDown,
+					onMouseDown: createChainedFunction(this.onMouseDown, childrenProps.onMouseDown),
+					onMouseUp: createChainedFunction(this.onMouseUp, childrenProps.onMouseUp),
+					onKeyDown: createChainedFunction(this.onKeyDown, childrenProps.onKeyDown),
+					onKeyUp: createChainedFunction(this.onKeyUp, childrenProps.onKeyUp),
 				})}
 			</OverlayTrigger>
 		);
