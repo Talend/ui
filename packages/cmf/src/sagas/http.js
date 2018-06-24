@@ -197,7 +197,7 @@ function normalizeParameters(
 	method = HTTP_METHODS.GET,
 	payload,
 	cmf,
-	defaultConfig,
+	defaultConfig = {},
 ) {
 	const configEnhancer = handleDefaultConfiguration(defaultConfig);
 	if (isObject(urlOrBag)) {
@@ -282,7 +282,7 @@ export function* wrapFetch(
 				normalizedParameters.cmf.responseDefaultValue
 					? normalizedParameters.cmf.responseDefaultValue
 					: answer,
-		  )
+		)
 		: answer;
 	const transformedData = normalizedParameters.cmf.transform
 		? normalizedParameters.cmf.transform(extractedData)
