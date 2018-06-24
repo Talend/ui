@@ -282,7 +282,7 @@ export function* wrapFetch(
 				normalizedParameters.cmf.responseDefaultValue
 					? normalizedParameters.cmf.responseDefaultValue
 					: answer,
-		)
+		  )
 		: answer;
 	const transformedData = normalizedParameters.cmf.transform
 		? normalizedParameters.cmf.transform(extractedData)
