@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
 import get from 'lodash/get';
+import curry from 'lodash/curry';
 import isObject from 'lodash/isObject';
 import actions from '../actions';
-import curry from 'lodash/curry';
 
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from '../middlewares/http/constants';
@@ -423,6 +423,8 @@ function createClient(defaultConfig = {}) {
 		},
 	};
 }
+
+/*
  * setDefaultHeader - define a default config to use with the saga http
  * this default config is stored in this module for the whole application
  *
@@ -490,25 +492,4 @@ export default {
 	create: createClient,
 	setDefaultConfig,
 	setDefaultLanguage,
-	create(createConfig = {}) {
-		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
-
-		return {
-			delete: function* configuredDelete(url, config = {}, options = {}) {
-				return yield call(httpDelete, url, configEnhancer(config), options);
-			},
-			get: function* configuredGet(url, config = {}, options = {}) {
-				return yield call(httpGet, url, configEnhancer(config), options);
-			},
-			post: function* configuredPost(url, payload, config = {}, options = {}) {
-				return yield call(httpPost, url, payload, configEnhancer(config), options);
-			},
-			put: function* configuredPut(url, payload, config = {}, options = {}) {
-				return yield call(httpPut, url, payload, configEnhancer(config), options);
-			},
-			patch: function* configuredPatch(url, payload, config = {}, options = {}) {
-				return yield call(httpPatch, url, payload, configEnhancer(config), options);
-			},
-		};
-	},
 };

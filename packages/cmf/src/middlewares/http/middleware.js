@@ -195,6 +195,8 @@ function getOnError(dispatch, httpAction) {
 					try {
 						errorObject.stack.response = response;
 						errorObject.stack.messageObject = JSON.parse(response);
+					} catch (e) {
+						errorObject.stack.messageObject = { message: response };
 					} finally {
 						if (httpAction.onError) {
 							dispatch(http.onActionError(httpAction, errorObject));
