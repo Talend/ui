@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "tracekit": "^0.4.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "^2.0.3"
   },
   "peerDependencies": {
     "angular": "^1.5.9",

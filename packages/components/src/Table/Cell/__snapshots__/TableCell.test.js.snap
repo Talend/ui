@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`clickable-cell 1`] = `
+exports[`render-clickable-cell 1`] = `
 <div
   className="tc-table-clickable-cell my-clickable-cell"
   onClick={[Function]}
@@ -13,7 +13,7 @@ exports[`clickable-cell 1`] = `
 </div>
 `;
 
-exports[`single-cell 1`] = `
+exports[`render-single-cell 1`] = `
 <div
   className="tc-table-cell my-single-cell"
 >

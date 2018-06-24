@@ -3,6 +3,7 @@ import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
+import { checkA11y } from '@storybook/addon-a11y';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { IconsProvider, Layout, SidePanel } from '../src/index';
 
@@ -79,6 +80,7 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

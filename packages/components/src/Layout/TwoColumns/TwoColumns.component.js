@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
+import Inject from '../../Inject';
 import theme from './TwoColumns.scss';
 
 /**
@@ -11,7 +12,7 @@ import theme from './TwoColumns.scss';
  * @example
  <TwoColumns name="Hello world"></TwoColumns>
  */
-function TwoColumns({ one, drawers, children, tabs, ...props }) {
+function TwoColumns({ one, drawers, children, tabs, getComponent, ...props }) {
 	const containerCSS = classnames('tc-layout-two-columns', theme.container);
 	const sidemenuCSS = classnames('tc-layout-two-columns-left', theme.sidemenu);
 	const mainCSS = classnames('tc-layout-two-columns-main', theme.main);
@@ -21,10 +22,11 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 		display: 'flex',
 		flexDirection: 'column',
 	};
+	const safeOne = Inject.getReactElement(getComponent, one);
 
 	return (
 		<div className={containerCSS} {...props}>
-			<div className={sidemenuCSS}>{one}</div>
+			<div className={sidemenuCSS}>{safeOne}</div>
 			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
@@ -38,10 +40,11 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 TwoColumns.displayName = 'TwoColumns';
 
 TwoColumns.propTypes = {
-	one: PropTypes.element,
+	one: Inject.getReactElement.propTypes,
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),
 	tabs: PropTypes.shape(TabBar.propTypes),
+	getComponent: PropTypes.func,
 };
 
 export default TwoColumns;

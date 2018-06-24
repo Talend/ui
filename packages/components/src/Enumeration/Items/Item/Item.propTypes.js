@@ -3,6 +3,7 @@ import Action from '../../../Actions/Action';
 
 export default {
 	id: PropTypes.string,
+	style: PropTypes.object,
 	item: PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 		error: PropTypes.string,

@@ -32,13 +32,6 @@
 		li {
 			display: flex;
 			align-items: center;
-
-			> a,
-			> button {
-				display: flex;
-				align-items: center;
-				height: $navbar-height;
-			}
 		}
 	}
 }

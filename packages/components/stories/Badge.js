@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Badge, IconsProvider } from '../src/';
@@ -34,6 +35,7 @@ function onSelect(name) {
 const longStr = 'Very, very, very, very, very, very, very, very long tag';
 
 storiesOf('Badge', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<section>
 			<IconsProvider defaultIcons={icons} />

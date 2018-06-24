@@ -5,7 +5,7 @@ import SingleButton from './SingleButton.component';
 
 import theme from './Buttons.scss';
 
-function getButtonsList(id, buttons, onTrigger, onClick) {
+function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 	if (!buttons) {
 		return null;
 	}
@@ -17,14 +17,15 @@ function getButtonsList(id, buttons, onTrigger, onClick) {
 			onTrigger={onTrigger}
 			onClick={onClick && onClick(itemSchema.onClick)}
 			schema={itemSchema}
+			getComponent={getComponent}
 		/>
 	));
 }
 
-export default function Buttons({ id, onTrigger, className, schema, onClick }) {
+export default function Buttons({ id, onTrigger, className, schema, onClick, getComponent }) {
 	return (
 		<div className={classNames(theme['tf-buttons'], 'tf-buttons', className)}>
-			{getButtonsList(id, schema.items, onTrigger, onClick)}
+			{getButtonsList(id, schema.items, onTrigger, onClick, getComponent)}
 		</div>
 	);
 }
@@ -36,6 +37,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func,
 		schema: SingleButton.propTypes.schema,
 		className: PropTypes.string,
+		getComponent: PropTypes.func,
 	};
 }
 

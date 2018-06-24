@@ -637,7 +637,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -673,7 +673,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -683,13 +683,9 @@ exports[`Storyshots HeaderBar default 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -806,7 +802,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -869,7 +865,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -878,25 +874,21 @@ exports[`Storyshots HeaderBar default 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -1268,7 +1260,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1304,7 +1296,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -1314,13 +1306,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -1436,7 +1424,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           role="search"
         >
           <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -1450,9 +1442,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={false}
-                aria-haspopup={false}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -1464,7 +1454,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value="le"
               />
@@ -1475,6 +1464,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container theme-is-searching"
                 id="react-autowhatever-42"
+                role="listbox"
               >
                 <span
                   className="is-searching"
@@ -1548,7 +1538,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -1557,25 +1547,21 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -1947,7 +1933,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1983,7 +1969,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -1993,13 +1979,9 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -2121,25 +2103,21 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-environment"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-environment"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-environment"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                Default
-              </span>
+              <use
+                xlinkHref="#talend-environment"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              Default
             </span>
              
             <span
@@ -2185,7 +2163,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2248,7 +2226,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -2257,25 +2235,21 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -2647,7 +2621,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2683,7 +2657,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -2693,13 +2667,9 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -2816,7 +2786,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2879,7 +2849,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -2888,25 +2858,21 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -3278,7 +3244,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3314,7 +3280,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -3324,13 +3290,9 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -3447,7 +3409,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -3510,7 +3472,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -3519,25 +3481,21 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -3909,7 +3867,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3945,7 +3903,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -3955,13 +3913,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -4077,7 +4031,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           role="search"
         >
           <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -4091,9 +4049,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={false}
-                aria-haspopup={false}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -4105,7 +4061,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value="le"
               />
@@ -4116,6 +4071,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container theme-no-result"
                 id="react-autowhatever-42"
+                role="listbox"
               >
                 <span
                   className="no-result"
@@ -4167,7 +4123,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -4176,25 +4132,21 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -4566,7 +4518,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4602,7 +4554,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -4612,13 +4564,9 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -4735,7 +4683,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -4763,8 +4711,8 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Notifications"
-          className="btn btn-link"
+          aria-label="Notifications (you don't have unread notifications)"
+          className="btn-icon-only btn btn-link"
           disabled={false}
           onClick={[Function]}
           onFocus={[Function]}
@@ -4826,7 +4774,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -4835,25 +4783,21 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -5225,7 +5169,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5261,7 +5205,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -5271,13 +5215,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -5393,7 +5333,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           role="search"
         >
           <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -5407,9 +5351,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={false}
-                aria-haspopup={false}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -5421,7 +5363,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 onKeyDown={undefined}
                 placeholder="Search..."
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value={undefined}
               />
@@ -5432,6 +5373,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container"
                 id="react-autowhatever-42"
+                role="listbox"
               />
             </div>
           </div>
@@ -5477,7 +5419,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -5486,25 +5428,21 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -5876,7 +5814,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5912,7 +5850,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -5922,13 +5860,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -6044,7 +5978,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           role="search"
         >
           <div
+            aria-expanded={true}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-42"
             className="theme-tc-typeahead-container tc-typeahead-container theme-right theme-container-open tc-typeahead-container-open"
+            role="combobox"
           >
             <div
               className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -6058,9 +5996,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               <input
                 aria-activedescendant={null}
                 aria-autocomplete="list"
-                aria-expanded={true}
-                aria-haspopup={true}
-                aria-owns="react-autowhatever-42"
+                aria-controls="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
                 className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
@@ -6072,7 +6008,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
-                role="combobox"
                 type="text"
                 value="le"
               />
@@ -6083,6 +6018,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               <div
                 className="theme-items-container tc-typeahead-items-container"
                 id="react-autowhatever-42"
+                role="listbox"
               >
                 <div
                   className="theme-section-container tc-typeahead-section-container"
@@ -6116,6 +6052,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     role="listbox"
                   >
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-0-item-0"
                       onMouseDown={[Function]}
                       role="option"
@@ -6159,6 +6096,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </div>
                     </li>
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-0-item-1"
                       onMouseDown={[Function]}
                       role="option"
@@ -6248,6 +6186,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     role="listbox"
                   >
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-1-item-0"
                       onMouseDown={[Function]}
                       role="option"
@@ -6319,6 +6258,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     role="listbox"
                   >
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-2-item-0"
                       onMouseDown={[Function]}
                       role="option"
@@ -6351,6 +6291,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </div>
                     </li>
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-2-item-1"
                       onMouseDown={[Function]}
                       role="option"
@@ -6383,6 +6324,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       </div>
                     </li>
                     <li
+                      aria-selected={false}
                       id="react-autowhatever-42-section-2-item-2"
                       onMouseDown={[Function]}
                       role="option"
@@ -6461,7 +6403,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -6470,25 +6412,21 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -6860,7 +6798,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6896,7 +6834,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -6906,13 +6844,9 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -7029,7 +6963,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -7057,8 +6991,8 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
-          aria-label="Notifications"
-          className="btn btn-link"
+          aria-label="Notifications (you have unread notifications)"
+          className="btn-icon-only btn btn-link"
           disabled={false}
           onClick={[Function]}
           onFocus={[Function]}
@@ -7120,7 +7054,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -7129,25 +7063,21 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -7519,7 +7449,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -7550,7 +7480,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
           role="heading"
         >
           <button
-            aria-label="Example App Name"
+            aria-label={undefined}
             className="theme-tc-header-bar-brand tc-header-bar-brand btn btn-link"
             disabled={false}
             id="header-brand"
@@ -7579,7 +7509,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -7642,7 +7572,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label="John Doe"
+            aria-label="Open user menu. Current user: John Doe"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -7651,25 +7581,21 @@ exports[`Storyshots HeaderBar without products 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-user-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-user-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-user-circle"
-                />
-              </svg>
-              <span
-                className="tc-dropdown-button-title-label"
-              >
-                John Doe
-              </span>
+              <use
+                xlinkHref="#talend-user-circle"
+              />
+            </svg>
+            <span
+              className="tc-dropdown-button-title-label"
+            >
+              John Doe
             </span>
              
             <span
@@ -8041,7 +7967,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       >
         <button
           aria-label="Go to Portal"
-          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -8077,7 +8003,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              aria-label="Example App Name"
+              aria-label="Switch to another application. Current application: Example App Name"
               className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -8087,13 +8013,9 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               type="button"
             >
               <span
-                className="tc-dropdown-button-title"
+                className="tc-dropdown-button-title-label"
               >
-                <span
-                  className="tc-dropdown-button-title-label"
-                >
-                  Example App Name
-                </span>
+                Example App Name
               </span>
                
               <span
@@ -8210,7 +8132,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         >
           <button
             aria-label="Search"
-            className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+            className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -8285,21 +8207,17 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             role="button"
             type="button"
           >
-            <span
-              className="tc-dropdown-button-title"
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-info-circle"
+              title={null}
             >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-info-circle"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-info-circle"
-                />
-              </svg>
-            </span>
+              <use
+                xlinkHref="#talend-info-circle"
+              />
+            </svg>
           </button>
           <ul
             aria-labelledby="header-info"
@@ -8704,7 +8622,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -8740,7 +8658,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -8750,13 +8668,9 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -8873,7 +8787,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -8936,7 +8850,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -8945,25 +8859,21 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -9347,7 +9257,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -9383,7 +9293,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -9393,13 +9303,9 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -9516,7 +9422,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -9579,7 +9485,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -9588,25 +9494,21 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -9990,7 +9892,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10026,7 +9928,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -10036,13 +9938,9 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -10159,7 +10057,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -10222,7 +10120,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -10231,25 +10129,21 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -10633,7 +10527,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10669,7 +10563,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -10679,13 +10573,9 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -10802,7 +10692,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -10865,7 +10755,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -10874,25 +10764,21 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -11276,7 +11162,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -11312,7 +11198,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -11322,13 +11208,9 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -11445,7 +11327,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -11508,7 +11390,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -11517,25 +11399,21 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -11919,7 +11797,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -11955,7 +11833,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -11965,13 +11843,9 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -12088,7 +11962,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -12151,7 +12025,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -12160,25 +12034,21 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span
@@ -12562,7 +12432,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             >
               <button
                 aria-label="Go to Portal"
-                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn-icon-only btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -12598,7 +12468,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Example App Name"
+                    aria-label="Switch to another application. Current application: Example App Name"
                     className="theme-tc-dropdown-button tc-dropdown-button theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -12608,13 +12478,9 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     type="button"
                   >
                     <span
-                      className="tc-dropdown-button-title"
+                      className="tc-dropdown-button-title-label"
                     >
-                      <span
-                        className="tc-dropdown-button-title-label"
-                      >
-                        Example App Name
-                      </span>
+                      Example App Name
                     </span>
                      
                     <span
@@ -12731,7 +12597,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               >
                 <button
                   aria-label="Search"
-                  className="theme-only-icon-cls tc-typeahead-toggle btn btn-link"
+                  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -12794,7 +12660,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="John Doe"
+                  aria-label="Open user menu. Current user: John Doe"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -12803,25 +12669,21 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   role="button"
                   type="button"
                 >
-                  <span
-                    className="tc-dropdown-button-title"
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    name="talend-user-circle"
+                    title={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      name="talend-user-circle"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-user-circle"
-                      />
-                    </svg>
-                    <span
-                      className="tc-dropdown-button-title-label"
-                    >
-                      John Doe
-                    </span>
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    John Doe
                   </span>
                    
                   <span

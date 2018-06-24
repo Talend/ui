@@ -12,8 +12,8 @@ export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?
 export const REG_EXP_HAS_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;
-const REG_EXP_LINE_FEEDING = /\n/g;
-const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/g;
+const REG_EXP_LINE_FEEDING = /\n/;
+const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/;
 
 /**
  * replaceCharacterByIcon - replace a character by the corresponding icon
@@ -83,6 +83,10 @@ function replaceCharacterByIcon(value, t) {
  * @return {boolean}       indicate if the string to test has white space
  */
 export function hasWhiteSpaceCharacters(value) {
+	if (!value || typeof value !== 'string') {
+		return false;
+	}
+
 	const hiddenCharsRegExpMatch = value.match(REG_EXP_HAS_WHITE_SPACE_CHARACTERS);
 
 	if (hiddenCharsRegExpMatch[1] || hiddenCharsRegExpMatch[3]) {

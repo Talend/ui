@@ -123,6 +123,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
+          style={Object {}}
         >
           <div
             style={
@@ -192,7 +193,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   className="tc-list-table theme-tc-list-table"
                   disableHeader={false}
                   estimatedRowSize={30}
-                  gridClassName="theme-grid"
+                  gridClassName="theme-grid tc-dropdown-container"
                   headerHeight={35}
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
@@ -301,7 +302,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       autoWidth={false}
                       cellRangeRenderer={[Function]}
                       cellRenderer={[Function]}
-                      className="ReactVirtualized__Table__Grid theme-grid"
+                      className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                       columnCount={1}
                       columnWidth={0}
                       containerRole="rowgroup"
@@ -310,7 +311,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       estimatedColumnSize={100}
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
-                      gridClassName="theme-grid"
+                      gridClassName="theme-grid tc-dropdown-container"
                       headerHeight={35}
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
@@ -351,7 +352,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       <div
                         aria-label="grid"
                         aria-readonly={true}
-                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
                         style={
@@ -1559,44 +1560,15 @@ exports[`List should render 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <NavItem
-                              active={false}
-                              disabled={true}
-                              key=".1:$current"
+                            <div
+                              className="theme-page-index"
+                              key=".1:2"
                               onSelect={[Function]}
                             >
-                              <li
-                                className="disabled"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  componentClass="a"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                    style={
-                                      Object {
-                                        "pointerEvents": "none",
-                                      }
-                                    }
-                                    tabIndex={-1}
-                                  >
-                                    <span
-                                      className="btn-link"
-                                    >
-                                      2
-                                      /
-                                      3
-                                    </span>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
+                              2
+                              /
+                              3
+                            </div>
                             <NavItem
                               active={false}
                               className="btn-link"
@@ -1791,7 +1763,7 @@ exports[`List should render 1`] = `
                                         block={false}
                                         bsClass="btn"
                                         bsStyle="link"
-                                        className="navbar-right"
+                                        className="navbar-right btn-icon-only"
                                         disabled={false}
                                         onClick={[Function]}
                                         onFocus={[Function]}
@@ -1801,7 +1773,7 @@ exports[`List should render 1`] = `
                                       >
                                         <button
                                           aria-label="Toggle filter"
-                                          className="navbar-right btn btn-link"
+                                          className="navbar-right btn-icon-only btn btn-link"
                                           disabled={false}
                                           onClick={[Function]}
                                           onFocus={[Function]}
@@ -1923,6 +1895,7 @@ exports[`List should render 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
+          style={Object {}}
         >
           <div
             style={
@@ -1992,7 +1965,7 @@ exports[`List should render 1`] = `
                   className="tc-list-table theme-tc-list-table"
                   disableHeader={false}
                   estimatedRowSize={30}
-                  gridClassName="theme-grid"
+                  gridClassName="theme-grid tc-dropdown-container"
                   headerHeight={35}
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
@@ -2101,7 +2074,7 @@ exports[`List should render 1`] = `
                       autoWidth={false}
                       cellRangeRenderer={[Function]}
                       cellRenderer={[Function]}
-                      className="ReactVirtualized__Table__Grid theme-grid"
+                      className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                       columnCount={1}
                       columnWidth={0}
                       containerRole="rowgroup"
@@ -2110,7 +2083,7 @@ exports[`List should render 1`] = `
                       estimatedColumnSize={100}
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
-                      gridClassName="theme-grid"
+                      gridClassName="theme-grid tc-dropdown-container"
                       headerHeight={35}
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
@@ -2151,7 +2124,7 @@ exports[`List should render 1`] = `
                       <div
                         aria-label="grid"
                         aria-readonly={true}
-                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
                         style={
@@ -3399,44 +3372,15 @@ exports[`List should render id if provided 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <NavItem
-                              active={false}
-                              disabled={true}
-                              key=".1:$current"
+                            <div
+                              className="theme-page-index"
+                              key=".1:2"
                               onSelect={[Function]}
                             >
-                              <li
-                                className="disabled"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  componentClass="a"
-                                  disabled={true}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                    style={
-                                      Object {
-                                        "pointerEvents": "none",
-                                      }
-                                    }
-                                    tabIndex={-1}
-                                  >
-                                    <span
-                                      className="btn-link"
-                                    >
-                                      2
-                                      /
-                                      3
-                                    </span>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
+                              2
+                              /
+                              3
+                            </div>
                             <NavItem
                               active={false}
                               className="btn-link"
@@ -3644,7 +3588,7 @@ exports[`List should render id if provided 1`] = `
                                         block={false}
                                         bsClass="btn"
                                         bsStyle="link"
-                                        className="navbar-right"
+                                        className="navbar-right btn-icon-only"
                                         disabled={false}
                                         id="context-filter"
                                         onClick={[Function]}
@@ -3655,7 +3599,7 @@ exports[`List should render id if provided 1`] = `
                                       >
                                         <button
                                           aria-label="Toggle filter"
-                                          className="navbar-right btn btn-link"
+                                          className="navbar-right btn-icon-only btn btn-link"
                                           disabled={false}
                                           id="context-filter"
                                           onClick={[Function]}
@@ -3780,6 +3724,7 @@ exports[`List should render id if provided 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
+          style={Object {}}
         >
           <div
             style={
@@ -3851,7 +3796,7 @@ exports[`List should render id if provided 1`] = `
                   className="tc-list-table theme-tc-list-table"
                   disableHeader={false}
                   estimatedRowSize={30}
-                  gridClassName="theme-grid"
+                  gridClassName="theme-grid tc-dropdown-container"
                   headerHeight={35}
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
@@ -3962,7 +3907,7 @@ exports[`List should render id if provided 1`] = `
                       autoWidth={false}
                       cellRangeRenderer={[Function]}
                       cellRenderer={[Function]}
-                      className="ReactVirtualized__Table__Grid theme-grid"
+                      className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                       columnCount={1}
                       columnWidth={0}
                       containerRole="rowgroup"
@@ -3971,7 +3916,7 @@ exports[`List should render id if provided 1`] = `
                       estimatedColumnSize={100}
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
-                      gridClassName="theme-grid"
+                      gridClassName="theme-grid tc-dropdown-container"
                       headerHeight={35}
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
@@ -4012,7 +3957,7 @@ exports[`List should render id if provided 1`] = `
                       <div
                         aria-label="grid"
                         aria-readonly={true}
-                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid"
+                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
                         style={
