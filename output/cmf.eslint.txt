@@ -2,6 +2,7 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
@@ -9,11 +10,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/cmf/src/middlewares/http/middleware.js
   187:13  error  Caution: `http` also has a named export `onJSError`. Check if you meant to write `import {onJSError} from '../../actions/http'` instead                import/no-named-as-default-member
-  200:17  error  Caution: `http` also has a named export `onActionError`. Check if you meant to write `import {onActionError} from '../../actions/http'` instead        import/no-named-as-default-member
-  204:17  error  Caution: `http` also has a named export `onError`. Check if you meant to write `import {onError} from '../../actions/http'` instead                    import/no-named-as-default-member
-  228:11  error  Caution: `http` also has a named export `onRequest`. Check if you meant to write `import {onRequest} from '../../actions/http'` instead                import/no-named-as-default-member
-  241:13  error  Caution: `http` also has a named export `onResponse`. Check if you meant to write `import {onResponse} from '../../actions/http'` instead              import/no-named-as-default-member
-  248:14  error  Caution: `http` also has a named export `onActionResponse`. Check if you meant to write `import {onActionResponse} from '../../actions/http'` instead  import/no-named-as-default-member
+  202:17  error  Caution: `http` also has a named export `onActionError`. Check if you meant to write `import {onActionError} from '../../actions/http'` instead        import/no-named-as-default-member
+  206:17  error  Caution: `http` also has a named export `onError`. Check if you meant to write `import {onError} from '../../actions/http'` instead                    import/no-named-as-default-member
+  230:11  error  Caution: `http` also has a named export `onRequest`. Check if you meant to write `import {onRequest} from '../../actions/http'` instead                import/no-named-as-default-member
+  243:13  error  Caution: `http` also has a named export `onResponse`. Check if you meant to write `import {onResponse} from '../../actions/http'` instead              import/no-named-as-default-member
+  250:14  error  Caution: `http` also has a named export `onActionResponse`. Check if you meant to write `import {onActionResponse} from '../../actions/http'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   158:2   warning  Unexpected constant condition                no-constant-condition
@@ -24,10 +25,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:1  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/http.js
-  254:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  285:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
 
-/home/travis/build/Talend/ui/packages/cmf/src/sagas/index.js
-  2:8  error  Using exported name 'http' as identifier for default export  import/no-named-as-default
-
-✖ 20 problems (17 errors, 3 warnings)
+✖ 13 problems (10 errors, 3 warnings)
 
