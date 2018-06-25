@@ -27,19 +27,15 @@ exports[`Datalist component should render 1`] = `
     options={
       Array [
         Object {
-          "label": "foo",
+          "label": "Foo",
           "value": "foo",
         },
         Object {
-          "label": "bar",
+          "label": "Bar",
           "value": "bar",
         },
         Object {
-          "label": "foobar",
-          "value": "foobar",
-        },
-        Object {
-          "label": "lol",
+          "label": "Lol",
           "value": "lol",
         },
       ]

@@ -6,10 +6,10 @@ import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
 import theme from './Datalist.scss';
 
-export function escapeRegexCharacters(str) {
-	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
+// export function escapeRegexCharacters(str) {
+// 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// }
+// 10,15,18,60,62,111
 function getSelectedOptions(selectedValue, multiple) {
 	if (!selectedValue) {
 		return undefined;
@@ -37,20 +37,26 @@ class Datalist extends Component {
 	onChange(selectedValue) {
 		const multiple = this.getMultiple();
 		const options = this.getOptions();
-		const included = options.find(option => option.value === selectedValue.value);
-		if (!included) {
-			this.setState(prevState => {
-				if (!prevState.created) {
-					prevState.created = [];
-				}
-				prevState.created.push(selectedValue);
-			});
-		}
 		const payload = {
 			schema: this.props.schema,
 			value: getSelectedOptions(selectedValue, multiple),
 		};
+		if (payload.value && !multiple) {
+			const found = options.find(option => option.value === selectedValue.value);
+			if (!found) {
+				this.setState(prevState => {
+					if (!prevState.added) {
+						// eslint-disable-next-line no-param-reassign
+						prevState.added = [];
+					}
+					prevState.added.push(selectedValue);
+				});
+			}
+		} else if (payload.value && multiple) {
+			// TODO
+		}
 		const event = {
+			type: 'change',
 			target: {
 				value: multiple ? undefined : payload.value,
 				options: multiple
@@ -63,9 +69,8 @@ class Datalist extends Component {
 					: undefined,
 			},
 		};
-		const payloadWithSchema = { ...payload, schema: this.props.schema };
-		this.props.onChange(event, payloadWithSchema);
-		this.props.onFinish(event, payloadWithSchema);
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload);
 	}
 
 	onFocus(event) {
@@ -75,10 +80,10 @@ class Datalist extends Component {
 					this.setState({ isLoading: true });
 					this.props.onTrigger(event, this.props)
 					.then(data => {
-						this.setState({ isLoading: false });
-						if (data && data.titleMap) {
-							this.setState(data);
-						}
+						this.setState({
+							isLoading: false,
+							...data,
+						});
 					});
 				}
 			});
@@ -102,8 +107,8 @@ class Datalist extends Component {
 				label: option.name,
 			}));
 		}
-		if (this.state.created) {
-			options.unshift(...this.state.created);
+		if (this.state.added) {
+			options.unshift(...this.state.added);
 		}
 		if (this.props.value) {
 			if (!options.find(option => option.value === this.props.value)) {
