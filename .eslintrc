@@ -1,3 +1,6 @@
 {
-  "extends": "@talend/eslint-config"
+  "extends": [
+    "@talend/eslint-config",
+    "prettier"
+  ]
 }

@@ -70,6 +70,7 @@
     "enzyme-adapter-react-15": "^1.0.1",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.0.0",
+    "eslint-config-prettier": "^2.9.0",
     "i18next": "^9.0.0",
     "i18next-parser": "^0.13.0",
     "invariant": "^2.2.2",
