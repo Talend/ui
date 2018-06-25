@@ -31,15 +31,15 @@ const getDayNames = memoize(buildDayNames);
 
 class DatePicker extends React.Component {
 
-	static buildWeeks(year, monthIndex) {
+	static buildWeeks(year, monthIndex, firstDayOfWeek) {
 		const firstDateOfMonth = new Date(year, monthIndex);
 		const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
-			weekStartsOn: FIRST_DAY_OF_WEEK,
+			weekStartsOn: firstDayOfWeek,
 		});
 
 		const lastDateOfMonth = endOfMonth(firstDateOfMonth);
 		const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-			weekStartsOn: FIRST_DAY_OF_WEEK,
+			weekStartsOn: firstDayOfWeek,
 		});
 		const nbWeeksToRender = diffWeeks + 1;
 
@@ -53,7 +53,7 @@ class DatePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex) => `${year}-${monthIndex}`);
+		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`);
 
 		this.selectedDay = new Date(2018, 5, 12);
 		this.disabledDays = [
@@ -82,7 +82,7 @@ class DatePicker extends React.Component {
 	render() {
 		const { year, monthIndex } = this.props.calendar;
 
-		const weeks = this.getWeeks(year, monthIndex);
+		const weeks = this.getWeeks(year, monthIndex, FIRST_DAY_OF_WEEK);
 		const dayNames = getDayNames(FIRST_DAY_OF_WEEK);
 
 		return (
