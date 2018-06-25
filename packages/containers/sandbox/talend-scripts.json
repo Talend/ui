@@ -1,0 +1,7 @@
+{
+	"webpack": {
+		"config": {
+			"development": "./webpack.config.dev.js"
+		}
+	}
+}
