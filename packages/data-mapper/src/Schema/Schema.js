@@ -9,18 +9,6 @@ function isMapped(dataAccessor, element, mappedElements) {
 	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);
 }
 
-/**
- * isSelected indicates if the given (element, side) is selected
- * (i.e. if it appears in the selection)
- */
-export function isSelected(dataAccessor, selection, element, side) {
-	return (
-		selection != null &&
-		dataAccessor.areElementsEqual(selection.element, element) &&
-		selection.side === side
-	);
-}
-
 function isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements, dnd) {
 	const connected =
 		selection == null
@@ -218,8 +206,7 @@ export default class Schema extends Component {
 		const { dataAccessor, schema, side } = this.props;
 		const contentProps = {
 			...tempProps,
-			isMapped,
-			isSelected,
+			isMapped,			
 			isHighlighted,
 			onScroll: this.onContentScroll,
 		};

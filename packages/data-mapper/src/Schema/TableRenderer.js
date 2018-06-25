@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Table, DraggableComponent as draggable } from '@talend/react-components';
 
+/**
+ * This function indicates if the given (element, side) is selected
+ * (i.e. if it appears in the selection)
+ */
+function isSelected(dataAccessor, selection, element, side) {
+	return (
+		selection != null &&
+		dataAccessor.areElementsEqual(selection.element, element) &&
+		selection.side === side
+	);
+}
+
 function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaProps) {
 	const {
 		selection,
@@ -12,7 +24,6 @@ function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaPr
 		mappedElements,
 		isHighlighted,
 		isMapped,
-		isSelected,
 	} = schemaProps;
 	const rowsClassNames = {};
 	for (let i = 0; i < elements.length; i += 1) {

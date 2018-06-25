@@ -521,7 +521,7 @@ class MapperComponent extends Component {
 			return this.getDnDInProgressConnection(dnd);
 		}
 
-		const visibleMapping = this.getVisibleMapping();
+		const visibleMapping = this.getVisibleMapping();		
 
 		const hasVisibleMapping = !dataAccessor.isMappingEmpty(visibleMapping);
 
