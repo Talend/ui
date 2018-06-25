@@ -2,23 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
+import { chunk } from 'lodash';
+import endOfMonth from 'date-fns/end_of_month';
+import startOfWeek from 'date-fns/start_of_week';
+import getDate from 'date-fns/get_date';
+import getMonth from 'date-fns/get_month';
+import isSameDay from 'date-fns/is_same_day';
+import differenceInCalendarWeeks from 'date-fns/difference_in_calendar_weeks';
+
+import addDays from 'date-fns/add_days';
 import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
 
 class DatePicker extends React.Component {
 
 	static buildWeeks(year, monthIndex) {
-		const days = (new Array(7))
-						.fill(0)
-						.map((_, i) => i + 1);
+		const firstDayOfweek = 1;
+		const firstDateOfMonth = new Date(year, monthIndex);
+		const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
+			weekStartsOn: firstDayOfweek,
+		});
 
-		return (new Array(4))
-			.fill(0)
-			.map((_, i) =>
-				days.map(x => ({
-					number: x + (i * 7),
-				}))
-			);
+		const lastDateOfMonth = endOfMonth(firstDateOfMonth);
+		const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
+			weekStartsOn: firstDayOfweek,
+		});
+		const nbWeeksToRender = diffWeeks + 1;
+
+		const days = (new Array(7 * nbWeeksToRender))
+						.fill(0)
+						.map((_, i) => addDays(firstDateOfCalendar, i));
+
+		return chunk(days, 7);
 	}
 
 	constructor(props) {
@@ -28,21 +43,28 @@ class DatePicker extends React.Component {
 
 		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex) => `${year}-${monthIndex}`);
 
-		this.selectedDay = 12;
-		this.currentDay = 20;
-		this.disabledDays = [6, 15];
+		this.selectedDay = new Date(2018, 5, 12);
+		this.disabledDays = [
+			new Date(2018, 5, 6),
+			new Date(2018, 5, 15),
+		];
 	}
 
-	isSelectedDay(n) {
-		return this.selectedDay === n;
+	isSelectedDay(date) {
+		return isSameDay(this.selectedDay, date);
 	}
 
-	isCurrentDay(n) {
-		return this.currentDay === n;
+	isDisabledDay(date) {
+		return this.disabledDays
+			.some(disabledDay => isSameDay(disabledDay, date));
 	}
 
-	isDisabledDay(n) {
-		return this.disabledDays.includes(n);
+	isCurrentDay(date) {
+		return isSameDay(this.props.currentDate, date);
+	}
+
+	isCurrentMonth(date) {
+		return getMonth(date) === this.props.calendar.monthIndex;
 	}
 
 	render() {
@@ -71,20 +93,23 @@ class DatePicker extends React.Component {
 						className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
 						key={i}
 					>
-						{week.map((day, j) =>
+						{week.map((date, j) =>
 							<div
 								className={theme['calendar-item']}
 								key={j}
 							>
-								<DayPickerAction
-									label={day.number.toString()}
-									isSelectedDay={this.isSelectedDay(day.number)}
-									isDisabledDay={this.isDisabledDay(day.number)}
-									isCurrentDay={this.isCurrentDay(day.number)}
-									aria-label={this.isDisabledDay(day.number)
-										? 'Unselectable date'
-										: `Select '${day.number}'`}
-								/>
+								{
+									this.isCurrentMonth(date) &&
+									<DayPickerAction
+										label={getDate(date).toString()}
+										isSelectedDay={this.isSelectedDay(date)}
+										isDisabledDay={this.isDisabledDay(date)}
+										isCurrentDay={this.isCurrentDay(date)}
+										aria-label={this.isDisabledDay(date)
+											? 'Unselectable date'
+											: `Select '${getDate(date)}'`}
+									/>
+								}
 							</div>
 						)}
 					</div>
@@ -99,6 +124,7 @@ DatePicker.propTypes = {
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
 	}).isRequired,
+	currentDate: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default DatePicker;

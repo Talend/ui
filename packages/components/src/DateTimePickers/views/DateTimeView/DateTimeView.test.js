@@ -12,6 +12,10 @@ describe('DateTimeView', () => {
 			onSelectMonthYear={() => {}}
 		/>);
 
+		wrapper.setState({
+			currentDate: new Date(2018, 5, 20),
+		});
+
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 

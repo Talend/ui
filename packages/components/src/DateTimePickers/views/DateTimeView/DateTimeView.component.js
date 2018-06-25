@@ -22,6 +22,10 @@ class DateTimeView extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			currentDate: new Date(),
+		};
+
 		this.incrementMonthIndexDown = this.incrementMonthIndex.bind(this, -1);
 		this.incrementMonthIndexUp = this.incrementMonthIndex.bind(this, 1);
 	}
@@ -75,6 +79,7 @@ class DateTimeView extends React.Component {
 				<div className={theme.date}>
 					<DatePicker
 						calendar={currentCalendar}
+						currentDate={this.state.currentDate}
 					/>
 				</div>
 				<div className={theme.time}>

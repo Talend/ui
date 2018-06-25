@@ -4,14 +4,17 @@ import { shallow } from 'enzyme';
 import DatePicker from './DatePicker.component';
 
 describe('DatePicker', () => {
+	const currentDate = new Date(2018, 5, 20);
+
 	it('should render a DatePicker', () => {
 		const calendar = {
 			year: 2018,
-			monthIndex: 6,
+			monthIndex: 5,
 		};
 
 		const wrapper = shallow(<DatePicker
 			calendar={calendar}
+			currentDate={currentDate}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -36,6 +39,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(getFirstRowCellText(wrapper, 1)).toBe('1');
@@ -49,6 +53,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(getFirstRowCellText(wrapper, 4)).toBe('1');
@@ -62,6 +67,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(getFirstRowCellText(wrapper, 7)).toBe('1');
@@ -88,6 +94,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(getLastRowCellText(wrapper, 1)).toBe('30');
@@ -101,6 +108,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(getLastRowCellText(wrapper, 4)).toBe('31');
@@ -114,6 +122,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(getLastRowCellText(wrapper, 7)).toBe('30');
@@ -133,6 +142,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(nbOfWeeksRendered(wrapper)).toBe(4);
@@ -146,6 +156,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(nbOfWeeksRendered(wrapper)).toBe(5);
@@ -159,6 +170,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			expect(nbOfWeeksRendered(wrapper)).toBe(6);
@@ -186,6 +198,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			const days = getDayNumbers(wrapper);
@@ -204,6 +217,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			const days = getDayNumbers(wrapper);
@@ -222,6 +236,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			const days = getDayNumbers(wrapper);
@@ -240,6 +255,7 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
+				currentDate={currentDate}
 			/>);
 
 			const days = getDayNumbers(wrapper);
