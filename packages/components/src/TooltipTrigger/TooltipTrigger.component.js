@@ -11,32 +11,6 @@ function getTooltipClass() {
 }
 
 /**
- * Safe chained function
- *
- * Will only create a new function if needed,
- * otherwise will pass back existing functions or null.
- *
- * @param {function} functions to chain
- * @returns {function|null}
- */
-function createChainedFunction(...funcs) {
-	return funcs.filter(f => f != null).reduce((acc, f) => {
-		if (typeof f !== 'function') {
-			throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
-		}
-
-		if (acc === null) {
-			return f;
-		}
-
-		return function chainedFunction(...args) {
-			acc.apply(this, args);
-			f.apply(this, args);
-		};
-	}, null);
-}
-
-/**
  * @param {object} props react props
  * @example
 const props = {
@@ -70,29 +44,41 @@ class TooltipTrigger extends React.Component {
 	/**
 	 * Activate the tooltip when the children is hovered
 	 */
-	onMouseOver = () => {
+	onMouseOver = (...args) => {
 		this.setState({ hovered: true });
+		if (this.props.children.props.onMouseOver) {
+			this.props.children.props.onMouseOver(...args);
+		}
 	};
 
 	/**
 	 * Activate the tooltip when the children is focused
 	 */
-	onFocus = () => {
+	onFocus = (...args) => {
 		this.setState({ hovered: true });
+		if (this.props.children.props.onFocus) {
+			this.props.children.props.onFocus(...args);
+		}
 	};
 
 	/**
 	 * Hide the tooltip between mouseDown & mouseUp
 	 */
-	onMouseDown = () => {
+	onMouseDown = (...args) => {
 		this.overlay.handleDelayedHide();
+		if (this.props.children.props.onMouseDown) {
+			this.props.children.props.onMouseDown(...args);
+		}
 	};
 
 	/**
 	 * Show the tooltip after mouse up
 	 */
-	onMouseUp = () => {
+	onMouseUp = (...args) => {
 		this.overlay.handleDelayedShow();
+		if (this.props.children.props.onMouseUp) {
+			this.props.children.props.onMouseUp(...args);
+		}
 	};
 
 	/**
@@ -117,12 +103,11 @@ class TooltipTrigger extends React.Component {
 
 	render() {
 		const child = React.Children.only(this.props.children);
-		const childrenProps = this.props.children.props;
 
 		if (!this.state.hovered) {
 			return cloneElement(child, {
-				onMouseOver: createChainedFunction(this.onMouseOver, childrenProps.onMouseOver),
-				onFocus: createChainedFunction(this.onFocus, childrenProps.onFocus),
+				onMouseOver: this.onMouseOver,
+				onFocus: this.onFocus,
 			});
 		}
 
@@ -143,10 +128,10 @@ class TooltipTrigger extends React.Component {
 				animation={false}
 			>
 				{cloneElement(child, {
-					onMouseDown: createChainedFunction(this.onMouseDown, childrenProps.onMouseDown),
-					onMouseUp: createChainedFunction(this.onMouseUp, childrenProps.onMouseUp),
-					onKeyDown: createChainedFunction(this.onKeyDown, childrenProps.onKeyDown),
-					onKeyUp: createChainedFunction(this.onKeyUp, childrenProps.onKeyUp),
+					onMouseDown: this.onMouseDown,
+					onMouseUp: this.onMouseUp,
+					onKeyDown: this.onKeyDown,
+					onKeyUp: this.onKeyUp,
 				})}
 			</OverlayTrigger>
 		);
