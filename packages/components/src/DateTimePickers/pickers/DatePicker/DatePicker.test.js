@@ -11,10 +11,12 @@ describe('DatePicker', () => {
 			year: 2018,
 			monthIndex: 5,
 		};
+		const selectedDate = new Date(2018, 5, 12);
 
 		const wrapper = shallow(<DatePicker
 			calendar={calendar}
 			currentDate={currentDate}
+			selectedDate={selectedDate}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -307,6 +309,70 @@ describe('DatePicker', () => {
 				const currentDayItems = wrapper
 					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isCurrentDay'));
+
+				expect(currentDayItems).toHaveLength(0);
+			});
+		});
+
+		describe('selected date', () => {
+			it('should render specifically the selected date', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const selectedDate = new Date(2018, 5, 12);
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+					selectedDate={selectedDate}
+				/>);
+
+				const currentDayItems = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isSelectedDay'));
+
+				expect(currentDayItems).toHaveLength(1);
+				const item = currentDayItems.first();
+				expect(item.prop('label')).toBe('12');
+			});
+
+			it('should not render specifically a date if no selected date given', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+				/>);
+
+				const currentDayItems = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isSelectedDay'));
+
+				expect(currentDayItems).toHaveLength(0);
+			});
+
+			it('should not render specifically a date if selected date is out of displayed month', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const selectedDate = new Date(2018, 4, 12);
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+					selectedDate={selectedDate}
+				/>);
+
+				const currentDayItems = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isSelectedDay'));
 
 				expect(currentDayItems).toHaveLength(0);
 			});
