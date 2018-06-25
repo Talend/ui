@@ -279,14 +279,13 @@ function HeaderBar(props) {
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
 				)}
-				{!props.user &&
-					props.information && (
-						<Components.Information
-							getComponent={props.getComponent}
-							{...props.information}
-							t={props.t}
-						/>
-					)}
+				{!props.user && props.information && (
+					<Components.Information
+						getComponent={props.getComponent}
+						{...props.information}
+						t={props.t}
+					/>
+				)}
 				{props.user && (
 					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
 				)}
