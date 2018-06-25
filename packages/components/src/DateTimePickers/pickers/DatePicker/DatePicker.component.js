@@ -16,19 +16,30 @@ import addDays from 'date-fns/add_days';
 import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
 
-const firstDayOfweek = 1;
+const FIRST_DAY_OF_WEEK = 1;
+const BASE_DATE = new Date(0);
+
+function buildDayNames(firstDayOfweek) {
+	return (new Array(7))
+		.fill(0)
+		.map((_, i) => (i + firstDayOfweek) % 7)
+		.map(dayOfWeek => setDay(BASE_DATE, dayOfWeek))
+		.map(headerDate => format(headerDate, 'dddd'));
+}
+
+const getDayNames = memoize(buildDayNames);
 
 class DatePicker extends React.Component {
 
 	static buildWeeks(year, monthIndex) {
 		const firstDateOfMonth = new Date(year, monthIndex);
 		const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
-			weekStartsOn: firstDayOfweek,
+			weekStartsOn: FIRST_DAY_OF_WEEK,
 		});
 
 		const lastDateOfMonth = endOfMonth(firstDateOfMonth);
 		const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-			weekStartsOn: firstDayOfweek,
+			weekStartsOn: FIRST_DAY_OF_WEEK,
 		});
 		const nbWeeksToRender = diffWeeks + 1;
 
@@ -41,14 +52,6 @@ class DatePicker extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		const baseDate = new Date(0);
-
-		this.dayNames = (new Array(7))
-			.fill(0)
-			.map((_, i) => (i + firstDayOfweek) % 7)
-			.map(dayOfWeek => setDay(baseDate, dayOfWeek))
-			.map(headerDate => format(headerDate, 'dddd'));
 
 		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex) => `${year}-${monthIndex}`);
 
@@ -80,11 +83,12 @@ class DatePicker extends React.Component {
 		const { year, monthIndex } = this.props.calendar;
 
 		const weeks = this.getWeeks(year, monthIndex);
+		const dayNames = getDayNames(FIRST_DAY_OF_WEEK);
 
 		return (
 			<div className={theme.container}>
 				<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
-					{this.dayNames.map((dayName, i) =>
+					{dayNames.map((dayName, i) =>
 						<abbr
 							className={theme['calendar-item']}
 							key={i}
