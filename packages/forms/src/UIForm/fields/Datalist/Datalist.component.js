@@ -59,7 +59,7 @@ class Datalist extends Component {
 								value: option.value,
 								selected: selectedValue.find(v => v.value === option.value) !== undefined,
 							}),
-						)
+					  )
 					: undefined,
 			},
 		};
@@ -73,8 +73,7 @@ class Datalist extends Component {
 			this.props.schema.triggers.forEach(trigger => {
 				if (trigger.onEvent === 'focus') {
 					this.setState({ isLoading: true });
-					this.props.onTrigger(event, this.props)
-					.then(data => {
+					this.props.onTrigger(event, this.props).then(data => {
 						this.setState({ isLoading: false });
 						if (data && data.titleMap) {
 							this.setState(data);
@@ -179,9 +178,11 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
-			triggers: PropTypes.arrayOf(PropTypes.shape({
-				onEvent: PropTypes.string,
-			})),
+			triggers: PropTypes.arrayOf(
+				PropTypes.shape({
+					onEvent: PropTypes.string,
+				}),
+			),
 		}),
 		value: PropTypes.string,
 	};
