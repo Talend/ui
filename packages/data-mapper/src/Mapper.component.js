@@ -8,11 +8,27 @@ import Schema from './Schema/Schema.js';
 import Mapping from './Mapping/Mapping';
 import { Constants } from './index';
 
+/**
+ * This function returns the mapped elements for the specified side (input/output)
+ * as an array.
+ * @param {object} dataAccessor -
+ * @param {array} mapping - an array of mapping items {source, target}
+ * @param {string} side - the mapping side, i.e. input or output.
+ */
 function getMappedElements(dataAccessor, mapping, side) {
 	const mappingItems = dataAccessor.getMappingItems(mapping);
 	return mappingItems.map(item => dataAccessor.getMappedElement(item, side));
 }
 
+/**
+ * This function returns the focused elements for the specified side (input/output)
+ * as an array.
+ * A focused element is an element which is overflew or which is mapped to an overflew element.
+ * @param {object} dataAccessor -
+ * @param {array} mapping - an array of mapping items {source, target}
+ * @param {object} focused - the current overflown/focused element
+ * @param {string} side - the mapping side, i.e. input or output.
+ */
 function getFocusedElements(dataAccessor, mapping, focused, side) {
 	let focusedElements = [];
 	if (focused) {
@@ -33,6 +49,11 @@ function getFocusedElements(dataAccessor, mapping, focused, side) {
 	return focusedElements;
 }
 
+/**
+ * This function computes the visible mapping items.
+ * It filters all the mapping items and keeps only item with at least one visible
+ * element (source or/and target).
+ */
 function updateVisibleMapping(dataAccessor, mapping, visibleInputElements, visibleOutputElements) {
 	return mapping.filter(
 		item =>
@@ -47,6 +68,18 @@ function updateVisibleMapping(dataAccessor, mapping, visibleInputElements, visib
 	);
 }
 
+/**
+ * This function indicates if the given mapping item has to be rendered or not.
+ */
+function filterMappingItem(dataAccessor, schema, mappingItem, elements, side) {
+	const oppositeSide = Constants.switchMappingSide(side);
+	return dataAccessor.includes(elements, dataAccessor.getMappedElement(mappingItem, side)) &&
+		!dataAccessor.isFiltered(schema, dataAccessor.getMappedElement(mappingItem, oppositeSide));
+}
+
+/**
+ * This function filters the given mapping items.
+ */
 function filterMappingItems(
 	dataAccessor,
 	inputSchema,
@@ -55,25 +88,22 @@ function filterMappingItems(
 	visibleInputElements,
 	visibleOutputElements,
 ) {
-	// TODO Simplify
 	return mappingItems.filter(
 		item =>
-			(dataAccessor.includes(
+			filterMappingItem(
+				dataAccessor,
+				outputSchema,
+				item,
 				visibleInputElements,
-				dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
-			) &&
-				!dataAccessor.isFiltered(
-					outputSchema,
-					dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
-				)) ||
-			(dataAccessor.includes(
+				Constants.MappingSide.INPUT,
+			) ||
+			filterMappingItem(
+				dataAccessor,
+				inputSchema,
+				item,
 				visibleOutputElements,
-				dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
-			) &&
-				!dataAccessor.isFiltered(
-					inputSchema,
-					dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
-				)),
+				Constants.MappingSide.OUTPUT,
+			)
 	);
 }
 
@@ -471,15 +501,6 @@ class MapperComponent extends Component {
 				}
 			}
 
-			// TODO Remove
-			// if (dnd) {
-			// 	this.updatePropertyValue(dataAccessor, dnd.source, visibleElements, anchors,
-			// 'visible', false);
-			// 	if (dnd.target) {
-			// 		this.updatePropertyValue(dataAccessor, dnd.target, visibleElements, anchors,
-			// 'visible', false);
-			// 	}
-			// }
 		}
 		return anchors;
 	}
