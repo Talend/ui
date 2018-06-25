@@ -17,7 +17,7 @@ const schema = {
 	],
 	type: 'string',
 	schema: {
-		type: 'array',
+		type: 'string',
 	},
 };
 

@@ -22,4 +22,14 @@ $form-focus-shadow: inset 0 -2px 0 $scooter;
 		border-radius: 4px;
 		box-shadow: $dropdown-shadow;
 	}
+	:global(.Select-option) {
+		padding: $padding-normal;
+		&:global(.is-selected) {
+			background-color: white;
+			font-weight: 800;
+		}
+		&:global(.is-focused) {
+			background-color: $concrete;
+		}
+	}
 }

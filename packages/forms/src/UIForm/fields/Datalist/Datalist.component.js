@@ -6,10 +6,6 @@ import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
 import theme from './Datalist.scss';
 
-// export function escapeRegexCharacters(str) {
-// 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-// }
-// 10,15,18,60,62,111
 function getSelectedOptions(selectedValue, multiple) {
 	if (!selectedValue) {
 		return undefined;
@@ -25,6 +21,7 @@ class Datalist extends Component {
 		super(props);
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.isMultiple = this.isMultiple.bind(this);
 		this.state = {};
 	}
 
@@ -35,7 +32,7 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(selectedValue) {
-		const multiple = this.getMultiple();
+		const multiple = this.isMultiple();
 		const options = this.getOptions();
 		const payload = {
 			schema: this.props.schema,
@@ -57,6 +54,7 @@ class Datalist extends Component {
 		}
 		const event = {
 			type: 'change',
+			target: {},
 		};
 		if (multiple) {
 			event.target.options = options.map(option =>
@@ -88,11 +86,8 @@ class Datalist extends Component {
 		}
 	}
 
-	getMultiple() {
-		return this.props.schema.schema.type === 'array';
-	}
-
 	getOptions() {
+		const isMultiple = this.isMultiple();
 		let options = [];
 		if (this.state.titleMap) {
 			options = this.state.titleMap.map(option => ({
@@ -108,12 +103,23 @@ class Datalist extends Component {
 		if (this.state.added) {
 			options.unshift(...this.state.added);
 		}
-		if (this.props.value) {
+		if (this.props.value && !isMultiple) {
 			if (!options.find(option => option.value === this.props.value)) {
 				options.push({ label: this.props.value, value: this.props.value });
 			}
+		} else if (this.props.value && isMultiple) {
+			this.props.value.forEach(value => {
+				if (!options.find(option => option.value === value)) {
+					options.push({ label: this.props.value, value: this.props.value });
+				}
+			});
 		}
+
 		return options;
+	}
+
+	isMultiple() {
+		return this.props.schema.schema.type === 'array';
 	}
 
 	render() {
@@ -138,7 +144,7 @@ class Datalist extends Component {
 					autoFocus={this.props.schema.autoFocus || false}
 					id={`${this.props.id}`}
 					disabled={this.props.schema.disabled || false}
-					multi={this.getMultiple()}
+					multi={this.isMultiple()}
 					onFocus={this.onFocus}
 					onChange={this.onChange}
 					placeholder={this.props.schema.placeholder}
