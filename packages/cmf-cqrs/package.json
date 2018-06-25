@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@talend/eslint-config": "1.0.0",
-    "@talend/react-cmf": "^0.195.0",
+    "@talend/react-cmf": "^0.197.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "20.0.3",
@@ -79,7 +79,7 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^0.195.0",
+    "@talend/react-cmf": "^0.197.0",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
@@ -116,5 +116,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.195.0"
+  "version": "0.197.0"
 }
