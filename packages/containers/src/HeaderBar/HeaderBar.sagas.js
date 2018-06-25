@@ -1,4 +1,3 @@
-
 import cmf from '@talend/react-cmf';
 import { call, put, takeEvery, take } from 'redux-saga/effects';
 

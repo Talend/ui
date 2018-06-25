@@ -41,7 +41,7 @@ describe('HeaderBar sagas', () => {
 			global.open.mockReset();
 		});
 
-		it('should open a product\'s page when an URI is provided', () => {
+		it("should open a product's page when an URI is provided", () => {
 			const action = { payload: { uri: 'productUri' } };
 
 			handleOpenProduct(action);

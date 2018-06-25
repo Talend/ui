@@ -18,22 +18,18 @@ class HeaderBar extends React.Component {
 	static propTypes = {
 		productsUrl: PropTypes.string,
 		productsLang: PropTypes.string,
-		productsItems: PropTypes.arrayOf(PropTypes.shape({
-			icon: PropTypes.string,
-			uri: PropTypes.string,
-			label: PropTypes.string,
-		})),
+		productsItems: PropTypes.arrayOf(
+			PropTypes.shape({
+				icon: PropTypes.string,
+				uri: PropTypes.string,
+				label: PropTypes.string,
+			}),
+		),
 		...cmfConnect.propTypes,
 	};
 
 	render() {
-		const {
-			productsUrl,
-			productsLang,
-			productsItems,
-			products = {},
-			...props
-		} = this.props;
+		const { productsUrl, productsLang, productsItems, products = {}, ...props } = this.props;
 
 		if (productsItems) {
 			// Add onClickDispatch event to items

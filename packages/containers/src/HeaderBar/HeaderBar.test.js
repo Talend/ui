@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 import { Map, List } from 'immutable';
 
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
-import Connected, {
-	mapStateToProps,
-} from './HeaderBar.connect';
+import Connected, { mapStateToProps } from './HeaderBar.connect';
 
 describe('Container HeaderBar', () => {
 	const state = DEFAULT_STATE;
