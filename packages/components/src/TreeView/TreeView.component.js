@@ -6,10 +6,6 @@ import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
 
-const cache = {
-	called: false,
-};
-
 /**
  * A view component to display any tree structure, like folders or categories.
  *
@@ -54,21 +50,12 @@ function TreeView({
 	structure,
 	addAction,
 	addActionLabel,
-	itemSelectCallback,
-	itemToggleCallback,
 	onClick,
 	onSelect,
 	noHeader,
 	className,
 	style,
 }) {
-	if (!cache.called && (itemSelectCallback || itemToggleCallback)) {
-		// eslint-disable-next-line
-		console.warn(`DEPRECATION WARNING: TreeView props migration:
-		itemToggleCallback -> onClick
-		itemSelectCallback -> onSelect`);
-		cache.called = true;
-	}
 	return (
 		<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
 			{!noHeader && (
@@ -94,8 +81,8 @@ function TreeView({
 						<TreeViewItem
 							id={id && `${id}-${i}`}
 							item={item}
-							onSelect={onSelect || itemSelectCallback}
-							onClick={onClick || itemToggleCallback}
+							onSelect={onSelect}
+							onClick={onClick}
 							key={i}
 						/>
 					))}
@@ -113,8 +100,6 @@ TreeView.propTypes = {
 	structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 	addAction: PropTypes.func,
 	addActionLabel: PropTypes.string,
-	itemSelectCallback: PropTypes.func,
-	itemToggleCallback: PropTypes.func,
 	onClick: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	noHeader: PropTypes.bool,
