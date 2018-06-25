@@ -17,11 +17,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   9:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
+  44:6  error  Assignment to property of function parameter 'prevState'  no-param-reassign
+  62:2  error  Mixed spaces and tabs                                     no-mixed-spaces-and-tabs
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.js
-  53:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
@@ -30,5 +31,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:8  error  Expected indentation of 6 tab characters but found 7  react/jsx-indent
   78:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
-✖ 12 problems (12 errors, 0 warnings)
+✖ 13 problems (13 errors, 0 warnings)
 
