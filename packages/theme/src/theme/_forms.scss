@@ -166,6 +166,8 @@ form {
 			cursor: pointer;
 			position: relative;
 			padding-left: 25px;
+			font-size: 16px;
+			color: $dove-gray;
 		}
 
 		input[type='radio'],
@@ -173,6 +175,10 @@ form {
 			position: absolute;
 			left: 0;
 			margin: 0;
+		}
+
+		&.disabled label {
+			opacity: 0.4;
 		}
 	}
 

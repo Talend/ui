@@ -88,9 +88,5 @@ input[type='checkbox'],
 	}
 	label {
 		line-height: $tt-checkbox-size;
-		color: $dove-gray;
-	}
-	&.disabled label {
-		opacity: 0.4;
 	}
 }
