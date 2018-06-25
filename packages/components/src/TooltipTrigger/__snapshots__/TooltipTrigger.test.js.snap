@@ -2,6 +2,7 @@
 
 exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
 <OverlayTrigger
+  animation={false}
   defaultOverlayShown={false}
   delayShow={400}
   overlay={
@@ -24,7 +25,12 @@ exports[`ActionTooltip should render custom tooltip when focus the children 1`] 
     ]
   }
 >
-  <div>
+  <div
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+  >
     Action
   </div>
 </OverlayTrigger>
@@ -41,6 +47,7 @@ exports[`ActionTooltip should render only the children 1`] = `
 
 exports[`ActionTooltip should render tooltip when focus the children 1`] = `
 <OverlayTrigger
+  animation={false}
   defaultOverlayShown={false}
   delayShow={400}
   overlay={
@@ -61,7 +68,12 @@ exports[`ActionTooltip should render tooltip when focus the children 1`] = `
     ]
   }
 >
-  <div>
+  <div
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+  >
     Action
   </div>
 </OverlayTrigger>
@@ -69,6 +81,7 @@ exports[`ActionTooltip should render tooltip when focus the children 1`] = `
 
 exports[`ActionTooltip should render tooltip when hover the children 1`] = `
 <OverlayTrigger
+  animation={false}
   defaultOverlayShown={false}
   delayShow={400}
   overlay={
@@ -89,7 +102,12 @@ exports[`ActionTooltip should render tooltip when hover the children 1`] = `
     ]
   }
 >
-  <div>
+  <div
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+  >
     Action
   </div>
 </OverlayTrigger>
