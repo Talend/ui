@@ -2,8 +2,6 @@ import React from 'react';
 import CellTitle from '../CellTitle';
 import VirtualizedList from '../VirtualizedList.component';
 import {
-	decorateRowClick,
-	decorateRowDoubleClick,
 	getCellRenderer,
 	getId,
 	getColumnData,

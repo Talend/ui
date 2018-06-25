@@ -1,41 +1,46 @@
+import each from 'jest-each';
 import { decorateRowClick, decorateRowDoubleClick } from './rowclick';
 
 describe('rowclick', () => {
 	describe('#decorateRowDoubleClick', () => {
-		it('should not trigger double click callbacks on action double click', () => {
-			// given
-			const onRowDoubleClick = jest.fn();
-			const checkboxEvent = { target: { tagName: 'SPAN', className: 'tc-cell-checkbox' } };
-			const inputEvent = { target: { tagName: 'INPUT' } };
-			const textareaEvent = { target: { tagName: 'TEXTAREA' } };
-			const buttonEvent = { target: { tagName: 'BUTTON' } };
-			const selectEvent = { target: { tagName: 'SELECT' } };
-			const innerActionEvent = {
-				target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } },
-			};
-			const nonActionEvent = { target: { tagName: 'SPAN', parentElement: { tagName: 'SPAN' } } };
+		const checkboxEvent = { target: { tagName: 'SPAN', className: 'tc-cell-checkbox' } };
+		const inputEvent = { target: { tagName: 'INPUT' } };
+		const textareaEvent = { target: { tagName: 'TEXTAREA' } };
+		const buttonEvent = { target: { tagName: 'BUTTON' } };
+		const selectEvent = { target: { tagName: 'SELECT' } };
+		const innerActionEvent = {
+			target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } },
+		};
 
+		each(
+			[
+				['checkbox', checkboxEvent],
+				['input', inputEvent],
+				['textarea', textareaEvent],
+				['button', buttonEvent],
+				['select', selectEvent],
+				['inner', innerActionEvent],
+			])
+			.test(
+				'should not trigger double click callbacks on %s action double click',
+				(name, event) => {
+					// given
+					const onRowDoubleClick = jest.fn();
+					const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
+
+					// when / then
+					decoratedRowDoubleClick({ event });
+					expect(onRowDoubleClick).not.toBeCalled();
+				}
+			);
+
+		it('should trigger double click callbacks on non-action double click', () => {
+			// when
+			const nonActionEvent = { target: { tagName: 'SPAN', parentElement: { tagName: 'SPAN' } } };
+			const onRowDoubleClick = jest.fn();
 			const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
 
-			// when / then
-			decoratedRowDoubleClick({ event: checkboxEvent });
-			expect(onRowDoubleClick).not.toBeCalled();
-
-			decoratedRowDoubleClick({ event: inputEvent });
-			expect(onRowDoubleClick).not.toBeCalled();
-
-			decoratedRowDoubleClick({ event: textareaEvent });
-			expect(onRowDoubleClick).not.toBeCalled();
-
-			decoratedRowDoubleClick({ event: buttonEvent });
-			expect(onRowDoubleClick).not.toBeCalled();
-
-			decoratedRowDoubleClick({ event: selectEvent });
-			expect(onRowDoubleClick).not.toBeCalled();
-
-			decoratedRowDoubleClick({ event: innerActionEvent });
-			expect(onRowDoubleClick).not.toBeCalled();
-
+			// then
 			decoratedRowDoubleClick({ event: nonActionEvent });
 			expect(onRowDoubleClick).toBeCalled();
 		});

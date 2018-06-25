@@ -35,8 +35,6 @@ function ListGrid(props) {
 			getRowData: ({ index }) => collection[index],
 		});
 	}
-	const onRowClickCallback = decorateRowClick(onRowClick);
-	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
 
 	return (
 		<VirtualizedList
@@ -45,8 +43,8 @@ function ListGrid(props) {
 			id={id}
 			height={height}
 			overscanRowCount={10}
-			onRowClick={onRowClickCallback}
-			onRowDoubleClick={onRowDoubleClickCallback}
+			onRowClick={decorateRowClick(onRowClick)}
+			onRowDoubleClick={decorateRowDoubleClick(onRowDoubleClick)}
 			noRowsRenderer={noRowsRenderer}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
