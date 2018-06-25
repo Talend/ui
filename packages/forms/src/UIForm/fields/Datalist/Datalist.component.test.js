@@ -65,7 +65,7 @@ describe('Datalist component', () => {
 			expect(props.onFinish.mock.calls[0][0]).toEqual(event);
 			expect(event.type).toBe('change');
 			expect(event.target.value).toBe('bar');
-			expect(wrapper.state('added')).toEqual([{ label: 'Bar', value: 'bar'}]);
+			expect(wrapper.state('added')).toEqual([{ label: 'Bar', value: 'bar' }]);
 		});
 		it('should support undefined value', () => {
 			// when
@@ -118,28 +118,33 @@ describe('Datalist component', () => {
 		});
 	});
 	describe('onFocus', () => {
-		it('should call onTrigger when triggers has onEvent="focus"', (done) => {
+		it('should call onTrigger when triggers has onEvent="focus"', done => {
 			// when
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
-				onTrigger: jest.fn(event => new Promise(resolve => {
-					// hack: to be sure we catch the setState after the promise
-					setTimeout(() => {
-						expect(event.target.state.isLoading).toBe(false);
-						done();
-					}, 0);
-					return resolve(data);
-				})),
+				onTrigger: jest.fn(
+					event =>
+						new Promise(resolve => {
+							// hack: to be sure we catch the setState after the promise
+							setTimeout(() => {
+								expect(event.target.state.isLoading).toBe(false);
+								done();
+							}, 0);
+							return resolve(data);
+						}),
+				),
 				schema: {
 					type: 'string',
 					schema: {
 						type: 'string',
 					},
-					triggers: [{
-						onEvent: 'focus',
-					}],
+					triggers: [
+						{
+							onEvent: 'focus',
+						},
+					],
 				},
 			};
 			const wrapper = shallow(<Datalist {...props} />);
@@ -182,10 +187,7 @@ describe('Datalist component', () => {
 			};
 			const wrapper = shallow(<Datalist {...props} />);
 			wrapper.setState({
-				titleMap: [
-					{ name: 'Hello', value: 'hello' },
-					{ name: 'World', value: 'world' },
-				],
+				titleMap: [{ name: 'Hello', value: 'hello' }, { name: 'World', value: 'world' }],
 			});
 			const options = wrapper.instance().getOptions();
 
@@ -205,10 +207,7 @@ describe('Datalist component', () => {
 			};
 			const wrapper = shallow(<Datalist {...props} />);
 			wrapper.setState({
-				added: [
-					{ label: 'Hello', value: 'hello' },
-					{ label: 'World', value: 'world' },
-				],
+				added: [{ label: 'Hello', value: 'hello' }, { label: 'World', value: 'world' }],
 			});
 			const options = wrapper.instance().getOptions();
 
