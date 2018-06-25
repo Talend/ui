@@ -28,24 +28,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:27  error  Unable to resolve path to module './TestData'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/DataAccessor/DataAccessorWrapper.js
-   26:14  error  Expected 'this' to be used by class method 'isRegistered'     class-methods-use-this
-   27:10  error  'side' is not defined                                         no-undef
-   99:13  error  Expected 'this' to be used by class method 'getSchemaId'      class-methods-use-this
-  106:15  error  Expected 'this' to be used by class method 'getSchemaName'    class-methods-use-this
-  157:14  error  Expected 'this' to be used by class method 'getElementId'     class-methods-use-this
-  164:17  error  Expected 'this' to be used by class method 'getElementLabel'  class-methods-use-this
-  180:14  error  Expected 'this' to be used by class method 'haveSameData'     class-methods-use-this
+   30:29  error  Expected 'this' to be used by class method 'internalGetMappingItemIndex'  class-methods-use-this
+   41:14  error  Expected 'this' to be used by class method 'isRegistered'                 class-methods-use-this
+   42:10  error  'side' is not defined                                                     no-undef
+  114:13  error  Expected 'this' to be used by class method 'getSchemaId'                  class-methods-use-this
+  121:15  error  Expected 'this' to be used by class method 'getSchemaName'                class-methods-use-this
+  172:14  error  Expected 'this' to be used by class method 'getElementId'                 class-methods-use-this
+  179:17  error  Expected 'this' to be used by class method 'getElementLabel'              class-methods-use-this
+  195:14  error  Expected 'this' to be used by class method 'haveSameData'                 class-methods-use-this
+  214:17  error  Expected 'this' to be used by class method 'getMappingItems'              class-methods-use-this
+  221:16  error  Expected 'this' to be used by class method 'isMappingEmpty'               class-methods-use-this
+  228:18  error  Expected 'this' to be used by class method 'getMappedElement'             class-methods-use-this
+  272:15  error  'mapping' is defined but never used                                       no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/DataAccessor/DataAccessorWrapper.test.js
-  6:26  error  'DataAccessorWrapper' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/data-mapper/src/DataAccessor/MappingAccessor.js
-  14:18  error  Expected 'this' to be used by class method 'internalAreEqual'  class-methods-use-this
-  29:17  error  Expected 'this' to be used by class method 'getMappingItems'   class-methods-use-this
-  37:18  error  Expected 'this' to be used by class method 'getMappedElement'  class-methods-use-this
-  48:12  error  Expected 'this' to be used by class method 'addMapping'        class-methods-use-this
-  69:14  error  Expected 'this' to be used by class method 'clearMapping'      class-methods-use-this
-  76:16  error  Expected 'this' to be used by class method 'isMappingEmpty'    class-methods-use-this
+  4:26  error  'DataAccessorWrapper' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/index.js
   1:20  error  Parse errors in imported module './Mapper.container': Line 1081: A trailing comma is not permitted after the rest element
@@ -141,8 +138,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   200:22  error  'child' is defined but never used               no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.test.js
-   7:10  error  'Constants' is defined but never used           no-unused-vars
-  45:7   error  'noFilters' is assigned a value but never used  no-unused-vars
+   6:10  error  'Constants' is defined but never used           no-unused-vars
+  44:7   error  'noFilters' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/TableRenderer.js
    43:2   error  The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
@@ -162,5 +159,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   291:26  error  'revealConnectedElement' PropType is defined but prop is never used                                         react/no-unused-prop-types
   294:20  error  'isElementVisible' PropType is defined but prop is never used                                               react/no-unused-prop-types
 
-✖ 102 problems (102 errors, 0 warnings)
+✖ 101 problems (101 errors, 0 warnings)
 

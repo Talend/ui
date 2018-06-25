@@ -28,9 +28,7 @@ export default class DataAccessorWrapper {
 	 * @private
 	 */
 	internalGetMappingItemIndex(mapping, source, target) {
-		return mapping.findIndex(
-			item =>	item.source.id === source.id && item.target.id === target.id,
-		);
+		return mapping.findIndex(item => item.source.id === source.id && item.target.id === target.id);
 	}
 
 	/**
