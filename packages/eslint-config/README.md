@@ -35,4 +35,4 @@ The following table indicated what value to set to refers to each profile.
 | `@talend/eslint-config/api-app-angular.yaml` 	| Api team, Angular applications configuration 	|
 | `@talend/eslint-config/api-test.yaml` 		| Api team, test configuration 					|
 | `@talend/eslint-config/api-test-e2e.yaml` 	| Api team, e2e test configuration 				|
-| `@talend/eslint-config/packaging.yaml` 		| Api team, packaging script configuration 		|
+| `@talend/eslint-config/api-packaging.yaml` 	| Api team, packaging script configuration 		|
