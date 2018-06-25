@@ -48,3 +48,4 @@ test
 .eslintrc
 docs.json
 yarn.lock
+sandbox

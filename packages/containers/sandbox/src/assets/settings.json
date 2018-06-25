@@ -1,0 +1,81 @@
+{
+  "contentTypes": {},
+  "actions": {
+    "menu:headerBar-demo": {
+      "id": "menu:headerBar-demo",
+      "label": "Header bar",
+      "icon": "talend-arrow-right",
+      "payload": {
+        "type": "MENU_LINK",
+        "cmf": {
+          "routerReplace": "/headerbar-demo"
+        }
+      }
+    }
+  },
+  "props": {
+    "RedirectContainer#default": {
+      "path": "/home"
+    },
+    "HeaderBar#default": {
+      "logo": {
+        "icon": "talend-logo-square",
+        "isFull": false
+      },
+      "brand": {
+        "label": "Talend containers showcase"
+      }
+    },
+    "SidePanel#default": {
+      "actionIds": [
+        "menu:headerBar-demo"
+      ]
+    },
+    "Showcase#default": {
+      "content": {
+        "component": "EmptyShowcase"
+      }
+    },
+    "Showcase#headerBar-demo": {
+      "content": {
+        "component": "LocalHeaderBar",
+        "logo": {
+          "id": "header-bar-demo-logo",
+          "icon": "talend-world",
+          "isFull": false
+        },
+        "brand": {
+          "id": "header-bar-demo-brand",
+          "label": "Choose a product"
+        },
+        "products": {
+          "id": "header-bar-demo-brands"
+        },
+        "productsUrl": "/api/mock/header-bar/products-list",
+        "productsLang": "en-EN"
+      }
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "indexRoute": {
+      "component": "Redirect"
+    },
+    "childRoutes": [
+      {
+        "path": "home",
+        "component": "Showcase"
+      },
+      {
+        "path": "headerbar-demo",
+        "component": "Showcase",
+        "componentId": "headerBar-demo"
+      },
+      {
+        "path": "*",
+        "component": "Redirect"
+      }
+    ]
+  }
+}

@@ -46,3 +46,5 @@ hs_err_pid*
 build/
 i18n/
 packages/**/yarn.lock
+packages/containers/sandbox/dist
+packages/containers/sandbox/package-lock.json
