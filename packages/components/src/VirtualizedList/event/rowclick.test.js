@@ -12,27 +12,25 @@ describe('rowclick', () => {
 			target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } },
 		};
 
-		each(
-			[
-				['checkbox', checkboxEvent],
-				['input', inputEvent],
-				['textarea', textareaEvent],
-				['button', buttonEvent],
-				['select', selectEvent],
-				['inner', innerActionEvent],
-			])
-			.test(
-				'should not trigger double click callbacks on %s action double click',
-				(name, event) => {
-					// given
-					const onRowDoubleClick = jest.fn();
-					const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
+		each([
+			['checkbox', checkboxEvent],
+			['input', inputEvent],
+			['textarea', textareaEvent],
+			['button', buttonEvent],
+			['select', selectEvent],
+			['inner', innerActionEvent],
+		]).test(
+			'should not trigger double click callbacks on %s action double click',
+			(name, event) => {
+				// given
+				const onRowDoubleClick = jest.fn();
+				const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
 
-					// when / then
-					decoratedRowDoubleClick({ event });
-					expect(onRowDoubleClick).not.toBeCalled();
-				}
-			);
+				// when / then
+				decoratedRowDoubleClick({ event });
+				expect(onRowDoubleClick).not.toBeCalled();
+			},
+		);
 
 		it('should trigger double click callbacks on non-action double click', () => {
 			// when
