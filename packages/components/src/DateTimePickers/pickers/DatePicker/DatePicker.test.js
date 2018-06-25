@@ -17,6 +17,7 @@ describe('DatePicker', () => {
 			calendar={calendar}
 			currentDate={currentDate}
 			selectedDate={selectedDate}
+			onSelect={() => {}}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -43,6 +44,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(getFirstRowCellText(wrapper, 1)).toBe('1');
@@ -57,6 +59,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(getFirstRowCellText(wrapper, 4)).toBe('1');
@@ -71,6 +74,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(getFirstRowCellText(wrapper, 7)).toBe('1');
@@ -98,6 +102,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(getLastRowCellText(wrapper, 1)).toBe('30');
@@ -112,6 +117,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(getLastRowCellText(wrapper, 4)).toBe('31');
@@ -126,6 +132,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(getLastRowCellText(wrapper, 7)).toBe('30');
@@ -146,6 +153,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(nbOfWeeksRendered(wrapper)).toBe(4);
@@ -160,6 +168,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(nbOfWeeksRendered(wrapper)).toBe(5);
@@ -174,6 +183,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				expect(nbOfWeeksRendered(wrapper)).toBe(6);
@@ -202,6 +212,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				const days = getDayNumbers(wrapper);
@@ -221,6 +232,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				const days = getDayNumbers(wrapper);
@@ -240,6 +252,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				const days = getDayNumbers(wrapper);
@@ -259,6 +272,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				const days = getDayNumbers(wrapper);
@@ -282,6 +296,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={date}
+					onSelect={() => {}}
 				/>);
 
 				const currentDayItems = wrapper
@@ -304,6 +319,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={date}
+					onSelect={() => {}}
 				/>);
 
 				const currentDayItems = wrapper
@@ -327,6 +343,7 @@ describe('DatePicker', () => {
 					calendar={calendar}
 					currentDate={currentDate}
 					selectedDate={selectedDate}
+					onSelect={() => {}}
 				/>);
 
 				const currentDayItems = wrapper
@@ -347,6 +364,7 @@ describe('DatePicker', () => {
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					currentDate={currentDate}
+					onSelect={() => {}}
 				/>);
 
 				const currentDayItems = wrapper
@@ -368,6 +386,7 @@ describe('DatePicker', () => {
 					calendar={calendar}
 					currentDate={currentDate}
 					selectedDate={selectedDate}
+					onSelect={() => {}}
 				/>);
 
 				const currentDayItems = wrapper
@@ -375,6 +394,36 @@ describe('DatePicker', () => {
 					.filterWhere(item => item.prop('isSelectedDay'));
 
 				expect(currentDayItems).toHaveLength(0);
+			});
+		});
+
+		describe('date selection', () => {
+			it('should callback with the date corresponding to the day of month clicked', () => {
+				const onSelect = jest.fn();
+
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const dayToSelect = 8;
+				const expectedNewSelectedDate = new Date(2018, 5, dayToSelect);
+
+				const selectedDate = new Date(2018, 5, 12);
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+					selectedDate={selectedDate}
+					onSelect={onSelect}
+				/>);
+
+				const dayPickerAction = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('label') === dayToSelect.toString());
+
+				dayPickerAction.simulate('click');
+
+				expect(onSelect).toHaveBeenCalledWith(expectedNewSelectedDate);
 			});
 		});
 	});
@@ -391,6 +440,7 @@ describe('DatePicker', () => {
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
 				currentDate={currentDate}
+				onSelect={() => {}}
 			/>);
 
 			const sequenceExpected = sequence.map(day => day[0].toUpperCase());

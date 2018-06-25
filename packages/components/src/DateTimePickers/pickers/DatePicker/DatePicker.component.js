@@ -121,6 +121,7 @@ class DatePicker extends React.Component {
 										aria-label={this.isDisabledDay(date)
 											? 'Unselectable date'
 											: `Select '${getDate(date)}'`}
+										onClick={() => { this.props.onSelect(date); }}
 									/>
 								}
 							</div>
@@ -138,6 +139,7 @@ DatePicker.propTypes = {
 		year: PropTypes.number.isRequired,
 	}).isRequired,
 	currentDate: PropTypes.instanceOf(Date).isRequired,
+	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
 };
 

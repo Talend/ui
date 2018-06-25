@@ -77,6 +77,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="1"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -88,6 +89,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="2"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -99,6 +101,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="3"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -114,6 +117,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="4"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -125,6 +129,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="5"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -136,6 +141,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={true}
         isSelectedDay={false}
         label="6"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -147,6 +153,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="7"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -158,6 +165,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="8"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -169,6 +177,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="9"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -180,6 +189,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="10"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -195,6 +205,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="11"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -206,6 +217,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={true}
         label="12"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -217,6 +229,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="13"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -228,6 +241,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="14"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -239,6 +253,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={true}
         isSelectedDay={false}
         label="15"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -250,6 +265,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="16"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -261,6 +277,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="17"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -276,6 +293,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="18"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -287,6 +305,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="19"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -298,6 +317,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="20"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -309,6 +329,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="21"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -320,6 +341,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="22"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -331,6 +353,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="23"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -342,6 +365,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="24"
+        onClick={[Function]}
       />
     </div>
   </div>
@@ -357,6 +381,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="25"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -368,6 +393,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="26"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -379,6 +405,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="27"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -390,6 +417,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="28"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -401,6 +429,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="29"
+        onClick={[Function]}
       />
     </div>
     <div
@@ -412,6 +441,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         isDisabledDay={false}
         isSelectedDay={false}
         label="30"
+        onClick={[Function]}
       />
     </div>
     <div
