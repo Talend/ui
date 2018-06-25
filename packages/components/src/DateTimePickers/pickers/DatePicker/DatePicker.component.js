@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
 import { chunk } from 'lodash';
+import format from 'date-fns/format';
 import endOfMonth from 'date-fns/end_of_month';
 import startOfWeek from 'date-fns/start_of_week';
 import getDate from 'date-fns/get_date';
+import setDay from 'date-fns/set_day';
 import getMonth from 'date-fns/get_month';
 import isSameDay from 'date-fns/is_same_day';
 import differenceInCalendarWeeks from 'date-fns/difference_in_calendar_weeks';
@@ -14,10 +16,11 @@ import addDays from 'date-fns/add_days';
 import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
 
+const firstDayOfweek = 1;
+
 class DatePicker extends React.Component {
 
 	static buildWeeks(year, monthIndex) {
-		const firstDayOfweek = 1;
 		const firstDateOfMonth = new Date(year, monthIndex);
 		const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
 			weekStartsOn: firstDayOfweek,
@@ -39,7 +42,13 @@ class DatePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		const baseDate = new Date(0);
+
+		this.dayNames = (new Array(7))
+			.fill(0)
+			.map((_, i) => (i + firstDayOfweek) % 7)
+			.map(dayOfWeek => setDay(baseDate, dayOfWeek))
+			.map(headerDate => format(headerDate, 'dddd'));
 
 		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex) => `${year}-${monthIndex}`);
 
