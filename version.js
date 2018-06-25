@@ -192,6 +192,15 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
+/**
+ * @param {Object<dependency, version>} source actual dependencies and their versions
+ * will be mutated and provided to caller by reference
+ * mutation include update of version and added modified properties as boolean
+ * @param {String} dep one dep from `versions`
+ * @param {String} version version of the `dep` above
+ * @param {String = 'dep'|'peer'|'dev' } category for each category a different behavior is expected
+ * node `dev` category has no special behavior
+ */
 function check(source, dep, version, category = 'dep') {
 	let safeVersion = version;
 	if (category === 'peer' && dep === 'react') {
@@ -215,6 +224,13 @@ function check(source, dep, version, category = 'dep') {
 	return modified;
 }
 
+/**
+ * @param {Object<dependency, version>} versions - target versions
+ * @param {Object<dependency, version>} source - actual dependencies and their versions
+ * will be mutated and provided to caller by reference
+ * mutation include update of version and added modified properties as boolean
+ * @param {String} dep one dep from `versions`
+ */
 function checkAll(versions, source, dep) {
 	const version = versions[dep];
 	const devDeps = source.devDependencies;
@@ -238,9 +254,9 @@ function save(ppath, data) {
 			throw new Error(`error opening file: ${err}`);
 		}
 
-		fs.write(fd, data, 0, data.length, null, err => {
-			if (err) {
-				throw new Error(`error writing file: ${err}`);
+		fs.write(fd, data, 0, data.length, null, error => {
+			if (error) {
+				throw new Error(`error writing file: ${error}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
@@ -251,6 +267,14 @@ function save(ppath, data) {
 	});
 }
 
+/**
+ * for each file three steps
+ * - load the file
+ * - transform dependencies versions
+ * - write new dependencies version into file
+ * @param {Array<String>} filesList
+ * @param {Object<dependency, version>} versions
+ */
 function updateFiles(filesList, versions) {
 	filesList.forEach(ppath => {
 		// eslint-disable-next-line global-require
