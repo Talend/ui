@@ -81,6 +81,7 @@ class DateTimeView extends React.Component {
 						calendar={currentCalendar}
 						currentDate={this.state.currentDate}
 						selectedDate={this.props.selectedDate}
+						onSelect={this.props.onSelectDate}
 					/>
 				</div>
 				<div className={theme.time}>
@@ -103,6 +104,7 @@ DateTimeView.propTypes = {
 	selectedYear: PropTypes.number.isRequired,
 	onClickTitle: PropTypes.func.isRequired,
 	onSelectMonthYear: PropTypes.func.isRequired,
+	onSelectDate: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
 };
 

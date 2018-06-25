@@ -6,7 +6,9 @@ exports[`DateTimePicker should render 1`] = `
 >
   <DateTimeView
     onClickTitle={[Function]}
+    onSelectDate={[Function]}
     onSelectMonthYear={[Function]}
+    selectedDate={undefined}
     selectedMonthIndex={5}
     selectedYear={2018}
   />

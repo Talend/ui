@@ -10,6 +10,7 @@ describe('DateTimeView', () => {
 			selectedYear={2006}
 			onClickTitle={() => {}}
 			onSelectMonthYear={() => {}}
+			onSelectDate={() => {}}
 		/>);
 
 		wrapper.setState({
@@ -26,6 +27,7 @@ describe('DateTimeView', () => {
 			selectedYear={2006}
 			onClickTitle={onClickTitle}
 			onSelectMonthYear={() => {}}
+			onSelectDate={() => {}}
 		/>);
 
 		const titleAction = wrapper
@@ -60,6 +62,7 @@ describe('DateTimeView', () => {
 				selectedYear={2006}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
+				onSelectDate={() => {}}
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
@@ -80,6 +83,7 @@ describe('DateTimeView', () => {
 				selectedYear={2006}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
+				onSelectDate={() => {}}
 			/>);
 
 			const nextAction = getNextAction(wrapper);
@@ -99,6 +103,7 @@ describe('DateTimeView', () => {
 				selectedYear={2006}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
+				onSelectDate={() => {}}
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
@@ -118,6 +123,7 @@ describe('DateTimeView', () => {
 				selectedYear={2006}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
+				onSelectDate={() => {}}
 			/>);
 
 			const nextAction = getNextAction(wrapper);
