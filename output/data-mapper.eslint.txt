@@ -67,18 +67,18 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.component.js
     4:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
     5:1   error  'react-dnd-html5-backend' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  109:26  error  Unexpected use of '&'                                                                          no-bitwise
-  110:28  error  Unexpected use of '&'                                                                          no-bitwise
-  111:26  error  Unexpected use of '&'                                                                          no-bitwise
-  116:10  error  Unexpected use of '&'                                                                          no-bitwise
-  185:2   error  updateVisibleInfo should be placed after getDnDInProgressConnection                            react/sort-comp
-  279:15  error  Expected 'this' to be used by class method 'getVisibility'                                     class-methods-use-this
-  279:62  error  'targetYPos' is defined but never used                                                         no-unused-vars
-  378:21  error  Expected 'this' to be used by class method 'updatePropertyValue'                               class-methods-use-this
-  381:4   error  Assignment to property of function parameter 'anchors'                                         no-param-reassign
-  390:4   error  Assignment to property of function parameter 'anchors'                                         no-param-reassign
-  756:4   error  'dndListener' is assigned a value but never used                                               no-unused-vars
-  854:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  141:26  error  Unexpected use of '&'                                                                          no-bitwise
+  142:28  error  Unexpected use of '&'                                                                          no-bitwise
+  143:26  error  Unexpected use of '&'                                                                          no-bitwise
+  148:10  error  Unexpected use of '&'                                                                          no-bitwise
+  217:2   error  updateVisibleInfo should be placed after getDnDInProgressConnection                            react/sort-comp
+  311:15  error  Expected 'this' to be used by class method 'getVisibility'                                     class-methods-use-this
+  311:62  error  'targetYPos' is defined but never used                                                         no-unused-vars
+  410:21  error  Expected 'this' to be used by class method 'updatePropertyValue'                               class-methods-use-this
+  413:4   error  Assignment to property of function parameter 'anchors'                                         no-param-reassign
+  422:4   error  Assignment to property of function parameter 'anchors'                                         no-param-reassign
+  778:4   error  'dndListener' is assigned a value but never used                                               no-unused-vars
+  876:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.container.js
   1081:11  error  Parsing error: A trailing comma is not permitted after the rest element

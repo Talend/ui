@@ -73,8 +73,10 @@ function updateVisibleMapping(dataAccessor, mapping, visibleInputElements, visib
  */
 function filterMappingItem(dataAccessor, schema, mappingItem, elements, side) {
 	const oppositeSide = Constants.switchMappingSide(side);
-	return dataAccessor.includes(elements, dataAccessor.getMappedElement(mappingItem, side)) &&
-		!dataAccessor.isFiltered(schema, dataAccessor.getMappedElement(mappingItem, oppositeSide));
+	return (
+		dataAccessor.includes(elements, dataAccessor.getMappedElement(mappingItem, side)) &&
+		!dataAccessor.isFiltered(schema, dataAccessor.getMappedElement(mappingItem, oppositeSide))
+	);
 }
 
 /**
@@ -103,7 +105,7 @@ function filterMappingItems(
 				item,
 				visibleOutputElements,
 				Constants.MappingSide.OUTPUT,
-			)
+			),
 	);
 }
 
@@ -500,7 +502,6 @@ class MapperComponent extends Component {
 					);
 				}
 			}
-
 		}
 		return anchors;
 	}
