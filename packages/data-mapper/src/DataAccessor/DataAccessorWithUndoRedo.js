@@ -24,8 +24,8 @@ function clone(cmd) {
 }
 
 export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
-	constructor(mappingAccessor) {
-		super(mappingAccessor);
+	constructor() {
+		super();
 		this.undoStack = [];
 		this.redoStack = [];
 	}

@@ -1,12 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Schema from './Schema.js';
-import MappingAccessor from '../DataAccessor/MappingAccessor';
 import DataAccessorWrapper from '../DataAccessor/DataAccessorWrapper';
 import * as TestData from '../TestData';
 import { Constants } from '../index';
 
-const dataAccessor = new DataAccessorWrapper(new MappingAccessor());
+const dataAccessor = new DataAccessorWrapper();
 
 // FIXME extract to .fixtures.js
 const emptySchema = {

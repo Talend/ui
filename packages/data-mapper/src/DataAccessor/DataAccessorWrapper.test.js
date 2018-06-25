@@ -1,9 +1,7 @@
 import * as TestData from '../TestData';
 import { Constants } from '../index';
 
-import MappingAccessor from './MappingAccessor';
-
-const dataAccessor = new DataAccessorWrapper(new MappingAccessor());
+const dataAccessor = new DataAccessorWrapper();
 
 it('data-accessor-wrapper-schema', () => {
 	const schema = TestData.schema1;

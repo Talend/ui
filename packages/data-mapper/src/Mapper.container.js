@@ -9,7 +9,7 @@ import { isSelected } from './Schema/Schema';
 
 import Mapper from './Mapper.component';
 
-import { Constants, DataAccessorWithUndoRedo, MappingAccessor } from './index';
+import { Constants, DataAccessorWithUndoRedo } from './index';
 
 // SORTERS DEFINITION
 const SortDirection = {
@@ -41,7 +41,7 @@ function nextDirection(direction) {
 }
 
 function createDataAccessor() {
-	return new DataAccessorWithUndoRedo(new MappingAccessor());
+	return new DataAccessorWithUndoRedo();
 }
 
 /**

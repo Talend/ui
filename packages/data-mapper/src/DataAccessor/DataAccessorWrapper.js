@@ -2,18 +2,35 @@ import { Constants } from '../index';
 import DataAccessorWithSorterAndFilter from './DataAccessorWithSorterAndFilter';
 
 /**
- * This class wraps a data accessor and a mapping accessor
- * and provides some convenient methods to manipulate data.
+ * Internal function.
+ */
+function removeMappingItem(mapping, index) {
+	const updatedMapping = mapping.slice();
+	updatedMapping.splice(index, 1);
+	return updatedMapping;
+}
+
+/**
+ * This class is responsible for managing input/output data and mapping.
+ * It provides some convenient methods to manipulate data and mapping.
  * It uses a cache to store the schema elements.
- * It manages the filtering and sorting of the data.
+ * It stores the results of filtering and sorting.
  */
 export default class DataAccessorWrapper {
-	constructor(mappingAccessor) {
-		this.mappingAccessor = mappingAccessor;
+	constructor() {
 		this.cache = {};
 		this.schema2side = {};
 		this.internalDataAccessors = {};
 		this.mappingVersion = 0;
+	}
+
+	/**
+	 * @private
+	 */
+	internalGetMappingItemIndex(mapping, source, target) {
+		return mapping.findIndex(
+			item =>	item.source.id === source.id && item.target.id === target.id,
+		);
 	}
 
 	/**
@@ -183,30 +200,38 @@ export default class DataAccessorWrapper {
 		return data1 && data2 && data1 === data2;
 	}
 
+	/**
+	 * MAPPING SECTION
+	 */
+
 	getMappingVersion() {
 		return this.mappingVersion;
 	}
 
 	/**
 	 * Returns an array of all the mapping items. A mapping item defines
-	 * a mapping between an input and an output element.
+	 * a mapping between a source and a target element.
+	 * { source: element, target: element }
 	 */
 	getMappingItems(mapping) {
-		return this.mappingAccessor.getMappingItems(mapping);
+		return mapping;
 	}
 
 	/**
 	 * Returns true if the given mapping is empty
 	 */
 	isMappingEmpty(mapping) {
-		return this.mappingAccessor.isMappingEmpty(mapping);
+		return !mapping.length;
 	}
 
 	/**
 	 * Return the mapped element for the specified side.
 	 */
 	getMappedElement(mappingItem, side) {
-		return this.mappingAccessor.getMappedElement(mappingItem, side);
+		if (side === Constants.MappingSide.INPUT) {
+			return mappingItem.source;
+		}
+		return mappingItem.target;
 	}
 
 	/**
@@ -215,14 +240,14 @@ export default class DataAccessorWrapper {
 	 */
 	addMapping(mapping, source, target) {
 		this.mappingVersion += 1;
-		return this.mappingAccessor.addMapping(mapping, source, target);
+		return mapping.concat({ source, target });
 	}
 
 	addMappingItems(mapping, mappingItems) {
 		let updatedMapping = mapping;
 		for (let i = 0; i < mappingItems.length; i += 1) {
 			const item = mappingItems[i];
-			updatedMapping = this.mappingAccessor.addMapping(updatedMapping, item.source, item.target);
+			updatedMapping = this.addMapping(updatedMapping, item.source, item.target);
 		}
 		this.mappingVersion += 1;
 		return updatedMapping;
@@ -234,7 +259,12 @@ export default class DataAccessorWrapper {
 	 */
 	removeMapping(mapping, source, target) {
 		this.mappingVersion += 1;
-		return this.mappingAccessor.removeMapping(mapping, source, target);
+		// FIXME Use ES6 feature instead
+		const index = this.internalGetMappingItemIndex(mapping, source, target);
+		if (index >= 0) {
+			return removeMappingItem(mapping, index);
+		}
+		return mapping;
 	}
 
 	/**
@@ -243,7 +273,7 @@ export default class DataAccessorWrapper {
 	 */
 	clearMapping(mapping) {
 		this.mappingVersion += 1;
-		return this.mappingAccessor.clearMapping(mapping);
+		return [];
 	}
 
 	// Some more convenient methods

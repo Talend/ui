@@ -1,9 +1,8 @@
 import * as TestData from './TestData';
 import { Constants } from '../index';
 import DataAccessorWithUndoRedo from './DataAccessorWithUndoRedo';
-import MappingAccessor from './MappingAccessor';
 
-const dataAccessor = new DataAccessorWithUndoRedo(new MappingAccessor());
+const dataAccessor = new DataAccessorWithUndoRedo();
 
 it('data-accessor-with-undo-redo', () => {
 	const inputSchema = TestData.schema1;
