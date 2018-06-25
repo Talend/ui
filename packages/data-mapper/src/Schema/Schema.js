@@ -79,7 +79,7 @@ export default class Schema extends Component {
 
 	getYPosition(element) {
 		const scrollTop = this.getRendererNode().getScrollTop();
-		const child = this.getNode(element);		
+		const child = this.getNode(element);
 		const childOffsetTop = this.getRendererNode().getChildOffsetTop(child);
 		const y = childOffsetTop + child.clientHeight / 2 - scrollTop;
 		return y;
