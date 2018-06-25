@@ -57,18 +57,17 @@ class Datalist extends Component {
 		}
 		const event = {
 			type: 'change',
-			target: {
-				value: multiple ? undefined : payload.value,
-				options: multiple
-					? options.map(option =>
-							Object.assign({
-								value: option.value,
-								selected: selectedValue.find(v => v.value === option.value) !== undefined,
-							}),
-					  )
-					: undefined,
-			},
 		};
+		if (multiple) {
+			event.target.options = options.map(option =>
+				Object.assign({
+					value: option.value,
+					selected: selectedValue.find(v => v.value === option.value) !== undefined,
+				}),
+			);
+		} else {
+			event.target.value = payload.value;
+		}
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
 	}
