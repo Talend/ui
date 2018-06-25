@@ -24,14 +24,10 @@ const props = {
 class TooltipTrigger extends React.Component {
 	static displayName = 'TooltipTrigger';
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			hovered: false,
-			id: uuid.v4(),
-		};
-	}
+	state = {
+		hovered: false,
+		id: uuid.v4(),
+	};
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
