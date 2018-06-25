@@ -778,20 +778,6 @@ class MapperComponent extends Component {
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, inputSide)}
 					isElementVisible={this.isElementVisible}
 				/>
-				<Mapping
-					ref={this.updateGMapRef}
-					mapping={mapping}
-					mappingActions={mappingActions}
-					getConnections={this.getConnections}
-					getAnchors={this.getAnchors}
-					getYPosition={this.getYPosition}
-					selection={selection}
-					preferences={preferences}
-					dnd={dnd}
-					dndListener={this}
-					onEnterAnchor={onEnterElement}
-					onLeaveAnchor={onLeaveElement}
-				/>
 				<Schema
 					{...commonSchemaProps}
 					ref={this.updateOutputSchemaRef}
@@ -808,6 +794,20 @@ class MapperComponent extends Component {
 					mappedElements={getMappedElements(dataAccessor, mapping, outputSide)}
 					focusedElements={getFocusedElements(dataAccessor, mapping, focused, outputSide)}
 					isElementVisible={this.isElementVisible}
+				/>
+				<Mapping
+					ref={this.updateGMapRef}
+					mapping={mapping}
+					mappingActions={mappingActions}
+					getConnections={this.getConnections}
+					getAnchors={this.getAnchors}
+					getYPosition={this.getYPosition}
+					selection={selection}
+					preferences={preferences}
+					dnd={dnd}
+					dndListener={this}
+					onEnterAnchor={onEnterElement}
+					onLeaveAnchor={onLeaveElement}
 				/>
 			</div>
 		);

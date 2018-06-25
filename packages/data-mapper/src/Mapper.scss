@@ -18,6 +18,18 @@
 		width: 80vw;
 	}
 
+	.mapper-element:nth-child(1) {
+		order: 1;
+	}
+
+	.mapper-element:nth-child(2) {
+		order: 3;
+	}
+
+	.mapper-element:nth-child(3) {
+		order: 2;
+	}
+
 	/*
 	* === SCHEMA SECTION
 	*/
