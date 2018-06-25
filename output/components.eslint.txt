@@ -9,14 +9,6 @@
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  284:1  error  Expected indentation of 5 tabs but found 6  indent
-  285:1  error  Expected indentation of 6 tabs but found 7  indent
-  286:1  error  Expected indentation of 6 tabs but found 7  indent
-  287:1  error  Expected indentation of 6 tabs but found 7  indent
-  288:1  error  Expected indentation of 5 tabs but found 6  indent
-  289:1  error  Expected indentation of 4 tabs but found 5  indent
-
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
   85:3  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
@@ -24,19 +16,11 @@
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-  192:1  error  Expected indentation of 5 tabs but found 6  indent
-  193:1  error  Expected indentation of 4 tabs but found 5  indent
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:3  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 18 problems (17 errors, 1 warning)
-  8 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 9 problems (8 errors, 1 warning)
 
