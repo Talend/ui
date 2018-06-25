@@ -54,11 +54,6 @@ class DatePicker extends React.Component {
 		super(props);
 
 		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`);
-
-		this.disabledDays = [
-			new Date(2018, 5, 6),
-			new Date(2018, 5, 15),
-		];
 	}
 
 	isSelectedDay(date) {
@@ -66,9 +61,30 @@ class DatePicker extends React.Component {
 			&& isSameDay(this.props.selectedDate, date);
 	}
 
-	isDisabledDay(date) {
-		return this.disabledDays
-			.some(disabledDay => isSameDay(disabledDay, date));
+	isDisabledDay(dateToCheck) {
+		const disabledRules = this.props.disabledRules;
+		if (!disabledRules) {
+			return false;
+		}
+
+		return disabledRules
+			.some(disabledRule => {
+				if (typeof disabledRules !== 'object') {
+					return false;
+				}
+
+				switch (disabledRule.constructor) {
+					case Date:
+						return isSameDay(disabledRule, dateToCheck);
+
+					case Array:
+						return disabledRule
+							.some(disabledDateRule => isSameDay(disabledDateRule, dateToCheck));
+
+					default:
+						return false;
+				}
+			});
 	}
 
 	isCurrentDay(date) {
@@ -141,6 +157,10 @@ DatePicker.propTypes = {
 	currentDate: PropTypes.instanceOf(Date).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
+	disabledRules: PropTypes.arrayOf(PropTypes.oneOfType([
+		PropTypes.instanceOf(Date),
+		PropTypes.arrayOf(PropTypes.instanceOf(Date)),
+	])),
 };
 
 export default DatePicker;

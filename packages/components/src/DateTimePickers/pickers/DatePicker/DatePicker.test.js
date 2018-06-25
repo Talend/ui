@@ -11,6 +11,11 @@ describe('DatePicker', () => {
 			year: 2018,
 			monthIndex: 5,
 		};
+
+		const disabledDates = [
+			new Date(2018, 5, 6),
+			new Date(2018, 5, 15),
+		];
 		const selectedDate = new Date(2018, 5, 12);
 
 		const wrapper = shallow(<DatePicker
@@ -18,6 +23,7 @@ describe('DatePicker', () => {
 			currentDate={currentDate}
 			selectedDate={selectedDate}
 			onSelect={() => {}}
+			disabledRules={disabledDates}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -424,6 +430,92 @@ describe('DatePicker', () => {
 				dayPickerAction.simulate('click');
 
 				expect(onSelect).toHaveBeenCalledWith(expectedNewSelectedDate);
+			});
+		});
+
+		describe('disabled rules', () => {
+			it('should not have any disabled date if no rule set', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+					onSelect={() => {}}
+				/>);
+
+				const disabledDates = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isDisabled'));
+
+				expect(disabledDates).toHaveLength(0);
+			});
+
+			it('should not have any disabled date if rules are not matching the current month calendar', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const disabledRules = [
+					new Date(2018, 4, 17),
+					[
+						new Date(2018, 6, 26),
+					],
+				];
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+					onSelect={() => {}}
+					disabledRules={disabledRules}
+				/>);
+
+				const disabledDates = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isDisabled'));
+
+				expect(disabledDates).toHaveLength(0);
+			});
+
+			it('should have disabled single date and array of single date', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const d1 = new Date(2018, 5, 17);
+				const d2 = new Date(2018, 5, 26);
+				const d3 = new Date(2018, 5, 28);
+				const d4 = new Date(2018, 5, 30);
+
+				const disabledRules = [
+					d1,
+					[
+						d2,
+						d3,
+						d4,
+					],
+				];
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={currentDate}
+					onSelect={() => {}}
+					disabledRules={disabledRules}
+				/>);
+
+				const disabledDays = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isDisabledDay'))
+					.map(item => item.prop('label'));
+
+				const expectedDisabledDays = [d1, d2, d3, d4]
+					.map(date => date.getDate().toString());
+
+				expect(disabledDays).toEqual(expectedDisabledDays);
 			});
 		});
 	});
