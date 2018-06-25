@@ -267,6 +267,50 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(30);
 			});
 		});
+
+		describe('current date', () => {
+			it('should render specifically the current date', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const date = new Date(2018, 5, 13);
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={date}
+				/>);
+
+				const currentDayItems = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isCurrentDay'));
+
+				expect(currentDayItems).toHaveLength(1);
+				const item = currentDayItems.first();
+				expect(item.prop('label')).toBe('13');
+			});
+
+			it('should not render specifically a date if current date is out of displayed month', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				const date = new Date(2018, 4, 13);
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					currentDate={date}
+				/>);
+
+				const currentDayItems = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(item => item.prop('isCurrentDay'));
+
+				expect(currentDayItems).toHaveLength(0);
+			});
+		});
 	});
 
 	describe('header calendar', () => {
