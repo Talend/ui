@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import DataListComponent from '@talend/react-components/lib/Datalist';
+import ReSelect from 'react-select';
+import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
+import theme from './Datalist.scss';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function getSelectedOptions(selectedValue, multiple) {
+	if (!selectedValue) {
+		return undefined;
+	}
+	if (multiple) {
+		return selectedValue.map(option => option.value);
+	}
+	return selectedValue.value;
 }
 
 class Datalist extends Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+		this.state = {};
 	}
 
 	/**
@@ -19,13 +34,91 @@ class Datalist extends Component {
 	 * @param event
 	 * @param payload
 	 */
-	onChange(event, payload) {
+	onChange(selectedValue) {
+		const multiple = this.getMultiple();
+		const options = this.getOptions();
+		const included = options.find(option => option.value === selectedValue.value);
+		if (!included) {
+			this.setState(prevState => {
+				if (!prevState.created) {
+					prevState.created = [];
+				}
+				prevState.created.push(selectedValue);
+			});
+		}
+		const payload = {
+			schema: this.props.schema,
+			value: getSelectedOptions(selectedValue, multiple),
+		};
+		const event = {
+			target: {
+				value: multiple ? undefined : payload.value,
+				options: multiple
+					? options.map(option =>
+							Object.assign({
+								value: option.value,
+								selected: selectedValue.find(v => v.value === option.value) !== undefined,
+							}),
+						)
+					: undefined,
+			},
+		};
 		const payloadWithSchema = { ...payload, schema: this.props.schema };
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
+	onFocus(event) {
+		if (this.props.schema.triggers) {
+			this.props.schema.triggers.forEach(trigger => {
+				if (trigger.onEvent === 'focus') {
+					this.setState({ isLoading: true });
+					this.props.onTrigger(event, this.props)
+					.then(data => {
+						this.setState({ isLoading: false });
+						if (data && data.titleMap) {
+							this.setState(data);
+						}
+					});
+				}
+			});
+		}
+	}
+
+	getMultiple() {
+		return this.props.schema.schema.type === 'array';
+	}
+
+	getOptions() {
+		let options = [];
+		if (this.state.titleMap) {
+			options = this.state.titleMap.map(option => ({
+				value: option.value,
+				label: option.name,
+			}));
+		} else if (this.props.schema.titleMap) {
+			options = this.props.schema.titleMap.map(option => ({
+				value: option.value,
+				label: option.name,
+			}));
+		}
+		if (this.state.created) {
+			options.unshift(...this.state.created);
+		}
+		if (this.props.value) {
+			if (!options.find(option => option.value === this.props.value)) {
+				options.push({ label: this.props.value, value: this.props.value });
+			}
+		}
+		return options;
+	}
+
 	render() {
+		const options = this.getOptions();
+		let noResultsText = 'No result found';
+		if (this.state.isLoading) {
+			noResultsText = 'Loading';
+		}
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -35,16 +128,20 @@ class Datalist extends Component {
 				label={this.props.schema.title}
 				required={this.props.schema.required}
 			>
-				<DataListComponent
+				<ReSelect.Creatable
+					isLoading={this.state.isLoading}
+					noResultsText={noResultsText}
+					className={classNames('tf-datalist', theme.override)}
 					autoFocus={this.props.schema.autoFocus || false}
 					id={`${this.props.id}`}
 					disabled={this.props.schema.disabled || false}
-					multiSection={false}
+					multi={this.getMultiple()}
+					onFocus={this.onFocus}
 					onChange={this.onChange}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
-					titleMap={this.props.schema.titleMap}
 					value={this.props.value}
+					options={options}
 				/>
 			</FieldTemplate>
 		);
@@ -63,7 +160,11 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+			}),
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
@@ -78,6 +179,9 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			triggers: PropTypes.arrayOf(PropTypes.shape({
+				onEvent: PropTypes.string,
+			})),
 		}),
 		value: PropTypes.string,
 	};

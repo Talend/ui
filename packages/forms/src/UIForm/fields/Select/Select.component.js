@@ -1,28 +1,23 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReSelect from 'react-select';
-import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
-import theme from './Select.scss';
 
-function getSelectedOptions(selectedValue, multiple) {
-	if (!selectedValue) {
-		return undefined;
-	}
+function getSelectedOptions(select, multiple) {
 	if (multiple) {
-		return selectedValue.map(option => option.value);
+		return Array.prototype.slice
+			.call(select.options)
+			.filter(option => option.selected)
+			.map(option => option.value);
 	}
-	return selectedValue.value;
+
+	return select.value;
 }
 
 export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
-	const options = schema.titleMap.map(option => ({
-		value: option.value,
-		label: option.name,
-	}));
+
 	return (
 		<FieldTemplate
 			description={description}
@@ -30,38 +25,33 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 			id={id}
 			isValid={isValid}
 			label={title}
+			labelAfter
 			required={schema.required}
 		>
-			<ReSelect
+			<select
 				id={id}
-				multi={multiple}
+				multiple={multiple}
 				autoFocus={autoFocus}
+				className="form-control"
 				disabled={disabled}
-				className={theme.override}
-				matchProp="label"
-				onChange={selectedValue => {
-					const payload = { schema, value: getSelectedOptions(selectedValue, multiple) };
-					const event = {
-						target: {
-							value: multiple ? undefined : payload.value,
-							options: multiple
-								? options.map(option =>
-										Object.assign({
-											value: option.value,
-											selected: selectedValue.find(v => v.value === option.value) !== undefined,
-										}),
-								  )
-								: undefined,
-						},
-					};
+				onChange={event => {
+					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
 					onChange(event, payload);
 					onFinish(event, payload);
 				}}
 				readOnly={readOnly}
 				value={value}
-				options={options}
-				placeholder={placeholder}
-			/>
+			>
+				<option disabled>{placeholder}</option>
+				{schema.titleMap &&
+					schema.titleMap.map((option, index) => {
+						const optionProps = {
+							key: index,
+							value: option.value,
+						};
+						return <option {...optionProps}>{option.name}</option>;
+					})}
+			</select>
 		</FieldTemplate>
 	);
 }

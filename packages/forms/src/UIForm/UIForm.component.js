@@ -145,11 +145,15 @@ export class UIFormComponent extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				this.onTrigger(event, {
-					trigger: schema.triggers[0],
-					schema,
-					properties: formData,
-					errors,
+				schema.triggers.forEach(trigger => {
+					if (trigger.onEvent === 'blur' || trigger.onEvent === undefined) {
+						this.onTrigger(event, {
+							trigger,
+							schema,
+							properties: formData,
+							errors,
+						});
+					}
 				});
 			}
 		}
@@ -249,6 +253,7 @@ export class UIFormComponent extends React.Component {
 						onChange={this.onChange}
 						onFinish={this.onFinish}
 						onTrigger={this.onTrigger}
+						t={this.props.t}
 						schema={nextSchema}
 						properties={this.props.properties}
 						errors={this.props.errors}

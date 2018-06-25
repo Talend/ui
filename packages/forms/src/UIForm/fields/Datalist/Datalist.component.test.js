@@ -17,10 +17,13 @@ const schema = {
 		{ name: 'lol', value: 'lol' },
 	],
 	type: 'string',
+	schema: {
+		type: 'array',
+	},
 };
 
 describe('Datalist component', () => {
-	it('should render typeahead', () => {
+	it('should render', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist

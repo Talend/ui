@@ -18,8 +18,10 @@
       },
       "enumNamesDatalist": {
         "type": "string",
-        "enum": [ "a", "p", "b", "c", "l", "g" ],
-        "enumNames": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+        "enum": [ "a", "p", "b", "c", "l", "g" ]
+      },
+      "suggestion": {
+        "type": "string"
       }
     },
     "required": [
@@ -27,6 +29,25 @@
     ]
   },
   "uiSchema": [
+    {
+      "key":"suggestion",
+      "title": "Datalist suggestion",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForJdbcDrivers",
+          "family":"jdbc",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"currentValue",
+              "path":"configuration.driver"
+            }
+          ]
+        }
+      ]
+    },
     {
       "key": "simpleDatalist",
       "restricted": false,
@@ -71,15 +92,10 @@
           "value": "Grapefruit"
         }
       ]
-    },
-    {
-      "key": "enumNamesDatalist",
-      "title": "Datalist with named options",
-      "description": "This datalist is based on enumNames jsonSchema properties",
-      "widget": "datalist"
     }
   ],
   "properties": {
-    "simpleDatalist": "Pine[apple]"
+    "simpleDatalist": "Pine[apple]",
+    "suggestion": "not in result"
   }
 }
