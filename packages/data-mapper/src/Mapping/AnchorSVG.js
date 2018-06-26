@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Constants } from '../index';
 
 function getClassname(anchor) {
-	return classnames('anchor', anchor.side, anchor.classes)
+	return classnames('anchor', anchor.side, anchor.classes);
 }
 
 function renderCircle(anchor, params) {

@@ -92,6 +92,6 @@ export default {
 	UNDO_REDO_STATE_STATUS,
 	Commands,
 	MappingSide,
-	switchMappingSide,	
+	switchMappingSide,
 	Connection,
 };
