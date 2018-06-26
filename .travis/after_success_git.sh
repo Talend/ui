@@ -21,6 +21,10 @@ if [ -n "$GH_TOKEN" ]; then
 			echo "✓ Commit optimized icons and components snapshots to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
+		git add npm-audit/
+		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update libs security audit"
+		echo "✓ Commit updated audit output to $TRAVIS_PULL_REQUEST_BRANCH"
+
 		git add output/
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"

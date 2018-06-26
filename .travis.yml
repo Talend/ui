@@ -38,13 +38,14 @@ matrix:
 
     - language: node_js
       node_js:
-        - '8'
+        - '10'
       env: NAME=analysis
       before_script:
         - yarn global add prettier
         - .travis/before_script_icons.sh
       script:
         - yarn install
+        - yarn audit
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
         - .travis/after_success_prettier.sh
