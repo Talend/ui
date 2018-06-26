@@ -69,6 +69,9 @@
 	}
 
 	&-link {
+		font-size: $font-size-base;
+		font-weight: inherit;
+
 		&,
 		&:hover,
 		&:active {
