@@ -103,47 +103,51 @@ class DatePicker extends React.Component {
 
 		return (
 			<div className={theme.container}>
-				<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
-					{dayNames.map((dayName, i) =>
-						<abbr
-							className={theme['calendar-item']}
-							key={i}
-							title={dayName}
-						>
-							{dayName.charAt(0)}
-						</abbr>
-					)}
-				</div>
-
-				<hr className={theme.separator} />
-
-				{weeks.map((week, i) =>
-					<div
-						className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
-						key={i}
-					>
-						{week.map((date, j) =>
-							<div
+				<div className={theme['calendar-header']}>
+					<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
+						{dayNames.map((dayName, i) =>
+							<abbr
 								className={theme['calendar-item']}
-								key={j}
+								key={i}
+								title={dayName}
 							>
-								{
-									this.isCurrentMonth(date) &&
-									<DayPickerAction
-										label={getDate(date).toString()}
-										isSelected={this.isSelectedDate(date)}
-										isDisabled={this.isDisabledDate(date)}
-										isToday={this.isToday(date)}
-										aria-label={this.isDisabledDate(date)
-											? 'Unselectable date'
-											: `Select '${getDate(date)}'`}
-										onClick={() => { this.props.onSelect(date); }}
-									/>
-								}
-							</div>
+								{dayName.charAt(0)}
+							</abbr>
 						)}
 					</div>
-				)}
+					<hr className={theme.separator} />
+				</div>
+
+
+				<div className={theme['calendar-body']}>
+					{weeks.map((week, i) =>
+						<div
+							className={classNames(theme['calendar-row'], theme['calendar-body-row'])}
+							key={i}
+						>
+							{week.map((date, j) =>
+								<div
+									className={theme['calendar-item']}
+									key={j}
+								>
+									{
+										this.isCurrentMonth(date) &&
+										<DayPickerAction
+											label={getDate(date).toString()}
+											isSelected={this.isSelectedDate(date)}
+											isDisabled={this.isDisabledDate(date)}
+											isToday={this.isToday(date)}
+											aria-label={this.isDisabledDate(date)
+												? 'Unselectable date'
+												: `Select '${getDate(date)}'`}
+											onClick={() => { this.props.onSelect(date); }}
+										/>
+									}
+								</div>
+							)}
+						</div>
+					)}
+				</div>
 			</div>
 		);
 	}

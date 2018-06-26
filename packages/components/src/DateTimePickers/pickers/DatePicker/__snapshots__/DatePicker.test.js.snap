@@ -5,448 +5,456 @@ exports[`DatePicker should render a DatePicker 1`] = `
   className="theme-container"
 >
   <div
-    className="theme-calendar-row theme-calendar-header-row"
-  >
-    <abbr
-      className="theme-calendar-item"
-      title="Monday"
-    >
-      M
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Tuesday"
-    >
-      T
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Wednesday"
-    >
-      W
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Thursday"
-    >
-      T
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Friday"
-    >
-      F
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Saturday"
-    >
-      S
-    </abbr>
-    <abbr
-      className="theme-calendar-item"
-      title="Sunday"
-    >
-      S
-    </abbr>
-  </div>
-  <hr
-    className="theme-separator"
-  />
-  <div
-    className="theme-calendar-row theme-calendar-body-row"
+    className="theme-calendar-header"
   >
     <div
-      className="theme-calendar-item"
-    />
-    <div
-      className="theme-calendar-item"
-    />
-    <div
-      className="theme-calendar-item"
-    />
-    <div
-      className="theme-calendar-item"
-    />
-    <div
-      className="theme-calendar-item"
+      className="theme-calendar-row theme-calendar-header-row"
     >
-      <DayPickerAction
-        aria-label="Select '1'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="1"
-        onClick={[Function]}
-      />
+      <abbr
+        className="theme-calendar-item"
+        title="Monday"
+      >
+        M
+      </abbr>
+      <abbr
+        className="theme-calendar-item"
+        title="Tuesday"
+      >
+        T
+      </abbr>
+      <abbr
+        className="theme-calendar-item"
+        title="Wednesday"
+      >
+        W
+      </abbr>
+      <abbr
+        className="theme-calendar-item"
+        title="Thursday"
+      >
+        T
+      </abbr>
+      <abbr
+        className="theme-calendar-item"
+        title="Friday"
+      >
+        F
+      </abbr>
+      <abbr
+        className="theme-calendar-item"
+        title="Saturday"
+      >
+        S
+      </abbr>
+      <abbr
+        className="theme-calendar-item"
+        title="Sunday"
+      >
+        S
+      </abbr>
     </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '2'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="2"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '3'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="3"
-        onClick={[Function]}
-      />
-    </div>
+    <hr
+      className="theme-separator"
+    />
   </div>
   <div
-    className="theme-calendar-row theme-calendar-body-row"
+    className="theme-calendar-body"
   >
     <div
-      className="theme-calendar-item"
+      className="theme-calendar-row theme-calendar-body-row"
     >
-      <DayPickerAction
-        aria-label="Select '4'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="4"
-        onClick={[Function]}
+      <div
+        className="theme-calendar-item"
       />
+      <div
+        className="theme-calendar-item"
+      />
+      <div
+        className="theme-calendar-item"
+      />
+      <div
+        className="theme-calendar-item"
+      />
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '1'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="1"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '2'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="2"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '3'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="3"
+          onClick={[Function]}
+        />
+      </div>
     </div>
     <div
-      className="theme-calendar-item"
+      className="theme-calendar-row theme-calendar-body-row"
     >
-      <DayPickerAction
-        aria-label="Select '5'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="5"
-        onClick={[Function]}
-      />
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '4'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="4"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '5'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="5"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Unselectable date"
+          isDisabled={true}
+          isSelected={false}
+          isToday={false}
+          label="6"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '7'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="7"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '8'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="8"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '9'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="9"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '10'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="10"
+          onClick={[Function]}
+        />
+      </div>
     </div>
     <div
-      className="theme-calendar-item"
+      className="theme-calendar-row theme-calendar-body-row"
     >
-      <DayPickerAction
-        aria-label="Unselectable date"
-        isDisabled={true}
-        isSelected={false}
-        isToday={false}
-        label="6"
-        onClick={[Function]}
-      />
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '11'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="11"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '12'"
+          isDisabled={false}
+          isSelected={true}
+          isToday={false}
+          label="12"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '13'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="13"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '14'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="14"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Unselectable date"
+          isDisabled={true}
+          isSelected={false}
+          isToday={false}
+          label="15"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '16'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="16"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '17'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="17"
+          onClick={[Function]}
+        />
+      </div>
     </div>
     <div
-      className="theme-calendar-item"
+      className="theme-calendar-row theme-calendar-body-row"
     >
-      <DayPickerAction
-        aria-label="Select '7'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="7"
-        onClick={[Function]}
-      />
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '18'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="18"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '19'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="19"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '20'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={true}
+          label="20"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '21'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="21"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '22'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="22"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '23'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="23"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '24'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="24"
+          onClick={[Function]}
+        />
+      </div>
     </div>
     <div
-      className="theme-calendar-item"
+      className="theme-calendar-row theme-calendar-body-row"
     >
-      <DayPickerAction
-        aria-label="Select '8'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="8"
-        onClick={[Function]}
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '25'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="25"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '26'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="26"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '27'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="27"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '28'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="28"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '29'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="29"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
+      >
+        <DayPickerAction
+          aria-label="Select '30'"
+          isDisabled={false}
+          isSelected={false}
+          isToday={false}
+          label="30"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="theme-calendar-item"
       />
     </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '9'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="9"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '10'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="10"
-        onClick={[Function]}
-      />
-    </div>
-  </div>
-  <div
-    className="theme-calendar-row theme-calendar-body-row"
-  >
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '11'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="11"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '12'"
-        isDisabled={false}
-        isSelected={true}
-        isToday={false}
-        label="12"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '13'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="13"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '14'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="14"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Unselectable date"
-        isDisabled={true}
-        isSelected={false}
-        isToday={false}
-        label="15"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '16'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="16"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '17'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="17"
-        onClick={[Function]}
-      />
-    </div>
-  </div>
-  <div
-    className="theme-calendar-row theme-calendar-body-row"
-  >
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '18'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="18"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '19'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="19"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '20'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={true}
-        label="20"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '21'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="21"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '22'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="22"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '23'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="23"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '24'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="24"
-        onClick={[Function]}
-      />
-    </div>
-  </div>
-  <div
-    className="theme-calendar-row theme-calendar-body-row"
-  >
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '25'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="25"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '26'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="26"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '27'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="27"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '28'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="28"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '29'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="29"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    >
-      <DayPickerAction
-        aria-label="Select '30'"
-        isDisabled={false}
-        isSelected={false}
-        isToday={false}
-        label="30"
-        onClick={[Function]}
-      />
-    </div>
-    <div
-      className="theme-calendar-item"
-    />
   </div>
 </div>
 `;
