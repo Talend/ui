@@ -32,6 +32,16 @@
     &.today {
         .label {
             background-color: rgba($slate-gray, 0.12);
+            position: relative;
+
+            &::after {
+                content: '*';
+                color: red;
+                line-height: normal;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
         }
     }
 
