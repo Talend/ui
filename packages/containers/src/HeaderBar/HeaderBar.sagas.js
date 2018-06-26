@@ -10,8 +10,8 @@ import { HEADER_BAR_FETCH_PRODUCTS, HEADER_BAR_OPEN_PRODUCT } from './HeaderBar.
  * @param {Object} action
  */
 export function* fetchProducts(action) {
-	const { url, lang, env } = action.payload;
-	const productsUrl = `${url}?lang=${lang}&env=${env}`;
+	const { url, lang } = action.payload;
+	const productsUrl = `${url}?lang=${lang}`;
 
 	yield put(Connected.setStateAction({ fetchingProducts: true }));
 
