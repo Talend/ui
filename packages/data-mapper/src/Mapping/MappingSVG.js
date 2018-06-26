@@ -346,11 +346,11 @@ class MappingSVG extends Component {
 	}
 
 	getWidth() {
-		return this.mappingContentRef? this.mappingContentRef.clientWidth + extraWidth : 0;
+		return this.mappingContentRef ? this.mappingContentRef.clientWidth + extraWidth : 0;
 	}
 
 	getHeight() {
-		return this.mappingContentRef? this.mappingContentRef.clientHeight : 0;
+		return this.mappingContentRef ? this.mappingContentRef.clientHeight : 0;
 	}
 
 	reveal(connectionKey) {
@@ -385,7 +385,9 @@ class MappingSVG extends Component {
 		const rightMargin = extraWidth - padding;
 		return {
 			left: padding,
-			right: this.mappingContentRef? this.mappingContentRef.clientWidth + rightMargin : rightMargin,
+			right: this.mappingContentRef
+				? this.mappingContentRef.clientWidth + rightMargin
+				: rightMargin,
 		};
 	}
 
@@ -454,7 +456,7 @@ class MappingSVG extends Component {
 		const svgAnchors = this.getSVGAnchors(anchors, bounds);
 
 		return connectDropTarget(
-			<div ref={this.updateMappingContentRef} className="mapping-content" >
+			<div ref={this.updateMappingContentRef} className="mapping-content">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="mapping-svg"
