@@ -7,6 +7,7 @@ globals:
   Helper: false
   Feature: false
   Scenario: false
+  actor: false
 rules:
   import/no-extraneous-dependencies:
     - error
