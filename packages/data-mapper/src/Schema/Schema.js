@@ -38,13 +38,7 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 }
 
 function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaProps) {
-	const {
-		selection,
-		pendingItem,
-		dnd,
-		focusedElements,
-		mappedElements,
-	} = schemaProps;
+	const { selection, pendingItem, dnd, focusedElements, mappedElements } = schemaProps;
 	const rowsClassNames = {};
 	for (let i = 0; i < elements.length; i += 1) {
 		const element = elements[i];
@@ -327,7 +321,7 @@ export default class Schema extends Component {
 			} else if (elemYPos > bottomLimit) {
 				break;
 			}
-			}
+		}
 		return visibleElements;
 	}
 
