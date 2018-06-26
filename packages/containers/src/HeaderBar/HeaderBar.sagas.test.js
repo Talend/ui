@@ -1,18 +1,39 @@
+import cmf from '@talend/react-cmf';
+
 import { fetchProducts, handleOpenProduct } from './HeaderBar.sagas';
+import Connected from './HeaderBar.connect';
 
 describe('HeaderBar sagas', () => {
 	describe('fetchProducts', () => {
+		const url = '/foo/bar';
+		const lang = 'en-EN';
+
+		const action = { payload: { url, lang } };
+
 		it('should fetch HeaderBar products', () => {
-			const httpResponse = { response: { ok: true }, data: 'foo' };
-			const action = { payload: { url: 'url', lang: 'lang', env: 'env' } };
+			const data = 'foo';
+			const httpResponse = { response: { ok: true }, data };
 
 			const gen = fetchProducts(action);
 
-			gen.next(); // Toggle fetching flag (enable)
-			const effect = gen.next().value; // HTTP call
-			expect(effect.CALL).toBeDefined();
-			gen.next(httpResponse); // Toggle fetching flag (disable)
-			gen.next(); // Update CMF collections
+			// Toggle fetching flag (enable)
+			let effect = gen.next().value;
+			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: true }));
+
+			// HTTP call
+			effect = gen.next().value;
+			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
+			expect(effect.CALL.args).toEqual([`${url}?lang=${lang}`]);
+
+			// Toggle fetching flag (enable)
+			effect = gen.next(httpResponse).value;
+			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: false }));
+
+			// Update CMF collections
+			effect = gen.next().value;
+			const expected = cmf.actions.collections.addOrReplace(Connected.PRODUCTS_COLLECTION_ID, data);
+			expect(effect.PUT.action).toEqual(expected);
+
 			const { done } = gen.next();
 
 			expect(done).toBe(true);
@@ -20,14 +41,22 @@ describe('HeaderBar sagas', () => {
 
 		it('should fetch HeaderBar products and handle an error case', () => {
 			const httpResponse = { response: { ok: false } };
-			const action = { payload: { url: 'url', lang: 'lang', env: 'env' } };
 
 			const gen = fetchProducts(action);
 
-			gen.next(); // Toggle fetching flag (enable)
-			const effect = gen.next().value; // HTTP call
-			expect(effect.CALL).toBeDefined();
-			gen.next(httpResponse); // Toggle fetching flag (disable)
+			// Toggle fetching flag (enable)
+			let effect = gen.next().value;
+			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: true }));
+
+			// HTTP call
+			effect = gen.next().value;
+			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
+			expect(effect.CALL.args).toEqual([`${url}?lang=${lang}`]);
+
+			// Toggle fetching flag (enable)
+			effect = gen.next(httpResponse).value;
+			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: false }));
+
 			const { done } = gen.next();
 
 			expect(done).toBe(true);
