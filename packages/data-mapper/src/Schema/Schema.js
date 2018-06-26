@@ -206,7 +206,7 @@ export default class Schema extends Component {
 		const { dataAccessor, schema, side } = this.props;
 		const contentProps = {
 			...tempProps,
-			isMapped,			
+			isMapped,
 			isHighlighted,
 			onScroll: this.onContentScroll,
 		};
