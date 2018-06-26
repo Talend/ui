@@ -11,8 +11,18 @@ describe('Container HeaderBar', () => {
 	const dispatch = jest.fn();
 	const containerProps = { state, dispatch };
 
+	const HeaderBar = () => '';
+	const HeaderBarComponentMock = props => <HeaderBar {...props} />;
+
+	const context = {
+		registry: {
+			'_.route.component:HeaderBar': HeaderBarComponentMock,
+		},
+	};
+
 	it('should render HeaderBar container', () => {
-		expect(shallow(<Container {...containerProps} />).getElement()).toMatchSnapshot();
+		const wrapper = shallow(<Container {...containerProps} />, { context });
+		expect(wrapper.dive().dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container with a list of items', () => {
@@ -21,7 +31,8 @@ describe('Container HeaderBar', () => {
 			...containerProps,
 		};
 
-		expect(shallow(<Container {...props} />).getElement()).toMatchSnapshot();
+		const wrapper = shallow(<Container {...props} />, { context });
+		expect(wrapper.dive().dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
@@ -32,7 +43,8 @@ describe('Container HeaderBar', () => {
 			},
 		};
 
-		expect(shallow(<Container {...props} />).getElement()).toMatchSnapshot();
+		const wrapper = shallow(<Container {...props} />, { context });
+		expect(wrapper.dive().dive().getElement()).toMatchSnapshot();
 	});
 });
 
