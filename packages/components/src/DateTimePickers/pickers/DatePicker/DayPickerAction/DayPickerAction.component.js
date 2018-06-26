@@ -29,7 +29,11 @@ function DayPickerAction(props) {
 			className={className}
 			{...rest}
 		>
-			{label}
+			<span
+				className={theme.label}
+			>
+				{label}
+			</span>
 		</button>
 	);
 }
