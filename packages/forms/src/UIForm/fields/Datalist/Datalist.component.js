@@ -29,21 +29,14 @@ const PROPS_TO_OMIT = [
 	't',
 ];
 
-const STATE_TO_OMIT = [
-	'added',
-];
+const STATE_TO_OMIT = ['added'];
 
-const SCHEMA_TO_OMIT = [
-	'type',
-	'triggers',
-	'title',
-	'titleMap',
-	'schema',
-
-];
+const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
 
 function arrowRenderer({ isOpen }) {
-	return <Icon className={theme.caret} name="talend-caret-down" transform={isOpen && 'rotate-180'} />;
+	return (
+		<Icon className={theme.caret} name="talend-caret-down" transform={isOpen && 'rotate-180'} />
+	);
 }
 arrowRenderer.propTypes = {
 	isOpen: PropTypes.bool,
@@ -196,9 +189,13 @@ class Datalist extends Component {
 			props.id = `${props.id}-select`;
 		}
 		if (this.state.isLoading) {
-			props.loadingPlaceholder = this.props.t('DATALIST_LOADING_LABEL', { defaultValue: 'Loading' });
+			props.loadingPlaceholder = this.props.t('DATALIST_LOADING_LABEL', {
+				defaultValue: 'Loading',
+			});
 		} else {
-			props.noResultsText = this.props.t('DATALIST_NO_RESULTS_LABEL', { defaultValue: 'No result found' });
+			props.noResultsText = this.props.t('DATALIST_NO_RESULTS_LABEL', {
+				defaultValue: 'No result found',
+			});
 		}
 		props.placeholder = this.props.t('DATA_LIST_PLACEHOLDER', { defaultValue: 'Select in list' });
 		props.promptTextCreator = this.promptTextCreator;
