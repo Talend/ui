@@ -38,10 +38,12 @@ function createCommonProps(tab) {
 				return new Promise(resolve => {
 					setTimeout(() => resolve({
 						titleMap: [
-							{ name: 'foo', value: 'foo' },
-							{ name: 'bar', value: 'bar' },
-							{ name: 'foobar', value: 'foobar' },
-							{ name: 'lol', value: 'lol' },
+							{ value: 'clafoutis', name: 'Clafoutis aux poires et aux fruits' },
+							{ value: 'conchiglioni-au-thon', name: 'Conchiglioni au thon' },
+							{ value: 'coquillettes-crevettes', name: 'coquillettes aux crevettes' },
+							{ value: 'crumble', name: 'Crumble a la danette' },
+							{ value: 'pomme-savane', name: 'Pomme savane' },
+							{ value: 'tarte-au-citron', name: 'Tarte  au citron' },
 						],
 					}), 3000);
 				});

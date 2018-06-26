@@ -40,6 +40,30 @@ describe('Datalist component', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should call onFocus at didMount if no titleMap', () => {
+		// when
+		const schemaWithout = {
+			type: 'string',
+			schema: {
+				type: 'string',
+			},
+		};
+		const wrapper = shallow(
+			<Datalist
+				id={'my-datalist'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={schemaWithout}
+				value={'foo'}
+			/>,
+		);
+		wrapper.instance().onFocus = jest.fn();
+		wrapper.instance().componentDidMount();
+
+		// then
+		expect(wrapper.instance().onFocus).toHaveBeenCalledWith({ type: 'mount' });
+	});
 	describe('onChange', () => {
 		it('should call props.onChange && props.onFinish', () => {
 			// when

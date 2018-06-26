@@ -35,14 +35,13 @@
       "widget": "datalist",
       "triggers":[
         {
-          "action":"SuggestionForJdbcDrivers",
-          "family":"jdbc",
+          "action":"SuggestionForDemo",
+          "family":"remote",
           "type":"suggestions",
           "onEvent":"focus",
           "parameters":[
             {
-              "key":"currentValue",
-              "path":"configuration.driver"
+              "key":"suggestion"
             }
           ]
         }
@@ -96,6 +95,6 @@
   ],
   "properties": {
     "simpleDatalist": "Pine[apple]",
-    "suggestion": "not in result"
+    "suggestion": "clafoutis"
   }
 }
