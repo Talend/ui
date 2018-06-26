@@ -4,6 +4,7 @@ import { Map, List } from 'immutable';
 
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';
+import Constants from './HeaderBar.constant';
 
 describe('Container HeaderBar', () => {
 	const state = DEFAULT_STATE;
@@ -46,7 +47,7 @@ describe('Connected HeaderBar', () => {
 			cmf: {
 				collections: new Map({
 					HeaderBar: {
-						[Container.PRODUCTS_COLLECTION_ID]: new List(),
+						[Constants.COLLECTION_ID]: new List(),
 					},
 				}),
 			},
@@ -63,7 +64,7 @@ describe('Connected HeaderBar', () => {
 		const state = {
 			cmf: {
 				collections: new Map({
-					[Container.PRODUCTS_COLLECTION_ID]: new List(apps),
+					[Constants.COLLECTION_ID]: new List(apps),
 				}),
 			},
 		};

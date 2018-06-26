@@ -2,7 +2,7 @@ import cmf from '@talend/react-cmf';
 import { call, put, takeEvery, take } from 'redux-saga/effects';
 
 import Connected from './HeaderBar.connect';
-import { HEADER_BAR_FETCH_PRODUCTS, HEADER_BAR_OPEN_PRODUCT } from './HeaderBar.constant';
+import Constants from './HeaderBar.constant';
 
 /**
  * This saga takes care of fetching authorized products for the HeaderBar
@@ -23,7 +23,7 @@ export function* fetchProducts(action) {
 		return; // Loading products failed, do nothing
 	}
 
-	yield put(cmf.actions.collections.addOrReplace(Connected.PRODUCTS_COLLECTION_ID, data));
+	yield put(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data));
 }
 
 /**
@@ -37,8 +37,8 @@ export function handleOpenProduct(action) {
 }
 
 function* defaultHandler() {
-	yield takeEvery(HEADER_BAR_FETCH_PRODUCTS, fetchProducts);
-	yield takeEvery(HEADER_BAR_OPEN_PRODUCT, handleOpenProduct);
+	yield takeEvery(Constants.HEADER_BAR_FETCH_PRODUCTS, fetchProducts);
+	yield takeEvery(Constants.HEADER_BAR_OPEN_PRODUCT, handleOpenProduct);
 	yield take('DO_NOT_QUIT');
 }
 

@@ -2,6 +2,7 @@ import cmf from '@talend/react-cmf';
 
 import { fetchProducts, handleOpenProduct } from './HeaderBar.sagas';
 import Connected from './HeaderBar.connect';
+import Constants from './HeaderBar.constant';
 
 describe('HeaderBar sagas', () => {
 	describe('fetchProducts', () => {
@@ -31,7 +32,7 @@ describe('HeaderBar sagas', () => {
 
 			// Update CMF collections
 			effect = gen.next().value;
-			const expected = cmf.actions.collections.addOrReplace(Connected.PRODUCTS_COLLECTION_ID, data);
+			const expected = cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data);
 			expect(effect.PUT.action).toEqual(expected);
 
 			const { done } = gen.next();

@@ -1,9 +1,10 @@
 import cmf, { cmfConnect } from '@talend/react-cmf';
 
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
+import Constants from './HeaderBar.constant';
 
 export const mapStateToProps = state => ({
-	productsItems: cmf.selectors.collections.toJS(state, Container.PRODUCTS_COLLECTION_ID),
+	productsItems: cmf.selectors.collections.toJS(state, Constants.COLLECTION_ID),
 });
 
 const connected = cmfConnect({
