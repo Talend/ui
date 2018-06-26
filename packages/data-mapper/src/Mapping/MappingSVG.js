@@ -331,6 +331,7 @@ class MappingSVG extends Component {
 		this.updateSVGRef = this.updateSVGRef.bind(this);
 		this.getWidth = this.getWidth.bind(this);
 		this.getHeight = this.getHeight.bind(this);
+		this.updateMappingContentRef = this.updateMappingContentRef.bind(this);
 		this.bounds = null;
 		this.svgAnchors = null;
 		this.svgAnchorsVersion = -1;
@@ -345,11 +346,11 @@ class MappingSVG extends Component {
 	}
 
 	getWidth() {
-		return this.props.width + extraWidth;
+		return this.mappingContentRef? this.mappingContentRef.clientWidth + extraWidth : 0;
 	}
 
 	getHeight() {
-		return this.props.height;
+		return this.mappingContentRef? this.mappingContentRef.clientHeight : 0;
 	}
 
 	reveal(connectionKey) {
@@ -381,9 +382,10 @@ class MappingSVG extends Component {
 	}
 
 	getBounds() {
+		const rightMargin = extraWidth - padding;
 		return {
 			left: padding,
-			right: this.props.width - padding + extraWidth,
+			right: this.mappingContentRef? this.mappingContentRef.clientWidth + rightMargin : rightMargin,
 		};
 	}
 
@@ -427,6 +429,10 @@ class MappingSVG extends Component {
 		this.svg = ref;
 	}
 
+	updateMappingContentRef(ref) {
+		this.mappingContentRef = ref;
+	}
+
 	render() {
 		const {
 			connectDropTarget,
@@ -448,7 +454,7 @@ class MappingSVG extends Component {
 		const svgAnchors = this.getSVGAnchors(anchors, bounds);
 
 		return connectDropTarget(
-			<div>
+			<div ref={this.updateMappingContentRef} className="mapping-content" >
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="mapping-svg"
@@ -476,7 +482,6 @@ MappingSVG.propTypes = {
 	dnd: PropTypes.object,
 	dndListener: PropTypes.object,
 	preferences: PropTypes.object,
-	width: PropTypes.number,
 	onEnterAnchor: PropTypes.func,
 	onLeaveAnchor: PropTypes.func,
 };

@@ -3,25 +3,10 @@ import PropTypes from 'prop-types';
 import { Actions } from '@talend/react-components';
 import MappingSVG from './MappingSVG';
 
-// TODO should have fixed size
 export default class Mapping extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			width: 1,
-			height: 1,
-		};
 		this.updateMappingAreaRef = this.updateMappingAreaRef.bind(this);
-		this.updateMappingContentRef = this.updateMappingContentRef.bind(this);
-		this.checkMappingContentResize = this.checkMappingContentResize.bind(this);
-	}
-
-	componentDidMount() {
-		this.intervalRef = setInterval(this.checkMappingContentResize, 250);
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.intervalRef);
 	}
 
 	getArea() {
@@ -43,16 +28,6 @@ export default class Mapping extends Component {
 				return offset;
 			},
 		};
-	}
-
-	checkMappingContentResize() {
-		if (this.mappingContentRef) {
-			const width = this.mappingContentRef.clientWidth;
-			const height = this.mappingContentRef.clientHeight;
-			if (this.state.width !== width || this.state.height !== height) {
-				this.setState({ width, height });
-			}
-		}
 	}
 
 	update() {
@@ -94,24 +69,16 @@ export default class Mapping extends Component {
 		this.mappingAreaRef = ref;
 	}
 
-	updateMappingContentRef(ref) {
-		this.mappingContentRef = ref;
-	}
-
 	render() {
 		const { dndListener, mappingActions, ...mappingProps } = this.props;
 		return (
 			<div className="mapping mapper-element">
 				<Actions className="mapping-actions" actions={mappingActions} />
-				<div ref={this.updateMappingContentRef} className="mapping-content">
-					<MappingSVG
-						{...mappingProps}
-						ref={this.updateMappingAreaRef}
-						dndListener={this}
-						width={this.state.width}
-						height={this.state.height}
-					/>
-				</div>
+				<MappingSVG
+					{...mappingProps}
+					ref={this.updateMappingAreaRef}
+					dndListener={this}
+				/>
 			</div>
 		);
 	}
