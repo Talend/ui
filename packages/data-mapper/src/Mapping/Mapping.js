@@ -74,11 +74,7 @@ export default class Mapping extends Component {
 		return (
 			<div className="mapping mapper-element">
 				<Actions className="mapping-actions" actions={mappingActions} />
-				<MappingSVG
-					{...mappingProps}
-					ref={this.updateMappingAreaRef}
-					dndListener={this}
-				/>
+				<MappingSVG {...mappingProps} ref={this.updateMappingAreaRef} dndListener={this} />
 			</div>
 		);
 	}
