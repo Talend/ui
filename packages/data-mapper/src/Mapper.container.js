@@ -12,6 +12,9 @@ const SortDirection = {
 	DESCENDING: 'descending',
 };
 
+/**
+ * This function computes the next sort direction.
+ */
 function nextDirection(direction) {
 	switch (direction) {
 		case SortDirection.NONE:
@@ -355,10 +358,6 @@ function updateSelection(dataAccessor, ctrl, mapping, selection, element, side) 
 		return null;
 	}
 	return select(dataAccessor, mapping, element, side);
-}
-
-function getFocused(element, side) {
-	return { element, side };
 }
 
 function clearConnected(selection) {
@@ -893,7 +892,7 @@ class DataMapperContainer extends React.Component {
 				element,
 				side,
 			},
-			focused: getFocused(element, side),
+			focused: { element, side },
 			status: Constants.StateStatus.FOCUSED,
 		});
 	}
@@ -1087,7 +1086,7 @@ class DataMapperContainer extends React.Component {
 
 	onUndo() {
 		const dataAccessor = this.state.dataAccessor;
-		const cmd = dataAccessor.getACopyOfUndoCommand();
+		const cmd = dataAccessor.getCurrentUndoCommand();
 		const mapping = dataAccessor.undo(this.state.mapping);
 		this.setState(prevState => ({
 			trigger: {
@@ -1127,8 +1126,7 @@ class DataMapperContainer extends React.Component {
 	}
 
 	onRedo() {
-		// TODO check if copy is mandatory
-		const cmd = this.state.dataAccessor.getACopyOfRedoCommand();
+		const cmd = this.state.dataAccessor.getCurrentRedoCommand();
 		const mapping = this.state.dataAccessor.redo(this.state.mapping);
 		this.setState(prevState => ({
 			trigger: {

@@ -62,18 +62,6 @@ function switchMappingSide(side) {
 }
 
 /**
- * Defines style and part of a connection anchor.
- */
-const Anchor = {
-	STYLE: {
-		UNMAPPED: 'unmapped',
-		MAPPED: 'mapped',
-		FOCUSED: 'focused',
-		SELECTED: 'selected',
-	},
-};
-
-/**
  * Defines parameters of a connection.
  */
 const Connection = {
@@ -104,7 +92,6 @@ export default {
 	UNDO_REDO_STATE_STATUS,
 	Commands,
 	MappingSide,
-	switchMappingSide,
-	Anchor,
+	switchMappingSide,	
 	Connection,
 };

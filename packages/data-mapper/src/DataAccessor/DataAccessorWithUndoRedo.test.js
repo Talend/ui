@@ -23,7 +23,7 @@ it('data-accessor-with-undo-redo', () => {
 		`Undo "Map ${TestData.element3.name} to ${TestData.element7.name}"`,
 	);
 
-	let cmd = dataAccessor.getACopyOfUndoCommand();
+	let cmd = dataAccessor.getCurrentUndoCommand();
 	expect(cmd.code).toBe(Constants.Commands.ADD_MAPPING);
 	let source = dataAccessor.getSchemaElementFromId(inputSchema, cmd.sourceId);
 	expect(dataAccessor.areElementsEqual(source, TestData.element3)).toBe(true);
@@ -38,7 +38,7 @@ it('data-accessor-with-undo-redo', () => {
 		`Redo "Map ${TestData.element3.name} to ${TestData.element7.name}"`,
 	);
 
-	cmd = dataAccessor.getACopyOfRedoCommand();
+	cmd = dataAccessor.getCurrentRedoCommand();
 	expect(cmd.code).toBe(Constants.Commands.ADD_MAPPING);
 
 	mapping = dataAccessor.redo(mapping);
@@ -53,7 +53,7 @@ it('data-accessor-with-undo-redo', () => {
 		`Undo "Clear mapping between ${TestData.element3.name} and ${TestData.element7.name}"`,
 	);
 
-	cmd = dataAccessor.getACopyOfUndoCommand();
+	cmd = dataAccessor.getCurrentUndoCommand();
 	expect(cmd.code).toBe(Constants.Commands.REMOVE_MAPPING);
 	source = dataAccessor.getSchemaElementFromId(inputSchema, cmd.sourceId);
 	expect(dataAccessor.areElementsEqual(source, TestData.element3)).toBe(true);
@@ -64,9 +64,9 @@ it('data-accessor-with-undo-redo', () => {
 	expect(dataAccessor.canUndo()).toBe(true);
 	expect(dataAccessor.canRedo()).toBe(true);
 
-	cmd = dataAccessor.getACopyOfUndoCommand();
+	cmd = dataAccessor.getCurrentUndoCommand();
 	expect(cmd.code).toBe(Constants.Commands.ADD_MAPPING);
-	cmd = dataAccessor.getACopyOfRedoCommand();
+	cmd = dataAccessor.getCurrentRedoCommand();
 	expect(cmd.code).toBe(Constants.Commands.REMOVE_MAPPING);
 
 	mapping = dataAccessor.clearMapping(mapping);
@@ -77,7 +77,7 @@ it('data-accessor-with-undo-redo', () => {
 
 	expect(dataAccessor.isMappingEmpty(mapping)).toBe(true);
 
-	cmd = dataAccessor.getACopyOfUndoCommand();
+	cmd = dataAccessor.getCurrentUndoCommand();
 	expect(cmd.code).toBe(Constants.Commands.CLEAR_MAPPING);
 
 	const storedMapping =
@@ -93,6 +93,6 @@ it('data-accessor-with-undo-redo', () => {
 	const mappingItems = dataAccessor.getMappingItems(mapping);
 	expect(mappingItems.length).toBe(3);
 
-	cmd = dataAccessor.getACopyOfRedoCommand();
+	cmd = dataAccessor.getCurrentRedoCommand();
 	expect(cmd.code).toBe(Constants.Commands.CLEAR_MAPPING);
 });

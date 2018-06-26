@@ -19,10 +19,6 @@ function restoreMapping(dataAccessor, storedMapping) {
 	}));
 }
 
-function clone(cmd) {
-	return JSON.parse(JSON.stringify(cmd));
-}
-
 export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 	constructor() {
 		super();
@@ -80,9 +76,9 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		return null;
 	}
 
-	getACopyOfUndoCommand() {
+	getCurrentUndoCommand() {
 		if (this.canUndo()) {
-			return clone(this.undoStack[this.undoStack.length - 1]);
+			return this.undoStack[this.undoStack.length - 1];
 		}
 		return null;
 	}
@@ -128,9 +124,9 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		return null;
 	}
 
-	getACopyOfRedoCommand() {
+	getCurrentRedoCommand() {
 		if (this.canRedo()) {
-			return clone(this.redoStack[this.redoStack.length - 1]);
+			return this.redoStack[this.redoStack.length - 1];
 		}
 		return null;
 	}

@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Constants } from '../index';
 
-function getStyles(anchor) {
-	// FIXME WAT
-	let styles = '';
-	for (let i = 0; i < anchor.styles.length; i += 1) {
-		styles += anchor.styles[i];
-		styles += ' ';
-	}
-	return styles;
-}
-
 function getClassname(anchor) {
-	return `anchor ${anchor.side} ${getStyles(anchor)}`;
+	return classnames('anchor', anchor.side, anchor.classes)
 }
 
 function renderCircle(anchor, params) {

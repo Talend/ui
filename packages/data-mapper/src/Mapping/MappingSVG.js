@@ -190,30 +190,30 @@ function renderConnection(connection) {
 	);
 }
 
-function getStyles(anchor) {
-	let styles = [];
+function getAnchorClasses(anchor) {
+	let classes = [];
 	if (anchor.focused) {
-		styles = styles.concat(Constants.Anchor.STYLE.FOCUSED);
+		classes = classes.concat('focused');
 	} else if (anchor.selected) {
-		styles = styles.concat(Constants.Anchor.STYLE.SELECTED);
+		classes = classes.concat('selected');
 	}
 	if (anchor.mapped) {
-		styles = styles.concat(Constants.Anchor.STYLE.MAPPED);
+		classes = classes.concat('mapped');
 	} else {
-		styles = styles.concat(Constants.Anchor.STYLE.UNMAPPED);
+		classes = classes.concat('unmapped');
 	}
-	return styles;
+	return classes;
 }
 
 function appendSVGAnchor(svgAnchors, anchor, bounds) {
-	const styles = getStyles(anchor);
+	const classes = getAnchorClasses(anchor);
 	const svgAnchor = {
 		x: anchor.side === Constants.MappingSide.INPUT ? bounds.left : bounds.right,
 		y: anchor.yPos,
 		element: anchor.element,
 		side: anchor.side,
 		key: anchor.key,
-		styles,
+		classes,
 		mapped: anchor.mapped,
 	};
 	return svgAnchors.concat(svgAnchor);
