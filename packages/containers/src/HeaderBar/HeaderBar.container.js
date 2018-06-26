@@ -23,7 +23,7 @@ const HeaderBar = props => {
 		componentProps.products = products;
 	} else if (!props.state.get('fetchingProducts')) {
 		// Trigger fetch if not already fetching
-		this.props.dispatch({
+		props.dispatch({
 			type: Constants.HEADER_BAR_FETCH_PRODUCTS,
 			payload: { url: productsUrl, lang: productsLang },
 		});
