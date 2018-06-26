@@ -4,7 +4,7 @@ import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { cmfConnect, Inject } from '@talend/react-cmf';
 
-import { Actions } from './HeaderBar.constant';
+import { HEADER_BAR_OPEN_PRODUCT, HEADER_BAR_FETCH_PRODUCTS } from './HeaderBar.constant';
 
 export const DEFAULT_STATE = new Map({
 	fetchingProducts: false,
@@ -33,18 +33,16 @@ class HeaderBar extends React.Component {
 
 		if (productsItems) {
 			// Add onClickDispatch event to items
-			const items = productsItems.map(product => ({
-				onClickDispatch: { type: Actions.HEADER_BAR_OPEN_PRODUCT, payload: product },
+			products.items = productsItems.map(product => ({
+				onClickDispatch: { type: HEADER_BAR_OPEN_PRODUCT, payload: product },
 				...product,
 			}));
-
-			products.items = items;
 
 			props.products = products;
 		} else if (!this.props.state.get('fetchingProducts')) {
 			// Trigger fetch if not already fetching
 			this.props.dispatch({
-				type: Actions.HEADER_BAR_FETCH_PRODUCTS,
+				type: HEADER_BAR_FETCH_PRODUCTS,
 				payload: { url: productsUrl, lang: productsLang },
 			});
 		}

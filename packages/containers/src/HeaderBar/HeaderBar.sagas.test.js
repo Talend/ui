@@ -1,4 +1,4 @@
-import HeaderBarDefaultSaga, { fetchProducts, handleOpenProduct } from './HeaderBar.sagas';
+import { fetchProducts, handleOpenProduct } from './HeaderBar.sagas';
 
 describe('HeaderBar sagas', () => {
 	describe('fetchProducts', () => {

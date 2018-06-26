@@ -11,8 +11,7 @@ describe('Container HeaderBar', () => {
 	const containerProps = { state, dispatch };
 
 	it('should render HeaderBar container', () => {
-		const props = containerProps;
-		expect(shallow(<Container {...props} />).getElement()).toMatchSnapshot();
+		expect(shallow(<Container {...containerProps} />).getElement()).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container with a list of items', () => {

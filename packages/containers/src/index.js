@@ -58,6 +58,7 @@ export {
 	Drawer,
 	DeleteResource,
 	FilterBar,
+	HeaderBar,
 	HomeListView,
 	Icon,
 	IconsProvider,

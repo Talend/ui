@@ -1,8 +1,5 @@
-export const Actions = {
+export default {
 	HEADER_BAR_FETCH_PRODUCTS: 'HEADER_BAR_FETCH_PRODUCTS',
 	HEADER_BAR_OPEN_PRODUCT: 'HEADER_BAR_OPEN_PRODUCT',
-};
-
-export default {
 	COLLECTION_ID: 'HEADER_BAR_COLLECTION',
 };
