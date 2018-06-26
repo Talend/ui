@@ -22,7 +22,12 @@ describe('Container HeaderBar', () => {
 
 	it('should render HeaderBar container', () => {
 		const wrapper = shallow(<Container {...containerProps} />, { context });
-		expect(wrapper.dive().dive().getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.dive()
+				.dive()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container with a list of items', () => {
@@ -32,7 +37,12 @@ describe('Container HeaderBar', () => {
 		};
 
 		const wrapper = shallow(<Container {...props} />, { context });
-		expect(wrapper.dive().dive().getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.dive()
+				.dive()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
@@ -44,7 +54,12 @@ describe('Container HeaderBar', () => {
 		};
 
 		const wrapper = shallow(<Container {...props} />, { context });
-		expect(wrapper.dive().dive().getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.dive()
+				.dive()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 });
 
