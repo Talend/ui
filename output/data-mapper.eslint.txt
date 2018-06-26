@@ -110,7 +110,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   96:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/Mapping.js
-  102:11  error  'dndListener' is assigned a value but never used  no-unused-vars
+  73:11  error  'dndListener' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/Mapping.test.js
    6:34  error  Unable to resolve path to module './MappingConfiguration.js'                                   import/no-unresolved
@@ -122,10 +122,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
     2:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
    19:10  error  'props' is defined but never used                                                              no-unused-vars
   104:26  error  'buildDndInProgressSVGConnection' was used before it was defined                               no-use-before-define
-  352:21  error  'height' is missing in props validation                                                        react/prop-types
-  355:2   error  reveal should be placed after getBounds                                                        react/sort-comp
-  355:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
-  484:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  356:2   error  reveal should be placed after getBounds                                                        react/sort-comp
+  356:8   error  Expected 'this' to be used by class method 'reveal'                                            class-methods-use-this
+  491:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.js
     3:8   error  'classnames' is defined but never used          no-unused-vars
@@ -159,5 +158,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   302:26  error  'revealConnectedElement' PropType is defined but prop is never used                                         react/no-unused-prop-types
   305:20  error  'isElementVisible' PropType is defined but prop is never used                                               react/no-unused-prop-types
 
-✖ 101 problems (101 errors, 0 warnings)
+✖ 100 problems (100 errors, 0 warnings)
 
