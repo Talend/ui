@@ -45,24 +45,24 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:26  error  'DataAccessorWrapper' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/index.js
-  1:20  error  Parse errors in imported module './Mapper.container': Line 1177: A trailing comma is not permitted after the rest element
+  1:20  error  Parse errors in imported module './Mapper.container': Line 1175: A trailing comma is not permitted after the rest element
 
-  1175 | 		const {
-  1176 | 			mappingActions,
-> 1177 | 			...rest,
+  1173 | 		const {
+  1174 | 			mappingActions,
+> 1175 | 			...rest,
        | 			       ^
-  1178 | 		} = this.props;
-  1179 | 		return (
-  1180 | 			<div {...rest}> (1177:11)  import/no-named-as-default
-  1:20  error  Parse errors in imported module './Mapper.container': Line 1177: A trailing comma is not permitted after the rest element
+  1176 | 		} = this.props;
+  1177 | 		return (
+  1178 | 			<div {...rest}> (1175:11)  import/no-named-as-default
+  1:20  error  Parse errors in imported module './Mapper.container': Line 1175: A trailing comma is not permitted after the rest element
 
-  1175 | 		const {
-  1176 | 			mappingActions,
-> 1177 | 			...rest,
+  1173 | 		const {
+  1174 | 			mappingActions,
+> 1175 | 			...rest,
        | 			       ^
-  1178 | 		} = this.props;
-  1179 | 		return (
-  1180 | 			<div {...rest}> (1177:11)  import/no-named-as-default-member
+  1176 | 		} = this.props;
+  1177 | 		return (
+  1178 | 			<div {...rest}> (1175:11)  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.component.js
     4:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -81,15 +81,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   876:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.container.js
-  1177:11  error  Parsing error: A trailing comma is not permitted after the rest element
+  1175:11  error  Parsing error: A trailing comma is not permitted after the rest element
 
-  1175 | 		const {
-  1176 | 			mappingActions,
-> 1177 | 			...rest,
+  1173 | 		const {
+  1174 | 			mappingActions,
+> 1175 | 			...rest,
        | 			       ^
-  1178 | 		} = this.props;
-  1179 | 		return (
-  1180 | 			<div {...rest}>
+  1176 | 		} = this.props;
+  1177 | 		return (
+  1178 | 			<div {...rest}>
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.test.js
    6:29  error  Unable to resolve path to module './Mapper.js'                                                 import/no-unresolved
