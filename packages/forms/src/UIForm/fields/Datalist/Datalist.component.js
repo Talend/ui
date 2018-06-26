@@ -2,9 +2,52 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import ReSelect from 'react-select';
+import { Icon, Inject } from '@talend/react-components';
+import omit from 'lodash/omit';
 import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
 import theme from './Datalist.scss';
+import getDefaultT from '../../../translate';
+
+const RENDERER = [
+	'valueRenderer',
+	'clearRenderer',
+	'inputRenderer',
+	'menuRenderer',
+	'optionRenderer',
+];
+
+const PROPS_TO_OMIT = [
+	'classNames',
+	'schema',
+	'getComponent',
+	'errorMessage',
+	'isValid',
+	'onChange',
+	'onFinish',
+	'onTrigger',
+	't',
+];
+
+const STATE_TO_OMIT = [
+	'added',
+];
+
+const SCHEMA_TO_OMIT = [
+	'type',
+	'triggers',
+	'title',
+	'titleMap',
+	'schema',
+
+];
+
+function arrowRenderer({ isOpen }) {
+	return <Icon className={theme.caret} name="talend-caret-down" transform={isOpen && 'rotate-180'} />;
+}
+arrowRenderer.propTypes = {
+	isOpen: PropTypes.bool,
+};
 
 function getSelectedOptions(selectedValue, multiple) {
 	if (!selectedValue) {
@@ -22,6 +65,7 @@ class Datalist extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.isMultiple = this.isMultiple.bind(this);
+		this.promptTextCreator = this.promptTextCreator.bind(this);
 		this.state = {};
 	}
 
@@ -124,16 +168,42 @@ class Datalist extends Component {
 		return options;
 	}
 
+	getRenderer(props) {
+		return RENDERER.reduce((acc, current) => {
+			if (typeof props[current] === 'string') {
+				// eslint-disable-next-line no-param-reassign
+				acc[current] = Inject.get(this.props.getComponent, props[current]);
+			}
+			return acc;
+		}, {});
+	}
+
 	isMultiple() {
 		return this.props.schema.schema.type === 'array';
 	}
 
+	promptTextCreator(label) {
+		return this.props.t('PROMPT_TEXT_CREATOR', { label, defaultValue: 'Create "{{label}}"' });
+	}
+
 	render() {
-		const options = this.getOptions();
-		let noResultsText = 'No result found';
-		if (this.state.isLoading) {
-			noResultsText = 'Loading';
+		const props = omit(this.props, PROPS_TO_OMIT);
+		Object.assign(props, omit(this.state, STATE_TO_OMIT));
+		Object.assign(props, omit(this.props.schema, SCHEMA_TO_OMIT));
+		Object.assign(props, this.getRenderer(props));
+		props.options = this.getOptions();
+		if (props.id) {
+			props.id = `${props.id}-select`;
 		}
+		if (this.state.isLoading) {
+			props.loadingPlaceholder = this.props.t('DATALIST_LOADING_LABEL', { defaultValue: 'Loading' });
+		} else {
+			props.noResultsText = this.props.t('DATALIST_NO_RESULTS_LABEL', { defaultValue: 'No result found' });
+		}
+		props.placeholder = this.props.t('DATA_LIST_PLACEHOLDER', { defaultValue: 'Select in list' });
+		props.promptTextCreator = this.promptTextCreator;
+		props.arrowRenderer = arrowRenderer;
+
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -144,19 +214,11 @@ class Datalist extends Component {
 				required={this.props.schema.required}
 			>
 				<ReSelect.Creatable
-					isLoading={this.state.isLoading}
-					noResultsText={noResultsText}
-					className={classNames('tf-datalist', theme.override)}
-					autoFocus={this.props.schema.autoFocus || false}
-					id={`${this.props.id}`}
-					disabled={this.props.schema.disabled || false}
+					className={classNames('tf-datalist', theme.override, this.props.className)}
+					{...props}
 					multi={this.isMultiple()}
 					onFocus={this.onFocus}
 					onChange={this.onChange}
-					placeholder={this.props.schema.placeholder}
-					readOnly={this.props.schema.readOnly || false}
-					value={this.props.value}
-					options={options}
 				/>
 			</FieldTemplate>
 		);
@@ -166,16 +228,20 @@ class Datalist extends Component {
 Datalist.displayName = 'Datalist field';
 Datalist.defaultProps = {
 	value: '',
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
+		className: PropTypes.string,
 		id: PropTypes.string,
+		t: PropTypes.fun,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func.isRequired,
+		getComponent: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,

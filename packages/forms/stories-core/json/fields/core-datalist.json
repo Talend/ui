@@ -22,6 +22,9 @@
       },
       "suggestion": {
         "type": "string"
+      },
+      "suggestionEmpty": {
+        "type": "string"
       }
     },
     "required": [
@@ -29,6 +32,24 @@
     ]
   },
   "uiSchema": [
+    {
+      "key":"suggestionEmpty",
+      "title": "Datalist suggestion (empty)",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"suggestionEmpty"
+            }
+          ]
+        }
+      ]
+    },
     {
       "key":"suggestion",
       "title": "Datalist suggestion",

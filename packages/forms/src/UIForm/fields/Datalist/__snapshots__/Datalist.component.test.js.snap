@@ -10,12 +10,13 @@ exports[`Datalist component should render 1`] = `
   required={undefined}
 >
   <CreatableSelect
+    arrowRenderer={[Function]}
     autoFocus={true}
     className="tf-datalist theme-override"
+    description="This is my datalist"
     disabled={false}
     filterOptions={[Function]}
-    id="my-datalist"
-    isLoading={undefined}
+    id="my-datalist-select"
     isOptionUnique={[Function]}
     isValidNewOption={[Function]}
     menuRenderer={[Function]}
@@ -40,9 +41,10 @@ exports[`Datalist component should render 1`] = `
         },
       ]
     }
-    placeholder="Type here"
+    placeholder="Select in list"
     promptTextCreator={[Function]}
     readOnly={false}
+    restricted={true}
     shouldKeyDownEventCreateNewOption={[Function]}
     value="foo"
   />
