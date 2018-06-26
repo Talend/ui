@@ -13,7 +13,7 @@ class DateTimePicker extends React.Component {
 
 		this.state = {
 			isDateTimeView: true,
-			currentCalendar: {
+			calendar: {
 				monthIndex: now.getMonth(),
 				year: now.getFullYear(),
 			},
@@ -22,9 +22,9 @@ class DateTimePicker extends React.Component {
 
 		this.setDateTimeView = this.setView.bind(this, true);
 		this.setMonthYearView = this.setView.bind(this, false);
-		this.onSelectMonth = this.onSelectMonth.bind(this);
-		this.onSelectYear = this.onSelectYear.bind(this);
-		this.onSelectMonthYear = this.onSelectMonthYear.bind(this);
+		this.onSelectCalendarMonth = this.onSelectCalendarMonth.bind(this);
+		this.onSelectCalendarYear = this.onSelectCalendarYear.bind(this);
+		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
 		this.onSelectDate = this.onSelectDate.bind(this);
 	}
 
@@ -32,21 +32,25 @@ class DateTimePicker extends React.Component {
 		this.setState({ selectedDate });
 	}
 
-	onSelectMonthYear(newCalendar) {
+	onSelectCalendarMonthYear(newCalendar) {
 		this.setState(previousState => ({
-			currentCalendar: {
-				...previousState.currentCalendar,
+			calendar: {
+				...previousState.calendar,
 				...newCalendar,
 			},
 		}));
 	}
 
-	onSelectMonth(monthIndex) {
-		this.onSelectMonthYear({ monthIndex });
+	onSelectCalendarMonth(calendarMonthIndex) {
+		this.onSelectCalendarMonthYear({
+			monthIndex: calendarMonthIndex,
+		});
 	}
 
-	onSelectYear(year) {
-		this.onSelectMonthYear({ year });
+	onSelectCalendarYear(calendarYear) {
+		this.onSelectCalendarMonthYear({
+			year: calendarYear,
+		});
 	}
 
 	setView(isDateTimeView) {
@@ -59,19 +63,19 @@ class DateTimePicker extends React.Component {
 		if (this.state.isDateTimeView) {
 			viewElement = (<DateTimeView
 				onClickTitle={this.setMonthYearView}
-				selectedMonthIndex={this.state.currentCalendar.monthIndex}
-				selectedYear={this.state.currentCalendar.year}
-				onSelectMonthYear={this.onSelectMonthYear}
+				selectedMonthIndex={this.state.calendar.monthIndex}
+				selectedYear={this.state.calendar.year}
+				onSelectMonthYear={this.onSelectCalendarMonthYear}
 				onSelectDate={this.onSelectDate}
 				selectedDate={this.state.selectedDate}
 			/>);
 		} else {
 			viewElement = (<MonthYearView
 				onClickBack={this.setDateTimeView}
-				selectedMonthIndex={this.state.currentCalendar.monthIndex}
-				selectedYear={this.state.currentCalendar.year}
-				onSelectMonth={this.onSelectMonth}
-				onSelectYear={this.onSelectYear}
+				selectedMonthIndex={this.state.calendar.monthIndex}
+				selectedYear={this.state.calendar.year}
+				onSelectMonth={this.onSelectCalendarMonth}
+				onSelectYear={this.onSelectCalendarYear}
 			/>);
 		}
 

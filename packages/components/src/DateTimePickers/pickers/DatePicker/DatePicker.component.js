@@ -43,11 +43,11 @@ class DatePicker extends React.Component {
 		});
 		const nbWeeksToRender = diffWeeks + 1;
 
-		const days = (new Array(7 * nbWeeksToRender))
+		const dates = (new Array(7 * nbWeeksToRender))
 						.fill(0)
 						.map((_, i) => addDays(firstDateOfCalendar, i));
 
-		return chunk(days, 7);
+		return chunk(dates, 7);
 	}
 
 	constructor(props) {
@@ -56,12 +56,12 @@ class DatePicker extends React.Component {
 		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`);
 	}
 
-	isSelectedDay(date) {
+	isSelectedDate(date) {
 		return this.props.selectedDate !== undefined
 			&& isSameDay(this.props.selectedDate, date);
 	}
 
-	isDisabledDay(dateToCheck) {
+	isDisabledDate(dateToCheck) {
 		const disabledRules = this.props.disabledRules;
 		if (!disabledRules) {
 			return false;
@@ -87,8 +87,8 @@ class DatePicker extends React.Component {
 			});
 	}
 
-	isCurrentDay(date) {
-		return isSameDay(this.props.currentDate, date);
+	isToday(date) {
+		return isSameDay(this.props.today, date);
 	}
 
 	isCurrentMonth(date) {
@@ -131,10 +131,10 @@ class DatePicker extends React.Component {
 									this.isCurrentMonth(date) &&
 									<DayPickerAction
 										label={getDate(date).toString()}
-										isSelectedDay={this.isSelectedDay(date)}
-										isDisabledDay={this.isDisabledDay(date)}
-										isCurrentDay={this.isCurrentDay(date)}
-										aria-label={this.isDisabledDay(date)
+										isSelected={this.isSelectedDate(date)}
+										isDisabled={this.isDisabledDate(date)}
+										isToday={this.isToday(date)}
+										aria-label={this.isDisabledDate(date)
 											? 'Unselectable date'
 											: `Select '${getDate(date)}'`}
 										onClick={() => { this.props.onSelect(date); }}
@@ -154,7 +154,7 @@ DatePicker.propTypes = {
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
 	}).isRequired,
-	currentDate: PropTypes.instanceOf(Date).isRequired,
+	today: PropTypes.instanceOf(Date).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
 	disabledRules: PropTypes.arrayOf(PropTypes.oneOfType([

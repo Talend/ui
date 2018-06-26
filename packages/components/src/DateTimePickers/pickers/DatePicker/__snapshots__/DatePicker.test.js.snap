@@ -73,9 +73,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '1'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="1"
         onClick={[Function]}
       />
@@ -85,9 +85,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '2'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="2"
         onClick={[Function]}
       />
@@ -97,9 +97,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '3'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="3"
         onClick={[Function]}
       />
@@ -113,9 +113,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '4'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="4"
         onClick={[Function]}
       />
@@ -125,9 +125,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '5'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="5"
         onClick={[Function]}
       />
@@ -137,9 +137,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Unselectable date"
-        isCurrentDay={false}
-        isDisabledDay={true}
-        isSelectedDay={false}
+        isDisabled={true}
+        isSelected={false}
+        isToday={false}
         label="6"
         onClick={[Function]}
       />
@@ -149,9 +149,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '7'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="7"
         onClick={[Function]}
       />
@@ -161,9 +161,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '8'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="8"
         onClick={[Function]}
       />
@@ -173,9 +173,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '9'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="9"
         onClick={[Function]}
       />
@@ -185,9 +185,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '10'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="10"
         onClick={[Function]}
       />
@@ -201,9 +201,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '11'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="11"
         onClick={[Function]}
       />
@@ -213,9 +213,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '12'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={true}
+        isDisabled={false}
+        isSelected={true}
+        isToday={false}
         label="12"
         onClick={[Function]}
       />
@@ -225,9 +225,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '13'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="13"
         onClick={[Function]}
       />
@@ -237,9 +237,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '14'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="14"
         onClick={[Function]}
       />
@@ -249,9 +249,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Unselectable date"
-        isCurrentDay={false}
-        isDisabledDay={true}
-        isSelectedDay={false}
+        isDisabled={true}
+        isSelected={false}
+        isToday={false}
         label="15"
         onClick={[Function]}
       />
@@ -261,9 +261,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '16'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="16"
         onClick={[Function]}
       />
@@ -273,9 +273,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '17'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="17"
         onClick={[Function]}
       />
@@ -289,9 +289,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '18'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="18"
         onClick={[Function]}
       />
@@ -301,9 +301,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '19'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="19"
         onClick={[Function]}
       />
@@ -313,9 +313,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '20'"
-        isCurrentDay={true}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={true}
         label="20"
         onClick={[Function]}
       />
@@ -325,9 +325,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '21'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="21"
         onClick={[Function]}
       />
@@ -337,9 +337,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '22'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="22"
         onClick={[Function]}
       />
@@ -349,9 +349,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '23'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="23"
         onClick={[Function]}
       />
@@ -361,9 +361,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '24'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="24"
         onClick={[Function]}
       />
@@ -377,9 +377,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '25'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="25"
         onClick={[Function]}
       />
@@ -389,9 +389,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '26'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="26"
         onClick={[Function]}
       />
@@ -401,9 +401,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '27'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="27"
         onClick={[Function]}
       />
@@ -413,9 +413,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '28'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="28"
         onClick={[Function]}
       />
@@ -425,9 +425,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '29'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="29"
         onClick={[Function]}
       />
@@ -437,9 +437,9 @@ exports[`DatePicker should render a DatePicker 1`] = `
     >
       <DayPickerAction
         aria-label="Select '30'"
-        isCurrentDay={false}
-        isDisabledDay={false}
-        isSelectedDay={false}
+        isDisabled={false}
+        isSelected={false}
+        isToday={false}
         label="30"
         onClick={[Function]}
       />
