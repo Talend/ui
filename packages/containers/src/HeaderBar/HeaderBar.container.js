@@ -10,45 +10,41 @@ export const DEFAULT_STATE = new Map({
 	fetchingProducts: false,
 });
 
-class HeaderBar extends React.Component {
-	static displayName = 'Container(HeaderBar)';
+const HeaderBar = props => {
+	const { productsUrl, productsLang, productsItems, products = {}, ...componentProps } = props;
 
-	static propTypes = {
-		productsUrl: PropTypes.string,
-		productsLang: PropTypes.string,
-		productsItems: PropTypes.arrayOf(
-			PropTypes.shape({
-				icon: PropTypes.string,
-				uri: PropTypes.string,
-				label: PropTypes.string,
-			}),
-		),
-		...cmfConnect.propTypes,
-	};
+	if (productsItems) {
+		// Add onClickDispatch event to items
+		products.items = productsItems.map(product => ({
+			onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
+			...product,
+		}));
 
-	render() {
-		const { productsUrl, productsLang, productsItems, products = {}, ...props } = this.props;
-
-		if (productsItems) {
-			// Add onClickDispatch event to items
-			products.items = productsItems.map(product => ({
-				onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
-				...product,
-			}));
-
-			props.products = products;
-		} else if (!this.props.state.get('fetchingProducts')) {
-			// Trigger fetch if not already fetching
-			this.props.dispatch({
-				type: Constants.HEADER_BAR_FETCH_PRODUCTS,
-				payload: { url: productsUrl, lang: productsLang },
-			});
-		}
-
-		const componentProps = omit(props, cmfConnect.INJECTED_PROPS);
-
-		return <Inject component="HeaderBar" {...componentProps} />;
+		componentProps.products = products;
+	} else if (!props.state.get('fetchingProducts')) {
+		// Trigger fetch if not already fetching
+		this.props.dispatch({
+			type: Constants.HEADER_BAR_FETCH_PRODUCTS,
+			payload: { url: productsUrl, lang: productsLang },
+		});
 	}
-}
+
+	return <Inject component="HeaderBar" {...omit(props, cmfConnect.INJECTED_PROPS)} />;
+};
+
+HeaderBar.displayName = 'Container(HeaderBar)';
+
+HeaderBar.propTypes = {
+	productsUrl: PropTypes.string,
+	productsLang: PropTypes.string,
+	productsItems: PropTypes.arrayOf(
+		PropTypes.shape({
+			icon: PropTypes.string,
+			uri: PropTypes.string,
+			label: PropTypes.string,
+		}),
+	),
+	...cmfConnect.propTypes,
+};
 
 export default HeaderBar;
