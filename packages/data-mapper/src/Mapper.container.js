@@ -1009,20 +1009,27 @@ class DataMapperContainer extends React.Component {
 		});
 	}
 
-	// Split into several fn ???
+	filterAndSortElements(filters, id, active, params, side) {
+    const schema = getSchema(this.state, side);
+    const schemaState = this.state[side];
+    const { sorters, columns } = schemaState;
+    const elements = schemaState.schema.elements;
+    const filteredElements = updateFilteredElements(elements, filters, id, active, params);
+    const sortedElements = updateSortedElements(filteredElements, sorters, columns);
+    this.state.dataAccessor.setFilteredElements(schema, filteredElements);
+    this.state.dataAccessor.setSortedElements(schema, sortedElements);
+  }
+
 	onFilterChange(id, active, params, side) {
 		const schema = getSchema(this.state, side);
-		const schemaState = this.state[side];
-		const elements = schemaState.schema.elements;
-		const filters = schemaState.filters;
-		const sorters = schemaState.sorters;
-		const columns = schemaState.columns;
-		const filteredElements = updateFilteredElements(elements, filters, id, active, params);
-		const sortedElements = updateSortedElements(filteredElements, sorters, columns);
+    const schemaState = this.state[side];
+    const { filters } = schemaState;
+
+    this.filterAndSortElements(filters, id, active, params, side);
+
 		const updatedFilters = updateFilters(filters, id, active, params);
-		this.state.dataAccessor.setFilteredElements(schema, filteredElements);
-		this.state.dataAccessor.setSortedElements(schema, sortedElements);
 		const selection = filterItem(this.state, this.state.selection);
+
 		this.setState(prevState => ({
 			trigger: {
 				code: Constants.Events.FILTERING,
