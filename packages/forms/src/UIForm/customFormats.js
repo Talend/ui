@@ -1,7 +1,7 @@
 const emailRegExp = /^[a-zA-Z][a-zA-Z0-9-.]+@[a-zA-Z-]+\.[a-zA-Z-]+$/;
 const urlHttpOrHttpsRegExp = /^(http|https):\/\/[a-zA-Z0-9.\-/_]+$/;
 /* eslint-disable max-len */
-// Format usable in regex101 : (?<http>^http(s)?\:\/\/)(?<hostHTTP>[a-zA-Z0-9\.\-_]+)(?<portHTTP>:[0-9]+)?(?<pathHTTP>\/[a-zA-Z0-9\/\.\-_]+)(?<extensionHTTP>\.git)?(?<slashHTTP>\/)?$
+// Format usable in regex101 : (?<http>^http\:\/\/)(?<hostHTTP>[a-zA-Z0-9\.\-_]+)(?<portHTTP>:[0-9]+)?(?<pathHTTP>\/[a-zA-Z0-9\/\.\-_]+)(?<extensionHTTP>\.git)?(?<slashHTTP>\/)?$
 const urlGitProtocoltHttp = /(^http:\/\/)([a-zA-Z0-9.\-_]+)(:[0-9]+)?(\/[a-zA-Z0-9/.\-_]+)(\.git)?(\/)?$/;
 // Format usable in regex101 : (?<http>^http(s)?\:\/\/)(?<hostHTTP>[a-zA-Z0-9\.\-_]+)(?<portHTTP>:[0-9]+)?(?<pathHTTP>\/[a-zA-Z0-9\/\.\-_]+)(?<extensionHTTP>\.git)?(?<slashHTTP>\/)?$
 const urlGitProtocoltHttps = /(^https?:\/\/)([a-zA-Z0-9.\-_]+@)?([a-zA-Z0-9.\-_]+)(:[0-9]+)?(\/[a-zA-Z0-9/.\-_]+)(\.git)?(\/)?$/;
