@@ -56,6 +56,6 @@ The following table indicated what value to set to refers to each profile.
 | `@talend/eslint-config/api-app.yaml` 			| API team, javascript base configuration 		|
 | `@talend/eslint-config/api-app-react.yaml` 	| API team, react applications configuration 	|
 | `@talend/eslint-config/api-app-angular.yaml` 	| API team, Angular applications configuration 	|
-| `@talend/eslint-config/api-test.yaml` 		| API team, test configuration 					|
+| `@talend/eslint-config/api-test.yaml` 		| API team, test base configuration 					|
 | `@talend/eslint-config/api-test-jasmine.yaml` 	| API team, unit tests configuration 				|
 | `@talend/eslint-config/api-packaging.yaml` 		| API team, packaging script configuration 		|
