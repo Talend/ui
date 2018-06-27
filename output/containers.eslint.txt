@@ -2,80 +2,14 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
-  15:9  error  'displayName' is not defined   no-undef
-  16:9  error  'propTypes' is not defined     no-undef
-  19:9  error  'contextTypes' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
-  16:9  error  'displayName' is not defined   no-undef
-  17:9  error  'propTypes' is not defined     no-undef
-  28:9  error  'contextTypes' is not defined  no-undef
-  32:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
-  19:9  error  'displayName' is not defined   no-undef
-  21:9  error  'contextTypes' is not defined  no-undef
-  26:9  error  'propTypes' is not defined     no-undef
-  34:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  17:9  error  'displayName' is not defined  no-undef
-  18:9  error  'propTypes' is not defined    no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
-  40:9  error  'displayName' is not defined   no-undef
-  41:9  error  'propTypes' is not defined     no-undef
-  70:9  error  'defaultProps' is not defined  no-undef
-  74:9  error  'contextTypes' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
-  61:9  error  'displayName' is not defined  no-undef
-  62:9  error  'propTypes' is not defined    no-undef
 
 /home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
-   92:9  error  'displayName' is not defined   no-undef
-   93:9  error  'propTypes' is not defined     no-undef
-  102:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
-  14:9  error  'displayName' is not defined   no-undef
-  15:9  error  'propTypes' is not defined     no-undef
-  19:9  error  'contextTypes' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
-  17:9  error  'displayName' is not defined   no-undef
-  18:9  error  'propTypes' is not defined     no-undef
-  21:9  error  'contextTypes' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.container.js
-  16:9  error  'displayName' is not defined   no-undef
-  18:9  error  'contextTypes' is not defined  no-undef
-  23:9  error  'propTypes' is not defined     no-undef
-  29:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
-  14:9  error  'displayName' is not defined   no-undef
-  16:9  error  'propTypes' is not defined     no-undef
-  31:9  error  'contextTypes' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
-  66:9  error  'displayName' is not defined   no-undef
-  67:9  error  'propTypes' is not defined     no-undef
-  78:9  error  'defaultProps' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
-  22:9  error  'displayName' is not defined  no-undef
-  23:9  error  'propTypes' is not defined    no-undef
-
-✖ 43 problems (43 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
