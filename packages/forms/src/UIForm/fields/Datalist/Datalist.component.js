@@ -20,18 +20,9 @@ const PROPS_TO_OMIT = [
 	't',
 ];
 
-const STATE_TO_OMIT = [
-	'added',
-];
+const STATE_TO_OMIT = ['added'];
 
-const SCHEMA_TO_OMIT = [
-	'type',
-	'triggers',
-	'title',
-	'titleMap',
-	'schema',
-];
-
+const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
 
 class Datalist extends Component {
 	constructor(props) {

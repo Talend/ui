@@ -11,10 +11,19 @@ import theme from './Typeahead.scss';
 
 const CARET = {
 	name: 'talend-caret-down',
-}
+};
 
 export function renderInputComponent(props) {
-	const { caret, key, debounceMinLength, debounceTimeout, isLoading, icon, inputRef, ...rest } = props;
+	const {
+		caret,
+		key,
+		debounceMinLength,
+		debounceTimeout,
+		isLoading,
+		icon,
+		inputRef,
+		...rest
+	} = props;
 
 	const renderedIcon = (
 		<div className={theme['icon-cls']}>
