@@ -468,13 +468,7 @@ describe('Datalist component', () => {
 
 	it('should instance.onFocus call props.onFocus', () => {
 		const onFocus = jest.fn();
-		const wrapper = shallow(
-			<Datalist
-				{...props}
-				onFocus={onFocus}
-				onChange={jest.fn()}
-			/>,
-		);
+		const wrapper = shallow(<Datalist {...props} onFocus={onFocus} onChange={jest.fn()} />);
 
 		// when
 		const event = { type: 'foo', target: { select: jest.fn() } };
