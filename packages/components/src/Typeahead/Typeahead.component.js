@@ -75,6 +75,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			readOnly: rest.readOnly,
 			value: rest.value,
 			icon,
+			isLoading: rest.isLoading,
+			caret: rest.caret,
 		},
 	};
 

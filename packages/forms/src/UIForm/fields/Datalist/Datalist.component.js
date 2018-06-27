@@ -1,16 +1,44 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
+import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+const PROPS_TO_OMIT = [
+	'classNames',
+	'schema',
+	'getComponent',
+	'errorMessage',
+	'isValid',
+	'onChange',
+	'onFinish',
+	'onTrigger',
+	't',
+];
+
+const STATE_TO_OMIT = [
+	'added',
+];
+
+const SCHEMA_TO_OMIT = [
+	'type',
+	'triggers',
+	'title',
+	'titleMap',
+	'schema',
+];
+
+
 class Datalist extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {};
 		this.onChange = this.onChange.bind(this);
+		this.onFocus = this.onFocus.bind(this);
 	}
 
 	/**
@@ -25,7 +53,57 @@ class Datalist extends Component {
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
+	onFocus(event) {
+		if (this.props.schema.triggers) {
+			this.props.schema.triggers.forEach(trigger => {
+				if (trigger.onEvent === 'focus') {
+					this.setState({ isLoading: true });
+					this.props.onTrigger(event, this.props).then(data => {
+						this.setState({
+							isLoading: false,
+							...data,
+						});
+					});
+				}
+			});
+		}
+	}
+
+	getTitleMap() {
+		let titleMap = [];
+		if (this.state.titleMap) {
+			titleMap = Array.from(this.state.titleMap);
+		} else if (this.props.schema.titleMap) {
+			titleMap = Array.from(this.props.schema.titleMap);
+		}
+		const isMultiple = this.isMultiple();
+		if (this.props.value && !isMultiple) {
+			if (!titleMap.find(option => option.value === this.props.value)) {
+				titleMap.push({ name: this.props.value, value: this.props.value });
+			}
+		} else if (this.props.value && isMultiple) {
+			this.props.value.forEach(value => {
+				if (!titleMap.find(option => option.value === value)) {
+					titleMap.push({ name: this.props.value, value: this.props.value });
+				}
+			});
+		}
+
+		return titleMap;
+	}
+
+	isMultiple() {
+		return this.props.schema.schema.type === 'array';
+	}
+
 	render() {
+		const props = omit(this.props, PROPS_TO_OMIT);
+		Object.assign(props, omit(this.state, STATE_TO_OMIT));
+		Object.assign(props, omit(this.props.schema, SCHEMA_TO_OMIT));
+		props.titleMap = this.getTitleMap();
+		if (props.id) {
+			props.id = `${props.id}-select`;
+		}
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -36,15 +114,11 @@ class Datalist extends Component {
 				required={this.props.schema.required}
 			>
 				<DataListComponent
-					autoFocus={this.props.schema.autoFocus || false}
-					id={`${this.props.id}`}
-					disabled={this.props.schema.disabled || false}
+					{...props}
+					input
 					multiSection={false}
 					onChange={this.onChange}
-					placeholder={this.props.schema.placeholder}
-					readOnly={this.props.schema.readOnly || false}
-					titleMap={this.props.schema.titleMap}
-					value={this.props.value}
+					onFocus={this.onFocus}
 				/>
 			</FieldTemplate>
 		);
@@ -63,7 +137,16 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+			}),
+			triggers: PropTypes.arrayOf(
+				PropTypes.shape({
+					onEvent: PropTypes.string,
+				}),
+			),
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,

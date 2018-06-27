@@ -9,15 +9,20 @@ import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
-export function renderInputComponent(props) {
-	const { key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
+const CARET = {
+	name: 'talend-caret-down',
+}
 
-	const renderedIcon = icon && (
+export function renderInputComponent(props) {
+	const { caret, key, debounceMinLength, debounceTimeout, isLoading, icon, inputRef, ...rest } = props;
+
+	const renderedIcon = (
 		<div className={theme['icon-cls']}>
-			<Icon name={icon.name} title={icon.title} />
+			{isLoading && <CircularProgress />}
+			{icon && <Icon {...icon} />}
+			{caret && <Icon {...CARET} />}
 		</div>
 	);
-
 	return (
 		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
 			<ControlLabel srOnly htmlFor={key}>

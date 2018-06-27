@@ -66,6 +66,9 @@ class Datalist extends Component {
 	 * @param event the focus event
 	 */
 	onFocus(event) {
+		if (this.props.onFocus) {
+			this.props.onFocus();
+		}
 		event.target.select();
 		this.updateSuggestions();
 		this.updateSelectedIndexes(this.state.value);
@@ -180,6 +183,9 @@ class Datalist extends Component {
 	 * @param titleMap the titleMap to use to create the label/value mapping.
 	 */
 	buildTitleMapping(titleMap) {
+		if (!titleMap) {
+			return {};
+		}
 		return titleMap.reduce((obj, item) => {
 			if (this.props.multiSection && item.title && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
@@ -329,31 +335,21 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
-
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
-					id={`${this.props.id}`}
-					autoFocus={this.props.autoFocus || false}
-					disabled={this.props.disabled || false}
-					focusedItemIndex={this.state.focusedItemIndex}
-					focusedSectionIndex={this.state.focusedSectionIndex}
+					{...this.props}
+					{...this.state}
 					items={this.state.suggestions}
-					multiSection={this.props.multiSection}
 					onBlur={this.onBlur}
 					onChange={this.onChange}
 					onFocus={this.onFocus}
 					onKeyDown={this.onKeyDown}
 					onSelect={this.onSelect}
-					placeholder={this.props.placeholder}
-					readOnly={this.props.readOnly || false}
 					theme={this.theme}
-					noResultText={this.props.noResultText}
 					value={label}
+					caret
 				/>
-				<div className={theme.toggle}>
-					<span className="caret" />
-				</div>
 			</div>
 		);
 	}
@@ -370,6 +366,7 @@ if (process.env.NODE_ENV !== 'production') {
 		autoFocus: PropTypes.bool,
 		id: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFocus: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
 		noResultText: PropTypes.string,
