@@ -41,6 +41,11 @@ class Datalist extends Component {
 		this.onFocus = this.onFocus.bind(this);
 	}
 
+	componentDidMount() {
+		if (this.props.value && !this.props.schema.titleMap) {
+			this.onFocus({ type: 'mount' });
+		}
+	}
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
