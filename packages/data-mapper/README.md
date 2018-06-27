@@ -9,11 +9,11 @@ You will find a [list of breaking changes here](https://github.com/Talend/ui/wik
 ## Basic usage
 
 ```shell
-yarn add @talend/data-mapper
+yarn add @talend/react-data-mapper
 ```
 
 ```javascript
-import DataMapper from '@talend/data-mapper';
+import DataMapper from '@talend/react-data-mapper';
 ```
 
 ## DataMapper Component
