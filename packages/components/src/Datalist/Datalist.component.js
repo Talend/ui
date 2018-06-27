@@ -77,7 +77,7 @@ class Datalist extends Component {
 	 */
 	onFocus(event) {
 		if (this.props.onFocus) {
-			this.props.onFocus();
+			this.props.onFocus(event);
 		}
 		event.target.select();
 		this.updateSuggestions();
@@ -193,9 +193,6 @@ class Datalist extends Component {
 	 * @param titleMap the titleMap to use to create the label/value mapping.
 	 */
 	buildTitleMapping(titleMap) {
-		if (!titleMap) {
-			return {};
-		}
 		return titleMap.reduce((obj, item) => {
 			if (this.props.multiSection && item.title && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
@@ -369,6 +366,7 @@ Datalist.displayName = 'Datalist component';
 Datalist.defaultProps = {
 	value: '',
 	restricted: false,
+	multiSection: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {

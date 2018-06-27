@@ -20,8 +20,6 @@ const PROPS_TO_OMIT = [
 	't',
 ];
 
-const STATE_TO_OMIT = ['added'];
-
 const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
 
 class Datalist extends Component {
@@ -94,7 +92,7 @@ class Datalist extends Component {
 
 	render() {
 		const props = omit(this.props, PROPS_TO_OMIT);
-		Object.assign(props, omit(this.state, STATE_TO_OMIT));
+		Object.assign(props, this.state);
 		Object.assign(props, omit(this.props.schema, SCHEMA_TO_OMIT));
 		props.titleMap = this.getTitleMap();
 		if (props.id) {
