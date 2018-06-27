@@ -158,6 +158,23 @@ form {
 		}
 	}
 
+	.switch .checkbox,
+	.checkbox.switch,
+	.checkbox.switch-nested {
+		label:hover {
+			input[type=checkbox] + span {
+				color: $scooter;
+			}
+		}
+		&.disabled label {
+			&:hover {
+				input[type=checkbox] + span {
+					color: inherit;
+				}
+			}
+		}
+	}
+
 	.radio,
 	.radio-inline,
 	.checkbox,
@@ -168,6 +185,9 @@ form {
 			padding-left: 25px;
 			font-size: 16px;
 			color: $dove-gray;
+			&:hover {
+				color: $scooter;
+			}
 		}
 
 		input[type='radio'],
@@ -179,6 +199,9 @@ form {
 
 		&.disabled label {
 			opacity: 0.4;
+			&:hover {
+				color: inherit;
+			}
 		}
 	}
 
