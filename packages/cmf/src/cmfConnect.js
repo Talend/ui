@@ -44,6 +44,7 @@ import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
+import uuid from 'uuid';
 
 let newState;
 
@@ -255,12 +256,19 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
+				this.state = {
+					componentUuid: uuid.v4(),
+				};
 			}
 
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.start',
+						{ type: 'DID_MOUNT', componentUuid: this.state.componentUuid },
+						this.props,
+					);
 				}
 				if (this.props.didMountActionCreator) {
 					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
@@ -279,7 +287,11 @@ export default function cmfConnect({
 					this.props.deleteState(this.props.initialState);
 				}
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.stop',
+						{ type: 'WILL_UNMOUNT', componentUuid: this.state.componentUuid },
+						this.props,
+					);
 				}
 			}
 

@@ -33,8 +33,14 @@ export function* onSagaStart(action) {
 		);
 	} else {
 		const task = yield fork(saga, action.props);
-		yield take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_${action.saga}`);
-		yield cancel(task);
+		// eslint-disable-next-line no-constant-condition
+		while (true) {
+			const stopAction = yield take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_${action.saga}`);
+
+			if (stopAction.event.componentUuid === action.event.componentUuid) {
+				yield cancel(task);
+			}
+		}
 	}
 }
 
