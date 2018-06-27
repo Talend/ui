@@ -192,7 +192,7 @@ exports[`Items should render 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -221,7 +221,7 @@ exports[`Items should render 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         isSwitchBox={false}
                         item={
@@ -255,9 +255,9 @@ exports[`Items should render 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -272,7 +272,7 @@ exports[`Items should render 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -303,7 +303,7 @@ exports[`Items should render 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         isSwitchBox={false}
                         item={
@@ -338,9 +338,9 @@ exports[`Items should render 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -355,7 +355,7 @@ exports[`Items should render 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -384,7 +384,7 @@ exports[`Items should render 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         isSwitchBox={false}
                         item={
@@ -418,9 +418,9 @@ exports[`Items should render 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
               </div>
             </div>
@@ -651,7 +651,7 @@ exports[`Items should render with nested items 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -680,7 +680,7 @@ exports[`Items should render with nested items 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         isSwitchBox={false}
                         item={
@@ -714,9 +714,9 @@ exports[`Items should render with nested items 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -731,7 +731,7 @@ exports[`Items should render with nested items 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -786,7 +786,7 @@ exports[`Items should render with nested items 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         isSwitchBox={false}
                         item={
@@ -938,9 +938,9 @@ exports[`Items should render with nested items 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
               </div>
             </div>
@@ -1145,7 +1145,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     id="my-widget-1-item"
                     isSwitchBox={false}
                     item={
@@ -1177,7 +1177,7 @@ exports[`Items should render with provided id 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         id="my-widget-1-item"
                         isSwitchBox={false}
@@ -1217,9 +1217,9 @@ exports[`Items should render with provided id 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -1234,7 +1234,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     id="my-widget-2-item"
                     isSwitchBox={false}
                     item={
@@ -1268,7 +1268,7 @@ exports[`Items should render with provided id 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         id="my-widget-2-item"
                         isSwitchBox={false}
@@ -1309,9 +1309,9 @@ exports[`Items should render with provided id 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -1326,7 +1326,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   }
                 >
-                  <Translate(Item)
+                  <Translate(ItemComponent)
                     id="my-widget-3-item"
                     isSwitchBox={false}
                     item={
@@ -1358,7 +1358,7 @@ exports[`Items should render with provided id 1`] = `
                       wait={false}
                       withRef={false}
                     >
-                      <Item
+                      <ItemComponent
                         i18n={Object {}}
                         id="my-widget-3-item"
                         isSwitchBox={false}
@@ -1398,9 +1398,9 @@ exports[`Items should render with provided id 1`] = `
                             </div>
                           </div>
                         </div>
-                      </Item>
+                      </ItemComponent>
                     </I18n>
-                  </Translate(Item)>
+                  </Translate(ItemComponent)>
                 </div>
               </div>
             </div>
