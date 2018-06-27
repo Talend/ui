@@ -39,7 +39,7 @@
     "@storybook/addon-a11y": "^3.4.7",
     "@storybook/addon-actions": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/eslint-config": "1.0.0",
+    "@talend/eslint-config": "2.0.0",
     "@talend/icons": "^0.197.0",
     "@talend/react-components": "^0.197.0",
     "@talend/react-storybook-cmf": "^0.197.0",

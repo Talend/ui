@@ -42,7 +42,7 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "@talend/eslint-config": "1.0.0",
+    "@talend/eslint-config": "2.0.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.14.0",

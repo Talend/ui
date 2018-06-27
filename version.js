@@ -117,7 +117,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@talend/eslint-config': '1.0.0',
+	'@talend/eslint-config': '2.0.0',
 	'@storybook/react': '^3.4.7',
 	'@storybook/addon-storyshots': '^3.4.7',
 	'@storybook/addon-actions': '^3.4.7',
@@ -211,7 +211,9 @@ function check(source, dep, version, category = 'dep') {
 	let modified = false;
 	if (source && source[dep] && source[dep] !== safeVersion) {
 		if (dep === 'react' && category === 'dep') {
-			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
+			console.warn(
+				'WARNING: react and react-dom should always be added as peer dependencies in library',
+			);
 		}
 		if (!program.quiet) {
 			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);

@@ -57,7 +57,7 @@
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
-    "@talend/eslint-config": "1.0.0",
+    "@talend/eslint-config": "2.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "20.0.3",
