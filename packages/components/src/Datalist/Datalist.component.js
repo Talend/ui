@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import omit from 'lodash/omit';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
@@ -9,6 +10,15 @@ import theme from './Datalist.scss';
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
+const PROPS_TO_OMIT = [
+	'restricted',
+	'titleMap',
+];
+const STATE_TO_OMIT = [
+	'previousValue',
+	'titleMapping',
+];
 
 class Datalist extends Component {
 	constructor(props) {
@@ -338,8 +348,8 @@ class Datalist extends Component {
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
-					{...this.props}
-					{...this.state}
+					{...omit(this.props, PROPS_TO_OMIT)}
+					{...omit(this.state, STATE_TO_OMIT)}
 					items={this.state.suggestions}
 					onBlur={this.onBlur}
 					onChange={this.onChange}

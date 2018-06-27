@@ -25,6 +25,7 @@ export function renderInputComponent(props) {
 		...rest
 	} = props;
 
+	const hasIcon = isLoading || icon || caret;
 	const renderedIcon = (
 		<div className={theme['icon-cls']}>
 			{isLoading && <CircularProgress />}
@@ -50,7 +51,7 @@ export function renderInputComponent(props) {
 			) : (
 				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
 			)}
-			{renderedIcon}
+			{hasIcon && renderedIcon}
 		</div>
 	);
 }
