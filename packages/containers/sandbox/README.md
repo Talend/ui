@@ -2,7 +2,7 @@
 
 This app is aiming to help demonstrate `ui/container` containers in an environement where we can run a `cmf` app and mock a backend.
 
-It can also be used as a developement environement.
+It can also be used as a development environment.
 
 ## How to use
 
