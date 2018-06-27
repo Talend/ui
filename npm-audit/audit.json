@@ -1,0 +1,544 @@
+{
+  "actions": [
+    {
+      "action": "install",
+      "module": "webpack-dashboard",
+      "target": "2.0.0",
+      "isMajor": true,
+      "resolves": [
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>engine.io>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>socket.io-adapter>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>socket.io-client>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>socket.io-client>engine.io-client>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io-client>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io-client>engine.io-client>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>socket.io-adapter>socket.io-parser>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>socket.io-client>socket.io-parser>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io>socket.io-parser>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 534,
+          "path": "webpack-dashboard>socket.io-client>socket.io-parser>debug",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 528,
+          "path": "webpack-dashboard>socket.io>socket.io-client>engine.io-client>parsejson",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 528,
+          "path": "webpack-dashboard>socket.io-client>engine.io-client>parsejson",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "action": "review",
+      "module": "hoek",
+      "resolves": [
+        {
+          "id": 566,
+          "path": "node-sass>node-gyp>request>hawk>boom>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>node-gyp>request>hawk>cryptiles>boom>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>node-gyp>request>hawk>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>node-gyp>request>hawk>sntp>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>request>hawk>boom>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>request>hawk>cryptiles>boom>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>request>hawk>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 566,
+          "path": "node-sass>request>hawk>sntp>hoek",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "action": "review",
+      "module": "handlebars",
+      "resolves": [
+        {
+          "id": 61,
+          "path": "fontgen-loader>webfonts-generator>handlebars",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "action": "review",
+      "module": "tunnel-agent",
+      "resolves": [
+        {
+          "id": 598,
+          "path": "node-sass>request>tunnel-agent",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "action": "review",
+      "module": "uglify-js",
+      "resolves": [
+        {
+          "id": 39,
+          "path": "fontgen-loader>webfonts-generator>handlebars>uglify-js",
+          "dev": false,
+          "optional": true,
+          "bundled": false
+        },
+        {
+          "id": 48,
+          "path": "fontgen-loader>webfonts-generator>handlebars>uglify-js",
+          "dev": false,
+          "optional": true,
+          "bundled": false
+        }
+      ]
+    }
+  ],
+  "advisories": {
+    "39": {
+      "findings": [
+        {
+          "version": "2.3.6",
+          "paths": [
+            "fontgen-loader>webfonts-generator>handlebars>uglify-js"
+          ],
+          "dev": false,
+          "optional": true,
+          "bundled": false
+        }
+      ],
+      "id": 39,
+      "created": "2015-10-17T19:41:46.382Z",
+      "updated": "2018-02-24T00:13:52.640Z",
+      "deleted": null,
+      "title": "Incorrect Handling of Non-Boolean Comparisons During Minification",
+      "found_by": {
+        "name": "Tom MacWright"
+      },
+      "reported_by": {
+        "name": "Tom MacWright"
+      },
+      "module_name": "uglify-js",
+      "cves": [
+        "CVE-2015-8857"
+      ],
+      "vulnerable_versions": "<= 2.4.23",
+      "patched_versions": ">= 2.4.24",
+      "overview": "Versions of `uglify-js` prior to 2.4.24 are affected by a vulnerability which may cause crafted JavaScript to have altered functionality after minification.\n\n",
+      "recommendation": "Upgrade UglifyJS to version >= 2.4.24.",
+      "references": "[Backdooring JS - Yan Zhu(@bcrypt)](https://zyan.scripts.mit.edu[Backdooring JS - Yan Zhu(@bcrypt)]/blog/backdooring-js/)\n[Issue #751](https://github.com/mishoo/UglifyJS2/issues/751)",
+      "access": "public",
+      "severity": "low",
+      "cwe": "CWE-95",
+      "metadata": {
+        "module_type": "Multi.Compiler",
+        "exploitability": 2,
+        "affected_components": ""
+      },
+      "url": "https://nodesecurity.io/advisories/39"
+    },
+    "48": {
+      "findings": [
+        {
+          "version": "2.3.6",
+          "paths": [
+            "fontgen-loader>webfonts-generator>handlebars>uglify-js"
+          ],
+          "dev": false,
+          "optional": true,
+          "bundled": false
+        }
+      ],
+      "id": 48,
+      "created": "2015-10-24T17:58:34.232Z",
+      "updated": "2018-02-24T00:59:58.129Z",
+      "deleted": null,
+      "title": "Regular Expression Denial of Service",
+      "found_by": {
+        "name": "Adam Baldwin"
+      },
+      "reported_by": {
+        "name": "Adam Baldwin"
+      },
+      "module_name": "uglify-js",
+      "cves": [
+        "CVE-2015-8858"
+      ],
+      "vulnerable_versions": "<2.6.0",
+      "patched_versions": ">=2.6.0",
+      "overview": "Versions of `uglify-js` prior to 2.6.0 are affected by a regular expression denial of service vulnerability when malicious inputs are passed into the `parse()` method.\n\n\n### Proof of Concept\n\n```\nvar u = require('uglify-js');\nvar genstr = function (len, chr) {\n    var result = \"\";\n    for (i=0; i<=len; i++) {\n        result = result + chr;\n    }\n\n    return result;\n}\n\nu.parse(\"var a = \" + genstr(process.argv[2], \"1\") + \".1ee7;\");\n```\n\n### Results\n```\n$ time node test.js 10000\nreal\t0m1.091s\nuser\t0m1.047s\nsys\t0m0.039s\n\n$ time node test.js 80000\nreal\t0m6.486s\nuser\t0m6.229s\nsys\t0m0.094s\n```",
+      "recommendation": "Update to version 2.6.0 or later.",
+      "references": "",
+      "access": "public",
+      "severity": "low",
+      "cwe": "CWE-400",
+      "metadata": {
+        "module_type": "CLI.Compiler",
+        "exploitability": 3,
+        "affected_components": "Internal::Code::Method::parse([*])"
+      },
+      "url": "https://nodesecurity.io/advisories/48"
+    },
+    "61": {
+      "findings": [
+        {
+          "version": "2.0.0",
+          "paths": [
+            "fontgen-loader>webfonts-generator>handlebars"
+          ],
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 61,
+      "created": "2015-12-14T16:51:56.173Z",
+      "updated": "2018-02-26T21:54:19.267Z",
+      "deleted": null,
+      "title": "Cross-Site Scripting",
+      "found_by": {
+        "name": "Matias P. Brutti"
+      },
+      "reported_by": {
+        "name": "Matias P. Brutti"
+      },
+      "module_name": "handlebars",
+      "cves": [
+        "CVE-2015-8861"
+      ],
+      "vulnerable_versions": "<4.0.0",
+      "patched_versions": ">=4.0.0",
+      "overview": "Versions of `handlebars` prior to 4.0.0 are affected by a cross-site scripting vulnerability when attributes in handlebar templates are not quoted.\n\n\n## Proof of Concept\nTemplate:\n```<a href={{foo}}/>```\n\nInput:\n```{ 'foo' : 'test.com onload=alert(1)'}```\n\nRendered result:\n```<a href=test.com onload=alert(1)/>```",
+      "recommendation": "Update to version 4.0.0 or later.\nAlternatively, ensure that all attributes in handlebars templates are encapsulated with quotes.",
+      "references": "[SourceClear - Handlebars Research Findings](https://blog.srcclr.com/handlebars_vulnerability_research_findings/)\n[PR #1083](https://github.com/wycats/handlebars.js/pull/1083)",
+      "access": "public",
+      "severity": "high",
+      "cwe": "CWE-79",
+      "metadata": {
+        "module_type": "Network.Library",
+        "exploitability": 7,
+        "affected_components": ""
+      },
+      "url": "https://nodesecurity.io/advisories/61"
+    },
+    "528": {
+      "findings": [
+        {
+          "version": "0.0.3",
+          "paths": [
+            "webpack-dashboard>socket.io>socket.io-client>engine.io-client>parsejson",
+            "webpack-dashboard>socket.io-client>engine.io-client>parsejson"
+          ],
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 528,
+      "created": "2017-09-08T20:43:02.594Z",
+      "updated": "2018-04-09T00:18:57.149Z",
+      "deleted": null,
+      "title": "Regular Expression Denial of Service",
+      "found_by": {
+        "name": "Cristian-Alexandru Staicu"
+      },
+      "reported_by": {
+        "name": "Cristian-Alexandru Staicu"
+      },
+      "module_name": "parsejson",
+      "cves": [
+        "CVE-2017-16113"
+      ],
+      "vulnerable_versions": "<=0.0.3",
+      "patched_versions": "<0.0.0",
+      "overview": "Affected versions of `parsejson` are vulnerable to a regular expression denial of service when parsing untrusted user input.",
+      "recommendation": "The `parsejson` package has not been functionally updated since it was initially released.\n\nAdditionally, it provides functionality which is natively included in Node.js, and therefore the native `JSON.parse()` should be used, for both performance and security reasons.",
+      "references": "[Issue #4](https://github.com/get/parsejson/issues/4)",
+      "access": "public",
+      "severity": "high",
+      "cwe": "CWE-400",
+      "metadata": {
+        "module_type": "",
+        "exploitability": 5,
+        "affected_components": ""
+      },
+      "url": "https://nodesecurity.io/advisories/528"
+    },
+    "534": {
+      "findings": [
+        {
+          "version": "2.3.3",
+          "paths": [
+            "webpack-dashboard>socket.io>debug",
+            "webpack-dashboard>socket.io>engine.io>debug",
+            "webpack-dashboard>socket.io>socket.io-adapter>debug",
+            "webpack-dashboard>socket.io>socket.io-client>debug",
+            "webpack-dashboard>socket.io>socket.io-client>engine.io-client>debug",
+            "webpack-dashboard>socket.io-client>debug",
+            "webpack-dashboard>socket.io-client>engine.io-client>debug"
+          ],
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "version": "2.2.0",
+          "paths": [
+            "webpack-dashboard>socket.io>socket.io-adapter>socket.io-parser>debug",
+            "webpack-dashboard>socket.io>socket.io-client>socket.io-parser>debug",
+            "webpack-dashboard>socket.io>socket.io-parser>debug",
+            "webpack-dashboard>socket.io-client>socket.io-parser>debug"
+          ],
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 534,
+      "created": "2017-09-25T18:55:55.956Z",
+      "updated": "2018-05-16T19:37:43.686Z",
+      "deleted": null,
+      "title": "Regular Expression Denial of Service",
+      "found_by": {
+        "name": "Cristian-Alexandru Staicu"
+      },
+      "reported_by": {
+        "name": "Cristian-Alexandru Staicu"
+      },
+      "module_name": "debug",
+      "cves": [
+        "CVE-2017-16137"
+      ],
+      "vulnerable_versions": "<= 2.6.8 || >= 3.0.0 <= 3.0.1",
+      "patched_versions": ">= 2.6.9 < 3.0.0 || >= 3.1.0",
+      "overview": "Affected versions of `debug` are vulnerable to regular expression denial of service when untrusted user input is passed into the `o` formatter. \n\nAs it takes 50,000 characters to block the event loop for 2 seconds, this issue is a low severity issue.",
+      "recommendation": "Version 2.x.x: Update to version 2.6.9 or later.\nVersion 3.x.x: Update to version 3.1.0 or later.\n",
+      "references": "- [Issue #501](https://github.com/visionmedia/debug/issues/501)\n- [PR #504](https://github.com/visionmedia/debug/pull/504)",
+      "access": "public",
+      "severity": "low",
+      "cwe": "CWE-400",
+      "metadata": {
+        "module_type": "",
+        "exploitability": 5,
+        "affected_components": ""
+      },
+      "url": "https://nodesecurity.io/advisories/534"
+    },
+    "566": {
+      "findings": [
+        {
+          "version": "2.16.3",
+          "paths": [
+            "node-sass>node-gyp>request>hawk>boom>hoek",
+            "node-sass>node-gyp>request>hawk>cryptiles>boom>hoek",
+            "node-sass>node-gyp>request>hawk>hoek",
+            "node-sass>node-gyp>request>hawk>sntp>hoek",
+            "node-sass>request>hawk>boom>hoek",
+            "node-sass>request>hawk>cryptiles>boom>hoek",
+            "node-sass>request>hawk>hoek",
+            "node-sass>request>hawk>sntp>hoek"
+          ],
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 566,
+      "created": "2018-04-20T21:25:58.421Z",
+      "updated": "2018-04-20T21:25:58.421Z",
+      "deleted": null,
+      "title": "Prototype pollution",
+      "found_by": {
+        "name": "HoLyVieR"
+      },
+      "reported_by": {
+        "name": "HoLyVieR"
+      },
+      "module_name": "hoek",
+      "cves": [],
+      "vulnerable_versions": "<= 4.2.0 || >= 5.0.0 < 5.0.3",
+      "patched_versions": "> 4.2.0 < 5.0.0 || >= 5.0.3",
+      "overview": "Versions of `hoek` prior to 4.2.1 and 5.0.3 are vulnerable to prototype pollution.\n\nThe `merge` function, and the `applyToDefaults` and `applyToDefaultsWithShallow` functions which leverage `merge` behind the scenes, are vulnerable to a prototype pollution attack when provided an _unvalidated_ payload created from a JSON string containing the `__proto__` property.\n\nThis can be demonstrated like so:\n\n```javascript\nvar Hoek = require('hoek');\nvar malicious_payload = '{\"__proto__\":{\"oops\":\"It works !\"}}';\n\nvar a = {};\nconsole.log(\"Before : \" + a.oops);\nHoek.merge({}, JSON.parse(malicious_payload));\nconsole.log(\"After : \" + a.oops);\n```\n\nThis type of attack can be used to overwrite existing properties causing a potential denial of service.",
+      "recommendation": "Update to version 4.2.1, 5.0.3 or later.",
+      "references": "",
+      "access": "public",
+      "severity": "moderate",
+      "cwe": "CWE-471",
+      "metadata": {
+        "module_type": "",
+        "exploitability": 5,
+        "affected_components": ""
+      },
+      "url": "https://nodesecurity.io/advisories/566"
+    },
+    "598": {
+      "findings": [
+        {
+          "version": "0.4.3",
+          "paths": [
+            "node-sass>request>tunnel-agent"
+          ],
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 598,
+      "created": "2018-04-24T20:30:16.099Z",
+      "updated": "2018-04-24T20:31:15.816Z",
+      "deleted": null,
+      "title": "Memory Exposure",
+      "found_by": {
+        "name": "Сковорода Никита Андреевич"
+      },
+      "reported_by": {
+        "name": "Сковорода Никита Андреевич"
+      },
+      "module_name": "tunnel-agent",
+      "cves": [],
+      "vulnerable_versions": "<0.6.0",
+      "patched_versions": ">=0.6.0",
+      "overview": "Versions of `tunnel-agent` before 0.6.0 are vulnerable to memory exposure.\n\nThis is exploitable if user supplied input is provided to the auth value and is a number.\n\nProof-of-concept:\n```js\nrequire('request')({\n  method: 'GET',\n  uri: 'http://www.example.com',\n  tunnel: true,\n  proxy:{\n    protocol: 'http:',\n    host:'127.0.0.1',\n    port:8080,\n    auth:USERSUPPLIEDINPUT // number\n  }\n});\n```",
+      "recommendation": "Update to version 0.6.0 or later.",
+      "references": "- [GitHub Commit #9ca95ec](https://github.com/request/tunnel-agent/commit/9ca95ec7219daface8a6fc2674000653de0922c0)\n- [Proof of Concept](https://gist.github.com/ChALkeR/fd6b2c445834244e7d440a043f9d2ff4)",
+      "access": "public",
+      "severity": "moderate",
+      "cwe": "CWE-20",
+      "metadata": {
+        "module_type": "",
+        "exploitability": 3,
+        "affected_components": ""
+      },
+      "url": "https://nodesecurity.io/advisories/598"
+    }
+  },
+  "muted": [],
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 13,
+      "moderate": 9,
+      "high": 3,
+      "critical": 0
+    },
+    "dependencies": 33609,
+    "devDependencies": 0,
+    "optionalDependencies": 728,
+    "totalDependencies": 34337
+  },
+  "runId": "132c4b86-ddc2-4d63-b7c6-45c8495fd14e"
+}
