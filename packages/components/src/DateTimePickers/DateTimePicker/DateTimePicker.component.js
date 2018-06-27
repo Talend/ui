@@ -17,7 +17,6 @@ class DateTimePicker extends React.Component {
 				monthIndex: now.getMonth(),
 				year: now.getFullYear(),
 			},
-			selectedDate: undefined,
 		};
 
 		this.setDateTimeView = this.setView.bind(this, true);
@@ -41,9 +40,9 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
-	onSelectCalendarMonth(calendarMonthIndex) {
+	onSelectCalendarMonth(index) {
 		this.onSelectCalendarMonthYear({
-			monthIndex: calendarMonthIndex,
+			monthIndex: index,
 		});
 	}
 

@@ -538,7 +538,7 @@ describe('DatePicker', () => {
 			const sequenceExpected = sequence.map(day => day[0].toUpperCase());
 
 			const sequenceRendered = wrapper
-				.find('.theme-calendar-header-row .theme-calendar-item')
+				.find('.theme-calendar-header .theme-calendar-item')
 				.map(item => item.text());
 
 			expect(sequenceRendered).toEqual(sequenceExpected);

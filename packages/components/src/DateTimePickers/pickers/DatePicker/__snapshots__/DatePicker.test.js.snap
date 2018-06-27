@@ -8,7 +8,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
     className="theme-calendar-header"
   >
     <div
-      className="theme-calendar-row theme-calendar-header-row"
+      className="theme-calendar-row"
     >
       <abbr
         className="theme-calendar-item"

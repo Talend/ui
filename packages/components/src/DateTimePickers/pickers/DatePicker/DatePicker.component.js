@@ -104,7 +104,7 @@ class DatePicker extends React.Component {
 		return (
 			<div className={theme.container}>
 				<div className={theme['calendar-header']}>
-					<div className={classNames(theme['calendar-row'], theme['calendar-header-row'])}>
+					<div className={classNames(theme['calendar-row'])}>
 						{dayNames.map((dayName, i) =>
 							<abbr
 								className={theme['calendar-item']}
