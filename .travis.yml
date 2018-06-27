@@ -45,9 +45,9 @@ matrix:
         - .travis/before_script_icons.sh
       script:
         - yarn install
-        - yarn audit
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
+        - yarn audit
         - .travis/after_success_prettier.sh
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
