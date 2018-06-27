@@ -174,7 +174,7 @@ exports[`Items should render 1`] = `
                         type="checkbox"
                       />
                       <strong>
-                        Toggle all
+                        Select all
                       </strong>
                     </label>
                   </div>
@@ -192,7 +192,7 @@ exports[`Items should render 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -200,28 +200,64 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 0",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
+                    >
+                      <Item
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 0",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
-                        <div
-                          className="checkbox"
-                        >
-                          <label>
-                            <input
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                        <div>
+                          <div
+                            className="checkbox-container"
+                          >
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor sit amet 0
-                            </span>
-                          </label>
+                              <label>
+                                <input
+                                  aria-label="Select Lorem ipsum dolor sit amet 0"
+                                  checked={false}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor sit amet 0
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -236,7 +272,7 @@ exports[`Items should render 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -245,29 +281,66 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "label": "Lorem ipsum dolor sit amet 1",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
+                    >
+                      <Item
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "label": "Lorem ipsum dolor sit amet 1",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
-                        <div
-                          className="checkbox"
-                        >
-                          <label>
-                            <input
-                              checked={true}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                        <div>
+                          <div
+                            className="checkbox-container"
+                          >
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor sit amet 1
-                            </span>
-                          </label>
+                              <label>
+                                <input
+                                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                  checked={true}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor sit amet 1
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -282,7 +355,7 @@ exports[`Items should render 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -290,28 +363,64 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 2",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
+                    >
+                      <Item
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 2",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
-                        <div
-                          className="checkbox"
-                        >
-                          <label>
-                            <input
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                        <div>
+                          <div
+                            className="checkbox-container"
+                          >
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor sit amet 2
-                            </span>
-                          </label>
+                              <label>
+                                <input
+                                  aria-label="Select Lorem ipsum dolor sit amet 2"
+                                  checked={false}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor sit amet 2
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
               </div>
             </div>
@@ -524,7 +633,7 @@ exports[`Items should render with nested items 1`] = `
                         type="checkbox"
                       />
                       <strong>
-                        Toggle all
+                        Select all
                       </strong>
                     </label>
                   </div>
@@ -542,7 +651,7 @@ exports[`Items should render with nested items 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -550,28 +659,64 @@ exports[`Items should render with nested items 1`] = `
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor default",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
+                    >
+                      <Item
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor default",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
-                        <div
-                          className="checkbox"
-                        >
-                          <label>
-                            <input
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                        <div>
+                          <div
+                            className="checkbox-container"
+                          >
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor default
-                            </span>
-                          </label>
+                              <label>
+                                <input
+                                  aria-label="Select Lorem ipsum dolor default"
+                                  checked={false}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor default
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -586,7 +731,7 @@ exports[`Items should render with nested items 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     isSwitchBox={false}
                     item={
                       Object {
@@ -607,118 +752,195 @@ exports[`Items should render with nested items 1`] = `
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "children": Array [
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            },
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            },
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            },
+                          ],
+                          "label": "Lorem ipsum dolor Parent",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
+                    >
+                      <Item
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "children": Array [
+                              Object {
+                                "label": "Lorem ipsum dolor sit amet 0",
+                              },
+                              Object {
+                                "checked": true,
+                                "label": "Lorem ipsum dolor sit amet 1",
+                              },
+                              Object {
+                                "label": "Lorem ipsum dolor sit amet 2",
+                              },
+                            ],
+                            "label": "Lorem ipsum dolor Parent",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
-                        <div
-                          className="checkbox switch-nested"
-                        >
-                          <label>
-                            <input
-                              checked={true}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
-                            >
-                              Lorem ipsum dolor Parent
-                            </span>
-                          </label>
+                        <div>
                           <div
-                            className="checkbox-nested-expand"
+                            className="checkbox-container"
                           >
-                            <Action
-                              bsStyle="link"
-                              icon="talend-caret-down"
-                              onClick={[Function]}
+                            <div
+                              className="checkbox switch-nested"
                             >
-                              <Translate(ActionButton)
-                                bsStyle="link"
-                                icon="talend-caret-down"
-                                onClick={[Function]}
-                              >
-                                <I18n
-                                  bindI18n="languageChanged loaded"
-                                  bindStore="added removed"
-                                  bsStyle="link"
-                                  i18n={Object {}}
-                                  icon="talend-caret-down"
-                                  ns={
-                                    Array [
-                                      "tui-components",
-                                    ]
-                                  }
-                                  nsMode="default"
-                                  onClick={[Function]}
-                                  translateFuncName="t"
-                                  usePureComponent={false}
-                                  wait={false}
-                                  withRef={false}
+                              <label>
+                                <input
+                                  aria-label="Deselect Lorem ipsum dolor Parent"
+                                  checked={true}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
                                 >
-                                  <ActionButton
-                                    available={true}
+                                  Lorem ipsum dolor Parent
+                                </span>
+                              </label>
+                              <div
+                                className="checkbox-nested-expand"
+                              >
+                                <Action
+                                  bsStyle="link"
+                                  hideLabel={true}
+                                  icon="talend-caret-down"
+                                  label="Expand Lorem ipsum dolor Parent"
+                                  onClick={[Function]}
+                                >
+                                  <Translate(ActionButton)
                                     bsStyle="link"
-                                    disabled={false}
-                                    i18n={Object {}}
+                                    hideLabel={true}
                                     icon="talend-caret-down"
-                                    inProgress={false}
-                                    loading={false}
+                                    label="Expand Lorem ipsum dolor Parent"
                                     onClick={[Function]}
-                                    t={[Function]}
-                                    tReady={false}
-                                    tooltipPlacement="top"
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
+                                    <I18n
+                                      bindI18n="languageChanged loaded"
+                                      bindStore="added removed"
                                       bsStyle="link"
-                                      className="btn-icon-only"
-                                      disabled={false}
+                                      hideLabel={true}
+                                      i18n={Object {}}
+                                      icon="talend-caret-down"
+                                      label="Expand Lorem ipsum dolor Parent"
+                                      ns={
+                                        Array [
+                                          "tui-components",
+                                        ]
+                                      }
+                                      nsMode="default"
                                       onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role={null}
+                                      translateFuncName="t"
+                                      usePureComponent={false}
+                                      wait={false}
+                                      withRef={false}
                                     >
-                                      <button
-                                        className="btn-icon-only btn btn-link"
+                                      <ActionButton
+                                        available={true}
+                                        bsStyle="link"
                                         disabled={false}
+                                        hideLabel={true}
+                                        i18n={Object {}}
+                                        icon="talend-caret-down"
+                                        inProgress={false}
+                                        label="Expand Lorem ipsum dolor Parent"
+                                        loading={false}
                                         onClick={[Function]}
-                                        onMouseDown={[Function]}
-                                        role={null}
-                                        type="button"
+                                        t={[Function]}
+                                        tReady={false}
+                                        tooltipPlacement="top"
                                       >
-                                        <Icon
-                                          key="icon"
-                                          name="talend-caret-down"
+                                        <TooltipTrigger
+                                          label="Expand Lorem ipsum dolor Parent"
+                                          tooltipPlacement="top"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-caret-down"
-                                            title={null}
+                                          <Button
+                                            active={false}
+                                            aria-label="Expand Lorem ipsum dolor Parent"
+                                            block={false}
+                                            bsClass="btn"
+                                            bsStyle="link"
+                                            className="btn-icon-only"
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseDown={[Function]}
+                                            onMouseOver={[Function]}
+                                            role={null}
                                           >
-                                            <use
-                                              xlinkHref="#talend-caret-down"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                        <span
-                                          key="label"
-                                        />
-                                      </button>
-                                    </Button>
-                                  </ActionButton>
-                                </I18n>
-                              </Translate(ActionButton)>
-                            </Action>
+                                            <button
+                                              aria-label="Expand Lorem ipsum dolor Parent"
+                                              className="btn-icon-only btn btn-link"
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              onFocus={[Function]}
+                                              onMouseDown={[Function]}
+                                              onMouseOver={[Function]}
+                                              role={null}
+                                              type="button"
+                                            >
+                                              <Icon
+                                                key="icon"
+                                                name="talend-caret-down"
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  className="theme-tc-svg-icon tc-svg-icon"
+                                                  focusable="false"
+                                                  name="talend-caret-down"
+                                                  title={null}
+                                                >
+                                                  <use
+                                                    xlinkHref="#talend-caret-down"
+                                                  />
+                                                </svg>
+                                              </Icon>
+                                            </button>
+                                          </Button>
+                                        </TooltipTrigger>
+                                      </ActionButton>
+                                    </I18n>
+                                  </Translate(ActionButton)>
+                                </Action>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
               </div>
             </div>
@@ -905,7 +1127,7 @@ exports[`Items should render with provided id 1`] = `
                         type="checkbox"
                       />
                       <strong>
-                        Toggle all
+                        Select all
                       </strong>
                     </label>
                   </div>
@@ -923,7 +1145,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     id="my-widget-1-item"
                     isSwitchBox={false}
                     item={
@@ -933,33 +1155,71 @@ exports[`Items should render with provided id 1`] = `
                     }
                     key="my-widget-1-item"
                   >
-                    <div
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
                       id="my-widget-1-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 0",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
                     >
-                      <div
-                        className="checkbox-container"
+                      <Item
+                        i18n={Object {}}
+                        id="my-widget-1-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 0",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
                         <div
-                          className="checkbox"
+                          id="my-widget-1-item"
                         >
-                          <label
-                            htmlFor="checkbox-my-widget-1-item"
+                          <div
+                            className="checkbox-container"
                           >
-                            <input
-                              id="checkbox-my-widget-1-item"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor sit amet 0
-                            </span>
-                          </label>
+                              <label
+                                htmlFor="checkbox-my-widget-1-item"
+                              >
+                                <input
+                                  aria-label="Select Lorem ipsum dolor sit amet 0"
+                                  checked={false}
+                                  id="checkbox-my-widget-1-item"
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor sit amet 0
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -974,7 +1234,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     id="my-widget-2-item"
                     isSwitchBox={false}
                     item={
@@ -985,34 +1245,73 @@ exports[`Items should render with provided id 1`] = `
                     }
                     key="my-widget-2-item"
                   >
-                    <div
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
                       id="my-widget-2-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "label": "Lorem ipsum dolor sit amet 1",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
                     >
-                      <div
-                        className="checkbox-container"
+                      <Item
+                        i18n={Object {}}
+                        id="my-widget-2-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "label": "Lorem ipsum dolor sit amet 1",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
                         <div
-                          className="checkbox"
+                          id="my-widget-2-item"
                         >
-                          <label
-                            htmlFor="checkbox-my-widget-2-item"
+                          <div
+                            className="checkbox-container"
                           >
-                            <input
-                              checked={true}
-                              id="checkbox-my-widget-2-item"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor sit amet 1
-                            </span>
-                          </label>
+                              <label
+                                htmlFor="checkbox-my-widget-2-item"
+                              >
+                                <input
+                                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                  checked={true}
+                                  id="checkbox-my-widget-2-item"
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor sit amet 1
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
                 <div
                   className="theme-tc-item-container theme-false tc-item-container"
@@ -1027,7 +1326,7 @@ exports[`Items should render with provided id 1`] = `
                     }
                   }
                 >
-                  <Item
+                  <Translate(Item)
                     id="my-widget-3-item"
                     isSwitchBox={false}
                     item={
@@ -1037,33 +1336,71 @@ exports[`Items should render with provided id 1`] = `
                     }
                     key="my-widget-3-item"
                   >
-                    <div
+                    <I18n
+                      bindI18n="languageChanged loaded"
+                      bindStore="added removed"
+                      i18n={Object {}}
                       id="my-widget-3-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 2",
+                        }
+                      }
+                      ns={
+                        Array [
+                          "tui-components",
+                        ]
+                      }
+                      nsMode="default"
+                      translateFuncName="t"
+                      usePureComponent={false}
+                      wait={false}
+                      withRef={false}
                     >
-                      <div
-                        className="checkbox-container"
+                      <Item
+                        i18n={Object {}}
+                        id="my-widget-3-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 2",
+                          }
+                        }
+                        t={[Function]}
+                        tReady={false}
                       >
                         <div
-                          className="checkbox"
+                          id="my-widget-3-item"
                         >
-                          <label
-                            htmlFor="checkbox-my-widget-3-item"
+                          <div
+                            className="checkbox-container"
                           >
-                            <input
-                              id="checkbox-my-widget-3-item"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                            <div
+                              className="checkbox"
                             >
-                              Lorem ipsum dolor sit amet 2
-                            </span>
-                          </label>
+                              <label
+                                htmlFor="checkbox-my-widget-3-item"
+                              >
+                                <input
+                                  aria-label="Select Lorem ipsum dolor sit amet 2"
+                                  checked={false}
+                                  id="checkbox-my-widget-3-item"
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="theme-tc-listview-item-label tc-listview-item-label"
+                                >
+                                  Lorem ipsum dolor sit amet 2
+                                </span>
+                              </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Item>
+                      </Item>
+                    </I18n>
+                  </Translate(Item)>
                 </div>
               </div>
             </div>

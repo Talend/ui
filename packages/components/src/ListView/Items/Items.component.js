@@ -96,18 +96,18 @@ export class ItemsComponent extends React.PureComponent {
 
 	renderToggleAll() {
 		const { id, isSwitchBox, toggleAllChecked, onToggleAll, t } = this.props;
+		const checked = !!toggleAllChecked;
 		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		const toggleAllSelector = isSwitchBox ? 'switch checkbox' : 'checkbox';
+		const label = checked
+			? t('LISTVIEW_ITEMS_DESELECT_ALL', { defaultValue: 'Deselect all' })
+			: t('LISTVIEW_ITEMS_SELECT_ALL', { defaultValue: 'Select all' });
+
 		return (
 			<div className={toggleAllSelector}>
 				<label htmlFor={toggleAllId}>
-					<input
-						id={toggleAllId}
-						type="checkbox"
-						onChange={onToggleAll}
-						checked={!!toggleAllChecked}
-					/>
-					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', { defaultValue: 'Toggle all' })}</strong>
+					<input id={toggleAllId} type="checkbox" onChange={onToggleAll} checked={checked} />
+					<strong>{label}</strong>
 				</label>
 			</div>
 		);
