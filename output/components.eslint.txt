@@ -6,6 +6,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
+  366:14  error  'autoFocus' PropType is defined but prop is never used     react/no-unused-prop-types
+  367:7   error  'id' PropType is defined but prop is never used            react/no-unused-prop-types
+  372:17  error  'noResultText' PropType is defined but prop is never used  react/no-unused-prop-types
+  373:16  error  'placeholder' PropType is defined but prop is never used   react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -18,6 +24,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.renderers.js
+  18:3  error  'caret' is missing in props validation      react/prop-types
+  22:3  error  'isLoading' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
 
@@ -27,5 +37,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 17 problems (16 errors, 1 warning)
 
