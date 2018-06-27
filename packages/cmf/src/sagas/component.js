@@ -36,7 +36,6 @@ export function* onSagaStart(action) {
 		// eslint-disable-next-line no-constant-condition
 		while (true) {
 			const stopAction = yield take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_${action.saga}`);
-
 			if (stopAction.event.componentUuid === action.event.componentUuid) {
 				yield cancel(task);
 			}

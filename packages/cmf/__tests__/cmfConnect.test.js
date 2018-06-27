@@ -15,6 +15,10 @@ import cmfConnect, {
 } from '../src/cmfConnect';
 import component from '../src/component';
 
+jest.mock('uuid', () => ({
+	v4: () => 42,
+}));
+
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
 		it('should return displayName', () => {
@@ -253,7 +257,9 @@ describe('cmfConnect', () => {
 					other: { foo: 'baz' },
 				},
 			});
-			let actionCreator = CMFConnectedButton.setStateAction(prevState => prevState.set('foo', 'bar'));
+			let actionCreator = CMFConnectedButton.setStateAction(prevState =>
+				prevState.set('foo', 'bar'),
+			);
 			expect(typeof actionCreator).toBe('function');
 			let action = actionCreator(null, () => state);
 			expect(action).toMatchObject({
@@ -267,7 +273,11 @@ describe('cmfConnect', () => {
 				},
 			});
 			expect(action.cmf.componentState.componentState.get('foo')).toBe('bar');
-			actionCreator = CMFConnectedButton.setStateAction(prevState => prevState.set('foo', 'baz'), 'other', 'MY_ACTION');
+			actionCreator = CMFConnectedButton.setStateAction(
+				prevState => prevState.set('foo', 'baz'),
+				'other',
+				'MY_ACTION',
+			);
 			action = actionCreator(null, () => state);
 			expect(action.type).toBe('MY_ACTION');
 			expect(action.cmf.componentState.key).toBe('other');
@@ -333,6 +343,7 @@ describe('cmfConnect', () => {
 			const callDidMountActionCreator = props.dispatchActionCreator.mock.calls[1];
 			expect(callSagaActionCreator[0]).toBe('cmf.saga.start');
 			expect(callSagaActionCreator[1]).toEqual({
+				componentUuid: 42,
 				type: 'DID_MOUNT',
 			});
 			expect(callDidMountActionCreator[0]).toBe('hello');
@@ -358,7 +369,7 @@ describe('cmfConnect', () => {
 			instance.componentDidMount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.start',
-				{ type: 'DID_MOUNT' },
+				{ type: 'DID_MOUNT', componentUuid: 42 },
 				instance.props,
 				instance.context,
 			);
@@ -378,7 +389,7 @@ describe('cmfConnect', () => {
 			instance.componentWillUnmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.stop',
-				{ type: 'WILL_UNMOUNT' },
+				{ type: 'WILL_UNMOUNT', componentUuid: 42 },
 				instance.props,
 				instance.context,
 			);
