@@ -1457,6 +1457,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 type="text"
                 value="le"
               />
+              <div
+                className="theme-icon-cls"
+              />
             </div>
             <div
               id={undefined}
@@ -4064,6 +4067,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 type="text"
                 value="le"
               />
+              <div
+                className="theme-icon-cls"
+              />
             </div>
             <div
               id={undefined}
@@ -5366,6 +5372,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 type="text"
                 value={undefined}
               />
+              <div
+                className="theme-icon-cls"
+              />
             </div>
             <div
               id={undefined}
@@ -6010,6 +6019,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 readOnly={false}
                 type="text"
                 value="le"
+              />
+              <div
+                className="theme-icon-cls"
               />
             </div>
             <div

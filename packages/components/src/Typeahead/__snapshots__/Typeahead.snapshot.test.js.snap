@@ -35,6 +35,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       type="text"
       value="le"
     />
+    <div
+      className="theme-icon-cls"
+    />
   </div>
   <div
     id={undefined}
@@ -279,6 +282,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       type="text"
       value={undefined}
     />
+    <div
+      className="theme-icon-cls"
+    />
   </div>
   <div
     id={undefined}
@@ -465,6 +471,9 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       type="text"
       value={undefined}
     />
+    <div
+      className="theme-icon-cls"
+    />
   </div>
   <div
     id={undefined}
@@ -559,6 +568,9 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       type="text"
       value={undefined}
     />
+    <div
+      className="theme-icon-cls"
+    />
   </div>
   <div
     id={undefined}
@@ -612,6 +624,9 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       readOnly={false}
       type="text"
       value={undefined}
+    />
+    <div
+      className="theme-icon-cls"
     />
   </div>
   <div

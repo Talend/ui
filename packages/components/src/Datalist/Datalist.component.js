@@ -363,14 +363,10 @@ Datalist.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
-		autoFocus: PropTypes.bool,
-		id: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
-		noResultText: PropTypes.string,
-		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(

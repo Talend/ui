@@ -6,11 +6,12 @@ exports[`Datalist component should render a typeahead 1`] = `
 >
   <Typeahead
     autoFocus={true}
+    caret={true}
     disabled={false}
     docked={false}
-    focusedItemIndex={undefined}
-    focusedSectionIndex={undefined}
+    errorMessage="This should be correct"
     id="my-datalist"
+    isValid={true}
     items={null}
     multiSection={false}
     noResultText="there is nothing ..."
@@ -21,7 +22,9 @@ exports[`Datalist component should render a typeahead 1`] = `
     onSelect={[Function]}
     placeholder="Type here"
     position="left"
+    previousValue="foo"
     readOnly={false}
+    restricted={false}
     searching={false}
     searchingText="Searching for matches…"
     theme={
@@ -31,14 +34,36 @@ exports[`Datalist component should render a typeahead 1`] = `
         "itemsList": "theme-items",
       }
     }
+    title="My List"
+    titleMap={
+      Array [
+        Object {
+          "name": "foo",
+          "value": "foo",
+        },
+        Object {
+          "name": "bar",
+          "value": "bar",
+        },
+        Object {
+          "name": "foobar",
+          "value": "foobar",
+        },
+        Object {
+          "name": "lol",
+          "value": "lol",
+        },
+      ]
+    }
+    titleMapping={
+      Object {
+        "bar": "bar",
+        "foo": "foo",
+        "foobar": "foobar",
+        "lol": "lol",
+      }
+    }
     value="foo"
   />
-  <div
-    className="theme-toggle"
-  >
-    <span
-      className="caret"
-    />
-  </div>
 </div>
 `;

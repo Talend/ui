@@ -63,6 +63,8 @@ renderInputComponent.propTypes = {
 		title: PropTypes.string,
 	}),
 	inputRef: PropTypes.func,
+	caret: PropTypes.bool,
+	isLoading: PropTypes.bool,
 };
 
 function ItemContainer(props) {
