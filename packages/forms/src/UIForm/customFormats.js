@@ -6,13 +6,13 @@ const urlGitProtocoltHttp = /(^http(s)?:\/\/)([a-zA-Z0-9.\-_]+@)?([a-zA-Z0-9.\-_
 // Format usable in regex101 : (?<ssh>^ssh\:\/\/)(?<userSSH>[a-zA-Z0-9\.\-_]+\@)?(?<hostSSH>[a-zA-Z0-9\.\-_]+)(?<portSSH>:[0-9]+)?(?<pathSSH>\/[a-zA-Z0-9\/\.\-_~]+)(?<extensionSSH>\.git)(?<slashSSH>\/)?$
 const urlGitProtocolSsh = /(^ssh:\/\/)([a-zA-Z0-9.\-_]+@)?([a-zA-Z0-9.\-_]+)(:[0-9]+)?(\/[a-zA-Z0-9/.\-_~]+)(\.git)(\/)?$/;
 // Format usable in regex101 : (?<userSSH>^[a-zA-Z0-9\.\-_]+\@)(?<hostSSH>[a-zA-Z0-9\.\-_]+)(:)(?<portSSH>[0-9]+)?(?<pathSSH>[a-zA-Z0-9\.\-_~]+)(?<pathSSH2>\/[a-zA-Z0-9\/\.\-_~]+)(?<extensionSSH>\.git)(?<slashSSH>\/)?$
-const urlGitProtocolSsh2 = /(^[a-zA-Z0-9.\-_]+@)([a-zA-Z0-9.\-_]+)(:)([0-9]+)?([a-zA-Z0-9.\-_~]+)(\/[a-zA-Z0-9/.\-_~]+)(\.git)(\/)?$/;
+const urlGitProtocolSshScpLike = /(^[a-zA-Z0-9.\-_]+@)([a-zA-Z0-9.\-_]+)(:)([0-9]+)?([a-zA-Z0-9.\-_~]+)(\/[a-zA-Z0-9/.\-_~]+)(\.git)(\/)?$/;
 // Format usable in regex101 : (?<git>^git\:\/\/)(?<hostGIT>[a-zA-Z0-9\.\-_]+)(?<portGIT>:[0-9]+)?(?<pathGIT>\/[a-zA-Z0-9\/\.\-_~]+)(?<extensionGIT>\.git)(?<slashGIT>\/)?$
 const urlGitProtocolGit = /(^git:\/\/)([a-zA-Z0-9.\-_]+)(:[0-9]+)?(\/[a-zA-Z0-9/.\-_~]+)(\.git)(\/)?$/;
 /* eslint-disable max-len */
 
 const urlGit = new RegExp(
-	`${urlGitProtocoltHttp.source}|${urlGitProtocolSsh.source}|${urlGitProtocolSsh2.source}|${
+	`${urlGitProtocoltHttp.source}|${urlGitProtocolSsh.source}|${urlGitProtocolSshScpLike.source}|${
 		urlGitProtocolGit.source
 	}`,
 );
