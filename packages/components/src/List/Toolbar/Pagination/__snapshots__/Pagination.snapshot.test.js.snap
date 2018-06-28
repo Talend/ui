@@ -156,7 +156,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -166,7 +166,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     1
     /
     2
-  </div>
+  </li>
   <li
     className="btn-link"
     role="presentation"
@@ -366,7 +366,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -376,7 +376,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     2
     /
     2
-  </div>
+  </li>
   <li
     className="btn-link disabled"
     role="presentation"
@@ -873,7 +873,7 @@ exports[`Pagination should render 1`] = `
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -883,7 +883,7 @@ exports[`Pagination should render 1`] = `
     2
     /
     4
-  </div>
+  </li>
   <li
     className="btn-link"
     role="presentation"
@@ -1083,7 +1083,7 @@ exports[`Pagination should render id if provided 1`] = `
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -1093,7 +1093,7 @@ exports[`Pagination should render id if provided 1`] = `
     2
     /
     4
-  </div>
+  </li>
   <li
     className="btn-link"
     role="presentation"

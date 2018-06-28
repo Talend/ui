@@ -93,9 +93,9 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, .
 			>
 				<Icon {...prev} />
 			</NavItem>,
-			<div className={theme['page-index']}>
+			<li className={theme['page-index']}>
 				{currentPage}/{pagesLength}
-			</div>,
+			</li>,
 			<NavItem
 				key={NEXT}
 				eventKey={NEXT}

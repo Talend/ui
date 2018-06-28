@@ -418,7 +418,7 @@ exports[`Toolbar should render pagination 1`] = `
             </svg>
           </a>
         </li>
-        <div
+        <li
           active={undefined}
           activeHref={undefined}
           activeKey={undefined}
@@ -428,7 +428,7 @@ exports[`Toolbar should render pagination 1`] = `
           2
           /
           3
-        </div>
+        </li>
         <li
           className="btn-link"
           role="presentation"

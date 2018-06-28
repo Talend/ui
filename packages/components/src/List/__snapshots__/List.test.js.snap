@@ -1590,7 +1590,7 @@ exports[`List should render 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <div
+                            <li
                               className="theme-page-index"
                               key=".1:2"
                               onSelect={[Function]}
@@ -1598,7 +1598,7 @@ exports[`List should render 1`] = `
                               2
                               /
                               3
-                            </div>
+                            </li>
                             <NavItem
                               active={false}
                               aria-label="Go to next page. Current page: 2."
@@ -3438,7 +3438,7 @@ exports[`List should render id if provided 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <div
+                            <li
                               className="theme-page-index"
                               key=".1:2"
                               onSelect={[Function]}
@@ -3446,7 +3446,7 @@ exports[`List should render id if provided 1`] = `
                               2
                               /
                               3
-                            </div>
+                            </li>
                             <NavItem
                               active={false}
                               aria-label="Go to next page. Current page: 2."
