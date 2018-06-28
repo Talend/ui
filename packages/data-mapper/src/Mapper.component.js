@@ -523,7 +523,7 @@ class MapperComponent extends Component {
 					);
 				}
 			}
-		}		
+		}
 		return anchors;
 	}
 
@@ -785,10 +785,6 @@ class MapperComponent extends Component {
 	}
 
 	render() {
-		// if (this.needUpdateVisibleInfo) {
-		// 	this.updateVisibleInfo();
-		// 	this.needUpdateVisibleInfo = false;
-		// }
 		const { mappingActions, mapping, input, output, ...commonSchemaProps } = this.props;
 		const {
 			dataAccessor,

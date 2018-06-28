@@ -1181,7 +1181,7 @@ class DataMapperContainer extends React.Component {
 		const {
 			mappingActions,
 			...rest,
-		} = this.props;		
+		} = this.props;
 		return (
 			<div {...rest}>
 				<ActionBar
