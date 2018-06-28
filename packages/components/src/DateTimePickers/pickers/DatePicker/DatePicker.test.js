@@ -1,10 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
+import isSameDay from 'date-fns/is_same_day';
+import isToday from 'date-fns/is_today';
 import DatePicker from './DatePicker.component';
 
+jest.mock('date-fns/is_today');
+
 describe('DatePicker', () => {
-	const today = new Date(2018, 5, 20);
+	function mockIsTodayWith(newToday) {
+		isToday.mockImplementation(date =>
+			isSameDay(date, newToday));
+	}
+
+	beforeEach(() => {
+		mockIsTodayWith(new Date(2018, 5, 20));
+	});
 
 	it('should render a DatePicker', () => {
 		const calendar = {
@@ -20,7 +30,6 @@ describe('DatePicker', () => {
 
 		const wrapper = shallow(<DatePicker
 			calendar={calendar}
-			today={today}
 			selectedDate={selectedDate}
 			onSelect={() => {}}
 			disabledRules={disabledDates}
@@ -49,7 +58,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -64,7 +72,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -79,7 +86,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -107,7 +113,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -122,7 +127,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -137,7 +141,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -158,7 +161,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -173,7 +175,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -188,7 +189,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -217,7 +217,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -237,7 +236,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -257,7 +255,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -277,7 +274,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -297,11 +293,10 @@ describe('DatePicker', () => {
 					monthIndex: 5,
 				};
 
-				const date = new Date(2018, 5, 13);
+				mockIsTodayWith(new Date(2018, 5, 13));
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={date}
 					onSelect={() => {}}
 				/>);
 
@@ -320,11 +315,10 @@ describe('DatePicker', () => {
 					monthIndex: 5,
 				};
 
-				const date = new Date(2018, 4, 13);
+				mockIsTodayWith(new Date(2018, 4, 13));
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={date}
 					onSelect={() => {}}
 				/>);
 
@@ -333,6 +327,45 @@ describe('DatePicker', () => {
 					.filterWhere(item => item.prop('isToday'));
 
 				expect(currentDayItems).toHaveLength(0);
+			});
+
+			it.only('should have updated the current today day if has changed between two renders', () => {
+				const calendar = {
+					year: 2018,
+					monthIndex: 5,
+				};
+
+				// First day
+				mockIsTodayWith(new Date(2018, 5, 16));
+
+				const wrapper = shallow(<DatePicker
+					calendar={calendar}
+					onSelect={() => {}}
+				/>);
+
+				const currentDayItems = wrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(dayItem => dayItem.prop('isToday'));
+
+				expect(currentDayItems).toHaveLength(1);
+				const item = currentDayItems.first();
+				expect(item.prop('label')).toBe('16');
+
+				// Change to next day
+				mockIsTodayWith(new Date(2018, 5, 17));
+
+				const newWrapper = shallow(<DatePicker
+					calendar={calendar}
+					onSelect={() => {}}
+				/>);
+
+				const newDayItems = newWrapper
+					.find('.theme-calendar-body-row .theme-calendar-item DayPickerAction')
+					.filterWhere(dayItem => dayItem.prop('isToday'));
+
+				expect(newDayItems).toHaveLength(1);
+				const newItem = newDayItems.first();
+				expect(newItem.prop('label')).toBe('17');
 			});
 		});
 
@@ -347,7 +380,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					selectedDate={selectedDate}
 					onSelect={() => {}}
 				/>);
@@ -369,7 +401,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -390,7 +421,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					selectedDate={selectedDate}
 					onSelect={() => {}}
 				/>);
@@ -418,7 +448,6 @@ describe('DatePicker', () => {
 				const selectedDate = new Date(2018, 5, 12);
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					selectedDate={selectedDate}
 					onSelect={onSelect}
 				/>);
@@ -442,7 +471,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 				/>);
 
@@ -468,7 +496,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 					disabledRules={disabledRules}
 				/>);
@@ -502,7 +529,6 @@ describe('DatePicker', () => {
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
-					today={today}
 					onSelect={() => {}}
 					disabledRules={disabledRules}
 				/>);
@@ -531,7 +557,6 @@ describe('DatePicker', () => {
 
 			const wrapper = shallow(<DatePicker
 				calendar={calendar}
-				today={today}
 				onSelect={() => {}}
 			/>);
 

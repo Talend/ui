@@ -6,6 +6,7 @@ import { chunk } from 'lodash';
 import format from 'date-fns/format';
 import endOfMonth from 'date-fns/end_of_month';
 import startOfWeek from 'date-fns/start_of_week';
+import isToday from 'date-fns/is_today';
 import getDate from 'date-fns/get_date';
 import setDay from 'date-fns/set_day';
 import getMonth from 'date-fns/get_month';
@@ -87,10 +88,6 @@ class DatePicker extends React.Component {
 			});
 	}
 
-	isToday(date) {
-		return isSameDay(this.props.today, date);
-	}
-
 	isCurrentMonth(date) {
 		return getMonth(date) === this.props.calendar.monthIndex;
 	}
@@ -136,7 +133,7 @@ class DatePicker extends React.Component {
 											label={getDate(date).toString()}
 											isSelected={this.isSelectedDate(date)}
 											isDisabled={this.isDisabledDate(date)}
-											isToday={this.isToday(date)}
+											isToday={isToday(date)}
 											aria-label={this.isDisabledDate(date)
 												? 'Unselectable date'
 												: `Select '${getDate(date)}'`}
@@ -158,7 +155,6 @@ DatePicker.propTypes = {
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
 	}).isRequired,
-	today: PropTypes.instanceOf(Date).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
 	disabledRules: PropTypes.arrayOf(PropTypes.oneOfType([

@@ -18,7 +18,6 @@ exports[`DateTimeView should render 1`] = `
           }
           onSelect={[Function]}
           selectedDate={undefined}
-          today={2018-06-19T22:00:00.000Z}
         />
       </div>
       <div
