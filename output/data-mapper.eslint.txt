@@ -128,35 +128,30 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   506:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.js
-    3:8   error  'classnames' is defined but never used          no-unused-vars
-   16:2   error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
-   17:2   error  Mixed spaces and tabs                           no-mixed-spaces-and-tabs
-   59:2   error  getNode should be placed after onContentScroll  react/sort-comp
-  114:24  error  Expected '!==' and instead saw '!='             eqeqeq
-  186:17  error  'scrollTop' is defined but never used           no-unused-vars
-  187:22  error  'child' is defined but never used               no-unused-vars
+   28:2   error  Mixed spaces and tabs                                                                                       no-mixed-spaces-and-tabs
+   29:2   error  Mixed spaces and tabs                                                                                       no-mixed-spaces-and-tabs
+   67:2   error  The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+   67:2   error  Using 'ForInStatement' is not allowed                                                                       no-restricted-syntax
+   67:11  error  'k' is never reassigned. Use 'const' instead                                                                prefer-const
+  148:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  150:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  151:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  152:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  153:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  154:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  158:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  159:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  247:2   error  getNode should be placed after onSortChange                                                                 react/sort-comp
+  299:23  error  Expected '!==' and instead saw '!='                                                                         eqeqeq
+  356:14  error  'onEnterElement' is missing in props validation                                                             react/prop-types
+  360:14  error  'onLeaveElement' is missing in props validation                                                             react/prop-types
+  383:19  error  Expected 'this' to be used by class method 'getChildOffsetTop'                                              class-methods-use-this
+  406:4   error  'onScroll' is assigned a value but never used                                                               no-unused-vars
+  444:18  error  'mappedElements' PropType is defined but prop is never used                                                 react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.test.js
    6:10  error  'Constants' is defined but never used           no-unused-vars
   44:7   error  'noFilters' is assigned a value but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/data-mapper/src/Schema/TableRenderer.js
-   54:2   error  The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
-   54:2   error  Using 'ForInStatement' is not allowed                                                                       no-restricted-syntax
-   54:11  error  'k' is never reassigned. Use 'const' instead                                                                prefer-const
-  136:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  138:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  139:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  140:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  141:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  142:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  146:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  147:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  239:9   error  'bodyOffsetTop' is assigned a value but never used                                                          no-unused-vars
-  240:9   error  'tableOffsetTop' is assigned a value but never used                                                         no-unused-vars
-  301:12  error  'onSelect' PropType is defined but prop is never used                                                       react/no-unused-prop-types
-  302:26  error  'revealConnectedElement' PropType is defined but prop is never used                                         react/no-unused-prop-types
-  305:20  error  'isElementVisible' PropType is defined but prop is never used                                               react/no-unused-prop-types
-
-✖ 100 problems (100 errors, 0 warnings)
+✖ 97 problems (97 errors, 0 warnings)
 
