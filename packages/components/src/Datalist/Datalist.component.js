@@ -11,14 +11,8 @@ export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const PROPS_TO_OMIT = [
-	'restricted',
-	'titleMap',
-];
-const STATE_TO_OMIT = [
-	'previousValue',
-	'titleMapping',
-];
+const PROPS_TO_OMIT = ['restricted', 'titleMap'];
+const STATE_TO_OMIT = ['previousValue', 'titleMapping'];
 
 class Datalist extends Component {
 	constructor(props) {
