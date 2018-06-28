@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Action from '../../../Actions/Action';
+import Icon from '../../../Icon';
 
 export default {
 	id: PropTypes.string,
@@ -7,6 +8,10 @@ export default {
 	item: PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 		error: PropTypes.string,
+		icon: PropTypes.oneOfType(
+			PropTypes.shape(Icon.propTypes),
+			PropTypes.bool,
+		),
 		itemsProp: PropTypes.shape({
 			key: PropTypes.string,
 			onSubmitItem: PropTypes.func,
