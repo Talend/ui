@@ -49,8 +49,9 @@ describe('HeaderBar sagas', () => {
 
 			// Toggle fetching flag (enable)
 			let effect = gen.next().value;
-			expect(effect.PUT.action)
-				.toEqual(Connected.setStateAction({ productsFetchState: Constants.FETCHING_PRODUCTS }));
+			expect(effect.PUT.action).toEqual(
+				Connected.setStateAction({ productsFetchState: Constants.FETCHING_PRODUCTS }),
+			);
 
 			// HTTP call
 			effect = gen.next().value;
@@ -59,8 +60,9 @@ describe('HeaderBar sagas', () => {
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
-			expect(effect.PUT.action)
-				.toEqual(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_ERROR }));
+			expect(effect.PUT.action).toEqual(
+				Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_ERROR }),
+			);
 
 			const { done } = gen.next();
 

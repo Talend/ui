@@ -11,7 +11,6 @@ export const DEFAULT_STATE = new Map({
 });
 
 class HeaderBar extends React.Component {
-
 	static displayName = 'Container(HeaderBar)';
 
 	static propTypes = {
@@ -32,8 +31,10 @@ class HeaderBar extends React.Component {
 
 		// Trigger product fetch when there's an URL and
 		// products URL has changed or products have not been loaded yet
-		const shouldFetchProducts = productsUrl &&
-			(this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED || this.props.productsUrl !== productsUrl);
+		const shouldFetchProducts =
+			productsUrl &&
+			(this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED ||
+				this.props.productsUrl !== productsUrl);
 
 		if (shouldFetchProducts) {
 			this.props.dispatch({
@@ -46,7 +47,10 @@ class HeaderBar extends React.Component {
 	render() {
 		const { productsItems, ...props } = this.props;
 
-		if (this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS && productsItems) {
+		if (
+			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS &&
+			productsItems
+		) {
 			props.products = Object.assign({}, props.products || {}, {
 				// Add onClickDispatch event to items
 				items: productsItems.map(product => ({
