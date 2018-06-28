@@ -40,16 +40,12 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
-	onSelectCalendarMonth(index) {
-		this.onSelectCalendarMonthYear({
-			monthIndex: index,
-		});
+	onSelectCalendarMonth(monthIndex) {
+		this.onSelectCalendarMonthYear({ monthIndex });
 	}
 
-	onSelectCalendarYear(calendarYear) {
-		this.onSelectCalendarMonthYear({
-			year: calendarYear,
-		});
+	onSelectCalendarYear(year) {
+		this.onSelectCalendarMonthYear({ year });
 	}
 
 	setView(isDateTimeView) {
