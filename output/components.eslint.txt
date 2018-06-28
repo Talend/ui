@@ -32,7 +32,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   19:9  error  'defaultProps' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
-  24:9  error  'displayName' is not defined  no-undef
+  25:9  error  'displayName' is not defined  no-undef
+  27:2  error  'state' is not defined        no-undef
+  43:2  error  'onMouseOver' is not defined  no-undef
+  53:2  error  'onFocus' is not defined      no-undef
+  63:2  error  'onMouseDown' is not defined  no-undef
+  73:2  error  'onMouseUp' is not defined    no-undef
+  84:2  error  'onKeyDown' is not defined    no-undef
+  94:2  error  'onKeyUp' is not defined      no-undef
 
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
   62:9  error  'propTypes' is not defined     no-undef
@@ -47,5 +54,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 21 problems (20 errors, 1 warning)
+✖ 28 problems (27 errors, 1 warning)
 
