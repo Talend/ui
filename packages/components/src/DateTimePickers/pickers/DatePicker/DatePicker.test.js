@@ -39,7 +39,7 @@ describe('DatePicker', () => {
 	});
 
 	describe('body calendar', () => {
-		describe('first date in the correct day column (Monday as first column)', () => {
+		describe('first date of month in the correct grid column (Monday as first day of week)', () => {
 			function getFirstRowCellText(wrapper, column) {
 				return wrapper
 					.find('.theme-calendar-body-row')
@@ -209,7 +209,7 @@ describe('DatePicker', () => {
 				return a - b;
 			}
 
-			it('should have contiguous numbers for july 2018', () => {
+			it('should have contiguous numbers for july 2018 (31 days)', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 6,
@@ -228,7 +228,7 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(31);
 			});
 
-			it('should have contiguous numbers for february 2016', () => {
+			it('should have contiguous numbers for february 2016 (29 days)', () => {
 				const calendar = {
 					year: 2016,
 					monthIndex: 1,
@@ -247,7 +247,7 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(29);
 			});
 
-			it('should have contiguous numbers for february 2017', () => {
+			it('should have contiguous numbers for february 2017 (28 days)', () => {
 				const calendar = {
 					year: 2017,
 					monthIndex: 1,
@@ -266,7 +266,7 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(28);
 			});
 
-			it('should have contiguous numbers for november 2022', () => {
+			it('should have contiguous numbers for november 2022 (30 days)', () => {
 				const calendar = {
 					year: 2022,
 					monthIndex: 10,
