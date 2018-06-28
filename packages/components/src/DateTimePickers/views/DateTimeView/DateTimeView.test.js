@@ -13,10 +13,6 @@ describe('DateTimeView', () => {
 			onSelectDate={() => {}}
 		/>);
 
-		wrapper.setState({
-			today: new Date(2018, 5, 20),
-		});
-
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
