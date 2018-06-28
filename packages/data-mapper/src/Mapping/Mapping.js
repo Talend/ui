@@ -70,7 +70,7 @@ export default class Mapping extends Component {
 	}
 
 	render() {
-		const { dndListener, mappingActions, ...mappingProps } = this.props;
+		const { dndListener, mappingActions, ...mappingProps } = this.props;		
 		return (
 			<div className="mapping mapper-element">
 				<Actions className="mapping-actions" actions={mappingActions} />

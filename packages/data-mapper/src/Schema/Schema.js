@@ -29,7 +29,6 @@ export default class Schema extends Component {
 		super(props);
 		this.updateRendererNodeRef = this.updateRendererNodeRef.bind(this);
 		this.onContentScroll = this.onContentScroll.bind(this);
-		this.meanDist = -1;
 	}
 
 	shouldComponentUpdate(nextProps) {
@@ -67,9 +66,11 @@ export default class Schema extends Component {
 	getYPosition(element) {
 		const scrollTop = this.getRendererNode().getScrollTop();
 		const child = this.getNode(element);
-		const childOffsetTop = this.getRendererNode().getChildOffsetTop(child);
-		const y = childOffsetTop + child.clientHeight / 2 - scrollTop;
-		return y;
+		if (child) {
+			const childOffsetTop = this.getRendererNode().getChildOffsetTop(child);
+			return childOffsetTop + child.clientHeight / 2 - scrollTop;
+		}
+		return 0;
 	}
 
 	getElementAtPosition(position) {
@@ -114,14 +115,12 @@ export default class Schema extends Component {
 				visibleElements = visibleElements.concat(elements);
 				return visibleElements;
 			}
-			if (this.meanDist < 0) {
-				this.computeMeanDist(elements);
-			}
+			const meanDist = this.computeMeanDist(elements);
 			let startIndex = 0;
-			if (this.meanDist > 0) {
+			if (meanDist > 0) {
 				// compute start index
 				const scrollTop = this.getRendererNode().getScrollTop();
-				const n = Math.floor(scrollTop / this.meanDist);
+				const n = Math.floor(scrollTop / meanDist);
 				startIndex = Math.max(0, n);
 			}
 			const headerHeight = this.getRendererNode().getHeaderHeight();
@@ -144,8 +143,9 @@ export default class Schema extends Component {
 		if (elements.length > 1) {
 			const y1 = this.getYPosition(elements[0]);
 			const y2 = this.getYPosition(elements[1]);
-			this.meanDist = Math.abs(y2 - y1);
+			return Math.abs(y2 - y1);
 		}
+		return 0;
 	}
 
 	reveal(element) {
@@ -208,7 +208,7 @@ export default class Schema extends Component {
 			isMapped,
 			isHighlighted,
 			onScroll: this.onContentScroll,
-		};
+		};		
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<TableRenderer

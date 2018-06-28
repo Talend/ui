@@ -332,9 +332,25 @@ class MappingSVG extends Component {
 		this.getWidth = this.getWidth.bind(this);
 		this.getHeight = this.getHeight.bind(this);
 		this.updateMappingContentRef = this.updateMappingContentRef.bind(this);
+		this.checkMappingContentResize = this.checkMappingContentResize.bind(this);
 		this.bounds = null;
 		this.svgAnchors = null;
 		this.svgAnchorsVersion = -1;
+	}
+
+	componentDidMount() {
+		this.intervalRef = setInterval(this.checkMappingContentResize, 250);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.intervalRef);
+	}
+
+	checkMappingContentResize() {
+		const bounds = this.getBounds();
+		if (!boundsAreEqual(this.bounds, bounds)) {
+			this.forceUpdate();
+		}
 	}
 
 	getMousePos(offset) {
@@ -447,8 +463,7 @@ class MappingSVG extends Component {
 			onLeaveAnchor,
 		} = this.props;
 
-		const bounds = this.getBounds();
-
+		const bounds = this.getBounds();		
 		const connections = getConnections();
 		const svgConnections = buildSVGConnections(connections, dnd, bounds);
 

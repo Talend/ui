@@ -99,6 +99,10 @@ export default class DataAccessorWrapper {
 		return this.access(schema).getFiltersVersion();
 	}
 
+	getFiltersVersionForSide(side) {
+		return this.internalDataAccessors[side].getFiltersVersion();
+	}
+
 	isFiltered(schema, element) {
 		return this.access(schema).isFiltered(element);
 	}

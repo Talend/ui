@@ -912,7 +912,7 @@ class DataMapperContainer extends React.Component {
 	}
 
 	onShowAll() {
-		const showAll = !prevState.preferences.showAll;
+		const showAll = !this.state.preferences.showAll;
 		this.setState(prevState => ({
 			trigger: null,
 			preferences: {
@@ -1034,6 +1034,7 @@ class DataMapperContainer extends React.Component {
 			trigger: {
 				code: Constants.Events.FILTERING,
 				filterId: id,
+				filtersVersion: prevState.dataAccessor.getFiltersVersionForSide(side),
 				side,
 			},
 			pendingItem: null,
@@ -1180,7 +1181,7 @@ class DataMapperContainer extends React.Component {
 		const {
 			mappingActions,
 			...rest,
-		} = this.props;
+		} = this.props;		
 		return (
 			<div {...rest}>
 				<ActionBar

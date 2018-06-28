@@ -167,10 +167,31 @@ class MapperComponent extends Component {
 		this.updateOutputSchemaRef = this.updateOutputSchemaRef.bind(this);
 		this.updateGMapRef = this.updateGMapRef.bind(this);
 		this.isElementVisible = this.isElementVisible.bind(this);
+		this.filtersVersion = { input : 0, output : 0};
 	}
 
 	componentDidMount() {
-		this.needUpdateVisibleInfo = true;
+		this.resetAll();
+		this.forceUpdate();
+	}
+
+	componentDidUpdate() {
+		if (this.props.trigger && this.props.trigger.code === Constants.Events.FILTERING) {
+			const side = this.props.trigger.side;
+			const filtersVersion = this.props.trigger.filtersVersion;
+			if (this.filtersVersion[side] < filtersVersion) {
+				this.filtersVersion[side] = filtersVersion
+				// need re render
+				this.forceUpdate();
+			}
+		}
+	}
+
+	resetAll() {
+		this.anchors = resetAnchors(this.anchors);
+		this.visibleMapping = null;
+		this.visibleInputElements = null;
+		this.visibleOutputElements = null;
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -424,15 +445,15 @@ class MapperComponent extends Component {
 	}
 
 	getAnchors() {
-		if (!areAnchorsValid(this.anchors) && this.inputSchemaRef && this.outputSchemaRef) {
+		if (this.inputSchemaRef && this.outputSchemaRef) {
 			this.anchors = this.computeAnchors(this.anchors.version + 1);
 		}
 		if (areAnchorsValid(this.anchors)) {
 			return this.anchors;
 		}
 		return {
-			input: {},
-			output: {},
+			input: null,
+			output: null,
 			version: -1,
 		};
 	}
@@ -502,7 +523,7 @@ class MapperComponent extends Component {
 					);
 				}
 			}
-		}
+		}		
 		return anchors;
 	}
 
@@ -764,10 +785,10 @@ class MapperComponent extends Component {
 	}
 
 	render() {
-		if (this.needUpdateVisibleInfo) {
-			this.updateVisibleInfo();
-			this.needUpdateVisibleInfo = false;
-		}
+		// if (this.needUpdateVisibleInfo) {
+		// 	this.updateVisibleInfo();
+		// 	this.needUpdateVisibleInfo = false;
+		// }
 		const { mappingActions, mapping, input, output, ...commonSchemaProps } = this.props;
 		const {
 			dataAccessor,
