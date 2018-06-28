@@ -28,6 +28,8 @@ class Datalist extends Component {
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.getTitleMap = this.getTitleMap.bind(this);
+		this.isMultiple = this.isMultiple.bind(this);
 	}
 
 	componentDidMount() {
@@ -52,12 +54,17 @@ class Datalist extends Component {
 			this.props.schema.triggers.forEach(trigger => {
 				if (trigger.onEvent === 'focus') {
 					this.setState({ isLoading: true });
-					this.props.onTrigger(event, this.props).then(data => {
-						this.setState({
-							isLoading: false,
-							...data,
+					this.props
+						.onTrigger(event, {
+							trigger,
+							...this.props,
+						})
+						.then(data => {
+							this.setState({
+								isLoading: false,
+								...data,
+							});
 						});
-					});
 				}
 			});
 		}
