@@ -39,6 +39,7 @@ Create an `.eslintrc` file in the folder you need to lint.
 
 ## Changelog
 
+* __2.0.1:__ Fix broken link between API team's `jasmine` and `generic` test configs
 * __2.0.0:__
 	* CodeceptJS config removed, the tests should be run with `noGlobals` attribute, the globals are no longer required
 	* The file `api-test-e2e` was removed, the file `api-test` is now generic, the file `api-test-jasmine` replaces the previous `api-test` file with Jasmine conf

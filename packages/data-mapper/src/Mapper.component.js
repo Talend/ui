@@ -167,7 +167,7 @@ class MapperComponent extends Component {
 		this.updateOutputSchemaRef = this.updateOutputSchemaRef.bind(this);
 		this.updateGMapRef = this.updateGMapRef.bind(this);
 		this.isElementVisible = this.isElementVisible.bind(this);
-		this.filtersVersion = { input : 0, output : 0};
+		this.filtersVersion = { input: 0, output: 0 };
 	}
 
 	componentDidMount() {
@@ -180,7 +180,7 @@ class MapperComponent extends Component {
 			const side = this.props.trigger.side;
 			const filtersVersion = this.props.trigger.filtersVersion;
 			if (this.filtersVersion[side] < filtersVersion) {
-				this.filtersVersion[side] = filtersVersion
+				this.filtersVersion[side] = filtersVersion;
 				// need re render
 				this.forceUpdate();
 			}

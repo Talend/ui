@@ -463,7 +463,7 @@ class MappingSVG extends Component {
 			onLeaveAnchor,
 		} = this.props;
 
-		const bounds = this.getBounds();		
+		const bounds = this.getBounds();
 		const connections = getConnections();
 		const svgConnections = buildSVGConnections(connections, dnd, bounds);
 
