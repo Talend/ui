@@ -1759,7 +1759,7 @@
 
               <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Right</button>
 
-              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quantum potest est ut sensus natura si scelere eo appareat quam inter et lumen et ut moribus Quod utilitatis in.">Tooltip with long text</button>
+              <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quantum potest est ut sensus natura si scelere eo ooooooooooooooooooooooooooooooooooooooooooooooooooooooooo appareat quam inter et lumen et ut moribus Quod utilitatis in.">Tooltip with long text</button>
             </div>
           </div>
         </div>
@@ -1798,82 +1798,81 @@
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-      function add_content(cls) {
-        var content = document.querySelector(cls);
-        content.parentNode.appendChild(content.cloneNode(true));
-      }
-    (function() {
+    function add_content(cls) {
+	var content = document.querySelector(cls);
+	content.parentNode.appendChild(content.cloneNode(true));
+}
+(function() {
+	function setDropDownMenuVisibility() {
+		var top = $(document).scrollTop();
+		var $banner = $('#banner');
+		var elementTop = $banner.offset().top;
+		var elementBottom = elementTop + $banner.height();
 
-        function setDropDownMenuVisibility(){
-            var top = $(document).scrollTop();
-            var $banner = $("#banner");
-            var elementTop = $banner.offset().top;
-            var elementBottom = elementTop + $banner.height();
+		$('#menu_dropdown').toggle(top >= elementBottom);
+	}
 
-            $('#menu_dropdown').toggle(top >= elementBottom);
-        }
+	$(function() {
+		setDropDownMenuVisibility();
+	});
 
-        $(function(){
-              setDropDownMenuVisibility();
-        });
+	$(window).scroll(function() {
+		var top = $(document).scrollTop();
+		$('.splash').css({
+			'background-position': '0px -' + (top / 3).toFixed(2) + 'px',
+		});
+		if (top > 50) $('#home > .navbar').removeClass('navbar-transparent');
+		else $('#home > .navbar').addClass('navbar-transparent');
 
-      $(window).scroll(function() {
-        var top = $(document).scrollTop();
-        $('.splash').css({
-          'background-position': '0px -' + (top / 3).toFixed(2) + 'px',
-        });
-        if (top > 50) $('#home > .navbar').removeClass('navbar-transparent');
-        else $('#home > .navbar').addClass('navbar-transparent');
-
-            setDropDownMenuVisibility();
-      });
-      $("a[href='#']").click(function(e) {
-        e.preventDefault();
-      });
-      var $button = $(
-        "<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
-      ).click(function() {
-        var html = $(this)
-          .parent()
-          .html();
-        html = cleanSource(html);
-        $('#source-modal pre').text(html);
-        $('#source-modal').modal();
-      });
-      $('.bs-component [data-toggle="popover"]').popover();
-      $('.bs-component [data-toggle="tooltip"]').tooltip();
-      $('.bs-component').hover(
-        function() {
-          $(this).append($button);
-          $button.show();
-        },
-        function() {
-          $button.hide();
-        },
-      );
-      function cleanSource(html) {
-        html = html
-          .replace(/×/g, '&times;')
-          .replace(/«/g, '&laquo;')
-          .replace(/»/g, '&raquo;')
-          .replace(/←/g, '&larr;')
-          .replace(/→/g, '&rarr;');
-        var lines = html.split(/\n/);
-        lines.shift();
-        lines.splice(-1, 1);
-        var indentSize = lines[0].length - lines[0].trim().length,
-          re = new RegExp(' {' + indentSize + '}');
-        lines = lines.map(function(line) {
-          if (line.match(re)) {
-            line = line.substring(indentSize);
-          }
-          return line;
-        });
-        lines = lines.join('\n');
-        return lines;
-      }
-    })();
-    </script>
+		setDropDownMenuVisibility();
+	});
+	$("a[href='#']").click(function(e) {
+		e.preventDefault();
+	});
+	var $button = $(
+		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
+	).click(function() {
+		var html = $(this)
+			.parent()
+			.html();
+		html = cleanSource(html);
+		$('#source-modal pre').text(html);
+		$('#source-modal').modal();
+	});
+	$('.bs-component [data-toggle="popover"]').popover();
+	$('.bs-component [data-toggle="tooltip"]').tooltip();
+	$('.bs-component').hover(
+		function() {
+			$(this).append($button);
+			$button.show();
+		},
+		function() {
+			$button.hide();
+		},
+	);
+	function cleanSource(html) {
+		html = html
+			.replace(/×/g, '&times;')
+			.replace(/«/g, '&laquo;')
+			.replace(/»/g, '&raquo;')
+			.replace(/←/g, '&larr;')
+			.replace(/→/g, '&rarr;');
+		var lines = html.split(/\n/);
+		lines.shift();
+		lines.splice(-1, 1);
+		var indentSize = lines[0].length - lines[0].trim().length,
+			re = new RegExp(' {' + indentSize + '}');
+		lines = lines.map(function(line) {
+			if (line.match(re)) {
+				line = line.substring(indentSize);
+			}
+			return line;
+		});
+		lines = lines.join('\n');
+		return lines;
+	}
+})();
+</script>
     <script src="dist/bootstrap.js"></script>
   </body>
 </html>

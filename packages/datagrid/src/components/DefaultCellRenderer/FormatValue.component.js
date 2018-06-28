@@ -83,6 +83,10 @@ function replaceCharacterByIcon(value, t) {
  * @return {boolean}       indicate if the string to test has white space
  */
 export function hasWhiteSpaceCharacters(value) {
+	if (!value || typeof value !== 'string') {
+		return false;
+	}
+
 	const hiddenCharsRegExpMatch = value.match(REG_EXP_HAS_WHITE_SPACE_CHARACTERS);
 
 	if (hiddenCharsRegExpMatch[1] || hiddenCharsRegExpMatch[3]) {
