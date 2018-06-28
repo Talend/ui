@@ -8,10 +8,7 @@ export default {
 	item: PropTypes.shape({
 		values: PropTypes.arrayOf(PropTypes.string),
 		error: PropTypes.string,
-		icon: PropTypes.oneOfType(
-			PropTypes.shape(Icon.propTypes),
-			PropTypes.bool,
-		),
+		icon: PropTypes.oneOfType(PropTypes.shape(Icon.propTypes), PropTypes.bool),
 		itemsProp: PropTypes.shape({
 			key: PropTypes.string,
 			onSubmitItem: PropTypes.func,

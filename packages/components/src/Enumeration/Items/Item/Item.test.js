@@ -110,7 +110,12 @@ describe('Item', () => {
 		};
 
 		const wrapper = mount(<Item {...props} />);
-		expect(wrapper.find('TooltipTrigger').at(0).props().label).toBe('mad world');
+		expect(
+			wrapper
+				.find('TooltipTrigger')
+				.at(0)
+				.props().label,
+		).toBe('mad world');
 		expect(wrapper.find('Icon').props().title).toBe('mad world');
 		expect(wrapper.find('svg').length).toBe(1);
 
