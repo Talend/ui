@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datalist component should render typeahead 1`] = `
+exports[`Datalist component should render 1`] = `
 <FieldTemplate
   description="This is my datalist"
   errorMessage="This should be correct"
@@ -11,29 +11,28 @@ exports[`Datalist component should render typeahead 1`] = `
 >
   <Datalist component
     autoFocus={true}
+    description="This is my datalist"
     disabled={false}
-    id="my-datalist"
+    id="my-datalist-select"
+    input={true}
     multiSection={false}
     onChange={[Function]}
+    onFocus={[Function]}
     placeholder="Type here"
     readOnly={false}
-    restricted={false}
+    restricted={true}
     titleMap={
       Array [
         Object {
-          "name": "foo",
+          "name": "Foo",
           "value": "foo",
         },
         Object {
-          "name": "bar",
+          "name": "Bar",
           "value": "bar",
         },
         Object {
-          "name": "foobar",
-          "value": "foobar",
-        },
-        Object {
-          "name": "lol",
+          "name": "Lol",
           "value": "lol",
         },
       ]

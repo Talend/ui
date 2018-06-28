@@ -31,9 +31,24 @@ function createCommonProps(tab) {
 			action('Trigger')(event, payload);
 			const schema = payload.schema;
 			const key = schema.key && schema.key[schema.key.length - 1];
-			return key && key.includes('fail') ?
-				Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
-				Promise.resolve({});
+			if (key && key.includes('fail')) {
+				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
+			}
+			if (key && key.includes('suggestion')) {
+				return new Promise(resolve => {
+					setTimeout(() => resolve({
+						titleMap: [
+							{ value: 'clafoutis', name: 'Clafoutis aux poires et aux fruits' },
+							{ value: 'conchiglioni-au-thon', name: 'Conchiglioni au thon' },
+							{ value: 'coquillettes-crevettes', name: 'coquillettes aux crevettes' },
+							{ value: 'crumble', name: 'Crumble a la danette' },
+							{ value: 'pomme-savane', name: 'Pomme savane' },
+							{ value: 'tarte-au-citron', name: 'Tarte  au citron' },
+						],
+					}), 3000);
+				});
+			}
+			return Promise.resolve({});
 		},
 		onReset: action('onReset'),
 		onSubmit: action('Submit'),

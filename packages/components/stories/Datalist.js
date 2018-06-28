@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
-import { Datalist } from '../src/index';
+import { Datalist, IconsProvider } from '../src/index';
 
 const propsMultiSection = {
 	autoFocus: true,
@@ -49,7 +49,8 @@ storiesOf('Datalist', module)
 		const restrictedValues = { ...propsMultiSection, restricted: true, autoFocus: false };
 		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
-			<div>
+			<form className="form">
+				<IconsProvider />
 				<p>By default :</p>
 				<Datalist {...withoutAutoFocus} />
 				<p>default value :</p>
@@ -58,7 +59,9 @@ storiesOf('Datalist', module)
 				<Datalist {...restrictedValues} />
 				<p>Auto focused :</p>
 				<Datalist {...propsMultiSection} />
-			</div>
+				<p>Loading :</p>
+				<Datalist isLoading />
+			</form>
 		);
 	})
 	.addWithInfo('default single section', () => {
@@ -66,7 +69,8 @@ storiesOf('Datalist', module)
 		const restrictedValues = { ...singleSectionProps, restricted: true, autoFocus: false };
 		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
-			<div>
+			<form className="form">
+				<IconsProvider />
 				<p>By default :</p>
 				<Datalist {...withoutAutoFocus} />
 				<p>default value :</p>
@@ -75,6 +79,6 @@ storiesOf('Datalist', module)
 				<Datalist {...restrictedValues} />
 				<p>Auto focused :</p>
 				<Datalist {...singleSectionProps} />
-			</div>
+			</form>
 		);
 	});
