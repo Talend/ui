@@ -28,6 +28,8 @@ export function* fetchProducts(action) {
 
 /**
  * Handle the opening of a product from the HeaderBar
+ * Behavior will be extended in the future (interaction with browser extension ...),
+ * for now we only handle link opening
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
