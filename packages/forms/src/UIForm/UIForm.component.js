@@ -171,9 +171,13 @@ export class UIFormComponent extends React.Component {
 		if (this.props.moz) {
 			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
 		}
+		if (!payload.trigger) {
+			throw new Error('onTrigger payload do not have required trigger property');
+		}
 		return onTrigger(event, {
 			properties: this.props.properties,
 			errors: this.props.errors,
+			schema: this.props.schema,
 			...payload,
 		});
 	}

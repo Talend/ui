@@ -91,7 +91,7 @@ class ComponentForm extends React.Component {
 	}
 
 	onTrigger(event, payload) {
-		this.trigger(event, payload).then(data => {
+		return this.trigger(event, payload).then(data => {
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
