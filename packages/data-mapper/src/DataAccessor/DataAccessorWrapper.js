@@ -249,7 +249,7 @@ export default class DataAccessorWrapper {
 		let updatedMapping = mapping.slice();
 		for (let i = 0; i < mappingItems.length; i += 1) {
 			const item = mappingItems[i];
-			updatedMapping = updatedMapping.concat(item);			
+			updatedMapping = updatedMapping.concat(item);
 		}
 		this.mappingVersion += 1;
 		return updatedMapping;
