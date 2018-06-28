@@ -48,9 +48,9 @@ describe('Container HeaderBar', () => {
 	it('should render HeaderBar container while fetching items', () => {
 		const props = {
 			...containerProps,
-			state: {
-				get: jest.fn().mockReturnValue(true),
-			},
+			state: new Map({
+				get: jest.fn().mockReturnValue(Constants.FETCHING_PRODUCTS),
+			}),
 		};
 
 		const wrapper = shallow(<Container {...props} />, { context });

@@ -7,44 +7,57 @@ import { cmfConnect, Inject } from '@talend/react-cmf';
 import Constants from './HeaderBar.constant';
 
 export const DEFAULT_STATE = new Map({
-	fetchingProducts: false,
+	productsFetchState: Constants.PRODUCTS_NOT_LOADED,
 });
 
-const HeaderBar = props => {
-	const { productsUrl, productsLang, productsItems, products = {}, ...componentProps } = props;
+class HeaderBar extends React.Component {
 
-	if (productsItems) {
-		// Add onClickDispatch event to items
-		products.items = productsItems.map(product => ({
-			onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
-			...product,
-		}));
+	static displayName = 'Container(HeaderBar)';
 
-		componentProps.products = products;
-	} else if (!props.state.get('fetchingProducts')) {
-		// Trigger fetch if not already fetching
-		props.dispatch({
-			type: Constants.HEADER_BAR_FETCH_PRODUCTS,
-			payload: { url: productsUrl, lang: productsLang },
-		});
+	static propTypes = {
+		productsUrl: PropTypes.string,
+		productsLang: PropTypes.string,
+		productsItems: PropTypes.arrayOf(
+			PropTypes.shape({
+				icon: PropTypes.string,
+				uri: PropTypes.string,
+				label: PropTypes.string,
+			}),
+		),
+		...cmfConnect.propTypes,
+	};
+
+	componentDidUpdate(props) {
+		const { productsUrl, productsLang } = props;
+
+		// Trigger product fetch when there's an URL and
+		// products URL has changed or products have not been loaded yet
+		const shouldFetchProducts = productsUrl &&
+			(this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED || this.props.productsUrl !== productsUrl);
+
+		if (shouldFetchProducts) {
+			this.props.dispatch({
+				type: Constants.HEADER_BAR_FETCH_PRODUCTS,
+				payload: { url: productsUrl, lang: productsLang },
+			});
+		}
 	}
 
-	return <Inject component="HeaderBar" {...omit(props, cmfConnect.INJECTED_PROPS)} />;
-};
+	render() {
+		const { productsItems, ...props } = this.props;
 
-HeaderBar.displayName = 'Container(HeaderBar)';
+		if (this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS && productsItems) {
+			props.products = Object.assign({}, props.products || {}, {
+				// Add onClickDispatch event to items
+				items: productsItems.map(product => ({
+					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
+					...product,
+				})),
+			});
+		}
 
-HeaderBar.propTypes = {
-	productsUrl: PropTypes.string,
-	productsLang: PropTypes.string,
-	productsItems: PropTypes.arrayOf(
-		PropTypes.shape({
-			icon: PropTypes.string,
-			uri: PropTypes.string,
-			label: PropTypes.string,
-		}),
-	),
-	...cmfConnect.propTypes,
-};
+		return <Inject component="HeaderBar" {...omit(props, cmfConnect.INJECTED_PROPS)} />;
+	}
+}
 
 export default HeaderBar;

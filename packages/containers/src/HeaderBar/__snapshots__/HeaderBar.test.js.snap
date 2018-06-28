@@ -4,14 +4,4 @@ exports[`Container HeaderBar should render HeaderBar container 1`] = `<HeaderBar
 
 exports[`Container HeaderBar should render HeaderBar container while fetching items 1`] = `<HeaderBar />`;
 
-exports[`Container HeaderBar should render HeaderBar container with a list of items 1`] = `
-<HeaderBar
-  productsItems={
-    Array [
-      Object {
-        "foo": "bar",
-      },
-    ]
-  }
-/>
-`;
+exports[`Container HeaderBar should render HeaderBar container with a list of items 1`] = `<HeaderBar />`;

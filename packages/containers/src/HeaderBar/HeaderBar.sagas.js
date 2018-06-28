@@ -13,15 +13,17 @@ export function* fetchProducts(action) {
 	const { url, lang } = action.payload;
 	const productsUrl = `${url}?lang=${lang}`;
 
-	yield put(Connected.setStateAction({ fetchingProducts: true }));
+	yield put(Connected.setStateAction({ productsFetchState: Constants.FETCHING_PRODUCTS }));
 
 	const { response, data } = yield call(cmf.sagas.http.get, productsUrl);
 
-	yield put(Connected.setStateAction({ fetchingProducts: false }));
-
 	if (!response.ok) {
-		return; // Loading products failed, do nothing
+		// Loading products failed
+		yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_ERROR }));
+		return;
 	}
+
+	yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS }));
 
 	yield put(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data));
 }

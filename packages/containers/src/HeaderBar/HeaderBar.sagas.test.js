@@ -19,7 +19,8 @@ describe('HeaderBar sagas', () => {
 
 			// Toggle fetching flag (enable)
 			let effect = gen.next().value;
-			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: true }));
+			let expected = Connected.setStateAction({ productsFetchState: Constants.FETCHING_PRODUCTS });
+			expect(effect.PUT.action).toEqual(expected);
 
 			// HTTP call
 			effect = gen.next().value;
@@ -28,11 +29,12 @@ describe('HeaderBar sagas', () => {
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
-			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: false }));
+			expected = Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS });
+			expect(effect.PUT.action).toEqual(expected);
 
 			// Update CMF collections
 			effect = gen.next().value;
-			const expected = cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data);
+			expected = cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data);
 			expect(effect.PUT.action).toEqual(expected);
 
 			const { done } = gen.next();
@@ -47,7 +49,8 @@ describe('HeaderBar sagas', () => {
 
 			// Toggle fetching flag (enable)
 			let effect = gen.next().value;
-			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: true }));
+			expect(effect.PUT.action)
+				.toEqual(Connected.setStateAction({ productsFetchState: Constants.FETCHING_PRODUCTS }));
 
 			// HTTP call
 			effect = gen.next().value;
@@ -56,7 +59,8 @@ describe('HeaderBar sagas', () => {
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
-			expect(effect.PUT.action).toEqual(Connected.setStateAction({ fetchingProducts: false }));
+			expect(effect.PUT.action)
+				.toEqual(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_ERROR }));
 
 			const { done } = gen.next();
 
