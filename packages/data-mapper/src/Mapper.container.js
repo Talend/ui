@@ -1125,12 +1125,12 @@ class DataMapperContainer extends React.Component {
 				},
 			},
 			status: Constants.UNDO_REDO_STATE_STATUS,
-		}, () => {
+		}), () => {
 			if (cmd.code === Constants.Commands.REMOVE_MAPPING) {
 				// reveal connection
 				this.revealConnection(cmd.sourceId, cmd.targetId);
 			}
-		}));
+		});
 	}
 
 	onRedo() {
@@ -1165,12 +1165,12 @@ class DataMapperContainer extends React.Component {
 				},
 			},
 			status: Constants.UNDO_REDO_STATE_STATUS,
-		}, () => {
+		}), () => {
 			if (cmd.code === Constants.Commands.ADD_MAPPING) {
 				// reveal connection
 				this.revealConnection(cmd.sourceId, cmd.targetId);
 			}
-		}));
+		});
 	}
 
 	updateMapperRef(ref) {
