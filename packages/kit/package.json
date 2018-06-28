@@ -1,19 +1,22 @@
 {
-  "name": "<%= props.name %>",
-  "version": "1.0.0",
-  "description": "<%= props.description %>",
-  "main": "app/index.js",
+  "name": "@talend/react-components-kit",
+  "version": "0.1.1",
+  "description": "React CMF Containers for Talend Component Kit",
+  "main": "lib/index.js",
   "scripts": {
     "start": "talend-scripts start",
-    "prepublish": "talend-scripts build",
+    "prepublish": "babel -d lib ./src/components && rimraf lib/**/*.test.js",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage"
   },
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "<%= props.github %>"
+    "url": "https://github.com/Talend/ui.git"
   },
   "keywords": [
     "react",
@@ -25,15 +28,16 @@
     "@talend/scripts": "0.2.1"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "0.194.0",
-    "@talend/icons": "0.194.0",
-    "@talend/react-cmf": "0.194.0",
-    "@talend/react-components": "0.194.0",
-    "@talend/react-containers": "0.194.0",
-    "@talend/react-forms": "0.194.0",
+    "@talend/bootstrap-theme": "0.197.0",
+    "@talend/icons": "0.197.0",
+    "@talend/react-cmf": "0.197.0",
+    "@talend/react-components": "0.198.0-tacokit-0",
+    "@talend/react-containers": "0.197.0",
+    "@talend/react-forms": "0.198.0-tacokit-0",
     "bootstrap-sass": "3.3.7",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
+    "component-kit.js": "^1.0.0",
     "enzyme": "^3.1.0",
     "i18next": "^9.0.0",
     "immutable": "^3.8.1",
@@ -57,6 +61,9 @@
     "redux-saga": "^0.15.4",
     "redux-thunk": "^2.2.0",
     "reselect": "^2.5.4",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   }
 }
