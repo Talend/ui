@@ -97,4 +97,31 @@ describe('Item', () => {
 		const wrapper = mount(<Item {...props} />);
 		expect(wrapper.find('span').text()).toEqual('toto');
 	});
+
+	it('should display the item with an icon appended', () => {
+		const props = {
+			item: {
+				...item,
+				icon: {
+					name: 'talend-warning',
+					title: 'mad world',
+				},
+			},
+		};
+
+		const wrapper = mount(<Item {...props} />);
+		expect(wrapper.find('TooltipTrigger').at(0).props().label).toBe('mad world');
+		expect(wrapper.find('Icon').props().title).toBe('mad world');
+		expect(wrapper.find('svg').length).toBe(1);
+
+		const propsWithoutIcon = {
+			item: {
+				...item,
+				icon: false,
+			},
+		};
+
+		const simpleWrapper = mount(<Item {...propsWithoutIcon} />);
+		expect(simpleWrapper.find('Icon').length).toBe(0);
+	});
 });
