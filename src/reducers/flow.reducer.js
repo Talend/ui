@@ -7,6 +7,7 @@ import {
 	FLOWDESIGNER_FLOW_LOAD,
 	FLOWDESIGNER_FLOW_SET_ZOOM,
 	FLOWDESIGNER_PAN_TO,
+	FLOWDESIGNER_NODETYPE_SET,
 } from '../constants/flowdesigner.constants';
 import nodesReducer from './node.reducer';
 import linksReducer from './link.reducer';
@@ -86,6 +87,8 @@ export function reducer(state, action) {
 /**
  * Calculate port position with the methods provided by port parent node
  * calcul is done only if node moved or list of attached port have its size changed
+ * also update position if registered nodetype change
+ * because the node hold the function used to calculate position of their attached port
  * Beware could be slow if the calculus methode provided is slow
  * @params {object} state react-flow-designer state
  * @params {object} oldState react-flow-designer precedentState
@@ -98,7 +101,8 @@ export function calculatePortsPosition(state, action) {
 	if (
 		(/FLOWDESIGNER_NODE_/.exec(action.type) && action.type !== 'FLOWDESIGNER_NODE_REMOVE') ||
 		(/FLOWDESIGNER_PORT_/.exec(action.type) && action.type !== 'FLOWDESIGNER_PORT_REMOVE') ||
-		/FLOWDESIGNER.FLOW_/.exec(action.type)
+		/FLOWDESIGNER.FLOW_/.exec(action.type) ||
+		action.type === FLOWDESIGNER_NODETYPE_SET
 	) {
 		if (action.nodeId) {
 			nodes.push(state.getIn(['nodes', action.nodeId]));
