@@ -5,49 +5,49 @@ exports[`DatePicker should render a DatePicker 1`] = `
   className="theme-container"
 >
   <div
-    className="theme-calendar-header"
+    className="calendar-header theme-calendar-header"
   >
     <div
-      className="theme-calendar-row"
+      className="calendar-row theme-calendar-row"
     >
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Monday"
       >
         M
       </abbr>
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Tuesday"
       >
         T
       </abbr>
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Wednesday"
       >
         W
       </abbr>
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Thursday"
       >
         T
       </abbr>
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Friday"
       >
         F
       </abbr>
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Saturday"
       >
         S
       </abbr>
       <abbr
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
         title="Sunday"
       >
         S
@@ -58,25 +58,25 @@ exports[`DatePicker should render a DatePicker 1`] = `
     />
   </div>
   <div
-    className="theme-calendar-body"
+    className="calendar-body theme-calendar-body"
   >
     <div
-      className="theme-calendar-row theme-calendar-body-row"
+      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
     >
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       />
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       />
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       />
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       />
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '1'"
@@ -88,7 +88,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '2'"
@@ -100,7 +100,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '3'"
@@ -113,10 +113,10 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="theme-calendar-row theme-calendar-body-row"
+      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
     >
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '4'"
@@ -128,7 +128,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '5'"
@@ -140,7 +140,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Unselectable date"
@@ -152,7 +152,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '7'"
@@ -164,7 +164,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '8'"
@@ -176,7 +176,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '9'"
@@ -188,7 +188,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '10'"
@@ -201,10 +201,10 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="theme-calendar-row theme-calendar-body-row"
+      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
     >
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '11'"
@@ -216,7 +216,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '12'"
@@ -228,7 +228,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '13'"
@@ -240,7 +240,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '14'"
@@ -252,7 +252,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Unselectable date"
@@ -264,7 +264,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '16'"
@@ -276,7 +276,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '17'"
@@ -289,10 +289,10 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="theme-calendar-row theme-calendar-body-row"
+      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
     >
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '18'"
@@ -304,7 +304,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '19'"
@@ -316,7 +316,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '20'"
@@ -328,7 +328,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '21'"
@@ -340,7 +340,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '22'"
@@ -352,7 +352,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '23'"
@@ -364,7 +364,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '24'"
@@ -377,10 +377,10 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="theme-calendar-row theme-calendar-body-row"
+      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
     >
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '25'"
@@ -392,7 +392,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '26'"
@@ -404,7 +404,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '27'"
@@ -416,7 +416,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '28'"
@@ -428,7 +428,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '29'"
@@ -440,7 +440,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       >
         <DayPickerAction
           aria-label="Select '30'"
@@ -452,7 +452,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
         />
       </div>
       <div
-        className="theme-calendar-item"
+        className="calendar-item theme-calendar-item"
       />
     </div>
   </div>
