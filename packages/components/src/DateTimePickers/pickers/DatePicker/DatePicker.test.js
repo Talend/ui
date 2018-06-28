@@ -329,7 +329,7 @@ describe('DatePicker', () => {
 				expect(currentDayItems).toHaveLength(0);
 			});
 
-			it.only('should have updated the current today day if has changed between two renders', () => {
+			it('should have updated the current today day if has changed between two renders', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
