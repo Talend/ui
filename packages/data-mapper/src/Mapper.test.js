@@ -4,18 +4,10 @@ import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 import MapperComponent from './Mapper.js';
-import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
-import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
 import { Constants } from '../index';
-import SchemaConfiguration from '../Schema/SchemaConfiguration';
-import MappingConfiguration from './MappingConfiguration.js';
-import MappingSVG from './MappingSVG.js';
-import AutoMapping from './AutoMapping.js';
 
-const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
-const schemaConfiguration = new SchemaConfiguration();
-const mappingConfig = new MappingConfiguration(MappingSVG, AutoMapping);
+const dataAccessor = new DataAccessorWrapper(;
 
 const element1 = {
 	id: '1',

@@ -1,3 +1,9 @@
+export const emptySchema = {
+	id: 'empty_schema',
+	name: 'Empty schema',
+	elements: [],
+};
+
 export const element1 = {
 	id: 'elem_1',
 	name: 'Firstname',

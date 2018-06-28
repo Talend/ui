@@ -3,12 +3,9 @@ import renderer from 'react-test-renderer';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import Mapping from './Mapping.js';
-import MappingConfiguration from './MappingConfiguration.js';
 import MappingSVG from './MappingSVG.js';
 import MappingActions from './MappingActions.js';
 import { Constants } from '../index';
-
-const mappingConfig = new MappingConfiguration(MappingSVG, MappingActions);
 
 const preferences = {
 	showAll: false,
@@ -102,7 +99,6 @@ it('no connections - no anchors', () => {
 	const tree = renderer
 		.create(
 			<MappingTestContext
-				mappingConfiguration={mappingConfig}
 				preferences={preferences}
 				getConnections={getConnections}
 				getAnchors={getAnchors}
@@ -120,7 +116,6 @@ it('no connections - unmapped anchors', () => {
 	const tree = renderer
 		.create(
 			<MappingTestContext
-				mappingConfiguration={mappingConfig}
 				preferences={preferences}
 				getConnections={getConnections}
 				getAnchors={getAnchors}
@@ -138,7 +133,6 @@ it('single connection [all] - no anchors', () => {
 	const tree = renderer
 		.create(
 			<MappingTestContext
-				mappingConfiguration={mappingConfig}
 				preferences={preferences}
 				getConnections={getConnections}
 				getAnchors={getAnchors}
@@ -156,7 +150,6 @@ it('single connection [all] - mapped/unmapped anchors', () => {
 	const tree = renderer
 		.create(
 			<MappingTestContext
-				mappingConfiguration={mappingConfig}
 				preferences={preferences}
 				getConnections={getConnections}
 				getAnchors={getAnchors}

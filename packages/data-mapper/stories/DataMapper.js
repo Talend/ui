@@ -309,7 +309,12 @@ function createOutputFilters() {
 	];
 }
 
-const autoMapping = [];
+const autoMapping = [
+	{
+		label: 'AUTO MAP!',
+		icon: 'talend-cog',
+	}
+];
 
 function buildElement(elem, index, types, descriptions, mandatories) {
 	const type = types ? types[index] : 'string';
