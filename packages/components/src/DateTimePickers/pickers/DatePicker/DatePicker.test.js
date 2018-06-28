@@ -39,7 +39,7 @@ describe('DatePicker', () => {
 	});
 
 	describe('body calendar', () => {
-		describe('first date of month in the correct grid column (Monday as first day of week)', () => {
+		describe('first date of month in the correct grid column (When monday as first day of week)', () => {
 			function getFirstRowCellText(wrapper, column) {
 				return wrapper
 					.find('.calendar-body .calendar-row')
@@ -50,7 +50,7 @@ describe('DatePicker', () => {
 					.prop('label');
 			}
 
-			it('should have monday in the 1st column for january 2018', () => {
+			it('should have the first date of month in 1st column when it\'s monday', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 0,
@@ -64,7 +64,7 @@ describe('DatePicker', () => {
 				expect(getFirstRowCellText(wrapper, 1)).toBe('1');
 			});
 
-			it('should have thursday in the 4th column for march 2018 ', () => {
+			it('should have the first date of month in 4th column when it\'s thursday', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 2,
@@ -78,7 +78,7 @@ describe('DatePicker', () => {
 				expect(getFirstRowCellText(wrapper, 4)).toBe('1');
 			});
 
-			it('should have sunday in the 7th column for april 2018', () => {
+			it('should have the first date of month in 7th column when it\'s sunday', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 3,
@@ -94,7 +94,7 @@ describe('DatePicker', () => {
 		});
 
 
-		describe('last date in the correct day column (Monday as first column)', () => {
+		describe('last date of month in the correct grid column (When monday as first day of week)', () => {
 			function getLastRowCellText(wrapper, column) {
 				return wrapper
 					.find('.calendar-body .calendar-row')
@@ -105,7 +105,7 @@ describe('DatePicker', () => {
 					.prop('label');
 			}
 
-			it('should have monday in the 1st column for april 2018', () => {
+			it('should have the last date of month in 1st column when it\'s monday', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 3,
@@ -119,7 +119,7 @@ describe('DatePicker', () => {
 				expect(getLastRowCellText(wrapper, 1)).toBe('30');
 			});
 
-			it('should have thursday in the 4th column for may 2018', () => {
+			it('should have the last date of month in 4th column when it\'s thursday', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 4,
@@ -133,7 +133,7 @@ describe('DatePicker', () => {
 				expect(getLastRowCellText(wrapper, 4)).toBe('31');
 			});
 
-			it('should have sunday in the 7th column for september 2018', () => {
+			it('should have the last date of month in 7th column when it\'s sunday', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 8,
@@ -209,7 +209,7 @@ describe('DatePicker', () => {
 				return a - b;
 			}
 
-			it('should have contiguous numbers for july 2018 (31 days)', () => {
+			it('should have contiguous numbers on a 31 days month', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 6,
@@ -228,7 +228,7 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(31);
 			});
 
-			it('should have contiguous numbers for february 2016 (29 days)', () => {
+			it('should have contiguous numbers on a 29 days month', () => {
 				const calendar = {
 					year: 2016,
 					monthIndex: 1,
@@ -247,7 +247,7 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(29);
 			});
 
-			it('should have contiguous numbers for february 2017 (28 days)', () => {
+			it('should have contiguous numbers on a 28 days month', () => {
 				const calendar = {
 					year: 2017,
 					monthIndex: 1,
@@ -266,7 +266,7 @@ describe('DatePicker', () => {
 				expect(days).toHaveLength(28);
 			});
 
-			it('should have contiguous numbers for november 2022 (30 days)', () => {
+			it('should have contiguous numbers on a 30 days month', () => {
 				const calendar = {
 					year: 2022,
 					monthIndex: 10,
@@ -286,8 +286,8 @@ describe('DatePicker', () => {
 			});
 		});
 
-		describe('current date', () => {
-			it('should render specifically the current date', () => {
+		describe('today', () => {
+			it('should render specifically the today date', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
@@ -309,7 +309,7 @@ describe('DatePicker', () => {
 				expect(item.prop('label')).toBe('13');
 			});
 
-			it('should not render specifically a date if current date is out of displayed month', () => {
+			it('should not render specifically any date if today is out of displayed calendar', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
@@ -329,7 +329,7 @@ describe('DatePicker', () => {
 				expect(currentDayItems).toHaveLength(0);
 			});
 
-			it('should have updated the current today day if has changed between two renders', () => {
+			it('should have updated the date marked as today if today date has changed between two renders', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
@@ -411,7 +411,7 @@ describe('DatePicker', () => {
 				expect(currentDayItems).toHaveLength(0);
 			});
 
-			it('should not render specifically a date if selected date is out of displayed month', () => {
+			it('should not render specifically a date if selected date is out of displayed calendar', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
@@ -434,7 +434,7 @@ describe('DatePicker', () => {
 		});
 
 		describe('date selection', () => {
-			it('should callback with the date corresponding to the day of month clicked', () => {
+			it('should callback with the date picked', () => {
 				const onSelect = jest.fn();
 
 				const calendar = {
