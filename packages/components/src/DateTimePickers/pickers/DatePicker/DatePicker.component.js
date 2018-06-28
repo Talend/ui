@@ -119,7 +119,7 @@ class DatePicker extends React.Component {
 				<div className={classNames('calendar-body', theme['calendar-body'])}>
 					{weeks.map((week, i) =>
 						<div
-							className={classNames('calendar-row', 'calendar-body-row', theme['calendar-row'], theme['calendar-body-row'])}
+							className={classNames('calendar-row', theme['calendar-row'])}
 							key={i}
 						>
 							{week.map((date, j) =>

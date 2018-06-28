@@ -42,7 +42,7 @@ describe('DatePicker', () => {
 		describe('first date of month in the correct grid column (Monday as first day of week)', () => {
 			function getFirstRowCellText(wrapper, column) {
 				return wrapper
-					.find('.calendar-body-row')
+					.find('.calendar-body .calendar-row')
 					.first()
 					.find('.calendar-item')
 					.at(column - 1)
@@ -97,7 +97,7 @@ describe('DatePicker', () => {
 		describe('last date in the correct day column (Monday as first column)', () => {
 			function getLastRowCellText(wrapper, column) {
 				return wrapper
-					.find('.calendar-body-row')
+					.find('.calendar-body .calendar-row')
 					.last()
 					.find('.calendar-item')
 					.at(column - 1)
@@ -150,7 +150,7 @@ describe('DatePicker', () => {
 
 		describe('number of weeks displayed', () => {
 			function nbOfWeeksRendered(wrapper) {
-				return wrapper.find('.calendar-body-row').length;
+				return wrapper.find('.calendar-body .calendar-row').length;
 			}
 
 			it('should have 4 weeks for february 2010', () => {
@@ -199,7 +199,7 @@ describe('DatePicker', () => {
 		describe('contiguous ordered numbers', () => {
 			function getDayNumbers(wrapper) {
 				return wrapper
-					.find('.calendar-body-row .calendar-item')
+					.find('.calendar-body .calendar-item')
 					.find('DayPickerAction')
 					.map(action => action.prop('label'))
 					.map(label => parseInt(label, 10));
@@ -301,7 +301,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const currentDayItems = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isToday'));
 
 				expect(currentDayItems).toHaveLength(1);
@@ -323,7 +323,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const currentDayItems = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isToday'));
 
 				expect(currentDayItems).toHaveLength(0);
@@ -344,7 +344,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const currentDayItems = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(dayItem => dayItem.prop('isToday'));
 
 				expect(currentDayItems).toHaveLength(1);
@@ -360,7 +360,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const newDayItems = newWrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(dayItem => dayItem.prop('isToday'));
 
 				expect(newDayItems).toHaveLength(1);
@@ -385,7 +385,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const currentDayItems = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isSelected'));
 
 				expect(currentDayItems).toHaveLength(1);
@@ -405,7 +405,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const currentDayItems = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isSelected'));
 
 				expect(currentDayItems).toHaveLength(0);
@@ -426,7 +426,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const currentDayItems = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isSelected'));
 
 				expect(currentDayItems).toHaveLength(0);
@@ -453,7 +453,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const dayPickerAction = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('label') === dayToSelect.toString());
 
 				dayPickerAction.simulate('click');
@@ -475,7 +475,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const disabledDates = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'));
 
 				expect(disabledDates).toHaveLength(0);
@@ -501,7 +501,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const disabledDates = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'));
 
 				expect(disabledDates).toHaveLength(0);
@@ -534,7 +534,7 @@ describe('DatePicker', () => {
 				/>);
 
 				const disabledDays = wrapper
-					.find('.calendar-body-row .calendar-item DayPickerAction')
+					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'))
 					.map(item => item.prop('label'));
 

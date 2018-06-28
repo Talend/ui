@@ -61,7 +61,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
     className="calendar-body theme-calendar-body"
   >
     <div
-      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
+      className="calendar-row theme-calendar-row"
     >
       <div
         className="calendar-item theme-calendar-item"
@@ -113,7 +113,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
+      className="calendar-row theme-calendar-row"
     >
       <div
         className="calendar-item theme-calendar-item"
@@ -201,7 +201,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
+      className="calendar-row theme-calendar-row"
     >
       <div
         className="calendar-item theme-calendar-item"
@@ -289,7 +289,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
+      className="calendar-row theme-calendar-row"
     >
       <div
         className="calendar-item theme-calendar-item"
@@ -377,7 +377,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       </div>
     </div>
     <div
-      className="calendar-row calendar-body-row theme-calendar-row theme-calendar-body-row"
+      className="calendar-row theme-calendar-row"
     >
       <div
         className="calendar-item theme-calendar-item"
