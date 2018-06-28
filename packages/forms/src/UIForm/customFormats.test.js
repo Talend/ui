@@ -84,6 +84,9 @@ describe('custom formats', () => {
 		const gitResultHttpOK10 = customValidation['url-git']('https://user@host.com:999/sd.git');
 		expect(gitResultHttpOK10).toBe(null);
 
+		const gitResultHttpOK11 = customValidation['url-git']('http://user@host.com:999/sd.git');
+		expect(gitResultHttpOK11).toBe(null);
+
 		// TEST KO
 		const gitResultHttpKO1 = customValidation['url-git']('http://host.xz');
 		expect(gitResultHttpKO1).toBe(mockedTranslation.FORMAT_URL_GIT);
