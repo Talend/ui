@@ -54,17 +54,12 @@ class Datalist extends Component {
 			this.props.schema.triggers.forEach(trigger => {
 				if (trigger.onEvent === 'focus') {
 					this.setState({ isLoading: true });
-					this.props
-						.onTrigger(event, {
-							trigger,
-							...this.props,
-						})
-						.then(data => {
-							this.setState({
-								isLoading: false,
-								...data,
-							});
+					this.props.onTrigger(event, { trigger }).then(data => {
+						this.setState({
+							isLoading: false,
+							...data,
 						});
+					});
 				}
 			});
 		}
