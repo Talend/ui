@@ -6,8 +6,10 @@ import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 describe('DateTimeView', () => {
 	it('should render', () => {
 		const wrapper = shallow(<DateTimeView
-			selectedMonthIndex={5}
-			selectedYear={2006}
+			selectedCalendar={{
+				monthIndex: 5,
+				year: 2006,
+			}}
 			onClickTitle={() => {}}
 			onSelectMonthYear={() => {}}
 			onSelectDate={() => {}}
@@ -19,8 +21,10 @@ describe('DateTimeView', () => {
 	it('should callback when title is clicked', () => {
 		const onClickTitle = jest.fn();
 		const wrapper = shallow(<DateTimeView
-			selectedMonthIndex={5}
-			selectedYear={2006}
+			selectedCalendar={{
+				monthIndex: 5,
+				year: 2006,
+			}}
 			onClickTitle={onClickTitle}
 			onSelectMonthYear={() => {}}
 			onSelectDate={() => {}}
@@ -54,8 +58,10 @@ describe('DateTimeView', () => {
 		it('should trigger callback when previous month is clicked with previous month and current year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				selectedMonthIndex={5}
-				selectedYear={2006}
+				selectedCalendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
@@ -75,8 +81,10 @@ describe('DateTimeView', () => {
 		it('should trigger callback when next month is clicked with next month and current year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				selectedMonthIndex={5}
-				selectedYear={2006}
+				selectedCalendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
@@ -95,8 +103,10 @@ describe('DateTimeView', () => {
 		it('should trigger callback when previous month is clicked with last month of year and previous year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				selectedMonthIndex={0}
-				selectedYear={2006}
+				selectedCalendar={{
+					monthIndex: 0,
+					year: 2006,
+				}}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
@@ -115,8 +125,10 @@ describe('DateTimeView', () => {
 		it('should trigger callback when next month is clicked with first month of year and next year', () => {
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(<DateTimeView
-				selectedMonthIndex={11}
-				selectedYear={2006}
+				selectedCalendar={{
+					monthIndex: 11,
+					year: 2006,
+				}}
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
