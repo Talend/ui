@@ -6,7 +6,11 @@ exports[`DayPickerAction should render a disabled day 1`] = `
   disabled={true}
   type="button"
 >
-  36
+  <span
+    className="theme-label"
+  >
+    36
+  </span>
 </button>
 `;
 
@@ -16,7 +20,11 @@ exports[`DayPickerAction should render a selected day 1`] = `
   disabled={undefined}
   type="button"
 >
-  36
+  <span
+    className="theme-label"
+  >
+    36
+  </span>
 </button>
 `;
 
@@ -26,7 +34,11 @@ exports[`DayPickerAction should render a simple day 1`] = `
   disabled={undefined}
   type="button"
 >
-  36
+  <span
+    className="theme-label"
+  >
+    36
+  </span>
 </button>
 `;
 
@@ -36,6 +48,10 @@ exports[`DayPickerAction should render a today day 1`] = `
   disabled={undefined}
   type="button"
 >
-  36
+  <span
+    className="theme-label"
+  >
+    36
+  </span>
 </button>
 `;

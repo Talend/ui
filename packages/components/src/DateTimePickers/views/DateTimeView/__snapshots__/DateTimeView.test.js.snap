@@ -9,7 +9,16 @@ exports[`DateTimeView should render 1`] = `
       <div
         className="theme-date"
       >
-        <DatePicker />
+        <DatePicker
+          calendar={
+            Object {
+              "monthIndex": 5,
+              "year": 2006,
+            }
+          }
+          onSelect={[Function]}
+          selectedDate={undefined}
+        />
       </div>
       <div
         className="theme-time"

@@ -6,20 +6,21 @@
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: space-evenly;
+}
 
+.calendar-row {
+    display: flex;
+}
+
+.calendar-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+}
+
+.calendar-header {
     .calendar-row {
-        display: flex;
-    }
-
-    .calendar-item {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .calendar-header-row {
         color: $gray;
 
         abbr[title] {
@@ -28,11 +29,22 @@
            text-decoration: none;
         }
     }
+}
 
-    .separator {
-        width: calc(100% - 2rem);
-        border: none;
-        border-bottom: $border-default;
-        margin: 0 auto;
+.separator {
+    width: calc(100% - 2rem);
+    border: none;
+    border-bottom: $border-default;
+    margin: 0 auto;
+}
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+
+    .calendar-row {
+        flex: 1;
     }
 }

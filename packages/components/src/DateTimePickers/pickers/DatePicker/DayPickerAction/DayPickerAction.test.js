@@ -23,7 +23,7 @@ describe('DayPickerAction', () => {
 			<DayPickerAction
 				label="36"
 				className="my-day-picker-class"
-				isDisabledDay
+				isDisabled
 			/>
 		);
 
@@ -37,7 +37,7 @@ describe('DayPickerAction', () => {
 			<DayPickerAction
 				label="36"
 				className="my-day-picker-class"
-				isCurrentDay
+				isToday
 			/>
 		);
 
@@ -51,7 +51,7 @@ describe('DayPickerAction', () => {
 			<DayPickerAction
 				label="36"
 				className="my-day-picker-class"
-				isSelectedDay
+				isSelected
 			/>
 		);
 

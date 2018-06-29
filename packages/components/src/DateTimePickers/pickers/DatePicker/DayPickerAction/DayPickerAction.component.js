@@ -6,9 +6,9 @@ import theme from './DayPickerAction.scss';
 function DayPickerAction(props) {
 	const {
 		label,
-		isSelectedDay,
-		isDisabledDay,
-		isCurrentDay,
+		isSelected,
+		isDisabled,
+		isToday,
 		className: propClassName,
 		...rest
 	} = props;
@@ -16,8 +16,8 @@ function DayPickerAction(props) {
 	const className = classNames(
 		theme.action,
 		{
-			[theme.selected]: isSelectedDay,
-			[theme.today]: isCurrentDay,
+			[theme.selected]: isSelected,
+			[theme.today]: isToday,
 		},
 		propClassName,
 	);
@@ -25,21 +25,28 @@ function DayPickerAction(props) {
 	return (
 		<button
 			type="button"
-			disabled={isDisabledDay}
+			disabled={isDisabled}
 			className={className}
 			{...rest}
 		>
-			{label}
+			<span
+				className={theme.label}
+			>
+				{label}
+			</span>
 		</button>
 	);
 }
 
 DayPickerAction.propTypes = {
-	label: PropTypes.string,
+	label: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 	className: PropTypes.string,
-	isSelectedDay: PropTypes.bool,
-	isDisabledDay: PropTypes.bool,
-	isCurrentDay: PropTypes.bool,
+	isSelected: PropTypes.bool,
+	isDisabled: PropTypes.bool,
+	isToday: PropTypes.bool,
 };
 
 export default DayPickerAction;
