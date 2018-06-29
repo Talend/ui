@@ -127,20 +127,18 @@ export function ActionButton(props) {
 	let rClick = null;
 	let rMouseDown = null;
 
-	if (!overlayComponent) {
-		rClick =
-			onClick &&
-			(event =>
-				onClick(event, {
-					action: { label, ...rest },
-					model,
-				}));
-		rMouseDown = event =>
-			onMouseDown(event, {
+	rClick =
+		onClick &&
+		(event =>
+			onClick(event, {
 				action: { label, ...rest },
 				model,
-			});
-	}
+			}));
+	rMouseDown = event =>
+		onMouseDown(event, {
+			action: { label, ...rest },
+			model,
+		});
 
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
@@ -160,8 +158,8 @@ export function ActionButton(props) {
 
 	let btn = (
 		<Button
-			onMouseDown={rMouseDown}
-			onClick={rClick}
+			onMouseDown={!overlayComponent ? rMouseDown : null}
+			onClick={!overlayComponent ? rClick : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
@@ -177,7 +175,11 @@ export function ActionButton(props) {
 			// this span is here to allow the tooltip trigger to work
 			<span>
 				<OverlayTrigger
+					delay={10000}
+					delayShow={null}
+					delayHide={null}
 					trigger="click"
+					onClick={rClick}
 					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
