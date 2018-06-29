@@ -27,10 +27,10 @@ class DateTimeView extends React.Component {
 	}
 
 	incrementMonthIndex(monthIncrement) {
-		const monthIndexIncremented = this.props.selectedCalendar.monthIndex + monthIncrement;
+		const monthIndexIncremented = this.props.calendar.monthIndex + monthIncrement;
 		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
 		const yearIncrement = Math.floor(monthIndexIncremented / 12);
-		const newYear = this.props.selectedCalendar.year + yearIncrement;
+		const newYear = this.props.calendar.year + yearIncrement;
 
 		this.props.onSelectMonthYear({
 			monthIndex: newMonthIndex,
@@ -48,8 +48,8 @@ class DateTimeView extends React.Component {
 				onClick={this.incrementMonthIndexDown}
 			/>,
 			middleElement: <HeaderTitle
-				monthIndex={this.props.selectedCalendar.monthIndex}
-				year={this.props.selectedCalendar.year}
+				monthIndex={this.props.calendar.monthIndex}
+				year={this.props.calendar.year}
 				button={{
 					'aria-label': 'Switch to month and year pickers view',
 					onClick: this.props.onClickTitle,
@@ -69,7 +69,7 @@ class DateTimeView extends React.Component {
 			<div className={theme.body}>
 				<div className={theme.date}>
 					<DatePicker
-						calendar={this.props.selectedCalendar}
+						calendar={this.props.calendar}
 						selectedDate={this.props.selectedDate}
 						onSelect={this.props.onSelectDate}
 					/>
@@ -90,7 +90,7 @@ class DateTimeView extends React.Component {
 }
 
 DateTimeView.propTypes = {
-	selectedCalendar: PropTypes.shape({
+	calendar: PropTypes.shape({
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
 	}).isRequired,

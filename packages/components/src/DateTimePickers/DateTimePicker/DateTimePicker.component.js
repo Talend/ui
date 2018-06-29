@@ -58,7 +58,7 @@ class DateTimePicker extends React.Component {
 		if (this.state.isDateTimeView) {
 			viewElement = (<DateTimeView
 				onClickTitle={this.setMonthYearView}
-				selectedCalendar={this.state.calendar}
+				calendar={this.state.calendar}
 				onSelectMonthYear={this.onSelectCalendarMonthYear}
 				onSelectDate={this.onSelectDate}
 				selectedDate={this.state.selectedDate}
