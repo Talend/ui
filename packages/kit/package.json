@@ -1,6 +1,9 @@
 {
   "name": "@talend/react-components-kit",
-  "version": "0.198.0-tacokit-5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.198.0-tacokit-6",
   "description": "React CMF Containers for Talend Component Kit",
   "main": "lib/index.js",
   "scripts": {
