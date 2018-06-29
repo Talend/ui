@@ -120,12 +120,12 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				)}
 				<span>
 					{actualLabel}
-					{item.icon && (
-						<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
-							<Icon {...item.icon} />
-						</TooltipTrigger>
-					)}
 				</span>
+				{item.icon && (
+					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+						<Icon {...item.icon} />
+					</TooltipTrigger>
+				)}
 			</Button>
 		);
 	}

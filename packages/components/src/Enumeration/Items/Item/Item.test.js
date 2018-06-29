@@ -118,15 +118,5 @@ describe('Item', () => {
 		).toBe('mad world');
 		expect(wrapper.find('Icon').props().title).toBe('mad world');
 		expect(wrapper.find('svg').length).toBe(1);
-
-		const propsWithoutIcon = {
-			item: {
-				...item,
-				icon: false,
-			},
-		};
-
-		const simpleWrapper = mount(<Item {...propsWithoutIcon} />);
-		expect(simpleWrapper.find('Icon').length).toBe(0);
 	});
 });
