@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IncrementableScrollList should render 1`] = `
+<div
+  className="theme-container"
+>
+  <IconButton
+    aria-label="Scroll to previous page"
+    className="theme-action-up"
+    icon={
+      Object {
+        "name": "talend-chevron-left",
+        "transform": "rotate-90",
+      }
+    }
+    onClick={[Function]}
+  />
+  <div
+    className="theme-items"
+  >
+    <AutoSizer
+      disableHeight={false}
+      disableWidth={false}
+      onResize={[Function]}
+    >
+      [Function]
+    </AutoSizer>
+  </div>
+  <IconButton
+    aria-label="Scroll to next page"
+    className="theme-action-down"
+    icon={
+      Object {
+        "name": "talend-chevron-left",
+        "transform": "rotate-270",
+      }
+    }
+    onClick={[Function]}
+  />
+</div>
+`;

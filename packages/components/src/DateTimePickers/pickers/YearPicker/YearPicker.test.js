@@ -5,12 +5,24 @@ import YearPicker from './YearPicker.component';
 
 describe('YearPicker', () => {
 	it('should render', () => {
+		const mockedDate = new Date(2015, 11, 31);
+		const OriginalDate = Date;
+
+		global.Date = jest.fn((...args) => {
+			if (args.length === 0) {
+				return mockedDate;
+			}
+			return new OriginalDate(...args);
+		});
+
 		const wrapper = shallow(<YearPicker
 			selectedYear={2012}
 			onSelect={() => {}}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
+
+		global.Date = OriginalDate;
 	});
 
 	it.skip('should have exactly one selected year', () => {
