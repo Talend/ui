@@ -123,7 +123,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				</span>
 				{item.icon && (
 					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
-						<Icon {...item.icon} />
+						<Icon {...item.icon} aria-hidden="false" />
 					</TooltipTrigger>
 				)}
 			</Button>
