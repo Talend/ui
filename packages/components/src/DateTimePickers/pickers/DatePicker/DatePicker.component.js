@@ -82,11 +82,11 @@ class DatePicker extends React.Component {
 
 		return (
 			<div className={theme.container}>
-				<div className={classNames('calendar-header', theme['calendar-header'])}>
-					<div className={classNames('calendar-row', theme['calendar-row'])}>
+				<div className={classNames('tc-date-picker-calendar-header', theme['calendar-header'])}>
+					<div className={classNames('tc-date-picker-calendar-row', theme['calendar-row'])}>
 						{dayNames.map((dayName, i) =>
 							<abbr
-								className={classNames('calendar-item', theme['calendar-item'])}
+								className={classNames('tc-date-picker-calendar-item', theme['calendar-item'])}
 								key={i}
 								title={dayName}
 							>
@@ -98,10 +98,10 @@ class DatePicker extends React.Component {
 				</div>
 
 
-				<div className={classNames('calendar-body', theme['calendar-body'])}>
+				<div className={classNames('tc-date-picker-calendar-body', theme['calendar-body'])}>
 					{weeks.map((week, i) =>
 						<div
-							className={classNames('calendar-row', theme['calendar-row'])}
+							className={classNames('tc-date-picker-calendar-row', theme['calendar-row'])}
 							key={i}
 						>
 							{week.map((date, j) => {
@@ -110,7 +110,7 @@ class DatePicker extends React.Component {
 
 								return (
 									<div
-										className={classNames('calendar-item', theme['calendar-item'])}
+										className={classNames('tc-date-picker-calendar-item', theme['calendar-item'])}
 										key={j}
 									>
 										{
