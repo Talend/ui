@@ -104,26 +104,31 @@ class DatePicker extends React.Component {
 							className={classNames('calendar-row', theme['calendar-row'])}
 							key={i}
 						>
-							{week.map((date, j) =>
-								<div
-									className={classNames('calendar-item', theme['calendar-item'])}
-									key={j}
-								>
-									{
-										this.isCurrentMonth(date) &&
-										<DayPickerAction
-											label={getDate(date).toString()}
-											isSelected={this.isSelectedDate(date)}
-											isDisabled={this.isDisabledDate(date)}
-											isToday={isToday(date)}
-											aria-label={this.isDisabledDate(date)
-												? 'Unselectable date'
-												: `Select '${getDate(date)}'`}
-											onClick={() => { this.props.onSelect(date); }}
-										/>
-									}
-								</div>
-							)}
+							{week.map((date, j) => {
+								const isDisabled = this.isDisabledDate(date);
+								const dateNumber = getDate(date);
+
+								return (
+									<div
+										className={classNames('calendar-item', theme['calendar-item'])}
+										key={j}
+									>
+										{
+											this.isCurrentMonth(date) &&
+											<DayPickerAction
+												label={dateNumber.toString()}
+												isSelected={this.isSelectedDate(date)}
+												isDisabled={isDisabled}
+												isToday={isToday(date)}
+												aria-label={isDisabled
+													? 'Unselectable date'
+													: `Select '${dateNumber}'`}
+												onClick={() => { this.props.onSelect(date); }}
+											/>
+										}
+									</div>
+								);
+							})}
 						</div>
 					)}
 				</div>
