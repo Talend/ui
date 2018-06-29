@@ -207,17 +207,13 @@ describe('DatePicker', () => {
 			});
 		});
 
-		describe('contiguous ordered numbers', () => {
+		describe('right number of days in month', () => {
 			function getDayNumbers(wrapper) {
 				return wrapper
 					.find('.calendar-body .calendar-item')
 					.find('DayPickerAction')
 					.map(action => action.prop('label'))
 					.map(label => parseInt(label, 10));
-			}
-
-			function ascSorting(a, b) {
-				return a - b;
 			}
 
 			it('should have contiguous numbers on a 31 days month', () => {
@@ -232,10 +228,6 @@ describe('DatePicker', () => {
 				/>);
 
 				const days = getDayNumbers(wrapper);
-				const copy = [...days];
-				days.sort(ascSorting);
-				expect(days).toEqual(copy);
-				expect(days[0]).toBe(1);
 				expect(days).toHaveLength(31);
 			});
 
@@ -251,10 +243,6 @@ describe('DatePicker', () => {
 				/>);
 
 				const days = getDayNumbers(wrapper);
-				const copy = [...days];
-				days.sort(ascSorting);
-				expect(days).toEqual(copy);
-				expect(days[0]).toBe(1);
 				expect(days).toHaveLength(29);
 			});
 
@@ -270,14 +258,10 @@ describe('DatePicker', () => {
 				/>);
 
 				const days = getDayNumbers(wrapper);
-				const copy = [...days];
-				days.sort(ascSorting);
-				expect(days).toEqual(copy);
-				expect(days[0]).toBe(1);
 				expect(days).toHaveLength(28);
 			});
 
-			it('should have contiguous numbers on a 30 days month', () => {
+			it('should have the right number of days on a 30 days month', () => {
 				const calendar = {
 					year: 2022,
 					monthIndex: 10,
@@ -289,10 +273,6 @@ describe('DatePicker', () => {
 				/>);
 
 				const days = getDayNumbers(wrapper);
-				const copy = [...days];
-				days.sort(ascSorting);
-				expect(days).toEqual(copy);
-				expect(days[0]).toBe(1);
 				expect(days).toHaveLength(30);
 			});
 		});
