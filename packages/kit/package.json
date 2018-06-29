@@ -1,5 +1,8 @@
 {
   "name": "@talend/react-components-kit",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.1.1",
   "description": "React CMF Containers for Talend Component Kit",
   "main": "lib/index.js",
