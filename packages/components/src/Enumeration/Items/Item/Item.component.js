@@ -118,9 +118,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 						checked={item.isSelected}
 					/>
 				)}
-				<span>
-					{actualLabel}
-				</span>
+				<span>{actualLabel}</span>
 				{item.icon && (
 					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
 						<Icon {...item.icon} aria-hidden="false" />
