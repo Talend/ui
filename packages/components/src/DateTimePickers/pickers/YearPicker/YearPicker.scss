@@ -9,12 +9,6 @@
     }
 
     .years {
-        display: flex;
         flex: 5;
-        flex-direction: column;
-
-        .year {
-            flex: 1;
-        }
     }
 }
