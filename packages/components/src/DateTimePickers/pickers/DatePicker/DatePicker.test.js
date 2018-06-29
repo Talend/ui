@@ -56,7 +56,8 @@ describe('DatePicker', () => {
 					.find('.calendar-item')
 					.at(column - 1)
 					.find('DayPickerAction')
-					.prop('label');
+					.prop('label')
+					.toString();
 			}
 
 			it('should have the first date of month in 1st column when it\'s monday', () => {
@@ -111,7 +112,8 @@ describe('DatePicker', () => {
 					.find('.calendar-item')
 					.at(column - 1)
 					.find('DayPickerAction')
-					.prop('label');
+					.prop('label')
+					.toString();
 			}
 
 			it('should have the last date of month in 1st column when it\'s monday', () => {
@@ -315,7 +317,7 @@ describe('DatePicker', () => {
 
 				expect(currentDayItems).toHaveLength(1);
 				const item = currentDayItems.first();
-				expect(item.prop('label')).toBe('13');
+				expect(item.prop('label').toString()).toBe('13');
 			});
 
 			it('should not render specifically any date if today is out of displayed calendar', () => {
@@ -358,7 +360,7 @@ describe('DatePicker', () => {
 
 				expect(currentDayItems).toHaveLength(1);
 				const item = currentDayItems.first();
-				expect(item.prop('label')).toBe('16');
+				expect(item.prop('label').toString()).toBe('16');
 
 				// Change to next day
 				mockIsTodayWith(new Date(2018, 5, 17));
@@ -374,7 +376,7 @@ describe('DatePicker', () => {
 
 				expect(newDayItems).toHaveLength(1);
 				const newItem = newDayItems.first();
-				expect(newItem.prop('label')).toBe('17');
+				expect(newItem.prop('label').toString()).toBe('17');
 			});
 		});
 
@@ -399,7 +401,7 @@ describe('DatePicker', () => {
 
 				expect(currentDayItems).toHaveLength(1);
 				const item = currentDayItems.first();
-				expect(item.prop('label')).toBe('12');
+				expect(item.prop('label').toString()).toBe('12');
 			});
 
 			it('should not render specifically a date if no selected date given', () => {
@@ -463,7 +465,7 @@ describe('DatePicker', () => {
 
 				const dayPickerAction = wrapper
 					.find('.calendar-body .calendar-item DayPickerAction')
-					.filterWhere(item => item.prop('label') === dayToSelect.toString());
+					.filterWhere(item => item.prop('label').toString() === dayToSelect.toString());
 
 				dayPickerAction.simulate('click');
 
@@ -539,7 +541,7 @@ describe('DatePicker', () => {
 				const disabledActionsLabels = wrapper
 					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'))
-					.map(item => item.prop('label'));
+					.map(item => item.prop('label').toString());
 
 				const expectedDisabledLabels = disabledDatesDefined
 					.map(date => date.getDate().toString());

@@ -116,7 +116,7 @@ class DatePicker extends React.Component {
 										{
 											this.isCurrentMonth(date) &&
 											<DayPickerAction
-												label={dateNumber.toString()}
+												label={dateNumber}
 												isSelected={this.isSelectedDate(date)}
 												isDisabled={isDisabled}
 												isToday={isToday(date)}
