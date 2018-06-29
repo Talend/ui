@@ -20,13 +20,14 @@ function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
-function getLargeDisplayActions(actions) {
+function getLargeDisplayActions(actions, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
 
 	return (
 		<Actions
+			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
 			key={'large-display-actions'}
 			actions={actions}
@@ -36,7 +37,7 @@ function getLargeDisplayActions(actions) {
 	);
 }
 
-function getDefaultDisplayActions(actions, t) {
+function getDefaultDisplayActions(actions, t, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
@@ -46,11 +47,18 @@ function getDefaultDisplayActions(actions, t) {
 
 	// few actions : display them
 	if (hasFewActions) {
-		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link />);
-	}
-	// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
-	// the rest is in an ellipsis dropdown
-	else {
+		actionsBlocs.push(
+			<Actions
+				getComponent={getComponent}
+				key={'direct-actions'}
+				actions={actions}
+				hideLabel
+				link
+			/>,
+		);
+	} else {
+		// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
+		// the rest is in an ellipsis dropdown
 		// always extract dropdowns
 		const extractedDropdownActions = actions.filter(isDropdown);
 		const simpleActions = actions.filter(action => !isDropdown(action));
@@ -72,7 +80,15 @@ function getDefaultDisplayActions(actions, t) {
 		extractedActions
 			.sort((a, b) => actions.indexOf(a) - actions.indexOf(b))
 			.forEach((action, i) => {
-				actionsBlocs.push(<Action {...action} key={`extracted-action-${i}`} hideLabel link />);
+				actionsBlocs.push(
+					<Action
+						{...action}
+						getComponent={getComponent}
+						key={`extracted-action-${i}`}
+						hideLabel
+						link
+					/>,
+				);
 			});
 
 		// ellipsis dropdown
@@ -96,13 +112,14 @@ function getDefaultDisplayActions(actions, t) {
 	);
 }
 
-function getPersistentActions(actions) {
+function getPersistentActions(actions, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
 	return (
 		<Actions
 			key={'persistent-actions'}
+			getComponent={getComponent}
 			className={classNames('persistent-actions', theme['persistent-actions'])}
 			actions={actions}
 			hideLabel
@@ -133,12 +150,12 @@ export function CellTitleActionsComponent({
 
 	const actions = [];
 	if (type === LARGE) {
-		actions.push(getLargeDisplayActions(dataActions));
+		actions.push(getLargeDisplayActions(dataActions, props.getComponent));
 	} else {
-		actions.push(getDefaultDisplayActions(dataActions, t));
+		actions.push(getDefaultDisplayActions(dataActions, t, props.getComponent));
 	}
 
-	actions.push(getPersistentActions(persistentActions));
+	actions.push(getPersistentActions(persistentActions, props.getComponent));
 
 	return (
 		<div

@@ -28,6 +28,78 @@ const mouseDownAction = {
 	onMouseDown: action('You clicked me'),
 };
 
+const items = [
+	{ label: 'Space The Final Frontier', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up2', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up3', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up4', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up5', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up6', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up7', onClick: action('bodyList.items.onClick') },
+	{ label: 'How To Look Up8', onClick: action('bodyList.items.onClick') },
+];
+
+const tabs = [
+	{
+		title: 'Existing',
+		items: [
+			{ label: 'Space The Final Frontier', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up2', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up3', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up4', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up5', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up6', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up7', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up8', onClick: action('bodyList.items.onClick') },
+		],
+	},
+	{
+		title: 'Compatible',
+		items: [
+			{ label: 'Space The Final Frontier', onClick: action('bodyList.items.onClick') },
+			{ label: 'How To Look Up', onClick: action('bodyList.items.onClick') },
+		],
+	},
+];
+
+const RichTooltipHeader = (
+	<RichTooltip.Header
+		title="Pipelines"
+		right={[
+			{
+				id: 'add',
+				label: 'Add',
+				bsStyle: 'info',
+				icon: 'talend-plus-circle',
+				onClick: action('header.add.onClick'),
+			},
+		]}
+	/>
+);
+
+const RichTooltipFooter = (
+	<RichTooltip.Footer
+		left={[
+			{
+				label: 'Add',
+				icon: 'fa fa-asterisk',
+				bsStyle: 'primary',
+				onClick: action('footer.add.onClick'),
+			},
+		]}
+		right={[
+			{
+				label: 'Add',
+				icon: 'fa fa-asterisk',
+				bsStyle: 'primary',
+				onClick: action('footer.add.onClick'),
+			},
+		]}
+	/>
+);
+
 storiesOf('Action', module)
 	.addDecorator(checkA11y)
 	.addDecorator(story => (
@@ -60,13 +132,35 @@ storiesOf('Action', module)
 			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
 			<p>onMouse down handler</p>
 			<Action id="hidelabel" {...mouseDownAction} hideLabel />
-			<p>Action with popover</p>
+			<p>Action with advanced tooltip in loading</p>
 			<Action
 				id="hidelabel"
-				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
 				tooltipPlacement="right"
 				{...mouseDownAction}
+				overlayComponent={
+					<RichTooltip
+						loading
+						header={RichTooltipHeader}
+						content={<RichTooltip.Body content={loreum} />}
+						footer={RichTooltipFooter}
+					/>
+				}
+				hideLabel
+			/>
+			<p>Action with advanced tooltip</p>
+			<Action
+				id="hidelabel"
+				overlayPlacement="top"
+				tooltipPlacement="right"
+				{...mouseDownAction}
+				overlayComponent={
+					<RichTooltip
+						header={RichTooltipHeader}
+						content={<RichTooltip.Body content={loreum} />}
+						footer={RichTooltipFooter}
+					/>
+				}
 				hideLabel
 			/>
 			<p>Action in progress</p>

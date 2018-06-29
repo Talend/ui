@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { translate } from 'react-i18next';
+import Inject from '../../Inject';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -199,6 +200,7 @@ ActionButton.propTypes = {
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
+	getComponent: PropTypes.func,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
