@@ -20,6 +20,7 @@ function ListTable(props) {
 		children,
 		collection,
 		disableHeader,
+		getComponent,
 		height,
 		id,
 		isActive,
@@ -55,6 +56,7 @@ function ListTable(props) {
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
+			getComponent={getComponent}
 			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
 			headerHeight={35}
 			height={height}
@@ -63,8 +65,9 @@ function ListTable(props) {
 			onRowDoubleClick={onRowDoubleClickCallback}
 			noRowsRenderer={noRowsRenderer}
 			rowClassName={({ index }) =>
-				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
-			}
+				classNames(
+					...['tc-list-item', rowThemes, collection[index] && collection[index].className],
+				)}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={rowHeight}

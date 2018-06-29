@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import { translate } from 'react-i18next';
+import Inject from '../../Inject';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -127,20 +128,18 @@ export function ActionButton(props) {
 	let rClick = null;
 	let rMouseDown = null;
 
-	if (!overlayComponent) {
-		rClick =
-			onClick &&
-			(event =>
-				onClick(event, {
-					action: { label, ...rest },
-					model,
-				}));
-		rMouseDown = event =>
-			onMouseDown(event, {
+	rClick =
+		onClick &&
+		(event =>
+			onClick(event, {
 				action: { label, ...rest },
 				model,
-			});
-	}
+			}));
+	rMouseDown = event =>
+		onMouseDown(event, {
+			action: { label, ...rest },
+			model,
+		});
 
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
@@ -160,8 +159,8 @@ export function ActionButton(props) {
 
 	let btn = (
 		<Button
-			onMouseDown={rMouseDown}
-			onClick={rClick}
+			onMouseDown={!overlayComponent ? rMouseDown : null}
+			onClick={!overlayComponent ? rClick : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
@@ -177,10 +176,19 @@ export function ActionButton(props) {
 			// this span is here to allow the tooltip trigger to work
 			<span>
 				<OverlayTrigger
+					delay={10000}
+					delayShow={null}
+					delayHide={null}
 					trigger="click"
+					onClick={rClick}
 					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
+					overlay={
+						<Popover id={overlayId}>
+							{Inject.getReactElement(props.getComponent, props.overlayComponent)}
+						</Popover>
+					}
 					overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
 				>
 					{btn}
@@ -204,6 +212,7 @@ ActionButton.propTypes = {
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
+	getComponent: PropTypes.func,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
@@ -213,7 +222,7 @@ ActionButton.propTypes = {
 	name: PropTypes.string,
 	onClick: PropTypes.func,
 	overlayId: PropTypes.string,
-	overlayComponent: PropTypes.element,
+	overlayComponent: Inject.getReactElement.propTypes,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
