@@ -12,6 +12,12 @@ describe('DatePicker', () => {
 			isSameDay(date, newToday));
 	}
 
+	function getDisabledChecker(disabledDates) {
+		return date => disabledDates.some(
+			disabledDate => isSameDay(disabledDate, date)
+		);
+	}
+
 	beforeEach(() => {
 		mockIsTodayWith(new Date(2018, 5, 20));
 	});
@@ -26,13 +32,16 @@ describe('DatePicker', () => {
 			new Date(2018, 5, 6),
 			new Date(2018, 5, 15),
 		];
+
+		const isDisabledChecker = getDisabledChecker(disabledDates);
+
 		const selectedDate = new Date(2018, 5, 12);
 
 		const wrapper = shallow(<DatePicker
 			calendar={calendar}
 			selectedDate={selectedDate}
 			onSelect={() => {}}
-			disabledRules={disabledDates}
+			isDisabledChecker={isDisabledChecker}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -462,8 +471,8 @@ describe('DatePicker', () => {
 			});
 		});
 
-		describe('disabled rules', () => {
-			it('should not have any disabled date if no rule set', () => {
+		describe('disabled checker', () => {
+			it('should not have any disabled date action if no checker set', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
@@ -474,74 +483,68 @@ describe('DatePicker', () => {
 					onSelect={() => {}}
 				/>);
 
-				const disabledDates = wrapper
+				const disabledActions = wrapper
 					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'));
 
-				expect(disabledDates).toHaveLength(0);
+				expect(disabledActions).toHaveLength(0);
 			});
 
-			it('should not have any disabled date if rules are not matching the current month calendar', () => {
+			it('should not have any disabled date action if checker have no date matching the current month calendar', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
 				};
 
-				const disabledRules = [
+				const disabledDatesDefined = [
 					new Date(2018, 4, 17),
-					[
-						new Date(2018, 6, 26),
-					],
+					new Date(2018, 6, 26),
 				];
+
+				const isDisabledChecker = getDisabledChecker(disabledDatesDefined);
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					onSelect={() => {}}
-					disabledRules={disabledRules}
+					isDisabledChecker={isDisabledChecker}
 				/>);
 
-				const disabledDates = wrapper
+				const disabledActions = wrapper
 					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'));
 
-				expect(disabledDates).toHaveLength(0);
+				expect(disabledActions).toHaveLength(0);
 			});
 
-			it('should have disabled single date and array of single date', () => {
+			it('should disable the specific dates defined in the checker', () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 5,
 				};
 
-				const d1 = new Date(2018, 5, 17);
-				const d2 = new Date(2018, 5, 26);
-				const d3 = new Date(2018, 5, 28);
-				const d4 = new Date(2018, 5, 30);
-
-				const disabledRules = [
-					d1,
-					[
-						d2,
-						d3,
-						d4,
-					],
+				const disabledDatesDefined = [
+					new Date(2018, 5, 17),
+					new Date(2018, 5, 26),
+					new Date(2018, 5, 28),
+					new Date(2018, 5, 30),
 				];
+				const isDisabledChecker = getDisabledChecker(disabledDatesDefined);
 
 				const wrapper = shallow(<DatePicker
 					calendar={calendar}
 					onSelect={() => {}}
-					disabledRules={disabledRules}
+					isDisabledChecker={isDisabledChecker}
 				/>);
 
-				const disabledDays = wrapper
+				const disabledActionsLabels = wrapper
 					.find('.calendar-body .calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'))
 					.map(item => item.prop('label'));
 
-				const expectedDisabledDays = [d1, d2, d3, d4]
+				const expectedDisabledLabels = disabledDatesDefined
 					.map(date => date.getDate().toString());
 
-				expect(disabledDays).toEqual(expectedDisabledDays);
+				expect(disabledActionsLabels).toEqual(expectedDisabledLabels);
 			});
 		});
 	});

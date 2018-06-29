@@ -62,30 +62,12 @@ class DatePicker extends React.Component {
 			&& isSameDay(this.props.selectedDate, date);
 	}
 
-	isDisabledDate(dateToCheck) {
-		const disabledRules = this.props.disabledRules;
-		if (!disabledRules) {
+	isDisabledDate(date) {
+		if (!this.props.isDisabledChecker) {
 			return false;
 		}
 
-		return disabledRules
-			.some(disabledRule => {
-				if (typeof disabledRules !== 'object') {
-					return false;
-				}
-
-				switch (disabledRule.constructor) {
-					case Date:
-						return isSameDay(disabledRule, dateToCheck);
-
-					case Array:
-						return disabledRule
-							.some(disabledDateRule => isSameDay(disabledDateRule, dateToCheck));
-
-					default:
-						return false;
-				}
-			});
+		return this.props.isDisabledChecker(date);
 	}
 
 	isCurrentMonth(date) {
@@ -157,10 +139,7 @@ DatePicker.propTypes = {
 	}).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
-	disabledRules: PropTypes.arrayOf(PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.arrayOf(PropTypes.instanceOf(Date)),
-	])),
+	isDisabledChecker: PropTypes.func,
 };
 
 export default DatePicker;
