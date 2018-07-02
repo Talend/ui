@@ -28,6 +28,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     ]
   }
   disableHeader={undefined}
+  getComponent={[Function]}
   height={600}
   id="my-list-id"
   inProgress={undefined}

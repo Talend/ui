@@ -16,6 +16,10 @@ const mouseDownAction = {
 	onMouseDown: jest.fn(),
 };
 
+function OverlayComponent() {
+	return <div>OverlayComponent</div>;
+}
+
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
@@ -44,6 +48,23 @@ describe('Action', () => {
 	it('should click on the button trigger the onclick props', () => {
 		// given
 		const wrapper = shallow(<ActionButton extra="extra" {...myAction} />);
+
+		// when
+		wrapper.simulate('click');
+
+		// then
+		expect(myAction.onClick).toHaveBeenCalled();
+		expect(myAction.onClick.mock.calls.length).toBe(1);
+		const args = myAction.onClick.mock.calls[0];
+		expect(args.length).toBe(2);
+		expect(args[0]).toBe();
+		expect(args[1].action.extra).toBe('extra');
+	});
+
+	it('should trigger the onclick props when action has an overlay', () => {
+		// given
+		const props = { ...myAction, overlayComponent: OverlayComponent };
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
 		wrapper.simulate('click');
@@ -127,10 +148,6 @@ describe('Action', () => {
 	});
 
 	it('should render a button without an overlay component if inProgress is true', () => {
-		function OverlayComponent() {
-			return <div>OverlayComponent</div>;
-		}
-
 		const props = {
 			...myAction,
 			inProgress: true,

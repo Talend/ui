@@ -43,6 +43,7 @@ function getNoRowRenderer(NoRowsRenderer, inProgress) {
 function RendererSelector(props) {
 	const {
 		children,
+		getComponent,
 		height,
 		id,
 		isSelected,
@@ -68,6 +69,7 @@ function RendererSelector(props) {
 			<ListTable
 				collection={collection}
 				disableHeader={disableHeader}
+				getComponent={getComponent}
 				height={height}
 				id={id}
 				isActive={isActive}
@@ -91,6 +93,7 @@ function RendererSelector(props) {
 		<ListGrid
 			collection={collection}
 			noRowsRenderer={noRowsRenderer}
+			getComponent={getComponent}
 			height={height}
 			id={id}
 			isActive={isActive}

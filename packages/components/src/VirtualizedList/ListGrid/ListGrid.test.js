@@ -13,6 +13,7 @@ describe('ListGrid', () => {
 		const wrapper = shallow(
 			<ListGrid
 				collection={collection}
+				getComponent={jest.fn()}
 				height={600}
 				id={'my-list'}
 				rowHeight={130}

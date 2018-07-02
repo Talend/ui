@@ -52,6 +52,13 @@ describe('ListToVirtualizedList', () => {
 		});
 	});
 
+	it('should support getComponent', () => {
+		const getComponent = () => {};
+		const rProps = { ...props, getComponent };
+		const table = shallow(<ListToVirtualizedList {...rProps} />).props();
+		expect(table.getComponent).toBe(getComponent);
+	});
+
 	it('should support defaultHeight', () => {
 		const rProps = { ...props, defaultHeight: 300 };
 		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();

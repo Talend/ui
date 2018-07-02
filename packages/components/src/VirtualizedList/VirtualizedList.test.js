@@ -72,6 +72,7 @@ describe('VirtualizedList', () => {
 		const wrapper = shallow(
 			<VirtualizedList
 				collection={collection}
+				getComponent={jest.fn()}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
