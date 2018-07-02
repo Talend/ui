@@ -35,6 +35,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
+import uuid from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -44,7 +45,6 @@ import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
-import uuid from 'uuid';
 
 let newState;
 
