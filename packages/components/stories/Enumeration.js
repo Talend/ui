@@ -228,6 +228,26 @@ const headerDisabled = {
 headerDisabled.itemsProp.actionsDefault[0].disabled = true;
 headerDisabled.itemsProp.actionsDefault[1].disabled = true;
 
+const withIconProps = {
+	...props,
+	items: [
+		{
+			icon: {
+				name: 'talend-warning',
+				title: 'A warning',
+			},
+			values: ['An item with an icon appended'],
+		},
+		{
+			icon: {
+				name: 'talend-world',
+				title: 'The world',
+			},
+			values: ['An item with a world appended'],
+		},
+	],
+};
+
 storiesOf('Enumeration', module)
 	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
@@ -359,6 +379,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...customLabelProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with icon', () => (
+		<div>
+			<p>By default: </p>
+			<IconsProvider />
+			<Enumeration
+				{...withIconProps}
 			/>
 		</div>
 	));
