@@ -256,7 +256,7 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
-				this.componentUuid = bsonObjectid().toString();
+				this.id = bsonObjectid().toString();
 			}
 
 			componentDidMount() {
@@ -264,7 +264,7 @@ export default function cmfConnect({
 				if (this.props.saga) {
 					this.dispatchActionCreator(
 						'cmf.saga.start',
-						{ type: 'DID_MOUNT', componentUuid: this.componentUuid },
+						{ type: 'DID_MOUNT', componentId: this.id },
 						this.props,
 					);
 				}
@@ -287,7 +287,7 @@ export default function cmfConnect({
 				if (this.props.saga) {
 					this.dispatchActionCreator(
 						'cmf.saga.stop',
-						{ type: 'WILL_UNMOUNT', componentUuid: this.componentUuid },
+						{ type: 'WILL_UNMOUNT', componentId: this.id },
 						this.props,
 					);
 				}
