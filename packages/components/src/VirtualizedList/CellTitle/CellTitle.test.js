@@ -28,6 +28,7 @@ describe('CellTitle', () => {
 			<CellTitle
 				cellData={'my awesome title'}
 				columnData={columnData}
+				parent={{ props: { getComponent: jest.fn() } }}
 				rowData={rowData}
 				rowIndex={1}
 			/>,
@@ -56,6 +57,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					parent={{ props: { getComponent: jest.fn() } }}
 					rowData={rowData}
 					rowIndex={1}
 					type={LARGE}
@@ -78,6 +80,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					parent={{ props: { getComponent: jest.fn() } }}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
@@ -103,6 +106,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					parent={{ props: { getComponent: jest.fn() } }}
 					rowData={noIconRowData}
 					rowIndex={1}
 				/>,
@@ -143,6 +147,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					parent={{ props: { getComponent: jest.fn() } }}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
@@ -164,6 +169,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					parent={{ props: { getComponent: jest.fn() } }}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
@@ -189,6 +195,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					parent={{ props: { getComponent: jest.fn() } }}
 					rowData={noActionsRowData}
 					rowIndex={1}
 				/>,

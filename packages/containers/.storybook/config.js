@@ -406,6 +406,7 @@ function loadStories() {
 				customProps: 'customProps',
 			},
 			overlayPlacement: 'bottom',
+			payload: { type: 'BUTTON_OVERLAY' },
 		};
 		actions['action:icon:toggle'] = {
 			icon: 'talend-panel-opener-right',

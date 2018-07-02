@@ -30,6 +30,7 @@ export default class OverlayTrigger extends React.Component {
 	static propTypes = {
 		children: PropTypes.element,
 		getComponent: PropTypes.func,
+		onClick: PropTypes.func,
 		...overlayPropTypes,
 	};
 
@@ -79,6 +80,7 @@ export default class OverlayTrigger extends React.Component {
 	render() {
 		const props = {
 			placement: this.state.placement,
+			onClick: this.onClick,
 			onEntering: this.onEntering,
 			onExited: this.onExited,
 			overlay: (

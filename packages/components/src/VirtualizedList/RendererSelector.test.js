@@ -31,6 +31,7 @@ describe('RendererSelector', () => {
 		const wrapper = shallow(
 			<RendererSelector
 				collection={collection}
+				getComponent={jest.fn()}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
@@ -56,6 +57,7 @@ describe('RendererSelector', () => {
 		const wrapper = shallow(
 			<RendererSelector
 				collection={collection}
+				getComponent={jest.fn()}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
@@ -82,6 +84,7 @@ describe('RendererSelector', () => {
 		const wrapper = shallow(
 			<RendererSelector
 				collection={collection}
+				getComponent={jest.fn()}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
