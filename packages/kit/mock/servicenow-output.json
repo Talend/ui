@@ -74,13 +74,6 @@
                             },
                             "tableName": {
                                 "default": "incident",
-                                "enum": [
-                                    "change_request",
-                                    "incident",
-                                    "problem",
-                                    "sc_cat_item",
-                                    "sc_request"
-                                ],
                                 "title": "Table Name",
                                 "type": "string"
                             }
@@ -237,35 +230,26 @@
                                             "placeholder": "tableName",
                                             "required": false,
                                             "title": "Table Name",
-                                            "titleMap": [
-                                                {
-                                                    "name": "SC request",
-                                                    "value": "sc_request"
-                                                },
-                                                {
-                                                    "name": "Problem",
-                                                    "value": "problem"
-                                                },
-                                                {
-                                                    "name": "SC cat item",
-                                                    "value": "sc_cat_item"
-                                                },
-                                                {
-                                                    "name": "Incident",
-                                                    "value": "incident"
-                                                },
-                                                {
-                                                    "name": "Change request",
-                                                    "value": "change_request"
-                                                }
-                                            ],
                                             "widget": "datalist"
                                         }
                                     ],
                                     "key": "configuration.commonConfig",
                                     "placeholder": "commonConfig",
                                     "required": false,
-                                    "title": "commonConfig"
+                                    "title": "commonConfig",
+                                    "triggers": [
+                                        {
+                                            "action":"SuggestionForTableName",
+                                            "family":"remote",
+                                            "type":"suggestions",
+                                            "onEvent":"focus",
+                                            "parameters":[
+                                              {
+                                                "key":"configuration"
+                                              }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     "conditions": [],

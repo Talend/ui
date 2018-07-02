@@ -110,6 +110,7 @@ class ComponentForm extends React.Component {
 				data,
 				uiSpec: this.getUISpec(),
 			});
+			return data;
 		});
 	}
 

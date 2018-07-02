@@ -1,0 +1,549 @@
+{
+    "jsonSchema": {
+        "properties": {
+            "tableDataSet": {
+                "properties": {
+                    "ordered": {
+                        "default": false,
+                        "title": "Ordered",
+                        "type": "boolean"
+                    },
+                    "maxRecords": {
+                        "default": -1,
+                        "title": "Max Records",
+                        "type": "number"
+                    },
+                    "commonConfig": {
+                        "properties": {
+                            "fields": {
+                                "default": [],
+                                "items": {
+                                    "enum": [],
+                                    "title": "Fields",
+                                    "type": "string"
+                                },
+                                "title": "Fields",
+                                "type": "array"
+                            },
+                            "tableName": {
+                                "default": "incident",
+                                "enum": [
+                                    "change_request",
+                                    "incident",
+                                    "problem",
+                                    "sc_cat_item",
+                                    "sc_request"
+                                ],
+                                "title": "Table Name",
+                                "type": "string"
+                            }
+                        },
+                        "title": "commonConfig",
+                        "type": "object"
+                    },
+                    "limit": {
+                        "default": 10000,
+                        "title": "Limit Per Request",
+                        "type": "number"
+                    },
+                    "dataStore": {
+                        "properties": {
+                            "password": {
+                                "title": "Password",
+                                "type": "string"
+                            },
+                            "url": {
+                                "title": "API URL",
+                                "type": "string"
+                            },
+                            "username": {
+                                "title": "Username",
+                                "type": "string"
+                            }
+                        },
+                        "title": "dataStore",
+                        "type": "object"
+                    },
+                    "orderBuilder": {
+                        "items": {
+                            "properties": {
+                                "field": {
+                                    "enum": [],
+                                    "title": "Field",
+                                    "type": "string"
+                                },
+                                "order": {
+                                    "enum": [
+                                        "ASC",
+                                        "DESC"
+                                    ],
+                                    "title": "Order",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "title": "Order",
+                        "type": "array"
+                    },
+                    "queryBuilder": {
+                        "items": {
+                            "properties": {
+                                "field": {
+                                    "enum": [],
+                                    "title": "Filed",
+                                    "type": "string"
+                                },
+                                "operation": {
+                                    "enum": [
+                                        "Equals",
+                                        "Greater_Than",
+                                        "Greater_Than_OR_Equals",
+                                        "Less_Than",
+                                        "Less_Than_Or_Equals",
+                                        "Not_Equals"
+                                    ],
+                                    "title": "Operation",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "title": "Value",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "title": "Query",
+                        "type": "array"
+                    }
+                },
+                "title": "tableDataSet",
+                "type": "object"
+            }
+        },
+        "required": [],
+        "title": "ServiceNowInput",
+        "type": "object"
+    },
+    "properties": {
+        "tableDataSet": {
+            "maxRecords": -1,
+            "ordered": false,
+            "commonConfig": {
+                "fields": [],
+                "tableName": "incident"
+            },
+            "limit": 10000,
+            "dataStore": {}
+        }
+    },
+    "uiSchema": [
+        {
+            "conditions": [],
+            "items": [
+                {
+                    "conditions": [],
+                    "items": [
+                        {
+                            "conditions": [],
+                            "items": [
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.dataStore.url",
+                                    "placeholder": "ServiceNow instance url...",
+                                    "required": false,
+                                    "title": "API URL",
+                                    "triggers": [
+                                        {
+                                            "action": "urlValidation",
+                                            "family": "ServiceNow",
+                                            "parameters": [
+                                                {
+                                                    "key": "arg0",
+                                                    "path": "tableDataSet.dataStore.url"
+                                                }
+                                            ],
+                                            "type": "validation"
+                                        }
+                                    ],
+                                    "widget": "text"
+                                },
+                                {
+                                    "items": [
+                                        {
+                                            "conditions": [],
+                                            "key": "tableDataSet.dataStore.username",
+                                            "placeholder": "username",
+                                            "required": false,
+                                            "title": "Username",
+                                            "widget": "text"
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "key": "tableDataSet.dataStore.password",
+                                            "placeholder": "password",
+                                            "required": false,
+                                            "title": "Password",
+                                            "type": "password",
+                                            "widget": "text"
+                                        }
+                                    ],
+                                    "widget": "columns"
+                                },
+                                {
+                                    "key": "button_healthcheck_tableDataSet.dataStore",
+                                    "title": "Validate Datastore",
+                                    "triggers": [
+                                        {
+                                            "action": "basicAuth",
+                                            "family": "ServiceNow",
+                                            "parameters": [
+                                                {
+                                                    "key": "basicAuth.password",
+                                                    "path": "tableDataSet.dataStore.password"
+                                                },
+                                                {
+                                                    "key": "basicAuth.url",
+                                                    "path": "tableDataSet.dataStore.url"
+                                                },
+                                                {
+                                                    "key": "basicAuth.username",
+                                                    "path": "tableDataSet.dataStore.username"
+                                                }
+                                            ],
+                                            "type": "healthcheck"
+                                        }
+                                    ],
+                                    "widget": "button"
+                                }
+                            ],
+                            "key": "tableDataSet.dataStore",
+                            "placeholder": "dataStore",
+                            "required": false,
+                            "title": "dataStore"
+                        },
+                        {
+                            "conditions": [],
+                            "items": [
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.commonConfig.tableName",
+                                    "placeholder": "tableName",
+                                    "required": false,
+                                    "title": "Table Name",
+                                    "titleMap": [
+                                        {
+                                            "name": "SC request",
+                                            "value": "sc_request"
+                                        },
+                                        {
+                                            "name": "Problem",
+                                            "value": "problem"
+                                        },
+                                        {
+                                            "name": "SC cat item",
+                                            "value": "sc_cat_item"
+                                        },
+                                        {
+                                            "name": "Incident",
+                                            "value": "incident"
+                                        },
+                                        {
+                                            "name": "Change request",
+                                            "value": "change_request"
+                                        }
+                                    ],
+                                    "widget": "datalist"
+                                }
+                            ],
+                            "key": "tableDataSet.commonConfig",
+                            "placeholder": "commonConfig",
+                            "required": false,
+                            "title": "commonConfig"
+                        },
+                        {
+                            "conditions": [],
+                            "itemWidget": "collapsibleFieldset",
+                            "items": [
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.queryBuilder[].field",
+                                    "placeholder": "field",
+                                    "required": false,
+                                    "title": "Field",
+                                    "titleMap": [],
+                                    "triggers": [
+                                        {
+                                            "action": "GetTableFields",
+                                            "family": "ServiceNow",
+                                            "onEvent": "focus",
+                                            "parameters": [
+                                                {
+                                                    "key": "arg0",
+                                                    "path": "tableDataSet.queryBuilder.field"
+                                                },
+                                                {
+                                                    "key": "arg1",
+                                                    "path": "tableDataSet.queryBuilder.value"
+                                                }
+                                            ],
+                                            "type": "suggestions"
+                                        }
+                                    ],
+                                    "widget": "datalist"
+                                },
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.queryBuilder[].operation",
+                                    "placeholder": "operation",
+                                    "required": false,
+                                    "title": "Operation",
+                                    "titleMap": [
+                                        {
+                                            "name": "Not Equals",
+                                            "value": "Not_Equals"
+                                        },
+                                        {
+                                            "name": "Equals",
+                                            "value": "Equals"
+                                        },
+                                        {
+                                            "name": "Greater Than",
+                                            "value": "Greater_Than"
+                                        },
+                                        {
+                                            "name": "Less Than",
+                                            "value": "Less_Than"
+                                        },
+                                        {
+                                            "name": "Greater Than OR Equals",
+                                            "value": "Greater_Than_OR_Equals"
+                                        },
+                                        {
+                                            "name": "Equals",
+                                            "value": "Less_Than_Or_Equals"
+                                        }
+                                    ],
+                                    "widget": "datalist"
+                                },
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.queryBuilder[].value",
+                                    "placeholder": "value",
+                                    "required": false,
+                                    "title": "Value",
+                                    "widget": "text"
+                                }
+                            ],
+                            "key": "tableDataSet.queryBuilder",
+                            "placeholder": "queryBuilder",
+                            "required": false,
+                            "title": "Query"
+                        },
+                        {
+                            "conditions": [],
+                            "key": "tableDataSet.ordered",
+                            "placeholder": "ordered",
+                            "required": false,
+                            "title": "Ordered",
+                            "widget": "toggle"
+                        },
+                        {
+                            "conditions": [
+                                {
+                                    "path": "tableDataSet.ordered",
+                                    "values": [
+                                        true
+                                    ]
+                                }
+                            ],
+                            "itemWidget": "collapsibleFieldset",
+                            "items": [
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.orderBuilder[].field",
+                                    "placeholder": "field",
+                                    "required": false,
+                                    "title": "Field",
+                                    "titleMap": [],
+                                    "triggers": [
+                                        {
+                                            "action": "GetTableFields",
+                                            "family": "ServiceNow",
+                                            "onEvent": "focus",
+                                            "parameters": [
+                                                {
+                                                    "key": "arg0",
+                                                    "path": "tableDataSet.orderBuilder.field"
+                                                },
+                                                {
+                                                    "key": "arg1",
+                                                    "path": "tableDataSet.orderBuilder.order"
+                                                }
+                                            ],
+                                            "type": "suggestions"
+                                        }
+                                    ],
+                                    "widget": "datalist"
+                                },
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.orderBuilder[].order",
+                                    "placeholder": "order",
+                                    "required": false,
+                                    "title": "Order",
+                                    "titleMap": [
+                                        {
+                                            "name": "Asc",
+                                            "value": "ASC"
+                                        },
+                                        {
+                                            "name": "Desc",
+                                            "value": "DESC"
+                                        }
+                                    ],
+                                    "widget": "datalist"
+                                }
+                            ],
+                            "key": "tableDataSet.orderBuilder",
+                            "placeholder": "orderBuilder",
+                            "required": false,
+                            "title": "Order"
+                        }
+                    ],
+                    "key": "tableDataSet",
+                    "placeholder": "tableDataSet",
+                    "required": false,
+                    "title": "Main"
+                },
+                {
+                    "conditions": [],
+                    "items": [
+                        {
+                            "conditions": [],
+                            "key": "tableDataSet.limit",
+                            "placeholder": "limit",
+                            "required": false,
+                            "title": "Limit Per Request",
+                            "widget": "text"
+                        },
+                        {
+                            "conditions": [],
+                            "key": "tableDataSet.maxRecords",
+                            "placeholder": "The maximum number of records to retrieve...",
+                            "required": false,
+                            "title": "Max Records",
+                            "widget": "text"
+                        },
+                        {
+                            "conditions": [],
+                            "items": [
+                                {
+                                    "conditions": [],
+                                    "key": "tableDataSet.commonConfig.fields",
+                                    "placeholder": "fields",
+                                    "required": false,
+                                    "restricted": false,
+                                    "title": "Fields",
+                                    "titleMap": [],
+                                    "triggers": [
+                                        {
+                                            "action": "guessTableSchema",
+                                            "family": "ServiceNow",
+                                            "type": "schema"
+                                        }
+                                    ],
+                                    "widget": "multiSelectTag"
+                                },
+                                {
+                                    "key": "button_schema_tableDataSet.commonConfig",
+                                    "title": "Guess Schema",
+                                    "triggers": [
+                                        {
+                                            "action": "guessTableSchema",
+                                            "family": "ServiceNow",
+                                            "options": [
+                                                {
+                                                    "path": "tableDataSet.commonConfig.fields",
+                                                    "type": "array"
+                                                }
+                                            ],
+                                            "parameters": [
+                                                {
+                                                    "key": "arg0.commonConfig.fields",
+                                                    "path": "tableDataSet.commonConfig.fields"
+                                                },
+                                                {
+                                                    "key": "arg0.commonConfig.tableName",
+                                                    "path": "tableDataSet.commonConfig.tableName"
+                                                },
+                                                {
+                                                    "key": "arg0.dataStore.password",
+                                                    "path": "tableDataSet.dataStore.password"
+                                                },
+                                                {
+                                                    "key": "arg0.dataStore.url",
+                                                    "path": "tableDataSet.dataStore.url"
+                                                },
+                                                {
+                                                    "key": "arg0.dataStore.username",
+                                                    "path": "tableDataSet.dataStore.username"
+                                                },
+                                                {
+                                                    "key": "arg0.limit",
+                                                    "path": "tableDataSet.limit"
+                                                },
+                                                {
+                                                    "key": "arg0.maxRecords",
+                                                    "path": "tableDataSet.maxRecords"
+                                                },
+                                                {
+                                                    "key": "arg0.orderBuilder.field",
+                                                    "path": "tableDataSet.orderBuilder.field"
+                                                },
+                                                {
+                                                    "key": "arg0.orderBuilder.order",
+                                                    "path": "tableDataSet.orderBuilder.order"
+                                                },
+                                                {
+                                                    "key": "arg0.ordered",
+                                                    "path": "tableDataSet.ordered"
+                                                },
+                                                {
+                                                    "key": "arg0.queryBuilder.field",
+                                                    "path": "tableDataSet.queryBuilder.field"
+                                                },
+                                                {
+                                                    "key": "arg0.queryBuilder.operation",
+                                                    "path": "tableDataSet.queryBuilder.operation"
+                                                },
+                                                {
+                                                    "key": "arg0.queryBuilder.value",
+                                                    "path": "tableDataSet.queryBuilder.value"
+                                                }
+                                            ],
+                                            "type": "schema"
+                                        }
+                                    ],
+                                    "widget": "button"
+                                }
+                            ],
+                            "key": "tableDataSet.commonConfig",
+                            "placeholder": "commonConfig",
+                            "required": false,
+                            "title": "commonConfig"
+                        }
+                    ],
+                    "key": "tableDataSet",
+                    "placeholder": "tableDataSet",
+                    "required": false,
+                    "title": "Advanced"
+                }
+            ],
+            "key": "tableDataSet",
+            "placeholder": "tableDataSet",
+            "required": false,
+            "widget": "tabs"
+        }
+    ]
+}

@@ -45,6 +45,11 @@ class Datalist extends Component {
 	 */
 	onChange(event, payload) {
 		const payloadWithSchema = { ...payload, schema: this.props.schema };
+		if (payloadWithSchema.schema.titleMap.length === 0) {
+			payloadWithSchema.schema = Object.assign({}, payloadWithSchema.schema, {
+				titleMap: this.getTitleMap(),
+			});
+		}
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
@@ -54,7 +59,12 @@ class Datalist extends Component {
 			this.props.schema.triggers.forEach(trigger => {
 				if (trigger.onEvent === 'focus') {
 					this.setState({ isLoading: true });
-					this.props.onTrigger(event, { trigger }).then(data => {
+					this.props.onTrigger(event, {
+						trigger,
+						errors: this.props.errors,
+						schema: this.props.schema,
+						properties: this.props.properties,
+					}).then(data => {
 						this.setState({
 							isLoading: false,
 							...data,

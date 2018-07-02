@@ -64,7 +64,6 @@
     "uiSchema": [
         {
             "widget": "fieldset",
-            "title": "Metadata",
             "conditions": [],
             "items": [
                 {
@@ -114,13 +113,13 @@
                     "required": false
                 }
             ],
+            "key": "_datasetMetadata",
             "required": false
         },
         {
             "placeholder": "dataStore",
             "conditions": [],
-            "title": "Connection",
-            "widget": "fieldset",
+            "title": "dataStore",
             "items": [
                 {
                     "widget": "text",
@@ -192,6 +191,7 @@
                     "key": "button_healthcheck_dataStore"
                 }
             ],
+            "key": "dataStore",
             "required": false
         }
     ]
