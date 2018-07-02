@@ -15,7 +15,7 @@ import DataMapper from '@talend/react-data-mapper'; //use the DataMapper Contain
 
 ## DataMapper Component
 
-The dataMapper component is used to display and perform mapping between two flat structures. The structures are displayed with the [Table](https://github.com/Talend/ui/tree/master/packages/components/src/Table) component.
+The dataMapper component is used to display and perform mapping between two flat schema. The schema are displayed with the [Table](https://github.com/Talend/ui/tree/master/packages/components/src/Table) component.
 The mapping is displayed with SVG arrows.
 
 Features:
@@ -29,7 +29,7 @@ The DataMapper uses default renderer for cell and header, but custom renderers c
 
 ### Concept
 
-In entry, the DataMapper component waits an input and an output schema.
+In entry, the DataMapper component waits two schema (input and output) and a mapping.
 
 The format of a schema is like this:
 
@@ -68,8 +68,8 @@ The format of a schema is like this:
     	]
     }
 
-A schema must have a unique identifier (string), a name (string) and an array of elements.
-An element must have at least a unique identifier (string).
+A schema must have at least an unique identifier (string), a name (string) and an array of elements.
+An element must have at least an unique identifier (string).
 
 ### Props
 
@@ -77,7 +77,7 @@ Below are the props of the mapper component:
 
 | property              | description                                                                               | type     | default                  |
 | --------------------- | ----------------------------------------------------------------------------------------- | -------- | ------------------------ |
-| dataAccessor          | This object provides methods to read data from schema and edit mapping                    | object   |                          |
+| dataAccessor          | This object provides methods to read data from schema, edit mapping and manage undo/redo  | object   |                          |
 | mapping               | An array which contains mapping items, i.e. connections between input and output elements | array    |                          |
 | mappingActions        | Custom actions displayed on top of the mapping area                                       | array    |                          |
 | input                 | An object providing all the configuration for input schema                                | object   |                          |
@@ -95,6 +95,14 @@ Below are the props of the mapper component:
 | preferences           | This object provides some preferences                                                     | object   |                          |
 | trigger               | This object stores information about the last event which lead to an update of the mapper | object   |                          |
 | status                | This provides information about the last modification of the state of the mapper          | number   |                          |
+
+### DataAccessor
+
+The dataAccessor object has several responsabilities:
+
+ * it stores the result of filtering and sorting and provides some convenient methods to access to filtered and sorted elements;
+ * it provides methods to read and edit the current mapping;
+ * it allows undo/redo by storing all the executed commands in dedicated undo/redo stacks.
 
 ### Input/Output props
 
@@ -196,3 +204,59 @@ Below is an example of sorter props for the 'name' column:
     		}
     	}
     }
+
+## Container DataMapper
+
+The container DataMapper holds the global state and implements all the logic needed by the user interactions.
+
+### API
+
+| property              | description                                                                                    | type     | default                  |
+| --------------------- | ---------------------------------------------------------------------------------------------- | -------- | ------------------------ |
+| mappingActions        | Custom actions displayed on top of the mapping area                                            | array    |                          |
+| mappingKey            | This defines the element key used to detect possible mapping between input and output elements | string   |                          |
+| input                 | An object providing all the configuration for input schema                                     | object   |                          |
+| output                | An object providing all the configuration for output schema                                    | object   |                          |
+| preferences           | This object provides some preferences                                                          | object   |                          |
+
+### Drag & Drop
+
+The drag & drop is implemented by using [react-dnd](https://github.com/react-dnd/react-dnd).
+
+The dnd props provides the current status of a drag & drop process. The steps of a drag & drop process are:
+
+##### no drag & drop in progress: the dnd props is null.
+
+##### begin drag: move of an element is started. The dnd props is:
+
+    {
+       source: { sourceElement, sourceSide },
+       target: null,
+       inProgress: false,
+    }
+    
+where sourceElement is the dragged element and sourceSide specify the source schema (INPUT or OUTPUT).
+
+##### drag in progress: the dragged element is moved in the mapping area. The dnd props is:
+
+    {
+       source: { sourceElement, sourceSide },
+       target: null,
+       inProgress: true,
+    }
+
+##### can drop: the dragged element is moved onto a target element. The dnd props is:
+
+    {
+       source: { sourceElement, sourceSide },
+       target: { targetElement, targetSide },
+       inProgress: false,
+    }
+
+where targetElement is the target element and targetSide specify the target schema (INPUT or OUTPUT).
+
+##### drop: the dragged element is dropped onto a target element. The dnd props is null.
+
+##### end drag: the drag & drop process is finished. The dnd props is null.
+
+ 
