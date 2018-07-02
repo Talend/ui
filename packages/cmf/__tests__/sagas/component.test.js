@@ -5,7 +5,7 @@ import { onSagaStart, handle } from '../../src/sagas/component';
 import CONST from '../../src/constant';
 
 describe('sagas.component', () => {
-	it('should ignore the saga until that the action has the same componentId', () => {
+	it('should cancel one saga with the good componentID', () => {
 		// given
 		const testAction = { type: 'TEST', saga: 'my-saga', event: { componentId: 42 } };
 		function* saga() {}
@@ -21,22 +21,6 @@ describe('sagas.component', () => {
 		expect(gen.next({ event: { componentId: 41 } }).value).toEqual(
 			take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`),
 		);
-		expect(gen.next({ event: { componentId: 42 } }).value).toEqual(cancel(task));
-	});
-
-	it('should cancel the task with the same componentId', () => {
-		// given
-		const testAction = { type: 'TEST', saga: 'my-saga', event: { componentId: 42 } };
-		function* saga() {}
-		const reg = registry.getRegistry();
-		reg['SAGA:my-saga'] = saga;
-		const task = createMockTask();
-		// when
-		const gen = onSagaStart(testAction);
-
-		// then
-		expect(gen.next().value).toEqual(fork(saga, undefined));
-		expect(gen.next(task).value).toEqual(take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`));
 		expect(gen.next({ event: { componentId: 42 } }).value).toEqual(cancel(task));
 	});
 
