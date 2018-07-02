@@ -7,18 +7,24 @@ import { Inject } from '@talend/react-cmf';
 import EmptyShowcase from './EmptyShowcase';
 import theme from './Showcase.scss';
 
-const Showcase = ({ content }) => {
-	const child = content.component === 'EmptyShowcase'
-		? <EmptyShowcase />
-		: <Inject {...content} />;
+const getShowcaseChildComponent = content => {
+	if (content.component === 'EmptyShowcase') {
+		return <EmptyShowcase />;
+	}
 
+	return <Inject {...content} />;
+};
+
+const Showcase = ({ content }) => {
 	return (
 		<Layout
 			mode="TwoColumns"
 			header={<Inject component="HeaderBar" />}
 			one={<Inject component="SidePanel" />}
 		>
-			<div className={theme['showcase-component']}>{child}</div>
+			<div className={theme['showcase-component']}>
+				{getShowcaseChildComponent(content)}
+			</div>
 		</Layout>
 	);
 };
