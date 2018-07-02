@@ -37,6 +37,14 @@ describe('custom formats', () => {
 		// then
 		expect(resultIpOK).toBe(null);
 
+		const resultHttpPortOK = customValidation['url-http-https']('http://test.domain.com:8080');
+		// then
+		expect(resultHttpPortOK).toBe(null);
+
+		const resultIpPortOK = customValidation['url-http-https']('http://127.0.0.1:8080');
+		// then
+		expect(resultIpPortOK).toBe(null);
+
 		const resultKO1 = customValidation['url-http-https']('ssh://test.domain.com');
 		const resultKO2 = customValidation['url-http-https']('test.domain.com');
 		const resultKO3 = customValidation['url-http-https']('https://test. domain.com');
