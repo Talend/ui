@@ -35,7 +35,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
-import uuid from 'uuid';
+import bsonObjectid from 'bson-objectid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -256,9 +256,7 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
-				this.state = {
-					componentUuid: uuid.v4(),
-				};
+				this.componentUuid = bsonObjectid().toString();
 			}
 
 			componentDidMount() {
@@ -266,7 +264,7 @@ export default function cmfConnect({
 				if (this.props.saga) {
 					this.dispatchActionCreator(
 						'cmf.saga.start',
-						{ type: 'DID_MOUNT', componentUuid: this.state.componentUuid },
+						{ type: 'DID_MOUNT', componentUuid: this.componentUuid },
 						this.props,
 					);
 				}
@@ -289,7 +287,7 @@ export default function cmfConnect({
 				if (this.props.saga) {
 					this.dispatchActionCreator(
 						'cmf.saga.stop',
-						{ type: 'WILL_UNMOUNT', componentUuid: this.state.componentUuid },
+						{ type: 'WILL_UNMOUNT', componentUuid: this.componentUuid },
 						this.props,
 					);
 				}

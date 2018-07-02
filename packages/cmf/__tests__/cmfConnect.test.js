@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
+import bsonObjectid from 'bson-objectid';
 import expression from '../src/expression';
 import mock from '../src/mock';
 import { mapStateToViewProps } from '../src/settings';
@@ -15,9 +16,8 @@ import cmfConnect, {
 } from '../src/cmfConnect';
 import component from '../src/component';
 
-jest.mock('uuid', () => ({
-	v4: () => 42,
-}));
+jest.mock('bson-objectid');
+bsonObjectid.mockImplementation(() => 42);
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -343,7 +343,7 @@ describe('cmfConnect', () => {
 			const callDidMountActionCreator = props.dispatchActionCreator.mock.calls[1];
 			expect(callSagaActionCreator[0]).toBe('cmf.saga.start');
 			expect(callSagaActionCreator[1]).toEqual({
-				componentUuid: 42,
+				componentUuid: '42',
 				type: 'DID_MOUNT',
 			});
 			expect(callDidMountActionCreator[0]).toBe('hello');
@@ -369,7 +369,7 @@ describe('cmfConnect', () => {
 			instance.componentDidMount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.start',
-				{ type: 'DID_MOUNT', componentUuid: 42 },
+				{ type: 'DID_MOUNT', componentUuid: '42' },
 				instance.props,
 				instance.context,
 			);
@@ -389,7 +389,7 @@ describe('cmfConnect', () => {
 			instance.componentWillUnmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.stop',
-				{ type: 'WILL_UNMOUNT', componentUuid: 42 },
+				{ type: 'WILL_UNMOUNT', componentUuid: '42' },
 				instance.props,
 				instance.context,
 			);
