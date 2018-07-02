@@ -7,9 +7,21 @@ import MonthYearView from '../views/MonthYearView';
 
 describe('DateTimePicker', () => {
 	it('should render', () => {
+		const mockedDate = new Date(2018, 5, 12);
+		const OriginalDate = Date;
+
+		global.Date = jest.fn((...args) => {
+			if (args.length === 0) {
+				return mockedDate;
+			}
+			return new OriginalDate(...args);
+		});
+
 		const wrapper = shallow(<DateTimePicker />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
+
+		global.Date = OriginalDate;
 	});
 
 	it('should render with the DateTimeView', () => {
