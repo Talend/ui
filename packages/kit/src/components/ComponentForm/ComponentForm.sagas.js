@@ -43,18 +43,17 @@ function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath }) {
 function* handle(props) {
 	yield call(onDidMount, props);
 	yield takeEvery(Component.ON_DEFINITION_URL_CHANGED, fecthDefinition);
-	yield take('DO_NOT_QUIT');
-}
-
-function* syncPropertiesInStore() {
 	// eslint-disable-next-line no-constant-condition
 	while (true) {
 		const action = yield take(Component.ON_CHANGE);
-		yield put(Component.setStateAction({ properties: action }, action.event.props.componentId));
+		if (action.event.props.syncChangeInStore) {
+			yield put(
+				Component.setStateAction({ properties: action.properties }, action.event.props.componentId),
+			);
+		}
 	}
 }
 
 export default {
 	'ComponentForm#default': handle,
-	'ComponentForm#syncPropertiesInStore': syncPropertiesInStore,
 };

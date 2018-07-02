@@ -34,5 +34,4 @@ triggerURL: url to fetch on trigger
 
 # TODO:
 
-* add option to sync in redux the properties (props ?)
 * onSubmit automatic POST request (REST) ?

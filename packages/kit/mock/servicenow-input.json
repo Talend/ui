@@ -18,7 +18,6 @@
                             "fields": {
                                 "default": [],
                                 "items": {
-                                    "enum": [],
                                     "title": "Fields",
                                     "type": "string"
                                 },
@@ -68,7 +67,6 @@
                         "items": {
                             "properties": {
                                 "field": {
-                                    "enum": [],
                                     "title": "Field",
                                     "type": "string"
                                 },
@@ -90,7 +88,6 @@
                         "items": {
                             "properties": {
                                 "field": {
-                                    "enum": [],
                                     "title": "Filed",
                                     "type": "string"
                                 },
