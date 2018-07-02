@@ -12,6 +12,25 @@ const SortDirection = {
 	DESCENDING: 'descending',
 };
 
+const sorterIcons = {
+	none: null,
+	ascending: 'talend-sort-asc',
+	descending: 'talend-sort-desc',
+};
+
+function createSorter() {
+	return {
+		direction: SortDirection.NONE,
+		icons: sorterIcons,
+	}
+}
+
+function createSorters(keys) {
+	const sorters = {};
+	keys.forEach(key => sorters[key] = createSorter());
+	return sorters;
+}
+
 /**
  * This function computes the next sort direction.
  */
@@ -414,6 +433,13 @@ function isActiveSorter({ direction }) {
 	return [SortDirection.ASCENDING, SortDirection.DESCENDING].includes(direction);
 }
 
+function initializeSchema(data) {
+	return {
+		...data,
+		sorters: createSorters(data.sorterKeys),
+	};
+}
+
 function layoutActions(actions) {
 	return {
 		left: [
@@ -498,8 +524,8 @@ class DataMapperContainer extends React.Component {
 		this.onRedo = this.onRedo.bind(this);
 		this.state = {
 			dataAccessor: new DataAccessorWithUndoRedo(),
-			input: this.props.input,
-			output: this.props.output,
+			input: initializeSchema(this.props.input),
+			output: initializeSchema(this.props.output),
 			mapping: [],
 			mappingKey: this.props.mappingKey,
 			dnd: null,

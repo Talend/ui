@@ -5,7 +5,10 @@ import { IconsProvider, Table } from '@talend/react-components';
 
 import DataMapper from '../src/index';
 
-// FIXME Use an object
+/** Definition of input and output schema.
+ * It is a column-based definition.
+ * It is then transformed into row-based schema.
+ */
 const inputSchemaUX = {
 	id: 'd1fg158sc',
 	name: 'CUSTOMERS-25K PREP',
@@ -45,7 +48,6 @@ const inputSchemaUX = {
 	],
 };
 
-// FIXME Use an object
 const outputSchemaUX = {
 	id: 'sdc22c25sd1csd',
 	name: 'SALESFORCE.ACCOUNT',
@@ -195,59 +197,11 @@ const Columns = {
 	},
 };
 
-// FIXME Should be in container
-function addSortExtraProps(column) {
-	column.headExtraProps = {
-		iconPosition: 'right',
-		link: true,
-	};
-	return column;
-}
-
-const inputColumns = [
-	addSortExtraProps(Columns.TYPE),
-	addSortExtraProps(Columns.NAME),
-];
-
-const outputColumns = [
-	Columns.MANDATORY,
-	addSortExtraProps(Columns.NAME),
-	addSortExtraProps(Columns.TYPE),
-	addSortExtraProps(Columns.DESC),
-];
-
-// FIXME Should be in container
-const SortDirection = {
-	NONE: 'none',
-	ASCENDING: 'ascending',
-	DESCENDING: 'descending',
-};
+const inputColumns = [Columns.TYPE, Columns.NAME];
+const outputColumns = [Columns.MANDATORY, Columns.NAME, Columns.TYPE, Columns.DESC];
 
 const inputSorterKeys = [Columns.NAME.key, Columns.TYPE.key];
 const outputSorterKeys = [Columns.NAME.key, Columns.TYPE.key, Columns.DESC.key];
-
-// FIXME Use it in Sorter
-const sorterIcons = {
-	none: null,
-	ascending: 'talend-sort-asc',
-	descending: 'talend-sort-desc',
-};
-
-function createSorter() {
-	return {
-		direction: SortDirection.NONE,
-		icons: sorterIcons,
-	}
-}
-
-function createSorters(keys) {
-	const sorters = {};
-	for (let i = 0; i < keys.length; i += 1) {
-		// FIXME keys.forEach(key => sorters[key] = createSorter());
-		sorters[keys[i]] = createSorter();
-	}
-	return sorters;
-}
 
 // FILTERS DEFINITION
 
@@ -256,8 +210,7 @@ const nameFilterId = 'name-filter';
 function matchName(element, filterParams) {
 	const value = filterParams.value;
 	const name = element.name;
-	// FIXME return name.toLowerCase().include(value.toLowerCase());
-	return Boolean(name.match(value) || name.toLowerCase().match(value));
+	return name.toLowerCase().includes(value.toLowerCase());
 }
 
 function createNameFilter() {
@@ -408,7 +361,7 @@ const input = {
 	withTitle: true,
 	withHeader: true,
 	filters: createInputFilters(),
-	sorters: createSorters(inputSorterKeys),
+	sorterKeys: inputSorterKeys,
 };
 
 const output = {
@@ -418,7 +371,7 @@ const output = {
 	withTitle: true,
 	withHeader: true,
 	filters: createOutputFilters(),
-	sorters: createSorters(outputSorterKeys),
+	sorterKeys: outputSorterKeys,
 };
 
 const stories = storiesOf('DataMapper', module);

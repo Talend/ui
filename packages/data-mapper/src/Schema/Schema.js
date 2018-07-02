@@ -159,12 +159,25 @@ class ColumnUpdater {
 		column.cellExtraProps.onDoubleClick = this.selectionHandler.onDoubleClick;
 	}
 
-	updateColumns(columns) {
+	addPropsForSorter(column) {
+		column.headExtraProps = {
+			iconPosition: 'right',
+			link: true,
+		};
+	}
+
+	updateColumns(columns, sorters) {
 		const columnsWithDnd = copyColumns(columns);
 		// add dnd baheviour on the first column
 		this.addDnd(columnsWithDnd[0]);
 		// add selection behaviour on the first column
 		this.addSelection(columnsWithDnd[0]);
+		// add extra props for sorter
+		columns.forEach(col => {
+			if (sorters[col.key]) {
+				this.addPropsForSorter(col);
+			}
+		})
 		return columnsWithDnd;
 	}
 }
@@ -407,7 +420,7 @@ export default class Schema extends Component {
 		} = this.props;
 		this.columnUpdater.update(this.props);
 		const elements = dataAccessor.getSchemaElements(schema, true);
-		const columnsWithDnd = this.columnUpdater.updateColumns(columns);
+		const columnsWithDnd = this.columnUpdater.updateColumns(columns, sorters);
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<Table
