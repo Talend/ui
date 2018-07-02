@@ -17,15 +17,14 @@ export function* fetchProducts(action) {
 
 	const { response, data } = yield call(cmf.sagas.http.get, productsUrl);
 
-	if (!response.ok) {
+	if (response.ok) {
+		// Success, update collection
+		yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS }));
+		yield put(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data));
+	} else {
 		// Loading products failed
 		yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_ERROR }));
-		return;
 	}
-
-	yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS }));
-
-	yield put(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data));
 }
 
 /**
