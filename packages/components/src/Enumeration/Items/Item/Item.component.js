@@ -9,6 +9,8 @@ import theme from './Item.scss';
 import { Checkbox } from '../../../Toggle';
 import ItemPropTypes from './Item.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
+import Icon from '../../../Icon';
+import TooltipTrigger from '../../../TooltipTrigger';
 
 function itemClasses(isSelected) {
 	return classNames({
@@ -117,6 +119,11 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 					/>
 				)}
 				<span>{actualLabel}</span>
+				{item.icon && (
+					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+						<Icon {...item.icon} aria-hidden="false" />
+					</TooltipTrigger>
+				)}
 			</Button>
 		);
 	}
