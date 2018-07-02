@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { AutoSizer, List } from 'react-virtualized';
 import theme from './IncrementableScrollList.scss';
 import IconButton from '../../IconButton';
-import PickerAction from '../../PickerAction';
 
 class IncrementableScrollList extends React.Component {
 
@@ -18,7 +17,6 @@ class IncrementableScrollList extends React.Component {
 			startIndex: this.initialIndex,
 		};
 
-		this.isSelected = this.isSelected.bind(this);
 		this.scrollUp = this.scrollRows.bind(this, -5);
 		this.scrollDown = this.scrollRows.bind(this, 5);
 		this.onRowsRendered = this.onRowsRendered.bind(this);
@@ -35,10 +33,6 @@ class IncrementableScrollList extends React.Component {
 		this.listRef = ref;
 	}
 
-	isSelected(id) {
-		return id === this.props.selectedId;
-	}
-
 	scrollRows(increment) {
 		const newRowIndex = this.state.startIndex + increment;
 		this.listRef.scrollToRow(newRowIndex);
@@ -52,19 +46,14 @@ class IncrementableScrollList extends React.Component {
 				style,
 			} = data;
 
-			const { id, label } = this.props.items[index];
+			const item = this.props.items[index];
 
 			return (
 				<div
 					key={key}
 					style={style}
 				>
-					<PickerAction
-						aria-label={`Select '${label}'`}
-						isSelected={this.isSelected(id)}
-						label={label}
-						onClick={() => this.props.onSelect(id)}
-					/>
+					{this.props.itemRenderer(item)}
 				</div>
 			);
 		};
@@ -122,12 +111,11 @@ const idPropType = PropTypes.oneOfType([
 ]);
 
 IncrementableScrollList.propTypes = {
-	selectedId: idPropType,
-	onSelect: PropTypes.func.isRequired,
 	items: PropTypes.arrayOf(PropTypes.shape({
 		id: idPropType.isRequired,
 		label: PropTypes.string.isRequired,
 	})).isRequired,
+	itemRenderer: PropTypes.func.isRequired,
 	initialIndex: PropTypes.number,
 };
 

@@ -3,6 +3,7 @@
 exports[`YearPicker should render 1`] = `
 <IncrementableScrollList
   initialIndex={145}
+  itemRenderer={[Function]}
   items={
     Array [
       Object {
@@ -1207,7 +1208,5 @@ exports[`YearPicker should render 1`] = `
       },
     ]
   }
-  onSelect={[Function]}
-  selectedId={2012}
 />
 `;

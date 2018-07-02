@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import addYears from 'date-fns/add_years';
 import setYear from 'date-fns/set_year';
 import IncrementableScrollList from '../IncrementableScrollList';
+import PickerAction from '../../PickerAction';
 
 const baseDate = new Date(0);
 const yearRange = 300;
@@ -34,15 +35,32 @@ class YearPicker extends React.Component {
 			: props.selectedYear;
 
 		this.initialIndex = indexOfYear(initialYear) - 2;
+
+		this.isSelected = this.isSelected.bind(this);
+	}
+
+	isSelected(year) {
+		return year === this.props.selectedYear;
 	}
 
 	render() {
+		const itemRenderer = item => {
+			const { id, label } = item;
+			return (
+				<PickerAction
+					aria-label={`Select '${label}'`}
+					isSelected={this.isSelected(id)}
+					label={label}
+					onClick={() => this.props.onSelect(id)}
+				/>
+			);
+		};
+
 		return (
 			<IncrementableScrollList
-				selectedId={this.props.selectedYear}
 				items={this.years}
-				onSelect={this.props.onSelect}
 				initialIndex={this.initialIndex}
+				itemRenderer={itemRenderer}
 			/>
 		);
 	}
