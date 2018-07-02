@@ -7,9 +7,11 @@ How to use:
 ```javascript
 import { selectors } from '@talend/react-cmf';
 
+const defaultValue = {};
+
 function mapStateToProps(state) {
     return {
-        my: selectors.components.get(state, 'my.data');
+        my: selectors.components.get(state, 'my.data', defaultValue);
     }
 }
 ```
@@ -20,7 +22,7 @@ This selector accept the following arguments:
 | -- | -- |
 | state| redux state |
 | path | path to collections which is stored in cmf.components (support dotted accessor like lodash get) |
-| default value | the default value |
+| default value | the default value (optional) |
 
 The selector works the same as selectors.collections.get, just it returns data that is stored in cmf.components,
 not in cmf.collections

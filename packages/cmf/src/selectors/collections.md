@@ -6,8 +6,11 @@ How to use:
 
 ```javascript
 function mapStateToProps(state) {
+
+const defaultValue = {};
+
     return {
-        my: cmf.selectors.collections.get(state, 'my.data');
+        my: cmf.selectors.collections.get(state, 'my.data', defaultValue);
     }
 }
 ```
@@ -18,7 +21,7 @@ This selector accept the following arguments:
 | -- | -- |
 | state| redux state |
 | path | a string to get the data into collections (support dotted accessor like lodash get) |
-| default value | the default value |
+| default value | the default value (optional) |
 
 Be warned if you build a new value each time in a mapStateToProps you introduce a performance issue.
 
