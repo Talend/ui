@@ -5,6 +5,18 @@ import { IconsProvider, Table } from '@talend/react-components';
 
 import DataMapper from '../src/index';
 
+const emptyInputSchema = {
+	id: 'sd5c465s151cs',
+	name: 'Empty Input Schema',
+	elements: [],
+};
+
+const emptyOutputSchema = {
+	id: '8ds5v1g4ds5',
+	name: 'Empty Output Schema',
+	elements: [],
+};
+
 /** Definition of input and output schema.
  * It is a column-based definition.
  * It is then transformed into row-based schema.
@@ -354,24 +366,36 @@ const defaultGradientStops100 = [
 
 const alternativePrefs = prefs(true, defaultGradientStops50, defaultGradientStops100);
 
-const input = {
-	schema: finalizeSchema(inputSchemaUX),
-	columns: inputColumns,
+const base = {
 	rowsClassName: {},
 	withTitle: true,
 	withHeader: true,
+}
+
+const emptyInput = {
+	...base,
+	schema: emptyInputSchema,
+	columns: inputColumns,
 	filters: createInputFilters(),
 	sorterKeys: inputSorterKeys,
+}
+
+const input = {
+	...emptyInput,
+	schema: finalizeSchema(inputSchemaUX),
 };
 
-const output = {
-	schema: finalizeSchema(outputSchemaUX),
+const emptyOutput = {
+	...base,
+	schema: emptyOutputSchema,
 	columns: outputColumns,
-	rowsClassName: {},
-	withTitle: true,
-	withHeader: true,
 	filters: createOutputFilters(),
 	sorterKeys: outputSorterKeys,
+}
+
+const output = {
+	...emptyOutput,
+	schema: finalizeSchema(outputSchemaUX),
 };
 
 const stories = storiesOf('DataMapper', module);
@@ -394,5 +418,12 @@ stories
 			output={output}
 			preferences={alternativePrefs}
 		/>
-	)
-);
+	)).addWithInfo('Empty', () => (
+		<DataMapper
+			mappingActions={autoMapping}
+			mappingKey={Columns.NAME.key}
+			input={emptyInput}
+			output={emptyOutput}
+			preferences={alternativePrefs}
+		/>
+	));
