@@ -62,6 +62,7 @@ ListGrid.displayName = 'VirtualizedList(ListGrid)';
 ListGrid.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
+	getComponent: PropTypes.func,
 	height: PropTypes.number,
 	id: PropTypes.string,
 	isActive: PropTypes.func,

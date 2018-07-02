@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cmf, { cmfConnect, Inject } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { ActionButton } from '@talend/react-components';
 
 export function mapStateToProps(state, ownProps) {

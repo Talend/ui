@@ -86,6 +86,7 @@ ListTable.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
 	disableHeader: PropTypes.bool,
+	getComponent: PropTypes.func,
 	height: PropTypes.number,
 	id: PropTypes.string,
 	isActive: PropTypes.func,

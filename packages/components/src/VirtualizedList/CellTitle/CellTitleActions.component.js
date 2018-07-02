@@ -173,6 +173,7 @@ CellTitleActionsComponent.propTypes = {
 	id: PropTypes.string,
 	// The actions property key. Actions = props.rowData[props.actionsKey]
 	actionsKey: PropTypes.string,
+	getComponent: PropTypes.func,
 	// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
 	persistentActionsKey: PropTypes.string,
 	/** The display mode. */

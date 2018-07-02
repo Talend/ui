@@ -164,10 +164,6 @@ describe('Action', () => {
 	});
 
 	it('should render a button with a overlay component', () => {
-		function OverlayComponent() {
-			return <div>OverlayComponent</div>;
-		}
-
 		const props = {
 			...myAction,
 			overlayComponent: OverlayComponent,
@@ -184,9 +180,6 @@ describe('Action', () => {
 	});
 	it('should called ref method on overlay', () => {
 		// given
-		function OverlayComponent() {
-			return <div>OverlayComponent</div>;
-		}
 		const myRefFunc = jest.fn();
 		const props = {
 			...myAction,

@@ -86,6 +86,11 @@ CellTitle.propTypes = {
 		// Input mode : the submit callback on ENTER keydown or blur.
 		onEditSubmit: PropTypes.func,
 	}),
+	parent: PropTypes.shape({
+		props: {
+			getComponent: PropTypes.func,
+		},
+	}),
 	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
 	// The collection item index.
