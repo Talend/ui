@@ -309,6 +309,39 @@ function finalizeSchema(schema) {
 	return result;
 }
 
+function randomInt(max) {
+	return Math.floor((Math.random() * max));
+}
+
+const types = ['string', 'float', 'boolean', 'integer', 'date', 'address', 'unknown'];
+
+function randomType() {
+	return types[randomInt(types.length)];
+}
+
+function isMandatory(percent) {
+	return randomInt(100) < percent;
+}
+
+function buildRandomSchema(id, name, size, mandatoryPercent) {
+	const schema = {
+		id,
+		name,
+	};
+	let elements = [];
+	for (let i = 0; i < size; i += 1) {
+		const element = {
+			id: `elem_id_${i}`,
+			name: `element ${i}`,
+			type: randomType(),
+			description: `Description of element ${i}`,
+			mandatory: isMandatory(mandatoryPercent)? '*' : '',
+		};
+		elements = elements.concat(element);
+	}
+	schema.elements = elements;
+	return schema;
+}
 
 function prefs(showAll, gradientStops50, gradientStops100) {
 	return { showAll, gradientStops50, gradientStops100 };
@@ -385,6 +418,11 @@ const input = {
 	schema: finalizeSchema(inputSchemaUX),
 };
 
+const largeInput = {
+	...emptyInput,
+	schema: buildRandomSchema('d51s11vsc1q', 'Large Input Schema', 100, 0),
+};
+
 const emptyOutput = {
 	...base,
 	schema: emptyOutputSchema,
@@ -396,6 +434,11 @@ const emptyOutput = {
 const output = {
 	...emptyOutput,
 	schema: finalizeSchema(outputSchemaUX),
+};
+
+const largeOutput = {
+	...emptyOutput,
+	schema: buildRandomSchema('e1v5h81d5g', 'Large Output Schema', 100, 30),
 };
 
 const stories = storiesOf('DataMapper', module);
@@ -424,6 +467,14 @@ stories
 			mappingKey={Columns.NAME.key}
 			input={emptyInput}
 			output={emptyOutput}
+			preferences={alternativePrefs}
+		/>
+	)).addWithInfo('XXL', () => (
+		<DataMapper
+			mappingActions={autoMapping}
+			mappingKey={Columns.NAME.key}
+			input={largeInput}
+			output={largeOutput}
 			preferences={alternativePrefs}
 		/>
 	));
