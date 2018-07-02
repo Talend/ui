@@ -6,7 +6,7 @@ exports[`IncrementableScrollList should render 1`] = `
 >
   <IconButton
     aria-label="Scroll to previous page"
-    className="theme-action-up"
+    className="tc-incrementable-scroll-list-action-up theme-action-up"
     icon={
       Object {
         "name": "talend-chevron-left",
@@ -28,7 +28,7 @@ exports[`IncrementableScrollList should render 1`] = `
   </div>
   <IconButton
     aria-label="Scroll to next page"
-    className="theme-action-down"
+    className="tc-incrementable-scroll-list-action-down theme-action-down"
     icon={
       Object {
         "name": "talend-chevron-left",

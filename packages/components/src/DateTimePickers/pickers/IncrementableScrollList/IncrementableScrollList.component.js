@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AutoSizer, List } from 'react-virtualized';
+import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
 import IconButton from '../../IconButton';
 
@@ -39,6 +40,7 @@ class IncrementableScrollList extends React.Component {
 	}
 
 	render() {
+		// Define new function in each render because item rendered can change
 		const rowRenderer = data => {
 			const {
 				index,
@@ -65,7 +67,7 @@ class IncrementableScrollList extends React.Component {
 						name: 'talend-chevron-left',
 						transform: 'rotate-90',
 					}}
-					className={theme['action-up']}
+					className={classNames('tc-incrementable-scroll-list-action-up', theme['action-up'])}
 					aria-label="Scroll to previous page"
 					onClick={this.scrollUp}
 				/>
@@ -96,7 +98,7 @@ class IncrementableScrollList extends React.Component {
 						name: 'talend-chevron-left',
 						transform: 'rotate-270',
 					}}
-					className={theme['action-down']}
+					className={classNames('tc-incrementable-scroll-list-action-down', theme['action-down'])}
 					aria-label="Scroll to next page"
 					onClick={this.scrollDown}
 				/>
