@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
-import { Action, IconsProvider } from '../src/index';
+import { Action, IconsProvider, RichTooltip } from '../src/index';
 
 import theme from './Action.scss';
 
@@ -28,41 +28,13 @@ const mouseDownAction = {
 	onMouseDown: action('You clicked me'),
 };
 
-const items = [
-	{ label: 'Space The Final Frontier', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up2', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up3', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up4', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up5', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up6', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up7', onClick: action('bodyList.items.onClick') },
-	{ label: 'How To Look Up8', onClick: action('bodyList.items.onClick') },
-];
+const loreum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante nisi. Mauris pellentesque ipsum ac convallis facilisis. Ut ullamcorper vestibulum est at suscipit. Proin quis dui vitae elit commodo rutrum vitae nec dui. Integer sit amet pulvinar lectus. Pellentesque ornare sapien et velit placerat pretium id ut nisl. Aenean eu erat non enim tincidunt semper. Suspendisse eleifend id lectus id commodo. Mauris vel risus a lacus aliquam iaculis. Ut blandit mauris id consectetur dictum. Vivamus tincidunt sapien et nunc facilisis, in bibendum mauris hendrerit. Nullam ipsum magna, finibus condimentum urna et, lacinia gravida velit.
 
-const tabs = [
-	{
-		title: 'Existing',
-		items: [
-			{ label: 'Space The Final Frontier', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up2', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up3', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up4', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up5', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up6', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up7', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up8', onClick: action('bodyList.items.onClick') },
-		],
-	},
-	{
-		title: 'Compatible',
-		items: [
-			{ label: 'Space The Final Frontier', onClick: action('bodyList.items.onClick') },
-			{ label: 'How To Look Up', onClick: action('bodyList.items.onClick') },
-		],
-	},
-];
+Nullam luctus nulla eget luctus mattis. Etiam mollis magna et sollicitudin porttitor. Nullam efficitur ut urna ac bibendum. Nullam est ex, porttitor et eros ac, rhoncus condimentum enim. Integer fringilla mollis eros, nec convallis enim facilisis pulvinar. Pellentesque interdum ornare semper. Proin at imperdiet urna, ac ultrices dui. Vivamus eu ipsum ut sem venenatis tincidunt vel ut ipsum. Pellentesque id tortor tincidunt, ultrices augue id, eleifend justo.
+
+Mauris at orci tristique, fermentum est vel, congue velit. Donec egestas rutrum tincidunt. Aliquam hendrerit augue ut turpis ornare, sodales dictum eros commodo. Sed sodales sollicitudin elit facilisis porta. Duis nec mi vel mi tincidunt laoreet. Curabitur quis dictum est. Aliquam viverra lorem dolor, ut fringilla lectus lacinia vitae. Nam molestie sem non tellus condimentum, sit amet facilisis justo porttitor. In sit amet sapien imperdiet, rhoncus quam in, sagittis erat. Nam at neque tristique, posuere eros in, accumsan diam. Sed porttitor sem ac eleifend faucibus.
+
+Nunc euismod varius augue, non suscipit arcu aliquam sit amet. Aliquam sagittis hendrerit mollis. Nunc elementum augue eget tincidunt luctus. Curabitur quis diam aliquam, porta magna vel, posuere felis. Nulla consequat nulla sit amet lobortis auctor. Nam rhoncus molestie sapien. Proin ut velit eget metus tristique rutrum at sagittis ligula. Sed id ultricies sem, a pharetra ex. Ut efficitur molestie tempor. Cras varius consequat sagittis. Cras pulvinar dolor eget purus gravida vehicula. Maecenas a nisi pretium, tincidunt eros at, cursus nibh.`;
 
 const RichTooltipHeader = (
 	<RichTooltip.Header

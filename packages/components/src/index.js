@@ -50,7 +50,7 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
-import RichTooltip, { RichTooltipHeader, RichTooltipBody, RichTooltipFooter } from './RichTooltip';
+import RichTooltip from './RichTooltip';
 
 const {
 	Alert,
@@ -131,9 +131,6 @@ export {
 	ActionIconToggle,
 	ActionSplitDropdown,
 	RichTooltip,
-	RichTooltipHeader,
-	RichTooltipBody,
-	RichTooltipFooter,
 	AppLoader,
 	Badge,
 	Breadcrumbs,
