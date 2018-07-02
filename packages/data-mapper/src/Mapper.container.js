@@ -1241,11 +1241,26 @@ class DataMapperContainer extends React.Component {
 }
 
 DataMapperContainer.propTypes = {
-	mapperId: PropTypes.string,
 	mappingActions: PropTypes.object,
 	mappingKey: PropTypes.string,
-	input: PropTypes.object.isRequired,
-	output: PropTypes.object.isRequired,
+	input: PropTypes.shape({
+		schema: PropTypes.object,
+		columns: PropTypes.array,
+		rowsClassName: PropTypes.objectOf(PropTypes.string),
+		withTitle: PropTypes.bool,
+		withHeader: PropTypes.bool,
+		filters: PropTypes.array,
+		sorterKeys: PropTypes.arrayOf(PropTypes.string),
+	}).isRequired,
+	output: PropTypes.shape({
+		schema: PropTypes.object,
+		columns: PropTypes.array,
+		rowsClassName: PropTypes.objectOf(PropTypes.string),
+		withTitle: PropTypes.bool,
+		withHeader: PropTypes.bool,
+		filters: PropTypes.array,
+		sorterKeys: PropTypes.arrayOf(PropTypes.string),
+	}).isRequired,
 	preferences: PropTypes.object,
 };
 

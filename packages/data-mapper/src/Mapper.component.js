@@ -865,7 +865,7 @@ MapperComponent.propTypes = {
 		withHeader: PropTypes.bool,
 		filters: PropTypes.array,
 		sorters: PropTypes.object,
-	}),
+	}).isRequired,
 	output: PropTypes.shape({
 		schema: PropTypes.object,
 		columns: PropTypes.array,
@@ -874,7 +874,7 @@ MapperComponent.propTypes = {
 		withHeader: PropTypes.bool,
 		filters: PropTypes.array,
 		sorters: PropTypes.object,
-	}),
+	}).isRequired,
 	onFilterChange: PropTypes.func,
 	onSortChange: PropTypes.func,
 	selection: PropTypes.object,
