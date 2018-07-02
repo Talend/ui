@@ -25,14 +25,15 @@ got ${resourcePath}`,
 }
 
 export function* redirect(action) {
-	const url = get(action, 'data.redirectUrl');
+	debugger;
+	const url = get(action, 'data.model.redirectUrl');
 	if (!url) {
-		throw new Error('redirect action must have data.redirectUrl value');
+		throw new Error('redirect action must have data.model.redirectUrl value');
 	}
 	yield put({
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 		cmf: {
-			routerReplace: action.data.redirectUrl,
+			routerReplace: url,
 		},
 	});
 }
@@ -100,10 +101,11 @@ function getDeleteResourceSagaRouter({
 		resourcePath: ${resourcePath},
 	}`);
 	return function* deleteResourceSaga(routerParams) {
-		invariant(!!uri, 'DeleteResource saga : uri not defined');
-		invariant(!!resourceType, 'DeleteResource saga : resourceType not defined');
-		invariant(!!redirectUrl, 'DeleteResource saga : redirectUrl not defined');
+		// invariant(!!uri, 'DeleteResource saga : uri not defined');
+		// invariant(!!resourceType, 'DeleteResource saga : resourceType not defined');
+		// invariant(!!redirectUrl, 'DeleteResource saga : redirectUrl not defined');
 
+		console.log(`deleteResourceSaga`);
 		try {
 			yield race({
 				deleteConfirmationValidate: call(

@@ -63,6 +63,7 @@ export class DeleteResource extends React.Component {
 			uri: this.props.uri,
 			...this.getLabel(),
 			id: this.props.resourceId,
+			redirectUrl: this.props.redirectUrl,
 		};
 	}
 
