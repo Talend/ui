@@ -30,6 +30,8 @@ export const NodeGraphicalAttributes = Record({
 
 export const NodeData = Record({
 	properties: new Map(),
+	label: '',
+	description: '',
 });
 
 export const LinkGraphicalAttributes = Record({
