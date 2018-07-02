@@ -1,27 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { mockDate, restoreDate } from '../dateMocking';
+
 import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 
 describe('DateTimePicker', () => {
 	it('should render', () => {
-		const mockedDate = new Date(2018, 5, 12);
-		const OriginalDate = Date;
-
-		global.Date = jest.fn((...args) => {
-			if (args.length === 0) {
-				return mockedDate;
-			}
-			return new OriginalDate(...args);
-		});
+		mockDate(new Date(2018, 5, 12));
 
 		const wrapper = shallow(<DateTimePicker />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 
-		global.Date = OriginalDate;
+		restoreDate();
 	});
 
 	it('should render with the DateTimeView', () => {

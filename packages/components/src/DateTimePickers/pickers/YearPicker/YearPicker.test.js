@@ -1,19 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { mockDate, restoreDate } from '../../dateMocking';
+
 import YearPicker from './YearPicker.component';
 
 describe('YearPicker', () => {
 	it('should render', () => {
-		const mockedDate = new Date(2015, 11, 31);
-		const OriginalDate = Date;
-
-		global.Date = jest.fn((...args) => {
-			if (args.length === 0) {
-				return mockedDate;
-			}
-			return new OriginalDate(...args);
-		});
+		mockDate(new Date(2015, 11, 31));
 
 		const wrapper = shallow(<YearPicker
 			selectedYear={2012}
@@ -22,7 +16,7 @@ describe('YearPicker', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 
-		global.Date = OriginalDate;
+		restoreDate();
 	});
 
 	it.skip('should have exactly one selected year', () => {
