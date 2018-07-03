@@ -2,7 +2,7 @@
 
 exports[`Typeahead container should render 1`] = `
 <Typeahead
-  autoFocus={true}
+  autoFocus={false}
   disabled={false}
   docked={true}
   focusedItemIndex={null}
