@@ -6,7 +6,6 @@ import { checkA11y } from '@storybook/addon-a11y';
 import { Datalist, IconsProvider } from '../src/index';
 
 const propsMultiSection = {
-	autoFocus: true,
 	disabled: false,
 	multiSection: true,
 	placeholder: 'search for something ...',
@@ -22,7 +21,6 @@ const propsMultiSection = {
 };
 
 const singleSectionProps = {
-	autoFocus: true,
 	disabled: false,
 	multiSection: false,
 	placeholder: 'search for something ...',
@@ -45,40 +43,40 @@ storiesOf('Datalist', module)
 		</div>
 	))
 	.addWithInfo('default multiSection', () => {
-		const withoutAutoFocus = { ...propsMultiSection, autoFocus: false };
-		const restrictedValues = { ...propsMultiSection, restricted: true, autoFocus: false };
+		const withoutAutoFocus = { ...propsMultiSection };
+		const restrictedValues = { ...propsMultiSection, restricted: true };
 		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
 			<form className="form">
 				<IconsProvider />
-				<p>By default :</p>
+				<h3>By default :</h3>
 				<Datalist {...withoutAutoFocus} />
-				<p>default value :</p>
+				<h3>default value :</h3>
 				<Datalist {...defaultValue} />
-				<p>Restricted values :</p>
+				<h3>Restricted values :</h3>
 				<Datalist {...restrictedValues} />
-				<p>Auto focused :</p>
-				<Datalist {...propsMultiSection} />
-				<p>Loading :</p>
-				<Datalist isLoading />
+				<h3>Auto focused :</h3>
+				<Datalist {...propsMultiSection} autoFocus />
 			</form>
 		);
 	})
 	.addWithInfo('default single section', () => {
-		const withoutAutoFocus = { ...singleSectionProps, autoFocus: false };
-		const restrictedValues = { ...singleSectionProps, restricted: true, autoFocus: false };
+		const withoutAutoFocus = { ...singleSectionProps };
+		const restrictedValues = { ...singleSectionProps, restricted: true };
 		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
 			<form className="form">
 				<IconsProvider />
-				<p>By default :</p>
+				<h3>By default :</h3>
 				<Datalist {...withoutAutoFocus} />
-				<p>default value :</p>
+				<h3>default value :</h3>
 				<Datalist {...defaultValue} />
-				<p>Restricted values :</p>
+				<h3>Restricted values :</h3>
 				<Datalist {...restrictedValues} />
-				<p>Auto focused :</p>
-				<Datalist {...singleSectionProps} />
+				<h3>Loading :</h3>
+				<Datalist isLoading />
+				<h3>Auto focused :</h3>
+				<Datalist {...singleSectionProps} autoFocus />
 			</form>
 		);
 	});

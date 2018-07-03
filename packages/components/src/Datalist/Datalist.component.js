@@ -186,7 +186,7 @@ class Datalist extends Component {
 	 *
 	 * @param titleMap the titleMap to use to create the label/value mapping.
 	 */
-	buildTitleMapping(titleMap) {
+	buildTitleMapping(titleMap = []) {
 		return titleMap.reduce((obj, item) => {
 			if (this.props.multiSection && item.title && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);

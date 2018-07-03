@@ -466,7 +466,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().focusedItemIndex).toBe(0);
 	});
 
-	it('should instance.onFocus call props.onFocus', () => {
+	it('should call props.onFocus on instance focus', () => {
 		const onFocus = jest.fn();
 		const wrapper = shallow(<Datalist {...props} onFocus={onFocus} onChange={jest.fn()} />);
 

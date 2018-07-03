@@ -1,3 +1,5 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
 $tc-typeahead-input-color: #000 !default;
 $tc-typeahead-input-width: 262px !default;
 
@@ -16,6 +18,10 @@ $tc-typeahead-section-header-color: #63aebd !default;
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
 $tc-typeahead-items-font-size: 1.5rem !default;
+
+.loading {
+	@include heartbeat(object-blink);
+}
 
 .tc-typeahead-container {
 	position: relative;
@@ -76,11 +82,11 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 			right: $padding-small;
 			color: $tc-typeahead-icon-color;
 
-			svg {
-				width: $svg-xs-size;
-				height: $svg-xs-size;
-				margin-left: $padding-smaller;
-			}
+		}
+		:global(.tc-svg-icon) {
+			width: $svg-xs-size;
+			height: $svg-xs-size;
+			margin-left: $padding-smaller;
 		}
 	}
 }

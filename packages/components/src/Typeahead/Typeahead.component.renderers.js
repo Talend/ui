@@ -9,10 +9,6 @@ import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
-const CARET = {
-	name: 'talend-caret-down',
-};
-
 export function renderInputComponent(props) {
 	const {
 		caret,
@@ -26,15 +22,8 @@ export function renderInputComponent(props) {
 	} = props;
 
 	const hasIcon = isLoading || icon || caret;
-	const renderedIcon = (
-		<div className={theme['icon-cls']}>
-			{isLoading && <CircularProgress />}
-			{icon && <Icon {...icon} />}
-			{caret && <Icon {...CARET} />}
-		</div>
-	);
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
+		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon', { [theme.loading]: isLoading })}>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
@@ -51,7 +40,12 @@ export function renderInputComponent(props) {
 			) : (
 				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
 			)}
-			{hasIcon && renderedIcon}
+			{hasIcon && (
+				<div className={theme['icon-cls']}>
+					{icon && <Icon {...icon} />}
+					{caret && <Icon name="talend-caret-down" />}
+				</div>
+			)}
 		</div>
 	);
 }
