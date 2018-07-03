@@ -22,7 +22,12 @@ exports[`DateTimeView should render 1`] = `
       </div>
       <div
         className="theme-time"
-      />
+      >
+        <TimePicker
+          onSelect={[Function]}
+          selectedTime={undefined}
+        />
+      </div>
     </div>
   }
   header={

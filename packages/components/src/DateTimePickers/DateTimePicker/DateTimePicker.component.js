@@ -25,10 +25,15 @@ class DateTimePicker extends React.Component {
 		this.onSelectCalendarYear = this.onSelectCalendarYear.bind(this);
 		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
 		this.onSelectDate = this.onSelectDate.bind(this);
+		this.onSelectTime = this.onSelectTime.bind(this);
 	}
 
 	onSelectDate(selectedDate) {
 		this.setState({ selectedDate });
+	}
+
+	onSelectTime(selectedTime) {
+		this.setState({ selectedTime });
 	}
 
 	onSelectCalendarMonthYear(newCalendar) {
@@ -62,6 +67,8 @@ class DateTimePicker extends React.Component {
 				onSelectMonthYear={this.onSelectCalendarMonthYear}
 				onSelectDate={this.onSelectDate}
 				selectedDate={this.state.selectedDate}
+				onSelectTime={this.onSelectTime}
+				selectedTime={this.state.selectedTime}
 			/>);
 		} else {
 			viewElement = (<MonthYearView

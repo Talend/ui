@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from '../../pickers/DatePicker';
+import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
 import IconButton from '../../IconButton';
 import HeaderTitle from '../HeaderTitle';
@@ -75,7 +76,10 @@ class DateTimeView extends React.Component {
 					/>
 				</div>
 				<div className={theme.time}>
-
+					<TimePicker
+						selectedTime={this.props.selectedTime}
+						onSelect={this.props.onSelectTime}
+					/>
 				</div>
 			</div>
 		);
@@ -97,7 +101,9 @@ DateTimeView.propTypes = {
 	onClickTitle: PropTypes.func.isRequired,
 	onSelectMonthYear: PropTypes.func.isRequired,
 	onSelectDate: PropTypes.func.isRequired,
+	onSelectTime: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
+	selectedTime: PropTypes.number,
 };
 
 export default DateTimeView;

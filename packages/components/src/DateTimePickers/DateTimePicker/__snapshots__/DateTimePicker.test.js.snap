@@ -14,7 +14,9 @@ exports[`DateTimePicker should render 1`] = `
     onClickTitle={[Function]}
     onSelectDate={[Function]}
     onSelectMonthYear={[Function]}
+    onSelectTime={[Function]}
     selectedDate={undefined}
+    selectedTime={undefined}
   />
 </div>
 `;
