@@ -115,7 +115,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 Typeahead.displayName = 'Typeahead';
 
 Typeahead.defaultProps = {
-	autoFocus: true,
+	autoFocus: false,
 	disabled: false,
 	id: uuid.v4().toString(),
 	items: null,
