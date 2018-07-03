@@ -37,6 +37,14 @@ describe('custom formats', () => {
 		// then
 		expect(resultIpOK).toBe(null);
 
+		const resultHttpPortOK = customValidation['url-http-https']('http://test.domain.com:8080');
+		// then
+		expect(resultHttpPortOK).toBe(null);
+
+		const resultIpPortOK = customValidation['url-http-https']('http://127.0.0.1:8080');
+		// then
+		expect(resultIpPortOK).toBe(null);
+
 		const resultKO1 = customValidation['url-http-https']('ssh://test.domain.com');
 		const resultKO2 = customValidation['url-http-https']('test.domain.com');
 		const resultKO3 = customValidation['url-http-https']('https://test. domain.com');
@@ -80,6 +88,12 @@ describe('custom formats', () => {
 
 		const gitResultHttpOK9 = customValidation['url-git']('https://1.1.1.1:999/sd.git');
 		expect(gitResultHttpOK9).toBe(null);
+
+		const gitResultHttpOK10 = customValidation['url-git']('https://user@host.com:999/sd.git');
+		expect(gitResultHttpOK10).toBe(null);
+
+		const gitResultHttpOK11 = customValidation['url-git']('http://user@host.com:999/sd.git');
+		expect(gitResultHttpOK11).toBe(null);
 
 		// TEST KO
 		const gitResultHttpKO1 = customValidation['url-git']('http://host.xz');
@@ -162,6 +176,34 @@ describe('custom formats', () => {
 
 		const gitResultSshKO10 = customValidation['url-git']('ssh://user@host.xz:999path/to/repo.git/');
 		expect(gitResultSshKO10).toBe(mockedTranslation.FORMAT_URL_GIT);
+	});
+
+	it('should validate a git url ssh 2', () => {
+		// TEST OK
+		const gitResultSshOK1 = customValidation['url-git']('user@host.xz:999/path/to/repo.git/');
+		expect(gitResultSshOK1).toBe(null);
+
+		const gitResultSshOK2 = customValidation['url-git']('user@host.xz:999/path/to/repo.git');
+		expect(gitResultSshOK2).toBe(null);
+
+		const gitResultSshOK3 = customValidation['url-git']('user@host.xz:~user/path/to/repo.git/');
+		expect(gitResultSshOK3).toBe(null);
+
+		const gitResultSshOK4 = customValidation['url-git']('user@host.xz:path/to/repo.git');
+		expect(gitResultSshOK4).toBe(null);
+
+		const gitResultSshOK5 = customValidation['url-git']('user@1.1.1.1:999/path/to/repo.git');
+		expect(gitResultSshOK5).toBe(null);
+
+		// TEST KO
+		const gitResultSshKO1 = customValidation['url-git']('user@host.xz/path/to/repo.git/');
+		expect(gitResultSshKO1).toBe(mockedTranslation.FORMAT_URL_GIT);
+
+		const gitResultSshKO2 = customValidation['url-git']('user@host.xz');
+		expect(gitResultSshKO2).toBe(mockedTranslation.FORMAT_URL_GIT);
+
+		const gitResultSshKO3 = customValidation['url-git']('user@host.xz:/path/to/repo.git/');
+		expect(gitResultSshKO3).toBe(mockedTranslation.FORMAT_URL_GIT);
 	});
 
 	it('should validate a git url git', () => {
