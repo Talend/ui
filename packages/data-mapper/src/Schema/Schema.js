@@ -177,7 +177,7 @@ class ColumnUpdater {
 			if (sorters[col.key]) {
 				this.addPropsForSorter(col);
 			}
-		})
+		});
 		return columnsWithDnd;
 	}
 }

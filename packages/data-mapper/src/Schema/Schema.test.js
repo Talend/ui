@@ -21,7 +21,9 @@ describe('Schema', () => {
 	it('empty-schema', () => {
 		// create React tree
 		const tree = renderer
-			.create(<Schema dataAccessor={dataAccessor} schema={TestData.emptySchema} columns={columns} />)
+			.create(
+				<Schema dataAccessor={dataAccessor} schema={TestData.emptySchema} columns={columns} />,
+			)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
