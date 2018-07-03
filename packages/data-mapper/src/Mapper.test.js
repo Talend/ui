@@ -7,7 +7,7 @@ import MapperComponent from './Mapper.js';
 import DataAccessorWrapper from '../DataAccessorWrapper';
 import { Constants } from '../index';
 
-const dataAccessor = new DataAccessorWrapper(;
+const dataAccessor = new DataAccessorWrapper();
 
 const element1 = {
 	id: '1',
