@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import addYears from 'date-fns/add_years';
-import setYear from 'date-fns/set_year';
 import IncrementableScrollList from '../IncrementableScrollList';
 import PickerAction from '../../PickerAction';
 
-const baseDate = new Date(0);
 const yearRange = 300;
 
 class YearPicker extends React.Component {
@@ -17,24 +14,20 @@ class YearPicker extends React.Component {
 		const middleYear = now.getFullYear();
 
 		const firstYear = middleYear - Math.ceil(yearRange / 2);
-		const firstDate = setYear(baseDate, firstYear);
 
 		this.years = (new Array(yearRange))
 			.fill(0)
-			.map((_, i) => addYears(firstDate, i))
-			.map(date => date.getFullYear())
+			.map((_, i) => firstYear + i)
 			.map(year => ({
 				id: year,
 				label: year.toString(),
 			}));
 
-		const indexOfYear = year => year - firstYear;
-
 		const initialYear = props.selectedYear === undefined
-			? now.getFullYear()
+			? middleYear
 			: props.selectedYear;
 
-		this.initialIndex = indexOfYear(initialYear) - 2;
+		this.initialIndex = this.years.findIndex(info => info.id === initialYear) - 2;
 
 		this.isSelected = this.isSelected.bind(this);
 	}

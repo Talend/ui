@@ -41,6 +41,7 @@ class IncrementableScrollList extends React.Component {
 
 	render() {
 		// Define new function in each render because item rendered can change
+		// new function reference enforce recomputing items
 		const rowRenderer = data => {
 			const {
 				index,
@@ -107,16 +108,8 @@ class IncrementableScrollList extends React.Component {
 	}
 }
 
-const idPropType = PropTypes.oneOfType([
-	PropTypes.string,
-	PropTypes.number,
-]);
-
 IncrementableScrollList.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.shape({
-		id: idPropType.isRequired,
-		label: PropTypes.string.isRequired,
-	})).isRequired,
+	items: PropTypes.array.isRequired,
 	itemRenderer: PropTypes.func.isRequired,
 	initialIndex: PropTypes.number,
 };
