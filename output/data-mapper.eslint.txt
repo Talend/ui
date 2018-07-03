@@ -45,24 +45,24 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:26  error  'DataAccessorWrapper' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/index.js
-  1:20  error  Parse errors in imported module './Mapper.container': Line 1183: A trailing comma is not permitted after the rest element
+  1:20  error  Parse errors in imported module './Mapper.container': Line 1209: A trailing comma is not permitted after the rest element
 
-  1181 | 		const {
-  1182 | 			mappingActions,
-> 1183 | 			...rest,
+  1207 | 		const {
+  1208 | 			mappingActions,
+> 1209 | 			...rest,
        | 			       ^
-  1184 | 		} = this.props;
-  1185 | 		return (
-  1186 | 			<div {...rest}> (1183:11)  import/no-named-as-default
-  1:20  error  Parse errors in imported module './Mapper.container': Line 1183: A trailing comma is not permitted after the rest element
+  1210 | 		} = this.props;
+  1211 | 		return (
+  1212 | 			<div {...rest}> (1209:11)  import/no-named-as-default
+  1:20  error  Parse errors in imported module './Mapper.container': Line 1209: A trailing comma is not permitted after the rest element
 
-  1181 | 		const {
-  1182 | 			mappingActions,
-> 1183 | 			...rest,
+  1207 | 		const {
+  1208 | 			mappingActions,
+> 1209 | 			...rest,
        | 			       ^
-  1184 | 		} = this.props;
-  1185 | 		return (
-  1186 | 			<div {...rest}> (1183:11)  import/no-named-as-default-member
+  1210 | 		} = this.props;
+  1211 | 		return (
+  1212 | 			<div {...rest}> (1209:11)  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.component.js
     4:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -82,28 +82,27 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   893:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.container.js
-  1183:11  error  Parsing error: A trailing comma is not permitted after the rest element
+  1209:11  error  Parsing error: A trailing comma is not permitted after the rest element
 
-  1181 | 		const {
-  1182 | 			mappingActions,
-> 1183 | 			...rest,
+  1207 | 		const {
+  1208 | 			mappingActions,
+> 1209 | 			...rest,
        | 			       ^
-  1184 | 		} = this.props;
-  1185 | 		return (
-  1186 | 			<div {...rest}>
+  1210 | 		} = this.props;
+  1211 | 		return (
+  1212 | 			<div {...rest}>
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.test.js
-   6:29  error  Unable to resolve path to module './Mapper.js'                                                 import/no-unresolved
-   7:36  error  Unable to resolve path to module '../Schema/SchemaElement/DraggableSchemaElement.js'           import/no-unresolved
-   8:33  error  Unable to resolve path to module '../DefaultDataAccessor'                                      import/no-unresolved
-   9:33  error  Unable to resolve path to module '../DataAccessorWrapper'                                      import/no-unresolved
-  10:27  error  Unable to resolve path to module '../index'                                                    import/no-unresolved
-  11:33  error  Unable to resolve path to module '../Schema/SchemaConfiguration'                               import/no-unresolved
-  12:34  error  Unable to resolve path to module './MappingConfiguration.js'                                   import/no-unresolved
-  13:24  error  Unable to resolve path to module './MappingSVG.js'                                             import/no-unresolved
-  14:25  error  Unable to resolve path to module './AutoMapping.js'                                            import/no-unresolved
-  64:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-  65:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+    6:29  error  Unable to resolve path to module './Mapper.js'                                                 import/no-unresolved
+    7:33  error  Unable to resolve path to module '../DataAccessorWrapper'                                      import/no-unresolved
+    8:27  error  Unable to resolve path to module '../index'                                                    import/no-unresolved
+   56:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+   57:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+   82:25  error  'schemaConfiguration' is not defined                                                           no-undef
+   83:26  error  'mappingConfig' is not defined                                                                 no-undef
+  122:25  error  'schemaConfiguration' is not defined                                                           no-undef
+  123:26  error  'mappingConfig' is not defined                                                                 no-undef
+  135:66  error  'DraggableSchemaElement' is not defined                                                        no-undef
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/DraggableAnchor.js
    2:1  error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -114,10 +113,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   73:11  error  'dndListener' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/Mapping.test.js
-   6:34  error  Unable to resolve path to module './MappingConfiguration.js'                                   import/no-unresolved
-   8:28  error  Unable to resolve path to module './MappingActions.js'                                         import/no-unresolved
-  88:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-  89:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+   6:8   error  'MappingSVG' is defined but never used                                                         no-unused-vars
+   7:8   error  'MappingActions' is defined but never used                                                     no-unused-vars
+   7:28  error  Unable to resolve path to module './MappingActions.js'                                         import/no-unresolved
+  85:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  86:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/MappingSVG.js
     2:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -141,17 +141,18 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   154:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
   158:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
   159:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  247:2   error  getNode should be placed after onSortChange                                                                 react/sort-comp
-  299:23  error  Expected '!==' and instead saw '!='                                                                         eqeqeq
-  356:14  error  'onEnterElement' is missing in props validation                                                             react/prop-types
-  360:14  error  'onLeaveElement' is missing in props validation                                                             react/prop-types
-  383:19  error  Expected 'this' to be used by class method 'getChildOffsetTop'                                              class-methods-use-this
-  406:4   error  'onScroll' is assigned a value but never used                                                               no-unused-vars
-  444:18  error  'mappedElements' PropType is defined but prop is never used                                                 react/no-unused-prop-types
+  162:19  error  Expected 'this' to be used by class method 'addPropsForSorter'                                              class-methods-use-this
+  163:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
+  260:2   error  getNode should be placed after onSortChange                                                                 react/sort-comp
+  312:23  error  Expected '!==' and instead saw '!='                                                                         eqeqeq
+  369:14  error  'onEnterElement' is missing in props validation                                                             react/prop-types
+  373:14  error  'onLeaveElement' is missing in props validation                                                             react/prop-types
+  396:19  error  Expected 'this' to be used by class method 'getChildOffsetTop'                                              class-methods-use-this
+  419:4   error  'onScroll' is assigned a value but never used                                                               no-unused-vars
+  457:18  error  'mappedElements' PropType is defined but prop is never used                                                 react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.test.js
-   6:10  error  'Constants' is defined but never used           no-unused-vars
-  44:7   error  'noFilters' is assigned a value but never used  no-unused-vars
+  6:10  error  'Constants' is defined but never used  no-unused-vars
 
-✖ 97 problems (97 errors, 0 warnings)
+✖ 98 problems (98 errors, 0 warnings)
 
