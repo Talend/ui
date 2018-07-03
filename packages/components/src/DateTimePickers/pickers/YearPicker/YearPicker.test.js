@@ -137,8 +137,4 @@ describe('YearPicker', () => {
 
 		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
 	});
-
-	it('should not update the global years range if the selected year change');
-
-	it('should not update the visible years range if the selected year change');
 });
