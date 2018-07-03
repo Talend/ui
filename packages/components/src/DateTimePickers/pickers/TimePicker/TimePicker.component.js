@@ -18,13 +18,11 @@ class TimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const interval = props.interval || 15;
-
-		const nbTimeSelectable = Math.ceil(maxTime / interval);
+		const nbTimeSelectable = Math.ceil(maxTime / props.interval);
 
 		this.times = (new Array(nbTimeSelectable))
 			.fill(0)
-			.map((_, i) => i * interval)
+			.map((_, i) => i * props.interval)
 			.map(time => {
 				const hours = Math.floor(time / 60);
 				const minutes = time % 60;
@@ -82,6 +80,10 @@ class TimePicker extends React.Component {
 		);
 	}
 }
+
+TimePicker.defaultProps = {
+	interval: 15,
+};
 
 TimePicker.propTypes = {
 	selectedTime: PropTypes.number,

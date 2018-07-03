@@ -24,6 +24,7 @@ exports[`DateTimeView should render 1`] = `
         className="theme-time"
       >
         <TimePicker
+          interval={15}
           onSelect={[Function]}
           selectedTime={undefined}
         />
