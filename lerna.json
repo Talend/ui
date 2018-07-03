@@ -1,6 +1,6 @@
 {
   "lerna": "2.5.1",
-  "version": "0.198.0-tacokit-6",
+  "version": "0.198.0-tacokit-7",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
