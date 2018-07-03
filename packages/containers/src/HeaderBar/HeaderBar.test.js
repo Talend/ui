@@ -11,17 +11,8 @@ describe('Container HeaderBar', () => {
 	const dispatch = jest.fn();
 	const containerProps = { state, dispatch };
 
-	const HeaderBar = () => '';
-	const HeaderBarComponentMock = props => <HeaderBar {...props} />;
-
-	const context = {
-		registry: {
-			'_.route.component:HeaderBar': HeaderBarComponentMock,
-		},
-	};
-
 	it('should render HeaderBar container', () => {
-		const wrapper = shallow(<Container {...containerProps} />, { context });
+		const wrapper = shallow(<Container {...containerProps} />);
 		expect(
 			wrapper
 				.dive()
@@ -36,7 +27,7 @@ describe('Container HeaderBar', () => {
 			...containerProps,
 		};
 
-		const wrapper = shallow(<Container {...props} />, { context });
+		const wrapper = shallow(<Container {...props} />);
 		expect(
 			wrapper
 				.dive()
@@ -53,7 +44,7 @@ describe('Container HeaderBar', () => {
 			}),
 		};
 
-		const wrapper = shallow(<Container {...props} />, { context });
+		const wrapper = shallow(<Container {...props} />);
 		expect(
 			wrapper
 				.dive()
