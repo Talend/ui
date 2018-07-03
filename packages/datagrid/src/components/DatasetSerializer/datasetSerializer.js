@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import isArray from 'lodash/isArray';
+import negate from 'lodash/negate';
 import round from 'lodash/round';
 
 import {
@@ -48,6 +49,10 @@ export function sanitizeAvro(avro) {
 	};
 }
 
+export function isNullType(type) {
+	return type.type === 'null';
+}
+
 /**
  * getType - manage the type from an AVRO type
  *
@@ -60,14 +65,12 @@ export function sanitizeAvro(avro) {
  */
 export function getType(type, mandatory = true) {
 	if (isArray(type)) {
-		const notNullType = type.find(subType => subType !== 'null');
-		const nullType = type.find(subType => subType === 'null');
-
+		const notNullType = type.find(isNullType);
+		const nullType = type.find(negate(isNullType));
 		if (notNullType && nullType) {
 			return `${getType(notNullType, false)}`;
 		}
 	}
-
 	return `${type.dqType || type.type}${mandatory ? '*' : ''}`;
 }
 
@@ -78,11 +81,14 @@ export function getQuality(qualityTotal, rowsTotal) {
 	};
 }
 
-export function getFieldQuality(quality) {
-	if (!quality) {
+export function getFieldQuality(type) {
+	if (!type) {
 		return {};
 	}
-
+	let quality;
+	if (isArray(type)) {
+		quality = type.find(qual => qual[QUALITY_KEY] !== undefined)[QUALITY_KEY];
+	}
 	return {
 		[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
 		[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
@@ -110,7 +116,7 @@ export function getColumnDefs(sample) {
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc,
 		type: getType(avroField.type),
-		[QUALITY_KEY]: getFieldQuality(avroField[QUALITY_KEY]),
+		[QUALITY_KEY]: getFieldQuality(avroField.type),
 	}));
 }
 
