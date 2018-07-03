@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import isArray from 'lodash/isArray';
-import negate from 'lodash/negate';
 import round from 'lodash/round';
 
 import {
@@ -49,9 +48,6 @@ export function sanitizeAvro(avro) {
 	};
 }
 
-export function isNullType(type) {
-	return type.type === 'null';
-}
 
 /**
  * getType - manage the type from an AVRO type
@@ -65,12 +61,14 @@ export function isNullType(type) {
  */
 export function getType(type, mandatory = true) {
 	if (isArray(type)) {
-		const notNullType = type.find(isNullType);
-		const nullType = type.find(negate(isNullType));
+		const notNullType = type.find(subType => subType.type !== 'null');
+		const nullType = type.find(subType => subType.type === 'null');
+
 		if (notNullType && nullType) {
 			return `${getType(notNullType, false)}`;
 		}
 	}
+
 	return `${type.dqType || type.type}${mandatory ? '*' : ''}`;
 }
 

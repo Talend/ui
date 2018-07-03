@@ -184,32 +184,7 @@ describe('#getColumnDefs', () => {
 	});
 
 	it('should returns the columns definitions with optional', () => {
-		const schemaWithOptionalType = {
-			schema: {
-				type: 'record',
-				name: 'StringArrayRecord',
-				fields: [
-					{
-						name: 'field0',
-						doc: 'Nom de la gare',
-						type: [
-							'null',
-							{
-								type: 'string',
-								dqType: 'FR Commune',
-								dqTypeKey: 'FR_COMMUNE',
-							},
-						],
-						'@talend-quality@': {
-							0: 0,
-							1: 38,
-							'-1': 62,
-						},
-					},
-				],
-			},
-		};
-		const columnDefs = getColumnDefs(schemaWithOptionalType);
+		const columnDefs = getColumnDefs(sample);
 
 		expect(columnDefs).toMatchSnapshot();
 	});
@@ -272,9 +247,26 @@ describe('#getCellValue', () => {
 
 describe('#getType', () => {
 	it('should return the optional type', () => {
-		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
+		const type = getType([
+			{
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+				type: 'string',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+			{
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+				type: 'null',
+			},
+		]);
 
-		expect(type).toBe('string');
+		expect(type).toBe('FR Commune');
 	});
 
 	it('should return the mandatory dqType', () => {
