@@ -7,13 +7,13 @@ import { Inject } from '@talend/react-cmf';
 import EmptyShowcase from './EmptyShowcase';
 import theme from './Showcase.scss';
 
-const getShowcaseChildComponent = content => {
+function getShowcaseChildComponent(content) {
 	if (content.component === 'EmptyShowcase') {
 		return <EmptyShowcase />;
 	}
 
 	return <Inject {...content} />;
-};
+}
 
 const Showcase = ({ content }) => {
 	return (
