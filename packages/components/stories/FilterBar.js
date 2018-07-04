@@ -33,7 +33,7 @@ const propsNoDockToggle = {
 	onBlur: action('onBlur'),
 	onFocus: action('onFocus'),
 	onToggle: action('onToggle'),
-	placeholder: 'My placeholder',
+	placeholder: 'Type your filter term',
 	tooltipPlacement: 'bottom',
 	highlight: false,
 };
