@@ -13,44 +13,32 @@ describe('Container HeaderBar', () => {
 
 	it('should render HeaderBar container', () => {
 		const wrapper = shallow(<Container {...containerProps} />);
-		expect(
-			wrapper
-				.dive()
-				.dive()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container with a list of items', () => {
 		const props = {
-			productsItems: [{ foo: 'bar' }],
 			...containerProps,
+			productsItems: [{ foo: 'bar' }],
+			state: new Map({
+				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
+			}),
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(
-			wrapper
-				.dive()
-				.dive()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
 		const props = {
 			...containerProps,
 			state: new Map({
-				get: jest.fn().mockReturnValue(Constants.FETCHING_PRODUCTS),
+				productsFetchState: Constants.FETCHING_PRODUCTS,
 			}),
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(
-			wrapper
-				.dive()
-				.dive()
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
