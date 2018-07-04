@@ -32,11 +32,6 @@ class Datalist extends Component {
 		this.isMultiple = this.isMultiple.bind(this);
 	}
 
-	componentDidMount() {
-		if (this.props.value && !this.props.schema.titleMap) {
-			this.onFocus({ type: 'mount' });
-		}
-	}
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -51,17 +46,16 @@ class Datalist extends Component {
 
 	onFocus(event) {
 		if (this.props.schema.triggers) {
-			this.props.schema.triggers.forEach(trigger => {
-				if (trigger.onEvent === 'focus') {
-					this.setState({ isLoading: true });
-					this.props.onTrigger(event, { trigger }).then(data => {
-						this.setState({
-							isLoading: false,
-							...data,
-						});
+			const trigger = this.props.schema.triggers.find(t => t.onEvent === 'focus');
+			if (trigger) {
+				this.setState({ isLoading: true });
+				this.props.onTrigger(event, { trigger }).then(data => {
+					this.setState({
+						isLoading: false,
+						...data,
 					});
-				}
-			});
+				});
+			}
 		}
 	}
 
