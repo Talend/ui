@@ -30,8 +30,12 @@ class Datalist extends Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.isMultiple = this.isMultiple.bind(this);
+		this.callTrigger = this.callTrigger.bind(this);
 	}
 
+	componentDidMount() {
+		this.callTrigger('didMount');
+	}
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -40,50 +44,63 @@ class Datalist extends Component {
 	 */
 	onChange(event, payload) {
 		const payloadWithSchema = { ...payload, schema: this.props.schema };
+		this.callTrigger('change');
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
-	onFocus(event) {
-		if (this.props.schema.triggers) {
-			const trigger = this.props.schema.triggers.find(t => t.onEvent === 'focus');
-			if (trigger) {
-				this.setState({ isLoading: true });
-				this.props.onTrigger(event, { trigger }).then(data => {
-					this.setState({
-						isLoading: false,
-						...data,
-					});
-				});
-			}
-		}
+	onFocus() {
+		this.callTrigger('focus');
+	}
+
+	onBlur() {
+		this.callTrigger('blur');
 	}
 
 	getTitleMap() {
-		let titleMap = [];
+		let titleMap;
 		if (this.state.titleMap) {
-			titleMap = Array.from(this.state.titleMap);
+			titleMap = this.state.titleMap;
 		} else if (this.props.schema.titleMap) {
-			titleMap = Array.from(this.props.schema.titleMap);
-		}
-		const isMultiple = this.isMultiple();
-		if (this.props.value && !isMultiple) {
-			if (!titleMap.find(option => option.value === this.props.value)) {
-				titleMap.push({ name: this.props.value, value: this.props.value });
-			}
-		} else if (this.props.value && isMultiple) {
-			this.props.value.forEach(value => {
-				if (!titleMap.find(option => option.value === value)) {
-					titleMap.push({ name: this.props.value, value: this.props.value });
-				}
-			});
+			titleMap = this.props.schema.titleMap;
+		} else {
+			titleMap = [];
 		}
 
-		return titleMap;
+		const values = this.isMultiple() ? this.props.value : [this.props.value];
+		const optionNotExists = value => titleMap.find(option => option.value === value);
+		const additionalOptions = values.filter(optionNotExists).reduce((acc, value) => {
+			acc.push({ name: value, value });
+			return acc;
+		}, []);
+
+		return titleMap.concat(additionalOptions);
 	}
 
 	isMultiple() {
 		return this.props.schema.schema.type === 'array';
+	}
+
+	callTrigger(eventType) {
+		if (this.props.schema.triggers) {
+			const trigger = this.props.schema.triggers.find(t => t.onEvent === eventType);
+			if (trigger) {
+				this.setState({ isLoading: true });
+				this.props.onTrigger(event, {
+					trigger,
+					schema: this.props.schema,
+					errors: this.props.errors,
+					properties: this.props.properties,
+				}).then(data => {
+					this.setState({
+						isLoading: false,
+						...data,
+					});
+				}, () => {
+					this.setState({ isLoading: false });
+				});
+			}
+		}
 	}
 
 	render() {
@@ -128,6 +145,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
+		errors: PropTypes.object,
+		properties: PropTypes.object,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,
