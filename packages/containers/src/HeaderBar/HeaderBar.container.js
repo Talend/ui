@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
-import { cmfConnect, Inject } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
+import { HeaderBar as Component } from '@talend/react-components';
 
 import Constants from './HeaderBar.constant';
 
@@ -51,16 +52,18 @@ class HeaderBar extends React.Component {
 			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS &&
 			productsItems
 		) {
+			console.log('[NC] productsItems: ', productsItems);
 			props.products = Object.assign({}, props.products || {}, {
-				// Add onClickDispatch event to items
 				items: productsItems.map(product => ({
-					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
+					onClick: () => this.props.dispatch(
+						{ type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product }
+					),
 					...product,
 				})),
 			});
 		}
 
-		return <Inject component="HeaderBar" {...omit(props, cmfConnect.INJECTED_PROPS)} />;
+		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} />;
 	}
 }
 
