@@ -52,7 +52,6 @@ class HeaderBar extends React.Component {
 			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS &&
 			productsItems
 		) {
-			console.log('[NC] productsItems: ', productsItems);
 			props.products = Object.assign({}, props.products || {}, {
 				items: productsItems.map(product => ({
 					onClick: () => this.props.dispatch(
