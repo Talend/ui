@@ -34,9 +34,9 @@ const sample = {
 						dqTypeKey: 'FR_COMMUNE',
 					},
 					{
+						type: 'null',
 						dqType: 'FR Commune',
 						dqTypeKey: 'FR_COMMUNE',
-						type: 'null',
 					},
 				],
 			},
@@ -256,17 +256,17 @@ describe('#getType', () => {
 					total: 100,
 				},
 				type: 'string',
-				dqType: 'FR Commune',
-				dqTypeKey: 'FR_COMMUNE',
+				dqType: '',
+				dqTypeKey: '',
 			},
 			{
-				dqType: 'FR Commune',
-				dqTypeKey: 'FR_COMMUNE',
+				dqType: '',
+				dqTypeKey: '',
 				type: 'null',
 			},
 		]);
 
-		expect(type).toBe('FR Commune');
+		expect(type).toBe('string');
 	});
 
 	it('should return the mandatory dqType', () => {
