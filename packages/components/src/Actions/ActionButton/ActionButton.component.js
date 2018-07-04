@@ -176,7 +176,6 @@ export function ActionButton(props) {
 	if (!inProgress && overlayComponent) {
 		btn = (
 			<ActionButtonOverlay
-				onClick={rClick}
 				overlayRef={overlayRef}
 				overlayId={overlayId}
 				overlayPlacement={overlayPlacement}

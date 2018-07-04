@@ -10,7 +10,6 @@ export default class ActionButtonOverlay extends React.Component {
 	static propTypes = {
 		children: PropTypes.element,
 		getComponent: PropTypes.func,
-		onClick: PropTypes.func,
 		overlayComponent: Inject.getReactElement.propTypes,
 		overlayId: PropTypes.string,
 		overlayPlacement: OverlayTrigger.propTypes.placement,
@@ -38,7 +37,6 @@ export default class ActionButtonOverlay extends React.Component {
 							{Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)}
 						</Popover>
 					}
-					onClick={this.props.onClick}
 					ref={this.props.overlayRef}
 					rootClose
 					trigger="click"

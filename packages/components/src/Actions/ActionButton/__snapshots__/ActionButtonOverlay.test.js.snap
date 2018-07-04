@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionButtonOverlay should inject the overlay 1`] = `
+<span
+  className="theme-tc-action-button-positionned"
+>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id={undefined}
+        placement="right"
+      >
+        <Inject
+          component="Overlay"
+          getComponent={[Function]}
+        />
+      </Popover>
+    }
+    placement={undefined}
+    rootClose={true}
+    trigger="click"
+  >
+    <div>
+      wrap me
+    </div>
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`ActionButtonOverlay should prevent the scrolling 1`] = `
+<span
+  className="theme-tc-action-button-positionned"
+>
+  <OverlayTrigger
+    container={
+      ActionButtonOverlay {
+        "context": Object {},
+        "props": Object {
+          "children": <div>
+            wrap me
+      </div>,
+          "overlayComponent": <div>
+            Overlay
+      </div>,
+          "preventScrolling": true,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Updater {
+          "_callbacks": Array [],
+          "_renderer": ReactShallowRenderer {
+            "_context": Object {},
+            "_element": <ActionButtonOverlay
+              overlayComponent={
+                      <div>
+                              Overlay
+                      </div>
+              }
+              preventScrolling={true}
+      >
+              <div>
+                      wrap me
+              </div>
+      </ActionButtonOverlay>,
+            "_forcedUpdate": false,
+            "_instance": [Circular],
+            "_newState": null,
+            "_rendered": <span
+              className="theme-tc-action-button-positionned"
+      >
+              <OverlayTrigger
+                      container={[Circular]}
+                      defaultOverlayShown={false}
+                      overlay={
+                              <Popover
+                                      bsClass="popover"
+                                      id={undefined}
+                                      placement="right"
+                              >
+                                      <div>
+                                              Overlay
+                                      </div>
+                              </Popover>
+                      }
+                      placement={undefined}
+                      rootClose={true}
+                      trigger="click"
+              >
+                      <div>
+                              wrap me
+                      </div>
+              </OverlayTrigger>
+      </span>,
+            "_rendering": false,
+            "_updater": [Circular],
+          },
+        },
+      }
+    }
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id={undefined}
+        placement="right"
+      >
+        <div>
+          Overlay
+        </div>
+      </Popover>
+    }
+    placement={undefined}
+    rootClose={true}
+    trigger="click"
+  >
+    <div>
+      wrap me
+    </div>
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`ActionButtonOverlay should wrap the children with an overlay 1`] = `
+<span
+  className="theme-tc-action-button-positionned"
+>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="myId"
+        placement="right"
+      >
+        <div>
+          Overlay
+        </div>
+      </Popover>
+    }
+    placement="top"
+    rootClose={true}
+    trigger="click"
+  >
+    <div>
+      wrap me
+    </div>
+  </OverlayTrigger>
+</span>
+`;
