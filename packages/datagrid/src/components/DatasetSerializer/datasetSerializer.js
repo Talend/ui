@@ -82,6 +82,10 @@ export function getQuality(qualityTotal, rowsTotal) {
 	};
 }
 
+/**
+ * Extract the quality from the type.
+ * @param {object or array} type
+ */
 export function getQualityValue(type) {
 	if (isArray(type)) {
 		return type.find(value => value[QUALITY_KEY] !== undefined)[QUALITY_KEY];
