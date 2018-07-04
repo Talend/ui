@@ -8,6 +8,7 @@ import {
 	getFieldQuality,
 	getPinnedColumnDefs,
 	getQuality,
+	getQualityValue,
 	getRowData,
 	getType,
 	getTypeValue,
@@ -44,24 +45,17 @@ const sample = {
 			{
 				name: 'field1',
 				doc: 'Code UIC',
-				type: [
-					{
-						'@talend-quality@': {
-							0: 0,
-							1: 100,
-							'-1': 0,
-							total: 100,
-						},
-						type: 'int',
-						dqType: '',
-						dqTypeKey: '',
+				type: {
+					'@talend-quality@': {
+						0: 0,
+						1: 100,
+						'-1': 0,
+						total: 100,
 					},
-					{
-						dqType: '',
-						dqTypeKey: '',
-						type: 'null',
-					},
-				],
+					type: 'int',
+					dqType: '',
+					dqTypeKey: '',
+				},
 			},
 		],
 	},
@@ -307,6 +301,54 @@ describe('#getType', () => {
 		});
 
 		expect(type).toBe('string*');
+	});
+});
+
+describe('#getQualityValue', () => {
+	it('should return the quality from an array', () => {
+		const type = [
+			{
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+				type: 'string',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+			{
+				type: 'null',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+		];
+		expect(getQualityValue(type)).toEqual({
+			0: 0,
+			1: 38,
+			'-1': 62,
+			total: 100,
+		});
+	});
+	it('should return the quality from an object', () => {
+		const type = {
+			'@talend-quality@': {
+				0: 0,
+				1: 38,
+				'-1': 62,
+				total: 100,
+			},
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		};
+		expect(getQualityValue(type)).toEqual({
+			0: 0,
+			1: 38,
+			'-1': 62,
+			total: 100,
+		});
 	});
 });
 

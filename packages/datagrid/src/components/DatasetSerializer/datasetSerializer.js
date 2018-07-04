@@ -82,14 +82,18 @@ export function getQuality(qualityTotal, rowsTotal) {
 	};
 }
 
+export function getQualityValue(type) {
+	if (isArray(type)) {
+		return type.find(value => value[QUALITY_KEY] !== undefined)[QUALITY_KEY];
+	}
+	return type[QUALITY_KEY];
+}
+
 export function getFieldQuality(type) {
 	if (!type) {
 		return {};
 	}
-	let quality;
-	if (isArray(type)) {
-		quality = type.find(qual => qual[QUALITY_KEY] !== undefined)[QUALITY_KEY];
-	}
+	const quality = getQualityValue(type);
 	return {
 		[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
 		[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
