@@ -48,7 +48,6 @@ export function sanitizeAvro(avro) {
 	};
 }
 
-
 /**
  * getType - manage the type from an AVRO type
  *
