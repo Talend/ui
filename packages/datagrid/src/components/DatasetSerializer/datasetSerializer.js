@@ -48,28 +48,31 @@ export function sanitizeAvro(avro) {
 	};
 }
 
+/**
+ * Extract the value of type from { type: string, dqType: string }
+ * If the type is optional, add a '*'
+ * @param {object} type;
+ * @param {boolean} optional;
+ */
+export function getTypeValue(type, optional) {
+	return `${type.dqType || type.type}${optional ? '' : '*'}`;
+}
 
 /**
  * getType - manage the type from an AVRO type
  *
  * @param  {array|object} 	avro type
- * @return {string}      		return the type showed in the datagrid
+ * @return {string} return the type showed in the datagrid
  * @example
- * 	getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']); // string
- * 	getType({ type: 'string', dqType: '', dqTypeKey: '' }); // string*
- * 	getType({ type: 'string', dqType: 'Type', dqTypeKey: '' }); // Type*
  */
-export function getType(type, mandatory = true) {
-	if (isArray(type)) {
-		const notNullType = type.find(subType => subType.type !== 'null');
-		const nullType = type.find(subType => subType.type === 'null');
-
-		if (notNullType && nullType) {
-			return `${getType(notNullType, false)}`;
-		}
+export function getType(type) {
+	if (Array.isArray(type)) {
+		return getTypeValue(
+			type.find(subType => subType.type !== 'null'),
+			type.find(subType => subType.type === 'null'),
+		);
 	}
-
-	return `${type.dqType || type.type}${mandatory ? '*' : ''}`;
+	return getTypeValue(type);
 }
 
 export function getQuality(qualityTotal, rowsTotal) {

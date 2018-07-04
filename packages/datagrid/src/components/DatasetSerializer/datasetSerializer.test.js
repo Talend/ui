@@ -10,6 +10,7 @@ import {
 	getQuality,
 	getRowData,
 	getType,
+	getTypeValue,
 	sanitizeAvro,
 } from './datasetSerializer';
 
@@ -242,6 +243,15 @@ describe('#getCellValue', () => {
 		});
 
 		expect(value).toBe('myData');
+	});
+});
+
+describe('#getTypeValue', () => {
+	it('should return the type with a star', () => {
+		expect(getTypeValue({ type: 'hello', dqType: '' })).toEqual('hello*');
+	});
+	it('should return the dqType', () => {
+		expect(getTypeValue({ type: 'hello', dqType: 'world' }, true)).toEqual('world');
 	});
 });
 
