@@ -11,12 +11,7 @@ exports[`Container HeaderBar should render HeaderBar container with a list of it
       "items": Array [
         Object {
           "foo": "bar",
-          "onClickDispatch": Object {
-            "payload": Object {
-              "foo": "bar",
-            },
-            "type": "HEADER_BAR_OPEN_PRODUCT",
-          },
+          "onClick": [Function],
         },
       ],
     }
