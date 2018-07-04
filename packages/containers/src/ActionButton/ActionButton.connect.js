@@ -32,7 +32,7 @@ export function ContainerActionButton(props) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
 				props.dispatchActionCreator(props.actionCreator, event, data);
-			} else {
+			} else if (props.payload) {
 				props.dispatch(
 					Object.assign(
 						{
