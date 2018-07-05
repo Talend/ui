@@ -8,7 +8,6 @@ exports[`Action should render from name props keeping extra props 1`] = `
   dispatchActionCreator={[Function]}
   displayMode={undefined}
   extra="foo"
-  getCollection={[Function]}
   getComponent={[Function]}
   initState={[Function]}
   setState={[Function]}

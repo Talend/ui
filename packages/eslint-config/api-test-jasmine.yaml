@@ -1,5 +1,5 @@
 extends:
-  - ./eslintrc-test.yaml
+  - ./api-test.yaml
   - 'plugin:jasmine/recommended'
 env:
   phantomjs: true
