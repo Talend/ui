@@ -86,19 +86,24 @@ class Datalist extends Component {
 			const trigger = this.props.schema.triggers.find(t => t.onEvent === eventType);
 			if (trigger) {
 				this.setState({ isLoading: true });
-				this.props.onTrigger(event, {
-					trigger,
-					schema: this.props.schema,
-					errors: this.props.errors,
-					properties: this.props.properties,
-				}).then(data => {
-					this.setState({
-						isLoading: false,
-						...data,
-					});
-				}, () => {
-					this.setState({ isLoading: false });
-				});
+				this.props
+					.onTrigger(event, {
+						trigger,
+						schema: this.props.schema,
+						errors: this.props.errors,
+						properties: this.props.properties,
+					})
+					.then(
+						data => {
+							this.setState({
+								isLoading: false,
+								...data,
+							});
+						},
+						() => {
+							this.setState({ isLoading: false });
+						},
+					);
 			}
 		}
 	}
