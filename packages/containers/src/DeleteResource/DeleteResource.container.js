@@ -23,6 +23,8 @@ export class DeleteResource extends React.Component {
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
 		resourceId: PropTypes.string,
+		resourceUri: PropTypes.string, // uri for delete resource. if not provided, then use ':uri/:resourceType/:resourceId'
+		collectionId: PropTypes.string, // collection which store resources.
 		female: PropTypes.string,
 	};
 	static contextTypes = {
@@ -46,7 +48,9 @@ export class DeleteResource extends React.Component {
 	 */
 	getLabel() {
 		return {
-			label: this.props.resource ? this.props.resource.get('label', '') : '',
+			label: this.props.resource
+				? this.props.resource.get('label') || this.props.resource.get('name') || ''
+				: '',
 			found: !!this.props.resource,
 		};
 	}
@@ -57,6 +61,7 @@ export class DeleteResource extends React.Component {
 	getResourceInfo() {
 		return {
 			resourceType: this.props.resourceType,
+			collectionId: this.props.collectionId,
 			resourceTypeLabel: this.props.resourceTypeLabel
 				? this.props.resourceTypeLabel
 				: this.props.resourceType,
@@ -72,14 +77,14 @@ export class DeleteResource extends React.Component {
 		const validateAction = {
 			componentId: this.props[CONSTANTS.VALIDATE_ACTION],
 			model: resourceInfo,
-			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'Yes' }),
+			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'DELETE' }),
 			bsStyle: 'danger',
 			onClickActionCreator: 'DeleteResource#validate',
 		};
 		const cancelAction = {
 			componentId: this.props[CONSTANTS.CANCEL_ACTION],
 			model: resourceInfo,
-			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'No' }),
+			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'CANCEL' }),
 			onClickActionCreator: 'DeleteResource#cancel',
 		};
 		return (
