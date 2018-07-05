@@ -23,7 +23,11 @@ export function renderInputComponent(props) {
 
 	const hasIcon = isLoading || icon || caret;
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon', { [theme.loading]: isLoading })}>
+		<div
+			className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon', {
+				[theme.loading]: isLoading,
+			})}
+		>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
