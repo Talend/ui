@@ -15,7 +15,7 @@
     "watch": "npm-watch",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter '*.js' --default-values"
+    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter \"*.js\" --default-values"
   },
   "watch": {
     "prepublish": "src/*"
