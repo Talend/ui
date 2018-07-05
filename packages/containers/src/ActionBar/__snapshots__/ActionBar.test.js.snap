@@ -31,7 +31,6 @@ Object {
   "deleteState": [Function],
   "dispatch": [Function],
   "dispatchActionCreator": [Function],
-  "getCollection": [Function],
   "getComponent": [Function],
   "initState": [Function],
   "renderers": Object {
@@ -101,7 +100,6 @@ Object {
   "deleteState": [Function],
   "dispatch": [Function],
   "dispatchActionCreator": [Function],
-  "getCollection": [Function],
   "getComponent": [Function],
   "initState": [Function],
   "renderers": Object {
