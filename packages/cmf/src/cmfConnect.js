@@ -248,7 +248,7 @@ export default function cmfConnect({
 						{
 							componentId: this.props.componentId || 'default',
 							saga: this.props.saga,
-						}
+						},
 					);
 				}
 				if (this.props.didMountActionCreator) {
