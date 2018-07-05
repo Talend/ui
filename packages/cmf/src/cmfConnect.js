@@ -35,17 +35,15 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
+import bsonObjectid from 'bson-objectid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
 import CONST from './constant';
 import expression from './expression';
-import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
-
-let newState;
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -62,19 +60,6 @@ export function getComponentId(componentId, props) {
 	return 'default';
 }
 
-function oldGetCollection(id) {
-	return newState.cmf.collections.get(id);
-}
-
-const getCollection = deprecated(
-	oldGetCollection,
-	`This function will be deprecated,
-	since it permit store access outside cmfConnect mapStateToProps function
-	and maybe not executed if cmf connect do not detect ref change to props
-	given to the component using this function
-	Please bind your collection update to your component using mapStateToProps`,
-);
-
 export function getStateToProps({
 	defaultProps,
 	componentId,
@@ -85,14 +70,11 @@ export function getStateToProps({
 }) {
 	const props = Object.assign({}, defaultProps);
 
-	newState = state;
 	const cmfProps = getStateProps(
 		state,
 		getComponentName(WrappedComponent),
 		getComponentId(componentId, ownProps),
 	);
-
-	cmfProps.getCollection = getCollection;
 
 	Object.assign(props, cmfProps);
 
@@ -175,7 +157,6 @@ export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps 
  * - props.state
  * - props.setState
  * - props.initState (you should never have to call it your self)
- * - props.getCollection
  * - dispatch(action)
  * - dispatchActionCreator(id, event, data, [context])
  *
@@ -255,12 +236,17 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
+				this.id = bsonObjectid().toString();
 			}
 
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.start',
+						{ type: 'DID_MOUNT', componentId: this.id },
+						this.props,
+					);
 				}
 				if (this.props.didMountActionCreator) {
 					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
@@ -279,7 +265,11 @@ export default function cmfConnect({
 					this.props.deleteState(this.props.initialState);
 				}
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.stop',
+						{ type: 'WILL_UNMOUNT', componentId: this.id },
+						this.props,
+					);
 				}
 			}
 
