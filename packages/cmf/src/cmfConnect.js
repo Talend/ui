@@ -248,7 +248,7 @@ export default function cmfConnect({
 						{
 							componentId: getComponentId(componentId, this.props),
 							saga: this.props.saga,
-						}
+						},
 					);
 				}
 				if (this.props.didMountActionCreator) {
