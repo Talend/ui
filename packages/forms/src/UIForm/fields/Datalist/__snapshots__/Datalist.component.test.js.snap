@@ -35,6 +35,10 @@ exports[`Datalist component should render 1`] = `
           "name": "Lol",
           "value": "lol",
         },
+        Object {
+          "name": "foo",
+          "value": "foo",
+        },
       ]
     }
     value="foo"

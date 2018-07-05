@@ -34,7 +34,7 @@ class Datalist extends Component {
 	}
 
 	componentDidMount() {
-		this.callTrigger('didMount');
+		this.callTrigger({ type: 'didMount' });
 	}
 	/**
 	 * On change callback
@@ -44,17 +44,17 @@ class Datalist extends Component {
 	 */
 	onChange(event, payload) {
 		const payloadWithSchema = { ...payload, schema: this.props.schema };
-		this.callTrigger('change');
+		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
-	onFocus() {
-		this.callTrigger('focus');
+	onFocus(event) {
+		this.callTrigger(event);
 	}
 
-	onBlur() {
-		this.callTrigger('blur');
+	onBlur(event) {
+		this.callTrigger(event);
 	}
 
 	getTitleMap() {
@@ -73,7 +73,7 @@ class Datalist extends Component {
 			acc.push({ name: value, value });
 			return acc;
 		}, []);
-
+		// console.log({ additionalOptions });
 		return titleMap.concat(additionalOptions);
 	}
 
@@ -81,9 +81,9 @@ class Datalist extends Component {
 		return this.props.schema.schema.type === 'array';
 	}
 
-	callTrigger(eventType) {
+	callTrigger(event) {
 		if (this.props.schema.triggers) {
-			const trigger = this.props.schema.triggers.find(t => t.onEvent === eventType);
+			const trigger = this.props.schema.triggers.find(t => t.onEvent === event.type);
 			if (trigger) {
 				this.setState({ isLoading: true });
 				this.props.onTrigger(event, {

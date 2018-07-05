@@ -40,30 +40,6 @@ describe('Datalist component', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should call onFocus at didMount if no titleMap', () => {
-		// when
-		const schemaWithout = {
-			type: 'string',
-			schema: {
-				type: 'string',
-			},
-		};
-		const wrapper = shallow(
-			<Datalist
-				id={'my-datalist'}
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				onTrigger={jest.fn()}
-				schema={schemaWithout}
-				value={'foo'}
-			/>,
-		);
-		wrapper.instance().onFocus = jest.fn();
-		wrapper.instance().componentDidMount();
-
-		// then
-		expect(wrapper.instance().onFocus).toHaveBeenCalledWith({ type: 'mount' });
-	});
 	describe('onChange', () => {
 		it('should call props.onChange && props.onFinish', () => {
 			// when
@@ -108,8 +84,7 @@ describe('Datalist component', () => {
 			const wrapper = shallow(<Datalist {...props} />);
 			wrapper.instance().onChange(event, payload);
 			// then
-			expect(props.onChange.mock.calls[0][0]).toBe(event);
-			expect(props.onChange.mock.calls[0][1]).toEqual({ schema: props.schema });
+			expect(props.onChange).toHaveBeenCalledWith(event, { schema: props.schema });
 		});
 	});
 	describe('onFocus', () => {
@@ -143,12 +118,10 @@ describe('Datalist component', () => {
 				},
 			};
 			const wrapper = shallow(<Datalist {...props} />);
-			const event = { type: 'focus', target: wrapper.instance() };
-			wrapper.instance().onFocus(event);
+			wrapper.instance().onFocus({ type: 'focus' });
 
 			// then
 			expect(props.onTrigger).toHaveBeenCalled();
-			expect(event.type).toBe('focus');
 			expect(wrapper.state('isLoading')).toBe(true);
 		});
 	});
