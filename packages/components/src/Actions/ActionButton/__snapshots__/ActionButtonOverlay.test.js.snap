@@ -6,6 +6,9 @@ exports[`ActionButtonOverlay should inject the overlay 1`] = `
 >
   <OverlayTrigger
     defaultOverlayShown={false}
+    onClick={undefined}
+    onEntering={[Function]}
+    onExited={[Function]}
     overlay={
       <Popover
         bsClass="popover"
@@ -37,6 +40,8 @@ exports[`ActionButtonOverlay should prevent the scrolling 1`] = `
     container={
       ActionButtonOverlay {
         "context": Object {},
+        "onClick": [Function],
+        "onExited": [Function],
         "props": Object {
           "children": <div>
             wrap me
@@ -47,7 +52,10 @@ exports[`ActionButtonOverlay should prevent the scrolling 1`] = `
           "preventScrolling": true,
         },
         "refs": Object {},
-        "state": null,
+        "setTriggerElement": [Function],
+        "state": Object {
+          "placement": undefined,
+        },
         "updater": Updater {
           "_callbacks": Array [],
           "_renderer": ReactShallowRenderer {
@@ -73,6 +81,9 @@ exports[`ActionButtonOverlay should prevent the scrolling 1`] = `
               <OverlayTrigger
                       container={[Circular]}
                       defaultOverlayShown={false}
+                      onClick={undefined}
+                      onEntering={[Function]}
+                      onExited={[Function]}
                       overlay={
                               <Popover
                                       bsClass="popover"
@@ -100,6 +111,9 @@ exports[`ActionButtonOverlay should prevent the scrolling 1`] = `
       }
     }
     defaultOverlayShown={false}
+    onClick={undefined}
+    onEntering={[Function]}
+    onExited={[Function]}
     overlay={
       <Popover
         bsClass="popover"
@@ -128,6 +142,9 @@ exports[`ActionButtonOverlay should wrap the children with an overlay 1`] = `
 >
   <OverlayTrigger
     defaultOverlayShown={false}
+    onClick={undefined}
+    onEntering={[Function]}
+    onExited={[Function]}
     overlay={
       <Popover
         bsClass="popover"

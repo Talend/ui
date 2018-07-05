@@ -6,6 +6,8 @@ import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
 
+import theme from './Action.scss';
+
 const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
 };
@@ -83,35 +85,28 @@ storiesOf('Action', module)
 			<div
 				id="auto-dropup"
 				className={'tc-dropdown-container'}
-				style={{ border: '1px solid black', overflow: 'scroll', height: '300px' }}
+				style={{
+					border: '1px solid black',
+					overflow: 'scroll',
+					height: '300px',
+					resize: 'vertical',
+				}}
 			>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
-				ut labore et dolore magna aliqua.<br />
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
-				ut labore et dolore magna aliqua.<br />
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
-				<br />
-				<br />
-				<br />
 				<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
-				<Action
-					preventScrolling
-					overlayComponent={OverlayComponent}
-					overlayPlacement="bottom"
-					tooltipPlacement="right"
-					{...mouseDownAction}
-					hideLabel
-				/>
-				<br />
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />
-				ut labore et dolore magna aliqua.<br />
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco la Lorem ipsum dolor sit amet,
-				consectetur adipiscing elit, sed do eiusmod tempor <br />
-				ut labore et dolore magna aliqua.<br />
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco la
+				<div className={theme['storybook-wrapped-action']}>
+					<Action
+						preventScrolling
+						overlayComponent={OverlayComponent}
+						overlayPlacement="bottom"
+						tooltipPlacement="right"
+						{...mouseDownAction}
+						hideLabel
+						style={{
+							marginTop: '200px',
+							marginBottom: '200px',
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	))
