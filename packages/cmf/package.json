@@ -71,6 +71,7 @@
   "dependencies": {
     "ajv": "^6.2.1",
     "babel-polyfill": "^6.26.0",
+    "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
     "deepmerge": "^1.5.1",
     "hoist-non-react-statics": "^1.2.0",
