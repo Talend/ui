@@ -98,7 +98,7 @@ storiesOf('Action', module)
 				<Action
 					preventScrolling
 					overlayComponent={OverlayComponent}
-					overlayPlacement="top"
+					overlayPlacement="bottom"
 					tooltipPlacement="right"
 					{...mouseDownAction}
 					hideLabel

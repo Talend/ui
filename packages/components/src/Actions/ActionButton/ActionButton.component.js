@@ -161,8 +161,8 @@ export function ActionButton(props) {
 
 	let btn = (
 		<Button
-			onMouseDown={rMouseDown}
-			onClick={rClick}
+			onMouseDown={!overlayComponent ? rMouseDown : null}
+			onClick={!overlayComponent ? rClick : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
@@ -176,6 +176,7 @@ export function ActionButton(props) {
 	if (!inProgress && overlayComponent) {
 		btn = (
 			<ActionButtonOverlay
+				onClick={rClick}
 				overlayRef={overlayRef}
 				overlayId={overlayId}
 				overlayPlacement={overlayPlacement}
