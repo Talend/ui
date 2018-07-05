@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Button, OverlayTrigger } from 'react-bootstrap';
 import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
@@ -12,6 +12,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
+import ActionButtonOverlay from './ActionButtonOverlay.component';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -174,18 +175,16 @@ export function ActionButton(props) {
 	);
 	if (!inProgress && overlayComponent) {
 		btn = (
-			// this span is here to allow the tooltip trigger to work
-			<span>
-				<OverlayTrigger
-					trigger="click"
-					ref={overlayRef}
-					rootClose
-					placement={overlayPlacement}
-					overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
-				>
-					{btn}
-				</OverlayTrigger>
-			</span>
+			<ActionButtonOverlay
+				overlayRef={overlayRef}
+				overlayId={overlayId}
+				overlayPlacement={overlayPlacement}
+				overlayComponent={props.overlayComponent}
+				getComponent={props.getComponent}
+				preventScrolling={props.preventScrolling}
+			>
+				{btn}
+			</ActionButtonOverlay>
 		);
 	}
 	if (hideLabel || tooltip || tooltipLabel) {

@@ -77,6 +77,42 @@ storiesOf('Action', module)
 				{...mouseDownAction}
 				hideLabel
 			/>
+			<h3>
+				Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.
+			</h3>
+			<div
+				id="auto-dropup"
+				className={'tc-dropdown-container'}
+				style={{ border: '1px solid black', overflow: 'scroll', height: '300px' }}
+			>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
+				<br />
+				<br />
+				<br />
+				<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
+				<Action
+					preventScrolling
+					overlayComponent={OverlayComponent}
+					overlayPlacement="top"
+					tooltipPlacement="right"
+					{...mouseDownAction}
+					hideLabel
+				/>
+				<br />
+				<br />
+				<br />
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit, sed do eiusmod tempor <br />
+				ut labore et dolore magna aliqua.<br />
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco la
+			</div>
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {
