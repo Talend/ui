@@ -65,6 +65,7 @@ export function ListToVirtualizedList(props) {
 			onRowClick={itemProps && itemProps.onRowClick}
 			onRowDoubleClick={titleProps && titleProps.onClick}
 			defaultHeight={props.defaultHeight}
+			getComponent={props.getComponent}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
 			selectionToggle={itemProps && itemProps.onToggle}

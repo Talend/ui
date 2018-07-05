@@ -1,0 +1,114 @@
+$tc-popover-border-width: 0.1rem !default;
+$tc-popover-border-color: rgb(226, 226, 226) !default;
+$tc-popover-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
+$tc-popover-body-min-height: 10rem !default;
+$tc-popover-body-max-height: 30rem !default;
+$tc-popover-max-width: 40rem !default;
+$tc-popover-header-border-color: #ededed !default;
+$tc-popover-header-footer-height: 5rem !default;
+$tc-popover-header-font-size: 1.6rem !default;
+$tc-popover-header-font-weight: 600 !default;
+
+:global(.popover) {
+	padding: $padding-large 0 $padding-large 0;
+	border: $tc-popover-border-width solid $tc-popover-border-color;
+	border-radius: $border-radius-base;
+	background-color: $white;
+	box-shadow: $tc-popover-box-shadow;
+	max-width: $tc-popover-max-width;
+}
+
+:global(.popover-content) {
+	padding: 0;
+}
+
+.tc-tooltip-header {
+	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
+	padding: 0 $padding-large 0 $padding-large;
+	flex: 1;
+	height: $tc-popover-header-footer-height;
+	display: flex;
+	align-items: center;
+
+	h1 {
+		font-size: $tc-popover-header-font-size;
+		font-weight: $tc-popover-header-font-weight;
+		text-transform: uppercase;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	:global(.tc-actions) {
+		margin-left: auto;
+	}
+}
+
+.tc-tooltip-body {
+	min-height: $tc-popover-body-min-height;
+	max-height: $tc-popover-body-max-height;
+	padding: 0 $padding-large 0 $padding-large;
+	color: $dove-gray;
+	overflow: auto;
+	display: flex;
+
+	.tc-circular-progress {
+		align-self: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&-list {
+		overflow: hidden;
+
+		&-tabs {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+
+			:global(.tab-content) {
+				min-height: 0;
+			}
+		}
+
+		&-tab {
+			margin-top: $padding-normal;
+		}
+
+		&-filter {
+			flex-shrink: 0;
+		}
+
+		:global(.tc-action-list) {
+			overflow: auto;
+			width: 100%;
+			li {
+				:global(.btn.btn-link) {
+					padding: $padding-small;
+
+					span {
+						margin-left: 0;
+					}
+				}
+			}
+
+			li:hover {
+				color: inherit;
+				background-color: $wild-sand;
+			}
+		}
+	}
+}
+
+.tc-tooltip-footer {
+	padding: 0 $padding-large 0 $padding-large;
+	flex: 1;
+	display: flex;
+	align-items: flex-end;
+	height: $tc-popover-header-footer-height;
+	border-top: $tc-popover-border-width solid $tc-popover-header-border-color;
+
+	.tc-tooltip-right-actions {
+		margin-left: auto;
+	}
+}

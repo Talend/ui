@@ -20,13 +20,14 @@ function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
-function getLargeDisplayActions(actions) {
+function getLargeDisplayActions(actions, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
 
 	return (
 		<Actions
+			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
 			key={'large-display-actions'}
 			actions={actions}
@@ -36,7 +37,7 @@ function getLargeDisplayActions(actions) {
 	);
 }
 
-function getDefaultDisplayActions(actions, t) {
+function getDefaultDisplayActions(actions, t, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
@@ -47,10 +48,9 @@ function getDefaultDisplayActions(actions, t) {
 	// few actions : display them
 	if (hasFewActions) {
 		actionsBlocs.push(<Actions key={'direct-actions'} actions={actions} hideLabel link />);
-	}
-	// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
-	// the rest is in an ellipsis dropdown
-	else {
+	} else {
+		// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
+		// the rest is in an ellipsis dropdown
 		// always extract dropdowns
 		const extractedDropdownActions = actions.filter(isDropdown);
 		const simpleActions = actions.filter(action => !isDropdown(action));
@@ -72,12 +72,21 @@ function getDefaultDisplayActions(actions, t) {
 		extractedActions
 			.sort((a, b) => actions.indexOf(a) - actions.indexOf(b))
 			.forEach((action, i) => {
-				actionsBlocs.push(<Action {...action} key={`extracted-action-${i}`} hideLabel link />);
+				actionsBlocs.push(
+					<Action
+						{...action}
+						getComponent={getComponent}
+						key={`extracted-action-${i}`}
+						hideLabel
+						link
+					/>,
+				);
 			});
 
 		// ellipsis dropdown
 		actionsBlocs.push(
 			<ActionDropdown
+				getComponent={getComponent}
 				key={'ellipsis-actions'}
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
@@ -96,12 +105,13 @@ function getDefaultDisplayActions(actions, t) {
 	);
 }
 
-function getPersistentActions(actions) {
+function getPersistentActions(actions, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
 	return (
 		<Actions
+			getComponent={getComponent}
 			key={'persistent-actions'}
 			className={classNames('persistent-actions', theme['persistent-actions'])}
 			actions={actions}
@@ -116,6 +126,7 @@ function isAvailable(actionDef) {
 }
 
 export function CellTitleActionsComponent({
+	getComponent,
 	rowData,
 	actionsKey,
 	displayMode,
@@ -133,12 +144,12 @@ export function CellTitleActionsComponent({
 
 	const actions = [];
 	if (type === LARGE) {
-		actions.push(getLargeDisplayActions(dataActions));
+		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
-		actions.push(getDefaultDisplayActions(dataActions, t));
+		actions.push(getDefaultDisplayActions(dataActions, t, getComponent));
 	}
 
-	actions.push(getPersistentActions(persistentActions));
+	actions.push(getPersistentActions(persistentActions, getComponent));
 
 	return (
 		<div

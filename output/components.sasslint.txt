@@ -7,5 +7,11 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+src/RichTooltip/RichTooltip.scss
+   13:11  warning  Property `padding` should be written more concisely as `$padding-large 0` instead of `$padding-large 0 $padding-large 0`  shorthand-values
+   27:11  warning  Property `padding` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`  shorthand-values
+   50:11  warning  Property `padding` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`  shorthand-values
+  104:11  warning  Property `padding` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`  shorthand-values
+
+✖ 6 problems (0 errors, 6 warnings)
 

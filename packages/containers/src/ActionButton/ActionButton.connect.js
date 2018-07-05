@@ -28,14 +28,6 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export function ContainerActionButton(props) {
 	const newProps = Object.assign({}, props);
 
-	if (typeof props.overlayComponent === 'string' && props.overlayComponent) {
-		newProps.overlayComponent = (
-			<Inject component={props.overlayComponent} {...props.overlayComponentProps} />
-		);
-
-		delete newProps.overlayComponentProps;
-	}
-
 	if (!newProps.onClick) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {

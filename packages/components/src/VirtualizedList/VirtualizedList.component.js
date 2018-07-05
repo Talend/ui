@@ -19,6 +19,7 @@ function VirtualizedList(props) {
 		children,
 		defaultHeight,
 		noRowsRenderer,
+		getComponent,
 		id,
 		isActive,
 		isSelected,
@@ -51,6 +52,7 @@ function VirtualizedList(props) {
 					collection={collection}
 					noRowsRenderer={noRowsRenderer}
 					height={height || defaultHeight}
+					getComponent={getComponent}
 					id={id}
 					isActive={isActive}
 					isSelected={isSelected}
