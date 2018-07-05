@@ -246,7 +246,7 @@ export default function cmfConnect({
 						'cmf.saga.start',
 						{ type: 'DID_MOUNT', componentId: this.id },
 						{
-							componentId: this.props.componentId || 'default',
+							componentId: getComponentId(componentId, this.props),
 							saga: this.props.saga,
 						}
 					);
