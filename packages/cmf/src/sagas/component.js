@@ -39,7 +39,7 @@ export function* onSagaStart(action) {
 			`You cannot register undefined as saga for id "${action.saga}"`,
 		);
 	} else {
-		const task = yield fork(saga, action.props);
+		const task = yield fork(saga, { componentId: action.componentId });
 		yield take(isActionCancelable(action));
 		yield cancel(task);
 	}
