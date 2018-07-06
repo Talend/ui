@@ -49,7 +49,7 @@ export function* onSagaStart(action) {
 			saga,
 			{
 				componentId: action.componentId,
-				...action.props,  // deprecated: you should only read { componentId } only
+				...action.props, // deprecated: you should only read { componentId } only
 			},
 			...sagaArgs,
 		);
