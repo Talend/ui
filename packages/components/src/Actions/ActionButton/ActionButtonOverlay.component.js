@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
 import Inject from '../../Inject';
-import { getAdaptedPlacement, getOverlayElement, getContainerElement } from './overlay';
+import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
 
 import theme from './ActionButtonOverlay.scss';
 
@@ -14,6 +14,17 @@ export const overlayPropTypes = {
 	overlayRef: PropTypes.func,
 	preventScrolling: PropTypes.bool,
 };
+
+function getPlacement(initialOverlayElement, triggerElement, currentPlacement) {
+	const overlayElement = getOverlayElement(initialOverlayElement);
+	const containerElement = getContainerElement(overlayElement);
+
+	const containerRect = containerElement.getBoundingClientRect();
+	const overlayRect = overlayElement.getBoundingClientRect();
+	const triggerRect = triggerElement.getBoundingClientRect();
+
+	return getAdaptedPlacement(triggerRect, overlayRect, containerRect, currentPlacement);
+}
 
 export default class ActionButtonOverlay extends React.Component {
 	static propTypes = {
@@ -46,18 +57,10 @@ export default class ActionButtonOverlay extends React.Component {
 	}
 
 	onEntering(initialOverlayElement) {
-		const overlayElement = getOverlayElement(initialOverlayElement);
-		const containerElement = getContainerElement(overlayElement);
-
-		const containerRect = containerElement.getBoundingClientRect();
-		const overlayRect = overlayElement.getBoundingClientRect();
-		const triggerRect = this.triggerElement.getBoundingClientRect();
-
 		this.setState(previousState => {
-			const adaptedPlacement = getAdaptedPlacement(
-				triggerRect,
-				overlayRect,
-				containerRect,
+			const adaptedPlacement = getPlacement(
+				initialOverlayElement,
+				this.triggerElement,
 				previousState.placement,
 			);
 			if (!adaptedPlacement) {
