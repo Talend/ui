@@ -1,4 +1,3 @@
-import invariant from 'invariant';
 import { fork, cancel, take, takeEvery } from 'redux-saga/effects';
 import curry from 'lodash/curry';
 import CONST from '../constant';
