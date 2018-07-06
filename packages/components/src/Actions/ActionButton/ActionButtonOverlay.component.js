@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { OverlayTrigger as BaseOverlayTrigger, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
 import Inject from '../../Inject';
 import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
@@ -10,7 +10,7 @@ import theme from './ActionButtonOverlay.scss';
 export const overlayPropTypes = {
 	overlayComponent: Inject.getReactElement.propTypes,
 	overlayId: PropTypes.string,
-	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayPlacement: BaseOverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
 	preventScrolling: PropTypes.bool,
 };
@@ -26,7 +26,7 @@ function getPlacement(initialOverlayElement, triggerElement, currentPlacement) {
 	return getAdaptedPlacement(triggerRect, overlayRect, containerRect, currentPlacement);
 }
 
-export default class ActionButtonOverlay extends React.Component {
+export default class OverlayTrigger extends React.Component {
 	static propTypes = {
 		children: PropTypes.element,
 		getComponent: PropTypes.func,
@@ -78,7 +78,7 @@ export default class ActionButtonOverlay extends React.Component {
 	}
 
 	render() {
-		let props = {
+		const props = {
 			placement: this.state.placement,
 			onEntering: this.onEntering,
 			onExited: this.onExited,
@@ -94,10 +94,7 @@ export default class ActionButtonOverlay extends React.Component {
 		};
 
 		if (this.props.preventScrolling) {
-			props = {
-				...props,
-				container: this,
-			};
+			props.container = this;
 		}
 
 		return (
@@ -105,7 +102,7 @@ export default class ActionButtonOverlay extends React.Component {
 				ref={this.setTriggerElement}
 				className={classNames(theme['tc-action-button-positionned'])}
 			>
-				<OverlayTrigger {...props}>{this.props.children}</OverlayTrigger>
+				<BaseOverlayTrigger {...props}>{this.props.children}</BaseOverlayTrigger>
 			</span>
 		);
 	}

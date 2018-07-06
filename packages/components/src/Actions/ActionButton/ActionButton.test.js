@@ -162,7 +162,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton {...props} />);
 
 		// then
-		expect(wrapper.find('ActionButtonOverlay').length).toBe(1);
+		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should called ref method on overlay', () => {

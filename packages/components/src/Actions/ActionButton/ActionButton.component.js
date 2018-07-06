@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger } from 'react-bootstrap';
+import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
@@ -12,7 +12,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import ActionButtonOverlay, { overlayPropTypes } from './ActionButtonOverlay.component';
+import OverlayTrigger, { overlayPropTypes } from './ActionButtonOverlay.component';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -171,7 +171,7 @@ export function ActionButton(props) {
 	);
 	if (!inProgress && overlayComponent) {
 		btn = (
-			<ActionButtonOverlay
+			<OverlayTrigger
 				onClick={rClick}
 				overlayRef={overlayRef}
 				overlayId={overlayId}
@@ -181,7 +181,7 @@ export function ActionButton(props) {
 				preventScrolling={props.preventScrolling}
 			>
 				{btn}
-			</ActionButtonOverlay>
+			</OverlayTrigger>
 		);
 	}
 	if (hideLabel || tooltip || tooltipLabel) {
@@ -208,7 +208,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: BaseOverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
