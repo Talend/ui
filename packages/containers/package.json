@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
+    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6007",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -15,7 +15,7 @@
     "watch": "npm-watch",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter '*.js' --default-values"
+    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter \"*.js\" --default-values"
   },
   "watch": {
     "prepublish": "src/*"
