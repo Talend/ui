@@ -82,11 +82,14 @@ Required :
 * **redirectUrl** : is the url to redirect when delete is complete or cancel action is triggered
 
 Optional :
+
 * **resourceLabel** : is the parameter to show the type to remove if the resourceType is not readable by the user
 * **routerParamAttribute** : is the attribute defined in the route to give the resource id. default is 'id'
 * **resourcePath** : array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
 * **female** : Only for i18n, allow to set the i18nkey to tell of the resource type if female or not
+* **collectionId** : specify the collection which stores resource. if not provided, then use `resourceType` as collection name
+* **resourceUri** : is the backend api to delete resource. if not provided, then `${uri}/${resourceType}/${id}` will be used.
 
 
 Example with resourcePath
