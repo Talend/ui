@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { OverlayTrigger as BaseOverlayTrigger, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
-import Inject from '../../Inject';
+import Inject from '../Inject';
 import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
 
-import theme from './ActionButtonOverlay.scss';
+import theme from './OverlayTrigger.scss';
 
 export const overlayPropTypes = {
 	overlayComponent: Inject.getReactElement.propTypes,

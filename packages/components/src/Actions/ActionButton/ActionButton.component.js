@@ -12,7 +12,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import OverlayTrigger, { overlayPropTypes } from './ActionButtonOverlay.component';
+import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
 
 const LEFT = 'left';
 const RIGHT = 'right';

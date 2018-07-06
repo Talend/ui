@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButtonOverlay from './ActionButtonOverlay.component';
+import ActionButtonOverlay from './OverlayTrigger.component';
 
 function getDOMRect(top, bottom, height) {
 	return {
