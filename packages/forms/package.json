@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6008",
     "start": "start-storybook -p 6008",
     "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/forms --fileFilter '*.js' --default-values"
+    "parse-i18n": "i18next ./src -r -o ../../i18n/forms --fileFilter \"*.js\" --default-values"
   },
   "keywords": [
     "react",
