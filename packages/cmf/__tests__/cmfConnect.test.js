@@ -370,7 +370,10 @@ describe('cmfConnect', () => {
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.start',
 				{ type: 'DID_MOUNT', componentId: '42' },
-				instance.props,
+				expect.objectContaining({
+					componentId: 'default',
+					saga: 'hello',
+				}),
 				instance.context,
 			);
 		});
