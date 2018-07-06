@@ -17,8 +17,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "watch": "npm-watch",
-    "cpx": "cpx './src/**/*.scss' ./lib",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter '*.js' --default-values"
+    "cpx": "cpx \"./src/**/*.scss\" ./lib",
+    "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter \"*.js\" --default-values"
   },
   "watch": {
     "prepublish": {
