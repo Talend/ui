@@ -21,7 +21,7 @@ describe('internals', () => {
 	});
 	describe('redirect', () => {
 		it('should put a redirect action', () => {
-			const gen = internals.redirect({ data: { redirectUrl: '/foo' } });
+			const gen = internals.redirect({ data: { model: { redirectUrl: '/foo' } } });
 			const effect = gen.next().value;
 			expect(effect.PUT.action.cmf.routerReplace).toBe('/foo');
 		});
@@ -72,6 +72,86 @@ describe('internals', () => {
 			expect(effect.CALL.fn).toBe(internals.redirect);
 			expect(effect.CALL.args[0]).toBe(action);
 		});
+		it('should use resourceUri as backend api to delete resource if provided', () => {
+			const action = {
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data: {
+					model: {
+						uri: '/services',
+						resourceUri: '/run-profiles/advanced/profileId',
+						resourceType: 'myResource',
+					}
+				}
+			};
+
+			const resource = new Map({id:'profileId', type:'advanced', name:'deleteThisRunProfile'});
+
+			const gen = internals.deleteResourceValidate();
+			gen.next();
+			gen.next(action);
+			let effect = gen.next(resource).value;
+			expect(effect.CALL).toBeDefined();
+			const httpAction = effect.CALL;
+			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
+			expect(httpAction.args[0]).toBe('/run-profiles/advanced/profileId');
+		});
+		it('should use `${uri}/${resourceType}/${id}` as backend api to delete resource if no resourceUri provided', ()=> {
+			const action = {
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data: {
+					model: {
+						uri: '/services',
+						resourceType: 'run-profiles',
+						id: 'runProfileId'
+					}
+				}
+			};
+			const resource = new Map({id:'profileId', type:'advanced', name:'deleteThisRunProfile'});
+
+			const gen = internals.deleteResourceValidate();
+			gen.next();
+			gen.next(action);
+			let effect = gen.next(resource).value;
+			expect(effect.CALL).toBeDefined();
+			const httpAction = effect.CALL;
+			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
+			expect(httpAction.args[0]).toBe('/services/run-profiles/runProfileId');
+
+		});
+		it('should use collectionId to remove resource in state if provided', () => {
+			const action = {
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data: {
+					model: {
+						resourceType: 'myResource',
+						collectionId: 'myCollection',
+						id: 'runProfileId'
+					}
+				}
+			};
+			const gen = internals.deleteResourceValidate();
+			gen.next();
+			const effect = gen.next(action).value;
+			expect(effect.SELECT.args[0]).toBe('myCollection');
+			expect(effect.SELECT.args[1]).toBe('runProfileId');
+
+		});
+		it('should use resourceType as collection to remove resource in state, if no collectionId provided', () => {
+			const action = {
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data: {
+					model: {
+						resourceType: 'myResource',
+						id: 'runProfileId'
+					}
+				}
+			};
+			const gen = internals.deleteResourceValidate();
+			gen.next();
+			const effect = gen.next(action).value;
+			expect(effect.SELECT.args[0]).toBe('myResource');
+			expect(effect.SELECT.args[1]).toBe('runProfileId');
+		})
 	});
 	describe('deleteResourceCancel', () => {
 		it('should call redirect ', () => {
