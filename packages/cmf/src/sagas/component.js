@@ -47,8 +47,8 @@ export function* onSagaStart(action) {
 	const task = yield fork(
 		saga,
 		{
-			componentId: action.componentId,
 			...action.props, // deprecated: you should only read { componentId }
+			componentId: action.componentId,
 		},
 		...sagaArgs,
 	);
