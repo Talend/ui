@@ -31,30 +31,29 @@ export const isActionCancelable = curry(
 );
 
 export function* onSagaStart(action) {
-	let sagaId = action.saga;
-	let sagaArgs = [];
-	if (typeof sagaId === 'object') {
-		sagaId = sagaId.id;
-		sagaArgs = action.saga.args;
-	}
+	const isSagaInfoAnObject = typeof action.saga === 'object';
+	const sagaId = isSagaInfoAnObject ? action.saga.id : action.saga;
+
 	if (!sagaId) {
-		throw new Error(`no saga found in action: ${JSON.stringify(action)}`);
+		throw new Error(`no saga id found in action: ${JSON.stringify(action)}`);
 	}
+
+	const sagaArgs = isSagaInfoAnObject ? action.saga.args : [];
 	const saga = get(sagaId);
 	if (!saga) {
 		throw new Error(`saga not found: ${sagaId}`);
-	} else {
-		const task = yield fork(
-			saga,
-			{
-				componentId: action.componentId,
-				...action.props, // deprecated: you should only read { componentId }
-			},
-			...sagaArgs,
-		);
-		yield take(isActionCancelable(action));
-		yield cancel(task);
 	}
+
+	const task = yield fork(
+		saga,
+		{
+			componentId: action.componentId,
+			...action.props, // deprecated: you should only read { componentId }
+		},
+		...sagaArgs,
+	);
+	yield take(isActionCancelable(action));
+	yield cancel(task);
 }
 
 export function* handle() {
