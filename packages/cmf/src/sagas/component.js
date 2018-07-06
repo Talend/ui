@@ -32,14 +32,27 @@ export const isActionCancelable = curry(
 );
 
 export function* onSagaStart(action) {
-	const saga = get(action.saga);
+	let sagaId = action.saga;
+	let sagaArgs = [];
+	if (typeof sagaId === 'object') {
+		sagaId = sagaId.id;
+		sagaArgs = action.saga.args;
+	}
+	if (!sagaId) {
+		throw new Error(`no saga found in action: ${JSON.stringify(action)}`);
+	}
+	const saga = get(sagaId);
 	if (!saga) {
-		invariant(
-			process.env.NODE_ENV === 'production',
-			`You cannot register undefined as saga for id "${action.saga}"`,
-		);
+		throw new Error(`saga not found: ${sagaId}`);
 	} else {
-		const task = yield fork(saga, { componentId: action.componentId });
+		const task = yield fork(
+			saga,
+			{
+				componentId: action.componentId,
+				...action.props,  // deprecated: you should only read { componentId } only
+			},
+			...sagaArgs,
+		);
 		yield take(isActionCancelable(action));
 		yield cancel(task);
 	}
