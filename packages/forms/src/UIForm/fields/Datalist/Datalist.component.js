@@ -68,12 +68,13 @@ class Datalist extends Component {
 		}
 
 		const values = this.isMultiple() ? this.props.value : [this.props.value];
-		const optionNotExists = value => titleMap.find(option => option.value === value);
-		const additionalOptions = values.filter(optionNotExists).reduce((acc, value) => {
-			acc.push({ name: value, value });
+		const doNotExistsInOption = value => !titleMap.includes(value);
+		const additionalOptions = values.filter(doNotExistsInOption).reduce((acc, value) => {
+			if (value) {
+				acc.push({ name: value, value });
+			}
 			return acc;
 		}, []);
-		// console.log({ additionalOptions });
 		return titleMap.concat(additionalOptions);
 	}
 

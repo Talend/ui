@@ -60,11 +60,14 @@ describe('Datalist component', () => {
 			wrapper.instance().onChange(event, selectedValue);
 
 			// then
-			expect(props.onChange).toHaveBeenCalled();
-			expect(props.onFinish).toHaveBeenCalled();
-			expect(props.onFinish.mock.calls[0][0]).toEqual(event);
-			expect(event.type).toBe('change');
-			expect(props.onChange.mock.calls[0][1].value).toBe('bar');
+			expect(props.onChange).toHaveBeenCalledWith(event, {
+				schema: props.schema,
+				...selectedValue,
+			});
+			expect(props.onFinish).toHaveBeenCalledWith(event, {
+				schema: props.schema,
+				...selectedValue,
+			});
 		});
 		it('should support undefined value', () => {
 			// when
@@ -118,7 +121,7 @@ describe('Datalist component', () => {
 				},
 			};
 			const wrapper = shallow(<Datalist {...props} />);
-			wrapper.instance().onFocus({ type: 'focus' });
+			wrapper.instance().onFocus({ type: 'focus', target: wrapper.instance() });
 
 			// then
 			expect(props.onTrigger).toHaveBeenCalled();
