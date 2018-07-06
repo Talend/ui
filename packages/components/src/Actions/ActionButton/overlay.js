@@ -75,17 +75,17 @@ export function getReverseElement(triggerRect, overlayRect, initialPlacement) {
 }
 
 /**
-* getAdaptedPlacement - return the adapted placement for the overlay
-* @param  {DOMRect} triggerRect   bound of the trigger element
-* @param  {DOMRect} overlayRect   bound of the overlay element
-* @param  {DOMRect} containerRect    bound of the container element
-* @param  {string} currentPlacement current placement of the overlay
-* @return {string|false}                  return the adapted placement
-*   - if enough space in the current placement: return null
-*   - if placement is top and enough space to the bottom: return bottom
-*   - if placement is bottom and enough space to the top: return top
-*   - if no space to the top or the bottom keep the initial placement and return null
-*/
+ * getAdaptedPlacement - return the adapted placement for the overlay
+ * @param  {DOMRect} triggerRect   bound of the trigger element
+ * @param  {DOMRect} overlayRect   bound of the overlay element
+ * @param  {DOMRect} containerRect    bound of the container element
+ * @param  {string} currentPlacement current placement of the overlay
+ * @return {string|false}                  return the adapted placement
+ *   - if enough space in the current placement: return null
+ *   - if placement is top and enough space to the bottom: return bottom
+ *   - if placement is bottom and enough space to the top: return top
+ *   - if no space to the top or the bottom keep the initial placement and return null
+ */
 export function getAdaptedPlacement(triggerRect, overlayRect, containerRect, currentPlacement) {
 	if (canInsertElementInWrapper(overlayRect, containerRect)) return false;
 
