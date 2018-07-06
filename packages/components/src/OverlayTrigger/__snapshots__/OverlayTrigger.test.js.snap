@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionButtonOverlay should inject the overlay 1`] = `
+exports[`OverlayTrigger should inject the overlay 1`] = `
 <Popover
   bsClass="popover"
   id={undefined}
@@ -13,7 +13,7 @@ exports[`ActionButtonOverlay should inject the overlay 1`] = `
 </Popover>
 `;
 
-exports[`ActionButtonOverlay should wrap the children with an overlay 1`] = `
+exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
 <span
   className="theme-tc-action-button-positionned"
 >

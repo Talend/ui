@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButtonOverlay from './OverlayTrigger.component';
+import OverlayTrigger from './OverlayTrigger.component';
 
 function getDOMRect(top, bottom, height) {
 	return {
@@ -29,18 +29,18 @@ jest.mock('./overlay', () => ({
 
 const Overlay = <div>Overlay</div>;
 
-describe('ActionButtonOverlay', () => {
+describe('OverlayTrigger', () => {
 	it('should wrap the children with an overlay', () => {
 		const overlayPlacement = 'top';
 		const wrapper = shallow(
-			<ActionButtonOverlay
+			<OverlayTrigger
 				overlayId="myId"
 				overlayRef={() => {}}
 				overlayComponent={Overlay}
 				overlayPlacement={overlayPlacement}
 			>
 				<div>wrap me</div>
-			</ActionButtonOverlay>,
+			</OverlayTrigger>,
 		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -49,9 +49,9 @@ describe('ActionButtonOverlay', () => {
 
 	it('should prevent the scrolling', () => {
 		const wrapper = shallow(
-			<ActionButtonOverlay overlayComponent={Overlay} preventScrolling>
+			<OverlayTrigger overlayComponent={Overlay} preventScrolling>
 				<div>wrap me</div>
-			</ActionButtonOverlay>,
+			</OverlayTrigger>,
 		);
 
 		expect(wrapper.find('OverlayTrigger').props().container).toBe(wrapper.instance());
@@ -59,9 +59,9 @@ describe('ActionButtonOverlay', () => {
 
 	it('should inject the overlay', () => {
 		const wrapper = shallow(
-			<ActionButtonOverlay overlayComponent="Overlay" getComponent={() => Overlay}>
+			<OverlayTrigger overlayComponent="Overlay" getComponent={() => Overlay}>
 				<div>wrap me</div>
-			</ActionButtonOverlay>,
+			</OverlayTrigger>,
 		);
 
 		expect(wrapper.find('OverlayTrigger').props().overlay).toMatchSnapshot();
@@ -69,14 +69,14 @@ describe('ActionButtonOverlay', () => {
 
 	it('should restore the initial placement when the overlay is close', () => {
 		const wrapper = shallow(
-			<ActionButtonOverlay
+			<OverlayTrigger
 				overlayId="myId"
 				overlayRef={() => {}}
 				overlayComponent={Overlay}
 				overlayPlacement="top"
 			>
 				<div>wrap me</div>
-			</ActionButtonOverlay>,
+			</OverlayTrigger>,
 		);
 		wrapper.setState({ placement: 'bottom' });
 
@@ -91,14 +91,14 @@ describe('ActionButtonOverlay', () => {
 
 	it('should determinate the adapted position when the overlay is open', () => {
 		const wrapper = shallow(
-			<ActionButtonOverlay
+			<OverlayTrigger
 				overlayId="myId"
 				overlayRef={() => {}}
 				overlayComponent={Overlay}
 				overlayPlacement="bottom"
 			>
 				<div>wrap me</div>
-			</ActionButtonOverlay>,
+			</OverlayTrigger>,
 		);
 		wrapper.instance().setTriggerElement({ getBoundingClientRect: () => getDOMRect(100, 150, 50) });
 
