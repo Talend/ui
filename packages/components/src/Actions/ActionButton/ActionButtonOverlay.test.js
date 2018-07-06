@@ -1,10 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButtonOverlay, {
-	getReverseElement,
-	canInsertElementInWrapper,
-	getAdaptedPlacement,
-} from './ActionButtonOverlay.component';
+import ActionButtonOverlay from './ActionButtonOverlay.component';
 
 function getDOMRect(top, bottom, height) {
 	return {
@@ -14,98 +10,64 @@ function getDOMRect(top, bottom, height) {
 	};
 }
 
-describe('getAdaptedPlacement', () => {
-	it('should return null to do nothing', () => {
-		const triggerElementRect = getDOMRect(100, 150, 50);
-		const overlayElementRect = getDOMRect(170, 270, 100);
-		const containerElementRect = getDOMRect(0, 270);
-		const currentPlacement = 'bottom';
-
-		expect(
-			getAdaptedPlacement(
-				triggerElementRect,
-				overlayElementRect,
-				containerElementRect,
-				currentPlacement,
-			),
-		).toBe(null);
-	});
-
-	it('should return the adapted placement to top', () => {
-		const triggerElementRect = getDOMRect(120, 170, 50);
-		const overlayElementRect = getDOMRect(190, 290, 100);
-		const containerElementRect = getDOMRect(0, 270);
-		const currentPlacement = 'bottom';
-
-		expect(
-			getAdaptedPlacement(
-				triggerElementRect,
-				overlayElementRect,
-				containerElementRect,
-				currentPlacement,
-			),
-		).toBe('top');
-	});
-
-	it('should return the adapted placement to bottom', () => {
-		const triggerElementRect = getDOMRect(100, 150, 50);
-		const overlayElementRect = getDOMRect(-20, 80, 100);
-		const containerElementRect = getDOMRect(0, 270);
-		const currentPlacement = 'top';
-
-		expect(
-			getAdaptedPlacement(
-				triggerElementRect,
-				overlayElementRect,
-				containerElementRect,
-				currentPlacement,
-			),
-		).toBe('bottom');
-	});
-});
-
-describe('canInsert', () => {
-	it('should insert the element', () => {
-		const insertElementRect = getDOMRect(0, 200);
-		const wrapperElementRect = getDOMRect(0, 200);
-		expect(canInsertElementInWrapper(insertElementRect, wrapperElementRect)).toBe(true);
-	});
-
-	it('should not insert the element when overflow in the bottom', () => {
-		const insertElementRect = getDOMRect(150, 201);
-		const wrapperElementRect = getDOMRect(0, 200);
-		expect(canInsertElementInWrapper(insertElementRect, wrapperElementRect)).toBe(false);
-	});
-
-	it('should not insert the element when overflow in the top', () => {
-		const insertElementRect = getDOMRect(-1, 150);
-		const wrapperElementRect = getDOMRect(0, 200);
-		expect(canInsertElementInWrapper(insertElementRect, wrapperElementRect)).toBe(false);
-	});
-});
-
-describe('getReverse', () => {
-	it('should return the reversed component to up', () => {
-		const triggerElementRect = getDOMRect(100, 150, 50);
-		const overlayElementRect = getDOMRect(170, 270, 100);
-		expect(getReverseElement(triggerElementRect, overlayElementRect, 'bottom')).toEqual({
-			top: -20,
-			bottom: 80,
-		});
-	});
-	it('should return the reversed component to bottom', () => {
-		const triggerElementRect = getDOMRect(100, 150, 50);
-		const overlayElementRect = getDOMRect(-20, 80, 100);
-		expect(getReverseElement(triggerElementRect, overlayElementRect, 'top')).toEqual({
-			top: 170,
+jest.mock('./overlay', () => ({
+	getAdaptedPlacement: () => 'top',
+	getOverlayElement: () => ({
+		getBoundingClientRect: () => ({
+			bottom: 290,
+			height: 100,
+			top: 190,
+		}),
+	}),
+	getContainerElement: () => ({
+		getBoundingClientRect: () => ({
 			bottom: 270,
-		});
-	});
-});
+			top: 0,
+		}),
+	}),
+}));
+
+const Overlay = <div>Overlay</div>;
 
 describe('ActionButtonOverlay', () => {
 	it('should wrap the children with an overlay', () => {
-		const Overlay = <div>Overlay</div>;
+		const overlayPlacement = 'top';
+		const wrapper = shallow(
+			<ActionButtonOverlay
+				overlayId="myId"
+				overlayRef={() => {}}
+				overlayComponent={Overlay}
+				overlayPlacement={overlayPlacement}
+			>
+				<div>wrap me</div>
+			</ActionButtonOverlay>,
+		);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.state('placement')).toBe(overlayPlacement);
+	});
+
+	it('should prevent the scrolling', () => {
+		const wrapper = shallow(
+			<ActionButtonOverlay overlayComponent={Overlay} preventScrolling>
+				<div>wrap me</div>
+			</ActionButtonOverlay>,
+		);
+
+		expect(wrapper.find('OverlayTrigger').props().container).toBe(wrapper.instance());
+	});
+
+	it('should inject the overlay', () => {
+		const wrapper = shallow(
+			<ActionButtonOverlay overlayComponent="Overlay" getComponent={() => Overlay}>
+				<div>wrap me</div>
+			</ActionButtonOverlay>,
+		);
+
+		expect(wrapper.find('OverlayTrigger').props().overlay).toMatchSnapshot();
+	});
+
+	it('should restore the initial placement when the overlay is close', () => {
 		const wrapper = shallow(
 			<ActionButtonOverlay
 				overlayId="myId"
@@ -116,29 +78,35 @@ describe('ActionButtonOverlay', () => {
 				<div>wrap me</div>
 			</ActionButtonOverlay>,
 		);
+		wrapper.setState({ placement: 'bottom' });
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('OverlayTrigger')
+				.props()
+				.onExited(),
+		);
+		expect(wrapper.state('placement')).toBe('top');
 	});
 
-	it('should prevent the scrolling', () => {
-		const Overlay = <div>Overlay</div>;
+	it('should determinate the adapted position when the overlay is open', () => {
 		const wrapper = shallow(
-			<ActionButtonOverlay overlayComponent={Overlay} preventScrolling>
+			<ActionButtonOverlay
+				overlayId="myId"
+				overlayRef={() => {}}
+				overlayComponent={Overlay}
+				overlayPlacement="bottom"
+			>
 				<div>wrap me</div>
 			</ActionButtonOverlay>,
 		);
+		wrapper.instance().setTriggerElement({ getBoundingClientRect: () => getDOMRect(100, 150, 50) });
 
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
+		wrapper
+			.find('OverlayTrigger')
+			.props()
+			.onEntering();
 
-	it('should inject the overlay', () => {
-		const Overlay = <div>Overlay</div>;
-		const wrapper = shallow(
-			<ActionButtonOverlay overlayComponent="Overlay" getComponent={() => Overlay}>
-				<div>wrap me</div>
-			</ActionButtonOverlay>,
-		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.state('placement')).toBe('top');
 	});
 });
