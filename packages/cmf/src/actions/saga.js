@@ -8,7 +8,7 @@ export function start(event = {}, data) {
 		type: CONST.DID_MOUNT_SAGA_START,
 		saga: data.saga,
 		componentId: data.componentId,
-		props: omit(data, propsToOmit),  // deprecated
+		props: omit(data, propsToOmit), // deprecated
 		event,
 	};
 }

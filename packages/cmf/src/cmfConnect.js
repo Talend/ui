@@ -246,7 +246,7 @@ export default function cmfConnect({
 						'cmf.saga.start',
 						{ type: 'DID_MOUNT', componentId: this.id },
 						{
-							...this.props,  // DEPRECATED
+							...this.props, // DEPRECATED
 							componentId: getComponentId(componentId, this.props),
 						},
 					);
