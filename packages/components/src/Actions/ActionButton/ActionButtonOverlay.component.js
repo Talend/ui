@@ -7,16 +7,20 @@ import { getAdaptedPlacement, getOverlayElement, getContainerElement } from './o
 
 import theme from './ActionButtonOverlay.scss';
 
+export const overlayPropTypes = {
+	overlayComponent: Inject.getReactElement.propTypes,
+	overlayId: PropTypes.string,
+	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayRef: PropTypes.func,
+	preventScrolling: PropTypes.bool,
+};
+
 export default class ActionButtonOverlay extends React.Component {
 	static propTypes = {
 		children: PropTypes.element,
 		getComponent: PropTypes.func,
 		onClick: PropTypes.func,
-		overlayComponent: Inject.getReactElement.propTypes,
-		overlayId: PropTypes.string,
-		overlayPlacement: OverlayTrigger.propTypes.placement,
-		overlayRef: PropTypes.func,
-		preventScrolling: PropTypes.bool,
+		...overlayPropTypes,
 	};
 
 	static defaultProps = {
@@ -26,9 +30,10 @@ export default class ActionButtonOverlay extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.handleOverlayPlacement = this.handleOverlayPlacement.bind(this);
 		this.setTriggerElement = this.setTriggerElement.bind(this);
+		this.onEntering = this.onEntering.bind(this);
 		this.onExited = this.onExited.bind(this);
+
 		this.state = {
 			placement: this.props.overlayPlacement,
 		};
@@ -40,12 +45,8 @@ export default class ActionButtonOverlay extends React.Component {
 		});
 	}
 
-	setTriggerElement(element) {
-		this.triggerElement = element;
-	}
-
-	handleOverlayPlacement(event) {
-		const overlayElement = getOverlayElement(event);
+	onEntering(initialOverlayElement) {
+		const overlayElement = getOverlayElement(initialOverlayElement);
 		const containerElement = getContainerElement(overlayElement);
 
 		const containerRect = containerElement.getBoundingClientRect();
@@ -69,11 +70,31 @@ export default class ActionButtonOverlay extends React.Component {
 		});
 	}
 
+	setTriggerElement(element) {
+		this.triggerElement = element;
+	}
+
 	render() {
-		const props = {};
+		let props = {
+			placement: this.state.placement,
+			onEntering: this.onEntering,
+			onExited: this.onExited,
+			onClick: this.props.onClick,
+			overlay: (
+				<Popover id={this.props.overlayId}>
+					{Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)}
+				</Popover>
+			),
+			ref: this.props.overlayRef,
+			rootClose: true,
+			trigger: 'click',
+		};
 
 		if (this.props.preventScrolling) {
-			props.container = this;
+			props = {
+				...props,
+				container: this,
+			};
 		}
 
 		return (
@@ -81,23 +102,7 @@ export default class ActionButtonOverlay extends React.Component {
 				ref={this.setTriggerElement}
 				className={classNames(theme['tc-action-button-positionned'])}
 			>
-				<OverlayTrigger
-					placement={this.state.placement}
-					onEntering={this.handleOverlayPlacement}
-					onExited={this.onExited}
-					onClick={this.props.onClick}
-					overlay={
-						<Popover id={this.props.overlayId}>
-							{Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)}
-						</Popover>
-					}
-					ref={this.props.overlayRef}
-					rootClose
-					trigger="click"
-					{...props}
-				>
-					{this.props.children}
-				</OverlayTrigger>
+				<OverlayTrigger {...props}>{this.props.children}</OverlayTrigger>
 			</span>
 		);
 	}

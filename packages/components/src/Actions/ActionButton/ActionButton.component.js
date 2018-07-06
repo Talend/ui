@@ -12,7 +12,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-import ActionButtonOverlay from './ActionButtonOverlay.component';
+import ActionButtonOverlay, { overlayPropTypes } from './ActionButtonOverlay.component';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -125,17 +125,15 @@ export function ActionButton(props) {
 	const buttonContent = getContent(props);
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
-	let rClick = null;
-	let rMouseDown = null;
 
-	rClick =
+	const rClick =
 		onClick &&
 		(event =>
 			onClick(event, {
 				action: { label, ...rest },
 				model,
 			}));
-	rMouseDown = event =>
+	const rMouseDown = event =>
 		onMouseDown(event, {
 			action: { label, ...rest },
 			model,
@@ -210,14 +208,11 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	overlayId: PropTypes.string,
-	overlayComponent: PropTypes.element,
-	overlayPlacement: OverlayTrigger.propTypes.placement,
-	overlayRef: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
+	...overlayPropTypes,
 };
 
 ActionButton.defaultProps = {
