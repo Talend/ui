@@ -61,16 +61,17 @@ const selected = [
 	},
 ];
 
+const overlayAction = {
+	id: 'overlay',
+	label: 'overlay',
+	icon: 'talend-pencil',
+	onClick: action('overlay.open'),
+	overlayComponent: <div>Overlay</div>,
+	overlayPlacement: 'bottom',
+	preventScrolling: true,
+};
+
 const actions = [
-	{
-		id: 'overlay',
-		label: 'overlay',
-		icon: 'talend-pencil',
-		onClick: action('overlay.open'),
-		overlayComponent: <div>Overlay</div>,
-		overlayPlacement: 'bottom',
-		preventScrolling: true,
-	},
 	{
 		id: 'edit',
 		label: 'edit',
@@ -826,7 +827,7 @@ storiesOf('List', module)
 			created: 1518596913333,
 			modified: minusThreeHours,
 			author: 'Jean-Pierre DUPONT',
-			actions,
+			actions: [overlayAction, ...actions],
 			icon: 'talend-file-xls-o',
 			display: 'text',
 			className: 'item-0-class',
