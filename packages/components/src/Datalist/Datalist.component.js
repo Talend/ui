@@ -37,7 +37,22 @@ class Datalist extends Component {
 	}
 
 	componentWillReceiveProps({ value, titleMap }) {
-		this.setState({ previousValue: value, value, titleMapping: this.buildTitleMapping(titleMap) });
+		const newState = {};
+		if (value !== this.props.value) {
+			newState.previousValue = value;
+			newState.value = value;
+		}
+		if (titleMap !== this.props.titleMap) {
+			newState.titleMapping = this.buildTitleMapping(titleMap);
+		}
+		this.setState(newState);
+		if (titleMap !== this.props.titleMap && this.state.suggestions) {
+			let filter;
+			if (value !== this.state.value) {
+				filter = value;
+			}
+			this.updateSuggestions(filter, titleMap);
+		}
 	}
 
 	/**
@@ -277,14 +292,14 @@ class Datalist extends Component {
 	 * Building multiSection items or single section items
 	 * return the items list
 	 */
-	buildGroupItems() {
+	buildGroupItems(titleMap) {
 		if (this.props.multiSection) {
-			return this.props.titleMap.map(group => ({
+			return (titleMap || this.props.titleMap).map(group => ({
 				title: group.title,
 				suggestions: group.suggestions.map(item => ({ title: item.name })),
 			}));
 		}
-		return this.props.titleMap.map(item => item.name);
+		return (titleMap || this.props.titleMap).map(item => item.name);
 	}
 
 	/**
@@ -295,13 +310,13 @@ class Datalist extends Component {
 	 * in that case we have to show all suggestions, otherwise we need to filter the suggestions
 	 * @param value The value to base suggestions on
 	 */
-	updateSuggestions(value) {
+	updateSuggestions(value, titleMap) {
 		if (this.props.readOnly || this.props.disabled) {
 			return;
 		}
 
 		// building multiSection items or single section items
-		let groups = this.buildGroupItems();
+		let groups = this.buildGroupItems(titleMap);
 		if (value) {
 			// filtering
 			const escapedValue = escapeRegexCharacters(value.trim());
@@ -336,6 +351,7 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
+		console.log('Datalist.component.render', this.props, this.state);
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead

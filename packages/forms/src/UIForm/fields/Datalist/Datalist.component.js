@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
+import { getValue } from '../../utils/properties';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -58,6 +59,7 @@ class Datalist extends Component {
 	}
 
 	getTitleMap() {
+		// TODO: memoize
 		let titleMap;
 		if (this.state.titleMap) {
 			titleMap = this.state.titleMap;
@@ -66,12 +68,16 @@ class Datalist extends Component {
 		} else {
 			titleMap = [];
 		}
-
+		const self = this;
 		const values = this.isMultiple() ? this.props.value : [this.props.value];
-		const doNotExistsInOption = value => !titleMap.includes(value);
+		const doNotExistsInOption = value => !titleMap.find(option => option.value === value);
 		const additionalOptions = values.filter(doNotExistsInOption).reduce((acc, value) => {
 			if (value) {
-				acc.push({ name: value, value });
+				console.warn(`${value} not found in titleMap, force add`);
+				const key = Array.from(self.props.schema.key);
+				key[key.length - 1] = `$${key[key.length - 1]}_name`;
+				const schema = Object.assign({}, self.props.schema, { key });
+				acc.push({ name: getValue(self.props.properties, schema), value });
 			}
 			return acc;
 		}, []);

@@ -52,7 +52,7 @@
     },
     {
       "key":"suggestion",
-      "title": "Datalist suggestion",
+      "title": "Datalist suggestion (edit)",
       "widget": "datalist",
       "triggers":[
         {
@@ -116,6 +116,7 @@
   ],
   "properties": {
     "simpleDatalist": "Pine[apple]",
-    "suggestion": "clafoutis"
+    "suggestion": "clafoutis",
+    "$suggestion_name": "Clafoutis aux poires et aux fruits"
   }
 }
