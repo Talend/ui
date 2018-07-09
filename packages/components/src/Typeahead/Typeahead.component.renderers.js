@@ -10,16 +10,24 @@ import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export function renderInputComponent(props) {
-	const { key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
+	const {
+		caret,
+		key,
+		debounceMinLength,
+		debounceTimeout,
+		isLoading,
+		icon,
+		inputRef,
+		...rest
+	} = props;
 
-	const renderedIcon = icon && (
-		<div className={theme['icon-cls']}>
-			<Icon name={icon.name} title={icon.title} />
-		</div>
-	);
-
+	const hasIcon = isLoading || icon || caret;
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
+		<div
+			className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon', {
+				[theme.loading]: isLoading,
+			})}
+		>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
@@ -36,7 +44,12 @@ export function renderInputComponent(props) {
 			) : (
 				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
 			)}
-			{renderedIcon}
+			{hasIcon && (
+				<div className={theme['icon-cls']}>
+					{icon && <Icon {...icon} />}
+					{caret && <Icon name="talend-caret-down" />}
+				</div>
+			)}
 		</div>
 	);
 }
@@ -49,6 +62,8 @@ renderInputComponent.propTypes = {
 		title: PropTypes.string,
 	}),
 	inputRef: PropTypes.func,
+	caret: PropTypes.bool,
+	isLoading: PropTypes.bool,
 };
 
 function ItemContainer(props) {

@@ -18,8 +18,13 @@
       },
       "enumNamesDatalist": {
         "type": "string",
-        "enum": [ "a", "p", "b", "c", "l", "g" ],
-        "enumNames": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+        "enum": [ "a", "p", "b", "c", "l", "g" ]
+      },
+      "suggestion": {
+        "type": "string"
+      },
+      "suggestionEmpty": {
+        "type": "string"
       }
     },
     "required": [
@@ -27,6 +32,42 @@
     ]
   },
   "uiSchema": [
+    {
+      "key":"suggestionEmpty",
+      "title": "Datalist suggestion (empty)",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"suggestionEmpty"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key":"suggestion",
+      "title": "Datalist suggestion (edit)",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"suggestion"
+            }
+          ]
+        }
+      ]
+    },
     {
       "key": "simpleDatalist",
       "restricted": false,
@@ -71,15 +112,11 @@
           "value": "Grapefruit"
         }
       ]
-    },
-    {
-      "key": "enumNamesDatalist",
-      "title": "Datalist with named options",
-      "description": "This datalist is based on enumNames jsonSchema properties",
-      "widget": "datalist"
     }
   ],
   "properties": {
-    "simpleDatalist": "Pine[apple]"
+    "simpleDatalist": "Pine[apple]",
+    "suggestion": "clafoutis",
+    "$suggestion_name": "Clafoutis aux poires et aux fruits"
   }
 }

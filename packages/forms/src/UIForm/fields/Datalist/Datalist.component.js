@@ -1,18 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
+import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
+import { getValue } from '../../utils/properties';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+const PROPS_TO_OMIT = [
+	'classNames',
+	'schema',
+	'getComponent',
+	'errorMessage',
+	'isValid',
+	'onChange',
+	'onFinish',
+	'onTrigger',
+	't',
+];
+
+const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
+
 class Datalist extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {};
 		this.onChange = this.onChange.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+		this.getTitleMap = this.getTitleMap.bind(this);
+		this.isMultiple = this.isMultiple.bind(this);
+		this.callTrigger = this.callTrigger.bind(this);
 	}
 
+	componentDidMount() {
+		this.callTrigger({ type: 'didMount' });
+	}
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -21,11 +45,85 @@ class Datalist extends Component {
 	 */
 	onChange(event, payload) {
 		const payloadWithSchema = { ...payload, schema: this.props.schema };
+		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
+	onFocus(event) {
+		this.callTrigger(event);
+	}
+
+	onBlur(event) {
+		this.callTrigger(event);
+	}
+
+	getTitleMap() {
+		// TODO: memoize
+		let titleMap;
+		if (this.state.titleMap) {
+			titleMap = this.state.titleMap;
+		} else if (this.props.schema.titleMap) {
+			titleMap = this.props.schema.titleMap;
+		} else {
+			titleMap = [];
+		}
+		const self = this;
+		const values = this.isMultiple() ? this.props.value : [this.props.value];
+		const doNotExistsInOption = value => !titleMap.find(option => option.value === value);
+		const additionalOptions = values.filter(doNotExistsInOption).reduce((acc, value) => {
+			if (value) {
+				// try to get the value from properties, else use just use plain value
+				const key = Array.from(self.props.schema.key);
+				key[key.length - 1] = `$${key[key.length - 1]}_name`;
+				const schema = Object.assign({}, self.props.schema, { key });
+				acc.push({ name: getValue(self.props.properties, schema) || value, value });
+			}
+			return acc;
+		}, []);
+		return titleMap.concat(additionalOptions);
+	}
+
+	isMultiple() {
+		return this.props.schema.schema.type === 'array';
+	}
+
+	callTrigger(event) {
+		if (!this.props.schema.triggers) {
+			return;
+		}
+		const trigger = this.props.schema.triggers.find(t => t.onEvent === event.type);
+		if (!trigger) {
+			return;
+		}
+		const onError = () => {
+			this.setState({ isLoading: false });
+		};
+		const onResponse = data => {
+			this.setState({
+				isLoading: false,
+				...data,
+			});
+		};
+		this.setState({ isLoading: true });
+		this.props
+			.onTrigger(event, {
+				trigger,
+				schema: this.props.schema,
+				errors: this.props.errors,
+				properties: this.props.properties,
+			})
+			.then(onResponse, onError);
+	}
+
 	render() {
+		const props = omit(this.props, PROPS_TO_OMIT);
+		Object.assign(props, this.state);
+		Object.assign(props, omit(this.props.schema, SCHEMA_TO_OMIT));
+		props.titleMap = this.getTitleMap();
+		if (props.id) {
+			props.id = `${props.id}-select`;
+		}
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -36,15 +134,11 @@ class Datalist extends Component {
 				required={this.props.schema.required}
 			>
 				<DataListComponent
-					autoFocus={this.props.schema.autoFocus || false}
-					id={`${this.props.id}`}
-					disabled={this.props.schema.disabled || false}
+					{...props}
+					input
 					multiSection={false}
 					onChange={this.onChange}
-					placeholder={this.props.schema.placeholder}
-					readOnly={this.props.schema.readOnly || false}
-					titleMap={this.props.schema.titleMap}
-					value={this.props.value}
+					onFocus={this.onFocus}
 				/>
 			</FieldTemplate>
 		);
@@ -63,7 +157,18 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func,
+		errors: PropTypes.object,
+		properties: PropTypes.object,
 		schema: PropTypes.shape({
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+			}),
+			triggers: PropTypes.arrayOf(
+				PropTypes.shape({
+					onEvent: PropTypes.string,
+				}),
+			),
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
