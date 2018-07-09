@@ -45,7 +45,7 @@ export class TCompForm extends React.Component {
 		}
 		if (this.props.definitionURL !== props.definitionURL) {
 			this.props.dispatch({
-				type: ComponentForm.ON_DEFINITION_URL_CHANGED,
+				type: TCompForm.ON_DEFINITION_URL_CHANGED,
 				...this.props,
 			});
 		}
@@ -75,7 +75,7 @@ export class TCompForm extends React.Component {
 		this.setState({ properties });
 		if (this.props.dispatchOnChange) {
 			this.props.dispatch({
-				type: ComponentForm.ON_CHANGE,
+				type: TCompForm.ON_CHANGE,
 				event: {
 					type: 'onChange',
 					component: 'TCompForm',
@@ -99,7 +99,7 @@ export class TCompForm extends React.Component {
 				this.props.setState(data);
 			}
 			this.props.dispatch({
-				type: ComponentForm.ON_TRIGGER,
+				type: TCompForm.ON_TRIGGER,
 				event: {
 					type: 'onTrigger',
 					component: ComponentForm,
@@ -119,7 +119,7 @@ export class TCompForm extends React.Component {
 			this.props.onSubmit(event, data);
 		}
 		this.props.dispatch({
-			type: ComponentForm.ON_SUBMIT,
+			type: TCompForm.ON_SUBMIT,
 			event,
 			...this.getUISpec(),
 			properties: data,
