@@ -17,8 +17,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "watch": "npm-watch",
-    "cpx": "cpx './src/**/*.scss' ./lib",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter '*.js' --default-values"
+    "cpx": "cpx \"./src/**/*.scss\" ./lib",
+    "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter \"*.js\" --default-values"
   },
   "watch": {
     "prepublish": {
@@ -64,8 +64,8 @@
     "@storybook/addon-info": "^3.4.7",
     "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^0.198.3",
-    "@talend/icons": "^0.198.3",
+    "@talend/bootstrap-theme": "^0.199.0",
+    "@talend/icons": "^0.199.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -120,8 +120,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.198.3",
-    "@talend/icons": "^0.198.3",
+    "@talend/bootstrap-theme": "^0.199.0",
+    "@talend/icons": "^0.199.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -158,5 +158,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.198.3"
+  "version": "0.199.0"
 }
