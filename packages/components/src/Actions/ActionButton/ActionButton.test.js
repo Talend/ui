@@ -6,7 +6,6 @@ const myAction = {
 	label: 'Click me',
 	title: 'Title to describe click me button',
 	icon: 'talend-caret-down',
-	onClick: jest.fn(),
 	'data-feature': 'action.feature',
 };
 
@@ -47,15 +46,17 @@ describe('Action', () => {
 
 	it('should click on the button trigger the onclick props', () => {
 		// given
-		const wrapper = shallow(<ActionButton extra="extra" {...myAction} />);
+		const onClick = jest.fn();
+		const props = { ...myAction, onClick };
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
 		wrapper.simulate('click');
 
 		// then
-		expect(myAction.onClick).toHaveBeenCalled();
-		expect(myAction.onClick.mock.calls.length).toBe(1);
-		const args = myAction.onClick.mock.calls[0];
+		expect(onClick).toHaveBeenCalled();
+		expect(onClick.mock.calls.length).toBe(1);
+		const args = onClick.mock.calls[0];
 		expect(args.length).toBe(2);
 		expect(args[0]).toBe();
 		expect(args[1].action.extra).toBe('extra');
@@ -63,16 +64,17 @@ describe('Action', () => {
 
 	it('should trigger the onclick props when action has an overlay', () => {
 		// given
-		const props = { ...myAction, overlayComponent: OverlayComponent };
+		const onClick = jest.fn();
+		const props = { ...myAction, overlayComponent: OverlayComponent, onClick };
 		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
 		wrapper.simulate('click');
 
 		// then
-		expect(myAction.onClick).toHaveBeenCalled();
-		expect(myAction.onClick.mock.calls.length).toBe(1);
-		const args = myAction.onClick.mock.calls[0];
+		expect(onClick).toHaveBeenCalled();
+		expect(onClick.mock.calls.length).toBe(1);
+		const args = onClick.mock.calls[0];
 		expect(args.length).toBe(2);
 		expect(args[0]).toBe();
 		expect(args[1].action.extra).toBe('extra');
