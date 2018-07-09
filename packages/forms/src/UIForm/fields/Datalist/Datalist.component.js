@@ -73,11 +73,11 @@ class Datalist extends Component {
 		const doNotExistsInOption = value => !titleMap.find(option => option.value === value);
 		const additionalOptions = values.filter(doNotExistsInOption).reduce((acc, value) => {
 			if (value) {
-				console.warn(`${value} not found in titleMap, force add`);
+				// try to get the value from properties, else use just use plain value
 				const key = Array.from(self.props.schema.key);
 				key[key.length - 1] = `$${key[key.length - 1]}_name`;
 				const schema = Object.assign({}, self.props.schema, { key });
-				acc.push({ name: getValue(self.props.properties, schema), value });
+				acc.push({ name: getValue(self.props.properties, schema) || value, value });
 			}
 			return acc;
 		}, []);
@@ -89,30 +89,31 @@ class Datalist extends Component {
 	}
 
 	callTrigger(event) {
-		if (this.props.schema.triggers) {
-			const trigger = this.props.schema.triggers.find(t => t.onEvent === event.type);
-			if (trigger) {
-				this.setState({ isLoading: true });
-				this.props
-					.onTrigger(event, {
-						trigger,
-						schema: this.props.schema,
-						errors: this.props.errors,
-						properties: this.props.properties,
-					})
-					.then(
-						data => {
-							this.setState({
-								isLoading: false,
-								...data,
-							});
-						},
-						() => {
-							this.setState({ isLoading: false });
-						},
-					);
-			}
+		if (!this.props.schema.triggers) {
+			return;
 		}
+		const trigger = this.props.schema.triggers.find(t => t.onEvent === event.type);
+		if (!trigger) {
+			return;
+		}
+		const onError = () => {
+			this.setState({ isLoading: false });
+		};
+		const onResponse = data => {
+			this.setState({
+				isLoading: false,
+				...data,
+			});
+		};
+		this.setState({ isLoading: true });
+		this.props
+			.onTrigger(event, {
+				trigger,
+				schema: this.props.schema,
+				errors: this.props.errors,
+				properties: this.props.properties,
+			})
+			.then(onResponse, onError);
 	}
 
 	render() {

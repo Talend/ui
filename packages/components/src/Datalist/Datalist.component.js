@@ -351,7 +351,6 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
-		console.log('Datalist.component.render', this.props, this.state);
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
