@@ -44,14 +44,7 @@ try {
 		}
 
 		render() {
-			const {
-				id,
-				options,
-				value,
-				disabled,
-				readonly,
-				autofocus,
-			} = this.props;
+			const { id, options, value, disabled, readonly, autofocus } = this.props;
 			// allow override using
 			const contextProps = this.props.formContext && this.props.formContext.codeWidgetProps;
 			let setOptions = SET_OPTIONS;
@@ -77,6 +70,7 @@ try {
 					showGutter={false}
 					showPrintMargin={false}
 					{...contextProps}
+					{...options}
 				/>
 			);
 		}

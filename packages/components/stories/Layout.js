@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import {
@@ -209,6 +210,8 @@ function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryCont
 		));
 	});
 }
+
+stories.addDecorator(checkA11y);
 
 decoratedLayoutStory('OneColumn', {
 	header,

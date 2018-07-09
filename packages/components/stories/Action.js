@@ -1,9 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
+
+import theme from './Action.scss';
 
 const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
@@ -26,6 +29,7 @@ const mouseDownAction = {
 };
 
 storiesOf('Action', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
@@ -75,6 +79,35 @@ storiesOf('Action', module)
 				{...mouseDownAction}
 				hideLabel
 			/>
+			<h3>
+				Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.
+			</h3>
+			<div
+				id="auto-dropup"
+				className={'tc-dropdown-container'}
+				style={{
+					border: '1px solid black',
+					overflow: 'scroll',
+					height: '300px',
+					resize: 'vertical',
+				}}
+			>
+				<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
+				<div className={theme['storybook-wrapped-action']}>
+					<Action
+						preventScrolling
+						overlayComponent={OverlayComponent}
+						overlayPlacement="bottom"
+						tooltipPlacement="right"
+						{...mouseDownAction}
+						hideLabel
+						style={{
+							marginTop: '200px',
+							marginBottom: '200px',
+						}}
+					/>
+				</div>
+			</div>
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {

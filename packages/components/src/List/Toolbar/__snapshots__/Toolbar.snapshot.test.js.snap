@@ -225,7 +225,7 @@ exports[`Toolbar should render filter form 1`] = `
     >
       <button
         aria-label="Toggle filter"
-        className="navbar-right btn btn-link"
+        className="navbar-right btn-icon-only btn btn-link"
         disabled={false}
         id="my-toolbar-filter"
         onClick={[Function]}
@@ -413,32 +413,17 @@ exports[`Toolbar should render pagination 1`] = `
             </svg>
           </a>
         </li>
-        <li
-          className="disabled"
-          role="presentation"
-          style={undefined}
+        <div
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="theme-page-index"
+          onSelect={[Function]}
         >
-          <a
-            href="#"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            style={
-              Object {
-                "pointerEvents": "none",
-              }
-            }
-            tabIndex={-1}
-          >
-            <span
-              className="btn-link"
-            >
-              2
-              /
-              3
-            </span>
-          </a>
-        </li>
+          2
+          /
+          3
+        </div>
         <li
           className="btn-link"
           role="presentation"

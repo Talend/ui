@@ -43,7 +43,7 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 		overflow: hidden;
 		flex: 1 auto;
 		margin-right: 110px;
-		max-width: 45rem;
+		max-width: 90rem;
 
 		&-title {
 			display: inline-flex;
@@ -60,7 +60,6 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 			&-wording-button {
 				padding: 0;
 				letter-spacing: inherit;
-				line-height: inherit;
 
 				&:global(.btn-link) {
 					color: $black;
@@ -74,8 +73,6 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 			}
 
 			&-pencil {
-				display: inline-flex;
-				align-items: center;
 				padding-left: $padding-small;
 				padding-right: $padding-small;
 
@@ -112,6 +109,7 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 				border: 0.2rem solid currentColor;
 				width: $tc-input-subheader-size-large;
 				height: $tc-input-subheader-size-large;
+				min-height: auto;
 				display: flex;
 				border-radius: 50%;
 				padding: 0;
