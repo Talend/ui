@@ -62,7 +62,7 @@ export default class OverlayTrigger extends React.Component {
 				this.triggerElement,
 				previousState.placement,
 			);
-			if (!adaptedPlacement) {
+			if (adaptedPlacement === previousState.placement) {
 				return null;
 			}
 

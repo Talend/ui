@@ -38,7 +38,7 @@ describe('getOverlayElement', () => {
 });
 
 describe('getAdaptedPlacement', () => {
-	it('should return false when the element get in the container', () => {
+	it('should return the current placement when the element get in the container', () => {
 		const triggerElementRect = getDOMRect(100, 150, 50);
 		const overlayElementRect = getDOMRect(170, 270, 100);
 		const containerElementRect = getDOMRect(0, 270);
@@ -51,7 +51,7 @@ describe('getAdaptedPlacement', () => {
 				containerElementRect,
 				currentPlacement,
 			),
-		).toBe(false);
+		).toBe('bottom');
 	});
 
 	it('should return the adapted placement to top', () => {
@@ -86,7 +86,8 @@ describe('getAdaptedPlacement', () => {
 		).toBe('bottom');
 	});
 
-	it('should return false when the element and the reverse element do not get in the container', () => {
+	it(`should return the current placement when the element
+		and the reverse element do not get in the container`, () => {
 		const triggerElementRect = getDOMRect(100, 150, 50);
 		const overlayElementRect = getDOMRect(-20, 80, 100);
 		const containerElementRect = getDOMRect(0, 220);
@@ -99,7 +100,7 @@ describe('getAdaptedPlacement', () => {
 				containerElementRect,
 				currentPlacement,
 			),
-		).toBe(false);
+		).toBe('top');
 	});
 });
 
