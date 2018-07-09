@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "bin": {
     "talend-scripts": "./index.js"
   },
