@@ -245,7 +245,10 @@ export default function cmfConnect({
 					this.dispatchActionCreator(
 						'cmf.saga.start',
 						{ type: 'DID_MOUNT', componentId: this.id },
-						this.props,
+						{
+							...this.props, // DEPRECATED
+							componentId: getComponentId(componentId, this.props),
+						},
 					);
 				}
 				if (this.props.didMountActionCreator) {

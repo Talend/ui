@@ -1,4 +1,3 @@
-import invariant from 'invariant';
 import { fork, cancel, take, takeEvery } from 'redux-saga/effects';
 import curry from 'lodash/curry';
 import CONST from '../constant';
@@ -32,17 +31,29 @@ export const isActionCancelable = curry(
 );
 
 export function* onSagaStart(action) {
-	const saga = get(action.saga);
-	if (!saga) {
-		invariant(
-			process.env.NODE_ENV === 'production',
-			`You cannot register undefined as saga for id "${action.saga}"`,
-		);
-	} else {
-		const task = yield fork(saga, action.props);
-		yield take(isActionCancelable(action));
-		yield cancel(task);
+	const isSagaInfoAnObject = typeof action.saga === 'object';
+	const sagaId = isSagaInfoAnObject ? action.saga.id : action.saga;
+
+	if (!sagaId) {
+		throw new Error(`no saga id found in action: ${JSON.stringify(action)}`);
 	}
+
+	const sagaArgs = isSagaInfoAnObject ? action.saga.args : [];
+	const saga = get(sagaId);
+	if (!saga) {
+		throw new Error(`saga not found: ${sagaId}`);
+	}
+
+	const task = yield fork(
+		saga,
+		{
+			...action.props, // deprecated: you should only read { componentId }
+			componentId: action.componentId,
+		},
+		...sagaArgs,
+	);
+	yield take(isActionCancelable(action));
+	yield cancel(task);
 }
 
 export function* handle() {
