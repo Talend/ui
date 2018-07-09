@@ -3,7 +3,7 @@ import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
 
-function* fecthDefinition({ definitionURL, componentId, uiSpecPath }) {
+function* fetchDefinition({ definitionURL, componentId, uiSpecPath }) {
 	const { data, response } = yield call(cmf.sagas.http.get, definitionURL);
 	if (!response.ok) {
 		yield put(
@@ -36,13 +36,13 @@ function* fecthDefinition({ definitionURL, componentId, uiSpecPath }) {
 function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath }) {
 	const state = yield select();
 	if (!Component.getState(state, componentId).get('jsonSchema')) {
-		yield fecthDefinition({ definitionURL, componentId, uiSpecPath });
+		yield fetchDefinition({ definitionURL, componentId, uiSpecPath });
 	}
 }
 
 function* handle(props) {
 	yield call(onDidMount, props);
-	yield takeEvery(Component.ON_DEFINITION_URL_CHANGED, fecthDefinition);
+	yield takeEvery(Component.ON_DEFINITION_URL_CHANGED, fetchDefinition);
 	yield take('DO_NOT_QUIT');
 }
 

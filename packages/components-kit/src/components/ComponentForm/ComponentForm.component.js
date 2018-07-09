@@ -10,7 +10,7 @@ export const DEFAULT_STATE = new Map({
 	dirty: false,
 });
 
-class ComponentForm extends React.Component {
+export class TCompForm extends React.Component {
 	static displayName = 'ComponentForm';
 	static propTypes = {
 		...cmfConnect.propTypes,
@@ -156,24 +156,29 @@ class ComponentForm extends React.Component {
 	}
 
 	render() {
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), this.getUISpec(), {
-			onTrigger: this.onTrigger,
-			onChange: this.onChange,
-			onSubmit: this.onSubmit,
-		});
-		const response = this.props.state.get('response');
-		if (!props.jsonSchema) {
+		const uiSpecs = this.getUISpec();
+
+		if (!uiSpecs.jsonSchema) {
+			const response = this.props.state.get('response');
 			if (response) {
 				return <p className="danger">{response.get('statusText')}</p>;
 			}
 			return <CircularProgress />;
 		}
-		if (this.state.properties) {
-			props.properties = this.state.properties;
-		}
+
+		const props = {
+			...omit(this.props, cmfConnect.INJECTED_PROPS),
+			...uiSpecs,
+			properties: this.state.properties,
+			onTrigger: this.onTrigger,
+			onChange: this.onChange,
+			onSubmit: this.onSubmit,
+		};
+
 		if (this.props.state.get('errors')) {
 			props.errors = this.props.state.get('errors').toJS();
 		}
+
 		return <UIForm {...props} />;
 	}
 }
@@ -183,4 +188,4 @@ export default cmfConnect({
 	defaultProps: {
 		saga: 'ComponentForm#default',
 	},
-})(ComponentForm);
+})(TCompForm);

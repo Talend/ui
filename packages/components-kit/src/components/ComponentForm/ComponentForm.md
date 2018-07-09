@@ -29,7 +29,7 @@ function* handleForm() {
 }
 ```
 
-definitionURL: url to fetch to get the form uiSpec
+definitionURL: url to fetch the form uiSpec
 triggerURL: url to fetch on trigger
 
 # TODO:

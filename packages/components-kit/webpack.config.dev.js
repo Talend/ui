@@ -89,12 +89,15 @@ module.exports = {
 			app.get('/api/v1/application/index', (req, res) => {
 				res.json(components);
 			});
-			app.get('/api/v1/application/detail/c2VydmljZW5vdyNTZXJ2aWNlTm93I1NlcnZpY2VOb3dPdXRwdXQ', (req, res) => {
-				res.json(servicenow);
-			});
+			app.get(
+				'/api/v1/application/detail/c2VydmljZW5vdyNTZXJ2aWNlTm93I1NlcnZpY2VOb3dPdXRwdXQ',
+				(req, res) => {
+					res.json(servicenow);
+				},
+			);
 			app.post('/api/v1/application/action', (req, res) => {
 				res.json(trigger(req));
 			});
-		}
-	}
-}
+		},
+	},
+};
