@@ -80,7 +80,7 @@ export default class OverlayTrigger extends React.Component {
 	render() {
 		const props = {
 			placement: this.state.placement,
-			onClick: this.onClick,
+			onClick: this.props.onClick,
 			onEntering: this.onEntering,
 			onExited: this.onExited,
 			overlay: (
