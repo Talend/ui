@@ -147,6 +147,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
+	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
 	'react-stub-context': '^0.7.0',
@@ -211,7 +212,9 @@ function check(source, dep, version, category = 'dep') {
 	let modified = false;
 	if (source && source[dep] && source[dep] !== safeVersion) {
 		if (dep === 'react' && category === 'dep') {
-			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
+			console.warn(
+				'WARNING: react and react-dom should always be added as peer dependencies in library',
+			);
 		}
 		if (!program.quiet) {
 			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);

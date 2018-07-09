@@ -242,7 +242,16 @@ export default function* myDeLorean() {
 If you have multiple instance of the same component those api support `id` as a second argument.
 
 ```javascript
-const componentState = Clock.getState(state, 'a-component-id');
+import Clock from './Clock.connect';
+
+export default function* myDeLorean({ componentId }) {
+	const state = yield select();
+	const clockState = Clock.getState(state, componentId);
+	yield put(
+		Clock.setStateAction(
+			clockState.set('date', new Date('2025/12/25'))
+		)
+	);
 // mutation
 Clock.setStateAction(componentState, 'a-component-id');
 ```

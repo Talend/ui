@@ -37,6 +37,14 @@ describe('custom formats', () => {
 		// then
 		expect(resultIpOK).toBe(null);
 
+		const resultHttpPortOK = customValidation['url-http-https']('http://test.domain.com:8080');
+		// then
+		expect(resultHttpPortOK).toBe(null);
+
+		const resultIpPortOK = customValidation['url-http-https']('http://127.0.0.1:8080');
+		// then
+		expect(resultIpPortOK).toBe(null);
+
 		const resultKO1 = customValidation['url-http-https']('ssh://test.domain.com');
 		const resultKO2 = customValidation['url-http-https']('test.domain.com');
 		const resultKO3 = customValidation['url-http-https']('https://test. domain.com');
@@ -138,36 +146,30 @@ describe('custom formats', () => {
 		const gitResultSshOK10 = customValidation['url-git']('ssh://190.22.21.12/~/path/to/repo.git');
 		expect(gitResultSshOK10).toBe(null);
 
+		const gitResultSshOK11 = customValidation['url-git']('ssh://190.22.21.12/~/path/to/repo');
+		expect(gitResultSshOK11).toBe(null);
+
+		const gitResultSshOK12 = customValidation['url-git']('ssh://190.22.21.12/~/path/to/repo/');
+		expect(gitResultSshOK12).toBe(null);
+
 		// TEST KO
 		const gitResultSshKO1 = customValidation['url-git']('host.xz/~/path/to/repo.git');
 		expect(gitResultSshKO1).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultSshKO2 = customValidation['url-git']('ssh://host.xz/~/path/to/repo');
+		const gitResultSshKO2 = customValidation['url-git']('ssh://host.xz');
 		expect(gitResultSshKO2).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultSshKO3 = customValidation['url-git']('ssh://host.xz');
+		const gitResultSshKO3 = customValidation['url-git']('ssh://host.xz.git');
 		expect(gitResultSshKO3).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultSshKO4 = customValidation['url-git']('ssh://host.xz.git');
+		const gitResultSshKO4 = customValidation['url-git']('ssh://1.1.1.1.xz:999.git');
 		expect(gitResultSshKO4).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultSshKO5 = customValidation['url-git']('ssh://host.xz/.git');
+		const gitResultSshKO5 = customValidation['url-git']('ssh://user@1.1.1.1:/path/to/repo.git');
 		expect(gitResultSshKO5).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultSshKO6 = customValidation['url-git']('ssh://1.1.1.1.xz:999.git');
+		const gitResultSshKO6 = customValidation['url-git']('ssh://user@host.xz:999path/to/repo.git/');
 		expect(gitResultSshKO6).toBe(mockedTranslation.FORMAT_URL_GIT);
-
-		const gitResultSshKO7 = customValidation['url-git']('ssh://host.xz/~/path/to/repo.git/test');
-		expect(gitResultSshKO7).toBe(mockedTranslation.FORMAT_URL_GIT);
-
-		const gitResultSshKO8 = customValidation['url-git']('ssh://host.xz/~/path/to/repo.gittest');
-		expect(gitResultSshKO8).toBe(mockedTranslation.FORMAT_URL_GIT);
-
-		const gitResultSshKO9 = customValidation['url-git']('ssh://user@1.1.1.1:/path/to/repo.git');
-		expect(gitResultSshKO9).toBe(mockedTranslation.FORMAT_URL_GIT);
-
-		const gitResultSshKO10 = customValidation['url-git']('ssh://user@host.xz:999path/to/repo.git/');
-		expect(gitResultSshKO10).toBe(mockedTranslation.FORMAT_URL_GIT);
 	});
 
 	it('should validate a git url ssh 2', () => {
@@ -186,6 +188,12 @@ describe('custom formats', () => {
 
 		const gitResultSshOK5 = customValidation['url-git']('user@1.1.1.1:999/path/to/repo.git');
 		expect(gitResultSshOK5).toBe(null);
+
+		const gitResultSshOK6 = customValidation['url-git']('user@host.xz:path/to/repo');
+		expect(gitResultSshOK6).toBe(null);
+
+		const gitResultSshOK7 = customValidation['url-git']('user@host.xz:path/to/repo/');
+		expect(gitResultSshOK7).toBe(null);
 
 		// TEST KO
 		const gitResultSshKO1 = customValidation['url-git']('user@host.xz/path/to/repo.git/');
@@ -212,21 +220,24 @@ describe('custom formats', () => {
 		const gitResultGitOK4 = customValidation['url-git']('git://1.1.1.1:9999/path/to/repo.git');
 		expect(gitResultGitOK4).toBe(null);
 
+		const gitResultGitOK5 = customValidation['url-git']('git://1.1.1.1:9999/path/to/repo');
+		expect(gitResultGitOK5).toBe(null);
+
+		const gitResultGitOK6 = customValidation['url-git']('git://1.1.1.1:9999/path/to/repo/');
+		expect(gitResultGitOK6).toBe(null);
+
 		// TEST KO
 		const gitResultGitKO1 = customValidation['url-git']('git://host.xz.git/');
 		expect(gitResultGitKO1).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultGitKO2 = customValidation['url-git']('git://host.xz/.git');
+		const gitResultGitKO2 = customValidation['url-git']('git://host~s.xz:999.git');
 		expect(gitResultGitKO2).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultGitKO3 = customValidation['url-git']('git://host~s.xz:999.git');
+		const gitResultGitKO3 = customValidation['url-git']('git://user@host.xz:999/test.git');
 		expect(gitResultGitKO3).toBe(mockedTranslation.FORMAT_URL_GIT);
 
-		const gitResultGitKO4 = customValidation['url-git']('git://user@host.xz:999/test.git');
+		const gitResultGitKO4 = customValidation['url-git']('git://user@1.1.1.1:9999/path/to/repo.git');
 		expect(gitResultGitKO4).toBe(mockedTranslation.FORMAT_URL_GIT);
-
-		const gitResultGitKO5 = customValidation['url-git']('git://user@1.1.1.1:9999/path/to/repo.git');
-		expect(gitResultGitKO5).toBe(mockedTranslation.FORMAT_URL_GIT);
 	});
 
 	it('should validate string with no leading and trailing space', () => {
