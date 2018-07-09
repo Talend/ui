@@ -17,6 +17,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   9:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
+  76:5  warning  Unexpected console statement  no-console
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
@@ -27,5 +30,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:8  error  Expected indentation of 6 tab characters but found 7  react/jsx-indent
   78:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
-✖ 11 problems (11 errors, 0 warnings)
+✖ 12 problems (11 errors, 1 warning)
 
