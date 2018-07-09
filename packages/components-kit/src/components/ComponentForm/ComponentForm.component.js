@@ -115,26 +115,11 @@ export class TCompForm extends React.Component {
 			if (data.errors || data.jsonSchema || data.uiSchema) {
 				this.props.setState(data);
 			}
-			this.props.dispatch({
-				type: TCompForm.ON_TRIGGER,
-				event: {
-					type: 'onTrigger',
-					component: TCompForm,
-					componentId: this.props.componentId,
-					props: this.props,
-					state: this.state,
-				},
-				data,
-				uiSpec: this.getUISpec(),
-			});
 		});
 	}
 
 	onSubmit(event, data) {
 		event.persist();
-		if (this.props.onSubmit) {
-			this.props.onSubmit(event, data);
-		}
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			event,
