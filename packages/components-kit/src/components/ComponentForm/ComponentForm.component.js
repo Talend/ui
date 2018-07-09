@@ -4,11 +4,19 @@ import { UIForm } from '@talend/react-forms/lib/UIForm';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { CircularProgress } from '@talend/react-components';
+import memoizeOne from 'memoize-one';
 import kit from 'component-kit.js';
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
 });
+
+function toJS(immutableObject) {
+	if (!immutableObject) {
+		return;
+	}
+	return immutableObject.toJS();
+}
 
 export class TCompForm extends React.Component {
 	static displayName = 'ComponentForm';
@@ -34,6 +42,10 @@ export class TCompForm extends React.Component {
 		this.setupTrigger = this.setupTrigger.bind(this);
 		this.getTriggers = this.getTriggers.bind(this);
 		this.setupTrigger(props);
+
+		this.getMemoizedJsonSchema = memoizeOne(toJS);
+		this.getMemoizedUiSchema = memoizeOne(toJS);
+		this.getMemoizedErrors = memoizeOne(toJS);
 	}
 
 	componentDidUpdate(props) {
@@ -143,16 +155,12 @@ export class TCompForm extends React.Component {
 	}
 
 	getUISpec() {
-		const spec = { properties: this.state.properties };
-		const jsonSchema = this.props.state.get('jsonSchema');
-		const uiSchema = this.props.state.get('uiSchema');
-		if (jsonSchema) {
-			spec.jsonSchema = jsonSchema.toJS();
-		}
-		if (uiSchema) {
-			spec.uiSchema = uiSchema.toJS();
-		}
-		return spec;
+		return {
+			properties: this.state.properties,
+			jsonSchema: this.getMemoizedJsonSchema(this.props.state.get('jsonSchema')),
+			uiSchema: this.getMemoizedJsonSchema(this.props.state.get('uiSchema')),
+			errors: this.getMemoizedErrors(this.props.state.get('errors')),
+		};
 	}
 
 	render() {
@@ -174,10 +182,6 @@ export class TCompForm extends React.Component {
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
 		};
-
-		if (this.props.state.get('errors')) {
-			props.errors = this.props.state.get('errors').toJS();
-		}
 
 		return <UIForm {...props} />;
 	}

@@ -56,7 +56,11 @@ export class UIFormComponent extends React.Component {
 	 * @param uiSchema
 	 */
 	componentWillReceiveProps({ jsonSchema, uiSchema }) {
-		if (!jsonSchema || !uiSchema) {
+		if (
+			!jsonSchema ||
+			!uiSchema ||
+			(this.props.jsonSchema === jsonSchema && this.props.uiSchema === uiSchema)
+		) {
 			return;
 		}
 		if (Object.keys(jsonSchema).length) {
@@ -177,7 +181,6 @@ export class UIFormComponent extends React.Component {
 		return onTrigger(event, {
 			properties: this.props.properties,
 			errors: this.props.errors,
-			schema: this.props.schema,
 			...payload,
 		});
 	}
