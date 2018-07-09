@@ -7,6 +7,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import Well from 'react-bootstrap/lib/Well';
+import { Layout, Drawer } from '@talend/react-components';
 
 import { createStore, combineReducers } from 'redux';
 
@@ -32,27 +33,92 @@ const store = createStore(reducer);
 
 a11y(ReactDOM);
 
+class FormLayout extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			wrapper: 'Drawer',
+		};
+		this.components = {
+			Well,
+			Drawer,
+		};
+		this.onWrapperChange = this.onWrapperChange.bind(this);
+		this.onStackedChange = this.onStackedChange.bind(this);
+	}
+	onWrapperChange(event) {
+		this.setState({ wrapper: event.target.value });
+	}
+
+	onStackedChange() {
+		this.setState({ stacked: !this.state.stacked });
+	}
+
+	getWrapper() {
+		return this.components[this.state.wrapper];
+	}
+	render() {
+		let main = null;
+		const drawers = [];
+		const Wrapper = this.getWrapper();
+		if (this.state.wrapper === 'Drawer') {
+			drawers.push(<Wrapper stacked={this.state.stacked}>{this.props.story}</Wrapper>);
+		} else {
+			main = <Wrapper>{this.props.story}</Wrapper>;
+		}
+		const one = (
+			<form style={{ width: 300 }}>
+				<div className="form-group">
+					<label>Display the form in</label>
+					<select onChange={this.onWrapperChange} className="form-control">
+						{Object.keys(this.components).map(component => <option selected={this.state.wrapper === component}>{component}</option>)}
+					</select>
+				</div>
+				{this.state.wrapper === 'Drawer' && (
+					<div className="checkbox">
+						<label>
+							<input type="checkbox" name="stacked" id="stacked" value={this.state.isStacked} onChange={this.onStackedChange} />
+							stacked
+						</label>
+					</div>
+				)}
+				{this.props.lang}
+			</form>
+		)
+		return (
+			<Layout drawers={drawers} mode="TwoColumns" one={one}>
+				<div style={{ margin: 10 }}>
+					{main}
+				</div>
+			</Layout>
+		);
+	}
+}
+
 const forStoryDecorator = story => (
 	<I18nextProvider i18n={i18n}>
-	<Provider store={store}>
-		<div className="container-fluid">
-			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
-				<div className="btn-group">
-					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
-				</div>
-			</nav>
-			<div
-				className="col-md-offset-1 col-md-10"
-				style={{ marginTop: '20px', marginBottom: '20px' }}
-			>
-				<Well>
-					{story()}
-				</Well>
-			</div>
-		</div>
-	</Provider>
+		<Provider store={store}>
+			<FormLayout lang={(
+				<nav
+					style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}
+				>
+					<div className="btn-group">
+						<button className="btn" onClick={() => i18n.changeLanguage('en')}>
+							Default (en)
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
+							fr
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('it')}>
+							it
+						</button>
+					</div>
+				</nav>
+
+				)}
+				story={story()}
+			/>
+		</Provider>
 	</I18nextProvider>
 );
 

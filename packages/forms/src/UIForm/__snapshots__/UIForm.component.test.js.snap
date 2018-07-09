@@ -5,7 +5,7 @@ exports[`UIForm component should render form 1`] = `
   acceptCharset={undefined}
   action={undefined}
   autoComplete="off"
-  className="tf-uiform my-form-class"
+  className="tf-uiform theme-uiform my-form-class"
   encType={undefined}
   id="myFormId"
   method={undefined}
@@ -104,25 +104,30 @@ exports[`UIForm component should render form 1`] = `
       }
     }
   />
-  <Buttons
-    className="form-actions"
-    getComponent={undefined}
-    id="myFormId-myFormId-actions"
-    onClick={[Function]}
-    onTrigger={[Function]}
-    schema={
-      Object {
-        "items": Array [
-          Object {
-            "bsStyle": "primary",
-            "label": "Submit",
-            "type": "submit",
-            "widget": "button",
-          },
-        ],
+  <div
+    className="tf-actions-wrapper"
+  >
+    <Buttons
+      className="form-actions"
+      getComponent={undefined}
+      id="myFormId-myFormId-actions"
+      onClick={[Function]}
+      onTrigger={[Function]}
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "bsStyle": "primary",
+              "label": "Submit",
+              "position": "right",
+              "type": "submit",
+              "widget": "button",
+            },
+          ],
+        }
       }
-    }
-  />
+    />
+  </div>
 </form>
 `;
 
@@ -131,7 +136,7 @@ exports[`UIForm component should render provided actions 1`] = `
   acceptCharset={undefined}
   action={undefined}
   autoComplete="off"
-  className="tf-uiform my-form-class"
+  className="tf-uiform theme-uiform my-form-class"
   encType={undefined}
   id="myFormId"
   method={undefined}
@@ -230,49 +235,53 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     }
   />
-  <Buttons
-    className="form-actions"
-    getComponent={undefined}
-    id="myFormId-myFormId-actions"
-    onClick={[Function]}
-    onTrigger={[Function]}
-    schema={
-      Object {
-        "items": Array [
-          Object {
-            "title": "Reset",
-            "type": "reset",
-            "widget": "button",
-          },
-          Object {
-            "disabled": true,
-            "title": "Disabled",
-            "type": "button",
-            "widget": "button",
-          },
-          Object {
-            "inProgress": true,
-            "title": "In progress",
-            "type": "button",
-            "widget": "button",
-          },
-          Object {
-            "title": "Trigger",
-            "triggers": Array [
-              "test",
-            ],
-            "type": "button",
-            "widget": "button",
-          },
-          Object {
-            "bsStyle": "primary",
-            "title": "Submit",
-            "type": "submit",
-            "widget": "button",
-          },
-        ],
+  <div
+    className="tf-actions-wrapper"
+  >
+    <Buttons
+      className="form-actions"
+      getComponent={undefined}
+      id="myFormId-myFormId-actions"
+      onClick={[Function]}
+      onTrigger={[Function]}
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "title": "Reset",
+              "type": "reset",
+              "widget": "button",
+            },
+            Object {
+              "disabled": true,
+              "title": "Disabled",
+              "type": "button",
+              "widget": "button",
+            },
+            Object {
+              "inProgress": true,
+              "title": "In progress",
+              "type": "button",
+              "widget": "button",
+            },
+            Object {
+              "title": "Trigger",
+              "triggers": Array [
+                "test",
+              ],
+              "type": "button",
+              "widget": "button",
+            },
+            Object {
+              "bsStyle": "primary",
+              "title": "Submit",
+              "type": "submit",
+              "widget": "button",
+            },
+          ],
+        }
       }
-    }
-  />
+    />
+  </div>
 </form>
 `;

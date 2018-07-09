@@ -1,0 +1,11 @@
+:global(.tc-drawer-content) .uiform > :global(.tf-actions-wrapper) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: $padding-small;
+    background-color: $wild-sand;
+    :global(.form-actions) {
+        max-width: 650px;
+    }
+}
