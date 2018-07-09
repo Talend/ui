@@ -44,7 +44,7 @@ describe('Action', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should click on the button trigger the onclick props', () => {
+	it('should trigger the onclick props', () => {
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, onClick };
