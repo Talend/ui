@@ -59,6 +59,7 @@ export function ListToVirtualizedList(props) {
 		<VirtualizedList
 			id={props.id}
 			collection={props.items}
+			getComponent={props.getComponent}
 			isActive={itemProps && itemProps.isActive}
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
@@ -113,6 +114,7 @@ ListToVirtualizedList.propTypes = {
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
 	cellDictionary: PropTypes.object,
+	getComponent: PropTypes.func,
 	headerDictionary: PropTypes.object,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,

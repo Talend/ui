@@ -14,6 +14,7 @@ function ListGrid(props) {
 	const {
 		children,
 		collection,
+		getComponent,
 		id,
 		height,
 		isActive,
@@ -39,6 +40,7 @@ function ListGrid(props) {
 		<VirtualizedList
 			className={theme['tc-list-list']}
 			collection={collection}
+			getComponent={getComponent}
 			id={id}
 			height={height}
 			overscanRowCount={10}
@@ -60,6 +62,7 @@ ListGrid.displayName = 'VirtualizedList(ListGrid)';
 ListGrid.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
+	getComponent: PropTypes.func,
 	height: PropTypes.number,
 	id: PropTypes.string,
 	isActive: PropTypes.func,

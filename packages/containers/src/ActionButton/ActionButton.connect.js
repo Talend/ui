@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cmf, { cmfConnect, Inject } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { ActionButton } from '@talend/react-components';
 
 export function mapStateToProps(state, ownProps) {
@@ -28,14 +28,6 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export function ContainerActionButton(props) {
 	const newProps = Object.assign({}, props);
 
-	if (typeof props.overlayComponent === 'string' && props.overlayComponent) {
-		newProps.overlayComponent = (
-			<Inject component={props.overlayComponent} {...props.overlayComponentProps} />
-		);
-
-		delete newProps.overlayComponentProps;
-	}
-
 	if (!newProps.onClick) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
@@ -62,8 +54,6 @@ ContainerActionButton.propTypes = {
 	dispatch: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,
 	model: PropTypes.object,
-	overlayComponent: PropTypes.string,
-	overlayComponentProps: PropTypes.object,
 	payload: PropTypes.object,
 };
 

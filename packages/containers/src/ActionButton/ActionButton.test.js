@@ -40,18 +40,6 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find(ActionButton).length).toBe(1);
 	});
-
-	it('should inject a component overlay', () => {
-		const wrapper = shallow(
-			<ContainerActionButton
-				overlayComponent="ComponentOverlay"
-				overlayComponentProps={{
-					customProps: 'customProps',
-				}}
-			/>,
-		);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
 });
 
 describe('ActionButton.mergeProps', () => {

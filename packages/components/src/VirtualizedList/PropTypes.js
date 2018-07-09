@@ -13,6 +13,7 @@ export default {
 	// Disable header on TABLE
 	disableHeader: PropTypes.bool,
 	// label used when the list is empty
+	getComponent: PropTypes.func,
 	noRowsRenderer: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 	// The id. The sub-ids will be based on the ids as prefix
 	id: PropTypes.string,
