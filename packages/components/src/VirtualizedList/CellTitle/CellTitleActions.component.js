@@ -177,6 +177,7 @@ CellTitleActionsComponent.propTypes = {
 	persistentActionsKey: PropTypes.string,
 	/** The display mode. */
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
+	getComponent: PropTypes.func,
 	// The collection item.
 	rowData: PropTypes.object,
 	t: PropTypes.func.isRequired,
