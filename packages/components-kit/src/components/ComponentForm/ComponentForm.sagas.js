@@ -7,29 +7,29 @@ function* fetchDefinition({ definitionURL, componentId, uiSpecPath }) {
 	const { data, response } = yield call(cmf.sagas.http.get, definitionURL);
 	if (!response.ok) {
 		yield put(
-			Component.setStateAction(prev => {
-				return prev.set({
-					jsonSchema: undefined,
-					uiSchema: undefined,
-					response,
-					dirty: false,
-				});
-			}, componentId),
+			Component.setStateAction(
+				prev =>
+					prev.set({
+						jsonSchema: undefined,
+						uiSchema: undefined,
+						response,
+						dirty: false,
+					}),
+				componentId,
+			),
+		);
+	} else if (uiSpecPath) {
+		yield put(
+			Component.setStateAction(
+				{
+					definition: data,
+					...get(data, uiSpecPath),
+				},
+				componentId,
+			),
 		);
 	} else {
-		if (uiSpecPath) {
-			yield put(
-				Component.setStateAction(
-					{
-						definition: data,
-						...get(data, uiSpecPath),
-					},
-					componentId,
-				),
-			);
-		} else {
-			yield put(Component.setStateAction(data, componentId));
-		}
+		yield put(Component.setStateAction(data, componentId));
 	}
 }
 

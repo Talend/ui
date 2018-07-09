@@ -13,7 +13,7 @@ export const DEFAULT_STATE = new Map({
 
 function toJS(immutableObject) {
 	if (!immutableObject) {
-		return;
+		return null;
 	}
 	return immutableObject.toJS();
 }
@@ -74,15 +74,20 @@ export class TCompForm extends React.Component {
 			// to keep the title associated to the value
 			const info = data.schema.titleMap.find(titleMap => titleMap.value === data.value);
 			let currentProp = properties;
-			let currentKey;
+			let nameKey;
 			data.schema.key.forEach((key, index) => {
 				if (index !== data.schema.key.length - 1) {
 					currentProp = currentProp[key];
 				} else {
-					currentKey = key;
+					nameKey = `$${key}_name`;
 				}
 			});
-			currentProp[`$${currentKey}_name`] = info.name;
+
+			if (info) {
+				currentProp[nameKey] = info.name;
+			} else {
+				delete currentProp[nameKey];
+			}
 		}
 		this.setState({ properties });
 		if (this.props.dispatchOnChange) {
@@ -114,7 +119,7 @@ export class TCompForm extends React.Component {
 				type: TCompForm.ON_TRIGGER,
 				event: {
 					type: 'onTrigger',
-					component: ComponentForm,
+					component: TCompForm,
 					componentId: this.props.componentId,
 					props: this.props,
 					state: this.state,
@@ -159,7 +164,6 @@ export class TCompForm extends React.Component {
 			properties: this.state.properties,
 			jsonSchema: this.getMemoizedJsonSchema(this.props.state.get('jsonSchema')),
 			uiSchema: this.getMemoizedJsonSchema(this.props.state.get('uiSchema')),
-			errors: this.getMemoizedErrors(this.props.state.get('errors')),
 		};
 	}
 
@@ -182,6 +186,11 @@ export class TCompForm extends React.Component {
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
 		};
+
+		const errors = this.props.state.get('errors');
+		if (errors) {
+			props.errors = this.getMemoizedErrors(errors);
+		}
 
 		return <UIForm {...props} />;
 	}

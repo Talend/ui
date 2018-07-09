@@ -1,5 +1,5 @@
 {
-  "cmf": true,
+  "cmf": false,
   "html": {
     "title": "Demo @talend/kit"
   },
