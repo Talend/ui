@@ -15,7 +15,7 @@ export const DEFAULT_STATE = new Map({
 /**
  * Convert immutable object to js object
  */
-function toJS(immutableObject) {
+export function toJS(immutableObject) {
 	if (!immutableObject) {
 		return null;
 	}
@@ -29,7 +29,7 @@ function toJS(immutableObject) {
  * @param properties All the form properties
  * @param value The input value
  */
-function resolveNameForTitleMap({ schema, properties, value }) {
+export function resolveNameForTitleMap({ schema, properties, value }) {
 	if (schema.titleMap) {
 		// Here we add a field side by side with the value
 		// to keep the title associated to the value
@@ -56,7 +56,7 @@ function resolveNameForTitleMap({ schema, properties, value }) {
  * @param {object} properties All properties at trigger time
  * @returns {object} The uiSpec with only the metadata properties
  */
-function keepOnlyDatasetMetadataProperties({ body, properties }) {
+export function keepOnlyDatasetMetadataProperties({ body, properties }) {
 	return {
 		...body,
 		// eslint-disable-next-line no-underscore-dangle
@@ -163,7 +163,7 @@ export class TCompForm extends React.Component {
 		return {
 			properties: this.state.properties,
 			jsonSchema: this.getMemoizedJsonSchema(this.props.state.get('jsonSchema')),
-			uiSchema: this.getMemoizedJsonSchema(this.props.state.get('uiSchema')),
+			uiSchema: this.getMemoizedUiSchema(this.props.state.get('uiSchema')),
 		};
 	}
 

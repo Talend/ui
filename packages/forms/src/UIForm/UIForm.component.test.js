@@ -222,7 +222,8 @@ describe('UIForm component', () => {
 			const properties = { foo: 'I am a properties' };
 			const errors = { foo: 'I am a errors' };
 			const schema = { foo: 'I am a schema' };
-			wrapper.instance().onTrigger(event, { trigger, properties, errors, schema });
+			const value = "I'm a value";
+			wrapper.instance().onTrigger(event, { trigger, properties, errors, schema, value });
 
 			// then
 			expect(props.onTrigger).toHaveBeenCalled();
@@ -233,6 +234,7 @@ describe('UIForm component', () => {
 			expect(props.onTrigger.mock.calls[0][1].properties).toBe(properties);
 			expect(props.onTrigger.mock.calls[0][1].errors).toBe(errors);
 			expect(props.onTrigger.mock.calls[0][1].schema).toBe(schema);
+			expect(props.onTrigger.mock.calls[0][1].value).toBe(value);
 		});
 	});
 
