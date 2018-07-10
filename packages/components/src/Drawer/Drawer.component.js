@@ -106,7 +106,19 @@ export function subtitleComponent(subtitle) {
 	return <h2 title={subtitle}>{subtitle}</h2>;
 }
 
-function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }) {
+export function customActionComponent(actionIcon) {
+	if (!actionIcon) {
+		return null;
+	}
+	return (
+		<Action
+			className={classnames('tc-drawer-header-action', theme['tc-drawer-header-action'])}
+			{...actionIcon}
+		/>
+	);
+}
+
+function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent, customAction }) {
 	if (!title) {
 		return null;
 	}
@@ -116,6 +128,7 @@ function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }
 				<h1 title={title}>{title}</h1>
 				{subtitleComponent(subtitle)}
 				{cancelActionComponent(onCancelAction, getComponent)}
+				{customActionComponent(customAction)}
 			</div>
 			<div
 				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
@@ -132,6 +145,7 @@ DrawerTitle.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
+	customAction: PropTypes.object,
 };
 
 function DrawerContent({ children, className, ...rest }) {
