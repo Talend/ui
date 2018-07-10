@@ -178,7 +178,7 @@ describe('transform', () => {
 		expect(structure[0].children[0].toggled).toBe(true);
 	});
 
-	it('should unfold selected\'s parents', () => {
+	it("should unfold selected's parents", () => {
 		const props = {
 			...DEFAULT_PROPS,
 			state: Immutable.Map({
