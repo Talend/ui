@@ -23,10 +23,6 @@ function basicAuth(args) {
 		comment = 'no username';
 		status = 'KO';
 	}
-	if (!args['basicAuth.url']) {
-		comment = 'no url';
-		status = 'KO';
-	}
 	if (!status) {
 		if (args['basicAuth.username'] === args['basicAuth.password']) {
 			comment = 'Yes username === password';

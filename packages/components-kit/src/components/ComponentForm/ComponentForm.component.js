@@ -19,19 +19,6 @@ function toJS(immutableObject) {
 }
 
 export class TCompForm extends React.Component {
-	static displayName = 'ComponentForm';
-	static propTypes = {
-		...cmfConnect.propTypes,
-	};
-	static defaultProps = {
-		customTriggers: () => {},
-	};
-
-	static ON_CHANGE = 'TCOMP_FORM_CHANGE';
-	static ON_TRIGGER = 'TCOMP_FORM_TRIGGER';
-	static ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
-	static ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
-
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -139,6 +126,7 @@ export class TCompForm extends React.Component {
 		return {
 			reloadForm: ({ body }) => ({
 				...body,
+				// eslint-disable-next-line no-underscore-dangle
 				properties: { _datasetMetadata: this.state.properties._datasetMetadata },
 			}),
 		};
@@ -180,6 +168,17 @@ export class TCompForm extends React.Component {
 		return <UIForm {...props} />;
 	}
 }
+
+TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
+TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
+TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
+TCompForm.displayName = 'ComponentForm';
+TCompForm.propTypes = {
+	...cmfConnect.propTypes,
+};
+TCompForm.defaultProps = {
+	customTriggers: () => {},
+};
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
