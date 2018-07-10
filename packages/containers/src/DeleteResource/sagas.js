@@ -1,4 +1,3 @@
-import invariant from 'invariant';
 import get from 'lodash/get';
 import { take, put, race, call, select } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
@@ -100,8 +99,10 @@ export function* deleteResourceCancel() {
  * @param {string} sagaParams.redirectUrl url to redirect after delete action is done or cancel
  * @param {Array<String>} sagaParams.resourcePath optional
  * @param {string} sagaParams.routerParamsAttribute optional param in route to get the resource id
- * @param {string} sagaParams.collectionId optional param to specify collection which stores resources, if not provided, will use resourceType as collectionId
- * @param {string} sagaParams.resourceUri optionsal param, specify the uri to delete resource. if not provided, will use ':uri/:resourceType/:resourceId'
+ * @param {string} sagaParams.collectionId optional param to specify collection which stores
+ * resources,if not provided, will use resourceType as collectionId
+ * @param {string} sagaParams.resourceUri optionsal param, specify the uri to delete resource.
+ * if not provided, will use ':uri/:resourceType/:resourceId'
  */
 function getDeleteResourceSagaRouter({
 	uri,

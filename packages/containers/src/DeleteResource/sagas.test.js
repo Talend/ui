@@ -89,13 +89,14 @@ describe('internals', () => {
 			const gen = internals.deleteResourceValidate();
 			gen.next();
 			gen.next(action);
-			let effect = gen.next(resource).value;
+			const effect = gen.next(resource).value;
 			expect(effect.CALL).toBeDefined();
 			const httpAction = effect.CALL;
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 			expect(httpAction.args[0]).toBe('/run-profiles/advanced/profileId');
 		});
-		it('should use `${uri}/${resourceType}/${id}` as backend api to delete resource if no resourceUri provided', () => {
+		it('should use "${uri}/${resourceType}/${id}" as backend api to delete resource' +
+				' if no resourceUri provided', () => {
 			const action = {
 				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
 				data: {
@@ -111,7 +112,7 @@ describe('internals', () => {
 			const gen = internals.deleteResourceValidate();
 			gen.next();
 			gen.next(action);
-			let effect = gen.next(resource).value;
+			const effect = gen.next(resource).value;
 			expect(effect.CALL).toBeDefined();
 			const httpAction = effect.CALL;
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);

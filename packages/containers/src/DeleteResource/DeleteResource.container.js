@@ -23,8 +23,8 @@ export class DeleteResource extends React.Component {
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
 		resourceId: PropTypes.string,
-		resourceUri: PropTypes.string, // uri for delete resource. if not provided, then use ':uri/:resourceType/:resourceId'
-		collectionId: PropTypes.string, // collection which store resources.
+		resourceUri: PropTypes.string,
+		collectionId: PropTypes.string,
 		female: PropTypes.string,
 	};
 	static contextTypes = {
