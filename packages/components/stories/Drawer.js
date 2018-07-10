@@ -429,4 +429,25 @@ storiesOf('Drawer', module)
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
+	})
+	.addWithInfo('Custom action', () => {
+		const customAction = {
+			icon: 'talend-info-circle',
+			label: 'Custom action',
+			hideLabel: true,
+		};
+		const drawers = [
+			<Drawer.Container>
+				<Drawer.Title title="Custom action instead of close" customAction={customAction} />
+				<Drawer.Content>
+					<p>content</p>
+				</Drawer.Content>
+			</Drawer.Container>,
+		];
+		return (
+			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
+				<span>zone with drawer</span>
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
 	});
