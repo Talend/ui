@@ -88,10 +88,15 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	}
 }
 
-.tc-drawer-header-action-icon {
+.tc-drawer-header-action {
 	top: $padding-normal / 2;
 	right: 0;
 	position: absolute;
+
+	svg {
+		width: 2.4rem;
+		height: 2.4rem;
+	}
 }
 
 .tc-drawer-header-with-tabs {
