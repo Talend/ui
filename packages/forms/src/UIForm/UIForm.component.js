@@ -154,6 +154,7 @@ export class UIFormComponent extends React.Component {
 					schema,
 					properties: formData,
 					errors,
+					value,
 				});
 			}
 		}

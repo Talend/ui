@@ -1,6 +1,7 @@
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
+import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { CircularProgress } from '@talend/react-components';
@@ -11,11 +12,56 @@ export const DEFAULT_STATE = new Map({
 	dirty: false,
 });
 
+/**
+ * Convert immutable object to js object
+ */
 function toJS(immutableObject) {
 	if (!immutableObject) {
 		return null;
 	}
 	return immutableObject.toJS();
+}
+
+/**
+ * Insert titleMap name for corresponding value
+ * Its key is prefixed by '$', this means that it's an internal property
+ * @param schema The schema of the trigger input
+ * @param properties All the form properties
+ * @param value The input value
+ */
+function resolveNameForTitleMap({ schema, properties, value }) {
+	if (schema.titleMap) {
+		// Here we add a field side by side with the value
+		// to keep the title associated to the value
+		const info = schema.titleMap.find(titleMap => titleMap.value === value);
+
+		const parentKey = schema.key.slice();
+		const key = parentKey.pop();
+		const nameKey = `$${key}_name`;
+		const parentValue = getValue(properties, { key: parentKey });
+
+		if (info) {
+			parentValue[nameKey] = info.name;
+		} else {
+			delete parentValue[nameKey];
+		}
+	}
+}
+
+/**
+ * Reset the form data
+ * - keep the metadata properties
+ * - remove the runtime properties
+ * @param {object} body The new uiSpec
+ * @param {object} properties All properties at trigger time
+ * @returns {object} The uiSpec with only the metadata properties
+ */
+function keepOnlyDatasetMetadataProperties({ body, properties }) {
+	return {
+		...body,
+		// eslint-disable-next-line no-underscore-dangle
+		properties: { _datasetMetadata: properties._datasetMetadata },
+	};
 }
 
 export class TCompForm extends React.Component {
@@ -27,7 +73,6 @@ export class TCompForm extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
-		this.getTriggers = this.getTriggers.bind(this);
 		this.setupTrigger(props);
 
 		this.getMemoizedJsonSchema = memoizeOne(toJS);
@@ -40,7 +85,7 @@ export class TCompForm extends React.Component {
 			props.triggerURL !== this.props.triggerURL ||
 			props.customTriggers !== this.props.customTriggers
 		) {
-			this.trigger = this.setupTrigger(this.props);
+			this.setupTrigger(this.props);
 		}
 		if (this.props.definitionURL !== props.definitionURL) {
 			this.props.dispatch({
@@ -55,28 +100,10 @@ export class TCompForm extends React.Component {
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
-		const properties = data.properties;
-		if (data.schema.titleMap && data.value) {
-			// Here we add a field side by side with the value
-			// to keep the title associated to the value
-			const info = data.schema.titleMap.find(titleMap => titleMap.value === data.value);
-			let currentProp = properties;
-			let nameKey;
-			data.schema.key.forEach((key, index) => {
-				if (index !== data.schema.key.length - 1) {
-					currentProp = currentProp[key];
-				} else {
-					nameKey = `$${key}_name`;
-				}
-			});
 
-			if (info) {
-				currentProp[nameKey] = info.name;
-			} else {
-				delete currentProp[nameKey];
-			}
-		}
-		this.setState({ properties });
+		resolveNameForTitleMap(data);
+		this.setState({ properties: data.properties });
+
 		if (this.props.dispatchOnChange) {
 			this.props.dispatch({
 				type: TCompForm.ON_CHANGE,
@@ -88,14 +115,21 @@ export class TCompForm extends React.Component {
 					source: event,
 				},
 				data,
-				properties,
+				properties: data.properties,
 				uiSpec: this.getUISpec(),
 			});
 		}
 	}
 
 	onTrigger(event, payload) {
+		resolveNameForTitleMap(payload);
 		return this.trigger(event, payload).then(data => {
+			// Today there is a need to give control to the trigger to modify the properties
+			// But this will override what user change in the meantime
+			// need to rethink that, there are lots of potential issues :
+			// - race conditions,
+			// - trigger result that is does not fit user entry anymore,
+			// - ...
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
@@ -118,18 +152,11 @@ export class TCompForm extends React.Component {
 	setupTrigger(props) {
 		this.trigger = kit.createTriggers({
 			url: props.triggerURL,
-			customRegistry: this.getTriggers(),
+			customRegistry: {
+				...props.customTriggers,
+				reloadForm: keepOnlyDatasetMetadataProperties,
+			},
 		});
-	}
-
-	getTriggers() {
-		return {
-			reloadForm: ({ body }) => ({
-				...body,
-				// eslint-disable-next-line no-underscore-dangle
-				properties: { _datasetMetadata: this.state.properties._datasetMetadata },
-			}),
-		};
 	}
 
 	getUISpec() {
@@ -175,9 +202,6 @@ TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
 TCompForm.displayName = 'ComponentForm';
 TCompForm.propTypes = {
 	...cmfConnect.propTypes,
-};
-TCompForm.defaultProps = {
-	customTriggers: () => {},
 };
 
 export default cmfConnect({

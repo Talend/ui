@@ -71,8 +71,7 @@
                     "widget": "text",
                     "conditions": [],
                     "title": "Name",
-                    "key": "_datasetMetadata.name",
-                    "required": false
+                    "key": "_datasetMetadata.name"
                 },
                 {
                     "schema": {
@@ -103,18 +102,15 @@
                             "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
                         }
                     ],
-                    "key": "_datasetMetadata.type",
-                    "required": false
+                    "key": "_datasetMetadata.type"
                 },
                 {
                     "widget": "textarea",
                     "conditions": [],
                     "title": "Description",
-                    "key": "_datasetMetadata.description",
-                    "required": false
+                    "key": "_datasetMetadata.description"
                 }
-            ],
-            "required": false
+            ]
         },
         {
             "placeholder": "dataStore",
@@ -140,8 +136,7 @@
                             ]
                         }
                     ],
-                    "key": "dataStore.url",
-                    "required": false
+                    "key": "dataStore.url"
                 },
                 {
                     "items": [
@@ -150,8 +145,7 @@
                             "widget": "text",
                             "conditions": [],
                             "title": "Username",
-                            "key": "dataStore.username",
-                            "required": false
+                            "key": "dataStore.username"
                         },
                         {
                             "widget": "text",
@@ -159,8 +153,7 @@
                             "conditions": [],
                             "title": "Password",
                             "type": "password",
-                            "key": "dataStore.password",
-                            "required": false
+                            "key": "dataStore.password"
                         }
                     ],
                     "widget": "columns"
@@ -191,8 +184,7 @@
                     ],
                     "key": "button_healthcheck_dataStore"
                 }
-            ],
-            "required": false
+            ]
         }
     ]
 }

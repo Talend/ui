@@ -35,13 +35,15 @@ function basicAuth(args) {
 	return { comment, status };
 }
 
-function urlValidation(args) {
-	const parsed = url.parse(args.arg0);
-	if (!parsed.protocol) {
-		return { comment: `no protocol: ${args.arg0}`, status: 'KO' };
-	}
-	if (!parsed.hostname) {
-		return { comment: `no hostname: ${args.arg0}`, status: 'KO' };
+function urlValidation({ arg0 }) {
+	if (arg0) {
+		const parsed = url.parse(arg0);
+		if (!parsed.protocol) {
+			return { comment: `no protocol: ${arg0}`, status: 'KO' };
+		}
+		if (!parsed.hostname) {
+			return { comment: `no hostname: ${arg0}`, status: 'KO' };
+		}
 	}
 	return { status: 'OK' };
 }
@@ -50,7 +52,10 @@ function guessTableSchema() {
 	return { status: 'OK' };
 }
 
-function reloadForm() {
+function reloadForm({ id }) {
+	if (!id) {
+		return add.ui;
+	}
 	return basic;
 }
 
