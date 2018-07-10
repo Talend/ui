@@ -13,6 +13,7 @@ describe('TreeView', () => {
 	let context;
 	let state;
 	let data;
+
 	beforeEach(() => {
 		context = mock.context();
 		state = mock.state();
@@ -22,10 +23,12 @@ describe('TreeView', () => {
 		]);
 		context.store.getState = () => state;
 	});
+
 	it('should render the data', () => {
 		const wrapper = shallow(<TreeView.WrappedComponent data={data} />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should setState onClick', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
@@ -54,6 +57,7 @@ describe('TreeView', () => {
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
+
 	it('should close if re onClick', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
@@ -100,6 +104,7 @@ describe('TreeView', () => {
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
+
 	it('should unselect onSelect twice', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
@@ -138,6 +143,7 @@ describe('transform', () => {
 	it('should return undefined if no items', () => {
 		expect(transform()).toBeUndefined();
 	});
+
 	it('add selected and toggled boolean every where', () => {
 		const props = {
 			...DEFAULT_PROPS,
@@ -170,5 +176,38 @@ describe('transform', () => {
 		expect(structure[0].children[0].id).toBe(11);
 		expect(structure[0].children[0].selected).toBe(true);
 		expect(structure[0].children[0].toggled).toBe(true);
+	});
+
+	it('should unfold selected\'s parents', () => {
+		const props = {
+			...DEFAULT_PROPS,
+			state: Immutable.Map({
+				opened: Immutable.List([1, 11, 111]),
+				selectedId: 111,
+			}),
+		};
+		const items = [
+			{
+				id: 1,
+				name: '1',
+				children: [
+					{
+						id: 11,
+						name: '11',
+						children: [{ id: 111, name: '1111' }],
+					},
+				],
+			},
+			{
+				id: 2,
+				name: '2',
+			},
+		];
+
+		const structure = transform(items, props);
+		expect(structure[0].toggled).toBe(true);
+		expect(structure[0].children[0].toggled).toBe(true);
+		expect(structure[0].children[0].children[0].toggled).toBe(true);
+		expect(structure[1].toggled).toBe(false);
 	});
 });
