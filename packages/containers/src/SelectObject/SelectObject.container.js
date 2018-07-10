@@ -8,6 +8,10 @@ import Component from './SelectObject.component';
 
 export const DISPLAY_NAME = 'Container(SelectObject)';
 export const DEFAULT_STATE = new Immutable.Map({});
+export const FILTER_MODE = {
+	ALL: 'ALL',
+	LEAF: 'LEAF',
+};
 
 function noop() {}
 
@@ -88,6 +92,39 @@ export function filter(
 	return items;
 }
 
+
+/**
+ * apply query on every elements, return them on a single list,
+ * @return item in items found with the id
+ * @param {Object} options {query, items, idAttr }
+ */
+export function filterAll(
+	items = new List(),
+	query = '',
+	{ nameAttr = 'name', onMatch = noop } = {},
+	currentPosition = 'root',
+) {
+	let results = new List();
+
+	if (query) {
+		items.forEach(item => {
+			const name = item.get(nameAttr, '');
+			const children = item.get('children', null);
+			if (name.toLowerCase().includes(query.toLowerCase())) {
+				onMatch(item);
+				results = results.push(item.set('currentPosition', currentPosition));
+			}
+			if (children) {
+				results = results.concat(
+					filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`)
+				);
+			}
+		});
+	}
+
+	return results;
+}
+
 class SelectObject extends React.Component {
 	static displayName = DISPLAY_NAME;
 	static propTypes = {
@@ -98,6 +135,7 @@ class SelectObject extends React.Component {
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		breadCrumbsRootLabel: PropTypes.string,
+		filterMode: PropTypes.oneOfType(FILTER_MODE),
 	};
 	static defaultProps = {
 		sourceData: new Immutable.List(),
@@ -126,6 +164,7 @@ class SelectObject extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
+		const filterMethod = this.props.filterMode === FILTER_MODE.ALL ? filterAll : filter;
 		const matches = [];
 		let selectedId = state.get('selectedId') || props.selectedId;
 		function addMatch(item) {
@@ -133,7 +172,7 @@ class SelectObject extends React.Component {
 		}
 
 		if (props.query) {
-			props.filteredData = this.filter(
+			props.filteredData = filterMethod(
 				props.sourceData,
 				props.query,
 				{
