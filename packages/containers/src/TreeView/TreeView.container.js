@@ -42,21 +42,35 @@ function selectWrapper(prevProps, id) {
  * @param {Object} props the configuration of the Tree container
  * @return {Array} of items ready to be put as the structure of TreeView component
  */
-export function transform(items, props) {
+export function transform(items, props, parent) {
 	if (!items) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
 	const selectedId = props[SELECTED_ATTR] || (state && state.get(SELECTED_ATTR));
 	const opened = state && state.get(OPENED_ATTR).toJS();
-	return items.map(item => ({
-		...item,
-		id: item[props.idAttr],
-		selected: item[props.idAttr] === selectedId,
-		toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
-		name: item[props.nameAttr],
-		children: transform(item[props.childrenAttr], props),
-	}));
+
+	return items.map(item => {
+		const selected = item[props.idAttr] === selectedId;
+		const elem = {
+			...item,
+			id: item[props.idAttr],
+			toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
+			name: item[props.nameAttr],
+			selected,
+			parent,
+		};
+
+		elem.children = transform(item[props.childrenAttr], props, elem);
+
+		if (selected) {
+			for (let current = elem; current.parent; current = current.parent) {
+				current.parent.toggled = true;
+			}
+		}
+
+		return elem;
+	});
 }
 
 /**

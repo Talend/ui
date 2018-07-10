@@ -11,6 +11,7 @@ const ExampleTreeView = {
 				nameAttr="label"
 				onToggleActionCreator="object:view"
 				onSelectActionCreator="object:view"
+				selectedId={411}
 				noHeader
 			/>
 		</div>
