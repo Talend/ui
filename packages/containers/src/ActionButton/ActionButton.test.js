@@ -47,7 +47,7 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(wrapper.find(ActionButton).length).toBe(1);
 	});
 
-	it('should render whithout onClick', () => {
+	it('should render without onClick', () => {
 		const props = {
 			actionId: 'menu:article',
 			extra: 'foo',
@@ -59,7 +59,7 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(wrapper.getElement().props).toEqual(props);
 	});
 
-	it('should render whith onClick when props has a payload', () => {
+	it('should render with onClick when props has a payload', () => {
 		const props = {
 			actionId: 'menu:article',
 			extra: 'foo',
@@ -72,7 +72,7 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(wrapper.getElement().props).toEqual({ ...props, onClick: jasmine.any(Function) });
 	});
 
-	it('should render whith onClick when props has a actioncreator', () => {
+	it('should render with onClick when props has a actioncreator', () => {
 		const props = {
 			actionId: 'menu:article',
 			extra: 'foo',
