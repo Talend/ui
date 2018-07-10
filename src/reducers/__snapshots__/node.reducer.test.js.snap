@@ -11,6 +11,7 @@ Object {
   "nodes": Object {
     "id": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -65,6 +66,7 @@ Object {
   "nodes": Object {
     "id": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -637,6 +639,7 @@ Object {
   "nodes": Object {
     "id1": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -663,6 +666,7 @@ Object {
     },
     "id2": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -689,6 +693,7 @@ Object {
     },
     "id3": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},

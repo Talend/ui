@@ -131,11 +131,13 @@ export const removeNodeGraphicalAttribute = (nodeId, graphicalAttributesKey) => 
  * Give the ability to set data onto a node
  * @param {string} nodeId
  * @param {Object} data
+ * @param {boolean} bySubmit Flag to indicates that the action was triggered by a manual user action
  */
-export const setNodeData = (nodeId, data) => ({
+export const setNodeData = (nodeId, data, bySubmit) => ({
 	type: FLOWDESIGNER_NODE_SET_DATA,
 	nodeId,
 	data,
+	bySubmit,
 });
 
 /**

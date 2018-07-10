@@ -55,6 +55,7 @@ Array [
 exports[`Check that node action creators generate proper action objects and perform checking setNodeData 1`] = `
 Array [
   Object {
+    "bySubmit": undefined,
     "data": Object {
       "type": "test",
     },

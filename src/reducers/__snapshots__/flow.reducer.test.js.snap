@@ -13,6 +13,7 @@ Object {
   "nodes": Object {
     "node2": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -39,6 +40,7 @@ Object {
     },
     "nodeId": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -124,6 +126,7 @@ Object {
   "nodes": Object {
     "nodeId": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -199,6 +202,7 @@ Object {
   "nodes": Object {
     "node2": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
@@ -225,6 +229,7 @@ Object {
     },
     "nodeId": Object {
       "data": Object {
+        "datasetInfo": Object {},
         "description": "",
         "label": "",
         "properties": Object {},
