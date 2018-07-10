@@ -2,18 +2,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
-  26:1  error  Line 26 exceeds the maximum line length of 100  max-len
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.js
-    1:8  error  'invariant' is defined but never used            no-unused-vars
-  103:1  error  Line 103 exceeds the maximum line length of 100  max-len
-  104:1  error  Line 104 exceeds the maximum line length of 100  max-len
-
 /home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.test.js
-   92:8  error  'effect' is never reassigned. Use 'const' instead  prefer-const
-   98:6  error  Unexpected template string expression              no-template-curly-in-string
-  114:8  error  'effect' is never reassigned. Use 'const' instead  prefer-const
+  99:4  error  Unexpected template string expression  no-template-curly-in-string
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
@@ -24,5 +14,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 4 problems (4 errors, 0 warnings)
 
