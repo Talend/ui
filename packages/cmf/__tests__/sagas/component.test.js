@@ -7,7 +7,7 @@ import CONST from '../../src/constant';
 describe('sagas.component', () => {
 	it('should cancel one saga ', () => {
 		// given
-		const testAction = { type: 'TEST', saga: 'my-saga', event: { componentId: 42 } };
+		const testAction = { type: 'TEST', saga: 'my-saga', componentId: 'myComponent', event: { componentId: 42 } };
 		function* saga() {}
 		const reg = registry.getRegistry();
 		reg['SAGA:my-saga'] = saga;
@@ -16,7 +16,7 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, undefined));
+		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }));
 		const next = gen.next(task).value;
 		expect(next.TAKE).toBeDefined();
 		expect(
@@ -52,7 +52,7 @@ describe('sagas.component', () => {
 		const testAction = {
 			type: 'TEST',
 			saga: 'my-saga',
-			props: { myProps: 'MyProps' },
+			componentId: 'myComponent',
 			event: { componentId: 42 },
 		};
 		function* saga() {}
@@ -63,10 +63,32 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, { myProps: 'MyProps' }));
+		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }));
 		const next = gen.next(task).value;
 		expect(next.TAKE).toBeDefined();
 		expect(gen.next({ event: { componentId: 42 } }).value).toEqual(cancel(task));
+	});
+
+	it('should onSagaStart support action.saga as object', () => {
+		// given
+		const testAction = {
+			type: 'TEST',
+			saga: {
+				id: 'my-saga',
+				args: ['foo', { bar: true }],
+			},
+			componentId: 'myComponent',
+			event: { componentId: 42 },
+		};
+		function* saga() {}
+		const reg = registry.getRegistry();
+		reg['SAGA:my-saga'] = saga;
+
+		// when
+		const gen = onSagaStart(testAction);
+
+		// then
+		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }, 'foo', { bar: true }));
 	});
 
 	it('should handle takeEvery didmount', () => {
