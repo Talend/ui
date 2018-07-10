@@ -92,7 +92,6 @@ export function filter(
 	return items;
 }
 
-
 /**
  * apply query on every elements, return them on a single list,
  * @return item in items found with the id
@@ -116,7 +115,7 @@ export function filterAll(
 			}
 			if (children) {
 				results = results.concat(
-					filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`)
+					filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`),
 				);
 			}
 		});
