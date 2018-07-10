@@ -95,29 +95,36 @@ describe('internals', () => {
 			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
 			expect(httpAction.args[0]).toBe('/run-profiles/advanced/profileId');
 		});
-		it('should use "${uri}/${resourceType}/${id}" as backend api to delete resource' +
-				' if no resourceUri provided', () => {
-			const action = {
-				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
-				data: {
-					model: {
-						uri: '/services',
-						resourceType: 'run-profiles',
-						id: 'runProfileId',
+		it(
+			'should use "${uri}/${resourceType}/${id}" as backend api to delete resource' +
+				' if no resourceUri provided',
+			() => {
+				const action = {
+					type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+					data: {
+						model: {
+							uri: '/services',
+							resourceType: 'run-profiles',
+							id: 'runProfileId',
+						},
 					},
-				},
-			};
-			const resource = new Map({ id: 'profileId', type: 'advanced', name: 'deleteThisRunProfile' });
+				};
+				const resource = new Map({
+					id: 'profileId',
+					type: 'advanced',
+					name: 'deleteThisRunProfile',
+				});
 
-			const gen = internals.deleteResourceValidate();
-			gen.next();
-			gen.next(action);
-			const effect = gen.next(resource).value;
-			expect(effect.CALL).toBeDefined();
-			const httpAction = effect.CALL;
-			expect(httpAction.fn).toBe(cmf.sagas.http.delete);
-			expect(httpAction.args[0]).toBe('/services/run-profiles/runProfileId');
-		});
+				const gen = internals.deleteResourceValidate();
+				gen.next();
+				gen.next(action);
+				const effect = gen.next(resource).value;
+				expect(effect.CALL).toBeDefined();
+				const httpAction = effect.CALL;
+				expect(httpAction.fn).toBe(cmf.sagas.http.delete);
+				expect(httpAction.args[0]).toBe('/services/run-profiles/runProfileId');
+			},
+		);
 		it('should use collectionId to remove resource in state if provided', () => {
 			const action = {
 				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
