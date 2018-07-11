@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import theme from './YearPicker.scss';
-import IconButton from '../../IconButton';
+import IncrementableScrollList from '../IncrementableScrollList';
 import PickerAction from '../../PickerAction';
+
+const yearRange = 300;
 
 class YearPicker extends React.Component {
 
@@ -10,15 +11,23 @@ class YearPicker extends React.Component {
 		super(props);
 
 		const now = new Date();
-		const middleYear = props.selectedYear !== undefined
-			? props.selectedYear
-			: now.getFullYear();
+		const middleYear = now.getFullYear();
 
-		const firstYear = middleYear - 2;
+		const firstYear = middleYear - Math.ceil(yearRange / 2);
 
-		this.years = (new Array(5))
+		this.years = (new Array(yearRange))
 			.fill(0)
-			.map((_, i) => firstYear + i);
+			.map((_, i) => firstYear + i)
+			.map(year => ({
+				id: year,
+				label: year.toString(),
+			}));
+
+		const initialYear = props.selectedYear === undefined
+			? middleYear
+			: props.selectedYear;
+
+		this.initialIndex = this.years.findIndex(info => info.id === initialYear) - 2;
 
 		this.isSelected = this.isSelected.bind(this);
 	}
@@ -28,40 +37,24 @@ class YearPicker extends React.Component {
 	}
 
 	render() {
+		const itemRenderer = item => {
+			const { id, label } = item;
+			return (
+				<PickerAction
+					aria-label={`Select '${label}'`}
+					isSelected={this.isSelected(id)}
+					label={label}
+					onClick={() => this.props.onSelect(id)}
+				/>
+			);
+		};
+
 		return (
-			<div className={theme.container}>
-				<IconButton
-					icon={{
-						name: 'talend-chevron-left',
-						transform: 'rotate-90',
-					}}
-					className={theme['action-up']}
-					aria-label="Scroll to previous years"
-				/>
-				<div className={theme.years}>
-					{this.years.map(year =>
-						<div
-							key={year}
-							className={theme.year}
-						>
-							<PickerAction
-								aria-label={`Select '${year}'`}
-								isSelected={this.isSelected(year)}
-								label={year.toString()}
-								onClick={() => this.props.onSelect(year)}
-							/>
-						</div>
-					)}
-				</div>
-				<IconButton
-					icon={{
-						name: 'talend-chevron-left',
-						transform: 'rotate-270',
-					}}
-					className={theme['action-down']}
-					aria-label="Scroll to next years"
-				/>
-			</div>
+			<IncrementableScrollList
+				items={this.years}
+				initialIndex={this.initialIndex}
+				itemRenderer={itemRenderer}
+			/>
 		);
 	}
 }

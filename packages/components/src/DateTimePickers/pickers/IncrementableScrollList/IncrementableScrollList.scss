@@ -8,13 +8,7 @@
         flex: 1;
     }
 
-    .years {
-        display: flex;
+    .items {
         flex: 5;
-        flex-direction: column;
-
-        .year {
-            flex: 1;
-        }
     }
 }
