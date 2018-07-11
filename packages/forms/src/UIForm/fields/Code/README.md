@@ -1,19 +1,19 @@
-# Code TODO
+# Code
 
-This widget allows you to render a text/number input.
+This widget allows you to render an ace-editor within a form.
 
 **Json Schema**
 
 | Property | Description |
 |---|---|
-|  |  |
+| type | `string` |
 
 ```json
 {
   "type": "object",
-  "title": "Comment",
+  "title": "Code form",
   "properties": {
-    "lastname": {
+    "myPythonCode": {
       "type": "string"
     }
   }
@@ -24,29 +24,30 @@ This widget allows you to render a text/number input.
 
 | Property | Description | Default |
 |---|---|---|
-| widget | `text` | `text` |
-| title | The title to display above field |  |
-| type | The input type. You can for example pass `password` | The jsonSchema type |
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
-| placeholder | Text to display as placeholder |  |
+| options | Object that is spread as [react-ace props](https://github.com/securingsincity/react-ace/blob/master/docs/Ace.md). |  |
 | readOnly | Set the input as non modifiable | `false` |
+| title | The title to display above editor |  |
+| widget | `code` | `code` |
 
 ```json
 [
   {
-    "key": "lastname",
-    "widget": "text",
+    "key": "myPythonCode",
+    "widget": "code",
     "title": "Last name",
     "autoFocus": false,
     "disabled": false,
-    "placeholder": "Type here...",
-    "readOnly": false
+    "readOnly": false,
+    "options": {
+	  "language": "python",
+	  "height": "200px"
+    }
   }
 ]
 ```
 
 **Result**
 
-![Text](screenshot.gif)
-![Text with error](screenshot-with-error.png)
+![Code](screenshot.gif)

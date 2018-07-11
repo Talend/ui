@@ -74,4 +74,23 @@ describe('Code field', () => {
 		// then
 		expect(props.onFinish).toBeCalledWith(event, { schema });
 	});
+
+	it('should add the field id to the textarea on load', () => {
+		// given
+		const wrapper = shallow(<Code {...props} />);
+		const textAreaSetAttribute = jest.fn();
+		const editor = {
+			textInput: {
+				getElement() {
+					return { setAttribute: textAreaSetAttribute };
+				},
+			},
+		};
+
+		// when
+		wrapper.find('ReactAce').prop('onLoad')(editor);
+
+		// then
+		expect(textAreaSetAttribute).toBeCalledWith('id', props.id);
+	});
 });
