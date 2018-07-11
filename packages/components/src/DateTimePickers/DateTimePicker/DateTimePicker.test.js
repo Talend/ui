@@ -18,25 +18,55 @@ describe('DateTimePicker', () => {
 		restoreDate();
 	});
 
-	it('should render with the DateTimeView', () => {
-		const wrapper = shallow(<DateTimePicker />);
+	describe('view switching', () => {
+		it('should render with the DateTimeView based on state', () => {
+			const wrapper = shallow(<DateTimePicker
+			/>);
 
-		wrapper.setState({
-			isDateTimeView: true,
+			wrapper.setState({
+				isDateTimeView: true,
+			});
+
+			expect(wrapper.find(DateTimeView).exists()).toBe(true);
+			expect(wrapper.find(MonthYearView).exists()).toBe(false);
 		});
 
-		expect(wrapper.find(DateTimeView).exists()).toBe(true);
-		expect(wrapper.find(MonthYearView).exists()).toBe(false);
-	});
+		it('should render with the MonthYearView on state', () => {
+			const wrapper = shallow(<DateTimePicker
+			/>);
 
-	it('should render with the MonthYearView', () => {
-		const wrapper = shallow(<DateTimePicker />);
+			wrapper.setState({
+				isDateTimeView: false,
+			});
 
-		wrapper.setState({
-			isDateTimeView: false,
+			expect(wrapper.find(DateTimeView).exists()).toBe(false);
+			expect(wrapper.find(MonthYearView).exists()).toBe(true);
 		});
 
-		expect(wrapper.find(DateTimeView).exists()).toBe(false);
-		expect(wrapper.find(MonthYearView).exists()).toBe(true);
+		it('should switch state to MonthYearView when header title of DateTimeView is clicked', () => {
+			const wrapper = shallow(<DateTimePicker
+			/>);
+
+			wrapper.setState({
+				isDateTimeView: true,
+			});
+
+			const clickTitleHandler = wrapper.find(DateTimeView).prop('onClickTitle');
+			clickTitleHandler();
+			expect(wrapper.state('isDateTimeView')).toBe(false);
+		});
+
+		it('should switch state to DateTimeView when header back action of MonthYearView is clicked', () => {
+			const wrapper = shallow(<DateTimePicker
+			/>);
+
+			wrapper.setState({
+				isDateTimeView: false,
+			});
+
+			const clickBackHandler = wrapper.find(MonthYearView).prop('onClickBack');
+			clickBackHandler();
+			expect(wrapper.state('isDateTimeView')).toBe(true);
+		});
 	});
 });
