@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePicker should render 1`] = `
+<IncrementableScrollList
+  initialIndex={81}
+  itemRenderer={[Function]}
+  items={
+    Array [
+      Object {
+        "label": "00:00",
+        "time": 0,
+      },
+      Object {
+        "label": "00:15",
+        "time": 15,
+      },
+      Object {
+        "label": "00:30",
+        "time": 30,
+      },
+      Object {
+        "label": "00:45",
+        "time": 45,
+      },
+      Object {
+        "label": "01:00",
+        "time": 60,
+      },
+      Object {
+        "label": "01:15",
+        "time": 75,
+      },
+      Object {
+        "label": "01:30",
+        "time": 90,
+      },
+      Object {
+        "label": "01:45",
+        "time": 105,
+      },
+      Object {
+        "label": "02:00",
+        "time": 120,
+      },
+      Object {
+        "label": "02:15",
+        "time": 135,
+      },
+      Object {
+        "label": "02:30",
+        "time": 150,
+      },
+      Object {
+        "label": "02:45",
+        "time": 165,
+      },
+      Object {
+        "label": "03:00",
+        "time": 180,
+      },
+      Object {
+        "label": "03:15",
+        "time": 195,
+      },
+      Object {
+        "label": "03:30",
+        "time": 210,
+      },
+      Object {
+        "label": "03:45",
+        "time": 225,
+      },
+      Object {
+        "label": "04:00",
+        "time": 240,
+      },
+      Object {
+        "label": "04:15",
+        "time": 255,
+      },
+      Object {
+        "label": "04:30",
+        "time": 270,
+      },
+      Object {
+        "label": "04:45",
+        "time": 285,
+      },
+      Object {
+        "label": "05:00",
+        "time": 300,
+      },
+      Object {
+        "label": "05:15",
+        "time": 315,
+      },
+      Object {
+        "label": "05:30",
+        "time": 330,
+      },
+      Object {
+        "label": "05:45",
+        "time": 345,
+      },
+      Object {
+        "label": "06:00",
+        "time": 360,
+      },
+      Object {
+        "label": "06:15",
+        "time": 375,
+      },
+      Object {
+        "label": "06:30",
+        "time": 390,
+      },
+      Object {
+        "label": "06:45",
+        "time": 405,
+      },
+      Object {
+        "label": "07:00",
+        "time": 420,
+      },
+      Object {
+        "label": "07:15",
+        "time": 435,
+      },
+      Object {
+        "label": "07:30",
+        "time": 450,
+      },
+      Object {
+        "label": "07:45",
+        "time": 465,
+      },
+      Object {
+        "label": "08:00",
+        "time": 480,
+      },
+      Object {
+        "label": "08:15",
+        "time": 495,
+      },
+      Object {
+        "label": "08:30",
+        "time": 510,
+      },
+      Object {
+        "label": "08:45",
+        "time": 525,
+      },
+      Object {
+        "label": "09:00",
+        "time": 540,
+      },
+      Object {
+        "label": "09:15",
+        "time": 555,
+      },
+      Object {
+        "label": "09:30",
+        "time": 570,
+      },
+      Object {
+        "label": "09:45",
+        "time": 585,
+      },
+      Object {
+        "label": "10:00",
+        "time": 600,
+      },
+      Object {
+        "label": "10:15",
+        "time": 615,
+      },
+      Object {
+        "label": "10:30",
+        "time": 630,
+      },
+      Object {
+        "label": "10:45",
+        "time": 645,
+      },
+      Object {
+        "label": "11:00",
+        "time": 660,
+      },
+      Object {
+        "label": "11:15",
+        "time": 675,
+      },
+      Object {
+        "label": "11:30",
+        "time": 690,
+      },
+      Object {
+        "label": "11:45",
+        "time": 705,
+      },
+      Object {
+        "label": "12:00",
+        "time": 720,
+      },
+      Object {
+        "label": "12:15",
+        "time": 735,
+      },
+      Object {
+        "label": "12:30",
+        "time": 750,
+      },
+      Object {
+        "label": "12:45",
+        "time": 765,
+      },
+      Object {
+        "label": "13:00",
+        "time": 780,
+      },
+      Object {
+        "label": "13:15",
+        "time": 795,
+      },
+      Object {
+        "label": "13:30",
+        "time": 810,
+      },
+      Object {
+        "label": "13:45",
+        "time": 825,
+      },
+      Object {
+        "label": "14:00",
+        "time": 840,
+      },
+      Object {
+        "label": "14:15",
+        "time": 855,
+      },
+      Object {
+        "label": "14:30",
+        "time": 870,
+      },
+      Object {
+        "label": "14:45",
+        "time": 885,
+      },
+      Object {
+        "label": "15:00",
+        "time": 900,
+      },
+      Object {
+        "label": "15:15",
+        "time": 915,
+      },
+      Object {
+        "label": "15:30",
+        "time": 930,
+      },
+      Object {
+        "label": "15:45",
+        "time": 945,
+      },
+      Object {
+        "label": "16:00",
+        "time": 960,
+      },
+      Object {
+        "label": "16:15",
+        "time": 975,
+      },
+      Object {
+        "label": "16:30",
+        "time": 990,
+      },
+      Object {
+        "label": "16:45",
+        "time": 1005,
+      },
+      Object {
+        "label": "17:00",
+        "time": 1020,
+      },
+      Object {
+        "label": "17:15",
+        "time": 1035,
+      },
+      Object {
+        "label": "17:30",
+        "time": 1050,
+      },
+      Object {
+        "label": "17:45",
+        "time": 1065,
+      },
+      Object {
+        "label": "18:00",
+        "time": 1080,
+      },
+      Object {
+        "label": "18:15",
+        "time": 1095,
+      },
+      Object {
+        "label": "18:30",
+        "time": 1110,
+      },
+      Object {
+        "label": "18:45",
+        "time": 1125,
+      },
+      Object {
+        "label": "19:00",
+        "time": 1140,
+      },
+      Object {
+        "label": "19:15",
+        "time": 1155,
+      },
+      Object {
+        "label": "19:30",
+        "time": 1170,
+      },
+      Object {
+        "label": "19:45",
+        "time": 1185,
+      },
+      Object {
+        "label": "20:00",
+        "time": 1200,
+      },
+      Object {
+        "label": "20:15",
+        "time": 1215,
+      },
+      Object {
+        "label": "20:30",
+        "time": 1230,
+      },
+      Object {
+        "label": "20:45",
+        "time": 1245,
+      },
+      Object {
+        "label": "21:00",
+        "time": 1260,
+      },
+      Object {
+        "label": "21:15",
+        "time": 1275,
+      },
+      Object {
+        "label": "21:30",
+        "time": 1290,
+      },
+      Object {
+        "label": "21:45",
+        "time": 1305,
+      },
+      Object {
+        "label": "22:00",
+        "time": 1320,
+      },
+      Object {
+        "label": "22:15",
+        "time": 1335,
+      },
+      Object {
+        "label": "22:30",
+        "time": 1350,
+      },
+      Object {
+        "label": "22:45",
+        "time": 1365,
+      },
+      Object {
+        "label": "23:00",
+        "time": 1380,
+      },
+      Object {
+        "label": "23:15",
+        "time": 1395,
+      },
+      Object {
+        "label": "23:30",
+        "time": 1410,
+      },
+      Object {
+        "label": "23:45",
+        "time": 1425,
+      },
+    ]
+  }
+/>
+`;

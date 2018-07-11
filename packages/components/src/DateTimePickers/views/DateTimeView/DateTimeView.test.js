@@ -13,6 +13,7 @@ describe('DateTimeView', () => {
 			onClickTitle={() => {}}
 			onSelectMonthYear={() => {}}
 			onSelectDate={() => {}}
+			onSelectTime={() => {}}
 		/>);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -28,6 +29,7 @@ describe('DateTimeView', () => {
 			onClickTitle={onClickTitle}
 			onSelectMonthYear={() => {}}
 			onSelectDate={() => {}}
+			onSelectTime={() => {}}
 		/>);
 
 		const titleAction = wrapper
@@ -65,6 +67,7 @@ describe('DateTimeView', () => {
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
+				onSelectTime={() => {}}
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
@@ -88,6 +91,7 @@ describe('DateTimeView', () => {
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
+				onSelectTime={() => {}}
 			/>);
 
 			const nextAction = getNextAction(wrapper);
@@ -110,6 +114,7 @@ describe('DateTimeView', () => {
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
+				onSelectTime={() => {}}
 			/>);
 
 			const previousAction = getPreviousAction(wrapper);
@@ -132,6 +137,7 @@ describe('DateTimeView', () => {
 				onClickTitle={() => {}}
 				onSelectMonthYear={onSelectMonthYear}
 				onSelectDate={() => {}}
+				onSelectTime={() => {}}
 			/>);
 
 			const nextAction = getNextAction(wrapper);
