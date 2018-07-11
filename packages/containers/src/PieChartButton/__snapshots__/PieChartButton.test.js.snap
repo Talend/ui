@@ -1,13 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PieChartButton container should render 1`] = `
-<PieChartButton
-  available={true}
-  display="small"
+<Translate(PieChartButton)
+  available={undefined}
   inProgress={undefined}
-  labelIndex={0}
   loading={undefined}
-  minimumPercentage={5}
   model={
     Array [
       Object {
@@ -34,20 +31,14 @@ exports[`PieChartButton container should render 1`] = `
   }
   onClick={[Function]}
   overlayComponent={null}
-  overlayId="pie-chart-popover"
-  overlayPlacement="bottom"
-  tooltipPlacement="top"
 />
 `;
 
 exports[`PieChartButton container should render 2`] = `
-<PieChartButton
-  available={true}
-  display="small"
+<Translate(PieChartButton)
+  available={undefined}
   inProgress={undefined}
-  labelIndex={0}
   loading={undefined}
-  minimumPercentage={5}
   model={
     Array [
       Object {
@@ -74,8 +65,5 @@ exports[`PieChartButton container should render 2`] = `
   }
   onClick={[Function]}
   overlayComponent={null}
-  overlayId="pie-chart-popover"
-  overlayPlacement="bottom"
-  tooltipPlacement="top"
 />
 `;
