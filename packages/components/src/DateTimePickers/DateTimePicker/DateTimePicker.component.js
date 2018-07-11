@@ -17,6 +17,8 @@ class DateTimePicker extends React.Component {
 				monthIndex: now.getMonth(),
 				year: now.getFullYear(),
 			},
+			selectedDate: props.selectedDate,
+			selectedTime: props.selectedTime,
 		};
 
 		this.setDateTimeView = this.setView.bind(this, true);
@@ -28,12 +30,28 @@ class DateTimePicker extends React.Component {
 		this.onSelectTime = this.onSelectTime.bind(this);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const needSelectedDateUpdate = this.props.selectedDate !== nextProps.selectedDate;
+		const needSelectedTimeUpdate = this.props.selectedTime !== nextProps.selectedTime;
+
+		if (needSelectedDateUpdate || needSelectedTimeUpdate) {
+			this.setState({
+				...(needSelectedDateUpdate && { selectedDate: nextProps.selectedDate }),
+				...(needSelectedTimeUpdate && { selectedTime: nextProps.selectedTime }),
+			});
+		}
+	}
+
 	onSelectDate(selectedDate) {
-		this.setState({ selectedDate });
+		this.setState({ selectedDate }, () => {
+			this.trySubmit();
+		});
 	}
 
 	onSelectTime(selectedTime) {
-		this.setState({ selectedTime });
+		this.setState({ selectedTime }, () => {
+			this.trySubmit();
+		});
 	}
 
 	onSelectCalendarMonthYear(newCalendar) {
@@ -55,6 +73,20 @@ class DateTimePicker extends React.Component {
 
 	setView(isDateTimeView) {
 		this.setState({ isDateTimeView });
+	}
+
+	trySubmit() {
+		if (this.state.selectedDate !== undefined &&
+			this.state.selectedTime !== undefined) {
+			this.submit();
+		}
+	}
+
+	submit() {
+		this.props.onSubmit({
+			date: this.state.selectedDate,
+			time: this.state.selectedTime,
+		});
 	}
 
 	render() {
@@ -89,6 +121,9 @@ class DateTimePicker extends React.Component {
 }
 
 DateTimePicker.propTypes = {
+	selectedDate: PropTypes.instanceOf(Date),
+	selectedTime: PropTypes.number,
+	onSubmit: PropTypes.func.isRequired,
 };
 
 export default DateTimePicker;
