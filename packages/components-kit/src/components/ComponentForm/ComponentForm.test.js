@@ -13,9 +13,13 @@ import {
 jest.mock('component-kit.js', () => ({
 	createTriggers({ url, customRegistry }) {
 		function trigger() {
-			return Promise.resolve(this.data || {});
+			trigger.isCalled = true;
+			return Promise.resolve(trigger.data || {});
 		}
 		trigger.mockInfo = { url, customRegistry };
+		trigger.mockReturnWith = function mockReturnWith(data) {
+			this.data = data;
+		};
 		return trigger;
 	},
 }));
@@ -250,7 +254,7 @@ describe('ComponentForm', () => {
 		});
 	});
 
-	describe('#onChange', () => {
+	describe('events', () => {
 		const state = fromJS(addSchemaMock.ui);
 
 		// extract type field schema
@@ -262,7 +266,7 @@ describe('ComponentForm', () => {
 
 		// onChange parameters: simulate change on type field
 		const event = { target: {}, persist: jest.fn() };
-		const changeData = {
+		const changePayload = {
 			schema: typeSchema,
 			properties: {
 				_datasetMetadata: {
@@ -272,79 +276,152 @@ describe('ComponentForm', () => {
 			value: selectedType.value,
 		};
 
-		it('should dispatch dirty state', () => {
-			// given
-			const setState = jest.fn();
-			const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+		describe('#onChange', () => {
+			it('should dispatch dirty state', () => {
+				// given
+				const setState = jest.fn();
+				const wrapper = shallow(<TCompForm state={state} setState={setState} />);
 
-			// when
-			wrapper.instance().onChange(event, changeData);
+				// when
+				wrapper.instance().onChange(event, changePayload);
 
-			// then
-			expect(setState).toBeCalledWith({ dirty: true });
-		});
-
-		it('should NOT dispatch dirty state if it is already dirty', () => {
-			// given
-			const dirtyState = fromJS({
-				...addSchemaMock.ui,
-				dirty: true,
+				// then
+				expect(setState).toBeCalledWith({ dirty: true });
 			});
-			const setState = jest.fn();
-			const wrapper = shallow(<TCompForm state={dirtyState} setState={setState} />);
 
-			// when
-			wrapper.instance().onChange(event, changeData);
+			it('should NOT dispatch dirty state if it is already dirty', () => {
+				// given
+				const dirtyState = fromJS({
+					...addSchemaMock.ui,
+					dirty: true,
+				});
+				const setState = jest.fn();
+				const wrapper = shallow(<TCompForm state={dirtyState} setState={setState} />);
 
-			// then
-			expect(setState).not.toBeCalled();
+				// when
+				wrapper.instance().onChange(event, changePayload);
+
+				// then
+				expect(setState).not.toBeCalled();
+			});
+
+			it('should set form data in state', () => {
+				// given
+				const setState = jest.fn();
+				const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+
+				// when
+				wrapper.instance().onChange(event, changePayload);
+
+				// then
+				expect(wrapper.state()).toEqual({
+					properties: {
+						_datasetMetadata: {
+							type: selectedType.value,
+							$type_name: selectedType.name,
+						},
+					},
+				});
+			});
+
+			it('should dispatch change', () => {
+				// given
+				const setState = jest.fn();
+				const dispatch = jest.fn();
+				const wrapper = shallow(
+					<TCompForm state={state} setState={setState} dispatch={dispatch} dispatchOnChange />,
+				);
+
+				// when
+				wrapper.instance().onChange(event, changePayload);
+
+				// then
+				const args = dispatch.mock.calls[0][0];
+				expect(args.type).toBe(TCompForm.ON_CHANGE);
+				expect(args.event.type).toBe('onChange');
+				expect(args.event.component).toBe('TCompForm');
+				expect(args.event.state).toBeDefined();
+				expect(args.event.props).toBeDefined();
+				expect(args.event.source).toBe(event);
+				expect(args.data).toBe(changePayload);
+				expect(args.uiSpec.jsonSchema).toEqual(addSchemaMock.ui.jsonSchema);
+				expect(args.uiSpec.uiSchema).toEqual(addSchemaMock.ui.uiSchema);
+			});
 		});
 
-		it('should set form data in state', () => {
-			// given
-			const setState = jest.fn();
-			const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+		describe('#onTrigger', () => {
+			it('should call component-kit trigger', () => {
+				// given
+				const wrapper = shallow(<TCompForm state={state} />);
+				const trigger = wrapper.instance().trigger;
+				expect(trigger.isCalled).toBeFalsy();
 
-			// when
-			wrapper.instance().onChange(event, changeData);
+				// when
+				wrapper.instance().onTrigger(event, changePayload);
 
-			// then
-			expect(wrapper.state()).toEqual({
-				properties: {
+				// then
+				expect(trigger.isCalled).toBe(true);
+			});
+
+			it('should register trigger result properties in state', () => {
+				// given
+				const wrapper = shallow(<TCompForm state={state} />);
+				const properties = { type: selectedType.value };
+				const trigger = wrapper.instance().trigger;
+				trigger.mockReturnWith({ properties });
+
+				// when
+				return wrapper
+					.instance()
+					.onTrigger(event, changePayload)
+					.then(() => {
+						expect(wrapper.state()).toEqual({ properties });
+					});
+			});
+			it('should set cmf state with errors, and schemas', () => {
+				// given
+				const setState = jest.fn();
+				const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+				const trigger = wrapper.instance().trigger;
+				const data = {
+					errors: {},
+					jsonSchema: addSchemaMock.ui.jsonSchema,
+					uiSchema: addSchemaMock.ui.uiSchema,
+				};
+				trigger.mockReturnWith(data);
+
+				// when
+				return wrapper
+					.instance()
+					.onTrigger(event, changePayload)
+					.then(() => {
+						expect(setState).toBeCalledWith(data);
+					});
+			});
+		});
+
+		describe('#onSubmit', () => {
+			it('should dispatch submit action', () => {
+				// given
+				const payload = {
 					_datasetMetadata: {
 						type: selectedType.value,
-						$type_name: selectedType.name,
 					},
-				},
+				};
+				const dispatch = jest.fn();
+				const wrapper = shallow(<TCompForm state={state} dispatch={dispatch} />);
+
+				// when
+				wrapper.instance().onSubmit(event, payload);
+
+				// then
+				const args = dispatch.mock.calls[0][0];
+				expect(args.type).toBe(TCompForm.ON_SUBMIT);
+				expect(args.event).toBe(event);
+				expect(args.jsonSchema).toEqual(addSchemaMock.ui.jsonSchema);
+				expect(args.uiSchema).toEqual(addSchemaMock.ui.uiSchema);
+				expect(args.properties).toEqual(payload);
 			});
 		});
-
-		it('should dispatch change', () => {
-			// given
-			const setState = jest.fn();
-			const dispatch = jest.fn();
-			const wrapper = shallow(
-				<TCompForm state={state} setState={setState} dispatch={dispatch} dispatchOnChange />,
-			);
-
-			// when
-			wrapper.instance().onChange(event, changeData);
-
-			// then
-			const args = dispatch.mock.calls[0][0];
-			expect(args.type).toBe(TCompForm.ON_CHANGE);
-			expect(args.event.type).toBe('onChange');
-			expect(args.event.component).toBe('TCompForm');
-			expect(args.event.state).toBeDefined();
-			expect(args.event.props).toBeDefined();
-			expect(args.event.source).toBe(event);
-			expect(args.data).toBe(changeData);
-			expect(args.uiSpec.jsonSchema).toEqual(addSchemaMock.ui.jsonSchema);
-			expect(args.uiSpec.uiSchema).toEqual(addSchemaMock.ui.uiSchema);
-		});
 	});
-
-	describe('#onTrigger', () => {});
-
-	describe('#onSubmit', () => {});
 });

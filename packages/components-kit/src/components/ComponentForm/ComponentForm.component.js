@@ -95,14 +95,14 @@ export class TCompForm extends React.Component {
 		}
 	}
 
-	onChange(event, data) {
+	onChange(event, payload) {
 		event.persist();
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
 
-		resolveNameForTitleMap(data);
-		this.setState({ properties: data.properties });
+		resolveNameForTitleMap(payload);
+		this.setState({ properties: payload.properties });
 
 		if (this.props.dispatchOnChange) {
 			this.props.dispatch({
@@ -114,7 +114,8 @@ export class TCompForm extends React.Component {
 					state: this.state,
 					source: event,
 				},
-				data,
+				data: payload,
+				properties: payload.properties,
 				uiSpec: this.getUISpec(),
 			});
 		}
