@@ -17,6 +17,7 @@ exports[`UIForm component should render form 1`] = `
 >
   <Widget
     errors={Object {}}
+    getComponent={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -39,6 +40,7 @@ exports[`UIForm component should render form 1`] = `
         "type": "text",
       }
     }
+    t={undefined}
     templates={undefined}
     widgets={
       Object {
@@ -48,6 +50,7 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
+    getComponent={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -71,6 +74,7 @@ exports[`UIForm component should render form 1`] = `
         "type": "text",
       }
     }
+    t={undefined}
     templates={undefined}
     widgets={
       Object {
@@ -80,6 +84,7 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
+    getComponent={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -97,6 +102,7 @@ exports[`UIForm component should render form 1`] = `
         "widget": "button",
       }
     }
+    t={undefined}
     templates={undefined}
     widgets={
       Object {
@@ -143,6 +149,7 @@ exports[`UIForm component should render provided actions 1`] = `
 >
   <Widget
     errors={Object {}}
+    getComponent={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -165,6 +172,7 @@ exports[`UIForm component should render provided actions 1`] = `
         "type": "text",
       }
     }
+    t={undefined}
     templates={undefined}
     widgets={
       Object {
@@ -174,6 +182,7 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
+    getComponent={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -197,6 +206,7 @@ exports[`UIForm component should render provided actions 1`] = `
         "type": "text",
       }
     }
+    t={undefined}
     templates={undefined}
     widgets={
       Object {
@@ -206,6 +216,7 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
+    getComponent={undefined}
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -223,6 +234,7 @@ exports[`UIForm component should render provided actions 1`] = `
         "widget": "button",
       }
     }
+    t={undefined}
     templates={undefined}
     widgets={
       Object {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datalist component should render typeahead 1`] = `
+exports[`Datalist component should render 1`] = `
 <FieldTemplate
   description="This is my datalist"
   errorMessage="This should be correct"
@@ -9,35 +9,43 @@ exports[`Datalist component should render typeahead 1`] = `
   label="My List"
   required={undefined}
 >
-  <Datalist component
+  <CreatableSelect
+    arrowRenderer={[Function]}
     autoFocus={true}
+    className="tf-datalist theme-override"
+    description="This is my datalist"
     disabled={false}
-    id="my-datalist"
-    multiSection={false}
+    filterOptions={[Function]}
+    id="my-datalist-select"
+    isOptionUnique={[Function]}
+    isValidNewOption={[Function]}
+    menuRenderer={[Function]}
+    multi={false}
+    newOptionCreator={[Function]}
+    noResultsText="No result found"
     onChange={[Function]}
-    placeholder="Type here"
-    readOnly={false}
-    restricted={false}
-    titleMap={
+    onFocus={[Function]}
+    options={
       Array [
         Object {
-          "name": "foo",
+          "label": "Foo",
           "value": "foo",
         },
         Object {
-          "name": "bar",
+          "label": "Bar",
           "value": "bar",
         },
         Object {
-          "name": "foobar",
-          "value": "foobar",
-        },
-        Object {
-          "name": "lol",
+          "label": "Lol",
           "value": "lol",
         },
       ]
     }
+    placeholder="Select in list"
+    promptTextCreator={[Function]}
+    readOnly={false}
+    restricted={true}
+    shouldKeyDownEventCreateNewOption={[Function]}
     value="foo"
   />
 </FieldTemplate>
