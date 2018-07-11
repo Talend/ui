@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ComponentForm should render a CircularProgress when we don't have the schema 1`] = `<Translate(CircularProgress) />`;
+exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `<Translate(CircularProgress) />`;
 
-exports[`ComponentForm should render a UIForm 1`] = `
+exports[`ComponentForm #render should render a UIForm 1`] = `
 <Container(UIForm)
   errors={
     Object {
@@ -98,7 +98,7 @@ exports[`ComponentForm should render a UIForm 1`] = `
 />
 `;
 
-exports[`ComponentForm should render a response status 1`] = `
+exports[`ComponentForm #render should render a response status 1`] = `
 <p
   className="danger"
 >

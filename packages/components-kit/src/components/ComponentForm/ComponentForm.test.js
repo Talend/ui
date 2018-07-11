@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
-import add from '../../../mock/add';
+import addSchemaMock from '../../../mock/add';
 
 import {
 	toJS,
@@ -9,6 +9,16 @@ import {
 	keepOnlyDatasetMetadataProperties,
 	TCompForm,
 } from './ComponentForm.component';
+
+jest.mock('component-kit.js', () => ({
+	createTriggers({ url, customRegistry }) {
+		function trigger() {
+			return Promise.resolve(this.data || {});
+		}
+		trigger.mockInfo = { url, customRegistry };
+		return trigger;
+	},
+}));
 
 describe('ComponentForm', () => {
 	describe('#toJS', () => {
@@ -120,61 +130,221 @@ describe('ComponentForm', () => {
 		});
 	});
 
-	it("should render a CircularProgress when we don't have the schema", () => {
-		// given
-		const state = new Map({});
+	describe('#render', () => {
+		it("should render a CircularProgress when we don't have the schema", () => {
+			// given
+			const state = new Map({});
 
-		// when
-		const wrapper = shallow(<TCompForm state={state} />);
+			// when
+			const wrapper = shallow(<TCompForm state={state} />);
 
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render a response status', () => {
-		// given
-		const state = fromJS({ response: { statusText: 'we had an error' } });
-
-		// when
-		const wrapper = shallow(<TCompForm state={state} />);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render a UIForm', () => {
-		// given
-		const state = fromJS({
-			...add.ui,
-			errors: { key: 'This is wrong' },
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		// when
-		const wrapper = shallow(<TCompForm state={state} />);
+		it('should render a response status', () => {
+			// given
+			const state = fromJS({ response: { statusText: 'we had an error' } });
 
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
+			// when
+			const wrapper = shallow(<TCompForm state={state} />);
 
-	it('should memoize uiSpecs and errors', () => {
-		// given
-		const state = fromJS({
-			...add.ui,
-			errors: { key: 'This is wrong' },
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		const wrapper = shallow(<TCompForm state={state} />);
-		const jsonSchema = wrapper.props().jsonSchema;
-		const uiSchema = wrapper.props().uiSchema;
-		const errors = wrapper.props().errors;
+		it('should render a UIForm', () => {
+			// given
+			const state = fromJS({
+				...addSchemaMock.ui,
+				errors: { key: 'This is wrong' },
+			});
 
-		// when
-		wrapper.instance().forceUpdate();
-		wrapper.update();
+			// when
+			const wrapper = shallow(<TCompForm state={state} />);
 
-		// then
-		expect(wrapper.props().jsonSchema).toBe(jsonSchema);
-		expect(wrapper.props().uiSchema).toBe(uiSchema);
-		expect(wrapper.props().errors).toBe(errors);
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('should memoize uiSpecs and errors', () => {
+			// given
+			const state = fromJS({
+				...addSchemaMock.ui,
+				errors: { key: 'This is wrong' },
+			});
+
+			const wrapper = shallow(<TCompForm state={state} />);
+			const jsonSchema = wrapper.props().jsonSchema;
+			const uiSchema = wrapper.props().uiSchema;
+			const errors = wrapper.props().errors;
+
+			// when
+			wrapper.instance().forceUpdate();
+			wrapper.update();
+
+			// then
+			expect(wrapper.props().jsonSchema).toBe(jsonSchema);
+			expect(wrapper.props().uiSchema).toBe(uiSchema);
+			expect(wrapper.props().errors).toBe(errors);
+		});
 	});
+
+	describe('#update', () => {
+		it('should recreate trigger if triggerURL or customTriggers props change', () => {
+			// given
+			const state = fromJS(addSchemaMock.ui);
+			const oldTriggerURL = 'http://old';
+			const newTriggerURL = 'http://new';
+			const oldCustomTriggers = { oldCustomReload: () => {} };
+			const newCustomTriggers = { newCustomReload: () => {} };
+
+			const wrapper = shallow(
+				<TCompForm state={state} triggerURL={oldTriggerURL} customTriggers={oldCustomTriggers} />,
+			);
+			const oldTrigger = wrapper.instance().trigger;
+			expect(oldTrigger).toBeDefined();
+			expect(oldTrigger.mockInfo.url).toBe(oldTriggerURL);
+			expect(oldTrigger.mockInfo.customRegistry.oldCustomReload).toBeDefined();
+
+			// when
+			wrapper.setProps({ triggerURL: newTriggerURL });
+
+			// then
+			const newTrigger = wrapper.instance().trigger;
+			expect(newTrigger).toBeDefined();
+			expect(newTrigger.mockInfo.url).toBe(newTriggerURL);
+			expect(newTrigger.mockInfo.customRegistry.oldCustomReload).toBeDefined();
+
+			// when
+			wrapper.setProps({ customTriggers: newCustomTriggers });
+
+			// then
+			const evenNewerTrigger = wrapper.instance().trigger;
+			expect(evenNewerTrigger).toBeDefined();
+			expect(evenNewerTrigger.mockInfo.url).toBe(newTriggerURL);
+			expect(evenNewerTrigger.mockInfo.customRegistry.oldCustomReload).not.toBeDefined();
+			expect(evenNewerTrigger.mockInfo.customRegistry.newCustomReload).toBeDefined();
+		});
+
+		it('should dispatch new definitionURL props', () => {
+			// given
+			const state = fromJS(addSchemaMock.ui);
+			const dispatch = jest.fn();
+			const oldUrl = 'http://old';
+			const newUrl = 'http://new';
+
+			// when
+			const wrapper = shallow(
+				<TCompForm state={state} definitionURL={oldUrl} dispatch={dispatch} />,
+			);
+			wrapper.setProps({ definitionURL: newUrl });
+
+			// then
+			expect(dispatch).toBeCalledWith({
+				type: TCompForm.ON_DEFINITION_URL_CHANGED,
+				state,
+				definitionURL: newUrl,
+				dispatch,
+			});
+		});
+	});
+
+	describe('#onChange', () => {
+		const state = fromJS(addSchemaMock.ui);
+
+		// extract type field schema
+		const typeSchema = {
+			...addSchemaMock.ui.uiSchema[0].items[1],
+			key: ['_datasetMetadata', 'type'],
+		};
+		const selectedType = typeSchema.titleMap[0];
+
+		// onChange parameters: simulate change on type field
+		const event = { target: {}, persist: jest.fn() };
+		const changeData = {
+			schema: typeSchema,
+			properties: {
+				_datasetMetadata: {
+					type: selectedType.value,
+				},
+			},
+			value: selectedType.value,
+		};
+
+		it('should dispatch dirty state', () => {
+			// given
+			const setState = jest.fn();
+			const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+
+			// when
+			wrapper.instance().onChange(event, changeData);
+
+			// then
+			expect(setState).toBeCalledWith({ dirty: true });
+		});
+
+		it('should NOT dispatch dirty state if it is already dirty', () => {
+			// given
+			const dirtyState = fromJS({
+				...addSchemaMock.ui,
+				dirty: true,
+			});
+			const setState = jest.fn();
+			const wrapper = shallow(<TCompForm state={dirtyState} setState={setState} />);
+
+			// when
+			wrapper.instance().onChange(event, changeData);
+
+			// then
+			expect(setState).not.toBeCalled();
+		});
+
+		it('should set form data in state', () => {
+			// given
+			const setState = jest.fn();
+			const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+
+			// when
+			wrapper.instance().onChange(event, changeData);
+
+			// then
+			expect(wrapper.state()).toEqual({
+				properties: {
+					_datasetMetadata: {
+						type: selectedType.value,
+						$type_name: selectedType.name,
+					},
+				},
+			});
+		});
+
+		it('should dispatch change', () => {
+			// given
+			const setState = jest.fn();
+			const dispatch = jest.fn();
+			const wrapper = shallow(
+				<TCompForm state={state} setState={setState} dispatch={dispatch} dispatchOnChange />,
+			);
+
+			// when
+			wrapper.instance().onChange(event, changeData);
+
+			// then
+			const args = dispatch.mock.calls[0][0];
+			expect(args.type).toBe(TCompForm.ON_CHANGE);
+			expect(args.event.type).toBe('onChange');
+			expect(args.event.component).toBe('TCompForm');
+			expect(args.event.state).toBeDefined();
+			expect(args.event.props).toBeDefined();
+			expect(args.event.source).toBe(event);
+			expect(args.data).toBe(changeData);
+			expect(args.uiSpec.jsonSchema).toEqual(addSchemaMock.ui.jsonSchema);
+			expect(args.uiSpec.uiSchema).toEqual(addSchemaMock.ui.uiSchema);
+		});
+	});
+
+	describe('#onTrigger', () => {});
+
+	describe('#onSubmit', () => {});
 });

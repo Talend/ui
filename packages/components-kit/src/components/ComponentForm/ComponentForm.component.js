@@ -115,7 +115,6 @@ export class TCompForm extends React.Component {
 					source: event,
 				},
 				data,
-				properties: data.properties,
 				uiSpec: this.getUISpec(),
 			});
 		}
