@@ -6,20 +6,52 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionButton/ActionButton.component.js
+  6:8  error  'Inject' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
+  62:24  error  'getComponent' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
   56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/components/src/RichTooltip/RichTooltip.component.js
+  11:32  error    'className' is missing in props validation                         react/prop-types
+  16:11  error    'content' is missing in props validation                           react/prop-types
+  82:2   error    componentWillUnmount should be placed after componentDidMount      react/sort-comp
+  82:22  error    Expected 'this' to be used by class method 'componentWillUnmount'  class-methods-use-this
+  83:3   warning  Unexpected console statement                                       no-console
+  87:19  error    Expected 'this' to be used by class method 'componentDidMount'     class-methods-use-this
+  88:3   warning  Unexpected console statement                                       no-console
+  94:40  error    'getComponent' is missing in props validation                      react/prop-types
+  97:40  error    'getComponent' is missing in props validation                      react/prop-types
+  99:40  error    'getComponent' is missing in props validation                      react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.component.js
+  21:44  error  'parent' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
-  50:2  error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
+  153:52  error  'props' is not defined                         no-undef
+  153:58  error  'getComponent' is missing in props validation  react/prop-types
+  155:57  error  'props' is not defined                         no-undef
+  155:63  error  'getComponent' is missing in props validation  react/prop-types
+  158:55  error  'props' is not defined                         no-undef
+  158:61  error  'getComponent' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
+  17:3  error  'getComponent' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
+  23:3  error  'getComponent' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -27,5 +59,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 31 problems (28 errors, 3 warnings)
 
