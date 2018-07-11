@@ -1,5 +1,6 @@
 import * as TestData from '../TestData';
 import { Constants } from '../index';
+import DataAccessorWrapper from './DataAccessorWrapper';
 
 const dataAccessor = new DataAccessorWrapper();
 
