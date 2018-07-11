@@ -53,7 +53,6 @@ class HeaderBar extends React.Component {
 			productsItems
 		) {
 			props.products = Object.assign({}, props.products || {}, {
-				// Add onClickDispatch event to items
 				items: productsItems.map(product => ({
 					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
 					...product,
