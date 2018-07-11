@@ -15,14 +15,17 @@ function getTriggerInfo(req) {
 function basicAuth(args) {
 	let comment;
 	let status;
-	if (!args['basicAuth.password']) {
+	if (!args['basicAuth.url']) {
+		comment = 'no url';
+		status = 'KO';
+	} else if (!args['basicAuth.password']) {
 		comment = 'no password';
 		status = 'KO';
-	}
-	if (!args['basicAuth.username']) {
+	} else if (!args['basicAuth.username']) {
 		comment = 'no username';
 		status = 'KO';
 	}
+
 	if (!status) {
 		if (args['basicAuth.username'] === args['basicAuth.password']) {
 			comment = 'Yes username === password';
