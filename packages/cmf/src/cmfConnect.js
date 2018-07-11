@@ -35,6 +35,7 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
+import bsonObjectid from 'bson-objectid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -235,12 +236,20 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
+				this.id = bsonObjectid().toString();
 			}
 
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.start',
+						{ type: 'DID_MOUNT', componentId: this.id },
+						{
+							...this.props, // DEPRECATED
+							componentId: getComponentId(componentId, this.props),
+						},
+					);
 				}
 				if (this.props.didMountActionCreator) {
 					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
@@ -259,7 +268,11 @@ export default function cmfConnect({
 					this.props.deleteState(this.props.initialState);
 				}
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.stop',
+						{ type: 'WILL_UNMOUNT', componentId: this.id },
+						this.props,
+					);
 				}
 			}
 

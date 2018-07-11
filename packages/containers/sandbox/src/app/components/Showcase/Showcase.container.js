@@ -19,7 +19,6 @@ const Showcase = ({ content }) => {
 	return (
 		<Layout
 			mode="TwoColumns"
-			header={<Inject component="HeaderBar" />}
 			one={<Inject component="SidePanel" />}
 		>
 			<div className={theme['showcase-component']}>
