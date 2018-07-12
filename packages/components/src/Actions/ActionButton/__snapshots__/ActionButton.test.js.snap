@@ -125,46 +125,37 @@ exports[`Action should render a button 1`] = `
 `;
 
 exports[`Action should render a button with a overlay component 1`] = `
-<span>
-  <OverlayTrigger
-    defaultOverlayShown={false}
-    overlay={
-      <Popover
-        bsClass="popover"
-        id="myOverlayId"
-        placement="right"
-      >
-        [Function]
-      </Popover>
-    }
-    placement="bottom"
-    rootClose={true}
-    trigger="click"
+<OverlayTrigger
+  getComponent={undefined}
+  overlayComponent={[Function]}
+  overlayId="myOverlayId"
+  overlayPlacement="bottom"
+  overlayRef={undefined}
+  preventScrolling={false}
+>
+  <Button
+    active={false}
+    aria-label="Click me"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className=""
+    data-feature="action.feature"
+    disabled={false}
+    onClick={null}
+    onMouseDown={null}
+    role={null}
+    title="Title to describe click me button"
   >
-    <Button
-      active={false}
-      aria-label="Click me"
-      block={false}
-      bsClass="btn"
-      bsStyle="default"
-      className=""
-      data-feature="action.feature"
-      disabled={false}
-      onClick={null}
-      onMouseDown={null}
-      role={null}
-      title="Title to describe click me button"
-    >
-      <Icon
-        name="talend-caret-down"
-        transform={undefined}
-      />
-      <span>
-        Click me
-      </span>
-    </Button>
-  </OverlayTrigger>
-</span>
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
+    <span>
+      Click me
+    </span>
+  </Button>
+</OverlayTrigger>
 `;
 
 exports[`Action should render a button with loading state 1`] = `
