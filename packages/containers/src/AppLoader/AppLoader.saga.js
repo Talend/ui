@@ -4,6 +4,7 @@ import { delay } from 'redux-saga';
 import invariant from 'invariant';
 
 export const ACTION_CREATORS = 'actionCreators';
+export const SAGAS = 'sagas';
 export const WAIT_FOR = 'waitFor';
 export const TAKE_ACTION = 'takeAction';
 
@@ -27,6 +28,9 @@ export function* waitFor(collectionName, interval = 10) {
  * @param {object} step a bootstrap step that could contain a actionCreator list or a waitList
  */
 export function* handleStep(step) {
+	if (step[SAGAS]) {
+		return yield all(step[SAGAS].map(saga => call(api.sagas.get(saga))));
+	}
 	if (step[ACTION_CREATORS]) {
 		return yield all(
 			step[ACTION_CREATORS].map(actionCreator => api.sagas.putActionCreator(actionCreator)),
