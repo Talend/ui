@@ -16,7 +16,7 @@ exports[`RendererSelector should render grid list 1`] = `
       },
     ]
   }
-  getComponent={[Function]}
+  getComponent={undefined}
   height={600}
   id="my-list-id"
   isActive={[Function]}
@@ -85,7 +85,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     ]
   }
   disableHeader={false}
-  getComponent={[Function]}
+  getComponent={undefined}
   height={600}
   id="my-list-id"
   isActive={[Function]}
@@ -156,7 +156,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     ]
   }
   disableHeader={false}
-  getComponent={[Function]}
+  getComponent={undefined}
   height={600}
   id="my-list-id"
   isActive={[Function]}

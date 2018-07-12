@@ -125,7 +125,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     ]
   }
   estimatedRowSize={30}
-  getComponent={[Function]}
   height={600}
   id="my-list"
   noRowsRenderer={[Function]}

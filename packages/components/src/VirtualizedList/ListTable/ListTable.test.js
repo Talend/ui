@@ -10,13 +10,7 @@ describe('ListGrid', () => {
 	it('should render react-virtualized table', () => {
 		// when
 		const wrapper = shallow(
-			<ListTable
-				collection={collection}
-				getComponent={jest.fn()}
-				height={600}
-				id={'my-list'}
-				width={1024}
-			>
+			<ListTable collection={collection} height={600} id={'my-list'} width={1024}>
 				<VirtualizedList.Content label="Id" dataKey="id" />
 				<VirtualizedList.Content label="Name" dataKey="name" />
 				<VirtualizedList.Content label="" dataKey="description" />
@@ -31,14 +25,7 @@ describe('ListGrid', () => {
 	it('should render react-virtualized table without header', () => {
 		// when
 		const wrapper = shallow(
-			<ListTable
-				collection={collection}
-				getComponent={jest.fn()}
-				height={600}
-				id={'my-list'}
-				width={1024}
-				disableHeader
-			>
+			<ListTable collection={collection} height={600} id={'my-list'} width={1024} disableHeader>
 				<VirtualizedList.Content label="Id" dataKey="id" />
 				<VirtualizedList.Content label="Name" dataKey="name" />
 				<VirtualizedList.Content label="" dataKey="description" />
@@ -54,7 +41,6 @@ describe('ListGrid', () => {
 		const wrapper = shallow(
 			<ListTable
 				collection={collection}
-				getComponent={jest.fn()}
 				height={600}
 				id={'my-list'}
 				sort={jest.fn()}

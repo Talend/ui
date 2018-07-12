@@ -101,7 +101,6 @@ export function renderCell(index, parent, field, type) {
 		cellData: getCellData(field, parent, index),
 		columnData: getColumnData(parent, field),
 		dataKey: getDataKey(field),
-		parent,
 		rowData: getRowData(parent, index),
 		rowIndex: index,
 		type,
