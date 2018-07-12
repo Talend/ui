@@ -18,9 +18,9 @@ describe('test selectors.components', () => {
 			}),
 		},
 	};
-	it('selectors.components.toJSMemorized should get immutable collection from state.cmf.components, convert in toJS and memorize', () => {
-		const result1 = selectors.components.toJSMemorized(state, 'Container(Form).MY_FORM_ID');
-		const result2 = selectors.components.toJSMemorized(state, 'Container(Form).MY_FORM_ID');
+	it('selectors.components.toJSMemoized should get immutable collection from state.cmf.components, convert in toJS and memorize', () => {
+		const result1 = selectors.components.toJSMemoized(state, 'Container(Form).MY_FORM_ID');
+		const result2 = selectors.components.toJSMemoized(state, 'Container(Form).MY_FORM_ID');
 		expect(result1).toEqual(formData);
 		expect(result1).toBe(result2);
 	});

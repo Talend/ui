@@ -27,9 +27,9 @@ This selector accept the following arguments:
 The selector works the same as selectors.collections.get, just it returns data that is stored in cmf.components,
 not in cmf.collections
 
-## cmf.selectors.components.toJSMemorized
+## cmf.selectors.components.toJSMemoized
 
-Unlike cmf.selectors.components.get, cmf.selectors.components.toJSMemorized gets collection from state,
+Unlike cmf.selectors.components.get, cmf.selectors.components.toJSMemoized gets collection from state,
 converts it to POJOs (plain old Java Script objects), and memorizes (caches) it,
 therefore it will convert toJS (which is expensive operation, especially in mapStateToProps) only if object references
 has been changed, so you keep good performance

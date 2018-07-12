@@ -24,7 +24,7 @@ got ${collectionPath}`);
 
 const selectors = {};
 
-export function toJSMemorized(state, path) {
+export function toJSMemoized(state, path) {
 	const joinedPath = Array.isArray(path) ? path.join('.') : path;
 	if (!selectors[joinedPath]) {
 		selectors[joinedPath] = getToJSMemoized(calledState => get(calledState, path));
@@ -33,7 +33,7 @@ export function toJSMemorized(state, path) {
 }
 
 export function getFormDataToJS(state, formId) {
-	return toJSMemorized(state, `Container(Form).${formId}.data`);
+	return toJSMemoized(state, `Container(Form).${formId}.data`);
 }
 
 export function getFormData(state, formId, defaultValue) {
