@@ -1,0 +1,17 @@
+[
+	{
+		"icon": "talend-tdp-colored",
+		"uri": "http://www.talend.com/products#tdp",
+		"label": "My"
+	},
+	{
+		"icon": "talend-tic-colored",
+		"uri": "http://www.talend.com/products#tic",
+		"label": "applications"
+	},
+	{
+		"icon": "talend-tmc-colored",
+		"uri": "http://www.talend.com/products#tmc",
+		"label": "list"
+	}
+]
