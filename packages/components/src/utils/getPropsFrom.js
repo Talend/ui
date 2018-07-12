@@ -1,4 +1,14 @@
-const NATIVE_PROPS = ['aria-', 'data-', 'autoFocus', 'className', 'id', 'name', 'target', 'title'];
+const NATIVE_PROPS = [
+	'aria-',
+	'data-',
+	'autoFocus',
+	'className',
+	'id',
+	'name',
+	'target',
+	'rel',
+	'title',
+];
 
 function extractComponentProps(Component, props) {
 	if (!Component) {
