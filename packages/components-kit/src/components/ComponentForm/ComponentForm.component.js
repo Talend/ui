@@ -80,14 +80,14 @@ export class TCompForm extends React.Component {
 		this.getMemoizedErrors = memoizeOne(toJS);
 	}
 
-	componentDidUpdate(props) {
+	componentDidUpdate(prevProps) {
 		if (
-			props.triggerURL !== this.props.triggerURL ||
-			props.customTriggers !== this.props.customTriggers
+			prevProps.triggerURL !== this.props.triggerURL ||
+			prevProps.customTriggers !== this.props.customTriggers
 		) {
 			this.setupTrigger(this.props);
 		}
-		if (this.props.definitionURL !== props.definitionURL) {
+		if (this.props.definitionURL !== prevProps.definitionURL) {
 			this.props.dispatch({
 				type: TCompForm.ON_DEFINITION_URL_CHANGED,
 				...this.props,
@@ -107,16 +107,9 @@ export class TCompForm extends React.Component {
 		if (this.props.dispatchOnChange) {
 			this.props.dispatch({
 				type: TCompForm.ON_CHANGE,
-				event: {
-					type: 'onChange',
-					component: 'TCompForm',
-					props: this.props,
-					state: this.state,
-					source: event,
-				},
-				data: payload,
-				properties: payload.properties,
-				uiSpec: this.getUISpec(),
+				component: TCompForm.displayName,
+				event,
+				...payload,
 			});
 		}
 	}
@@ -139,13 +132,13 @@ export class TCompForm extends React.Component {
 		});
 	}
 
-	onSubmit(event, data) {
+	onSubmit(event, properties) {
 		event.persist();
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
+			component: TCompForm.displayName,
 			event,
-			...this.getUISpec(),
-			properties: data,
+			properties,
 		});
 	}
 

@@ -46,15 +46,6 @@ function* handle(props) {
 	yield take('DO_NOT_QUIT');
 }
 
-function* syncPropertiesInStore() {
-	// eslint-disable-next-line no-constant-condition
-	while (true) {
-		const action = yield take(Component.ON_CHANGE);
-		yield put(Component.setStateAction({ properties: action }, action.event.props.componentId));
-	}
-}
-
 export default {
 	'ComponentForm#default': handle,
-	'ComponentForm#syncPropertiesInStore': syncPropertiesInStore,
 };

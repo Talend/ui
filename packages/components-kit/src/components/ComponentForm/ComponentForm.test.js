@@ -338,14 +338,11 @@ describe('ComponentForm', () => {
 				// then
 				const args = dispatch.mock.calls[0][0];
 				expect(args.type).toBe(TCompForm.ON_CHANGE);
-				expect(args.event.type).toBe('onChange');
-				expect(args.event.component).toBe('TCompForm');
-				expect(args.event.state).toBeDefined();
-				expect(args.event.props).toBeDefined();
-				expect(args.event.source).toBe(event);
-				expect(args.data).toBe(changePayload);
-				expect(args.uiSpec.jsonSchema).toEqual(addSchemaMock.ui.jsonSchema);
-				expect(args.uiSpec.uiSchema).toEqual(addSchemaMock.ui.uiSchema);
+				expect(args.component).toBe(TCompForm.displayName);
+				expect(args.event).toBe(event);
+				expect(args.schema).toBe(changePayload.schema);
+				expect(args.value).toBe(changePayload.value);
+				expect(args.properties).toBe(changePayload.properties);
 			});
 		});
 
@@ -417,9 +414,8 @@ describe('ComponentForm', () => {
 				// then
 				const args = dispatch.mock.calls[0][0];
 				expect(args.type).toBe(TCompForm.ON_SUBMIT);
+				expect(args.component).toBe(TCompForm.displayName);
 				expect(args.event).toBe(event);
-				expect(args.jsonSchema).toEqual(addSchemaMock.ui.jsonSchema);
-				expect(args.uiSchema).toEqual(addSchemaMock.ui.uiSchema);
 				expect(args.properties).toEqual(payload);
 			});
 		});
