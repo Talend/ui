@@ -93,7 +93,7 @@ describe('ListToVirtualizedList', () => {
 
 	it('should add actionsKey to titleProps', () => {
 		// when
-		const wrapper = shallow(<ListToVirtualizedList {...cloneDeep(props)} />);
+		const wrapper = shallow(<ListToVirtualizedList {...props} />);
 
 		// then
 		wrapper.find(VirtualizedList.Content).forEach(element => {
