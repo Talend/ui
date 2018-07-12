@@ -104,7 +104,7 @@ describe('expressions', () => {
 				false,
 			);
 		});
-		it("should return false if collection doesn't exist", () => {
+		it('should return false if collection doesn\'t exist', () => {
 			const context = mock.context();
 			const state = mock.state();
 			context.store.getState = () => state;
@@ -113,7 +113,7 @@ describe('expressions', () => {
 				false,
 			);
 		});
-		it("should throw an error if values are not an array", () => {
+		it('should throw an error if values are not an array', () => {
 			const context = mock.context();
 			const state = mock.state();
 			context.store.getState = () => state;
