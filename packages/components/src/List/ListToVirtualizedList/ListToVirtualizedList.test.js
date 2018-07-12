@@ -96,8 +96,8 @@ describe('ListToVirtualizedList', () => {
 		const wrapper = shallow(<ListToVirtualizedList {...cloneDeep(props)} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).find(element => {
-			const eProps = element.props().columnData;
+		wrapper.find(VirtualizedList.Content).forEach(element => {
+			const eProps = element.props();
 			if (eProps.columnData) {
 				expect(eProps.columnData.actionsKey).toBe('actions');
 			}
