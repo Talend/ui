@@ -2,6 +2,7 @@
   "name": "@talend/react-components",
   "description": "Set of react widgets.",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "test": "jest",

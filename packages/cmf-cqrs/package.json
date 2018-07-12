@@ -2,6 +2,7 @@
   "name": "@talend/react-cmf-cqrs",
   "description": "@talend/react-cmf plugin for CQRS backend architecture",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "scripts": {
     "prepublish": "npm run build",
     "build": "rimraf ./lib &&  babel -d lib ./src/ --ignore **/*.test.js",
