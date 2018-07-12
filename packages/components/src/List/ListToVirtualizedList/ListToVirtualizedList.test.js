@@ -2,14 +2,20 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { cloneDeep } from 'lodash';
 
-import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import {
 	ListToVirtualizedList,
 	HiddenHeader,
 	compareOrder,
 } from './ListToVirtualizedList.component';
+import Inject from '../../Inject';
+import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import CellActions from '../../VirtualizedList/CellActions';
 import CellBadge from '../../VirtualizedList/CellBadge';
+
+jest.mock('../../Inject', () => ({
+	get: jest.fn(),
+	getReactElement: () => {},
+}));
 
 const props = {
 	id: 'mylistid',
@@ -52,13 +58,6 @@ describe('ListToVirtualizedList', () => {
 		});
 	});
 
-	it('should support getComponent', () => {
-		const getComponent = () => {};
-		const rProps = { ...props, getComponent };
-		const table = shallow(<ListToVirtualizedList {...rProps} />).props();
-		expect(table.getComponent).toBe(getComponent);
-	});
-
 	it('should support defaultHeight', () => {
 		const rProps = { ...props, defaultHeight: 300 };
 		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
@@ -94,15 +93,17 @@ describe('ListToVirtualizedList', () => {
 
 	it('should add actionsKey to titleProps', () => {
 		// when
-		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+		const wrapper = shallow(<ListToVirtualizedList {...cloneDeep(props)} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).forEach(element => {
-			const eProps = element.props();
+		wrapper.find(VirtualizedList.Content).find(element => {
+			const eProps = element.props().columnData;
 			if (eProps.columnData) {
 				expect(eProps.columnData.actionsKey).toBe('actions');
 			}
 		});
+
+		expect(Inject.get).toHaveBeenCalledWith(undefined, 'CellTitle', jasmine.any(Function));
 	});
 
 	it('should NOT add actionsKey without titleProps', () => {

@@ -51,15 +51,23 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
-		wrapper.simulate('click');
+		wrapper.simulate('click', {});
 
 		// then
-		expect(onClick).toHaveBeenCalled();
 		expect(onClick.mock.calls.length).toBe(1);
-		const args = onClick.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+		expect(onClick).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
 	});
 
 	it('should trigger the onclick props when action has an overlay', () => {
@@ -69,15 +77,23 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
-		wrapper.simulate('click');
+		wrapper.simulate('click', {});
 
 		// then
-		expect(onClick).toHaveBeenCalled();
 		expect(onClick.mock.calls.length).toBe(1);
-		const args = onClick.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+		expect(onClick).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
 	});
 
 	it('should pass all props to the Button', () => {

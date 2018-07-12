@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
+import Inject from '../../Inject';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
@@ -51,6 +52,12 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
+
+	// allow to connect the CellTitle
+	const InjectedCellTitle = Inject.get(props.getComponent, 'CellTitle', CellTitle.cellRenderer);
+
+	CellTitle.cellRenderer = cellProps => <InjectedCellTitle {...cellProps} />;
+
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
 	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
@@ -59,7 +66,6 @@ export function ListToVirtualizedList(props) {
 		<VirtualizedList
 			id={props.id}
 			collection={props.items}
-			getComponent={props.getComponent}
 			isActive={itemProps && itemProps.isActive}
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}

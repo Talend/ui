@@ -50,6 +50,7 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import CellTitle from './VirtualizedList/CellTitle/CellTitle.component';
 
 const {
 	Alert,
@@ -132,6 +133,7 @@ export {
 	AppLoader,
 	Badge,
 	Breadcrumbs,
+	CellTitle,
 	Checkbox,
 	CircularProgress,
 	CollapsiblePanel,
