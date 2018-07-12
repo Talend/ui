@@ -7,10 +7,11 @@ const ICON =
 
 const ExampleAppLoader = {
 	AppLoader: () => {
-		const hasCollections = ['photos1', 'photos2'];
+		const hasCollections = ['photos1', 'photos2', 'photos3'];
 		const steps = [
 			{ actionCreators: ['http:get:photos1'] },
-			{ waitFor: ['photos1'] },
+			{ sagas: ['saga:get:photos3'] },
+			{ waitFor: ['photos1', 'photos3'] },
 			{ actionCreators: ['http:get:photos2'] },
 		];
 		return (
