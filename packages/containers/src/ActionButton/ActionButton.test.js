@@ -59,22 +59,40 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(wrapper.getElement().props).toEqual(props);
 	});
 
-	it('should render with onClick when props has a payload', () => {
+	it('should dispatch one action when it clicks', () => {
+		const dispatch = jest.fn();
+		const event = {};
+		const data = {};
 		const props = {
 			actionId: 'menu:article',
+			dispatch,
 			extra: 'foo',
-			payload: 'FOO',
+			payload: {
+				type: 'ACTION',
+			},
+			model: {
+				id: 42,
+			},
 		};
 		const context = mock.context();
 		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});
-		expect(wrapper.getElement().props).toEqual({ ...props, onClick: jasmine.any(Function) });
+
+		wrapper.prop('onClick')(event, data);
+		expect(dispatch).toHaveBeenCalledWith({
+			model: props.model,
+			...props.payload,
+		});
 	});
 
-	it('should render with onClick when props has a actioncreator', () => {
+	it('should dispatch one actioncreator when it clicks', () => {
+		const dispatchActionCreator = jest.fn();
+		const event = {};
+		const data = {};
 		const props = {
 			actionId: 'menu:article',
+			dispatchActionCreator,
 			extra: 'foo',
 			actionCreator: 'foo',
 		};
@@ -82,7 +100,9 @@ describe('CMF(Container(ActionButton))', () => {
 		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});
-		expect(wrapper.getElement().props).toEqual({ ...props, onClick: jasmine.any(Function) });
+
+		wrapper.prop('onClick')(event, data);
+		expect(dispatchActionCreator).toHaveBeenCalledWith(props.actionCreator, event, data);
 	});
 });
 
