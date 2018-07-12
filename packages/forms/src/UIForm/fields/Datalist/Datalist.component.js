@@ -10,15 +10,14 @@ export function escapeRegexCharacters(str) {
 }
 
 const PROPS_TO_OMIT = [
-	'classNames',
 	'schema',
-	'getComponent',
 	'errorMessage',
+	'errors',
 	'isValid',
 	'onChange',
 	'onFinish',
 	'onTrigger',
-	't',
+	'properties',
 ];
 
 const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
@@ -29,7 +28,6 @@ class Datalist extends Component {
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
-		this.isMultiple = this.isMultiple.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 	}
 
@@ -47,11 +45,9 @@ class Datalist extends Component {
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
-		console.log('change', payload);
 	}
 
 	getTitleMap() {
-		// TODO: memoize
 		let titleMap;
 		if (this.state.titleMap) {
 			titleMap = this.state.titleMap;
@@ -68,29 +64,22 @@ class Datalist extends Component {
 			titleMap = [{ name: getValue(this.props.properties, nameSchema) || value, value }];
 		}
 
-		const values = this.isMultiple() ? this.props.value : [this.props.value];
-		const doNotExistsInOption = value => !titleMap.find(option => option.value === value);
+		const isMultiple = this.props.schema.schema.type === 'array';
+		const values = isMultiple ? this.props.value : [this.props.value];
 		const additionalOptions = values
 			.filter(value => value)
-			.filter(doNotExistsInOption)
+			.filter(value => !titleMap.find(option => option.value === value))
 			.reduce((acc, value) => {
 				acc.push({ name: value, value });
 				return acc;
 			}, []);
 
-		console.log('titlemap', titleMap, additionalOptions);
 		return titleMap.concat(additionalOptions);
 	}
 
-	isMultiple() {
-		return this.props.schema.schema.type === 'array';
-	}
-
 	callTrigger(event) {
-		if (!this.props.schema.triggers) {
-			return;
-		}
-		const trigger = this.props.schema.triggers.find(t => t.onEvent === event.type);
+		const trigger =
+			this.props.schema.triggers && this.props.schema.triggers.find(t => t.onEvent === event.type);
 		if (!trigger) {
 			return;
 		}
@@ -116,13 +105,6 @@ class Datalist extends Component {
 
 	render() {
 		const props = omit(this.props, PROPS_TO_OMIT);
-		Object.assign(props, this.state);
-		Object.assign(props, omit(this.props.schema, SCHEMA_TO_OMIT));
-		props.titleMap = this.getTitleMap();
-		if (props.id) {
-			props.id = `${props.id}-select`;
-		}
-		console.log('render', props.value);
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -134,6 +116,8 @@ class Datalist extends Component {
 			>
 				<DataListComponent
 					{...props}
+					{...this.state}
+					titleMap={this.getTitleMap()}
 					input
 					multiSection={false}
 					onChange={this.onChange}

@@ -66,6 +66,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
+			id: rest.id,
 			inputRef: rest.inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
