@@ -11,8 +11,8 @@ export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const PROPS_TO_OMIT = ['restricted', 'titleMap'];
-const STATE_TO_OMIT = ['previousValue', 'titleMapping'];
+const PROPS_TO_OMIT = ['restricted', 'titleMap', 'value'];
+const STATE_TO_OMIT = ['previousValue', 'titleMapping', 'value'];
 
 class Datalist extends Component {
 	constructor(props) {
@@ -38,21 +38,21 @@ class Datalist extends Component {
 
 	componentWillReceiveProps({ value, titleMap }) {
 		const newState = {};
+		let stateCallback;
 		if (value !== this.props.value) {
 			newState.previousValue = value;
 			newState.value = value;
 		}
 		if (titleMap !== this.props.titleMap) {
 			newState.titleMapping = this.buildTitleMapping(titleMap);
+			stateCallback = () => {
+				if (this.state.suggestions) {
+					const filter = value !== this.state.value ? this.state.value : null;
+					this.updateSuggestions(filter);
+				}
+			};
 		}
-		this.setState(newState);
-		if (titleMap !== this.props.titleMap && this.state.suggestions) {
-			let filter;
-			if (value !== this.state.value) {
-				filter = value;
-			}
-			this.updateSuggestions(filter, titleMap);
-		}
+		this.setState(newState, stateCallback);
 	}
 
 	/**
@@ -201,7 +201,7 @@ class Datalist extends Component {
 	 *
 	 * @param titleMap the titleMap to use to create the label/value mapping.
 	 */
-	buildTitleMapping(titleMap = []) {
+	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
 			if (this.props.multiSection && item.title && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
@@ -292,14 +292,14 @@ class Datalist extends Component {
 	 * Building multiSection items or single section items
 	 * return the items list
 	 */
-	buildGroupItems(titleMap) {
+	buildGroupItems() {
 		if (this.props.multiSection) {
-			return (titleMap || this.props.titleMap).map(group => ({
+			return this.props.titleMap.map(group => ({
 				title: group.title,
 				suggestions: group.suggestions.map(item => ({ title: item.name })),
 			}));
 		}
-		return (titleMap || this.props.titleMap).map(item => item.name);
+		return this.props.titleMap.map(item => item.name);
 	}
 
 	/**
@@ -310,13 +310,13 @@ class Datalist extends Component {
 	 * in that case we have to show all suggestions, otherwise we need to filter the suggestions
 	 * @param value The value to base suggestions on
 	 */
-	updateSuggestions(value, titleMap) {
+	updateSuggestions(value) {
 		if (this.props.readOnly || this.props.disabled) {
 			return;
 		}
 
 		// building multiSection items or single section items
-		let groups = this.buildGroupItems(titleMap);
+		let groups = this.buildGroupItems();
 		if (value) {
 			// filtering
 			const escapedValue = escapeRegexCharacters(value.trim());

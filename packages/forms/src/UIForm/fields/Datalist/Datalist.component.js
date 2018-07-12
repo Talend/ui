@@ -28,7 +28,6 @@ class Datalist extends Component {
 		super(props);
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
-		this.onFocus = this.onFocus.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.isMultiple = this.isMultiple.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
@@ -48,14 +47,7 @@ class Datalist extends Component {
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
-	}
-
-	onFocus(event) {
-		this.callTrigger(event);
-	}
-
-	onBlur(event) {
-		this.callTrigger(event);
+		console.log('change', payload);
 	}
 
 	getTitleMap() {
@@ -66,21 +58,27 @@ class Datalist extends Component {
 		} else if (this.props.schema.titleMap) {
 			titleMap = this.props.schema.titleMap;
 		} else {
-			titleMap = [];
+			// create schema to get entry name from internal properties
+			const key = Array.from(this.props.schema.key);
+			key[key.length - 1] = `$${key[key.length - 1]}_name`;
+
+			const nameSchema = Object.assign({}, this.props.schema, { key });
+			const value = this.props.value;
+			//TODO here it should be value = original, not any modified one
+			titleMap = [{ name: getValue(this.props.properties, nameSchema) || value, value }];
 		}
-		const self = this;
+
 		const values = this.isMultiple() ? this.props.value : [this.props.value];
 		const doNotExistsInOption = value => !titleMap.find(option => option.value === value);
-		const additionalOptions = values.filter(doNotExistsInOption).reduce((acc, value) => {
-			if (value) {
-				// try to get the value from properties, else use just use plain value
-				const key = Array.from(self.props.schema.key);
-				key[key.length - 1] = `$${key[key.length - 1]}_name`;
-				const schema = Object.assign({}, self.props.schema, { key });
-				acc.push({ name: getValue(self.props.properties, schema) || value, value });
-			}
-			return acc;
-		}, []);
+		const additionalOptions = values
+			.filter(value => value)
+			.filter(doNotExistsInOption)
+			.reduce((acc, value) => {
+				acc.push({ name: value, value });
+				return acc;
+			}, []);
+
+		console.log('titlemap', titleMap, additionalOptions);
 		return titleMap.concat(additionalOptions);
 	}
 
@@ -124,6 +122,7 @@ class Datalist extends Component {
 		if (props.id) {
 			props.id = `${props.id}-select`;
 		}
+		console.log('render', props.value);
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -138,7 +137,7 @@ class Datalist extends Component {
 					input
 					multiSection={false}
 					onChange={this.onChange}
-					onFocus={this.onFocus}
+					onFocus={this.callTrigger}
 				/>
 			</FieldTemplate>
 		);

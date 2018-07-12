@@ -33,24 +33,6 @@
   },
   "uiSchema": [
     {
-      "key":"suggestionEmpty",
-      "title": "Datalist suggestion (empty)",
-      "widget": "datalist",
-      "triggers":[
-        {
-          "action":"SuggestionForDemo",
-          "family":"remote",
-          "type":"suggestions",
-          "onEvent":"focus",
-          "parameters":[
-            {
-              "key":"suggestionEmpty"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "key":"suggestion",
       "title": "Datalist suggestion (edit)",
       "widget": "datalist",
@@ -65,51 +47,6 @@
               "key":"suggestion"
             }
           ]
-        }
-      ]
-    },
-    {
-      "key": "simpleDatalist",
-      "restricted": false,
-      "title": "Simple Datalist",
-      "description": "This datalist accepts values that are not in the list of suggestions",
-      "widget": "datalist"
-    },
-    {
-      "key": "restrictedDatalist",
-      "title": "Datalist with restricted options",
-      "description": "This datalist does not allow other values than the possible choices",
-      "widget": "datalist"
-    },
-    {
-      "key": "titleMapDatalist",
-      "title": "Datalist with custom titles",
-      "description": "This datalist have custom displayed titles, different from values",
-      "widget": "datalist",
-      "titleMap": [
-        {
-          "name": "My Apple",
-          "value": "Apple"
-        },
-        {
-          "name": "My Pineapple",
-          "value": "Pine[apple]"
-        },
-        {
-          "name": "My Banana",
-          "value": "Banana"
-        },
-        {
-          "name": "My Cherry",
-          "value": "Cher[ry"
-        },
-        {
-          "name": "My Lemon",
-          "value": "Lemo}n"
-        },
-        {
-          "name": "My Grapefruit",
-          "value": "Grapefruit"
         }
       ]
     }
