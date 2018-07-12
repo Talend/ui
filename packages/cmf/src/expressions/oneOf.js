@@ -1,4 +1,4 @@
-import _get from 'lodash/get';
+import get from 'lodash/get';
 import Immutable from 'immutable';
 
 export default function getOneOfFunction(statePath) {
