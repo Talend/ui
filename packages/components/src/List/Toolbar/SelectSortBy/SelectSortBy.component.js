@@ -29,6 +29,7 @@ SortByItem.propTypes = {
 	}),
 	index: PropTypes.number,
 	id: PropTypes.string,
+	t: PropTypes.func,
 };
 
 function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
