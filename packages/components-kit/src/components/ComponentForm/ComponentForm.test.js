@@ -328,8 +328,15 @@ describe('ComponentForm', () => {
 				// given
 				const setState = jest.fn();
 				const dispatch = jest.fn();
+				const componentId = 'MyComponentId';
 				const wrapper = shallow(
-					<TCompForm state={state} setState={setState} dispatch={dispatch} dispatchOnChange />,
+					<TCompForm
+						componentId={componentId}
+						state={state}
+						setState={setState}
+						dispatch={dispatch}
+						dispatchOnChange
+					/>,
 				);
 
 				// when
@@ -339,6 +346,7 @@ describe('ComponentForm', () => {
 				const args = dispatch.mock.calls[0][0];
 				expect(args.type).toBe(TCompForm.ON_CHANGE);
 				expect(args.component).toBe(TCompForm.displayName);
+				expect(args.componentId).toBe(componentId);
 				expect(args.event).toBe(event);
 				expect(args.schema).toBe(changePayload.schema);
 				expect(args.value).toBe(changePayload.value);
@@ -406,7 +414,10 @@ describe('ComponentForm', () => {
 					},
 				};
 				const dispatch = jest.fn();
-				const wrapper = shallow(<TCompForm state={state} dispatch={dispatch} />);
+				const componentId = 'MyComponentId';
+				const wrapper = shallow(
+					<TCompForm componentId={componentId} state={state} dispatch={dispatch} />,
+				);
 
 				// when
 				wrapper.instance().onSubmit(event, payload);
@@ -415,6 +426,7 @@ describe('ComponentForm', () => {
 				const args = dispatch.mock.calls[0][0];
 				expect(args.type).toBe(TCompForm.ON_SUBMIT);
 				expect(args.component).toBe(TCompForm.displayName);
+				expect(args.componentId).toBe(componentId);
 				expect(args.event).toBe(event);
 				expect(args.properties).toEqual(payload);
 			});

@@ -33,7 +33,6 @@ export default function AddForm(props) {
             component="ComponentForm"
             definitionURL="/api/v1/dataset-spec"
             triggerURL="/api/v1/components/action/execute"
-            onSubmit={props.onSubmit}
         />
     );
 }
@@ -41,12 +40,20 @@ export default function AddForm(props) {
 
 props table:
 
-|name|type| description|
+| Name | Type | Description |
 |--|--|--|
-| definitionURL | `string` | URL to get the UISpec |
-| triggerURL | `string` | URL to let the triggers in UISpec call the backend API |
-| onSubmit| `function`| function call when the user submit the form |
+| definitionURL | `string` | URL to get the UISpec. If the URL props change, the new uiSpec will be fetched. |
+| triggerURL | `string` | URL to call on trigger. |
 
+## ComponentForm events
+
+ComponentForm is completely integrated with redux. The events are only dispatch actions.
+
+| Type | Description |
+|--|--|--|
+| TCOMP_FORM_DEFINITION_URL_CHANGE | URL to get uiSpec definition changes. |
+| TCOMP_FORM_CHANGE | A change is done on the form. To enable those dispatches, you need to pass a `props.dispatchOnChange`. WARNING : this can lead to performance issues, as it will dispatch an event at every changes. |
+| TCOMP_FORM_SUBMIT | The submit action. |
 
 ## ComponentPalette
 

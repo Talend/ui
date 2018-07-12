@@ -108,6 +108,7 @@ export class TCompForm extends React.Component {
 			this.props.dispatch({
 				type: TCompForm.ON_CHANGE,
 				component: TCompForm.displayName,
+				componentId: this.props.componentId,
 				event,
 				...payload,
 			});
@@ -137,6 +138,7 @@ export class TCompForm extends React.Component {
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			component: TCompForm.displayName,
+			componentId: this.props.componentId,
 			event,
 			properties,
 		});

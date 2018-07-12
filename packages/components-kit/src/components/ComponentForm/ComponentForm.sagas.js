@@ -3,18 +3,17 @@ import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
 
-function* fetchDefinition({ definitionURL, componentId, uiSpecPath }) {
+export function* fetchDefinition({ definitionURL, componentId, uiSpecPath }) {
 	const { data, response } = yield call(cmf.sagas.http.get, definitionURL);
 	if (!response.ok) {
 		yield put(
 			Component.setStateAction(
 				prev =>
-					prev.set({
-						jsonSchema: undefined,
-						uiSchema: undefined,
-						response,
-						dirty: false,
-					}),
+					prev
+						.set('jsonSchema')
+						.set('uiSchema')
+						.set('response', response)
+						.set('dirty', false),
 				componentId,
 			),
 		);
@@ -33,14 +32,16 @@ function* fetchDefinition({ definitionURL, componentId, uiSpecPath }) {
 	}
 }
 
-function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath }) {
-	const state = yield select();
-	if (!Component.getState(state, componentId).get('jsonSchema')) {
+export function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath }) {
+	const jsonSchema = yield select(state =>
+		Component.getState(state, componentId).get('jsonSchema'),
+	);
+	if (!jsonSchema) {
 		yield fetchDefinition({ definitionURL, componentId, uiSpecPath });
 	}
 }
 
-function* handle(props) {
+export function* handle(props) {
 	yield call(onDidMount, props);
 	yield takeEvery(Component.ON_DEFINITION_URL_CHANGED, fetchDefinition);
 	yield take('DO_NOT_QUIT');
