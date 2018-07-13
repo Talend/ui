@@ -49,7 +49,7 @@ class TimePicker extends React.Component {
 				index,
 				diff: Math.abs(time - initialTime),
 			}))
-			.sort((a, b) => a.diff - b.diff)[0] || 0;
+			.sort((a, b) => a.diff - b.diff)[0];
 
 		this.initialIndex = closestSelectableTime.index - 2;
 
