@@ -22,8 +22,7 @@ function createCommonProps(tab) {
 		// onBlur: action('Blur'),
 		customValidation(schema, value, properties) {
 			action('customValidation')(schema, value, properties);
-			return value.length >= 5 &&
-				'Custom validation : The value should be less than 5 chars';
+			return value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
 		},
 		formName: `my-form-${tab}`,
 		onChange: action('Change'),
@@ -34,18 +33,22 @@ function createCommonProps(tab) {
 			if (key && key.includes('fail')) {
 				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
 			}
-			if (key && key.includes('suggestion')) {
+			if (key && (key.includes('asyncTitleMap') || key.includes('AsyncTitleMap'))) {
 				return new Promise(resolve => {
-					setTimeout(() => resolve({
-						titleMap: [
-							{ value: 'clafoutis', name: 'Clafoutis aux poires et aux fruits' },
-							{ value: 'conchiglioni-au-thon', name: 'Conchiglioni au thon' },
-							{ value: 'coquillettes-crevettes', name: 'coquillettes aux crevettes' },
-							{ value: 'crumble', name: 'Crumble a la danette' },
-							{ value: 'pomme-savane', name: 'Pomme savane' },
-							{ value: 'tarte-au-citron', name: 'Tarte  au citron' },
-						],
-					}), 3000);
+					setTimeout(
+						() =>
+							resolve({
+								titleMap: [
+									{ value: 'clafoutis', name: 'Clafoutis aux poires et aux fruits' },
+									{ value: 'conchiglioni-au-thon', name: 'Conchiglioni au thon' },
+									{ value: 'coquillettes-crevettes', name: 'coquillettes aux crevettes' },
+									{ value: 'crumble', name: 'Crumble a la danette' },
+									{ value: 'pomme-savane', name: 'Pomme savane' },
+									{ value: 'tarte-au-citron', name: 'Tarte  au citron' },
+								],
+							}),
+						3000,
+					);
 				});
 			}
 			return Promise.resolve({});
@@ -68,31 +71,36 @@ function createStory(category, sampleFilenames, filename) {
 			return (
 				<section>
 					<IconsProvider />
-					{doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
-					<UIForm
-						{...createCommonProps('state')}
-						data={data}
-					/>
+					{doc && (
+						<a
+							href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Documentation
+						</a>
+					)}
+					<UIForm {...createCommonProps('state')} data={data} />
 				</section>
 			);
 		},
 	};
 }
 
-conceptsFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('concepts', conceptsFilenames, filename)); });
+conceptsFilenames.keys().forEach(filename => {
+	stories.push(createStory('concepts', conceptsFilenames, filename));
+});
 
-fieldsetsFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('fieldsets', fieldsetsFilenames, filename)); });
+fieldsetsFilenames.keys().forEach(filename => {
+	stories.push(createStory('fieldsets', fieldsetsFilenames, filename));
+});
 
-fieldsFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('fields', fieldsFilenames, filename)); });
+fieldsFilenames.keys().forEach(filename => {
+	stories.push(createStory('fields', fieldsFilenames, filename));
+});
 
-oldFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('old', oldFilenames, filename)); });
+oldFilenames.keys().forEach(filename => {
+	stories.push(createStory('old', oldFilenames, filename));
+});
 
 export default stories;

@@ -13,13 +13,19 @@
       }
     },
     "RedirectContainer#default": {
-      "to": "/ComponentForm"
+      "to": "/ComponentForm/add"
     },
-    "Layout#form": {
+    "Layout#addForm": {
       "mode": "TwoColumns",
       "header": [{ "component": "HeaderBar" }],
       "one": [{ "component": "SidePanel" }],
-      "content": [{ "component": "ComponentForm" }]
+      "content": [{ "component": "ComponentForm", "componentId": "add" }]
+    },
+    "Layout#asyncDatalistForm": {
+      "mode": "TwoColumns",
+      "header": [{ "component": "HeaderBar" }],
+      "one": [{ "component": "SidePanel" }],
+      "content": [{ "component": "ComponentForm", "componentId": "asyncDatalist" }]
     },
     "HeaderBar#default": {
       "logo": {
@@ -31,20 +37,38 @@
       }
     },
     "SidePanel#default": {
-      "actions": [{ "componentId": "menu-form" }]
+      "actions": [
+        { "componentId": "add-form" },
+        { "componentId": "asyncDatalist-form" }
+      ]
     },
-    "ActionButton#menu-form": {
-      "icon": "talend-burger",
-      "label": "ComponentForm",
+    "ActionButton#add-form": {
+      "icon": "talend-plus",
+      "label": "Add",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
-          "routerPush": "/ComponentForm"
+          "routerPush": "/ComponentForm/add"
         }
       }
     },
-    "ComponentForm#default": {
+    "ActionButton#asyncDatalist-form": {
+      "icon": "talend-download",
+      "label": "Async datalist",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm/asyncDatalist"
+        }
+      }
+    },
+    "ComponentForm#add": {
       "definitionURL": "/api/v1/forms/add",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action"
+    },
+    "ComponentForm#asyncDatalist": {
+      "definitionURL": "/api/v1/forms/asyncDatalist",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action"
     }
@@ -58,8 +82,18 @@
     "childRoutes": [
       {
         "path": "ComponentForm",
-        "component": "Layout",
-        "componentId": "form"
+        "childRoutes": [
+          {
+            "component": "Layout",
+            "componentId": "addForm",
+            "path": "add"
+          },
+          {
+            "component": "Layout",
+            "componentId": "asyncDatalistForm",
+            "path": "asyncDatalist"
+          }
+        ]
       }
     ]
   }

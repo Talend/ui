@@ -20,10 +20,10 @@
         "type": "string",
         "enum": [ "a", "p", "b", "c", "l", "g" ]
       },
-      "suggestion": {
+      "asyncTitleMap": {
         "type": "string"
       },
-      "suggestionEmpty": {
+      "restrictedAsyncTitleMap": {
         "type": "string"
       }
     },
@@ -33,8 +33,53 @@
   },
   "uiSchema": [
     {
-      "key":"suggestion",
-      "title": "Datalist suggestion (edit)",
+      "key": "simpleDatalist",
+      "restricted": false,
+      "title": "Simple Datalist",
+      "description": "This datalist accepts values that are not in the list of suggestions",
+      "widget": "datalist"
+    },
+    {
+      "key": "restrictedDatalist",
+      "title": "Datalist with restricted options",
+      "description": "This datalist does not allow other values than the possible choices",
+      "widget": "datalist"
+    },
+    {
+      "key": "titleMapDatalist",
+      "title": "Datalist with custom titles",
+      "description": "This datalist have custom displayed titles, different from values",
+      "widget": "datalist",
+      "titleMap": [
+        {
+          "name": "My Apple",
+          "value": "Apple"
+        },
+        {
+          "name": "My Pineapple",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "My Banana",
+          "value": "Banana"
+        },
+        {
+          "name": "My Cherry",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "My Lemon",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "My Grapefruit",
+          "value": "Grapefruit"
+        }
+      ]
+    },
+    {
+      "key":"asyncTitleMap",
+      "title": "Datalist with async options",
       "widget": "datalist",
       "triggers":[
         {
@@ -44,7 +89,26 @@
           "onEvent":"focus",
           "parameters":[
             {
-              "key":"suggestion"
+              "key":"asyncTitleMap"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key":"restrictedAsyncTitleMap",
+      "restricted": true,
+      "title": "Datalist with async options",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"asyncTitleMap"
             }
           ]
         }
@@ -52,8 +116,6 @@
     }
   ],
   "properties": {
-    "simpleDatalist": "Pine[apple]",
-    "suggestion": "clafoutis",
-    "$suggestion_name": "Clafoutis aux poires et aux fruits"
+    "simpleDatalist": "Pine[apple]"
   }
 }

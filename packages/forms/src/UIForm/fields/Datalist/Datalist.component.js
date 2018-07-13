@@ -18,6 +18,7 @@ const PROPS_TO_OMIT = [
 	'onFinish',
 	'onTrigger',
 	'properties',
+	'resolveName',
 ];
 
 const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
@@ -41,40 +42,45 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(event, payload) {
-		const payloadWithSchema = { ...payload, schema: this.props.schema };
+		let mergedSchema = this.props.schema;
+
+		// with the possibility to have async suggestions, on restricted values inputs
+		// the validation doesn't have the enum list as it is not in the jsonSchema
+		// so we rebuild it with current titleMap from async call
+		if (mergedSchema.restricted && !mergedSchema.schema.enum) {
+			mergedSchema = {
+				...mergedSchema,
+				schema: {
+					...mergedSchema.schema,
+					enum: this.getTitleMap().map(entry => entry.value),
+				},
+			};
+		}
+
+		const payloadWithSchema = { ...payload, schema: mergedSchema };
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
 	getTitleMap() {
-		let titleMap;
-		if (this.state.titleMap) {
-			titleMap = this.state.titleMap;
-		} else if (this.props.schema.titleMap) {
-			titleMap = this.props.schema.titleMap;
-		} else {
-			// create schema to get entry name from internal properties
-			const key = Array.from(this.props.schema.key);
-			key[key.length - 1] = `$${key[key.length - 1]}_name`;
+		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
 
-			const nameSchema = Object.assign({}, this.props.schema, { key });
-			const value = this.props.value;
-			//TODO here it should be value = original, not any modified one
-			titleMap = [{ name: getValue(this.props.properties, nameSchema) || value, value }];
+		if (!this.props.schema.restricted) {
+			const isMultiple = this.props.schema.schema.type === 'array';
+			const values = isMultiple ? this.props.value : [this.props.value];
+			const additionalOptions = values
+				.filter(value => value)
+				.filter(value => !titleMap.find(option => option.value === value))
+				.map(value => ({ name: this.props.resolveName(value), value }))
+				.reduce((acc, titleMapEntry) => {
+					acc.push(titleMapEntry);
+					return acc;
+				}, []);
+			return titleMap.concat(additionalOptions);
 		}
 
-		const isMultiple = this.props.schema.schema.type === 'array';
-		const values = isMultiple ? this.props.value : [this.props.value];
-		const additionalOptions = values
-			.filter(value => value)
-			.filter(value => !titleMap.find(option => option.value === value))
-			.reduce((acc, value) => {
-				acc.push({ name: value, value });
-				return acc;
-			}, []);
-
-		return titleMap.concat(additionalOptions);
+		return titleMap;
 	}
 
 	callTrigger(event) {
@@ -130,6 +136,7 @@ class Datalist extends Component {
 
 Datalist.displayName = 'Datalist field';
 Datalist.defaultProps = {
+	resolveName: value => value,
 	value: '',
 };
 
@@ -143,6 +150,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func,
 		errors: PropTypes.object,
 		properties: PropTypes.object,
+		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,

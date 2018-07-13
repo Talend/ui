@@ -21,7 +21,7 @@ export function renderInputComponent(props) {
 		...rest
 	} = props;
 
-	const hasIcon = isLoading || icon || caret;
+	const hasIcon = icon || caret;
 	return (
 		<div
 			className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon', {
