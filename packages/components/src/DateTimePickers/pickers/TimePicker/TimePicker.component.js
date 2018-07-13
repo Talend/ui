@@ -13,6 +13,15 @@ export function twoDigits(number) {
 	});
 }
 
+function getInitialTime(selectedTime) {
+	if (selectedTime === undefined) {
+		const now = new Date();
+		return now.getHours() * 60 + now.getMinutes();
+	}
+
+	return selectedTime;
+}
+
 class TimePicker extends React.Component {
 
 	constructor(props) {
@@ -33,14 +42,7 @@ class TimePicker extends React.Component {
 				};
 			});
 
-		const initialTime = (() => {
-			if (props.selectedTime !== undefined) {
-				return props.selectedTime;
-			}
-
-			const now = new Date();
-			return now.getHours() * 60 + now.getMinutes();
-		})();
+		const initialTime = getInitialTime(props.selectedTime);
 
 		const closestSelectableTime = this.times
 			.map(({ time }, index) => ({
