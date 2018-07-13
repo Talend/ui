@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getMonth from 'date-fns/get_month';
+import getYear from 'date-fns/get_year';
+
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
@@ -9,13 +12,15 @@ class DateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const now = new Date();
+		const initialCalendarDate = props.selectedDate === undefined
+			? new Date()
+			: props.selectedDate;
 
 		this.state = {
 			isDateTimeView: true,
 			calendar: {
-				monthIndex: now.getMonth(),
-				year: now.getFullYear(),
+				monthIndex: getMonth(initialCalendarDate),
+				year: getYear(initialCalendarDate),
 			},
 			selectedDate: props.selectedDate,
 			selectedTime: props.selectedTime,
@@ -31,13 +36,20 @@ class DateTimePicker extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const needSelectedDateUpdate = this.props.selectedDate !== nextProps.selectedDate;
-		const needSelectedTimeUpdate = this.props.selectedTime !== nextProps.selectedTime;
+		const isSelectedDateUpdated = this.props.selectedDate !== nextProps.selectedDate;
+		const isSelectedTimeUpdated = this.props.selectedTime !== nextProps.selectedTime;
 
-		if (needSelectedDateUpdate || needSelectedTimeUpdate) {
+		if (isSelectedDateUpdated || isSelectedTimeUpdated) {
+			const canUpdateCalendar = isSelectedDateUpdated && nextProps.selectedDate !== undefined;
 			this.setState({
-				...(needSelectedDateUpdate && { selectedDate: nextProps.selectedDate }),
-				...(needSelectedTimeUpdate && { selectedTime: nextProps.selectedTime }),
+				...(isSelectedDateUpdated && { selectedDate: nextProps.selectedDate }),
+				...(isSelectedTimeUpdated && { selectedTime: nextProps.selectedTime }),
+				...(canUpdateCalendar && {
+					calendar: {
+						monthIndex: getMonth(nextProps.selectedDate),
+						year: getYear(nextProps.selectedDate),
+					},
+				}),
 			});
 		}
 	}

@@ -189,4 +189,95 @@ describe('DateTimePicker', () => {
 
 		expect(onSubmit).not.toHaveBeenCalled();
 	});
+
+	it('should at initialization define the calendar displayed based on current date when no selection props given', () => {
+		mockDate(new Date(2016, 4, 12));
+
+		const wrapper = shallow(<DateTimePicker
+			onSubmit={() => {}}
+		/>);
+
+		wrapper.setState({
+			isDateTimeView: true,
+		});
+
+		const dateTimeView = wrapper.find(DateTimeView);
+		expect(dateTimeView.prop('calendar')).toEqual({
+			monthIndex: 4,
+			year: 2016,
+		});
+
+		restoreDate();
+	});
+
+	it('should at initialization define the calendar displayed based on "selectedDate" when given', () => {
+		const wrapper = shallow(<DateTimePicker
+			selectedDate={new Date(2013, 0, 15)}
+			onSubmit={() => {}}
+		/>);
+
+		wrapper.setState({
+			isDateTimeView: true,
+		});
+
+		const dateTimeView = wrapper.find(DateTimeView);
+		expect(dateTimeView.prop('calendar')).toEqual({
+			monthIndex: 0,
+			year: 2013,
+		});
+	});
+
+	it('should update the calendar displayed based on "selectedDate" prop update', () => {
+		const wrapper = shallow(<DateTimePicker
+			selectedDate={new Date(2013, 0, 15)}
+			onSubmit={() => {}}
+		/>);
+
+		wrapper.setState({
+			isDateTimeView: true,
+		});
+
+		const dateTimeViewBefore = wrapper.find(DateTimeView);
+		expect(dateTimeViewBefore.prop('calendar')).toEqual({
+			monthIndex: 0,
+			year: 2013,
+		});
+
+		wrapper.setProps({
+			selectedDate: new Date(2015, 9, 4),
+		});
+
+		const dateTimeViewAfter = wrapper.find(DateTimeView);
+		expect(dateTimeViewAfter.prop('calendar')).toEqual({
+			monthIndex: 9,
+			year: 2015,
+		});
+	});
+
+	it('should keep actual calendar displayed if "selectedDate" prop update to undefined', () => {
+		const wrapper = shallow(<DateTimePicker
+			selectedDate={new Date(2013, 0, 15)}
+			onSubmit={() => {}}
+		/>);
+
+		wrapper.setState({
+			isDateTimeView: true,
+		});
+
+		const dateTimeViewBefore = wrapper.find(DateTimeView);
+		expect(dateTimeViewBefore.prop('calendar')).toEqual({
+			monthIndex: 0,
+			year: 2013,
+		});
+
+		wrapper.setProps({
+			selectedDate: undefined,
+		});
+
+		const dateTimeViewAfter = wrapper.find(DateTimeView);
+		expect(dateTimeViewAfter.prop('calendar')).toEqual({
+			monthIndex: 0,
+			year: 2013,
+		});
+	});
 });
