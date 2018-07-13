@@ -162,13 +162,13 @@ form {
 	.checkbox.switch,
 	.checkbox.switch-nested {
 		label:hover {
-			input[type=checkbox] + span {
+			input[type='checkbox'] + span {
 				color: $scooter;
 			}
 		}
 		&.disabled label {
 			&:hover {
-				input[type=checkbox] + span {
+				input[type='checkbox'] + span {
 					color: inherit;
 				}
 			}
