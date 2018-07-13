@@ -37,11 +37,7 @@ const singleSectionProps = {
 
 storiesOf('Datalist', module)
 	.addDecorator(checkA11y)
-	.addDecorator(story => (
-		<div className="col-lg-offset-2 col-lg-8">
-			{story()}
-		</div>
-	))
+	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.addWithInfo('default multiSection', () => {
 		const withoutAutoFocus = { ...propsMultiSection };
 		const restrictedValues = { ...propsMultiSection, restricted: true };
@@ -61,20 +57,20 @@ storiesOf('Datalist', module)
 		);
 	})
 	.addWithInfo('default single section', () => {
-		const withoutAutoFocus = { ...singleSectionProps };
+		const props = { ...singleSectionProps };
 		const restrictedValues = { ...singleSectionProps, restricted: true };
-		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
+		const defaultValue = { ...props, value: 'lol' };
 		return (
 			<form className="form">
 				<IconsProvider />
 				<h3>By default :</h3>
-				<Datalist {...withoutAutoFocus} />
+				<Datalist {...props} />
 				<h3>default value :</h3>
 				<Datalist {...defaultValue} />
 				<h3>Restricted values :</h3>
 				<Datalist {...restrictedValues} />
 				<h3>Loading :</h3>
-				<Datalist isLoading />
+				<Datalist {...props} titleMap={[]} isLoading />
 				<h3>Auto focused :</h3>
 				<Datalist {...singleSectionProps} autoFocus />
 			</form>

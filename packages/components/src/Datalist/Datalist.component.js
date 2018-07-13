@@ -376,6 +376,7 @@ Datalist.defaultProps = {
 	value: '',
 	restricted: false,
 	multiSection: false,
+	titleMap: [],
 };
 
 if (process.env.NODE_ENV !== 'production') {
