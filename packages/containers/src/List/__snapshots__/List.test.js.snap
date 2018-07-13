@@ -140,6 +140,12 @@ Object {
     },
 ],
   "list": Object {
+    "cellDictionary": Object {
+      "title": Object {
+        "cellRenderer": [Function],
+        "className": "tc-list-title-cell",
+      },
+    },
     "columns": Array [
       Object {
         "key": "id",

@@ -7,15 +7,9 @@ import {
 	HiddenHeader,
 	compareOrder,
 } from './ListToVirtualizedList.component';
-import Inject from '../../Inject';
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import CellActions from '../../VirtualizedList/CellActions';
 import CellBadge from '../../VirtualizedList/CellBadge';
-
-jest.mock('../../Inject', () => ({
-	get: jest.fn(),
-	getReactElement: () => {},
-}));
 
 const props = {
 	id: 'mylistid',
@@ -102,8 +96,6 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.columnData.actionsKey).toBe('actions');
 			}
 		});
-
-		expect(Inject.get).toHaveBeenCalledWith(undefined, 'CellTitle', jasmine.any(Function));
 	});
 
 	it('should NOT add actionsKey without titleProps', () => {

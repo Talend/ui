@@ -3,12 +3,24 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
 import { List as Component } from '@talend/react-components';
+import CellTitleRenderer, {
+	cellType as cellTitleType,
+} from '@talend/react-components/lib/VirtualizedList/CellTitle';
+import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
+
+const ConnectedCellTitle = cmfConnect({})(CellTitle);
+export const connectedCellDictionary = {
+	[cellTitleType]: {
+		...CellTitleRenderer,
+		cellRenderer: props => <ConnectedCellTitle {...props} />,
+	},
+};
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
@@ -204,28 +216,37 @@ class List extends React.Component {
 			}
 		}
 
+		props.list.cellDictionary = {
+			...connectedCellDictionary,
+		};
+
 		if (props.cellDictionary) {
-			props.list.cellDictionary = Object.keys(props.cellDictionary).reduce((acc, key) => {
-				const current = props.cellDictionary[key];
-				// eslint-disable-next-line no-param-reassign
-				acc[key] = {
-					...omit(current, ['component']),
-					cellRenderer: props.getComponent(current.component),
-				};
-				return acc;
-			}, {});
+			props.list.cellDictionary = {
+				...props.list.cellDictionary,
+				...Object.keys(props.cellDictionary).reduce(
+					(accumulator, key) => ({
+						...accumulator,
+						[key]: {
+							...omit(props.cellDictionary[key], ['component']),
+							cellRenderer: props.getComponent(props.cellDictionary[key].component),
+						},
+					}),
+					{},
+				),
+			};
 		}
 
 		if (props.headerDictionary) {
-			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce((acc, key) => {
-				const current = props.headerDictionary[key];
-				// eslint-disable-next-line no-param-reassign
-				acc[key] = {
-					...omit(current, ['component']),
-					headerRenderer: props.getComponent(current.component),
-				};
-				return acc;
-			}, {});
+			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce(
+				(accumulator, key) => ({
+					...accumulator,
+					[key]: {
+						...omit(props.headerDictionary[key], ['component']),
+						headerRenderer: props.getComponent(props.headerDictionary[key].component),
+					},
+				}),
+				{},
+			);
 		}
 
 		// toolbar
