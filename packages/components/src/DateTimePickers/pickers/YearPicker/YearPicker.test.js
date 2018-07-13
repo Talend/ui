@@ -24,15 +24,11 @@ describe('YearPicker', () => {
 	});
 
 	it('should have the right number of years selectable', () => {
-		mockDate(new Date(2022, 13, 5));
-
 		const wrapper = shallow(<YearPicker
 			onSelect={() => {}}
 		/>);
 
 		expect(wrapper.prop('items')).toHaveLength(NB_YEAR_RANGE);
-
-		restoreDate();
 	});
 
 	it('should have the correct year range selectable', () => {
