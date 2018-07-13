@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { cellType } from '../CellTitle';
+import { cellType as titleCellType } from '../CellTitle';
 import { internalIds } from './constants';
 
 /**
@@ -21,7 +21,7 @@ export function getCellRenderer(field) {
  * Get the cellType from VirtualizedList.Content configuration
  * @param field The VirtualizedList.Content instance
  */
-function getCellType(field) {
+export function getCellType(field) {
 	return field.props.cellType;
 }
 
@@ -90,7 +90,7 @@ export function getCellData(field, parent, index) {
  */
 export function extractSpecialFields(parent) {
 	const children = React.Children.toArray(parent.props.children);
-	const titleField = children.find(field => getCellType(field) === cellType);
+	const titleField = children.find(field => getCellType(field) === titleCellType);
 	const selectionField = children.find(field => field.props.id === internalIds.rowSelector);
 	const otherFields = children.filter(field => field !== titleField && field !== selectionField);
 

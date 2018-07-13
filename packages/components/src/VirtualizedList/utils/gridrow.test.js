@@ -3,6 +3,7 @@ import CellTitle from '../CellTitle';
 import VirtualizedList from '../VirtualizedList.component';
 import {
 	getCellRenderer,
+	getCellType,
 	getId,
 	getColumnData,
 	getDataKey,
@@ -18,6 +19,16 @@ import collection from '../collection';
 const { LARGE } = listTypes;
 
 describe('gridrow', () => {
+	describe('#getCellType', () => {
+		it('shoould return cellType', () => {
+			const cellType = 'cellType';
+			const field = {
+				props: { cellType },
+			};
+
+			expect(getCellType(field)).toBe(cellType);
+		});
+	});
 	describe('#getCellRenderer', () => {
 		it('should return cell renderer from content field props', () => {
 			// given

@@ -216,35 +216,30 @@ class List extends React.Component {
 			}
 		}
 
-		props.list.cellDictionary = {
-			...connectedCellDictionary,
-		};
+		props.list.cellDictionary = connectedCellDictionary;
 
 		if (props.cellDictionary) {
-			props.list.cellDictionary = {
-				...props.list.cellDictionary,
-				...Object.keys(props.cellDictionary).reduce(
-					(accumulator, key) => ({
-						...accumulator,
+			Object.keys(props.cellDictionary).reduce(
+				(accumulator, key) =>
+					Object.assign(accumulator, {
 						[key]: {
 							...omit(props.cellDictionary[key], ['component']),
 							cellRenderer: props.getComponent(props.cellDictionary[key].component),
 						},
 					}),
-					{},
-				),
-			};
+				props.list.cellDictionary,
+			);
 		}
 
 		if (props.headerDictionary) {
 			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce(
-				(accumulator, key) => ({
-					...accumulator,
-					[key]: {
-						...omit(props.headerDictionary[key], ['component']),
-						headerRenderer: props.getComponent(props.headerDictionary[key].component),
-					},
-				}),
+				(accumulator, key) =>
+					Object.assign(accumulator, {
+						[key]: {
+							...omit(props.headerDictionary[key], ['component']),
+							headerRenderer: props.getComponent(props.headerDictionary[key].component),
+						},
+					}),
 				{},
 			);
 		}
