@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PieChartButton, {
+import {
+	PieChartButtonComponent,
 	decorateWithOverlay,
 	decorateWithTooltip,
 	distributePercentages,
@@ -39,7 +40,7 @@ describe('PieChartButton', () => {
 		];
 
 		it('should render a PieChartButton', () => {
-			const wrapper = shallow(<PieChartButton display="small" model={pieChartData} />);
+			const wrapper = shallow(<PieChartButtonComponent display="small" model={pieChartData} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -48,7 +49,12 @@ describe('PieChartButton', () => {
 			const onClick = jest.fn();
 			const event = {};
 			const wrapper = shallow(
-				<PieChartButton label="my label" display="small" model={pieChartData} onClick={onClick} />,
+				<PieChartButtonComponent
+					label="my label"
+					display="small"
+					model={pieChartData}
+					onClick={onClick}
+				/>,
 			);
 
 			wrapper
@@ -67,7 +73,7 @@ describe('PieChartButton', () => {
 		it('should render a PieChartButton with an overlay', () => {
 			const overlayComponent = <div>I am an overlay</div>;
 			const wrapper = shallow(
-				<PieChartButton
+				<PieChartButtonComponent
 					display="medium"
 					labelIndex={2}
 					model={pieChartData}
@@ -81,14 +87,19 @@ describe('PieChartButton', () => {
 
 		it('should render nothing', () => {
 			const wrapper = shallow(
-				<PieChartButton available={false} display="medium" labelIndex={2} model={pieChartData} />,
+				<PieChartButtonComponent
+					available={false}
+					display="medium"
+					labelIndex={2}
+					model={pieChartData}
+				/>,
 			);
 
 			expect(wrapper.getElement()).toBeNull();
 		});
 
 		it('should render a Skeleton when the state is loading', () => {
-			const wrapper = shallow(<PieChartButton loading model={pieChartData} />);
+			const wrapper = shallow(<PieChartButtonComponent loading model={pieChartData} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -99,7 +110,7 @@ describe('PieChartButton', () => {
 			const myButtonRef = jest.fn();
 			const myOverlayRef = jest.fn();
 			mount(
-				<PieChartButton
+				<PieChartButtonComponent
 					display="medium"
 					labelIndex={2}
 					model={pieChartData}
