@@ -135,9 +135,11 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should ask to scroll to the previous 5 items when click in the top button action', () => {
+		const items = Array(100).fill();
+
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={[]}
+				items={items}
 				itemRenderer={() => {}}
 			/>
 		);
@@ -160,9 +162,11 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should ask to scroll to the next 5 items when click in the bottom button action', () => {
+		const items = Array(100).fill();
+
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={[]}
+				items={items}
 				itemRenderer={() => {}}
 			/>
 		);
@@ -182,5 +186,113 @@ describe('IncrementableScrollList', () => {
 		action.simulate('click');
 
 		expect(scrollToRow).toHaveBeenCalledWith(58);
+	});
+
+	it('should ask for the minimum index available when scrolling previous items while at a range of it lower than the display items range', () => {
+		const items = Array(58).fill();
+
+		const wrapper = shallow(
+			<IncrementableScrollList
+				items={items}
+				itemRenderer={() => {}}
+			/>
+		);
+
+		wrapper.setState({
+			startIndex: 2,
+		});
+
+		const scrollToRow = jest.fn();
+
+		wrapper.instance().setListRef({
+			scrollToRow,
+		});
+
+		const action = wrapper.find('IconButton.tc-incrementable-scroll-list-action-up');
+
+		action.simulate('click');
+
+		expect(scrollToRow).toHaveBeenCalledWith(0);
+	});
+
+	it('should ask for the maximum index available when scrolling next items while at a range of it lower than the display items range', () => {
+		const items = Array(42).fill();
+
+		const wrapper = shallow(
+			<IncrementableScrollList
+				items={items}
+				itemRenderer={() => {}}
+			/>
+		);
+
+		wrapper.setState({
+			startIndex: 33,
+		});
+
+		const scrollToRow = jest.fn();
+
+		wrapper.instance().setListRef({
+			scrollToRow,
+		});
+
+		const action = wrapper.find('IconButton.tc-incrementable-scroll-list-action-down');
+
+		action.simulate('click');
+
+		expect(scrollToRow).toHaveBeenCalledWith(37);
+	});
+
+	it('should not ask for index changing when scrolling previous items while already on minimum index', () => {
+		const items = Array(98).fill();
+
+		const wrapper = shallow(
+			<IncrementableScrollList
+				items={items}
+				itemRenderer={() => {}}
+			/>
+		);
+
+		wrapper.setState({
+			startIndex: 0,
+		});
+
+		const scrollToRow = jest.fn();
+
+		wrapper.instance().setListRef({
+			scrollToRow,
+		});
+
+		const action = wrapper.find('IconButton.tc-incrementable-scroll-list-action-up');
+
+		action.simulate('click');
+
+		expect(scrollToRow).not.toHaveBeenCalled();
+	});
+
+	it('should not ask for index changing when scrolling next items while already on maximum index', () => {
+		const items = Array(96).fill();
+
+		const wrapper = shallow(
+			<IncrementableScrollList
+				items={items}
+				itemRenderer={() => {}}
+			/>
+		);
+
+		wrapper.setState({
+			startIndex: 92,
+		});
+
+		const scrollToRow = jest.fn();
+
+		wrapper.instance().setListRef({
+			scrollToRow,
+		});
+
+		const action = wrapper.find('IconButton.tc-incrementable-scroll-list-action-down');
+
+		action.simulate('click');
+
+		expect(scrollToRow).not.toHaveBeenCalled();
 	});
 });

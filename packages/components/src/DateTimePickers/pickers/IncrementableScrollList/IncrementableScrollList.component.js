@@ -5,6 +5,18 @@ import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
 import IconButton from '../../IconButton';
 
+function keepInBoundaries(number, min, max) {
+	if (number < min) {
+		return min;
+	}
+	if (number > max) {
+		return max;
+	}
+	return number;
+}
+
+const NB_ITEMS_DISPLAYED = 5;
+
 class IncrementableScrollList extends React.Component {
 
 	constructor(props) {
@@ -35,7 +47,17 @@ class IncrementableScrollList extends React.Component {
 	}
 
 	scrollRows(increment) {
-		const newRowIndex = this.state.startIndex + increment;
+		const firstIndex = 0;
+		const lastIndex = this.props.items.length - NB_ITEMS_DISPLAYED;
+		const needToScroll = increment < 0 && this.state.startIndex > firstIndex ||
+							increment > 0 && this.state.startIndex < lastIndex;
+
+		if (!needToScroll) {
+			return;
+		}
+
+		const incrementedIndex = this.state.startIndex + increment;
+		const newRowIndex = keepInBoundaries(incrementedIndex, firstIndex, lastIndex);
 		this.listRef.scrollToRow(newRowIndex);
 	}
 
@@ -75,7 +97,7 @@ class IncrementableScrollList extends React.Component {
 				<div className={theme.items}>
 					<AutoSizer>
 						{({ height, width, scrollTop }) => {
-							const rowHeight = height / 5;
+							const rowHeight = height / NB_ITEMS_DISPLAYED;
 							return (
 								<List
 									ref={this.setListRef}
