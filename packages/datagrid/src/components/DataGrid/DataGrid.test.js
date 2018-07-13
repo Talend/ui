@@ -26,29 +26,38 @@ const sample = {
 			{
 				name: 'field0',
 				doc: 'Nom de la gare',
-				type: {
-					type: 'string',
-					dqType: 'FR Commune',
-					dqTypeKey: 'FR_COMMUNE',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 38,
-					'-1': 62,
-				},
+				type: [
+					{
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+							total: 100,
+						},
+						type: 'string',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+					{
+						type: 'null',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+				],
 			},
 			{
 				name: 'field1',
 				doc: 'Code UIC',
 				type: {
+					'@talend-quality@': {
+						0: 0,
+						1: 100,
+						'-1': 0,
+						total: 100,
+					},
 					type: 'int',
 					dqType: '',
 					dqTypeKey: '',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 100,
-					'-1': 0,
 				},
 			},
 		],
