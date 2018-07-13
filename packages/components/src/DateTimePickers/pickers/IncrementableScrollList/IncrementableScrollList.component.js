@@ -22,12 +22,8 @@ class IncrementableScrollList extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.initialIndex = props.initialIndex === undefined
-			? 0
-			: props.initialIndex;
-
 		this.state = {
-			startIndex: this.initialIndex,
+			startIndex: props.initialIndex,
 		};
 
 		this.scrollUp = this.scrollRows.bind(this, -5);
@@ -107,7 +103,7 @@ class IncrementableScrollList extends React.Component {
 									rowHeight={rowHeight}
 									rowRenderer={rowRenderer}
 									scrollToAlignment={'start'}
-									scrollToIndex={this.initialIndex}
+									scrollToIndex={this.props.initialIndex}
 									width={width}
 									scrollTop={scrollTop}
 									onRowsRendered={this.onRowsRendered}
@@ -134,6 +130,10 @@ IncrementableScrollList.propTypes = {
 	items: PropTypes.array.isRequired,
 	itemRenderer: PropTypes.func.isRequired,
 	initialIndex: PropTypes.number,
+};
+
+IncrementableScrollList.defaultProps = {
+	initialIndex: 0,
 };
 
 export default IncrementableScrollList;
