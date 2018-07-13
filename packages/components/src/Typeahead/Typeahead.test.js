@@ -51,6 +51,23 @@ describe('Typeahead', () => {
 		},
 	];
 
+	const noHeaderItems = [
+		{
+			suggestions: [
+				{
+					title: 'le title 1',
+					description:
+						'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+				},
+				{
+					title: 'title 2 les elephants elementaires ont des aile ',
+					description:
+						'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				},
+			],
+		},
+	];
+
 	describe('toggle button', () => {
 		it('should be hidden if docked property is not true', () => {
 			// given
@@ -215,5 +232,37 @@ describe('Typeahead', () => {
 			// then
 			expect(onSelect).toBeCalled();
 		});
+	});
+	it('should not display section header if there are no title or icon', () => {
+		// given
+		const props = {
+			...initialProps,
+			onToggle: jest.fn(),
+			docked: false,
+			items: noHeaderItems,
+		};
+		const typeahead = <Typeahead {...props} />;
+
+		// when
+		const typeaheadInstance = mount(typeahead);
+
+		// then
+		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(0);
+	});
+	it('should display section header', () => {
+		// given
+		const props = {
+			...initialProps,
+			onToggle: jest.fn(),
+			docked: false,
+			items,
+		};
+		const typeahead = <Typeahead {...props} />;
+
+		// when
+		const typeaheadInstance = mount(typeahead);
+
+		// then
+		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
 	});
 });

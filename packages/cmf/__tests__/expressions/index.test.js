@@ -75,6 +75,58 @@ describe('expressions', () => {
 			);
 		});
 	});
+	describe('cmf.collections.oneOf', () => {
+		it('should return true if one of the values is present in the list', () => {
+			const context = mock.context();
+			const state = mock.state();
+			state.cmf.collections = new Immutable.Map({
+				article: new Immutable.Map({
+					title: 'title',
+					tags: new Immutable.List(['test', 'test2', 'test3']),
+				}),
+			});
+			context.store.getState = () => state;
+			expect(expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test2', 'test4'])).toBe(
+				true,
+			);
+		});
+		it('should return false if all values are not present in the list', () => {
+			const context = mock.context();
+			const state = mock.state();
+			state.cmf.collections = new Immutable.Map({
+				article: new Immutable.Map({
+					title: 'title',
+					tags: new Immutable.List(['test', 'test2', 'test3']),
+				}),
+			});
+			context.store.getState = () => state;
+			expect(expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test4', 'test5'])).toBe(
+				false,
+			);
+		});
+		it('should return false if collection doesn\'t exist', () => {
+			const context = mock.context();
+			const state = mock.state();
+			context.store.getState = () => state;
+			state.cmf.collections = new Immutable.Map({});
+			expect(expressions['cmf.collections.oneOf']({ context }, 'article.tags', ['test0', 'test1'])).toBe(
+				false,
+			);
+		});
+		it('should throw an error if values are not an array', () => {
+			const context = mock.context();
+			const state = mock.state();
+			context.store.getState = () => state;
+			state.cmf.collections = new Immutable.Map({
+				article: new Immutable.Map({
+					title: 'title',
+					tags: new Immutable.List(['test', 'test2', 'test3']),
+				}),
+			});
+			expect(() => expressions['cmf.collections.oneOf']({ context }, 'article.tags', 'test'))
+				.toThrow(/^You should pass an array of values to check if one of them is present$/);
+		});
+	});
 
 	describe('cmf.components.get', () => {
 		it('should get component state', () => {

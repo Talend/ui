@@ -136,7 +136,7 @@ export function renderItemsContainerFactory(items, noResultText, searching, sear
 }
 
 export function renderSectionTitle(section) {
-	if (section) {
+	if (section && (section.icon || section.title)) {
 		return (
 			<div className={classNames(theme['section-header'], 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
