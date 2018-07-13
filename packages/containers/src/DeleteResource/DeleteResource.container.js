@@ -8,6 +8,17 @@ import I18N_DOMAIN_CONTAINERS from '../constant';
 import CONSTANTS from './constants';
 
 /**
+ * getLabel: return label to display on delete confirmation dialog
+ * @param resource
+ * @returns {*}
+ */
+function getLabel(resource) {
+	if (resource){
+		return resource.get('label') || resource.get('name') || '';
+	}
+	return '';
+}
+/**
  * DeleteResource is used to delete a specific resource.
  * When the component is mounted, it opens a confirm dialog.
  * It uses the saga matching pattern to launch a race between the cancel and validate action.
@@ -37,7 +48,7 @@ export class DeleteResource extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
-		this.getLabel = this.getLabel.bind(this);
+		this.getLabelInfo = this.getLabelInfo.bind(this);
 		this.getResourceInfo = this.getResourceInfo.bind(this);
 	}
 
@@ -46,11 +57,9 @@ export class DeleteResource extends React.Component {
 	 * Return the label and a boolean to confirm that the item has been found.
 	 * @param {object} resourceInfo
 	 */
-	getLabel() {
+	getLabelInfo() {
 		return {
-			label: this.props.resource
-				? this.props.resource.get('label') || this.props.resource.get('name') || ''
-				: '',
+			label: getLabel(this.props.resource),
 			found: !!this.props.resource,
 		};
 	}
@@ -66,7 +75,7 @@ export class DeleteResource extends React.Component {
 				? this.props.resourceTypeLabel
 				: this.props.resourceType,
 			uri: this.props.uri,
-			...this.getLabel(),
+			...this.getLabelInfo(),
 			id: this.props.resourceId,
 			redirectUrl: this.props.redirectUrl,
 		};

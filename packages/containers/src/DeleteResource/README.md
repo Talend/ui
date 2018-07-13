@@ -126,3 +126,34 @@ and also use it to append to the uri to call
 ```javascript
 `${uri}/${resourceType}/${id}`
 ```
+
+Example with collectionId:
+as default, DeleteResource component use `resourceType` as collection name when remove resource from Redux store.
+but sometimes, the collection name can be different with `resourceType`. then you can specify collection with prop `collectionId`.
+```JSON
+{
+    "props":{
+        "DeleteResource#connections":{
+            "uri": "/api/v1",
+            "resourceType": "collections",
+            "collectionId": "items",
+        }
+    }
+}
+```
+so DeleteResource will try to remove resource from `items` collection in store.
+
+Example with resourceUri:
+DeleteResource will use `${uri}/${resourceType}/${id}` as backend api for deleting resource, as default.
+If you have a different uri structure, then you can specify it with `resourceUri`.
+```JSON
+{
+    "props":{
+        "DeleteResource#run-profiles":{
+            "resourceType": "run-profiles",
+            "resourceUri": "/ipaas-services/run-profiles/type/id"
+        }
+    }
+}
+```
+then DeleteResource will send request to `/ipaas-services/run-profiles/type/id` to delete resource.
