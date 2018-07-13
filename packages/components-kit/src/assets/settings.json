@@ -37,10 +37,7 @@
       }
     },
     "SidePanel#default": {
-      "actions": [
-        { "componentId": "add-form" },
-        { "componentId": "asyncDatalist-form" }
-      ]
+      "actions": [{ "componentId": "add-form" }, { "componentId": "asyncDatalist-form" }]
     },
     "ActionButton#add-form": {
       "icon": "talend-plus",
