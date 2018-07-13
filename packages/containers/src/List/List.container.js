@@ -231,17 +231,18 @@ class List extends React.Component {
 		props.list.cellDictionary = cellDictionary;
 
 		if (props.headerDictionary) {
-			props.list.headerDictionary = Object.keys(
-				props.headerDictionary,
-			).reduce((accumulator, key) => {
-				const current = props.headerDictionary[key];
-				// eslint-disable-next-line no-param-reassign
-				accumulator[key] = {
-					...omit(current, ['component']),
-					headerRenderer: props.getComponent(current.component),
-				};
-				return accumulator;
-			}, {});
+			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce(
+				(accumulator, key) => {
+					const current = props.headerDictionary[key];
+					// eslint-disable-next-line no-param-reassign
+					accumulator[key] = {
+						...omit(current, ['component']),
+						headerRenderer: props.getComponent(current.component),
+					};
+					return accumulator;
+				},
+				{},
+			);
 		}
 
 		// toolbar
