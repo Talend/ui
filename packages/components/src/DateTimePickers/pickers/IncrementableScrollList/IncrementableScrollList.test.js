@@ -141,12 +141,9 @@ describe('IncrementableScrollList', () => {
 			<IncrementableScrollList
 				items={items}
 				itemRenderer={() => {}}
+				initialIndex={53}
 			/>
 		);
-
-		wrapper.setState({
-			startIndex: 53,
-		});
 
 		const scrollToRow = jest.fn();
 
@@ -168,12 +165,9 @@ describe('IncrementableScrollList', () => {
 			<IncrementableScrollList
 				items={items}
 				itemRenderer={() => {}}
+				initialIndex={53}
 			/>
 		);
-
-		wrapper.setState({
-			startIndex: 53,
-		});
 
 		const scrollToRow = jest.fn();
 
@@ -195,12 +189,9 @@ describe('IncrementableScrollList', () => {
 			<IncrementableScrollList
 				items={items}
 				itemRenderer={() => {}}
+				initialIndex={2}
 			/>
 		);
-
-		wrapper.setState({
-			startIndex: 2,
-		});
 
 		const scrollToRow = jest.fn();
 
@@ -222,12 +213,9 @@ describe('IncrementableScrollList', () => {
 			<IncrementableScrollList
 				items={items}
 				itemRenderer={() => {}}
+				initialIndex={33}
 			/>
 		);
-
-		wrapper.setState({
-			startIndex: 33,
-		});
 
 		const scrollToRow = jest.fn();
 
@@ -249,12 +237,9 @@ describe('IncrementableScrollList', () => {
 			<IncrementableScrollList
 				items={items}
 				itemRenderer={() => {}}
+				initialIndex={0}
 			/>
 		);
-
-		wrapper.setState({
-			startIndex: 0,
-		});
 
 		const scrollToRow = jest.fn();
 
@@ -276,12 +261,9 @@ describe('IncrementableScrollList', () => {
 			<IncrementableScrollList
 				items={items}
 				itemRenderer={() => {}}
+				initialIndex={92}
 			/>
 		);
-
-		wrapper.setState({
-			startIndex: 92,
-		});
 
 		const scrollToRow = jest.fn();
 
