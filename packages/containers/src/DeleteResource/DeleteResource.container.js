@@ -13,7 +13,7 @@ import CONSTANTS from './constants';
  * @returns {*}
  */
 function getLabel(resource) {
-	if (resource){
+	if (resource) {
 		return resource.get('label') || resource.get('name') || '';
 	}
 	return '';
