@@ -104,11 +104,10 @@ module.exports = {
 	devServer: {
 		before: function proxy(app) {
 			app.use(bodyParser.json()); // for parsing application/json
-			app.get('/api/v1/forms/add', (req, res) => {
-				res.json(add);
-			});
-			app.get('/api/v1/forms/asyncDatalist', (req, res) => {
-				res.json(asyncDatalist);
+			app.get('/api/v1/forms/:form', (req, res) => {
+				// eslint-disable-next-line global-require
+				const form = require(`./mock/${req.params.form}.json`);
+				res.json(form);
 			});
 			app.get('/api/v1/application/index', (req, res) => {
 				res.json(components);

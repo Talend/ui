@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
-import { getValue } from '../../utils/properties';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -20,8 +19,6 @@ const PROPS_TO_OMIT = [
 	'properties',
 	'resolveName',
 ];
-
-const SCHEMA_TO_OMIT = ['type', 'triggers', 'title', 'titleMap', 'schema'];
 
 class Datalist extends Component {
 	constructor(props) {
