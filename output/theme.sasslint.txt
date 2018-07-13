@@ -2,11 +2,11 @@
 
 
 src/theme/_buttons.scss
-  14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  17:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
-  22:22  error    !important not allowed          no-important
-  44:28  warning  Space expected around operator  space-around-operator
+  19:22  error    !important not allowed          no-important
+  41:28  warning  Space expected around operator  space-around-operator
 
 src/theme/_forms.scss
     9:24  error    Parenthesis should be removed                            empty-args
