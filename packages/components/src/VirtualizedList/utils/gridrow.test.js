@@ -20,13 +20,18 @@ const { LARGE } = listTypes;
 
 describe('gridrow', () => {
 	describe('#getCellType', () => {
-		it('shoould return cellType', () => {
+		it('should return cellType', () => {
+			// given
 			const cellType = 'cellType';
 			const field = {
 				props: { cellType },
 			};
 
-			expect(getCellType(field)).toBe(cellType);
+			// when
+			const result = getCellType(field);
+
+			// then
+			expect(result).toBe(cellType);
 		});
 	});
 	describe('#getCellRenderer', () => {
