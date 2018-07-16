@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollList from '../IncrementableScrollActionList/IncrementableScrollList';
-import PickerAction from '../../PickerAction';
+import IncrementableScrollActionList from '../IncrementableScrollActionList';
 
 // All times in this component represents a number of minutes since the beginning of the day
 
@@ -29,7 +28,7 @@ class TimePicker extends React.Component {
 
 		const nbTimeSelectable = Math.ceil(maxTime / props.interval);
 
-		this.times = (new Array(nbTimeSelectable))
+		this.items = (new Array(nbTimeSelectable))
 			.fill(0)
 			.map((_, i) => i * props.interval)
 			.map(time => {
@@ -37,47 +36,30 @@ class TimePicker extends React.Component {
 				const minutes = time % 60;
 
 				return {
-					time,
+					id: time,
 					label: `${twoDigits(hours)}:${twoDigits(minutes)}`,
 				};
 			});
 
 		const initialTime = getInitialTime(props.selectedTime);
 
-		const closestSelectableTime = this.times
-			.map(({ time }, index) => ({
-				index,
-				diff: Math.abs(time - initialTime),
+		const closestSelectableTime = this.items
+			.map(item => ({
+				item,
+				diff: Math.abs(item.id - initialTime),
 			}))
 			.sort((a, b) => a.diff - b.diff)[0];
 
-		this.initialIndex = closestSelectableTime.index - 2;
-
-		this.isSelected = this.isSelected.bind(this);
-	}
-
-	isSelected(time) {
-		return time === this.props.selectedTime;
+		this.initialMiddleVisibleItemId = closestSelectableTime.item.id;
 	}
 
 	render() {
-		const itemRenderer = item => {
-			const { time, label } = item;
-			return (
-				<PickerAction
-					aria-label={`Select '${label}'`}
-					isSelected={this.isSelected(time)}
-					label={label}
-					onClick={() => this.props.onSelect(time)}
-				/>
-			);
-		};
-
 		return (
-			<IncrementableScrollList
-				items={this.times}
-				initialIndex={this.initialIndex}
-				itemRenderer={itemRenderer}
+			<IncrementableScrollActionList
+				items={this.items}
+				initialMiddleVisibleItemId={this.initialMiddleVisibleItemId}
+				selectedItemId={this.props.selectedTime}
+				onSelect={item => this.props.onSelect(item.id)}
 			/>
 		);
 	}
