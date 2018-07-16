@@ -107,7 +107,6 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 					defaultValue: 'Select item "{{label}}"',
 					label: actualLabel,
 				})}
-				bsStyle="link"
 			>
 				{showCheckboxes && (
 					<Checkbox

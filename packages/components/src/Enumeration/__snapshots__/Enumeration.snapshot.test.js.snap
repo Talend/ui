@@ -376,7 +376,7 @@ Array [
         aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
         block={false}
         bsClass="btn"
-        bsStyle="link"
+        bsStyle="default"
         className="theme-tc-enumeration-item-label tc-enumeration-item-label"
         disabled={false}
         key="0"
@@ -385,7 +385,7 @@ Array [
     >
         <button
             aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
             disabled={false}
             onClick={[Function]}
             role="gridcell"
@@ -459,7 +459,7 @@ Array [
         aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
         block={false}
         bsClass="btn"
-        bsStyle="link"
+        bsStyle="default"
         className="theme-tc-enumeration-item-label tc-enumeration-item-label"
         disabled={false}
         key="1"
@@ -468,7 +468,7 @@ Array [
     >
         <button
             aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
             disabled={false}
             onClick={[Function]}
             role="gridcell"
@@ -542,7 +542,7 @@ Array [
         aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
         block={false}
         bsClass="btn"
-        bsStyle="link"
+        bsStyle="default"
         className="theme-tc-enumeration-item-label tc-enumeration-item-label"
         disabled={false}
         key="2"
@@ -551,7 +551,7 @@ Array [
     >
         <button
             aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
             disabled={false}
             onClick={[Function]}
             role="gridcell"
@@ -630,7 +630,7 @@ Array [
         aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
         block={false}
         bsClass="btn"
-        bsStyle="link"
+        bsStyle="default"
         className="theme-tc-enumeration-item-label tc-enumeration-item-label"
         disabled={false}
         key="0"
@@ -639,7 +639,7 @@ Array [
     >
         <button
             aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
             disabled={false}
             onClick={[Function]}
             role="gridcell"
@@ -692,7 +692,7 @@ Array [
         aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
         block={false}
         bsClass="btn"
-        bsStyle="link"
+        bsStyle="default"
         className="theme-tc-enumeration-item-label tc-enumeration-item-label"
         disabled={false}
         key="1"
@@ -701,7 +701,7 @@ Array [
     >
         <button
             aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
             disabled={false}
             onClick={[Function]}
             role="gridcell"
@@ -754,7 +754,7 @@ Array [
         aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
         block={false}
         bsClass="btn"
-        bsStyle="link"
+        bsStyle="default"
         className="theme-tc-enumeration-item-label tc-enumeration-item-label"
         disabled={false}
         key="2"
@@ -763,7 +763,7 @@ Array [
     >
         <button
             aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
-            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+            className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
             disabled={false}
             onClick={[Function]}
             role="gridcell"

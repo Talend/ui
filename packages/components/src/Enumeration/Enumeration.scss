@@ -15,12 +15,10 @@ $tc-enumeration-font-size: 1.4rem !default;
 
 		.btn {
 			justify-content: flex-start;
-			min-height: 100%;
-			text-decoration: none;
-			color: inherit;
+			min-height: auto;
 
 			&.btn-link {
-				padding: 0 $padding-normal;
+				padding: 0 $padding-smaller;
 
 				svg {
 					fill: $tc-enumeration-svg-color;

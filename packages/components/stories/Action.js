@@ -38,32 +38,29 @@ storiesOf('Action', module)
 	))
 	.addWithInfo('default', () => (
 		<div>
-			<h3>By default :</h3>
+			<p>By default :</p>
 			<Action id="default" {...myAction} />
-			<h3>Bootstrap style :</h3>
-			<Action id="bsStyle" {...myAction} bsStyle="primary" />
-			<Action id="bsStyle" {...myAction} bsStyle="primary btn-inverse" />
-			<h3>With hideLabel option</h3>
+			<p>With hideLabel option</p>
 			<Action id="hidelabel" {...myAction} hideLabel />
-			<h3>In progress</h3>
+			<p>In progress</p>
 			<Action id="inprogress" {...myAction} inProgress />
-			<h3>Loading</h3>
+			<p>loading</p>
 			<Action id="loading" loading />
-			<h3>Icon button</h3>
+			<p>Icon button</p>
 			<Action id="icon" {...myAction} link />
-			<h3>Loading Icon button</h3>
+			<p>Loading Icon button</p>
 			<Action id="icon" link label={'Click me'} loading />
-			<h3>Disabled</h3>
+			<p>Disabled</p>
 			<Action id="disabled" {...myAction} disabled />
-			<h3>Reverse display</h3>
+			<p>Reverse display</p>
 			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
-			<h3>Transform icon</h3>
+			<p>Transform icon</p>
 			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
-			<h3>Custom tooltip</h3>
+			<p>Custom tooltip</p>
 			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
-			<h3>OnMouse down handler</h3>
+			<p>onMouse down handler</p>
 			<Action id="hidelabel" {...mouseDownAction} hideLabel />
-			<h3>Action with popover</h3>
+			<p>Action with popover</p>
 			<Action
 				id="hidelabel"
 				overlayComponent={OverlayComponent}
@@ -72,7 +69,7 @@ storiesOf('Action', module)
 				{...mouseDownAction}
 				hideLabel
 			/>
-			<h3>Action in progress</h3>
+			<p>Action in progress</p>
 			<Action
 				id="hidelabel"
 				inProgress="true"

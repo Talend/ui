@@ -191,19 +191,18 @@ describe('EnumerationWidget', () => {
 			/>,
 		);
 		wrapper
-			.find('button.tc-enumeration-item-label')
+			.find('.tc-enumeration-item-label')
 			.at(0)
 			.simulate('click');
 		wrapper
-			.find('button.tc-enumeration-item-label')
+			.find('.tc-enumeration-item-label')
 			.at(1)
 			.simulate('click', { ctrlKey: true });
 
 		// when click on trash icon
 		wrapper
-			.find('.tc-enumeration-header')
 			.find('.btn-link')
-			.at(0)
+			.at(5)
 			.simulate('click');
 
 		// then
@@ -265,7 +264,7 @@ describe('EnumerationWidget', () => {
 
 		// should reset all items to default mode
 		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
-		expect(wrapper.find('.tc-enumeration-item button.tc-enumeration-item-label').length).toBe(2);
+		expect(wrapper.find('.tc-enumeration-item .btn-default').length).toBe(2);
 	});
 
 	describe('upload file', () => {

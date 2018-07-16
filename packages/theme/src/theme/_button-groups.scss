@@ -15,34 +15,17 @@
 
 .btn-group {
 	display: inline-flex;
+	overflow: hidden;
 
 	.btn {
-		.caret {
-			@include dropdown-caret-color($navbar-inverse-link-color);
-		}
-
-		&-default.btn-inverse .caret {
-			@include dropdown-caret-color($navbar-default-link-color);
-		}
-
-		&-primary.btn-inverse .caret {
-			@include dropdown-caret-color($btn-validation-bg);
-		}
-
-		&-success.btn-inverse .caret {
-			@include dropdown-caret-color($btn-success-bg);
-		}
-
-		&-info.btn-inverse .caret {
-			@include dropdown-caret-color($btn-info-bg);
-		}
-
-		&-warning.btn-inverse .caret {
-			@include dropdown-caret-color($btn-warning-bg);
-		}
-
-		&-danger.btn-inverse .caret {
-			@include dropdown-caret-color($btn-danger-bg);
+		&-primary,
+		&-success,
+		&-info,
+		&-warning,
+		&-danger {
+			.caret {
+				@include dropdown-caret-color($navbar-inverse-link-color);
+			}
 		}
 
 		+ .btn {
@@ -50,10 +33,6 @@
 				margin-left: 0;
 			}
 		}
-	}
-
-	.dropdown-toggle {
-		border-left-width: 1px;
 	}
 
 	&-justified {
