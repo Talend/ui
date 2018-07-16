@@ -195,6 +195,8 @@ form {
 			position: absolute;
 			left: 0;
 			margin: 0;
+			-moz-appearance: none;
+			-webkit-appearance: none;
 		}
 
 		&.disabled label {

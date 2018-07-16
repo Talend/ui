@@ -10,6 +10,9 @@ input[type='checkbox'],
 .checkbox-inline input[type='checkbox'] {
 	width: $tt-checkbox-size;
 	height: $tt-checkbox-size;
+	outline: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
 
 	&:before,
 	+ *:before {
@@ -41,7 +44,7 @@ input[type='checkbox'],
 	}
 
 	&:focus {
-		&:before {
+		&:before, + *:after {
 			border-color: $tt-checkbox-focus-border-color;
 			@include checkbox-outline;
 		}
