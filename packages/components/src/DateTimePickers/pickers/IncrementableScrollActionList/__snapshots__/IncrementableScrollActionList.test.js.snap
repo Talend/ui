@@ -1,3 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IncrementableScrollActionList should render 1`] = `<div />`;
+exports[`IncrementableScrollActionList render should render 1`] = `
+<IncrementableScrollList
+  initialIndex={0}
+  itemRenderer={[Function]}
+  items={
+    Array [
+      Object {
+        "id": 1,
+        "label": "item 1",
+      },
+      Object {
+        "id": 2,
+        "label": "item 2",
+      },
+      Object {
+        "id": 3,
+        "label": "item 3",
+      },
+      Object {
+        "id": 4,
+        "label": "item 4",
+      },
+      Object {
+        "id": 5,
+        "label": "item 5",
+      },
+      Object {
+        "id": 6,
+        "label": "item 6",
+      },
+      Object {
+        "id": 7,
+        "label": "item 7",
+      },
+      Object {
+        "id": 8,
+        "label": "item 8",
+      },
+      Object {
+        "id": 9,
+        "label": "item 9",
+      },
+      Object {
+        "id": 10,
+        "label": "item 10",
+      },
+      Object {
+        "id": 11,
+        "label": "item 11",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`IncrementableScrollActionList render should render a row with a PickerAction based on the item given 1`] = `
+<PickerAction
+  aria-label="Select 'item 1'"
+  isSelected={false}
+  label="item 1"
+  onClick={[Function]}
+/>
+`;
