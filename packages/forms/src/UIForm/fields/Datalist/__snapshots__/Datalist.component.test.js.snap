@@ -11,16 +11,14 @@ exports[`Datalist component should render 1`] = `
 >
   <Datalist component
     autoFocus={true}
-    description="This is my datalist"
     disabled={false}
-    id="my-datalist-select"
-    input={true}
+    id="my-datalist"
     multiSection={false}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Type here"
     readOnly={false}
-    restricted={true}
+    restricted={false}
     titleMap={
       Array [
         Object {
@@ -34,10 +32,6 @@ exports[`Datalist component should render 1`] = `
         Object {
           "name": "Lol",
           "value": "lol",
-        },
-        Object {
-          "name": "foo",
-          "value": "foo",
         },
       ]
     }

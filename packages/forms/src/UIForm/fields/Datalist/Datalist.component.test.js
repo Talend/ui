@@ -40,6 +40,7 @@ describe('Datalist component', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	describe('onChange', () => {
 		it('should call props.onChange && props.onFinish', () => {
 			// when
@@ -69,6 +70,45 @@ describe('Datalist component', () => {
 				...selectedValue,
 			});
 		});
+
+		it('should rebuild schema to match restriction on validation', () => {
+			// when
+			const props = {
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(),
+				schema,
+			};
+			const wrapper = shallow(<Datalist {...props} />);
+			const selectedValue = { label: 'Bar', value: 'bar' };
+			const event = { type: 'change' };
+			wrapper.instance().setState({
+				titleMap: [
+					{ name: 'my_name', value: 'my' },
+					{ name: 'title_name', value: 'title' },
+					{ name: 'map_name', value: 'map' },
+				],
+			});
+			wrapper.instance().onChange(event, selectedValue);
+
+			// then
+			const generatedSchema = {
+				...schema,
+				schema: {
+					...schema.schema,
+					enum: ['my', 'title', 'map'],
+				},
+			};
+			expect(props.onChange).toBeCalledWith(event, {
+				schema: generatedSchema,
+				...selectedValue,
+			});
+			expect(props.onFinish).toBeCalledWith(event, {
+				schema: generatedSchema,
+				...selectedValue,
+			});
+		});
+
 		it('should support undefined value', () => {
 			// when
 			const props = {
@@ -90,9 +130,10 @@ describe('Datalist component', () => {
 			expect(props.onChange).toHaveBeenCalledWith(event, { schema: props.schema });
 		});
 	});
+
 	describe('onFocus', () => {
 		it('should call onTrigger when triggers has onEvent="focus"', done => {
-			// when
+			// given
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
 				onChange: jest.fn(),
@@ -121,10 +162,21 @@ describe('Datalist component', () => {
 				},
 			};
 			const wrapper = shallow(<Datalist {...props} />);
-			wrapper.instance().onFocus({ type: 'focus', target: wrapper.instance() });
+			const event = { type: 'focus', target: wrapper.instance() };
+
+			// when
+			wrapper
+				.find('FieldTemplate')
+				.find('Datalist')
+				.prop('onFocus')(event);
 
 			// then
-			expect(props.onTrigger).toHaveBeenCalled();
+			expect(props.onTrigger).toBeCalledWith(event, {
+				trigger: props.schema.triggers[0],
+				schema: props.schema,
+				errors: props.errors,
+				properties: props.properties,
+			});
 			expect(wrapper.state('isLoading')).toBe(true);
 		});
 	});
@@ -148,6 +200,7 @@ describe('Datalist component', () => {
 				{ name: 'Lol', value: 'lol' },
 			]);
 		});
+
 		it('should give priority to state.titleMap', () => {
 			// when
 			const props = {
@@ -168,7 +221,34 @@ describe('Datalist component', () => {
 				{ name: 'World', value: 'world' },
 			]);
 		});
-		it('should add props.value to the titleMap', () => {
+
+		it('should add unknown value to the titleMap if not restricted', () => {
+			// when
+			const props = {
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(),
+				schema: { ...schema, restricted: false },
+				value: 'hello',
+				resolveName: value => `${value}_name`,
+			};
+			const wrapper = shallow(<Datalist {...props} />);
+
+			// then
+			expect(
+				wrapper
+					.find('FieldTemplate')
+					.find('Datalist')
+					.prop('titleMap'),
+			).toEqual([
+				{ name: 'Foo', value: 'foo' },
+				{ name: 'Bar', value: 'bar' },
+				{ name: 'Lol', value: 'lol' },
+				{ name: 'hello_name', value: 'hello' },
+			]);
+		});
+
+		it('should NOT add unknown value on restricted datalist', () => {
 			// when
 			const props = {
 				onChange: jest.fn(),
@@ -178,14 +258,17 @@ describe('Datalist component', () => {
 				value: 'hello',
 			};
 			const wrapper = shallow(<Datalist {...props} />);
-			const titleMap = wrapper.instance().getTitleMap();
 
 			// then
-			expect(titleMap).toEqual([
+			expect(
+				wrapper
+					.find('FieldTemplate')
+					.find('Datalist')
+					.prop('titleMap'),
+			).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
-				{ name: 'hello', value: 'hello' },
 			]);
 		});
 	});
