@@ -37,12 +37,12 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "0.200.0",
-    "@talend/icons": "0.200.0",
-    "@talend/react-cmf": "0.200.0",
-    "@talend/react-components": "file:../components",
-    "@talend/react-containers": "0.200.0",
-    "@talend/react-forms": "file:../forms",
+    "@talend/bootstrap-theme": "0.201.0-0",
+    "@talend/icons": "0.201.0-0",
+    "@talend/react-cmf": "0.201.0-0",
+    "@talend/react-components": "0.201.0-0",
+    "@talend/react-containers": "0.201.0-0",
+    "@talend/react-forms": "0.201.0-0",
     "bootstrap-sass": "3.3.7",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
