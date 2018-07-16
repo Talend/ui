@@ -176,6 +176,7 @@ const files = [
 	'./packages/cmf-cqrs/package.json',
 	'./packages/cmf-webpack-plugin/package.json',
 	'./packages/components/package.json',
+	'./packages/components-kit/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
