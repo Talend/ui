@@ -149,16 +149,13 @@ export class UIFormComponent extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				const trigger = schema.triggers.find(t => t.onEvent === undefined);
-				if (trigger) {
-					this.onTrigger(event, {
-						trigger,
-						schema,
-						properties: formData,
-						errors,
-						value,
-					});
-				}
+				this.onTrigger(event, {
+					trigger: schema.triggers[0],
+					schema,
+					properties: formData,
+					errors,
+					value,
+				});
 			}
 		}
 	}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import omit from 'lodash/omit';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
@@ -10,8 +9,6 @@ import theme from './Datalist.scss';
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
-
-const PROPS_TO_OMIT = ['restricted', 'titleMap', 'value'];
 
 class Datalist extends Component {
 	constructor(props) {
@@ -36,22 +33,7 @@ class Datalist extends Component {
 	}
 
 	componentWillReceiveProps({ value, titleMap }) {
-		const newState = {};
-		let stateCallback;
-		if (value !== this.props.value) {
-			newState.previousValue = value;
-			newState.value = value;
-		}
-		if (titleMap !== this.props.titleMap) {
-			newState.titleMapping = this.buildTitleMapping(titleMap);
-			stateCallback = () => {
-				if (this.state.suggestions) {
-					const filter = value !== this.state.value ? this.state.value : null;
-					this.updateSuggestions(filter);
-				}
-			};
-		}
-		this.setState(newState, stateCallback);
+		this.setState({ previousValue: value, value, titleMapping: this.buildTitleMapping(titleMap) });
 	}
 
 	/**
@@ -84,9 +66,6 @@ class Datalist extends Component {
 	 * @param event the focus event
 	 */
 	onFocus(event) {
-		if (this.props.onFocus) {
-			this.props.onFocus(event);
-		}
 		event.target.select();
 		this.updateSuggestions();
 		this.updateSelectedIndexes(this.state.value);
@@ -350,22 +329,31 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
+
 		return (
 			<div className={theme['tc-datalist']}>
 				<Typeahead
-					{...omit(this.props, PROPS_TO_OMIT)}
+					id={`${this.props.id}`}
+					autoFocus={this.props.autoFocus || false}
+					disabled={this.props.disabled || false}
 					focusedItemIndex={this.state.focusedItemIndex}
 					focusedSectionIndex={this.state.focusedSectionIndex}
 					items={this.state.suggestions}
+					multiSection={this.props.multiSection}
 					onBlur={this.onBlur}
 					onChange={this.onChange}
 					onFocus={this.onFocus}
 					onKeyDown={this.onKeyDown}
 					onSelect={this.onSelect}
+					placeholder={this.props.placeholder}
+					readOnly={this.props.readOnly || false}
 					theme={this.theme}
+					noResultText={this.props.noResultText}
 					value={label}
-					caret
 				/>
+				<div className={theme.toggle}>
+					<span className="caret" />
+				</div>
 			</div>
 		);
 	}
@@ -375,16 +363,17 @@ Datalist.displayName = 'Datalist component';
 Datalist.defaultProps = {
 	value: '',
 	restricted: false,
-	multiSection: false,
-	titleMap: [],
 };
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
+		autoFocus: PropTypes.bool,
+		id: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
-		onFocus: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
+		noResultText: PropTypes.string,
+		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(

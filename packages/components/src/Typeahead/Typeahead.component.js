@@ -55,9 +55,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				position === 'right' && theme.right,
 				rest.theme && rest.theme.container,
 				rest.className,
-				{
-					[theme.loading]: rest.isLoading,
-				},
 			),
 		},
 	};
@@ -69,7 +66,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
-			id: rest.id,
 			inputRef: rest.inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
@@ -79,7 +75,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			readOnly: rest.readOnly,
 			value: rest.value,
 			icon,
-			caret: rest.caret,
 		},
 	};
 
@@ -90,8 +85,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.noResultText,
 			rest.searching,
 			rest.searchingText,
-			rest.isLoading,
-			rest.isLoadingText,
 		),
 		renderItemData: { value: rest.value },
 	};
@@ -120,17 +113,16 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 Typeahead.displayName = 'Typeahead';
 
 Typeahead.defaultProps = {
-	autoFocus: false,
+	autoFocus: true,
 	disabled: false,
-	id: uuid.v4().toString(),
+	id: uuid.v4(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
 	position: 'left',
 	readOnly: false,
 	searching: false,
-	searchingText: 'Searching for matches...',
-	isLoadingText: 'Loading...',
+	searchingText: 'Searching for matches…',
 	docked: false,
 };
 

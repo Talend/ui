@@ -3,15 +3,16 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
-import { Datalist, IconsProvider } from '../src/index';
+import { Datalist } from '../src/index';
 
 const propsMultiSection = {
+	autoFocus: true,
 	disabled: false,
 	multiSection: true,
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'faa' }] },
+		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'foo' }] },
 		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
 		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
 		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
@@ -21,6 +22,7 @@ const propsMultiSection = {
 };
 
 const singleSectionProps = {
+	autoFocus: true,
 	disabled: false,
 	multiSection: false,
 	placeholder: 'search for something ...',
@@ -37,40 +39,42 @@ const singleSectionProps = {
 
 storiesOf('Datalist', module)
 	.addDecorator(checkA11y)
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
+	.addDecorator(story => (
+		<div className="col-lg-offset-2 col-lg-8">
+			{story()}
+		</div>
+	))
 	.addWithInfo('default multiSection', () => {
-		const restrictedValues = { ...propsMultiSection, restricted: true };
-		const defaultValue = { ...propsMultiSection, value: 'lol' };
+		const withoutAutoFocus = { ...propsMultiSection, autoFocus: false };
+		const restrictedValues = { ...propsMultiSection, restricted: true, autoFocus: false };
+		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
-			<form className="form">
-				<IconsProvider />
-				<h3>By default :</h3>
-				<Datalist {...propsMultiSection} />
-				<h3>default value :</h3>
+			<div>
+				<p>By default :</p>
+				<Datalist {...withoutAutoFocus} />
+				<p>default value :</p>
 				<Datalist {...defaultValue} />
-				<h3>Restricted values :</h3>
+				<p>Restricted values :</p>
 				<Datalist {...restrictedValues} />
-				<h3>Auto focused :</h3>
-				<Datalist {...propsMultiSection} autoFocus />
-			</form>
+				<p>Auto focused :</p>
+				<Datalist {...propsMultiSection} />
+			</div>
 		);
 	})
 	.addWithInfo('default single section', () => {
-		const restrictedValues = { ...singleSectionProps, restricted: true };
-		const defaultValue = { ...singleSectionProps, value: 'lol' };
+		const withoutAutoFocus = { ...singleSectionProps, autoFocus: false };
+		const restrictedValues = { ...singleSectionProps, restricted: true, autoFocus: false };
+		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
-			<form className="form">
-				<IconsProvider />
-				<h3>By default :</h3>
-				<Datalist {...singleSectionProps} />
-				<h3>default value :</h3>
+			<div>
+				<p>By default :</p>
+				<Datalist {...withoutAutoFocus} />
+				<p>default value :</p>
 				<Datalist {...defaultValue} />
-				<h3>Restricted values :</h3>
+				<p>Restricted values :</p>
 				<Datalist {...restrictedValues} />
-				<h3>Loading :</h3>
-				<Datalist {...singleSectionProps} titleMap={[]} isLoading />
-				<h3>Auto focused :</h3>
-				<Datalist {...singleSectionProps} autoFocus />
-			</form>
+				<p>Auto focused :</p>
+				<Datalist {...singleSectionProps} />
+			</div>
 		);
 	});
