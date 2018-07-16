@@ -1462,14 +1462,14 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container tc-typeahead-items-container theme-is-searching"
+                className="theme-items-container tc-typeahead-items-container theme-item-container theme-is-searching"
                 id="react-autowhatever-42"
                 role="listbox"
               >
                 <span
                   className="is-searching"
                 >
-                  Searching for matches…
+                  Searching for matches...
                 </span>
                  
                 <svg
@@ -4069,7 +4069,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container tc-typeahead-items-container theme-no-result"
+                className="theme-items-container tc-typeahead-items-container theme-item-container theme-no-result"
                 id="react-autowhatever-42"
                 role="listbox"
               >
@@ -5371,7 +5371,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container tc-typeahead-items-container"
+                className="theme-items-container tc-typeahead-items-container theme-item-container"
                 id="react-autowhatever-42"
                 role="listbox"
               />
@@ -6016,7 +6016,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container tc-typeahead-items-container"
+                className="theme-items-container tc-typeahead-items-container theme-item-container"
                 id="react-autowhatever-42"
                 role="listbox"
               >

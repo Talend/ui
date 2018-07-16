@@ -13,6 +13,7 @@ exports[`Datalist component should render a typeahead 1`] = `
     focusedItemIndex={undefined}
     focusedSectionIndex={undefined}
     id="my-datalist"
+    isLoadingText="Loading..."
     isValid={true}
     items={null}
     multiSection={false}
@@ -26,7 +27,7 @@ exports[`Datalist component should render a typeahead 1`] = `
     position="left"
     readOnly={false}
     searching={false}
-    searchingText="Searching for matches…"
+    searchingText="Searching for matches..."
     theme={
       Object {
         "container": "theme-container tc-datalist-container",

@@ -55,6 +55,9 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				position === 'right' && theme.right,
 				rest.theme && rest.theme.container,
 				rest.className,
+				{
+					[theme.loading]: rest.isLoading,
+				},
 			),
 		},
 	};
@@ -76,7 +79,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			readOnly: rest.readOnly,
 			value: rest.value,
 			icon,
-			isLoading: rest.isLoading,
 			caret: rest.caret,
 		},
 	};
@@ -88,6 +90,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.noResultText,
 			rest.searching,
 			rest.searchingText,
+			rest.isLoading,
+			rest.isLoadingText,
 		),
 		renderItemData: { value: rest.value },
 	};
@@ -125,7 +129,8 @@ Typeahead.defaultProps = {
 	position: 'left',
 	readOnly: false,
 	searching: false,
-	searchingText: 'Searching for matches…',
+	searchingText: 'Searching for matches...',
+	isLoadingText: 'Loading...',
 	docked: false,
 };
 
