@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 
 import IncrementableScrollList from './IncrementableScrollList.component';
 
+const items = Array(100).fill();
+
 describe('IncrementableScrollList', () => {
 	function getListWrapper(wrapper) {
 		const autoSizerWrapper = wrapper
@@ -21,7 +23,7 @@ describe('IncrementableScrollList', () => {
 	it('should render', () => {
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={[]}
+				items={items}
 				itemRenderer={() => {}}
 			/>
 		);
@@ -32,7 +34,7 @@ describe('IncrementableScrollList', () => {
 	it('should set List index scroll with 0 when "initialIndex" is not set', () => {
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={[]}
+				items={items}
 				itemRenderer={() => {}}
 			/>
 		);
@@ -45,15 +47,43 @@ describe('IncrementableScrollList', () => {
 	it('should set List index scroll based on "initialIndex"', () => {
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={[]}
+				items={items}
 				itemRenderer={() => {}}
-				initialIndex={161}
+				initialIndex={61}
 			/>
 		);
 
 		const listWrapper = getListWrapper(wrapper);
 
-		expect(listWrapper.prop('scrollToIndex')).toBe(161);
+		expect(listWrapper.prop('scrollToIndex')).toBe(61);
+	});
+
+	it('should set List index scroll based on "initialIndex" but keeping it in boundaries when lower', () => {
+		const wrapper = shallow(
+			<IncrementableScrollList
+				items={items}
+				itemRenderer={() => {}}
+				initialIndex={-5}
+			/>
+		);
+
+		const listWrapper = getListWrapper(wrapper);
+
+		expect(listWrapper.prop('scrollToIndex')).toBe(0);
+	});
+
+	it('should set List index scroll based on "initialIndex" but keeping it in boundaries when higher', () => {
+		const wrapper = shallow(
+			<IncrementableScrollList
+				items={items}
+				itemRenderer={() => {}}
+				initialIndex={150}
+			/>
+		);
+
+		const listWrapper = getListWrapper(wrapper);
+
+		expect(listWrapper.prop('scrollToIndex')).toBe(95);
 	});
 
 	it('should render items based on "itemRenderer"', () => {
@@ -96,7 +126,7 @@ describe('IncrementableScrollList', () => {
 		it('should initialize first visible row index with 0 when "initialIndex" is no set', () => {
 			const wrapper = shallow(
 				<IncrementableScrollList
-					items={[]}
+					items={items}
 					itemRenderer={() => {}}
 				/>
 			);
@@ -107,7 +137,7 @@ describe('IncrementableScrollList', () => {
 		it('should initialize first visible row index based on "initialIndex"', () => {
 			const wrapper = shallow(
 				<IncrementableScrollList
-					items={[]}
+					items={items}
 					itemRenderer={() => {}}
 					initialIndex={42}
 				/>
@@ -119,7 +149,7 @@ describe('IncrementableScrollList', () => {
 		it('should keep track of first visible row index when internally changed', () => {
 			const wrapper = shallow(
 				<IncrementableScrollList
-					items={[]}
+					items={items}
 					itemRenderer={() => {}}
 				/>
 			);
@@ -135,8 +165,6 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should scroll to the previous 5 items when clicking on the top button', () => {
-		const items = Array(100).fill();
-
 		const wrapper = shallow(
 			<IncrementableScrollList
 				items={items}
@@ -159,8 +187,6 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should scroll to the next 5 items when clicking on the bottom button', () => {
-		const items = Array(100).fill();
-
 		const wrapper = shallow(
 			<IncrementableScrollList
 				items={items}
@@ -183,11 +209,11 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should scroll to the minimum item available when clicking on the top button while at a range of it lower than the display items range', () => {
-		const items = Array(58).fill();
+		const itemsSpecific = Array(58).fill();
 
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={items}
+				items={itemsSpecific}
 				itemRenderer={() => {}}
 				initialIndex={2}
 			/>
@@ -207,11 +233,11 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should scroll to the maximum item available when clicking on the bottom button while at a range of it lower than the display items range', () => {
-		const items = Array(42).fill();
+		const itemsSpecific = Array(42).fill();
 
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={items}
+				items={itemsSpecific}
 				itemRenderer={() => {}}
 				initialIndex={33}
 			/>
@@ -231,11 +257,11 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should not scroll when clicking on the top button while already on minimum item', () => {
-		const items = Array(98).fill();
+		const itemsSpecific = Array(98).fill();
 
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={items}
+				items={itemsSpecific}
 				itemRenderer={() => {}}
 				initialIndex={0}
 			/>
@@ -255,11 +281,11 @@ describe('IncrementableScrollList', () => {
 	});
 
 	it('should not scroll when clicking on the bottom button while already on maximum item', () => {
-		const items = Array(96).fill();
+		const itemsSpecific = Array(96).fill();
 
 		const wrapper = shallow(
 			<IncrementableScrollList
-				items={items}
+				items={itemsSpecific}
 				itemRenderer={() => {}}
 				initialIndex={92}
 			/>
