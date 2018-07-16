@@ -418,6 +418,46 @@ describe('Datalist component', () => {
 		).toBe('bar');
 	});
 
+	it('should set new mapping and suggestions on titleMap props change', () => {
+		// given
+		const wrapper = shallow(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.onFocus({ target: { select() {} } });
+
+		expect(wrapper.state().titleMapping).toEqual({
+			bar: 'bar',
+			foo: 'foo',
+			foobar: 'foobar',
+			lol: 'lol',
+		});
+		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol'] });
+		expect(instance.updateSuggestions).toHaveBeenCalledTimes(1);
+
+		const titleMap = [
+			{ name: 'other', value: 'other' },
+			{ name: 'title', value: 'title' },
+			{ name: 'map', value: 'map' },
+		];
+
+		// when
+		wrapper.setProps({ titleMap });
+
+		// then
+		expect(wrapper.state().titleMapping).toEqual({ other: 'other', title: 'title', map: 'map' });
+		expect(instance.updateSuggestions).toHaveBeenCalledTimes(2);
+	});
+
 	it('should set proper focusedItemIndex single section display', () => {
 		// given
 		const wrapper = mount(
