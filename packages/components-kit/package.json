@@ -27,16 +27,22 @@
   ],
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": "^15.6.2 || ^16.0.0",
+    "react-dom": "^15.6.2 || ^16.0.0"
+  },
   "devDependencies": {
-    "@talend/scripts": "0.3.1"
+    "@talend/scripts": "0.3.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "0.199.0",
-    "@talend/icons": "0.199.0",
-    "@talend/react-cmf": "0.199.0",
-    "@talend/react-components": "0.199.0",
-    "@talend/react-containers": "0.199.0",
-    "@talend/react-forms": "file:../forms",
+    "@talend/bootstrap-theme": "0.200.0",
+    "@talend/icons": "0.200.0",
+    "@talend/react-cmf": "0.200.0",
+    "@talend/react-components": "0.200.0",
+    "@talend/react-containers": "0.200.0",
+    "@talend/react-forms": "0.200.0",
     "bootstrap-sass": "3.3.7",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
@@ -47,11 +53,9 @@
     "lodash": "^4.17.4",
     "memoize-one": "^4.0.0",
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
     "react-ace": "5.2.0",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
-    "react-dom": "^16.0.0",
     "react-i18next": "^7.6.1",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.7",
