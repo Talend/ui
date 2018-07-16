@@ -18,7 +18,7 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
  * - a button with a click action (columnData.onClick)
  * - actions (rowData[columnData.actionsKey])
  */
-function CellTitle({ cellData, columnData, rowData, rowIndex, type }) {
+function CellTitle({ cellData, columnData, getComponent, rowData, rowIndex, type }) {
 	const {
 		id,
 		onClick,
@@ -30,6 +30,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex, type }) {
 		onEditSubmit,
 		...columnDataRest
 	} = columnData;
+
 	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
 	const titleId = id && `${id}-${rowIndex}-title-cell`;
 	const actionsId = id && `${id}-${rowIndex}-title-actions`;
@@ -50,6 +51,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex, type }) {
 				columnData={columnDataRest}
 			/>
 			<CellTitleActions
+				getComponent={getComponent}
 				id={actionsId}
 				rowData={rowData}
 				actionsKey={actionsKey}
@@ -84,6 +86,7 @@ CellTitle.propTypes = {
 		// Input mode : the submit callback on ENTER keydown or blur.
 		onEditSubmit: PropTypes.func,
 	}),
+	getComponent: PropTypes.func,
 	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
 	// The collection item index.
