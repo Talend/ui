@@ -23,14 +23,9 @@ function HttpError(props) {
 			>
 				<h1>{title}</h1>
 				<p>{message}</p>
-				{ onLinkClick &&
-					<Action
-						icon="talend-arrow-left"
-						label={linkLabel}
-						link
-						onClick={onLinkClick}
-					/>
-				}
+				{onLinkClick && (
+					<Action icon="talend-arrow-left" label={linkLabel} link onClick={onLinkClick} />
+				)}
 			</div>
 		</div>
 	);
