@@ -8,6 +8,9 @@ src/theme/_dropdowns.scss
   19:22  error    !important not allowed          no-important
   41:28  warning  Space expected around operator  space-around-operator
 
+src/theme/_forms.checkbox.scss
+  46:4  error  Mixins should come before declarations  mixins-before-declarations
+
 src/theme/_forms.scss
     9:24  error    Parenthesis should be removed                            empty-args
    35:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -27,5 +30,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (11 errors, 5 warnings)
+✖ 17 problems (12 errors, 5 warnings)
 
