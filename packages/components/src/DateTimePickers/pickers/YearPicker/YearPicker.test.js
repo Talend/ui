@@ -6,8 +6,6 @@ import { mockDate, restoreDate } from '../../dateMocking';
 import YearPicker from './YearPicker.component';
 
 const NB_YEAR_RANGE = 300;
-const getFirstRenderedIndexOf =
-	middleDisplayIndex => middleDisplayIndex - 2;
 
 describe('YearPicker', () => {
 	it('should render', () => {
