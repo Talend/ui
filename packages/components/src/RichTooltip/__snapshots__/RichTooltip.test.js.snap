@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RichTooltip should render RichTooltip with header, content and footer 1`] = `
+<span>
+  <RichTooltipHeader
+    right={
+      Array [
+        Object {
+          "id": 42,
+        },
+      ]
+    }
+    title="my title"
+  />
+  <RichTooltipContent
+    content={
+      <div>
+        Content
+      </div>
+    }
+    footer={
+      <RichTooltipFooter
+        left={
+          Array [
+            Object {
+              "id": 41,
+            },
+          ]
+        }
+        right={
+          Array [
+            Object {
+              "id": 42,
+            },
+          ]
+        }
+      />
+    }
+    header={
+      <RichTooltipHeader
+        right={
+          Array [
+            Object {
+              "id": 42,
+            },
+          ]
+        }
+        title="my title"
+      />
+    }
+  />
+  <RichTooltipFooter
+    left={
+      Array [
+        Object {
+          "id": 41,
+        },
+      ]
+    }
+    right={
+      Array [
+        Object {
+          "id": 42,
+        },
+      ]
+    }
+  />
+</span>
+`;
+
+exports[`RichTooltipContent should render RichTooltipContent with a loading 1`] = `
+<RichTooltipBody
+  className={undefined}
+  content={
+    <div
+      className={undefined}
+    >
+      <Translate(CircularProgress) />
+    </div>
+  }
+/>
+`;
+
+exports[`RichTooltipContent should render RichTooltipContent with an error 1`] = `
+<RichTooltipBody
+  className={undefined}
+  content={
+    <div
+      className=""
+    >
+      <Icon
+        className={undefined}
+        name="talend-warning"
+      />
+      <div
+        className={undefined}
+      >
+        <h1>
+          Whoops !
+        </h1>
+        <div>
+          One error
+        </div>
+      </div>
+    </div>
+  }
+/>
+`;
+
+exports[`RichTooltipFooter should render RichTooltipFooter 1`] = `
+<footer
+  className="tc-tooltip-footer"
+>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "id": 41,
+        },
+      ]
+    }
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+  <Actions
+    actions={
+      Array [
+        Object {
+          "id": 42,
+        },
+      ]
+    }
+    className="tc-tooltip-right-actions"
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+</footer>
+`;
+
+exports[`RichTooltipHeader should render RichTooltipHeader 1`] = `
+<header
+  className="tc-tooltip-header"
+>
+  <h1
+    title="my title"
+  >
+    my title
+  </h1>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "id": 42,
+        },
+      ]
+    }
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+</header>
+`;

@@ -50,6 +50,7 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import RichTooltip from './RichTooltip';
 
 const {
 	Alert,
@@ -157,6 +158,7 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	RichTooltip,
 	SidePanel,
 	Status,
 	SubHeaderBar,
