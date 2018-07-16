@@ -50,21 +50,20 @@ describe('YearPicker', () => {
 		restoreDate();
 	});
 
-	it('should default render with current year in middle when "selectedYear" prop not provided', () => {
-		mockDate(new Date(2025, 1, 20));
+	it('should default render with current year in middle when "selectedYear" prop is not provided', () => {
+		const currentYear = 2025;
+		mockDate(new Date(currentYear, 1, 20));
 
 		const wrapper = shallow(<YearPicker
 			onSelect={() => {}}
 		/>);
 
-		const initialIndexExpected = getFirstRenderedIndexOf(NB_YEAR_RANGE / 2);
-
-		expect(wrapper.prop('initialIndex')).toBe(initialIndexExpected);
+		expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(currentYear);
 
 		restoreDate();
 	});
 
-	it('should default render with "selectedYear" prop in middle when provided', () => {
+	it('should render with "selectedYear" prop in middle when provided', () => {
 		const todayYear = 2025;
 		const selectedYear = 2030;
 		mockDate(new Date(todayYear, 1, 20));
@@ -74,34 +73,7 @@ describe('YearPicker', () => {
 			onSelect={() => {}}
 		/>);
 
-		const initialIndexExpected = getFirstRenderedIndexOf(
-			(NB_YEAR_RANGE / 2) + (selectedYear - todayYear));
-
-		expect(wrapper.prop('initialIndex')).toBe(initialIndexExpected);
-
-		restoreDate();
-	});
-
-	it('should have the right selected year', () => {
-		const todayYear = 2025;
-		const selectedYear = 2012;
-		mockDate(new Date(todayYear, 1, 20));
-
-		const wrapper = shallow(<YearPicker
-			selectedYear={selectedYear}
-			onSelect={() => {}}
-		/>);
-
-		const itemRenderer = wrapper.prop('itemRenderer');
-		const items = wrapper.prop('items');
-
-		const elements = items.map(item => itemRenderer(item));
-
-		const selectedElement = elements
-			.filter(element => element.props.isSelected === true);
-
-		expect(selectedElement).toHaveLength(1);
-		expect(selectedElement[0].props.label).toBe(selectedYear.toString());
+		expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(selectedYear);
 
 		restoreDate();
 	});
@@ -119,17 +91,8 @@ describe('YearPicker', () => {
 			onSelect={onSelect}
 		/>);
 
-		const itemRenderer = wrapper.prop('itemRenderer');
-		const items = wrapper.prop('items');
-
-		const elements = items.map(item => itemRenderer(item));
-
-		const elementToSelect = elements
-			.filter(element => element.props.label === yearToSelect.toString())[0];
-
-		const yearToSelectAction = shallow(elementToSelect);
-
-		yearToSelectAction.simulate('click');
+		const yearItem = wrapper.prop('items').find(item => item.id === yearToSelect);
+		wrapper.prop('onSelect')(yearItem);
 
 		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
 	});

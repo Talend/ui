@@ -153,17 +153,20 @@ describe('TimePicker', () => {
 
 	describe('selectedTime', () => {
 		it('should callback with the time picked', () => {
+			const selectedTime = 1200;
+			const timeToSelect = 950;
 			const onSelect = jest.fn();
 
 			const wrapper = shallow(<TimePicker
 				interval={5}
+				selectedTime={selectedTime}
 				onSelect={onSelect}
 			/>);
 
-			const item = wrapper.prop('items')[10];
-			wrapper.prop('onSelect')(item);
+			const timeItem = wrapper.prop('items').find(item => item.id === timeToSelect);
+			wrapper.prop('onSelect')(timeItem);
 
-			expect(onSelect).toHaveBeenCalledWith(item.id);
+			expect(onSelect).toHaveBeenCalledWith(timeToSelect);
 		});
 	});
 });
