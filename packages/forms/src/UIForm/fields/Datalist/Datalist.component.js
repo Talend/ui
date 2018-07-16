@@ -96,7 +96,7 @@ class Datalist extends Component {
 			});
 		};
 		this.setState({ isLoading: true });
-		return this.props
+		this.props
 			.onTrigger(event, {
 				trigger,
 				schema: this.props.schema,
