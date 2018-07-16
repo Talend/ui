@@ -44,7 +44,8 @@ input[type='checkbox'],
 	}
 
 	&:focus {
-		&:before, + *:after {
+		&:before,
+		+ *:after {
 			border-color: $tt-checkbox-focus-border-color;
 			@include checkbox-outline;
 		}
