@@ -1,3 +1,4 @@
+/* eslint-disable import/no-mutable-exports */
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
@@ -98,6 +99,7 @@ try {
 
 	CodeWidget = Code;
 } catch (error) {
+	// eslint-disable-next-line no-console
 	console.warn('CodeWidget react-ace not found, fallback to Textarea');
 }
 
