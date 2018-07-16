@@ -14,6 +14,10 @@ function LayoutDrawer() {
 		<Layout drawers={drawers} mode="TwoColumns">
 			<div style={{ margin: 10 }}>
 				<h1>UIForm in a drawer</h1>
+				<p>To use a UIForm in a drawer you just have to create your component this way:</p>
+				<code>
+					{'<Drawer.Container><UIForm {...props} /></Drawer.Container>'}
+				</code>
 			</div>
 		</Layout>
 	);
