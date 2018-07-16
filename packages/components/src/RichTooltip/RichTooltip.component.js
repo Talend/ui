@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Actions, CircularProgress, Icon, Inject } from '@talend/react-components';
+import { Actions } from '../Actions';
+import CircularProgress from '../CircularProgress';
+import Icon from '../Icon';
+import Inject from '../Inject';
 import theme from './RichTooltip.scss';
 
 export function RichTooltipContent(props) {
