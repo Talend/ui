@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
+import Inject from '@talend/react-components/lib/Inject';
 import Action from '@talend/react-components/lib/Actions/Action';
 
 import { UIForm } from './UIForm';
@@ -53,10 +54,11 @@ export function renderActionIcon(icon) {
 	return null;
 }
 
-export function renderActions(actions, handleActionClick) {
+export function renderActions(actions, handleActionClick, getComponent) {
+	const Renderer = Inject.getAll(getComponent, { Action });
 	if (actions) {
 		return actions.map((action, index) => (
-			<Action
+			<Renderer.Action
 				key={index}
 				bsStyle={action.style}
 				label={action.title}
@@ -64,10 +66,10 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Action>
+			</Renderer.Action>
 		));
 	}
-	return <Action bsStyle="primary" onClick={() => {}} type="submit" label="Submit" />;
+	return <Renderer.Action bsStyle="primary" onClick={() => {}} type="submit" label="Submit" />;
 }
 
 class Form extends React.Component {
@@ -175,7 +177,7 @@ class Form extends React.Component {
 			>
 				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
-					{renderActions(this.props.actions, this.handleActionClick)}
+					{renderActions(this.props.actions, this.handleActionClick, this.props.getComponent)}
 				</div>
 			</RJSForm>
 		);
@@ -201,6 +203,7 @@ export const ActionsPropTypes = PropTypes.arrayOf(
 
 if (process.env.NODE_ENV !== 'production') {
 	Form.propTypes = {
+		getComponent: PropTypes.func,
 		uiform: PropTypes.bool,
 		data: DataPropTypes.isRequired,
 		onChange: PropTypes.func,

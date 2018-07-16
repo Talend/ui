@@ -56,7 +56,11 @@ export class UIFormComponent extends React.Component {
 	 * @param uiSchema
 	 */
 	componentWillReceiveProps({ jsonSchema, uiSchema }) {
-		if (!jsonSchema || !uiSchema) {
+		if (
+			!jsonSchema ||
+			!uiSchema ||
+			(this.props.jsonSchema === jsonSchema && this.props.uiSchema === uiSchema)
+		) {
 			return;
 		}
 		if (Object.keys(jsonSchema).length) {
@@ -150,6 +154,7 @@ export class UIFormComponent extends React.Component {
 					schema,
 					properties: formData,
 					errors,
+					value,
 				});
 			}
 		}
@@ -170,6 +175,9 @@ export class UIFormComponent extends React.Component {
 
 		if (this.props.moz) {
 			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
+		}
+		if (!payload.trigger) {
+			throw new Error('onTrigger payload do not have required trigger property');
 		}
 		return onTrigger(event, {
 			properties: this.props.properties,
@@ -263,6 +271,7 @@ export class UIFormComponent extends React.Component {
 					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
 					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
 				/>
 			</form>
 		);
@@ -316,6 +325,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
+		getComponent: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }

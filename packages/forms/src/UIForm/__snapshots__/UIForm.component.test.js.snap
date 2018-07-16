@@ -106,6 +106,7 @@ exports[`UIForm component should render form 1`] = `
   />
   <Buttons
     className="form-actions"
+    getComponent={undefined}
     id="myFormId-myFormId-actions"
     onClick={[Function]}
     onTrigger={[Function]}
@@ -231,6 +232,7 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Buttons
     className="form-actions"
+    getComponent={undefined}
     id="myFormId-myFormId-actions"
     onClick={[Function]}
     onTrigger={[Function]}

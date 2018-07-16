@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import { Typeahead } from '../src';
 import IconsProvider from '../src/IconsProvider';
 
@@ -64,7 +65,25 @@ const items = [
 	},
 ];
 
+const noHeaderItems = [
+	{
+		suggestions: [
+			{
+				title: 'le title 1',
+				description:
+					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+			},
+			{
+				title: 'title 2 les elephants elementaires ont des aile ',
+				description:
+					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+			},
+		],
+	},
+];
+
 const decoratedStories = storiesOf('Typeahead', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />
@@ -160,4 +179,16 @@ decoratedStories
 		return (
 			<Typeahead {...props} />
 		);
-	});
+	})
+	.addWithInfo('without section header', () => {
+	const props = {
+		value: 'le',
+		items: noHeaderItems,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+	};
+	return (
+		<Typeahead {...props} />
+	);
+});

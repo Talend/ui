@@ -41,10 +41,10 @@ describe('MultiSelectTag field', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('change', { target: { value: 'ti' } });
+			.simulate('change', { target: { value: 'titi' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['titi']);
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'titi (new)', value: 'titi' }]);
 	});
 
 	it('should update suggestion on props.value change', () => {
@@ -53,13 +53,16 @@ describe('MultiSelectTag field', () => {
 		// eslint-disable-next-line react/no-render-return-value
 		const instance = ReactDOM.render(<MultiSelectTag {...props} />, node);
 		instance.updateSuggestions();
-		expect(instance.state.suggestions).toEqual(['titi']);
+		expect(instance.state.suggestions).toEqual([{ title: 'toto', value: 'titi' }]);
 
 		// when : trigger a props update
 		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
 
 		// then
-		expect(instance.state.suggestions).toEqual(['titi', 'tutu']);
+		expect(instance.state.suggestions).toEqual([
+			{ title: 'toto', value: 'titi' },
+			{ title: 'tata', value: 'tutu' },
+		]);
 	});
 
 	it('should suggest new item creation when widget is not restricted', () => {
@@ -73,7 +76,7 @@ describe('MultiSelectTag field', () => {
 			.simulate('change', { target: { value: 'az' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['az (new)']);
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'az (new)', value: 'az' }]);
 	});
 
 	it('should NOT suggest new item creation when widget is restricted', () => {
@@ -99,7 +102,7 @@ describe('MultiSelectTag field', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('change', { target: { value: 'ti' } });
+		input.simulate('change', { target: { value: 'titi' } });
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then

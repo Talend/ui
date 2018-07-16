@@ -92,6 +92,16 @@ describe('Container(Form)', () => {
 		expect(wrapper.props().customValidation).toEqual(customValidation);
 	});
 
+	it('should use props.onError', () => {
+		const onErrors = jest.fn();
+		const form = new Container({
+			state: fromJS({ data: { schema: true } }),
+			onErrors,
+		});
+		form.onErrors(null, { foo: 'bar' });
+		expect(onErrors.mock.calls[0][1]).toEqual({ foo: 'bar' });
+	});
+
 	it('should use props.onSubmit', () => {
 		const onSubmit = jest.fn();
 		const dispatchActionCreator = jest.fn();

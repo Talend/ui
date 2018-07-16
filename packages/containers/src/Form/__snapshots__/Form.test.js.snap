@@ -19,8 +19,10 @@ Object {
     },
   },
   "fields": undefined,
+  "getComponent": undefined,
   "language": undefined,
   "onChange": [Function],
+  "onErrors": [Function],
   "onSubmit": [Function],
   "onTrigger": [Function],
   "other": true,
@@ -49,8 +51,10 @@ exports[`Container(Form) should render a Form 1`] = `
     }
   }
   fields={undefined}
+  getComponent={undefined}
   language={undefined}
   onChange={[Function]}
+  onErrors={[Function]}
   onSubmit={[Function]}
   onTrigger={undefined}
   other={true}

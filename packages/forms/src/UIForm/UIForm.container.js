@@ -22,9 +22,11 @@ export default class UIForm extends React.Component {
 	 * @param nextProps
 	 */
 	componentWillReceiveProps(nextProps) {
-		this.setState({
-			...nextProps.data,
-		});
+		if (nextProps.data !== this.props.data) {
+			this.setState({
+				...nextProps.data,
+			});
+		}
 	}
 
 	/**

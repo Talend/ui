@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { arc } from 'd3-shape';
+import { translate } from 'react-i18next';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import classnames from 'classnames';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 import TooltipTrigger from '../TooltipTrigger';
 import Skeleton from '../Skeleton';
 import theme from './PieChartButton.scss';
@@ -31,7 +34,7 @@ const displaySizes = {
  * @param {number} percentage the percentage to calculate the angle
  */
 export function getAngle(percentage) {
-	return percentage * 2 / 100 * Math.PI;
+	return ((percentage * 2) / 100) * Math.PI;
 }
 
 /**
@@ -311,7 +314,23 @@ function getShowedValue(model, index) {
 	return model[index];
 }
 
-function PieChartButton({
+/**
+ * This function return the label or nothing if the label is npt passed or hidden
+ * @param {boolean} hideLabel tell if the label has to be hidden or not
+ * @param {number} labelValue the label value ( percentage )
+ * @param {function} t translate function
+ */
+function getLabel(hideLabel, labelValue, t) {
+	if (!hideLabel && labelValue.percentage != null) {
+		return t('PIE_CHART_PERCENTAGE', {
+			defaultValue: '{{percentage}}%',
+			percentage: labelValue.percentage,
+		});
+	}
+	return '';
+}
+
+export function PieChartButtonComponent({
 	available,
 	model,
 	labelIndex,
@@ -331,6 +350,7 @@ function PieChartButton({
 	tooltipPlacement,
 	buttonRef,
 	overlayRef,
+	t,
 	...rest
 }) {
 	if (!available) {
@@ -377,6 +397,7 @@ function PieChartButton({
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
 				className={classnames(theme['tc-pie-chart-graph'], 'tc-pie-chart-graph')}
+				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
 			>
 				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
 				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
@@ -389,7 +410,7 @@ function PieChartButton({
 					`tc-pie-chart-color-${labelValue.color}`,
 				)}
 			>
-				{!hideLabel && labelValue.percentage && `${labelValue.percentage} %`}
+				{getLabel(hideLabel, labelValue, t)}
 			</div>
 		</Button>
 	);
@@ -400,7 +421,7 @@ function PieChartButton({
 	return btn;
 }
 
-PieChartButton.propTypes = {
+PieChartButtonComponent.propTypes = {
 	available: PropTypes.bool,
 	className: PropTypes.string,
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -432,9 +453,10 @@ PieChartButton.propTypes = {
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	buttonRef: PropTypes.func,
 	overlayRef: PropTypes.func,
+	t: PropTypes.func,
 };
 
-PieChartButton.defaultProps = {
+PieChartButtonComponent.defaultProps = {
 	available: true,
 	labelIndex: 0,
 	minimumPercentage: 5,
@@ -442,8 +464,9 @@ PieChartButton.defaultProps = {
 	tooltipPlacement: 'top',
 	overlayPlacement: 'bottom',
 	overlayId: 'pie-chart-popover',
+	t: getDefaultT(),
 };
 
-PieChartButton.displayName = 'PieChartButton';
+PieChartButtonComponent.displayName = 'PieChartButton';
 
-export default PieChartButton;
+export default translate(I18N_DOMAIN_COMPONENTS)(PieChartButtonComponent);

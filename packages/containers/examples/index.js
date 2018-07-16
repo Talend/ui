@@ -7,8 +7,9 @@ import ActionsExample from './ExampleActions';
 import AppLoader from './ExampleAppLoader';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
-import HeaderBarExample from './ExampleHeaderBar';
+import FormExample from './ExampleForm';
 import HomeListViewExample from './ExampleHomeListView';
+import LayoutExample from './ExampleLayout';
 import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
@@ -20,6 +21,7 @@ import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
 import TabBarExample from './ExampleTabBar';
+import TypeaheadExample from './ExampleTypeahead';
 
 export default {
 	ActionExample,
@@ -32,8 +34,9 @@ export default {
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,
-	HeaderBarExample,
+	FormExample,
 	HomeListViewExample,
+	LayoutExample,
 	ListExample,
 	NotificationExample,
 	PieChartButtonExample,
@@ -44,4 +47,5 @@ export default {
 	SubHeaderBarExample,
 	TabBarExample,
 	TreeViewExample,
+	TypeaheadExample,
 };

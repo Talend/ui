@@ -22,6 +22,7 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
+import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
@@ -38,6 +39,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
+import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -106,7 +108,6 @@ const {
 	Tab,
 	TabContainer,
 	TabContent,
-	Table,
 	TabPane,
 	Tabs,
 	Thumbnail,
@@ -116,6 +117,7 @@ const {
 
 const BootstrapBadge = bootstrap.Badge;
 const BootstrapCheckbox = bootstrap.Checkbox;
+const BootstrapTable = bootstrap.Table;
 
 export {
 	Action,
@@ -136,6 +138,7 @@ export {
 	ConfirmDialog,
 	Datalist,
 	Dialog,
+	DraggableComponent,
 	Drawer,
 	Emphasis,
 	Enumeration,
@@ -158,6 +161,7 @@ export {
 	Status,
 	SubHeaderBar,
 	TabBar,
+	Table,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
@@ -171,6 +175,7 @@ export {
 	Alert,
 	BootstrapBadge,
 	BootstrapCheckbox,
+	BootstrapTable,
 	Breadcrumb,
 	BreadcrumbItem,
 	Button,
@@ -227,7 +232,6 @@ export {
 	Tab,
 	TabContainer,
 	TabContent,
-	Table,
 	TabPane,
 	Tabs,
 	Thumbnail,

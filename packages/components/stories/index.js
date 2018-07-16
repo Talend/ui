@@ -37,6 +37,7 @@ import './Skeleton';
 import './Status';
 import './SubHeaderBar';
 import './TabBar';
+import './Table';
 import './TooltipTrigger';
 import './TreeView';
 import './Toggle';

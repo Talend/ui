@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Dialog } from '../src/index';
 
@@ -59,6 +60,7 @@ const children = (<div>BODY content. You can put what ever you want here</div>);
 
 
 storiesOf('Dialog', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<h1>Dialog</h1>

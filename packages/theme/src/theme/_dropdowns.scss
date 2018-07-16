@@ -13,10 +13,7 @@ $dropdown-caret-up-axis: -45deg !default;
 		transition: 0.1s background-color ease-out;
 
 		.caret {
-			@include dropdown-caret-color($dropdown-caret-color);
-			margin: 0;
-			margin-left: $dropdown-caret-size;
-			margin-bottom: $dropdown-caret-size;
+			margin: 0 0 $dropdown-caret-size $dropdown-caret-size;
 			height: $dropdown-caret-size;
 			width: $dropdown-caret-size;
 			border-width: 1px !important;
@@ -25,6 +22,10 @@ $dropdown-caret-up-axis: -45deg !default;
 			border-left-color: transparent;
 			transform: rotate($dropdown-caret-down-axis);
 			transition: 0.1s transform ease-out;
+		}
+
+		&:focus {
+			@include tab-focus;
 		}
 	}
 
@@ -37,11 +38,11 @@ $dropdown-caret-up-axis: -45deg !default;
 			display: flex;
 			align-items: center;
 			flex-basis: 100%;
-			padding: $padding-small $padding-normal;
+			padding: $padding-normal/2 $padding-large;
 			transition: 0.1s background-color ease-out;
 
-			svg + * {
-				margin-left: $padding-smaller;
+			> svg:first-child {
+				margin-right: $padding-small;
 			}
 		}
 	}

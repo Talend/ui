@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import ActionButton from '../src/Actions/ActionButton';
 import PieChartButton from '../src/PieChartButton';
@@ -47,6 +48,13 @@ const pieChartData2 = [
 	},
 ];
 
+const pieChartData3 = [
+	{
+		color: 'slate-gray',
+		percentage: 0,
+	},
+];
+
 const sizes = [20, 22, 25, 30, 35, 40, 45, 50];
 
 const onClick = action('You clicked me');
@@ -59,6 +67,7 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.addWithInfo('default', () => (
 		<div>
@@ -72,8 +81,10 @@ stories
 			<PieChartButton display="large" model={pieChartData1} />
 			<p>with other data :</p>
 			<PieChartButton display="medium" model={pieChartData2} />
-			<p>with without label :</p>
+			<p>without label :</p>
 			<PieChartButton display="medium" model={pieChartData2} hideLabel />
+			<p>without label to 0% :</p>
+			<PieChartButton display="medium" model={pieChartData3} />
 			<p>with overlay component</p>
 			<PieChartButton
 				display="medium"
