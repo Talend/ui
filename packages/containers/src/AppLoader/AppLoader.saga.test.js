@@ -7,6 +7,7 @@ import {
 	ACTION_CREATORS,
 	TAKE_ACTION,
 	WAIT_FOR,
+	SAGAS,
 	waitFor,
 } from './AppLoader.saga';
 
@@ -65,6 +66,18 @@ describe('AppLoader saga', () => {
 			const gen = handleStep(step);
 			// then
 			expect(gen.next().value).toEqual(all([take('action1'), take('action2')]));
+		});
+
+		it('should handle an saga step', () => {
+			// given
+			const reg = registry.getRegistry();
+			const saga = () => 'ok';
+			reg['SAGA:saga1'] = saga;
+			const step = { [SAGAS]: ['saga1'] };
+			// when
+			const gen = handleStep(step);
+			// then
+			expect(gen.next().value).toEqual(all([call(api.sagas.get('saga1'))]));
 		});
 	});
 });
