@@ -12,7 +12,6 @@ export function escapeRegexCharacters(str) {
 }
 
 const PROPS_TO_OMIT = ['restricted', 'titleMap', 'value'];
-const STATE_TO_OMIT = ['previousValue', 'titleMapping', 'value'];
 
 class Datalist extends Component {
 	constructor(props) {
@@ -355,7 +354,8 @@ class Datalist extends Component {
 			<div className={theme['tc-datalist']}>
 				<Typeahead
 					{...omit(this.props, PROPS_TO_OMIT)}
-					{...omit(this.state, STATE_TO_OMIT)}
+					focusedItemIndex={this.state.focusedItemIndex}
+					focusedSectionIndex={this.state.focusedSectionIndex}
 					items={this.state.suggestions}
 					onBlur={this.onBlur}
 					onChange={this.onChange}

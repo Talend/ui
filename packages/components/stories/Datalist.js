@@ -11,7 +11,7 @@ const propsMultiSection = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'foo' }] },
+		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'faa' }] },
 		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
 		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
 		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
@@ -39,14 +39,13 @@ storiesOf('Datalist', module)
 	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.addWithInfo('default multiSection', () => {
-		const withoutAutoFocus = { ...propsMultiSection };
 		const restrictedValues = { ...propsMultiSection, restricted: true };
-		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
+		const defaultValue = { ...propsMultiSection, value: 'lol' };
 		return (
 			<form className="form">
 				<IconsProvider />
 				<h3>By default :</h3>
-				<Datalist {...withoutAutoFocus} />
+				<Datalist {...propsMultiSection} />
 				<h3>default value :</h3>
 				<Datalist {...defaultValue} />
 				<h3>Restricted values :</h3>
@@ -57,20 +56,19 @@ storiesOf('Datalist', module)
 		);
 	})
 	.addWithInfo('default single section', () => {
-		const props = { ...singleSectionProps };
 		const restrictedValues = { ...singleSectionProps, restricted: true };
-		const defaultValue = { ...props, value: 'lol' };
+		const defaultValue = { ...singleSectionProps, value: 'lol' };
 		return (
 			<form className="form">
 				<IconsProvider />
 				<h3>By default :</h3>
-				<Datalist {...props} />
+				<Datalist {...singleSectionProps} />
 				<h3>default value :</h3>
 				<Datalist {...defaultValue} />
 				<h3>Restricted values :</h3>
 				<Datalist {...restrictedValues} />
 				<h3>Loading :</h3>
-				<Datalist {...props} titleMap={[]} isLoading />
+				<Datalist {...singleSectionProps} titleMap={[]} isLoading />
 				<h3>Auto focused :</h3>
 				<Datalist {...singleSectionProps} autoFocus />
 			</form>

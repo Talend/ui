@@ -1,7 +1,6 @@
 const bodyParser = require('body-parser');
 const url = require('url');
 const add = require('./mock/add.json');
-const asyncDatalist = require('./mock/asyncDatalist.json');
 const basic = require('./mock/basic.json');
 const components = require('./mock/components.json');
 const servicenow = require('./mock/servicenow.json');

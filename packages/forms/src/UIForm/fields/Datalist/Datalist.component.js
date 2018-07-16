@@ -120,11 +120,14 @@ class Datalist extends Component {
 				<DataListComponent
 					{...props}
 					{...this.state}
-					titleMap={this.getTitleMap()}
-					input
+					autoFocus={this.props.schema.autoFocus}
+					disabled={this.props.schema.disabled || false}
 					multiSection={false}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
+					placeholder={this.props.schema.placeholder}
+					readOnly={this.props.schema.readOnly || false}
+					titleMap={this.getTitleMap()}
 				/>
 			</FieldTemplate>
 		);

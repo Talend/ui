@@ -98,7 +98,7 @@
     {
       "key":"restrictedAsyncTitleMap",
       "restricted": true,
-      "title": "Datalist with async options",
+      "title": "Datalist with async options ans restricted value",
       "widget": "datalist",
       "triggers":[
         {
