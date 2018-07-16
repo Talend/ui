@@ -6,11 +6,14 @@ exports[`Datalist component should render a typeahead 1`] = `
 >
   <Typeahead
     autoFocus={true}
+    caret={true}
     disabled={false}
     docked={false}
+    errorMessage="This should be correct"
     focusedItemIndex={undefined}
     focusedSectionIndex={undefined}
     id="my-datalist"
+    isValid={true}
     items={null}
     multiSection={false}
     noResultText="there is nothing ..."
@@ -31,14 +34,8 @@ exports[`Datalist component should render a typeahead 1`] = `
         "itemsList": "theme-items",
       }
     }
+    title="My List"
     value="foo"
   />
-  <div
-    className="theme-toggle"
-  >
-    <span
-      className="caret"
-    />
-  </div>
 </div>
 `;

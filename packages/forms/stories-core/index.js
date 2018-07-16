@@ -49,9 +49,7 @@ const forStoryDecorator = story => (
 					className="col-md-offset-1 col-md-10"
 					style={{ marginTop: '20px', marginBottom: '20px' }}
 				>
-					<Well>
-						{story()}
-					</Well>
+					<Well>{story()}</Well>
 				</div>
 			</div>
 		</Provider>

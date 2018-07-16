@@ -66,6 +66,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
+			id: rest.id,
 			inputRef: rest.inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
@@ -75,6 +76,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			readOnly: rest.readOnly,
 			value: rest.value,
 			icon,
+			isLoading: rest.isLoading,
+			caret: rest.caret,
 		},
 	};
 
@@ -113,9 +116,9 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 Typeahead.displayName = 'Typeahead';
 
 Typeahead.defaultProps = {
-	autoFocus: true,
+	autoFocus: false,
 	disabled: false,
-	id: uuid.v4(),
+	id: uuid.v4().toString(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
