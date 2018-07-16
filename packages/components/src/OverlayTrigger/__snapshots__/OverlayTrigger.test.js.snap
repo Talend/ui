@@ -19,6 +19,7 @@ exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
 >
   <OverlayTrigger
     defaultOverlayShown={false}
+    onClick={undefined}
     onEntering={[Function]}
     onExited={[Function]}
     overlay={
