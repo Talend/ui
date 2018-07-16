@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
+import Action from '../Actions/Action';
+
 import css from './HttpError.scss';
 
 const className = 'http-error';
@@ -11,7 +13,7 @@ function getScopedClassName(scopedClassName = className) {
 }
 
 function HttpError(props) {
-	const { status, title, message, style } = props;
+	const { message, status, style, onLinkClick, linkLabel, title } = props;
 
 	return (
 		<div className={classNames(getScopedClassName())} data-status={status}>
@@ -21,6 +23,14 @@ function HttpError(props) {
 			>
 				<h1>{title}</h1>
 				<p>{message}</p>
+				{ onLinkClick &&
+					<Action
+						icon="talend-arrow-left"
+						label={linkLabel}
+						link
+						onClick={onLinkClick}
+					/>
+				}
 			</div>
 		</div>
 	);
@@ -29,10 +39,12 @@ function HttpError(props) {
 HttpError.displayName = 'HttpError';
 
 HttpError.propTypes = {
-	status: PropTypes.number.isRequired,
-	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
+	linkLabel: PropTypes.string,
+	onLinkClick: PropTypes.func,
+	status: PropTypes.number.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	title: PropTypes.string.isRequired,
 };
 
 export default HttpError;
