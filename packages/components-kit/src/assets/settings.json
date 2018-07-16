@@ -13,19 +13,13 @@
       }
     },
     "RedirectContainer#default": {
-      "to": "/ComponentForm/add"
+      "to": "/ComponentForm"
     },
-    "Layout#addForm": {
+    "Layout#form": {
       "mode": "TwoColumns",
       "header": [{ "component": "HeaderBar" }],
       "one": [{ "component": "SidePanel" }],
-      "content": [{ "component": "ComponentForm", "componentId": "add" }]
-    },
-    "Layout#asyncDatalistForm": {
-      "mode": "TwoColumns",
-      "header": [{ "component": "HeaderBar" }],
-      "one": [{ "component": "SidePanel" }],
-      "content": [{ "component": "ComponentForm", "componentId": "asyncDatalist" }]
+      "content": [{ "component": "ComponentForm" }]
     },
     "HeaderBar#default": {
       "logo": {
@@ -37,35 +31,20 @@
       }
     },
     "SidePanel#default": {
-      "actions": [{ "componentId": "add-form" }, { "componentId": "asyncDatalist-form" }]
+      "actions": [{ "componentId": "menu-form" }]
     },
-    "ActionButton#add-form": {
-      "icon": "talend-plus",
-      "label": "Add",
+    "ActionButton#menu-form": {
+      "icon": "talend-burger",
+      "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
-          "routerPush": "/ComponentForm/add"
+          "routerPush": "/ComponentForm"
         }
       }
     },
-    "ActionButton#asyncDatalist-form": {
-      "icon": "talend-download",
-      "label": "Async datalist",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/ComponentForm/asyncDatalist"
-        }
-      }
-    },
-    "ComponentForm#add": {
+    "ComponentForm#default": {
       "definitionURL": "/api/v1/forms/add",
-      "uiSpecPath": "ui",
-      "triggerURL": "/api/v1/application/action"
-    },
-    "ComponentForm#asyncDatalist": {
-      "definitionURL": "/api/v1/forms/asyncDatalist",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action"
     }
@@ -79,18 +58,8 @@
     "childRoutes": [
       {
         "path": "ComponentForm",
-        "childRoutes": [
-          {
-            "component": "Layout",
-            "componentId": "addForm",
-            "path": "add"
-          },
-          {
-            "component": "Layout",
-            "componentId": "asyncDatalistForm",
-            "path": "asyncDatalist"
-          }
-        ]
+        "component": "Layout",
+        "componentId": "form"
       }
     ]
   }

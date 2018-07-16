@@ -62,19 +62,6 @@ function reloadForm({ id }) {
 	return basic;
 }
 
-function suggestionForDemo() {
-	return {
-		items: [
-			{ id: 'clafoutis', label: 'Clafoutis aux poires et aux fruits' },
-			{ id: 'conchiglioni-au-thon', label: 'Conchiglioni au thon' },
-			{ id: 'coquillettes-crevettes', label: 'coquillettes aux crevettes' },
-			{ id: 'crumble', label: 'Crumble a la danette' },
-			{ id: 'pomme-savane', label: 'Pomme savane' },
-			{ id: 'tarte-au-citron', label: 'Tarte  au citron' },
-		],
-	};
-}
-
 const TRIGGERS = {
 	validation: {
 		urlValidation,
@@ -88,9 +75,6 @@ const TRIGGERS = {
 	reloadForm: {
 		'builtin::root::reloadFromId': reloadForm,
 	},
-	suggestions: {
-		suggestionForDemo,
-	},
 };
 
 function trigger(req) {
@@ -103,10 +87,8 @@ module.exports = {
 	devServer: {
 		before: function proxy(app) {
 			app.use(bodyParser.json()); // for parsing application/json
-			app.get('/api/v1/forms/:form', (req, res) => {
-				// eslint-disable-next-line global-require
-				const form = require(`./mock/${req.params.form}.json`);
-				res.json(form);
+			app.get('/api/v1/forms/add', (req, res) => {
+				res.json(add);
 			});
 			app.get('/api/v1/application/index', (req, res) => {
 				res.json(components);
