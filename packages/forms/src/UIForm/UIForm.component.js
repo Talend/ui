@@ -244,22 +244,24 @@ export class UIFormComponent extends React.Component {
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
-				{this.state.mergedSchema.map((nextSchema, index) => (
-					<Widget
-						id={this.props.id}
-						key={index}
-						onChange={this.onChange}
-						onFinish={this.onFinish}
-						onTrigger={this.onTrigger}
-						schema={nextSchema}
-						properties={this.props.properties}
-						errors={this.props.errors}
-						templates={this.props.templates}
-						widgets={this.state.widgets}
-					/>
-				))}
+				<div className={theme['form-content']}>
+					{this.state.mergedSchema.map((nextSchema, index) => (
+						<Widget
+							id={this.props.id}
+							key={index}
+							onChange={this.onChange}
+							onFinish={this.onFinish}
+							onTrigger={this.onTrigger}
+							schema={nextSchema}
+							properties={this.props.properties}
+							errors={this.props.errors}
+							templates={this.props.templates}
+							widgets={this.state.widgets}
+						/>
+					))}
+				</div>
 				{this.props.children}
-				<div className="tf-actions-wrapper">
+				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
 					<Buttons
 						id={`${this.props.id}-${this.props.id}-actions`}
 						onTrigger={this.onTrigger}

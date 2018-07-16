@@ -1,10 +1,20 @@
-:global(.tc-drawer-content) .uiform {
-	margin-bottom: 45px;
+:global(.tc-drawer-container) {
+	> .uiform {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		min-height: 0;
+	}
 
-	& > :global(.tf-actions-wrapper) {
-		position: absolute;
-		bottom: 0;
-		left: 0;
+	.form-content {
+		flex-grow: 1;
+		min-height: 0;
+		padding: 10px;
+		overflow-y: auto;
+	}
+
+	.form-actions {
+		padding: 0;
 		width: 100%;
 		padding: $padding-small;
 		background-color: $wild-sand;

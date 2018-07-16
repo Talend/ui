@@ -15,97 +15,101 @@ exports[`UIForm component should render form 1`] = `
   onSubmit={[Function]}
   target={undefined}
 >
-  <Widget
-    errors={Object {}}
-    id="myFormId"
-    onChange={[Function]}
-    onFinish={[Function]}
-    onTrigger={[Function]}
-    properties={Object {}}
-    schema={
-      Object {
-        "autoFocus": true,
-        "description": "Hint: this is the last name",
-        "key": Array [
-          "lastname",
-        ],
-        "minlength": 10,
-        "ngModelOptions": Object {},
-        "schema": Object {
-          "minLength": 10,
-          "type": "string",
-        },
-        "title": "Last Name (with description)",
-        "type": "text",
-      }
-    }
-    templates={undefined}
-    widgets={
-      Object {
-        "custom": [Function],
-      }
-    }
-  />
-  <Widget
-    errors={Object {}}
-    id="myFormId"
-    onChange={[Function]}
-    onFinish={[Function]}
-    onTrigger={[Function]}
-    properties={Object {}}
-    schema={
-      Object {
-        "key": Array [
-          "firstname",
-        ],
-        "ngModelOptions": Object {},
-        "placeholder": "Enter your firstname here",
-        "required": true,
-        "schema": Object {
-          "type": "string",
-        },
-        "title": "First Name (with placeholder)",
-        "triggers": Array [
-          "after",
-        ],
-        "type": "text",
-      }
-    }
-    templates={undefined}
-    widgets={
-      Object {
-        "custom": [Function],
-      }
-    }
-  />
-  <Widget
-    errors={Object {}}
-    id="myFormId"
-    onChange={[Function]}
-    onFinish={[Function]}
-    onTrigger={[Function]}
-    properties={Object {}}
-    schema={
-      Object {
-        "key": Array [
-          "check",
-        ],
-        "title": "Check the thing",
-        "triggers": Array [
-          "after",
-        ],
-        "widget": "button",
-      }
-    }
-    templates={undefined}
-    widgets={
-      Object {
-        "custom": [Function],
-      }
-    }
-  />
   <div
-    className="tf-actions-wrapper"
+    className="theme-form-content"
+  >
+    <Widget
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "autoFocus": true,
+          "description": "Hint: this is the last name",
+          "key": Array [
+            "lastname",
+          ],
+          "minlength": 10,
+          "ngModelOptions": Object {},
+          "schema": Object {
+            "minLength": 10,
+            "type": "string",
+          },
+          "title": "Last Name (with description)",
+          "type": "text",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+    <Widget
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "key": Array [
+            "firstname",
+          ],
+          "ngModelOptions": Object {},
+          "placeholder": "Enter your firstname here",
+          "required": true,
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "First Name (with placeholder)",
+          "triggers": Array [
+            "after",
+          ],
+          "type": "text",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+    <Widget
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "key": Array [
+            "check",
+          ],
+          "title": "Check the thing",
+          "triggers": Array [
+            "after",
+          ],
+          "widget": "button",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+  </div>
+  <div
+    className="theme-form-actions tf-actions-wrapper"
   >
     <Buttons
       className="form-actions"
@@ -146,97 +150,101 @@ exports[`UIForm component should render provided actions 1`] = `
   onSubmit={[Function]}
   target={undefined}
 >
-  <Widget
-    errors={Object {}}
-    id="myFormId"
-    onChange={[Function]}
-    onFinish={[Function]}
-    onTrigger={[Function]}
-    properties={Object {}}
-    schema={
-      Object {
-        "autoFocus": true,
-        "description": "Hint: this is the last name",
-        "key": Array [
-          "lastname",
-        ],
-        "minlength": 10,
-        "ngModelOptions": Object {},
-        "schema": Object {
-          "minLength": 10,
-          "type": "string",
-        },
-        "title": "Last Name (with description)",
-        "type": "text",
-      }
-    }
-    templates={undefined}
-    widgets={
-      Object {
-        "custom": [Function],
-      }
-    }
-  />
-  <Widget
-    errors={Object {}}
-    id="myFormId"
-    onChange={[Function]}
-    onFinish={[Function]}
-    onTrigger={[Function]}
-    properties={Object {}}
-    schema={
-      Object {
-        "key": Array [
-          "firstname",
-        ],
-        "ngModelOptions": Object {},
-        "placeholder": "Enter your firstname here",
-        "required": true,
-        "schema": Object {
-          "type": "string",
-        },
-        "title": "First Name (with placeholder)",
-        "triggers": Array [
-          "after",
-        ],
-        "type": "text",
-      }
-    }
-    templates={undefined}
-    widgets={
-      Object {
-        "custom": [Function],
-      }
-    }
-  />
-  <Widget
-    errors={Object {}}
-    id="myFormId"
-    onChange={[Function]}
-    onFinish={[Function]}
-    onTrigger={[Function]}
-    properties={Object {}}
-    schema={
-      Object {
-        "key": Array [
-          "check",
-        ],
-        "title": "Check the thing",
-        "triggers": Array [
-          "after",
-        ],
-        "widget": "button",
-      }
-    }
-    templates={undefined}
-    widgets={
-      Object {
-        "custom": [Function],
-      }
-    }
-  />
   <div
-    className="tf-actions-wrapper"
+    className="theme-form-content"
+  >
+    <Widget
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "autoFocus": true,
+          "description": "Hint: this is the last name",
+          "key": Array [
+            "lastname",
+          ],
+          "minlength": 10,
+          "ngModelOptions": Object {},
+          "schema": Object {
+            "minLength": 10,
+            "type": "string",
+          },
+          "title": "Last Name (with description)",
+          "type": "text",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+    <Widget
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "key": Array [
+            "firstname",
+          ],
+          "ngModelOptions": Object {},
+          "placeholder": "Enter your firstname here",
+          "required": true,
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "First Name (with placeholder)",
+          "triggers": Array [
+            "after",
+          ],
+          "type": "text",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+    <Widget
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "key": Array [
+            "check",
+          ],
+          "title": "Check the thing",
+          "triggers": Array [
+            "after",
+          ],
+          "widget": "button",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+  </div>
+  <div
+    className="theme-form-actions tf-actions-wrapper"
   >
     <Buttons
       className="form-actions"
