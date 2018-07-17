@@ -5,8 +5,8 @@ src/theme/_buttons.scss
   17:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
-  19:22  error    !important not allowed          no-important
-  41:28  warning  Space expected around operator  space-around-operator
+  22:25  warning  No unit allowed for values of 0  zero-unit
+  41:28  warning  Space expected around operator   space-around-operator
 
 src/theme/_forms.scss
     9:24  error    Parenthesis should be removed                            empty-args
@@ -27,5 +27,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (11 errors, 5 warnings)
+✖ 16 problems (10 errors, 6 warnings)
 
