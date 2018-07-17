@@ -28,8 +28,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       docked={false}
       focusedItemIndex={undefined}
       focusedSectionIndex={undefined}
-      id="42"
-      isLoadingText="Loading..."
+      id={42}
       items={null}
       multiSection={false}
       noResultText="No result."
@@ -41,7 +40,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       position="left"
       readOnly={false}
       searching={false}
-      searchingText="Searching for matches..."
+      searchingText="Searching for matches…"
       theme={
         Object {
           "container": "theme-typeahead",
@@ -56,7 +55,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
 
 exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = `
 <div
-  className="theme-items-container items-container theme-item-container"
+  className="theme-items-container items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"
@@ -92,7 +91,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
 
 exports[`MultiSelectTagWidget should render section title when items has category 1`] = `
 <div
-  className="theme-items-container items-container theme-item-container"
+  className="theme-items-container items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"
@@ -147,7 +146,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
 
 exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
 <div
-  className="theme-items-container items-container theme-item-container theme-no-result"
+  className="theme-items-container items-container theme-no-result"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"

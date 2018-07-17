@@ -44,13 +44,14 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
   </button>
   <button
     aria-label="delete"
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-default"
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
     disabled={false}
+    id={undefined}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseOver={[Function]}
-    role={null}
+    role="link"
     type="button"
   >
     <svg
@@ -87,13 +88,14 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
   </button>
   <button
     aria-label="delete"
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-default"
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
     disabled={false}
+    id={undefined}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseOver={[Function]}
-    role={null}
+    role="link"
     type="button"
   >
     <svg
@@ -156,12 +158,12 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
   >
     <button
       aria-label="delete"
-      className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only theme-btn-disabled btn btn-default"
+      className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only theme-btn-disabled btn btn-link"
       disabled={true}
       id="tc-badge-delete-delete"
       onClick={[Function]}
       onMouseDown={[Function]}
-      role={null}
+      role="link"
       type="button"
     >
       <svg
@@ -199,13 +201,14 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
   </button>
   <button
     aria-label="delete"
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-default"
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
     disabled={false}
+    id={undefined}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseOver={[Function]}
-    role={null}
+    role="link"
     type="button"
   >
     <svg
