@@ -6,6 +6,7 @@ import * as TestData from '../TestData';
 import { Constants } from '../index';
 
 const columns = [TestData.Columns.NAME, TestData.Columns.TYPE, TestData.Columns.DESC];
+const sorters = {};
 
 describe('Schema', () => {
 	it('should accept a single schema', () => {
@@ -13,8 +14,14 @@ describe('Schema', () => {
 		dataAccessor.registerSchema(TestData.schema1, Constants.MappingSide.INPUT);
 		// create React tree
 		const tree = renderer
-			.create(<Schema dataAccessor={dataAccessor} schema={TestData.schema1} columns={columns} />)
-			.toJSON();
+			.create(
+				<Schema
+					dataAccessor={dataAccessor}
+					schema={TestData.schema1}
+					columns={columns}
+					sorters={sorters}
+				/>
+			).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -24,9 +31,13 @@ describe('Schema', () => {
 		// create React tree
 		const tree = renderer
 			.create(
-				<Schema dataAccessor={dataAccessor} schema={TestData.emptySchema} columns={columns} />,
-			)
-			.toJSON();
+				<Schema
+					dataAccessor={dataAccessor}
+					schema={TestData.emptySchema}
+					columns={columns}
+					sorters={sorters}
+				/>,
+			).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });
