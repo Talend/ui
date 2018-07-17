@@ -25,7 +25,7 @@ export const registerMany = registry.getRegisterMany(register);
 
 export const isActionCancelable = startAction => action =>
 	action.type === `${CONST.WILL_UNMOUNT_SAGA_STOP}_${startAction.saga}` &&
-	startAction.componentId === action.componentId;
+	startAction.event.componentId === action.event.componentId;
 
 export function* onSagaStart(action) {
 	const isSagaInfoAnObject = typeof action.saga === 'object';
