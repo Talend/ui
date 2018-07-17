@@ -4,7 +4,6 @@ import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import Mapping from './Mapping.js';
 import MappingSVG from './MappingSVG.js';
-import MappingActions from './MappingActions.js';
 import { Constants } from '../index';
 
 const preferences = {

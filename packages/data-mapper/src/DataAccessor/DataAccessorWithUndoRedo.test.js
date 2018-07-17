@@ -1,14 +1,16 @@
-import * as TestData from './TestData';
+import * as TestData from '../TestData';
 import { Constants } from '../index';
 import DataAccessorWithUndoRedo from './DataAccessorWithUndoRedo';
 
 const dataAccessor = new DataAccessorWithUndoRedo();
 
 it('data-accessor-with-undo-redo', () => {
+
 	const inputSchema = TestData.schema1;
-	dataAccessor.populateCache(inputSchema, Constants.MappingSide.INPUT);
+	dataAccessor.registerSchema(inputSchema, Constants.MappingSide.INPUT);
+
 	const outputSchema = TestData.schema2;
-	dataAccessor.populateCache(outputSchema, Constants.MappingSide.OUTPUT);
+	dataAccessor.registerSchema(outputSchema, Constants.MappingSide.OUTPUT);
 
 	let mapping = TestData.mapping;
 
