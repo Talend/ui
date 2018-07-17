@@ -5,7 +5,6 @@ import DataAccessorWithUndoRedo from './DataAccessorWithUndoRedo';
 const dataAccessor = new DataAccessorWithUndoRedo();
 
 it('data-accessor-with-undo-redo', () => {
-
 	const inputSchema = TestData.schema1;
 	dataAccessor.registerSchema(inputSchema, Constants.MappingSide.INPUT);
 
