@@ -73,11 +73,15 @@
 		font-weight: inherit;
 
 		&,
-		&:hover,
 		&:active {
-			background: none;
-			box-shadow: none;
-			border: none;
+			&,
+			&:hover,
+			&:focus {
+				background: none;
+				box-shadow: none;
+				border: none;
+				opacity: 1;
+			}
 		}
 	}
 

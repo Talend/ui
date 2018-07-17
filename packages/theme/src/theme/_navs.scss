@@ -1,14 +1,12 @@
 .nav {
 	.btn-link {
 		color: inherit;
-		border: none;
 		display: inline-block;
 
 		&:focus,
 		&:active,
 		&:hover {
 			text-decoration: none;
-			background: none;
 		}
 
 		> *,
@@ -29,8 +27,6 @@
 				margin: 0;
 			}
 
-			&:focus,
-			&:active,
 			&:hover,
 			&.active,
 			&.open {
@@ -40,7 +36,6 @@
 
 			&.disabled .btn {
 				&:focus,
-				&:active,
 				&:hover {
 					color: shade($navbar-inverse-color, 10);
 				}
@@ -57,6 +52,7 @@
 			white-space: nowrap;
 
 			&.dropdown-toggle {
+				background-color: transparent;
 				position: relative;
 				padding-right: 2 * $padding-large;
 
