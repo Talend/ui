@@ -20,6 +20,7 @@ function renderDeleteIcon(onClick, id, disabled, t) {
 				icon={'talend-cross'}
 				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
 				link
+				role="button"
 			/>
 		);
 	}

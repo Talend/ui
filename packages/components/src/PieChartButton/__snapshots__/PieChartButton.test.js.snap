@@ -71,6 +71,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
   disabled={false}
   onClick={null}
   onMouseDown={null}
+  role="button"
 >
   <svg
     className="theme-tc-pie-chart-graph tc-pie-chart-graph"
@@ -150,6 +151,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
       disabled={false}
       onClick={null}
       onMouseDown={null}
+      role="button"
     >
       <svg
         className="theme-tc-pie-chart-graph tc-pie-chart-graph"
@@ -211,6 +213,7 @@ exports[`PieChartButton snapshots render should render a Skeleton when the state
   bsStyle="link"
   className="theme-tc-pie-chart-loading tc-pie-chart-loading"
   disabled={false}
+  role="button"
 >
   <Translate(Skeleton)
     className="theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
