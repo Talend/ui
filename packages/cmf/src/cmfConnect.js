@@ -271,10 +271,7 @@ export default function cmfConnect({
 					this.dispatchActionCreator(
 						'cmf.saga.stop',
 						{ type: 'WILL_UNMOUNT', componentId: this.id },
-						{
-							...this.props, // DEPRECATED
-							componentId: getComponentId(componentId, this.props),
-						},
+						this.props,
 					);
 				}
 			}

@@ -383,7 +383,6 @@ describe('cmfConnect', () => {
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
-				componentId: 'default',
 				saga: 'hello',
 				dispatchActionCreator: jest.fn(),
 				deleteState: jest.fn(),
