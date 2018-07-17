@@ -25,7 +25,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   137:1   error  Line 137 exceeds the maximum line length of 100            max-len
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/DataAccessor/DataAccessorWithUndoRedo.test.js
-  1:27  error  Unable to resolve path to module './TestData'  import/no-unresolved
+  7:42  error  Block must not be padded by blank lines  padded-blocks
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/DataAccessor/DataAccessorWrapper.js
    30:29  error  Expected 'this' to be used by class method 'internalGetMappingItemIndex'  class-methods-use-this
@@ -110,11 +110,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   73:11  error  'dndListener' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/Mapping.test.js
-   6:8   error  'MappingSVG' is defined but never used                                                         no-unused-vars
-   7:8   error  'MappingActions' is defined but never used                                                     no-unused-vars
-   7:28  error  Unable to resolve path to module './MappingActions.js'                                         import/no-unresolved
-  85:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-  86:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+   6:8  error  'MappingSVG' is defined but never used                                                         no-unused-vars
+  84:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  85:3  error  Component should be written as a pure function                                                 react/prefer-stateless-function
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/MappingSVG.js
     2:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -151,5 +149,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.test.js
   6:10  error  'Constants' is defined but never used  no-unused-vars
 
-✖ 97 problems (97 errors, 0 warnings)
+✖ 95 problems (95 errors, 0 warnings)
 
