@@ -2,27 +2,23 @@ import * as TestData from '../TestData';
 import { Constants } from '../index';
 import DataAccessorWrapper from './DataAccessorWrapper';
 
+const schema = TestData.schema1;
 const dataAccessor = new DataAccessorWrapper();
+dataAccessor.registerSchema(schema, Constants.MappingSide.INPUT);
 
 it('data-accessor-wrapper-schema', () => {
-	const schema = TestData.schema1;
-
 	expect(dataAccessor.getSchemaId(schema)).toBe(schema.id);
 	expect(dataAccessor.getSchemaName(schema)).toBe(schema.name);
 	expect(dataAccessor.getSchemaSize(schema)).toBe(schema.elements.length);
 });
 
 it('data-accessor-wrapper-element', () => {
-	const schema = TestData.schema1;
-
 	const element = dataAccessor.getSchemaElement(schema, 0);
 	expect(dataAccessor.getElementId(element)).toBe(TestData.element1.id);
 	expect(dataAccessor.getSchemaElementIndex(schema, element)).toBe(0);
 });
 
 it('data-accessor-wrapper-elements', () => {
-	const schema = TestData.schema1;
-
 	const elements = dataAccessor.getSchemaElements(schema);
 	expect(elements.length).toBe(schema.elements.length);
 	expect(dataAccessor.getSchemaSize(schema)).toBe(elements.length);

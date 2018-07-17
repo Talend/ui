@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
-import MapperComponent from './Mapper.js';
+import MapperComponent from './Mapper.component.js';
 import DataAccessorWrapper from '../DataAccessorWrapper';
 import { Constants } from '../index';
 
