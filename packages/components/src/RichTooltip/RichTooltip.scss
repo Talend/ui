@@ -8,6 +8,7 @@ $tc-popover-header-border-color: #ededed !default;
 $tc-popover-header-footer-height: 5rem !default;
 $tc-popover-header-font-size: 1.6rem !default;
 $tc-popover-header-font-weight: 600 !default;
+$tc-popover-icon-error-size: 3.6rem !default;
 
 :global(.popover) {
 	padding: 0;
@@ -23,6 +24,7 @@ $tc-popover-header-font-weight: 600 !default;
 }
 
 .tc-tooltip-header {
+	min-width: $tc-popover-max-width;
 	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
 	padding: 0 $padding-large 0 $padding-large;
 	flex: 1;
@@ -61,6 +63,7 @@ $tc-popover-header-font-weight: 600 !default;
 		max-height: $tc-popover-body-max-height;
 		width: 100%;
 	}
+
 	.tc-center-content {
 		align-self: center;
 		margin-left: auto;
@@ -73,8 +76,8 @@ $tc-popover-header-font-weight: 600 !default;
 		align-items: center;
 
 		.tc-center-icon {
-			width: 3.6rem;
-			height: 3.6rem;
+			width: $tc-popover-icon-error-size;
+			height: $tc-popover-icon-error-size;
 		}
 
 		.tc-error-body {
@@ -94,6 +97,7 @@ $tc-popover-header-font-weight: 600 !default;
 }
 
 .tc-tooltip-footer {
+	min-width: $tc-popover-max-width;
 	padding: 0 $padding-large 0 $padding-large;
 	flex: 1;
 	display: flex;

@@ -50,7 +50,7 @@ RichTooltipContent.propTypes = {
 };
 
 export function RichTooltipBody(props) {
-	// https://stackoverflow.com/questions/47179795/ie-flexbox-vertical-align-center-and-min-height
+	// fix ie11 flexbox align-items: center with min-height https://stackoverflow.com/a/47180276
 	return (
 		<div
 			className={classNames(props.className, {
@@ -58,7 +58,9 @@ export function RichTooltipBody(props) {
 				'tc-tooltip-body': true,
 			})}
 		>
-			<div className={theme['tc-tooltip-fix-ie']}>{props.Content}</div>
+			<div className={classNames(theme['tc-tooltip-fix-ie'], 'tc-tooltip-fix-ie')}>
+				{props.Content}
+			</div>
 		</div>
 	);
 }

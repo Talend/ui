@@ -2,16 +2,6 @@
 
 exports[`RichTooltip should render RichTooltip with header, content and footer 1`] = `
 <span>
-  <RichTooltipHeader
-    right={
-      Array [
-        Object {
-          "id": 42,
-        },
-      ]
-    }
-    title="my title"
-  />
   <RichTooltipContent
     content={
       <div>
@@ -49,51 +39,41 @@ exports[`RichTooltip should render RichTooltip with header, content and footer 1
       />
     }
   />
-  <RichTooltipFooter
-    left={
-      Array [
-        Object {
-          "id": 41,
-        },
-      ]
-    }
-    right={
-      Array [
-        Object {
-          "id": 42,
-        },
-      ]
-    }
-  />
 </span>
 `;
 
 exports[`RichTooltipContent should render RichTooltipContent with a loading 1`] = `
 <RichTooltipBody
-  className={undefined}
-  content={
+  Content={
     <div
-      className={undefined}
+      className="theme-tc-center-content"
     >
       <Translate(CircularProgress) />
     </div>
   }
+  className={undefined}
+/>
+`;
+
+exports[`RichTooltipContent should render RichTooltipContent with a string 1`] = `
+<RichTooltipBody
+  Content="body"
+  className={undefined}
 />
 `;
 
 exports[`RichTooltipContent should render RichTooltipContent with an error 1`] = `
 <RichTooltipBody
-  className={undefined}
-  content={
+  Content={
     <div
-      className=""
+      className="theme-tc-center-content theme-tc-error-wrapper"
     >
       <Icon
-        className={undefined}
+        className="theme-tc-center-icon"
         name="talend-warning"
       />
       <div
-        className={undefined}
+        className="theme-tc-error-body"
       >
         <h1>
           Whoops !
@@ -104,18 +84,19 @@ exports[`RichTooltipContent should render RichTooltipContent with an error 1`] =
       </div>
     </div>
   }
+  className={undefined}
 />
 `;
 
 exports[`RichTooltipFooter should render RichTooltipFooter 1`] = `
 <footer
-  className="tc-tooltip-footer"
+  className="theme-tc-tooltip-footer tc-tooltip-footer"
 >
   <Actions
     actions={
       Array [
         Object {
-          "id": 41,
+          "id": 42,
         },
       ]
     }
@@ -129,11 +110,11 @@ exports[`RichTooltipFooter should render RichTooltipFooter 1`] = `
     actions={
       Array [
         Object {
-          "id": 42,
+          "id": 41,
         },
       ]
     }
-    className="tc-tooltip-right-actions"
+    className="theme-tc-tooltip-right-actions tc-tooltip-right-actions"
     renderers={
       Object {
         "Action": [Function],
@@ -145,7 +126,7 @@ exports[`RichTooltipFooter should render RichTooltipFooter 1`] = `
 
 exports[`RichTooltipHeader should render RichTooltipHeader 1`] = `
 <header
-  className="tc-tooltip-header"
+  className="theme-tc-tooltip-header tc-tooltip-header"
 >
   <h1
     title="my title"

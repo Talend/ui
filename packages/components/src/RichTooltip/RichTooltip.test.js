@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RichTooltip, { RichTooltipContent, RichTooltipHeader, RichTooltipFooter } from './RichTooltip.component';
+import RichTooltip, {
+	RichTooltipContent,
+	RichTooltipHeader,
+	RichTooltipFooter,
+} from './RichTooltip.component';
 
 const Content = <div>Content</div>;
 
@@ -31,6 +35,12 @@ describe('RichTooltipContent', () => {
 
 	it('should render RichTooltipContent with a loading', () => {
 		const wrapper = shallow(<RichTooltipContent loading />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render RichTooltipContent with a string', () => {
+		const wrapper = shallow(<RichTooltipContent Content="body" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
