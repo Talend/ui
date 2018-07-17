@@ -16,6 +16,7 @@ export function start(event = {}, data) {
 export function stop(event, data) {
 	return {
 		type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_${data.saga}`,
+		componentId: data.componentId,
 		event,
 	};
 }

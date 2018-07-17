@@ -27,7 +27,7 @@ export const registerMany = registry.getRegisterMany(register);
 export const isActionCancelable = curry(
 	(startAction, action) =>
 		action.type === `${CONST.WILL_UNMOUNT_SAGA_STOP}_${startAction.saga}` &&
-		startAction.event.componentId === action.event.componentId,
+		startAction.componentId === action.componentId,
 );
 
 export function* onSagaStart(action) {
