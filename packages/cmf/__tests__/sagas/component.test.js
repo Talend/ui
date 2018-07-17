@@ -42,7 +42,6 @@ describe('sagas.component', () => {
 		expect(
 			next.TAKE.pattern({
 				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`,
-				componentId: 'myComponent',
 				event: {
 					componentId: 42,
 				},
