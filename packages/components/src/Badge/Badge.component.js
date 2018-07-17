@@ -10,20 +10,18 @@ import theme from './Badge.scss';
 
 function renderDeleteIcon(onClick, id, disabled, t) {
 	if (onClick) {
-		const actionProps = {
-			label: t('BADGE_DELETE', { defaultValue: 'delete' }),
-			hideLabel: true,
-			onClick,
-			disabled,
-			icon: 'talend-cross',
-			className: classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon']),
-		};
-
-		if (id) {
-			actionProps.id = `tc-badge-delete-${id}`;
-		}
-
-		return <Action {...actionProps} />;
+		return (
+			<Action
+				id={id && `tc-badge-delete-${id}`}
+				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
+				hideLabel
+				onClick={onClick}
+				disabled={disabled}
+				icon={'talend-cross'}
+				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
+				link
+			/>
+		);
 	}
 	return null;
 }
