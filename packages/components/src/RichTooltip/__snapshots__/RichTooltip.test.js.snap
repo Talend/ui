@@ -42,6 +42,12 @@ exports[`RichTooltip should render RichTooltip with header, content and footer 1
 </span>
 `;
 
+exports[`RichTooltipContent should render RichTooltipContent with a custom component 1`] = `
+<div>
+  Content
+</div>
+`;
+
 exports[`RichTooltipContent should render RichTooltipContent with a loading 1`] = `
 <RichTooltipBody
   Content={

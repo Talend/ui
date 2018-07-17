@@ -7,8 +7,12 @@ import Icon from '../Icon';
 import Inject from '../Inject';
 import theme from './RichTooltip.scss';
 
-export function RichTooltipContent(props) {
+export function getContent(props) {
 	let content;
+
+	if (typeof props.Content === 'string') {
+		content = props.Content;
+	}
 
 	if (props.loading) {
 		content = (
@@ -30,9 +34,11 @@ export function RichTooltipContent(props) {
 		);
 	}
 
-	if (typeof props.Content === 'string' && !(props.error || props.loading)) {
-		content = props.Content;
-	}
+	return content;
+}
+
+export function RichTooltipContent(props) {
+	const content = getContent(props);
 
 	if (content) {
 		return <RichTooltip.Body className={props.className} Content={content} />;

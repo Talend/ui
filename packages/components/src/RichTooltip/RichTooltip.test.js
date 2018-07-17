@@ -28,19 +28,25 @@ describe('RichTooltip', () => {
 
 describe('RichTooltipContent', () => {
 	it('should render RichTooltipContent with an error', () => {
-		const wrapper = shallow(<RichTooltipContent error="One error" />);
+		const wrapper = shallow(<RichTooltipContent error="One error" Content="body" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render RichTooltipContent with a loading', () => {
-		const wrapper = shallow(<RichTooltipContent loading />);
+		const wrapper = shallow(<RichTooltipContent loading Content="body" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render RichTooltipContent with a string', () => {
 		const wrapper = shallow(<RichTooltipContent Content="body" />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render RichTooltipContent with a custom component', () => {
+		const wrapper = shallow(<RichTooltipContent Content={Content} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
