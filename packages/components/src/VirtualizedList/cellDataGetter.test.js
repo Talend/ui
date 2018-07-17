@@ -1,14 +1,11 @@
 import cellDataGetter from './cellDataGetter';
+import { defaultTableCellDataGetter } from 'react-virtualized';
+
+jest.mock('react-virtualized', () => ({
+	defaultTableCellDataGetter: jest.fn(),
+}));
 
 describe('cellDataGetter', () => {
-	it('should use rowData.get', () => {
-		const rowData = {
-			get: jest.fn(() => 'bar'),
-		};
-		const result = cellDataGetter({ rowData, dataKey: 'foo' });
-		expect(result).toBe('bar');
-		expect(rowData.get).toHaveBeenCalledWith('foo');
-	});
 	it('should try to use columnData.selector to get value', () => {
 		const rowData = {
 			metadata: {
@@ -21,11 +18,14 @@ describe('cellDataGetter', () => {
 		const result = cellDataGetter({ rowData, columnData });
 		expect(result).toBe('bar');
 	});
-	it('should try to use columnData.selector to get value', () => {
-		const rowData = {
-			title: 'bar',
+	it('should fallback to defaultTableCellDataGetter', () => {
+		const info = {
+			rowData: {
+				title: 'bar',
+			},
+			dataKey: 'title',
 		};
-		const result = cellDataGetter({ rowData, dataKey: 'title' });
-		expect(result).toBe('bar');
+		cellDataGetter(info);
+		expect(defaultTableCellDataGetter).toHaveBeenCalledWith(info);
 	});
 });

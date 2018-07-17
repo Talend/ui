@@ -1,11 +1,10 @@
 import get from 'lodash/get';
+import { defaultTableCellDataGetter } from 'react-virtualized';
 
-export default function cellDataGetter({ columnData, dataKey, rowData }) {
-	if (typeof rowData.get === 'function') {
-		return rowData.get(dataKey);
+export default function cellDataGetter(info) {
+	const selector = get(info, 'columnData.selector');
+	if (selector) {
+		return get(info.rowData, selector);
 	}
-	if (columnData && columnData.selector) {
-		return get(rowData, columnData.selector);
-	}
-	return rowData[dataKey];
+	return defaultTableCellDataGetter(info);
 }
