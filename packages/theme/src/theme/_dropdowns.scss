@@ -19,7 +19,7 @@ $dropdown-caret-up-axis: -45deg !default;
 			border: 1px solid;
 			border-bottom-color: transparent;
 			border-left-color: transparent;
-			box-shadow: 1px -1px 0px;
+			box-shadow: 1px -1px 0;
 			transform: rotate($dropdown-caret-down-axis);
 			transition: 0.1s transform ease-out;
 		}
