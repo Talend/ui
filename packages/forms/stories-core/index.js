@@ -19,6 +19,7 @@ import jsonStories from './jsonStories';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
+import layouts from './layout';
 
 // integrate widget code
 import 'brace/theme/monokai';
@@ -81,6 +82,10 @@ const oldStories = storiesOf('Migration', module)
 	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
+
+const layoutStories = storiesOf('Layout', module);
+
+layouts.stories.forEach(story => layoutStories.add(story.name, story.story));
 
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {

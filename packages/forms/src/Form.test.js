@@ -144,13 +144,6 @@ describe('<Form/>', () => {
 		expect(Form.displayName).toBe('TalendForm');
 	});
 
-	it('should render uiform', () => {
-		const props = initProps();
-		// when
-		wrapper = shallow(<Form data={dataUIForm} {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
 	describe('render simple elements', () => {
 		beforeEach(() => {
 			wrapper = mount(<Form noHtml5Validate data={data} />);

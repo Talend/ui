@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    :global(.tc-skeleton) {
+        margin: $padding-normal;
+    }
+}
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+}
