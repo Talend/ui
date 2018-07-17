@@ -28,30 +28,25 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	min-height: auto;
 	padding: 0;
 
-	&,
-	&:active {
-		&:hover,
-		&:focus {
-			background-color: $white;
-			border: 1px solid $scooter;
-			box-shadow: none;
-			color: $scooter;
-		}
+	&:hover,
+	&:active,
+	&:focus {
+		box-shadow: none;
+		background-color: $white;
+		border-color: $scooter;
+		color: $scooter;
 	}
 
 	&.active {
 		background-color: $brand-primary;
-		border: 1px solid $brand-primary;
+		border-color: $brand-primary;
 		color: $white;
 
-		&,
-		&:active {
-			&:hover,
-			&:focus {
-				background-color: $scooter;
-				border: 1px solid $scooter;
-				color: $white;
-			}
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $scooter;
+			border-color: $scooter;
 		}
 	}
 }

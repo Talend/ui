@@ -40,10 +40,6 @@ $breadcrumb-li-margin-right: $padding-normal + 7px;
 			overflow: hidden;
 		}
 
-		& > .open > .btn.dropdown-toggle {
-			background-color: tint($black, 97);
-		}
-
 		& + li {
 			margin: 0 $breadcrumb-li-margin-right 0 $padding-normal;
 
