@@ -10,6 +10,7 @@ describe('sagas.component', () => {
 		const testAction = {
 			type: 'TEST',
 			saga: 'my-saga',
+			componentId: 'myComponent',
 			event: { componentId: 42 },
 		};
 		function saga() {}
