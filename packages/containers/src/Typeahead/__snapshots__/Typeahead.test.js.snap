@@ -2,13 +2,14 @@
 
 exports[`Typeahead container should render 1`] = `
 <Typeahead
-  autoFocus={true}
+  autoFocus={false}
   disabled={false}
   docked={true}
   focusedItemIndex={null}
   focusedSectionIndex={null}
   icon={Object {}}
   id={42}
+  isLoadingText="Loading..."
   items={Array []}
   multiSection={true}
   noResultText="No result."
@@ -19,6 +20,6 @@ exports[`Typeahead container should render 1`] = `
   position="left"
   readOnly={false}
   searching={false}
-  searchingText="Searching for matches…"
+  searchingText="Searching for matches..."
 />
 `;
