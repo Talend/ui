@@ -50,7 +50,6 @@ export function* onSagaStart(action) {
 		...sagaArgs,
 	);
 	yield take(isActionCancelable(action));
-	console.log(`cancel${sagaId}`);
 	yield cancel(task);
 }
 
