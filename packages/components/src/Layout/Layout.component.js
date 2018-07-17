@@ -67,17 +67,21 @@ function Layout({
 	return (
 		<div id={id} className={appCSS}>
 			{safeHeader && (
-				<header role="banner" className={headerCSS}>
+				<header key="banner" role="banner" className={headerCSS}>
 					{safeHeader}
 				</header>
 			)}
-			{safeSubHeader && <div className="subheader">{safeSubHeader}</div>}
-			<Component drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
+			{safeSubHeader && (
+				<div key="subheader" className="subheader">
+					{safeSubHeader}
+				</div>
+			)}
+			<Component key="main" drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
 				{safeContent}
 				{children}
 			</Component>
 			{safeFooter && (
-				<footer role="contentinfo" className={footerCSS}>
+				<footer key="footer" role="contentinfo" className={footerCSS}>
 					{safeFooter}
 				</footer>
 			)}
