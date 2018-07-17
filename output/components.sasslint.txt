@@ -7,5 +7,12 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+src/RichTooltip/RichTooltip.scss
+   29:11  warning  Property `padding` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`  shorthand-values
+   53:11  warning  Property `padding` should be written more concisely as `$padding-large 0` instead of `$padding-large 0 $padding-large 0`  shorthand-values
+   54:10  warning  Property `margin` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`   shorthand-values
+   60:3   error    Duplicate properties are not allowed within a block                                                                       no-duplicate-properties
+  101:11  warning  Property `padding` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`  shorthand-values
+
+✖ 7 problems (1 error, 6 warnings)
 
