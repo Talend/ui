@@ -3,6 +3,7 @@ import React from 'react';
 import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
 import { cellType as titleCellType } from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
+import cellDataGetter from '../../VirtualizedList/cellDataGetter';
 
 function adaptOnSort(onChange) {
 	if (!onChange) {
@@ -102,7 +103,16 @@ export function ListToVirtualizedList(props) {
 							columnData: column.data,
 						});
 					}
-					return <VirtualizedList.Content key={index} {...cProps} />;
+					if (column.selector) {
+						if (cProps.columnData) {
+							cProps.columnData.selector = column.selector;
+						} else {
+							cProps.columnData = {
+								selector: column.selector,
+							};
+						}
+					}
+					return <VirtualizedList.Content key={index} cellDataGetter={cellDataGetter} {...cProps} />;
 				})}
 		</VirtualizedList>
 	);
