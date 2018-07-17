@@ -26,7 +26,7 @@ $tc-popover-icon-error-size: 3.6rem !default;
 .tc-tooltip-header {
 	min-width: $tc-popover-max-width;
 	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
-	padding: 0 $padding-large 0 $padding-large;
+	padding: 0 $padding-large;
 	flex: 1;
 	height: $tc-popover-header-footer-height;
 	display: flex;
@@ -50,14 +50,13 @@ $tc-popover-icon-error-size: 3.6rem !default;
 .tc-tooltip-body {
 	display: flex;
 	flex-direction: row;
-	padding: $padding-large 0 $padding-large 0;
-	margin: 0 $padding-large 0 $padding-large;
+	padding: $padding-large 0;
+	margin: 0 $padding-large;
 	color: $dove-gray;
 
 	.tc-tooltip-fix-ie {
 		display: flex;
 		flex-direction: row;
-		display: flex;
 		overflow: auto;
 		min-height: $tc-popover-body-min-height;
 		max-height: $tc-popover-body-max-height;
@@ -98,7 +97,7 @@ $tc-popover-icon-error-size: 3.6rem !default;
 
 .tc-tooltip-footer {
 	min-width: $tc-popover-max-width;
-	padding: 0 $padding-large 0 $padding-large;
+	padding: 0 $padding-large;
 	flex: 1;
 	display: flex;
 	align-items: center;
