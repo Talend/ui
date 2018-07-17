@@ -15,6 +15,22 @@ input[type='checkbox'],
 	-webkit-appearance: none;
 
 	&:before,
+	&:after,
+	+ *:before,
+	+ *:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&:after,
+	+ *:after {
+		content: '';
+		width: $tt-checkbox-size;
+		height: $tt-checkbox-size;
+	}
+
+	&:before,
 	+ *:before {
 		@include rotate(90deg);
 		position: absolute;
@@ -44,8 +60,12 @@ input[type='checkbox'],
 	}
 
 	&:focus {
-		&:before, + *:after {
+		&:before,
+		+ *:after {
 			border-color: $tt-checkbox-focus-border-color;
+			@include checkbox-outline;
+		}
+		&:after {
 			@include checkbox-outline;
 		}
 	}

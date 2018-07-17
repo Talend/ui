@@ -270,15 +270,6 @@ form {
 		}
 	}
 
-	input[type='checkbox'],
-	.checkbox input[type='checkbox'],
-	.checkbox-inline input[type='checkbox'] {
-		&:focus:after,
-		&:focus + *:after {
-			@include checkbox-outline;
-		}
-	}
-
 	.has-warning {
 		input:not([type='checkbox']),
 		.form-control,
