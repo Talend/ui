@@ -2,7 +2,7 @@
 
 
 src/theme/_buttons.scss
-  17:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  15:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
   19:22  error    !important not allowed          no-important
