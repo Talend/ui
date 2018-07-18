@@ -6,47 +6,12 @@ import TestUtils from 'react-dom/test-utils';
 import MapperComponent from './Mapper.component.js';
 import DataAccessorWrapper from './DataAccessor/DataAccessorWrapper';
 import { Constants } from './index';
+import * as TestData from './TestData';
 
 const dataAccessor = new DataAccessorWrapper();
 
-const element1 = {
-	id: '1',
-	name: 'elem_in_1',
-	type: 'string',
-	description: 'bla bla bla',
-};
-
-const element2 = {
-	id: '2',
-	name: 'elem_out_1',
-	type: 'string',
-	description: 'bla bla bla',
-};
-
-const inputSchema = {
-	id: 'schema_1',
-	name: 'input',
-	elements: [element1],
-};
-
-const outputSchema = {
-	id: 'schema_2',
-	name: 'output',
-	elements: [element2],
-};
-
-const noFilters = {
-	input: [],
-	output: [],
-};
-
-function isNamed(element, name) {
-	const elementName = dataAccessor.getElementName(element);
-	return elementName === name;
-}
-
 function getElementByName(elements, name) {
-	return elements.find(elem => isNamed(elem.props.element, name));
+	return elements.find(elem => elem.props.element.name === name));
 }
 
 /**
@@ -62,37 +27,19 @@ function wrapInTestContext(DecoratedComponent) {
 	);
 }
 
-const autoMap = jest.fn();
-
 const preferences = {
 	showAll: false,
 };
 
-it('auto-mapping', () => {
-	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
-	const MapperTestContext = wrapInTestContext(MapperComponent);
+const input = {
+	schema: TestData.schema1,
+	columns: TestData.Columns,
+}
 
-	const mapper = (
-		<MapperTestContext
-			dataAccessor={dataAccessor}
-			inputSchema={inputSchema}
-			mapping={mapping}
-			outputSchema={outputSchema}
-			autoMap={autoMap}
-			schemaConfiguration={schemaConfiguration}
-			mappingConfiguration={mappingConfig}
-			filters={noFilters}
-			preferences={preferences}
-		/>
-	);
-	const wrapper = mount(mapper);
-	wrapper
-		.find('#auto-map')
-		.at(0)
-		.simulate('click');
-
-	expect(autoMap).toBeCalled();
-});
+const output = {
+	schema: TestData.schema2,
+	columns: TestData.Columns,
+}
 
 it('perform-mapping', () => {
 	const item = {
@@ -107,21 +54,16 @@ it('perform-mapping', () => {
 		endDrag: jest.fn(),
 	};
 	const mapping = [];
-	const draggable = true;
 
 	const MapperTestContext = wrapInTestContext(MapperComponent);
 
 	const mapper = (
 		<MapperTestContext
 			dataAccessor={dataAccessor}
-			inputSchema={inputSchema}
 			mapping={mapping}
-			outputSchema={outputSchema}
+			input={input}
+			output={output}
 			dndListener={dndListener}
-			draggable={draggable}
-			schemaConfiguration={schemaConfiguration}
-			mappingConfiguration={mappingConfig}
-			filters={noFilters}
 			preferences={preferences}
 		/>
 	);
@@ -132,21 +74,21 @@ it('perform-mapping', () => {
 	const backend = root.getManager().getBackend();
 
 	// Find the drag source ID and use it to simulate the dragging operation
-	const elements = TestUtils.scryRenderedComponentsWithType(root, DraggableSchemaElement);
+	const elements = TestUtils.scryRenderedComponentsWithType(root, DraggableComponent);
 
-	const sourceElem = getElementByName(elements, 'elem_in_1');
+	const sourceElem = getElementByName(elements, 'elem_1');
 
 	const decoratedSourceElem = sourceElem.getDecoratedComponentInstance();
 
-	// simulate begin drag source node 'elem_in_1'
+	// simulate begin drag source node 'elem_1'
 	backend.simulateBeginDrag([decoratedSourceElem.getHandlerId()]);
 
-	const targetElem = getElementByName(elements, 'elem_out_1');
+	const targetElem = getElementByName(elements, 'elem_5');
 
-	// simulate drag node 'elem_in_1' over target node 'elem_out_1'
+	// simulate drag node 'elem_1' over target node 'elem_5'
 	backend.simulateHover([targetElem.getHandlerId()]);
 
-	// simulate drop the source node on the current target node 'elem_out_1'
+	// simulate drop the source node on the current target node 'elem_5'
 	backend.simulateDrop();
 
 	// dndListener.drop should be called
@@ -155,9 +97,9 @@ it('perform-mapping', () => {
 	// The dndListener.drop function is called once
 	expect(dndListener.drop.mock.calls.length).toBe(1);
 
-	// The first argument of the first call to the function was 'elem_in_1'
+	// The first argument of the first call to the function was 'elem_1'
 	expect(dndListener.drop.mock.calls[0][0].element).toBe(element1);
 
-	// The second argument of the first call to the function was 'elem_out_1'
+	// The second argument of the first call to the function was 'elem_5'
 	expect(dndListener.drop.mock.calls[0][1].element).toBe(element2);
 });
