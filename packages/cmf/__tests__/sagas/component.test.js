@@ -7,8 +7,13 @@ import CONST from '../../src/constant';
 describe('sagas.component', () => {
 	it('should cancel one saga ', () => {
 		// given
-		const testAction = { type: 'TEST', saga: 'my-saga', componentId: 'myComponent', event: { componentId: 42 } };
-		function* saga() {}
+		const testAction = {
+			type: 'TEST',
+			saga: 'my-saga',
+			componentId: 'myComponent',
+			event: { componentId: 42 },
+		};
+		function saga() {}
 		const reg = registry.getRegistry();
 		reg['SAGA:my-saga'] = saga;
 		const task = createMockTask();
@@ -88,7 +93,9 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }, 'foo', { bar: true }));
+		expect(gen.next().value).toEqual(
+			fork(saga, { componentId: 'myComponent' }, 'foo', { bar: true }),
+		);
 	});
 
 	it('should handle takeEvery didmount', () => {
