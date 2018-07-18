@@ -25,6 +25,16 @@ import http, {
 	HTTP,
 } from '../../src/sagas/http';
 
+import {
+	onRequest,
+	onResponse as onHttpResponse,
+	onError as onHttpError,
+	onActionResponse,
+	onActionError,
+	onJSError,
+} from '../../src/actions/http';
+
+
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 
 beforeEach(() => {
@@ -41,7 +51,11 @@ describe('http.get', () => {
 		};
 
 		const gen = http.get('/foo', config);
-
+		const generated = gen.next().value;
+		const expected = put(onRequest(url, config));
+		console.log('généré', generated.PUT.action.config);
+		console.log('attendu', expected.PUT.action.config);
+		expect(generated).toEqual(expected);
 		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
 		expect(gen.next().done).toBe(true);
 	});
