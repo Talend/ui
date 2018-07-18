@@ -1,8 +1,3 @@
-import Component, {
-	RichTooltipHeader,
-	RichTooltipBody,
-	RichTooltipFooter,
-} from './RichTooltip.component';
+import Component from './RichTooltip.component';
 
-export { RichTooltipHeader, RichTooltipBody, RichTooltipFooter };
 export default Component;
