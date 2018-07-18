@@ -21,7 +21,7 @@ function noOp() {}
 
 describe('Testing <AbstractNode>', () => {
 	it('should create a bare node component with provided position', () => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
 			</AbstractNode>,
@@ -32,7 +32,7 @@ describe('Testing <AbstractNode>', () => {
 
 	it('call the injected onClick action when clicked', () => {
 		const onClick = jasmine.createSpy('onClick');
-		const wrapper = shallow(
+		const wrapper = mount(
 			<AbstractNode node={node} onClick={onClick} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
 			</AbstractNode>,
