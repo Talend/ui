@@ -24,7 +24,6 @@ function wrapInTestContext(DecoratedComponent) {
 }
 
 describe('Schema', () => {
-
 	it('should accept a single schema', () => {
 		const dataAccessor = new DataAccessorWrapper();
 		dataAccessor.registerSchema(TestData.schema1, Constants.MappingSide.INPUT);
