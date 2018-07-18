@@ -68,8 +68,7 @@ export function keepOnlyDatasetMetadataProperties({ body, properties }) {
 export class TCompForm extends React.Component {
 	constructor(props) {
 		super(props);
-		const properties = props.state.get('properties');
-		this.state = { properties: properties && properties.toJS() };
+		this.state = {};
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
