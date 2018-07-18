@@ -1,3 +1,5 @@
+$tc-drawer-content-max-width: 650px !default;
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -30,7 +32,7 @@
 	.form-content {
 		flex-grow: 1;
 		min-height: 0;
-		padding: 10px;
+		padding: $padding-small;
 		overflow-y: auto;
 		margin: 0 $padding-small;
 	}
@@ -40,21 +42,21 @@
 		width: 100%;
 		padding: $padding-small;
 		background-color: $wild-sand;
-		:global(.form-actions) {
-			max-width: 650px;
-			margin: auto;
-		}
 	}
 }
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
 		.form-content {
-			width: 600px;
+			width: $tc-drawer-content-max-width;
 			margin: 0 auto;
 		}
 		.submit-wrapper {
-			max-width: 600px;
+			max-width: $tc-drawer-content-max-width;
+		}
+		:global(.form-actions) {
+			max-width: 650px;
+			margin: auto;
 		}
 	}
 }
