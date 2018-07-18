@@ -7,7 +7,7 @@ import { Map } from 'immutable';
 import { CircularProgress } from '@talend/react-components';
 import memoizeOne from 'memoize-one';
 import kit from 'component-kit.js';
-import tcompFieldsWidgets from '../fields';
+import tcompFieldsWidgets from './fields';
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
