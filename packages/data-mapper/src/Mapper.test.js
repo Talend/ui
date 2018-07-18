@@ -56,8 +56,8 @@ it('perform-mapping', () => {
 	const MapperTestContext = wrapInTestContext(MapperComponent);
 
 	const dataAccessor = new DataAccessorWrapper();
-	dataAccessor.registerSchema(input.schema, Constant.MappingSide.INPUT);
-	dataAccessor.registerSchema(output.schema, Constant.MappingSide.OUTPUT);
+	dataAccessor.registerSchema(input.schema, Constants.MappingSide.INPUT);
+	dataAccessor.registerSchema(output.schema, Constants.MappingSide.OUTPUT);
 
 	const mapper = (
 		<MapperTestContext
