@@ -87,8 +87,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1212 | 			<div {...rest}>
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.test.js
-    7:33  error  Unable to resolve path to module '../DataAccessorWrapper'                                      import/no-unresolved
-    8:27  error  Unable to resolve path to module '../index'                                                    import/no-unresolved
    56:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
    57:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
    82:25  error  'schemaConfiguration' is not defined                                                           no-undef
@@ -142,5 +140,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   419:4   error  'onScroll' is assigned a value but never used                                                               no-unused-vars
   457:18  error  'mappedElements' PropType is defined but prop is never used                                                 react/no-unused-prop-types
 
-✖ 92 problems (92 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.test.js
+  17:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  18:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+  18:38  error  'Component' is not defined                                                                     no-undef
+
+✖ 93 problems (93 errors, 0 warnings)
 
