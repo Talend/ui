@@ -4,8 +4,8 @@ import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 import MapperComponent from './Mapper.component.js';
-import DataAccessorWrapper from '../DataAccessorWrapper';
-import { Constants } from '../index';
+import DataAccessorWrapper from './DataAccessor/DataAccessorWrapper';
+import { Constants } from './index';
 
 const dataAccessor = new DataAccessorWrapper();
 
