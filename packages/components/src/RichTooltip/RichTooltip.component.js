@@ -8,34 +8,39 @@ import Inject from '../Inject';
 import theme from './RichTooltip.scss';
 
 export function getContent(props) {
-	let content;
+	const { error, loading, Content } = props;
 
-	if (typeof props.Content === 'string') {
-		content = props.Content;
-	}
-
-	if (props.loading) {
-		content = (
+	if (error) {
+		return (
+			<div className={classNames(theme['tc-center-content'], theme['tc-error-wrapper'])}>
+				<Icon name="talend-warning" className={theme['tc-center-icon']} />
+				<div className={theme['tc-error-body']}>
+					<h4>{error.title}</h4>
+					<div>{error.message}</div>
+				</div>
+			</div>
+		);
+	} else if (loading) {
+		return (
 			<div className={theme['tc-center-content']}>
 				<CircularProgress />
 			</div>
 		);
+	} else if (typeof Content === 'string') {
+		return Content;
 	}
 
-	if (props.error) {
-		content = (
-			<div className={classNames(theme['tc-center-content'], theme['tc-error-wrapper'])}>
-				<Icon name="talend-warning" className={theme['tc-center-icon']} />
-				<div className={theme['tc-error-body']}>
-					<h1>Whoops !</h1>
-					<div>{props.error}</div>
-				</div>
-			</div>
-		);
-	}
-
-	return content;
+	return false;
 }
+
+getContent.propTypes = {
+	Content: Inject.getReactElement.propTypes,
+	error: PropTypes.shape({
+		title: PropTypes.string,
+		message: PropTypes.string,
+	}),
+	loading: PropTypes.bool,
+};
 
 export function RichTooltipContent(props) {
 	const content = getContent(props);
@@ -50,21 +55,14 @@ export function RichTooltipContent(props) {
 RichTooltipContent.propTypes = {
 	className: PropTypes.string,
 	getComponent: PropTypes.func,
-	loading: PropTypes.bool,
-	Content: Inject.getReactElement.propTypes,
-	error: PropTypes.string,
+	...getContent.propTypes,
 };
 
 export function RichTooltipBody(props) {
 	// fix ie11 flexbox align-items: center with min-height https://stackoverflow.com/a/47180276
 	return (
-		<div
-			className={classNames(props.className, {
-				[theme['tc-tooltip-body']]: true,
-				'tc-tooltip-body': true,
-			})}
-		>
-			<div className={classNames(theme['tc-tooltip-fix-ie'], 'tc-tooltip-fix-ie')}>
+		<div className={classNames(props.className, theme['tc-tooltip-body'], 'tc-tooltip-body')}>
+			<div className={classNames(theme['tc-tooltip-content'], 'tc-tooltip-content')}>
 				{props.Content}
 			</div>
 		</div>
@@ -79,7 +77,7 @@ RichTooltipBody.propTypes = {
 export function RichTooltipHeader(props) {
 	return (
 		<header className={classNames(theme['tc-tooltip-header'], 'tc-tooltip-header')}>
-			<h1 title={props.title}>{props.title}</h1>
+			<h4 title={props.title}>{props.title}</h4>
 			<Actions actions={props.right} />
 		</header>
 	);

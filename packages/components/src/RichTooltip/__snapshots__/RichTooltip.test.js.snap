@@ -81,9 +81,9 @@ exports[`RichTooltipContent should render RichTooltipContent with an error 1`] =
       <div
         className="theme-tc-error-body"
       >
-        <h1>
-          Whoops !
-        </h1>
+        <h4>
+          Whoops!
+        </h4>
         <div>
           One error
         </div>
@@ -134,11 +134,11 @@ exports[`RichTooltipHeader should render RichTooltipHeader 1`] = `
 <header
   className="theme-tc-tooltip-header tc-tooltip-header"
 >
-  <h1
+  <h4
     title="my title"
   >
     my title
-  </h1>
+  </h4>
   <Actions
     actions={
       Array [

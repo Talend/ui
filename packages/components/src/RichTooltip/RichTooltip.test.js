@@ -7,6 +7,7 @@ import RichTooltip, {
 } from './RichTooltip.component';
 
 const Content = <div>Content</div>;
+const error = { title: 'Whoops!', message: 'One error' };
 
 describe('RichTooltip', () => {
 	it('should render RichTooltip with header, content and footer', () => {
@@ -18,17 +19,17 @@ describe('RichTooltip', () => {
 	});
 
 	it('should pass the props loading and error to the RichTooltipContent', () => {
-		const wrapper = shallow(<RichTooltip error="One error" loading />);
+		const wrapper = shallow(<RichTooltip error={error} loading />);
 
 		const richTooltipContentProps = wrapper.find(RichTooltipContent).props();
-		expect(richTooltipContentProps.error).toBe('One error');
+		expect(richTooltipContentProps.error).toBe(error);
 		expect(richTooltipContentProps.loading).toBe(true);
 	});
 });
 
 describe('RichTooltipContent', () => {
 	it('should render RichTooltipContent with an error', () => {
-		const wrapper = shallow(<RichTooltipContent error="One error" Content="body" />);
+		const wrapper = shallow(<RichTooltipContent error={error} Content="body" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

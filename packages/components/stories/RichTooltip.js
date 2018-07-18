@@ -96,7 +96,15 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="hidelabel"
-				overlayComponent={<RichTooltip Content={shortLoreum} error="One error" />}
+				overlayComponent={
+					<RichTooltip
+						Content={shortLoreum}
+						error={{
+							title: 'Whooops!',
+							message: 'One error',
+						}}
+					/>
+				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}

@@ -32,7 +32,7 @@ $tc-popover-icon-error-size: 3.6rem !default;
 	display: flex;
 	align-items: center;
 
-	h1 {
+	h4 {
 		margin: 0;
 		font-size: $tc-popover-header-font-size;
 		font-weight: $tc-popover-header-font-weight;
@@ -54,7 +54,7 @@ $tc-popover-icon-error-size: 3.6rem !default;
 	margin: 0 $padding-large;
 	color: $dove-gray;
 
-	.tc-tooltip-fix-ie {
+	.tc-tooltip-content {
 		display: flex;
 		flex-direction: row;
 		overflow: auto;
@@ -69,24 +69,24 @@ $tc-popover-icon-error-size: 3.6rem !default;
 		margin-right: auto;
 		overflow: hidden;
 	}
+}
 
-	.tc-error-wrapper {
-		display: flex;
-		align-items: center;
+.tc-error-wrapper {
+	display: flex;
+	align-items: center;
 
-		.tc-center-icon {
-			width: $tc-popover-icon-error-size;
-			height: $tc-popover-icon-error-size;
-		}
+	.tc-center-icon {
+		width: $tc-popover-icon-error-size;
+		height: $tc-popover-icon-error-size;
+	}
 
-		.tc-error-body {
-			margin-left: $padding-normal;
+	.tc-error-body {
+		margin-left: $padding-normal;
 
-			h1 {
-				margin: 0;
-				font-size: 12px;
-				font-weight: 400;
-			}
+		h4 {
+			margin: 0;
+			font-size: 12px;
+			font-weight: 400;
 		}
 	}
 }
