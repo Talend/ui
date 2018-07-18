@@ -59,8 +59,8 @@ const forStoryDecorator = story => (
 );
 
 const coreConceptsStories = storiesOf('Core concepts', module)
-	// .addDecorator(checkA11y)
-	// .addDecorator(withKnobs)
+	.addDecorator(checkA11y)
+	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsetsStories = storiesOf('Core fieldsets', module)
