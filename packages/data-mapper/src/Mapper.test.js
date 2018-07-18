@@ -8,8 +8,6 @@ import DataAccessorWrapper from './DataAccessor/DataAccessorWrapper';
 import { Constants } from './index';
 import * as TestData from './TestData';
 
-const dataAccessor = new DataAccessorWrapper();
-
 function getElementByName(elements, name) {
 	return elements.find(elem => elem.props.element.name === name);
 }
@@ -56,6 +54,10 @@ it('perform-mapping', () => {
 	const mapping = [];
 
 	const MapperTestContext = wrapInTestContext(MapperComponent);
+
+	const dataAccessor = new DataAccessorWrapper();
+	dataAccessor.registerSchema(input.schema, Constant.MappingSide.INPUT);
+	dataAccessor.registerSchema(output.schema, Constant.MappingSide.OUTPUT);
 
 	const mapper = (
 		<MapperTestContext

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
