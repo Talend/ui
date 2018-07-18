@@ -34,12 +34,12 @@ const preferences = {
 const input = {
 	schema: TestData.schema1,
 	columns: TestData.Columns,
-}
+};
 
 const output = {
 	schema: TestData.schema2,
 	columns: TestData.Columns,
-}
+};
 
 it('perform-mapping', () => {
 	const item = {
