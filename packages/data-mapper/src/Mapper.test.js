@@ -43,7 +43,7 @@ const output = {
 
 it('perform-mapping', () => {
 	const item = {
-		element: element1,
+		element: TestData.element1,
 		side: Constants.MappingSide.INPUT,
 	};
 	const dndListener = {
