@@ -28,21 +28,27 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "peerDependencies": {
+    "@talend/bootstrap-theme": ">=0.201.0-0",
+    "@talend/icons": ">=0.201.0-0",
+    "@talend/react-cmf": ">=0.201.0-0",
+    "@talend/react-components": ">=0.201.0-0",
+    "@talend/react-containers": ">=0.201.0-0",
+    "@talend/react-forms": ">=0.201.0-0",
     "react": "^15.6.2 || ^16.0.0",
     "react-dom": "^15.6.2 || ^16.0.0"
   },
   "devDependencies": {
-    "@talend/scripts": "0.3.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
-  },
-  "dependencies": {
     "@talend/bootstrap-theme": "0.201.0-0",
     "@talend/icons": "0.201.0-0",
     "@talend/react-cmf": "0.201.0-0",
     "@talend/react-components": "0.201.0-0",
     "@talend/react-containers": "0.201.0-0",
     "@talend/react-forms": "0.201.0-0",
+    "@talend/scripts": "0.3.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "dependencies": {
     "bootstrap-sass": "3.3.7",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
