@@ -73,16 +73,6 @@
 	}
 }
 
-/// Dropdown caret default color
-/// @access public
-/// @content Borders and box-shadow color variation
-/// @param {Color} dropdown-caret-color - Caret color
-@mixin dropdown-caret-color($dropdown-caret-color) {
-	border-top-color: $dropdown-caret-color;
-	border-right-color: $dropdown-caret-color;
-	box-shadow: 1px -1px 0 $dropdown-caret-color;
-}
-
 /// Define gradient based webapp layouts
 /// @access public
 /// @param {Color} $brand-primary - primary color of product
