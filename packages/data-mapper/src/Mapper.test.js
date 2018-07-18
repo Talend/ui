@@ -11,7 +11,7 @@ import * as TestData from './TestData';
 const dataAccessor = new DataAccessorWrapper();
 
 function getElementByName(elements, name) {
-	return elements.find(elem => elem.props.element.name === name));
+	return elements.find(elem => elem.props.element.name === name);
 }
 
 /**
