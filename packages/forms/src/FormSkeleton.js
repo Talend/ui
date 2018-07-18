@@ -5,19 +5,23 @@ import theme from './FormSkeleton.scss';
 export default function FormSkeleton() {
 	return (
 		<div className={`${theme.container}`}>
-			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-			<Skeleton type={Skeleton.TYPES.text} size={400} />
-			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-			<Skeleton type={Skeleton.TYPES.text} size={400} />
-			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-			<Skeleton type={Skeleton.TYPES.text} size={400} />
-			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-			<Skeleton type={Skeleton.TYPES.text} size={400} />
-			<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-			<Skeleton type={Skeleton.TYPES.text} size={400} />
+			<div className={theme['form-content']}>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				<Skeleton type={Skeleton.TYPES.text} size={400} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				<Skeleton type={Skeleton.TYPES.text} size={400} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				<Skeleton type={Skeleton.TYPES.text} size={400} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				<Skeleton type={Skeleton.TYPES.text} size={400} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				<Skeleton type={Skeleton.TYPES.text} size={400} />
+			</div>
 			<div className={theme.submit}>
-				<Skeleton type={Skeleton.TYPES.button} />
-				<Skeleton type={Skeleton.TYPES.button} />
+				<div className={theme['submit-wrapper']}>
+					<Skeleton type={Skeleton.TYPES.button} />
+					<Skeleton type={Skeleton.TYPES.button} />
+				</div>
 			</div>
 		</div>
 	);
