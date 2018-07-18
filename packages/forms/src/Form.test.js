@@ -16,8 +16,6 @@ import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 import Form, { renderActionIcon, renderActions } from './Form';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
 
-import { data as dataUIForm, initProps } from '../__mocks__/data';
-
 const data = {
 	jsonSchema: {
 		title: 'TestForm',
