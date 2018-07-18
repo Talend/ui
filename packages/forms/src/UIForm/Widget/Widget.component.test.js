@@ -21,17 +21,15 @@ describe('Widget component', () => {
 
 	it('should render widget', () => {
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onFinish={jest.fn('onFinish')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-			/>,
-		);
+		const wrapper = shallow(<Widget
+			id="myForm"
+			onChange={jest.fn('onChange')}
+			onFinish={jest.fn('onFinish')}
+			onTrigger={jest.fn('onTrigger')}
+			properties={properties}
+			schema={schema}
+			errors={errors}
+		/>);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -45,9 +43,7 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = shallow(
-			<Widget properties={properties} schema={unknownWidgetSchema} errors={errors} />,
-		);
+		const wrapper = shallow(<Widget properties={properties} schema={unknownWidgetSchema} errors={errors} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -66,17 +62,15 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={customWidgetSchema}
-				errors={errors}
-				widgets={widgets}
-			/>,
-		);
+		const wrapper = shallow(<Widget
+			id="myForm"
+			onChange={jest.fn('onChange')}
+			onTrigger={jest.fn('onTrigger')}
+			properties={properties}
+			schema={customWidgetSchema}
+			errors={errors}
+			widgets={widgets}
+		/>);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -90,16 +84,14 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={customValidationMessageSchema}
-				errors={errors}
-			/>,
-		);
+		const wrapper = shallow(<Widget
+			id="myForm"
+			onChange={jest.fn('onChange')}
+			onTrigger={jest.fn('onTrigger')}
+			properties={properties}
+			schema={customValidationMessageSchema}
+			errors={errors}
+		/>);
 
 		// then
 		expect(wrapper.props().errorMessage).toBe('My custom validation message');
@@ -107,16 +99,14 @@ describe('Widget component', () => {
 
 	it('should pass message from errors when there is no validation message in schema', () => {
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-			/>,
-		);
+		const wrapper = shallow(<Widget
+			id="myForm"
+			onChange={jest.fn('onChange')}
+			onTrigger={jest.fn('onTrigger')}
+			properties={properties}
+			schema={schema}
+			errors={errors}
+		/>);
 
 		// then
 		expect(wrapper.props().errorMessage).toBe('This is not ok');
@@ -140,12 +130,75 @@ describe('Widget component', () => {
 				{ path: 'user.lastname', values: ['my lastname'] },
 			],
 		};
-		const wrapper = shallow(
-			<Widget schema={withConditions} properties={properties} errors={errors} />,
-		);
+		const wrapper = shallow(<Widget schema={withConditions} properties={properties} errors={errors} />);
 
 		// then
 		expect(wrapper.getElement()).not.toBe(null);
+	});
+
+	it('should render widget when conditions are using negate=true', () => {
+		const uiSpec = {
+			...schema,
+			conditions: [
+				{ path: 'user.firstname', values: ['my firstname'], negate: true },
+				{ path: 'user.lastname', values: ['my lastname'] },
+			],
+		};
+
+		// negative case
+		expect(shallow(<Widget
+			schema={uiSpec}
+			properties={{
+				user: {
+					firstname: 'my firstname',
+					lastname: 'my lastname',
+				},
+			}}
+			errors={errors}
+		/>).getElement()).toBe(null);
+		// positive case
+		expect(shallow(<Widget
+			schema={uiSpec}
+			properties={{
+				user: {
+					firstname: 'not my firstname',
+					lastname: 'my lastname',
+				},
+			}}
+			errors={errors}
+		/>).getElement()).not.toBe(null);
+	});
+
+	it('should render widget when conditions are using an evaluation strategy', () => {
+		const uiSpec = {
+			...schema,
+			conditions: [
+				{ path: 'user.names', values: [1], evaluationStrategy: 'length' },
+			],
+		};
+
+		// negative cases
+		[undefined, [], ['foo', 'bar']].forEach(names => {
+			expect(shallow(<Widget
+				schema={uiSpec}
+				properties={{
+					user: {
+						names,
+					},
+				}}
+				errors={errors}
+			/>).getElement()).toBe(null);
+		});
+		// positive case
+		expect(shallow(<Widget
+			schema={uiSpec}
+			properties={{
+				user: {
+					names: ['my firstname'],
+				},
+			}}
+			errors={errors}
+		/>).getElement()).not.toBe(null);
 	});
 
 	it('should render null when conditions are not met', () => {
@@ -157,9 +210,7 @@ describe('Widget component', () => {
 				{ path: 'user.lastname', values: ['my lastname is not here'] },
 			],
 		};
-		const wrapper = shallow(
-			<Widget schema={withConditions} properties={properties} errors={errors} />,
-		);
+		const wrapper = shallow(<Widget schema={withConditions} properties={properties} errors={errors} />);
 
 		// then
 		expect(wrapper.getElement()).toBe(null);
