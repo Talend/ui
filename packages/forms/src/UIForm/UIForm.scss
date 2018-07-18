@@ -18,6 +18,15 @@
 		width: 100%;
 		padding: $padding-small;
 		background-color: $wild-sand;
+	}
+}
+
+@media screen and (min-width: $screen-xs-max) {
+	:global(.stacked) :global(.tc-drawer-container) {
+		.form-content {
+			width: 600px;
+			margin: 0 auto;
+		}
 		:global(.form-actions) {
 			max-width: 650px;
 			margin: auto;
