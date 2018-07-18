@@ -112,7 +112,9 @@ export function ListToVirtualizedList(props) {
 							};
 						}
 					}
-					return <VirtualizedList.Content key={index} cellDataGetter={cellDataGetter} {...cProps} />;
+					return (
+						<VirtualizedList.Content key={index} cellDataGetter={cellDataGetter} {...cProps} />
+					);
 				})}
 		</VirtualizedList>
 	);
