@@ -37,8 +37,9 @@ describe('Schema', () => {
 					schema={TestData.schema1}
 					columns={columns}
 					sorters={sorters}
-				/>
-			).toJSON();
+				/>,
+			)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -54,7 +55,8 @@ describe('Schema', () => {
 					columns={columns}
 					sorters={sorters}
 				/>,
-			).toJSON();
+			)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });
