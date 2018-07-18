@@ -16,8 +16,5 @@ export default function FormSwitcher(props) {
 
 FormSwitcher.propTypes = {
 	loading: PropTypes.bool,
-	uiSchema: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object,
-	]),
+	uiSchema: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
