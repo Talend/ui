@@ -56,7 +56,11 @@ export class UIFormComponent extends React.Component {
 	 * @param uiSchema
 	 */
 	componentWillReceiveProps({ jsonSchema, uiSchema }) {
-		if (!jsonSchema || !uiSchema) {
+		if (
+			!jsonSchema ||
+			!uiSchema ||
+			(this.props.jsonSchema === jsonSchema && this.props.uiSchema === uiSchema)
+		) {
 			return;
 		}
 		if (Object.keys(jsonSchema).length) {
@@ -145,12 +149,16 @@ export class UIFormComponent extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				this.onTrigger(event, {
-					trigger: schema.triggers[0],
-					schema,
-					properties: formData,
-					errors,
-				});
+				const trigger = schema.triggers.find(t => t.onEvent === undefined);
+				if (trigger) {
+					this.onTrigger(event, {
+						trigger,
+						schema,
+						properties: formData,
+						errors,
+						value,
+					});
+				}
 			}
 		}
 	}
@@ -170,6 +178,9 @@ export class UIFormComponent extends React.Component {
 
 		if (this.props.moz) {
 			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
+		}
+		if (!payload.trigger) {
+			throw new Error('onTrigger payload do not have required trigger property');
 		}
 		return onTrigger(event, {
 			properties: this.props.properties,

@@ -147,6 +147,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
+	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
 	'react-stub-context': '^0.7.0',
@@ -175,6 +176,7 @@ const files = [
 	'./packages/cmf-cqrs/package.json',
 	'./packages/cmf-webpack-plugin/package.json',
 	'./packages/components/package.json',
+	'./packages/components-kit/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
@@ -190,6 +192,15 @@ if (program.debug) {
 	console.log(`will update ${files}`);
 }
 
+/**
+ * @param {Object<dependency, version>} source actual dependencies and their versions
+ * will be mutated and provided to caller by reference
+ * mutation include update of version and added modified properties as boolean
+ * @param {String} dep one dep from `versions`
+ * @param {String} version version of the `dep` above
+ * @param {String = 'dep'|'peer'|'dev' } category for each category a different behavior is expected
+ * node `dev` category has no special behavior
+ */
 function check(source, dep, version, category = 'dep') {
 	let safeVersion = version;
 	if (category === 'peer' && dep === 'react') {
@@ -201,7 +212,9 @@ function check(source, dep, version, category = 'dep') {
 	let modified = false;
 	if (source && source[dep] && source[dep] !== safeVersion) {
 		if (dep === 'react' && category === 'dep') {
-			console.warn('WARNING: react and react-dom should always be added as peer dependencies in library');
+			console.warn(
+				'WARNING: react and react-dom should always be added as peer dependencies in library',
+			);
 		}
 		if (!program.quiet) {
 			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
@@ -213,6 +226,13 @@ function check(source, dep, version, category = 'dep') {
 	return modified;
 }
 
+/**
+ * @param {Object<dependency, version>} versions - target versions
+ * @param {Object<dependency, version>} source - actual dependencies and their versions
+ * will be mutated and provided to caller by reference
+ * mutation include update of version and added modified properties as boolean
+ * @param {String} dep one dep from `versions`
+ */
 function checkAll(versions, source, dep) {
 	const version = versions[dep];
 	const devDeps = source.devDependencies;
@@ -236,9 +256,9 @@ function save(ppath, data) {
 			throw new Error(`error opening file: ${err}`);
 		}
 
-		fs.write(fd, data, 0, data.length, null, err => {
-			if (err) {
-				throw new Error(`error writing file: ${err}`);
+		fs.write(fd, data, 0, data.length, null, error => {
+			if (error) {
+				throw new Error(`error writing file: ${error}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
@@ -249,6 +269,14 @@ function save(ppath, data) {
 	});
 }
 
+/**
+ * for each file three steps
+ * - load the file
+ * - transform dependencies versions
+ * - write new dependencies version into file
+ * @param {Array<String>} filesList
+ * @param {Object<dependency, version>} versions
+ */
 function updateFiles(filesList, versions) {
 	filesList.forEach(ppath => {
 		// eslint-disable-next-line global-require

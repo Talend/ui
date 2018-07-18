@@ -1,14 +1,15 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import OneColumn from './OneColumn.component';
 
 describe('OneColumn', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<OneColumn>
 				<span>children</span>
-			</OneColumn>).toJSON();
-		expect(wrapper).toMatchSnapshot();
+			</OneColumn>,
+		);
+		expect(toJSON(wrapper)).toMatchSnapshot();
 	});
 });

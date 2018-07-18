@@ -37,6 +37,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       onFocus={[Function]}
       onToggle={undefined}
       placeholder="Filter"
+      t={[Function]}
       value={undefined}
     />
     <Action
@@ -77,6 +78,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       onFocus={[Function]}
       onToggle={undefined}
       placeholder="find something"
+      t={[Function]}
       value={undefined}
     />
     <Action

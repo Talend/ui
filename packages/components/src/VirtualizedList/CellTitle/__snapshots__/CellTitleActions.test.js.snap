@@ -10,6 +10,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
   >
     <Action
       data-feature="list.item.edit"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-pencil"
       id="edit"
@@ -19,6 +20,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
     />
     <Action
       data-feature="list.item.delete"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-trash"
       id="delete"
@@ -110,6 +112,7 @@ exports[`CellTitleActions should display all actions on LARGE display mode 1`] =
       ]
     }
     className="cell-title-actions theme-cell-title-actions"
+    getComponent={[Function]}
     hideLabel={true}
     link={true}
     renderers={
@@ -155,6 +158,7 @@ exports[`CellTitleActions should display all actions when there are only few (< 
           },
         ]
       }
+      getComponent={[Function]}
       hideLabel={true}
       link={true}
       renderers={
@@ -177,6 +181,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
   >
     <Action
       data-feature="list.item.edit"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-pencil"
       id="edit"
@@ -186,6 +191,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
     />
     <Action
       displayMode="dropdown"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-folder"
       id="related"
@@ -262,6 +268,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
   >
     <Action
       displayMode="dropdown"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-folder"
       id="related"
@@ -285,6 +292,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
     />
     <Action
       displayMode="dropdown"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-datastreams-colored"
       id="open-with-tfd"
@@ -305,6 +313,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
     />
     <Action
       displayMode="dropdown"
+      getComponent={[Function]}
       hideLabel={true}
       icon="talend-tdp-colored"
       id="open-with-tdp"
@@ -396,6 +405,7 @@ exports[`CellTitleActions should render persistent actions 1`] = `
       ]
     }
     className="persistent-actions theme-persistent-actions"
+    getComponent={[Function]}
     hideLabel={true}
     link={true}
     renderers={
