@@ -7,6 +7,7 @@ import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
 import kit from 'component-kit.js';
+import tcompFieldsWidgets from './fields';
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
@@ -80,6 +81,12 @@ export class TCompForm extends React.Component {
 		this.getMemoizedErrors = memoizeOne(toJS);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (this.props.state.get('properties') !== nextProps.state.get('properties')) {
+			this.setState({ properties: nextProps.state.get('properties').toJS() });
+		}
+	}
+
 	componentDidUpdate(prevProps) {
 		if (
 			prevProps.triggerURL !== this.props.triggerURL ||
@@ -116,7 +123,6 @@ export class TCompForm extends React.Component {
 	}
 
 	onTrigger(event, payload) {
-		resolveNameForTitleMap(payload);
 		return this.trigger(event, payload).then(data => {
 			// Today there is a need to give control to the trigger to modify the properties
 			// But this will override what user change in the meantime
@@ -130,6 +136,7 @@ export class TCompForm extends React.Component {
 			if (data.errors || data.jsonSchema || data.uiSchema) {
 				this.props.setState(data);
 			}
+			return data;
 		});
 	}
 
@@ -180,6 +187,7 @@ export class TCompForm extends React.Component {
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
+			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
 
 		const errors = this.props.state.get('errors');

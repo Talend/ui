@@ -95,6 +95,11 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
       },
     ]
   }
+  widgets={
+    Object {
+      "datalist": [Function],
+    }
+  }
 />
 `;
 
