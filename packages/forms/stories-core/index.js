@@ -16,6 +16,7 @@ import i18n from './../stories/config/i18n';
 import { formReducer } from '../src/UIForm';
 
 import jsonStories from './jsonStories';
+import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
@@ -81,6 +82,9 @@ const oldStories = storiesOf('Migration', module)
 	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
+
+const layout = storiesOf('Layout', module);
+layouts.forEach(info => layout.add(info.name, info.story));
 
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {
