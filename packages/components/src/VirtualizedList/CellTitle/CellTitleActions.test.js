@@ -149,6 +149,7 @@ const props = {
 	id: 'my-actions',
 	actionsKey: 'actions',
 	persistentActionsKey: 'persistentActions',
+	getComponent: jest.fn(),
 };
 
 describe('CellTitleActions', () => {

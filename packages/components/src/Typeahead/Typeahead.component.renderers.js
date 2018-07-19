@@ -10,14 +10,9 @@ import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export function renderInputComponent(props) {
-	const { key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
+	const { caret, key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
 
-	const renderedIcon = icon && (
-		<div className={theme['icon-cls']}>
-			<Icon name={icon.name} title={icon.title} />
-		</div>
-	);
-
+	const hasIcon = icon || caret;
 	return (
 		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
 			<ControlLabel srOnly htmlFor={key}>
@@ -36,7 +31,12 @@ export function renderInputComponent(props) {
 			) : (
 				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
 			)}
-			{renderedIcon}
+			{hasIcon && (
+				<div className={theme['icon-cls']}>
+					{icon && <Icon {...icon} />}
+					{caret && <Icon name="talend-caret-down" />}
+				</div>
+			)}
 		</div>
 	);
 }
@@ -49,26 +49,44 @@ renderInputComponent.propTypes = {
 		title: PropTypes.string,
 	}),
 	inputRef: PropTypes.func,
+	caret: PropTypes.bool,
 };
 
 function ItemContainer(props) {
-	const { items, noResultText, searching, searchingText, containerProps, children } = props;
+	const {
+		items,
+		loading,
+		loadingText,
+		noResultText,
+		searching,
+		searchingText,
+		containerProps,
+		children,
+	} = props;
 	const { className, ...restProps } = containerProps;
+	const containerClassName = classNames(className, theme['item-container']);
 	if (searching) {
 		return (
-			<div className={`${className} ${theme['is-searching']}`} {...restProps}>
+			<div className={`${containerClassName} ${theme['is-searching']}`} {...restProps}>
 				<span className="is-searching">{searchingText}</span> <CircularProgress />
 			</div>
 		);
 	}
 	if (items && !items.length) {
+		if (loading) {
+			return (
+				<div className={`${containerClassName} ${theme['is-loading']}`} {...restProps}>
+					<span className="is-loading">{loadingText}</span>
+				</div>
+			);
+		}
 		return (
-			<div className={`${className} ${theme['no-result']}`} {...restProps}>
+			<div className={`${containerClassName} ${theme['no-result']}`} {...restProps}>
 				<span className="no-result">{noResultText}</span>
 			</div>
 		);
 	}
-	return <div {...containerProps} children={children} />;
+	return <div {...containerProps} className={containerClassName} children={children} />;
 }
 ItemContainer.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
@@ -90,12 +108,21 @@ ItemContainer.propTypes = {
 			}),
 		]),
 	),
+	loading: PropTypes.bool,
+	loadingText: PropTypes.string,
 	noResultText: PropTypes.string,
 	searching: PropTypes.bool,
 	searchingText: PropTypes.string,
 };
 
-export function renderItemsContainerFactory(items, noResultText, searching, searchingText) {
+export function renderItemsContainerFactory(
+	items,
+	noResultText,
+	searching,
+	searchingText,
+	loading,
+	loadingText,
+) {
 	const renderItemsContainerComponent = props => {
 		const { id, key, ref, ...rest } = props;
 		return (
@@ -106,6 +133,8 @@ export function renderItemsContainerFactory(items, noResultText, searching, sear
 					noResultText={noResultText}
 					searching={searching}
 					searchingText={searchingText}
+					loading={loading}
+					loadingText={loadingText}
 				/>
 			</div>
 		);
