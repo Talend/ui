@@ -7,7 +7,7 @@ function getValue(value, strategy) {
 	}
 	switch (strategy) {
 		case 'length':
-			if (value && Array.isArray(value)) {
+			if (value && value.length) {
 				return value.length;
 			}
 			return 0;
