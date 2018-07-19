@@ -37,6 +37,7 @@ const inputColumns = [
 const input = {
 	schema: TestData.schema1,
 	columns: inputColumns,
+	sorters: {},
 };
 
 const outputColumns = [
@@ -48,6 +49,7 @@ const outputColumns = [
 const output = {
 	schema: TestData.schema2,
 	columns: outputColumns,
+	sorters: {},
 };
 
 it('perform-mapping', () => {
