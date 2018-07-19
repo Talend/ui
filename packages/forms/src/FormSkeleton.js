@@ -4,7 +4,7 @@ import theme from './FormSkeleton.scss';
 
 export default function FormSkeleton() {
 	return (
-		<div className={theme.container}>
+		<div className={theme.container} aria-busy>
 			<div className={theme['form-content']}>
 				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
 				<Skeleton type={Skeleton.TYPES.text} size={400} />
