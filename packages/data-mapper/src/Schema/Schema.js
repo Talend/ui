@@ -193,9 +193,6 @@ class TableRenderingListener {
 
 	updateRef(part, node) {
 		switch (part) {
-			case 'table':
-				this.tableNode = node;
-				break;
 			case 'head':
 				this.headNode = node;
 				break;
@@ -207,16 +204,24 @@ class TableRenderingListener {
 		}
 	}
 
-	getTableNode() {
-		return this.tableNode;
-	}
-
 	getHeadNode() {
-		return this.headNode;
+		if (this.headNode) {
+			return this.headNode;
+		}
+		return {
+			offsetHeight: 0,
+		};
 	}
 
 	getBodyNode() {
-		return this.bodyNode;
+		if (this.bodyNode) {
+			return this.bodyNode;
+		}
+		return {
+			childNodes: [],
+			scrollTop: 0,
+			offsetHeight: 0,
+		};
 	}
 }
 
