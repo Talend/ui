@@ -48,13 +48,13 @@ function* onFormSubmit(componentId, submitURL, action) {
 	if (!submitURL) {
 		throw new Error('You must provide a submit URL');
 	}
-	const { response } = yield call(cmf.sagas.http.post, submitURL, action.properties);
+	const { response, data } = yield call(cmf.sagas.http.post, submitURL, action.properties);
 	if (!response.ok) {
 		return;
 	}
 	yield put({
 		type: Component.ON_SUBMIT_SUCCEED,
-		id: response.id,
+		data,
 		componentId,
 	});
 }
