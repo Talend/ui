@@ -23,9 +23,7 @@ function HttpError(props) {
 			>
 				<h1>{title}</h1>
 				<p>{message}</p>
-				{action && (
-					<Action {...action} icon="talend-arrow-left" link />
-				)}
+				{action && <Action {...action} icon="talend-arrow-left" link />}
 			</div>
 		</div>
 	);

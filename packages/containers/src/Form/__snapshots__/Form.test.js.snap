@@ -4,7 +4,7 @@ exports[`Container(Form) should pass props to Form lib 1`] = `
 Object {
   "ArrayFieldTemplate": [Function],
   "actions": Array [],
-  "buttonBlockClass": "form-actions",
+  "buttonBlockClass": undefined,
   "children": undefined,
   "className": "tc-form rjsf foo pristine",
   "customFormats": undefined,
@@ -32,10 +32,10 @@ Object {
 `;
 
 exports[`Container(Form) should render a Form 1`] = `
-<TalendForm
+<FormSwitcher
   ArrayFieldTemplate={[Function]}
   actions={Array []}
-  buttonBlockClass="form-actions"
+  buttonBlockClass={undefined}
   className="tc-form rjsf pristine"
   customFormats={undefined}
   customValidation={undefined}
