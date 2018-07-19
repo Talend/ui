@@ -13,7 +13,7 @@ function getScopedClassName(scopedClassName = className) {
 }
 
 function HttpError(props) {
-	const { backAction, backLabel, message, status, style, title } = props;
+	const { action, message, status, style, title } = props;
 
 	return (
 		<div className={classNames(getScopedClassName())} data-status={status}>
@@ -23,8 +23,8 @@ function HttpError(props) {
 			>
 				<h1>{title}</h1>
 				<p>{message}</p>
-				{backAction && (
-					<Action icon="talend-arrow-left" label={backLabel} link onClick={backAction} />
+				{action && (
+					<Action {...action} icon="talend-arrow-left" link />
 				)}
 			</div>
 		</div>
@@ -34,8 +34,7 @@ function HttpError(props) {
 HttpError.displayName = 'HttpError';
 
 HttpError.propTypes = {
-	backAction: PropTypes.func,
-	backLabel: PropTypes.string,
+	action: PropTypes.object,
 	message: PropTypes.string.isRequired,
 	status: PropTypes.number.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types

@@ -44,8 +44,10 @@ const notFoundWithRedirectProps = {
 	status: 404,
 	title: 'Oops ...',
 	message: 'The page you are looking for cannot be found',
-	backAction: action('onBackActionClick'),
-	backLabel: 'Start over',
+	action: {
+		onClick: action('onBackActionClick'),
+		label: 'Start over',
+	},
 };
 
 // Style here is for demonstration purpose, you should use generated className with its status code.
