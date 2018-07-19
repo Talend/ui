@@ -131,13 +131,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   159:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
   162:19  error  Expected 'this' to be used by class method 'addPropsForSorter'                                              class-methods-use-this
   163:3   error  Assignment to property of function parameter 'column'                                                       no-param-reassign
-  260:2   error  getNode should be placed after onSortChange                                                                 react/sort-comp
-  312:23  error  Expected '!==' and instead saw '!='                                                                         eqeqeq
-  369:14  error  'onEnterElement' is missing in props validation                                                             react/prop-types
-  373:14  error  'onLeaveElement' is missing in props validation                                                             react/prop-types
-  396:19  error  Expected 'this' to be used by class method 'getChildOffsetTop'                                              class-methods-use-this
-  419:4   error  'onScroll' is assigned a value but never used                                                               no-unused-vars
-  457:18  error  'mappedElements' PropType is defined but prop is never used                                                 react/no-unused-prop-types
+  265:2   error  getNode should be placed after onSortChange                                                                 react/sort-comp
+  317:23  error  Expected '!==' and instead saw '!='                                                                         eqeqeq
+  374:14  error  'onEnterElement' is missing in props validation                                                             react/prop-types
+  378:14  error  'onLeaveElement' is missing in props validation                                                             react/prop-types
+  401:19  error  Expected 'this' to be used by class method 'getChildOffsetTop'                                              class-methods-use-this
+  424:4   error  'onScroll' is assigned a value but never used                                                               no-unused-vars
+  462:18  error  'mappedElements' PropType is defined but prop is never used                                                 react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Schema/Schema.test.js
   17:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
