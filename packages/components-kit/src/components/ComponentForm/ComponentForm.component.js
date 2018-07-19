@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
@@ -192,10 +193,15 @@ export class TCompForm extends React.Component {
 
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
+TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
 TCompForm.displayName = 'ComponentForm';
 TCompForm.propTypes = {
 	...cmfConnect.propTypes,
+	definitionURL: PropTypes.string.isRequired,
+	triggerURL: PropTypes.string.isRequired,
+	submitURL: PropTypes.string.isRequired,
+	uiSpecPath: PropTypes.string,
 };
 
 export default cmfConnect({

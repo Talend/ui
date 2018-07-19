@@ -1,4 +1,4 @@
-import { call, put, select, take, takeEvery } from 'redux-saga/effects';
+import { call, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
@@ -41,9 +41,28 @@ export function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath
 	}
 }
 
+function* onFormSubmit(componentId, submitURL, action) {
+	if (action.componentId !== componentId) {
+		return;
+	}
+	if (!submitURL) {
+		throw new Error('You must provide a submit URL');
+	}
+	const { response } = yield call(cmf.sagas.http.post, submitURL, action.properties);
+	if (!response.ok) {
+		return;
+	}
+	yield put({
+		type: Component.ON_SUBMIT_SUCCEED,
+		id: response.id,
+		componentId,
+	});
+}
+
 export function* handle(props) {
 	yield call(onDidMount, props);
 	yield takeEvery(Component.ON_DEFINITION_URL_CHANGED, fetchDefinition);
+	yield takeLatest(Component.ON_SUBMIT, onFormSubmit, props.componentId, props.submitURL);
 	yield take('DO_NOT_QUIT');
 }
 
