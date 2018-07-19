@@ -29,14 +29,25 @@ const preferences = {
 	showAll: false,
 };
 
+const inputColumns = [
+	TestData.Columns.TYPE,
+	TestData.Columns.NAME,
+];
+
 const input = {
 	schema: TestData.schema1,
-	columns: TestData.Columns,
+	columns: inputColumns,
 };
+
+const outputColumns = [
+	TestData.Columns.NAME,
+	TestData.Columns.TYPE,
+	TestData.Columns.DESC,
+];
 
 const output = {
 	schema: TestData.schema2,
-	columns: TestData.Columns,
+	columns: outputColumns,
 };
 
 it('perform-mapping', () => {
