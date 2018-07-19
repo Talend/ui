@@ -74,7 +74,7 @@ const FALSY_CONDITIONS = [
 	},
 	{
 		values: ['foo'],
-		path: 'objectEmpty.title',  // doesnt exist
+		path: 'objectEmpty.title', // doesnt exist
 	},
 ];
 
