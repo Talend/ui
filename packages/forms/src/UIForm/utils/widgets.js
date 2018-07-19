@@ -6,6 +6,7 @@ import Tabs from '../fieldsets/Tabs';
 
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
+import Code from '../fields/Code';
 import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
@@ -16,11 +17,6 @@ import Select from '../fields/Select';
 import Text from '../fields/Text';
 import TextArea from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
-
-import Code from '../../widgets/CodeWidget';
-import { wrapCustomWidget } from '../merge';
-
-const WrappedCode = wrapCustomWidget(Code);
 
 const widgets = {
 	// fieldsets
@@ -45,7 +41,7 @@ const widgets = {
 	// widgets
 	buttons: Buttons,
 	checkboxes: CheckBoxes,
-	code: WrappedCode,
+	code: Code,
 	datalist: Datalist,
 	keyValue: KeyValue,
 	listView: ListView,

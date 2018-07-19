@@ -16,6 +16,7 @@ describe('Action', () => {
 			type: 'button',
 			'aria-label': 'aria-label',
 			'data-feature': 'data-feature',
+			role: 'button',
 
 			// native props should be kept
 			className: 'my class',
@@ -40,6 +41,7 @@ describe('Action', () => {
 			className: 'my class',
 			target: '_blank',
 			rel: 'noopener noreferrer',
+			role: 'button',
 		});
 	});
 });

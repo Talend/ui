@@ -26,6 +26,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       docked={false}
       focusedItemIndex={undefined}
       id="my-select-tag"
+      isLoadingText="Loading..."
       items={null}
       multiSection={false}
       noResultText="No result."
@@ -38,7 +39,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       position="left"
       readOnly={false}
       searching={false}
-      searchingText="Searching for matches…"
+      searchingText="Searching for matches..."
       theme={
         Object {
           "container": "theme-typeahead",

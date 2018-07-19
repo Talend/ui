@@ -33,24 +33,76 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(props.id).toBe('foo');
 	});
 	it('should render', () => {
+		const props = {
+			actionId: 'menu:article',
+			extra: 'foo',
+			onClick: () => {},
+		};
 		const context = mock.context();
-		const wrapper = shallow(<ContainerActionButton actionId="menu:article" extra="foo" />, {
+		const wrapper = shallow(<ContainerActionButton {...props} />, {
 			context,
 		});
 		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.getElement().props).toEqual(props);
 		expect(wrapper.find(ActionButton).length).toBe(1);
 	});
 
-	it('should inject a component overlay', () => {
-		const wrapper = shallow(
-			<ContainerActionButton
-				overlayComponent="ComponentOverlay"
-				overlayComponentProps={{
-					customProps: 'customProps',
-				}}
-			/>,
-		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+	it('should render without onClick', () => {
+		const props = {
+			actionId: 'menu:article',
+			extra: 'foo',
+		};
+		const context = mock.context();
+		const wrapper = shallow(<ContainerActionButton {...props} />, {
+			context,
+		});
+		expect(wrapper.getElement().props).toEqual(props);
+	});
+
+	it('should dispatch one action when it clicks', () => {
+		const dispatch = jest.fn();
+		const event = {};
+		const data = {};
+		const props = {
+			actionId: 'menu:article',
+			dispatch,
+			extra: 'foo',
+			payload: {
+				type: 'ACTION',
+			},
+			model: {
+				id: 42,
+			},
+		};
+		const context = mock.context();
+		const wrapper = shallow(<ContainerActionButton {...props} />, {
+			context,
+		});
+
+		wrapper.prop('onClick')(event, data);
+		expect(dispatch).toHaveBeenCalledWith({
+			model: props.model,
+			...props.payload,
+		});
+	});
+
+	it('should dispatch one actioncreator when it clicks', () => {
+		const dispatchActionCreator = jest.fn();
+		const event = {};
+		const data = {};
+		const props = {
+			actionId: 'menu:article',
+			dispatchActionCreator,
+			extra: 'foo',
+			actionCreator: 'foo',
+		};
+		const context = mock.context();
+		const wrapper = shallow(<ContainerActionButton {...props} />, {
+			context,
+		});
+
+		wrapper.prop('onClick')(event, data);
+		expect(dispatchActionCreator).toHaveBeenCalledWith(props.actionCreator, event, data);
 	});
 });
 

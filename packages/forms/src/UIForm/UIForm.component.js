@@ -15,6 +15,7 @@ import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
+import theme from './UIForm.scss';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -149,13 +150,16 @@ export class UIFormComponent extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				this.onTrigger(event, {
-					trigger: schema.triggers[0],
-					schema,
-					properties: formData,
-					errors,
-					value,
-				});
+				const trigger = schema.triggers.find(t => t.onEvent === undefined);
+				if (trigger) {
+					this.onTrigger(event, {
+						trigger,
+						schema,
+						properties: formData,
+						errors,
+						value,
+					});
+				}
 			}
 		}
 	}
@@ -230,6 +234,7 @@ export class UIFormComponent extends React.Component {
 				label: 'Submit',
 				type: 'submit',
 				widget: 'button',
+				position: 'right',
 			},
 		];
 		if (!this.state.mergedSchema) {
@@ -240,7 +245,7 @@ export class UIFormComponent extends React.Component {
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
-				className={classNames('tf-uiform', this.props.className)}
+				className={classNames('tf-uiform', theme.uiform, this.props.className)}
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}
@@ -250,29 +255,33 @@ export class UIFormComponent extends React.Component {
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
-				{this.state.mergedSchema.map((nextSchema, index) => (
-					<Widget
-						id={this.props.id}
-						key={index}
-						onChange={this.onChange}
-						onFinish={this.onFinish}
-						onTrigger={this.onTrigger}
-						schema={nextSchema}
-						properties={this.props.properties}
-						errors={this.props.errors}
-						templates={this.props.templates}
-						widgets={this.state.widgets}
-					/>
-				))}
+				<div className={theme['form-content']}>
+					{this.state.mergedSchema.map((nextSchema, index) => (
+						<Widget
+							id={this.props.id}
+							key={index}
+							onChange={this.onChange}
+							onFinish={this.onFinish}
+							onTrigger={this.onTrigger}
+							schema={nextSchema}
+							properties={this.props.properties}
+							errors={this.props.errors}
+							templates={this.props.templates}
+							widgets={this.state.widgets}
+						/>
+					))}
+				</div>
 				{this.props.children}
-				<Buttons
-					id={`${this.props.id}-${this.props.id}-actions`}
-					onTrigger={this.onTrigger}
-					className={this.props.buttonBlockClass}
-					schema={{ items: actions }}
-					onClick={this.onActionClick}
-					getComponent={this.props.getComponent}
-				/>
+				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
+					<Buttons
+						id={`${this.props.id}-${this.props.id}-actions`}
+						onTrigger={this.onTrigger}
+						className={this.props.buttonBlockClass}
+						schema={{ items: actions }}
+						onClick={this.onActionClick}
+						getComponent={this.props.getComponent}
+					/>
+				</div>
 			</form>
 		);
 	}
