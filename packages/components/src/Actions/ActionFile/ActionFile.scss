@@ -4,11 +4,6 @@ input[type='file'] {
 	}
 }
 
-.btn-file {
-	@include btn-colors;
-	@include btn-inverse-colors($btn-default-color);
-}
-
 .btn-file-disabled {
 	cursor: not-allowed;
 }
