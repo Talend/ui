@@ -13,8 +13,8 @@ const notFoundProps = {
 	status: 404,
 	title: 'Oops...',
 	message: 'The page you are looking for cannot be found',
-	onLinkClick: jest.fn(),
-	linkLabel: 'Start over',
+	backAction: jest.fn(),
+	backLabel: 'Start over',
 };
 
 describe('HttpError', () => {
