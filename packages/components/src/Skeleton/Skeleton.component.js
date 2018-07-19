@@ -73,6 +73,7 @@ Skeleton.TYPES = TYPES;
 Skeleton.SIZES = SIZES;
 
 Skeleton.propTypes = {
+	heartbeat: PropTypes.bool,
 	type: PropTypes.oneOf([
 		Skeleton.TYPES.button,
 		Skeleton.TYPES.circle,
