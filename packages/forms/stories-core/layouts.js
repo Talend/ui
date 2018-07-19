@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Drawer } from '@talend/react-components';
-import { UIForm } from '../src/UIForm';
+import { HeaderBar, Layout, Drawer } from '@talend/react-components';
+import Form from '../src/index';
 
 const simple = require('./json/concepts/core-simple.json');
 
 function LayoutDrawer({ title, stacked, ...props }) {
 	const drawers = [
 		<Drawer.Container stacked={stacked}>
-			<UIForm {...props} />
+			<Form {...props} />
 		</Drawer.Container>,
 	];
 	return (
-		<Layout drawers={drawers} mode="TwoColumns">
+		<Layout drawers={drawers} mode="TwoColumns" header={<HeaderBar />}>
 			<div style={{ margin: 10 }}>
 				<h1>{title}</h1>
 				<p>To use a UIForm in a drawer you just have to create your component this way:</p>
@@ -32,7 +32,7 @@ export default [
 		story: () => (
 			<div>
 				<h1>Form by default take 100% with of the container</h1>
-				<UIForm {...simple} />
+				<Form {...simple} />
 			</div>
 		),
 	},
@@ -40,5 +40,17 @@ export default [
 	{
 		name: 'drawer-stacked',
 		story: () => <LayoutDrawer title="UIForm in a drawer" {...simple} stacked />,
+	},
+	{
+		name: 'skeleton',
+		story: () => <Form loading />,
+	},
+	{
+		name: 'skeleton-drawer',
+		story: () => <LayoutDrawer loading title="Form in loading in drawer" />,
+	},
+	{
+		name: 'skeleton-srawer-stacked',
+		story: () => <LayoutDrawer loading title="Form in loading in drawer" stacked />,
 	},
 ];
