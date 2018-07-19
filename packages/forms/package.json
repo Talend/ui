@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-forms",
   "description": "React forms library based on json schema form.",
-  "main": "lib/Form.js",
+  "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx -v \"./src/**/*.scss\" lib",

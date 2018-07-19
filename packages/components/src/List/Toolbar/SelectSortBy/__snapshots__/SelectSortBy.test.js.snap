@@ -12,6 +12,7 @@ exports[`SelectSortBy should render 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change sort criteria. Current sort by Id."
       className="dropdown-toggle"
       href="#"
       id={42}
@@ -36,6 +37,7 @@ exports[`SelectSortBy should render 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Select Id as current sort criteria."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -52,6 +54,7 @@ exports[`SelectSortBy should render 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Select Name as current sort criteria."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -70,6 +73,7 @@ exports[`SelectSortBy should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Change sort order. Current order: Ascending."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -94,6 +98,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change sort criteria. Current sort by Id."
       className="dropdown-toggle"
       href="#"
       id="toolbar-sort-by"
@@ -118,6 +123,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Select Id as current sort criteria."
           href="#"
           id="toolbar-sort-by-item-id"
           onClick={[Function]}
@@ -134,6 +140,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Select Name as current sort criteria."
           href="#"
           id="toolbar-sort-by-item-name"
           onClick={[Function]}
@@ -152,6 +159,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Change sort order. Current order: Ascending."
       href="#"
       id="toolbar-sort-order"
       onClick={[Function]}
@@ -184,6 +192,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Change sort order. Current order: Ascending."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -208,6 +217,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change sort criteria. Current sort by N.C."
       className="dropdown-toggle"
       href="#"
       id={42}
@@ -232,6 +242,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Select Id as current sort criteria."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -248,6 +259,7 @@ exports[`SelectSortBy should render without field selected 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Select Name as current sort criteria."
           href="#"
           id={undefined}
           onClick={[Function]}
