@@ -51,6 +51,7 @@ function RowLarge({ className, index, key, parent, style }) {
 			onClick={onRowClick}
 			onDoubleClick={onRowDoubleClick}
 			style={style}
+			tabIndex={0}
 		>
 			<div className={`tc-list-large-row ${theme['inner-box']} ${className}`} id={id}>
 				<div className={theme.header}>

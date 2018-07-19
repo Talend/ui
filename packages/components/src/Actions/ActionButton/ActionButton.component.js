@@ -155,6 +155,7 @@ export function ActionButton(props) {
 		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
 	}
 
+	const hasPopup = !inProgress && overlayComponent;
 	let btn = (
 		<Button
 			onMouseDown={!overlayComponent ? rMouseDown : null}
@@ -164,12 +165,13 @@ export function ActionButton(props) {
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
 			ref={buttonRef}
+			aria-haspopup={hasPopup}
 			{...buttonProps}
 		>
 			{buttonContent}
 		</Button>
 	);
-	if (!inProgress && overlayComponent) {
+	if (hasPopup) {
 		btn = (
 			<OverlayTrigger
 				onClick={rClick}

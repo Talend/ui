@@ -32,7 +32,7 @@ function Dialog({
 	const injected = Inject.all(getComponent, components);
 
 	return (
-		<Modal bsSize={size} {...props}>
+		<Modal bsSize={size} {...props} aria-modal="true">
 			{injected('before-modal-header')}
 			{header && (
 				<Modal.Header closeButton={closeButton}>
