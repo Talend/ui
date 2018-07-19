@@ -45,7 +45,7 @@ function getTranslatedType(t, type) {
  * @param {number} props.height height to override size's height
  * @param {string} props.className classes to apply on skeleton
  */
-function Skeleton({ type, size, width, height, name, className, t }) {
+function Skeleton({ heartbeat, type, size, width, height, name, className, t }) {
 	const classes = classnames(
 		theme['tc-skeleton'],
 		theme[`tc-skeleton-${type}`],
@@ -54,6 +54,7 @@ function Skeleton({ type, size, width, height, name, className, t }) {
 		`tc-skeleton-${type}`,
 		`tc-skeleton-${type}-${size}`,
 		className,
+		{ 'tc-skeleton-heartbeat': heartbeat },
 	);
 
 	const ariaLabel = t('SKELETON_LOADING', {
@@ -94,6 +95,7 @@ Skeleton.propTypes = {
 Skeleton.defaultProps = {
 	type: Skeleton.TYPES.text,
 	size: Skeleton.SIZES.medium,
+	heartbeat: true,
 };
 
 Skeleton.displayName = 'Skeleton';

@@ -55,7 +55,7 @@ $tc-drawer-content-max-width: 650px !default;
 			max-width: $tc-drawer-content-max-width;
 		}
 		:global(.form-actions) {
-			max-width: 650px;
+			max-width: $tc-drawer-content-max-width;
 			margin: auto;
 		}
 	}
