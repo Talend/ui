@@ -112,7 +112,7 @@ exports[`Storyshots ActionList default 1`] = `
           id="context-nav-recent-datasets"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -144,7 +144,7 @@ exports[`Storyshots ActionList default 1`] = `
           id="context-nav-favorite-datasets"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -176,7 +176,7 @@ exports[`Storyshots ActionList default 1`] = `
           id="context-nav-certified-datasets"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -208,7 +208,7 @@ exports[`Storyshots ActionList default 1`] = `
           id="context-nav-all-datasets"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -240,7 +240,7 @@ exports[`Storyshots ActionList default 1`] = `
           id="context-nav-import-file"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -272,7 +272,7 @@ exports[`Storyshots ActionList default 1`] = `
           id="context-nav-use-magic"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -408,7 +408,7 @@ exports[`Storyshots ActionList single 1`] = `
           id="context-nav-favorite-datasets"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -577,7 +577,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             id="context-nav-recent-datasets"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
+            role="link"
             type="button"
           >
             <svg
@@ -609,7 +609,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             id="context-nav-favorite-datasets"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
+            role="link"
             type="button"
           >
             <svg
@@ -641,7 +641,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             id="context-nav-certified-datasets"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
+            role="link"
             type="button"
           >
             <svg
@@ -673,7 +673,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             id="context-nav-all-datasets"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
+            role="link"
             type="button"
           >
             <svg
@@ -705,7 +705,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             id="context-nav-import-file"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
+            role="link"
             type="button"
           >
             <svg
@@ -737,7 +737,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             id="context-nav-use-magic"
             onClick={[Function]}
             onMouseDown={[Function]}
-            role={null}
+            role="link"
             type="button"
           >
             <svg

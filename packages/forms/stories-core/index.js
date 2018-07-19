@@ -16,10 +16,10 @@ import i18n from './../stories/config/i18n';
 import { formReducer } from '../src/UIForm';
 
 import jsonStories from './jsonStories';
+import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
-import layouts from './layout';
 
 // integrate widget code
 import 'brace/theme/monokai';
@@ -83,9 +83,8 @@ const oldStories = storiesOf('Migration', module)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
-const layoutStories = storiesOf('Layout', module);
-
-layouts.stories.forEach(story => layoutStories.add(story.name, story.story));
+const layout = storiesOf('Layout', module);
+layouts.forEach(info => layout.add(info.name, info.story));
 
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {
