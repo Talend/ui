@@ -1,10 +1,9 @@
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
-import { UIForm } from '@talend/react-forms/lib/UIForm';
+import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
-import { CircularProgress } from '@talend/react-components';
 import memoizeOne from 'memoize-one';
 import kit from 'component-kit.js';
 import tcompFieldsWidgets from './fields';
@@ -177,7 +176,7 @@ export class TCompForm extends React.Component {
 			if (response) {
 				return <p className="danger">{response.get('statusText')}</p>;
 			}
-			return <CircularProgress />;
+			return <Form loading />;
 		}
 
 		const props = {
@@ -195,7 +194,7 @@ export class TCompForm extends React.Component {
 			props.errors = this.getMemoizedErrors(errors);
 		}
 
-		return <UIForm {...props} />;
+		return <Form {...props} uiform />;
 	}
 }
 
