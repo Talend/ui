@@ -1,17 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CMF(Container(ActionButton)) should inject a component overlay 1`] = `
-<Translate(ActionButton)
-  onClick={[Function]}
-  overlayComponent={
-    <Inject
-      component="ComponentOverlay"
-      customProps="customProps"
-    />
-  }
-/>
-`;
-
 exports[`CMF(Container(ActionButton)) should render 1`] = `
 <Translate(ActionButton)
   actionId="menu:article"

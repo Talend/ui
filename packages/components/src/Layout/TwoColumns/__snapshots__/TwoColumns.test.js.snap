@@ -18,6 +18,7 @@ exports[`TwoColumns should render two columns 1`] = `
   </div>
   <div
     className="tc-layout-two-columns-main theme-main"
+    role="main"
   >
     <WithDrawer>
       <div
