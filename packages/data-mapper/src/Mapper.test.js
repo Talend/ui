@@ -29,10 +29,7 @@ const preferences = {
 	showAll: false,
 };
 
-const inputColumns = [
-	TestData.Columns.TYPE,
-	TestData.Columns.NAME,
-];
+const inputColumns = [TestData.Columns.TYPE, TestData.Columns.NAME];
 
 const input = {
 	schema: TestData.schema1,
@@ -40,11 +37,7 @@ const input = {
 	sorters: {},
 };
 
-const outputColumns = [
-	TestData.Columns.NAME,
-	TestData.Columns.TYPE,
-	TestData.Columns.DESC,
-];
+const outputColumns = [TestData.Columns.NAME, TestData.Columns.TYPE, TestData.Columns.DESC];
 
 const output = {
 	schema: TestData.schema2,
