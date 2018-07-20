@@ -14,7 +14,7 @@ import {
 } from '../src/index';
 
 const myAction = {
-	label: 'Click me',
+	label: 'Click me to show the tooltip',
 	icon: 'talend-dataprep',
 	'data-feature': 'action',
 	onClick: action('You clicked me'),
@@ -80,38 +80,35 @@ storiesOf('RichTooltip', module)
 	.addWithInfo('default', () => (
 		<div>
 			<Action
-				id="hidelabel"
+				id="default"
 				overlayComponent={<RichTooltip Header={header} text={shortLoreum} Footer={footer} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
-				hideLabel
 			/>
 		</div>
 	))
 	.addWithInfo('in loading state', () => (
 		<div>
 			<Action
-				id="hidelabel"
+				id="loading"
 				overlayComponent={<RichTooltip Content={<CircularProgress />} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
-				hideLabel
 			/>
 		</div>
 	))
 	.addWithInfo('with error message', () => (
 		<div>
 			<Action
-				id="hidelabel"
+				id="error"
 				overlayComponent={
 					<RichTooltip Content={<RichError title="Whoops!" error="One error." />} />
 				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
-				hideLabel
 			/>
 		</div>
 	))
@@ -119,33 +116,30 @@ storiesOf('RichTooltip', module)
 		<div>
 			<p>with a short text</p>
 			<Action
-				id="hidelabel"
+				id="short-text"
 				overlayComponent={<RichTooltip text={shortLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
-				hideLabel
 			/>
 			<p>with a long text</p>
 			<Action
-				id="hidelabel"
+				id="body-long-text"
 				overlayComponent={<RichTooltip text={LongLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
-				hideLabel
 			/>
 		</div>
 	))
 	.addWithInfo('custom body', () => (
 		<div>
 			<Action
-				id="hidelabel"
+				id="custom-body"
 				overlayComponent={<RichTooltip Header={header} Content={customBody} Footer={footer} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
-				hideLabel
 			/>
 		</div>
 	));
