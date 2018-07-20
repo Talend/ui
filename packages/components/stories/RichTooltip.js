@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
-import talendIcons from '@talend/icons/dist/react';
 
 import {
 	Action,
@@ -10,7 +9,7 @@ import {
 	IconsProvider,
 	CircularProgress,
 	RichError,
-	RichTitle,
+	HeaderTitle,
 	RichTooltip,
 } from '../src/index';
 
@@ -25,19 +24,17 @@ const shortLoreum = 'Lorem ipsum';
 const LongLoreum =
 	'Vestibulum sit amet urna dui. Pellentesque sapien dui, elementum tristique auctor varius, ornare ut magna. Vestibulum lobortis ultrices efficitur. Quisque eget urna sodales, maximus lorem vel, egestas dolor. Donec elementum nec elit vel euismod. Pellentesque ac ligula eu mauris suscipit lobortis ac sed nibh. In imperdiet condimentum sagittis. Sed lacus eros, varius ut viverra ultrices, auctor non mauris. Fusce cursus, augue nec imperdiet cursus, nibh nulla sollicitudin nunc, vel ornare urna libero eget quam. Suspendisse sed sagittis urna, ultrices pellentesque neque. Sed tempus enim eu velit egestas, a varius quam maximus. Suspendisse et feugiat felis. Fusce pulvinar cursus turpis vitae euismod. In et enim ac neque elementum maximus. Pellentesque vulputate finibus massa, sollicitudin interdum turpis porttitor et. Phasellus dolor risus, vehicula id gravida sit amet, maximus nec lacus.';
 
-const header = (
-	<RichTitle
-		title="Pipelines"
-		right={[
-			{
-				id: 'add',
-				label: 'Add',
-				bsStyle: 'info',
-				onClick: action('header.add.onClick'),
-			},
-		]}
-	/>
-);
+const addInfo = {
+	id: 'add',
+	label: 'Add',
+	bsStyle: 'info',
+	onClick: action('header.add.onClick'),
+};
+
+const header = [
+	<HeaderTitle title="Pipelines" />,
+	<Action {...addInfo} />,
+];
 
 const footer = (
 	<ActionBar
