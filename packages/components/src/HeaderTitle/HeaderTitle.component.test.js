@@ -7,13 +7,6 @@ describe('HeaderTooltip', () => {
 		const wrapper = shallow(
 			<HeaderTitle
 				title="Pipelines"
-				right={[
-					{
-						id: 'add',
-						label: 'Add',
-						bsStyle: 'info',
-					},
-				]}
 			/>,
 		);
 
