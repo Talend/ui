@@ -12,6 +12,7 @@ exports[`SelectDisplayMode should render 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change display mode. Current display mode: table."
       className="dropdown-toggle"
       href="#"
       id={42}
@@ -46,6 +47,7 @@ exports[`SelectDisplayMode should render 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Table as current display mode."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -73,6 +75,7 @@ exports[`SelectDisplayMode should render 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Expanded as current display mode."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -111,6 +114,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change display mode. Current display mode: table."
       className="dropdown-toggle"
       href="#"
       id="toolbar-display-mode"
@@ -145,6 +149,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Table as current display mode."
           href="#"
           id="toolbar-display-mode-table"
           onClick={[Function]}
@@ -172,6 +177,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Expanded as current display mode."
           href="#"
           id="toolbar-display-mode-large"
           onClick={[Function]}
@@ -210,6 +216,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change display mode. Current display mode: large."
       className="dropdown-toggle"
       href="#"
       id={42}
@@ -244,6 +251,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Table as current display mode."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -271,6 +279,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Expanded as current display mode."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -309,6 +318,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
     <a
       aria-expanded={false}
       aria-haspopup={true}
+      aria-label="Change display mode. Current display mode: table."
       className="dropdown-toggle"
       href="#"
       id={42}
@@ -343,6 +353,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Table as current display mode."
           href="#"
           id={undefined}
           onClick={[Function]}
@@ -370,6 +381,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         style={undefined}
       >
         <a
+          aria-label="Set Expanded as current display mode."
           href="#"
           id={undefined}
           onClick={[Function]}
