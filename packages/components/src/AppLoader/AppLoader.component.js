@@ -4,6 +4,8 @@ import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 
+// TODO role=status
+
 export function AppLoaderComponent({ t }) {
 	return (
 		<div
