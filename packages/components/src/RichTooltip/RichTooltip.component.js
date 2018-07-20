@@ -26,7 +26,8 @@ export default function RichTooltip(props) {
 			</header>
 			<div className={classNames(props.className, theme.body, 'tc-tooltip-body')}>
 				<div className={classNames(theme.content, 'tc-tooltip-content')}>
-					<RichTooltipContent {...props} />
+					{props.text && <p>{props.text}</p>}
+					{!props.text && Inject.getReactElement(props.getComponent, props.Content)}
 				</div>
 			</div>
 			<footer className={classNames(theme.footer, 'tc-tooltip-footer')}>

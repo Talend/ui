@@ -15,23 +15,9 @@ exports[`RichTooltip should render RichTooltip with header, content and footer 1
     <div
       className="theme-content tc-tooltip-content"
     >
-      <RichTooltipContent
-        Content={
-          <div>
-            Content
-          </div>
-        }
-        Footer={
-          <div>
-            Footer
-          </div>
-        }
-        Header={
-          <div>
-            Header
-          </div>
-        }
-      />
+      <div>
+        Content
+      </div>
     </div>
   </div>
   <footer
@@ -55,9 +41,9 @@ exports[`RichTooltip should render with a text in the body 1`] = `
     <div
       className="theme-content tc-tooltip-content"
     >
-      <RichTooltipContent
-        text="loreum"
-      />
+      <p>
+        loreum
+      </p>
     </div>
   </div>
   <footer
