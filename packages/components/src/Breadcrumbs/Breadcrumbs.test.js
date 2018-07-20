@@ -17,13 +17,13 @@ describe('Breadcrumbs', () => {
 		const clickedElementIndex = 1;
 
 		// when
-		const breadcrumbs = (
-			<Breadcrumbs
-				items={actions}
-			/>
-		);
+		const breadcrumbs = <Breadcrumbs items={actions} />;
 		const wrapper = mount(breadcrumbs);
-		wrapper.find('ol').find(Button).at(clickedElementIndex).simulate('click');
+		wrapper
+			.find('ol')
+			.find(Button)
+			.at(clickedElementIndex)
+			.simulate('click');
 
 		// then
 		expect(onTextAClick).not.toBeCalled();

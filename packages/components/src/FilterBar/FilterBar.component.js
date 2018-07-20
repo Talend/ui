@@ -86,6 +86,9 @@ FilterInput.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
+// TODO button role=search + input role=searchbox
+// TODO see with other component used as search (Typeahead) to allow to pass e search props
+
 /**
  * @param {object} props react props
  * @example
