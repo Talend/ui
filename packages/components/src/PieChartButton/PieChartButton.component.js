@@ -365,6 +365,8 @@ export function PieChartButtonComponent({
 					[theme['tc-pie-chart-loading-no-label']]: hideLabel,
 					'tc-pie-chart-loading-no-label': hideLabel,
 				})}
+				bsStyle="link"
+				role="button"
 			>
 				<Skeleton
 					type={Skeleton.TYPES.circle}
@@ -391,6 +393,8 @@ export function PieChartButtonComponent({
 			onMouseDown={rMouseDown}
 			onClick={rClick}
 			ref={buttonRef}
+			bsStyle="link"
+			role="button"
 			{...rest}
 		>
 			<svg

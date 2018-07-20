@@ -1,8 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from '@storybook/addon-a11y';
+import { action } from '@storybook/addon-actions';
+import talendIcons from '@talend/icons/dist/react';
 
-import { HttpError } from '../src/index';
+import { HttpError, IconsProvider } from '../src/index';
+
+const icons = {
+	'talend-arrow-left': talendIcons['talend-arrow-left'],
+};
 
 const commonStyle = {
 	height: '60rem',
@@ -34,9 +40,26 @@ const notFoundProps = {
 	message: 'The page you are looking for cannot be found',
 };
 
+const notFoundWithRedirectProps = {
+	status: 404,
+	title: 'Oops ...',
+	message: 'The page you are looking for cannot be found',
+	action: {
+		onClick: action('onBackActionClick'),
+		label: 'Start over',
+	},
+};
+
 // Style here is for demonstration purpose, you should use generated className with its status code.
 
 storiesOf('HttpError', module)
+	.addDecorator(story => (
+		<div className="col-lg-offset-2 col-lg-8">
+			<IconsProvider defaultIcons={icons} />
+			{story()}
+		</div>
+	))
 	.addDecorator(checkA11y)
 	.addWithInfo('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
-	.addWithInfo('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />);
+	.addWithInfo('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
+	.addWithInfo('NotFound with redirect action', () => <HttpError style={notFoundStyle} {...notFoundWithRedirectProps} />);

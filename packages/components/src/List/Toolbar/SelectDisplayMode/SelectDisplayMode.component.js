@@ -40,18 +40,35 @@ function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 	}
 
 	function getMenuItem(option) {
+		const displayModeLabel = getLabel(option, t);
 		return (
-			<MenuItem id={id && `${id}-${option}`} key={option} eventKey={option}>
+			<MenuItem
+				id={id && `${id}-${option}`}
+				key={option}
+				eventKey={option}
+				aria-label={t('LIST_SELECT_DISPLAY_MODE', {
+					defaultValue: 'Set {{displayMode}} as current display mode.',
+					displayMode: displayModeLabel,
+				})}
+			>
 				<Icon name={getIcon(option)} />
-				{getLabel(option, t)}
+				{displayModeLabel}
 			</MenuItem>
 		);
 	}
 
 	return (
 		<Nav>
-			<NavDropdown id={id || uuid.v4()} title={displayIcon} onSelect={onChangeMode}>
-				{modes.map(option => getMenuItem(option))}
+			<NavDropdown
+				id={id || uuid.v4()}
+				title={displayIcon}
+				onSelect={onChangeMode}
+				aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
+					defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
+					displayMode: selected,
+				})}
+			>
+				{modes.map(getMenuItem)}
 			</NavDropdown>
 		</Nav>
 	);

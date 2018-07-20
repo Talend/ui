@@ -98,6 +98,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -129,6 +130,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 1."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -154,7 +156,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -164,13 +166,14 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     1
     /
     2
-  </div>
+  </li>
   <li
     className="btn-link"
     role="presentation"
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 1."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -196,6 +199,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -316,6 +320,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -341,6 +346,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -360,7 +366,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -370,13 +376,14 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     2
     /
     2
-  </div>
+  </li>
   <li
     className="btn-link disabled"
     role="presentation"
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -408,6 +415,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -819,6 +827,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -844,6 +853,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -863,7 +873,7 @@ exports[`Pagination should render 1`] = `
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -873,13 +883,14 @@ exports[`Pagination should render 1`] = `
     2
     /
     4
-  </div>
+  </li>
   <li
     className="btn-link"
     role="presentation"
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -905,6 +916,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -1025,6 +1037,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id="toolbar-pagination-nav-to-first"
       onClick={[Function]}
@@ -1050,6 +1063,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 2."
       href="#"
       id="toolbar-pagination-nav-to-prev"
       onClick={[Function]}
@@ -1069,7 +1083,7 @@ exports[`Pagination should render id if provided 1`] = `
       </svg>
     </a>
   </li>
-  <div
+  <li
     active={undefined}
     activeHref={undefined}
     activeKey={undefined}
@@ -1079,13 +1093,14 @@ exports[`Pagination should render id if provided 1`] = `
     2
     /
     4
-  </div>
+  </li>
   <li
     className="btn-link"
     role="presentation"
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 2."
       href="#"
       id="toolbar-pagination-nav-to-next"
       onClick={[Function]}
@@ -1111,6 +1126,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id="toolbar-pagination-nav-to-last"
       onClick={[Function]}

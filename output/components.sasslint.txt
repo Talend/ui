@@ -7,8 +7,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/RichTooltip/RichTooltip.scss
-  59:10  warning  Property `margin` should be written more concisely as `$padding-large` instead of `$padding-large $padding-large`  shorthand-values
-
-✖ 3 problems (0 errors, 3 warnings)
+✖ 2 problems (0 errors, 2 warnings)
 
