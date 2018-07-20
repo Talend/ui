@@ -5,4 +5,5 @@ export default {
 	label: PropTypes.string,
 	checked: PropTypes.bool,
 	onChange: PropTypes.func,
+	measure: PropTypes.func,
 };
