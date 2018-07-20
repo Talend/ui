@@ -9,14 +9,14 @@
         "type": {
           "type": "string",
           "dqType": "FR Commune",
-          "dqTypeKey": "FR_COMMUNE"
+          "dqTypeKey": "FR_COMMUNE",
+          "@talend-quality@": {
+            "0": 0,
+            "1": 38,
+            "-1": 62,
+            "total": 100
+          }
         },
-        "@talend-quality@": {
-          "0": 0,
-          "1": 38,
-          "-1": 62,
-          "total": 100
-        }
       }
     ]
   },
