@@ -4,20 +4,6 @@ import classNames from 'classnames';
 import Inject from '../Inject';
 import theme from './RichTooltip.scss';
 
-export function RichTooltipContent(props) {
-	if (props.text) {
-		return <p>{props.text}</p>;
-	}
-
-	return Inject.getReactElement(props.getComponent, props.Content);
-}
-
-RichTooltipContent.propTypes = {
-	Content: Inject.getReactElement.propTypes,
-	getComponent: PropTypes.func,
-	text: PropTypes.string,
-};
-
 export default function RichTooltip(props) {
 	return (
 		<span>
@@ -38,7 +24,10 @@ export default function RichTooltip(props) {
 }
 
 RichTooltip.propTypes = {
-	...RichTooltipContent.propTypes,
+	className: PropTypes.string,
+	Content: Inject.getReactElement.propTypes,
+	getComponent: PropTypes.func,
 	Header: Inject.getReactElement.propTypes,
 	Footer: Inject.getReactElement.propTypes,
+	text: PropTypes.string,
 };
