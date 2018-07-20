@@ -18,3 +18,46 @@ exports[`HttpError should render a forbidden http error message 1`] = `
   </div>
 </div>
 `;
+
+exports[`HttpError should render a notFound http error page with action 1`] = `
+<div
+  className="theme-http-error http-error"
+  data-status={404}
+>
+  <div
+    className="theme-http-error-content http-error-content http-error-404"
+    style={undefined}
+  >
+    <h1>
+      Oops...
+    </h1>
+    <p>
+      The page you are looking for cannot be found
+    </p>
+    <button
+      aria-label="Start over"
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role="link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-arrow-left"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-arrow-left"
+        />
+      </svg>
+      <span>
+        Start over
+      </span>
+    </button>
+  </div>
+</div>
+`;

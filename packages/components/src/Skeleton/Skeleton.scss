@@ -14,8 +14,11 @@ $tc-skeleton-button-height: 35px !default;
 $tc-skeleton-button-width: 80px !default;
 $tc-skeleton-color: $black !default;
 
-.tc-skeleton {
+:global(.tc-skeleton-heartbeat) {
 	@include heartbeat(skeleton-blink);
+}
+
+.tc-skeleton {
 	background-color: $tc-skeleton-color;
 	display: inline-block;
 
