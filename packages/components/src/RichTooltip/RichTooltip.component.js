@@ -5,17 +5,17 @@ import Inject from '../Inject';
 import theme from './RichTooltip.scss';
 
 export function RichTooltipContent(props) {
-	if (typeof props.Content === 'string') {
-		return <p>{props.Content}</p>;
+	if (props.text) {
+		return <p>{props.text}</p>;
 	}
 
 	return Inject.getReactElement(props.getComponent, props.Content);
 }
 
 RichTooltipContent.propTypes = {
-	className: PropTypes.string,
-	getComponent: PropTypes.func,
 	Content: Inject.getReactElement.propTypes,
+	getComponent: PropTypes.func,
+	text: PropTypes.string,
 };
 
 export default function RichTooltip(props) {
@@ -37,8 +37,7 @@ export default function RichTooltip(props) {
 }
 
 RichTooltip.propTypes = {
-	Header: Inject.getReactElement.propTypes,
-	Content: Inject.getReactElement.propTypes,
-	Footer: Inject.getReactElement.propTypes,
 	...RichTooltipContent.propTypes,
+	Header: Inject.getReactElement.propTypes,
+	Footer: Inject.getReactElement.propTypes,
 };

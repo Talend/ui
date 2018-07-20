@@ -71,8 +71,6 @@ const footer = (
 );
 
 const customBody = <div>my custom body rich tolltip</div>;
-const LoreumRichTooltip = <RichTooltip Header={header} Content={shortLoreum} Footer={footer} />;
-const CustomRichTooltipBody = <RichTooltip Header={header} Content={customBody} Footer={footer} />;
 
 storiesOf('RichTooltip', module)
 	.addDecorator(checkA11y)
@@ -86,7 +84,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="hidelabel"
-				overlayComponent={LoreumRichTooltip}
+				overlayComponent={<RichTooltip Header={header} text={shortLoreum} Footer={footer} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -125,7 +123,7 @@ storiesOf('RichTooltip', module)
 			<p>with a short text</p>
 			<Action
 				id="hidelabel"
-				overlayComponent={<RichTooltip Content={shortLoreum} />}
+				overlayComponent={<RichTooltip text={shortLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -134,7 +132,7 @@ storiesOf('RichTooltip', module)
 			<p>with a long text</p>
 			<Action
 				id="hidelabel"
-				overlayComponent={<RichTooltip Content={LongLoreum} />}
+				overlayComponent={<RichTooltip text={LongLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -146,7 +144,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="hidelabel"
-				overlayComponent={CustomRichTooltipBody}
+				overlayComponent={<RichTooltip Header={header} Content={customBody} Footer={footer} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
