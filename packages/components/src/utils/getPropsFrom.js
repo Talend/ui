@@ -7,6 +7,7 @@ const NATIVE_PROPS = [
 	'name',
 	'target',
 	'rel',
+	'role',
 	'title',
 ];
 
