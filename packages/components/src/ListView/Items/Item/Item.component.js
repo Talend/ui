@@ -12,7 +12,7 @@ class Item extends Component {
 	componentWillReceiveProps(nextProps) {
 		const { children, measure } = this.props;
 		const { children: nextChildren } = nextProps;
-		if (children && (children.length !== nextChildren.length)) {
+		if (children && children.length !== nextChildren.length) {
 			measure();
 		}
 	}
@@ -27,8 +27,8 @@ class Item extends Component {
 		function getSearchedLabel(label) {
 			const splitRegex = new RegExp(`(${searchCriteria})`, 'gi');
 			return label.split(splitRegex).map((part, index) => {
-				const higlighted = part.toLowerCase() === searchCriteria.toLowerCase() ?
-					<b>{part}</b> : part;
+				const higlighted =
+					part.toLowerCase() === searchCriteria.toLowerCase() ? <b>{part}</b> : part;
 				return <span key={index}>{higlighted}</span>;
 			});
 		}
@@ -67,8 +67,7 @@ class Item extends Component {
 								/>
 							</div>
 						)}
-						{children &&
-						item.expanded && <div className="checkbox-nested">{children}</div>}
+						{children && item.expanded && <div className="checkbox-nested">{children}</div>}
 					</div>
 				</div>
 			</div>

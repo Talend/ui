@@ -74,13 +74,7 @@ export class ItemsComponent extends React.PureComponent {
 		const isToggle = this.hasToggleAll && index === 0;
 		const currentItem = this.getItemByIndex(index);
 		return (
-			<CellMeasurer
-				cache={this.cache}
-				columnIndex={0}
-				key={key}
-				parent={parent}
-				rowIndex={index}
-			>
+			<CellMeasurer cache={this.cache} columnIndex={0} key={key} parent={parent} rowIndex={index}>
 				{({ measure }) => (
 					<div
 						className={classNames(itemContainer(isToggle && 'toggle'), {
