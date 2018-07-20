@@ -1,0 +1,23 @@
+$tc-rich-title-font-size: 1.6rem !default;
+$tc-rich-title-font-weight: 600 !default;
+
+.container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.title {
+	flex-grow: 1;
+	margin: 0;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: $tc-rich-title-font-size;
+	font-weight: $tc-rich-title-font-weight;
+}
+
+.actions {
+	margin-left: auto;
+}

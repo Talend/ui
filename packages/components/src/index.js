@@ -50,6 +50,8 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import RichError from './RichError';
+import RichTitle from './RichTitle';
 import RichTooltip from './RichTooltip';
 
 const {
@@ -158,6 +160,8 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	RichError,
+	RichTitle,
 	RichTooltip,
 	SidePanel,
 	Status,

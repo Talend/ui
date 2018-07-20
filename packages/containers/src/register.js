@@ -15,8 +15,3 @@ export function registerAllContainers() {
 		}
 	});
 }
-
-// connect all RichTooltip submodules
-Object.keys(omit(components.RichTooltip, 'propTypes')).forEach(key => {
-	cmf.component.register(`RichTooltip${key}`, cmfConnect({})(components.RichTooltip[key]));
-});

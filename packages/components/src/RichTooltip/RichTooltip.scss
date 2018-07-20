@@ -6,9 +6,6 @@ $tc-popover-body-max-height: 30rem !default;
 $tc-popover-max-width: 40rem !default;
 $tc-popover-header-border-color: #ededed !default;
 $tc-popover-header-footer-height: 7rem !default;
-$tc-popover-header-font-size: 1.6rem !default;
-$tc-popover-header-font-weight: 600 !default;
-$tc-popover-icon-error-size: 3.6rem !default;
 
 :global(.popover) {
 	padding: 0;
@@ -23,90 +20,66 @@ $tc-popover-icon-error-size: 3.6rem !default;
 	padding: 0;
 }
 
-.tc-tooltip-header {
-	min-width: $tc-popover-max-width;
-	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
-	padding: 0 $padding-large;
-	flex: 1;
-	height: $tc-popover-header-footer-height;
+.body,
+.footer:not(:empty),
+.header:not(:empty) {
 	display: flex;
+}
+
+.footer:not(:empty),
+.header:not(:empty) {
+	padding: 0 $padding-large;
+	height: $tc-popover-header-footer-height;
+	min-width: $tc-popover-max-width;
+}
+
+.footer:not(:empty) {
+	border-top: $tc-popover-border-width solid $tc-popover-header-border-color;
+	justify-content: space-between;
 	align-items: center;
 
-	h4 {
-		margin: 0;
-		font-size: $tc-popover-header-font-size;
-		font-weight: $tc-popover-header-font-weight;
-		text-transform: uppercase;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	:global(.tc-actions) {
-		margin-left: auto;
+	> :global(.tc-actionbar-container) {
+		background-color: $white;
+		padding: 0;
 	}
 }
 
-.tc-tooltip-body {
+.header:not(:empty) {
+	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
+}
+
+.header:not(:empty) + .body {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.body {
 	display: flex;
 	flex-direction: row;
-	padding: $padding-large 0;
-	margin: 0 $padding-large;
+	margin: $padding-large $padding-large;
 	color: $dove-gray;
+}
 
-	.tc-tooltip-content {
-		// wrapper used to fix the ie11 bug with flexbox when (align-items: center & min-height)
-		// https://stackoverflow.com/a/47180276
-		display: flex;
-		flex-direction: row;
+.content {
+	// wrapper used to fix the ie11 bug with flexbox when (align-items: center & min-height)
+	// https://stackoverflow.com/a/47180276
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	min-height: $tc-popover-body-min-height;
+	max-height: $tc-popover-body-max-height;
+
+	> p {
+		// specify max-height min-height to IE11
+		max-height: inherit;
+		min-height: inherit;
 		overflow: auto;
-		min-height: $tc-popover-body-min-height;
-		max-height: $tc-popover-body-max-height;
-		width: 100%;
+		margin: 0;
 	}
 
-	.tc-center-content {
+	> :global(.tc-circular-progress) {
 		align-self: center;
 		margin-left: auto;
 		margin-right: auto;
-		overflow: hidden;
-	}
-}
-
-.tc-error-wrapper {
-	display: flex;
-	align-items: center;
-
-	.tc-center-icon {
-		width: $tc-popover-icon-error-size;
-		height: $tc-popover-icon-error-size;
-	}
-
-	.tc-error-body {
-		margin-left: $padding-normal;
-
-		h4 {
-			margin: 0;
-			font-size: 12px;
-			font-weight: 400;
-		}
-	}
-}
-
-.tc-tooltip-header + .tc-tooltip-body {
-	padding: 0;
-}
-
-.tc-tooltip-footer {
-	min-width: $tc-popover-max-width;
-	padding: 0 $padding-large;
-	flex: 1;
-	display: flex;
-	align-items: center;
-	height: $tc-popover-header-footer-height;
-	border-top: $tc-popover-border-width solid $tc-popover-header-border-color;
-
-	.tc-tooltip-right-actions {
-		margin-left: auto;
 	}
 }
