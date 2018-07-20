@@ -19,17 +19,3 @@ describe('RichTooltip', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
-
-describe('RichTooltipContent', () => {
-	it('should render RichTooltipContent with a content', () => {
-		const wrapper = shallow(<RichTooltipContent Content={Content} />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render with a text in the body', () => {
-		const wrapper = shallow(<RichTooltipContent text="loreum" />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-});
