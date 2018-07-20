@@ -2,156 +2,78 @@
 
 exports[`RichTooltip should render RichTooltip with header, content and footer 1`] = `
 <span>
-  <RichTooltipContent
-    content={
-      <div>
-        Content
-      </div>
-    }
-    footer={
-      <RichTooltipFooter
-        left={
-          Array [
-            Object {
-              "id": 41,
-            },
-          ]
+  <header
+    className="theme-header tc-tooltip-header"
+  >
+    <div>
+      Header
+    </div>
+  </header>
+  <div
+    className="theme-body tc-tooltip-body"
+  >
+    <div
+      className="theme-content tc-tooltip-content"
+    >
+      <RichTooltipContent
+        Content={
+          <div>
+            Content
+          </div>
         }
-        right={
-          Array [
-            Object {
-              "id": 42,
-            },
-          ]
+        Footer={
+          <div>
+            Footer
+          </div>
+        }
+        Header={
+          <div>
+            Header
+          </div>
         }
       />
-    }
-    header={
-      <RichTooltipHeader
-        right={
-          Array [
-            Object {
-              "id": 42,
-            },
-          ]
-        }
-        title="my title"
+    </div>
+  </div>
+  <footer
+    className="theme-footer tc-tooltip-footer"
+  >
+    <div>
+      Footer
+    </div>
+  </footer>
+</span>
+`;
+
+exports[`RichTooltip should render with a text in the body 1`] = `
+<span>
+  <header
+    className="theme-header tc-tooltip-header"
+  />
+  <div
+    className="theme-body tc-tooltip-body"
+  >
+    <div
+      className="theme-content tc-tooltip-content"
+    >
+      <RichTooltipContent
+        text="loreum"
       />
-    }
+    </div>
+  </div>
+  <footer
+    className="theme-footer tc-tooltip-footer"
   />
 </span>
 `;
 
-exports[`RichTooltipContent should render RichTooltipContent with a custom component 1`] = `
+exports[`RichTooltipContent should render RichTooltipContent with a content 1`] = `
 <div>
   Content
 </div>
 `;
 
-exports[`RichTooltipContent should render RichTooltipContent with a loading 1`] = `
-<RichTooltipBody
-  Content={
-    <div
-      className="theme-tc-center-content"
-    >
-      <Translate(CircularProgress) />
-    </div>
-  }
-  className={undefined}
-/>
-`;
-
-exports[`RichTooltipContent should render RichTooltipContent with a string 1`] = `
-<RichTooltipBody
-  Content="body"
-  className={undefined}
-/>
-`;
-
-exports[`RichTooltipContent should render RichTooltipContent with an error 1`] = `
-<RichTooltipBody
-  Content={
-    <div
-      className="theme-tc-center-content theme-tc-error-wrapper"
-    >
-      <Icon
-        className="theme-tc-center-icon"
-        name="talend-warning"
-      />
-      <div
-        className="theme-tc-error-body"
-      >
-        <h4>
-          Whoops!
-        </h4>
-        <div>
-          One error
-        </div>
-      </div>
-    </div>
-  }
-  className={undefined}
-/>
-`;
-
-exports[`RichTooltipFooter should render RichTooltipFooter 1`] = `
-<footer
-  className="theme-tc-tooltip-footer tc-tooltip-footer"
->
-  <Actions
-    actions={
-      Array [
-        Object {
-          "id": 42,
-        },
-      ]
-    }
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
-  />
-  <Actions
-    actions={
-      Array [
-        Object {
-          "id": 41,
-        },
-      ]
-    }
-    className="theme-tc-tooltip-right-actions tc-tooltip-right-actions"
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
-  />
-</footer>
-`;
-
-exports[`RichTooltipHeader should render RichTooltipHeader 1`] = `
-<header
-  className="theme-tc-tooltip-header tc-tooltip-header"
->
-  <h4
-    title="my title"
-  >
-    my title
-  </h4>
-  <Actions
-    actions={
-      Array [
-        Object {
-          "id": 42,
-        },
-      ]
-    }
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
-  />
-</header>
+exports[`RichTooltipContent should render with a text in the body 1`] = `
+<p>
+  loreum
+</p>
 `;
