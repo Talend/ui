@@ -16,17 +16,13 @@ class IncrementableScrollActionList extends React.Component {
 			: Math.max(middleInitialIndex - 2, 0);
 	}
 
-	isSelected(id) {
-		return id === this.props.selectedItemId;
-	}
-
 	render() {
 		const itemRenderer = item => {
 			const { id, label } = item;
 			return (
 				<PickerAction
 					aria-label={`Select '${label}'`}
-					isSelected={this.isSelected(id)}
+					isSelected={id === this.props.selectedItemId}
 					label={label}
 					onClick={() => this.props.onSelect(item)}
 				/>
