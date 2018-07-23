@@ -86,10 +86,13 @@ function createCacheKey(trigger) {
 export default function getDefaultTrigger({ url, customRegistry, lang, headers }) {
 	const encodedLang = encodeURIComponent(getLang(lang));
 	const cache = {};
-	const actualHeaders = merge({
-		'Content-Type': 'application/json',
-		Accept: 'application/json',
-	}, headers);
+	const actualHeaders = merge(
+		{
+			'Content-Type': 'application/json',
+			Accept: 'application/json',
+		},
+		headers,
+	);
 	return function onDefaultTrigger(event, { trigger, schema, properties, errors }) {
 		const services = {
 			...defaultRegistry,

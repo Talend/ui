@@ -1,8 +1,6 @@
 import flatten from './flatten';
 
-function noop() {
-
-}
+function noop() {}
 
 describe('flatten', () => {
 	it('should flat nested data structure', () => {
