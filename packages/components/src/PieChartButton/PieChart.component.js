@@ -5,7 +5,6 @@ import { translate } from 'react-i18next';
 import classnames from 'classnames';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
-import TooltipTrigger from '../TooltipTrigger';
 import Skeleton from '../Skeleton';
 import theme from './PieChartButton.scss';
 
@@ -259,10 +258,18 @@ export function getDisplaySize(size, display) {
 	};
 }
 
-export function PieChart(props) {
-	const sizeObject = getDisplaySize(props.size, props.display);
-
-	if (props.loading) {
+export function PieChart({
+	display,
+	hideLabel,
+	labelIndex,
+	loading,
+	minimumPercentage,
+	model,
+	size,
+	t,
+}) {
+	const sizeObject = getDisplaySize(size, display);
+	if (loading) {
 		return (
 			<span>
 				<Skeleton
@@ -274,12 +281,12 @@ export function PieChart(props) {
 						'tc-pie-chart-loading-circle',
 					)}
 				/>
-				{!props.hideLabel && <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />}
+				{!hideLabel && <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />}
 			</span>
 		);
 	}
-	const labelValue = getShowedValue(props.model, props.labelIndex);
-	const preparedValues = setMinimumPercentage(props.model, props.minimumPercentage);
+	const labelValue = getShowedValue(model, labelIndex);
+	const preparedValues = setMinimumPercentage(model, minimumPercentage);
 	return (
 		<span className={classnames(theme['tc-pie-chart'], 'tc-pie-chart')}>
 			<svg
@@ -289,7 +296,7 @@ export function PieChart(props) {
 				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
 			>
 				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
-				{getEmptyPartCircle(preparedValues, sizeObject, props.minimumPercentage)}
+				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
 			</svg>
 			<div
 				className={classnames(
@@ -299,21 +306,17 @@ export function PieChart(props) {
 					`tc-pie-chart-color-${labelValue.color}`,
 				)}
 			>
-				{getLabel(props.hideLabel, labelValue, props.t)}
+				{getLabel(hideLabel, labelValue, t)}
 			</div>
 		</span>
 	);
 }
 
 PieChart.propTypes = {
-	// available: PropTypes.bool,
-	// className: PropTypes.string,
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
 	loading: PropTypes.bool,
 	hideLabel: PropTypes.bool,
-	// label: PropTypes.string,
 	labelIndex: PropTypes.number,
-	// getComponent: PropTypes.func,
 	minimumPercentage: PropTypes.number.isRequired,
 	model: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -327,16 +330,7 @@ PieChart.propTypes = {
 			percentage: PropTypes.number.isRequired,
 		}).isRequired,
 	),
-	// onClick: PropTypes.func,
-	// onMouseDown: PropTypes.func,
-	// overlayComponent: PropTypes.element,
-	// overlayId: PropTypes.string,
-	// overlayPlacement: OverlayTrigger.propTypes.placement,
 	size: propTypeCheckSize,
-	// tooltip: PropTypes.bool,
-	// tooltipPlacement: OverlayTrigger.propTypes.placement,
-	// buttonRef: PropTypes.func,
-	// overlayRef: PropTypes.func,
 	t: PropTypes.func,
 };
 
@@ -354,4 +348,3 @@ PieChart.defaultProps = {
 PieChart.displayName = 'PieChart';
 
 export default translate(I18N_DOMAIN_COMPONENTS)(PieChart);
-
