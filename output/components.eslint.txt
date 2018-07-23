@@ -6,10 +6,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.component.js
-   95:4  error  Function 'renderBreadcrumbItem' expected no return value  consistent-return
-  111:3  error  Function 'renderBreadcrumbItem' expected no return value  consistent-return
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -31,5 +27,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 13 problems (12 errors, 1 warning)
+✖ 11 problems (10 errors, 1 warning)
 
