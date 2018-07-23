@@ -1,4 +1,6 @@
+const bodyParser = require('body-parser');
 const fs = require('fs');
+const kit = require('./kit');
 
 /**
  * Read the content of a file
@@ -25,7 +27,8 @@ const wait = (delay = 1000) => new Promise(resolve => setTimeout(resolve, delay)
 const server = app => {
 	// Directly bind /api/mock/* HTTP queries to local mockBackend/mock/* contents
 	const API_MOCK_ENDPOINT = '/api/mock';
-
+	app.use(bodyParser.json()); // for parsing application/json
+	kit(app);
 	app.get(`${API_MOCK_ENDPOINT}/*`, (req, res) => {
 		const urlPath = req.url.split('?')[0];
 		const mockFilePath = `${__dirname}/mock/${urlPath.substr(API_MOCK_ENDPOINT.length)}.json`;

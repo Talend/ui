@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
-import kit from 'component-kit.js';
+import kit from './kit';
 import tcompFieldsWidgets from './fields';
 
 export const DEFAULT_STATE = new Map({
@@ -47,22 +47,6 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 			delete parentValue[nameKey];
 		}
 	}
-}
-
-/**
- * Reset the form data
- * - keep the metadata properties
- * - remove the runtime properties
- * @param {object} body The new uiSpec
- * @param {object} properties All properties at trigger time
- * @returns {object} The uiSpec with only the metadata properties
- */
-export function keepOnlyDatasetMetadataProperties({ body, properties }) {
-	return {
-		...body,
-		// eslint-disable-next-line no-underscore-dangle
-		properties: { _datasetMetadata: properties._datasetMetadata },
-	};
 }
 
 export class TCompForm extends React.Component {
@@ -152,12 +136,12 @@ export class TCompForm extends React.Component {
 	}
 
 	setupTrigger(props) {
+		const config = cmf.sagas.http.getDefaultConfig() || {};
 		this.trigger = kit.createTriggers({
 			url: props.triggerURL,
-			customRegistry: {
-				...props.customTriggers,
-				reloadForm: keepOnlyDatasetMetadataProperties,
-			},
+			customRegistry: props.customTriggers,
+			headers: config.headers,
+			lang: props.lang,
 		});
 	}
 
@@ -208,8 +192,10 @@ TCompForm.propTypes = {
 	...cmfConnect.propTypes,
 	definitionURL: PropTypes.string.isRequired,
 	triggerURL: PropTypes.string.isRequired,
-	submitURL: PropTypes.string.isRequired,
+	submitURL: PropTypes.string,
 	uiSpecPath: PropTypes.string,
+	lang: PropTypes.string,
+	customTriggers: PropTypes.object,
 };
 
 export default cmfConnect({

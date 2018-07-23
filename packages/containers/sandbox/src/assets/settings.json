@@ -1,14 +1,23 @@
 {
-  "contentTypes": {},
   "actions": {
     "menu:headerBar-demo": {
       "id": "menu:headerBar-demo",
-      "label": "Header bar",
+      "label": "HeaderBar",
       "icon": "talend-arrow-right",
       "payload": {
         "type": "MENU_LINK",
         "cmf": {
           "routerReplace": "/headerbar-demo"
+        }
+      }
+    },
+    "component-form": {
+      "icon": "talend-burger",
+      "label": "ComponentForm",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm"
         }
       }
     }
@@ -28,7 +37,8 @@
     },
     "SidePanel#default": {
       "actionIds": [
-        "menu:headerBar-demo"
+        "menu:headerBar-demo",
+        "component-form"
       ]
     },
     "Showcase#default": {
@@ -54,6 +64,18 @@
         "productsUrl": "/api/mock/header-bar/products-list",
         "productsLang": "en-EN"
       }
+    },
+    "Layout#example": {
+      "mode": "TwoColumns",
+      "header": [{ "component": "HeaderBar" }],
+      "one": [{ "component": "SidePanel" }],
+      "content": [{ "component": "ComponentForm", "componentId": "example" }]
+    },
+    "ComponentForm#example": {
+      "definitionURL": "/api/v1/forms/example",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
     }
   },
   "routes": {
@@ -71,6 +93,11 @@
         "path": "headerbar-demo",
         "component": "Showcase",
         "componentId": "headerBar-demo"
+      },
+      {
+        "path": "ComponentForm",
+        "component": "Layout",
+        "componentId": "example"
       },
       {
         "path": "*",

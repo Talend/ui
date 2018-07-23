@@ -149,6 +149,7 @@
   },
   "version": "0.201.0-2",
   "dependencies": {
+    "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0"
   }
 }
