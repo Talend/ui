@@ -40,7 +40,6 @@ export class ItemsComponent extends React.PureComponent {
 		this.cache = new CellMeasurerCache({
 			defaultHeight: props.getItemHeight(),
 			fixedWidth: true,
-			keyMapper: () => 1,
 		});
 	}
 
@@ -70,7 +69,7 @@ export class ItemsComponent extends React.PureComponent {
 	}
 
 	rowRenderer(props) {
-		const { key, index, style, parent } = props;
+		const { key, index, style } = props;
 		const isToggle = this.hasToggleAll && index === 0;
 		const currentItem = this.getItemByIndex(index);
 		return (
@@ -78,7 +77,7 @@ export class ItemsComponent extends React.PureComponent {
 				cache={this.cache}
 				columnIndex={0}
 				key={key}
-				parent={parent}
+				parent={this.list}
 				rowIndex={index}
 			>
 				{({ measure }) => (
@@ -169,6 +168,7 @@ export class ItemsComponent extends React.PureComponent {
 							 * but only way to refresh component when items or actions change
 							 * See https://github.com/bvaughn/react-virtualized/#pure-components
 							 */
+							ref={node => this.list = node}
 							items={this.props.items}
 							className={listClasses()}
 							rowRenderer={this.rowRenderer}

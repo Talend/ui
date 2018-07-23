@@ -9,10 +9,13 @@ function itemLabelClasses() {
 }
 
 class Item extends Component {
-	componentWillReceiveProps(nextProps) {
-		const { children, measure } = this.props;
-		const { children: nextChildren } = nextProps;
-		if (children && (children.length !== nextChildren.length)) {
+	componentDidUpdate(prevProps) {
+		const { children, measure, item } = this.props;
+		const { children: prevChildren, item: prevItem } = prevProps;
+		if (children &&
+			(children.length !== prevChildren.length ||
+			item.expanded !== prevItem.expanded )
+		) {
 			measure();
 		}
 	}
@@ -60,10 +63,7 @@ class Item extends Component {
 								<Action
 									bsStyle="link"
 									icon="talend-caret-down"
-									onClick={event => {
-										item.onExpandToggle(event, item);
-										measure();
-									}}
+									onClick={event => item.onExpandToggle(event, item)}
 								/>
 							</div>
 						)}
