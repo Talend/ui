@@ -21,7 +21,7 @@ class Item extends Component {
 	}
 
 	render() {
-		const { id, item, parentItem, isSwitchBox, searchCriteria, children, measure } = this.props;
+		const { id, item, parentItem, isSwitchBox, searchCriteria, children } = this.props;
 
 		/**
 		 * This function allow to get component rendering based on searchCriteria
