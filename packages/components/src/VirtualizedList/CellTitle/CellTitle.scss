@@ -13,9 +13,16 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
 
-		+ form > input {
-			margin-left: $padding-normal;
-			width: auto;
+		+ .edit-form {
+			padding-left: $padding-normal;
+		}
+	}
+
+	.edit-form {
+		flex-grow: 1;
+
+		> input {
+			width: 100%;
 		}
 	}
 
