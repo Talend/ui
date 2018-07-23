@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
+import theme from './CellTitle.scss';
 
 /**
  * Title input mode.
@@ -39,7 +40,7 @@ export default class CellTitleInput extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.onSubmit}>
+			<form onSubmit={this.onSubmit} className={theme['edit-form']}>
 				<label aria-hidden="true" hidden className="sr-only" htmlFor={this.props.id}>
 					{this.props.label || 'title'}
 				</label>
