@@ -12,9 +12,9 @@ class Item extends Component {
 	componentDidUpdate(prevProps) {
 		const { children, measure, item } = this.props;
 		const { children: prevChildren, item: prevItem } = prevProps;
-		if (children &&
-			(children.length !== prevChildren.length ||
-			item.expanded !== prevItem.expanded )
+		if (
+			children &&
+			(children.length !== prevChildren.length || item.expanded !== prevItem.expanded)
 		) {
 			measure();
 		}
