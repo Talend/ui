@@ -9,10 +9,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:27  error  Unable to resolve path to module '../../../mock/add'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/form-trigger.js
-  24:2   warning  Unexpected console statement  no-console
-  33:39  error    Unary operator '++' used      no-plusplus
-  38:4   error    Unary operator '++' used      no-plusplus
-  43:3   error    Unary operator '++' used      no-plusplus
+  25:2   warning  Unexpected console statement  no-console
+  34:39  error    Unary operator '++' used      no-plusplus
+  39:4   error    Unary operator '++' used      no-plusplus
+  44:3   error    Unary operator '++' used      no-plusplus
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/service.js
    30:31  error  'schema' is already declared in the upper scope     no-shadow
