@@ -27,6 +27,7 @@ import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -50,6 +51,8 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import RichError from './RichError';
+import RichTooltip from './RichTooltip';
 
 const {
 	Alert,
@@ -144,6 +147,7 @@ export {
 	Enumeration,
 	FilterBar,
 	HeaderBar,
+	HeaderTitle,
 	HttpError,
 	Icon,
 	IconsProvider,
@@ -157,6 +161,8 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	RichError,
+	RichTooltip,
 	SidePanel,
 	Status,
 	SubHeaderBar,
