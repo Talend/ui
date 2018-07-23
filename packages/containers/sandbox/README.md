@@ -18,11 +18,12 @@ yarn start
 
 ### Add your container
 Here's how to add your own container to the app :
-- Import your container (using a relative path) in _src/app/index.js_. You have to alias it in order to be injected properly by CMF (otherwise it would conflict with `@talend/containers`) (example : `import { HeaderBar as LocalHeaderBar } from ../../../src';`)
-- Add it to the list of bootstrapped component by CMF in this same file. Don't forget to use its alias, example :
+- Ensure your container is registred by _src/app/index.js_.
+- Add it to the list of bootstrapped component by CMF in this same file.
 	```
+	import ComponentForm from '@talend/react-containers/lib/ComponentForm'
 	cmf.bootstrap({
-		components: Object.assign({}, components, { LocalHeaderBar }),
+		components: Object.assign({}, components, { ComponentForm }),
 		...
 	});
 	```
