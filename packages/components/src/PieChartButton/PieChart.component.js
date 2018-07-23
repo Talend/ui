@@ -281,7 +281,7 @@ export function PieChart(props) {
 	const labelValue = getShowedValue(props.model, props.labelIndex);
 	const preparedValues = setMinimumPercentage(props.model, props.minimumPercentage);
 	return (
-		<span>
+		<span className={classnames(theme['tc-pie-chart'], 'tc-pie-chart')}>
 			<svg
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}

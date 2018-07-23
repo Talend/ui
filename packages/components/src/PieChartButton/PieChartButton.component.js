@@ -357,8 +357,8 @@ export function PieChartButtonComponent({
 	if (!available) {
 		return null;
 	}
-	const sizeObject = getDisplaySize(size, display);
-
+	// const sizeObject = getDisplaySize(size, display);
+	/*
 	if (loading) {
 		return (
 			<Button
@@ -382,15 +382,12 @@ export function PieChartButtonComponent({
 			</Button>
 		);
 	}
-
-	// const labelValue = getShowedValue(model, labelIndex);
-	// const preparedValues = setMinimumPercentage(model, minimumPercentage);
+	*/
 	const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
-
 	let btn = (
 		<Button
-			className={classnames(theme['tc-pie-chart'], 'tc-pie-chart', className)}
+			className={classnames(theme['tc-pie-chart-button'], 'tc-pie-chart-button', className)}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
 			ref={buttonRef}

@@ -92,7 +92,7 @@ stories
 			{sizes.map(size => (
 				<div key={size}>
 					<p>{size}px</p>
-					<PieChartButton size={size} model={pieChartData1} />
+					<PieChart size={size} model={pieChartData1} />
 				</div>
 			))}
 		</div>
@@ -103,7 +103,7 @@ stories
 				{sizes.map(size => (
 					<div key={size}>
 						<p>{size}px</p>
-						<PieChartButton loading size={size} model={pieChartData1} />
+						<PieChart loading size={size} model={pieChartData1} />
 					</div>
 				))}
 			</div>
@@ -164,27 +164,27 @@ stories
 					<div>
 						<ActionButton label="changestatus" onClick={this.changeState} />
 						<p>Small :</p>
-						<PieChartButton display="small" model={pieChartData1} loading={this.state.loading} />
+						<PieChart display="small" model={pieChartData1} loading={this.state.loading} />
 						<p>Medium :</p>
-						<PieChartButton display="medium" model={pieChartData1} loading={this.state.loading} />
+						<PieChart display="medium" model={pieChartData1} loading={this.state.loading} />
 						<p>Large :</p>
-						<PieChartButton display="large" model={pieChartData1} loading={this.state.loading} />
+						<PieChart display="large" model={pieChartData1} loading={this.state.loading} />
 						<p>Small without label:</p>
-						<PieChartButton
+						<PieChart
 							display="small"
 							hideLabel
 							model={pieChartData1}
 							loading={this.state.loading}
 						/>
 						<p>Medium without label:</p>
-						<PieChartButton
+						<PieChart
 							display="medium"
 							hideLabel
 							model={pieChartData1}
 							loading={this.state.loading}
 						/>
 						<p>Large without label:</p>
-						<PieChartButton
+						<PieChart
 							display="large"
 							hideLabel
 							model={pieChartData1}

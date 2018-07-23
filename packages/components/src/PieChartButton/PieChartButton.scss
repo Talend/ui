@@ -32,6 +32,36 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 }
 
 // PieChart styles
+.tc-pie-chart-button {
+	&:hover {
+		@each $type in $tc-pie-chart-colors {
+			.tc-pie-chart-color-#{nth($type, 1)} {
+				@include apply-color($tc-pie-chart-hover-color);
+			}
+		}
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color: $scooter;
+		text-decoration: none;
+	}
+
+	&.active {
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+		color: $white;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $scooter;
+			border-color: $scooter;
+			color: $white;
+		}
+	}
+}
+
 .tc-pie-chart,
 .tc-pie-chart-loading {
 	font-size: $tc-pie-chart-font-size;
@@ -52,38 +82,9 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 		}
 	}
 
-	&:hover {
-		@each $type in $tc-pie-chart-colors {
-			.tc-pie-chart-color-#{nth($type, 1)} {
-				@include apply-color($tc-pie-chart-hover-color);
-			}
-		}
-	}
-
 	& &-graph {
 		margin-right: $padding-smaller;
 		height: inherit;
 		width: inherit;
-	}
-
-	&:hover,
-	&:active,
-	&:focus {
-		color: $scooter;
-		text-decoration: none;
-	}
-
-	&.active {
-		background-color: $brand-primary;
-		border-color: $brand-primary;
-		color: $white;
-
-		&:hover,
-		&:active,
-		&:focus {
-			background-color: $scooter;
-			border-color: $scooter;
-			color: $white;
-		}
 	}
 }
