@@ -9,6 +9,7 @@ import getDefaultT from '../translate';
 import TooltipTrigger from '../TooltipTrigger';
 import Skeleton from '../Skeleton';
 import theme from './PieChartButton.scss';
+import PieChart from './PieChart.component';
 
 const MIN_SIZE = 20;
 const MAX_SIZE = 50;
@@ -307,12 +308,12 @@ function propTypeCheckSize(props, propName, componentName) {
  * @param {array} model the pie chart model
  * @param {index} index current index showed
  */
-function getShowedValue(model, index) {
-	if (!model) {
-		return {};
-	}
-	return model[index];
-}
+// function getShowedValue(model, index) {
+// 	if (!model) {
+// 		return {};
+// 	}
+// 	return model[index];
+// }
 
 /**
  * This function return the label or nothing if the label is npt passed or hidden
@@ -320,37 +321,37 @@ function getShowedValue(model, index) {
  * @param {number} labelValue the label value ( percentage )
  * @param {function} t translate function
  */
-function getLabel(hideLabel, labelValue, t) {
-	if (!hideLabel && labelValue.percentage != null) {
-		return t('PIE_CHART_PERCENTAGE', {
-			defaultValue: '{{percentage}}%',
-			percentage: labelValue.percentage,
-		});
-	}
-	return '';
-}
+// function getLabel(hideLabel, labelValue, t) {
+// 	if (!hideLabel && labelValue.percentage != null) {
+// 		return t('PIE_CHART_PERCENTAGE', {
+// 			defaultValue: '{{percentage}}%',
+// 			percentage: labelValue.percentage,
+// 		});
+// 	}
+// 	return '';
+// }
 
 export function PieChartButtonComponent({
 	available,
-	model,
-	labelIndex,
+	buttonRef,
 	className,
+	display,
+	hideLabel,
+	label,
+	labelIndex,
 	loading,
 	minimumPercentage,
-	display,
-	label,
-	overlayComponent,
-	overlayPlacement,
-	overlayId,
+	model,
 	onClick,
 	onMouseDown,
-	hideLabel,
+	overlayComponent,
+	overlayId,
+	overlayPlacement,
+	overlayRef,
 	size,
+	// t,
 	tooltip,
 	tooltipPlacement,
-	buttonRef,
-	overlayRef,
-	t,
 	...rest
 }) {
 	if (!available) {
@@ -382,8 +383,8 @@ export function PieChartButtonComponent({
 		);
 	}
 
-	const labelValue = getShowedValue(model, labelIndex);
-	const preparedValues = setMinimumPercentage(model, minimumPercentage);
+	// const labelValue = getShowedValue(model, labelIndex);
+	// const preparedValues = setMinimumPercentage(model, minimumPercentage);
 	const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
 
@@ -397,25 +398,15 @@ export function PieChartButtonComponent({
 			role="button"
 			{...rest}
 		>
-			<svg
-				width={sizeObject.svgSize}
-				height={sizeObject.svgSize}
-				className={classnames(theme['tc-pie-chart-graph'], 'tc-pie-chart-graph')}
-				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
-			>
-				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
-				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
-			</svg>
-			<div
-				className={classnames(
-					theme['tc-pie-chart-label'],
-					'tc-pie-chart-label',
-					theme[`tc-pie-chart-color-${labelValue.color}`],
-					`tc-pie-chart-color-${labelValue.color}`,
-				)}
-			>
-				{getLabel(hideLabel, labelValue, t)}
-			</div>
+			<PieChart
+				size={size}
+				display={display}
+				loading={loading}
+				hideLabel={hideLabel}
+				labelIndex={labelIndex}
+				model={model}
+				minimumPercentage={minimumPercentage}
+			/>
 		</Button>
 	);
 

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import ActionButton from '../src/Actions/ActionButton';
-import PieChartButton from '../src/PieChartButton';
+import PieChartButton, { PieChart } from '../src/PieChartButton';
 
 const pieChartData1 = [
 	{
@@ -69,7 +69,47 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.addWithInfo('default', () => (
+	.addWithInfo('PieChart default', () => (
+		<div>
+			<p>Small :</p>
+			<PieChart display="small" model={pieChartData1} />
+			<p>custom size</p>
+			<PieChart size={25} model={pieChartData1} />
+			<p>Medium :</p>
+			<PieChart display="medium" model={pieChartData1} />
+			<p>Large : </p>
+			<PieChart display="large" model={pieChartData1} />
+			<p>with other data :</p>
+			<PieChart display="medium" model={pieChartData2} />
+			<p>without label :</p>
+			<PieChart display="medium" model={pieChartData2} hideLabel />
+			<p>without label to 0% :</p>
+			<PieChart display="medium" model={pieChartData3} />
+		</div>
+	))
+	.addWithInfo('PieChart lot of sizes', () => (
+		<div>
+			{sizes.map(size => (
+				<div key={size}>
+					<p>{size}px</p>
+					<PieChartButton size={size} model={pieChartData1} />
+				</div>
+			))}
+		</div>
+	))
+	.addWithInfo('PieChart	 lot of loading', () => (
+		<div>
+			<div>
+				{sizes.map(size => (
+					<div key={size}>
+						<p>{size}px</p>
+						<PieChartButton loading size={size} model={pieChartData1} />
+					</div>
+				))}
+			</div>
+		</div>
+	))
+	.addWithInfo('PieChartButton default', () => (
 		<div>
 			<p>Small :</p>
 			<PieChartButton display="small" model={pieChartData1} onClick={onClick} />
@@ -103,28 +143,6 @@ stories
 				tooltipPlacement="right"
 				onClick={onClick}
 			/>
-		</div>
-	))
-	.addWithInfo('lot of sizes', () => (
-		<div>
-			{sizes.map(size => (
-				<div key={size}>
-					<p>{size}px</p>
-					<PieChartButton size={size} model={pieChartData1} />
-				</div>
-			))}
-		</div>
-	))
-	.addWithInfo('lot of loading', () => (
-		<div>
-			<div>
-				{sizes.map(size => (
-					<div key={size}>
-						<p>{size}px</p>
-						<PieChartButton loading size={size} model={pieChartData1} />
-					</div>
-				))}
-			</div>
 		</div>
 	))
 	.addWithInfo('Loading state', () => {

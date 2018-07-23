@@ -1,3 +1,4 @@
 import PieChartButton from './PieChartButton.component';
+import PieChart from './PieChart.component';
 
-export default PieChartButton;
+export { PieChartButton as default, PieChart };
