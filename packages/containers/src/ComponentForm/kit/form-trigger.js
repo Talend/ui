@@ -148,12 +148,14 @@ export default function getDefaultTrigger({ url, customRegistry, lang, headers }
 				}
 				return result;
 			})
-			.catch(error => services.error({
-				error,
-				errors,
-				properties,
-				schema,
-				trigger,
-			}));
+			.catch(error =>
+				services.error({
+					error,
+					errors,
+					properties,
+					schema,
+					trigger,
+				}),
+			);
 	};
 }
