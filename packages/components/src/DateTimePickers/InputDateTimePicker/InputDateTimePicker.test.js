@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import isSameDay from 'date-fns/is_same_day';
 import isSameMinute from 'date-fns/is_same_minute';
@@ -689,6 +689,119 @@ describe('InputDateTimePicker', () => {
 			dateTimePickerWrapper.prop('onSubmit')(pickerDatas);
 
 			expect(onError).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('dropdown management', () => {
+		it('should have the dropdown closed by default', () => {
+			const wrapper = shallow(<InputDateTimePicker />);
+
+			const overlayWrapper = wrapper.find('Overlay');
+			expect(overlayWrapper.prop('show')).toBe(false);
+		});
+
+		it('should open the dropdown on input focus', () => {
+			const wrapper = shallow(<InputDateTimePicker />);
+
+			const inputWrapper = wrapper.find('DebounceInput');
+
+			inputWrapper.prop('onFocus')();
+
+			wrapper.update();
+
+			const overlayWrapper = wrapper.find('Overlay');
+			expect(overlayWrapper.prop('show')).toBe(true);
+		});
+
+		it('should close the dropdown when clicking or focusing outside the component', () => {
+			const map = {};
+
+			document.addEventListener = jest.fn((event, cb) => {
+				map[event] = cb;
+			});
+
+			const wrapper = mount(<InputDateTimePicker />);
+
+			const inputWrapper = wrapper.find('DebounceInput');
+			inputWrapper.prop('onFocus')();
+
+			wrapper.update();
+
+			const overlayWrapperBefore = wrapper.find('Overlay').first();
+			expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+			map.click({
+				path: ['whatever', 'path', 'which', 'is', 'outside', 'the', 'component'],
+			});
+
+			wrapper.update();
+
+			const overlayWrapperAfter = wrapper.find('Overlay').first();
+			expect(overlayWrapperAfter.prop('show')).toBe(false);
+		});
+
+		it('should not close the dropdown when clicking or focusing inside the component', () => {
+			const map = {};
+
+			document.addEventListener = jest.fn((event, cb) => {
+				map[event] = cb;
+			});
+
+			const wrapper = mount(<InputDateTimePicker />);
+
+			const inputWrapper = wrapper.find('DebounceInput');
+			inputWrapper.prop('onFocus')();
+
+			wrapper.update();
+
+			const overlayWrapperBefore = wrapper.find('Overlay').first();
+			expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+			const containerEl = wrapper.getDOMNode();
+
+			map.click({
+				path: [
+					'parent',
+					'component',
+					'path',
+					containerEl,
+					'whatever',
+					'path',
+					'which',
+					'is',
+					'inside',
+					'the',
+					'component',
+				],
+			});
+
+			wrapper.update();
+
+			const overlayWrapperAfter = wrapper.find('Overlay').first();
+			expect(overlayWrapperAfter.prop('show')).toBe(true);
+		});
+
+		it('should close the dropdown when picker is submitted', () => {
+			const wrapper = shallow(<InputDateTimePicker />);
+
+			wrapper.setState({
+				isDropdownShown: true,
+			});
+
+			const overlayWrapperBefore = wrapper.find('Overlay');
+			expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+			const inputWrapper = wrapper.find('DateTimePicker');
+
+			inputWrapper.prop('onSubmit')({
+				date: new Date(2018, 0, 1),
+				time: 50,
+			});
+
+			wrapper.update();
+
+			const overlayWrapperAfter = wrapper.find('Overlay');
+			expect(overlayWrapperAfter.prop('show')).toBe(false);
 		});
 	});
 });

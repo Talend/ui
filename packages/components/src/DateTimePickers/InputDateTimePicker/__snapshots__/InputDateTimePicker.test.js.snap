@@ -11,23 +11,38 @@ exports[`InputDateTimePicker render should render 1`] = `
     minLength={0}
     onBlur={undefined}
     onChange={[Function]}
+    onFocus={[Function]}
     onKeyDown={undefined}
     placeholder="YYYY-MM-DD hh:mm"
     type="text"
     value="2017-04-04 15:27"
   />
   <div
-    className="theme-dropdown"
+    className="theme-dropdownWrapper"
   >
-    <DateTimePicker
-      onSubmit={[Function]}
-      selection={
-        Object {
-          "date": 2017-04-03T22:00:00.000Z,
-          "time": 927,
-        }
-      }
-    />
+    <Overlay
+      animation={[Function]}
+      container={undefined}
+      placement="right"
+      rootClose={false}
+      show={false}
+    >
+      <Popover
+        bsClass="popover"
+        className="theme-popover"
+        placement="right"
+      >
+        <DateTimePicker
+          onSubmit={[Function]}
+          selection={
+            Object {
+              "date": 2017-04-03T22:00:00.000Z,
+              "time": 927,
+            }
+          }
+        />
+      </Popover>
+    </Overlay>
   </div>
 </div>
 `;
