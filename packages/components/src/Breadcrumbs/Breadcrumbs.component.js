@@ -89,7 +89,7 @@ export function BreadcrumbsComponent(props) {
 			);
 		}
 		if (maxItemsReached && index < ellipsisIndex) {
-			return;
+			return undefined;
 		}
 		if (maxItemsReached && index === ellipsisIndex) {
 			return [
