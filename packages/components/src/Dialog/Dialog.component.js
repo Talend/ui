@@ -7,6 +7,8 @@ import ActionBar from '../ActionBar';
 import Inject from '../Inject';
 import Progress from '../Progress';
 
+// TODO: role=dialog + aria-modal + aria-labelledby
+
 /**
  * @param {object} props react props
  * @example
@@ -32,6 +34,7 @@ function Dialog({
 	const injected = Inject.all(getComponent, components);
 
 	return (
+		// eslint-disable-next-line jsx-a11y/aria-props
 		<Modal bsSize={size} {...props} aria-modal="true">
 			{injected('before-modal-header')}
 			{header && (
