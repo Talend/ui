@@ -2,6 +2,35 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.saga.test.js
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.test.js
+  4:27  error  Unable to resolve path to module '../../../mock/add'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/form-trigger.js
+  24:2   warning  Unexpected console statement  no-console
+  33:39  error    Unary operator '++' used      no-plusplus
+  38:4   error    Unary operator '++' used      no-plusplus
+  43:3   error    Unary operator '++' used      no-plusplus
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/service.js
+   30:31  error  'schema' is already declared in the upper scope     no-shadow
+   46:23  error  'schema' is already declared in the upper scope     no-shadow
+   60:19  error  'schema' is already declared in the upper scope     no-shadow
+   75:8   error  'mutable' is never reassigned. Use 'const' instead  prefer-const
+   77:5   error  Unexpected use of continue statement                no-continue
+   83:8   error  Expected indentation of 6 tabs but found 7          indent
+   83:8   error  Assignment to property of function parameter 'a'    no-param-reassign
+   84:8   error  Expected indentation of 6 tabs but found 7          indent
+   85:2   error  Mixed spaces and tabs                               no-mixed-spaces-and-tabs
+   94:10  error  Identifier 'dynamic_values' is not in camel case    camelcase
+  104:30  error  'error' is already declared in the upper scope      no-shadow
+  112:24  error  Expected '!==' and instead saw '!='                 eqeqeq
+  112:44  error  Unexpected string concatenation                     prefer-template
+  117:26  error  'error' is already declared in the upper scope      no-shadow
+  117:33  error  'schema' is already declared in the upper scope     no-shadow
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
@@ -11,5 +40,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 3 problems (3 errors, 0 warnings)
+✖ 24 problems (23 errors, 1 warning)
 
