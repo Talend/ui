@@ -31,12 +31,23 @@ function Dialog({
 	});
 	const injected = Inject.all(getComponent, components);
 
+	const headerId = 'tc-dialog-header';
+	const a11yProps = {
+		role: 'modal',
+		'aria-modal': true,
+	};
+	if (header) {
+		a11yProps['aria-labelledby'] = headerId;
+	}
+
 	return (
-		<Modal bsSize={size} {...props}>
+		// we disable jsx-a11y/aria-props because the version we use does not consider it valid (bug)
+		// eslint-disable-next-line jsx-a11y/aria-props
+		<Modal bsSize={size} {...a11yProps} {...props}>
 			{injected('before-modal-header')}
 			{header && (
 				<Modal.Header closeButton={closeButton}>
-					<Modal.Title>{header}</Modal.Title>
+					<Modal.Title id={headerId}>{header}</Modal.Title>
 				</Modal.Header>
 			)}
 			{injected('after-modal-header')}

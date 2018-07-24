@@ -3,6 +3,7 @@
 exports[`Dialog should render 1`] = `
 <Modal
   animation={true}
+  aria-modal={true}
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
@@ -25,6 +26,7 @@ exports[`Dialog should render 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
+  role="modal"
   show={true}
 >
   <ModalBody
@@ -41,6 +43,8 @@ exports[`Dialog should render 1`] = `
 exports[`Dialog should render action 1`] = `
 <Modal
   animation={true}
+  aria-labelledby="tc-dialog-header"
+  aria-modal={true}
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
@@ -63,6 +67,7 @@ exports[`Dialog should render action 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
+  role="modal"
   show={true}
 >
   <ModalHeader
@@ -73,6 +78,7 @@ exports[`Dialog should render action 1`] = `
     <ModalTitle
       bsClass="modal-title"
       componentClass="h4"
+      id="tc-dialog-header"
     >
       Hello world
     </ModalTitle>
@@ -100,6 +106,8 @@ exports[`Dialog should render action 1`] = `
 exports[`Dialog should render header 1`] = `
 <Modal
   animation={true}
+  aria-labelledby="tc-dialog-header"
+  aria-modal={true}
   autoFocus={true}
   backdrop={true}
   bsClass="modal"
@@ -122,6 +130,7 @@ exports[`Dialog should render header 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
+  role="modal"
   show={true}
 >
   <ModalHeader
@@ -132,6 +141,7 @@ exports[`Dialog should render header 1`] = `
     <ModalTitle
       bsClass="modal-title"
       componentClass="h4"
+      id="tc-dialog-header"
     >
       Hello world
     </ModalTitle>
@@ -150,6 +160,8 @@ exports[`Dialog should render header 1`] = `
 exports[`Dialog should render large 1`] = `
 <Modal
   animation={true}
+  aria-labelledby="tc-dialog-header"
+  aria-modal={true}
   autoFocus={true}
   backdrop={false}
   bsClass="modal"
@@ -173,6 +185,7 @@ exports[`Dialog should render large 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
+  role="modal"
   show={true}
 >
   <ModalHeader
@@ -183,6 +196,7 @@ exports[`Dialog should render large 1`] = `
     <ModalTitle
       bsClass="modal-title"
       componentClass="h4"
+      id="tc-dialog-header"
     >
       Hello world
     </ModalTitle>
@@ -210,6 +224,8 @@ exports[`Dialog should render large 1`] = `
 exports[`Dialog should render small 1`] = `
 <Modal
   animation={true}
+  aria-labelledby="tc-dialog-header"
+  aria-modal={true}
   autoFocus={true}
   backdrop={false}
   bsClass="modal"
@@ -233,6 +249,7 @@ exports[`Dialog should render small 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
+  role="modal"
   show={true}
 >
   <ModalHeader
@@ -243,6 +260,7 @@ exports[`Dialog should render small 1`] = `
     <ModalTitle
       bsClass="modal-title"
       componentClass="h4"
+      id="tc-dialog-header"
     >
       Hello world
     </ModalTitle>
