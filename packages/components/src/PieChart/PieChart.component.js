@@ -54,16 +54,9 @@ function getShowedValue(model, index) {
  * @param {object} a an element with a percentageShown to compare
  * @param {object} b an other element with a percentageShown to compare
  */
-const sortElements = (a, b) => b.percentageShown - a.percentageShown;
-// function sortElements(a, b) {
-// 	if (a.percentageShown > b.percentageShown) {
-// 		return -1;
-// 	}
-// 	if (a.percentageShown < b.percentageShown) {
-// 		return 1;
-// 	}
-// 	return 0;
-// }
+function sortElements(a, b) {
+	return b.percentageShown - a.percentageShown;
+}
 
 /**
  * This function check if the type is a number & check with min/max
