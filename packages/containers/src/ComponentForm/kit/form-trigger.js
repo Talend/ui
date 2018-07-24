@@ -44,10 +44,22 @@ function normalizePath(specPath, contextualPathItems) {
 		keyIndex++;
 	}
 	return segments.join('.');
+	// specPath.split('.').reduce((acc, current, i) => {
+	// 	if (acc) {
+	// 		acc += '.';
+	// 	}
+	// 	if (
+	// 		keyIndex < contextualPathItems.length &&
+	// 		current.indexOf('[]') === current.length - 2 //'[]'.length
+	// 	) {
+
+	// 	}
+	// }, '')
 }
 
 function extractRequestPayload(parameters, properties, schema) {
 	const payload = {};
+	// parameters is an Array
 	for (const param of parameters) {
 		const value = get(
 			properties,
@@ -59,19 +71,6 @@ function extractRequestPayload(parameters, properties, schema) {
 	return payload;
 }
 
-function getLang(lang) {
-	if (!lang) {
-		if (navigator) {
-			if (navigator.language) {
-				return navigator.language;
-			} else if (navigator.languages && navigator.languages.length > 0) {
-				return navigator.languages[0];
-			}
-		}
-	}
-	return lang || 'en';
-}
-
 function isCacheable(triggerType) {
 	return triggerType === 'suggestions';
 }
@@ -81,15 +80,32 @@ function createCacheKey(trigger) {
 	return `trigger.type#trigger.family#trigger.action##${cacheKeyParams}`;
 }
 
+function toJSON(resp) {
+	if (!resp.ok || resp.status >= 300) {
+		return resp.text().then(error => {
+			let json;
+			try {
+				json = JSON.parse(error);
+			} catch (e) {
+				json = { error };
+			}
+			throw json;
+		});
+	}
+	return resp.json();
+}
+
 // customRegistry can be used to add extensions or custom trigger
 // (not portable accross integrations)
 export default function getDefaultTrigger({ url, customRegistry, lang, headers }) {
-	const encodedLang = encodeURIComponent(getLang(lang));
 	const cache = {};
-	const actualHeaders = merge({
-		'Content-Type': 'application/json',
-		Accept: 'application/json',
-	}, headers);
+	const actualHeaders = merge(
+		{
+			'Content-Type': 'application/json',
+			Accept: 'application/json',
+		},
+		headers,
+	);
 	return function onDefaultTrigger(event, { trigger, schema, properties, errors }) {
 		const services = {
 			...defaultRegistry,
@@ -108,55 +124,42 @@ export default function getDefaultTrigger({ url, customRegistry, lang, headers }
 				delete cache[cacheKey];
 			}
 		}
-		return fetch(
-			`${url}?lang=${encodedLang}&action=${encodeURIComponent(
-				trigger.action,
-			)}&family=${encodeURIComponent(trigger.family)}&type=${encodeURIComponent(trigger.type)}`,
-			{
-				method: 'POST',
-				headers: actualHeaders,
-				body: JSON.stringify(payload),
-				credentials: 'include',
-			},
-		)
-			.then(resp => {
-				if (!resp.ok || resp.status >= 300) {
-					return resp.text().then(error => {
-						let json;
-						try {
-							json = JSON.parse(error);
-						} catch (e) {
-							json = { error };
-						}
-						throw json;
-					});
-				}
-				return resp.json();
-			})
-			.then(body => {
-				const result = (services[trigger.type] || noOpTrigger)({
-					body,
-					errors,
-					properties,
-					schema,
-					trigger,
-				});
-				if (body.cacheable) {
-					cache[cacheKey] = {
-						parameters: payload,
-						result,
-					};
-				}
-				return result;
-			})
-			.catch(error =>
-				services.error({
-					error,
-					errors,
-					properties,
-					schema,
-					trigger,
-				}),
-			);
+		function callTrigger(body) {
+			const result = (services[trigger.type] || noOpTrigger)({
+				body,
+				errors,
+				properties,
+				schema,
+				trigger,
+			});
+			if (body.cacheable) {
+				cache[cacheKey] = {
+					parameters: payload,
+					result,
+				};
+			}
+			return result;
+		}
+		function onError(error) {
+			services.error({
+				error,
+				errors,
+				properties,
+				schema,
+				trigger,
+			});
+		}
+		const fetchUrl = `${url}?lang=${encodeURIComponent(lang || 'en')}&action=${encodeURIComponent(
+			trigger.action,
+		)}&family=${encodeURIComponent(trigger.family)}&type=${encodeURIComponent(trigger.type)}`;
+		return fetch(fetchUrl, {
+			method: 'POST',
+			headers: actualHeaders,
+			body: JSON.stringify(payload),
+			credentials: 'include',
+		})
+			.then(toJSON)
+			.then(callTrigger)
+			.catch(onError);
 	};
 }

@@ -87,7 +87,9 @@ export class TCompForm extends React.Component {
 	}
 
 	onChange(event, payload) {
-		event.persist();
+		if (event.persist) {
+			event.persist();
+		}
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
@@ -125,7 +127,9 @@ export class TCompForm extends React.Component {
 	}
 
 	onSubmit(event, properties) {
-		event.persist();
+		if (event.persist) {
+			event.persist();
+		}
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			component: TCompForm.displayName,

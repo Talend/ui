@@ -57,7 +57,7 @@ function validation({ schema, body, errors }) {
  * @param errors The form errors map
  * @returns {{properties: *, errors: Object}} The properties and errors map
  */
-function schema({ schema, body, properties, trigger, errors }) {
+function updateSchema({ schema, body, properties, trigger, errors }) {
 	const newErrors = getNewErrors(errors, schema, body.error);
 	let newProperties = properties;
 
@@ -79,21 +79,16 @@ function schema({ schema, body, properties, trigger, errors }) {
 			mutable[directChildPath] =
 				type === 'array'
 					? body.entries.map(e => e.name)
-					: body.entries.reduce({}, (a, e) => {
+					: body.entries.reduce((a, e) => {
 							a[e.name] = e.type;
 							return a;
-					  });
+					  }, {});
 		}
 	}
 	return {
 		properties: newProperties,
 		errors: newErrors,
 	};
-}
-
-function dynamic_values({ properties }) {
-	// for now it is set on the server side so no-op is ok
-	return { properties };
 }
 
 function suggestions({ body }) {
@@ -119,9 +114,9 @@ function error({ errors, error, schema }) {
 }
 
 export default {
-	dynamic_values,
+	// dynamic_values, server side
 	healthcheck: validation,
-	schema,
+	schema: updateSchema,
 	validation,
 	suggestions,
 	error,

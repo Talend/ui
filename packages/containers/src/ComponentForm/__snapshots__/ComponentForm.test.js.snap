@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `<Translate(CircularProgress) />`;
+exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `
+<FormSwitcher
+  loading={true}
+/>
+`;
 
 exports[`ComponentForm #render should render a UIForm 1`] = `
-<Container(UIForm)
+<FormSwitcher
   errors={
     Object {
       "key": "This is wrong",
@@ -12,26 +16,27 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
   jsonSchema={
     Object {
       "properties": Object {
-        "_datasetMetadata": Object {
+        "desert": Object {
           "properties": Object {
             "description": Object {
-              "title": "Description",
               "type": "string",
             },
             "name": Object {
-              "title": "Name",
+              "type": "string",
+            },
+            "restrictedType": Object {
               "type": "string",
             },
             "type": Object {
-              "title": "Types",
               "type": "string",
             },
           },
-          "required": Array [],
+          "required": Array [
+            "name",
+          ],
           "type": "object",
         },
       },
-      "required": Array [],
       "title": "datastore",
       "type": "object",
     }
@@ -43,58 +48,72 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
   uiSchema={
     Array [
       Object {
-        "conditions": Array [],
         "items": Array [
           Object {
-            "conditions": Array [],
-            "key": "_datasetMetadata.name",
+            "key": "desert.name",
             "title": "Name",
             "widget": "text",
           },
           Object {
-            "conditions": Array [],
-            "key": "_datasetMetadata.type",
+            "key": "desert.type",
             "schema": Object {
-              "enum": Array [
-                "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
-              ],
               "type": "string",
             },
             "title": "Types",
-            "titleMap": Array [
-              Object {
-                "name": "Basic Auth",
-                "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
-              },
-            ],
+            "titleMap": Array [],
             "triggers": Array [
               Object {
-                "action": "builtin::root::reloadFromId",
-                "event": "focus",
-                "family": "builtin::family",
+                "action": "suggestionForDemo",
+                "family": "remote",
+                "onEvent": "focus",
                 "parameters": Array [
                   Object {
                     "key": "id",
-                    "path": "_datasetMetadata.type",
+                    "path": "desert.type",
                   },
                 ],
-                "type": "reloadForm",
+                "type": "suggestions",
+              },
+            ],
+            "widget": "datalist",
+          },
+          Object {
+            "key": "desert.restrictedType",
+            "restricted": true,
+            "schema": Object {
+              "type": "string",
+            },
+            "title": "Types (restricted)",
+            "titleMap": Array [],
+            "triggers": Array [
+              Object {
+                "action": "suggestionForDemo",
+                "family": "remote",
+                "onEvent": "focus",
+                "parameters": Array [
+                  Object {
+                    "key": "id",
+                    "path": "desert.restrictedType",
+                  },
+                ],
+                "type": "suggestions",
               },
             ],
             "widget": "datalist",
           },
           Object {
             "conditions": Array [],
-            "key": "_datasetMetadata.description",
+            "key": "desert.description",
             "title": "Description",
             "widget": "textarea",
           },
         ],
-        "title": "Metadata",
+        "title": "Desert",
         "widget": "fieldset",
       },
     ]
   }
+  uiform={true}
   widgets={
     Object {
       "datalist": [Function],

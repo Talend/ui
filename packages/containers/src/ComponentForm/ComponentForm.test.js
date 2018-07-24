@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
-import addSchemaMock from '../../../mock/add';
+import addSchemaMock from '../../sandbox/mockBackend/mock/kit/example';
 
 import {
 	toJS,
@@ -9,20 +9,6 @@ import {
 	keepOnlyDatasetMetadataProperties,
 	TCompForm,
 } from './ComponentForm.component';
-
-jest.mock('component-kit.js', () => ({
-	createTriggers({ url, customRegistry }) {
-		function trigger() {
-			trigger.isCalled = true;
-			return Promise.resolve(trigger.data || {});
-		}
-		trigger.mockInfo = { url, customRegistry };
-		trigger.mockReturnWith = function mockReturnWith(data) {
-			this.data = data;
-		};
-		return trigger;
-	},
-}));
 
 describe('ComponentForm', () => {
 	describe('#toJS', () => {
