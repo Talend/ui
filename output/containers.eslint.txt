@@ -5,14 +5,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/PieChartButton/PieChartButton.connect.js
-  6:28  error  Unable to resolve path to module '@talend/react-components/lib/PieChartButton'  import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 4 problems (4 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
