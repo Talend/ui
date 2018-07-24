@@ -33,7 +33,7 @@ function Dialog({
 
 	const headerId = 'tc-dialog-header';
 	const a11yProps = {
-		role: 'modal',
+		role: 'dialog',
 		'aria-modal': true,
 	};
 	if (header) {

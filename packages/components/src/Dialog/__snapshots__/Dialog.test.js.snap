@@ -26,7 +26,7 @@ exports[`Dialog should render 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <ModalBody
@@ -67,7 +67,7 @@ exports[`Dialog should render action 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <ModalHeader
@@ -130,7 +130,7 @@ exports[`Dialog should render header 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <ModalHeader
@@ -185,7 +185,7 @@ exports[`Dialog should render large 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <ModalHeader
@@ -249,7 +249,7 @@ exports[`Dialog should render small 1`] = `
   onHide={[Function]}
   renderBackdrop={[Function]}
   restoreFocus={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <ModalHeader

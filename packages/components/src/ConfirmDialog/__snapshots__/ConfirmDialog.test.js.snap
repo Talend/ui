@@ -7,7 +7,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
   bsSize="large"
   className="Modal"
   keyboard={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <div
@@ -83,7 +83,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   bsSize="large"
   className="Modal"
   keyboard={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <div
@@ -172,7 +172,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
   bsSize="small"
   className="Modal"
   keyboard={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <div
@@ -248,7 +248,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
   bsSize={undefined}
   className="Modal"
   keyboard={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <div
@@ -337,7 +337,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
   bsSize={undefined}
   className="Modal"
   keyboard={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <div
@@ -412,7 +412,7 @@ exports[`ConfirmDialog should render without header 1`] = `
   bsSize={undefined}
   className="Modal"
   keyboard={true}
-  role="modal"
+  role="dialog"
   show={true}
 >
   <div
