@@ -125,8 +125,7 @@ export default function PieChartButtonComponent({
 		</Button>
 	);
 	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
-	btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
-	return btn;
+	return decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
 }
 
 PieChartButtonComponent.propTypes = {
