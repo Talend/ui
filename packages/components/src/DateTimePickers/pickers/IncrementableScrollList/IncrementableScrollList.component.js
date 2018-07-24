@@ -51,7 +51,8 @@ class IncrementableScrollList extends React.Component {
 		const firstIndex = 0;
 		const lastIndex = this.props.items.length - NB_ITEMS_DISPLAYED;
 
-		this.scrollToIndex = keepInBoundaries(props.initialIndex, firstIndex, lastIndex);
+		const startIndex = Math.max(this.props.initialIndex - Math.floor(NB_ITEMS_DISPLAYED / 2), 0);
+		this.scrollToIndex = keepInBoundaries(startIndex, firstIndex, lastIndex);
 
 		this.state = {
 			startIndex: this.scrollToIndex,
