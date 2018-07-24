@@ -10,6 +10,7 @@ import DataGrid, {
 	injectedHeaderRenderer,
 	AG_GRID,
 	getRowDataInfos,
+	redrawRows,
 } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
@@ -762,5 +763,87 @@ describe('getRowDataInfos', () => {
 			loading: 1,
 			loaded: 3,
 		});
+	});
+});
+
+describe('redrawRows', () => {
+	it('should not call redrawRows when the component is loading', () => {
+		const redrawRowsFn = jest.fn();
+
+		redrawRows(
+			{
+				loading: true,
+			},
+			{ redrawRows: redrawRowsFn },
+			{
+				rowData: [{ loading: true }],
+			},
+		);
+
+		expect(redrawRowsFn).not.toHaveBeenCalled();
+	});
+
+	it('should not call redrawRows when the component has not gridAPI', () => {
+		const redrawRowsFn = jest.fn();
+
+		redrawRows(
+			{
+				rowData: [{ loading: false }],
+			},
+			null,
+			{
+				rowData: [],
+			},
+		);
+
+		expect(redrawRowsFn).not.toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when loading state change', () => {
+		const redrawRowsFn = jest.fn();
+
+		redrawRows(
+			{
+				rowData: [{ loading: false }],
+			},
+			{ redrawRows: redrawRowsFn },
+			{
+				rowData: [],
+			},
+		);
+
+		expect(redrawRowsFn).toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when loaded state change', () => {
+		const redrawRowsFn = jest.fn();
+
+		redrawRows(
+			{
+				rowData: [{}],
+			},
+			{ redrawRows: redrawRowsFn },
+			{
+				rowData: [],
+			},
+		);
+
+		expect(redrawRowsFn).toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when notLoaded state change', () => {
+		const redrawRowsFn = jest.fn();
+
+		redrawRows(
+			{
+				rowData: [{ loading: false, 'indexes.index': 1 }],
+			},
+			{ redrawRows: redrawRowsFn },
+			{
+				rowData: [],
+			},
+		);
+
+		expect(redrawRowsFn).toHaveBeenCalled();
 	});
 });

@@ -80,6 +80,30 @@ export function getRowDataInfos(rowData) {
 	);
 }
 
+/**
+ * redrawRows - call redrawRows only if necessary. (improve ag-grid performance)
+ *
+ * @param  {object} props     component props
+ * @param  {object} gridAPI   ag-grid api
+ * @param  {object} prevProps previous component prop
+ */
+export function redrawRows(props, gridAPI, prevProps) {
+	if (props.loading || !gridAPI) {
+		return;
+	}
+
+	const prevInfos = getRowDataInfos(prevProps.rowData);
+	const currentInfos = getRowDataInfos(props.rowData);
+
+	if (
+		prevInfos.loaded !== currentInfos.loaded ||
+		prevInfos.loading !== currentInfos.loading ||
+		prevInfos.notLoaded !== currentInfos.notLoaded
+	) {
+		gridAPI.redrawRows();
+	}
+}
+
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
@@ -116,16 +140,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		const prevInfos = getRowDataInfos(prevProps.rowData);
-		const currentInfos = getRowDataInfos(this.props.rowData);
-		if (
-			this.gridAPI &&
-			(prevInfos.loaded !== currentInfos.loaded ||
-				prevInfos.loading !== currentInfos.loading ||
-				prevInfos.notLoaded !== currentInfos.notLoaded)
-		) {
-			this.gridAPI.redrawRows();
-		}
+		redrawRows(this.props, this.gridAPI, prevProps);
 	}
 
 	onGridReady({ api }) {
