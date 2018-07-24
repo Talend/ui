@@ -41,6 +41,10 @@ $tc-svg-icon-size: $padding-large !default;
 			display: flex;
 		}
 
+		&-left {
+			flex: 1;
+		}
+
 		&-right {
 			margin-left: $padding-normal;
 			justify-content: flex-end;

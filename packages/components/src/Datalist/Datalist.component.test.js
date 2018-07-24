@@ -31,7 +31,7 @@ describe('Datalist component', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -51,7 +51,7 @@ describe('Datalist component', () => {
 		const wrapper = mount(
 			<Datalist
 				autoFocus
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection
 				errorMessage={'This should be correct'}
@@ -78,7 +78,7 @@ describe('Datalist component', () => {
 		const wrapper = mount(
 			<Datalist
 				autoFocus
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -108,7 +108,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -132,7 +132,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -159,7 +159,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -186,7 +186,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -212,7 +212,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -238,7 +238,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -268,7 +268,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -294,7 +294,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -320,7 +320,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -346,7 +346,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -371,7 +371,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -395,7 +395,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = shallow(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -418,11 +418,51 @@ describe('Datalist component', () => {
 		).toBe('bar');
 	});
 
+	it('should set new mapping and suggestions on titleMap props change', () => {
+		// given
+		const wrapper = shallow(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.onFocus({ target: { select() {} } });
+
+		expect(wrapper.state().titleMapping).toEqual({
+			bar: 'bar',
+			foo: 'foo',
+			foobar: 'foobar',
+			lol: 'lol',
+		});
+		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol'] });
+		expect(instance.updateSuggestions).toHaveBeenCalledTimes(1);
+
+		const titleMap = [
+			{ name: 'other', value: 'other' },
+			{ name: 'title', value: 'title' },
+			{ name: 'map', value: 'map' },
+		];
+
+		// when
+		wrapper.setProps({ titleMap });
+
+		// then
+		expect(wrapper.state().titleMapping).toEqual({ other: 'other', title: 'title', map: 'map' });
+		expect(instance.updateSuggestions).toHaveBeenCalledTimes(2);
+	});
+
 	it('should set proper focusedItemIndex single section display', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -446,7 +486,7 @@ describe('Datalist component', () => {
 		const sectionProps = { ...props, titleMap: multiSectionMap };
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection
 				errorMessage={'This should be correct'}
@@ -464,5 +504,21 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().value).toBe('foobar');
 		expect(wrapper.find(Typeahead).props().focusedSectionIndex).toBe(2);
 		expect(wrapper.find(Typeahead).props().focusedItemIndex).toBe(0);
+	});
+
+	it('should call props.onFocus on instance focus', () => {
+		const onFocus = jest.fn();
+		const wrapper = shallow(<Datalist {...props} onFocus={onFocus} onChange={jest.fn()} />);
+
+		// when
+		const event = { type: 'foo', target: { select: jest.fn() } };
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.updateSelectedIndexes = jest.fn();
+		instance.onFocus(event);
+		expect(onFocus).toHaveBeenCalledWith(event);
+		expect(event.target.select).toHaveBeenCalled();
+		expect(instance.updateSuggestions).toHaveBeenCalled();
+		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
 });

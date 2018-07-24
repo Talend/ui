@@ -20,7 +20,7 @@ const pieChartData1 = [
 		percentage: 1,
 	},
 	{
-		color: 'slate-gray',
+		color: 'dove-gray',
 		percentage: 4,
 	},
 	{
@@ -43,8 +43,15 @@ const pieChartData2 = [
 		percentage: 60,
 	},
 	{
-		color: 'slate-gray',
+		color: 'dove-gray',
 		percentage: 2,
+	},
+];
+
+const pieChartData3 = [
+	{
+		color: 'dove-gray',
+		percentage: 0,
 	},
 ];
 
@@ -74,8 +81,10 @@ stories
 			<PieChartButton display="large" model={pieChartData1} />
 			<p>with other data :</p>
 			<PieChartButton display="medium" model={pieChartData2} />
-			<p>with without label :</p>
+			<p>without label :</p>
 			<PieChartButton display="medium" model={pieChartData2} hideLabel />
+			<p>without label to 0% :</p>
+			<PieChartButton display="medium" model={pieChartData3} />
 			<p>with overlay component</p>
 			<PieChartButton
 				display="medium"
