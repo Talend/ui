@@ -17,6 +17,7 @@ jest.mock(
 );
 
 const items = Array(100).fill();
+const OFFSET_TO_CENTER = 2;
 
 describe('IncrementableScrollList', () => {
 	function getListWrapper(wrapper) {
@@ -43,17 +44,17 @@ describe('IncrementableScrollList', () => {
 		expect(listWrapper.prop('scrollToIndex')).toBe(0);
 	});
 
-	it('should set List index scroll based on "initialIndex"', () => {
+	it('should scroll to center on "initialIndex"', () => {
 		const wrapper = shallow(
 			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={61} />,
 		);
 
 		const listWrapper = getListWrapper(wrapper);
 
-		expect(listWrapper.prop('scrollToIndex')).toBe(61);
+		expect(listWrapper.prop('scrollToIndex')).toBe(61 - OFFSET_TO_CENTER);
 	});
 
-	it('should set List index scroll based on "initialIndex" but keeping it in boundaries when lower', () => {
+	it('should scroll based on "initialIndex" keeping it in boundaries when lt 0', () => {
 		const wrapper = shallow(
 			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={-5} />,
 		);
@@ -63,7 +64,7 @@ describe('IncrementableScrollList', () => {
 		expect(listWrapper.prop('scrollToIndex')).toBe(0);
 	});
 
-	it('should set List index scroll based on "initialIndex" but keeping it in boundaries when higher', () => {
+	it('should scroll based on "initialIndex" keeping it in boundaries when gt items number', () => {
 		const wrapper = shallow(
 			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={150} />,
 		);
@@ -101,7 +102,7 @@ describe('IncrementableScrollList', () => {
 				<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={42} />,
 			);
 
-			expect(wrapper.state('startIndex')).toBe(42);
+			expect(wrapper.state('startIndex')).toBe(42 - OFFSET_TO_CENTER);
 		});
 
 		it('should keep track of first visible row index when internally changed', () => {
@@ -132,7 +133,7 @@ describe('IncrementableScrollList', () => {
 
 		action.simulate('click');
 
-		expect(scrollToRow).toHaveBeenCalledWith(48);
+		expect(scrollToRow).toHaveBeenCalledWith(53 - OFFSET_TO_CENTER - 5);
 	});
 
 	it('should scroll to the next 5 items when clicking on the bottom button', () => {
@@ -150,14 +151,14 @@ describe('IncrementableScrollList', () => {
 
 		action.simulate('click');
 
-		expect(scrollToRow).toHaveBeenCalledWith(58);
+		expect(scrollToRow).toHaveBeenCalledWith(53 - OFFSET_TO_CENTER + 5);
 	});
 
 	it('should scroll to the minimum item available when clicking on the top button while at a range of it lower than the display items range', () => {
 		const itemsSpecific = Array(58).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={2} />,
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={3} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -177,7 +178,7 @@ describe('IncrementableScrollList', () => {
 		const itemsSpecific = Array(42).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={33} />,
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={34} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -217,7 +218,7 @@ describe('IncrementableScrollList', () => {
 		const itemsSpecific = Array(96).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={92} />,
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={96} />,
 		);
 
 		const scrollToRow = jest.fn();
