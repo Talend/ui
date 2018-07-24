@@ -4,7 +4,7 @@ import { AutoSizer, List } from 'react-virtualized';
 import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
 import IconButton from '../../IconButton';
-import PickerAction from '../../PickerAction';
+import RowRenderer from './RowRenderer';
 
 function keepInBoundaries(number, min, max) {
 	if (number < min) {
@@ -17,33 +17,6 @@ function keepInBoundaries(number, min, max) {
 }
 
 const NB_ITEMS_DISPLAYED = 5;
-
-function RowRenderer({ index, key, parent, style }) {
-	const { items, onSelect, selectedItemId } = parent.props;
-	const item = items[index];
-
-	return (
-		<PickerAction
-			aria-label={`Select '${item.label}'`}
-			className={'tc-picker-scrollable-list-item'}
-			isSelected={item.id === selectedItemId}
-			key={key}
-			label={item.label}
-			onClick={() => onSelect(item)}
-			style={style}
-		/>
-	);
-}
-RowRenderer.propTypes = {
-	index: PropTypes.number.isRequired,
-	key: PropTypes.string.isRequired,
-	parent: PropTypes.shape({
-		items: PropTypes.array.isRequired,
-		onSelect: PropTypes.func.isRequired,
-		selectedItemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	}),
-	style: PropTypes.object,
-};
 
 class IncrementableScrollList extends React.Component {
 	constructor(props) {
