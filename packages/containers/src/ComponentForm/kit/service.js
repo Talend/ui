@@ -44,8 +44,8 @@ function getNewErrors(errors, schema, errorMessage) {
  * @returns {{errors: *}} The new errors map
  */
 function validation({ schema, body, errors }) {
-	const newError = body.status === 'KO' ? body.comment : undefined;
-	return { errors: getNewErrors(errors, schema, newError) };
+	const errorMessage = body.status === 'KO' ? body.comment : undefined;
+	return { errors: getNewErrors(errors, schema, errorMessage) };
 }
 
 /**
@@ -104,12 +104,12 @@ function extractErrorMessage(error) {
 		return JSON.stringify(error.error);
 	}
 	if (error.code && error.description && error.description.length > 0) {
-		return `${error.code != 'ACTION_ERROR' ? '[' + error.code + ']' : ''} ${error.description}`;
+		return `${error.code !== 'ACTION_ERROR' ? `[${error.code}]` : ''} ${error.description}`;
 	}
 	return JSON.stringify(error);
 }
 
-function error({ errors, error, schema }) {
+function onError({ errors, error, schema }) {
 	return { errors: getNewErrors(errors, schema, extractErrorMessage(error)) };
 }
 
@@ -119,5 +119,5 @@ export default {
 	schema: updateSchema,
 	validation,
 	suggestions,
-	error,
+	error: onError,
 };

@@ -16,27 +16,26 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
   jsonSchema={
     Object {
       "properties": Object {
-        "desert": Object {
+        "_datasetMetadata": Object {
           "properties": Object {
             "description": Object {
+              "title": "Description",
               "type": "string",
             },
             "name": Object {
-              "type": "string",
-            },
-            "restrictedType": Object {
+              "title": "Name",
               "type": "string",
             },
             "type": Object {
+              "title": "Types",
               "type": "string",
             },
           },
-          "required": Array [
-            "name",
-          ],
+          "required": Array [],
           "type": "object",
         },
       },
+      "required": Array [],
       "title": "datastore",
       "type": "object",
     }
@@ -48,67 +47,54 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
   uiSchema={
     Array [
       Object {
+        "conditions": Array [],
         "items": Array [
           Object {
-            "key": "desert.name",
+            "conditions": Array [],
+            "key": "_datasetMetadata.name",
             "title": "Name",
             "widget": "text",
           },
           Object {
-            "key": "desert.type",
+            "conditions": Array [],
+            "key": "_datasetMetadata.type",
             "schema": Object {
+              "enum": Array [
+                "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
+              ],
               "type": "string",
             },
             "title": "Types",
-            "titleMap": Array [],
-            "triggers": Array [
+            "titleMap": Array [
               Object {
-                "action": "suggestionForDemo",
-                "family": "remote",
-                "onEvent": "focus",
-                "parameters": Array [
-                  Object {
-                    "key": "id",
-                    "path": "desert.type",
-                  },
-                ],
-                "type": "suggestions",
+                "name": "Basic Auth",
+                "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
               },
             ],
-            "widget": "datalist",
-          },
-          Object {
-            "key": "desert.restrictedType",
-            "restricted": true,
-            "schema": Object {
-              "type": "string",
-            },
-            "title": "Types (restricted)",
-            "titleMap": Array [],
             "triggers": Array [
               Object {
-                "action": "suggestionForDemo",
-                "family": "remote",
-                "onEvent": "focus",
+                "action": "builtin::root::reloadFromId",
+                "event": "focus",
+                "family": "builtin::family",
                 "parameters": Array [
                   Object {
                     "key": "id",
-                    "path": "desert.restrictedType",
+                    "path": "_datasetMetadata.type",
                   },
                 ],
-                "type": "suggestions",
+                "type": "reloadForm",
               },
             ],
             "widget": "datalist",
           },
           Object {
             "conditions": Array [],
-            "key": "desert.description",
+            "key": "_datasetMetadata.description",
             "title": "Description",
             "widget": "textarea",
           },
         ],
-        "title": "Desert",
+        "title": "Metadata",
         "widget": "fieldset",
       },
     ]

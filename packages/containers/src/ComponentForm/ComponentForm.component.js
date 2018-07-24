@@ -109,7 +109,15 @@ export class TCompForm extends React.Component {
 	}
 
 	onTrigger(event, payload) {
+		this.props.dispatch({
+			type: TCompForm.ON_TRIGGER_BEGIN,
+			...payload,
+		});
 		return this.trigger(event, payload).then(data => {
+			this.props.dispatch({
+				type: TCompForm.ON_TRIGGER_END,
+				...payload,
+			});
 			// Today there is a need to give control to the trigger to modify the properties
 			// But this will override what user change in the meantime
 			// need to rethink that, there are lots of potential issues :
@@ -190,6 +198,8 @@ export class TCompForm extends React.Component {
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
 TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
+TCompForm.ON_TRIGGER_BEGIN = 'TCOMP_FORM_TRIGGER_BEGIN';
+TCompForm.ON_TRIGGER_END = 'TCOMP_FORM_TRIGGER_END';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
 TCompForm.displayName = 'ComponentForm';
 TCompForm.propTypes = {

@@ -1,14 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
-import addSchemaMock from '../../sandbox/mockBackend/mock/kit/example';
+import addSchemaMock from './ComponentForm.test.schema';
 
-import {
-	toJS,
-	resolveNameForTitleMap,
-	keepOnlyDatasetMetadataProperties,
-	TCompForm,
-} from './ComponentForm.component';
+import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
+
+jest.mock('./kit', () => ({
+	createTriggers({ url, customRegistry }) {
+		function trigger() {
+			trigger.isCalled = true;
+			return Promise.resolve(trigger.data || {});
+		}
+		trigger.mockInfo = { url, customRegistry };
+		trigger.mockReturnWith = function mockReturnWith(data) {
+			this.data = data;
+		};
+		return trigger;
+	},
+}));
 
 describe('ComponentForm', () => {
 	describe('#toJS', () => {
@@ -99,24 +108,6 @@ describe('ComponentForm', () => {
 
 			// then
 			expect(properties.my.awesome).toEqual({ value: '' });
-		});
-	});
-
-	describe('#keepOnlyDatasetMetadataProperties', () => {
-		it('should only keep dataset metadata', () => {
-			// given
-			const body = { jsonSchema: {}, uiSchema: [] };
-			const properties = { _datasetMetadata: { type: 'lol' }, other: 'mdr', another_one: 'ptdr' };
-
-			// when
-			const result = keepOnlyDatasetMetadataProperties({ body, properties });
-
-			// then
-			expect(result).toEqual({
-				jsonSchema: {},
-				uiSchema: [],
-				properties: { _datasetMetadata: { type: 'lol' } },
-			});
 		});
 	});
 
@@ -246,7 +237,7 @@ describe('ComponentForm', () => {
 		// extract type field schema
 		const typeSchema = {
 			...addSchemaMock.ui.uiSchema[0].items[1],
-			key: ['_datasetMetadata', 'type'],
+			key: ['$datasetMetadata', 'type'],
 		};
 		const selectedType = typeSchema.titleMap[0];
 
@@ -255,7 +246,7 @@ describe('ComponentForm', () => {
 		const changePayload = {
 			schema: typeSchema,
 			properties: {
-				_datasetMetadata: {
+				$datasetMetadata: {
 					type: selectedType.value,
 				},
 			},
@@ -302,7 +293,7 @@ describe('ComponentForm', () => {
 				// then
 				expect(wrapper.state()).toEqual({
 					properties: {
-						_datasetMetadata: {
+						$datasetMetadata: {
 							type: selectedType.value,
 							$type_name: selectedType.name,
 						},
@@ -341,9 +332,9 @@ describe('ComponentForm', () => {
 		});
 
 		describe('#onTrigger', () => {
-			it('should call component-kit trigger', () => {
+			it('should call kit trigger', () => {
 				// given
-				const wrapper = shallow(<TCompForm state={state} />);
+				const wrapper = shallow(<TCompForm state={state} dispatch={jest.fn()} />);
 				const trigger = wrapper.instance().trigger;
 				expect(trigger.isCalled).toBeFalsy();
 
@@ -356,7 +347,7 @@ describe('ComponentForm', () => {
 
 			it('should register trigger result properties in state', () => {
 				// given
-				const wrapper = shallow(<TCompForm state={state} />);
+				const wrapper = shallow(<TCompForm state={state} dispatch={jest.fn()} />);
 				const properties = { type: selectedType.value };
 				const trigger = wrapper.instance().trigger;
 				trigger.mockReturnWith({ properties });
@@ -372,7 +363,7 @@ describe('ComponentForm', () => {
 			it('should set cmf state with errors, and schemas', () => {
 				// given
 				const setState = jest.fn();
-				const wrapper = shallow(<TCompForm state={state} setState={setState} />);
+				const wrapper = shallow(<TCompForm state={state} setState={setState} dispatch={jest.fn()} />);
 				const trigger = wrapper.instance().trigger;
 				const data = {
 					errors: {},
@@ -395,7 +386,7 @@ describe('ComponentForm', () => {
 			it('should dispatch submit action', () => {
 				// given
 				const payload = {
-					_datasetMetadata: {
+					$datasetMetadata: {
 						type: selectedType.value,
 					},
 				};

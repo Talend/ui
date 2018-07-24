@@ -42,11 +42,8 @@ export function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath
 }
 
 function* onFormSubmit(componentId, submitURL, action) {
-	if (action.componentId !== componentId) {
+	if (action.componentId !== componentId || !submitURL) {
 		return;
-	}
-	if (!submitURL) {
-		throw new Error('You must provide a submit URL');
 	}
 	const { response, data } = yield call(cmf.sagas.http.post, submitURL, action.properties);
 	if (!response.ok) {
