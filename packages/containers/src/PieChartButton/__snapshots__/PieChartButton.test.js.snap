@@ -8,23 +8,23 @@ exports[`PieChartButton container should render 1`] = `
   model={
     Array [
       Object {
-        "color": "red",
+        "color": "rio-grande",
         "percentage": 10,
       },
       Object {
-        "color": "blue",
+        "color": "chestnut-rose",
         "percentage": 15,
       },
       Object {
-        "color": "cyan",
+        "color": "lightning-yellow",
         "percentage": 5,
       },
       Object {
-        "color": "yellow",
+        "color": "dove-gray",
         "percentage": 20,
       },
       Object {
-        "color": "black",
+        "color": "silver-chalice",
         "percentage": 15,
       },
     ]
@@ -45,23 +45,23 @@ exports[`PieChartButton container should render 2`] = `
   model={
     Array [
       Object {
-        "color": "red",
+        "color": "rio-grande",
         "percentage": 10,
       },
       Object {
-        "color": "blue",
+        "color": "chestnut-rose",
         "percentage": 15,
       },
       Object {
-        "color": "cyan",
+        "color": "lightning-yellow",
         "percentage": 5,
       },
       Object {
-        "color": "yellow",
+        "color": "dove-gray",
         "percentage": 20,
       },
       Object {
-        "color": "black",
+        "color": "silver-chalice",
         "percentage": 15,
       },
     ]

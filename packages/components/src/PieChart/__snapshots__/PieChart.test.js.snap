@@ -55,7 +55,7 @@ exports[`PieChart snapshots render should render a PieChart 1`] = `
       transform="translate(10,10)"
     />
     <path
-      className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+      className="theme-tc-pie-chart-color-dove-gray tc-pie-chart-color-dove-gray"
       d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
       transform="translate(10,10)"
     />

@@ -22,7 +22,7 @@ describe('PieChartButton', () => {
 				percentage: 1,
 			},
 			{
-				color: 'slate-gray',
+				color: 'dove-gray',
 				percentage: 4,
 			},
 			{

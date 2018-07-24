@@ -33,7 +33,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
           "percentage": 1,
         },
         Object {
-          "color": "slate-gray",
+          "color": "dove-gray",
           "percentage": 4,
         },
         Object {
@@ -98,7 +98,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
               "percentage": 1,
             },
             Object {
-              "color": "slate-gray",
+              "color": "dove-gray",
               "percentage": 4,
             },
             Object {
