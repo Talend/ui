@@ -6,17 +6,19 @@ import classnames from 'classnames';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import Skeleton from '../Skeleton';
-import theme from './PieChartButton.scss';
+import theme from './PieChart.scss';
 
-const MIN_SIZE = 20;
-const MAX_SIZE = 50;
-const MAX_PERCENT = 100;
-const BASE_INNER_RADIUS = 6;
-const BASE_OUTER_RADIUS = 9;
-const BASE_PAD_ANGLE = 0.2;
-const INNER_RADIUS_PER_PIXEL = 0.4;
-const OUTER_RADIUS_PER_PIXEL = 0.45;
-const PAD_ANGLE_PER_PIXEL = 0.0033;
+export const PIECHART_CONSTANTS = {
+	MIN_SIZE: 20,
+	MAX_SIZE: 50,
+	MAX_PERCENT: 100,
+	BASE_INNER_RADIUS: 6,
+	BASE_OUTER_RADIUS: 9,
+	BASE_PAD_ANGLE: 0.2,
+	INNER_RADIUS_PER_PIXEL: 0.4,
+	OUTER_RADIUS_PER_PIXEL: 0.45,
+	PAD_ANGLE_PER_PIXEL: 0.0033,
+};
 
 const displaySizes = {
 	small: 20,
@@ -68,7 +70,7 @@ function sortElements(a, b) {
  * @param {string} propName current prop name
  * @param {string} componentName component name
  */
-function propTypeCheckSize(props, propName, componentName) {
+export function propTypeCheckSize(props, propName, componentName) {
 	if (props[propName] == null) {
 		return null;
 	}
@@ -78,7 +80,10 @@ function propTypeCheckSize(props, propName, componentName) {
 				propName
 			]}. Validation failed.`,
 		);
-	} else if (props[propName] < MIN_SIZE || props[propName] > MAX_SIZE) {
+	} else if (
+		props[propName] < PIECHART_CONSTANTS.MIN_SIZE ||
+		props[propName] > PIECHART_CONSTANTS.MAX_SIZE
+	) {
 		return new Error(
 			`Invalid prop ${propName} supplied to ${componentName} : ${
 				props[propName]
@@ -97,7 +102,7 @@ function propTypeCheckSize(props, propName, componentName) {
  */
 export function getEmptyPartCircle(values, size, minimumPercentage) {
 	const allPercentages = values.reduce((acc, value) => acc + value.percentageShown, 0);
-	if (allPercentages >= MAX_PERCENT - minimumPercentage) {
+	if (allPercentages >= PIECHART_CONSTANTS.MAX_PERCENT - minimumPercentage) {
 		return null;
 	}
 
@@ -249,16 +254,25 @@ export function getDisplaySize(size, display) {
 		currentSize = displaySizes[display];
 	}
 
-	const pixelNumber = currentSize - MIN_SIZE;
+	const pixelNumber = currentSize - PIECHART_CONSTANTS.MIN_SIZE;
 	return {
 		svgSize: currentSize,
-		innerRadius: parseInt(BASE_INNER_RADIUS + INNER_RADIUS_PER_PIXEL * pixelNumber, 10),
-		outerRadius: parseInt(BASE_OUTER_RADIUS + OUTER_RADIUS_PER_PIXEL * pixelNumber, 10),
-		padAngle: BASE_PAD_ANGLE - PAD_ANGLE_PER_PIXEL * pixelNumber,
+		innerRadius: parseInt(
+			PIECHART_CONSTANTS.BASE_INNER_RADIUS +
+				PIECHART_CONSTANTS.INNER_RADIUS_PER_PIXEL * pixelNumber,
+			10,
+		),
+		outerRadius: parseInt(
+			PIECHART_CONSTANTS.BASE_OUTER_RADIUS +
+				PIECHART_CONSTANTS.OUTER_RADIUS_PER_PIXEL * pixelNumber,
+			10,
+		),
+		padAngle:
+			PIECHART_CONSTANTS.BASE_PAD_ANGLE - PIECHART_CONSTANTS.PAD_ANGLE_PER_PIXEL * pixelNumber,
 	};
 }
 
-export function PieChart({
+export function PieChartComponent({
 	display,
 	hideLabel,
 	labelIndex,
@@ -271,7 +285,7 @@ export function PieChart({
 	const sizeObject = getDisplaySize(size, display);
 	if (loading) {
 		return (
-			<span>
+			<span className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading')}>
 				<Skeleton
 					type={Skeleton.TYPES.circle}
 					width={sizeObject.svgSize}
@@ -312,12 +326,12 @@ export function PieChart({
 	);
 }
 
-PieChart.propTypes = {
+export const pieChartPropTypes = {
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
-	loading: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	labelIndex: PropTypes.number,
-	minimumPercentage: PropTypes.number.isRequired,
+	loading: PropTypes.bool,
+	minimumPercentage: PropTypes.number,
 	model: PropTypes.arrayOf(
 		PropTypes.shape({
 			color: PropTypes.oneOf([
@@ -331,20 +345,20 @@ PieChart.propTypes = {
 		}).isRequired,
 	),
 	size: propTypeCheckSize,
+};
+
+PieChartComponent.propTypes = {
+	...pieChartPropTypes,
 	t: PropTypes.func,
 };
 
-PieChart.defaultProps = {
-	available: true,
+PieChartComponent.defaultProps = {
 	labelIndex: 0,
 	minimumPercentage: 5,
 	display: 'small',
-	tooltipPlacement: 'top',
-	overlayPlacement: 'bottom',
-	overlayId: 'pie-chart-popover',
 	t: getDefaultT(),
 };
 
-PieChart.displayName = 'PieChart';
+PieChartComponent.displayName = 'PieChart';
 
-export default translate(I18N_DOMAIN_COMPONENTS)(PieChart);
+export default translate(I18N_DOMAIN_COMPONENTS)(PieChartComponent);

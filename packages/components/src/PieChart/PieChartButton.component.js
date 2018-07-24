@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import classnames from 'classnames';
-import getDefaultT from '../translate';
+import PieChart, { pieChartPropTypes } from './PieChart.component';
 import TooltipTrigger from '../TooltipTrigger';
-import theme from './PieChartButton.scss';
-import PieChart from './PieChart.component';
-
-const MIN_SIZE = 20;
-const MAX_SIZE = 50;
+import theme from './PieChart.scss';
 
 /**
  * This function add an OverlayTrigger wrapping the button if defined
@@ -80,32 +76,6 @@ export function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model)
 		});
 }
 
-/**
- * This function check if the type is a number & check with min/max
- * @param {object} props list of component props
- * @param {string} propName current prop name
- * @param {string} componentName component name
- */
-function propTypeCheckSize(props, propName, componentName) {
-	if (props[propName] == null) {
-		return null;
-	}
-	if (typeof props[propName] !== 'number') {
-		return new Error(
-			`Invalid type of ${propName} supplied to ${componentName} : ${typeof props[
-				propName
-			]}. Validation failed.`,
-		);
-	} else if (props[propName] < MIN_SIZE || props[propName] > MAX_SIZE) {
-		return new Error(
-			`Invalid prop ${propName} supplied to ${componentName} : ${
-				props[propName]
-			}. Validation failed.`,
-		);
-	}
-	return null;
-}
-
 export default function PieChartButtonComponent({
 	available,
 	buttonRef,
@@ -154,57 +124,33 @@ export default function PieChartButtonComponent({
 			/>
 		</Button>
 	);
-
 	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
 	btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
-
 	return btn;
 }
 
 PieChartButtonComponent.propTypes = {
+	...pieChartPropTypes,
 	available: PropTypes.bool,
+	buttonRef: PropTypes.func,
 	className: PropTypes.string,
-	display: PropTypes.oneOf(['small', 'medium', 'large']),
-	loading: PropTypes.bool,
-	hideLabel: PropTypes.bool,
-	label: PropTypes.string,
-	labelIndex: PropTypes.number,
 	getComponent: PropTypes.func,
-	minimumPercentage: PropTypes.number.isRequired,
-	model: PropTypes.arrayOf(
-		PropTypes.shape({
-			color: PropTypes.oneOf([
-				'rio-grande',
-				'chestnut-rose',
-				'lightning-yellow',
-				'slate-gray',
-				'silver-chalice',
-			]),
-			percentage: PropTypes.number.isRequired,
-		}).isRequired,
-	),
+	label: PropTypes.string,
 	onClick: PropTypes.func,
 	onMouseDown: PropTypes.func,
 	overlayComponent: PropTypes.element,
 	overlayId: PropTypes.string,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
-	size: propTypeCheckSize,
+	overlayRef: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
-	buttonRef: PropTypes.func,
-	overlayRef: PropTypes.func,
 };
 
 PieChartButtonComponent.defaultProps = {
 	available: true,
-	labelIndex: 0,
-	minimumPercentage: 5,
-	display: 'small',
-	tooltipPlacement: 'top',
-	overlayPlacement: 'bottom',
 	overlayId: 'pie-chart-popover',
-	t: getDefaultT(),
+	overlayPlacement: 'bottom',
+	tooltipPlacement: 'top',
 };
 
 PieChartButtonComponent.displayName = 'PieChartButton';
-

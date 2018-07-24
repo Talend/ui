@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import {
-	PieChartButtonComponent,
-	decorateWithOverlay,
-	decorateWithTooltip,
+	PieChartComponent,
 	distributePercentages,
 	getAngle,
 	getCircle,
@@ -11,10 +9,9 @@ import {
 	getPercentageToIndex,
 	getEmptyPartCircle,
 	setMinimumPercentage,
-	wrapMouseEvent,
-} from './PieChartButton.component';
+} from './PieChart.component';
 
-describe('PieChartButton', () => {
+describe('PieChart', () => {
 	describe('snapshots render', () => {
 		const pieChartData = [
 			{
@@ -39,147 +36,13 @@ describe('PieChartButton', () => {
 			},
 		];
 
-		it('should render a PieChartButton', () => {
-			const wrapper = shallow(<PieChartButtonComponent display="small" model={pieChartData} />);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
-		});
-
-		it('should trigger onClick', () => {
-			const onClick = jest.fn();
-			const event = {};
-			const wrapper = shallow(
-				<PieChartButtonComponent
-					label="my label"
-					display="small"
-					model={pieChartData}
-					onClick={onClick}
-				/>,
-			);
-
-			wrapper
-				.find('Button')
-				.at(0)
-				.simulate('click', event);
-
-			expect(onClick).toHaveBeenCalledWith(event, {
-				action: {
-					label: 'my label',
-				},
-				model: pieChartData,
-			});
-		});
-
-		it('should render a PieChartButton with an overlay', () => {
-			const overlayComponent = <div>I am an overlay</div>;
-			const wrapper = shallow(
-				<PieChartButtonComponent
-					display="medium"
-					labelIndex={2}
-					model={pieChartData}
-					overlayComponent={overlayComponent}
-					overlayId="id-popover"
-				/>,
-			);
-
-			expect(wrapper.getElement()).toMatchSnapshot();
-		});
-
-		it('should render nothing', () => {
-			const wrapper = shallow(
-				<PieChartButtonComponent
-					available={false}
-					display="medium"
-					labelIndex={2}
-					model={pieChartData}
-				/>,
-			);
-
-			expect(wrapper.getElement()).toBeNull();
-		});
-
 		it('should render a Skeleton when the state is loading', () => {
-			const wrapper = shallow(<PieChartButtonComponent loading model={pieChartData} />);
-
+			const wrapper = shallow(<PieChartComponent loading model={pieChartData} />);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
-		it('should called refs methods', () => {
-			// given
-			const overlayComponent = <div className="fake-overlay" />;
-			// when
-			const myButtonRef = jest.fn();
-			const myOverlayRef = jest.fn();
-			mount(
-				<PieChartButtonComponent
-					display="medium"
-					labelIndex={2}
-					model={pieChartData}
-					overlayComponent={overlayComponent}
-					overlayId="id-popover"
-					buttonRef={myButtonRef}
-					overlayRef={myOverlayRef}
-				/>,
-			);
-			expect(myButtonRef).toHaveBeenCalled();
-			expect(myOverlayRef).toHaveBeenCalled();
-		});
-	});
-
-	describe('decorateWithOverlay', () => {
-		it('should return the same component if no overlayComponent', () => {
-			// given
-			const btn = <div className="fake-button-element" />;
-			// when
-			const modified = decorateWithOverlay(btn);
-			// then
-			expect(modified).toBe(btn);
-		});
-
-		it('should return the component wrapped', () => {
-			// given
-			const btn = <div className="fake-button-element" />;
-			const overlayComponent = <div className="fake-overlay" />;
-			// when
-			const modified = decorateWithOverlay(btn, 'top', overlayComponent, 'id-test');
-			// then
-			expect(modified).not.toBe(btn);
-			expect(modified).toMatchSnapshot();
-		});
-		it('should trigger ref function', () => {
-			// given
-			const btn = <div className="fake-button-element" />;
-			const overlayComponent = <div className="fake-overlay" />;
-			// when
-			const myBindRef = jest.fn();
-			function OverlayCmp() {
-				return (
-					<div>{decorateWithOverlay(btn, 'top', overlayComponent, 'myDumbOverlay', myBindRef)}</div>
-				);
-			}
-			mount(<OverlayCmp />);
-			expect(myBindRef).toHaveBeenCalled();
-		});
-	});
-
-	describe('decorateWithTooltip', () => {
-		it('should return the same component if no tooltip passed', () => {
-			// given
-			const btn = <div className="fake-button-element" />;
-			// when
-			const modified = decorateWithTooltip(btn, false, 'label', 'top');
-			// then
-			expect(modified).toBe(btn);
-		});
-
-		it('should return the component wrapped with tooltip', () => {
-			// given
-			const btn = <div className="fake-button-element" />;
-			// when
-			const modified = decorateWithTooltip(btn, true, 'label', 'top');
-
-			// then
-			expect(modified).not.toBe(btn);
-			expect(modified).toMatchSnapshot();
+		it('should render a PieChart', () => {
+			const wrapper = shallow(<PieChartComponent display="small" model={pieChartData} />);
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 	});
 
@@ -344,33 +207,6 @@ describe('PieChartButton', () => {
 				{ percentageShown: 5, color: 'white', percentage: 2 },
 				{ percentageShown: 5, color: 'blue', percentage: 2 },
 			]);
-		});
-	});
-
-	describe('wrapMouseEvent', () => {
-		it('should return null if there is an overlay component', () => {
-			// given
-			const onClick = jest.fn();
-			const overlayComponent = <div className="fake-overlay" />;
-
-			// when
-			const result = wrapMouseEvent(onClick, overlayComponent, 'label');
-
-			// then
-			expect(result).toBeNull();
-		});
-		it('should return a wrapped handler if there is no overlay component', () => {
-			// given
-			const onClick = jest.fn();
-
-			// when
-			const result = wrapMouseEvent(onClick, null, 'label');
-
-			// then
-			expect(result).not.toBeNull();
-			expect(onClick).not.toHaveBeenCalled();
-			result();
-			expect(onClick).toHaveBeenCalled();
 		});
 	});
 

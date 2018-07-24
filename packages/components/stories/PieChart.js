@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import ActionButton from '../src/Actions/ActionButton';
-import PieChartButton, { PieChart } from '../src/PieChartButton';
+import { PieChartButton, PieChart } from '../src/PieChart';
 
 const pieChartData1 = [
 	{
@@ -61,7 +61,7 @@ const onClick = action('You clicked me');
 const onMouseDown = action('You mousedown me');
 const overlayComponent = <div>I am an overlay</div>;
 
-const stories = storiesOf('PieChartButton', module);
+const stories = storiesOf('PieChart', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
