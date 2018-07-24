@@ -40,8 +40,23 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 		);
 	}
 
+	let a11yProps;
+	if (!infinite) {
+		a11yProps = {
+			role: 'progressbar',
+			'aria-valuenow': normalizedPercent,
+			'aria-valuemin': 0,
+			'aria-valuemax': 100,
+		};
+	} else {
+		a11yProps = {
+			role: 'status',
+			'aria-busy': true,
+		};
+	}
+
 	return (
-		<div id={id} className={rootClassNames}>
+		<div id={id} className={rootClassNames} aria-label={tooltip} {...a11yProps}>
 			{progress}
 		</div>
 	);
