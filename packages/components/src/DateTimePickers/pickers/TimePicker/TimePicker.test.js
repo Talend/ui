@@ -6,37 +6,30 @@ import TimePicker, { twoDigits } from './TimePicker.component';
 
 describe('TimePicker', () => {
 	it('should render', () => {
-		const wrapper = shallow(
-			<TimePicker
-				selectedTime={1250}
-				onSelect={() => {}}
-			/>
-		);
+		const wrapper = shallow(<TimePicker selectedTime={1250} onSelect={() => {}} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('interval', () => {
 		function hasCorrectInterval(items, interval) {
-			const diffs = items.map((item, index, arr) => {
-				if (index === 0) {
-					return undefined;
-				}
+			const diffs = items
+				.map((item, index, arr) => {
+					if (index === 0) {
+						return undefined;
+					}
 
-				const previous = arr[index - 1];
-				const actual = item;
+					const previous = arr[index - 1];
+					const actual = item;
 
-				return actual.id - previous.id;
-			}).splice(1);
+					return actual.id - previous.id;
+				})
+				.splice(1);
 
 			return diffs.filter(diff => diff !== interval).length === 0;
 		}
 
 		it('should have a default interval of 15 minutes', () => {
-			const wrapper = shallow(
-				<TimePicker
-					onSelect={() => {}}
-				/>
-			);
+			const wrapper = shallow(<TimePicker onSelect={() => {}} />);
 
 			const items = wrapper.prop('items');
 
@@ -44,12 +37,7 @@ describe('TimePicker', () => {
 		});
 
 		it('should have a interval configured with "interval" if exists', () => {
-			const wrapper = shallow(
-				<TimePicker
-					interval={7}
-					onSelect={() => {}}
-				/>
-			);
+			const wrapper = shallow(<TimePicker interval={7} onSelect={() => {}} />);
 
 			const items = wrapper.prop('items');
 
@@ -57,12 +45,7 @@ describe('TimePicker', () => {
 		});
 
 		it('should have the last selectable values interval lower or equal to the configured interval', () => {
-			const wrapper = shallow(
-				<TimePicker
-					interval={13}
-					onSelect={() => {}}
-				/>
-			);
+			const wrapper = shallow(<TimePicker interval={13} onSelect={() => {}} />);
 
 			const items = wrapper.prop('items');
 
@@ -77,12 +60,7 @@ describe('TimePicker', () => {
 	});
 
 	it('should start at 00:00 and ends before or at 23:59', () => {
-		const wrapper = shallow(
-			<TimePicker
-				interval={77}
-				onSelect={() => {}}
-			/>
-		);
+		const wrapper = shallow(<TimePicker interval={77} onSelect={() => {}} />);
 
 		const items = wrapper.prop('items');
 
@@ -95,18 +73,12 @@ describe('TimePicker', () => {
 		expect(lastItem.id).toBeLessThanOrEqual(maxInclusiveDayTime);
 	});
 
-	describe('list index', () => {
+	describe('initialIndex', () => {
 		it('should default render with the current time in middle if matches exactly a selectable time', () => {
 			mockDate(new Date(2025, 1, 20, 22, 35));
 
-			const wrapper = shallow(<TimePicker
-				interval={5}
-				onSelect={() => {}}
-			/>);
-
-			const middleTimeExpected = 22 * 60 + 35;
-
-			expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(middleTimeExpected);
+			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
+			expect(wrapper.prop('initialIndex')).toBe(271);
 
 			restoreDate();
 		});
@@ -114,40 +86,24 @@ describe('TimePicker', () => {
 		it('should default render with the closest selectable time of current time in middle', () => {
 			mockDate(new Date(2025, 1, 20, 11, 7));
 
-			const wrapper = shallow(<TimePicker
-				interval={5}
-				onSelect={() => {}}
-			/>);
-
-			const middleTimeExpected = 11 * 60 + 5;
-
-			expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(middleTimeExpected);
+			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
+			expect(wrapper.prop('initialIndex')).toBe(133);
 
 			restoreDate();
 		});
 
 		it('should render with the "selectedTime" in middle if matches exactly a selectable time', () => {
-			const wrapper = shallow(<TimePicker
-				interval={5}
-				selectedTime={14 * 60 + 25}
-				onSelect={() => {}}
-			/>);
-
-			const middleTimeExpected = 14 * 60 + 25;
-
-			expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(middleTimeExpected);
+			const wrapper = shallow(
+				<TimePicker interval={5} selectedTime={14 * 60 + 25} onSelect={() => {}} />,
+			);
+			expect(wrapper.prop('initialIndex')).toBe(173);
 		});
 
 		it('should render with the closest selectable time of the "selectedTime" in middle', () => {
-			const wrapper = shallow(<TimePicker
-				interval={5}
-				selectedTime={14 * 60 + 59}
-				onSelect={() => {}}
-			/>);
-
-			const middleTimeExpected = 15 * 60;
-
-			expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(middleTimeExpected);
+			const wrapper = shallow(
+				<TimePicker interval={5} selectedTime={14 * 60 + 59} onSelect={() => {}} />,
+			);
+			expect(wrapper.prop('initialIndex')).toBe(180);
 		});
 	});
 
@@ -157,11 +113,9 @@ describe('TimePicker', () => {
 			const timeToSelect = 950;
 			const onSelect = jest.fn();
 
-			const wrapper = shallow(<TimePicker
-				interval={5}
-				selectedTime={selectedTime}
-				onSelect={onSelect}
-			/>);
+			const wrapper = shallow(
+				<TimePicker interval={5} selectedTime={selectedTime} onSelect={onSelect} />,
+			);
 
 			const timeItem = wrapper.prop('items').find(item => item.id === timeToSelect);
 			wrapper.prop('onSelect')(timeItem);
@@ -170,7 +124,6 @@ describe('TimePicker', () => {
 		});
 	});
 });
-
 
 describe('twoDigits', () => {
 	it('should return the exact input if number already have exactly 2 digits in string format', () => {

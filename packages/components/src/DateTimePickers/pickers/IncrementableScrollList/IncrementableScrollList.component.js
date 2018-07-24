@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { AutoSizer, List } from 'react-virtualized';
 import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
-import IconButton from '../../../IconButton';
+import IconButton from '../../IconButton';
+import PickerAction from '../../PickerAction';
 
 function keepInBoundaries(number, min, max) {
 	if (number < min) {
@@ -17,8 +18,34 @@ function keepInBoundaries(number, min, max) {
 
 const NB_ITEMS_DISPLAYED = 5;
 
-class IncrementableScrollList extends React.Component {
+function RowRenderer({ index, key, parent, style }) {
+	const { items, onSelect, selectedItemId } = parent.props;
+	const item = items[index];
 
+	return (
+		<PickerAction
+			aria-label={`Select '${item.label}'`}
+			className={'tc-picker-scrollable-list-item'}
+			isSelected={item.id === selectedItemId}
+			key={key}
+			label={item.label}
+			onClick={() => onSelect(item)}
+			style={style}
+		/>
+	);
+}
+RowRenderer.propTypes = {
+	index: PropTypes.number.isRequired,
+	key: PropTypes.string.isRequired,
+	parent: PropTypes.shape({
+		items: PropTypes.array.isRequired,
+		onSelect: PropTypes.func.isRequired,
+		selectedItemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	}),
+	style: PropTypes.object,
+};
+
+class IncrementableScrollList extends React.Component {
 	constructor(props) {
 		super(props);
 		const firstIndex = 0;
@@ -38,7 +65,6 @@ class IncrementableScrollList extends React.Component {
 
 	onRowsRendered(data) {
 		const { startIndex } = data;
-
 		this.setState({ startIndex });
 	}
 
@@ -49,8 +75,9 @@ class IncrementableScrollList extends React.Component {
 	scrollRows(increment) {
 		const firstIndex = 0;
 		const lastIndex = this.props.items.length - NB_ITEMS_DISPLAYED;
-		const needToScroll = increment < 0 && this.state.startIndex > firstIndex ||
-							increment > 0 && this.state.startIndex < lastIndex;
+		const needToScroll =
+			(increment < 0 && this.state.startIndex > firstIndex) ||
+			(increment > 0 && this.state.startIndex < lastIndex);
 
 		if (!needToScroll) {
 			return;
@@ -62,29 +89,8 @@ class IncrementableScrollList extends React.Component {
 	}
 
 	render() {
-		// Define new function in each render because item rendered can change
-		// new function reference enforce recomputing items
-		const rowRenderer = data => {
-			const {
-				index,
-				key,
-				style,
-			} = data;
-
-			const item = this.props.items[index];
-
-			return (
-				<div
-					key={key}
-					style={style}
-				>
-					{this.props.itemRenderer(item)}
-				</div>
-			);
-		};
-
 		return (
-			<div className={theme.container}>
+			<div className={`tc-picker-scrollable-list ${theme.container}`}>
 				<IconButton
 					icon={{
 						name: 'talend-chevron-left',
@@ -94,7 +100,7 @@ class IncrementableScrollList extends React.Component {
 					aria-label="Scroll to previous page"
 					onClick={this.scrollUp}
 				/>
-				<div className={theme.items}>
+				<div className={`tc-picker-scrollable-list-items ${theme.items}`}>
 					<AutoSizer>
 						{({ height, width, scrollTop }) => {
 							const rowHeight = height / NB_ITEMS_DISPLAYED;
@@ -102,15 +108,18 @@ class IncrementableScrollList extends React.Component {
 								<List
 									ref={this.setListRef}
 									height={height}
+									items={this.props.items}
 									overscanRowCount={5}
 									rowCount={this.props.items.length}
 									rowHeight={rowHeight}
-									rowRenderer={rowRenderer}
+									rowRenderer={RowRenderer}
 									scrollToAlignment={'start'}
 									scrollToIndex={this.scrollToIndex}
 									width={width}
 									scrollTop={scrollTop}
+									selectedItemId={this.props.selectedItemId}
 									onRowsRendered={this.onRowsRendered}
+									onSelect={this.props.onSelect}
 								/>
 							);
 						}}
@@ -132,8 +141,9 @@ class IncrementableScrollList extends React.Component {
 
 IncrementableScrollList.propTypes = {
 	items: PropTypes.array.isRequired,
-	itemRenderer: PropTypes.func.isRequired,
 	initialIndex: PropTypes.number,
+	selectedItemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	onSelect: PropTypes.func.isRequired,
 };
 
 IncrementableScrollList.defaultProps = {

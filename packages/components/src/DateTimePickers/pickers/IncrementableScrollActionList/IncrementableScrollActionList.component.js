@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollList from './IncrementableScrollList';
+import IncrementableScrollList from '../IncrementableScrollList';
 import PickerAction from '../../PickerAction';
 
 class IncrementableScrollActionList extends React.Component {
-
 	constructor(props) {
 		super(props);
 
 		const middleInitialIndex = this.props.items.findIndex(
-			item => item.id === this.props.initialMiddleVisibleItemId);
+			item => item.id === this.props.initialMiddleVisibleItemId,
+		);
 
-		this.initialIndex = middleInitialIndex === -1
-			? 0
-			: Math.max(middleInitialIndex - 2, 0);
+		this.initialIndex = middleInitialIndex === -1 ? 0 : Math.max(middleInitialIndex - 2, 0);
 	}
 
 	render() {
@@ -40,21 +38,14 @@ class IncrementableScrollActionList extends React.Component {
 }
 
 IncrementableScrollActionList.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number,
-		]).isRequired,
-		label: PropTypes.string.isRequired,
-	})).isRequired,
-	initialMiddleVisibleItemId: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number,
-	]),
-	selectedItemId: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number,
-	]),
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+			label: PropTypes.string.isRequired,
+		}),
+	).isRequired,
+	initialMiddleVisibleItemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	selectedItemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	onSelect: PropTypes.func.isRequired,
 };
 

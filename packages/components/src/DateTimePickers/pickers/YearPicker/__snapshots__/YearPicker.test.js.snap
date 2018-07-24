@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`YearPicker should render 1`] = `
-<IncrementableScrollActionList
-  initialMiddleVisibleItemId={2012}
+<IncrementableScrollList
+  initialIndex={147}
   items={
     Array [
       Object {

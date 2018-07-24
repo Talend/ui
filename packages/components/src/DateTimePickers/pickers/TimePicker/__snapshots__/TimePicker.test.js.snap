@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TimePicker should render 1`] = `
-<IncrementableScrollActionList
-  initialMiddleVisibleItemId={1245}
+<IncrementableScrollList
+  initialIndex={83}
   items={
     Array [
       Object {

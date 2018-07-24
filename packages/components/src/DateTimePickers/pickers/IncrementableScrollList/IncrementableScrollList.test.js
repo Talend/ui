@@ -1,43 +1,42 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import IncrementableScrollList from './IncrementableScrollList.component';
+
+jest.mock(
+	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	() =>
+		// eslint-disable-next-line react/prop-types
+		function AutoSizer({ children, ...props }) {
+			return (
+				<div id="autoSizer" {...props}>
+					{children({ height: 300, width: 300 })}
+				</div>
+			);
+		},
+);
 
 const items = Array(100).fill();
 
 describe('IncrementableScrollList', () => {
 	function getListWrapper(wrapper) {
-		const autoSizerWrapper = wrapper
+		return wrapper
 			.find('AutoSizer')
 			.first()
-			.shallow();
-
-		const listWrapper = autoSizerWrapper
+			.dive()
 			.find('List')
 			.first()
 			.shallow();
-
-		return listWrapper;
 	}
 
 	it('should render', () => {
-		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-			/>
-		);
+		const wrapper = shallow(<IncrementableScrollList items={items} onSelect={jest.fn()} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should set List index scroll with 0 when "initialIndex" is not set', () => {
-		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-			/>
-		);
+		const wrapper = shallow(<IncrementableScrollList items={items} onSelect={jest.fn()} />);
 
 		const listWrapper = getListWrapper(wrapper);
 
@@ -46,11 +45,7 @@ describe('IncrementableScrollList', () => {
 
 	it('should set List index scroll based on "initialIndex"', () => {
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-				initialIndex={61}
-			/>
+			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={61} />,
 		);
 
 		const listWrapper = getListWrapper(wrapper);
@@ -60,11 +55,7 @@ describe('IncrementableScrollList', () => {
 
 	it('should set List index scroll based on "initialIndex" but keeping it in boundaries when lower', () => {
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-				initialIndex={-5}
-			/>
+			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={-5} />,
 		);
 
 		const listWrapper = getListWrapper(wrapper);
@@ -74,11 +65,7 @@ describe('IncrementableScrollList', () => {
 
 	it('should set List index scroll based on "initialIndex" but keeping it in boundaries when higher', () => {
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-				initialIndex={150}
-			/>
+			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={150} />,
 		);
 
 		const listWrapper = getListWrapper(wrapper);
@@ -86,16 +73,9 @@ describe('IncrementableScrollList', () => {
 		expect(listWrapper.prop('scrollToIndex')).toBe(95);
 	});
 
-	it('should render items based on "itemRenderer"', () => {
-		const itemRenderer = jest.fn();
-		itemRenderer.mockReturnValue(
-			<span>
-				something
-			</span>
-		);
-
+	it('should render items', () => {
 		const charlie = { id: 'charlie', label: 'charlie' };
-		const wrapper = shallow(
+		const wrapper = mount(
 			<IncrementableScrollList
 				items={[
 					{ id: 'alpha', label: 'alpha' },
@@ -103,56 +83,29 @@ describe('IncrementableScrollList', () => {
 					charlie,
 					{ id: 'delta', label: 'delta' },
 				]}
-				itemRenderer={itemRenderer}
-			/>
+				onSelect={jest.fn()}
+			/>,
 		);
-
-		const listWrapper = getListWrapper(wrapper);
-		const rowRenderer = listWrapper.prop('rowRenderer');
-
-		const rowRendered = rowRenderer({
-			index: 2,
-			key: 'whatever_uuid',
-			style: {},
-		});
-
-		const rowWrapper = shallow(rowRendered);
-
-		expect(itemRenderer).toHaveBeenCalledWith(charlie);
-		expect(rowWrapper.find('span').first().text()).toBe('something');
+		expect(wrapper.find('PickerAction').length).toBe(4);
 	});
 
 	describe('keep track of first visible row index', () => {
 		it('should initialize first visible row index with 0 when "initialIndex" is no set', () => {
-			const wrapper = shallow(
-				<IncrementableScrollList
-					items={items}
-					itemRenderer={() => {}}
-				/>
-			);
+			const wrapper = shallow(<IncrementableScrollList items={items} onSelect={jest.fn()} />);
 
 			expect(wrapper.state('startIndex')).toBe(0);
 		});
 
 		it('should initialize first visible row index based on "initialIndex"', () => {
 			const wrapper = shallow(
-				<IncrementableScrollList
-					items={items}
-					itemRenderer={() => {}}
-					initialIndex={42}
-				/>
+				<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={42} />,
 			);
 
 			expect(wrapper.state('startIndex')).toBe(42);
 		});
 
 		it('should keep track of first visible row index when internally changed', () => {
-			const wrapper = shallow(
-				<IncrementableScrollList
-					items={items}
-					itemRenderer={() => {}}
-				/>
-			);
+			const wrapper = shallow(<IncrementableScrollList items={items} onSelect={jest.fn()} />);
 			const listWrapper = getListWrapper(wrapper);
 			const onRowsRendered = listWrapper.prop('onRowsRendered');
 
@@ -166,11 +119,7 @@ describe('IncrementableScrollList', () => {
 
 	it('should scroll to the previous 5 items when clicking on the top button', () => {
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-				initialIndex={53}
-			/>
+			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={53} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -188,11 +137,7 @@ describe('IncrementableScrollList', () => {
 
 	it('should scroll to the next 5 items when clicking on the bottom button', () => {
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={items}
-				itemRenderer={() => {}}
-				initialIndex={53}
-			/>
+			<IncrementableScrollList items={items} onSelect={jest.fn()} initialIndex={53} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -212,11 +157,7 @@ describe('IncrementableScrollList', () => {
 		const itemsSpecific = Array(58).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={itemsSpecific}
-				itemRenderer={() => {}}
-				initialIndex={2}
-			/>
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={2} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -236,11 +177,7 @@ describe('IncrementableScrollList', () => {
 		const itemsSpecific = Array(42).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={itemsSpecific}
-				itemRenderer={() => {}}
-				initialIndex={33}
-			/>
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={33} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -260,11 +197,7 @@ describe('IncrementableScrollList', () => {
 		const itemsSpecific = Array(98).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={itemsSpecific}
-				itemRenderer={() => {}}
-				initialIndex={0}
-			/>
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={0} />,
 		);
 
 		const scrollToRow = jest.fn();
@@ -284,11 +217,7 @@ describe('IncrementableScrollList', () => {
 		const itemsSpecific = Array(96).fill();
 
 		const wrapper = shallow(
-			<IncrementableScrollList
-				items={itemsSpecific}
-				itemRenderer={() => {}}
-				initialIndex={92}
-			/>
+			<IncrementableScrollList items={itemsSpecific} onSelect={jest.fn()} initialIndex={92} />,
 		);
 
 		const scrollToRow = jest.fn();

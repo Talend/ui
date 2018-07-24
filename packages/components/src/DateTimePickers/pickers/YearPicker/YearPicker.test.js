@@ -11,10 +11,7 @@ describe('YearPicker', () => {
 	it('should render', () => {
 		mockDate(new Date(2015, 11, 31));
 
-		const wrapper = shallow(<YearPicker
-			selectedYear={2012}
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 
@@ -22,9 +19,7 @@ describe('YearPicker', () => {
 	});
 
 	it('should have the right number of years selectable', () => {
-		const wrapper = shallow(<YearPicker
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
 
 		expect(wrapper.prop('items')).toHaveLength(NB_YEAR_RANGE);
 	});
@@ -33,11 +28,9 @@ describe('YearPicker', () => {
 		const todayYear = 2022;
 		mockDate(new Date(todayYear, 13, 5));
 
-		const wrapper = shallow(<YearPicker
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
 
-		const firstYearExpected = todayYear - (NB_YEAR_RANGE / 2) + 1;
+		const firstYearExpected = todayYear - NB_YEAR_RANGE / 2 + 1;
 		const lastYearExpected = todayYear + NB_YEAR_RANGE / 2;
 
 		const items = wrapper.prop('items');
@@ -52,11 +45,9 @@ describe('YearPicker', () => {
 		const currentYear = 2025;
 		mockDate(new Date(currentYear, 1, 20));
 
-		const wrapper = shallow(<YearPicker
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
 
-		expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(currentYear);
+		expect(wrapper.prop('initialIndex')).toBe(150);
 
 		restoreDate();
 	});
@@ -66,12 +57,9 @@ describe('YearPicker', () => {
 		const selectedYear = 2030;
 		mockDate(new Date(todayYear, 1, 20));
 
-		const wrapper = shallow(<YearPicker
-			selectedYear={selectedYear}
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={() => {}} />);
 
-		expect(wrapper.prop('initialMiddleVisibleItemId')).toBe(selectedYear);
+		expect(wrapper.prop('initialIndex')).toBe(155);
 
 		restoreDate();
 	});
@@ -84,10 +72,7 @@ describe('YearPicker', () => {
 
 		const onSelect = jest.fn();
 
-		const wrapper = shallow(<YearPicker
-			selectedYear={selectedYear}
-			onSelect={onSelect}
-		/>);
+		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={onSelect} />);
 
 		const yearItem = wrapper.prop('items').find(item => item.id === yearToSelect);
 		wrapper.prop('onSelect')(yearItem);

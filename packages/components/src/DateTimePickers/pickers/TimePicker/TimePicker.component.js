@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollActionList from '../IncrementableScrollActionList';
+import IncrementableScrollList from '../IncrementableScrollList';
 
 // All times in this component represents a number of minutes since the beginning of the day
 
@@ -21,14 +21,30 @@ function getInitialTime(selectedTime) {
 	return selectedTime;
 }
 
-class TimePicker extends React.Component {
+function toItemWithDiff(initialTime) {
+	return function adaptWithDiff(item, index) {
+		return {
+			index,
+			item,
+			diff: Math.abs(item.id - initialTime),
+		};
+	};
+}
 
+function selectLowestDiff(previous, next) {
+	if (previous && previous.diff < next.diff) {
+		return previous;
+	}
+	return next;
+}
+
+class TimePicker extends React.Component {
 	constructor(props) {
 		super(props);
+		this.onSelect = this.onSelect.bind(this);
 
 		const nbTimeSelectable = Math.ceil(maxTime / props.interval);
-
-		this.items = (new Array(nbTimeSelectable))
+		this.items = new Array(nbTimeSelectable)
 			.fill(0)
 			.map((_, i) => i * props.interval)
 			.map(time => {
@@ -42,24 +58,20 @@ class TimePicker extends React.Component {
 			});
 
 		const initialTime = getInitialTime(props.selectedTime);
+		this.initialIndex = this.items.map(toItemWithDiff(initialTime)).reduce(selectLowestDiff).index;
+	}
 
-		const closestSelectableTime = this.items
-			.map(item => ({
-				item,
-				diff: Math.abs(item.id - initialTime),
-			}))
-			.sort((a, b) => a.diff - b.diff)[0];
-
-		this.initialMiddleVisibleItemId = closestSelectableTime.item.id;
+	onSelect(item) {
+		return this.props.onSelect(item.id);
 	}
 
 	render() {
 		return (
-			<IncrementableScrollActionList
+			<IncrementableScrollList
+				initialIndex={this.initialIndex}
 				items={this.items}
-				initialMiddleVisibleItemId={this.initialMiddleVisibleItemId}
+				onSelect={this.onSelect}
 				selectedItemId={this.props.selectedTime}
-				onSelect={item => this.props.onSelect(item.id)}
 			/>
 		);
 	}
