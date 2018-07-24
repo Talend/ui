@@ -30,20 +30,18 @@ function Dialog({
 		Action,
 	});
 	const injected = Inject.all(getComponent, components);
-
 	const headerId = 'tc-dialog-header';
-	const a11yProps = {
-		role: 'dialog',
-		'aria-modal': true,
-	};
-	if (header) {
-		a11yProps['aria-labelledby'] = headerId;
-	}
 
 	return (
-		// we disable jsx-a11y/aria-props because the version we use does not consider it valid (bug)
-		// eslint-disable-next-line jsx-a11y/aria-props
-		<Modal bsSize={size} {...a11yProps} {...props}>
+		<Modal
+			bsSize={size}
+			role="dialog"
+			// we disable jsx-a11y/aria-props because the version we use does not consider it valid (bug)
+			// eslint-disable-next-line jsx-a11y/aria-props
+			aria-modal="true"
+			aria-labelledby={header ? headerId : null}
+			{...props}
+		>
 			{injected('before-modal-header')}
 			{header && (
 				<Modal.Header closeButton={closeButton}>

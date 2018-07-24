@@ -3,7 +3,7 @@
 exports[`ConfirmDialog should render with a large container 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
-  aria-modal={true}
+  aria-modal="true"
   bsSize="large"
   className="Modal"
   keyboard={true}
@@ -79,7 +79,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
 exports[`ConfirmDialog should render with a progress bar 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
-  aria-modal={true}
+  aria-modal="true"
   bsSize="large"
   className="Modal"
   keyboard={true}
@@ -168,7 +168,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
 exports[`ConfirmDialog should render with a small container 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
-  aria-modal={true}
+  aria-modal="true"
   bsSize="small"
   className="Modal"
   keyboard={true}
@@ -244,7 +244,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
 exports[`ConfirmDialog should render with additional actions 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
-  aria-modal={true}
+  aria-modal="true"
   bsSize={undefined}
   className="Modal"
   keyboard={true}
@@ -333,7 +333,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
 exports[`ConfirmDialog should render with defaults values 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
-  aria-modal={true}
+  aria-modal="true"
   bsSize={undefined}
   className="Modal"
   keyboard={true}
@@ -408,7 +408,8 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
 
 exports[`ConfirmDialog should render without header 1`] = `
 <div
-  aria-modal={true}
+  aria-labelledby={null}
+  aria-modal="true"
   bsSize={undefined}
   className="Modal"
   keyboard={true}
