@@ -34,6 +34,7 @@ export default function Table({
 				<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
 			<table>
+				{title && <caption>{title}</caption>}
 				{withHeader && (
 					<TableHeader columns={columns} sorters={sorters} onSortChange={onSortChange} />
 				)}
@@ -61,8 +62,10 @@ Table.propTypes = {
 	).isRequired,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			// used to identify a column
+			// property key
 			key: PropTypes.string.isRequired,
+			// column id to link cells to headers
+			id: PropTypes.string.isRequired,
 			// label displayed in the column header
 			label: PropTypes.string,
 			/**

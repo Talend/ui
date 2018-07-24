@@ -20,7 +20,7 @@ function renderHeaderCell(column, sorters, onSortChange) {
 	const key = column.key;
 	const thKey = `th-${key}`;
 	return (
-		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])}>
+		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])} id={column.id}>
 			<HeaderComponent
 				key={column.key}
 				column={column}
@@ -53,6 +53,7 @@ TableHeader.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
+			id: PropTypes.string.isRequired,
 			label: PropTypes.string,
 			headRenderer: PropTypes.func,
 			headExtraProps: PropTypes.object,

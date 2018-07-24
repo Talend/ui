@@ -9,6 +9,7 @@ exports[`single-row 1`] = `
 >
   <td
     className="td-name theme-tc-table-row-cell"
+    headers="my-table-name"
   >
     <div
       className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -18,6 +19,7 @@ exports[`single-row 1`] = `
   </td>
   <td
     className="td-type theme-tc-table-row-cell"
+    headers="my-table-type"
   >
     <div
       className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -27,6 +29,7 @@ exports[`single-row 1`] = `
   </td>
   <td
     className="td-desc theme-tc-table-row-cell"
+    headers="my-table-desc"
   >
     <div
       className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
