@@ -67,7 +67,7 @@ Progress.displayName = 'Progress';
 Progress.propTypes = {
 	id: PropTypes.string,
 	percent: PropTypes.number,
-	tooltip: PropTypes.string,
+	tooltip: PropTypes.string.isRequired,
 	infinite: PropTypes.bool,
 	contained: PropTypes.bool,
 };
