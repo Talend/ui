@@ -16,6 +16,7 @@ function normalize(percent) {
 	return percent;
 }
 
+// TODO aria-valuemin, aria-valuemax, aria-valuenow
 function Progress({ id, percent, tooltip, infinite, contained }) {
 	const normalizedPercent = infinite ? 100 : normalize(percent);
 	const style = { width: `${normalizedPercent}%` };

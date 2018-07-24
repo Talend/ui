@@ -1,9 +1,6 @@
 import React from 'react';
 import VirtualizedList from '../VirtualizedList.component';
-import {
-	insertSelectionConfiguration,
-	toColumns,
-} from './tablerow';
+import { insertSelectionConfiguration, toColumns } from './tablerow';
 
 describe('tablerow', () => {
 	describe('#insertSelectionConfiguration', () => {
@@ -12,16 +9,8 @@ describe('tablerow', () => {
 			const isSelected = jest.fn();
 			const selectionToggle = jest.fn();
 			const children = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					width={50}
-				/>,
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-					width={350}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
@@ -38,16 +27,8 @@ describe('tablerow', () => {
 		it('should NOT insert selection column when selection callback is NOT provided', () => {
 			// given
 			const children = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					width={50}
-				/>,
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-					width={350}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
@@ -82,12 +63,7 @@ describe('tablerow', () => {
 			// given
 			const theme = { cell: 'theme-classname' };
 			const children = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					className={'my-classname'}
-					width={50}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" className={'my-classname'} width={50} />,
 			];
 
 			// when

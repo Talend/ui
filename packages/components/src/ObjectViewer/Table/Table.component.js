@@ -58,6 +58,13 @@ export function buildContentHeaders(headers, schema) {
 	});
 }
 
+/*
+TODO
+- caption for title
+- th with scope (row | col)
+- td headers attribute
+ */
+
 function Table({ flat, data, ...props }) {
 	if (!Array.isArray(data) && !Array.isArray(data.dataset)) {
 		return null;

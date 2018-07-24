@@ -7,15 +7,29 @@ import Fieldset from '../Fieldset';
 import { isValid } from '../../utils/validation';
 import theme from './Tabs.scss';
 
+/* TODO
+- role: tablist
+- role: tab
+- role: tabpanel
+- aria-selected: true|false
+- aria-orientation: horizontal
+- aria-control=id du tabPanel
+
+Behavior:
+- on focus on tablist, the focus should be on active element
+- left/right to focus on previous/next in a circular manner
+- home/end to go to the first/last tab
+- ENTER/SPACE to activate
+
+ARIA Authoring practices 1.1
+ */
+
 export default function Tabs(props) {
 	const { schema, ...restProps } = props;
 	const tabs = schema.items;
 
 	return (
-		<RBTabs
-			className={classNames(theme['tf-tabs'], 'tf-tabs')}
-			id={`${restProps.id}-tabs`}
-		>
+		<RBTabs className={classNames(theme['tf-tabs'], 'tf-tabs')} id={`${restProps.id}-tabs`}>
 			{tabs.map((tabSchema, index) => {
 				const tabIsValid = isValid(tabSchema, restProps.errors);
 				return (
@@ -41,7 +55,7 @@ if (process.env.NODE_ENV !== 'production') {
 				PropTypes.shape({
 					title: PropTypes.string.isRequired,
 					items: PropTypes.array.isRequired,
-				})
+				}),
 			).isRequired,
 		}).isRequired,
 	};

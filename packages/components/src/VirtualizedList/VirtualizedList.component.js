@@ -10,6 +10,8 @@ import theme from './VirtualizedList.scss';
 
 const { LARGE } = listTypes;
 
+// TODO header size when we use FF zoom to 200%
+
 /**
  * Composable List based on react-virtualized
  */

@@ -12,6 +12,8 @@ const DEFAULT_SET_OPTIONS = {
 
 let CodeWidget = TextArea;
 
+// TODO keyboard trap
+
 try {
 	// eslint-disable-next-line global-require,import/no-extraneous-dependencies
 	const AceEditor = require('react-ace').default;
