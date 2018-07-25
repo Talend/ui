@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import ActionButton from '../src/Actions/ActionButton';
-import { PieChartButton, PieChart } from '../src/PieChart';
+import PieChart from '../src/PieChart';
 
 const pieChartData1 = [
 	{
@@ -69,7 +69,7 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.addWithInfo('PieChart default', () => (
+	.addWithInfo('PieChartIcon default', () => (
 		<div>
 			<p>Small :</p>
 			<PieChart display="small" model={pieChartData1} />
@@ -85,6 +85,14 @@ stories
 			<PieChart display="medium" model={pieChartData2} hideLabel />
 			<p>without label to 0% :</p>
 			<PieChart display="medium" model={pieChartData3} />
+			<p>with tooltip :</p>
+			<PieChart
+				display="medium"
+				model={pieChartData3}
+				tooltip
+				label="This is a tooltip"
+				tooltipPlacement="right"
+			/>
 		</div>
 	))
 	.addWithInfo('PieChart lot of sizes', () => (
@@ -112,21 +120,26 @@ stories
 	.addWithInfo('PieChartButton default', () => (
 		<div>
 			<p>Small :</p>
-			<PieChartButton display="small" model={pieChartData1} onClick={onClick} />
+			<PieChart display="small" model={pieChartData1} onClick={onClick} />
 			<p>custom size</p>
-			<PieChartButton size={25} model={pieChartData1} onClick={onClick} />
+			<PieChart size={25} model={pieChartData1} onClick={onClick} />
 			<p>Medium :</p>
-			<PieChartButton display="medium" model={pieChartData1} onMouseDown={onMouseDown} />
+			<PieChart
+				display="medium"
+				model={pieChartData1}
+				onClick={onClick}
+				onMouseDown={onMouseDown}
+			/>
 			<p>Large : </p>
-			<PieChartButton display="large" model={pieChartData1} />
+			<PieChart display="large" model={pieChartData1} onClick={onClick} />
 			<p>with other data :</p>
-			<PieChartButton display="medium" model={pieChartData2} />
+			<PieChart display="medium" model={pieChartData2} onClick={onClick} />
 			<p>without label :</p>
-			<PieChartButton display="medium" model={pieChartData2} hideLabel />
+			<PieChart display="medium" model={pieChartData2} onClick={onClick} hideLabel />
 			<p>without label to 0% :</p>
-			<PieChartButton display="medium" model={pieChartData3} />
+			<PieChart display="medium" model={pieChartData3} onClick={onClick} />
 			<p>with overlay component</p>
-			<PieChartButton
+			<PieChart
 				display="medium"
 				labelIndex={2}
 				model={pieChartData2}
@@ -135,7 +148,7 @@ stories
 				onClick={onClick}
 			/>
 			<p>with a tooltip</p>
-			<PieChartButton
+			<PieChart
 				display="medium"
 				model={pieChartData2}
 				label="this is a tooltip"

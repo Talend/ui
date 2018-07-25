@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import PieChartButton, {
 	decorateWithOverlay,
-	decorateWithTooltip,
 	wrapMouseEvent,
 } from './PieChartButton.component';
 
@@ -131,28 +130,6 @@ describe('decorateWithOverlay', () => {
 		}
 		mount(<OverlayCmp />);
 		expect(myBindRef).toHaveBeenCalled();
-	});
-});
-
-describe('decorateWithTooltip', () => {
-	it('should return the same component if no tooltip passed', () => {
-		// given
-		const btn = <div className="fake-button-element" />;
-		// when
-		const modified = decorateWithTooltip(btn, false, 'label', 'top');
-		// then
-		expect(modified).toBe(btn);
-	});
-
-	it('should return the component wrapped with tooltip', () => {
-		// given
-		const btn = <div className="fake-button-element" />;
-		// when
-		const modified = decorateWithTooltip(btn, true, 'label', 'top');
-
-		// then
-		expect(modified).not.toBe(btn);
-		expect(modified).toMatchSnapshot();
 	});
 });
 

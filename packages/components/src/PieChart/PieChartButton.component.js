@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import classnames from 'classnames';
-import PieChart, { pieChartPropTypes } from './PieChart.component';
-import TooltipTrigger from '../TooltipTrigger';
+import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
 import theme from './PieChart.scss';
 
 /**
@@ -36,24 +35,6 @@ export function decorateWithOverlay(
 				{btn}
 			</OverlayTrigger>
 		</span>
-	);
-}
-
-/**
- * This function wrap the button with a TooltipTrigger
- * @param {Element} btn the button element ( may be wrapped by overlay trigger )
- * @param {boolean} tooltip tell if the tooltip has to be showed
- * @param {string} label the label to show on the tooltip
- * @param {string} tooltipPlacement the tooltip placement
- */
-export function decorateWithTooltip(btn, tooltip, label, tooltipPlacement) {
-	if (!tooltip || !label) {
-		return btn;
-	}
-	return (
-		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			{btn}
-		</TooltipTrigger>
 	);
 }
 
@@ -94,8 +75,6 @@ export default function PieChartButtonComponent({
 	overlayPlacement,
 	overlayRef,
 	size,
-	tooltip,
-	tooltipPlacement,
 	...rest
 }) {
 	if (!available) {
@@ -103,7 +82,7 @@ export default function PieChartButtonComponent({
 	}
 	const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
-	let btn = (
+	const btn = (
 		<Button
 			className={classnames(theme['tc-pie-chart-button'], 'tc-pie-chart-button', className)}
 			onMouseDown={rMouseDown}
@@ -113,7 +92,7 @@ export default function PieChartButtonComponent({
 			role="button"
 			{...rest}
 		>
-			<PieChart
+			<PieChartIcon
 				display={display}
 				hideLabel={hideLabel}
 				labelIndex={labelIndex}
@@ -124,12 +103,11 @@ export default function PieChartButtonComponent({
 			/>
 		</Button>
 	);
-	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
-	return decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
+	return decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId, overlayRef);
 }
 
 PieChartButtonComponent.propTypes = {
-	...pieChartPropTypes,
+	...pieChartIconPropTypes,
 	available: PropTypes.bool,
 	buttonRef: PropTypes.func,
 	className: PropTypes.string,
@@ -141,15 +119,12 @@ PieChartButtonComponent.propTypes = {
 	overlayId: PropTypes.string,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
-	tooltip: PropTypes.bool,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 
 PieChartButtonComponent.defaultProps = {
 	available: true,
 	overlayId: 'pie-chart-popover',
 	overlayPlacement: 'bottom',
-	tooltipPlacement: 'top',
 };
 
 PieChartButtonComponent.displayName = 'PieChartButton';

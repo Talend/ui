@@ -62,9 +62,9 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 	}
 }
 
-.tc-pie-chart {
+.tc-pie-chart-icon {
 	font-size: $tc-pie-chart-font-size;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 
 	background-color: transparent;
