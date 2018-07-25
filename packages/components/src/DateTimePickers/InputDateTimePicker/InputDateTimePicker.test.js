@@ -288,7 +288,7 @@ describe('InputDateTimePicker', () => {
 			});
 		});
 
-		it('should retrieve the correct date and input from input value', () => {
+		it('should retrieve the correct date and time from input value when both are valid', () => {
 			const validFormatValuesWithExpection = [
 				[' 2017-2-1     1:10  ', new Date(2017, 1, 1, 1, 10)],
 				['2016-07-03 12:36', new Date(2016, 6, 3, 12, 36)],
@@ -316,6 +316,62 @@ describe('InputDateTimePicker', () => {
 				const expectedMinutes = getMinutes(expected);
 				const expectedTime = expectedHours * 60 + expectedMinutes;
 				expect(wrapper.state('time')).toBe(expectedTime);
+			});
+		});
+
+		it('should retrieve a correct date even when the global format is invalid', () => {
+			const stringValuesWithExpection = [
+				[' 2017-2-1    ', new Date(2017, 1, 1)],
+				['2016-07-03', new Date(2016, 6, 3)],
+				['  2022-12-19 654654', new Date(2022, 11, 19)],
+			];
+
+			const wrapper = shallow(
+				<InputDateTimePicker
+					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
+					onChange={() => {}}
+					onError={() => {}}
+				/>
+			);
+
+			const inputWrapper = wrapper.find('input');
+			stringValuesWithExpection.forEach(([string, expected]) => {
+				inputWrapper.prop('onChange')({
+					target: {
+						value: string,
+					},
+				});
+
+				expect(isSameDay(wrapper.state('date'), expected)).toBe(true);
+				expect(wrapper.state('time')).toBeUndefined();
+			});
+		});
+
+		it('should retrieve a correct time even when the global format is invalid', () => {
+			const stringValuesWithExpection = [
+				[' 10:32    ', 10 * 60 + 32],
+				['11:43', 11 * 60 + 43],
+				[' dfgsdfg   14:12 ', 14 * 60 + 12],
+			];
+
+			const wrapper = shallow(
+				<InputDateTimePicker
+					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
+					onChange={() => {}}
+					onError={() => {}}
+				/>
+			);
+
+			const inputWrapper = wrapper.find('input');
+			stringValuesWithExpection.forEach(([string, expected]) => {
+				inputWrapper.prop('onChange')({
+					target: {
+						value: string,
+					},
+				});
+
+				expect(wrapper.state('date')).toBeUndefined();
+				expect(wrapper.state('time')).toBe(expected);
 			});
 		});
 	});
@@ -392,7 +448,16 @@ describe('InputDateTimePicker', () => {
 		});
 
 		it('should callback with undefined when the datetime change with an invalid input value', () => {
-			const testedValue = '20005-09-25 02:46';
+			const validString = '2005-01-01 10:00';
+			const testedValues = [
+				'20005-09-25 02:46',
+				'2005-09-25',
+				'   2005-09-25  ',
+				'   2005-09-25  qsdfdsf',
+				'10:32',
+				'  10:32  ',
+				' qsdfdqsf 10:32  ',
+			];
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
@@ -404,13 +469,23 @@ describe('InputDateTimePicker', () => {
 			);
 
 			const inputWrapper = wrapper.find('input');
-			inputWrapper.prop('onChange')({
-				target: {
-					value: testedValue,
-				},
-			});
 
-			expect(onChange).toHaveBeenCalledWith(undefined);
+			testedValues.forEach(string => {
+				inputWrapper.prop('onChange')({
+					target: {
+						value: validString,
+					},
+				});
+				onChange.mockReset();
+
+				inputWrapper.prop('onChange')({
+					target: {
+						value: string,
+					},
+				});
+
+				expect(onChange).toHaveBeenCalledWith(undefined);
+			});
 		});
 
 		it('should callback with the correct date when the datetime change with the picker', () => {
