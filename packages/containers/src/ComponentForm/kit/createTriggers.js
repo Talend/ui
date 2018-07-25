@@ -69,10 +69,7 @@ export function normalizePath(specPath, schema) {
 export function extractParameters(parameters, properties, schema) {
 	// parameters is an Array
 	return parameters.reduce((acc, param) => {
-		const value = get(
-			properties,
-			normalizePath(param.path, schema),
-		);
+		const value = get(properties, normalizePath(param.path, schema));
 		return Object.assign(acc, flatten(value, param.key));
 	}, {});
 }
