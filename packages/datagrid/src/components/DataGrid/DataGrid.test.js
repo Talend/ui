@@ -9,8 +9,6 @@ import DataGrid, {
 	injectedCellRenderer,
 	injectedHeaderRenderer,
 	AG_GRID,
-	getRowDataInfos,
-	redrawRows,
 } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
@@ -173,6 +171,62 @@ describe('#DataGrid', () => {
 	it('should render DataGrid', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should not call forceRedrawRowsFn when the DataGrid is loading', () => {
+		const forceRedrawRowsFn = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} loading />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRowsFn).not.toHaveBeenCalled();
+	});
+
+	it('should not call forceRedrawRowsFn when the DataGrid is not ready', () => {
+		const forceRedrawRowsFn = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRowsFn).not.toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when forceRedrawRowsFn return true', () => {
+		const forceRedrawRowsFn = jest.fn(() => true);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRowsFn).toHaveBeenCalled();
+		expect(redrawRows).toHaveBeenCalled();
+	});
+
+	it('should not call redrawRows when forceRedrawRowsFn return false', () => {
+		const forceRedrawRowsFn = jest.fn(() => false);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRowsFn).toHaveBeenCalled();
+		expect(redrawRows).not.toHaveBeenCalled();
 	});
 
 	it('should render DataGrid with columnsDefs and rowData', () => {
@@ -720,130 +774,5 @@ describe('#injectedHeaderRenderer', () => {
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
 		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
-	});
-});
-
-describe('getRowDataInfos', () => {
-	it('should return the metadata of the rowdata', () => {
-		// given
-		const rowData = [
-			{
-				loading: false,
-				'indexes.index': 0,
-			},
-			{
-				loading: false,
-				'indexes.index': 1,
-			},
-			{
-				loading: true,
-				'indexes.index': 2,
-			},
-			{
-				loading: false,
-				'indexes.index': 3,
-				'data.text': 'hello',
-			},
-			{
-				loading: false,
-				'indexes.index': 4,
-				'data.text': 'hello',
-			},
-			{
-				loading: false,
-				'indexes.index': 5,
-				'data.text': 'hello',
-			},
-		];
-		// when
-		const result = getRowDataInfos(rowData);
-		// then
-		expect(result).toEqual({
-			notLoaded: 2,
-			loading: 1,
-			loaded: 3,
-		});
-	});
-});
-
-describe('redrawRows', () => {
-	it('should not call redrawRows when the component is loading', () => {
-		const redrawRowsFn = jest.fn();
-
-		redrawRows(
-			{
-				loading: true,
-			},
-			{ redrawRows: redrawRowsFn },
-			{
-				rowData: [{ loading: true }],
-			},
-		);
-
-		expect(redrawRowsFn).not.toHaveBeenCalled();
-	});
-
-	it('should not call redrawRows when the component has not gridAPI', () => {
-		const redrawRowsFn = jest.fn();
-
-		redrawRows(
-			{
-				rowData: [{ loading: false }],
-			},
-			null,
-			{
-				rowData: [],
-			},
-		);
-
-		expect(redrawRowsFn).not.toHaveBeenCalled();
-	});
-
-	it('should call redrawRows when loading state change', () => {
-		const redrawRowsFn = jest.fn();
-
-		redrawRows(
-			{
-				rowData: [{ loading: false }],
-			},
-			{ redrawRows: redrawRowsFn },
-			{
-				rowData: [],
-			},
-		);
-
-		expect(redrawRowsFn).toHaveBeenCalled();
-	});
-
-	it('should call redrawRows when loaded state change', () => {
-		const redrawRowsFn = jest.fn();
-
-		redrawRows(
-			{
-				rowData: [{}],
-			},
-			{ redrawRows: redrawRowsFn },
-			{
-				rowData: [],
-			},
-		);
-
-		expect(redrawRowsFn).toHaveBeenCalled();
-	});
-
-	it('should call redrawRows when notLoaded state change', () => {
-		const redrawRowsFn = jest.fn();
-
-		redrawRows(
-			{
-				rowData: [{ loading: false, 'indexes.index': 1 }],
-			},
-			{ redrawRows: redrawRowsFn },
-			{
-				rowData: [],
-			},
-		);
-
-		expect(redrawRowsFn).toHaveBeenCalled();
 	});
 });

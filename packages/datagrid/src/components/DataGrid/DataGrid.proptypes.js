@@ -31,6 +31,7 @@ const DATAGRID_PROPTYPES = {
 	deltaRowDataMode: PropTypes.bool,
 	rowBuffer: PropTypes.number,
 	rowNodeIdentifier: PropTypes.string,
+	forceRedrawRowsFn: PropTypes.func,
 };
 
 export default DATAGRID_PROPTYPES;
