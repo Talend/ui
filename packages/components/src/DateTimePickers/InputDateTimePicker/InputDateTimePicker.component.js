@@ -16,9 +16,10 @@ import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
-const splitDateAndTimeRegex = new RegExp(/^(.*),(.*)$/);
-const dateRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
-const timeRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
+const dateRegexPart = '([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})';
+const timeRegexPart = '([0-9]{1,2}):([0-9]{2})';
+const dateTimeRegex = new RegExp(`^\\s*${dateRegexPart}\\s*${timeRegexPart}\\s*$`);
+
 
 function hoursAndMinutesToTime(hours, minutes) {
 	return hours * 60 + minutes;
@@ -44,7 +45,7 @@ function getTextDate(date, time) {
 
 	const timeText = `${twoDigits(hours)}:${twoDigits(minutes)}`;
 
-	return `${dateText}, ${timeText}`;
+	return `${dateText} ${timeText}`;
 }
 
 
@@ -92,7 +93,7 @@ class InputDateTimePicker extends React.Component {
 	onChangeInput(event) {
 		const text = event.target.value;
 
-		const splitMatches = text.match(splitDateAndTimeRegex);
+		const splitMatches = text.match(dateTimeRegex);
 
 		if (!splitMatches) {
 			const errMsg = 'DATETIME - INCORRECT FORMAT';
@@ -102,24 +103,14 @@ class InputDateTimePicker extends React.Component {
 
 		const [
 			,
-			dateText,
-			timeText,
+			yearString,
+			monthString,
+			dayString,
+			hoursString,
+			minutesString,
 		] = splitMatches;
 
 		const [date, errMsgDate] = (() => {
-			const dateMatches = dateText.match(dateRegex);
-			if (!dateMatches) {
-				const errMsg = 'DATE - INCORRECT FORMAT';
-				return [undefined, errMsg];
-			}
-
-			const [
-				,
-				yearString,
-				monthString,
-				dayString,
-			] = dateMatches;
-
 			const day = parseInt(dayString, 10);
 			const month = parseInt(monthString, 10);
 			const monthIndex = month - 1;
@@ -150,18 +141,6 @@ class InputDateTimePicker extends React.Component {
 
 
 		const [time, errMsgTime] = (() => {
-			const timeMatches = timeText.match(timeRegex);
-			if (!timeMatches) {
-				const errMsg = 'TIME - INCORRECT FORMAT';
-				return [undefined, errMsg];
-			}
-
-			const [
-				,
-				hoursString,
-				minutesString,
-			] = timeMatches;
-
 			const hours = parseInt(hoursString, 10);
 
 			if (hours >= 24) {
