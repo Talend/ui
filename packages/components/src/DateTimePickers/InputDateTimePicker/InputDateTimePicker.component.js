@@ -49,6 +49,7 @@ class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func.isRequired,
+		inputProps: PropTypes.object,
 	};
 
 	constructor(props) {
@@ -201,6 +202,7 @@ class InputDateTimePicker extends React.Component {
 		return (
 			<div>
 				<input
+					{...this.props.inputProps}
 					type="text"
 					placeholder="DD/MM/YYYY, hh:mm"
 					value={textInput}

@@ -15,6 +15,9 @@ storiesOf('DateTimePicker', module)
 				<InputDateTimePicker
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 					onChange={console.log}
+					inputProps={{
+						name: 'Datetime',
+					}}
 				/>
 			</div>
 		</div>
