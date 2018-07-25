@@ -5,13 +5,20 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.test.js
   366:1  error  Line 366 exceeds the maximum line length of 100  max-len
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/form-trigger.js
-  25:2   warning  Unexpected console statement  no-console
-  34:39  error    Unary operator '++' used      no-plusplus
-  39:4   error    Unary operator '++' used      no-plusplus
-  44:3   error    Unary operator '++' used      no-plusplus
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
+  30:2   warning  Unexpected console statement  no-console
+  43:39  error    Unary operator '++' used      no-plusplus
+  48:4   error    Unary operator '++' used      no-plusplus
+  53:3   error    Unary operator '++' used      no-plusplus
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/service.js
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.test.js
+  2:2  error  'normalizePath' is defined but never used      no-unused-vars
+  3:2  error  'extractParameters' is defined but never used  no-unused-vars
+  4:2  error  'createCacheKey' is defined but never used     no-unused-vars
+  5:2  error  'toJSON' is defined but never used             no-unused-vars
+  6:2  error  'toURL' is defined but never used              no-unused-vars
+
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/defaultRegistry.js
   75:8  error  'mutable' is never reassigned. Use 'const' instead  prefer-const
   77:5  error  Unexpected use of continue statement                no-continue
   83:8  error  Expected indentation of 6 tabs but found 7          indent
@@ -28,5 +35,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 14 problems (13 errors, 1 warning)
+✖ 19 problems (18 errors, 1 warning)
 
