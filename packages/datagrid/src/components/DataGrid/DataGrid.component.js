@@ -93,7 +93,7 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
-		if (this.props.forceRedrawRowsFn && this.props.forceRedrawRowsFn(this.props, prevProps)) {
+		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
 			this.gridAPI.redrawRows();
 		}
 	}

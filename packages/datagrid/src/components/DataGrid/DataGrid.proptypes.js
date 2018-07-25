@@ -12,6 +12,7 @@ const DATAGRID_PROPTYPES = {
 	loading: PropTypes.bool,
 	enableColResize: PropTypes.bool,
 	columnMinWidth: PropTypes.number,
+	forceRedrawRows: PropTypes.func,
 	getComponent: PropTypes.func,
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
@@ -31,7 +32,6 @@ const DATAGRID_PROPTYPES = {
 	deltaRowDataMode: PropTypes.bool,
 	rowBuffer: PropTypes.number,
 	rowNodeIdentifier: PropTypes.string,
-	forceRedrawRowsFn: PropTypes.func,
 };
 
 export default DATAGRID_PROPTYPES;

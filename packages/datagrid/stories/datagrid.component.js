@@ -9,7 +9,7 @@ import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
 
-function forceRedrawRowsFn(props, oldProps) {
+function forceRedrawRows(props, oldProps) {
 	return props.rowData[0].loading !== oldProps.rowData[0].loading;
 }
 
@@ -157,7 +157,7 @@ storiesOf('Component Datagrid')
 							data={this.state.sample}
 							rowData={serializer.getRowData(this.state.sample)}
 							rowSelection="multiple"
-							forceRedrawRowsFn={forceRedrawRowsFn}
+							forceRedrawRows={forceRedrawRows}
 						/>
 					</div>
 				);

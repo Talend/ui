@@ -173,31 +173,31 @@ describe('#DataGrid', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should not call forceRedrawRowsFn when the DataGrid is loading', () => {
-		const forceRedrawRowsFn = jest.fn(() => true);
+	it('should not call forceRedrawRows when the DataGrid is loading', () => {
+		const forceRedrawRows = jest.fn(() => true);
 		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} loading />,
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
 		);
 
 		wrapper.instance().componentDidUpdate();
-		expect(forceRedrawRowsFn).not.toHaveBeenCalled();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
-	it('should not call forceRedrawRowsFn when the DataGrid is not ready', () => {
-		const forceRedrawRowsFn = jest.fn(() => true);
+	it('should not call forceRedrawRows when the DataGrid is not ready', () => {
+		const forceRedrawRows = jest.fn(() => true);
 		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} />,
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
 		);
 
 		wrapper.instance().componentDidUpdate();
-		expect(forceRedrawRowsFn).not.toHaveBeenCalled();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
-	it('should call redrawRows when forceRedrawRowsFn return true', () => {
-		const forceRedrawRowsFn = jest.fn(() => true);
+	it('should call redrawRows when forceRedrawRows return true', () => {
+		const forceRedrawRows = jest.fn(() => true);
 		const redrawRows = jest.fn();
 		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} rowData={[]} />,
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
 		);
 
 		wrapper.instance().onGridReady({
@@ -207,15 +207,15 @@ describe('#DataGrid', () => {
 		});
 		wrapper.instance().componentDidUpdate();
 
-		expect(forceRedrawRowsFn).toHaveBeenCalled();
+		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).toHaveBeenCalled();
 	});
 
-	it('should not call redrawRows when forceRedrawRowsFn return false', () => {
-		const forceRedrawRowsFn = jest.fn(() => false);
+	it('should not call redrawRows when forceRedrawRows return false', () => {
+		const forceRedrawRows = jest.fn(() => false);
 		const redrawRows = jest.fn();
 		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRowsFn={forceRedrawRowsFn} rowData={[]} />,
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
 		);
 
 		wrapper.instance().onGridReady({
@@ -225,7 +225,7 @@ describe('#DataGrid', () => {
 		});
 		wrapper.instance().componentDidUpdate();
 
-		expect(forceRedrawRowsFn).toHaveBeenCalled();
+		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).not.toHaveBeenCalled();
 	});
 
