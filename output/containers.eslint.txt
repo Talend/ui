@@ -2,20 +2,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.test.js
-  366:1  error  Line 366 exceeds the maximum line length of 100  max-len
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
-  31:2  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/defaultRegistry.js
-  75:8  error  'mutable' is never reassigned. Use 'const' instead  prefer-const
-  77:5  error  Unexpected use of continue statement                no-continue
-  83:8  error  Expected indentation of 6 tabs but found 7          indent
-  83:8  error  Assignment to property of function parameter 'a'    no-param-reassign
-  84:8  error  Expected indentation of 6 tabs but found 7          indent
-  85:2  error  Mixed spaces and tabs                               no-mixed-spaces-and-tabs
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
@@ -25,5 +11,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 3 problems (3 errors, 0 warnings)
 
