@@ -1,9 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PieChartButton, {
-	decorateWithOverlay,
-	wrapMouseEvent,
-} from './PieChartButton.component';
+import PieChartButton, { decorateWithOverlay, wrapMouseEvent } from './PieChartButton.component';
 
 describe('PieChartButton', () => {
 	describe('snapshots render', () => {
