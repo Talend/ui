@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IncrementableScrollList from '../IncrementableScrollList';
 import PickerAction from '../../PickerAction';
+import twoDigits from '../../utils/twoDigits';
 
 // All times in this component represents a number of minutes since the beginning of the day
 
 const maxTime = 24 * 60;
-
-export function twoDigits(number) {
-	return number.toLocaleString(undefined, {
-		minimumIntegerDigits: 2,
-	});
-}
 
 class TimePicker extends React.Component {
 
