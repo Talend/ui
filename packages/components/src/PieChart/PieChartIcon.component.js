@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { arc } from 'd3-shape';
 import { translate } from 'react-i18next';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import Skeleton from '../Skeleton';
@@ -296,8 +297,11 @@ export function PieChartIconComponent({
 	}
 	const labelValue = getShowedValue(model, labelIndex);
 	const preparedValues = setMinimumPercentage(model, minimumPercentage);
+	// Here we are omitting the props from i18n,
+	// to keep only the event listener from the TooltipTrigger.
+	const omitI18N = omit(rest, ['i18n', 'tReady']);
 	return (
-		<span className={classnames(theme['tc-pie-chart-icon'], 'tc-pie-icon-chart')} {...rest}>
+		<span className={classnames(theme['tc-pie-chart-icon'], 'tc-pie-icon-chart')} {...omitI18N}>
 			<svg
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}

@@ -33,7 +33,6 @@ exports[`PieChartButton container should render 1`] = `
   overlayComponent={null}
   overlayId="pie-chart-popover"
   overlayPlacement="bottom"
-  tooltipPlacement="top"
 />
 `;
 
@@ -70,6 +69,5 @@ exports[`PieChartButton container should render 2`] = `
   overlayComponent={null}
   overlayId="pie-chart-popover"
   overlayPlacement="bottom"
-  tooltipPlacement="top"
 />
 `;

@@ -26,10 +26,10 @@ exports[`PieChart getEmptyPartCircle should get return a path for the rest 1`] =
 
 exports[`PieChart snapshots render should render a PieChart 1`] = `
 <span
-  className="theme-tc-pie-chart tc-pie-chart"
+  className="theme-tc-pie-chart-icon tc-pie-icon-chart"
 >
   <svg
-    className="theme-tc-pie-chart-graph tc-pie-chart-graph"
+    className="theme-tc-pie-chart-icon-graph tc-pie-chart-icon-graph"
     height={20}
     style={
       Object {
@@ -71,7 +71,7 @@ exports[`PieChart snapshots render should render a PieChart 1`] = `
     />
   </svg>
   <div
-    className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+    className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
   >
     50%
   </div>
