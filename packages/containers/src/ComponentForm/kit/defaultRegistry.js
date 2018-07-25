@@ -48,6 +48,12 @@ function validation({ schema, body, errors = {} }) {
 	return { errors: getNewErrors(errors, schema, errorMessage) };
 }
 
+function schemaReducer(acc, entry) {
+	// eslint-disable-next-line no-param-reassign
+	acc[entry.name] = entry.type;
+	return acc;
+}
+
 /**
  * Insert new form data
  * @param schema The input schema
@@ -63,27 +69,27 @@ function updateSchema({ schema, body, properties, trigger, errors }) {
 
 	if (body.entries && trigger.options && trigger.options.length !== 0) {
 		newProperties = clonedeep(properties);
-		for (const { path, type } of trigger.options) {
+		newProperties = trigger.options.reduce((acc, option) => {
+			const { path, type } = option;
 			let parentPath = path;
-			let directChildPath = path;
+			let lastPath = path;
 			const lastDot = path.lastIndexOf('.');
+			let pointer = acc;
 			if (lastDot > 0) {
 				parentPath = path.substring(0, lastDot);
-				directChildPath = path.substring(lastDot + 1);
+				lastPath = path.substring(lastDot + 1);
+				pointer = get(acc, parentPath);
+				if (!pointer) {
+					return acc;
+				}
 			}
-
-			let mutable = parentPath === path ? newProperties : get(newProperties, parentPath);
-			if (!mutable) {
-				continue;
+			if (type === 'array') {
+				pointer[lastPath] = body.entries.map(entry => entry.name);
+			} else {
+				pointer[lastPath] = body.entries.reduce(schemaReducer, {});
 			}
-			mutable[directChildPath] =
-				type === 'array'
-					? body.entries.map(e => e.name)
-					: body.entries.reduce((a, e) => {
-							a[e.name] = e.type;
-							return a;
-					  }, {});
-		}
+			return acc;
+		}, newProperties);
 	}
 	return {
 		properties: newProperties,

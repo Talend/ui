@@ -363,7 +363,9 @@ describe('ComponentForm', () => {
 			it('should set cmf state with errors, and schemas', () => {
 				// given
 				const setState = jest.fn();
-				const wrapper = shallow(<TCompForm state={state} setState={setState} dispatch={jest.fn()} />);
+				const wrapper = shallow(
+					<TCompForm state={state} setState={setState} dispatch={jest.fn()} />,
+				);
 				const trigger = wrapper.instance().trigger;
 				const data = {
 					errors: {},
