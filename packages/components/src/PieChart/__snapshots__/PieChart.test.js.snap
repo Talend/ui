@@ -12,7 +12,7 @@ exports[`PieChart should render a PieChartButton 1`] = `
 exports[`PieChart should render a PieChartIcon with a tooltip 1`] = `
 <TooltipTrigger
   label="myToolTip"
-  tooltipPlacement={undefined}
+  tooltipPlacement="top"
 >
   <Translate(PieChartIcon)
     label="myToolTip"
