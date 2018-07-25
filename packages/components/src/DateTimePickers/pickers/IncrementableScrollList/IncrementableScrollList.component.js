@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AutoSizer, List } from 'react-virtualized';
 import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
-import IconButton from '../../IconButton';
+import IconButton from '../../shared/components/IconButton';
 
 class IncrementableScrollList extends React.Component {
 

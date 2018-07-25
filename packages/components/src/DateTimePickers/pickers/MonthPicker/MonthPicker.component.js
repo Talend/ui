@@ -4,7 +4,7 @@ import { chunk } from 'lodash';
 import addMonths from 'date-fns/add_months';
 import format from 'date-fns/format';
 import theme from './MonthPicker.scss';
-import PickerAction from '../../PickerAction';
+import PickerAction from '../../shared/components/PickerAction';
 
 const baseDate = new Date(0);
 const indexes = (new Array(12))

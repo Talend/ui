@@ -4,7 +4,7 @@ import MonthPicker from '../../pickers/MonthPicker';
 import YearPicker from '../../pickers/YearPicker';
 import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
-import IconButton from '../../IconButton';
+import IconButton from '../../shared/components/IconButton';
 import HeaderTitle from '../HeaderTitle';
 
 function MonthYearView(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IncrementableScrollList from '../IncrementableScrollList';
-import PickerAction from '../../PickerAction';
+import PickerAction from '../../shared/components/PickerAction';
 
 const yearRange = 300;
 

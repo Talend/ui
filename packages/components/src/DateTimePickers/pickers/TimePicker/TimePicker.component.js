@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IncrementableScrollList from '../IncrementableScrollList';
-import PickerAction from '../../PickerAction';
-import twoDigits from '../../utils/twoDigits';
+import PickerAction from '../../shared/components/PickerAction';
+import twoDigits from '../../shared/utils/format/twoDigits';
 
 // All times in this component represents a number of minutes since the beginning of the day
 

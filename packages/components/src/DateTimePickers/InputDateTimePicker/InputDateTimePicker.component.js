@@ -9,7 +9,7 @@ import getYear from 'date-fns/get_year';
 import setDate from 'date-fns/set_date';
 import setMinutes from 'date-fns/set_minutes';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
-import twoDigits from '../utils/twoDigits';
+import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
