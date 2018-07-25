@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IncrementableScrollList from '../IncrementableScrollList';
-import PickerAction from '../../PickerAction';
 
 // All times in this component represents a number of minutes since the beginning of the day
 
@@ -13,14 +12,39 @@ export function twoDigits(number) {
 	});
 }
 
-class TimePicker extends React.Component {
+function getInitialTime(selectedTime) {
+	if (selectedTime === undefined) {
+		const now = new Date();
+		return now.getHours() * 60 + now.getMinutes();
+	}
 
+	return selectedTime;
+}
+
+function toItemWithDiff(initialTime) {
+	return function adaptWithDiff(item, index) {
+		return {
+			index,
+			item,
+			diff: Math.abs(item.id - initialTime),
+		};
+	};
+}
+
+function selectLowestDiff(previous, next) {
+	if (previous && previous.diff < next.diff) {
+		return previous;
+	}
+	return next;
+}
+
+class TimePicker extends React.Component {
 	constructor(props) {
 		super(props);
+		this.onSelect = this.onSelect.bind(this);
 
 		const nbTimeSelectable = Math.ceil(maxTime / props.interval);
-
-		this.times = (new Array(nbTimeSelectable))
+		this.items = new Array(nbTimeSelectable)
 			.fill(0)
 			.map((_, i) => i * props.interval)
 			.map(time => {
@@ -28,54 +52,26 @@ class TimePicker extends React.Component {
 				const minutes = time % 60;
 
 				return {
-					time,
+					id: time,
 					label: `${twoDigits(hours)}:${twoDigits(minutes)}`,
 				};
 			});
 
-		const initialTime = (() => {
-			if (props.selectedTime !== undefined) {
-				return props.selectedTime;
-			}
-
-			const now = new Date();
-			return now.getHours() * 60 + now.getMinutes();
-		})();
-
-		const closestSelectableTime = this.times
-			.map(({ time }, index) => ({
-				index,
-				diff: Math.abs(time - initialTime),
-			}))
-			.sort((a, b) => a.diff - b.diff)[0] || 0;
-
-		this.initialIndex = closestSelectableTime.index - 2;
-
-		this.isSelected = this.isSelected.bind(this);
+		const initialTime = getInitialTime(props.selectedTime);
+		this.initialIndex = this.items.map(toItemWithDiff(initialTime)).reduce(selectLowestDiff).index;
 	}
 
-	isSelected(time) {
-		return time === this.props.selectedTime;
+	onSelect(item) {
+		return this.props.onSelect(item.id);
 	}
 
 	render() {
-		const itemRenderer = item => {
-			const { time, label } = item;
-			return (
-				<PickerAction
-					aria-label={`Select '${label}'`}
-					isSelected={this.isSelected(time)}
-					label={label}
-					onClick={() => this.props.onSelect(time)}
-				/>
-			);
-		};
-
 		return (
 			<IncrementableScrollList
-				items={this.times}
 				initialIndex={this.initialIndex}
-				itemRenderer={itemRenderer}
+				items={this.items}
+				onSelect={this.onSelect}
+				selectedItemId={this.props.selectedTime}
 			/>
 		);
 	}

@@ -4,18 +4,31 @@ import { AutoSizer, List } from 'react-virtualized';
 import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
 import IconButton from '../../IconButton';
+import RowRenderer from './RowRenderer';
+
+function keepInBoundaries(number, min, max) {
+	if (number < min) {
+		return min;
+	}
+	if (number > max) {
+		return max;
+	}
+	return number;
+}
+
+const NB_ITEMS_DISPLAYED = 5;
 
 class IncrementableScrollList extends React.Component {
-
 	constructor(props) {
 		super(props);
+		const firstIndex = 0;
+		const lastIndex = this.props.items.length - NB_ITEMS_DISPLAYED;
 
-		this.initialIndex = props.initialIndex === undefined
-			? 0
-			: props.initialIndex;
+		const startIndex = Math.max(this.props.initialIndex - Math.floor(NB_ITEMS_DISPLAYED / 2), 0);
+		this.scrollToIndex = keepInBoundaries(startIndex, firstIndex, lastIndex);
 
 		this.state = {
-			startIndex: this.initialIndex,
+			startIndex: this.scrollToIndex,
 		};
 
 		this.scrollUp = this.scrollRows.bind(this, -5);
@@ -26,7 +39,6 @@ class IncrementableScrollList extends React.Component {
 
 	onRowsRendered(data) {
 		const { startIndex } = data;
-
 		this.setState({ startIndex });
 	}
 
@@ -35,34 +47,24 @@ class IncrementableScrollList extends React.Component {
 	}
 
 	scrollRows(increment) {
-		const newRowIndex = this.state.startIndex + increment;
+		const firstIndex = 0;
+		const lastIndex = this.props.items.length - NB_ITEMS_DISPLAYED;
+		const needToScroll =
+			(increment < 0 && this.state.startIndex > firstIndex) ||
+			(increment > 0 && this.state.startIndex < lastIndex);
+
+		if (!needToScroll) {
+			return;
+		}
+
+		const incrementedIndex = this.state.startIndex + increment;
+		const newRowIndex = keepInBoundaries(incrementedIndex, firstIndex, lastIndex);
 		this.listRef.scrollToRow(newRowIndex);
 	}
 
 	render() {
-		// Define new function in each render because item rendered can change
-		// new function reference enforce recomputing items
-		const rowRenderer = data => {
-			const {
-				index,
-				key,
-				style,
-			} = data;
-
-			const item = this.props.items[index];
-
-			return (
-				<div
-					key={key}
-					style={style}
-				>
-					{this.props.itemRenderer(item)}
-				</div>
-			);
-		};
-
 		return (
-			<div className={theme.container}>
+			<div className={`tc-picker-scrollable-list ${theme.container}`}>
 				<IconButton
 					icon={{
 						name: 'talend-chevron-left',
@@ -72,23 +74,26 @@ class IncrementableScrollList extends React.Component {
 					aria-label="Scroll to previous page"
 					onClick={this.scrollUp}
 				/>
-				<div className={theme.items}>
+				<div className={`tc-picker-scrollable-list-items ${theme.items}`}>
 					<AutoSizer>
 						{({ height, width, scrollTop }) => {
-							const rowHeight = height / 5;
+							const rowHeight = height / NB_ITEMS_DISPLAYED;
 							return (
 								<List
 									ref={this.setListRef}
 									height={height}
+									items={this.props.items}
 									overscanRowCount={5}
 									rowCount={this.props.items.length}
 									rowHeight={rowHeight}
-									rowRenderer={rowRenderer}
+									rowRenderer={RowRenderer}
 									scrollToAlignment={'start'}
-									scrollToIndex={this.initialIndex}
+									scrollToIndex={this.scrollToIndex}
 									width={width}
 									scrollTop={scrollTop}
+									selectedItemId={this.props.selectedItemId}
 									onRowsRendered={this.onRowsRendered}
+									onSelect={this.props.onSelect}
 								/>
 							);
 						}}
@@ -110,8 +115,13 @@ class IncrementableScrollList extends React.Component {
 
 IncrementableScrollList.propTypes = {
 	items: PropTypes.array.isRequired,
-	itemRenderer: PropTypes.func.isRequired,
 	initialIndex: PropTypes.number,
+	selectedItemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	onSelect: PropTypes.func.isRequired,
+};
+
+IncrementableScrollList.defaultProps = {
+	initialIndex: 0,
 };
 
 export default IncrementableScrollList;
