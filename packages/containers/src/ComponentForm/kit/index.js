@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-import createTriggers from './form-trigger';
+import createTriggers from './createTriggers';
 import flatten from './flatten';
 
 export default {

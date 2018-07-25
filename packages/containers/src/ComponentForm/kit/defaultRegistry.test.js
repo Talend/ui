@@ -1,10 +1,10 @@
-import service from './service';
+import service from './defaultRegistry';
 
 const schema = { key: 'foo' };
 const errorMsg = 'Sth went wrong';
 const errors = { foo: errorMsg };
 
-describe('service', () => {
+describe('defaultRegistry', () => {
 	describe('schema', () => {
 		it('return new properties from body.entries', () => {
 			// given

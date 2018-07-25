@@ -43,7 +43,7 @@ function getNewErrors(errors, schema, errorMessage) {
  * @param errors The form errors map
  * @returns {{errors: *}} The new errors map
  */
-function validation({ schema, body, errors }) {
+function validation({ schema, body, errors = {} }) {
 	const errorMessage = body.status === 'KO' ? body.comment : undefined;
 	return { errors: getNewErrors(errors, schema, errorMessage) };
 }

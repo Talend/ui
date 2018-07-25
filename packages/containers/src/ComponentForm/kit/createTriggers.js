@@ -19,13 +19,22 @@ import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
 
 import flatten from './flatten';
-import defaultRegistry from './service';
+import defaultRegistry from './defaultRegistry';
+
+const DEFAULT_HEADERS = {
+	'Content-Type': 'application/json',
+	Accept: 'application/json',
+};
 
 function noOpTrigger({ error, trigger }) {
 	console.error(`${JSON.stringify(trigger)} failed with error ${error || '-'}`);
 }
 
-function normalizePath(specPath, contextualPathItems) {
+export function normalizePath(specPath, schema) {
+	if (!schema) {
+		return specPath;
+	}
+	const contextualPathItems = schema.key;
 	if (!specPath || !contextualPathItems) {
 		return specPath;
 	}
@@ -57,30 +66,26 @@ function normalizePath(specPath, contextualPathItems) {
 	// }, '')
 }
 
-function extractRequestPayload(parameters, properties, schema) {
-	const payload = {};
+export function extractParameters(parameters, properties, schema) {
 	// parameters is an Array
-	for (const param of parameters) {
+	return parameters.reduce((acc, param) => {
 		const value = get(
 			properties,
-			schema && schema.key ? normalizePath(param.path, schema.key) : param.path,
+			normalizePath(param.path, schema),
 		);
-		Object.assign(payload, flatten(value, param.key));
+		return Object.assign(acc, flatten(value, param.key));
+	}, {});
+}
+
+export function createCacheKey(trigger) {
+	if (trigger.type === 'suggestions') {
+		return undefined;
 	}
-
-	return payload;
-}
-
-function isCacheable(triggerType) {
-	return triggerType === 'suggestions';
-}
-
-function createCacheKey(trigger) {
 	const cacheKeyParams = (trigger.parameters || []).map(it => it.path).join('#');
 	return `trigger.type#trigger.family#trigger.action##${cacheKeyParams}`;
 }
 
-function toJSON(resp) {
+export function toJSON(resp) {
 	if (!resp.ok || resp.status >= 300) {
 		return resp.text().then(error => {
 			let json;
@@ -95,36 +100,39 @@ function toJSON(resp) {
 	return resp.json();
 }
 
+export function toURL(obj) {
+	return Object.keys(obj)
+		.map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
+		.join('&');
+}
+
 // customRegistry can be used to add extensions or custom trigger
 // (not portable accross integrations)
-export default function getDefaultTrigger({ url, customRegistry, lang, headers }) {
+export default function createTriggers({ url, customRegistry, lang = 'en', headers, fetchConfig }) {
+	if (!url) {
+		throw new Error('url params is required to createTriggers');
+	}
 	const cache = {};
-	const actualHeaders = merge(
-		{
-			'Content-Type': 'application/json',
-			Accept: 'application/json',
-		},
-		headers,
-	);
+	const actualHeaders = merge({}, DEFAULT_HEADERS, headers);
 	return function onDefaultTrigger(event, { trigger, schema, properties, errors }) {
 		const services = {
 			...defaultRegistry,
 			...customRegistry,
 		};
-		const payload = extractRequestPayload(trigger.parameters, properties, schema);
-		const cacheKey = isCacheable(trigger.type) ? createCacheKey(trigger) : undefined;
+		const parameters = extractParameters(trigger.parameters, properties, schema);
+		const cacheKey = createCacheKey(trigger);
 		if (cacheKey) {
 			if (
 				cache[cacheKey] &&
 				cache[cacheKey].result &&
-				isEqual(cache[cacheKey].parameters, payload)
+				isEqual(cache[cacheKey].parameters, parameters)
 			) {
 				return Promise.resolve(cache[cacheKey].result);
 			} else if (cache[cacheKey]) {
 				delete cache[cacheKey];
 			}
 		}
-		function callTrigger(body) {
+		function onSuccess(body) {
 			const result = (services[trigger.type] || noOpTrigger)({
 				body,
 				errors,
@@ -134,7 +142,7 @@ export default function getDefaultTrigger({ url, customRegistry, lang, headers }
 			});
 			if (body.cacheable) {
 				cache[cacheKey] = {
-					parameters: payload,
+					parameters,
 					result,
 				};
 			}
@@ -149,17 +157,21 @@ export default function getDefaultTrigger({ url, customRegistry, lang, headers }
 				trigger,
 			});
 		}
-		const fetchUrl = `${url}?lang=${encodeURIComponent(lang || 'en')}&action=${encodeURIComponent(
-			trigger.action,
-		)}&family=${encodeURIComponent(trigger.family)}&type=${encodeURIComponent(trigger.type)}`;
+		const fetchUrl = `${url}?${toURL({
+			lang,
+			action: trigger.action,
+			family: trigger.family,
+			type: trigger.type,
+		})}`;
 		return fetch(fetchUrl, {
 			method: 'POST',
 			headers: actualHeaders,
-			body: JSON.stringify(payload),
+			body: JSON.stringify(parameters),
 			credentials: 'include',
+			...fetchConfig,
 		})
 			.then(toJSON)
-			.then(callTrigger)
+			.then(onSuccess)
 			.catch(onError);
 	};
 }
