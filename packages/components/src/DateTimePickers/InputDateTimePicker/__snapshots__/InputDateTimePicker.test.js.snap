@@ -6,7 +6,7 @@ exports[`InputDateTimePicker render should render 1`] = `
     onChange={[Function]}
     placeholder="DD/MM/YYYY, hh:mm"
     type="text"
-    value="04/04/2017, 15:27"
+    value="2017-04-04, 15:27"
   />
   <div
     className="theme-dropdown"

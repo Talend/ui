@@ -32,7 +32,7 @@ describe('InputDateTimePicker', () => {
 
 			const date = new Date(2016, 6, 25);
 			const time = 456;
-			const textInput = '25/05/2016, 07:36';
+			const textInput = '2016-05-25, 07:36';
 
 			wrapper.setState({
 				date,
@@ -68,7 +68,7 @@ describe('InputDateTimePicker', () => {
 			expect(testedTime).toBe(expectedTime);
 
 			const testedTextInput = wrapper.state('textInput');
-			const expectedTextInput = '04/04/2015, 12:36';
+			const expectedTextInput = '2015-04-04, 12:36';
 			expect(testedTextInput).toBe(expectedTextInput);
 		});
 
@@ -90,9 +90,9 @@ describe('InputDateTimePicker', () => {
 		describe('undefined values', () => {
 			it('should have undefined date and time values when global format is wrong', () => {
 				const invalidFormatValues = [
-					'05/06/2023 10:00',
-					'05/06/2023|10:00',
-					'05/06/2023.10:00',
+					'2023-06-05 10:00',
+					'2023-06-05|10:00',
+					'2023-06-05.10:00',
 				];
 
 				const wrapper = shallow(
@@ -119,9 +119,9 @@ describe('InputDateTimePicker', () => {
 			describe('date', () => {
 				it('should have undefined date when date part format is wrong', () => {
 					const invalidFormatValues = [
-						'05/06/023, 10:00',
-						'/06/2023, 10:00',
-						'05//2023, 10:00',
+						'023-06-05, 10:00',
+						'2023-06-, 10:00',
+						'2023--05, 10:00',
 					];
 
 					const wrapper = shallow(
@@ -145,8 +145,8 @@ describe('InputDateTimePicker', () => {
 
 				it('should have undefined date if month is before 1 or after 12', () => {
 					const invalidFormatValues = [
-						'05/0/2023, 10:00',
-						'05/13/2023, 10:00',
+						'2023-0-05, 10:00',
+						'2023-13-05, 10:00',
 					];
 
 					const wrapper = shallow(
@@ -169,7 +169,7 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should have undefined date if day is before 1', () => {
-					const invalidFormatValue = '0/02/2023, 10:00';
+					const invalidFormatValue = '2023-02-0, 10:00';
 
 					const wrapper = shallow(
 						<InputDateTimePicker
@@ -190,8 +190,8 @@ describe('InputDateTimePicker', () => {
 
 				it('should have undefined date if day is after the last day of month', () => {
 					const invalidFormatValues = [
-						'31/06/2018, 10:00',
-						'29/02/2018, 10:00',
+						'2018-06-31, 10:00',
+						'2018-02-29, 10:00',
 					];
 
 					const wrapper = shallow(
@@ -217,13 +217,13 @@ describe('InputDateTimePicker', () => {
 			describe('time', () => {
 				it('should have undefined time when time part format is wrong', () => {
 					const invalidFormatValues = [
-						'01/01/2000, sldfkj',
-						'01/01/2000, 10|00',
-						'01/01/2000, 10:',
-						'01/01/2000, 10:1',
-						'01/01/2000, 10:123',
-						'01/01/2000, :11',
-						'01/01/2000, 123:11',
+						'2000-01-01, sldfkj',
+						'2000-01-01, 10|00',
+						'2000-01-01, 10:',
+						'2000-01-01, 10:1',
+						'2000-01-01, 10:123',
+						'2000-01-01, :11',
+						'2000-01-01, 123:11',
 					];
 
 					const wrapper = shallow(
@@ -246,7 +246,7 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should have undefined time when hour is after 23', () => {
-					const invalidFormatValue = '01/01/2000, 24:35';
+					const invalidFormatValue = '2000-01-01, 24:35';
 
 					const wrapper = shallow(
 						<InputDateTimePicker
@@ -266,7 +266,7 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should have undefined time when minutes is after 59', () => {
-					const invalidFormatValue = '01/01/2000, 12:65';
+					const invalidFormatValue = '2000-01-01, 12:65';
 
 					const wrapper = shallow(
 						<InputDateTimePicker
@@ -289,9 +289,9 @@ describe('InputDateTimePicker', () => {
 
 		it('should retrieve the correct date and input from input value', () => {
 			const validFormatValuesWithExpection = [
-				[' 1/2/2017   ,  1:10  ', new Date(2017, 1, 1, 1, 10)],
-				['03/07/2016, 12:36', new Date(2016, 6, 3, 12, 36)],
-				['19/12/2022, 23:59', new Date(2022, 11, 19, 23, 59)],
+				[' 2017-2-1   ,  1:10  ', new Date(2017, 1, 1, 1, 10)],
+				['2016-07-03, 12:36', new Date(2016, 6, 3, 12, 36)],
+				['2022-12-19, 23:59', new Date(2022, 11, 19, 23, 59)],
 			];
 
 			const wrapper = shallow(
@@ -362,14 +362,14 @@ describe('InputDateTimePicker', () => {
 				time: testedTime,
 			});
 
-			expect(wrapper.state('textInput')).toBe('30/12/2015, 20:50');
+			expect(wrapper.state('textInput')).toBe('2015-12-30, 20:50');
 		});
 	});
 
 
 	describe('callback onChange', () => {
 		it('should callback with the correct date when the datetime change with the input', () => {
-			const testedValue = '25/09/2005, 02:46';
+			const testedValue = '2005-09-25, 02:46';
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
@@ -391,7 +391,7 @@ describe('InputDateTimePicker', () => {
 		});
 
 		it('should callback with undefined when the datetime change with an invalid input value', () => {
-			const testedValue = '25/09/20005, 02:46';
+			const testedValue = '20005-09-25, 02:46';
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
@@ -469,7 +469,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should not callback if datetime has not changed from a defined value', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const validIdenticalInput = '01/01/2015 , 10:35';
+			const validIdenticalInput = '2015-01-01 , 10:35';
 			const pickerIndenticalDatas = {
 				date: new Date(2015, 0, 1),
 				time: 10 * 60 + 35,
@@ -531,7 +531,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should callback with error message when month number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const invalidInput = '01/15/2018, 00:00';
+			const invalidInput = '2018-15-01, 00:00';
 
 			const onError = jest.fn();
 
@@ -556,7 +556,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should callback with error message when day number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const invalidInput = '36/10/2018, 00:00';
+			const invalidInput = '2018-10-36, 00:00';
 
 			const onError = jest.fn();
 
@@ -581,7 +581,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should callback with error message when hours number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const invalidInput = '01/10/2018, 36:00';
+			const invalidInput = '2018-10-01, 36:00';
 
 			const onError = jest.fn();
 
@@ -606,7 +606,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should callback with error message when minutes number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const invalidInput = '01/10/2018, 00:70';
+			const invalidInput = '2018-10-01, 00:70';
 
 			const onError = jest.fn();
 
@@ -632,7 +632,7 @@ describe('InputDateTimePicker', () => {
 		it('should callback with no error message (undefined) when input has been correctly parsed while it was invalid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const invalidInput = 'kjqhsdfkhsd';
-			const validInput = '01/10/2018, 00:55';
+			const validInput = '2018-10-01, 00:55';
 
 			const onError = jest.fn();
 
@@ -666,8 +666,8 @@ describe('InputDateTimePicker', () => {
 
 		it('should callback if error message has changed', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const firstInvalidInput = '01/72/2018, 00:00';
-			const secondValidInput = '01/05/2018, 42:00';
+			const firstInvalidInput = '2018-72-01, 00:00';
+			const secondValidInput = '2018-05-01, 42:00';
 
 			const onError = jest.fn();
 
@@ -701,8 +701,8 @@ describe('InputDateTimePicker', () => {
 
 		it('should not callback if error message has not changed', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const firstInvalidInput = '01/72/2018, 00:00';
-			const secondValidInput = '01/42/2018, 00:00';
+			const firstInvalidInput = '2018-72-01, 00:00';
+			const secondValidInput = '2018-42-01, 00:00';
 
 			const onError = jest.fn();
 
@@ -735,7 +735,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should not callback if still no error when changed with input or picker', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
-			const validInput = '01/09/2018, 12:26';
+			const validInput = '2018-09-01, 12:26';
 			const pickerDatas = {
 				date: new Date(2020, 3, 6),
 				time: 23 * 60 + 45,

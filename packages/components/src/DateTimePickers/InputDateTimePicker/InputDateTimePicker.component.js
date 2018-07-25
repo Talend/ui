@@ -17,7 +17,7 @@ import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
 const splitDateAndTimeRegex = new RegExp(/^(.*),(.*)$/);
-const dateRegex = new RegExp(/^\s*([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})\s*$/);
+const dateRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
 const timeRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
 
 function hoursAndMinutesToTime(hours, minutes) {
@@ -33,7 +33,7 @@ function getTextDate(date, time) {
 	const month = getMonth(date) + 1;
 	const year = getYear(date);
 
-	const dateText = `${twoDigits(day)}/${twoDigits(month)}/${year}`;
+	const dateText = `${year}-${twoDigits(month)}-${twoDigits(day)}`;
 
 	if (time === undefined) {
 		return dateText;
@@ -42,9 +42,9 @@ function getTextDate(date, time) {
 	const hours = Math.floor(time / 60);
 	const minutes = time % 60;
 
-	const timeText = `, ${twoDigits(hours)}:${twoDigits(minutes)}`;
+	const timeText = `${twoDigits(hours)}:${twoDigits(minutes)}`;
 
-	return dateText + timeText;
+	return `${dateText}, ${timeText}`;
 }
 
 
@@ -115,9 +115,9 @@ class InputDateTimePicker extends React.Component {
 
 			const [
 				,
-				dayString,
-				monthString,
 				yearString,
+				monthString,
+				dayString,
 			] = dateMatches;
 
 			const day = parseInt(dayString, 10);
