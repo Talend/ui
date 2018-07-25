@@ -1,4 +1,5 @@
 import has from 'lodash/has';
+import omit from 'lodash/omit';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -40,15 +41,12 @@ SubHeaderBarActions.propTypes = {
 	hasRight: PropTypes.bool,
 };
 
-function CustomInject({ getComponent, left, right, center, nowrap, ...props }) {
-	if (nowrap) {
-		return <Inject getComponent={getComponent} {...props} />;
-	}
-	return (
-		<SubHeaderBarActions left={left} right={right} center={center}>
-			<Inject getComponent={getComponent} {...props} />
-		</SubHeaderBarActions>
-	);
+function CustomInject(props) {
+	// These (omitted) props have been used in previous
+	// implementation for the __wrappers__ of the injected components
+	// If we don't omit them they will be passed to the injected components
+	// That would be a __breaking change__
+	return <Inject {...omit(props, ['left', 'right', 'center', 'nowrap'])} />;
 }
 CustomInject.propTypes = {
 	nowrap: PropTypes.bool,
