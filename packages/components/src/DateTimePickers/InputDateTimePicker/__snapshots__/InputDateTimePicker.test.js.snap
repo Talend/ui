@@ -13,7 +13,7 @@ exports[`InputDateTimePicker render should render 1`] = `
   >
     <DateTimePicker
       onSubmit={[Function]}
-      selectedDate={2017-04-04T13:27:00.000Z}
+      selectedDate={2017-04-03T22:00:00.000Z}
       selectedTime={927}
     />
   </div>

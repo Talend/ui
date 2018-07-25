@@ -9,6 +9,9 @@ import getYear from 'date-fns/get_year';
 import setDate from 'date-fns/set_date';
 import setMinutes from 'date-fns/set_minutes';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
+import isSameMinute from 'date-fns/is_same_minute';
+import startOfDay from 'date-fns/start_of_day';
+import startOfMinute from 'date-fns/start_of_minute';
 import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
@@ -49,6 +52,7 @@ class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func.isRequired,
+		onError: PropTypes.func.isRequired,
 		inputProps: PropTypes.object,
 	};
 
@@ -58,13 +62,16 @@ class InputDateTimePicker extends React.Component {
 		this.state = (() => {
 			const selectedDateTime = this.props.selectedDateTime;
 			if (selectedDateTime !== undefined) {
-				const date = selectedDateTime;
+				const date = startOfDay(selectedDateTime);
 				const hours = getHours(selectedDateTime);
 				const minutes = getMinutes(selectedDateTime);
 				const time = hoursAndMinutesToTime(hours, minutes);
+				const fullDate = startOfMinute(selectedDateTime);
+
 				return {
 					date,
 					time,
+					lastFullDate: fullDate,
 					textInput: getTextDate(date, time),
 				};
 			}
@@ -88,8 +95,8 @@ class InputDateTimePicker extends React.Component {
 		const splitMatches = text.match(splitDateAndTimeRegex);
 
 		if (!splitMatches) {
-			console.warn('DATETIME - INCORRECT FORMAT:', text);
-			this.updateDateTime(undefined, undefined, text);
+			const errMsg = 'DATETIME - INCORRECT FORMAT';
+			this.updateDateTime(undefined, undefined, text, errMsg);
 			return;
 		}
 
@@ -99,11 +106,11 @@ class InputDateTimePicker extends React.Component {
 			timeText,
 		] = splitMatches;
 
-		const date = (() => {
+		const [date, errMsgDate] = (() => {
 			const dateMatches = dateText.match(dateRegex);
 			if (!dateMatches) {
-				console.warn('DATE - INCORRECT FORMAT:', dateText);
-				return undefined;
+				const errMsg = 'DATE - INCORRECT FORMAT';
+				return [undefined, errMsg];
 			}
 
 			const [
@@ -119,34 +126,34 @@ class InputDateTimePicker extends React.Component {
 			const year = parseInt(yearString, 10);
 
 			if (month === 0 || month > 12) {
-				console.warn('DATE - INCORRECT MONTH NUMBER:', dateText);
-				return undefined;
+				const errMsg = 'DATE - INCORRECT MONTH NUMBER';
+				return [undefined, errMsg];
 			}
 
 			if (day === 0) {
-				console.warn('DATE - INCORRECT DAY NUMBER:', dateText);
-				return undefined;
+				const errMsg = 'DATE - INCORRECT DAY NUMBER';
+				return [undefined, errMsg];
 			}
 
 			const monthDate = new Date(year, monthIndex);
 			const lastDateOfMonth = lastDayOfMonth(monthDate);
 
 			if (day > getDate(lastDateOfMonth)) {
-				console.warn('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH:', dateText);
-				return undefined;
+				const errMsg = 'DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH';
+				return [undefined, errMsg];
 			}
 
 			const dateValidated = setDate(monthDate, day);
 
-			return dateValidated;
+			return [dateValidated];
 		})();
 
 
-		const time = (() => {
+		const [time, errMsgTime] = (() => {
 			const timeMatches = timeText.match(timeRegex);
 			if (!timeMatches) {
-				console.warn('TIME - INCORRECT FORMAT:', timeText);
-				return undefined;
+				const errMsg = 'TIME - INCORRECT FORMAT';
+				return [undefined, errMsg];
 			}
 
 			const [
@@ -158,30 +165,27 @@ class InputDateTimePicker extends React.Component {
 			const hours = parseInt(hoursString, 10);
 
 			if (hours >= 24) {
-				console.warn('TIME - INCORRECT HOUR NUMBER:', timeText);
-				return undefined;
+				const errMsg = 'TIME - INCORRECT HOUR NUMBER';
+				return [undefined, errMsg];
 			}
 
 			const minutes = parseInt(minutesString, 10);
 
 			if (minutes >= 60) {
-				console.warn('TIME - INCORRECT MINUTES NUMBER:', timeText);
-				return undefined;
+				const errMsg = 'TIME - INCORRECT MINUTES NUMBER';
+				return [undefined, errMsg];
 			}
 
-			return hoursAndMinutesToTime(hours, minutes);
+			const timeValidated = hoursAndMinutesToTime(hours, minutes);
+
+			return [timeValidated];
 		})();
 
-		this.updateDateTime(date, time, text);
+		const errMsg = errMsgDate || errMsgTime;
+		this.updateDateTime(date, time, text, errMsg);
 	}
 
-	updateDateTime(date, time, textInput = getTextDate(date, time)) {
-		this.setState({
-			date,
-			time,
-			textInput,
-		});
-
+	updateDateTime(date, time, textInput = getTextDate(date, time), errorMsg) {
 		const fullDate = (() => {
 			if (date === undefined || time === undefined) {
 				return undefined;
@@ -189,7 +193,26 @@ class InputDateTimePicker extends React.Component {
 
 			return setMinutes(date, time);
 		})();
-		this.props.onChange(fullDate);
+
+		const fullDateUpdated = fullDate !== this.state.lastFullDate
+								&& !isSameMinute(fullDate, this.state.lastFullDate);
+
+		if (fullDateUpdated) {
+			this.props.onChange(fullDate);
+		}
+
+		const errorUpdated = errorMsg !== this.state.lastErrMsg;
+		if (errorUpdated) {
+			this.props.onError(errorMsg);
+		}
+
+		this.setState({
+			date,
+			time,
+			textInput,
+			lastFullDate: fullDate,
+			lastErrMsg: errorMsg,
+		});
 	}
 
 	render() {
