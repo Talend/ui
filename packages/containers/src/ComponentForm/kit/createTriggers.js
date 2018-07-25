@@ -13,6 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+/* eslint-disable no-param-reassign */
 
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
@@ -30,7 +31,15 @@ function noOpTrigger({ error, trigger }) {
 	console.error(`${JSON.stringify(trigger)} failed with error ${error || '-'}`);
 }
 
-export function normalizePath(specPath, schema) {
+/**
+ * array are describe without their index
+ * use the schema to guess the path to use
+ * to get the value in the properties
+ * @param {string} specPath the path provided by the trigger
+ * @param {Object} schema the schema of the current field
+ * @return {string} path to get the value in properties
+ */
+export function getPathWithArrayIndex(specPath, schema) {
 	if (!schema) {
 		return specPath;
 	}
@@ -38,51 +47,47 @@ export function normalizePath(specPath, schema) {
 	if (!specPath || !contextualPathItems) {
 		return specPath;
 	}
-	const segments = specPath.split('.');
 	let keyIndex = 0;
-	for (let i = 0; i < segments.length; i++) {
-		if (
-			keyIndex < contextualPathItems.length &&
-			segments[i].indexOf('[]') === segments[i].length - '[]'.length
-		) {
-			keyIndex++; // browse the index and then we are back aligned on the object browsing
-			segments[i] = `${segments[i].substring(0, segments[i].length - '[]'.length)}[${
-				contextualPathItems[keyIndex]
-			}]`;
+	const schemaKey = schema.key;
+	return specPath.split('.').reduce((acc, current) => {
+		if (acc) {
+			acc += '.';
 		}
-		keyIndex++;
-	}
-	return segments.join('.');
-	// specPath.split('.').reduce((acc, current, i) => {
-	// 	if (acc) {
-	// 		acc += '.';
-	// 	}
-	// 	if (
-	// 		keyIndex < contextualPathItems.length &&
-	// 		current.indexOf('[]') === current.length - 2 //'[]'.length
-	// 	) {
-
-	// 	}
-	// }, '')
+		if (current.endsWith('[]')) {
+			acc += `${current.substring(0, current.length - 1)}${schemaKey[keyIndex + 1]}]`;
+			keyIndex += 2;
+		} else {
+			acc += current;
+			keyIndex += 1;
+		}
+		return acc;
+	}, '');
 }
 
+/**
+ * extract parameters from properties
+ * @param {Array} parameters required
+ * @param {Object} properties source of the data
+ * @param {Object} schema of the current field the trigger is executed
+ * @return {Object} payload of the trigger
+ */
 export function extractParameters(parameters, properties, schema) {
-	// parameters is an Array
+	if (!parameters || !Array.isArray(parameters)) {
+		return {};
+	}
 	return parameters.reduce((acc, param) => {
-		const value = get(
-			properties,
-			normalizePath(param.path, schema),
-		);
+		const value = get(properties, getPathWithArrayIndex(param.path, schema));
 		return Object.assign(acc, flatten(value, param.key));
 	}, {});
 }
 
 export function createCacheKey(trigger) {
-	if (trigger.type === 'suggestions') {
+	if (trigger.type !== 'suggestions' || (trigger.parameters || []).length === 0) {
 		return undefined;
 	}
-	const cacheKeyParams = (trigger.parameters || []).map(it => it.path).join('#');
-	return `trigger.type#trigger.family#trigger.action##${cacheKeyParams}`;
+	return `${trigger.type}:${trigger.family}:${trigger.action}:${(trigger.parameters || [])
+		.map(it => it.path)
+		.join(':')}`;
 }
 
 export function toJSON(resp) {
@@ -100,7 +105,7 @@ export function toJSON(resp) {
 	return resp.json();
 }
 
-export function toURL(obj) {
+export function toQueryParam(obj) {
 	return Object.keys(obj)
 		.map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
 		.join('&');
@@ -157,7 +162,7 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 				trigger,
 			});
 		}
-		const fetchUrl = `${url}?${toURL({
+		const fetchUrl = `${url}?${toQueryParam({
 			lang,
 			action: trigger.action,
 			family: trigger.family,
