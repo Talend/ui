@@ -7,6 +7,7 @@ import MapperComponent from './Mapper.component.js';
 import DataAccessorWrapper from './DataAccessor/DataAccessorWrapper';
 import { Constants } from './index';
 import * as TestData from './TestData';
+import { DraggableComponent } from '@talend/react-components';
 
 function getElementByName(elements, name) {
 	return elements.find(elem => elem.props.element.name === name);
