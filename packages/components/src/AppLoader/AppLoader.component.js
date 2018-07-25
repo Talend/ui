@@ -8,9 +8,8 @@ export function AppLoaderComponent({ t }) {
 	return (
 		<div
 			className="tc-app-loader-container"
-			aria-atomic="true"
-			aria-busy="true"
 			aria-label={t('APP_LOADER_LOADING', { defaultValue: 'Loading application' })}
+			role="status"
 		>
 			<div className="tc-app-loader-icon">
 				<div className="tc-app-loader">

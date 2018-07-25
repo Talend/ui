@@ -1,5 +1,4 @@
 import { fork, cancel, take, takeEvery } from 'redux-saga/effects';
-import curry from 'lodash/curry';
 import CONST from '../constant';
 import registry from '../registry';
 
@@ -24,11 +23,9 @@ export function get(id, context) {
 
 export const registerMany = registry.getRegisterMany(register);
 
-export const isActionCancelable = curry(
-	(startAction, action) =>
-		action.type === `${CONST.WILL_UNMOUNT_SAGA_STOP}_${startAction.saga}` &&
-		startAction.event.componentId === action.event.componentId,
-);
+export const isActionCancelable = startAction => action =>
+	action.type === `${CONST.WILL_UNMOUNT_SAGA_STOP}_${startAction.saga}` &&
+	startAction.event.componentId === action.event.componentId;
 
 export function* onSagaStart(action) {
 	const isSagaInfoAnObject = typeof action.saga === 'object';
