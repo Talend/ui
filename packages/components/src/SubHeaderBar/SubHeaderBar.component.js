@@ -79,8 +79,8 @@ function SubHeaderBar({
 			<Renderer.ActionBar
 				className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}
 			>
-				{injected('left')}
 				<SubHeaderBarActions left>
+					{injected('left')}
 					{injected('before-back')}
 					{onGoBack && (
 						<Renderer.Action
@@ -96,34 +96,23 @@ function SubHeaderBar({
 					{injected('before-title')}
 					<InputTitleSubHeader t={t} {...rest} />
 					{injected('after-title')}
+					{Array.isArray(left) &&
+						left.map((item, index) => <Renderer.Action key={index} {...item} />)}
 				</SubHeaderBarActions>
-				{Array.isArray(left) && (
-					<SubHeaderBarActions left>
-						{left.map((item, index) => <Renderer.Action key={index} {...item} />)}
-					</SubHeaderBarActions>
-				)}
-				{injected('center')}
-				{Array.isArray(center) &&
-					center.map((item, index) => (
-						<SubHeaderBarActions center hasRight={hasRight} key={index}>
-							<Renderer.Action key={index} {...item} />
-						</SubHeaderBarActions>
-					))}
-				{injected('right')}
-				{Array.isArray(right) &&
-					right.map((item, index) => (
-						<SubHeaderBarActions
-							className={classNames(
-								theme['tc-subheader-navbar-right'],
-								'tc-subheader-navbar-right',
-							)}
-							key={index}
-							right
-						>
-							<Renderer.Action key={index} {...item} />
-						</SubHeaderBarActions>
-					))}
-				{injected('after-right')}
+				<SubHeaderBarActions center hasRight={hasRight}>
+					{injected('center')}
+					{Array.isArray(center) &&
+						center.map((item, index) => <Renderer.Action key={index} {...item} />)}
+				</SubHeaderBarActions>
+				<SubHeaderBarActions
+					className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
+					right
+				>
+					{injected('right')}
+					{Array.isArray(right) &&
+						right.map((item, index) => <Renderer.Action key={index} {...item} />)}
+					{injected('after-right')}
+				</SubHeaderBarActions>
 			</Renderer.ActionBar>
 			{injected('after-actionbar')}
 		</header>
