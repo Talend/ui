@@ -164,4 +164,78 @@ describe('Widget component', () => {
 		// then
 		expect(wrapper.getElement()).toBe(null);
 	});
+
+	it('should render widget when conditions are using shouldBe=true', () => {
+		const uiSpec = {
+			...schema,
+			conditions: [{ path: 'user.firstname', values: ['my firstname'], shouldBe: false }],
+		};
+
+		// negative case
+		expect(
+			shallow(
+				<Widget
+					schema={uiSpec}
+					properties={{
+						user: {
+							firstname: 'my firstname',
+						},
+					}}
+					errors={errors}
+				/>,
+			).getElement(),
+		).toBe(null);
+		// positive case
+		expect(
+			shallow(
+				<Widget
+					schema={uiSpec}
+					properties={{
+						user: {
+							firstname: 'not my firstname',
+						},
+					}}
+					errors={errors}
+				/>,
+			).getElement(),
+		).not.toBe(null);
+	});
+
+	it('should render widget when conditions are using an evaluation strategy', () => {
+		const uiSpec = {
+			...schema,
+			conditions: [{ path: 'user.names', values: [1], strategy: 'length' }],
+		};
+
+		// negative cases
+		[undefined, [], ['foo', 'bar']].forEach(names => {
+			expect(
+				shallow(
+					<Widget
+						schema={uiSpec}
+						properties={{
+							user: {
+								names,
+							},
+						}}
+						errors={errors}
+					/>,
+				).getElement(),
+			).toBe(null);
+		});
+		// positive case
+		expect(
+			shallow(
+				<Widget
+					schema={uiSpec}
+					properties={{
+						user: {
+							names: ['my firstname'],
+						},
+					}}
+					errors={errors}
+				/>,
+			).getElement(),
+		).not.toBe(null);
+	});
 });

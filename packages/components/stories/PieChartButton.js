@@ -20,7 +20,7 @@ const pieChartData1 = [
 		percentage: 1,
 	},
 	{
-		color: 'slate-gray',
+		color: 'dove-gray',
 		percentage: 4,
 	},
 	{
@@ -43,14 +43,14 @@ const pieChartData2 = [
 		percentage: 60,
 	},
 	{
-		color: 'slate-gray',
+		color: 'dove-gray',
 		percentage: 2,
 	},
 ];
 
 const pieChartData3 = [
 	{
-		color: 'slate-gray',
+		color: 'dove-gray',
 		percentage: 0,
 	},
 ];
