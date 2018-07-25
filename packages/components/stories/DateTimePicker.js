@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
 import DateTimePicker, { InputDateTimePicker } from '../src/DateTimePickers';
@@ -14,7 +15,7 @@ storiesOf('DateTimePicker', module)
 			<div>
 				<InputDateTimePicker
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-					onChange={console.log}
+					onChange={action('onChange (DateTime)')}
 					inputProps={{
 						name: 'Datetime',
 					}}
@@ -35,7 +36,7 @@ storiesOf('DateTimePicker', module)
 
 			<div style={{ width: '320px', border: '1px solid black' }}>
 				<DateTimePicker
-					onSubmit={console.log}
+					onSubmit={action('onSubmit (Date and time)')}
 				/>
 			</div>
 		</div>
