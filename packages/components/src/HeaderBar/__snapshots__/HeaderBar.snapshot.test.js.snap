@@ -798,7 +798,6 @@ exports[`Storyshots HeaderBar default 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -808,7 +807,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -1421,7 +1420,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <div
             aria-expanded={false}
@@ -1454,6 +1452,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
+                role="searchbox"
                 type="text"
                 value="le"
               />
@@ -2159,7 +2158,6 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -2169,7 +2167,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -2782,7 +2780,6 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -2792,7 +2789,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -3405,7 +3402,6 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -3415,7 +3411,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -4028,7 +4024,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <div
             aria-expanded={false}
@@ -4061,6 +4056,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
+                role="searchbox"
                 type="text"
                 value="le"
               />
@@ -4679,7 +4675,6 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -4689,7 +4684,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -5330,7 +5325,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <div
             aria-expanded={false}
@@ -5363,6 +5357,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 onKeyDown={undefined}
                 placeholder="Search..."
                 readOnly={false}
+                role="searchbox"
                 type="text"
                 value={undefined}
               />
@@ -5975,7 +5970,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <div
             aria-expanded={true}
@@ -6008,6 +6002,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
+                role="searchbox"
                 type="text"
                 value="le"
               />
@@ -6959,7 +6954,6 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -6969,7 +6963,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -7505,7 +7499,6 @@ exports[`Storyshots HeaderBar without products 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -7515,7 +7508,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -8128,7 +8121,6 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       >
         <form
           className="navbar-form navbar-right"
-          role="search"
         >
           <button
             aria-label="Search"
@@ -8138,7 +8130,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             onFocus={[Function]}
             onMouseDown={[Function]}
             onMouseOver={[Function]}
-            role={null}
+            role="search"
             type="button"
           >
             <svg
@@ -8783,7 +8775,6 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -8793,7 +8784,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
@@ -9418,7 +9409,6 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -9428,7 +9418,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
@@ -10053,7 +10043,6 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -10063,7 +10052,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
@@ -10688,7 +10677,6 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -10698,7 +10686,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
@@ -11323,7 +11311,6 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -11333,7 +11320,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
@@ -11958,7 +11945,6 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -11968,7 +11954,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
@@ -12593,7 +12579,6 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             >
               <form
                 className="navbar-form navbar-right"
-                role="search"
               >
                 <button
                   aria-label="Search"
@@ -12603,7 +12588,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   onFocus={[Function]}
                   onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role={null}
+                  role="search"
                   type="button"
                 >
                   <svg
