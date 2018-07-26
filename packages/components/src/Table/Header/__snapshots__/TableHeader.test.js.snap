@@ -9,6 +9,7 @@ exports[`three-columns 1`] = `
   >
     <th
       className="th-name theme-tc-table-head-th"
+      id="my-table-name"
     >
       <div
         className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
@@ -18,6 +19,7 @@ exports[`three-columns 1`] = `
     </th>
     <th
       className="th-type theme-tc-table-head-th"
+      id="my-table-type"
     >
       <div
         className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
@@ -27,6 +29,7 @@ exports[`three-columns 1`] = `
     </th>
     <th
       className="th-desc theme-tc-table-head-th"
+      id="my-table-desc"
     >
       <div
         className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
@@ -47,6 +50,7 @@ exports[`three-columns-with-sorters 1`] = `
   >
     <th
       className="th-name theme-tc-table-head-th"
+      id="my-table-name"
     >
       <button
         aria-label="Name"
@@ -75,6 +79,7 @@ exports[`three-columns-with-sorters 1`] = `
     </th>
     <th
       className="th-type theme-tc-table-head-th"
+      id="my-table-type"
     >
       <button
         aria-label="Type"
@@ -103,6 +108,7 @@ exports[`three-columns-with-sorters 1`] = `
     </th>
     <th
       className="th-desc theme-tc-table-head-th"
+      id="my-table-desc"
     >
       <button
         aria-label="Description"

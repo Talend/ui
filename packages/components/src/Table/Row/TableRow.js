@@ -12,7 +12,11 @@ function renderRowData(element, column) {
 	const CellComponent = column.cellRenderer || TableCell;
 	const compKey = `${element.id}-${key}`;
 	return (
-		<td key={`td-${compKey}`} className={classnames(`td-${key}`, theme['tc-table-row-cell'])}>
+		<td
+			key={`td-${compKey}`}
+			className={classnames(`td-${key}`, theme['tc-table-row-cell'])}
+			headers={column.id}
+		>
 			<CellComponent
 				key={compKey}
 				element={element}
@@ -80,6 +84,7 @@ TableRow.propTypes = {
 			key: PropTypes.string.isRequired,
 			cellRenderer: PropTypes.func,
 			cellExtraProps: PropTypes.object,
+			id: PropTypes.string.isRequired,
 		}),
 	).isRequired,
 	onEnterRow: PropTypes.func,
