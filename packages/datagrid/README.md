@@ -69,6 +69,7 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | --------------------- | ------------------------------------------------------ | -------- | ------------------------ |
 | avroRenderer          | list of components to inject to the avro renderer      | object   |                          |
 | cellRenderer          | cell component to inject                               | string   | DefaultCellRenderer      |
+| forceRedrawRows          | function called when the component updated to know if ag-grid have to redraw the grid     . should return true or false                         | function   | null      |
 | getComponent          | method to provide the injected components              | function | cellRenderer             |
 | getPinnedColumnDefsFn | method to provide the definition of the pinned columns | function | dataset serializer       |
 | getColumnDefsFn       | method to provide the definition of the columns        | function | dataset serializer       |
