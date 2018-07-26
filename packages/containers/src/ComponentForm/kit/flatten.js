@@ -13,29 +13,38 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
-export default function flatten(anything, key = '') {
+/**
+ * flatten an object means each keys are a jsonpath.
+ * jsperf: https://jsperf.com/talend-flatten
+ * @param {object} obj the source object
+ * @return {object} flatten object
+ * @example
+ * flatten({ level1: { level2: 'foo' }})
+ * // { 'level1.level2': 'foo' }
+ */
+export default function flatten(obj) {
 	const payload = {};
 
-	if (Array.isArray(anything)) {
-		anything.forEach((item, index) => {
-			const itemKey = `${key}[${index}]`;
-			Object.assign(payload, flatten(item, itemKey));
-		});
-	} else if (typeof anything === 'object') {
-		Object.keys(anything).forEach(nextKey => {
-			const itemKey = key ? `${key}.${nextKey}` : nextKey;
-			const item = anything[nextKey];
-			Object.assign(payload, flatten(item, itemKey));
-		});
-	} else if (typeof anything === 'string') {
-		payload[key] = anything;
-	} else if (typeof anything === 'number') {
-		payload[key] = anything;
-	} else if (typeof anything === 'boolean') {
-		payload[key] = anything;
-	} else if (anything !== undefined) {
-		payload[key] = JSON.stringify(anything);
+	function step(anything, key) {
+		if (Array.isArray(anything)) {
+			anything.forEach((item, index) => {
+				const itemKey = `${key}[${index}]`;
+				step(item, itemKey);
+			});
+		} else if (typeof anything === 'object') {
+			Object.keys(anything).forEach(nextKey => {
+				const itemKey = key ? `${key}.${nextKey}` : nextKey;
+				const item = anything[nextKey];
+				step(item, itemKey);
+			});
+		} else if (typeof anything === 'string') {
+			payload[key] = anything;
+		} else if (typeof anything === 'number') {
+			payload[key] = anything;
+		} else if (typeof anything === 'boolean') {
+			payload[key] = anything;
+		}
 	}
+	step(obj, '');
 	return payload;
 }
