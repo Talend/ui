@@ -32,6 +32,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
+      role={undefined}
       type="text"
       value="le"
     />
@@ -276,6 +277,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -330,6 +332,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -516,6 +519,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -610,6 +614,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -664,6 +669,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
+      role="searchbox"
       type="text"
       value={undefined}
     />
@@ -689,7 +695,7 @@ exports[`Typeahead with toggle should render button 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseOver={[Function]}
-  role={null}
+  role={undefined}
   type="button"
 >
   <i
