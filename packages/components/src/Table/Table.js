@@ -31,25 +31,20 @@ export default function Table({
 	return (
 		<div className={classnames('tc-table', theme['tc-table'])}>
 			{(title || displayFilters(filters)) && (
-				<TitleBar
-					key={'title-bar'}
-					title={title}
-					filters={filters}
-					onFilterChange={onFilterChange}
-				/>
+				<TitleBar key="title-bar" title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
 			<table>
-				{title && <caption key={'caption'}>{title}</caption>}
+				{title && <caption key="caption">{title}</caption>}
 				{withHeader && (
 					<TableHeader
-						key={'headers'}
+						key="headers"
 						columns={columns}
 						sorters={sorters}
 						onSortChange={onSortChange}
 					/>
 				)}
 				<TableBody
-					key={'body'}
+					key="body"
 					elements={elements}
 					columns={columns}
 					rowsClassName={rowsClassName}
