@@ -31,13 +31,20 @@ export default function Table({
 	return (
 		<div className={classnames('tc-table', theme['tc-table'])}>
 			{(title || displayFilters(filters)) && (
-				<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
+				<TitleBar key="title-bar" title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
 			<table>
+				{title && <caption key="caption">{title}</caption>}
 				{withHeader && (
-					<TableHeader columns={columns} sorters={sorters} onSortChange={onSortChange} />
+					<TableHeader
+						key="headers"
+						columns={columns}
+						sorters={sorters}
+						onSortChange={onSortChange}
+					/>
 				)}
 				<TableBody
+					key="body"
 					elements={elements}
 					columns={columns}
 					rowsClassName={rowsClassName}
@@ -61,8 +68,10 @@ Table.propTypes = {
 	).isRequired,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			// used to identify a column
+			// property key
 			key: PropTypes.string.isRequired,
+			// column id to link cells to headers
+			id: PropTypes.string.isRequired,
 			// label displayed in the column header
 			label: PropTypes.string,
 			/**
