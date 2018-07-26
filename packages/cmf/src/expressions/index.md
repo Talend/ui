@@ -89,6 +89,19 @@ export cmfConnect({mapStateToProps})(MyComponent)
 	}
 ```
 
+### oneOf
+
+```json
+	"props": {
+		"MyArticle#default": {
+			"renderIfExpression": {
+				"id": "cmf.collections.oneOf",
+				"args": ["identity.entitlements", [ "ARTICLE_PREVIEW", "ARTICLE_READ" ]]
+			},
+		}
+	}
+```
+
 ## cmf.components
 
 ### get

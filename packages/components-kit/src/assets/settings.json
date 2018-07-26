@@ -1,0 +1,97 @@
+{
+  "props": {
+    "AppLoader#default": {
+      "components": {
+        "before-children": [
+          {
+            "component": "Notification"
+          },
+          {
+            "component": "IconsProvider"
+          }
+        ]
+      }
+    },
+    "RedirectContainer#default": {
+      "to": "/ComponentForm/add"
+    },
+    "Layout#addForm": {
+      "mode": "TwoColumns",
+      "header": [{ "component": "HeaderBar" }],
+      "one": [{ "component": "SidePanel" }],
+      "content": [{ "component": "ComponentForm", "componentId": "add" }]
+    },
+    "Layout#asyncDatalistForm": {
+      "mode": "TwoColumns",
+      "header": [{ "component": "HeaderBar" }],
+      "one": [{ "component": "SidePanel" }],
+      "content": [{ "component": "ComponentForm", "componentId": "asyncDatalist" }]
+    },
+    "HeaderBar#default": {
+      "logo": {
+        "icon": "talend-logo-square",
+        "isFull": false
+      },
+      "brand": {
+        "label": "Talend Component Kit"
+      }
+    },
+    "SidePanel#default": {
+      "actions": [{ "componentId": "add-form" }, { "componentId": "asyncDatalist-form" }]
+    },
+    "ActionButton#add-form": {
+      "icon": "talend-plus",
+      "label": "Add",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm/add"
+        }
+      }
+    },
+    "ActionButton#asyncDatalist-form": {
+      "icon": "talend-download",
+      "label": "Async datalist",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm/asyncDatalist"
+        }
+      }
+    },
+    "ComponentForm#add": {
+      "definitionURL": "/api/v1/forms/add",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action"
+    },
+    "ComponentForm#asyncDatalist": {
+      "definitionURL": "/api/v1/forms/asyncDatalist",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action"
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "AppLoader",
+    "indexRoute": {
+      "component": "Redirect"
+    },
+    "childRoutes": [
+      {
+        "path": "ComponentForm",
+        "childRoutes": [
+          {
+            "component": "Layout",
+            "componentId": "addForm",
+            "path": "add"
+          },
+          {
+            "component": "Layout",
+            "componentId": "asyncDatalistForm",
+            "path": "asyncDatalist"
+          }
+        ]
+      }
+    ]
+  }
+}

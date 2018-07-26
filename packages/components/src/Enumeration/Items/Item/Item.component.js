@@ -9,6 +9,8 @@ import theme from './Item.scss';
 import { Checkbox } from '../../../Toggle';
 import ItemPropTypes from './Item.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
+import Icon from '../../../Icon';
+import TooltipTrigger from '../../../TooltipTrigger';
 
 function itemClasses(isSelected) {
 	return classNames({
@@ -47,7 +49,6 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				});
 			}
 		}
-
 		return (
 			<Action
 				key={index}
@@ -106,6 +107,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 					defaultValue: 'Select item "{{label}}"',
 					label: actualLabel,
 				})}
+				bsStyle="link"
 			>
 				{showCheckboxes && (
 					<Checkbox
@@ -118,6 +120,11 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 					/>
 				)}
 				<span>{actualLabel}</span>
+				{item.icon && (
+					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+						<Icon {...item.icon} aria-hidden="false" />
+					</TooltipTrigger>
+				)}
 			</Button>
 		);
 	}
@@ -126,7 +133,9 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 		<div role="row" className={itemClasses(item.isSelected)} id={id} style={style}>
 			{getActionLabel()}
 			<div className={itemDefaultActionsClasses()} role="gridcell">
-				{actions.map((action, index) => getAction(action, index))}
+				{actions
+					.filter(action => !action.disabled)
+					.map((action, index) => getAction(action, index))}
 			</div>
 		</div>
 	);

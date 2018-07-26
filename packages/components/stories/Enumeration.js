@@ -21,6 +21,31 @@ const loadingAction = {
 	id: 'loading',
 };
 
+const searchAction = {
+	disabled: false,
+	label: 'search',
+	icon: 'talend-search',
+	id: 'search',
+};
+
+const importAction = {
+	disabled: false,
+	label: 'import',
+	icon: 'talend-download',
+	id: 'upload',
+	displayMode: 'dropdown',
+	items: [
+		{
+			label: 'add',
+			id: 'append-uploding',
+		},
+		{
+			label: 'overwrite',
+			id: 'append-uploding',
+		},
+	],
+};
+
 const deleteItemAction = {
 	label: 'Remove selected values',
 	icon: 'talend-trash',
@@ -53,7 +78,7 @@ for (let i = 0; i < 1000; i += 1) {
 const props = {
 	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
-	headerDefault: [addItemAction, loadingAction],
+	headerDefault: [addItemAction, loadingAction, importAction],
 	headerSelected: [deleteItemAction],
 	headerInput: [validateAction, abortAction],
 	items,
@@ -192,6 +217,37 @@ const customLabelProps = {
 	label: 'Users',
 };
 
+const headerDisabled = {
+	...props,
+	headerDefault: [
+		{ ...addItemAction, disabled: true},
+		{ ...importAction, disabled: true},
+		{ ...searchAction },
+	]
+};
+headerDisabled.itemsProp.actionsDefault[0].disabled = true;
+headerDisabled.itemsProp.actionsDefault[1].disabled = true;
+
+const withIconProps = {
+	...props,
+	items: [
+		{
+			icon: {
+				name: 'talend-warning',
+				title: 'A warning',
+			},
+			values: ['An item with an icon appended'],
+		},
+		{
+			icon: {
+				name: 'talend-world',
+				title: 'The world',
+			},
+			values: ['An item with a world appended'],
+		},
+	],
+};
+
 storiesOf('Enumeration', module)
 	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
@@ -200,6 +256,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...props}
+			/>
+		</div>
+	))
+	.addWithInfo('default header action disabled', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...headerDisabled}
 			/>
 		</div>
 	))
@@ -314,6 +379,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...customLabelProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with icon', () => (
+		<div>
+			<p>By default: </p>
+			<IconsProvider />
+			<Enumeration
+				{...withIconProps}
 			/>
 		</div>
 	));

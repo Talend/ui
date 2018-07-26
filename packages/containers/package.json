@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
+    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6007",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -15,7 +15,7 @@
     "watch": "npm-watch",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter '*.js' --default-values"
+    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter \"*.js\" --default-values"
   },
   "watch": {
     "prepublish": "src/*"
@@ -40,12 +40,12 @@
     "@storybook/addon-a11y": "^3.4.7",
     "@storybook/addon-actions": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^0.194.0",
-    "@talend/icons": "^0.194.0",
-    "@talend/react-cmf": "^0.194.0",
-    "@talend/react-components": "^0.194.0",
-    "@talend/react-forms": "^0.194.0",
-    "@talend/react-storybook-cmf": "^0.194.0",
+    "@talend/bootstrap-theme": "^0.201.0",
+    "@talend/icons": "^0.201.0",
+    "@talend/react-cmf": "^0.201.0",
+    "@talend/react-components": "^0.201.0",
+    "@talend/react-forms": "^0.201.0",
+    "@talend/react-storybook-cmf": "^0.201.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.0.1",
@@ -107,10 +107,10 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^0.194.0",
-    "@talend/react-cmf": "^0.194.0",
-    "@talend/react-components": "^0.194.0",
-    "@talend/react-forms": "^0.194.0",
+    "@talend/icons": "^0.201.0",
+    "@talend/react-cmf": "^0.201.0",
+    "@talend/react-components": "^0.201.0",
+    "@talend/react-forms": "^0.201.0",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
     "i18next": "^9.0.0",
@@ -147,7 +147,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.194.0",
+  "version": "0.201.0",
   "dependencies": {
     "react-immutable-proptypes": "^2.1.0"
   }

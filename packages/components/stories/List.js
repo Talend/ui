@@ -61,6 +61,16 @@ const selected = [
 	},
 ];
 
+const overlayAction = {
+	id: 'overlay',
+	label: 'overlay',
+	icon: 'talend-pencil',
+	onClick: action('overlay.open'),
+	overlayComponent: <div>Overlay</div>,
+	overlayPlacement: 'bottom',
+	preventScrolling: true,
+};
+
 const actions = [
 	{
 		id: 'edit',
@@ -650,7 +660,10 @@ storiesOf('List', module)
 					isDescending);<br />
 					&lt;List ... list=&#123;listProps&#125; &gt;<br />
 				</pre>
-				<p>To disable sort on a column, add the <strong>disableSort</strong> props (see Author column).</p>
+				<p>
+					To disable sort on a column, add the <strong>disableSort</strong> props (see Author
+					column).
+				</p>
 				<List {...tprops} />
 			</div>
 		);
@@ -806,4 +819,36 @@ storiesOf('List', module)
 				<List {...propsWithVirtualized} />
 			</span>
 		</div>
-	));
+	))
+	.add('Table display with action overlay', () => {
+		const items = [...Array(100)].map((_, index) => ({
+			id: index,
+			name: 'Title with actions',
+			created: 1518596913333,
+			modified: minusThreeHours,
+			author: 'Jean-Pierre DUPONT',
+			actions: [overlayAction, ...actions],
+			icon: 'talend-file-xls-o',
+			display: 'text',
+			className: 'item-0-class',
+		}));
+
+		const listProps = {
+			...props,
+			list: {
+				...props.list,
+				items,
+			},
+		};
+
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<List {...listProps} />
+			</div>
+		);
+	});
