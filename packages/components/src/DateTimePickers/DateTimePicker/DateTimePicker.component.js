@@ -89,16 +89,13 @@ class DateTimePicker extends React.Component {
 
 	trySubmit() {
 		if (this.state.selectedDate !== undefined &&
-			this.state.selectedTime !== undefined) {
-			this.submit();
-		}
-	}
-
-	submit() {
+			this.state.selectedTime !== undefined
+		) {
 		this.props.onSubmit({
 			date: this.state.selectedDate,
 			time: this.state.selectedTime,
 		});
+	}
 	}
 
 	render() {
