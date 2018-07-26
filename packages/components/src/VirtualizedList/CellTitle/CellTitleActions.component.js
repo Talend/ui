@@ -106,7 +106,10 @@ function getDefaultDisplayActions(actions, t, getComponent) {
 	}
 
 	return (
-		<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
+		<div
+			key={'cell-title-actions'}
+			className={classNames('cell-title-actions', theme['cell-title-actions'])}
+		>
 			{actionsBlocs}
 		</div>
 	);
