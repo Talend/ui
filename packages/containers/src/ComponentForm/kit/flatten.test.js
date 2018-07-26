@@ -7,11 +7,17 @@ describe('flatten', () => {
 		const foo = {
 			root: {
 				nest: {
-					bar: 'foo',
+					string: 'foo',
+					number: 3,
+					bool: false,
 				},
 			},
 		};
-		expect(flatten(foo)).toEqual({ 'root.nest.bar': 'foo' });
+		expect(flatten(foo)).toEqual({
+			'root.nest.string': 'foo',
+			'root.nest.number': 3,
+			'root.nest.bool': false,
+		});
 	});
 	it('should flat arrays', () => {
 		const foo = {

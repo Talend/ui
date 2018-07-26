@@ -44,7 +44,7 @@ function getNewErrors(errors, schema, errorMessage) {
  * @returns {{errors: *}} The new errors map
  */
 function validation({ schema, body, errors = {} }) {
-	const errorMessage = body.status === 'KO' ? body.comment : undefined;
+	const errorMessage = body.status === 'KO' ? body.comment : null;
 	return { errors: getNewErrors(errors, schema, errorMessage) };
 }
 
@@ -67,30 +67,26 @@ function updateSchema({ schema, body, properties, trigger, errors }) {
 	const newErrors = getNewErrors(errors, schema, body.error);
 	let newProperties = properties;
 
-	if (body.entries && trigger.options && trigger.options.length !== 0) {
-		newProperties = clonedeep(properties);
-		newProperties = trigger.options.reduce((acc, option) => {
-			const { path, type } = option;
-			let parentPath = path;
-			let lastPath = path;
-			const lastDot = path.lastIndexOf('.');
-			let pointer = acc;
-			if (lastDot > 0) {
-				parentPath = path.substring(0, lastDot);
-				lastPath = path.substring(lastDot + 1);
-				pointer = get(acc, parentPath);
-				if (!pointer) {
-					return acc;
-				}
-			}
-			if (type === 'array') {
-				pointer[lastPath] = body.entries.map(entry => entry.name);
-			} else {
-				pointer[lastPath] = body.entries.reduce(schemaReducer, {});
-			}
-			return acc;
-		}, newProperties);
+	if (!body.entries || !(trigger.options && trigger.options.length !== 0)) {
+		return {
+			properties: newProperties,
+			errors: newErrors,
+		};
 	}
+	newProperties = clonedeep(properties);
+	trigger.options.forEach(option => {
+		const splitted = option.path.split('.');
+		const key = splitted[splitted.length - 1];
+		const parent = get(newProperties, splitted.slice(0, -1).join('.'));
+		if (!parent || typeof parent !== 'object') {
+			return;
+		}
+		if (option.type === 'array') {
+			parent[key] = body.entries.map(entry => entry.name);
+		} else {
+			parent[key] = body.entries.reduce(schemaReducer, {});
+		}
+	});
 	return {
 		properties: newProperties,
 		errors: newErrors,
