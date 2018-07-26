@@ -26,7 +26,6 @@ export default function flatten(anything, key = '') {
 		Object.keys(anything).forEach(nextKey => {
 			const itemKey = key ? `${key}.${nextKey}` : nextKey;
 			const item = anything[nextKey];
-			console.log({itemKey, item});
 			Object.assign(payload, flatten(item, itemKey));
 		});
 	} else if (typeof anything === 'string') {
