@@ -15,7 +15,7 @@ import component from './component';
 import expression from './expression';
 import storeAPI from './store';
 import sagaRouter from './sagaRouter';
-import sagas from './sagas';
+import cmfSagas from './sagas';
 import { registerInternals } from './register';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
@@ -46,7 +46,7 @@ export function bootstrapRegistry(options) {
 		actionCreator.registerMany(options.actionCreators);
 	}
 	if (options.sagas) {
-		sagas.registerMany(options.sagas);
+		cmfSagas.registerMany(options.sagas);
 	}
 }
 
@@ -76,7 +76,7 @@ export function bootstrapSaga(options) {
 		Object.assign(sagaRouterConfig, options.sagaRouterConfig);
 	}
 	function* cmfSaga() {
-		yield fork(sagas.component.handle);
+		yield fork(cmfSagas.component.handle);
 		if (options.sagaRouterConfig) {
 			// eslint-disable-next-line no-console
 			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
@@ -93,16 +93,20 @@ export function bootstrapSaga(options) {
 
 export function bootstrapRedux(options, sagaMiddleware) {
 	assertTypeOf(options, 'settingsURL', 'string');
-	assertTypeOf(options, 'preReducer', 'function');
+	assertTypeOf(options, 'preReducer', ['function', 'Array', 'object']);
 	assertTypeOf(options, 'httpMiddleware', 'function');
 	assertTypeOf(options, 'enhancer', 'function');
 	assertTypeOf(options, 'preloadedState', 'object');
 	assertTypeOf(options, 'middlewares', 'Array');
 	assertTypeOf(options, 'storeCallback', 'function');
 	assertTypeOf(options, 'reducer', ['object', 'function']);
+	assertTypeOf(options, 'modules', 'Array');
 
 	if (options.preReducer) {
 		storeAPI.addPreReducer(options.preReducer);
+		(options.modules || []).filter(mod => !!mod.preReducer).forEach(mod => {
+			storeAPI.addPreReducer(mod.preReducer);
+		});
 	}
 	if (typeof options.httpMiddleware === 'function') {
 		storeAPI.setHttpMiddleware(options.httpMiddleware);
@@ -112,9 +116,13 @@ export function bootstrapRedux(options, sagaMiddleware) {
 		enhancer = compose(
 			options.enhancer,
 			bactchedSubscribe,
+			...(options.modules || []).filter(mod => !!mod.enhancer).map(mod => mod.enhancer),
 		);
 	}
 	const middlewares = options.middlewares || [];
+	middlewares.concat(
+		(options.modules || []).filter(mod => !!mod.middlewares).map(mod => mod.middlewares),
+	);
 	const store = storeAPI.initialize(options.reducer, options.preloadedState, enhancer, [
 		...middlewares,
 		sagaMiddleware,

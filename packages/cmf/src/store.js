@@ -58,6 +58,8 @@ function addPreReducer(reducers) {
 		preReducers.push(reducers);
 	} else if (Array.isArray(reducers)) {
 		preReducers.push(...reducers);
+	} else if (typeof reducers === 'object') {
+		preReducers.push(...Object.values(reducers));
 	}
 }
 
