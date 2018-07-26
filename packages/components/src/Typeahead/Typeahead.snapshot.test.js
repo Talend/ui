@@ -8,6 +8,7 @@ const itemsObject = [
 		icon: {
 			name: 'fa fa-filter',
 			title: 'icon',
+			role: 'search',
 		},
 		suggestions: [
 			{
@@ -69,6 +70,7 @@ describe('Typeahead', () => {
 			const props = {
 				id: 'my-search',
 				position: 'right',
+				role: 'searchbox',
 			};
 
 			// when

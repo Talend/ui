@@ -155,6 +155,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	margin-bottom: 0;
 	padding: $padding-normal;
 	cursor: pointer;
+	white-space: pre;
 
 	&-description {
 		margin-bottom: 0;
