@@ -42,8 +42,8 @@ describe('InputDateTimePicker', () => {
 
 			const inputWrapper = wrapper.find('DebounceInput');
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
-			expect(dateTimePickerWrapper.prop('selectedDate')).toBe(date);
-			expect(dateTimePickerWrapper.prop('selectedTime')).toBe(time);
+			expect(dateTimePickerWrapper.prop('selection').date).toBe(date);
+			expect(dateTimePickerWrapper.prop('selection').time).toBe(time);
 			expect(inputWrapper.prop('value')).toBe(textInput);
 		});
 	});

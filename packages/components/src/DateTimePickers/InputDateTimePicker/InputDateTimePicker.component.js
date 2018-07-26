@@ -232,8 +232,10 @@ class InputDateTimePicker extends React.Component {
 				/>
 				<div className={theme.dropdown}>
 					<DateTimePicker
-						selectedDate={date}
-						selectedTime={time}
+						selection={{
+							date,
+							time,
+						}}
 						onSubmit={this.onSubmitPicker}
 					/>
 				</div>

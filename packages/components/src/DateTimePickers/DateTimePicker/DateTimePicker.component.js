@@ -12,9 +12,12 @@ class DateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const initialCalendarDate = props.selectedDate === undefined
+		const selectedDate = props.selection && props.selection.date;
+		const selectedTime = props.selection && props.selection.time;
+
+		const initialCalendarDate = selectedDate === undefined
 			? new Date()
-			: props.selectedDate;
+			: selectedDate;
 
 		this.state = {
 			isDateTimeView: true,
@@ -22,8 +25,8 @@ class DateTimePicker extends React.Component {
 				monthIndex: getMonth(initialCalendarDate),
 				year: getYear(initialCalendarDate),
 			},
-			selectedDate: props.selectedDate,
-			selectedTime: props.selectedTime,
+			selectedDate,
+			selectedTime,
 		};
 
 		this.setDateTimeView = this.setView.bind(this, true);
@@ -36,22 +39,36 @@ class DateTimePicker extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const isSelectedDateUpdated = this.props.selectedDate !== nextProps.selectedDate;
-		const isSelectedTimeUpdated = this.props.selectedTime !== nextProps.selectedTime;
+		const propsUpdated = this.props.selection !== nextProps.selection;
 
-		if (isSelectedDateUpdated || isSelectedTimeUpdated) {
-			const canUpdateCalendar = isSelectedDateUpdated && nextProps.selectedDate !== undefined;
-			this.setState({
-				...(isSelectedDateUpdated && { selectedDate: nextProps.selectedDate }),
-				...(isSelectedTimeUpdated && { selectedTime: nextProps.selectedTime }),
-				...(canUpdateCalendar && {
-					calendar: {
-						monthIndex: getMonth(nextProps.selectedDate),
-						year: getYear(nextProps.selectedDate),
-					},
-				}),
-			});
+		if (!propsUpdated) {
+			return;
 		}
+
+		const newSelectedDate = nextProps.selection && nextProps.selection.date;
+		const newSelectedTime = nextProps.selection && nextProps.selection.time;
+		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
+		const needToUpdateTime = newSelectedTime !== this.state.selectedTime;
+		const needToUpdateState = needToUpdateDate || needToUpdateTime;
+
+		if (!needToUpdateState) {
+			return;
+		}
+
+		const needToUpdateCalendar = needToUpdateDate && newSelectedDate !== undefined;
+
+		const newState = {
+			...(needToUpdateDate && { selectedDate: newSelectedDate }),
+			...(needToUpdateTime && { selectedTime: newSelectedTime }),
+			...(needToUpdateCalendar && {
+				calendar: {
+					monthIndex: getMonth(newSelectedDate),
+					year: getYear(newSelectedDate),
+				},
+			}),
+		};
+
+		this.setState(newState);
 	}
 
 	onSelectDate(selectedDate) {
@@ -91,11 +108,11 @@ class DateTimePicker extends React.Component {
 		if (this.state.selectedDate !== undefined &&
 			this.state.selectedTime !== undefined
 		) {
-		this.props.onSubmit({
-			date: this.state.selectedDate,
-			time: this.state.selectedTime,
-		});
-	}
+			this.props.onSubmit({
+				date: this.state.selectedDate,
+				time: this.state.selectedTime,
+			});
+		}
 	}
 
 	render() {
@@ -130,8 +147,10 @@ class DateTimePicker extends React.Component {
 }
 
 DateTimePicker.propTypes = {
-	selectedDate: PropTypes.instanceOf(Date),
-	selectedTime: PropTypes.number,
+	selection: PropTypes.shape({
+		date: PropTypes.instanceOf(Date),
+		time: PropTypes.number,
+	}),
 	onSubmit: PropTypes.func.isRequired,
 };
 
