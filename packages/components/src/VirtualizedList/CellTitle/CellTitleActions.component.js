@@ -25,22 +25,12 @@ function getLargeDisplayActions(actions, getComponent) {
 		return null;
 	}
 
-	const adaptedActions = actions.map(actionDef => {
-		if (!isDropdown(actionDef)) {
-			return actionDef;
-		}
-		return {
-			...actionDef,
-			pullRight: true,
-		};
-	});
-
 	return (
 		<Actions
 			getComponent={getComponent}
 			className={classNames('cell-title-actions', theme['cell-title-actions'])}
 			key={'large-display-actions'}
-			actions={adaptedActions}
+			actions={actions}
 			hideLabel
 			link
 		/>
