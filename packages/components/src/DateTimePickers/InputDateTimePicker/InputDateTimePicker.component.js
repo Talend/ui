@@ -108,12 +108,9 @@ class InputDateTimePicker extends React.Component {
 				return [undefined, errMsg];
 			}
 
-			const [
-				,
-				yearString,
-				monthString,
-				dayString,
-			] = dateMatches;
+			const yearString = dateMatches[1];
+			const monthString = dateMatches[2];
+			const dayString = dateMatches[3];
 
 			const day = parseInt(dayString, 10);
 			const month = parseInt(monthString, 10);
@@ -156,11 +153,8 @@ class InputDateTimePicker extends React.Component {
 				return [undefined, errMsg];
 			}
 
-			const [
-				,
-				hoursString,
-				minutesString,
-			] = timeMatches;
+			const hoursString = timeMatches[1];
+			const minutesString = timeMatches[2];
 
 			const hours = parseInt(hoursString, 10);
 
