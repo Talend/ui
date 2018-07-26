@@ -34,6 +34,21 @@ You will find a [list of breaking changes here](https://github.com/Talend/ui/wik
 * @talend/react-components
 * classnames
 
+## How to use
+
+To integrate it in your CMF app just do the following
+
+```javascript
+import '@talend/bootstrap-theme/src/theme/theme.scss';
+import cmf from '@talend/react-cmf';
+import containers from '@talend/react-containers/lib/cmfModule';
+
+cmf.bootstrap({
+	modules: [containers],
+	settingsURL: '/settings.json',
+});
+```
+
 ## Architecture
 
 This library is architectured around one concept:
