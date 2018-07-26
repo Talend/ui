@@ -9,6 +9,7 @@ describe('Progress', () => {
 		const props = {
 			id: 'my-progress',
 			percent: 0,
+			tooltip: 'loading',
 		};
 
 		// when
@@ -23,6 +24,7 @@ describe('Progress', () => {
 		const props = {
 			id: 'my-progress',
 			percent: 60,
+			tooltip: 'loading',
 		};
 
 		// when
@@ -37,6 +39,7 @@ describe('Progress', () => {
 		const props = {
 			id: 'my-progress',
 			percent: -20,
+			tooltip: 'loading',
 		};
 
 		// when
@@ -51,6 +54,7 @@ describe('Progress', () => {
 		const props = {
 			id: 'my-progress',
 			percent: 200,
+			tooltip: 'loading',
 		};
 
 		// when
@@ -60,22 +64,7 @@ describe('Progress', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render progress with tooltip', () => {
-		// given
-		const props = {
-			id: 'my-progress',
-			percent: 60,
-			tooltip: 'Hey dude ! Progress: 60% !',
-		};
-
-		// when
-		const wrapper = renderer.create(<Progress {...props} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render an infinite progress with tooltip', () => {
+	it('should render an infinite progress', () => {
 		// given
 		const props = {
 			id: 'my-progress',
@@ -96,6 +85,7 @@ describe('Progress', () => {
 			id: 'my-progress',
 			contained: true,
 			percent: 60,
+			tooltip: 'loading',
 		};
 
 		// when
