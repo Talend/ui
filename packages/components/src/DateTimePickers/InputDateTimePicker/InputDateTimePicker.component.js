@@ -52,8 +52,8 @@ function getTextDate(date, time) {
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		selectedDateTime: PropTypes.instanceOf(Date),
-		onChange: PropTypes.func.isRequired,
-		onError: PropTypes.func.isRequired,
+		onChange: PropTypes.func,
+		onError: PropTypes.func,
 		inputProps: PropTypes.object,
 	};
 
@@ -195,12 +195,12 @@ class InputDateTimePicker extends React.Component {
 		const fullDateUpdated = fullDate !== this.state.lastFullDate
 								&& !isSameMinute(fullDate, this.state.lastFullDate);
 
-		if (fullDateUpdated) {
+		if (fullDateUpdated && this.props.onChange) {
 			this.props.onChange(fullDate);
 		}
 
 		const errorUpdated = errorMsg !== this.state.lastErrMsg;
-		if (errorUpdated) {
+		if (errorUpdated && this.props.onError) {
 			this.props.onError(errorMsg);
 		}
 

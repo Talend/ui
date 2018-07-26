@@ -15,8 +15,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={new Date(2017, 3, 4, 15, 27)}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 			expect(wrapper.getElement()).toMatchSnapshot();
@@ -24,10 +22,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should render with "date", "time", "textInput" values based on state', () => {
 			const wrapper = shallow(
-				<InputDateTimePicker
-					onChange={() => {}}
-					onError={() => {}}
-				/>
+				<InputDateTimePicker />
 			);
 
 			const date = new Date(2016, 6, 25);
@@ -54,8 +49,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={date}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 
@@ -74,10 +67,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should default set the state with undefined and empty values when "selectedDateTime" is not given', () => {
 			const wrapper = shallow(
-				<InputDateTimePicker
-					onChange={() => {}}
-					onError={() => {}}
-				/>
+				<InputDateTimePicker />
 			);
 
 			expect(wrapper.state('date')).toBeUndefined();
@@ -99,8 +89,6 @@ describe('InputDateTimePicker', () => {
 				const wrapper = shallow(
 					<InputDateTimePicker
 						selectedDateTime={new Date(2015, 0, 1)}
-						onChange={() => {}}
-						onError={() => {}}
 					/>
 				);
 
@@ -128,8 +116,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -153,8 +139,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -175,8 +159,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -198,8 +180,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -230,8 +210,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -252,8 +230,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -272,8 +248,6 @@ describe('InputDateTimePicker', () => {
 					const wrapper = shallow(
 						<InputDateTimePicker
 							selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-							onChange={() => {}}
-							onError={() => {}}
 						/>
 					);
 
@@ -298,8 +272,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 
@@ -329,8 +301,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 
@@ -357,8 +327,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 
@@ -385,8 +353,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
@@ -407,8 +373,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={() => {}}
-					onError={() => {}}
 				/>
 			);
 
@@ -433,7 +397,6 @@ describe('InputDateTimePicker', () => {
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
 					onChange={onChange}
-					onError={() => {}}
 				/>
 			);
 
@@ -464,7 +427,6 @@ describe('InputDateTimePicker', () => {
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
 					onChange={onChange}
-					onError={() => {}}
 				/>
 			);
 
@@ -497,7 +459,6 @@ describe('InputDateTimePicker', () => {
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
 					onChange={onChange}
-					onError={() => {}}
 				/>
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
@@ -521,7 +482,6 @@ describe('InputDateTimePicker', () => {
 				<InputDateTimePicker
 					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
 					onChange={onChange}
-					onError={() => {}}
 				/>
 			);
 
@@ -557,7 +517,6 @@ describe('InputDateTimePicker', () => {
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
 					onChange={onChange}
-					onError={() => {}}
 				/>
 			);
 
@@ -589,7 +548,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -614,7 +572,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -639,7 +596,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -664,7 +620,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -689,7 +644,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -715,7 +669,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -750,7 +703,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -785,7 +737,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
@@ -822,7 +773,6 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker
 					selectedDateTime={defaultDateTime}
-					onChange={() => {}}
 					onError={onError}
 				/>
 			);
