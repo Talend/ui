@@ -235,7 +235,7 @@ exports[`Toolbar should render filter form 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseOver={[Function]}
-        role={null}
+        role="search"
         type="button"
       >
         <svg
