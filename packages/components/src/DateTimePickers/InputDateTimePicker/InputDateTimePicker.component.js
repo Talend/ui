@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import DebounceInput from 'react-debounce-input';
 import getMinutes from 'date-fns/get_minutes';
 import getHours from 'date-fns/get_hours';
 import getDate from 'date-fns/get_date';
@@ -221,11 +222,12 @@ class InputDateTimePicker extends React.Component {
 
 		return (
 			<div>
-				<input
+				<DebounceInput
 					{...this.props.inputProps}
 					type="text"
 					placeholder="DD/MM/YYYY, hh:mm"
 					value={textInput}
+					debounceTimeout={300}
 					onChange={this.onChangeInput}
 				/>
 				<div className={theme.dropdown}>

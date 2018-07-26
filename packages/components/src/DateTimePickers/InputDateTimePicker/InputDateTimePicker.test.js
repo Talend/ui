@@ -40,7 +40,7 @@ describe('InputDateTimePicker', () => {
 				textInput,
 			});
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 			expect(dateTimePickerWrapper.prop('selectedDate')).toBe(date);
 			expect(dateTimePickerWrapper.prop('selectedTime')).toBe(time);
@@ -104,7 +104,7 @@ describe('InputDateTimePicker', () => {
 					/>
 				);
 
-				const inputWrapper = wrapper.find('input');
+				const inputWrapper = wrapper.find('DebounceInput');
 
 				invalidFormatValues.forEach(invalidValue => {
 					inputWrapper.prop('onChange')({
@@ -133,7 +133,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
 						inputWrapper.prop('onChange')({
 							target: {
@@ -158,7 +158,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
 						inputWrapper.prop('onChange')({
 							target: {
@@ -180,7 +180,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					inputWrapper.prop('onChange')({
 						target: {
 							value: invalidFormatValue,
@@ -203,7 +203,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
 						inputWrapper.prop('onChange')({
 							target: {
@@ -235,7 +235,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
 						inputWrapper.prop('onChange')({
 							target: {
@@ -257,7 +257,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					inputWrapper.prop('onChange')({
 						target: {
 							value: invalidFormatValue,
@@ -277,7 +277,7 @@ describe('InputDateTimePicker', () => {
 						/>
 					);
 
-					const inputWrapper = wrapper.find('input');
+					const inputWrapper = wrapper.find('DebounceInput');
 					inputWrapper.prop('onChange')({
 						target: {
 							value: invalidFormatValue,
@@ -303,7 +303,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			validFormatValuesWithExpection.forEach(([validFormat, expected]) => {
 				inputWrapper.prop('onChange')({
 					target: {
@@ -334,7 +334,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			stringValuesWithExpection.forEach(([string, expected]) => {
 				inputWrapper.prop('onChange')({
 					target: {
@@ -362,7 +362,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			stringValuesWithExpection.forEach(([string, expected]) => {
 				inputWrapper.prop('onChange')({
 					target: {
@@ -437,7 +437,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: testedValue,
@@ -468,7 +468,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 
 			testedValues.forEach(string => {
 				inputWrapper.prop('onChange')({
@@ -525,7 +525,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: firstInvalidInput,
@@ -561,7 +561,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: validIdenticalInput,
@@ -594,7 +594,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: invalidInput,
@@ -619,7 +619,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: invalidInput,
@@ -644,7 +644,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: invalidInput,
@@ -669,7 +669,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: invalidInput,
@@ -694,7 +694,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 			inputWrapper.prop('onChange')({
 				target: {
 					value: invalidInput,
@@ -720,7 +720,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 
 			inputWrapper.prop('onChange')({
 				target: {
@@ -755,7 +755,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 
 			inputWrapper.prop('onChange')({
 				target: {
@@ -790,7 +790,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 
 			inputWrapper.prop('onChange')({
 				target: {
@@ -827,7 +827,7 @@ describe('InputDateTimePicker', () => {
 				/>
 			);
 
-			const inputWrapper = wrapper.find('input');
+			const inputWrapper = wrapper.find('DebounceInput');
 
 			inputWrapper.prop('onChange')({
 				target: {
