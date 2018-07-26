@@ -18,4 +18,4 @@
 
 Each view displays the fragments pickers (month, year, date, time, etc.) needed, findable in the **_pickers_** folder.
 
-All other components are used across the others components restricted to the folder scope (same level or children hierarchy).
+All code fragments used over multiples other code fragments are stored in the **_shared_** folder.
