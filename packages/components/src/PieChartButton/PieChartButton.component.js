@@ -441,7 +441,7 @@ PieChartButtonComponent.propTypes = {
 				'rio-grande',
 				'chestnut-rose',
 				'lightning-yellow',
-				'slate-gray',
+				'dove-gray',
 				'silver-chalice',
 			]),
 			percentage: PropTypes.number.isRequired,
