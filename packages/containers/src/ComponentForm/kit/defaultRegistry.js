@@ -67,26 +67,22 @@ function updateSchema({ schema, body, properties, trigger, errors }) {
 	const newErrors = getNewErrors(errors, schema, body.error);
 	let newProperties = properties;
 
-	if (!body.entries || !(trigger.options && trigger.options.length !== 0)) {
-		return {
-			properties: newProperties,
-			errors: newErrors,
-		};
+	if (body.entries && trigger.options && trigger.options.length !== 0) {
+		newProperties = clonedeep(properties);
+		trigger.options.forEach(option => {
+			const splitted = option.path.split('.');
+			const key = splitted[splitted.length - 1];
+			const parent = get(newProperties, splitted.slice(0, -1).join('.'));
+			if (!parent || typeof parent !== 'object') {
+				return;
+			}
+			if (option.type === 'array') {
+				parent[key] = body.entries.map(entry => entry.name);
+			} else {
+				parent[key] = body.entries.reduce(schemaReducer, {});
+			}
+		});
 	}
-	newProperties = clonedeep(properties);
-	trigger.options.forEach(option => {
-		const splitted = option.path.split('.');
-		const key = splitted[splitted.length - 1];
-		const parent = get(newProperties, splitted.slice(0, -1).join('.'));
-		if (!parent || typeof parent !== 'object') {
-			return;
-		}
-		if (option.type === 'array') {
-			parent[key] = body.entries.map(entry => entry.name);
-		} else {
-			parent[key] = body.entries.reduce(schemaReducer, {});
-		}
-	});
 	return {
 		properties: newProperties,
 		errors: newErrors,
