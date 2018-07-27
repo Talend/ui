@@ -179,7 +179,6 @@ export class TCompForm extends React.Component {
 		const props = {
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			data: uiSpecs,
-			properties: this.state.properties,
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
