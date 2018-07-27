@@ -41,7 +41,10 @@
 		visibility: hidden;
 		transform: translateY(-15px);
 		transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), visibility 0s;
-		overflow-y: auto;
+
+		//height: 0;
+		//padding: 0;
+		//overflow: hidden;
 	}
 
 	&.open {
@@ -52,6 +55,10 @@
 			opacity: 1;
 			max-height: 320px;
 			transform: translateY(0);
+
+			//height: auto;
+			//padding: $padding-small 0;
+			//overflow-y: auto;
 		}
 	}
 }
