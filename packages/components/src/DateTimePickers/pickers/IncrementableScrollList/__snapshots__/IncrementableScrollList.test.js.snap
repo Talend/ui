@@ -2,7 +2,7 @@
 
 exports[`IncrementableScrollList should render 1`] = `
 <div
-  className="theme-container"
+  className="tc-picker-scrollable-list theme-container"
 >
   <IconButton
     aria-label="Scroll to previous page"
@@ -16,13 +16,9 @@ exports[`IncrementableScrollList should render 1`] = `
     onClick={[Function]}
   />
   <div
-    className="theme-items"
+    className="tc-picker-scrollable-list-items theme-items"
   >
-    <AutoSizer
-      disableHeight={false}
-      disableWidth={false}
-      onResize={[Function]}
-    >
+    <AutoSizer>
       [Function]
     </AutoSizer>
   </div>

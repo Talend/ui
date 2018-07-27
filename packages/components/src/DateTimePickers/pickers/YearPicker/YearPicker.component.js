@@ -1,21 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IncrementableScrollList from '../IncrementableScrollList';
-import PickerAction from '../../shared/components/PickerAction';
 
 const yearRange = 300;
 
 class YearPicker extends React.Component {
-
 	constructor(props) {
 		super(props);
+		this.onSelect = this.onSelect.bind(this);
 
 		const now = new Date();
 		const middleYear = now.getFullYear();
 
 		const firstYear = middleYear - Math.ceil(yearRange / 2);
 
-		this.years = (new Array(yearRange))
+		this.items = new Array(yearRange)
 			.fill(0)
 			.map((_, i) => firstYear + i)
 			.map(year => ({
@@ -23,37 +22,21 @@ class YearPicker extends React.Component {
 				label: year.toString(),
 			}));
 
-		const initialYear = props.selectedYear === undefined
-			? middleYear
-			: props.selectedYear;
-
-		this.initialIndex = this.years.findIndex(info => info.id === initialYear) - 2;
-
-		this.isSelected = this.isSelected.bind(this);
+		const definedMiddleYear = props.selectedYear === undefined ? middleYear : props.selectedYear;
+		this.initialIndex = this.items.findIndex(year => year.id === definedMiddleYear);
 	}
 
-	isSelected(year) {
-		return year === this.props.selectedYear;
+	onSelect(item) {
+		return this.props.onSelect(item.id);
 	}
 
 	render() {
-		const itemRenderer = item => {
-			const { id, label } = item;
-			return (
-				<PickerAction
-					aria-label={`Select '${label}'`}
-					isSelected={this.isSelected(id)}
-					label={label}
-					onClick={() => this.props.onSelect(id)}
-				/>
-			);
-		};
-
 		return (
 			<IncrementableScrollList
-				items={this.years}
 				initialIndex={this.initialIndex}
-				itemRenderer={itemRenderer}
+				items={this.items}
+				onSelect={this.onSelect}
+				selectedItemId={this.props.selectedYear}
 			/>
 		);
 	}
