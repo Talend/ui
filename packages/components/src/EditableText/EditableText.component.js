@@ -8,31 +8,17 @@ import InlineForm from './InlineForm.component';
 import theme from './EditableText.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-
-function EditableText({
-	text,
-	editMode,
-	loading,
-	inProgress,
-	onEdit,
-	disabled,
-	t,
-	...rest
-}) {
+function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t, ...rest }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 
 	return (
 		<div
-			className={classNames(
-				theme['tc-editable-text'],
-				'tc-editable-text',
-				{
-					[theme['tc-editable-text-blink']]: inProgress,
-					'tc-editable-text-blink': inProgress,
-				},
-			)}
+			className={classNames(theme['tc-editable-text'], 'tc-editable-text', {
+				[theme['tc-editable-text-blink']]: inProgress,
+				'tc-editable-text-blink': inProgress,
+			})}
 		>
 			{editMode ? (
 				<InlineForm text={text} {...rest} />
@@ -48,7 +34,7 @@ function EditableText({
 						onDoubleClick={onEdit}
 						disabled={disabled}
 					>
-						{ text }
+						{text}
 					</button>
 					<Action
 						name="action-edit-title"
@@ -84,6 +70,5 @@ EditableText.defaultProps = {
 	loading: false,
 	inProgress: false,
 };
-
 
 export default translate(I18N_DOMAIN_COMPONENTS)(EditableText);
