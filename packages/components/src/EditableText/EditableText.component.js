@@ -19,8 +19,7 @@ function EditableText({
 	t,
 	...rest
 }) {
-	if (loading
-	) {
+	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 
