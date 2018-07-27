@@ -16,71 +16,47 @@ const PART = 'table';
  * The table header is optional.
  * The title bar displays a title and an optional set of filters.
  */
-export default class Table extends React.Component {
-	constructor(props) {
-		super(props);
-		this.updateTableNodeRef = this.updateTableNodeRef.bind(this);
-	}
-
-	componentDidMount() {
-		if (this.props.renderingListener && this.props.renderingListener.onMounted) {
-			this.props.renderingListener.onMounted(PART, this.tableNode);
-		}
-	}
-
-	componentDidUpdate() {
-		if (this.props.renderingListener && this.props.renderingListener.onUpdated) {
-			this.props.renderingListener.onUpdated(PART, this.tableNode);
-		}
-	}
-
-	updateTableNodeRef(ref) {
-		this.tableNode = ref;
-	}
-
-	render() {
-		const {
-			title,
-			elements,
-			columns,
-			rowsClassName,
-			withHeader,
-			filters,
-			onFilterChange,
-			sorters,
-			onSortChange,
-			onScroll,
-			onEnterRow,
-			onLeaveRow,
-			renderingListener,
-		} = this.props;
-		return (
-			<div className={classnames('tc-table', theme['tc-table'])}>
-				{(title || displayFilters(filters)) && (
-					<TitleBar title={title} filters={filters} onFilterChange={onFilterChange} />
-				)}
-				<table ref={this.updateTableNodeRef}>
-					{withHeader && (
-						<TableHeader
-							columns={columns}
-							sorters={sorters}
-							onSortChange={onSortChange}
-							renderingListener={renderingListener}
-						/>
-					)}
-					<TableBody
-						elements={elements}
+export default function Table({
+	title,
+	elements,
+	columns,
+	rowsClassName,
+	withHeader,
+	filters,
+	onFilterChange,
+	sorters,
+	onSortChange,
+	onScroll,
+	onEnterRow,
+	onLeaveRow,
+}) {
+	return (
+		<div className={classnames('tc-table', theme['tc-table'])}>
+			{(title || displayFilters(filters)) && (
+				<TitleBar key="title-bar" title={title} filters={filters} onFilterChange={onFilterChange} />
+			)}
+			<table>
+				{title && <caption key="caption">{title}</caption>}
+				{withHeader && (
+					<TableHeader
+						key="headers"
 						columns={columns}
-						rowsClassName={rowsClassName}
-						onScroll={onScroll}
-						onEnterRow={onEnterRow}
-						onLeaveRow={onLeaveRow}
-						renderingListener={renderingListener}
+						sorters={sorters}
+						onSortChange={onSortChange}
 					/>
-				</table>
-			</div>
-		);
-	}
+				)}
+				<TableBody
+					key="body"
+					elements={elements}
+					columns={columns}
+					rowsClassName={rowsClassName}
+					onScroll={onScroll}
+					onEnterRow={onEnterRow}
+					onLeaveRow={onLeaveRow}
+				/>
+			</table>
+		</div>
+	);
 }
 
 Table.propTypes = {
@@ -94,8 +70,10 @@ Table.propTypes = {
 	).isRequired,
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
-			// used to identify a column
+			// property key
 			key: PropTypes.string.isRequired,
+			// column id to link cells to headers
+			id: PropTypes.string.isRequired,
 			// label displayed in the column header
 			label: PropTypes.string,
 			/**
