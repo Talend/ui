@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `<Translate(CircularProgress) />`;
+exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `
+<FormSwitcher
+  loading={true}
+/>
+`;
 
 exports[`ComponentForm #render should render a UIForm 1`] = `
-<Container(UIForm)
+<FormSwitcher
   errors={
     Object {
       "key": "This is wrong",
@@ -95,6 +99,7 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
       },
     ]
   }
+  uiform={true}
   widgets={
     Object {
       "datalist": [Function],

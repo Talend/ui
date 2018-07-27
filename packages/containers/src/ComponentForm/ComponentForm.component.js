@@ -1,11 +1,12 @@
 import React from 'react';
-import { cmfConnect } from '@talend/react-cmf';
+import PropTypes from 'prop-types';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
-import kit from 'component-kit.js';
+import kit from './kit';
 import tcompFieldsWidgets from './fields';
 
 export const DEFAULT_STATE = new Map({
@@ -48,22 +49,6 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	}
 }
 
-/**
- * Reset the form data
- * - keep the metadata properties
- * - remove the runtime properties
- * @param {object} body The new uiSpec
- * @param {object} properties All properties at trigger time
- * @returns {object} The uiSpec with only the metadata properties
- */
-export function keepOnlyDatasetMetadataProperties({ body, properties }) {
-	return {
-		...body,
-		// eslint-disable-next-line no-underscore-dangle
-		properties: { _datasetMetadata: properties._datasetMetadata },
-	};
-}
-
 export class TCompForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -102,7 +87,9 @@ export class TCompForm extends React.Component {
 	}
 
 	onChange(event, payload) {
-		event.persist();
+		if (event.persist) {
+			event.persist();
+		}
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
@@ -122,7 +109,15 @@ export class TCompForm extends React.Component {
 	}
 
 	onTrigger(event, payload) {
+		this.props.dispatch({
+			type: TCompForm.ON_TRIGGER_BEGIN,
+			...payload,
+		});
 		return this.trigger(event, payload).then(data => {
+			this.props.dispatch({
+				type: TCompForm.ON_TRIGGER_END,
+				...payload,
+			});
 			// Today there is a need to give control to the trigger to modify the properties
 			// But this will override what user change in the meantime
 			// need to rethink that, there are lots of potential issues :
@@ -140,7 +135,9 @@ export class TCompForm extends React.Component {
 	}
 
 	onSubmit(event, properties) {
-		event.persist();
+		if (event.persist) {
+			event.persist();
+		}
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			component: TCompForm.displayName,
@@ -151,12 +148,12 @@ export class TCompForm extends React.Component {
 	}
 
 	setupTrigger(props) {
+		const config = cmf.sagas.http.getDefaultConfig() || {};
 		this.trigger = kit.createTriggers({
 			url: props.triggerURL,
-			customRegistry: {
-				...props.customTriggers,
-				reloadForm: keepOnlyDatasetMetadataProperties,
-			},
+			customRegistry: props.customTriggers,
+			headers: config.headers,
+			lang: props.lang,
 		});
 	}
 
@@ -200,10 +197,19 @@ export class TCompForm extends React.Component {
 
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
+TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
+TCompForm.ON_TRIGGER_BEGIN = 'TCOMP_FORM_TRIGGER_BEGIN';
+TCompForm.ON_TRIGGER_END = 'TCOMP_FORM_TRIGGER_END';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
 TCompForm.displayName = 'ComponentForm';
 TCompForm.propTypes = {
 	...cmfConnect.propTypes,
+	definitionURL: PropTypes.string.isRequired,
+	triggerURL: PropTypes.string.isRequired,
+	submitURL: PropTypes.string,
+	uiSpecPath: PropTypes.string,
+	lang: PropTypes.string,
+	customTriggers: PropTypes.object,
 };
 
 export default cmfConnect({
