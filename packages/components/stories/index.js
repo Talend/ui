@@ -17,6 +17,7 @@ import './Datalist';
 import './Dialog';
 import './Drawer';
 import './Emphasis';
+import './EditableText';
 import './Enumeration';
 import './FilterBar';
 import './HeaderBar';
