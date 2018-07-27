@@ -43,8 +43,8 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
-		expect(wrapper.find('TalendForm').length).toBe(1);
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform />);
+		expect(wrapper.find('TalendForm').length).toBe(0);
 		expect(wrapper.find('TalendUIForm').length).toBe(1);
 	});
 
