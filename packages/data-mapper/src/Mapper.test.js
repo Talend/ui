@@ -1,12 +1,13 @@
 import { mount } from 'enzyme';
 import React, { Component } from 'react';
 import TestBackend from 'react-dnd-test-backend';
-import { DragDropContext, DragSource } from 'react-dnd';
+import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 import MapperComponent from './Mapper.component.js';
 import DataAccessorWrapper from './DataAccessor/DataAccessorWrapper';
 import { Constants } from './index';
 import * as TestData from './TestData';
+import { DraggableComponent } from '@talend/react-components';
 
 function getElementByName(elements, name) {
 	return elements.find(elem => elem.props.element.name === name);
@@ -82,7 +83,7 @@ it('perform-mapping', () => {
 	const backend = root.getManager().getBackend();
 
 	// Find the drag source ID and use it to simulate the dragging operation
-	const elements = TestUtils.scryRenderedComponentsWithType(root, DragSource);
+	const elements = TestUtils.scryRenderedComponentsWithType(root, DraggableComponent);
 
 	const sourceElem = getElementByName(elements, 'elem_1');
 
