@@ -87,7 +87,7 @@ function Environment({ getComponent, ...props }) {
 	);
 }
 
-function Search({ getComponent, ...props }) {
+function Search({ getComponent, icon, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		'tc-header-bar-action',
@@ -97,11 +97,12 @@ function Search({ getComponent, ...props }) {
 		theme.flex,
 	);
 	const Renderers = Inject.getAll(getComponent, { Typeahead });
+	const a11yIcon = icon && { ...icon, role: 'search' };
 
 	return (
 		<li role="presentation" className={className}>
-			<form className="navbar-form navbar-right" role="search">
-				<Renderers.Typeahead {...props} />
+			<form className="navbar-form navbar-right">
+				<Renderers.Typeahead {...props} role="searchbox" icon={a11yIcon} />
 			</form>
 		</li>
 	);
