@@ -139,29 +139,32 @@ class ActionDropdown extends React.Component {
 		};
 	}
 
-	onToggle(isOpen, event) {
-		if (!isOpen) {
-			this.setState({ dropup: this.props.dropup });
-			return;
-		}
+	componentDidUpdate(prevProps, prevState) {}
 
-		const dropdownTrigger = getDropdownToggleFromInner(event.target);
-		const dropdownMenu = dropdownTrigger.nextSibling;
-		const dropdownContainer = getDropdownContainer(dropdownTrigger);
-
-		if (dropdownContainer) {
-			const dropdownRect = dropdownMenu.getBoundingClientRect();
-			const containerRect = dropdownContainer.getBoundingClientRect();
-
-			this.setState(oldState => {
-				if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
-					return { dropup: true };
-				} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
-					return { dropup: false };
-				}
-				return null;
-			});
-		}
+	onToggle(isOpen) {
+		this.setState({ isOpen });
+		// if (!isOpen) {
+		// 	this.setState({ dropup: this.props.dropup, isOpen });
+		// 	return;
+		// }
+		//
+		// const dropdownTrigger = getDropdownToggleFromInner(event.target);
+		// const dropdownMenu = dropdownTrigger.nextSibling;
+		// const dropdownContainer = getDropdownContainer(dropdownTrigger);
+		//
+		// if (dropdownContainer) {
+		// 	const dropdownRect = dropdownMenu.getBoundingClientRect();
+		// 	const containerRect = dropdownContainer.getBoundingClientRect();
+		//
+		// 	this.setState(oldState => {
+		// 		if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
+		// 			return { dropup: true, isOpen };
+		// 		} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
+		// 			return { dropup: false, isOpen };
+		// 		}
+		// 		return null;
+		// 	});
+		// }
 	}
 
 	render() {
