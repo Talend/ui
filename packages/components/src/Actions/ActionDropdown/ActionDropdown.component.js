@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
@@ -139,32 +140,30 @@ class ActionDropdown extends React.Component {
 		};
 	}
 
-	componentDidUpdate(prevProps, prevState) {}
+	componentDidUpdate(prevProps, prevState) {
+		if (!prevState.isOpen && this.state.isOpen) {
+			const dropdownTrigger = ReactDOM.findDOMNode(this.ref).querySelector('.dropdown-toggle');
+			const dropdownMenu = dropdownTrigger.nextSibling;
+			const dropdownContainer = getDropdownContainer(dropdownTrigger);
+
+			if (dropdownContainer) {
+				const dropdownRect = dropdownMenu.getBoundingClientRect();
+				const containerRect = dropdownContainer.getBoundingClientRect();
+
+				this.setState(oldState => {
+					if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
+						return { dropup: true };
+					} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
+						return { dropup: false };
+					}
+					return null;
+				});
+			}
+		}
+	}
 
 	onToggle(isOpen) {
-		this.setState({ isOpen });
-		// if (!isOpen) {
-		// 	this.setState({ dropup: this.props.dropup, isOpen });
-		// 	return;
-		// }
-		//
-		// const dropdownTrigger = getDropdownToggleFromInner(event.target);
-		// const dropdownMenu = dropdownTrigger.nextSibling;
-		// const dropdownContainer = getDropdownContainer(dropdownTrigger);
-		//
-		// if (dropdownContainer) {
-		// 	const dropdownRect = dropdownMenu.getBoundingClientRect();
-		// 	const containerRect = dropdownContainer.getBoundingClientRect();
-		//
-		// 	this.setState(oldState => {
-		// 		if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
-		// 			return { dropup: true, isOpen };
-		// 		} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
-		// 			return { dropup: false, isOpen };
-		// 		}
-		// 		return null;
-		// 	});
-		// }
+		this.setState(({ dropup }) => ({ isOpen, dropup: isOpen ? dropup : false }));
 	}
 
 	render() {
@@ -213,6 +212,7 @@ class ActionDropdown extends React.Component {
 				{...rest}
 				dropup={this.state.dropup}
 				onToggle={this.onToggle}
+				ref={ref => (this.ref = ref)}
 			>
 				{!items.length &&
 					!items.size &&
