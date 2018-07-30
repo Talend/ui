@@ -5,14 +5,12 @@ import InlineForm from './InlineForm.component';
 
 describe('EditableText', () => {
 	let defaultProps;
-	beforeEach(
-		() =>
-			(defaultProps = {
-				text: 'my text',
-				onEdit: jest.fn(),
-				onSubmit: jest.fn(),
-			}),
-	);
+	beforeEach(() =>
+		(defaultProps = {
+			text: 'my text',
+			onEdit: jest.fn(),
+			onSubmit: jest.fn(),
+		}));
 	it('should render', () => {
 		const wrapper = shallow(<EditableText {...defaultProps} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
