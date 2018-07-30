@@ -12,6 +12,9 @@ class DateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
+		// eslint-disable-next-line
+		console.warn(`UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.`);
+
 		const selectedDate = props.selection && props.selection.date;
 		const selectedTime = props.selection && props.selection.time;
 

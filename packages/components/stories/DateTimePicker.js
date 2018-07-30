@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
-import DateTimePicker, { InputDateTimePicker } from '../src/DateTimePickers';
+import InputDateTimePicker, { DateTimePicker } from '../src/DateTimePickers';
 
 
 storiesOf('DateTimePicker', module)

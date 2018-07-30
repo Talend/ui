@@ -12,7 +12,7 @@ exports[`InputDateTimePicker render should render 1`] = `
     onBlur={undefined}
     onChange={[Function]}
     onKeyDown={undefined}
-    placeholder="DD/MM/YYYY, hh:mm"
+    placeholder="YYYY-MM-DD hh:mm"
     type="text"
     value="2017-04-04 15:27"
   />

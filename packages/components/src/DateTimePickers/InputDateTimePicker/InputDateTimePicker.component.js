@@ -60,6 +60,9 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
+		// eslint-disable-next-line
+		console.warn(`UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.`);
+
 		this.state = (() => {
 			const selectedDateTime = this.props.selectedDateTime;
 			if (selectedDateTime !== undefined) {
@@ -225,7 +228,7 @@ class InputDateTimePicker extends React.Component {
 				<DebounceInput
 					{...this.props.inputProps}
 					type="text"
-					placeholder="DD/MM/YYYY, hh:mm"
+					placeholder="YYYY-MM-DD hh:mm"
 					value={textInput}
 					debounceTimeout={300}
 					onChange={this.onChangeInput}
