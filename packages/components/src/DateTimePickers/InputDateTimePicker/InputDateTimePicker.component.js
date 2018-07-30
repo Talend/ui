@@ -43,6 +43,76 @@ function getTextDate(date, time) {
 	return `${dateText} ${timeText}`;
 }
 
+function extractDate(strToParse) {
+	const dateMatches = strToParse.match(datePartRegex);
+
+	if (!dateMatches) {
+		const errMsg = 'DATE - INCORRECT FORMAT';
+		return [undefined, errMsg];
+	}
+
+	const yearString = dateMatches[1];
+	const monthString = dateMatches[2];
+	const dayString = dateMatches[3];
+
+	const day = parseInt(dayString, 10);
+	const month = parseInt(monthString, 10);
+	const monthIndex = month - 1;
+	const year = parseInt(yearString, 10);
+
+	if (month === 0 || month > 12) {
+		const errMsg = 'DATE - INCORRECT MONTH NUMBER';
+		return [undefined, errMsg];
+	}
+
+	if (day === 0) {
+		const errMsg = 'DATE - INCORRECT DAY NUMBER';
+		return [undefined, errMsg];
+	}
+
+	const monthDate = new Date(year, monthIndex);
+	const lastDateOfMonth = lastDayOfMonth(monthDate);
+
+	if (day > getDate(lastDateOfMonth)) {
+		const errMsg = 'DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH';
+		return [undefined, errMsg];
+	}
+
+	const dateValidated = setDate(monthDate, day);
+
+	return [dateValidated];
+}
+
+function extractTime(strToParse) {
+	const timeMatches = strToParse.match(timePartRegex);
+
+	if (!timeMatches) {
+		const errMsg = 'TIME - INCORRECT FORMAT';
+		return [undefined, errMsg];
+	}
+
+	const hoursString = timeMatches[1];
+	const minutesString = timeMatches[2];
+
+	const hours = parseInt(hoursString, 10);
+
+	if (hours >= 24) {
+		const errMsg = 'TIME - INCORRECT HOUR NUMBER';
+		return [undefined, errMsg];
+	}
+
+	const minutes = parseInt(minutesString, 10);
+
+	if (minutes >= 60) {
+		const errMsg = 'TIME - INCORRECT MINUTES NUMBER';
+		return [undefined, errMsg];
+	}
+
+	const timeValidated = hoursAndMinutesToTime(hours, minutes);
+
+	return [timeValidated];
+}
+
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
@@ -95,84 +165,17 @@ class InputDateTimePicker extends React.Component {
 
 		const canParseFullString = splitMatches !== null;
 
-		const [date, errMsgDate] = (() => {
-			const stringToParse = canParseFullString
-				? splitMatches[1]
-				: fullString;
+		const dateStrToParse = canParseFullString
+			? splitMatches[1]
+			: fullString;
 
-			const dateMatches = stringToParse.match(datePartRegex);
+		const [date, errMsgDate] = extractDate(dateStrToParse);
 
-			if (!dateMatches) {
-				const errMsg = 'DATE - INCORRECT FORMAT';
-				return [undefined, errMsg];
-			}
+		const timeStrToParse = canParseFullString
+			? splitMatches[2]
+			: fullString;
 
-			const yearString = dateMatches[1];
-			const monthString = dateMatches[2];
-			const dayString = dateMatches[3];
-
-			const day = parseInt(dayString, 10);
-			const month = parseInt(monthString, 10);
-			const monthIndex = month - 1;
-			const year = parseInt(yearString, 10);
-
-			if (month === 0 || month > 12) {
-				const errMsg = 'DATE - INCORRECT MONTH NUMBER';
-				return [undefined, errMsg];
-			}
-
-			if (day === 0) {
-				const errMsg = 'DATE - INCORRECT DAY NUMBER';
-				return [undefined, errMsg];
-			}
-
-			const monthDate = new Date(year, monthIndex);
-			const lastDateOfMonth = lastDayOfMonth(monthDate);
-
-			if (day > getDate(lastDateOfMonth)) {
-				const errMsg = 'DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH';
-				return [undefined, errMsg];
-			}
-
-			const dateValidated = setDate(monthDate, day);
-
-			return [dateValidated];
-		})();
-
-
-		const [time, errMsgTime] = (() => {
-			const stringToParse = canParseFullString
-				? splitMatches[2]
-				: fullString;
-
-			const timeMatches = stringToParse.match(timePartRegex);
-
-			if (!timeMatches) {
-				const errMsg = 'TIME - INCORRECT FORMAT';
-				return [undefined, errMsg];
-			}
-
-			const hoursString = timeMatches[1];
-			const minutesString = timeMatches[2];
-
-			const hours = parseInt(hoursString, 10);
-
-			if (hours >= 24) {
-				const errMsg = 'TIME - INCORRECT HOUR NUMBER';
-				return [undefined, errMsg];
-			}
-
-			const minutes = parseInt(minutesString, 10);
-
-			if (minutes >= 60) {
-				const errMsg = 'TIME - INCORRECT MINUTES NUMBER';
-				return [undefined, errMsg];
-			}
-
-			const timeValidated = hoursAndMinutesToTime(hours, minutes);
-
-			return [timeValidated];
-		})();
+		const [time, errMsgTime] = extractTime(timeStrToParse);
 
 		const errMsg = canParseFullString
 			? errMsgDate || errMsgTime
