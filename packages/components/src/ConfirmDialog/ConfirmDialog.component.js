@@ -36,6 +36,7 @@ function ConfirmDialog({
 	validateAction,
 	secondaryActions,
 	cancelAction,
+	progressLabel,
 	progressValue,
 	...props
 }) {
@@ -55,7 +56,7 @@ function ConfirmDialog({
 	}
 	let progress;
 	if (progressValue) {
-		progress = { percent: progressValue };
+		progress = { percent: progressValue, tooltip: progressLabel };
 	}
 	return (
 		<Dialog
@@ -82,6 +83,7 @@ ConfirmDialog.propTypes = {
 	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
 	validateAction: PropTypes.shape(Action.propTypes).isRequired,
 	secondaryActions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
+	progressLabel: PropTypes.string,
 	progressValue: PropTypes.number,
 	bodyOverflow: PropTypes.bool,
 	getComponent: PropTypes.func,

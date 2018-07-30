@@ -24,11 +24,10 @@
               "type": "string"
             }
           },
-          "required": [],
-          "type": "object"
+          "type": "object",
+          "required": ["name"]
         }
       },
-      "required": [],
       "title": "datastore",
       "type": "object"
     },

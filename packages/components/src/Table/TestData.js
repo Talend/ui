@@ -50,18 +50,22 @@ export const address = {
 
 export const Columns = {
 	NAME: {
+		id: 'my-table-name',
 		key: 'name',
 		label: 'Name',
 	},
 	TYPE: {
+		id: 'my-table-type',
 		key: 'type',
 		label: 'Type',
 	},
 	DESC: {
+		id: 'my-table-desc',
 		key: 'desc',
 		label: 'Description',
 	},
 	MANDATORY: {
+		id: 'my-table-mandatory',
 		key: 'mandatory',
 		label: '',
 	},
@@ -122,8 +126,7 @@ export const sorterIcons = {
 
 export function addSortExtraProps(column) {
 	return {
-		key: column.key,
-		label: column.label,
+		...column,
 		headExtraProps: {
 			iconPosition: 'right',
 			link: true,
