@@ -22,7 +22,6 @@ storiesOf('EditableText', module)
 		</div>
 	))
 	.addWithInfo('default', () => <EditableText {...props} />)
-	.addWithInfo('with long text', () => <EditableText {...props} />)
 	.addWithInfo('loading', () => <EditableText loading {...props} />)
 	.addWithInfo('disabled', () => <EditableText disabled {...props} />)
 	.addWithInfo('in progress', () => <EditableText inProgress {...props} />)

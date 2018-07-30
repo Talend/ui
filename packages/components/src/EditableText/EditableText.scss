@@ -17,7 +17,6 @@ $tc-input-editable-text-size-medium: 1.4rem !default;
 $tc-input-editable-text-size-small: 1rem !default;
 $tc-input-editable-text-title-weight: 900 !default;
 $tc-input-editable-text-input-weight: $form-base-font-weight !default;
-$tc-input-editable-text-sub-title-weight: 300 !default;
 
 :global(.tc-editable-text-blink) {
 	@include heartbeat(object-blink);
@@ -36,49 +35,38 @@ $tc-input-editable-text-sub-title-weight: 300 !default;
 		flex: 1 auto;
 		margin-right: 110px;
 		max-width: 90rem;
+		display: inline-flex;
+		align-items: center;
 
-		&-title {
-			display: inline-flex;
-			align-items: center;
+		&-wording-button {
+			@include input-text($tc-input-editable-text-title-weight);
+			@include ellipsis;
+			text-transform: uppercase;
+			margin: 0;
+		}
 
-			&-wording,
-			&-wording-button {
-				@include input-text($tc-input-editable-text-title-weight);
-				@include ellipsis;
-				text-transform: uppercase;
-				margin: 0;
-			}
+		&-wording-button {
+			padding: 0;
+			letter-spacing: inherit;
 
-			&-wording-button {
-				padding: 0;
-				letter-spacing: inherit;
+			&:global(.btn-link) {
+				color: $black;
 
-				&:global(.btn-link) {
+				&:focus,
+				&:hover,
+				&:active {
 					color: $black;
-
-					&:focus,
-					&:hover,
-					&:active {
-						color: $black;
-					}
-				}
-			}
-
-			&-pencil {
-				padding-left: $padding-small;
-				padding-right: $padding-small;
-
-				&:global(.btn-link) {
-					color: $silver;
 				}
 			}
 		}
 
-		&-subtitle {
-			@include ellipsis;
-			color: $dark-silver;
-			font-size: $tc-input-editable-text-size-medium;
-			font-weight: $tc-input-editable-text-sub-title-weight;
+		&-pencil {
+			padding-left: $padding-small;
+			padding-right: $padding-small;
+
+			&:global(.btn-link) {
+				color: $silver;
+			}
 		}
 	}
 	& &-form {

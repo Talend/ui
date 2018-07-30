@@ -26,8 +26,8 @@ function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t
 				<div>
 					<button
 						className={classNames(
-							theme['tc-editable-text-text-title-wording-button'],
-							'tc-editable-text-text-title-wording-button',
+							theme['tc-editable-text-text-wording-button'],
+							'tc-editable-text-text-wording-button',
 							'btn',
 							'btn-link',
 						)}
@@ -37,14 +37,14 @@ function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t
 						{text}
 					</button>
 					<Action
-						name="action-edit-title"
+						name="action-edit"
 						label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
 						className={classNames(
-							theme['tc-editable-text-text-title-pencil'],
-							'tc-editable-text-text-title-pencil',
+							theme['tc-editable-text-text-pencil'],
+							'tc-editable-text-text-pencil',
 						)}
 						disabled={disabled}
 						hideLabel
