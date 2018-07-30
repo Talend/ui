@@ -16,6 +16,8 @@ import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
+const DEBOUNCE_TIMEOUT = 300;
+
 const splitDateAndTimePartsRegex = new RegExp(/^\s*([^\s]+?)\s+([^\s]+?)\s*$/);
 const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
 const timePartRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
@@ -228,7 +230,7 @@ class InputDateTimePicker extends React.Component {
 					type="text"
 					placeholder="YYYY-MM-DD hh:mm"
 					value={textInput}
-					debounceTimeout={300}
+					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
 				/>
 				<div className={theme.dropdown}>

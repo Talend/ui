@@ -19,11 +19,12 @@ import DayPickerAction from './DayPickerAction';
 
 const FIRST_DAY_OF_WEEK = 1;
 const BASE_DATE = new Date(0);
+const NB_DAYS_IN_WEEK = 7;
 
 function buildDayNames(firstDayOfweek) {
-	return (new Array(7))
+	return (new Array(NB_DAYS_IN_WEEK))
 		.fill(0)
-		.map((_, i) => (i + firstDayOfweek) % 7)
+		.map((_, i) => (i + firstDayOfweek) % NB_DAYS_IN_WEEK)
 		.map(dayOfWeek => setDay(BASE_DATE, dayOfWeek))
 		.map(headerDate => format(headerDate, 'dddd'));
 }
@@ -44,11 +45,11 @@ class DatePicker extends React.Component {
 		});
 		const nbWeeksToRender = diffWeeks + 1;
 
-		const dates = (new Array(7 * nbWeeksToRender))
+		const dates = (new Array(NB_DAYS_IN_WEEK * nbWeeksToRender))
 						.fill(0)
 						.map((_, i) => addDays(firstDateOfCalendar, i));
 
-		return chunk(dates, 7);
+		return chunk(dates, NB_DAYS_IN_WEEK);
 	}
 
 	constructor(props) {

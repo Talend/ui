@@ -6,6 +6,8 @@ import theme from './IncrementableScrollList.scss';
 import IconButton from '../../shared/components/IconButton';
 import RowRenderer from './RowRenderer';
 
+const NB_ITEMS_DISPLAYED = 5;
+
 function keepInBoundaries(number, min, max) {
 	if (number < min) {
 		return min;
@@ -15,8 +17,6 @@ function keepInBoundaries(number, min, max) {
 	}
 	return number;
 }
-
-const NB_ITEMS_DISPLAYED = 5;
 
 class IncrementableScrollList extends React.Component {
 	constructor(props) {
@@ -31,8 +31,8 @@ class IncrementableScrollList extends React.Component {
 			startIndex: this.scrollToIndex,
 		};
 
-		this.scrollUp = this.scrollRows.bind(this, -5);
-		this.scrollDown = this.scrollRows.bind(this, 5);
+		this.scrollUp = this.scrollRows.bind(this, -NB_ITEMS_DISPLAYED);
+		this.scrollDown = this.scrollRows.bind(this, NB_ITEMS_DISPLAYED);
 		this.onRowsRendered = this.onRowsRendered.bind(this);
 		this.setListRef = this.setListRef.bind(this);
 	}
