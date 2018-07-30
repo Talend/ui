@@ -149,6 +149,7 @@ class SelectObject extends React.Component {
 		super(props);
 		this.state = {};
 		this.filter = filter;
+		this.filterAll = filterAll;
 		this.getById = getById;
 		this.onTreeClick = this.onTreeClick.bind(this);
 		this.onResultsClick = this.onResultsClick.bind(this);
@@ -165,7 +166,7 @@ class SelectObject extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
-		const filterMethod = this.props.filterMode === FILTER_MODE.ALL ? filterAll : filter;
+		const filterMethod = this.props.filterMode === FILTER_MODE.ALL ? this.filterAll : this.filter;
 		const matches = [];
 		let selectedId = state.get('selectedId') || props.selectedId;
 		function addMatch(item) {
