@@ -170,7 +170,7 @@ body {
   }
 }`;
 
-const APP_LOADER = `<div class="tc-app-loader-container">
+const APP_LOADER = `<div class="tc-app-loader-container" aria-label="Loading application" role="status">
 	<div class="tc-app-loader-icon">
 		<div class="tc-app-loader" >
 			<div class="spinner-wrapper">
