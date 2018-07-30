@@ -15,11 +15,13 @@ const items = [
 		suggestions: [
 			{
 				title: 'le title 1',
-				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+				description:
+					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
 				title: 'title 2 Les elephants elementaires ont des aile ',
-				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				description:
+					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
 		],
 	},
@@ -32,7 +34,8 @@ const items = [
 		suggestions: [
 			{
 				title: 'title 3',
-				description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+				description:
+					'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 			},
 		],
 	},
@@ -45,15 +48,18 @@ const items = [
 		suggestions: [
 			{
 				title: 'title 4',
-				description: 'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
+				description:
+					'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
 			},
 			{
 				title: 'title 5',
-				description: 'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
+				description:
+					'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
 			},
 			{
 				title: 'title 6',
-				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
+				description:
+					'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 			},
 			{
 				title: 'without description',
@@ -98,10 +104,9 @@ decoratedStories
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			debounceTimeout: 300,
+			role: 'searchbox',
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('searching', () => {
 		const props = {
@@ -109,10 +114,9 @@ decoratedStories
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			searching: true,
+			role: 'searchbox',
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('with results', () => {
 		const props = {
@@ -121,10 +125,9 @@ decoratedStories
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			onSelect: action('onSelect'),
+			role: 'searchbox',
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('without results', () => {
 		const props = {
@@ -132,10 +135,9 @@ decoratedStories
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			items: [],
+			role: 'searchbox',
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('on the right', () => {
 		const props = {
@@ -145,10 +147,9 @@ decoratedStories
 			onChange: action('onChange'),
 			onSelect: action('onSelect'),
 			position: 'right',
+			role: 'searchbox',
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('with toggle button', () => {
 		const props = {
@@ -156,13 +157,12 @@ decoratedStories
 				name: 'talend-search',
 				title: 'Toggle search input',
 				bsStyle: 'link',
+				role: 'search',
 			},
 			onToggle: action('onToggle'),
 			docked: true,
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('with focused item', () => {
 		const props = {
@@ -175,20 +175,18 @@ decoratedStories
 			items,
 			focusedSectionIndex: 1,
 			focusedItemIndex: 0,
+			role: 'searchbox',
 		};
-		return (
-			<Typeahead {...props} />
-		);
+		return <Typeahead {...props} />;
 	})
 	.addWithInfo('without section header', () => {
-	const props = {
-		value: 'le',
-		items: noHeaderItems,
-		onBlur: action('onBlur'),
-		onChange: action('onChange'),
-		onSelect: action('onSelect'),
-	};
-	return (
-		<Typeahead {...props} />
-	);
-});
+		const props = {
+			value: 'le',
+			items: noHeaderItems,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+		};
+		return <Typeahead {...props} />;
+	});
