@@ -31,31 +31,31 @@ function buildDayNames(firstDayOfweek) {
 
 const getDayNames = memoize(buildDayNames);
 
+function buildWeeks(year, monthIndex, firstDayOfWeek) {
+	const firstDateOfMonth = new Date(year, monthIndex);
+	const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
+		weekStartsOn: firstDayOfWeek,
+	});
+
+	const lastDateOfMonth = endOfMonth(firstDateOfMonth);
+	const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
+		weekStartsOn: firstDayOfWeek,
+	});
+	const nbWeeksToRender = diffWeeks + 1;
+
+	const dates = (new Array(NB_DAYS_IN_WEEK * nbWeeksToRender))
+					.fill(0)
+					.map((_, i) => addDays(firstDateOfCalendar, i));
+
+	return chunk(dates, NB_DAYS_IN_WEEK);
+}
+
 class DatePicker extends React.Component {
-
-	static buildWeeks(year, monthIndex, firstDayOfWeek) {
-		const firstDateOfMonth = new Date(year, monthIndex);
-		const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
-			weekStartsOn: firstDayOfWeek,
-		});
-
-		const lastDateOfMonth = endOfMonth(firstDateOfMonth);
-		const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-			weekStartsOn: firstDayOfWeek,
-		});
-		const nbWeeksToRender = diffWeeks + 1;
-
-		const dates = (new Array(NB_DAYS_IN_WEEK * nbWeeksToRender))
-						.fill(0)
-						.map((_, i) => addDays(firstDateOfCalendar, i));
-
-		return chunk(dates, NB_DAYS_IN_WEEK);
-	}
 
 	constructor(props) {
 		super(props);
 
-		this.getWeeks = memoize(DatePicker.buildWeeks, (year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`);
+		this.getWeeks = memoize(buildWeeks, (year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`);
 	}
 
 	isSelectedDate(date) {
