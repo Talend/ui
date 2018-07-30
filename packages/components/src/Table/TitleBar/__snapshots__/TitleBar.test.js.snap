@@ -21,7 +21,7 @@ exports[`title-bar 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseOver={[Function]}
-      role={null}
+      role="search"
       type="button"
     >
       <svg

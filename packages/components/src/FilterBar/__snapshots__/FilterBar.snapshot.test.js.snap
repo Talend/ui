@@ -9,6 +9,7 @@ exports[`Filter should render 1`] = `
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  role="search"
   tooltipPlacement={undefined}
 />
 `;
@@ -104,6 +105,7 @@ exports[`Filter should render highlighted filter 1`] = `
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  role="search"
   tooltipPlacement={undefined}
 />
 `;
@@ -117,6 +119,7 @@ exports[`Filter should render id if provided 1`] = `
   id="toolbar-filter"
   label="Toggle filter"
   onClick={[Function]}
+  role="search"
   tooltipPlacement={undefined}
 />
 `;
@@ -130,6 +133,7 @@ exports[`Filter should render only toggle icon 1`] = `
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  role="search"
   tooltipPlacement={undefined}
 />
 `;

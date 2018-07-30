@@ -21,17 +21,7 @@
 		}
 	}
 
-	&-form {
-		margin-top: $navbar-form-margin;
-		margin-bottom: $navbar-form-margin;
-	}
-
 	&-nav {
 		display: flex;
-
-		li {
-			display: flex;
-			align-items: center;
-		}
 	}
 }
