@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import { Breadcrumbs } from '@talend/react-components';
+
 export const DEFAULT_STATE = new Map();
 
 export function ContainerBreadcrumbs(props) {
@@ -21,8 +21,7 @@ export function ContainerBreadcrumbs(props) {
 
 ContainerBreadcrumbs.displayName = 'Breadcrumbs';
 ContainerBreadcrumbs.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.object),
-	maxItems: PropTypes.number,
+	...cmfConnect.propTypes,
 };
 
 export default cmfConnect({
