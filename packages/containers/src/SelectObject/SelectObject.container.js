@@ -8,10 +8,6 @@ import Component from './SelectObject.component';
 
 export const DISPLAY_NAME = 'Container(SelectObject)';
 export const DEFAULT_STATE = new Immutable.Map({});
-export const FILTER_MODE = {
-	ALL: 'ALL',
-	LEAF: 'LEAF',
-};
 
 function noop() {}
 
@@ -128,6 +124,10 @@ export function filterAll(
 
 class SelectObject extends React.Component {
 	static displayName = DISPLAY_NAME;
+	static FILTER_MODE = {
+		ALL: 'ALL',
+		LEAF: 'LEAF',
+	};
 	static propTypes = {
 		...cmfConnect.propTypes,
 		sourceData: PropTypes.array,
@@ -136,7 +136,7 @@ class SelectObject extends React.Component {
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		breadCrumbsRootLabel: PropTypes.string,
-		filterMode: PropTypes.oneOfType(FILTER_MODE),
+		filterMode: PropTypes.oneOfType(SelectObject.FILTER_MODE),
 	};
 	static defaultProps = {
 		sourceData: new Immutable.List(),
@@ -166,7 +166,9 @@ class SelectObject extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
-		const filterMethod = this.props.filterMode === FILTER_MODE.ALL ? this.filterAll : this.filter;
+		const filterMethod = this.props.filterMode === SelectObject.FILTER_MODE.ALL
+			? this.filterAll
+			: this.filter;
 		const matches = [];
 		let selectedId = state.get('selectedId') || props.selectedId;
 		function addMatch(item) {

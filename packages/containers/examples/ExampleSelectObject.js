@@ -53,7 +53,7 @@ const ExampleSelectObject = {
 	'tree with filter mode set to ALL': () => (
 		<div>
 			<IconsProvider />
-			<SelectObject {...props} filterMode={'ALL'} />
+			<SelectObject {...props} filterMode={SelectObject.FILTER_MODE.ALL} />
 		</div>
 	),
 };
