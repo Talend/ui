@@ -5,14 +5,13 @@ import DebounceInput from 'react-debounce-input';
 import getMinutes from 'date-fns/get_minutes';
 import getHours from 'date-fns/get_hours';
 import getDate from 'date-fns/get_date';
-import getMonth from 'date-fns/get_month';
-import getYear from 'date-fns/get_year';
 import setDate from 'date-fns/set_date';
 import setMinutes from 'date-fns/set_minutes';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import isSameMinute from 'date-fns/is_same_minute';
 import startOfDay from 'date-fns/start_of_day';
 import startOfMinute from 'date-fns/start_of_minute';
+import format from 'date-fns/format';
 import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
@@ -30,11 +29,7 @@ function getTextDate(date, time) {
 		return '';
 	}
 
-	const day = getDate(date);
-	const month = getMonth(date) + 1;
-	const year = getYear(date);
-
-	const dateText = `${year}-${twoDigits(month)}-${twoDigits(day)}`;
+	const dateText = format(date, 'YYYY-MM-DD');
 
 	if (time === undefined) {
 		return dateText;
