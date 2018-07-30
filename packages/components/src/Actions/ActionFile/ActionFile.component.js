@@ -106,6 +106,7 @@ class ActionFile extends React.Component {
 	render() {
 		const {
 			id,
+			bsStyle,
 			name,
 			className,
 			available,
@@ -123,7 +124,7 @@ class ActionFile extends React.Component {
 		const localId = id || uuid.v4();
 		const buttonContent = getButtonContent(this.props);
 		const labelClasses = classNames(
-			'btn btn-default',
+			`btn btn-${bsStyle}`,
 			theme['btn-file'],
 			(disabled || inProgress) && 'disabled',
 			(hideLabel || !label) && 'btn-icon-only',

@@ -42,5 +42,8 @@ storiesOf('ActionFile', module)
 			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
 			<p>Custom tooltip</p>
 			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
+			<p>Bootstrap style</p>
+			<Action id="default" {...myAction} bsStyle="primary" tooltipLabel={'Custom label here'} />
+			<Action id="default" {...myAction} bsStyle="default btn-inverse" tooltipLabel={'Custom label here'} />
 		</div>
 	));
