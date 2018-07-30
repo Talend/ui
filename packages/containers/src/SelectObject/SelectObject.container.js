@@ -103,25 +103,27 @@ export function filterAll(
 	{ nameAttr = 'name', onMatch = noop } = {},
 	currentPosition = 'root',
 ) {
-	let results = new List();
+	const result = new List();
 
 	if (query) {
-		items.forEach(item => {
+		return items.reduce((acc, item) => {
 			const name = item.get(nameAttr, '');
 			const children = item.get('children', null);
+			let results = acc;
 			if (name.toLowerCase().includes(query.toLowerCase())) {
 				onMatch(item);
-				results = results.push(item.set('currentPosition', currentPosition));
+				results = acc.push(item.set('currentPosition', currentPosition));
 			}
 			if (children) {
 				results = results.concat(
 					filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`),
 				);
 			}
-		});
+			return results;
+		}, result);
 	}
 
-	return results;
+	return result;
 }
 
 class SelectObject extends React.Component {
