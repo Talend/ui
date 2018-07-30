@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { EditableText, Action } from '../index';
 import InlineForm from './InlineForm.component';
 
@@ -12,19 +12,19 @@ describe('EditableText', () => {
 			onSubmit: jest.fn(),
 		}));
 	it('should render', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} />);
+		const wrapper = mount(<EditableText {...defaultProps} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render InlineForm', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} editMode />);
+		const wrapper = mount(<EditableText {...defaultProps} editMode />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render skeleton', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} loading />);
+		const wrapper = mount(<EditableText {...defaultProps} loading />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render inProgress', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} inProgress />);
+		const wrapper = mount(<EditableText {...defaultProps} inProgress />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
