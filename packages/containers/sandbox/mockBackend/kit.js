@@ -1,9 +1,5 @@
-const bodyParser = require('body-parser');
 const url = require('url');
-const add = require('./mock/add.json');
-const basic = require('./mock/basic.json');
-const components = require('./mock/components.json');
-const servicenow = require('./mock/servicenow.json');
+const example = require('./mock/kit/example.json');
 
 function getTriggerInfo(req) {
 	return {
@@ -98,28 +94,12 @@ function trigger(req) {
 	return TRIGGERS[info.type][info.action](info.args);
 }
 
-module.exports = {
-	mode: undefined,
-	devServer: {
-		before: function proxy(app) {
-			app.use(bodyParser.json()); // for parsing application/json
-			app.get('/api/v1/forms/:form', (req, res) => {
-				// eslint-disable-next-line global-require
-				const form = require(`./mock/${req.params.form}.json`);
-				res.json(form);
-			});
-			app.get('/api/v1/application/index', (req, res) => {
-				res.json(components);
-			});
-			app.get(
-				'/api/v1/application/detail/c2VydmljZW5vdyNTZXJ2aWNlTm93I1NlcnZpY2VOb3dPdXRwdXQ',
-				(req, res) => {
-					res.json(servicenow);
-				},
-			);
-			app.post('/api/v1/application/action', (req, res) => {
-				res.json(trigger(req));
-			});
-		},
-	},
+module.exports = function addRoutes(app) {
+	app.get('/api/v1/forms/example', (req, res) => {
+		// eslint-disable-next-line global-require
+		res.json(example);
+	});
+	app.post('/api/v1/application/action', (req, res) => {
+		res.json(trigger(req));
+	});
 };

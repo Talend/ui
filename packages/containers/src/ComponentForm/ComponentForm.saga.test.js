@@ -1,5 +1,4 @@
-import React from 'react';
-import { call, take, takeEvery } from 'redux-saga/effects';
+import { call, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import { fromJS, Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 
@@ -10,7 +9,7 @@ describe('ComponentForm saga', () => {
 	describe('*handle', () => {
 		it('should trigger didMount saga and listen to url change', () => {
 			// given
-			const props = { componentId: 'MyComponentId' };
+			const props = { componentId: 'MyComponentId', submitURL: '/foo' };
 			const gen = sagas.handle(props);
 
 			// when / then
@@ -21,6 +20,12 @@ describe('ComponentForm saga', () => {
 			const listenToURLChanges = gen.next().value;
 			expect(listenToURLChanges).toEqual(
 				takeEvery(Component.ON_DEFINITION_URL_CHANGED, sagas.fetchDefinition),
+			);
+
+			// when / then
+			const onSubmit = gen.next().value;
+			expect(onSubmit).toEqual(
+				takeLatest(Component.ON_SUBMIT, expect.anything(), props.componentId, props.submitURL),
 			);
 
 			// then should not quit
