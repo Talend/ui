@@ -5,7 +5,7 @@ src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/EditableText/EditableText.scss
-  59:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+  38:3  error  Duplicate properties are not allowed within a block  no-duplicate-properties
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
