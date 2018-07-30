@@ -17,7 +17,7 @@ import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
-const splitPartsRegex = new RegExp(/^\s*([^\s]+?)\s+([^\s]+?)\s*$/);
+const splitDateAndTimePartsRegex = new RegExp(/^\s*([^\s]+?)\s+([^\s]+?)\s*$/);
 const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
 const timePartRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
 
@@ -96,7 +96,7 @@ class InputDateTimePicker extends React.Component {
 	onChangeInput(event) {
 		const fullString = event.target.value;
 
-		const splitMatches = fullString.match(splitPartsRegex);
+		const splitMatches = fullString.match(splitDateAndTimePartsRegex);
 
 		const canParseFullString = splitMatches !== null;
 
