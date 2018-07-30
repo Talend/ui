@@ -1,12 +1,30 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
-import DateTimePicker from '../src/DateTimePickers';
+import DateTimePicker, { InputDateTimePicker } from '../src/DateTimePickers';
 
 
 storiesOf('DateTimePicker', module)
-	.add('Full DateTimePicker', () => (
+	.add('InputDateTimePicker', () => (
+		<div>
+			<h1>InputDateTimePicker</h1>
+			<IconsProvider />
+
+			<div>
+				<InputDateTimePicker
+					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+					onChange={action('onChange (DateTime)')}
+					onError={action('onError (message)')}
+					inputProps={{
+						name: 'Datetime',
+					}}
+				/>
+			</div>
+		</div>
+	))
+	.add('DateTimePicker', () => (
 		<div>
 			<h1>DateTimePicker</h1>
 			<IconsProvider />
@@ -18,7 +36,9 @@ storiesOf('DateTimePicker', module)
 			</ul>
 
 			<div style={{ width: '320px', border: '1px solid black' }}>
-				<DateTimePicker />
+				<DateTimePicker
+					onSubmit={action('onSubmit (Date and time)')}
+				/>
 			</div>
 		</div>
 	));

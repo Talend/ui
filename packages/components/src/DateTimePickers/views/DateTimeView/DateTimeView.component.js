@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DatePicker from '../../pickers/DatePicker';
 import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
-import IconButton from '../../IconButton';
+import IconButton from '../../shared/components/IconButton';
 import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
 

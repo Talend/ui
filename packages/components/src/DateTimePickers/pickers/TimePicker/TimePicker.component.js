@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IncrementableScrollList from '../IncrementableScrollList';
+import twoDigits from '../../shared/utils/format/twoDigits';
 
 // All times in this component represents a number of minutes since the beginning of the day
 
 const maxTime = 24 * 60;
-
-export function twoDigits(number) {
-	return number.toLocaleString(undefined, {
-		minimumIntegerDigits: 2,
-	});
-}
 
 function getInitialTime(selectedTime) {
 	if (selectedTime === undefined) {
