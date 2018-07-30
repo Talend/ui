@@ -9,7 +9,10 @@ export function ContainerBreadcrumbs(props) {
 	const state = props.state || DEFAULT_STATE;
 	const items = state.get('items', props.items);
 	const newProps = {
-		items: items.map(item => ({ ...item, onClick: (event, data) => props.dispatchActionCreator(item.actionCreator, event, data) })),
+		items: items.map(item => ({
+			...item,
+			onClick: (event, data) => props.dispatchActionCreator(item.actionCreator, event, data),
+		})),
 		maxItems: state.get('maxItems', props.maxItems),
 	};
 
