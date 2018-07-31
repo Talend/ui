@@ -5,6 +5,7 @@ import setYear from 'date-fns/set_year';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
+import BASE_DATE from '../../shared/utils/constants/baseDate';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
@@ -22,7 +23,7 @@ function HeaderTitle(props) {
 		...(isButton ? props.button : {}),
 	};
 
-	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
+	const date = setYear(setMonth(BASE_DATE, props.monthIndex), props.year);
 	const label = format(date, 'MMMM YYYY');
 
 	return isButton

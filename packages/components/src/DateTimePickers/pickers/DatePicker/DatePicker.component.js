@@ -16,9 +16,9 @@ import differenceInCalendarWeeks from 'date-fns/difference_in_calendar_weeks';
 import addDays from 'date-fns/add_days';
 import theme from './DatePicker.scss';
 import DayPickerAction from './DayPickerAction';
+import BASE_DATE from '../../shared/utils/constants/baseDate';
 
 const FIRST_DAY_OF_WEEK = 1;
-const BASE_DATE = new Date(0);
 const NB_DAYS_IN_WEEK = 7;
 
 function buildDayNames(firstDayOfweek) {

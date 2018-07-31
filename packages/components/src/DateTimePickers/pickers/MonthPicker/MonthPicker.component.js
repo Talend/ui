@@ -5,15 +5,15 @@ import addMonths from 'date-fns/add_months';
 import format from 'date-fns/format';
 import theme from './MonthPicker.scss';
 import PickerAction from '../../shared/components/PickerAction';
+import BASE_DATE from '../../shared/utils/constants/baseDate';
 
-const baseDate = new Date(0);
 const indexes = (new Array(12))
 	.fill(0)
 	.map((_, i) => i);
 
 const months = indexes.map(index => ({
 	index,
-	name: format(addMonths(baseDate, index), 'MMMM'),
+	name: format(addMonths(BASE_DATE, index), 'MMMM'),
 }));
 const monthsRows = chunk(months, 3);
 
