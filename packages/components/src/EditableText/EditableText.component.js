@@ -55,6 +55,8 @@ function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t
 	);
 }
 
+EditableText.displayName = 'EditableText';
+
 EditableText.propTypes = {
 	text: PropTypes.string.isRequired,
 	editMode: PropTypes.bool,
