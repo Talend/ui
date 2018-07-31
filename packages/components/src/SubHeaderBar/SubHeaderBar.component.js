@@ -99,7 +99,9 @@ function SubHeaderBar({
 				</SubHeaderBarActions>
 				{Array.isArray(left) && (
 					<SubHeaderBarActions left>
-						{left.map((item, index) => <Renderer.Action key={index} {...item} />)}
+						{left.map((item, index) => (
+							<Renderer.Action key={index} {...item} />
+						))}
 					</SubHeaderBarActions>
 				)}
 				{injected('center')}

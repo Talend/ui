@@ -40,7 +40,7 @@ function TitleSubHeader({
 						'tc-subheader-details-text-title',
 					)}
 				>
-					{(editable || editMode) ? (
+					{editable || editMode ? (
 						<EditableText text={title} editMode={editMode} {...rest} />
 					) : (
 						<h1
@@ -53,16 +53,17 @@ function TitleSubHeader({
 						</h1>
 					)}
 				</div>
-				{(subTitle && !editMode) && (
-					<small
-						className={classNames(
-							theme['tc-subheader-details-text-subtitle'],
-							'tc-subheader-details-text-subtitle',
-						)}
-					>
-						{subTitle}
-					</small>
-				)}
+				{subTitle &&
+					!editMode && (
+						<small
+							className={classNames(
+								theme['tc-subheader-details-text-subtitle'],
+								'tc-subheader-details-text-subtitle',
+							)}
+						>
+							{subTitle}
+						</small>
+					)}
 			</div>
 		</div>
 	);
@@ -85,6 +86,5 @@ TitleSubHeader.defaultProps = {
 	t: getDefaultT(),
 	editable: false,
 };
-
 
 export { TitleSubHeader as default };
