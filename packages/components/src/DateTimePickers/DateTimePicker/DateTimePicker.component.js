@@ -42,9 +42,9 @@ class DateTimePicker extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const propsUpdated = this.props.selection !== nextProps.selection;
+		const selectionPropNotUpdated = this.props.selection === nextProps.selection;
 
-		if (!propsUpdated) {
+		if (selectionPropNotUpdated) {
 			return;
 		}
 
@@ -52,9 +52,9 @@ class DateTimePicker extends React.Component {
 		const newSelectedTime = nextProps.selection && nextProps.selection.time;
 		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
 		const needToUpdateTime = newSelectedTime !== this.state.selectedTime;
-		const needToUpdateState = needToUpdateDate || needToUpdateTime;
+		const noNeedToUpdateState = !needToUpdateDate && !needToUpdateTime;
 
-		if (!needToUpdateState) {
+		if (noNeedToUpdateState) {
 			return;
 		}
 
