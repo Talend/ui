@@ -3,7 +3,7 @@ import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import { Breadcrumbs } from '@talend/react-components';
 
-export const DEFAULT_STATE = new Map();
+const DEFAULT_STATE = new Map();
 
 export function ContainerBreadcrumbs(props) {
 	const state = props.state || DEFAULT_STATE;
