@@ -12,7 +12,7 @@ function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
-
+	console.log('[NC] editMode: ', editMode);
 	return (
 		<div
 			className={classNames(theme['tc-editable-text'], 'tc-editable-text', {

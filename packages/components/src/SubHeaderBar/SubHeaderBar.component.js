@@ -7,7 +7,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
-import InputTitleSubHeader from './InputTitleSubHeader';
+import TitleSubHeader from './TitleSubHeader';
 import Inject from '../Inject';
 import theme from './SubHeaderBar.scss';
 
@@ -94,7 +94,7 @@ function SubHeaderBar({
 						/>
 					)}
 					{injected('before-title')}
-					<InputTitleSubHeader t={t} {...rest} />
+					<TitleSubHeader t={t} {...rest} />
 					{injected('after-title')}
 				</SubHeaderBarActions>
 				{Array.isArray(left) && (
