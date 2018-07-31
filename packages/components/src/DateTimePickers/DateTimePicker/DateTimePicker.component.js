@@ -60,16 +60,22 @@ class DateTimePicker extends React.Component {
 
 		const needToUpdateCalendar = needToUpdateDate && newSelectedDate !== undefined;
 
-		const newState = {
-			...(needToUpdateDate && { selectedDate: newSelectedDate }),
-			...(needToUpdateTime && { selectedTime: newSelectedTime }),
-			...(needToUpdateCalendar && {
-				calendar: {
-					monthIndex: getMonth(newSelectedDate),
-					year: getYear(newSelectedDate),
-				},
-			}),
-		};
+		const newState = {};
+
+		if (needToUpdateDate) {
+			newState.selectedDate = newSelectedDate;
+		}
+
+		if (needToUpdateTime) {
+			newState.selectedTime = newSelectedTime;
+		}
+
+		if (needToUpdateCalendar) {
+			newState.calendar = {
+				monthIndex: getMonth(newSelectedDate),
+				year: getYear(newSelectedDate),
+			};
+		}
 
 		this.setState(newState);
 	}
