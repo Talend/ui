@@ -45,6 +45,10 @@ const largeProps = {
 		onClick: jest.fn(),
 	},
 };
+const flexProps = {
+	header: 'Hello World',
+	flex: true
+}
 
 const children = <div>BODY</div>;
 
@@ -77,4 +81,12 @@ describe('Dialog', () => {
 			className: 'foo',
 		});
 	});
+	it('render modal without modal-flex class if flex prop is not set', () => {
+		const wrapper = shallow(<Dialog {...defaultProps}>{children}</Dialog>);
+		expect(wrapper.hasClass('modal-flex')).toBe(false);
+	})
+	it('render modal with modal-flex class if flex prop is true', () => {
+		const wrapper = shallow(<Dialog {...flexProps}>{children}</Dialog>);
+		expect(wrapper.hasClass('modal-flex')).toBe(true);
+	})
 });
