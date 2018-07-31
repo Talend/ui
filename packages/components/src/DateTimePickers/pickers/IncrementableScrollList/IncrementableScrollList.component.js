@@ -38,8 +38,9 @@ class IncrementableScrollList extends React.Component {
 	}
 
 	onRowsRendered(data) {
-		const { startIndex } = data;
-		this.setState({ startIndex });
+		this.setState({
+			startIndex: data.startIndex,
+		});
 	}
 
 	setListRef(ref) {
