@@ -16,6 +16,7 @@ const TO_OMIT = [
 	'triggerULR',
 	'lang',
 	'customTriggers',
+	'dispatchOnChange',
 	...cmfConnect.INJECTED_PROPS,
 ];
 
