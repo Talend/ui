@@ -3,6 +3,4 @@ import InputDateTimePicker from './InputDateTimePicker';
 
 export default InputDateTimePicker;
 
-export {
-    DateTimePicker,
-};
+export { DateTimePicker };

@@ -8,14 +8,11 @@ jest.mock('date-fns/is_today');
 
 describe('DatePicker', () => {
 	function mockIsTodayWith(newToday) {
-		isToday.mockImplementation(date =>
-			isSameDay(date, newToday));
+		isToday.mockImplementation(date => isSameDay(date, newToday));
 	}
 
 	function getDisabledChecker(disabledDates) {
-		return date => disabledDates.some(
-			disabledDate => isSameDay(disabledDate, date)
-		);
+		return date => disabledDates.some(disabledDate => isSameDay(disabledDate, date));
 	}
 
 	beforeEach(() => {
@@ -28,21 +25,20 @@ describe('DatePicker', () => {
 			monthIndex: 5,
 		};
 
-		const disabledDates = [
-			new Date(2018, 5, 6),
-			new Date(2018, 5, 15),
-		];
+		const disabledDates = [new Date(2018, 5, 6), new Date(2018, 5, 15)];
 
 		const isDisabledChecker = getDisabledChecker(disabledDates);
 
 		const selectedDate = new Date(2018, 5, 12);
 
-		const wrapper = shallow(<DatePicker
-			calendar={calendar}
-			selectedDate={selectedDate}
-			onSelect={() => {}}
-			isDisabledChecker={isDisabledChecker}
-		/>);
+		const wrapper = shallow(
+			<DatePicker
+				calendar={calendar}
+				selectedDate={selectedDate}
+				onSelect={() => {}}
+				isDisabledChecker={isDisabledChecker}
+			/>,
+		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -60,49 +56,39 @@ describe('DatePicker', () => {
 					.toString();
 			}
 
-			it('should have the first date of month in 1st column when it\'s monday', () => {
+			it("should have the first date of month in 1st column when it's monday", () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 0,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(getFirstRowCellText(wrapper, 1)).toBe('1');
 			});
 
-			it('should have the first date of month in 4th column when it\'s thursday', () => {
+			it("should have the first date of month in 4th column when it's thursday", () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 2,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(getFirstRowCellText(wrapper, 4)).toBe('1');
 			});
 
-			it('should have the first date of month in 7th column when it\'s sunday', () => {
+			it("should have the first date of month in 7th column when it's sunday", () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 3,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(getFirstRowCellText(wrapper, 7)).toBe('1');
 			});
 		});
-
 
 		describe('last date of month in the correct grid column (When monday as first day of week)', () => {
 			function getLastRowCellText(wrapper, column) {
@@ -116,44 +102,35 @@ describe('DatePicker', () => {
 					.toString();
 			}
 
-			it('should have the last date of month in 1st column when it\'s monday', () => {
+			it("should have the last date of month in 1st column when it's monday", () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 3,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(getLastRowCellText(wrapper, 1)).toBe('30');
 			});
 
-			it('should have the last date of month in 4th column when it\'s thursday', () => {
+			it("should have the last date of month in 4th column when it's thursday", () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 4,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(getLastRowCellText(wrapper, 4)).toBe('31');
 			});
 
-			it('should have the last date of month in 7th column when it\'s sunday', () => {
+			it("should have the last date of month in 7th column when it's sunday", () => {
 				const calendar = {
 					year: 2018,
 					monthIndex: 8,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(getLastRowCellText(wrapper, 7)).toBe('30');
 			});
@@ -170,10 +147,7 @@ describe('DatePicker', () => {
 					monthIndex: 1,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(nbOfWeeksRendered(wrapper)).toBe(4);
 			});
@@ -184,10 +158,7 @@ describe('DatePicker', () => {
 					monthIndex: 5,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(nbOfWeeksRendered(wrapper)).toBe(5);
 			});
@@ -198,10 +169,7 @@ describe('DatePicker', () => {
 					monthIndex: 9,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				expect(nbOfWeeksRendered(wrapper)).toBe(6);
 			});
@@ -222,10 +190,7 @@ describe('DatePicker', () => {
 					monthIndex: 6,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const days = getDayNumbers(wrapper);
 				expect(days).toHaveLength(31);
@@ -237,10 +202,7 @@ describe('DatePicker', () => {
 					monthIndex: 1,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const days = getDayNumbers(wrapper);
 				expect(days).toHaveLength(29);
@@ -252,10 +214,7 @@ describe('DatePicker', () => {
 					monthIndex: 1,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const days = getDayNumbers(wrapper);
 				expect(days).toHaveLength(28);
@@ -267,10 +226,7 @@ describe('DatePicker', () => {
 					monthIndex: 10,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const days = getDayNumbers(wrapper);
 				expect(days).toHaveLength(30);
@@ -286,10 +242,7 @@ describe('DatePicker', () => {
 
 				mockIsTodayWith(new Date(2018, 5, 13));
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const currentDayItems = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -308,10 +261,7 @@ describe('DatePicker', () => {
 
 				mockIsTodayWith(new Date(2018, 4, 13));
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const currentDayItems = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -329,10 +279,7 @@ describe('DatePicker', () => {
 				// First day
 				mockIsTodayWith(new Date(2018, 5, 16));
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const currentDayItems = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -345,10 +292,7 @@ describe('DatePicker', () => {
 				// Change to next day
 				mockIsTodayWith(new Date(2018, 5, 17));
 
-				const newWrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const newWrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const newDayItems = newWrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -369,11 +313,9 @@ describe('DatePicker', () => {
 
 				const selectedDate = new Date(2018, 5, 12);
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					selectedDate={selectedDate}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(
+					<DatePicker calendar={calendar} selectedDate={selectedDate} onSelect={() => {}} />,
+				);
 
 				const currentDayItems = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -390,10 +332,7 @@ describe('DatePicker', () => {
 					monthIndex: 5,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const currentDayItems = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -410,11 +349,9 @@ describe('DatePicker', () => {
 
 				const selectedDate = new Date(2018, 4, 12);
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					selectedDate={selectedDate}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(
+					<DatePicker calendar={calendar} selectedDate={selectedDate} onSelect={() => {}} />,
+				);
 
 				const currentDayItems = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -437,11 +374,9 @@ describe('DatePicker', () => {
 				const expectedNewSelectedDate = new Date(2018, 5, dayToSelect);
 
 				const selectedDate = new Date(2018, 5, 12);
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					selectedDate={selectedDate}
-					onSelect={onSelect}
-				/>);
+				const wrapper = shallow(
+					<DatePicker calendar={calendar} selectedDate={selectedDate} onSelect={onSelect} />,
+				);
 
 				const dayPickerAction = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -460,10 +395,7 @@ describe('DatePicker', () => {
 					monthIndex: 5,
 				};
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-				/>);
+				const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 				const disabledActions = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -478,18 +410,17 @@ describe('DatePicker', () => {
 					monthIndex: 5,
 				};
 
-				const disabledDatesDefined = [
-					new Date(2018, 4, 17),
-					new Date(2018, 6, 26),
-				];
+				const disabledDatesDefined = [new Date(2018, 4, 17), new Date(2018, 6, 26)];
 
 				const isDisabledChecker = getDisabledChecker(disabledDatesDefined);
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-					isDisabledChecker={isDisabledChecker}
-				/>);
+				const wrapper = shallow(
+					<DatePicker
+						calendar={calendar}
+						onSelect={() => {}}
+						isDisabledChecker={isDisabledChecker}
+					/>,
+				);
 
 				const disabledActions = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
@@ -512,19 +443,20 @@ describe('DatePicker', () => {
 				];
 				const isDisabledChecker = getDisabledChecker(disabledDatesDefined);
 
-				const wrapper = shallow(<DatePicker
-					calendar={calendar}
-					onSelect={() => {}}
-					isDisabledChecker={isDisabledChecker}
-				/>);
+				const wrapper = shallow(
+					<DatePicker
+						calendar={calendar}
+						onSelect={() => {}}
+						isDisabledChecker={isDisabledChecker}
+					/>,
+				);
 
 				const disabledActionsLabels = wrapper
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('isDisabled'))
 					.map(item => item.prop('label').toString());
 
-				const expectedDisabledLabels = disabledDatesDefined
-					.map(date => date.getDate().toString());
+				const expectedDisabledLabels = disabledDatesDefined.map(date => date.getDate().toString());
 
 				expect(disabledActionsLabels).toEqual(expectedDisabledLabels);
 			});
@@ -533,17 +465,22 @@ describe('DatePicker', () => {
 
 	describe('header calendar', () => {
 		it('should display the exact days sequence', () => {
-			const sequence = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+			const sequence = [
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday',
+				'Sunday',
+			];
 
 			const calendar = {
 				year: 2018,
 				monthIndex: 5,
 			};
 
-			const wrapper = shallow(<DatePicker
-				calendar={calendar}
-				onSelect={() => {}}
-			/>);
+			const wrapper = shallow(<DatePicker calendar={calendar} onSelect={() => {}} />);
 
 			const sequenceExpected = sequence.map(day => day[0].toUpperCase());
 

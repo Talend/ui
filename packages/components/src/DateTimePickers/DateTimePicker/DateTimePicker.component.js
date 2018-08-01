@@ -8,19 +8,18 @@ import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 
 class DateTimePicker extends React.Component {
-
 	constructor(props) {
 		super(props);
 
 		// eslint-disable-next-line
-		console.warn("UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.");
+		console.warn(
+			"UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
+		);
 
 		const selectedDate = props.selection && props.selection.date;
 		const selectedTime = props.selection && props.selection.time;
 
-		const initialCalendarDate = selectedDate === undefined
-			? new Date()
-			: selectedDate;
+		const initialCalendarDate = selectedDate === undefined ? new Date() : selectedDate;
 
 		this.state = {
 			isDateTimeView: true,
@@ -114,9 +113,7 @@ class DateTimePicker extends React.Component {
 	}
 
 	trySubmit() {
-		if (this.state.selectedDate !== undefined &&
-			this.state.selectedTime !== undefined
-		) {
+		if (this.state.selectedDate !== undefined && this.state.selectedTime !== undefined) {
 			this.props.onSubmit({
 				date: this.state.selectedDate,
 				time: this.state.selectedTime,
@@ -128,30 +125,30 @@ class DateTimePicker extends React.Component {
 		let viewElement;
 
 		if (this.state.isDateTimeView) {
-			viewElement = (<DateTimeView
-				onClickTitle={this.setMonthYearView}
-				calendar={this.state.calendar}
-				onSelectMonthYear={this.onSelectCalendarMonthYear}
-				onSelectDate={this.onSelectDate}
-				selectedDate={this.state.selectedDate}
-				onSelectTime={this.onSelectTime}
-				selectedTime={this.state.selectedTime}
-			/>);
+			viewElement = (
+				<DateTimeView
+					onClickTitle={this.setMonthYearView}
+					calendar={this.state.calendar}
+					onSelectMonthYear={this.onSelectCalendarMonthYear}
+					onSelectDate={this.onSelectDate}
+					selectedDate={this.state.selectedDate}
+					onSelectTime={this.onSelectTime}
+					selectedTime={this.state.selectedTime}
+				/>
+			);
 		} else {
-			viewElement = (<MonthYearView
-				onClickBack={this.setDateTimeView}
-				selectedMonthIndex={this.state.calendar.monthIndex}
-				selectedYear={this.state.calendar.year}
-				onSelectMonth={this.onSelectCalendarMonth}
-				onSelectYear={this.onSelectCalendarYear}
-			/>);
+			viewElement = (
+				<MonthYearView
+					onClickBack={this.setDateTimeView}
+					selectedMonthIndex={this.state.calendar.monthIndex}
+					selectedYear={this.state.calendar.year}
+					onSelectMonth={this.onSelectCalendarMonth}
+					onSelectYear={this.onSelectCalendarYear}
+				/>
+			);
 		}
 
-		return (
-			<div className={theme.container}>
-				{viewElement}
-			</div>
-		);
+		return <div className={theme.container}>{viewElement}</div>;
 	}
 }
 

@@ -115,7 +115,6 @@ function extractTime(strToParse) {
 	return [timeValidated];
 }
 
-
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		selectedDateTime: PropTypes.instanceOf(Date),
@@ -128,7 +127,9 @@ class InputDateTimePicker extends React.Component {
 		super(props);
 
 		// eslint-disable-next-line
-		console.warn("UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.");
+		console.warn(
+			"UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
+		);
 
 		this.state = (() => {
 			const selectedDateTime = this.props.selectedDateTime;
@@ -167,21 +168,15 @@ class InputDateTimePicker extends React.Component {
 
 		const canParseFullString = splitMatches !== null;
 
-		const dateStrToParse = canParseFullString
-			? splitMatches[1]
-			: fullString;
+		const dateStrToParse = canParseFullString ? splitMatches[1] : fullString;
 
 		const [date, errMsgDate] = extractDate(dateStrToParse);
 
-		const timeStrToParse = canParseFullString
-			? splitMatches[2]
-			: fullString;
+		const timeStrToParse = canParseFullString ? splitMatches[2] : fullString;
 
 		const [time, errMsgTime] = extractTime(timeStrToParse);
 
-		const errMsg = canParseFullString
-			? errMsgDate || errMsgTime
-			: 'DATETIME - INCORRECT FORMAT';
+		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
 
 		this.updateDateTime(date, time, fullString, errMsg);
 	}
@@ -195,8 +190,8 @@ class InputDateTimePicker extends React.Component {
 			return setMinutes(date, time);
 		})();
 
-		const fullDateUpdated = fullDate !== this.state.lastFullDate
-								&& !isSameMinute(fullDate, this.state.lastFullDate);
+		const fullDateUpdated =
+			fullDate !== this.state.lastFullDate && !isSameMinute(fullDate, this.state.lastFullDate);
 
 		if (fullDateUpdated && this.props.onChange) {
 			this.props.onChange(fullDate);

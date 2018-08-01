@@ -19,7 +19,6 @@ export function euclideanModulo(dividend, divisor) {
 }
 
 class DateTimeView extends React.Component {
-
 	constructor(props) {
 		super(props);
 
@@ -41,29 +40,35 @@ class DateTimeView extends React.Component {
 
 	render() {
 		const header = {
-			leftElement: <IconButton
-				icon={{
-					name: 'talend-chevron-left',
-				}}
-				aria-label="Display previous calendar month"
-				onClick={this.incrementMonthIndexDown}
-			/>,
-			middleElement: <HeaderTitle
-				monthIndex={this.props.calendar.monthIndex}
-				year={this.props.calendar.year}
-				button={{
-					'aria-label': 'Switch to month and year pickers view',
-					onClick: this.props.onClickTitle,
-				}}
-			/>,
-			rightElement: <IconButton
-				icon={{
-					name: 'talend-chevron-left',
-					transform: 'rotate-180',
-				}}
-				aria-label="Display next calendar month"
-				onClick={this.incrementMonthIndexUp}
-			/>,
+			leftElement: (
+				<IconButton
+					icon={{
+						name: 'talend-chevron-left',
+					}}
+					aria-label="Display previous calendar month"
+					onClick={this.incrementMonthIndexDown}
+				/>
+			),
+			middleElement: (
+				<HeaderTitle
+					monthIndex={this.props.calendar.monthIndex}
+					year={this.props.calendar.year}
+					button={{
+						'aria-label': 'Switch to month and year pickers view',
+						onClick: this.props.onClickTitle,
+					}}
+				/>
+			),
+			rightElement: (
+				<IconButton
+					icon={{
+						name: 'talend-chevron-left',
+						transform: 'rotate-180',
+					}}
+					aria-label="Display next calendar month"
+					onClick={this.incrementMonthIndexUp}
+				/>
+			),
 		};
 
 		const bodyElement = (
@@ -76,20 +81,12 @@ class DateTimeView extends React.Component {
 					/>
 				</div>
 				<div className={theme.time}>
-					<TimePicker
-						selectedTime={this.props.selectedTime}
-						onSelect={this.props.onSelectTime}
-					/>
+					<TimePicker selectedTime={this.props.selectedTime} onSelect={this.props.onSelectTime} />
 				</div>
 			</div>
 		);
 
-		return (
-			<ViewLayout
-				header={header}
-				bodyElement={bodyElement}
-			/>
-		);
+		return <ViewLayout header={header} bodyElement={bodyElement} />;
 	}
 }
 

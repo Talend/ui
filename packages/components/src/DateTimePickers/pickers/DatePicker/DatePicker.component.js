@@ -22,7 +22,7 @@ const FIRST_DAY_OF_WEEK = 1;
 const NB_DAYS_IN_WEEK = 7;
 
 function buildDayNames(firstDayOfweek) {
-	return (new Array(NB_DAYS_IN_WEEK))
+	return new Array(NB_DAYS_IN_WEEK)
 		.fill(0)
 		.map((_, i) => (i + firstDayOfweek) % NB_DAYS_IN_WEEK)
 		.map(dayOfWeek => setDay(BASE_DATE, dayOfWeek))
@@ -43,24 +43,25 @@ function buildWeeks(year, monthIndex, firstDayOfWeek) {
 	});
 	const nbWeeksToRender = diffWeeks + 1;
 
-	const dates = (new Array(NB_DAYS_IN_WEEK * nbWeeksToRender))
-					.fill(0)
-					.map((_, i) => addDays(firstDateOfCalendar, i));
+	const dates = new Array(NB_DAYS_IN_WEEK * nbWeeksToRender)
+		.fill(0)
+		.map((_, i) => addDays(firstDateOfCalendar, i));
 
 	return chunk(dates, NB_DAYS_IN_WEEK);
 }
 
 class DatePicker extends React.Component {
-
 	constructor(props) {
 		super(props);
 
-		this.getWeeks = memoize(buildWeeks, (year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`);
+		this.getWeeks = memoize(
+			buildWeeks,
+			(year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`,
+		);
 	}
 
 	isSelectedDate(date) {
-		return this.props.selectedDate !== undefined
-			&& isSameDay(this.props.selectedDate, date);
+		return this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date);
 	}
 
 	isDisabledDate(date) {
@@ -85,7 +86,7 @@ class DatePicker extends React.Component {
 			<div className={theme.container}>
 				<div className={classNames('tc-date-picker-calendar-header', theme['calendar-header'])}>
 					<div className={classNames('tc-date-picker-calendar-row', theme['calendar-row'])}>
-						{dayNames.map((dayName, i) =>
+						{dayNames.map((dayName, i) => (
 							<abbr
 								className={classNames('tc-date-picker-calendar-item', theme['calendar-item'])}
 								key={i}
@@ -93,14 +94,13 @@ class DatePicker extends React.Component {
 							>
 								{dayName.charAt(0)}
 							</abbr>
-						)}
+						))}
 					</div>
 					<hr className={theme.separator} />
 				</div>
 
-
 				<div className={classNames('tc-date-picker-calendar-body', theme['calendar-body'])}>
-					{weeks.map((week, i) =>
+					{weeks.map((week, i) => (
 						<div
 							className={classNames('tc-date-picker-calendar-row', theme['calendar-row'])}
 							key={i}
@@ -114,24 +114,23 @@ class DatePicker extends React.Component {
 										className={classNames('tc-date-picker-calendar-item', theme['calendar-item'])}
 										key={j}
 									>
-										{
-											this.isCurrentMonth(date) &&
+										{this.isCurrentMonth(date) && (
 											<DayPickerAction
 												label={dateNumber}
 												isSelected={this.isSelectedDate(date)}
 												isDisabled={isDisabled}
 												isToday={isToday(date)}
-												aria-label={isDisabled
-													? 'Unselectable date'
-													: `Select '${dateNumber}'`}
-												onClick={() => { this.props.onSelect(date); }}
+												aria-label={isDisabled ? 'Unselectable date' : `Select '${dateNumber}'`}
+												onClick={() => {
+													this.props.onSelect(date);
+												}}
 											/>
-										}
+										)}
 									</div>
 								);
 							})}
 						</div>
-					)}
+					))}
 				</div>
 			</div>
 		);

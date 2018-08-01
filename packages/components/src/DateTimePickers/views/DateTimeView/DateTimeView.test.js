@@ -5,32 +5,36 @@ import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 
 describe('DateTimeView', () => {
 	it('should render', () => {
-		const wrapper = shallow(<DateTimeView
-			calendar={{
-				monthIndex: 5,
-				year: 2006,
-			}}
-			onClickTitle={() => {}}
-			onSelectMonthYear={() => {}}
-			onSelectDate={() => {}}
-			onSelectTime={() => {}}
-		/>);
+		const wrapper = shallow(
+			<DateTimeView
+				calendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
+				onClickTitle={() => {}}
+				onSelectMonthYear={() => {}}
+				onSelectDate={() => {}}
+				onSelectTime={() => {}}
+			/>,
+		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should callback when title is clicked', () => {
 		const onClickTitle = jest.fn();
-		const wrapper = shallow(<DateTimeView
-			calendar={{
-				monthIndex: 5,
-				year: 2006,
-			}}
-			onClickTitle={onClickTitle}
-			onSelectMonthYear={() => {}}
-			onSelectDate={() => {}}
-			onSelectTime={() => {}}
-		/>);
+		const wrapper = shallow(
+			<DateTimeView
+				calendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
+				onClickTitle={onClickTitle}
+				onSelectMonthYear={() => {}}
+				onSelectDate={() => {}}
+				onSelectTime={() => {}}
+			/>,
+		);
 
 		const titleAction = wrapper
 			.find('ViewLayout')
@@ -46,7 +50,10 @@ describe('DateTimeView', () => {
 
 	describe('month switch management', () => {
 		function getActions(wrapper) {
-			return wrapper.find('ViewLayout').shallow().find('IconButton');
+			return wrapper
+				.find('ViewLayout')
+				.shallow()
+				.find('IconButton');
 		}
 
 		function getPreviousAction(wrapper) {
@@ -59,16 +66,18 @@ describe('DateTimeView', () => {
 
 		it('should trigger callback when previous month is clicked with previous month and current year', () => {
 			const onSelectMonthYear = jest.fn();
-			const wrapper = shallow(<DateTimeView
-				calendar={{
-					monthIndex: 5,
-					year: 2006,
-				}}
-				onClickTitle={() => {}}
-				onSelectMonthYear={onSelectMonthYear}
-				onSelectDate={() => {}}
-				onSelectTime={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimeView
+					calendar={{
+						monthIndex: 5,
+						year: 2006,
+					}}
+					onClickTitle={() => {}}
+					onSelectMonthYear={onSelectMonthYear}
+					onSelectDate={() => {}}
+					onSelectTime={() => {}}
+				/>,
+			);
 
 			const previousAction = getPreviousAction(wrapper);
 
@@ -83,16 +92,18 @@ describe('DateTimeView', () => {
 
 		it('should trigger callback when next month is clicked with next month and current year', () => {
 			const onSelectMonthYear = jest.fn();
-			const wrapper = shallow(<DateTimeView
-				calendar={{
-					monthIndex: 5,
-					year: 2006,
-				}}
-				onClickTitle={() => {}}
-				onSelectMonthYear={onSelectMonthYear}
-				onSelectDate={() => {}}
-				onSelectTime={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimeView
+					calendar={{
+						monthIndex: 5,
+						year: 2006,
+					}}
+					onClickTitle={() => {}}
+					onSelectMonthYear={onSelectMonthYear}
+					onSelectDate={() => {}}
+					onSelectTime={() => {}}
+				/>,
+			);
 
 			const nextAction = getNextAction(wrapper);
 			nextAction.simulate('click');
@@ -106,16 +117,18 @@ describe('DateTimeView', () => {
 
 		it('should trigger callback when previous month is clicked with last month of year and previous year', () => {
 			const onSelectMonthYear = jest.fn();
-			const wrapper = shallow(<DateTimeView
-				calendar={{
-					monthIndex: 0,
-					year: 2006,
-				}}
-				onClickTitle={() => {}}
-				onSelectMonthYear={onSelectMonthYear}
-				onSelectDate={() => {}}
-				onSelectTime={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimeView
+					calendar={{
+						monthIndex: 0,
+						year: 2006,
+					}}
+					onClickTitle={() => {}}
+					onSelectMonthYear={onSelectMonthYear}
+					onSelectDate={() => {}}
+					onSelectTime={() => {}}
+				/>,
+			);
 
 			const previousAction = getPreviousAction(wrapper);
 			previousAction.simulate('click');
@@ -129,16 +142,18 @@ describe('DateTimeView', () => {
 
 		it('should trigger callback when next month is clicked with first month of year and next year', () => {
 			const onSelectMonthYear = jest.fn();
-			const wrapper = shallow(<DateTimeView
-				calendar={{
-					monthIndex: 11,
-					year: 2006,
-				}}
-				onClickTitle={() => {}}
-				onSelectMonthYear={onSelectMonthYear}
-				onSelectDate={() => {}}
-				onSelectTime={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimeView
+					calendar={{
+						monthIndex: 11,
+						year: 2006,
+					}}
+					onClickTitle={() => {}}
+					onSelectMonthYear={onSelectMonthYear}
+					onSelectDate={() => {}}
+					onSelectTime={() => {}}
+				/>,
+			);
 
 			const nextAction = getNextAction(wrapper);
 			nextAction.simulate('click');

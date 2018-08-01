@@ -13,17 +13,13 @@ describe('InputDateTimePicker', () => {
 	describe('render', () => {
 		it('should render', () => {
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2017, 3, 4, 15, 27)}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2017, 3, 4, 15, 27)} />,
 			);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render with "date", "time", "textInput" values based on state', () => {
-			const wrapper = shallow(
-				<InputDateTimePicker />
-			);
+			const wrapper = shallow(<InputDateTimePicker />);
 
 			const date = new Date(2016, 6, 25);
 			const time = 456;
@@ -46,11 +42,7 @@ describe('InputDateTimePicker', () => {
 	describe('constructor', () => {
 		it('should default set the state based on "selectedDateTime" when given', () => {
 			const date = new Date(2015, 3, 4, 12, 36);
-			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={date}
-				/>
-			);
+			const wrapper = shallow(<InputDateTimePicker selectedDateTime={date} />);
 
 			const testedDate = wrapper.state('date');
 			const expectedDate = new Date(2015, 3, 4);
@@ -66,9 +58,7 @@ describe('InputDateTimePicker', () => {
 		});
 
 		it('should default set the state with undefined and empty values when "selectedDateTime" is not given', () => {
-			const wrapper = shallow(
-				<InputDateTimePicker />
-			);
+			const wrapper = shallow(<InputDateTimePicker />);
 
 			expect(wrapper.state('date')).toBeUndefined();
 			expect(wrapper.state('time')).toBeUndefined();
@@ -86,11 +76,7 @@ describe('InputDateTimePicker', () => {
 					'whatever',
 				];
 
-				const wrapper = shallow(
-					<InputDateTimePicker
-						selectedDateTime={new Date(2015, 0, 1)}
-					/>
-				);
+				const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
 
 				const inputWrapper = wrapper.find('DebounceInput');
 
@@ -107,17 +93,9 @@ describe('InputDateTimePicker', () => {
 
 			describe('date', () => {
 				it('should have undefined date when date part format is wrong', () => {
-					const invalidFormatValues = [
-						'023-06-05 10:00',
-						'2023-06- 10:00',
-						'2023--05 10:00',
-					];
+					const invalidFormatValues = ['023-06-05 10:00', '2023-06- 10:00', '2023--05 10:00'];
 
-					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1)}
-						/>
-					);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
@@ -131,16 +109,9 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should have undefined date if month is before 1 or after 12', () => {
-					const invalidFormatValues = [
-						'2023-0-05 10:00',
-						'2023-13-05 10:00',
-					];
+					const invalidFormatValues = ['2023-0-05 10:00', '2023-13-05 10:00'];
 
-					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1)}
-						/>
-					);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
@@ -156,11 +127,7 @@ describe('InputDateTimePicker', () => {
 				it('should have undefined date if day is before 1', () => {
 					const invalidFormatValue = '2023-02-0 10:00';
 
-					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1)}
-						/>
-					);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					inputWrapper.prop('onChange')({
@@ -172,16 +139,9 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should have undefined date if day is after the last day of month', () => {
-					const invalidFormatValues = [
-						'2018-06-31 10:00',
-						'2018-02-29 10:00',
-					];
+					const invalidFormatValues = ['2018-06-31 10:00', '2018-02-29 10:00'];
 
-					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1)}
-						/>
-					);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
@@ -208,9 +168,7 @@ describe('InputDateTimePicker', () => {
 					];
 
 					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-						/>
+						<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 					);
 
 					const inputWrapper = wrapper.find('DebounceInput');
@@ -228,9 +186,7 @@ describe('InputDateTimePicker', () => {
 					const invalidFormatValue = '2000-01-01 24:35';
 
 					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-						/>
+						<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 					);
 
 					const inputWrapper = wrapper.find('DebounceInput');
@@ -246,9 +202,7 @@ describe('InputDateTimePicker', () => {
 					const invalidFormatValue = '2000-01-01 12:65';
 
 					const wrapper = shallow(
-						<InputDateTimePicker
-							selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-						/>
+						<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 					);
 
 					const inputWrapper = wrapper.find('DebounceInput');
@@ -270,9 +224,7 @@ describe('InputDateTimePicker', () => {
 			];
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -299,9 +251,7 @@ describe('InputDateTimePicker', () => {
 			];
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -325,9 +275,7 @@ describe('InputDateTimePicker', () => {
 			];
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -344,16 +292,13 @@ describe('InputDateTimePicker', () => {
 		});
 	});
 
-
 	describe('picker changes update the state', () => {
 		it('should update the "date" and "time" state when a new datetime is picked', () => {
 			const testedDate = new Date(2015, 11, 30);
 			const testedTime = 1250;
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
@@ -371,9 +316,7 @@ describe('InputDateTimePicker', () => {
 			const testedTime = 1250;
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
 			);
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
@@ -387,17 +330,13 @@ describe('InputDateTimePicker', () => {
 		});
 	});
 
-
 	describe('callback onChange', () => {
 		it('should callback with the correct date when the datetime change with the input', () => {
 			const testedValue = '2005-09-25 02:46';
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={onChange}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -424,10 +363,7 @@ describe('InputDateTimePicker', () => {
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={onChange}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -456,10 +392,7 @@ describe('InputDateTimePicker', () => {
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={onChange}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
@@ -479,10 +412,7 @@ describe('InputDateTimePicker', () => {
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
-					onChange={onChange}
-				/>
+				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -514,10 +444,7 @@ describe('InputDateTimePicker', () => {
 			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onChange={onChange}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -529,7 +456,6 @@ describe('InputDateTimePicker', () => {
 
 			expect(onChange).not.toHaveBeenCalled();
 			onChange.mockReset();
-
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 			dateTimePickerWrapper.prop('onSubmit')(pickerIndenticalDatas);
@@ -546,10 +472,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -570,10 +493,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -594,10 +514,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -618,10 +535,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -642,10 +556,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -667,10 +578,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -701,10 +609,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -735,10 +640,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -771,10 +673,7 @@ describe('InputDateTimePicker', () => {
 			const onError = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker
-					selectedDateTime={defaultDateTime}
-					onError={onError}
-				/>
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');

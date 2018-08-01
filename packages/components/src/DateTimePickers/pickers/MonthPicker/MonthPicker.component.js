@@ -7,9 +7,7 @@ import theme from './MonthPicker.scss';
 import PickerAction from '../../shared/components/PickerAction';
 import BASE_DATE from '../../shared/utils/constants/baseDate';
 
-const indexes = (new Array(12))
-	.fill(0)
-	.map((_, i) => i);
+const indexes = new Array(12).fill(0).map((_, i) => i);
 
 const months = indexes.map(index => ({
 	index,
@@ -18,7 +16,6 @@ const months = indexes.map(index => ({
 const monthsRows = chunk(months, 3);
 
 class MonthPicker extends React.PureComponent {
-
 	isSelected(index) {
 		return index === this.props.selectedMonthIndex;
 	}
@@ -26,13 +23,10 @@ class MonthPicker extends React.PureComponent {
 	render() {
 		return (
 			<div className={theme.container}>
-				{monthsRows.map((monthsRow, i) =>
+				{monthsRows.map((monthsRow, i) => (
 					<div className={theme.row} key={i}>
-						{monthsRow.map(month =>
-							<div
-								key={month.index}
-								className={theme.month}
-							>
+						{monthsRow.map(month => (
+							<div key={month.index} className={theme.month}>
 								<PickerAction
 									aria-label={`Select '${month.name}'`}
 									isSelected={this.isSelected(month.index)}
@@ -40,9 +34,9 @@ class MonthPicker extends React.PureComponent {
 									onClick={() => this.props.onSelect(month.index)}
 								/>
 							</div>
-						)}
+						))}
 					</div>
-				)}
+				))}
 			</div>
 		);
 	}

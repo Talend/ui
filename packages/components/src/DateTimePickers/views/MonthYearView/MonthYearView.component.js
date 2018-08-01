@@ -9,44 +9,32 @@ import HeaderTitle from '../HeaderTitle';
 
 function MonthYearView(props) {
 	const header = {
-		leftElement: <IconButton
-			icon={{
-				name: 'talend-arrow-left',
-				className: theme['action-left-icon'],
-			}}
-			className={theme['action-left']}
-			aria-label="Switch back to date and time pickers view"
-			onClick={props.onClickBack}
-		/>,
-		middleElement: <HeaderTitle
-			monthIndex={props.selectedMonthIndex}
-			year={props.selectedYear}
-		/>,
+		leftElement: (
+			<IconButton
+				icon={{
+					name: 'talend-arrow-left',
+					className: theme['action-left-icon'],
+				}}
+				className={theme['action-left']}
+				aria-label="Switch back to date and time pickers view"
+				onClick={props.onClickBack}
+			/>
+		),
+		middleElement: <HeaderTitle monthIndex={props.selectedMonthIndex} year={props.selectedYear} />,
 	};
 
 	const bodyElement = (
 		<div className={theme.body}>
 			<div className={theme.month}>
-				<MonthPicker
-					selectedMonthIndex={props.selectedMonthIndex}
-					onSelect={props.onSelectMonth}
-				/>
+				<MonthPicker selectedMonthIndex={props.selectedMonthIndex} onSelect={props.onSelectMonth} />
 			</div>
 			<div className={theme.year}>
-				<YearPicker
-					selectedYear={props.selectedYear}
-					onSelect={props.onSelectYear}
-				/>
+				<YearPicker selectedYear={props.selectedYear} onSelect={props.onSelectYear} />
 			</div>
 		</div>
 	);
 
-	return (
-		<ViewLayout
-			header={header}
-			bodyElement={bodyElement}
-		/>
-	);
+	return <ViewLayout header={header} bodyElement={bodyElement} />;
 }
 
 MonthYearView.propTypes = {

@@ -4,12 +4,7 @@ import classNames from 'classnames';
 import theme from './PickerAction.scss';
 
 function PickerAction(props) {
-	const {
-		label,
-		isSelected,
-		className: classNameProp,
-		...rest
-	} = props;
+	const { label, isSelected, className: classNameProp, ...rest } = props;
 
 	const className = classNames(
 		theme.action,
@@ -20,15 +15,8 @@ function PickerAction(props) {
 	);
 
 	return (
-		<button
-			className={className}
-			{...rest}
-		>
-			<span
-				className={theme.text}
-			>
-				{label}
-			</span>
+		<button className={className} {...rest}>
+			<span className={theme.text}>{label}</span>
 		</button>
 	);
 }

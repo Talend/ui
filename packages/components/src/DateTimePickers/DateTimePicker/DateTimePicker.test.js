@@ -11,9 +11,7 @@ describe('DateTimePicker', () => {
 	it('should render', () => {
 		mockDate(new Date(2018, 5, 12));
 
-		const wrapper = shallow(<DateTimePicker
-			onSubmit={() => {}}
-		/>);
+		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 
@@ -22,9 +20,7 @@ describe('DateTimePicker', () => {
 
 	describe('view switching', () => {
 		it('should render with the DateTimeView based on state', () => {
-			const wrapper = shallow(<DateTimePicker
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 			wrapper.setState({
 				isDateTimeView: true,
@@ -35,9 +31,7 @@ describe('DateTimePicker', () => {
 		});
 
 		it('should render with the MonthYearView on state', () => {
-			const wrapper = shallow(<DateTimePicker
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 			wrapper.setState({
 				isDateTimeView: false,
@@ -48,9 +42,7 @@ describe('DateTimePicker', () => {
 		});
 
 		it('should switch state to MonthYearView when header title of DateTimeView is clicked', () => {
-			const wrapper = shallow(<DateTimePicker
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 			wrapper.setState({
 				isDateTimeView: true,
@@ -62,9 +54,7 @@ describe('DateTimePicker', () => {
 		});
 
 		it('should switch state to DateTimeView when header back action of MonthYearView is clicked', () => {
-			const wrapper = shallow(<DateTimePicker
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 			wrapper.setState({
 				isDateTimeView: false,
@@ -80,12 +70,14 @@ describe('DateTimePicker', () => {
 		const d1 = new Date(2018, 2, 5);
 		const d2 = new Date(2019, 11, 21);
 		const d3 = new Date(2015, 6, 27);
-		const wrapper = shallow(<DateTimePicker
-			selection={{
-				date: d1,
-			}}
-			onSubmit={() => {}}
-		/>);
+		const wrapper = shallow(
+			<DateTimePicker
+				selection={{
+					date: d1,
+				}}
+				onSubmit={() => {}}
+			/>,
+		);
 
 		wrapper.setState({
 			isDateTimeView: true,
@@ -109,12 +101,14 @@ describe('DateTimePicker', () => {
 		const t1 = 810;
 		const t2 = 950;
 		const t3 = 1270;
-		const wrapper = shallow(<DateTimePicker
-			selection={{
-				time: t1,
-			}}
-			onSubmit={() => {}}
-		/>);
+		const wrapper = shallow(
+			<DateTimePicker
+				selection={{
+					time: t1,
+				}}
+				onSubmit={() => {}}
+			/>,
+		);
 
 		wrapper.setState({
 			isDateTimeView: true,
@@ -142,10 +136,7 @@ describe('DateTimePicker', () => {
 			time: initTime,
 		};
 
-		const wrapper = shallow(<DateTimePicker
-			selection={selection}
-			onSubmit={() => {}}
-		/>);
+		const wrapper = shallow(<DateTimePicker selection={selection} onSubmit={() => {}} />);
 
 		selection.date = new Date(2020, 0, 1);
 		selection.time = 50;
@@ -162,12 +153,14 @@ describe('DateTimePicker', () => {
 		const date = new Date(2018, 1, 1);
 		const time = 1000;
 		const onSubmit = jest.fn();
-		const wrapper = shallow(<DateTimePicker
-			selection={{
-				date,
-			}}
-			onSubmit={onSubmit}
-		/>);
+		const wrapper = shallow(
+			<DateTimePicker
+				selection={{
+					date,
+				}}
+				onSubmit={onSubmit}
+			/>,
+		);
 
 		wrapper.setState({
 			isDateTimeView: true,
@@ -186,9 +179,7 @@ describe('DateTimePicker', () => {
 	it('should not submit if one of date and time is not selected', () => {
 		const time = 1000;
 		const onSubmit = jest.fn();
-		const wrapper = shallow(<DateTimePicker
-			onSubmit={onSubmit}
-		/>);
+		const wrapper = shallow(<DateTimePicker onSubmit={onSubmit} />);
 
 		wrapper.setState({
 			isDateTimeView: true,
@@ -204,9 +195,7 @@ describe('DateTimePicker', () => {
 		it('should at initialization define the calendar displayed based on current date when no selection props given', () => {
 			mockDate(new Date(2016, 4, 12));
 
-			const wrapper = shallow(<DateTimePicker
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 			wrapper.setState({
 				isDateTimeView: true,
@@ -222,12 +211,14 @@ describe('DateTimePicker', () => {
 		});
 
 		it('should at initialization define the calendar displayed based on date selection prop when given', () => {
-			const wrapper = shallow(<DateTimePicker
-				selection={{
-					date: new Date(2013, 0, 15),
-				}}
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimePicker
+					selection={{
+						date: new Date(2013, 0, 15),
+					}}
+					onSubmit={() => {}}
+				/>,
+			);
 
 			wrapper.setState({
 				isDateTimeView: true,
@@ -241,12 +232,14 @@ describe('DateTimePicker', () => {
 		});
 
 		it('should update the calendar displayed based on date selection prop update', () => {
-			const wrapper = shallow(<DateTimePicker
-				selection={{
-					date: new Date(2013, 0, 15),
-				}}
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimePicker
+					selection={{
+						date: new Date(2013, 0, 15),
+					}}
+					onSubmit={() => {}}
+				/>,
+			);
 
 			wrapper.setState({
 				isDateTimeView: true,
@@ -272,12 +265,14 @@ describe('DateTimePicker', () => {
 		});
 
 		it('should keep actual calendar displayed if date selection prop update to undefined', () => {
-			const wrapper = shallow(<DateTimePicker
-				selection={{
-					date: new Date(2013, 0, 15),
-				}}
-				onSubmit={() => {}}
-			/>);
+			const wrapper = shallow(
+				<DateTimePicker
+					selection={{
+						date: new Date(2013, 0, 15),
+					}}
+					onSubmit={() => {}}
+				/>,
+			);
 
 			wrapper.setState({
 				isDateTimeView: true,

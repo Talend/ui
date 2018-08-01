@@ -4,14 +4,7 @@ import classNames from 'classnames';
 import theme from './DayPickerAction.scss';
 
 function DayPickerAction(props) {
-	const {
-		label,
-		isSelected,
-		isDisabled,
-		isToday,
-		className: propClassName,
-		...rest
-	} = props;
+	const { label, isSelected, isDisabled, isToday, className: propClassName, ...rest } = props;
 
 	const className = classNames(
 		theme.action,
@@ -23,26 +16,14 @@ function DayPickerAction(props) {
 	);
 
 	return (
-		<button
-			type="button"
-			disabled={isDisabled}
-			className={className}
-			{...rest}
-		>
-			<span
-				className={theme.label}
-			>
-				{label}
-			</span>
+		<button type="button" disabled={isDisabled} className={className} {...rest}>
+			<span className={theme.label}>{label}</span>
 		</button>
 	);
 }
 
 DayPickerAction.propTypes = {
-	label: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number,
-	]),
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	className: PropTypes.string,
 	isSelected: PropTypes.bool,
 	isDisabled: PropTypes.bool,

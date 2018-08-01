@@ -13,7 +13,6 @@ export function mockDate(mockingDate) {
 	});
 }
 
-
 export function restoreDate() {
 	global.Date = OriginalDate;
 	OriginalDate = undefined;

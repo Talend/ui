@@ -1,6 +1,5 @@
 import twoDigits from './twoDigits';
 
-
 describe('twoDigits', () => {
 	it('should return the exact input if number already have exactly 2 digits in string format', () => {
 		expect(twoDigits(45)).toBe('45');

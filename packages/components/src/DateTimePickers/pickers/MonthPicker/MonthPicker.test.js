@@ -5,19 +5,14 @@ import MonthPicker from './MonthPicker.component';
 
 describe('MonthPicker', () => {
 	it('should render', () => {
-		const wrapper = shallow(<MonthPicker
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<MonthPicker onSelect={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should have exactly one selected month', () => {
 		const monthIndex = 8;
-		const wrapper = shallow(<MonthPicker
-			selectedMonthIndex={monthIndex}
-			onSelect={() => {}}
-		/>);
+		const wrapper = shallow(<MonthPicker selectedMonthIndex={monthIndex} onSelect={() => {}} />);
 
 		const actions = wrapper.find('PickerAction');
 
@@ -34,9 +29,7 @@ describe('MonthPicker', () => {
 		const monthIndexToSelect = 5;
 		const onSelect = jest.fn();
 
-		const wrapper = shallow(<MonthPicker
-			onSelect={onSelect}
-		/>);
+		const wrapper = shallow(<MonthPicker onSelect={onSelect} />);
 
 		const juneAction = wrapper
 			.findWhere(n => n.key() === monthIndexToSelect.toString())

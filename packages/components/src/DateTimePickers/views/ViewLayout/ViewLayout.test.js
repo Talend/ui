@@ -11,9 +11,7 @@ describe('ViewLayout', () => {
 			rightElement: <span>right item</span>,
 		};
 
-		const bodyElement = (
-			<whateverBodyElement />
-		);
+		const bodyElement = <whateverBodyElement />;
 
 		// when
 		const wrapper = shallow(<ViewLayout header={header} bodyElement={bodyElement} />);
