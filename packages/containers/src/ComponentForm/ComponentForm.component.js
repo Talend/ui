@@ -219,6 +219,7 @@ TCompForm.propTypes = {
 	uiSpecPath: PropTypes.string,
 	lang: PropTypes.string,
 	customTriggers: PropTypes.object,
+	dispatchOnChange: PropTypes.bool,
 };
 
 export default cmfConnect({

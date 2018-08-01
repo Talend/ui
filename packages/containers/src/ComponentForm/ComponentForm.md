@@ -43,16 +43,30 @@ function* handleForm() {
 
 ## Props
 
-| name            | type   | desc                                                           |
-| --------------- | ------ | -------------------------------------------------------------- |
-| definitionURL\* | string | url to GET the `uiSpec`                                        |
-| triggerURL\*    | string | url to POST on event trigger                                   |
-| submitURL       | string | url to POST the content if action is of type "submit"          |
-| uiSpecPath      | string | to get the `uiSpec` from the result of GET definitionURL       |
-| lang            | string | language code used by the backend to produce translated uiSpec |
-| customTriggers  | object | registry used to let uiSchema point to it                      |
+| name             | type    | desc                                                             |
+| ---------------- | ------- | ---------------------------------------------------------------- |
+| definitionURL\*  | string  | url to GET the `uiSpec`                                          |
+| triggerURL\*     | string  | url to POST on event trigger                                     |
+| submitURL        | string  | url to POST the content if action is of type "submit"            |
+| uiSpecPath       | string  | to get the `uiSpec` from the result of GET definitionURL         |
+| lang             | string  | language code used by the backend to produce translated uiSpec   |
+| customTriggers   | object  | registry used to let uiSchema point to it                        |
+| dispatchOnChange | boolean | if this props is true an action is dispatch on every form change |
 
 All other props will be spread to the UIForm
+
+## Actions dispatched
+
+The component dispatch some actions in redux so you can take them to add your side effects. The types are available as static variables attached to the component `Form`.
+
+| name                                | value                              | when its dispatched                                 |
+| ----------------------------------- | ---------------------------------- | --------------------------------------------------- |
+| Form.ON_CHANGE                 | 'TCOMP_FORM_CHANGE'                | On every change if `dispatchOnChange` props is true |
+| Form.ON_SUBMIT                 | 'TCOMP_FORM_SUBMIT'                | On any of submit action is called                   |
+| Form.ON_SUBMIT_SUCCEED         | 'TCOMP_FORM_SUBMIT_SUCCEED'        | When the form submitURL POST response is OK         |
+| Form.ON_TRIGGER_BEGIN          | 'TCOMP_FORM_TRIGGER_BEGIN'         | Before calling the backend on a trigger             |
+| Form.ON_TRIGGER_END            | 'TCOMP_FORM_TRIGGER_END'           | On the trigger response OK                          |
+| Form.ON_DEFINITION_URL_CHANGED | 'TCOMP_FORM_DEFINITION_URL_CHANGE' | On props update if `definitionURL` has changed      |
 
 ## Triggers
 
@@ -147,7 +161,7 @@ import Form from '@talend/containers/lib/ComponentForm';
 import customTriggers from './reloadForm';
 
 export default function AddForm(props) {
-    return <Form customTriggers={customTriggers} {...props} />;
+	return <Form customTriggers={customTriggers} {...props} />;
 }
 ```
 
@@ -157,9 +171,9 @@ on the backend response the function we wrote is called.
 
 The form support a sets of keys in the payload returned by the trigger function:
 
-* properties: replace the current properties in the form.
-* jsonSchema, uiSchema: replace the current form spec.
-* titleMap: use by datalist widget to create the suggestions
+- properties: replace the current properties in the form.
+- jsonSchema, uiSchema: replace the current form spec.
+- titleMap: use by datalist widget to create the suggestions
 
 More to come in the future.
 
@@ -169,4 +183,4 @@ More to come in the future.
 
 ## TODO
 
-- Support sync in store of data
+- Support sync in store of data using `dispatchOnChange`
