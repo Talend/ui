@@ -128,7 +128,7 @@ class InputDateTimePicker extends React.Component {
 		super(props);
 
 		// eslint-disable-next-line
-		console.warn(`UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.`);
+		console.warn("UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.");
 
 		this.state = (() => {
 			const selectedDateTime = this.props.selectedDateTime;
