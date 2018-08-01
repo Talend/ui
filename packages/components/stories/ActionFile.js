@@ -39,8 +39,11 @@ storiesOf('ActionFile', module)
 			<p>Reverse display</p>
 			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
 			<p>Transform icon</p>
-			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
+			<Action id="reverseDisplay" {...myAction} iconTransform="rotate-180" />
 			<p>Custom tooltip</p>
-			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
+			<Action id="default" {...myAction} tooltipLabel="Custom label here" />
+			<p>Bootstrap style</p>
+			<Action id="default" {...myAction} bsStyle="primary" tooltipLabel="Custom label here" />
+			<Action id="default" {...myAction} bsStyle="default btn-inverse" tooltipLabel="Custom label here" />
 		</div>
 	));
