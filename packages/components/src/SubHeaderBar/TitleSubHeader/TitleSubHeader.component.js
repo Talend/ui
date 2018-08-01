@@ -41,7 +41,7 @@ function TitleSubHeader({
 					)}
 				>
 					{editable || editMode ? (
-						<EditableText text={title} editMode={editMode} {...rest} />
+						<EditableText text={title} editMode={editMode} inProgress={inProgress} {...rest} />
 					) : (
 						<h1
 							className={classNames(

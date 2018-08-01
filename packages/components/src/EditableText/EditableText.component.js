@@ -8,7 +8,7 @@ import InlineForm from './InlineForm.component';
 import theme from './EditableText.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function PlainTextTitle({ onEdit, disabled, text, t }) {
+function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
 	return (
 		<div>
 			<button
@@ -19,7 +19,7 @@ function PlainTextTitle({ onEdit, disabled, text, t }) {
 					'btn-link',
 				)}
 				onDoubleClick={onEdit}
-				disabled={disabled}
+				disabled={disabled || inProgress}
 			>
 				{text}
 			</button>
@@ -33,7 +33,7 @@ function PlainTextTitle({ onEdit, disabled, text, t }) {
 					theme['tc-editable-text-text-pencil'],
 					'tc-editable-text-text-pencil',
 				)}
-				disabled={disabled}
+				disabled={disabled || inProgress}
 				hideLabel
 			/>
 		</div>
@@ -44,6 +44,7 @@ PlainTextTitle.propTypes = {
 	text: PropTypes.string.isRequired,
 	onEdit: PropTypes.bool,
 	disabled: PropTypes.bool,
+	inProgress: PropTypes.bool,
 	t: PropTypes.func,
 };
 
@@ -60,7 +61,7 @@ function EditableText({ editMode, loading, inProgress, ...rest }) {
 				'tc-editable-text-blink': inProgress,
 			})}
 		>
-			<Component {...rest} />
+			<Component inProgress={inProgress} {...rest} />
 		</div>
 	);
 }
