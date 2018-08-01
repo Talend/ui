@@ -9,6 +9,16 @@ import memoizeOne from 'memoize-one';
 import kit from './kit';
 import tcompFieldsWidgets from './fields';
 
+const TO_OMIT = [
+	'definitionURL',
+	'uiSpecPath',
+	'submitURL',
+	'triggerULR',
+	'lang',
+	'customTriggers',
+	...cmfConnect.INJECTED_PROPS
+]
+
 export const DEFAULT_STATE = new Map({
 	dirty: false,
 });
@@ -177,7 +187,7 @@ export class TCompForm extends React.Component {
 		}
 
 		const props = {
-			...omit(this.props, cmfConnect.INJECTED_PROPS),
+			...omit(this.props, TO_OMIT),
 			data: uiSpecs,
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
