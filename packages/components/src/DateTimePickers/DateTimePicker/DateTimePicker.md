@@ -4,7 +4,7 @@ This component display a datetime picker
 
 ## props
 
-- **selection** : The datas used to control the current selection
+- **selection** : The data used to control the current selection
     - object format with :
         - _Date_ prop as a Date object
         - _time_ prop as a number of seconds since the beginning of the date
