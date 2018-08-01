@@ -16,8 +16,8 @@ class DateTimePicker extends React.Component {
 			"UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
 		);
 
-		const selectedDate = props.selection && props.selection.date;
-		const selectedTime = props.selection && props.selection.time;
+		const selectedDate = props.selection.date;
+		const selectedTime = props.selection.time;
 
 		const initialCalendarDate = selectedDate === undefined ? new Date() : selectedDate;
 
@@ -47,8 +47,8 @@ class DateTimePicker extends React.Component {
 			return;
 		}
 
-		const newSelectedDate = nextProps.selection && nextProps.selection.date;
-		const newSelectedTime = nextProps.selection && nextProps.selection.time;
+		const newSelectedDate = nextProps.selection.date;
+		const newSelectedTime = nextProps.selection.time;
 		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
 		const needToUpdateTime = newSelectedTime !== this.state.selectedTime;
 		const noNeedToUpdateState = !needToUpdateDate && !needToUpdateTime;
@@ -158,6 +158,10 @@ DateTimePicker.propTypes = {
 		time: PropTypes.number,
 	}),
 	onSubmit: PropTypes.func.isRequired,
+};
+
+DateTimePicker.defaultProps = {
+	selection: {},
 };
 
 export default DateTimePicker;
