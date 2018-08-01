@@ -217,27 +217,21 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	render() {
-		const {
-			date,
-			time,
-			textInput,
-		} = this.state;
-
 		return (
 			<div>
 				<DebounceInput
 					{...this.props.inputProps}
 					type="text"
 					placeholder="YYYY-MM-DD hh:mm"
-					value={textInput}
+					value={this.state.textInput}
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
 				/>
 				<div className={theme.dropdown}>
 					<DateTimePicker
 						selection={{
-							date,
-							time,
+							date: this.state.date,
+							time: this.state.time,
 						}}
 						onSubmit={this.onSubmitPicker}
 					/>
