@@ -16,8 +16,8 @@ const TO_OMIT = [
 	'triggerULR',
 	'lang',
 	'customTriggers',
-	...cmfConnect.INJECTED_PROPS
-]
+	...cmfConnect.INJECTED_PROPS,
+];
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
