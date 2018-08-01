@@ -43,14 +43,14 @@ function* handleForm() {
 
 ## Props
 
-| name             | type   | desc                                                     |
-| ---------------- | ------ | -------------------------------------------------------- |
-| definitionURL\*  | string | url to GET the `uiSpec`                                  |
-| triggerURL\*     | string | url to POST on event trigger                             |
-| [submitURL]      | string | url to POST the content if action is of type "submit"    |
-| [uiSpecPath]     | string | to get the `uiSpec` from the result of GET definitionURL |
-| [lang]           | string | language code                                            |
-| [customTriggers] | object | registry used to let uiSchema point to it                |
+| name            | type   | desc                                                           |
+| --------------- | ------ | -------------------------------------------------------------- |
+| definitionURL\* | string | url to GET the `uiSpec`                                        |
+| triggerURL\*    | string | url to POST on event trigger                                   |
+| submitURL       | string | url to POST the content if action is of type "submit"          |
+| uiSpecPath      | string | to get the `uiSpec` from the result of GET definitionURL       |
+| lang            | string | language code used by the backend to produce translated uiSpec |
+| customTriggers  | object | registry used to let uiSchema point to it                      |
 
 All other props will be spread to the UIForm
 
@@ -87,6 +87,81 @@ Example:
 
 `action`, `family` and `type` define the trigger identifier.
 `parameters` define the payload to send to the backend. the `key` attribute define key in the payload for this parameter and the `path` is used to get the value of it inside the current form payload.
+
+A trigger is a piece of code on the backend and on the frontend. So your app can produce any wanted effects on a given form.
+
+## customTriggers
+
+Lets take an example of a custom trigger.
+
+You want to create an addform where the user wants to select a component. So your form is not static.
+
+You can split your payload in two piece:
+
+- `$metadata` (label, type)
+- `component`
+
+To support the change of the form on the fly you will need a trigger, lets call it reloadForm:
+
+```javascript
+function reloadForm({ body, properties }) {
+	return {
+		...body,
+		properties: { $metadata: properties.$metadata },
+	};
+}
+
+export default {
+	reloadForm,
+};
+```
+
+And the UISpec:
+
+```javascript
+{
+    "key": "$metdata.type",
+    "title": "Types",
+    "titleMap": [...]
+    "triggers": [
+        {
+            "action": "builtin::root::reloadFromId",
+            "family": "builtin::family",
+            "parameters": [
+                {
+                    "key": "id",
+                    "path": "$metadata.type"
+                }
+            ],
+            "type": "reloadForm"
+        }
+    ],
+    "widget": "datalist"
+},
+```
+
+So next you just have to call the form with it
+
+```javascript
+import Form from '@talend/containers/lib/ComponentForm';
+import customTriggers from './reloadForm';
+
+export default function AddForm(props) {
+    return <Form customTriggers={customTriggers} {...props} />;
+}
+```
+
+The backend will do the job to find the uispec of a given type and send it to the frontend.
+
+on the backend response the function we wrote is called.
+
+The form support a sets of keys in the payload returned by the trigger function:
+
+* properties: replace the current properties in the form.
+* jsonSchema, uiSchema: replace the current form spec.
+* titleMap: use by datalist widget to create the suggestions
+
+More to come in the future.
 
 ## Life cycle
 
