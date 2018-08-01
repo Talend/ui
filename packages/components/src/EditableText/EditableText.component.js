@@ -8,11 +8,53 @@ import InlineForm from './InlineForm.component';
 import theme from './EditableText.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t, ...rest }) {
+
+function PlainTextTitle({ onEdit, disabled, text, t }) {
+	return (
+		<div>
+			<button
+				className={classNames(
+					theme['tc-editable-text-text-wording-button'],
+					'tc-editable-text-text-wording-button',
+					'btn',
+					'btn-link',
+				)}
+				onDoubleClick={onEdit}
+				disabled={disabled}
+			>
+				{text}
+			</button>
+			<Action
+				name="action-edit"
+				label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
+				icon="talend-pencil"
+				onClick={onEdit}
+				bsStyle="link"
+				className={classNames(
+					theme['tc-editable-text-text-pencil'],
+					'tc-editable-text-text-pencil',
+				)}
+				disabled={disabled}
+				hideLabel
+			/>
+		</div>
+	);
+}
+
+PlainTextTitle.propTypes = {
+	text: PropTypes.string.isRequired,
+	onEdit: PropTypes.bool,
+	disabled: PropTypes.bool,
+	t: PropTypes.func,
+};
+
+
+function EditableText({ editMode, loading, inProgress, ...rest }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 
+	const Component = editMode ? InlineForm : PlainTextTitle;
 	return (
 		<div
 			className={classNames(theme['tc-editable-text'], 'tc-editable-text', {
@@ -20,37 +62,7 @@ function EditableText({ text, editMode, loading, inProgress, onEdit, disabled, t
 				'tc-editable-text-blink': inProgress,
 			})}
 		>
-			{editMode ? (
-				<InlineForm text={text} {...rest} />
-			) : (
-				<div>
-					<button
-						className={classNames(
-							theme['tc-editable-text-text-wording-button'],
-							'tc-editable-text-text-wording-button',
-							'btn',
-							'btn-link',
-						)}
-						onDoubleClick={onEdit}
-						disabled={disabled}
-					>
-						{text}
-					</button>
-					<Action
-						name="action-edit"
-						label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
-						icon="talend-pencil"
-						onClick={onEdit}
-						bsStyle="link"
-						className={classNames(
-							theme['tc-editable-text-text-pencil'],
-							'tc-editable-text-text-pencil',
-						)}
-						disabled={disabled}
-						hideLabel
-					/>
-				</div>
-			)}
+			<Component {...rest} />
 		</div>
 	);
 }

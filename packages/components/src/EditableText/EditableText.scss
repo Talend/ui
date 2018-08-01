@@ -28,7 +28,6 @@ $tc-input-editable-text-input-weight: $form-base-font-weight !default;
 	height: 100%;
 
 	& &-text {
-		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		overflow: hidden;
