@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputDateTimePicker should render 1`] = `
+<FieldTemplate
+  description="This is my date picker"
+  errorMessage="You've done something wrong"
+  id="my-datepicker"
+  isValid={false}
+  label="My date picker"
+  required={undefined}
+>
+  <InputDateTimePicker
+    onChange={[Function]}
+    selectedDateTime={1533884400000}
+  />
+</FieldTemplate>
+`;

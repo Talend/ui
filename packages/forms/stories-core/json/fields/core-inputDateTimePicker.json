@@ -1,0 +1,21 @@
+{
+  "doc": "InputDateTimePicker/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "InputDateTimePicker",
+    "properties": {
+      "propSimpleNumber": {
+        "type": "number"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "propSimpleNumber",
+      "title": "Basic input date time picker",
+      "description": "Without any constraints",
+      "widget": "inputDateTimePicker"
+    }
+  ],
+  "properties": {}
+}
