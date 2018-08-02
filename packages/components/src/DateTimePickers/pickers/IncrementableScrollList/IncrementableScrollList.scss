@@ -1,14 +1,14 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 
+	.action-up,
+	.action-down {
+		flex: 1;
+	}
 
-    .action-up, .action-down {
-        flex: 1;
-    }
-
-    .items {
-        flex: 5;
-    }
+	.items {
+		flex: 5;
+	}
 }

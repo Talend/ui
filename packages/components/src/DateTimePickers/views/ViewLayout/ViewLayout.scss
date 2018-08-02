@@ -1,27 +1,28 @@
 .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 
-    .header {
-        display: flex;
-        height: 5rem;
+	.header {
+		display: flex;
+		height: 5rem;
 
-        .left, .right {
-            flex: 1;
-        }
+		.left,
+		.right {
+			flex: 1;
+		}
 
-        .middle {
-            flex: 3;
-        }
-    }
+		.middle {
+			flex: 3;
+		}
+	}
 
-    .body {
-        flex: 1;
-    }
+	.body {
+		flex: 1;
+	}
 
-    .element-container > * {
-        width: 100%;
-        height: 100%;
-    }
+	.element-container > * {
+		width: 100%;
+		height: 100%;
+	}
 }

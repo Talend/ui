@@ -1,13 +1,13 @@
 @import '../../styles/mixins';
 
 .btn {
-    @include nav-action;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    color: $silver;
+	@include nav-action;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	color: $silver;
 
-    .icon {
-        width: $svg-sm-size;
-    }
+	.icon {
+		width: $svg-sm-size;
+	}
 }
