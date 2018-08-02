@@ -29,7 +29,7 @@ import './List';
 import './Loader';
 import './Notification';
 import './ObjectViewer';
-import './PieChartButton';
+import './PieChart';
 import './Progress';
 import './RichTooltip';
 import './SidePanel';

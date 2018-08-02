@@ -8,7 +8,7 @@ export default function FormSwitcher(props) {
 	if (props.loading) {
 		return <FormSkeleton />;
 	}
-	if (Array.isArray(props.uiSchema)) {
+	if (props.data && Array.isArray(props.data.uiSchema)) {
 		return <UIForm {...props} />;
 	}
 	return <Form {...props} />;
@@ -16,5 +16,7 @@ export default function FormSwitcher(props) {
 
 FormSwitcher.propTypes = {
 	loading: PropTypes.bool,
-	uiSchema: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	data: PropTypes.shape({
+		uiSchema: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	}),
 };
