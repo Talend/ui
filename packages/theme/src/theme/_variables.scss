@@ -155,8 +155,8 @@ $table-border-color: #ddd !default;
 
 $btn-font-weight: normal !default;
 
-$btn-default-color: #333 !default;
-$btn-default-bg: #dedede !default;
+$btn-default-color: #fff !default;
+$btn-default-bg: $dark-silver !default;
 $btn-default-border: #ccc !default;
 
 $btn-primary-color: #fff !default;
@@ -276,9 +276,6 @@ $dropdown-link-disabled-color: $gray-light !default;
 
 //** Text color for headers within dropdown menus.
 $dropdown-header-color: $gray-light !default;
-
-//** Deprecated `$dropdown-caret-color` as of v3.1.0
-$dropdown-caret-color: $black !default;
 
 //-- Z-index master list
 //

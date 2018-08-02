@@ -2,24 +2,33 @@
 
 
 src/theme/_buttons.scss
-  14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  15:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
-  22:22  error    !important not allowed          no-important
-  44:28  warning  Space expected around operator  space-around-operator
+  41:28  warning  Space expected around operator  space-around-operator
+
+src/theme/_forms.checkbox.scss
+  14:2  warning  Vendor prefixes should not be used      no-vendor-prefixes
+  15:2  warning  Vendor prefixes should not be used      no-vendor-prefixes
+  66:4  error    Mixins should come before declarations  mixins-before-declarations
 
 src/theme/_forms.scss
     9:24  error    Parenthesis should be removed                            empty-args
-   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  120:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  135:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  371:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  384:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  473:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   35:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   70:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  121:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  136:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  198:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  199:4   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  337:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  350:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  439:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_navbar.scss
   18:6  warning  Expected indentation of 4 tabs but found 5  indentation
+
+src/theme/_navbar.search.scss
+  7:11  error  A value of `0` is not allowed. `none` must be used  border-zero
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -27,5 +36,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (11 errors, 5 warnings)
+✖ 21 problems (12 errors, 9 warnings)
 

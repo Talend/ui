@@ -2,14 +2,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Typeahead from './Typeahead.component';
 
-jest.mock('react-dom');
-
 const itemsObject = [
 	{
 		title: 'category 1',
 		icon: {
 			name: 'fa fa-filter',
 			title: 'icon',
+			role: 'search',
 		},
 		suggestions: [
 			{
@@ -71,6 +70,7 @@ describe('Typeahead', () => {
 			const props = {
 				id: 'my-search',
 				position: 'right',
+				role: 'searchbox',
 			};
 
 			// when
@@ -114,6 +114,21 @@ describe('Typeahead', () => {
 			const props = {
 				id: 'my-search',
 				items: [],
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('should render typeahead with loading entry', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				items: [],
+				isLoading: true,
 			};
 
 			// when

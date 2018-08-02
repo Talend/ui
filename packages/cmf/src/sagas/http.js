@@ -304,6 +304,7 @@ export default {
 	patch: httpPatch,
 	setDefaultConfig,
 	setDefaultLanguage,
+	getDefaultConfig,
 	create(createConfig = {}) {
 		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
 

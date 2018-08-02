@@ -15,24 +15,17 @@
 
 .btn-group {
 	display: inline-flex;
-	overflow: hidden;
 
 	.btn {
-		&-primary,
-		&-success,
-		&-info,
-		&-warning,
-		&-danger {
-			.caret {
-				@include dropdown-caret-color($navbar-inverse-link-color);
-			}
-		}
-
 		+ .btn {
 			.caret.caret {
 				margin-left: 0;
 			}
 		}
+	}
+
+	.dropdown-toggle {
+		border-left-width: 1px;
 	}
 
 	&-justified {

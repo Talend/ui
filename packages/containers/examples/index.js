@@ -5,10 +5,10 @@ import ActionIconToggle from './ExampleActionIconToggle';
 import ActionSplitDropdown from './ExampleActionSplitDropdown';
 import ActionsExample from './ExampleActions';
 import AppLoader from './ExampleAppLoader';
+import Breadcrumbs from './ExampleBreadcrumbs';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
 import FormExample from './ExampleForm';
-import HeaderBarExample from './ExampleHeaderBar';
 import HomeListViewExample from './ExampleHomeListView';
 import LayoutExample from './ExampleLayout';
 import ListExample from './ExampleList';
@@ -32,11 +32,11 @@ export default {
 	ActionSplitDropdown,
 	ActionsExample,
 	AppLoader,
+	Breadcrumbs,
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,
 	FormExample,
-	HeaderBarExample,
 	HomeListViewExample,
 	LayoutExample,
 	ListExample,

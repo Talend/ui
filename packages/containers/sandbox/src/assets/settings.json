@@ -1,0 +1,107 @@
+{
+  "actions": {
+    "menu:HeaderBar": {
+      "id": "menu:HeaderBar",
+      "label": "HeaderBar",
+      "icon": "talend-arrow-right",
+      "iconTransform": "rotate-270",
+      "payload": {
+        "type": "MENU_LINK",
+        "cmf": {
+          "routerReplace": "/HeaderBar"
+        }
+      }
+    },
+    "menu:ComponentForm": {
+      "icon": "talend-burger",
+      "label": "ComponentForm",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm"
+        }
+      }
+    }
+  },
+  "props": {
+    "AppLoader#default": {
+      "components": {
+        "before-children": [
+          {
+            "component": "Notification"
+          },
+          {
+            "component": "IconsProvider"
+          }
+        ]
+      }
+    },
+    "RedirectContainer#default": {
+      "path": "/HeaderBar"
+    },
+    "HeaderBar#default": {
+      "keepComponentState": true,
+      "logo": {
+        "id": "header-bar-demo-logo",
+        "icon": "talend-world",
+        "isFull": false
+      },
+      "brand": {
+        "id": "header-bar-demo-brand",
+        "label": "Choose a product"
+      },
+      "products": {
+        "id": "header-bar-demo-brands"
+      },
+      "productsUrl": "/api/mock/header-bar/products-list",
+      "productsLang": "en-EN"
+    },
+    "SidePanel#default": {
+      "actionIds": [
+        "menu:HeaderBar",
+        "menu:ComponentForm"
+      ]
+    },
+    "Layout#HeaderBar": {
+      "mode": "TwoColumns",
+      "header": { "component": "HeaderBar" },
+      "one": { "component": "SidePanel" },
+      "content": {}
+    },
+    "Layout#ComponentForm": {
+      "mode": "TwoColumns",
+      "header": [{ "component": "HeaderBar" }],
+      "one": [{ "component": "SidePanel" }],
+      "content": [{ "component": "ComponentForm", "componentId": "default" }]
+    },
+    "ComponentForm#default": {
+      "definitionURL": "/api/v1/forms/example",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "AppLoader",
+    "indexRoute": {
+      "component": "Redirect"
+    },
+    "childRoutes": [
+      {
+        "path": "HeaderBar",
+        "component": "Layout",
+        "componentId": "HeaderBar"
+      },
+      {
+        "path": "ComponentForm",
+        "component": "Layout",
+        "componentId": "ComponentForm"
+      },
+      {
+        "path": "*",
+        "component": "Redirect"
+      }
+    ]
+  }
+}

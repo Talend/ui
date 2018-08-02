@@ -13,6 +13,7 @@ exports[`CellTitleInput should render the input 1`] = `
   }
 >
   <form
+    className="theme-edit-form"
     onSubmit={[Function]}
   >
     <label

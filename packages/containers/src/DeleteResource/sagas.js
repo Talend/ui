@@ -1,4 +1,3 @@
-import invariant from 'invariant';
 import get from 'lodash/get';
 import { take, put, race, call, select } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
@@ -25,14 +24,14 @@ got ${resourcePath}`,
 }
 
 export function* redirect(action) {
-	const url = get(action, 'data.redirectUrl');
+	const url = get(action, 'data.model.redirectUrl');
 	if (!url) {
-		throw new Error('redirect action must have data.redirectUrl value');
+		throw new Error('redirect action must have data.model.redirectUrl value');
 	}
 	yield put({
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 		cmf: {
-			routerReplace: action.data.redirectUrl,
+			routerReplace: url,
 		},
 	});
 }
@@ -44,23 +43,40 @@ export function* redirect(action) {
  * Redirect the user.
  * @param {string} uri
  * @param {string} resourceType
- * @param {string} id
+ * @param {string} itemId
  * @param {Array<String>} [resourcePath]
+ * @param {string} collectionId - collection which stores resources
+ * @param {string} resourceUri - uri to delete resource on backend
  */
-export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath) {
+export function* deleteResourceValidate(
+	uri,
+	resourceType,
+	itemId,
+	resourcePath,
+	collectionId,
+	resourceUri,
+) {
 	const action = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
 	const safeURI = get(action, 'data.model.uri', uri);
 	const safeType = get(action, 'data.model.resourceType', resourceType);
 	const safeId = get(action, 'data.model.id', itemId);
 	const safePath = get(action, 'data.model.resourcePath', resourcePath);
-	const resourceLocator = getResourceLocator(safeType, safePath);
+	const resourceCollectionId = get(action, 'data.model.collectionId', collectionId);
+	const resourceLocator = getResourceLocator(resourceCollectionId || safeType, safePath);
 	const resource = yield select(cmf.selectors.collections.findListItem, resourceLocator, safeId);
-	if (resource && safeURI && safeType && safeId) {
-		const { response } = yield call(cmf.sagas.http.delete, `${safeURI}/${safeType}/${safeId}`);
+	const safeResourceUri = get(
+		action,
+		'data.model.resourceUri',
+		resourceUri || `${safeURI}/${safeType}/${safeId}`,
+	);
+	if (resource && safeResourceUri) {
+		const { response } = yield call(cmf.sagas.http.delete, safeResourceUri);
 		if (response.ok) {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
-				model: { labelResource: resource.get('label', '') },
+				model: {
+					labelResource: resource.get('label') || resource.get('name', ''),
+				},
 			});
 		}
 		yield call(redirect, action);
@@ -83,6 +99,10 @@ export function* deleteResourceCancel() {
  * @param {string} sagaParams.redirectUrl url to redirect after delete action is done or cancel
  * @param {Array<String>} sagaParams.resourcePath optional
  * @param {string} sagaParams.routerParamsAttribute optional param in route to get the resource id
+ * @param {string} sagaParams.collectionId optional param to specify collection which stores
+ * resources,if not provided, will use resourceType as collectionId
+ * @param {string} sagaParams.resourceUri optionsal param, specify the uri to delete resource.
+ * if not provided, will use ':uri/:resourceType/:resourceId'
  */
 function getDeleteResourceSagaRouter({
 	uri,
@@ -90,6 +110,8 @@ function getDeleteResourceSagaRouter({
 	redirectUrl,
 	resourcePath,
 	routerParamsAttribute = 'id',
+	collectionId,
+	resourceUri,
 } = {}) {
 	// eslint-disable-next-line no-console
 	console.warn(`DEPRECATED: please move the following sagaRouter config as props of DeleteResource container:
@@ -100,10 +122,6 @@ function getDeleteResourceSagaRouter({
 		resourcePath: ${resourcePath},
 	}`);
 	return function* deleteResourceSaga(routerParams) {
-		invariant(!!uri, 'DeleteResource saga : uri not defined');
-		invariant(!!resourceType, 'DeleteResource saga : resourceType not defined');
-		invariant(!!redirectUrl, 'DeleteResource saga : redirectUrl not defined');
-
 		try {
 			yield race({
 				deleteConfirmationValidate: call(
@@ -112,6 +130,8 @@ function getDeleteResourceSagaRouter({
 					resourceType,
 					routerParams[routerParamsAttribute],
 					resourcePath,
+					collectionId,
+					resourceUri,
 				),
 				deleteConfirmationCancel: call(deleteResourceCancel),
 			});

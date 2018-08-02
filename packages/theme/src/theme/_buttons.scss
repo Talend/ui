@@ -4,15 +4,15 @@
 ////
 
 .btn {
-	@include btn-colors;
 	border: none;
 	font-size: $btn-font-size;
+	font-weight: 500;
 	letter-spacing: 1px;
 	line-height: $btn-line-height;
+	min-height: $btn-line-height;
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
 	transition: all 0.1s ease-out;
-	min-height: 3.5rem;
 
 	&,
 	& > span {
@@ -40,39 +40,40 @@
 		border-color: transparent;
 	}
 
-	&-success,
-	&-danger {
-		font-weight: 600;
+	&-default {
+		@include btn-colors;
+		@include btn-inverse-colors;
 	}
 
 	&-primary {
 		@include button-variant($btn-validation-color, $btn-validation-bg, $btn-validation-border);
 		@include btn-colors($btn-validation-bg);
+		@include btn-inverse-colors($btn-validation-bg);
 	}
 
 	&-success {
 		@include btn-colors($btn-success-bg);
+		@include btn-inverse-colors($btn-success-bg);
 	}
 
 	&-info {
 		@include btn-colors($btn-info-bg);
+		@include btn-inverse-colors($btn-info-bg);
 	}
 
 	&-warning {
 		@include btn-colors($btn-warning-bg);
+		@include btn-inverse-colors($btn-warning-bg);
 	}
 
 	&-danger {
 		@include btn-colors($btn-danger-bg);
+		@include btn-inverse-colors($btn-danger-bg);
 	}
 
 	&-link {
-		&,
-		&:hover,
-		&:active {
-			background: none;
-			box-shadow: none;
-		}
+		font-size: $font-size-base;
+		font-weight: inherit;
 	}
 
 	&-icon-only {

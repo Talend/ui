@@ -1,3 +1,5 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
 $tc-typeahead-input-color: #000 !default;
 $tc-typeahead-input-width: 262px !default;
 
@@ -24,6 +26,15 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	align-items: flex-start;
 	width: auto;
 
+	&.loading {
+		.typeahead-input-icon,
+		.item-container {
+			> * {
+				@include heartbeat(object-blink);
+			}
+		}
+	}
+
 	.items-container {
 		display: none;
 		position: absolute;
@@ -48,6 +59,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 	}
 
+	.is-loading,
 	.is-searching,
 	.no-result,
 	&.container-open .items-container {
@@ -56,6 +68,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		padding-bottom: 1px;
 	}
 
+	.is-loading,
 	.is-searching,
 	.no-result {
 		display: flex;
@@ -77,17 +90,22 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	}
 }
 
+.is-loading,
 .is-searching,
 .no-result {
 	padding: $padding-normal;
 	font-size: 1.5rem;
 	font-style: italic;
-	color: $tc-typeahead-item-description-color;
 
 	> span {
 		display: inline-block;
 		padding: $padding-normal 0;
 	}
+}
+
+.is-searching,
+.no-result {
+	color: $tc-typeahead-item-description-color;
 }
 
 .is-searching {
@@ -130,6 +148,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	margin-bottom: 0;
 	padding: $padding-normal;
 	cursor: pointer;
+	white-space: pre;
 
 	&-description {
 		margin-bottom: 0;

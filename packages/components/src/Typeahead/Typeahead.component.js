@@ -29,6 +29,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				icon={icon.name}
 				bsStyle={icon.bsStyle}
 				className={classNames(theme['only-icon-cls'], 'tc-typeahead-toggle')}
+				role={icon.role}
 				tooltipPlacement={icon.tooltipPlacement}
 			/>
 		);
@@ -55,6 +56,9 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				position === 'right' && theme.right,
 				rest.theme && rest.theme.container,
 				rest.className,
+				{
+					[theme.loading]: rest.isLoading,
+				},
 			),
 		},
 	};
@@ -66,6 +70,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceMinLength: rest.debounceMinLength,
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
+			id: rest.id,
 			inputRef: rest.inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
@@ -75,6 +80,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			readOnly: rest.readOnly,
 			value: rest.value,
 			icon,
+			caret: rest.caret,
+			role: rest.role,
 		},
 	};
 
@@ -85,6 +92,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.noResultText,
 			rest.searching,
 			rest.searchingText,
+			rest.isLoading,
+			rest.isLoadingText,
 		),
 		renderItemData: { value: rest.value },
 	};
@@ -113,16 +122,17 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 Typeahead.displayName = 'Typeahead';
 
 Typeahead.defaultProps = {
-	autoFocus: true,
+	autoFocus: false,
 	disabled: false,
-	id: uuid.v4(),
+	id: uuid.v4().toString(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
 	position: 'left',
 	readOnly: false,
 	searching: false,
-	searchingText: 'Searching for matches…',
+	searchingText: 'Searching for matches...',
+	isLoadingText: 'Loading...',
 	docked: false,
 };
 
@@ -142,6 +152,7 @@ Typeahead.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 		bsStyle: PropTypes.string,
+		role: PropTypes.string,
 	}),
 
 	// input
