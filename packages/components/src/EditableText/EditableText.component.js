@@ -8,7 +8,6 @@ import InlineForm from './InlineForm.component';
 import theme from './EditableText.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-
 function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
 	return (
 		<div>
