@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionBar, FilterBar, IconsProvider } from '../src/';
 
@@ -32,7 +33,7 @@ const propsNoDockToggle = {
 	onBlur: action('onBlur'),
 	onFocus: action('onFocus'),
 	onToggle: action('onToggle'),
-	placeholder: 'My placeholder',
+	placeholder: 'Type your filter term',
 	tooltipPlacement: 'bottom',
 	highlight: false,
 };
@@ -47,6 +48,7 @@ const divStyle = {
 };
 
 stories
+	.addDecorator(checkA11y)
 	.addWithInfo('default-dock and dockable', () => (
 		<div style={divStyle}>
 			<IconsProvider />

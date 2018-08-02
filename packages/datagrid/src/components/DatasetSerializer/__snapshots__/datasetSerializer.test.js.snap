@@ -18,15 +18,15 @@ Array [
       },
     },
     "avro": Object {
-      "@talend-quality@": Object {
-        "-1": 62,
-        "0": 0,
-        "1": 38,
-        "total": 100,
-      },
       "doc": "Nom de la gare",
       "name": "field0",
       "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
+        },
         "dqType": "FR Commune",
         "dqTypeKey": "FR_COMMUNE",
         "type": "string",
@@ -34,7 +34,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune*",
+    "type": "FR Commune",
   },
   Object {
     "@talend-quality@": Object {
@@ -52,15 +52,15 @@ Array [
       },
     },
     "avro": Object {
-      "@talend-quality@": Object {
-        "-1": 0,
-        "0": 0,
-        "1": 100,
-        "total": 100,
-      },
       "doc": "Code UIC",
       "name": "field1",
       "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
         "dqType": "",
         "dqTypeKey": "",
         "type": "int",
@@ -91,15 +91,15 @@ Array [
       },
     },
     "avro": Object {
-      "@talend-quality@": Object {
-        "-1": 62,
-        "0": 0,
-        "1": 38,
-        "total": 100,
-      },
       "doc": "Nom de la gare",
       "name": "field0",
       "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
+        },
         "dqType": "FR Commune",
         "dqTypeKey": "FR_COMMUNE",
         "type": "string",
@@ -107,7 +107,7 @@ Array [
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
-    "type": "FR Commune*",
+    "type": "FR Commune",
   },
   Object {
     "@talend-quality@": Object {
@@ -125,15 +125,15 @@ Array [
       },
     },
     "avro": Object {
-      "@talend-quality@": Object {
-        "-1": 0,
-        "0": 0,
-        "1": 100,
-        "total": 100,
-      },
       "doc": "Code UIC",
       "name": "field1",
       "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
         "dqType": "",
         "dqTypeKey": "",
         "type": "int",
@@ -151,7 +151,7 @@ Array [
   Object {
     "@talend-quality@": Object {
       "-1": Object {
-        "percentage": 0,
+        "percentage": 62,
         "total": 62,
       },
       "0": Object {
@@ -159,30 +159,62 @@ Array [
         "total": 0,
       },
       "1": Object {
-        "percentage": 0,
+        "percentage": 38,
         "total": 38,
       },
     },
     "avro": Object {
-      "@talend-quality@": Object {
-        "-1": 62,
-        "0": 0,
-        "1": 38,
-      },
       "doc": "Nom de la gare",
       "name": "field0",
-      "type": Array [
-        "null",
-        Object {
-          "dqType": "FR Commune",
-          "dqTypeKey": "FR_COMMUNE",
-          "type": "string",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
         },
-      ],
+        "dqType": "FR Commune",
+        "dqTypeKey": "FR_COMMUNE",
+        "type": "string",
+      },
     },
     "field": "data.field0",
     "headerName": "Nom de la gare",
     "type": "FR Commune",
+  },
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 100,
+        "total": 100,
+      },
+    },
+    "avro": Object {
+      "doc": "Code UIC",
+      "name": "field1",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
+        "dqType": "",
+        "dqTypeKey": "",
+        "type": "int",
+      },
+    },
+    "field": "data.field1",
+    "headerName": "Code UIC",
+    "type": "int*",
   },
 ]
 `;
@@ -595,19 +627,4 @@ Array [
 ]
 `;
 
-exports[`getFieldQuality should enrich the quality 1`] = `
-Object {
-  "-1": Object {
-    "percentage": 62,
-    "total": 62,
-  },
-  "0": Object {
-    "percentage": 0,
-    "total": 0,
-  },
-  "1": Object {
-    "percentage": 38,
-    "total": 38,
-  },
-}
-`;
+exports[`getFieldQuality should enrich the quality 1`] = `Object {}`;

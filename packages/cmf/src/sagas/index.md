@@ -133,29 +133,14 @@ cmf.sagas.http.setDefaultLanguage('fr-FR');
 
 # Component Saga
 
-First you have to plug all the thing to make it work :
-- In the configure.js :
+CMF let you register saga so a saga can be forked/cancelled with a component life.
 
-```javascript
-import cmf from '@talend/react-cmf';
-// ...
-// where you init your saga router
-yield all([
-	// ...
-	fork(cmf.sagas.component.handle),
-	// ...
-]);
-// where you init other things ( like register your app )
-cmf.registerInternals();
-cmf.saga.registerMany(sagasToRegister);
-```
-
-Then, we can add some cmf configuration :
+let s add settings for a component :
 
 ```json
 {
     "MyComponent#default": {
-      "saga": "mySaga",
+      "saga": "MyComponent#mySaga",
       "coolProps": "coolData"
     }
 }
@@ -170,8 +155,39 @@ Then, in your app, if you do that ( with a cmfConnected component ) :
 When the component mount, an action creator will be dispatched to start a saga, here : mySaga
 
 ```javascript
-function* mySaga(props){
-	console.log(props.coolProps); // print coolData
-	console.log(props.otherData); // print otherData
+import MyComponent from './MyComponent';
+
+function* mySaga(info){
+	console.log(info.componentId);
+	// so you can read/write in the state of MyComponent
+	MyComponent.setStateAction({ status: 'loading' }, componentId);
+}
+export default {
+	'MyComponent#mySaga': mySaga,
+};
+```
+
+which has to be registred along `MyComponent`.
+
+In some case you will need to pass other arguments to the saga.
+To do so you can use this syntax:
+
+```json
+{
+    "MyComponent#default": {
+      "saga": {
+		  "id": "MyComponent#mySaga",
+		  "args": ["datasets"],
+	  }
+    }
+}
+```
+
+So the saga will receive that in arguments:
+
+```javascript
+function* mySaga(info, type){
+	console.log(type);  // will be dataset
+	// ...
 }
 ```

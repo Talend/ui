@@ -14,6 +14,7 @@
 			padding: 0;
 			margin-left: auto;
 			height: $padding-large;
+			min-height: auto;
 
 			:global(.tc-svg-icon) {
 				display: block;

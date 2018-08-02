@@ -5,10 +5,15 @@ import { onSagaStart, handle } from '../../src/sagas/component';
 import CONST from '../../src/constant';
 
 describe('sagas.component', () => {
-	it('should onSagaStart forks action.saga without params and waits for unmount cancelling*', () => {
+	it('should cancel one saga ', () => {
 		// given
-		const testAction = { type: 'TEST', saga: 'my-saga' };
-		function* saga() {}
+		const testAction = {
+			type: 'TEST',
+			saga: 'my-saga',
+			componentId: 'myComponent',
+			event: { componentId: 42 },
+		};
+		function saga() {}
 		const reg = registry.getRegistry();
 		reg['SAGA:my-saga'] = saga;
 		const task = createMockTask();
@@ -16,9 +21,35 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, undefined));
-		expect(gen.next(task).value).toEqual(take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`));
+		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }));
+		const next = gen.next(task).value;
+		expect(next.TAKE).toBeDefined();
+		expect(
+			next.TAKE.pattern({
+				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`,
+				event: {
+					componentId: 41,
+				},
+			}),
+		).toBeFalsy();
+		expect(
+			next.TAKE.pattern({
+				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga2`,
+				event: {
+					componentId: 42,
+				},
+			}),
+		).toBeFalsy();
+		expect(
+			next.TAKE.pattern({
+				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`,
+				event: {
+					componentId: 42,
+				},
+			}),
+		).toBeTruthy();
 		expect(gen.next().value).toEqual(cancel(task));
+		expect(gen.next().done).toBe(true);
 	});
 
 	it('should onSagaStart forks action.saga with params and waits for unmount cancelling*', () => {
@@ -26,7 +57,8 @@ describe('sagas.component', () => {
 		const testAction = {
 			type: 'TEST',
 			saga: 'my-saga',
-			props: { myProps: 'MyProps' },
+			componentId: 'myComponent',
+			event: { componentId: 42 },
 		};
 		function* saga() {}
 		const reg = registry.getRegistry();
@@ -36,9 +68,34 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, { myProps: 'MyProps' }));
-		expect(gen.next(task).value).toEqual(take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`));
-		expect(gen.next().value).toEqual(cancel(task));
+		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }));
+		const next = gen.next(task).value;
+		expect(next.TAKE).toBeDefined();
+		expect(gen.next({ event: { componentId: 42 } }).value).toEqual(cancel(task));
+	});
+
+	it('should onSagaStart support action.saga as object', () => {
+		// given
+		const testAction = {
+			type: 'TEST',
+			saga: {
+				id: 'my-saga',
+				args: ['foo', { bar: true }],
+			},
+			componentId: 'myComponent',
+			event: { componentId: 42 },
+		};
+		function* saga() {}
+		const reg = registry.getRegistry();
+		reg['SAGA:my-saga'] = saga;
+
+		// when
+		const gen = onSagaStart(testAction);
+
+		// then
+		expect(gen.next().value).toEqual(
+			fork(saga, { componentId: 'myComponent' }, 'foo', { bar: true }),
+		);
 	});
 
 	it('should handle takeEvery didmount', () => {

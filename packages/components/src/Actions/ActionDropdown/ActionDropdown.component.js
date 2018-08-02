@@ -10,6 +10,8 @@ import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
 
+export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
+
 function InjectDropdownMenuItem({
 	getComponent,
 	component,
@@ -81,6 +83,26 @@ function getMenuItem(item, index, getComponent) {
 	return renderMutableMenuItem(item, index, getComponent);
 }
 
+function getDropdownToggleFromInner(innerElement) {
+	let dropdownTrigger = innerElement;
+	while (!dropdownTrigger.classList.contains('dropdown-toggle')) {
+		dropdownTrigger = dropdownTrigger.parentElement;
+	}
+	return dropdownTrigger;
+}
+
+function getDropdownContainer(dropdownElement) {
+	let dropdownContainer = dropdownElement;
+	do {
+		dropdownContainer = dropdownContainer.parentElement;
+	} while (
+		dropdownContainer &&
+		dropdownContainer.tagName !== 'BODY' &&
+		!dropdownContainer.classList.contains(DROPDOWN_CONTAINER_CN)
+	);
+	return dropdownContainer;
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -108,67 +130,106 @@ function getMenuItem(item, index, getComponent) {
 };
  <ActionDropdown {...props} />
  */
-function ActionDropdown(props) {
-	const {
-		bsStyle,
-		hideLabel,
-		icon,
-		items,
-		label,
-		link,
-		onSelect,
-		tooltipPlacement,
-		tooltipLabel,
-		getComponent,
-		components,
-		className,
-		...rest
-	} = props;
+class ActionDropdown extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onToggle = this.onToggle.bind(this);
+		this.state = {
+			dropup: props.dropup,
+		};
+	}
 
-	const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
-	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
-	const title = (
-		<span className="tc-dropdown-button-title">
-			{icon ? <Icon name={icon} /> : null}
-			{hideLabel ? null : <span className="tc-dropdown-button-title-label">{label}</span>}
-		</span>
-	);
-	const style = link ? 'link' : bsStyle;
+	onToggle(isOpen, event) {
+		if (!isOpen) {
+			this.setState({ dropup: this.props.dropup });
+			return;
+		}
 
-	function onItemSelect(object, event) {
-		if (onSelect) {
-			onSelect(event, object);
+		const dropdownTrigger = getDropdownToggleFromInner(event.target);
+		const dropdownMenu = dropdownTrigger.nextSibling;
+		const dropdownContainer = getDropdownContainer(dropdownTrigger);
+
+		if (dropdownContainer) {
+			const dropdownRect = dropdownMenu.getBoundingClientRect();
+			const containerRect = dropdownContainer.getBoundingClientRect();
+
+			this.setState(oldState => {
+				if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
+					return { dropup: true };
+				} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
+					return { dropup: false };
+				}
+				return null;
+			});
 		}
 	}
 
-	const dropdown = (
-		<Renderers.DropdownButton
-			title={title}
-			bsStyle={style}
-			role="button"
-			onSelect={onItemSelect}
-			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
-			aria-label={tooltipLabel || label}
-			{...rest}
-		>
-			{!items.length &&
-				!items.size &&
-				!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
-			{injected('beforeItemsDropdown')}
-			{items.map((item, key) => getMenuItem(item, key, getComponent))}
-			{injected('itemsDropdown')}
-			{injected('afterItemsDropdown')}
-		</Renderers.DropdownButton>
-	);
+	render() {
+		const {
+			bsStyle,
+			hideLabel,
+			icon,
+			items,
+			label,
+			link,
+			onSelect,
+			tooltipPlacement,
+			tooltipLabel,
+			getComponent,
+			components,
+			className,
+			...rest
+		} = this.props;
 
-	if (hideLabel || tooltipLabel) {
-		return (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{dropdown}
-			</TooltipTrigger>
+		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
+		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
+		const title = [
+			icon ? <Icon name={icon} key={'icon'} /> : null,
+			hideLabel ? null : (
+				<span className="tc-dropdown-button-title-label" key={'label'}>
+					{label}
+				</span>
+			),
+		];
+		const style = link ? 'link' : bsStyle;
+
+		function onItemSelect(object, event) {
+			if (onSelect) {
+				onSelect(event, object);
+			}
+		}
+
+		const dropdown = (
+			<Renderers.DropdownButton
+				title={title}
+				bsStyle={style}
+				role="button"
+				onSelect={onItemSelect}
+				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
+				aria-label={tooltipLabel || label}
+				{...rest}
+				dropup={this.state.dropup}
+				onToggle={this.onToggle}
+			>
+				{!items.length &&
+					!items.size &&
+					!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
+				{injected('beforeItemsDropdown')}
+				{items.map((item, key) => getMenuItem(item, key, getComponent))}
+				{injected('itemsDropdown')}
+				{injected('afterItemsDropdown')}
+			</Renderers.DropdownButton>
 		);
+
+		if (hideLabel || tooltipLabel) {
+			return (
+				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+					{dropdown}
+				</TooltipTrigger>
+			);
+		}
+		return dropdown;
 	}
-	return dropdown;
 }
 
 ActionDropdown.displayName = 'ActionDropdown';
@@ -176,6 +237,7 @@ ActionDropdown.displayName = 'ActionDropdown';
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
 	className: PropTypes.string,
+	dropup: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	noCaret: PropTypes.bool,
 	pullRight: PropTypes.bool,

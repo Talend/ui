@@ -11,6 +11,12 @@
 				"tabWidth": 2,
 				"useTabs": false
 			}
+		},
+		{
+			"files": "**/*.scss",
+			"options": {
+				"printWidth": 1000
+			}
 		}
 	]
 }

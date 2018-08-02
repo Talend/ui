@@ -1,6 +1,7 @@
 /**
  * @module react-cmf/lib/actions/componentsActions
  */
+import curry from 'lodash/curry';
 import CONSTANTS from '../constant';
 
 // keep backward compatibility
@@ -26,37 +27,33 @@ export function addState(componentName, key, initialComponentState) {
 
 /**
  * Merge new component state into actual component state in the store
- *
+ * curried function
  * @param {string} componentName : name of the component
  * @param {string} key : identifier of state used by this component
  * @param {object} componentState	: initial state of the component if required
  *
  * @throw if no componentName associated with this collectionId exist
  */
-export function mergeState(componentName, key, componentState) {
-	return {
-		type: CONSTANTS.COMPONENT_MERGE_STATE,
-		componentName,
-		key,
-		componentState,
-	};
-}
+export const mergeState = curry((componentName, key, componentState) => ({
+	type: CONSTANTS.COMPONENT_MERGE_STATE,
+	componentName,
+	key,
+	componentState,
+}));
 
 /**
  * Remove component state from the store
- *
+ * curried function
  * @param {string} componentName : name of the component
  * @param {string} key	: identifier of collection used by the component
  *
  * @throw if no componentName associated with this collectionId exist
  */
-export function removeState(componentName, key) {
-	return {
-		type: CONSTANTS.COMPONENT_REMOVE_STATE,
-		componentName,
-		key,
-	};
-}
+export const removeState = curry((componentName, key) => ({
+	type: CONSTANTS.COMPONENT_REMOVE_STATE,
+	componentName,
+	key,
+}));
 
 // backward compatbility
 export const addComponentState = addState;

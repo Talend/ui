@@ -49,11 +49,12 @@ export class HTTPError extends Error {
 export function handleBody(response) {
 	let methodBody = 'text';
 
-	const contentType = response.headers.get('Content-Type');
-
+	const headers = get(response, 'headers', new Headers());
+	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
 	}
+
 	return response[methodBody]().then(data => ({ data, response }));
 }
 
@@ -273,7 +274,17 @@ export function setDefaultLanguage(language) {
 }
 
 export const handleDefaultHttpConfiguration = curry((defaultHttpConfig, httpConfig) =>
-	merge(defaultHttpConfig, httpConfig),
+	/**
+	 * Wall of explain
+	 * merge mutate your object see https://lodash.com/docs/4.17.10#merge little note at the
+	 * end of the documentation, so why ? don't know but its bad.
+	 *
+	 * so defaultHttpConfig was mutated inside the curried function and applied to
+	 * all other call providing httpConfig, leading to interesting bug like having one time
+	 * httpConfig override merged into defaultHttConfig.
+	 * a test with two sccessive call will detect this issue.
+	 */
+	merge({}, defaultHttpConfig, httpConfig),
 );
 
 /**
@@ -293,6 +304,7 @@ export default {
 	patch: httpPatch,
 	setDefaultConfig,
 	setDefaultLanguage,
+	getDefaultConfig,
 	create(createConfig = {}) {
 		const configEnhancer = handleDefaultHttpConfiguration(createConfig);
 

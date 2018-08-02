@@ -1,13 +1,17 @@
 .nav {
 	.btn-link {
 		color: inherit;
-		border: none;
+		display: inline-block;
 
 		&:focus,
 		&:active,
 		&:hover {
 			text-decoration: none;
-			background: none;
+		}
+
+		> *,
+		> span > * {
+			vertical-align: middle;
 		}
 	}
 
@@ -23,8 +27,6 @@
 				margin: 0;
 			}
 
-			&:focus,
-			&:active,
 			&:hover,
 			&.active,
 			&.open {
@@ -34,7 +36,6 @@
 
 			&.disabled .btn {
 				&:focus,
-				&:active,
 				&:hover {
 					color: shade($navbar-inverse-color, 10);
 				}

@@ -10,9 +10,11 @@
 		text-transform: uppercase;
 	}
 
-	&-inverse {
-		.dropdown-toggle .caret {
-			@include dropdown-caret-color($navbar-inverse-link-color);
+	.btn-group {
+		&.open {
+			> .dropdown-menu {
+				max-height: none;
+			}
 		}
 	}
 }

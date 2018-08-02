@@ -13,6 +13,11 @@ describe('CodeWidget', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should check config props', () => {
+		const wrapper = shallow(<CodeWidget options={{ height: '250px' }} />);
+		expect(wrapper.props().height).toEqual('250px');
+	});
+
 	it('should support formContext.codeWidgetProps customization', () => {
 		const formContext = {
 			codeWidgetProps: { foo: 'bar' },

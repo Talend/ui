@@ -41,13 +41,13 @@ export function CellDatetimeComponent({ cellData, columnData, t }) {
 CellDatetimeComponent.displayName = 'VirtualizedList(CellDatetime)';
 CellDatetimeComponent.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
-	cellData: PropTypes.string,
+	cellData: PropTypes.number,
 	// Column data
 	columnData: PropTypes.shape({
 		mode: PropTypes.string.isRequired,
 		pattern: PropTypes.string,
 	}).isRequired,
-	t: PropTypes.string,
+	t: PropTypes.func,
 };
 CellDatetimeComponent.defaultProps = {
 	t: getDefaultT(),

@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { checkA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 
 import { TreeView, IconsProvider } from '../src/index';
@@ -120,8 +121,8 @@ const structureWithActions = [{
 
 const defaultProps = {
 	structure,
-	itemSelectCallback: action('itemSelectCallback'),
-	itemToggleCallback: action('itemToggleCallback'),
+	onSelect: action('onSelect'),
+	onClick: action('onClick'),
 };
 
 const withAddAction = {
@@ -217,6 +218,7 @@ cornerCaseLongName.structure = [{
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
 storiesOf('TreeView', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<h1>TreeView</h1>
@@ -269,6 +271,20 @@ storiesOf('TreeView', module)
 			<div style={style}>
 				<IconsProvider />
 				<TreeView {...defaultProps} />
+			</div>
+		</div>
+	))
+	.addWithInfo('without header', () => (
+		<div>
+			<h1>TreeView</h1>
+			<h3>Definition</h3>
+			<p>
+				A view component to display any tree structure, like folders or categories.
+			</p>
+			<h3>Default property-set without header example: </h3>
+			<div style={style}>
+				<IconsProvider />
+				<TreeView {...defaultProps} noHeader />
 			</div>
 		</div>
 	))

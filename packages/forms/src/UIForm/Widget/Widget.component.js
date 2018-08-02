@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import get from 'lodash/get';
-import includes from 'lodash/includes';
 import { sfPath } from '@talend/json-schema-form-core';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
-
-function shouldRender(conditions, properties) {
-	return !conditions || conditions.every(cond => includes(cond.values, get(properties, cond.path)));
-}
+import shouldRender from './condition';
 
 export default function Widget(props) {
 	const { conditions, key, options, type, validationMessage, widget } = props.schema;
@@ -51,6 +46,8 @@ if (process.env.NODE_ENV !== 'production') {
 				PropTypes.shape({
 					path: PropTypes.string,
 					values: PropTypes.array,
+					strategy: PropTypes.string,
+					shouldBe: PropTypes.bool,
 				}),
 			),
 			key: PropTypes.array,

@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import TwoColumns from './TwoColumns.component';
 
 describe('TwoColumns', () => {
@@ -9,13 +9,13 @@ describe('TwoColumns', () => {
 		const one = <div>Hello world</div>;
 
 		// when
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<TwoColumns one={one} style={{ display: 'flex' }}>
 				<span>children</span>
-			</TwoColumns>
-		).toJSON();
+			</TwoColumns>,
+		);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJSON(wrapper)).toMatchSnapshot();
 	});
 });

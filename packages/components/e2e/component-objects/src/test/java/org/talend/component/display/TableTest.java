@@ -99,6 +99,15 @@ public class TableTest extends StorybookTest {
         final WebElement editButton = tableObject.getItem("Title with actions").getAction("edit");
 
         // then
+        assertThat(editButton.getTagName(), is("button"));
+    }
+
+    @Test
+    public void should_get_item_action_from_actionId_within_ellipsis_dropdown() {
+        // when
+        final WebElement editButton = tableObject.getItem("Title with a lot of actions").getAction("delete");
+
+        // then
         assertThat(editButton.getTagName(), is("a"));
     }
 
@@ -140,7 +149,7 @@ public class TableTest extends StorybookTest {
     public void should_mouseover_and_click_on_item_action() {
         // given
         goToStory("Virtualized List", "List > Table");
-        final Item item = tableObject.getItem("Title with icon and actions");
+        final Item item = tableObject.getItem("Title with lot of actions");
         assertThat(item.getAction("edit").isDisplayed(), is(false));
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
@@ -153,13 +162,31 @@ public class TableTest extends StorybookTest {
     }
 
     @Test
+    public void should_mouseover_and_click_on_item_action_within_ellipsis_dropdown() {
+        // given
+        goToStory("Virtualized List", "List > Table");
+        final Item item = tableObject.getItem("Title with lot of actions");
+        assertThat(item.getAction("copy").isDisplayed(), is(false));
+        assertThat(getActionLog(), not(startsWith("▶onCopy:")));
+
+        // when
+        item.clickOnAction("copy");
+
+        // then
+        // should not throw because of non button visibility
+        assertThat(getActionLog(), startsWith("▶onCopy:"));
+    }
+
+    @Test
     public void should_scroll_and_click_on_item_action() {
         // given
         goToStory("Virtualized List", "List > Table");
         assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
         // when
-        tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
+        tableObject
+                .getItem("Title with icon and actions 25")
+                .clickOnAction("edit");
 
         // then
         assertThat(getActionLog(), startsWith("▶onEdit:"));

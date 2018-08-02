@@ -12,9 +12,11 @@ describe('Action', () => {
 			onClick,
 			href: 'www.google.de',
 			target: '_blank',
+			rel: 'noopener noreferrer',
 			type: 'button',
 			'aria-label': 'aria-label',
 			'data-feature': 'data-feature',
+			role: 'button',
 
 			// native props should be kept
 			className: 'my class',
@@ -38,6 +40,8 @@ describe('Action', () => {
 			type: 'button',
 			className: 'my class',
 			target: '_blank',
+			rel: 'noopener noreferrer',
+			role: 'button',
 		});
 	});
 });

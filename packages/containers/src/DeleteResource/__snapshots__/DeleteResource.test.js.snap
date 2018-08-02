@@ -4,41 +4,40 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 <ConfirmDialog
   cancelAction={
     Object {
-      "actionCreator": "deleteResource:cancel",
-      "id": "dialog:delete:cancel",
-      "label": "No",
+      "componentId": "dialog:delete:cancel",
+      "label": "CANCEL",
       "model": Object {
-        "resourceInfo": Object {
-          "found": true,
-          "id": "myResourceID",
-          "label": "myLabel",
-          "resourceType": "myResourceType",
-          "resourceTypeLabel": "resourceLabel",
-          "uri": "/myEndpoint",
-        },
+        "collectionId": undefined,
+        "found": true,
+        "id": undefined,
+        "label": "myLabel",
+        "redirectUrl": undefined,
+        "resourceType": "myResourceType",
+        "resourceTypeLabel": "resourceLabel",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#cancel",
     }
   }
+  getComponent={undefined}
   header="My header title"
   show={true}
   validateAction={
     Object {
-      "actionCreator": "deleteResource:validate",
       "bsStyle": "danger",
-      "id": "dialog:delete:validate",
-      "label": "Yes",
+      "componentId": "dialog:delete:validate",
+      "label": "DELETE",
       "model": Object {
-        "resourceInfo": Object {
-          "found": true,
-          "id": "myResourceID",
-          "label": "myLabel",
-          "resourceType": "myResourceType",
-          "resourceTypeLabel": "resourceLabel",
-          "uri": "/myEndpoint",
-        },
+        "collectionId": undefined,
+        "found": true,
+        "id": undefined,
+        "label": "myLabel",
+        "redirectUrl": undefined,
+        "resourceType": "myResourceType",
+        "resourceTypeLabel": "resourceLabel",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#validate",
     }
   }
 >
@@ -57,41 +56,40 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
 <ConfirmDialog
   cancelAction={
     Object {
-      "actionCreator": "deleteResource:cancel",
-      "id": "dialog:delete:cancel",
-      "label": "No",
+      "componentId": "dialog:delete:cancel",
+      "label": "CANCEL",
       "model": Object {
-        "resourceInfo": Object {
-          "found": false,
-          "id": "myResourceID",
-          "label": "",
-          "resourceType": "unknownResourceType",
-          "resourceTypeLabel": "unknownResourceType",
-          "uri": "/myEndpoint",
-        },
+        "collectionId": undefined,
+        "found": false,
+        "id": undefined,
+        "label": "",
+        "redirectUrl": undefined,
+        "resourceType": "unknownResourceType",
+        "resourceTypeLabel": "unknownResourceType",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#cancel",
     }
   }
+  getComponent={undefined}
   header="My header title"
   show={true}
   validateAction={
     Object {
-      "actionCreator": "deleteResource:validate",
       "bsStyle": "danger",
-      "id": "dialog:delete:validate",
-      "label": "Yes",
+      "componentId": "dialog:delete:validate",
+      "label": "DELETE",
       "model": Object {
-        "resourceInfo": Object {
-          "found": false,
-          "id": "myResourceID",
-          "label": "",
-          "resourceType": "unknownResourceType",
-          "resourceTypeLabel": "unknownResourceType",
-          "uri": "/myEndpoint",
-        },
+        "collectionId": undefined,
+        "found": false,
+        "id": undefined,
+        "label": "",
+        "redirectUrl": undefined,
+        "resourceType": "unknownResourceType",
+        "resourceTypeLabel": "unknownResourceType",
+        "uri": "/myEndpoint",
       },
-      "onClick": [Function],
+      "onClickActionCreator": "DeleteResource#validate",
     }
   }
 >

@@ -13,7 +13,7 @@ exports[`Connected ActionFile should render 1`] = `
     type="file"
   />
   <label
-    className="btn theme-btn-file"
+    className="btn btn-default theme-btn-file btn-icon-only"
     htmlFor="42"
   >
     <span />

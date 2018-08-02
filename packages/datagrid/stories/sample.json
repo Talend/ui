@@ -10,28 +10,28 @@
               {
                 "type": "string",
                 "dqType": "FR Commune",
-                "dqTypeKey": "FR_COMMUNE"
+                "dqTypeKey": "FR_COMMUNE",
+                "@talend-quality@": {
+                    "0": 0,
+                    "1": 38,
+                    "-1": 62,
+                    "total": 100
+                }
               }
-            ],
-            "@talend-quality@": {
-                "0": 0,
-                "1": 38,
-                "-1": 62,
-                "total": 100
-            }
+            ]
         }, {
             "name": "field1",
             "doc": "Code UIC",
             "type": {
                 "type": "int",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-                "0": 1,
-                "1": 99,
-                "-1": 0,
-                "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                    "0": 1,
+                    "1": 99,
+                    "-1": 0,
+                    "total": 100
+                }
             }
         }, {
             "name": "field2",
@@ -39,13 +39,13 @@
             "type": {
                 "type": "string",
                 "dqType": "FR Postal Code",
-                "dqTypeKey": "FR_POSTAL_CODE"
-            },
-            "@talend-quality@": {
-                "0": 2,
-                "1": 88,
-                "-1": 10,
-                "total": 100
+                "dqTypeKey": "FR_POSTAL_CODE",
+                "@talend-quality@": {
+                    "0": 2,
+                    "1": 88,
+                    "-1": 10,
+                    "total": 100
+                }
             }
         }, {
             "name": "field3",
@@ -53,13 +53,13 @@
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-                "0": 0,
-                "1": 96,
-                "-1": 4,
-                "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                    "0": 0,
+                    "1": 96,
+                    "-1": 4,
+                    "total": 100
+                }
             }
         }, {
             "name": "field4",
@@ -67,13 +67,13 @@
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-              "0": 4,
-              "1": 96,
-              "-1": 0,
-              "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                  "0": 4,
+                  "1": 96,
+                  "-1": 0,
+                  "total": 100
+                }
             }
         }, {
             "name": "field5",
@@ -81,13 +81,13 @@
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-              "0": 4,
-              "1": 96,
-              "-1": 0,
-              "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                  "0": 4,
+                  "1": 96,
+                  "-1": 0,
+                  "total": 100
+                }
             }
         }, {
             "name": "field6",
@@ -95,13 +95,13 @@
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-              "0": 4,
-              "1": 96,
-              "-1": 0,
-              "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                  "0": 4,
+                  "1": 96,
+                  "-1": 0,
+                  "total": 100
+                }
             }
         }, {
             "name": "field7",
@@ -109,27 +109,28 @@
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-              "0": 4,
-              "1": 96,
-              "-1": 0,
-              "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                  "0": 4,
+                  "1": 96,
+                  "-1": 0,
+                  "total": 100
+                }
             }
+
         }, {
             "name": "field8",
             "doc": "voyageurs 2014",
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-              "0": 4,
-              "1": 96,
-              "-1": 0,
-              "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                  "0": 4,
+                  "1": 96,
+                  "-1": 0,
+                  "total": 100
+                }
             }
         }, {
             "name": "field9",
@@ -137,13 +138,13 @@
             "type": {
                 "type": "string",
                 "dqType": "",
-                "dqTypeKey": ""
-            },
-            "@talend-quality@": {
-              "0": 4,
-              "1": 96,
-              "-1": 0,
-              "total": 100
+                "dqTypeKey": "",
+                "@talend-quality@": {
+                  "0": 4,
+                  "1": 96,
+                  "-1": 0,
+                  "total": 100
+                }
             }
         }]
     },
@@ -174,7 +175,7 @@
                 "quality": 1
             },
             "field1": {
-                "value": "271494",
+                "value": " 271494",
                 "quality": 1
             },
             "field0": {

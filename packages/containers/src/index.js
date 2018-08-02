@@ -1,12 +1,12 @@
 import {
-	Breadcrumbs,
 	CircularProgress,
 	Drawer,
 	Icon,
 	IconsProvider,
-	Layout,
+	Layout as PureLayout,
 	TooltipTrigger,
 } from '@talend/react-components';
+import { cmfConnect } from '@talend/react-cmf';
 
 import actionAPI from './actionAPI';
 import Action from './Action';
@@ -19,8 +19,10 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import AppLoader from './AppLoader';
 import Badge from './Badge';
+import Breadcrumbs from './Breadcrumbs';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
+import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
@@ -34,6 +36,9 @@ import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
 import Typeahead from './Typeahead';
 import TabBar from './TabBar';
+
+// keep backward compat
+const Layout = cmfConnect({})(PureLayout);
 
 export {
 	actionAPI,
@@ -53,6 +58,7 @@ export {
 	Drawer,
 	DeleteResource,
 	FilterBar,
+	HeaderBar,
 	HomeListView,
 	Icon,
 	IconsProvider,

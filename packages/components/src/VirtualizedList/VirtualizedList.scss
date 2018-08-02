@@ -4,7 +4,7 @@
 		:global(.btn-group) {
 			white-space: nowrap;
 
-			:global(> .btn-group) {
+			> :global(.btn-group) {
 				float: none;
 			}
 
@@ -12,7 +12,7 @@
 			&-vertical {
 				display: inline-block;
 
-				:global(> .btn) {
+				> :global(.btn) {
 					float: none;
 				}
 			}

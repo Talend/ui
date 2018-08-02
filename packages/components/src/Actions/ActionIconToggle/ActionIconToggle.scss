@@ -25,6 +25,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 
 	box-shadow: none;
 	line-height: unset;
+	min-height: auto;
 	padding: 0;
 
 	&:hover,
@@ -46,7 +47,6 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 		&:focus {
 			background-color: $scooter;
 			border-color: $scooter;
-			color: $white;
 		}
 	}
 }

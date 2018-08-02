@@ -67,7 +67,7 @@ export function QualityBarComponent(props) {
 	);
 }
 
-const QUALITY_PROPTYPE = {
+export const QUALITY_PROPTYPE = {
 	total: PropTypes.number,
 	percentage: PropTypes.number,
 };
