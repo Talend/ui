@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect, Inject } from '@talend/react-cmf';
-import PieChartButton from '@talend/react-components/lib/PieChartButton';
+import { PieChartButton } from '@talend/react-components/lib/PieChart';
 
 export const DEFAULT_STATE = new Immutable.Map({});
 

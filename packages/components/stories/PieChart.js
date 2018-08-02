@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import ActionButton from '../src/Actions/ActionButton';
-import PieChartButton from '../src/PieChartButton';
+import PieChart from '../src/PieChart';
 
 const pieChartData1 = [
 	{
@@ -61,7 +61,7 @@ const onClick = action('You clicked me');
 const onMouseDown = action('You mousedown me');
 const overlayComponent = <div>I am an overlay</div>;
 
-const stories = storiesOf('PieChartButton', module);
+const stories = storiesOf('PieChart', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
@@ -69,24 +69,77 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.addWithInfo('default', () => (
+	.addWithInfo('PieChartIcon default', () => (
 		<div>
 			<p>Small :</p>
-			<PieChartButton display="small" model={pieChartData1} onClick={onClick} />
+			<PieChart display="small" model={pieChartData1} />
 			<p>custom size</p>
-			<PieChartButton size={25} model={pieChartData1} onClick={onClick} />
+			<PieChart size={25} model={pieChartData1} />
 			<p>Medium :</p>
-			<PieChartButton display="medium" model={pieChartData1} onMouseDown={onMouseDown} />
+			<PieChart display="medium" model={pieChartData1} />
 			<p>Large : </p>
-			<PieChartButton display="large" model={pieChartData1} />
+			<PieChart display="large" model={pieChartData1} />
 			<p>with other data :</p>
-			<PieChartButton display="medium" model={pieChartData2} />
+			<PieChart display="medium" model={pieChartData2} />
 			<p>without label :</p>
-			<PieChartButton display="medium" model={pieChartData2} hideLabel />
+			<PieChart display="medium" model={pieChartData2} hideLabel />
 			<p>without label to 0% :</p>
-			<PieChartButton display="medium" model={pieChartData3} />
+			<PieChart display="medium" model={pieChartData3} />
+			<p>with tooltip :</p>
+			<PieChart
+				display="medium"
+				model={pieChartData3}
+				tooltip
+				label="This is a tooltip"
+				tooltipPlacement="right"
+			/>
+		</div>
+	))
+	.addWithInfo('PieChart lot of sizes', () => (
+		<div>
+			{sizes.map(size => (
+				<div key={size}>
+					<p>{size}px</p>
+					<PieChart size={size} model={pieChartData1} />
+				</div>
+			))}
+		</div>
+	))
+	.addWithInfo('PieChart	 lot of loading', () => (
+		<div>
+			<div>
+				{sizes.map(size => (
+					<div key={size}>
+						<p>{size}px</p>
+						<PieChart loading size={size} model={pieChartData1} />
+					</div>
+				))}
+			</div>
+		</div>
+	))
+	.addWithInfo('PieChartButton default', () => (
+		<div>
+			<p>Small :</p>
+			<PieChart display="small" model={pieChartData1} onClick={onClick} />
+			<p>custom size</p>
+			<PieChart size={25} model={pieChartData1} onClick={onClick} />
+			<p>Medium :</p>
+			<PieChart
+				display="medium"
+				model={pieChartData1}
+				onClick={onClick}
+				onMouseDown={onMouseDown}
+			/>
+			<p>Large : </p>
+			<PieChart display="large" model={pieChartData1} onClick={onClick} />
+			<p>with other data :</p>
+			<PieChart display="medium" model={pieChartData2} onClick={onClick} />
+			<p>without label :</p>
+			<PieChart display="medium" model={pieChartData2} onClick={onClick} hideLabel />
+			<p>without label to 0% :</p>
+			<PieChart display="medium" model={pieChartData3} onClick={onClick} />
 			<p>with overlay component</p>
-			<PieChartButton
+			<PieChart
 				display="medium"
 				labelIndex={2}
 				model={pieChartData2}
@@ -95,7 +148,7 @@ stories
 				onClick={onClick}
 			/>
 			<p>with a tooltip</p>
-			<PieChartButton
+			<PieChart
 				display="medium"
 				model={pieChartData2}
 				label="this is a tooltip"
@@ -103,28 +156,6 @@ stories
 				tooltipPlacement="right"
 				onClick={onClick}
 			/>
-		</div>
-	))
-	.addWithInfo('lot of sizes', () => (
-		<div>
-			{sizes.map(size => (
-				<div key={size}>
-					<p>{size}px</p>
-					<PieChartButton size={size} model={pieChartData1} />
-				</div>
-			))}
-		</div>
-	))
-	.addWithInfo('lot of loading', () => (
-		<div>
-			<div>
-				{sizes.map(size => (
-					<div key={size}>
-						<p>{size}px</p>
-						<PieChartButton loading size={size} model={pieChartData1} />
-					</div>
-				))}
-			</div>
 		</div>
 	))
 	.addWithInfo('Loading state', () => {
@@ -146,27 +177,27 @@ stories
 					<div>
 						<ActionButton label="changestatus" onClick={this.changeState} />
 						<p>Small :</p>
-						<PieChartButton display="small" model={pieChartData1} loading={this.state.loading} />
+						<PieChart display="small" model={pieChartData1} loading={this.state.loading} />
 						<p>Medium :</p>
-						<PieChartButton display="medium" model={pieChartData1} loading={this.state.loading} />
+						<PieChart display="medium" model={pieChartData1} loading={this.state.loading} />
 						<p>Large :</p>
-						<PieChartButton display="large" model={pieChartData1} loading={this.state.loading} />
+						<PieChart display="large" model={pieChartData1} loading={this.state.loading} />
 						<p>Small without label:</p>
-						<PieChartButton
+						<PieChart
 							display="small"
 							hideLabel
 							model={pieChartData1}
 							loading={this.state.loading}
 						/>
 						<p>Medium without label:</p>
-						<PieChartButton
+						<PieChart
 							display="medium"
 							hideLabel
 							model={pieChartData1}
 							loading={this.state.loading}
 						/>
 						<p>Large without label:</p>
-						<PieChartButton
+						<PieChart
 							display="large"
 							hideLabel
 							model={pieChartData1}

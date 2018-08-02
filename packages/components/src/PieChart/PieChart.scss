@@ -16,7 +16,7 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 }
 
 .tc-pie-chart-loading {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	min-height: $tc-pie-chart-loading-min-height;
 
@@ -32,26 +32,7 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 }
 
 // PieChart styles
-.tc-pie-chart,
-.tc-pie-chart-loading {
-	font-size: $tc-pie-chart-font-size;
-	display: flex;
-	align-items: center;
-
-	background-color: transparent;
-	border: none;
-	color: $gray;
-
-	box-shadow: none;
-	line-height: unset;
-	padding: 0;
-
-	@each $type in $tc-pie-chart-colors {
-		.tc-pie-chart-color-#{nth($type, 1)} {
-			@include apply-color(#{nth($type, 2)});
-		}
-	}
-
+.tc-pie-chart-button {
 	&:hover {
 		@each $type in $tc-pie-chart-colors {
 			.tc-pie-chart-color-#{nth($type, 1)} {
@@ -59,13 +40,6 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 			}
 		}
 	}
-
-	& &-graph {
-		margin-right: $padding-smaller;
-		height: inherit;
-		width: inherit;
-	}
-
 	&:hover,
 	&:active,
 	&:focus {
@@ -85,5 +59,31 @@ $tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lig
 			border-color: $scooter;
 			color: $white;
 		}
+	}
+}
+
+.tc-pie-chart-icon {
+	font-size: $tc-pie-chart-font-size;
+	display: inline-flex;
+	align-items: center;
+
+	background-color: transparent;
+	border: none;
+	color: $gray;
+
+	box-shadow: none;
+	line-height: unset;
+	padding: 0;
+
+	@each $type in $tc-pie-chart-colors {
+		.tc-pie-chart-color-#{nth($type, 1)} {
+			@include apply-color(#{nth($type, 2)});
+		}
+	}
+
+	& &-graph {
+		margin-right: $padding-smaller;
+		height: inherit;
+		width: inherit;
 	}
 }
