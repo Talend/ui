@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schema empty-schema 1`] = `
+<div
+  className="schema mapper-element undefined"
+>
+  <div
+    className="tc-table theme-tc-table"
+  >
+    <table>
+      <tbody
+        className="tc-table-body theme-tc-table-body"
+        onScroll={[Function]}
+      />
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Schema should accept a single schema 1`] = `
+<div
+  className="schema mapper-element undefined"
+>
+  <div
+    className="tc-table theme-tc-table"
+  >
+    <table>
+      <tbody
+        className="tc-table-body theme-tc-table-body"
+        onScroll={[Function]}
+      >
+        <tr
+          className="tc-table-row theme-tc-table-row"
+          data-id="elem_1"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <td
+            className="td-name theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="draggable-component"
+            >
+              <div
+                className="tc-table-clickable-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
+                onClick={[Function]}
+                onDoubleClick={[Function]}
+                onKeyPress={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Firstname
+              </div>
+            </div>
+          </td>
+          <td
+            className="td-type theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
+            >
+              string
+            </div>
+          </td>
+          <td
+            className="td-description theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
+            >
+              The firstname of the customer (optional)
+            </div>
+          </td>
+        </tr>
+        <tr
+          className="tc-table-row theme-tc-table-row"
+          data-id="elem_2"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <td
+            className="td-name theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="draggable-component"
+            >
+              <div
+                className="tc-table-clickable-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
+                onClick={[Function]}
+                onDoubleClick={[Function]}
+                onKeyPress={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Lastname
+              </div>
+            </div>
+          </td>
+          <td
+            className="td-type theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
+            >
+              string
+            </div>
+          </td>
+          <td
+            className="td-description theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
+            >
+              The lastname of the customer (mandatory)
+            </div>
+          </td>
+        </tr>
+        <tr
+          className="tc-table-row theme-tc-table-row"
+          data-id="elem_3"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <td
+            className="td-name theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="draggable-component"
+            >
+              <div
+                className="tc-table-clickable-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
+                onClick={[Function]}
+                onDoubleClick={[Function]}
+                onKeyPress={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Birthday
+              </div>
+            </div>
+          </td>
+          <td
+            className="td-type theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
+            >
+              date
+            </div>
+          </td>
+          <td
+            className="td-description theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
+            >
+              The birthday of the customer (optional)
+            </div>
+          </td>
+        </tr>
+        <tr
+          className="tc-table-row theme-tc-table-row"
+          data-id="elem_4"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <td
+            className="td-name theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="draggable-component"
+            >
+              <div
+                className="tc-table-clickable-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
+                onClick={[Function]}
+                onDoubleClick={[Function]}
+                onKeyPress={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Address
+              </div>
+            </div>
+          </td>
+          <td
+            className="td-type theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
+            >
+              address
+            </div>
+          </td>
+          <td
+            className="td-description theme-tc-table-row-cell"
+            headers={undefined}
+          >
+            <div
+              className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
+            >
+              The address of the customer (mandatory)
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

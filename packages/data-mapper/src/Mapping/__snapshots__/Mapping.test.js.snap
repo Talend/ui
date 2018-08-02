@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`no connections - no anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-actions btn-group"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={0}
+      width={0}
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`no connections - unmapped anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-actions btn-group"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={0}
+      width={0}
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`single connection [all] - mapped/unmapped anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-actions btn-group"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={0}
+      width={0}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        id="in_1-out_2-all"
+      >
+        <circle
+          className="connection start all"
+          cx={8}
+          cy={15}
+          id="in_1-out_2-all-start"
+          r={3}
+        />
+        <path
+          className="connection curve all grad-left-top-100"
+          d="M 8 15 C 12 15, 12 40, 16 40"
+          id="in_1-out_2-all-curve"
+        >
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="indefinite"
+            dur="0.2s"
+            from="3"
+            id="anim-in_1-out_2-all"
+            to="7"
+          />
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="anim-in_1-out_2-all.begin + 0.2s"
+            dur="0.2s"
+            from="7"
+            to="3"
+          />
+        </path>
+        <path
+          className="connection end all"
+          d="M 11 35 L 21 40 L 11 45 Z"
+          id="in_1-out_2-all-end"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`single connection [all] - no anchors 1`] = `
+<div
+  className="mapping mapper-element"
+>
+  <div
+    className="tc-actions mapping-actions btn-group"
+  />
+  <div
+    className="mapping-content"
+  >
+    <svg
+      className="mapping-svg"
+      height={0}
+      width={0}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        id="in_1-out_2-all"
+      >
+        <circle
+          className="connection start all"
+          cx={8}
+          cy={15}
+          id="in_1-out_2-all-start"
+          r={3}
+        />
+        <path
+          className="connection curve all grad-left-top-100"
+          d="M 8 15 C 12 15, 12 40, 16 40"
+          id="in_1-out_2-all-curve"
+        >
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="indefinite"
+            dur="0.2s"
+            from="3"
+            id="anim-in_1-out_2-all"
+            to="7"
+          />
+          <animate
+            attributeName="stroke-width"
+            attributeType="CSS"
+            begin="anim-in_1-out_2-all.begin + 0.2s"
+            dur="0.2s"
+            from="7"
+            to="3"
+          />
+        </path>
+        <path
+          className="connection end all"
+          d="M 11 35 L 21 40 L 11 45 Z"
+          id="in_1-out_2-all-end"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
