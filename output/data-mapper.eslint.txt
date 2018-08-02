@@ -87,12 +87,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1212 | 			<div {...rest}>
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapper.test.js
-    1:10  error  'mount' is defined but never used                                                              no-unused-vars
-   10:36  error  Absolute imports should come before relative imports                                           import/imports-first
-   20:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-   21:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
-  110:57  error  'element1' is not defined                                                                      no-undef
-  113:57  error  'element2' is not defined                                                                      no-undef
+   1:10  error  'mount' is defined but never used                                                              no-unused-vars
+   5:8   error  'TestUtils' is defined but never used                                                          no-unused-vars
+  10:10  error  'DraggableComponent' is defined but never used                                                 no-unused-vars
+  10:36  error  Absolute imports should come before relative imports                                           import/imports-first
+  12:10  error  'getElementByName' is defined but never used                                                   no-unused-vars
+  20:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  21:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+  69:8   error  'mapper' is assigned a value but never used                                                    no-unused-vars
 
 /home/travis/build/Talend/ui/packages/data-mapper/src/Mapping/DraggableAnchor.js
    2:1  error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
@@ -143,5 +145,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   17:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   18:3  error  Component should be written as a pure function                                                 react/prefer-stateless-function
 
-✖ 91 problems (91 errors, 0 warnings)
+✖ 93 problems (93 errors, 0 warnings)
 
