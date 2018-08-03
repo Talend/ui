@@ -47,6 +47,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
     <strong>
       myLabel
     </strong>
+     
     ?
   </div>
 </ConfirmDialog>
@@ -97,6 +98,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     Are you sure you want to remove the unknownResourceType
      
     <strong />
+     
     ?
   </div>
 </ConfirmDialog>
