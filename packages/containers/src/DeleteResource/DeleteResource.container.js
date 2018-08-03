@@ -112,6 +112,7 @@ export class DeleteResource extends React.Component {
 					})}
 					&nbsp;
 					<strong>{resourceInfo.label}</strong>
+					&nbsp;
 					{this.props.t('DELETE_RESOURCE_QUESTION_MARK', { defaultValue: '?' })}
 				</div>
 			</ConfirmDialog>
