@@ -49,10 +49,7 @@ const sort = {
 	sortOn: 'id',
 	isSortDescending: true,
 	onSortChange: jest.fn(),
-	sortOptions: [
-		{ id: 'id', name: 'Id' },
-		{ id: 'name', name: 'Name' },
-	],
+	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 };
 
 const pagination = {
@@ -106,7 +103,6 @@ describe('Toolbar', () => {
 
 		// when
 		const wrapper = mount(<Toolbar {...tProps} />);
-
 
 		// then
 		expect(wrapper.find('ActionBar').props().selected).toBe(1);

@@ -32,9 +32,9 @@ const toolbar = {
 
 // this is deprecated
 const actions = {
-	title: 'object:open',  // onTitleClick
-	editSubmit: 'object:edit:submit',  // onTitleEditSubmit
-	editCancel: 'object:edit:cancel',  // onTitleEditCancel
+	title: 'object:open', // onTitleClick
+	editSubmit: 'object:edit:submit', // onTitleEditSubmit
+	editCancel: 'object:edit:cancel', // onTitleEditCancel
 };
 
 const settings = {

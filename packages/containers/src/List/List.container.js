@@ -125,13 +125,10 @@ export default class List extends React.Component {
 		if (this.props.onPaginationChange) {
 			if (typeof this.props.onPaginationChange === 'string') {
 				// backward compatibility
-				this.getGenericDispatcher(this.props.onPaginationChange)(
-					null,
-					{
-						startIndex,
-						itemsPerPage,
-					},
-				);
+				this.getGenericDispatcher(this.props.onPaginationChange)(null, {
+					startIndex,
+					itemsPerPage,
+				});
 			} else {
 				this.props.onPaginationChange(startIndex, itemsPerPage);
 			}
@@ -228,10 +225,10 @@ export default class List extends React.Component {
 			props.actions = {};
 			const actions = this.props.actions;
 			if (actions.left) {
-				props.actions.left = actions.left.map(getActionProps)
+				props.actions.left = actions.left.map(getActionProps);
 			}
 			if (actions.right) {
-				props.actions.right = actions.right.map(getActionsProps)
+				props.actions.right = actions.right.map(getActionsProps);
 			}
 		}
 
@@ -251,18 +248,15 @@ export default class List extends React.Component {
 		}
 
 		if (props.headerDictionary) {
-			props.headerDictionary = Object.keys(props.headerDictionary).reduce(
-				(accumulator, key) => {
-					const current = props.headerDictionary[key];
-					// eslint-disable-next-line no-param-reassign
-					accumulator[key] = {
-						...omit(current, ['component']),
-						headerRenderer: props.getComponent(current.component),
-					};
-					return accumulator;
-				},
-				{},
-			);
+			props.headerDictionary = Object.keys(props.headerDictionary).reduce((accumulator, key) => {
+				const current = props.headerDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				accumulator[key] = {
+					...omit(current, ['component']),
+					headerRenderer: props.getComponent(current.component),
+				};
+				return accumulator;
+			}, {});
 		}
 
 		// toolbar
