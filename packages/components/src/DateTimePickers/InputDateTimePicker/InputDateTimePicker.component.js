@@ -163,21 +163,16 @@ class InputDateTimePicker extends React.Component {
 
 	onChangeInput(event) {
 		const fullString = event.target.value;
-
 		const splitMatches = fullString.match(splitDateAndTimePartsRegex);
-
 		const canParseFullString = splitMatches !== null;
 
 		const dateStrToParse = canParseFullString ? splitMatches[1] : fullString;
-
 		const [date, errMsgDate] = extractDate(dateStrToParse);
 
 		const timeStrToParse = canParseFullString ? splitMatches[2] : fullString;
-
 		const [time, errMsgTime] = extractTime(timeStrToParse);
 
 		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
-
 		this.updateDateTime(date, time, fullString, errMsg);
 	}
 
