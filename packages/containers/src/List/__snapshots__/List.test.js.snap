@@ -230,7 +230,9 @@ Object {
     "filter": Object {
       "docked": true,
       "onFilter": [Function],
+      "onFilterChange": [Function],
       "onToggle": [Function],
+      "onToggleFilter": [Function],
       "placeholder": "find an object",
       "value": "",
     },
@@ -244,6 +246,7 @@ Object {
       "field": "name",
       "isDescending": false,
       "onChange": [Function],
+      "onChangeSortOrder": [Function],
       "options": Array [
         Object {
           "id": "id",

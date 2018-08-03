@@ -8,6 +8,7 @@ import { cloneDeep } from 'lodash';
 
 import { List } from '../src';
 import i18n from './config/i18n';
+import { action } from '@storybook/addon-actions';
 
 /**
  * Cell renderer that displays hello + text
@@ -84,12 +85,15 @@ const toolbar = {
 	sort: {
 		field: 'id',
 		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+		onChangeSortOrder: action('triggered change sort order action'),
 	},
 	display: {
 		displayModes: ['large', 'table'],
 	},
 	filter: {
 		placeholder: 'find an object',
+		onToggleFilter: action('triggered toggle filter action'),
+		onFilterChange: action('triggered filter change action '),
 	},
 };
 

@@ -191,7 +191,12 @@ class List extends React.Component {
 		props.list.sort = {
 			field: state.sortOn,
 			isDescending: !state.sortAsc,
-			onChange: this.onSelectSortBy,
+			onChange: (event, data) => {
+				if (props.toolbar.sort.onChangeSortOrder) {
+					props.toolbar.sort.onChangeSortOrder(data);
+				}
+				this.onSelectSortBy(event, data);
+			},
 		};
 		if (!props.list.itemProps) {
 			props.list.itemProps = {};
@@ -259,15 +264,24 @@ class List extends React.Component {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
 				props.toolbar.sort.onChange = (event, data) => {
+					if (props.toolbar.sort.onChangeSortOrder) {
+						props.toolbar.sort.onChangeSortOrder(data);
+					}
 					this.onSelectSortBy(event, data);
 				};
 			}
 
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
+					if (props.toolbar.filter.onToggleFilter) {
+						props.toolbar.filter.onToggleFilter();
+					}
 					this.onToggle(event, data);
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
+					if (props.toolbar.filter.onFilterChange) {
+						props.toolbar.filter.onFilterChange(event, data);
+					}
 					this.onFilter(event, data);
 				};
 				props.toolbar.filter.docked = state.filterDocked;

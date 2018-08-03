@@ -22,11 +22,14 @@ const list = {
 const toolbar = {
 	filter: {
 		placeholder: 'find an object',
+		onToggleFilter: jest.fn(),
+		onFilterChange: jest.fn(),
 	},
 	sort: {
 		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		field: 'id',
 		isDescending: false,
+		onChangeSortOrder: jest.fn(),
 	},
 	display: {
 		displayModes: ['large', 'table'],
@@ -99,8 +102,11 @@ describe('Container List', () => {
 		expect(typeof props.list.titleProps.onEditCancel).toBe('function');
 		expect(props.toolbar.filter.placeholder).toBe('find an object');
 		expect(typeof props.toolbar.filter.onFilter).toBe('function');
+		expect(typeof props.toolbar.filter.onToggleFilter).toBe('function');
+		expect(typeof props.toolbar.filter.onFilterChange).toBe('function');
 		expect(typeof props.toolbar.display.onChange).toBe('function');
 		expect(typeof props.toolbar.sort.onChange).toBe('function');
+		expect(typeof props.toolbar.sort.onChangeSortOrder).toBe('function');
 		expect(props.toolbar.sort.options.length).toBe(2);
 		expect(props).toMatchSnapshot();
 	});
