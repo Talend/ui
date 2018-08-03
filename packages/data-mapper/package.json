@@ -7,6 +7,7 @@
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
     "start": "start-storybook -p 6060",
     "test": "jest",
+    "test:demo": "build-storybook",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
     "build-storybook": "build-storybook"
