@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
 import { cellType as titleCellType } from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
@@ -31,7 +32,16 @@ export function compareOrder(a, b) {
 }
 
 export function ListToVirtualizedList(props) {
-	const { itemProps, sort, titleProps } = props;
+	const titleProps = props.titleProps || {
+		key: props.titleKey,
+		iconKey: props.titleIconKey,
+		displayModeKey: props.titleDisplayModeKey,
+		actionsKey: props.titleActionsKey,
+		persistentActionsKey: props.titlePersistentActionsKey,
+		onClick: props.onTitleClick,
+		onEditCancel: props.onTitleEditCancel,
+		onEditSubmit: props.onTitleEditSubmit,
+	};
 
 	if (titleProps) {
 		if (!titleProps.actionsKey) {
@@ -51,6 +61,16 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
+	const isActive = props.isActive || get(props, 'itemProps.isActive');
+	const isSelected = props.isSelected || get(props, 'itemProps.isSelected');
+	const onRowClick = props.onRowClick || get(props, 'itemProps.onRowClick');
+	const onToggle = props.onToggle || get(props, 'itemProps.onToggle'); // sic
+	const onTitleClick = props.onTitleClick || get(props, 'titleProps.onClick');
+	const sort = props.sort || {
+		onChange: props.onSortChange,
+		field: props.sortOn,
+		isDescending: props.sortIsDescending,
+	};
 
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
@@ -60,15 +80,15 @@ export function ListToVirtualizedList(props) {
 		<VirtualizedList
 			id={props.id}
 			collection={props.items}
-			isActive={itemProps && itemProps.isActive}
-			isSelected={itemProps && itemProps.isSelected}
+			isActive={isActive}
+			isSelected={isSelected}
 			inProgress={props.inProgress}
-			onRowClick={itemProps && itemProps.onRowClick}
-			onRowDoubleClick={titleProps && titleProps.onClick}
+			onRowClick={onRowClick}
+			onRowDoubleClick={onTitleClick}
 			defaultHeight={props.defaultHeight}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
-			selectionToggle={itemProps && itemProps.onToggle}
+			selectionToggle={onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
@@ -113,28 +133,29 @@ ListToVirtualizedList.propTypes = {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
+	isActive: PropTypes.func,
+	isSelected: PropTypes.func,
+	onRowClick: PropTypes.func,
+	onToggle: PropTypes.func,
 	cellDictionary: PropTypes.object,
 	headerDictionary: PropTypes.object,
-	itemProps: PropTypes.shape({
-		isActive: PropTypes.func,
-		isSelected: PropTypes.func,
-		onRowClick: PropTypes.func,
-		onToggle: PropTypes.func,
-	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
 	noRowsRenderer: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 	rowHeight: PropTypes.number,
-	sort: PropTypes.shape({
-		onChange: PropTypes.func,
-		field: PropTypes.string,
-		isDescending: PropTypes.bool,
-	}),
-	titleProps: PropTypes.shape({
-		actionsKey: PropTypes.string,
-		presistentActionsKey: PropTypes.string,
-		key: PropTypes.string,
-	}),
+	titleProps: PropTypes.object,
+	sort: PropTypes.object,
+	sortOn: PropTypes.string,
+	onSortChange: PropTypes.func,
+	sortIsDescending: PropTypes.bool,
+	titleActionsKey: PropTypes.string,
+	titleDisplayModeKey: PropTypes.string,
+	titleIconKey: PropTypes.string,
+	titleKey: PropTypes.string,
+	titlePersistentActionsKey: PropTypes.string,
+	onTitleEditSubmit: PropTypes.func,
+	onTitleEditCancel: PropTypes.func,
+	onTitleClick: PropTypes.func,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',

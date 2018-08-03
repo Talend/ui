@@ -30,27 +30,17 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 		collectionId: ownProps.collectionId,
 		items: ownProps.items,
 	};
-	if (ownProps.list) {
-		config.columns = ownProps.list.columns;
-	}
 
 	props.items = getItems(state, config);
 
 	const totalResults = props.items.size;
-
-	if (get(ownProps, ['toolbar', 'pagination'])) {
+	if (get(ownProps, ['toolbar.pagination'], ownProps.pagination)) {
 		props.items = getPagedItems(state, config);
 	}
 
 	const cmfState = get(cmfProps, 'state');
 	if (cmfState) {
 		props.state = cmfState.setIn(['totalResults'], totalResults);
-		if (props.state.has('toolbar')) {
-			props.state = props.state.mergeIn(
-				['toolbar', 'pagination'],
-				configureGetPagination(state, config),
-			);
-		}
 	}
 
 	return props;

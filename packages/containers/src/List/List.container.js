@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
-import { Map, List as ImmutableList } from 'immutable';
+import Immutable from 'immutable';
 import { List as Component } from '@talend/react-components';
 import CellTitleRenderer, {
 	cellType as cellTitleType,
@@ -9,22 +9,13 @@ import CellTitleRenderer, {
 import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
-const ConnectedCellTitle = cmfConnect({})(CellTitle);
-export const connectedCellDictionary = {
-	[cellTitleType]: {
-		...CellTitleRenderer,
-		cellRenderer: props => <ConnectedCellTitle {...props} />,
-	},
-};
-
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = new Immutable.Map({
 	displayMode: 'table',
-	selectedItems: new ImmutableList(),
+	selectedItems: new Immutable.List(),
 	searchQuery: '',
 	itemsPerPage: 10,
 	startIndex: 1,
@@ -33,6 +24,22 @@ export const DEFAULT_STATE = new Map({
 	sortAsc: true,
 	filterDocked: true,
 });
+
+function getActionProps(action) {
+	if (typeof action === 'object') {
+		return action;
+	}
+	return { actionId: action };
+}
+
+const ConnectedCellTitle = cmfConnect({})(CellTitle);
+
+export const connectedCellDictionary = {
+	[cellTitleType]: {
+		...CellTitleRenderer,
+		cellRenderer: props => <ConnectedCellTitle {...props} />,
+	},
+};
 
 /**
  * merge props.items with actions
@@ -48,7 +55,7 @@ export function getItems(context, props) {
 	);
 }
 
-class List extends React.Component {
+export default class List extends React.Component {
 	static displayName = 'Container(List)';
 	static propTypes = {
 		actions: PropTypes.shape({
@@ -92,10 +99,11 @@ class List extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSelectSortBy = this.onSelectSortBy.bind(this);
-		this.onFilter = this.onFilter.bind(this);
-		this.onToggle = this.onToggle.bind(this);
+		this.onFilterChange = this.onFilterChange.bind(this);
+		this.onFilterToggle = this.onFilterToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
-		this.onChangePage = this.onChangePage.bind(this);
+		this.onPaginationChange = this.onPaginationChange.bind(this);
+		// this.onChangePage = this.onChangePage.bind(this);
 		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
 		this.onToggleAllMultiSelection = this.onToggleAllMultiSelection.bind(this);
 		this.isSelected = this.isSelected.bind(this);
@@ -108,15 +116,26 @@ class List extends React.Component {
 		});
 	}
 
-	onFilter(event, payload) {
+	onFilterChange(event, payload) {
 		this.props.setState({ searchQuery: payload.query });
 	}
 
-	onChangePage(startIndex, itemsPerPage) {
+	onPaginationChange(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
+		if (this.props.onPaginationChange) {
+			if (typeof this.props.onPaginationChange === 'string') {
+				// backward compatibility
+				this.getGenericDispatcher(this.props.onPaginationChange)(null, {
+					startIndex,
+					itemsPerPage,
+				});
+			} else {
+				this.props.onPaginationChange(startIndex, itemsPerPage);
+			}
+		}
 	}
 
-	onToggle() {
+	onFilterToggle() {
 		// clearing filter when toggle
 		this.props.setState({
 			filterDocked: !this.props.state.get('filterDocked'),
@@ -151,13 +170,13 @@ class List extends React.Component {
 			});
 		} else {
 			this.props.setState({
-				selectedItems: new ImmutableList([]),
+				selectedItems: new Immutable.List([]),
 			});
 		}
 	}
 
 	getSelectedItems() {
-		return this.props.state.get('selectedItems', new ImmutableList());
+		return this.props.state.get('selectedItems', new Immutable.List());
 	}
 
 	getGenericDispatcher(property) {
@@ -173,46 +192,43 @@ class List extends React.Component {
 
 	render() {
 		const state = this.props.state.toJS();
-		const items = getItems(this.context, this.props);
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
 		if (!props.displayMode) {
 			props.displayMode = state.displayMode;
 		}
-		if (!props.list) {
-			props.list = {};
+		if (!props.id) {
+			props.id = 'list';
 		}
-		if (!props.list.id) {
-			props.list.id = 'list';
+		props.items = getItems(this.context, this.props);
+		if (!props.columns) {
+			props.columns = [];
 		}
-		props.list.items = items;
-		if (!props.list.columns) {
-			props.list.columns = [];
-		}
-		props.list.sort = {
-			field: state.sortOn,
-			isDescending: !state.sortAsc,
-			onChange: this.onSelectSortBy,
-		};
-		if (!props.list.itemProps) {
-			props.list.itemProps = {};
-		}
+		// TODO: ensure this is supported
+		// props.list.items = items;
+		// if (!props.list.columns) {
+		// 	props.list.columns = [];
+		// }
+		// props.list.sort = {
+		// 	field: state.sortOn,
+		// 	isDescending: !state.sortAsc,
+		// 	onChange: this.onSelectSortBy,
+		// };
+		// if (!props.list.itemProps) {
+		// 	props.list.itemProps = {};
+		// }
 
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
-		if (props.list.titleProps && this.props.actions.title) {
-			if (this.props.actions.title) {
-				props.list.titleProps.onClick = this.getGenericDispatcher(this.props.actions.title);
+		// Backward compatibility
+		if (this.props.actions) {
+			props.actions = {};
+			const actions = this.props.actions;
+			if (actions.left) {
+				props.actions.left = actions.left.map(getActionProps);
 			}
-			if (this.props.actions.editSubmit) {
-				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(
-					this.props.actions.editSubmit,
-				);
-			}
-			if (this.props.actions.editCancel) {
-				props.list.titleProps.onEditCancel = this.getGenericDispatcher(
-					this.props.actions.editCancel,
-				);
+			if (actions.right) {
+				props.actions.right = actions.right.map(getActionsProps);
 			}
 		}
 
@@ -227,25 +243,24 @@ class List extends React.Component {
 				};
 				return accumulator;
 			}, cellDictionary);
+		} else {
+			props.cellDictionary = cellDictionary;
 		}
-		props.list.cellDictionary = cellDictionary;
 
 		if (props.headerDictionary) {
-			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce(
-				(accumulator, key) => {
-					const current = props.headerDictionary[key];
-					// eslint-disable-next-line no-param-reassign
-					accumulator[key] = {
-						...omit(current, ['component']),
-						headerRenderer: props.getComponent(current.component),
-					};
-					return accumulator;
-				},
-				{},
-			);
+			props.headerDictionary = Object.keys(props.headerDictionary).reduce((accumulator, key) => {
+				const current = props.headerDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				accumulator[key] = {
+					...omit(current, ['component']),
+					headerRenderer: props.getComponent(current.component),
+				};
+				return accumulator;
+			}, {});
 		}
 
 		// toolbar
+		const actions = this.props.actions;
 		if (props.toolbar) {
 			if (props.toolbar.display) {
 				props.toolbar.display = {
@@ -255,86 +270,68 @@ class List extends React.Component {
 					},
 				};
 			}
-			if (props.toolbar.sort) {
-				props.toolbar.sort.isDescending = !state.sortAsc;
-				props.toolbar.sort.field = state.sortOn;
-				props.toolbar.sort.onChange = (event, data) => {
-					this.onSelectSortBy(event, data);
-				};
+			if (actions.title) {
+				props.onTitleClick = this.getGenericDispatcher(actions.title);
+			}
+			if (actions.editSubmit) {
+				props.onTitleEditSubmit = this.getGenericDispatcher(actions.editSubmit);
+			}
+			if (actions.editCancel) {
+				props.onTitleEditCancel = this.getGenericDispatcher(actions.editCancel);
 			}
 
-			if (props.toolbar.filter) {
-				props.toolbar.filter.onToggle = (event, data) => {
-					this.onToggle(event, data);
-				};
-				props.toolbar.filter.onFilter = (event, data) => {
-					this.onFilter(event, data);
-				};
-				props.toolbar.filter.docked = state.filterDocked;
-				props.toolbar.filter.value = state.searchQuery;
-			}
-
-			props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
+			// props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
 
 			// settings up multi selection
 			if (props.multiSelectActions && props.idKey) {
-				props.list.itemProps.onToggle = this.onToggleMultiSelection;
-				props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
-				props.list.itemProps.isSelected = this.isSelected;
-				props.toolbar.actionBar.selected = this.getSelectedItems().size;
+				props.onToggle = this.onToggleMultiSelection;
+				props.onToggleAll = this.onToggleAllMultiSelection;
+				props.isSelected = this.isSelected;
+				props.selectedCount = this.getSelectedItems().size;
 			}
 
-			const actions = this.props.actions;
 			const multiSelectActions = this.props.multiSelectActions;
 			if (multiSelectActions) {
 				if (multiSelectActions.left) {
-					props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(action => ({
-						actionId: action,
-					}));
+					props.multiSelectActions.left = multiSelectActions.left.map(getActionProps);
 				}
 				if (multiSelectActions.right) {
-					props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(
-						action => ({
-							actionId: action,
-						}),
-					);
+					props.multiSelectActions.right = multiSelectActions.right.map(getActionProps);
 				}
 			}
 			if (actions) {
 				if (actions.left) {
-					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
+					props.actions.left = actions.left.map(action => ({ actionId: action }));
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = actions.right.map(action => ({
+					props.actions.right = actions.right.map(action => ({
 						actionId: action,
 					}));
 				}
 			}
+		}
 
-			if (props.toolbar.pagination) {
-				const pagination = props.toolbar.pagination;
-				Object.assign(props.toolbar.pagination, {
-					...pick(state, ['totalResults', 'itemsPerPage', 'startIndex']),
-				});
-				if (!pagination.onChange) {
-					pagination.onChange = (startIndex, itemsPerPage) => {
-						this.onChangePage(startIndex, itemsPerPage);
-					};
-				} else if (typeof pagination.onChange === 'string') {
-					const onChangeActionCreator = pagination.onChange;
-					pagination.onChange = (startIndex, itemsPerPage) => {
-						this.props.dispatchActionCreator(
-							onChangeActionCreator,
-							null,
-							{ startIndex, itemsPerPage },
-							this.context,
-						);
-					};
-				}
+		if (props.toolbar) {
+			props.sortOn = state.sortOn;
+			props.sortIsDescending = !state.sortAsc;
+			props.onSortChange = this.onSelectSortBy;
+			props.onDisplayChange = this.onSelectDisplayMode;
+			props.onSortChange = this.onSelectSortBy;
+			props.sortOn = state.sortOn;
+			props.sortIsDescending = !state.sortAsc;
+			props.onFilterToggle = this.onFilterToggle;
+			props.onFilterChange = this.onFilterChange;
+			props.filterDocked = state.filterDocked;
+			props.filterValue = state.searchQuery;
+			// pagination
+			if (props.pagination) {
+				props.totalResults = state.totalResults;
+				props.itemsPerPage = state.itemsPerPage;
+				props.startIndex = state.startIndex;
+				props.onPaginationChange = this.onPaginationChange;
 			}
 		}
+
 		return <Component {...props} />;
 	}
 }
-
-export default List;

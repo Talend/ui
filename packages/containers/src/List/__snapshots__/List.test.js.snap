@@ -104,40 +104,97 @@ Object {
 
 exports[`Container List should put default props 1`] = `
 Object {
-  "actions": Object {
-    "editCancel": "object:edit:cancel",
-    "editSubmit": "object:edit:submit",
-    "title": "object:open",
-  },
+  "actions": Object {},
+  "columns": Array [
+    Object {
+      "key": "id",
+      "label": "Id",
+    },
+    Object {
+      "key": "name",
+      "label": "Name",
+    },
+    Object {
+      "key": "author",
+      "label": "Author",
+    },
+<<<<<<< HEAD
+    Object {
+      "key": "created",
+      "label": "Created",
+    },
+    Object {
+      "key": "modified",
+      "label": "Modified",
+    },
+  ],
   "displayMode": "table",
-  "items": Immutable.List [
-    Immutable.Map {
-        id: 1,
-        name: "Title with actions",
-        created: "2016-09-22",
-        modified: "2016-09-22",
-        author: "Jean-Pierre DUPONT",
-        icon: "fa fa-file-excel-o",
-        display: "text",
-        className: "item-0-class",
+  "displayModes": Array [
+    "large",
+    "table",
+  ],
+  "filterDocked": true,
+  "filterPlaceholder": "find an object",
+  "filterValue": "",
+  "id": "list",
+  "items": Array [
+    Object {
+      "actions": Array [],
+      "author": "Jean-Pierre DUPONT",
+      "className": "item-0-class",
+      "created": "2016-09-22",
+      "display": "text",
+      "icon": "fa fa-file-excel-o",
+      "id": 1,
+      "modified": "2016-09-22",
+      "name": "Title with actions",
     },
-    Immutable.Map {
-        id: 2,
-        name: "Title in input mode",
-        created: "2016-09-22",
-        modified: "2016-09-22",
-        author: "Jean-Pierre DUPONT",
-        icon: "fa fa-file-pdf-o",
-        display: "input",
-        className: "item-1-class",
+    Object {
+      "actions": Array [],
+      "author": "Jean-Pierre DUPONT",
+      "className": "item-1-class",
+      "created": "2016-09-22",
+      "display": "input",
+      "icon": "fa fa-file-pdf-o",
+      "id": 2,
+      "modified": "2016-09-22",
+      "name": "Title in input mode",
     },
-    Immutable.Map {
-        id: 3,
-        name: "Super long title to trigger overflow on some rendering",
-        created: "2016-09-22",
-        modified: "2016-09-22",
-        author: "Jean-Pierre DUPONT with super long name",
+    Object {
+      "actions": Array [],
+      "author": "Jean-Pierre DUPONT with super long name",
+      "created": "2016-09-22",
+      "id": 3,
+      "modified": "2016-09-22",
+      "name": "Super long title to trigger overflow on some rendering",
     },
+  ],
+  "itemsPerPage": 25,
+  "onDisplayChange": [Function],
+  "onFilterChange": [Function],
+  "onFilterToggle": [Function],
+  "onPaginationChange": "pagination:change",
+  "onSortChange": [Function],
+  "onTitleClick": [Function],
+  "onTitleEditCancel": [Function],
+  "onTitleEditSubmit": [Function],
+  "sortIsDescending": false,
+  "sortOn": "name",
+  "sortOptions": Array [
+    Object {
+      "id": "id",
+      "name": "Id",
+    },
+    Object {
+      "id": "name",
+      "name": "Name",
+    },
+  ],
+  "startIndex": 1,
+  "titleKey": "label",
+  "toolbar": true,
+  "totalResults": 36,
+=======
 ],
   "list": Object {
     "cellDictionary": Object {
@@ -256,5 +313,6 @@ Object {
       ],
     },
   },
+>>>>>>> master
 }
 `;

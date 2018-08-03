@@ -45,9 +45,8 @@ const list = {
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
 	],
-	titleProps: {
-		key: 'label',
-	},
+	titleKey: 'label',
+	idKey: 'id',
 };
 
 const listWithTimestamp = {
@@ -69,9 +68,7 @@ const listWithTimestamp = {
 			data: { mode: 'ago' },
 		},
 	],
-	titleProps: {
-		key: 'label',
-	},
+	titlekey: 'label',
 };
 
 const actions = {
@@ -81,22 +78,17 @@ const actions = {
 };
 
 const toolbar = {
-	sort: {
-		field: 'id',
-		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
-	},
-	display: {
-		displayModes: ['large', 'table'],
-	},
-	filter: {
-		placeholder: 'find an object',
-	},
+	toolbar: true,
+	sortOn: 'id',
+	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
+	displayModes: ['large', 'table'],
+	filterPlaceholder: 'find an object',
 };
 
 const props = {
-	list,
+	...list,
+	...toolbar,
 	actions,
-	toolbar,
 };
 
 const customHeight = {
@@ -191,12 +183,12 @@ const itemsWithTimestamp = Immutable.fromJS([
 ]);
 
 const sortUpdatedAsc = {
-	field: 'modified',
-	isDescending: false,
+	sortOn: 'modified',
+	sortIsDescending: false,
 };
 const propsTimestampSorted = cloneDeep(props);
-propsTimestampSorted.list = listWithTimestamp;
-propsTimestampSorted.list.sort = sortUpdatedAsc;
+Object.assign(propsTimestampSorted, listWithTimestamp);
+Object.assign(propsTimestampSorted, sortUpdatedAsc);
 
 const ExampleList = {
 	default: () => (
@@ -276,7 +268,7 @@ const ExampleList = {
 				},
 			]),
 		);
-		propsPg.toolbar.pagination = {};
+		propsPg.pagination = true;
 		return (
 			<div>
 				<IconsProvider />
@@ -288,7 +280,7 @@ const ExampleList = {
 	},
 	'in progress': () => {
 		const props2 = cloneDeep(props);
-		props2.list.inProgress = true;
+		props2.inProgress = true;
 		return (
 			<div>
 				<IconsProvider />
@@ -317,7 +309,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List list={list} actions={actions} items={items} />
+				<List {...list} items={items} />
 			</div>
 		</div>
 	),

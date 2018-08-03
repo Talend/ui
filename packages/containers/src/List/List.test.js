@@ -14,43 +14,33 @@ const list = {
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
 	],
-	titleProps: {
-		key: 'label',
-	},
+	titleKey: 'label',
 };
 
 const toolbar = {
-	filter: {
-		placeholder: 'find an object',
-	},
-	sort: {
-		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
-		field: 'id',
-		isDescending: false,
-	},
-	display: {
-		displayModes: ['large', 'table'],
-	},
-	pagination: {
-		startIndex: 1,
-		itemsPerPage: 25,
-		totalResults: 36,
-		onChange: 'pagination:change',
-	},
+	toolbar: true,
+	filterPlaceholder: 'find an object',
+	sortOptions: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+	sortOn: 'id',
+	sortIsDescending: false,
+	displayModes: ['large', 'table'],
+	startIndex: 1,
+	itemsPerPage: 25,
+	totalResults: 36,
+	onPaginationChange: 'pagination:change',
 };
 
+// this is deprecated
 const actions = {
-	title: 'object:open',
-	editSubmit: 'object:edit:submit',
-	editCancel: 'object:edit:cancel',
-	// left: ['object:add'],
-	// items: ['object:delete'],
+	title: 'object:open', // onTitleClick
+	editSubmit: 'object:edit:submit', // onTitleEditSubmit
+	editCancel: 'object:edit:cancel', // onTitleEditCancel
 };
 
 const settings = {
-	list,
-	toolbar,
 	actions,
+	...list,
+	...toolbar,
 };
 
 const items = fromJS([
@@ -88,20 +78,20 @@ describe('Container List', () => {
 		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
-		expect(props.list.items.length).toBe(3);
-		expect(props.list.items[0].id).toBe(1);
-		expect(props.list.items[1].id).toBe(2);
-		expect(props.list.items[2].id).toBe(3);
-		expect(props.list.columns).toEqual(list.columns);
-		expect(props.list.titleProps.key).toBe('label');
-		expect(typeof props.list.titleProps.onClick).toBe('function');
-		expect(typeof props.list.titleProps.onEditSubmit).toBe('function');
-		expect(typeof props.list.titleProps.onEditCancel).toBe('function');
-		expect(props.toolbar.filter.placeholder).toBe('find an object');
-		expect(typeof props.toolbar.filter.onFilter).toBe('function');
-		expect(typeof props.toolbar.display.onChange).toBe('function');
-		expect(typeof props.toolbar.sort.onChange).toBe('function');
-		expect(props.toolbar.sort.options.length).toBe(2);
+		expect(props.items.length).toBe(3);
+		expect(props.items[0].id).toBe(1);
+		expect(props.items[1].id).toBe(2);
+		expect(props.items[2].id).toBe(3);
+		expect(props.columns).toEqual(list.columns);
+		expect(props.titleKey).toBe('label');
+		expect(typeof props.onTitleClick).toBe('function');
+		expect(typeof props.onTitleEditSubmit).toBe('function');
+		expect(typeof props.onTitleEditCancel).toBe('function');
+		expect(props.filterPlaceholder).toBe('find an object');
+		expect(typeof props.onFilterChange).toBe('function');
+		expect(typeof props.onDisplayChange).toBe('function');
+		expect(typeof props.onSortChange).toBe('function');
+		expect(props.sortOptions.length).toBe(2);
 		expect(props).toMatchSnapshot();
 	});
 
@@ -189,7 +179,7 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		const onClick = props.list.titleProps.onClick;
+		const onClick = props.onTitleClick;
 		const e = {};
 		const data = { foo: 'bar' };
 
@@ -222,7 +212,7 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		const onEditSubmit = props.list.titleProps.onEditSubmit;
+		const onEditSubmit = props.onTitleEditSubmit;
 		const e = {};
 		const data = { foo: 'bar' };
 
@@ -255,7 +245,7 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		const onEditCancel = props.list.titleProps.onEditCancel;
+		const onEditCancel = props.onTitleEditCancel;
 		const e = {};
 		const data = { foo: 'bar' };
 
@@ -292,7 +282,7 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		expect(props.list.titleProps.onClick).toBeUndefined();
+		expect(props.onTitleClick).toBeUndefined();
 	});
 
 	it('should call action creator on pagination change', () => {
@@ -311,6 +301,7 @@ describe('Container List', () => {
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 				setState={setState}
+				pagination
 			/>,
 			{
 				lifecycleExperimental: true,
@@ -324,7 +315,7 @@ describe('Container List', () => {
 		expect(dispatchActionCreator).not.toBeCalled();
 
 		// when
-		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
+		props.onPaginationChange(data.startIndex, data.itemsPerPage);
 
 		// then
 		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);

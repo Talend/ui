@@ -16,9 +16,7 @@ const localConfig = {
 			text: 'text',
 		},
 	],
-	list: {
-		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
-	},
+	columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
 };
 
 const state = store.state();

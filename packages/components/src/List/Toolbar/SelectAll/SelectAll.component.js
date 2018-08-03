@@ -5,25 +5,28 @@ import classNames from 'classnames';
 import getDefaultT from '../../../translate';
 import theme from './SelectAll.scss';
 
-function SelectAll({ id, items, isSelected, onToggleAll, t }) {
-	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
-	const checkboxId = id && `${id}-check-all`;
+function SelectAll(props) {
+	const checkboxId = props.id && `${props.id}-check-all`;
+	if (!props.onToggleAll || !props.checked) {
+		return null;
+	}
 	return (
 		<form className="navbar-form navbar-left">
-			<div
-				className={classNames('checkbox-inline navbar-text', theme['tc-list-toolbar-select-all'])}
-			>
-				<label className="tc-list-toolbar-select-all" htmlFor={checkboxId}>
+			<div className="checkbox-inline navbar-text">
+				<label
+					className={classNames('tc-list-toolbar-select-all', theme.label)}
+					htmlFor={checkboxId}
+				>
 					<input
 						id={checkboxId}
 						type="checkbox"
 						onChange={event => {
-							onToggleAll(event, items);
+							props.onToggleAll(event, props.items);
 						}}
-						checked={isAllSelected()}
-						disabled={!items.length}
+						checked={props.checked()}
+						disabled={!props.items.length}
 					/>
-					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
+					<span>{props.t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
 				</label>
 			</div>
 		</form>
@@ -33,8 +36,8 @@ function SelectAll({ id, items, isSelected, onToggleAll, t }) {
 SelectAll.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
-	isSelected: PropTypes.func.isRequired,
-	onToggleAll: PropTypes.func.isRequired,
+	checked: PropTypes.func,
+	onToggleAll: PropTypes.func,
 	t: PropTypes.func.isRequired,
 };
 

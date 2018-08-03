@@ -15,15 +15,12 @@ const props = {
 	id: 'mylistid',
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
-		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
-		{ key: 'label', label: 'Label', disableSort: true },
-		{ key: 'tag', label: 'Tag', type: 'badge' },
-		{ key: 'myactions', label: 'Actions', hideHeader: true },
+		{ key: 'id', label: 'Id', type: 'customType', header: 'customType', width: 100 },
+		{ key: 'label', label: 'Label', width: 100, disableSort: true },
+		{ key: 'tag', label: 'Tag', type: 'badge', width: 100 },
+		{ key: 'myactions', label: 'Actions', hideHeader: true, width: 100 },
 	],
-	titleProps: {
-		key: 'label',
-		extra: 'Extra',
-	},
+	titlekey: 'label',
 };
 
 describe('ListToVirtualizedList', () => {
@@ -39,7 +36,6 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.dataKey).toBe('id');
 			} else if (eProps.label === 'Label') {
 				expect(eProps.dataKey).toBe('label');
-				expect(eProps.columnData.extra).toBe('Extra');
 			} else if (eProps.label === 'Actions') {
 				expect(eProps.dataKey).toBe('myactions');
 				expect(eProps.disableSort).toBe(true);
@@ -249,7 +245,7 @@ describe('ListToVirtualizedList', () => {
 
 	it('should adapt click onRowDoubleClick', () => {
 		// given
-		props.titleProps.onClick = jest.fn();
+		props.onTitleClick = jest.fn();
 		const event = { target: {} };
 		const virtualizedProps = shallow(<ListToVirtualizedList {...props} />).props();
 
@@ -257,7 +253,7 @@ describe('ListToVirtualizedList', () => {
 		virtualizedProps.onRowDoubleClick(event, props.items[0]);
 
 		// then
-		expect(props.titleProps.onClick).toBeCalledWith(event, props.items[0]);
+		expect(props.onTitleClick).toBeCalledWith(event, props.items[0]);
 	});
 
 	it('should adapt selection isActive', () => {

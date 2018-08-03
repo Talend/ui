@@ -27,6 +27,7 @@ import './JSONSchemaRenderer';
 import './ListView';
 import './Layout';
 import './List';
+import './ListDeprecated';
 import './Loader';
 import './Notification';
 import './ObjectViewer';
