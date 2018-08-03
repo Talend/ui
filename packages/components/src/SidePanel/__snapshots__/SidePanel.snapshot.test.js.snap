@@ -175,7 +175,7 @@ exports[`Storyshots SidePanel default 1`] = `
           id="context-nav-preparations"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -206,7 +206,7 @@ exports[`Storyshots SidePanel default 1`] = `
           id="context-nav-datasets"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -237,7 +237,7 @@ exports[`Storyshots SidePanel default 1`] = `
           id="context-nav-favorites"
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -436,7 +436,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -467,7 +467,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -498,7 +498,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -697,7 +697,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -728,7 +728,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -759,7 +759,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -957,7 +957,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -989,7 +989,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1020,7 +1020,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1220,7 +1220,7 @@ exports[`Storyshots SidePanel links 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
         >
           <svg
             aria-hidden="true"
@@ -1251,7 +1251,7 @@ exports[`Storyshots SidePanel links 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
         >
           <svg
             aria-hidden="true"
@@ -1282,7 +1282,7 @@ exports[`Storyshots SidePanel links 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
         >
           <svg
             aria-hidden="true"
@@ -1448,7 +1448,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1480,7 +1480,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1511,7 +1511,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1709,7 +1709,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1741,7 +1741,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1772,7 +1772,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
           id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
-          role={null}
+          role="link"
           type="button"
         >
           <svg
@@ -1980,7 +1980,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2011,7 +2011,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2042,7 +2042,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2073,7 +2073,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2097,6 +2097,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
       </div>
       <div
         className="tc-layout-two-columns-main theme-main"
+        role="main"
       >
         <div
           className="theme-tc-with-drawer"
@@ -2608,7 +2609,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2639,7 +2640,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2670,7 +2671,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2701,7 +2702,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                role="link"
                 type="button"
               >
                 <svg
@@ -2725,6 +2726,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
       </div>
       <div
         className="tc-layout-two-columns-main theme-main"
+        role="main"
       >
         <div
           className="theme-tc-with-drawer"
@@ -3238,7 +3240,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3269,7 +3271,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3300,7 +3302,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3512,7 +3514,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3543,7 +3545,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3574,7 +3576,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3786,7 +3788,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3817,7 +3819,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -3848,7 +3850,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4060,7 +4062,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4091,7 +4093,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4122,7 +4124,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4334,7 +4336,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4365,7 +4367,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4396,7 +4398,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4608,7 +4610,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4639,7 +4641,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4670,7 +4672,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4882,7 +4884,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
               id="context-nav-preparations"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4913,7 +4915,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
               id="context-nav-datasets"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg
@@ -4944,7 +4946,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
               id="context-nav-favorites"
               onClick={[Function]}
               onMouseDown={[Function]}
-              role={null}
+              role="link"
               type="button"
             >
               <svg

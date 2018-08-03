@@ -4,13 +4,12 @@
  * and other style can override it
  */
 
-import { registerAllContainers } from '@talend/react-containers/lib/register';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import { registerAllContainers } from '@talend/react-containers/lib/register';
+import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
-import components from './components';
-
 
 /**
  * This will register all containers in the CMF registry
@@ -28,7 +27,7 @@ registerAllContainers();
  */
 
 cmf.bootstrap({
-	components,
+	components: Object.assign({ ComponentForm }),
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],

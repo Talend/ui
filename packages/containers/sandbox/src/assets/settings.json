@@ -1,76 +1,102 @@
 {
-  "contentTypes": {},
   "actions": {
-    "menu:headerBar-demo": {
-      "id": "menu:headerBar-demo",
-      "label": "Header bar",
+    "menu:HeaderBar": {
+      "id": "menu:HeaderBar",
+      "label": "HeaderBar",
       "icon": "talend-arrow-right",
+      "iconTransform": "rotate-270",
       "payload": {
         "type": "MENU_LINK",
         "cmf": {
-          "routerReplace": "/headerbar-demo"
+          "routerReplace": "/HeaderBar"
+        }
+      }
+    },
+    "menu:ComponentForm": {
+      "icon": "talend-burger",
+      "label": "ComponentForm",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm"
         }
       }
     }
   },
   "props": {
+    "AppLoader#default": {
+      "components": {
+        "before-children": [
+          {
+            "component": "Notification"
+          },
+          {
+            "component": "IconsProvider"
+          }
+        ]
+      }
+    },
     "RedirectContainer#default": {
-      "path": "/home"
+      "path": "/HeaderBar"
     },
     "HeaderBar#default": {
+      "keepComponentState": true,
       "logo": {
-        "icon": "talend-logo-square",
+        "id": "header-bar-demo-logo",
+        "icon": "talend-world",
         "isFull": false
       },
       "brand": {
-        "label": "Talend containers showcase"
-      }
+        "id": "header-bar-demo-brand",
+        "label": "Choose a product"
+      },
+      "products": {
+        "id": "header-bar-demo-brands"
+      },
+      "productsUrl": "/api/mock/header-bar/products-list",
+      "productsLang": "en-EN"
     },
     "SidePanel#default": {
       "actionIds": [
-        "menu:headerBar-demo"
+        "menu:HeaderBar",
+        "menu:ComponentForm"
       ]
     },
-    "Showcase#default": {
-      "content": {
-        "component": "EmptyShowcase"
-      }
+    "Layout#HeaderBar": {
+      "mode": "TwoColumns",
+      "header": { "component": "HeaderBar" },
+      "one": { "component": "SidePanel" },
+      "content": {}
     },
-    "Showcase#headerBar-demo": {
-      "content": {
-        "component": "HeaderBar",
-        "logo": {
-          "id": "header-bar-demo-logo",
-          "icon": "talend-world",
-          "isFull": false
-        },
-        "brand": {
-          "id": "header-bar-demo-brand",
-          "label": "Choose a product"
-        },
-        "products": {
-          "id": "header-bar-demo-brands"
-        },
-        "productsUrl": "/api/mock/header-bar/products-list",
-        "productsLang": "en-EN"
-      }
+    "Layout#ComponentForm": {
+      "mode": "TwoColumns",
+      "header": [{ "component": "HeaderBar" }],
+      "one": [{ "component": "SidePanel" }],
+      "content": [{ "component": "ComponentForm", "componentId": "default" }]
+    },
+    "ComponentForm#default": {
+      "definitionURL": "/api/v1/forms/example",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
     }
   },
   "routes": {
     "path": "/",
-    "component": "App",
+    "component": "AppLoader",
     "indexRoute": {
       "component": "Redirect"
     },
     "childRoutes": [
       {
-        "path": "home",
-        "component": "Showcase"
+        "path": "HeaderBar",
+        "component": "Layout",
+        "componentId": "HeaderBar"
       },
       {
-        "path": "headerbar-demo",
-        "component": "Showcase",
-        "componentId": "headerBar-demo"
+        "path": "ComponentForm",
+        "component": "Layout",
+        "componentId": "ComponentForm"
       },
       {
         "path": "*",

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
-import CellTitle from '../../VirtualizedList/CellTitle';
+import { cellType as titleCellType } from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
 function adaptOnSort(onChange) {
@@ -51,6 +51,7 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
+
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
 	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
@@ -83,7 +84,7 @@ export function ListToVirtualizedList(props) {
 						disableSort: column.disableSort,
 					};
 					if (titleProps && column.key === titleProps.key) {
-						Object.assign(cProps, CellTitle, {
+						Object.assign(cProps, listCellDictionary[titleCellType], {
 							columnData: titleProps,
 						});
 					} else if (supposedActions[column.key]) {

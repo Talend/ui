@@ -24,9 +24,11 @@ import Datalist from './Datalist';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
+import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -50,6 +52,8 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import RichError from './RichError';
+import RichTooltip from './RichTooltip';
 
 const {
 	Alert,
@@ -140,10 +144,12 @@ export {
 	Dialog,
 	DraggableComponent,
 	Drawer,
+	EditableText,
 	Emphasis,
 	Enumeration,
 	FilterBar,
 	HeaderBar,
+	HeaderTitle,
 	HttpError,
 	Icon,
 	IconsProvider,
@@ -157,6 +163,8 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	RichError,
+	RichTooltip,
 	SidePanel,
 	Status,
 	SubHeaderBar,

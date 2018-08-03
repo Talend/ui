@@ -88,8 +88,46 @@ export function filter(
 	return items;
 }
 
+/**
+ * apply query on every elements, return them on a single list,
+ * @return item in items found with the id
+ * @param {Object} options {query, items, idAttr }
+ */
+export function filterAll(
+	items = new List(),
+	query = '',
+	{ nameAttr = 'name', onMatch = noop } = {},
+	currentPosition = 'root',
+) {
+	const result = new List();
+
+	if (query) {
+		return items.reduce((acc, item) => {
+			const name = item.get(nameAttr, '');
+			const children = item.get('children', null);
+			let results = acc;
+			if (name.toLowerCase().includes(query.toLowerCase())) {
+				onMatch(item);
+				results = acc.push(item.set('currentPosition', currentPosition));
+			}
+			if (children) {
+				results = results.concat(
+					filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`),
+				);
+			}
+			return results;
+		}, result);
+	}
+
+	return result;
+}
+
 class SelectObject extends React.Component {
 	static displayName = DISPLAY_NAME;
+	static FILTER_MODE = {
+		ALL: 'ALL',
+		LEAF: 'LEAF',
+	};
 	static propTypes = {
 		...cmfConnect.propTypes,
 		sourceData: PropTypes.array,
@@ -98,6 +136,7 @@ class SelectObject extends React.Component {
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		breadCrumbsRootLabel: PropTypes.string,
+		filterMode: PropTypes.oneOfType(SelectObject.FILTER_MODE),
 	};
 	static defaultProps = {
 		sourceData: new Immutable.List(),
@@ -110,6 +149,7 @@ class SelectObject extends React.Component {
 		super(props);
 		this.state = {};
 		this.filter = filter;
+		this.filterAll = filterAll;
 		this.getById = getById;
 		this.onTreeClick = this.onTreeClick.bind(this);
 		this.onResultsClick = this.onResultsClick.bind(this);
@@ -126,6 +166,8 @@ class SelectObject extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
+		const filterMethod =
+			this.props.filterMode === SelectObject.FILTER_MODE.ALL ? this.filterAll : this.filter;
 		const matches = [];
 		let selectedId = state.get('selectedId') || props.selectedId;
 		function addMatch(item) {
@@ -133,7 +175,7 @@ class SelectObject extends React.Component {
 		}
 
 		if (props.query) {
-			props.filteredData = this.filter(
+			props.filteredData = filterMethod(
 				props.sourceData,
 				props.query,
 				{
