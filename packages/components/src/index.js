@@ -24,6 +24,7 @@ import Datalist from './Datalist';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
+import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
@@ -143,6 +144,7 @@ export {
 	Dialog,
 	DraggableComponent,
 	Drawer,
+	EditableText,
 	Emphasis,
 	Enumeration,
 	FilterBar,
