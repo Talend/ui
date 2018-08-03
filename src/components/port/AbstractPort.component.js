@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { select, event } from 'd3-selection';
 
+import { Port, Position } from '../../api';
 import { PortType } from '../../constants/flowdesigner.proptypes';
 
 class AbstractPort extends React.Component {
@@ -32,12 +33,12 @@ class AbstractPort extends React.Component {
 	}
 
 	render() {
-		const position = this.props.port.getPosition();
+		const position = Port.getPosition(this.props.port);
 		return (
 			<g>
 				<g
 					ref={c => (this.node = c)}
-					transform={`translate(${position.get('x')},${position.get('y')})`}
+					transform={`translate(${Position.getXCoordinate(position)},${Position.getYCoordinate(position)})`}
 				>
 					{this.props.children}
 				</g>

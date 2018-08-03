@@ -51,6 +51,8 @@
     "css-loader": "0.25.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "3.11.1",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-import": "2.2.0",

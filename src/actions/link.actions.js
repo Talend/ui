@@ -33,6 +33,7 @@ export const addLink = (
 
 /**
  * Ask for change of link target
+ * @deprecated
  * @param {string} linkId
  * @param {string} targetId - the target port identifier
  */
@@ -44,6 +45,7 @@ export const setLinkTarget = (linkId, targetId) => ({
 
 /**
  * Ask for change of link source
+ * @deprecated
  * @param {string} linkId
  * @param {string} sourceId - the source port identifier
  */
@@ -55,6 +57,7 @@ export const setLinkSource = (linkId, sourceId) => ({
 
 /**
  * Ask to set graphical attributes on link
+ * @deprecated
  * @param {string} linkId
  * @param {Object} attr
  */
@@ -66,6 +69,7 @@ export const setLinkGraphicalAttributes = (linkId, graphicalAttributes) => ({
 
 /**
  * Ask to remove an graphical attribute on target link
+ * @deprecated
  * @param {string} linkId
  * @param {string} attrKey - the key of the attribute to be removed
  */
@@ -77,6 +81,7 @@ export const removeLinkGraphicalAttribute = (linkId, graphicalAttributesKey) => 
 
 /**
  * Ask to set data on link
+ * @deprecated
  * @param {string} linkId
  * @param {Object} attr
  */
@@ -88,6 +93,7 @@ export const setLinkData = (linkId, data) => ({
 
 /**
  * Ask to remove a data on target link
+ * @deprecated
  * @param {string} linkId
  * @param {string} attrKey - the key of the attribute to be removed
  */
@@ -99,6 +105,7 @@ export const removeLinkData = (linkId, dataKey) => ({
 
 /**
  * Ask for link removal
+ * @deprecated use deleteLink action
  * @param {string} linkId
  * @return {Object}
  */

@@ -1,5 +1,3 @@
-/* @flow */
-
 import { Record, Map } from 'immutable';
 
 import type { Position, Size, PortDirection, PortRecordType } from '../flow-typed';
@@ -19,6 +17,7 @@ export const SizeRecord = Record({
 	height: undefined,
 });
 
+/** TO BE REMOVED */
 export const NodeGraphicalAttributes = Record({
 	position: new PositionRecord(),
 	nodeSize: new SizeRecord(),
@@ -27,29 +26,29 @@ export const NodeGraphicalAttributes = Record({
 	description: '',
 	properties: new Map(),
 });
-
+/** TO BE REMOVED */
 export const NodeData = Record({
 	properties: new Map(),
 	label: '',
 	description: '',
 	datasetInfo: new Map(),
 });
-
+/** TO BE REMOVED */
 export const LinkGraphicalAttributes = Record({
 	linkType: undefined,
 	properties: new Map(),
 });
-
+/** TO BE REMOVED */
 export const LinkData = Record({
 	properties: new Map(),
 });
-
+/** TO BE REMOVED */
 export const PortGraphicalAttributes = Record({
 	position: PositionRecord,
 	portType: undefined,
 	properties: new Map(),
 });
-
+/** TO BE REMOVED */
 export const PortData = Record({
 	properties: new Map(),
 	flowType: undefined,
@@ -58,8 +57,21 @@ export const PortData = Record({
 export const NodeRecord = Record({
 	id: undefined,
 	type: undefined,
-	data: new NodeData(),
-	graphicalAttributes: new NodeGraphicalAttributes(),
+	data: new Map({
+		properties: new Map(),
+		label: '',
+		description: '',
+		datasetInfo: new Map(),
+	}),
+	graphicalAttributes: new Map({
+		position: new PositionRecord(),
+		nodeSize: new SizeRecord(),
+		nodeType: undefined,
+		label: '',
+		description: '',
+		properties: new Map(),
+	}),
+	/** methods TO BE REMOVED */
 	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
@@ -75,8 +87,14 @@ export const LinkRecord = Record({
 	id: undefined,
 	sourceId: undefined,
 	targetId: undefined,
-	data: new LinkData(),
-	graphicalAttributes: new LinkGraphicalAttributes(),
+	data: new Map({
+		properties: new Map(),
+	}),
+	graphicalAttributes: new Map({
+		linkType: undefined,
+		properties: new Map(),
+	}),
+	/** methods TO BE REMOVED */
 	getLinkType(): string {
 		return this.getIn(['graphicalAttributes', 'linkType']);
 	},
@@ -85,8 +103,16 @@ export const LinkRecord = Record({
 export const PortRecord = Record({
 	id: undefined,
 	nodeId: undefined,
-	data: new PortData(),
-	graphicalAttributes: new PortGraphicalAttributes(),
+	data: new Map({
+		properties: new Map(),
+		flowType: undefined,
+	}),
+	graphicalAttributes: new Map({
+		position: PositionRecord,
+		portType: undefined,
+		properties: new Map(),
+	}),
+	/** methods TO BE REMOVED */
 	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},

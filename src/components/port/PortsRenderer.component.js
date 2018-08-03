@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { mapOf } from 'react-immutable-proptypes';
 
+import { Port } from '../../api';
 import { PortType } from '../../constants/flowdesigner.proptypes';
 
 class PortsRenderer extends React.Component {
@@ -16,9 +17,9 @@ class PortsRenderer extends React.Component {
 	}
 
 	renderPort(port) {
-		const type = port.getIn(['graphicalAttributes', 'portType']);
+		const type = Port.getComponentType(port);
 		const ConcretePort = this.props.portTypeMap[type].component;
-		return <ConcretePort key={port.id} port={port} />;
+		return <ConcretePort key={Port.getId(port)} port={port} />;
 	}
 
 	render() {

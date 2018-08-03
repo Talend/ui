@@ -4,3 +4,4 @@ jsconfig.json
 node_modules/
 coverage/
 lib/
+docs/

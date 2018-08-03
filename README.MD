@@ -60,5 +60,51 @@ Action type constants are exposed for the sake of listening to them and add new 
 Exemple a reducer listening for 'DATASTREAM_DESIGNER_NODE_SELECTED' could trigger a form so you can edit the node data.
 
 ## Redux API
+the idea is to reduce the surface api of the redux action, encouraging batching multiple transformation in a transaction
+### Graph
+- Graph
+  - transaction [List<Action<Node|Link|Port>>]
+- Node
+  - add NodeRecord
+  - update NodeRecord
+  - delete NodeRecord
+  - moveStart nodeId Position
+  - move nodeId Vector
+  - moveEnd nodeId Position
+- Link
+  - add LinkRecord
+  - update LinkRecord
+  - delete LinkRecord
+- Port
+  - add PortRecord
+  - update PortRecord
+  - delete PortRecord
 
+each of those action are intended to be used with the apply function
 
+Each of those action are backed by the graph API wich check graph integrity, if one action fail to apply the whole transaction is void and the original graph is returned, one or many errors are logged.
+
+special action for movement are kept for optimisation purpose, nothing prevent the user to update position via the `update` action
+
+#### deprecate
+removeNode
+removeNodeData
+setNodeData
+removeNodeGraphicalAttribute
+setNodeGraphicalAttributes
+setNodeType
+setNodeSize
+moveNodeToEnd
+applyMovementTo
+moveNodeTo
+startMoveNodeTo
+
+## Element API
+
+### Node
+### Link
+### Port
+### Graph
+### Data
+### Size
+### Position

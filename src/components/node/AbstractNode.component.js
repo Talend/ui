@@ -7,8 +7,8 @@ import { Map } from 'immutable';
 
 import invariant from 'invariant';
 
+import { Node, Port, Position, Size } from '../../api';
 import { NodeType } from '../../constants/flowdesigner.proptypes';
-import { PositionRecord } from '../../constants/flowdesigner.model';
 import { GRID_SIZE, PORT_SINK, PORT_SOURCE } from '../../constants/flowdesigner.constants';
 
 export const ABSTRACT_NODE_INVARIANT = `<AbstractNode /> should not be used without giving it a children
@@ -22,13 +22,12 @@ ex: <AbstractNode><rect /></AbstractNode>`;
  */
 function calculatePortPosition(ports, nodePosition, nodeSize) {
 	let portsWithPosition = new Map();
-	const emitterPorts = ports.filter(
-		port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SOURCE,
-	);
-	const sinkPorts = ports.filter(
-		port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SINK,
-	);
-	const range = [nodePosition.get('y'), nodePosition.get('y') + nodeSize.get('height')];
+	const emitterPorts = ports.filter(port => Port.getTopology(port) === PORT_SOURCE);
+	const sinkPorts = ports.filter(port => Port.getTopology(port) === PORT_SINK);
+	const range = [
+		Position.getYCoordinate(nodePosition),
+		Position.getYCoordinate(nodePosition) + Size.getHeight(nodeSize),
+	];
 	const scaleYEmitter = scaleLinear()
 		.domain([0, emitterPorts.size + 1])
 		.range(range);
@@ -39,44 +38,45 @@ function calculatePortPosition(ports, nodePosition, nodeSize) {
 	let sinkNumber = 0;
 	emitterPorts
 		.sort((a, b) => {
-			if (a.getIndex() < b.getIndex()) {
+			if (Port.getIndex(a) < Port.getIndex(b)) {
 				return -1;
 			}
-			if (a.getIndex() > b.getIndex()) {
+			if (Port.getIndex(a) > Port.getIndex(b)) {
 				return 1;
 			}
 			return 0;
 		})
 		.forEach(port => {
 			emitterNumber += 1;
-			const position = new PositionRecord({
-				x: nodePosition.get('x') + nodeSize.get('width'),
-				y: scaleYEmitter(emitterNumber),
-			});
+
+			const position = Position.create(
+				Position.getXCoordinate(nodePosition) + Size.getWidth(nodeSize),
+				scaleYEmitter(emitterNumber),
+			);
 			portsWithPosition = portsWithPosition.set(
-				port.id,
-				port.setIn(['graphicalAttributes', 'position'], position),
+				Port.getId(port),
+				Port.setPosition(port, position),
 			);
 		});
 	sinkPorts
 		.sort((a, b) => {
-			if (a.getIndex() < b.getIndex()) {
+			if (Port.getIndex(a) < Port.getIndex(b)) {
 				return -1;
 			}
-			if (a.getIndex() > b.getIndex()) {
+			if (Port.getIndex(a) > Port.getIndex(b)) {
 				return 1;
 			}
 			return 0;
 		})
 		.forEach(port => {
 			sinkNumber += 1;
-			const position = new PositionRecord({
-				x: nodePosition.get('x'),
-				y: scaleYSink(sinkNumber),
-			});
+			const position = Position.create(
+				Position.getXCoordinate(nodePosition),
+				scaleYSink(sinkNumber),
+			);
 			portsWithPosition = portsWithPosition.set(
-				port.id,
-				port.setIn(['graphicalAttributes', 'position'], position),
+				Port.getId(port),
+				Port.setPosition(port, position),
 			);
 		});
 	return portsWithPosition;
@@ -120,8 +120,8 @@ class AbstractNode extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const nextPosition = nextProps.node.getPosition();
-		if (nextPosition !== this.props.node.getPosition()) {
+		const nextPosition = Node.getPosition(nextProps.node);
+		if (nextPosition !== Node.getPosition(this.props.node)) {
 			this.d3Node.data([nextPosition]);
 		}
 	}
@@ -187,8 +187,8 @@ class AbstractNode extends React.Component {
 	getEventPosition() {
 		if (this.props.snapToGrid) {
 			return {
-				x: event.x - event.x % GRID_SIZE,
-				y: event.y - event.y % GRID_SIZE,
+				x: event.x - (event.x % GRID_SIZE),
+				y: event.y - (event.y % GRID_SIZE),
 			};
 		}
 		return { x: event.x, y: event.y };
@@ -204,7 +204,7 @@ class AbstractNode extends React.Component {
 
 	render() {
 		const { node } = this.props;
-		const { x, y } = node.getPosition();
+		const { x, y } = Node.getPosition(node);
 		const transform = `translate(${x}, ${y})`;
 		return (
 			<g>

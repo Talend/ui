@@ -30,6 +30,9 @@ export const addNode = (nodeId, nodeType, { data = {}, graphicalAttributes = {} 
 	graphicalAttributes,
 });
 
+/**
+ * @deprecated use moveStart action
+ */
 export function startMoveNodeTo(nodeId, nodePosition) {
 	return {
 		type: FLOWDESIGNER_NODE_MOVE_START,
@@ -40,6 +43,7 @@ export function startMoveNodeTo(nodeId, nodePosition) {
 
 /**
  * Ask for moving node
+ * @deprecated use move action
  * @param {string} nodeId - identifier of the targeted node
  * @param {{x: number, y: number}} nodePosition - the new absolute position of the node
  * @return {Object}
@@ -54,6 +58,7 @@ export function moveNodeTo(nodeId, nodePosition) {
 
 /**
  * Ask to apply the same movement to multiples nodesId
+ * @deprecated
  * @param nodesId {array<string>} list of nodeId
  * @param movement {Object} relative movement to apply on all nodes
  *
@@ -67,6 +72,7 @@ export const applyMovementTo = (nodesId, movement) => ({
 
 /**
  * When node movement is done
+ * @deprecated use moveEnd action
  * @param {string} nodeId - identifier of the targeted node
  * @param {{x: number, y: number}} nodePosition - the new absolute position of the node
  * @return {Object}
@@ -81,6 +87,7 @@ export function moveNodeToEnd(nodeId, nodePosition) {
 
 /**
  * set node size
+ * @deprecated
  * @param {string} nodeId
  * @param {{height: number, width: number}} nodeSize
  * @return {Object}
@@ -93,6 +100,7 @@ export const setNodeSize = (nodeId, nodeSize) => ({
 
 /**
  * Ask for node creation and injection into current dataflow
+ * @deprecated
  * @param {string} nodeId
  * @param {string} nodeType
  * @return {Object}
@@ -107,6 +115,7 @@ export function setNodeType(nodeId, nodeType) {
 
 /**
  * Give the ability to a graphical attribute onto the node
+ * @deprecated
  * @param {string} nodeId
  * @param {Object} graphicalAttributes
  */
@@ -118,6 +127,7 @@ export const setNodeGraphicalAttributes = (nodeId, graphicalAttributes) => ({
 
 /**
  * Ask to remove a graphical attribute on target node
+ * @deprecated
  * @param {string} nodeId
  * @param {string} graphicalAttributesKey - the key of the attribute to be removed
  */
@@ -129,6 +139,7 @@ export const removeNodeGraphicalAttribute = (nodeId, graphicalAttributesKey) => 
 
 /**
  * Give the ability to set data onto a node
+ * @deprecated
  * @param {string} nodeId
  * @param {Object} data
  * @param {boolean} bySubmit Flag to indicates that the action was triggered by a manual user action
@@ -142,6 +153,7 @@ export const setNodeData = (nodeId, data, bySubmit) => ({
 
 /**
  * Ask to remove a graphical attribute on target node
+ * @deprecated
  * @param {string} nodeId
  * @param {string} dataKey - the key of the data to be removed
  */
@@ -153,6 +165,7 @@ export const removeNodeData = (nodeId, dataKey) => ({
 
 /**
  * Ask for removal of target node and each ports/links attached to it
+ * @deprecated use deleteNode action
  * @param {string} nodeId
  */
 export const removeNode = nodeId => ({

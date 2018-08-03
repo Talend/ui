@@ -30,6 +30,9 @@ export function addPort(
 	};
 }
 
+/**
+ * @deprecated
+ */
 export function addPorts(nodeId: Id, ports: Array<Port>): PortAction {
 	return {
 		type: 'FLOWDESIGNER_PORT_ADDS',
@@ -40,6 +43,7 @@ export function addPorts(nodeId: Id, ports: Array<Port>): PortAction {
 
 /**
  * return an action to set port attributes
+ * @deprecated
  * @param {string} portId
  * @param {Object} graphicalAttributes
  */
@@ -53,6 +57,7 @@ export function setPortGraphicalAttribute(portId: Id, graphicalAttributes: {}): 
 
 /**
  * Ask to remove an attribute on target port
+ * @deprecated
  * @param {string} portId
  * @param {string} graphicalAttributesKey - the key of the attribute to be removed
  */
@@ -69,6 +74,7 @@ export function removePortGraphicalAttribute(
 
 /**
  * return an action to set port attributes
+ * @deprecated
  * @param {string} portId
  * @param {Object} graphicalAttributes
  */
@@ -82,6 +88,7 @@ export function setPortdata(portId: Id, data: Object): PortAction {
 
 /**
  * Ask to remove an attribute on target port
+ * @deprecated
  * @param {string} portId
  * @param {string} datasKey - the key of the attribute to be removed
  */
@@ -95,6 +102,7 @@ export function removePortData(portId: Id, dataKey: string): PortAction {
 
 /**
  * return an action to remove port and all attached links
+ * @deprecated use deletePort action
  * @param {string} portId
  */
 export function removePort(portId: Id): PortAction {

@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import memoize from 'lodash/memoize';
 import { Map } from 'immutable';
 
+import { Port } from '../api';
 import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 const getNodes = state => state.get('nodes');
@@ -27,7 +28,7 @@ export function inPort(state, nodeId) {
  * @return {getPortsForNode}
  */
 export const getPortsForNode = createSelector(getPorts, ports =>
-	memoize(nodeId => ports.filter(port => port.nodeId === nodeId)),
+	memoize(nodeId => ports.filter(port => Port.getNodeId(port) === nodeId)),
 );
 
 /**
@@ -36,7 +37,7 @@ export const getPortsForNode = createSelector(getPorts, ports =>
  * @return Map
  */
 export const getEmitterPorts = createSelector(getPorts, ports =>
-	ports.filter(port => port.graphicalAttributes.getIn(['properties', 'type']) === PORT_SOURCE),
+	ports.filter(port => Port.getTopology(port) === PORT_SOURCE),
 );
 
 /**
@@ -45,21 +46,21 @@ export const getEmitterPorts = createSelector(getPorts, ports =>
  * @return Map
  */
 export const getSinkPorts = createSelector(getPorts, ports =>
-	ports.filter(port => port.graphicalAttributes.getIn(['properties', 'type']) === PORT_SINK),
+	ports.filter(port => Port.getTopology(port) === PORT_SINK),
 );
 
 /**
  * Create and return function who will return all Emitter ports for a specific node
  */
 export const getEmitterPortsForNode = createSelector(getEmitterPorts, ports => nodeId =>
-	ports.filter(port => port.nodeId === nodeId),
+	ports.filter(port => Port.getNodeId(port) === nodeId),
 );
 
 /**
  * Create and return function who will return all Sink ports for a specific node
  */
 export const getSinkPortsForNode = createSelector(getSinkPorts, ports => nodeId =>
-	ports.filter(port => port.nodeId === nodeId),
+	ports.filter(port => Port.getNodeId(port) === nodeId),
 );
 
 /**
@@ -69,7 +70,7 @@ export const getSinkPortsForNode = createSelector(getSinkPorts, ports => nodeId 
  * @return Map
  */
 export const getFreeSinkPorts = createSelector([getSinkPorts, getLinks], (sinkPorts, links) =>
-	sinkPorts.filter(sinkPort => !links.find(link => link.targetId === sinkPort.id)),
+	sinkPorts.filter(sinkPort => !links.find(link => link.targetId === Port.getId(sinkPort))),
 );
 
 /**
@@ -81,7 +82,9 @@ export const getFreeSinkPorts = createSelector([getSinkPorts, getLinks], (sinkPo
 export const getFreeEmitterPorts = createSelector(
 	[getEmitterPorts, getLinks],
 	(emitterPorts, links) =>
-		emitterPorts.filter(emitterPort => !links.find(link => link.sourceId === emitterPort.id)),
+		emitterPorts.filter(
+			emitterPort => !links.find(link => link.sourceId === Port.getId(emitterPort)),
+		),
 );
 
 /**
@@ -95,5 +98,5 @@ export const getActionKeyedPorts = createSelector([getFreeSinkPorts], freeSinkPo
 );
 
 export const getDetachedPorts = createSelector([getPorts, getNodes], (ports, nodes) =>
-	ports.filter(port => !nodes.find(node => node.id === port.nodeId)),
+	ports.filter(port => !nodes.find(node => node.id === Port.getNodeId(port))),
 );
