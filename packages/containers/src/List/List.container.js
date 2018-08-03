@@ -3,6 +3,10 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import Immutable from 'immutable';
 import { List as Component } from '@talend/react-components';
+import CellTitleRenderer, {
+	cellType as cellTitleType,
+} from '@talend/react-components/lib/VirtualizedList/CellTitle';
+import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
@@ -21,6 +25,22 @@ export const DEFAULT_STATE = new Immutable.Map({
 	filterDocked: true,
 });
 
+function getActionProps(action) {
+	if (typeof action === 'object') {
+		return action;
+	}
+	return { actionId: action };
+}
+
+const ConnectedCellTitle = cmfConnect({})(CellTitle);
+
+export const connectedCellDictionary = {
+	[cellTitleType]: {
+		...CellTitleRenderer,
+		cellRenderer: props => <ConnectedCellTitle {...props} />,
+	},
+};
+
 /**
  * merge props.items with actions
  * @param  {Object} context [description]
@@ -35,7 +55,7 @@ export function getItems(context, props) {
 	);
 }
 
-class List extends React.Component {
+export default class List extends React.Component {
 	static displayName = 'Container(List)';
 	static propTypes = {
 		actions: PropTypes.shape({
@@ -43,6 +63,12 @@ class List extends React.Component {
 			left: PropTypes.arrayOf(PropTypes.string),
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
+		multiSelectActions: PropTypes.shape({
+			title: PropTypes.string,
+			left: PropTypes.arrayOf(PropTypes.string),
+			right: PropTypes.arrayOf(PropTypes.string),
+		}),
+		idKey: PropTypes.string,
 		list: PropTypes.shape({
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
@@ -54,6 +80,7 @@ class List extends React.Component {
 				onChange: PropTypes.func,
 			}),
 		}),
+		cellDictionary: PropTypes.object,
 		displayMode: PropTypes.string,
 		items: ImmutablePropTypes.list.isRequired,
 		...cmfConnect.propTypes,
@@ -76,7 +103,12 @@ class List extends React.Component {
 		this.onFilterToggle = this.onFilterToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onPaginationChange = this.onPaginationChange.bind(this);
+		// this.onChangePage = this.onChangePage.bind(this);
+		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
+		this.onToggleAllMultiSelection = this.onToggleAllMultiSelection.bind(this);
+		this.isSelected = this.isSelected.bind(this);
 	}
+
 	onSelectSortBy(event, payload) {
 		this.props.setState({
 			sortOn: payload.field,
@@ -118,6 +150,38 @@ class List extends React.Component {
 		this.props.setState({ displayMode: payload });
 	}
 
+	onToggleMultiSelection(event, data) {
+		const selectedItems = this.getSelectedItems();
+		const dataIndex = selectedItems.indexOf(data[this.props.idKey]);
+		if (dataIndex > -1) {
+			this.props.setState({
+				selectedItems: selectedItems.splice(dataIndex, 1),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: selectedItems.push(data[this.props.idKey]),
+			});
+		}
+	}
+
+	onToggleAllMultiSelection() {
+		const selectedItems = this.getSelectedItems();
+		const items = this.props.items;
+		if (selectedItems.size !== items.size) {
+			this.props.setState({
+				selectedItems: items.map(item => item.get(this.props.idKey)),
+			});
+		} else {
+			this.props.setState({
+				selectedItems: new Immutable.List([]),
+			});
+		}
+	}
+
+	getSelectedItems() {
+		return this.props.state.get('selectedItems', new Immutable.List());
+	}
+
 	getGenericDispatcher(property) {
 		return (event, data) => {
 			this.props.dispatchActionCreator(property, event, data, this.context);
@@ -125,9 +189,8 @@ class List extends React.Component {
 	}
 
 	isSelected(item) {
-		return this.props.state
-			.get('selectedItems')
-			.some(itemKey => itemKey === item.get(this.props.idKey));
+		const selectedItems = this.getSelectedItems();
+		return selectedItems.some(itemKey => itemKey === item[this.props.idKey]);
 	}
 
 	render() {
@@ -143,6 +206,20 @@ class List extends React.Component {
 		if (!props.columns) {
 			props.columns = [];
 		}
+		// TODO: ensure this is supported
+		// props.list.items = items;
+		// if (!props.list.columns) {
+		// 	props.list.columns = [];
+		// }
+		// props.list.sort = {
+		// 	field: state.sortOn,
+		// 	isDescending: !state.sortAsc,
+		// 	onChange: this.onSelectSortBy,
+		// };
+		// if (!props.list.itemProps) {
+		// 	props.list.itemProps = {};
+		// }
+
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
@@ -151,10 +228,53 @@ class List extends React.Component {
 			props.actions = {};
 			const actions = this.props.actions;
 			if (actions.left) {
-				props.actions.left = actions.left.map(action => ({ actionId: action }));
+				props.actions.left = actions.left.map(getActionProps)
 			}
 			if (actions.right) {
-				props.actions.right = actions.right.map(action => ({ actionId: action }));
+				props.actions.right = actions.right.map(getActionsProps)
+			}
+		}
+
+		const cellDictionary = { ...connectedCellDictionary };
+		if (props.cellDictionary) {
+			Object.keys(props.cellDictionary).reduce((accumulator, key) => {
+				const current = props.cellDictionary[key];
+				// eslint-disable-next-line no-param-reassign
+				accumulator[key] = {
+					...omit(current, ['component']),
+					cellRenderer: props.getComponent(current.component),
+				};
+				return accumulator;
+			}, cellDictionary);
+		} else {
+			props.cellDictionary = cellDictionary;
+		}
+
+		if (props.headerDictionary) {
+			props.headerDictionary = Object.keys(props.headerDictionary).reduce(
+				(accumulator, key) => {
+					const current = props.headerDictionary[key];
+					// eslint-disable-next-line no-param-reassign
+					accumulator[key] = {
+						...omit(current, ['component']),
+						headerRenderer: props.getComponent(current.component),
+					};
+					return accumulator;
+				},
+				{},
+			);
+		}
+
+		// toolbar
+		const actions = this.props.actions;
+		if (props.toolbar) {
+			if (props.toolbar.display) {
+				props.toolbar.display = {
+					...props.toolbar.display,
+					onChange: (event, data) => {
+						this.onSelectDisplayMode(event, data);
+					},
+				};
 			}
 			if (actions.title) {
 				props.onTitleClick = this.getGenericDispatcher(actions.title);
@@ -164,6 +284,36 @@ class List extends React.Component {
 			}
 			if (actions.editCancel) {
 				props.onTitleEditCancel = this.getGenericDispatcher(actions.editCancel);
+			}
+
+			// props.toolbar.actionBar = { actions: {}, multiSelectActions: {} };
+
+			// settings up multi selection
+			if (props.multiSelectActions && props.idKey) {
+				props.onToggle = this.onToggleMultiSelection;
+				props.onToggleAll = this.onToggleAllMultiSelection;
+				props.isSelected = this.isSelected;
+				props.selectedCount = this.getSelectedItems().size;
+			}
+
+			const multiSelectActions = this.props.multiSelectActions;
+			if (multiSelectActions) {
+				if (multiSelectActions.left) {
+					props.multiSelectActions.left = multiSelectActions.left.map(getActionProps);
+				}
+				if (multiSelectActions.right) {
+					props.multiSelectActions.right = multiSelectActions.right.map(getActionProps);
+				}
+			}
+			if (actions) {
+				if (actions.left) {
+					props.actions.left = actions.left.map(action => ({ actionId: action }));
+				}
+				if (actions.right) {
+					props.actions.right = actions.right.map(action => ({
+						actionId: action,
+					}));
+				}
 			}
 		}
 
@@ -191,5 +341,3 @@ class List extends React.Component {
 		return <Component {...props} />;
 	}
 }
-
-export default List;

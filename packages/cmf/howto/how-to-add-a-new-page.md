@@ -20,8 +20,7 @@ The examples below configure
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { api } from 'react-cmf';
+import cmf, { cmfConnect } from 'react-cmf';
 
 /**
  * Pure component
@@ -50,6 +49,7 @@ class MyContainer extends React.Component {
     static propTypes = {
         label: PropTypes.string.isRequired,
         link: PropTypes.bool,
+        ...cmfConnect.propTypes,
     }
 
     onClick(event) {
@@ -73,7 +73,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 // connect your container to redux
-export default cmfConnect(mapStateToProps)(MyContainer);
+export default cmfConnect({mapStateToProps})(MyContainer);
 ```
 
 To learn more on that take a look at [cmfConnect](../src/cmfConnect.md)
@@ -83,10 +83,10 @@ To learn more on that take a look at [cmfConnect](../src/cmfConnect.md)
 In your app configuration phase, _configure.js_
 
 ```javascript
-import { api } from 'react-cmf';
+import cmf from 'react-cmf';
 import MyContainer from '../components/my-container';
 
-api.component.register('MyContainer', MyContainer);
+cmf.component.register('MyContainer', MyContainer);
 ```
 
 ## Register your action creator
@@ -94,10 +94,10 @@ api.component.register('MyContainer', MyContainer);
 In your app configuration phase, _configure.js_
 
 ```javascript
-import { api } from 'react-cmf';
+import cmf from 'react-cmf';
 import myAction from '../actions/my-action';
 
-api.actionCreator.register('my:action', myAction);
+cmf.actionCreator.register('my:action', myAction);
 ```
 
 ## Add your route Settings configuration

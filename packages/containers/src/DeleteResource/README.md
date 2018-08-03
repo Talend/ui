@@ -5,6 +5,21 @@ It better to read the following documentation to avoid headache and hair loss.
 
 ## Breaking changes log
 
+Before this component use the sagaRouter, so you may have the following kind of configuration:
+
+```javascript
+import { DeleteResource } from '@talend/react-containers';
+export default {
+    '/foo/:id/delete': DeleteResource.sagas({
+        uri: '/api/v1',
+        resourceType: 'datasets',
+        routerParamAttribute: 'id',
+    })
+}
+```
+
+Those informaton should now be provided directly in props of the DeleteResource.
+
 ## Content
 
 This package provides tools to deal with resource deletion :
@@ -39,25 +54,23 @@ First you have to association the display of the component with a route
         {
             "path": ":id/delete",
             "component": "DeleteResource",
+            "componentId": "connections"
         }
     ]
 }
 ```
 
-### association of the saga with a route
+Then add information as props
 
-next you have to associate the saga with the same route using SagaRouter present in cmf package
-
-```javascript
-const route = {
-	'/connections/:id/delete': DeleteResource.sagas(
-        {
-            uri,
-            resourceType,
-            routerParamAttribute: 'id',
+```JSON
+{
+    "props":{
+        "DeleteResource#connections":{
+            "uri": "/api/v1",
+            "resourceType": "connections"
         }
-    ),
-};
+    }
+}
 ```
 
 #### Params
@@ -65,53 +78,33 @@ const route = {
 Required :
 
 * **uri** : is the base url where the deletion service will make a request to delete the resource
-* **resourceType** : is the name of the resource category
+* **resourceType** : is the name of the collection where to find the resource
 * **redirectUrl** : is the url to redirect when delete is complete or cancel action is triggered
 
 Optional :
+
 * **resourceLabel** : is the parameter to show the type to remove if the resourceType is not readable by the user
-* **routerParamAttribute** : is the attribute defined in the route to give the resource id
+* **routerParamAttribute** : is the attribute defined in the route to give the resource id. default is 'id'
 * **resourcePath** : array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
 * **female** : Only for i18n, allow to set the i18nkey to tell of the resource type if female or not
+* **collectionId** : specify the collection which stores resource. if not provided, then use `resourceType` as collection name
+* **resourceUri** : is the backend api to delete resource. if not provided, then `${uri}/${resourceType}/${id}` will be used.
 
-example with resourceType only
-```javascript
-const route = {
-	'/connections/:id/delete': DeleteResource.sagas(
-        {
-            uri,
-            resourceType:'resourceType',
-            redirectUrl:'/connections',
-            routerParamAttribute: 'id',
-        }
-    ),
-};
-```
+
+Example with resourcePath
 
 ```JSON
 {
-    cmf: {
-        collection: {
-            resourceType: List<Resource>
+    "props":{
+        "DeleteResource#connections":{
+            "uri": "/api/v1",
+            "resourceType": "connections",
+            "resourcePath": ["data"],
+            "routerParamAttribute": "deletedId",
         }
     }
 }
-```
-
-example with resourcePath
-
-```javascript
-const route = {
-	'/connections/:deletedId/delete': DeleteResource.sagas(
-        {
-            uri,
-            resourceType: 'resourceType',
-            resourcePath: ['data'],
-            routerParamAttribute: 'deletedId',
-        }
-    ),
-};
 ```
 
 ```JSON
@@ -129,36 +122,38 @@ const route = {
 
 
 and also use it to append to the uri to call
+
 ```javascript
 `${uri}/${resourceType}/${id}`
 ```
 
-### general configuration
-In your cmf application configuration file, you should map the action creators to a cmf interactive action
-
-And default view where you map those to props that will be injected, the connected modal component will automatically retrieve this configuration, to properly display a message and bind redux action to cmf interactive actions
-
+Example with collectionId:
+as default, DeleteResource component use `resourceType` as collection name when remove resource from Redux store.
+but sometimes, the collection name can be different with `resourceType`. then you can specify collection with prop `collectionId`.
 ```JSON
 {
-    "actions": {
-        "dialog:delete:validate": {
-            "id": "dialog:delete:validate",
-            "label": "Yes",
-            "bsStyle": "danger",
-            "actionCreator": "deleteResource:validate"
-        },
-        "dialog:delete:cancel": {
-            "id": "dialog:delete:cancel",
-            "label": "No",
-            "actionCreator": "deleteResource:cancel"
-        }
-    },
-    "ref": {
-        "Container(DeleteResource)#default": {
-            "header": "Are you sure you want to delete this object ?",
-            "cancel-action": "dialog:delete:cancel",
-            "validate-action": "dialog:delete:validate"
+    "props":{
+        "DeleteResource#connections":{
+            "uri": "/api/v1",
+            "resourceType": "collections",
+            "collectionId": "items",
         }
     }
 }
 ```
+so DeleteResource will try to remove resource from `items` collection in store.
+
+Example with resourceUri:
+DeleteResource will use `${uri}/${resourceType}/${id}` as backend api for deleting resource, as default.
+If you have a different uri structure, then you can specify it with `resourceUri`.
+```JSON
+{
+    "props":{
+        "DeleteResource#run-profiles":{
+            "resourceType": "run-profiles",
+            "resourceUri": "/ipaas-services/run-profiles/type/id"
+        }
+    }
+}
+```
+then DeleteResource will send request to `/ipaas-services/run-profiles/type/id` to delete resource.

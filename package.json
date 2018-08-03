@@ -12,7 +12,7 @@
     "tmp-promise": "^1.0.4"
   },
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
+    "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build-icons": "lerna exec --scope=@talend/icons -- yarn run prepublish && lerna exec --scope=@talend/react-components -- yarn test -- -u",
     "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test",
@@ -22,13 +22,13 @@
     "start": "lerna exec -- yarn start",
     "watch": "npm-watch",
     "publish": "lerna publish --force-publish=*",
-    "build-storybook": "npm run test:demo && export ACTION='test:demo' && export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
+    "build-storybook": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers",
-    "extract-i18n-components": "i18next packages/components/src -r --default-values -o i18n/components -n tui-components -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
-    "extract-i18n-forms": "i18next packages/forms/src -r --default-values -o i18n/forms -n tui-forms -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
-    "extract-i18n-containers": "i18next packages/containers/src -r --default-values -o i18n/containers -n tui-containers -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
+    "extract-i18n-components": "i18next packages/components/src -r --default-values -o i18n/components -n tui-components -l en --write-old false --fileFilter \"*.js\" --directoryFilter \"!__snapshots__\"",
+    "extract-i18n-forms": "i18next packages/forms/src -r --default-values -o i18n/forms -n tui-forms -l en --write-old false --fileFilter \"*.js\" --directoryFilter \"!__snapshots__\"",
+    "extract-i18n-containers": "i18next packages/containers/src -r --default-values -o i18n/containers -n tui-containers -l en --write-old false --fileFilter \"*.js\" --directoryFilter \"!__snapshots__\""
   },
   "watch": {
     "build-cmf": {
@@ -81,8 +81,8 @@
     "packages/forms",
     "packages/generator",
     "packages/icons",
-    "packages/logging",
     "packages/sagas",
+    "packages/storybook-cmf",
     "packages/theme"
   ]
 }

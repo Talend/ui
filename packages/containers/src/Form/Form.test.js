@@ -43,7 +43,7 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform />);
 		expect(wrapper.find('TalendForm').length).toBe(1);
 		expect(wrapper.find('TalendUIForm').length).toBe(1);
 	});
@@ -74,6 +74,8 @@ describe('Container(Form)', () => {
 				return null;
 			},
 		};
+		const customValidation = (schema, value) =>
+			value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
 		const wrapper = mount(
 			<Container
 				formId="test-form"
@@ -83,9 +85,21 @@ describe('Container(Form)', () => {
 				formProps={{ other: true }}
 				uiform
 				customFormats={customFormats}
+				customValidation={customValidation}
 			/>,
 		).find('TalendUIForm');
 		expect(wrapper.props().customFormats).toEqual(customFormats);
+		expect(wrapper.props().customValidation).toEqual(customValidation);
+	});
+
+	it('should use props.onError', () => {
+		const onErrors = jest.fn();
+		const form = new Container({
+			state: fromJS({ data: { schema: true } }),
+			onErrors,
+		});
+		form.onErrors(null, { foo: 'bar' });
+		expect(onErrors.mock.calls[0][1]).toEqual({ foo: 'bar' });
 	});
 
 	it('should use props.onSubmit', () => {

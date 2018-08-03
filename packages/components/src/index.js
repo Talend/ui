@@ -22,10 +22,13 @@ import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
+import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
+import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -38,6 +41,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
+import Table from './Table';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -48,6 +52,8 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
+import RichError from './RichError';
+import RichTooltip from './RichTooltip';
 
 const {
 	Alert,
@@ -106,7 +112,6 @@ const {
 	Tab,
 	TabContainer,
 	TabContent,
-	Table,
 	TabPane,
 	Tabs,
 	Thumbnail,
@@ -116,6 +121,7 @@ const {
 
 const BootstrapBadge = bootstrap.Badge;
 const BootstrapCheckbox = bootstrap.Checkbox;
+const BootstrapTable = bootstrap.Table;
 
 export {
 	Action,
@@ -136,11 +142,14 @@ export {
 	ConfirmDialog,
 	Datalist,
 	Dialog,
+	DraggableComponent,
 	Drawer,
+	EditableText,
 	Emphasis,
 	Enumeration,
 	FilterBar,
 	HeaderBar,
+	HeaderTitle,
 	HttpError,
 	Icon,
 	IconsProvider,
@@ -154,10 +163,13 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	RichError,
+	RichTooltip,
 	SidePanel,
 	Status,
 	SubHeaderBar,
 	TabBar,
+	Table,
 	Toggle,
 	TooltipTrigger,
 	TreeView,
@@ -171,6 +183,7 @@ export {
 	Alert,
 	BootstrapBadge,
 	BootstrapCheckbox,
+	BootstrapTable,
 	Breadcrumb,
 	BreadcrumbItem,
 	Button,
@@ -227,7 +240,6 @@ export {
 	Tab,
 	TabContainer,
 	TabContent,
-	Table,
 	TabPane,
 	Tabs,
 	Thumbnail,

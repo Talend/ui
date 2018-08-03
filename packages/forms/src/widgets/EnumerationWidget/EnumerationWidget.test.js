@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { Button } from 'react-bootstrap';
 import toJsonWithoutI18n from '../../../__mocks__/props-without-i18n';
 import TranslatedEnumeration, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
 
@@ -25,6 +26,39 @@ describe('EnumerationWidget', () => {
 			/>,
 		);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('.tc-enumeration-header')
+				.at(0)
+				.find(Button).length,
+		).toBe(2);
+	});
+
+	it('should be in disabled mode', () => {
+		// given
+		const wrapper = mount(
+			<EnumerationWidget
+				uiSchema={{
+					disabled: true,
+				}}
+				formData={[
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
+				]}
+			/>,
+		);
+		expect(
+			wrapper
+				.find('.tc-enumeration-header')
+				.at(0)
+				.find(Button).length,
+		).toBe(1);
+		expect(
+			wrapper
+				.find('.tc-enumeration-item-actions')
+				.at(0)
+				.find(Button).length,
+		).toBe(0);
 	});
 
 	it('should be in add mode', () => {
@@ -72,6 +106,12 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('.tc-enumeration-item-actions')
+				.at(0)
+				.find(Button).length,
+		).toBe(2);
 	});
 
 	it('should delete an item', () => {
@@ -151,18 +191,19 @@ describe('EnumerationWidget', () => {
 			/>,
 		);
 		wrapper
-			.find('.tc-enumeration-item-label')
+			.find('button.tc-enumeration-item-label')
 			.at(0)
 			.simulate('click');
 		wrapper
-			.find('.tc-enumeration-item-label')
+			.find('button.tc-enumeration-item-label')
 			.at(1)
 			.simulate('click', { ctrlKey: true });
 
 		// when click on trash icon
 		wrapper
+			.find('.tc-enumeration-header')
 			.find('.btn-link')
-			.at(5)
+			.at(0)
 			.simulate('click');
 
 		// then
@@ -224,7 +265,7 @@ describe('EnumerationWidget', () => {
 
 		// should reset all items to default mode
 		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
-		expect(wrapper.find('.tc-enumeration-item .btn-default').length).toBe(2);
+		expect(wrapper.find('.tc-enumeration-item button.tc-enumeration-item-label').length).toBe(2);
 	});
 
 	describe('upload file', () => {

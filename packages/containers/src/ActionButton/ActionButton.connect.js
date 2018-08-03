@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { api, cmfConnect, Inject } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { ActionButton } from '@talend/react-components';
 
 export function mapStateToProps(state, ownProps) {
 	let props = {};
 	if (ownProps.actionId) {
-		props = api.action.getActionInfo(
+		props = cmf.action.getActionInfo(
 			{
-				registry: api.registry.getRegistry(),
+				registry: cmf.registry.getRegistry(),
 				store: {
 					getState: () => state,
 				},
@@ -28,15 +28,7 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export function ContainerActionButton(props) {
 	const newProps = Object.assign({}, props);
 
-	if (typeof props.overlayComponent === 'string' && props.overlayComponent) {
-		newProps.overlayComponent = (
-			<Inject component={props.overlayComponent} {...props.overlayComponentProps} />
-		);
-
-		delete newProps.overlayComponentProps;
-	}
-
-	if (!newProps.onClick) {
+	if (!newProps.onClick && (props.actionCreator || props.payload)) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
 				props.dispatchActionCreator(props.actionCreator, event, data);
@@ -62,8 +54,6 @@ ContainerActionButton.propTypes = {
 	dispatch: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,
 	model: PropTypes.object,
-	overlayComponent: PropTypes.string,
-	overlayComponentProps: PropTypes.object,
 	payload: PropTypes.object,
 };
 

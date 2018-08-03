@@ -69,7 +69,8 @@ $tc-toggle-color: #555964 !default;
 	&.info,
 	&.success,
 	&.danger,
-	&.muted {
+	&.muted,
+	&.warning {
 		padding-left: 1px;
 		border-left: 4px solid;
 	}
@@ -88,6 +89,10 @@ $tc-toggle-color: #555964 !default;
 
 	&.muted {
 		border-left-color: $gray;
+	}
+
+	&.warning {
+		border-left-color: $brand-warning;
 	}
 
 	.toggle svg {
@@ -165,6 +170,7 @@ $tc-toggle-color: #555964 !default;
 
 		.content {
 			display: flex;
+			flex-wrap: wrap;
 			width: 100%;
 
 			.label {

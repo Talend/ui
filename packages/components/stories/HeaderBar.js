@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -117,6 +118,7 @@ const props = {
 	},
 	help: {
 		id: 'header-help',
+		icon: 'talend-question-circle',
 		onClick: action('onHelpClick'),
 	},
 	user: {
@@ -158,9 +160,9 @@ const props = {
 const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 	<I18nextProvider i18n={i18n}>
 		<div>
+			<IconsProvider defaultIcons={icons}/>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider defaultIcons={icons} />
 		</div>
 	</I18nextProvider>
 ));
@@ -180,6 +182,7 @@ const infoStyle = stylesheet => ({
 });
 
 decoratedStories
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		return <HeaderBar {...headerProps} />;

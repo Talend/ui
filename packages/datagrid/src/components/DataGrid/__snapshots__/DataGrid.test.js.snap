@@ -28,6 +28,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
     rowHeight={39}
     rowSelection="single"
     suppressDragLeaveHidesColumns={true}
+    suppressPropertyNamesCheck={true}
     tabToNextCell={[Function]}
   />
 </div>
@@ -52,7 +53,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
         Object {
           "@talend-quality@": Object {
             "-1": Object {
-              "percentage": 0,
+              "percentage": 62,
               "total": 62,
             },
             "0": Object {
@@ -60,19 +61,20 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
               "total": 0,
             },
             "1": Object {
-              "percentage": 0,
+              "percentage": 38,
               "total": 38,
             },
           },
           "avro": Object {
-            "@talend-quality@": Object {
-              "-1": 62,
-              "0": 0,
-              "1": 38,
-            },
             "doc": "Nom de la gare",
             "name": "field0",
             "type": Object {
+              "@talend-quality@": Object {
+                "-1": 62,
+                "0": 0,
+                "1": 38,
+                "total": 100,
+              },
               "dqType": "FR Commune",
               "dqTypeKey": "FR_COMMUNE",
               "type": "string",
@@ -84,7 +86,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerName": "Nom de la gare",
           "lockPinned": true,
           "minWidth": 30,
-          "type": "FR Commune*",
+          "type": "FR Commune",
           "valueGetter": [Function],
           "width": 150,
         },
@@ -99,19 +101,20 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
               "total": 0,
             },
             "1": Object {
-              "percentage": 0,
+              "percentage": 100,
               "total": 100,
             },
           },
           "avro": Object {
-            "@talend-quality@": Object {
-              "-1": 0,
-              "0": 0,
-              "1": 100,
-            },
             "doc": "Code UIC",
             "name": "field1",
             "type": Object {
+              "@talend-quality@": Object {
+                "-1": 0,
+                "0": 0,
+                "1": 100,
+                "total": 100,
+              },
               "dqType": "",
               "dqTypeKey": "",
               "type": "int",
@@ -282,6 +285,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
     rowHeight={39}
     rowSelection="single"
     suppressDragLeaveHidesColumns={true}
+    suppressPropertyNamesCheck={true}
     tabToNextCell={[Function]}
   />
 </div>

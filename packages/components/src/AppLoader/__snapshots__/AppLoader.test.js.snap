@@ -2,9 +2,9 @@
 
 exports[`AppLoader should render 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
+  aria-label="Loading application"
   className="tc-app-loader-container"
+  role="status"
 >
   <div
     className="tc-app-loader-icon"

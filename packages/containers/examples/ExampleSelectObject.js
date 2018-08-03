@@ -50,5 +50,11 @@ const ExampleSelectObject = {
 			<SelectObject {...props} schema={schema} />
 		</div>
 	),
+	'tree with filter mode set to ALL': () => (
+		<div>
+			<IconsProvider />
+			<SelectObject {...props} filterMode={SelectObject.FILTER_MODE.ALL} />
+		</div>
+	),
 };
 export default ExampleSelectObject;

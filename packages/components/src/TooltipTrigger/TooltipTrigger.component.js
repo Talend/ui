@@ -3,6 +3,7 @@ import React, { cloneElement } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import uuid from 'uuid';
 import classNames from 'classnames';
+import keycode from 'keycode';
 import theme from './TooltipTrigger.scss';
 
 function getTooltipClass() {
@@ -23,42 +24,89 @@ const props = {
 class TooltipTrigger extends React.Component {
 	static displayName = 'TooltipTrigger';
 
-	constructor(props) {
-		super(props);
-		this.onMouseOver = this.onMouseOver.bind(this);
-		this.state = {
-			hovered: false,
-			id: uuid.v4(),
-		};
-	}
+	state = {
+		hovered: false,
+		id: uuid.v4(),
+	};
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
-			this.state.hovered !== nextState.hovered ||
+			this.state !== nextState ||
 			this.props.children !== nextProps.children ||
 			this.props.label !== nextProps.label
 		);
 	}
 
-	onMouseOver() {
-		if (!this.state.hovered) {
-			this.setState({ hovered: true });
+	/**
+	 * Activate the tooltip when the children is hovered
+	 */
+	onMouseOver = (...args) => {
+		this.setState({ hovered: true });
+		if (this.props.children.props.onMouseOver) {
+			this.props.children.props.onMouseOver(...args);
 		}
-	}
+	};
+
+	/**
+	 * Activate the tooltip when the children is focused
+	 */
+	onFocus = (...args) => {
+		this.setState({ hovered: true });
+		if (this.props.children.props.onFocus) {
+			this.props.children.props.onFocus(...args);
+		}
+	};
+
+	/**
+	 * Hide the tooltip between mouseDown & mouseUp
+	 */
+	onMouseDown = (...args) => {
+		this.overlay.handleDelayedHide();
+		if (this.props.children.props.onMouseDown) {
+			this.props.children.props.onMouseDown(...args);
+		}
+	};
+
+	/**
+	 * Show the tooltip after mouse up
+	 */
+	onMouseUp = (...args) => {
+		this.overlay.handleDelayedShow();
+		if (this.props.children.props.onMouseUp) {
+			this.props.children.props.onMouseUp(...args);
+		}
+	};
+
+	/**
+	 * when activate an element, hide the tooltip between keydown & keyup
+	 * @param {object} event the keyDown event
+	 */
+	onKeyDown = event => {
+		if (event.which === keycode.codes.enter || event.which === keycode.codes.space) {
+			this.overlay.handleDelayedHide();
+		}
+	};
+
+	/**
+	 * when activate an element, hide the tooltip between keydown & keyup
+	 * @param {object} event the keyup event
+	 */
+	onKeyUp = event => {
+		if (event.which === keycode.codes.enter || event.which === keycode.codes.space) {
+			this.overlay.handleDelayedShow();
+		}
+	};
 
 	render() {
+		const child = React.Children.only(this.props.children);
+
 		if (!this.state.hovered) {
-			const child = React.Children.only(this.props.children);
-			const childProps = child.props;
-			const triggerProps = Object.assign(
-				{
-					onMouseOver: this.onMouseOver,
-					onFocus: this.onMouseOver,
-				},
-				childProps,
-			);
-			return cloneElement(child, triggerProps);
+			return cloneElement(child, {
+				onMouseOver: this.onMouseOver,
+				onFocus: this.onFocus,
+			});
 		}
+
 		const tooltip = (
 			<Tooltip className={getTooltipClass()} id={this.state.id}>
 				{this.props.label}
@@ -66,8 +114,21 @@ class TooltipTrigger extends React.Component {
 		);
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
 		return (
-			<OverlayTrigger placement={this.props.tooltipPlacement} overlay={tooltip} delayShow={400}>
-				{this.props.children}
+			<OverlayTrigger
+				ref={ref => {
+					this.overlay = ref;
+				}}
+				placement={this.props.tooltipPlacement}
+				overlay={tooltip}
+				delayShow={400}
+				animation={false}
+			>
+				{cloneElement(child, {
+					onMouseDown: this.onMouseDown,
+					onMouseUp: this.onMouseUp,
+					onKeyDown: this.onKeyDown,
+					onKeyUp: this.onKeyUp,
+				})}
 			</OverlayTrigger>
 		);
 	}
@@ -75,7 +136,7 @@ class TooltipTrigger extends React.Component {
 
 TooltipTrigger.propTypes = {
 	children: PropTypes.element,
-	label: PropTypes.string,
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 

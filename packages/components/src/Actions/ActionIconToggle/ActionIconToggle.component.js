@@ -37,6 +37,7 @@ function ActionIconToggle(props) {
 				className={cn}
 				bsStyle="link"
 				aria-label={label}
+				aria-pressed={active}
 			>
 				<Icon name={icon} />
 			</Button>
@@ -55,6 +56,7 @@ ActionIconToggle.propTypes = {
 };
 
 ActionIconToggle.defaultProps = {
+	active: false,
 	tooltipPlacement: 'top',
 };
 

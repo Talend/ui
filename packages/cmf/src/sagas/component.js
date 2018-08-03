@@ -1,4 +1,3 @@
-import invariant from 'invariant';
 import { fork, cancel, take, takeEvery } from 'redux-saga/effects';
 import CONST from '../constant';
 import registry from '../registry';
@@ -24,18 +23,34 @@ export function get(id, context) {
 
 export const registerMany = registry.getRegisterMany(register);
 
+export const isActionCancelable = startAction => action =>
+	action.type === `${CONST.WILL_UNMOUNT_SAGA_STOP}_${startAction.saga}` &&
+	startAction.event.componentId === action.event.componentId;
+
 export function* onSagaStart(action) {
-	const saga = get(action.saga);
-	if (!saga) {
-		invariant(
-			process.env.NODE_ENV === 'production',
-			`You cannot register undefined as saga for id "${action.saga}"`,
-		);
-	} else {
-		const task = yield fork(saga, action.props);
-		yield take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_${action.saga}`);
-		yield cancel(task);
+	const isSagaInfoAnObject = typeof action.saga === 'object';
+	const sagaId = isSagaInfoAnObject ? action.saga.id : action.saga;
+
+	if (!sagaId) {
+		throw new Error(`no saga id found in action: ${JSON.stringify(action)}`);
 	}
+
+	const sagaArgs = isSagaInfoAnObject ? action.saga.args : [];
+	const saga = get(sagaId);
+	if (!saga) {
+		throw new Error(`saga not found: ${sagaId}`);
+	}
+
+	const task = yield fork(
+		saga,
+		{
+			...action.props, // deprecated: you should only read { componentId }
+			componentId: action.componentId,
+		},
+		...sagaArgs,
+	);
+	yield take(isActionCancelable(action));
+	yield cancel(task);
 }
 
 export function* handle() {

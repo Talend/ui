@@ -9,7 +9,9 @@ $tc-list-table-header-color: $black !default;
 		display: flex;
 		align-items: center;
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
 			background: $tc-list-row-hover-bg;
 		}
 	}

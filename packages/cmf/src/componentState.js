@@ -21,7 +21,7 @@ class MyComponent extends React.Component {
 export default cmfConnect({})(MyComponent);
  */
 
-export function getStateProps(state, name, id) {
+export function getStateProps(state, name, id = 'default') {
 	return {
 		state: state.cmf.components.getIn([name, id]),
 	};

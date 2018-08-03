@@ -15,11 +15,12 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 	let content;
 
 	if (data.loading) {
-		content = <Skeleton />;
+		content = <Skeleton key="1" />;
 	} else {
 		content = [
-			<QualityIndicator qualityIndex={value.quality} />,
+			<QualityIndicator key="2" qualityIndex={value.quality} />,
 			<AvroRenderer
+				key="3"
 				colDef={colDef}
 				data={value}
 				avroRenderer={avroRenderer}
@@ -28,7 +29,11 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 		];
 	}
 
-	return <div className={classNames(theme['td-cell'], 'td-cell')}>{content}</div>;
+	return (
+		<div aria-label={value.value} className={classNames(theme['td-cell'], 'td-cell')}>
+			{content}
+		</div>
+	);
 }
 
 DefaultCellRenderer.defaultProps = {

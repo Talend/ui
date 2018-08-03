@@ -4,6 +4,7 @@ import a11y from 'react-a11y';
 import { Provider } from 'react-redux';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Well from 'react-bootstrap/lib/Well';
 
@@ -15,6 +16,7 @@ import i18n from './../stories/config/i18n';
 import { formReducer } from '../src/UIForm';
 
 import jsonStories from './jsonStories';
+import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
@@ -33,43 +35,56 @@ a11y(ReactDOM);
 
 const forStoryDecorator = story => (
 	<I18nextProvider i18n={i18n}>
-	<Provider store={store}>
-		<div className="container-fluid">
-			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
-				<div className="btn-group">
-					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
+		<Provider store={store}>
+			<div className="container-fluid">
+				<nav
+					style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}
+				>
+					<div className="btn-group">
+						<button className="btn" onClick={() => i18n.changeLanguage('en')}>
+							Default (en)
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
+							fr
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('it')}>
+							it
+						</button>
+					</div>
+				</nav>
+				<div
+					className="col-md-offset-1 col-md-10"
+					style={{ marginTop: '20px', marginBottom: '20px' }}
+				>
+					<Well>{story()}</Well>
 				</div>
-			</nav>
-			<div
-				className="col-md-offset-1 col-md-10"
-				style={{ marginTop: '20px', marginBottom: '20px' }}
-			>
-				<Well>
-					{story()}
-				</Well>
 			</div>
-		</div>
-	</Provider>
+		</Provider>
 	</I18nextProvider>
 );
 
 const coreConceptsStories = storiesOf('Core concepts', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsetsStories = storiesOf('Core fieldsets', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsStories = storiesOf('Core fields', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
 const oldStories = storiesOf('Migration', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
+
+const layout = storiesOf('Layout', module);
+layouts.forEach(info => layout.add(info.name, info.story));
 
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {

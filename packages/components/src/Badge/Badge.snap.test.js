@@ -10,9 +10,7 @@ describe('BadgeSpec', () => {
 			label: 'Label',
 		};
 		// when
-		const wrapper = renderer.create(
-			<Badge {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Badge {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -24,9 +22,7 @@ describe('BadgeSpec', () => {
 			onDelete: () => {},
 		};
 		// when
-		const wrapper = renderer.create(
-			<Badge {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Badge {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -39,9 +35,7 @@ describe('BadgeSpec', () => {
 			onDelete: () => {},
 		};
 		// when
-		const wrapper = renderer.create(
-			<Badge {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Badge {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -55,9 +49,7 @@ describe('BadgeSpec', () => {
 			id: 'delete',
 		};
 		// when
-		const wrapper = renderer.create(
-			<Badge {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Badge {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -70,9 +62,7 @@ describe('BadgeSpec', () => {
 			id: 'select',
 		};
 		// when
-		const wrapper = renderer.create(
-			<Badge {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Badge {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -85,9 +75,7 @@ describe('BadgeSpec', () => {
 			onDelete: () => {},
 		};
 		// when
-		const wrapper = renderer.create(
-			<Badge {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Badge {...props} />).toJSON();
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});

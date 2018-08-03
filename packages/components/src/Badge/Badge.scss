@@ -38,7 +38,7 @@ $tc-badge-margin: $padding-smaller !default;
 
 			overflow: hidden;
 			text-overflow: ellipsis;
-			white-space: nowrap;
+			white-space: pre;
 		}
 
 		&:hover {
@@ -94,6 +94,10 @@ $tc-badge-margin: $padding-smaller !default;
 
 			.tc-badge-category {
 				background-color: $concrete;
+			}
+
+			& + span {
+				display: flex;
 			}
 		}
 	}

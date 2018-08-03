@@ -1,0 +1,41 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "A code form",
+    "properties": {
+      "codeWidgetSmall": {
+        "type": "string"
+      },
+      "codeWidgetFontSize": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "codeWidgetSmall",
+      "widget": "code",
+      "description": "This widget with custom prop 'height: 100px'",
+      "title": "Code small",
+      "options": {
+        "language": "python",
+        "height": "100px"
+      }
+    },
+    {
+      "key": "codeWidgetFontSize",
+      "widget": "code",
+      "description": "This widget with custom prop 'fontSize: 30'",
+      "title": "Big font size",
+      "options": {
+        "language": "python",
+        "height": "200px",
+        "fontSize": 30
+      }
+    }
+  ],
+  "properties": {
+    "codeWidgetSmall": "#hello comment",
+    "codeWidgetFontSize": "#hello big font"
+  }
+}

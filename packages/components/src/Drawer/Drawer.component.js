@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
+import omit from 'lodash/omit';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -158,16 +160,20 @@ DrawerFooter.propTypes = {
 	children: PropTypes.node,
 };
 
-function combinedFooterActions(onCancelAction, footerActions) {
-	if (!onCancelAction) {
-		return footerActions;
+export function combinedFooterActions(onCancelAction, footerActions, activeTabItem = {}) {
+	const enhancedFooterActions = Object.assign({}, omit(footerActions, 'actions'));
+	enhancedFooterActions.actions = {};
+	['left', 'center', 'right'].forEach(item => {
+		enhancedFooterActions.actions[item] = [
+			...get(footerActions, `actions.${item}`, []),
+			...get(activeTabItem, `actions.${item}`, []),
+		];
+	});
+
+	if (onCancelAction && !onCancelAction.hideInFooter) {
+		enhancedFooterActions.actions.left.unshift(onCancelAction);
 	}
-	const enhancedFooterActions = Object.assign({}, footerActions);
-	if (footerActions && footerActions.actions && footerActions.actions.left) {
-		enhancedFooterActions.actions.left.push(onCancelAction);
-	} else {
-		enhancedFooterActions.actions.left = [].push(onCancelAction);
-	}
+
 	return enhancedFooterActions;
 }
 
@@ -182,12 +188,27 @@ function Drawer({
 	tabs,
 	withTransition,
 	getComponent,
+	selectedTabKey,
 }) {
 	if (!children) {
 		return null;
 	}
 
 	const TabBarComponent = Inject.get(getComponent, 'TabBar', TabBar);
+
+	let activeTab = {};
+	let activeTabItem = [];
+	let customTabs;
+	if (tabs && tabs.items.length > 0) {
+		customTabs = Object.assign({}, tabs);
+
+		if (selectedTabKey) {
+			customTabs.selectedKey = selectedTabKey;
+			activeTab = tabs.items.find(tab => tab.key === selectedTabKey);
+		}
+		activeTabItem = get(activeTab, 'footerActions', {});
+	}
+
 	return (
 		<DrawerContainer
 			stacked={stacked}
@@ -199,7 +220,7 @@ function Drawer({
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBarComponent
-						{...tabs}
+						{...customTabs}
 						className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])}
 					/>
 				</div>
@@ -213,7 +234,7 @@ function Drawer({
 					)}
 				>
 					<ActionBar
-						{...combinedFooterActions(onCancelAction, footerActions)}
+						{...combinedFooterActions(onCancelAction, footerActions, activeTabItem)}
 						className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
 					/>
 				</div>
@@ -236,6 +257,7 @@ Drawer.propTypes = {
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
 	getComponent: PropTypes.func,
+	selectedTabKey: PropTypes.string,
 };
 
 Drawer.defaultProps = {

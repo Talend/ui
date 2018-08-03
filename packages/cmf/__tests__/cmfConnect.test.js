@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
+import bsonObjectid from 'bson-objectid';
 import expression from '../src/expression';
 import mock from '../src/mock';
 import { mapStateToViewProps } from '../src/settings';
@@ -13,8 +14,10 @@ import cmfConnect, {
 	getDispatchToProps,
 	getMergeProps,
 } from '../src/cmfConnect';
+import component from '../src/component';
 
-import api from '../src/api';
+jest.mock('bson-objectid');
+bsonObjectid.mockImplementation(() => 42);
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -129,7 +132,7 @@ describe('cmfConnect', () => {
 			const state = mock.state();
 			const mapStateToProps = jest.fn();
 			const ownProps = { view: 'simple' };
-			const props = getStateToProps({
+			getStateToProps({
 				state,
 				ownProps,
 				mapStateToProps,
@@ -182,7 +185,7 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.dispatch).toBe(dispatch);
-			expect(props.getComponent).toBe(api.component.get);
+			expect(props.getComponent).toBe(component.get);
 			expect(typeof props.dispatchActionCreator).toBe('function');
 			expect(mapDispatchToProps.mock.calls[0][0]).toBe(dispatch);
 			expect(mapDispatchToProps.mock.calls[0][1]).toBe(ownProps);
@@ -196,6 +199,11 @@ describe('cmfConnect', () => {
 
 	describe('Higher Order Component', () => {
 		const Button = ({ onClick, label }) => <button onClick={onClick}>{label}</button>;
+		Button.propTypes = {
+			onClick: PropTypes.func,
+			label: PropTypes.string,
+		};
+		Button.displayName = 'Button';
 		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
@@ -208,6 +216,73 @@ describe('cmfConnect', () => {
 			expect(wrapper.props()).toMatchSnapshot();
 		});
 
+		it('should expose getState static function to get the state', () => {
+			expect(typeof CMFConnectedButton.getState).toBe('function');
+			const state = mock.state();
+			state.cmf.components = fromJS({
+				Button: {
+					default: { foo: 'bar' },
+					other: { foo: 'baz' },
+				},
+			});
+			expect(CMFConnectedButton.getState(state).get('foo')).toBe('bar');
+			expect(CMFConnectedButton.getState(state, 'other').get('foo')).toBe('baz');
+		});
+		it('should expose setStateAction static function to get the redux action to setState', () => {
+			expect(typeof CMFConnectedButton.setStateAction).toBe('function');
+			const state = new Map({ foo: 'bar' });
+			let action = CMFConnectedButton.setStateAction(state);
+			expect(action).toEqual({
+				type: 'Button.setState',
+				cmf: {
+					componentState: {
+						componentName: 'Button',
+						componentState: state,
+						key: 'default',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+			});
+			action = CMFConnectedButton.setStateAction(state, 'foo', 'MY_ACTION');
+			expect(action.type).toBe('MY_ACTION');
+			expect(action.cmf.componentState.key).toBe('foo');
+		});
+
+		it('should expose setStateAction static function to get the redux action to setState', () => {
+			expect(typeof CMFConnectedButton.setStateAction).toBe('function');
+			const state = mock.state();
+			state.cmf.components = fromJS({
+				Button: {
+					default: { foo: 'foo' },
+					other: { foo: 'baz' },
+				},
+			});
+			let actionCreator = CMFConnectedButton.setStateAction(prevState =>
+				prevState.set('foo', 'bar'),
+			);
+			expect(typeof actionCreator).toBe('function');
+			let action = actionCreator(null, () => state);
+			expect(action).toMatchObject({
+				type: 'Button.setState',
+				cmf: {
+					componentState: {
+						componentName: 'Button',
+						key: 'default',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+			});
+			expect(action.cmf.componentState.componentState.get('foo')).toBe('bar');
+			actionCreator = CMFConnectedButton.setStateAction(
+				prevState => prevState.set('foo', 'baz'),
+				'other',
+				'MY_ACTION',
+			);
+			action = actionCreator(null, () => state);
+			expect(action.type).toBe('MY_ACTION');
+			expect(action.cmf.componentState.key).toBe('other');
+			expect(action.cmf.componentState.componentState.get('foo')).toBe('baz');
+		});
 		it('should support no context in dispatchActionCreator', () => {
 			const TestComponent = props => <div className="test-component" {...props} />;
 			TestComponent.displayName = 'TestComponent';
@@ -268,6 +343,7 @@ describe('cmfConnect', () => {
 			const callDidMountActionCreator = props.dispatchActionCreator.mock.calls[1];
 			expect(callSagaActionCreator[0]).toBe('cmf.saga.start');
 			expect(callSagaActionCreator[1]).toEqual({
+				componentId: '42',
 				type: 'DID_MOUNT',
 			});
 			expect(callDidMountActionCreator[0]).toBe('hello');
@@ -293,8 +369,11 @@ describe('cmfConnect', () => {
 			instance.componentDidMount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.start',
-				{ type: 'DID_MOUNT' },
-				instance.props,
+				{ type: 'DID_MOUNT', componentId: '42' },
+				expect.objectContaining({
+					componentId: 'default',
+					saga: 'hello',
+				}),
 				instance.context,
 			);
 		});
@@ -313,7 +392,7 @@ describe('cmfConnect', () => {
 			instance.componentWillUnmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.stop',
-				{ type: 'WILL_UNMOUNT' },
+				{ type: 'WILL_UNMOUNT', componentId: '42' },
 				instance.props,
 				instance.context,
 			);

@@ -3,6 +3,7 @@ import CellTitle from '../CellTitle';
 import VirtualizedList from '../VirtualizedList.component';
 import {
 	getCellRenderer,
+	getCellType,
 	getId,
 	getColumnData,
 	getDataKey,
@@ -12,14 +13,31 @@ import {
 	extractSpecialFields,
 	renderCell,
 } from './gridrow';
-import { internalIds } from './constants';
+import { internalIds, listTypes } from './constants';
 import collection from '../collection';
 
+const { LARGE } = listTypes;
+
 describe('gridrow', () => {
+	describe('#getCellType', () => {
+		it('should return cellType', () => {
+			// given
+			const cellType = 'cellType';
+			const field = {
+				props: { cellType },
+			};
+
+			// when
+			const result = getCellType(field);
+
+			// then
+			expect(result).toBe(cellType);
+		});
+	});
 	describe('#getCellRenderer', () => {
 		it('should return cell renderer from content field props', () => {
 			// given
-			const cellRenderer = () => (<div />);
+			const cellRenderer = () => <div />;
 			const field = {
 				props: { cellRenderer },
 			};
@@ -161,28 +179,10 @@ describe('gridrow', () => {
 		it('should extract title and selection content fields', () => {
 			// given
 			const fields = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					width={50}
-				/>,
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-					width={350}
-					{...CellTitle}
-				/>,
-				<VirtualizedList.Content
-					label=""
-					dataKey="actions"
-					width={120}
-				/>,
-				<VirtualizedList.Content
-					id={internalIds.rowSelector}
-					label=""
-					dataKey=""
-					width={50}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content label="Name" dataKey="name" width={350} {...CellTitle} />,
+				<VirtualizedList.Content label="" dataKey="actions" width={120} />,
+				<VirtualizedList.Content id={internalIds.rowSelector} label="" dataKey="" width={50} />,
 			];
 			const parent = {
 				props: { children: fields },
@@ -206,22 +206,27 @@ describe('gridrow', () => {
 			// given
 			/* eslint-disable react/prop-types */
 			function cellRenderer(props) {
-				return (<div>
-					cellData: {props.cellData}
-					columnData: {JSON.stringify(props.columnData)}
-					dataKey: {props.dataKey}
-					rowData: {JSON.stringify(props.rowData)}
-					rowIndex: {props.rowIndex}
-				</div>);
+				return (
+					<div>
+						cellData: {props.cellData}
+						columnData: {JSON.stringify(props.columnData)}
+						dataKey: {props.dataKey}
+						rowData: {JSON.stringify(props.rowData)}
+						rowIndex: {props.rowIndex}
+						type: {props.type}
+					</div>
+				);
 			}
 			/* eslint-enable react/prop-types */
-			const field = (<VirtualizedList.Content
-				label="Id"
-				dataKey="id"
-				width={50}
-				cellRenderer={cellRenderer}
-				columnData={{ custom: 'lol' }}
-			/>);
+			const field = (
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					width={50}
+					cellRenderer={cellRenderer}
+					columnData={{ custom: 'lol' }}
+				/>
+			);
 			const parent = {
 				props: {
 					id: 'my-id',
@@ -230,7 +235,7 @@ describe('gridrow', () => {
 			};
 
 			// when
-			const result = renderCell(1, parent, field);
+			const result = renderCell(1, parent, field, LARGE);
 
 			// then
 			expect(result).toMatchSnapshot();

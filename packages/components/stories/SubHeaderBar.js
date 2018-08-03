@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 
 const viewProps = {
@@ -62,6 +63,7 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addWithInfo('with default', () => (
 		<div>
 			<IconsProvider />

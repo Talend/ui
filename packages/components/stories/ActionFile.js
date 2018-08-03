@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
@@ -18,6 +19,7 @@ const myAction = {
 };
 
 storiesOf('ActionFile', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
@@ -37,17 +39,11 @@ storiesOf('ActionFile', module)
 			<p>Reverse display</p>
 			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
 			<p>Transform icon</p>
-			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
+			<Action id="reverseDisplay" {...myAction} iconTransform="rotate-180" />
 			<p>Custom tooltip</p>
-			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
+			<Action id="default" {...myAction} tooltipLabel="Custom label here" />
+			<p>Bootstrap style</p>
+			<Action id="default" {...myAction} bsStyle="primary" tooltipLabel="Custom label here" />
+			<Action id="default" {...myAction} bsStyle="default btn-inverse" tooltipLabel="Custom label here" />
 		</div>
-	))
-	.addWithPropsCombinations('combinations', Action, {
-		label: ['Click me'],
-		icon: ['talend-dataprep'],
-		onClick: [action('You clicked me')],
-		hideLabel: [false, true],
-		inProgress: [true, false],
-		disabled: [false, true],
-		tooltipLabel: [undefined, 'Tooltip custom label'],
-	});
+	));

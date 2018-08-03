@@ -13,9 +13,16 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
 
-		+ form > input {
-			margin-left: $padding-normal;
-			width: auto;
+		+ .edit-form {
+			padding-left: $padding-normal;
+		}
+	}
+
+	.edit-form {
+		flex-grow: 1;
+
+		> input {
+			width: 100%;
 		}
 	}
 
@@ -25,15 +32,20 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		display: block;
 
 		padding: 0 $padding-normal;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
-		font-weight: 600;
+		font-weight: 700;
 		letter-spacing: inherit;
 		text-transform: none;
 		text-align: left;
+
+		> span {
+			display: inline;
+		}
 
 		&:first-child {
 			padding-left: 0;
@@ -47,38 +59,67 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 }
 
 // manage actions display on row hover
-:global(.tc-list-large-row):hover :global(.tc-list-title .tc-actions),
-:global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .tc-actions) {
-	opacity: 1;
-	transition: opacity 0.15s ease-in;
-	visibility: visible;
+:global(.tc-list-large-row),
+:global(.ReactVirtualized__Table__row) {
+	&:hover,
+	&:focus,
+	&:global(.ally-focus-within) {
+		:global(.tc-list-title .cell-title-actions) {
+			opacity: 1;
+			transition: opacity 0.15s ease-in;
+			visibility: visible;
+		}
+	}
 }
 
-:global(.tc-list-large-row.active):hover :global(.tc-list-title .tc-actions),
-:global(.ReactVirtualized__Table__row.active):hover :global(.tc-list-title .tc-actions) {
-	background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+:global(.tc-list-large-row.active),
+:global(.ReactVirtualized__Table__row.active) {
+	&:hover,
+	&:focus,
+	&:global(.ally-focus-within) {
+		:global(.tc-list-title .cell-title-actions) {
+			background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+		}
+	}
 }
 
-:global(.tc-list-large-row.selected):hover :global(.tc-list-title .tc-actions),
-:global(.ReactVirtualized__Table__row.selected):hover :global(.tc-list-title .tc-actions) {
-	background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
+:global(.tc-list-large-row.selected),
+:global(.ReactVirtualized__Table__row.selected) {
+	&:hover,
+	&:focus,
+	&:global(.ally-focus-within) {
+		:global(.tc-list-title .cell-title-actions) {
+			background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
+		}
+	}
 }
 
 // START : hack to allow actions dropdown to display
 // there are important to override some inline styles injected by react-virtualized... sorry !
 // sass-lint:disable no-important
-:global(.ReactVirtualized__Grid__innerScrollContainer):hover,
-:global(.ReactVirtualized__Table__row):hover,
-:global(.tc-list-title-cell),
-:global(.tc-list-title-cell) :global(.tc-actions.btn-group) {
-	overflow: visible !important;
+:global(.ReactVirtualized__Grid__innerScrollContainer),
+:global(.ReactVirtualized__Table__row) {
+	&:hover,
+	&:focus,
+	&:global(.ally-focus-within) {
+		overflow: visible !important;
+
+		:global(.tc-list-title-cell),
+		:global(.tc-list-title-cell) :global(.tc-actions.btn-group) {
+			overflow: visible !important;
+		}
+	}
 }
 
-:global(.ReactVirtualized__Table__row):hover {
-	/* avoid scrolling over x axis */
-	width: auto !important;
-	right: 0 !important;
-	padding: 0 !important;
+:global(.ReactVirtualized__Table__row) {
+	&:hover,
+	&:focus,
+	&:global(.ally-focus-within) {
+		/* avoid scrolling over x axis */
+		width: auto !important;
+		right: 0 !important;
+		padding: 0 !important;
+	}
 }
 
 :global(.tc-list-title-cell) {

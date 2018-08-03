@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
+import Inject from '@talend/react-components/lib/Inject';
 import Action from '@talend/react-components/lib/Actions/Action';
 
 import { UIForm } from './UIForm';
@@ -20,7 +21,6 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
-import { I18N_DOMAIN_FORMS } from './constants';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -53,10 +53,11 @@ export function renderActionIcon(icon) {
 	return null;
 }
 
-export function renderActions(actions, handleActionClick) {
+export function renderActions(actions, handleActionClick, getComponent) {
+	const Renderer = Inject.getAll(getComponent, { Action });
 	if (actions) {
 		return actions.map((action, index) => (
-			<Action
+			<Renderer.Action
 				key={index}
 				bsStyle={action.style}
 				label={action.title}
@@ -64,10 +65,10 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Action>
+			</Renderer.Action>
 		));
 	}
-	return <Action bsStyle="primary" onClick={() => {}} type="submit" label="Submit" />;
+	return <Renderer.Action bsStyle="primary" onClick={() => {}} type="submit" label="Submit" />;
 }
 
 class Form extends React.Component {
@@ -120,9 +121,7 @@ class Form extends React.Component {
 	}
 
 	render() {
-		if (Array.isArray(this.props.data.uiSchema)) {
-			return <UIForm {...this.props} />;
-		} else if (this.props.uiform) {
+		if (this.props.uiform) {
 			const props = Object.assign({}, this.props);
 			props.moz = true;
 			if (props.widgets) {
@@ -175,7 +174,7 @@ class Form extends React.Component {
 			>
 				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
-					{renderActions(this.props.actions, this.handleActionClick)}
+					{renderActions(this.props.actions, this.handleActionClick, this.props.getComponent)}
 				</div>
 			</RJSForm>
 		);
@@ -184,7 +183,7 @@ class Form extends React.Component {
 
 export const DataPropTypes = PropTypes.shape({
 	jsonSchema: PropTypes.object.isRequired,
-	uiSchema: PropTypes.object,
+	uiSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	properties: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 });
 
@@ -201,6 +200,7 @@ export const ActionsPropTypes = PropTypes.arrayOf(
 
 if (process.env.NODE_ENV !== 'production') {
 	Form.propTypes = {
+		getComponent: PropTypes.func,
 		uiform: PropTypes.bool,
 		data: DataPropTypes.isRequired,
 		onChange: PropTypes.func,
@@ -210,7 +210,7 @@ if (process.env.NODE_ENV !== 'production') {
 		buttonBlockClass: PropTypes.string,
 		handleAction: PropTypes.func,
 		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		formContext: PropTypes.func,
+		formContext: PropTypes.object,
 		children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 		fields: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	};
@@ -222,5 +222,4 @@ Form.defaultProps = {
 
 Form.displayName = 'TalendForm';
 
-export { I18N_DOMAIN_FORMS };
 export default Form;

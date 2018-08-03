@@ -2,8 +2,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
-  4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
+  18:8  error  'get' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.connect.js
   7:2  error  'configureGetPagination' is defined but never used  no-unused-vars
@@ -14,11 +14,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/register.js
   6:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/containers/src/renderers.js
-  5:33  error  Unexpected parentheses around single function argument  arrow-parens
-
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
+<<<<<<< HEAD
 ✖ 6 problems (6 errors, 0 warnings)
+=======
+✖ 4 problems (4 errors, 0 warnings)
+>>>>>>> master
 

@@ -2,10 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import uuid from 'uuid';
+import { translate } from 'react-i18next';
 
 import theme from './Breadcrumbs.scss';
 import { Action, ActionDropdown } from '../Actions';
 import Icon from '../Icon';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 
 /**
  * Default max items to display without starting by ellipsis
@@ -21,14 +24,12 @@ const DEFAULT_MAX_ITEMS = 3;
  items={items}
  />
  */
-function Breadcrumbs(props) {
-	const items = props.items || [];
-
-	const nbItems = items.length;
-	const maxItemsToDisplay = props.maxItems || DEFAULT_MAX_ITEMS;
+export function BreadcrumbsComponent(props) {
+	const nbItems = props.items.length;
+	const maxItemsToDisplay = props.maxItems;
 	const maxItemsReached = nbItems > maxItemsToDisplay;
 	const ellipsisIndex = nbItems - 1 - maxItemsToDisplay;
-	const hiddenItems = items.slice(0, ellipsisIndex + 1).map((hiddenItem, index) => ({
+	const hiddenItems = props.items.slice(0, ellipsisIndex + 1).map((hiddenItem, index) => ({
 		id: `${props.id}-item-${index}`,
 		label: hiddenItem.text,
 		title: hiddenItem.title,
@@ -71,31 +72,38 @@ function Breadcrumbs(props) {
 						bsStyle="link"
 						role="link"
 						title={title || text}
+						aria-label={title}
 						label={text}
 						onClick={wrappedOnClick}
 					/>
 				);
 			}
+			const ariaCurrent = isActive ? 'page' : undefined;
 			return (
-				<span id={id} title={title}>
+				// bug in eslint a11y plugin, fixed in version 6.
+				// But to upgrade we need to upgrade the whole package (eslint, airbnb, a11y, react)
+				// eslint-disable-next-line jsx-a11y/aria-props
+				<span id={id} title={title} aria-current={ariaCurrent}>
 					{text}
 				</span>
 			);
 		}
 		if (maxItemsReached && index < ellipsisIndex) {
-			return (
-				<li className="sr-only" key={index}>
-					{getItemContent()}
-				</li>
-			);
+			return undefined;
 		}
 		if (maxItemsReached && index === ellipsisIndex) {
 			return [
-				<li className="sr-only" key={index + 0.1}>
-					{getItemContent()}
-				</li>,
-				<li className={'tc-breadcrumb-menu'} key={index + 0.2} aria-hidden="true">
-					<ActionDropdown id={`${props.id}-ellipsis`} items={hiddenItems} label="…" link noCaret />
+				<li className="tc-breadcrumb-menu" key={index + 0.1}>
+					<ActionDropdown
+						id={`${props.id}-ellipsis`}
+						items={hiddenItems}
+						aria-label={props.t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', {
+							defaultValue: 'Open first links menu',
+						})}
+						label="…"
+						link
+						noCaret
+					/>
 				</li>,
 				separator,
 			];
@@ -109,15 +117,20 @@ function Breadcrumbs(props) {
 	}
 
 	return (
-		<ol id={props.id} className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
-			{items.map(renderBreadcrumbItem)}
-		</ol>
+		<nav aria-label={props.t('BREADCRUMB', { defaultValue: 'breadcrumb' })}>
+			<ol
+				id={props.id}
+				className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}
+			>
+				{props.items.map(renderBreadcrumbItem)}
+			</ol>
+		</nav>
 	);
 }
 
-Breadcrumbs.displayName = 'Breadcrumbs';
+BreadcrumbsComponent.displayName = 'Breadcrumbs';
 
-Breadcrumbs.propTypes = {
+BreadcrumbsComponent.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -127,10 +140,14 @@ Breadcrumbs.propTypes = {
 		}),
 	),
 	maxItems: PropTypes.number,
+	t: PropTypes.func,
 };
 
-Breadcrumbs.defaultProps = {
+BreadcrumbsComponent.defaultProps = {
 	id: `${uuid.v4()}`,
+	items: [],
+	maxItems: DEFAULT_MAX_ITEMS,
+	t: getDefaultT(),
 };
 
-export default Breadcrumbs;
+export default translate(I18N_DOMAIN_COMPONENTS)(BreadcrumbsComponent);

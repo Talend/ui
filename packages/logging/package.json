@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "tracekit": "^0.4.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "^2.0.3"
   },
   "peerDependencies": {
     "angular": "^1.5.9",
@@ -40,13 +40,13 @@
   "devDependencies": {
     "angular": "^1.5.9",
     "angular-mocks": "^1.5.9",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.0.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "8.0.1",
     "babel-jest": "20.0.3",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.6.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.1",
     "eslint": "^3.6.1",
@@ -69,12 +69,10 @@
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupFiles": [
-      "./env__tests.js"
-    ]
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.184.0"
+  "version": "0.189.0"
 }

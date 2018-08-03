@@ -223,7 +223,7 @@ function Toolbar({ t, getComponent, components, ...props }) {
 							htmlFor={pagination.id && `${pagination.id}-size`}
 						/>
 					)}
-					{pagination && <Pagination {...pagination} />}
+					{pagination && <Pagination {...pagination} t={t} />}
 					{injected('after-pagination')}
 					{injected('before-filter')}
 					{filter && <Renderer.FilterBar {...filter} t={props.t} navbar className="navbar-right" />}

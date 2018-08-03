@@ -43,9 +43,7 @@ function getPathFromPattern(pattern, namespace, locale) {
 function manageEmptyNamespace(i18n) {
 	if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
 		throw new Error(
-			`The key '${
-				i18n.key
-			}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
+			`The key '${i18n.key}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
 		);
 	}
 }
@@ -227,9 +225,7 @@ function getLocalesFromNamespaceInFolder(folder, namespace) {
 	return new Map(
 		files
 			// eslint-disable-next-line global-require
-			.map(file =>
-				getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace),
-			)
+			.map(file => getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace))
 			.reduce((state, map) => [...state, ...map], []),
 	);
 }
@@ -279,14 +275,21 @@ function updateLocales(i18nKeys, locales, namespace, pattern, sort) {
  * @param  {array<string>} languages              Locales to extract
  * @param  {string} from                          folder to parse
  */
-function parseI18n(namespaces, languages, from, sort) {
-	namespaces.forEach(namespace => {
-		const i18nKeys = getLocalesFromNamespaceInFolder(
-			path.join(process.cwd(), ...from.split('/')),
-			namespace.name,
-		);
+function parseI18n(namespaces, languages, froms, sort) {
+	if (typeof froms === 'string') {
+		// eslint-disable-next-line no-param-reassign
+		froms = [froms];
+	}
 
-		updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
+	froms.forEach(from => {
+		namespaces.forEach(namespace => {
+			const i18nKeys = getLocalesFromNamespaceInFolder(
+				path.join(process.cwd(), ...from.split('/')),
+				namespace.name,
+			);
+
+			updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
+		});
 	});
 }
 

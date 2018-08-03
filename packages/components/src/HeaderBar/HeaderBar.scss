@@ -100,7 +100,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 	:global(.btn):global(.btn-link) {
 		color: $white;
 		font-size: $font-size-base;
-		height: 100%;
 		text-transform: none;
 		text-decoration: none;
 
@@ -133,21 +132,21 @@ $background-color-on-hover: shade($brand-primary, 30);
 	.tc-header-bar-search {
 		form {
 			height: $navbar-height;
-		}
 
-		[role='search'] > div > div:first-child {
-			margin-top: 0;
-			margin-bottom: 0;
+			:global(.tc-typeahead-container) > div:first-child {
+				margin-top: 0;
+				margin-bottom: 0;
 
-			padding-left: $padding-small;
-			padding-right: $padding-large;
-			height: $navbar-height;
-			background: $white;
+				padding-left: $padding-small;
+				padding-right: $padding-large;
+				height: $navbar-height;
+				background: $white;
 
-			:global(.form-control) {
-				font-style: italic;
-				animation: fadeIn 0.2s;
-				width: 400px;
+				:global(.form-control) {
+					font-style: italic;
+					animation: fadeIn 0.2s;
+					width: 400px;
+				}
 			}
 		}
 	}

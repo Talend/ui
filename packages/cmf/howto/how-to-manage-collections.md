@@ -29,6 +29,7 @@ dispatch(insertAction);
 ```
 
 **Via actions utility**
+## Add or replace a collection (curried)
 ```javascript
 import { actions } from '@talend/react-cmf';
 
@@ -60,7 +61,7 @@ remove(collectionId)
 |---|---|---|---|
 | collectionId | string | The collection identifier | true |
 
-## Mutate a collection
+## Mutate a collection (curried)
 
 The example will mutate the collection in `state.cmf.collections.datastores`.
 
@@ -74,8 +75,22 @@ const mutationAction = actions.collections.mutate('datastores', {
 });
 dispatch(mutationAction);
 ```
+Note this action is curried, so if you need to apply differents mutation on the same collection multiple time you can leverage this to avoid lot of duplication hindering the lisibility of your code
+```javascript
+import { actions } from '@talend/react-cmf';
 
-remove(collectionId, operations)
+// pick an awesome name
+const mutateDatastore = actions.collections.mutate('datastores');
+dispatch(mutateDatastore({
+    add: [{ id: 'new_element_id', ... }, { id: 'next_new_element_id', ... }]
+}));
+dispatch(mutateDatastore({
+    delete: ['old_element_id'],
+}));
+dispatch(mutateDatastore({
+    update: { 'existing_element_id': {id: 'existing_element_id', ... }, ... }
+}));
+```
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|

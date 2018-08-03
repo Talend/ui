@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { listTypes } from '../utils/constants';
 import CellTitle from './CellTitle.component';
+
+const { LARGE } = listTypes;
 
 describe('CellTitle', () => {
 	it('should render title selector component', () => {
@@ -25,6 +28,7 @@ describe('CellTitle', () => {
 			<CellTitle
 				cellData={'my awesome title'}
 				columnData={columnData}
+				getComponent={jest.fn()}
 				rowData={rowData}
 				rowIndex={1}
 			/>,
@@ -53,8 +57,10 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					getComponent={jest.fn()}
 					rowData={rowData}
 					rowIndex={1}
+					type={LARGE}
 				/>,
 			);
 
@@ -74,6 +80,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					getComponent={jest.fn()}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
@@ -99,6 +106,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					getComponent={jest.fn()}
 					rowData={noIconRowData}
 					rowIndex={1}
 				/>,
@@ -139,6 +147,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					getComponent={jest.fn()}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
@@ -160,6 +169,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					getComponent={jest.fn()}
 					rowData={rowData}
 					rowIndex={1}
 				/>,
@@ -185,6 +195,7 @@ describe('CellTitle', () => {
 				<CellTitle
 					cellData={'my awesome title'}
 					columnData={columnData}
+					getComponent={jest.fn()}
 					rowData={noActionsRowData}
 					rowIndex={1}
 				/>,

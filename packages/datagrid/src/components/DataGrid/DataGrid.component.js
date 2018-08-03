@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
-import { Inject, Skeleton } from '@talend/react-components';
+import Inject from '@talend/react-components/lib/Inject';
+import Skeleton from '@talend/react-components/lib/Skeleton';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -87,8 +88,12 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
-	componentDidUpdate() {
-		if (this.gridAPI) {
+	componentDidUpdate(prevProps) {
+		if (this.props.loading || !this.gridAPI) {
+			return;
+		}
+
+		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
 			this.gridAPI.redrawRows();
 		}
 	}
@@ -181,6 +186,7 @@ export default class DataGrid extends React.Component {
 			enableColResize: this.props.enableColResize,
 			onCellFocused: this.onFocusedCell,
 			onGridReady: this.onGridReady,
+			suppressPropertyNamesCheck: true,
 		};
 
 		if (this.props.onVerticalScroll) {
