@@ -11,4 +11,4 @@ This component display an input with a [datetime picker](../DateTimePicker/DateT
     - Can return in first arg a valid Date object or undefined (if no date chosen or if an error occurs)
 - **onError** : Trigger when the error change
     - Can return in first arg a string message or undefined if no error
-- **inputProps** : Props spread to the real input
+- The remaining props are spread to the input

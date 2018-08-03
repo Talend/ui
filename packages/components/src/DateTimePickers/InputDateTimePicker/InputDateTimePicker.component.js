@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import getMinutes from 'date-fns/get_minutes';
 import getHours from 'date-fns/get_hours';
@@ -115,12 +115,13 @@ function extractTime(strToParse) {
 	return [timeValidated];
 }
 
+const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onError'];
+
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		onError: PropTypes.func,
-		inputProps: PropTypes.object,
 	};
 
 	constructor(props) {
@@ -207,12 +208,13 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	render() {
+		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 		return (
 			<div>
 				<DebounceInput
-					{...this.props.inputProps}
+					{...inputProps}
 					type="text"
-					placeholder="YYYY-MM-DD hh:mm"
+					placeholder={inputProps.placeholder || 'YYYY-MM-DD hh:mm'}
 					value={this.state.textInput}
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}

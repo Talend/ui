@@ -17,9 +17,7 @@ storiesOf('DateTimePicker', module)
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 					onChange={action('onChange (DateTime)')}
 					onError={action('onError (message)')}
-					inputProps={{
-						name: 'Datetime',
-					}}
+					name="Datetime"
 				/>
 			</div>
 		</div>
