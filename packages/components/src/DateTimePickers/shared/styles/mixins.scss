@@ -1,20 +1,20 @@
 @mixin main {
-    color: $dove-gray;
-    font-weight: 600;
+	color: $dove-gray;
+	font-weight: 600;
 }
 
 @mixin nav-action {
-    font-weight: 600;
-    padding: 0;
-    background: none;
-    border: none;
+	font-weight: 600;
+	padding: 0;
+	background: none;
+	border: none;
 
-    &:hover {
-        color: $scooter;
-    }
+	&:hover {
+		color: $scooter;
+	}
 }
 
 @mixin picker-action-selected {
-    background-color: $scooter;
-    color: $white;
+	background-color: $scooter;
+	color: $white;
 }

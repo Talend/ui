@@ -78,5 +78,6 @@ describe('YearPicker', () => {
 		wrapper.prop('onSelect')(yearItem);
 
 		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
+		restoreDate();
 	});
 });
