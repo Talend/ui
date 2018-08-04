@@ -1,17 +1,7 @@
-import cmf, { cmfConnect } from '@talend/react-cmf';
-import omit from 'lodash/omit';
-import * as components from '@talend/react-components';
-import * as containers from './index';
+import cmf from '@talend/react-cmf';
+import cmfModule from './cmfModule';
 
+// eslint-disable-next-line import/prefer-default-export
 export function registerAllContainers() {
-	const onlyReactComponent = omit(containers, ['actionAPI']);
-	cmf.component.registerMany(onlyReactComponent);
-
-	const alreadyRegistered = Object.keys(onlyReactComponent);
-
-	Object.keys(omit(components, alreadyRegistered)).forEach(key => {
-		if (components[key]) {
-			cmf.component.register(key, cmfConnect({})(components[key]));
-		}
-	});
+	cmf.component.registerMany(cmfModule.components);
 }
