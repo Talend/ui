@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TitleSubHeader should render 1`] = `
+<div
+  className="theme-tc-subheader-details tc-subheader-details"
+>
+  <Icon
+    className="theme-tc-subheader-details-icon tc-subheader-details-icon"
+    name="myIconId"
+  />
+  <div
+    className="theme-tc-subheader-details-text tc-subheader-details-text"
+  >
+    <div
+      className="theme-tc-subheader-details-text-title tc-subheader-details-text-title"
+    >
+      <h1
+        className="theme-tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
+      >
+        myTitle
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TitleSubHeader should render 2`] = `
+<div
+  className="theme-tc-subheader-details tc-subheader-details"
+>
+  <div
+    className="theme-tc-subheader-details-text tc-subheader-details-text"
+  >
+    <div
+      className="theme-tc-subheader-details-text-title tc-subheader-details-text-title"
+    >
+      <h1
+        className="theme-tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
+      >
+        myTitle
+      </h1>
+    </div>
+    <small
+      className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
+    >
+      mySubTitle
+    </small>
+  </div>
+</div>
+`;
