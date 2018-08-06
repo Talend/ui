@@ -274,7 +274,7 @@ class List extends React.Component {
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
 					if (props.toolbar.filter.onToggleFilter) {
-						props.toolbar.filter.onToggleFilter();
+						props.toolbar.filter.onToggleFilter(event, data);
 					}
 					this.onToggle(event, data);
 				};

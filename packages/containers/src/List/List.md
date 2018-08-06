@@ -42,7 +42,7 @@ The callback function for filterBar is introduced to have custom actions onToggl
 Following callback functions are supported,
 
 ```javascript
-props.toolbar.filter.onToggleFilter();
+props.toolbar.filter.onToggleFilter(event, data);
 props.toolbar.filter.onFilterChange(event, data);
 ```
 

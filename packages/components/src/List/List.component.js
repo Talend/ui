@@ -55,6 +55,7 @@ ListToolbar.propTypes = {
 			field: PropTypes.string,
 			isDescending: PropTypes.bool,
 			onChange: PropTypes.func.isRequired,
+			onChangeSortOrder: PropTypes.func,
 		}),
 	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
