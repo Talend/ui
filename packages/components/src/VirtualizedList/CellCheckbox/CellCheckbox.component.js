@@ -20,7 +20,7 @@ function CellCheckbox({ cellData, columnData, rowData, rowIndex }) {
 						}}
 						checked={cellData}
 					/>
-					<span>
+					<span className={'tc-cell-checkbox'}>
 						<span className="sr-only">{label}</span>
 					</span>
 				</label>
