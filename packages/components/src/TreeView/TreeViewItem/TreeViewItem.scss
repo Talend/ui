@@ -32,10 +32,13 @@ $item-height: 40px;
 		.tc-treeview-folder {
 			width: $svg-md-size;
 			height: $item-height - 2 * $padding-small;
-			margin-right: 10px;
+			margin-right: 20px;
 			flex-shrink: 0;
 			flex-grow: 0;
 		}
+
+
+
 		.tc-treeview-img {
 			max-height: 2rem;
 			margin-right: 10px;
@@ -43,24 +46,31 @@ $item-height: 40px;
 
 		&:hover {
 			background: rgba($black, 0.05);
+			color: $scooter;
 
-			:global(.tc-svg-icon) {
-				fill: rgba($black, 0.35);
+			.tc-treeview-folder {
+				fill: $lightning-yellow;
 			}
 
 			:global(.btn-link) {
 				visibility: visible;
 			}
+
+			.tc-treeview-folder{
+				&-opened {
+					display: block;
+				}
+				&-closed {
+					display: none;
+				}
+			}
 		}
 
 		.tc-treeview-toggle {
-			width: $svg-xs-size;
-			height: $svg-xs-size;
+			width: 12px;
 			margin: 0;
-			margin-left: -$svg-xs-size;
+			margin-right: 20px;
 			position: relative;
-			left: -0.5 * $svg-xs-size;
-
 			fill: rgba($black, 0.6);
 
 			&:hover {
@@ -69,11 +79,12 @@ $item-height: 40px;
 		}
 
 		&[data-selected='true'] {
-			background-color: rgba($brand-primary, 0.12);
-			color: $brand-primary;
+			background: rgba($black, 0.05);
+			font-weight: bold;
+			color: black;
 
-			:global(.tc-svg-icon) {
-				fill: $brand-primary;
+			.tc-treeview-folder {
+				fill: $lightning-yellow;
 			}
 		}
 	}
