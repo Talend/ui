@@ -351,23 +351,19 @@ describe('Container List', () => {
 		initialSettings.toolbar.filter.onToggleFilter = jest.fn();
 		const state = fromJS({ filterDocked: false });
 		initialSettings.state = state;
-		const wrapper = shallow(
-			<Container
-				{...initialSettings}
-				items={items}
-			/>,
-			{
-				lifecycleExperimental: true,
-			},
-		);
+		const wrapper = shallow(<Container {...initialSettings} items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
-		const event = { type: 'click' }, data = {};
+		const event = { type: 'click' },
+			data = {};
 		// when
 		props.toolbar.filter.onToggle(event, data);
 		// then
 		expect(props.toolbar.filter.onToggleFilter).toHaveBeenCalledWith(event, data);
 		expect(initialSettings.setState.mock.calls[0][0]).toEqual({
-			filterDocked: true, searchQuery: ''
+			filterDocked: true,
+			searchQuery: '',
 		});
 	});
 
@@ -376,23 +372,18 @@ describe('Container List', () => {
 		const initialSettings = cloneDeep(settings);
 		initialSettings.setState = jest.fn();
 		initialSettings.toolbar.filter.onFilterChange = jest.fn();
-		const wrapper = shallow(
-			<Container
-				{...initialSettings}
-				items={items}
-			/>,
-			{
-				lifecycleExperimental: true,
-			},
-		);
+		const wrapper = shallow(<Container {...initialSettings} items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
-		const event = { type: 'click' }, data = { query: 'test' };
+		const event = { type: 'click' },
+			data = { query: 'test' };
 		// when
 		props.toolbar.filter.onFilter(event, data);
 		// then
 		expect(props.toolbar.filter.onFilterChange).toHaveBeenCalledWith(event, data);
 		expect(initialSettings.setState.mock.calls[0][0]).toEqual({
-			searchQuery: 'test'
+			searchQuery: 'test',
 		});
 	});
 
@@ -401,17 +392,12 @@ describe('Container List', () => {
 		const initialSettings = cloneDeep(settings);
 		initialSettings.setState = jest.fn();
 		initialSettings.toolbar.sort.onChangeSortOrder = jest.fn();
-		const wrapper = shallow(
-			<Container
-				{...initialSettings}
-				items={items}
-			/>,
-			{
-				lifecycleExperimental: true,
-			},
-		);
+		const wrapper = shallow(<Container {...initialSettings} items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
-		const event = { type: 'click' }, data = { field: 'name', isDescending: true };
+		const event = { type: 'click' },
+			data = { field: 'name', isDescending: true };
 		// when
 		props.list.sort.onChange(event, data);
 		// then
