@@ -403,6 +403,7 @@ function loadStories() {
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',
+			className: 'btn-inverse',
 			actionCreator: 'cancel:hide:dialog',
 		};
 		actions['action:overlay:component'] = {
