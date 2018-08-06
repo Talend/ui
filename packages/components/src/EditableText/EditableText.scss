@@ -1,0 +1,119 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+@mixin ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@mixin input-text($weight) {
+	color: $black;
+	font-size: $tc-input-editable-text-size-medium;
+	font-weight: $weight;
+}
+
+$tc-input-editable-text-size-large: 2.4rem !default;
+$tc-input-editable-text-size-medium: 1.4rem !default;
+$tc-input-editable-text-size-small: 1rem !default;
+$tc-input-editable-text-title-weight: 900 !default;
+$tc-input-editable-text-input-weight: $form-base-font-weight !default;
+
+:global(.tc-editable-text-blink) {
+	@include heartbeat(object-blink);
+}
+
+.tc-editable-text {
+	display: flex;
+	margin: 0;
+	height: 100%;
+
+	& &-text {
+		flex-direction: column;
+		justify-content: center;
+		overflow: hidden;
+		flex: 1 auto;
+		margin-right: 110px;
+		max-width: 90rem;
+		display: inline-flex;
+		align-items: center;
+
+		&-wording-button {
+			@include input-text($tc-input-editable-text-title-weight);
+			@include ellipsis;
+			text-transform: uppercase;
+			margin: 0;
+		}
+
+		&-wording-button {
+			padding: 0;
+			letter-spacing: inherit;
+
+			&:global(.btn-link) {
+				color: $black;
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $black;
+				}
+			}
+		}
+
+		&-pencil {
+			padding-left: $padding-small;
+			padding-right: $padding-small;
+
+			&:global(.btn-link) {
+				color: $silver;
+			}
+		}
+	}
+	& &-form {
+		display: flex;
+		align-items: center;
+		padding-left: $padding-large;
+
+		& .tc-editable-text-form-input {
+			@include input-text($tc-input-editable-text-input-weight);
+			width: 18rem;
+			&::selection {
+				background: lighten($scooter, 25%);
+			}
+		}
+
+		&-buttons {
+			display: flex;
+
+			&-icon {
+				border: 0.2rem solid currentColor;
+				width: $tc-input-editable-text-size-large;
+				height: $tc-input-editable-text-size-large;
+				min-height: auto;
+				display: flex;
+				border-radius: 50%;
+				padding: 0;
+				margin-left: $padding-large;
+				justify-content: center;
+				align-items: center;
+
+				> :global(.tc-svg-icon) {
+					width: $tc-input-editable-text-size-medium;
+					height: $tc-input-editable-text-size-medium;
+				}
+
+				&:last-child {
+					margin-left: $padding-small;
+
+					> svg {
+						width: $tc-input-editable-text-size-small;
+						height: $tc-input-editable-text-size-small;
+					}
+				}
+			}
+		}
+
+		:global(.form-group) {
+			padding-top: 0;
+		}
+	}
+}

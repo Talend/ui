@@ -94,6 +94,7 @@ export class DeleteResource extends React.Component {
 			componentId: this.props[CONSTANTS.CANCEL_ACTION],
 			model: resourceInfo,
 			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'CANCEL' }),
+			className: 'btn-inverse',
 			onClickActionCreator: 'DeleteResource#cancel',
 		};
 		return (
