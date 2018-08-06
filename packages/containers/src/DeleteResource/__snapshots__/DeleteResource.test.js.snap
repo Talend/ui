@@ -4,6 +4,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 <ConfirmDialog
   cancelAction={
     Object {
+      "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
       "label": "CANCEL",
       "model": Object {
@@ -56,6 +57,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
 <ConfirmDialog
   cancelAction={
     Object {
+      "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
       "label": "CANCEL",
       "model": Object {
