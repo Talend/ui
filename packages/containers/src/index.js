@@ -1,5 +1,4 @@
 import {
-	Breadcrumbs,
 	CircularProgress,
 	Drawer,
 	Icon,
@@ -20,6 +19,7 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import AppLoader from './AppLoader';
 import Badge from './Badge';
+import Breadcrumbs from './Breadcrumbs';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
 import HeaderBar from './HeaderBar';

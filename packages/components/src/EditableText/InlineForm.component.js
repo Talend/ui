@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Action } from '../../Actions';
-import theme from './InputTitleSubHeader.scss';
-import getDefaultT from '../../translate';
+import { Action } from '../Actions';
+import theme from './EditableText.scss';
+import getDefaultT from '../translate';
 
 function noop() {}
 
-class InlineFormSubHeader extends React.Component {
+class InlineForm extends React.Component {
 	static propTypes = {
-		title: PropTypes.string.isRequired,
+		text: PropTypes.string.isRequired,
 		onSubmit: PropTypes.func.isRequired,
 		onCancel: PropTypes.func,
 		onChange: PropTypes.func,
@@ -27,7 +27,7 @@ class InlineFormSubHeader extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.selectInput = this.selectInput.bind(this);
 		this.state = {
-			value: props.title,
+			value: props.text,
 		};
 	}
 
@@ -66,19 +66,16 @@ class InlineFormSubHeader extends React.Component {
 		return (
 			<form
 				onSubmit={this.onSubmit}
-				className={classNames(theme['tc-subheader-details-form'], 'tc-subheader-details-form')}
+				className={classNames(theme['tc-editable-text-form'], 'tc-editable-text-form')}
 			>
 				<div className={classNames('form-group', { 'has-error': notFilled })}>
-					<label className="sr-only" htmlFor="inputTitle">
-						{t('SUBHEADERBAR_INPUT_TITLE_FORM_LABEL', { defaultvalue: 'title' })}
-					</label>
 					<input
 						ref={this.selectInput}
 						id="inputTitle"
 						type="text"
 						className={classNames(
-							theme['tc-subheader-details-form-input'],
-							'tc-subheader-details-form-input',
+							theme['tc-editable-text-form-input'],
+							'tc-editable-text-form-input',
 							'form-control',
 						)}
 						onChange={this.onChange}
@@ -87,33 +84,33 @@ class InlineFormSubHeader extends React.Component {
 				</div>
 				<div
 					className={classNames(
-						theme['tc-subheader-details-form-buttons'],
-						'tc-subheader-details-form-buttons',
+						theme['tc-editable-text-form-buttons'],
+						'tc-editable-text-form-buttons',
 					)}
 				>
 					<Action
 						type="submit"
 						name="action-submit-title"
-						label={this.props.t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
+						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
 						icon="talend-check"
 						onClick={noop}
 						bsStyle="link"
 						className={classNames(
-							theme['tc-subheader-details-form-buttons-icon'],
-							'tc-subheader-details-form-buttons-icon',
+							theme['tc-editable-text-form-buttons-icon'],
+							'tc-editable-text-form-buttons-icon',
 						)}
 						disabled={notFilled}
 						hideLabel
 					/>
 					<Action
 						name="action-cancel-title"
-						label={this.props.t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
+						label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
 						icon="talend-cross"
 						onClick={this.onCancel}
 						bsStyle="link"
 						className={classNames(
-							theme['tc-subheader-details-form-buttons-icon'],
-							'tc-subheader-details-form-buttons-icon',
+							theme['tc-editable-text-form-buttons-icon'],
+							'tc-editable-text-form-buttons-icon',
 						)}
 						hideLabel
 					/>
@@ -123,4 +120,4 @@ class InlineFormSubHeader extends React.Component {
 	}
 }
 
-export default InlineFormSubHeader;
+export default InlineForm;
