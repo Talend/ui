@@ -173,7 +173,7 @@ class TreeViewItem extends React.Component {
 		} = item;
 		const paddingLeft = `${(depth * (PADDING + CARET_WIDTH)) + BASE_PADDING}px`;
 		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
-		const shouldShowToggledIcon = children.length && (toggled || this.state.hovered);
+		const shouldShowToggledIcon = !!(children.length && (toggled || this.state.hovered));
 
 		return (
 			<li
