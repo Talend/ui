@@ -67,8 +67,13 @@ class List extends React.Component {
 			titleProps: PropTypes.object,
 		}),
 		toolbar: PropTypes.shape({
-			sort: PropTypes.object,
-			filter: PropTypes.object,
+			sort: PropTypes.shape({
+				onChangeSortOrder: PropTypes.func,
+			}),
+			filter: PropTypes.shape({
+				onFilterChange: PropTypes.func,
+				onToggleFilter: PropTypes.func,
+			}),
 			pagination: PropTypes.shape({
 				onChange: PropTypes.func,
 			}),

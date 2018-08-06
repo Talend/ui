@@ -355,8 +355,8 @@ describe('Container List', () => {
 			lifecycleExperimental: true,
 		});
 		const props = wrapper.props();
-		const event = { type: 'click' },
-			data = {};
+		const event = { type: 'click' };
+		const data = {};
 		// when
 		props.toolbar.filter.onToggle(event, data);
 		// then
@@ -376,8 +376,8 @@ describe('Container List', () => {
 			lifecycleExperimental: true,
 		});
 		const props = wrapper.props();
-		const event = { type: 'click' },
-			data = { query: 'test' };
+		const event = { type: 'click' };
+		const data = { query: 'test' };
 		// when
 		props.toolbar.filter.onFilter(event, data);
 		// then
@@ -396,8 +396,8 @@ describe('Container List', () => {
 			lifecycleExperimental: true,
 		});
 		const props = wrapper.props();
-		const event = { type: 'click' },
-			data = { field: 'name', isDescending: true };
+		const event = { type: 'click' };
+		const data = { field: 'name', isDescending: true };
 		// when
 		props.list.sort.onChange(event, data);
 		// then
