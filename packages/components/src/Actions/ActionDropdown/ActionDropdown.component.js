@@ -84,14 +84,6 @@ function getMenuItem(item, index, getComponent) {
 	return renderMutableMenuItem(item, index, getComponent);
 }
 
-function getDropdownToggleFromInner(innerElement) {
-	let dropdownTrigger = innerElement;
-	while (!dropdownTrigger.classList.contains('dropdown-toggle')) {
-		dropdownTrigger = dropdownTrigger.parentElement;
-	}
-	return dropdownTrigger;
-}
-
 function getDropdownContainer(dropdownElement) {
 	let dropdownContainer = dropdownElement;
 	do {
@@ -135,35 +127,40 @@ class ActionDropdown extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
-		this.state = {
-			dropup: props.dropup,
-		};
+		this.state = {};
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		/*
+		Dropdown/Dropup automatic switch:
+		depending on its position with a defined container, it will switch from down and up mode.
+
+		By default it checks its position with the <body>.
+		Specific container support with "tc-dropdown-container" classname on the parent container.
+		 */
 		if (!prevState.isOpen && this.state.isOpen) {
-			const dropdownTrigger = ReactDOM.findDOMNode(this.ref).querySelector('.dropdown-toggle');
+			// eslint-disable-next-line react/no-find-dom-node
+			const dropdown = ReactDOM.findDOMNode(this.ref);
+			const dropdownTrigger = dropdown.querySelector('.dropdown-toggle');
 			const dropdownMenu = dropdownTrigger.nextSibling;
 			const dropdownContainer = getDropdownContainer(dropdownTrigger);
 
 			if (dropdownContainer) {
+				console.log('container found', dropdownContainer.tagName);
 				const dropdownRect = dropdownMenu.getBoundingClientRect();
 				const containerRect = dropdownContainer.getBoundingClientRect();
-
-				this.setState(oldState => {
-					if (!oldState.dropup && dropdownRect.bottom > containerRect.bottom) {
-						return { dropup: true };
-					} else if (oldState.dropup && dropdownRect.top < containerRect.top) {
-						return { dropup: false };
-					}
-					return null;
-				});
+				console.log({ dropdownRect, containerRect });
+				if (!dropdown.classList.contains('dropup') && dropdownRect.bottom > containerRect.bottom) {
+					dropdown.classList.add('dropup');
+				} else if (dropdown.classList.contains('dropup') && dropdownRect.top < containerRect.top) {
+					dropdown.classList.remove('dropup');
+				}
 			}
 		}
 	}
 
 	onToggle(isOpen) {
-		this.setState(({ dropup }) => ({ isOpen, dropup: isOpen ? dropup : false }));
+		this.setState({ isOpen });
 	}
 
 	render() {
@@ -210,7 +207,6 @@ class ActionDropdown extends React.Component {
 				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
 				aria-label={tooltipLabel || label}
 				{...rest}
-				dropup={this.state.dropup}
 				onToggle={this.onToggle}
 				ref={ref => (this.ref = ref)}
 			>

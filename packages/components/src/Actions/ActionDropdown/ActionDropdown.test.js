@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
+import cases from 'jest-in-case';
 import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
 
 function getComponent(key) {
@@ -110,79 +111,72 @@ describe('InjectDropdownMenuItem', () => {
 
 describe('Dropup', () => {
 	it('should switch to dropup when it is near the bottom of a tc-dropdown-container', () => {
-		// given
-		const classListContainingClass = {
-			contains() {
-				return true;
-			},
-		};
-		const classListNotContainingClass = {
-			contains() {
-				return false;
-			},
-		};
-		function getDropdownMenuElement(top, bottom) {
-			return {
-				classList: classListContainingClass,
-				getBoundingClientRect() {
-					return { top, bottom };
+		const isDropup = true;
+		const isDropdown = false;
+
+		function testSwitch({
+			containerPosition,
+			menuPosition,
+			isInitialDropup,
+			isDropupOrIsDropdown,
+		}) {
+			// given
+			const container = document.createElement('div');
+			container.classList.add('tc-dropdown-container');
+			container.getBoundingClientRect = () => containerPosition;
+
+			const wrapper = mount(
+				<ActionDropdown
+					items={[{ label: 'item 1' }, { label: 'item 2' }]}
+					dropup={isInitialDropup}
+				/>,
+				{
+					attachTo: container,
 				},
-			};
+			);
+			container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
+
+			// when
+			wrapper
+				.find('button')
+				.first()
+				.simulate('click');
+
+			// then
+			expect(container.querySelector('.dropdown').classList.contains('dropup')).toBe(
+				isDropupOrIsDropdown,
+			);
 		}
-		const divContainerElement = {
-			tagName: 'DIV',
-			classList: classListContainingClass,
-			getBoundingClientRect() {
-				return { top: 0, bottom: 35 };
+
+		cases('dropdown/dropup switch', testSwitch, [
+			{
+				name: 'should dropup on dropdown bottom overflow',
+				containerPosition: { top: 0, bottom: 35 },
+				menuPosition: { top: 20, bottom: 40 },
+				isInitialDropup: false,
+				isDropupOrIsDropdown: isDropup,
 			},
-		};
-		const bodyElement = {
-			tagName: 'BODY',
-			classList: classListNotContainingClass,
-			getBoundingClientRect() {
-				return { top: 0, bottom: 35 };
+			{
+				name: 'should dropdown on dropup top overflow',
+				containerPosition: { top: 0, bottom: 35 },
+				menuPosition: { top: -5, bottom: 0 },
+				isInitialDropup: true,
+				isDropupOrIsDropdown: isDropdown,
 			},
-		};
-		function getActionDropdownEvent(top, bottom, container) {
-			return {
-				target: {
-					classList: classListContainingClass,
-					nextSibling: getDropdownMenuElement(top, bottom),
-					parentElement: {
-						classList: classListNotContainingClass,
-						// dropdown container
-						// simulate the tc-dropdown-container className
-						parentElement: container,
-					},
-				},
-			};
-		}
-		// dropdown that doesn't overflow
-		const event = getActionDropdownEvent(0, 25, divContainerElement);
-		// dropdown that is above the top of container
-		const topOverflowEvent = getActionDropdownEvent(-5, 10, divContainerElement);
-		// dropdown that is under the bottom of container
-		const bottomOverflowEvent = getActionDropdownEvent(20, 40, divContainerElement);
-		// dropdown that is under the bottom of body element
-		const bodyBottomOverflowEvent = getActionDropdownEvent(20, 40, bodyElement);
-
-		const wrapper = shallow(<ActionDropdown items={[{ label: 'item 1' }, { label: 'item 2' }]} />);
-		expect(wrapper.state().dropup).toBeFalsy();
-
-		// when / then
-		wrapper.props().onToggle(true, bottomOverflowEvent);
-		expect(wrapper.state().dropup).toBe(true);
-
-		// when / then
-		wrapper.props().onToggle(true, topOverflowEvent);
-		expect(wrapper.state().dropup).toBeFalsy();
-
-		// when / then
-		wrapper.props().onToggle(true, event);
-		expect(wrapper.state().dropup).toBeFalsy();
-
-		// when / then
-		wrapper.props().onToggle(true, bodyBottomOverflowEvent);
-		expect(wrapper.state().dropup).toBe(true);
+			{
+				name: 'should do nothing on dropdown without overflow',
+				containerPosition: { top: 0, bottom: 35 },
+				menuPosition: { top: 20, bottom: 30 },
+				isInitialDropup: false,
+				isDropupOrIsDropdown: isDropdown,
+			},
+			{
+				name: 'should do nothing on dropup without overflow',
+				containerPosition: { top: 0, bottom: 35 },
+				menuPosition: { top: 20, bottom: 30 },
+				isInitialDropup: true,
+				isDropupOrIsDropdown: isDropup,
+			},
+		]);
 	});
 });

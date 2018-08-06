@@ -21,9 +21,11 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 	.edit-form {
 		flex-grow: 1;
+		height: 100%;
 
 		> input {
 			width: 100%;
+			height:	100%;
 		}
 	}
 
