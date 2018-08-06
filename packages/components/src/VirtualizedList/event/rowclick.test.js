@@ -1,4 +1,4 @@
-import each from 'jest-each';
+import cases from 'jest-in-case';
 import { decorateRowClick, decorateRowDoubleClick } from './rowclick';
 
 describe('rowclick', () => {
@@ -12,16 +12,9 @@ describe('rowclick', () => {
 			target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } },
 		};
 
-		each([
-			['checkbox', checkboxEvent],
-			['input', inputEvent],
-			['textarea', textareaEvent],
-			['button', buttonEvent],
-			['select', selectEvent],
-			['inner', innerActionEvent],
-		]).test(
-			'should not trigger double click callbacks on %s action double click',
-			(name, event) => {
+		cases(
+			'should not trigger double click callbacks on action double click',
+			({ event }) => {
 				// given
 				const onRowDoubleClick = jest.fn();
 				const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
@@ -30,6 +23,14 @@ describe('rowclick', () => {
 				decoratedRowDoubleClick({ event });
 				expect(onRowDoubleClick).not.toBeCalled();
 			},
+			[
+				{ name: 'checkbox', event: checkboxEvent },
+				{ name: 'input', event: inputEvent },
+				{ name: 'textarea', event: textareaEvent },
+				{ name: 'button', event: buttonEvent },
+				{ name: 'select', event: selectEvent },
+				{ name: 'inner', event: innerActionEvent },
+			],
 		);
 
 		it('should trigger double click callbacks on non-action double click', () => {
