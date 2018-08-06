@@ -5,6 +5,7 @@ import { List as VirtualizedList } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
 
 import theme from './ListGrid.scss';
+import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 /**
  * List renderer that accepts a custom row renderer.
@@ -42,8 +43,8 @@ function ListGrid(props) {
 			id={id}
 			height={height}
 			overscanRowCount={10}
-			onRowClick={onRowClick}
-			onRowDoubleClick={onRowDoubleClick}
+			onRowClick={decorateRowClick(onRowClick)}
+			onRowDoubleClick={decorateRowDoubleClick(onRowDoubleClick)}
 			noRowsRenderer={noRowsRenderer}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
