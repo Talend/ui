@@ -1,7 +1,8 @@
+/* eslint-disable-next-line import/no-extraneous-dependencies */
+import ReactDOM from 'react-dom';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import React from 'react';
-import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
@@ -146,10 +147,8 @@ class ActionDropdown extends React.Component {
 			const dropdownContainer = getDropdownContainer(dropdownTrigger);
 
 			if (dropdownContainer) {
-				console.log('container found', dropdownContainer.tagName);
 				const dropdownRect = dropdownMenu.getBoundingClientRect();
 				const containerRect = dropdownContainer.getBoundingClientRect();
-				console.log({ dropdownRect, containerRect });
 				if (!dropdown.classList.contains('dropup') && dropdownRect.bottom > containerRect.bottom) {
 					dropdown.classList.add('dropup');
 				} else if (dropdown.classList.contains('dropup') && dropdownRect.top < containerRect.top) {
