@@ -33,3 +33,24 @@ The we have to give to the column the sort function we want to apply.
 ```
 
 It's all done. The list would apply the custom sort.
+
+## Callback support for filterBar and sorting
+
+1. Callback for filterBar
+
+The callback function for filterBar is introduced to have custom actions onToggle or onFilter (ex: for a server side filter).
+Following callback functions are supported,
+
+```javascript
+props.toolbar.filter.onToggleFilter();
+props.toolbar.filter.onFilterChange(event, data);
+```
+
+2. Callback for sorting
+
+The callback functions on sort is introduced to have custom actions onSorting (ex: for a server side sorting).
+Following callback functions are supported,
+
+```javascript
+props.toolbar.sort.onChangeSortOrder(data);
+```
