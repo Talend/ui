@@ -5,6 +5,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
   18:8  error  'get' is defined but never used  no-unused-vars
 
+/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
+  358:3  error  Split 'const' declarations into multiple statements  one-var
+  379:3  error  Split 'const' declarations into multiple statements  one-var
+  399:3  error  Split 'const' declarations into multiple statements  one-var
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
@@ -14,5 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 4 problems (4 errors, 0 warnings)
+✖ 7 problems (7 errors, 0 warnings)
 
