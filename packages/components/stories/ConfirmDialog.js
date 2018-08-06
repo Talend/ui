@@ -39,6 +39,7 @@ const defaultProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 
@@ -53,6 +54,7 @@ const propsWithoutHeader = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 
@@ -68,6 +70,7 @@ const smallProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 const largeProps = {
@@ -82,6 +85,7 @@ const largeProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 
@@ -97,6 +101,7 @@ const withProgressBarProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 	progressValue: 66,
 };
@@ -214,11 +219,11 @@ storiesOf('ConfirmDialog', module)
 			displayMode: 'table',
 			list: {
 				columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+					{ key: 'id', label: 'Id' },
+					{ key: 'name', label: 'Name' },
+					{ key: 'author', label: 'Author' },
+					{ key: 'created', label: 'Created' },
+					{ key: 'modified', label: 'Modified' },
 				],
 				items,
 				titleProps: {
@@ -274,8 +279,8 @@ storiesOf('ConfirmDialog', module)
 					field: 'name',
 					onChange: action('sort.onChange'),
 					options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
+						{ id: 'id', name: 'Id' },
+						{ id: 'name', name: 'Name' },
 					],
 				},
 				pagination: {
