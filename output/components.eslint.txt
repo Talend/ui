@@ -7,12 +7,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
-    4:1  error    'react-dom' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  149:5  warning  Unexpected console statement                                                     no-console
-  152:5  warning  Unexpected console statement                                                     no-console
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.test.js
-  3:1  error  'jest-in-case' should be listed in the project's dependencies. Run 'npm i -S jest-in-case' to add it  import/no-extraneous-dependencies
+  2:1  error  'react-dom' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -38,5 +33,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 16 problems (13 errors, 3 warnings)
+✖ 13 problems (12 errors, 1 warning)
 
