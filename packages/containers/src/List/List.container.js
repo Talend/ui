@@ -193,7 +193,7 @@ class List extends React.Component {
 			isDescending: !state.sortAsc,
 			onChange: (event, data) => {
 				if (props.toolbar.sort.onChangeSortOrder) {
-					props.toolbar.sort.onChangeSortOrder(data);
+					props.toolbar.sort.onChangeSortOrder(event, data);
 				}
 				this.onSelectSortBy(event, data);
 			},
@@ -265,7 +265,7 @@ class List extends React.Component {
 				props.toolbar.sort.field = state.sortOn;
 				props.toolbar.sort.onChange = (event, data) => {
 					if (props.toolbar.sort.onChangeSortOrder) {
-						props.toolbar.sort.onChangeSortOrder(data);
+						props.toolbar.sort.onChangeSortOrder(event, data);
 					}
 					this.onSelectSortBy(event, data);
 				};

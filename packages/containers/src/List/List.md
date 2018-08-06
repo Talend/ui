@@ -52,5 +52,5 @@ The callback functions on sort is introduced to have custom actions onSorting (e
 Following callback functions are supported,
 
 ```javascript
-props.toolbar.sort.onChangeSortOrder(data);
+props.toolbar.sort.onChangeSortOrder(event, data);
 ```
