@@ -114,12 +114,7 @@ describe('Dropup', () => {
 		const isDropup = true;
 		const isDropdown = false;
 
-		function testSwitch({
-			containerPosition,
-			menuPosition,
-			isInitialDropup,
-			isDropupOrIsDropdown,
-		}) {
+		function testSwitch({ containerPosition, menuPosition, isInitialDropup, expectedDropupState }) {
 			// given
 			const container = document.createElement('div');
 			container.classList.add('tc-dropdown-container');
@@ -144,7 +139,7 @@ describe('Dropup', () => {
 
 			// then
 			expect(container.querySelector('.dropdown').classList.contains('dropup')).toBe(
-				isDropupOrIsDropdown,
+				expectedDropupState,
 			);
 		}
 
