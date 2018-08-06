@@ -37,8 +37,6 @@ $item-height: 40px;
 			flex-grow: 0;
 		}
 
-
-
 		.tc-treeview-img {
 			max-height: 2rem;
 			margin-right: 10px;
@@ -56,7 +54,7 @@ $item-height: 40px;
 				visibility: visible;
 			}
 
-			.tc-treeview-folder{
+			.tc-treeview-folder {
 				&-opened {
 					display: block;
 				}

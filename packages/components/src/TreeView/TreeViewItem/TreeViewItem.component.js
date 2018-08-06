@@ -171,13 +171,14 @@ class TreeViewItem extends React.Component {
 			icon,
 			counter = children.length,
 		} = item;
-		const paddingLeft = `${(depth * (PADDING + CARET_WIDTH)) + BASE_PADDING}px`;
+		const paddingLeft = `${depth * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
 		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 		const shouldShowToggledIcon = !!(children.length && (toggled || this.state.hovered));
 
 		return (
 			<li
-				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}
+				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
+				data-hidden={hidden}
 				onMouseEnter={this.onMouseEnter}
 				onMouseLeave={this.onMouseLeave}
 			>
