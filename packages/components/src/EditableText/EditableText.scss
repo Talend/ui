@@ -18,6 +18,9 @@ $tc-input-editable-text-size-small: 1rem !default;
 $tc-input-editable-text-title-weight: 900 !default;
 $tc-input-editable-text-input-weight: $form-base-font-weight !default;
 
+$tc-icon-editable-text-size: 8px !default;
+$tc-circle-editable-text-size: 16px !default;
+
 :global(.tc-editable-text-blink) {
 	@include heartbeat(object-blink);
 }
@@ -85,9 +88,10 @@ $tc-input-editable-text-input-weight: $form-base-font-weight !default;
 			display: flex;
 
 			&-icon {
-				border: 0.2rem solid currentColor;
-				width: $tc-input-editable-text-size-large;
-				height: $tc-input-editable-text-size-large;
+				border: 0.1rem solid $dove-gray;
+				color: $dove-gray;
+				width: $tc-circle-editable-text-size;
+				height: $tc-circle-editable-text-size;
 				min-height: auto;
 				display: flex;
 				border-radius: 50%;
@@ -97,17 +101,27 @@ $tc-input-editable-text-input-weight: $form-base-font-weight !default;
 				align-items: center;
 
 				> :global(.tc-svg-icon) {
-					width: $tc-input-editable-text-size-medium;
-					height: $tc-input-editable-text-size-medium;
+					width: $tc-icon-editable-text-size;
+					height: $tc-icon-editable-text-size;
 				}
 
 				&:last-child {
 					margin-left: $padding-small;
 
 					> svg {
-						width: $tc-input-editable-text-size-small;
-						height: $tc-input-editable-text-size-small;
+						width: $tc-icon-editable-text-size;
+						height: $tc-icon-editable-text-size;
 					}
+				}
+			}
+
+			&-submit {
+				border-color: $rio-grande;
+				background: $rio-grande;
+				fill: white;
+
+				> svg {
+					color: white;
 				}
 			}
 		}

@@ -89,6 +89,20 @@ class InlineForm extends React.Component {
 					)}
 				>
 					<Action
+						name="action-cancel-title"
+						label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
+						icon="talend-cross"
+						onClick={this.onCancel}
+						bsStyle="link"
+						className={classNames(
+							theme['tc-editable-text-form-buttons-icon'],
+							'tc-editable-text-form-buttons-icon',
+							theme['tc-editable-text-form-buttons-cancel'],
+							'tc-editable-text-form-buttons-cancel',
+						)}
+						hideLabel
+					/>
+					<Action
 						type="submit"
 						name="action-submit-title"
 						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
@@ -98,20 +112,10 @@ class InlineForm extends React.Component {
 						className={classNames(
 							theme['tc-editable-text-form-buttons-icon'],
 							'tc-editable-text-form-buttons-icon',
+							theme['tc-editable-text-form-buttons-submit'],
+							'tc-editable-text-form-buttons-submit',
 						)}
 						disabled={notFilled}
-						hideLabel
-					/>
-					<Action
-						name="action-cancel-title"
-						label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
-						icon="talend-cross"
-						onClick={this.onCancel}
-						bsStyle="link"
-						className={classNames(
-							theme['tc-editable-text-form-buttons-icon'],
-							'tc-editable-text-form-buttons-icon',
-						)}
 						hideLabel
 					/>
 				</div>
