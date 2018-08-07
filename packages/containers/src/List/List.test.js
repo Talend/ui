@@ -22,11 +22,14 @@ const list = {
 const toolbar = {
 	filter: {
 		placeholder: 'find an object',
+		onToggleFilter: 'filter:onToggleFilter',
+		onFilterChange: 'filter:onFilterChange',
 	},
 	sort: {
 		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		field: 'id',
 		isDescending: false,
+		onChangeSortOrder: 'sort:onChangeSortOrder',
 	},
 	display: {
 		displayModes: ['large', 'table'],
@@ -344,68 +347,100 @@ describe('Container List', () => {
 		expect(props.rowHeight).toBe(3);
 	});
 
-	it('should call onToggleFilter when onToggle event is triggered', () => {
+	it('should call action creator when onToggle event is triggered', () => {
 		// given
-		const initialSettings = cloneDeep(settings);
-		initialSettings.setState = jest.fn();
-		initialSettings.toolbar.filter.onToggleFilter = jest.fn();
-		const state = fromJS({ filterDocked: false });
-		initialSettings.state = state;
-		const wrapper = shallow(<Container {...initialSettings} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const setState = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:filter:onToggleFilter': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+				setState={setState}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
 		const data = {};
+		expect(dispatchActionCreator).not.toBeCalled();
 		// when
 		props.toolbar.filter.onToggle(event, data);
 		// then
-		expect(props.toolbar.filter.onToggleFilter).toHaveBeenCalledWith(event, data);
-		expect(initialSettings.setState.mock.calls[0][0]).toEqual({
-			filterDocked: true,
-			searchQuery: '',
-		});
+		expect(dispatchActionCreator).toBeCalledWith('filter:onToggleFilter', event, data, context);
 	});
 
-	it('should call onFilterChange when onFilter event is triggered', () => {
+	it('should call action creator when onFilter event is triggered', () => {
 		// given
-		const initialSettings = cloneDeep(settings);
-		initialSettings.setState = jest.fn();
-		initialSettings.toolbar.filter.onFilterChange = jest.fn();
-		const wrapper = shallow(<Container {...initialSettings} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const setState = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:filter:onFilterChange': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+				setState={setState}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
-		const data = { query: 'test' };
+		const data = {};
+		expect(dispatchActionCreator).not.toBeCalled();
 		// when
 		props.toolbar.filter.onFilter(event, data);
 		// then
-		expect(props.toolbar.filter.onFilterChange).toHaveBeenCalledWith(event, data);
-		expect(initialSettings.setState.mock.calls[0][0]).toEqual({
-			searchQuery: 'test',
-		});
+		expect(dispatchActionCreator).toBeCalledWith('filter:onFilterChange', event, data, context);
 	});
 
-	it('should call onChangeSortOrder when sorting onChange event is triggered', () => {
+	it('should call action creator when sorting onChange event is triggered', () => {
 		// given
-		const initialSettings = cloneDeep(settings);
-		initialSettings.setState = jest.fn();
-		initialSettings.toolbar.sort.onChangeSortOrder = jest.fn();
-		const wrapper = shallow(<Container {...initialSettings} items={items} />, {
-			lifecycleExperimental: true,
-		});
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const setState = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:sort:onChangeSortOrder': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+				setState={setState}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
-		const data = { field: 'name', isDescending: true };
+		const data = {};
+		expect(dispatchActionCreator).not.toBeCalled();
 		// when
 		props.list.sort.onChange(event, data);
 		// then
-		expect(props.toolbar.sort.onChangeSortOrder).toHaveBeenCalledWith(event, data);
-		expect(initialSettings.setState.mock.calls[0][0]).toEqual({
-			sortOn: 'name',
-			sortAsc: false,
-		});
+		expect(dispatchActionCreator).toBeCalledWith('sort:onChangeSortOrder', event, data, context);
 	});
 
 	describe('Toggle selection', () => {
