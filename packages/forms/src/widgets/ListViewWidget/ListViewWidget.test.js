@@ -139,7 +139,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(
 				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
 			);
-			expect(wrapper.find('ItemComponent').length).toBe(4);
+			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
 			switchToSearchMode(wrapper);
@@ -188,7 +188,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(
 				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
 			);
-			expect(wrapper.find('ItemComponent').length).toBe(4);
+			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
 			switchToSearchMode(wrapper);
@@ -196,7 +196,7 @@ describe('ListViewWidget', () => {
 			wrapper.update();
 
 			// then
-			expect(wrapper.find('ItemComponent').length).toBe(2);
+			expect(wrapper.find('Item').length).toBe(2);
 		});
 
 		it('should display a message when no results was found', () => {
@@ -206,7 +206,7 @@ describe('ListViewWidget', () => {
 			const wrapper = mount(
 				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
 			);
-			expect(wrapper.find('ItemComponent').length).toBe(4);
+			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
 			switchToSearchMode(wrapper);
@@ -214,7 +214,7 @@ describe('ListViewWidget', () => {
 			wrapper.update();
 
 			// then
-			expect(wrapper.find('ItemComponent').length).toBe(0);
+			expect(wrapper.find('Item').length).toBe(0);
 			expect(
 				wrapper
 					.find('span')

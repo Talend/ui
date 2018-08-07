@@ -10,7 +10,7 @@ function itemLabelClasses() {
 	return classNames(theme['tc-listview-item-label'], 'tc-listview-item-label');
 }
 
-export class ItemComponent extends Component {
+class Item extends Component {
 	componentDidUpdate(prevProps) {
 		const { children, measure, item } = this.props;
 		const { children: prevChildren, item: prevItem } = prevProps;
@@ -44,16 +44,15 @@ export class ItemComponent extends Component {
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
 		);
-		const checked = !!item.checked;
-		const ariaLabel = checked
-			? t('TC_LISTVIEW_DESELECT', { defaultValue: `Deselect {{ value }}`, value: item.label })
-			: t('TC_LISTVIEW_SELECT', { defaultValue: `Select {{ value }}`, value: item.label });
+		const ariaLabel = item.checked
+			? t('TC_LISTVIEW_DESELECT', { defaultValue: 'Deselect {{ value }}', value: item.label })
+			: t('TC_LISTVIEW_SELECT', { defaultValue: 'Select {{ value }}', value: item.label });
 
 		let expandLabel;
 		if (children) {
 			expandLabel = item.expanded
-				? t('TC_LISTVIEW_COLLAPSE', { defaultValue: `Collapse {{ value }}`, value: item.label })
-				: t('TC_LISTVIEW_EXPAND', { defaultValue: `Expand {{ value }}`, value: item.label });
+				? t('TC_LISTVIEW_COLLAPSE', { defaultValue: 'Collapse {{ value }}', value: item.label })
+				: t('TC_LISTVIEW_EXPAND', { defaultValue: 'Expand {{ value }}', value: item.label });
 		}
 
 		return (
@@ -91,6 +90,6 @@ export class ItemComponent extends Component {
 	}
 }
 
-ItemComponent.propTypes = ItemPropTypes;
+Item.propTypes = ItemPropTypes;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(ItemComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(Item);

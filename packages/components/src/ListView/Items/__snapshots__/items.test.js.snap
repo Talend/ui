@@ -208,7 +208,6 @@ exports[`Items should render 1`] = `
                         htmlFor="tc-listview-toggle-all"
                       >
                         <input
-                          checked={false}
                           id="tc-listview-toggle-all"
                           type="checkbox"
                         />
@@ -271,7 +270,7 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -302,7 +301,7 @@ exports[`Items should render 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           isSwitchBox={false}
                           item={
@@ -336,9 +335,9 @@ exports[`Items should render 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -393,7 +392,7 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -426,7 +425,7 @@ exports[`Items should render 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           isSwitchBox={false}
                           item={
@@ -462,9 +461,9 @@ exports[`Items should render 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -519,7 +518,7 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -550,7 +549,7 @@ exports[`Items should render 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           isSwitchBox={false}
                           item={
@@ -584,9 +583,9 @@ exports[`Items should render 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
               </div>
@@ -831,7 +830,6 @@ exports[`Items should render with nested items 1`] = `
                         htmlFor="tc-listview-toggle-all"
                       >
                         <input
-                          checked={false}
                           id="tc-listview-toggle-all"
                           type="checkbox"
                         />
@@ -891,7 +889,7 @@ exports[`Items should render with nested items 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -922,7 +920,7 @@ exports[`Items should render with nested items 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           isSwitchBox={false}
                           item={
@@ -956,9 +954,9 @@ exports[`Items should render with nested items 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -1010,7 +1008,7 @@ exports[`Items should render with nested items 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -1067,7 +1065,7 @@ exports[`Items should render with nested items 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           isSwitchBox={false}
                           item={
@@ -1220,9 +1218,9 @@ exports[`Items should render with nested items 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
               </div>
@@ -1444,7 +1442,6 @@ exports[`Items should render with provided id 1`] = `
                         htmlFor="my-widget-toggle-all"
                       >
                         <input
-                          checked={false}
                           id="my-widget-toggle-all"
                           type="checkbox"
                         />
@@ -1507,7 +1504,7 @@ exports[`Items should render with provided id 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       id="my-widget-1-item"
                       isSwitchBox={false}
                       item={
@@ -1541,7 +1538,7 @@ exports[`Items should render with provided id 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           id="my-widget-1-item"
                           isSwitchBox={false}
@@ -1581,9 +1578,9 @@ exports[`Items should render with provided id 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -1638,7 +1635,7 @@ exports[`Items should render with provided id 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       id="my-widget-2-item"
                       isSwitchBox={false}
                       item={
@@ -1674,7 +1671,7 @@ exports[`Items should render with provided id 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           id="my-widget-2-item"
                           isSwitchBox={false}
@@ -1716,9 +1713,9 @@ exports[`Items should render with provided id 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -1773,7 +1770,7 @@ exports[`Items should render with provided id 1`] = `
                       }
                     }
                   >
-                    <Translate(ItemComponent)
+                    <Translate(Item)
                       id="my-widget-3-item"
                       isSwitchBox={false}
                       item={
@@ -1807,7 +1804,7 @@ exports[`Items should render with provided id 1`] = `
                         wait={false}
                         withRef={false}
                       >
-                        <ItemComponent
+                        <Item
                           i18n={Object {}}
                           id="my-widget-3-item"
                           isSwitchBox={false}
@@ -1847,9 +1844,9 @@ exports[`Items should render with provided id 1`] = `
                               </div>
                             </div>
                           </div>
-                        </ItemComponent>
+                        </Item>
                       </I18n>
-                    </Translate(ItemComponent)>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
               </div>
