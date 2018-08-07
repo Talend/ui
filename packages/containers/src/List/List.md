@@ -42,8 +42,8 @@ The callback function for filterBar is introduced to have custom actions onToggl
 Following callback functions are supported,
 
 ```javascript
-props.toolbar.filter.onToggleFilter(event, data);
-props.toolbar.filter.onFilterChange(event, data);
+dispatchActionCreator(props.toolbar.filter.onToggleFilter, event, data, context);
+dispatchActionCreator(props.toolbar.filter.onFilterChange, event, data, context);
 ```
 
 2. Callback for sorting
@@ -52,5 +52,5 @@ The callback functions on sort is introduced to have custom actions onSorting (e
 Following callback functions are supported,
 
 ```javascript
-props.toolbar.sort.onChangeSortOrder(event, data);
+dispatchActionCreator(props.toolbar.sort.onChangeSortOrder, event, data, context);
 ```

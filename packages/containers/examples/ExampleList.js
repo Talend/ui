@@ -8,7 +8,6 @@ import { cloneDeep } from 'lodash';
 
 import { List } from '../src';
 import i18n from './config/i18n';
-import { action } from '@storybook/addon-actions';
 
 /**
  * Cell renderer that displays hello + text
@@ -36,7 +35,22 @@ CustomHeader.propTypes = {
 	label: PropTypes.string,
 };
 
+function onToggleFilter() {
+	return { type: 'TOGGLE_FILTER' };
+}
+
+function onFilterChange() {
+	return { type: 'FILTER_CHANGE' };
+}
+
+function onChangeSortOrder() {
+	return { type: 'CHANGE_SORT_ORDER' };
+}
+
 api.component.register('helloHeader', CustomHeader);
+api.actionCreator.register('filter:onToggleFilter', onToggleFilter);
+api.actionCreator.register('filter:onFilterChange', onFilterChange);
+api.actionCreator.register('sort:onChangeSortOrder', onChangeSortOrder);
 
 const list = {
 	columns: [
@@ -85,15 +99,15 @@ const toolbar = {
 	sort: {
 		field: 'id',
 		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
-		onChangeSortOrder: action('triggered change sort order action'),
+		onChangeSortOrder: 'sort:onChangeSortOrder',
 	},
 	display: {
 		displayModes: ['large', 'table'],
 	},
 	filter: {
 		placeholder: 'find an object',
-		onToggleFilter: action('triggered toggle filter action'),
-		onFilterChange: action('triggered filter change action '),
+		onToggleFilter: 'filter:onToggleFilter',
+		onFilterChange: 'filter:onFilterChange',
 	},
 };
 
