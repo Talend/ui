@@ -86,7 +86,7 @@ export class DeleteResource extends React.Component {
 		const validateAction = {
 			componentId: this.props[CONSTANTS.VALIDATE_ACTION],
 			model: resourceInfo,
-			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'DELETE' }),
+			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'REMOVE' }),
 			bsStyle: 'danger',
 			onClickActionCreator: 'DeleteResource#validate',
 		};
