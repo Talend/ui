@@ -5,7 +5,7 @@ import * as containers from './index';
 
 const components = Object.keys(allComponents).reduce((acc, key) => {
 	if (!acc[key] && typeof allComponents[key] === 'function') {
-        // eslint-disable-next-line no-param-reassign
+		// eslint-disable-next-line no-param-reassign
 		acc[key] = cmfConnect({})(allComponents[key]);
 	}
 	return acc;
