@@ -121,6 +121,9 @@ function reduceHistory(acc, config) {
 }
 
 function reduceConfig(acc, config) {
+	if (config.modules) {
+		config.modules.forEach(mod => reduceConfig(acc, mod));
+	}
 	reduceAppId(acc, config);
 	reduceHistory(acc, config);
 	reduceRegistry(acc, config);
