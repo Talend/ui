@@ -1,7 +1,7 @@
 ## Talend DataMapper
 
 This library provides a mapper to connect some input data to output data.
-It is a graphical mapper, and it is limited to flat schema.
+It's a graphical mapper, and is limited to flat schemas.
 
 ## Guidelines
 
@@ -10,18 +10,18 @@ It is a graphical mapper, and it is limited to flat schema.
 ## Basic usage
 
 ```javascript
-import DataMapper from '@talend/react-data-mapper'; //use the DataMapper Container
-```  
+import DataMapper from '@talend/react-data-mapper'; // use the DataMapper Container
+```
 
 ## DataMapper Component
 
-The dataMapper component is used to display and perform mapping between two flat schema. The schema are displayed with the [Table](https://github.com/Talend/ui/tree/master/packages/components/src/Table) component.
+The dataMapper component is used to display and perform mapping between two flat schemas. The schemas are displayed with the [Table](https://github.com/Talend/ui/tree/master/packages/components/src/Table) component.
 The mapping is displayed with SVG arrows.
 
 Features:
 
 * Connection by drag & drop or by keyboard
-* filtering and sorting
+* Filtering and sorting
 * Row selection keyboard/mouse
 * Undo/redo
 
@@ -29,7 +29,7 @@ The DataMapper uses default renderer for cell and header, but custom renderers c
 
 ### Concept
 
-In entry, the DataMapper component waits two schema (input and output) and a mapping.
+In entry, the DataMapper component waits two schemas (input and output) and a mapping.
 
 The format of a schema is like this:
 
@@ -68,8 +68,8 @@ The format of a schema is like this:
     	]
     }
 
-A schema must have at least an unique identifier (string), a name (string) and an array of elements.
-An element must have at least an unique identifier (string).
+A schema must have at least a unique identifier (string), a name (string) and an array of elements.
+An element must have at least a unique identifier (string).
 
 ### Props
 
@@ -234,7 +234,7 @@ The dnd props provides the current status of a drag & drop process. The steps of
        target: null,
        inProgress: false,
     }
-    
+
 where sourceElement is the dragged element and sourceSide specify the source schema (INPUT or OUTPUT).
 
 ##### drag in progress: the dragged element is moved in the mapping area. The dnd props is:
@@ -259,4 +259,3 @@ where targetElement is the target element and targetSide specify the target sche
 
 ##### end drag: the drag & drop process is finished. The dnd props is null.
 
- 
