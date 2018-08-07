@@ -197,10 +197,16 @@ class List extends React.Component {
 			field: state.sortOn,
 			isDescending: !state.sortAsc,
 			onChange: (event, data) => {
-				if (props.toolbar.sort.onChangeSortOrder &&
-					typeof props.toolbar.sort.onChangeSortOrder === 'string') {
-					this.props.dispatchActionCreator(props.toolbar.sort.onChangeSortOrder,
-						event, data, this.context);
+				if (
+					props.toolbar.sort.onChangeSortOrder &&
+					typeof props.toolbar.sort.onChangeSortOrder === 'string'
+				) {
+					this.props.dispatchActionCreator(
+						props.toolbar.sort.onChangeSortOrder,
+						event,
+						data,
+						this.context,
+					);
 				}
 				this.onSelectSortBy(event, data);
 			},
@@ -280,18 +286,30 @@ class List extends React.Component {
 
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
-					if (props.toolbar.filter.onToggleFilter &&
-						typeof props.toolbar.filter.onToggleFilter === 'string') {
-						this.props.dispatchActionCreator(props.toolbar.filter.onToggleFilter,
-							event, data, this.context);
+					if (
+						props.toolbar.filter.onToggleFilter &&
+						typeof props.toolbar.filter.onToggleFilter === 'string'
+					) {
+						this.props.dispatchActionCreator(
+							props.toolbar.filter.onToggleFilter,
+							event,
+							data,
+							this.context,
+						);
 					}
 					this.onToggle(event, data);
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
-					if (props.toolbar.filter.onFilterChange &&
-						typeof props.toolbar.filter.onFilterChange === 'string') {
-						this.props.dispatchActionCreator(props.toolbar.filter.onFilterChange,
-							event, data, this.context);
+					if (
+						props.toolbar.filter.onFilterChange &&
+						typeof props.toolbar.filter.onFilterChange === 'string'
+					) {
+						this.props.dispatchActionCreator(
+							props.toolbar.filter.onFilterChange,
+							event,
+							data,
+							this.context,
+						);
 					}
 					this.onFilter(event, data);
 				};
