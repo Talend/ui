@@ -355,6 +355,7 @@ storiesOf('Virtualized List', module)
 					id={'my-list'}
 					isSelected={item => item.id === 6}
 					selectionToggle={action('selectionToggle')}
+					onRowDoubleClick={action('doubleClick')}
 				>
 					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
@@ -448,8 +449,9 @@ storiesOf('Virtualized List', module)
 					collection={collection}
 					id={'my-list'}
 					isSelected={item => item.id === 6}
-					selectionToggle={action('selectionToggle')}
+					onRowDoubleClick={action('doubleClick')}
 					rowHeight={135}
+					selectionToggle={action('selectionToggle')}
 					type={listTypes.LARGE}
 				>
 					<VirtualizedList.Content label="Id" dataKey="id" />
