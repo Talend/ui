@@ -34,6 +34,7 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import EditableText from './EditableText';
 import Typeahead from './Typeahead';
 import TabBar from './TabBar';
 
@@ -71,6 +72,7 @@ export {
 	SelectObject,
 	SidePanel,
 	SubHeaderBar,
+	EditableText,
 	TabBar,
 	TooltipTrigger,
 	TreeView,
