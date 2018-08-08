@@ -55,11 +55,12 @@ function Dialog({
 			{header && (
 				<Modal.Header closeButton={closeButton}>
 					<Modal.Title id={headerId}>{header}</Modal.Title>
-					{(subtext && subtext.length) && (
-						<h3 className={classNames({ error: error && error.length }, 'modal-subtitle')}>
-							{subtext}
-						</h3>
-					)}
+					{subtext &&
+						subtext.length && (
+							<h3 className={classNames({ error: error && error.length }, 'modal-subtitle')}>
+								{subtext}
+							</h3>
+						)}
 				</Modal.Header>
 			)}
 			{injected('after-modal-header')}
