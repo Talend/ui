@@ -26,6 +26,8 @@ function Dialog({
 	footer,
 	getComponent,
 	header,
+	subtitle,
+	error,
 	progress,
 	size,
 	...props
@@ -36,6 +38,7 @@ function Dialog({
 	});
 	const injected = Inject.all(getComponent, components);
 	const headerId = 'tc-dialog-header';
+	const subtext = error || subtitle;
 
 	return (
 		<Modal
@@ -52,6 +55,11 @@ function Dialog({
 			{header && (
 				<Modal.Header closeButton={closeButton}>
 					<Modal.Title id={headerId}>{header}</Modal.Title>
+					{(subtext && subtext.length) && (
+						<h3 className={classNames({ error: error && error.length }, 'modal-subtitle')}>
+							{subtext}
+						</h3>
+					)}
 				</Modal.Header>
 			)}
 			{injected('after-modal-header')}
@@ -86,6 +94,8 @@ Dialog.defaultProps = {
 
 Dialog.propTypes = {
 	header: PropTypes.string,
+	subtitle: PropTypes.string,
+	error: PropTypes.string,
 	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
 	children: PropTypes.element,
 	show: PropTypes.bool,

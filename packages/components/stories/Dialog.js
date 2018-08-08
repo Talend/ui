@@ -22,6 +22,27 @@ const actionProps = {
 		onClick: action('ok'),
 	},
 };
+const subtitle = {
+	show: true,
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	onHide: action('onHide'),
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
+const errored = {
+	show: true,
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	error: 'Vestibulum molestie id massa eu pretium.',
+	onHide: action('onHide'),
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
 const smallProps = {
 	show: true,
 	header: 'Hello world',
@@ -79,6 +100,18 @@ storiesOf('Dialog', module)
 			<Dialog {...actionProps}>{children}</Dialog>
 		</div>
 	))
+	.addWithInfo('with subtitle', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...subtitle}>{children}</Dialog>
+		</div>
+	))
+	.addWithInfo('with error', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...errored}>{children}</Dialog>
+		</div>
+	))
 	.addWithInfo('small', () => (
 		<div>
 			<h1>Dialog</h1>
@@ -97,4 +130,3 @@ storiesOf('Dialog', module)
 			<Dialog {...bsProps}>{children}</Dialog>
 		</div>
 	));
-

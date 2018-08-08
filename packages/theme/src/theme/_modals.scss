@@ -13,16 +13,38 @@
 		flex-grow: 0;
 		flex-shrink: 0;
 		border: none; // it keeps the border-radius
+		border-radius: $border-radius-base;
 	}
+
 	&-header {
 		border-top-left-radius: $border-radius-base;
 		border-top-right-radius: $border-radius-base;
 		background-color: $modal-header-bg;
 		border-color: $concrete;
+		padding: {
+			top: $modal-title-padding-top;
+			bottom: $modal-title-padding-bottom;
+		}
 
-		.modal-title {
-			font-size: 16px;
-			color: $modal-header-color;
+		.modal {
+			&-title {
+				font-size: 16px;
+				color: $modal-header-color;
+				font-weight: 900;
+				text-transform: uppercase;
+			}
+
+			&-subtitle {
+				font-size: 14px;
+				color: $dark-silver;
+				margin-top: 1px;
+
+				&.error {
+					font-size: 14px;
+					color: $chestnut-rose;
+					margin-top: 1px;
+				}
+			}
 		}
 
 		.close {
@@ -38,7 +60,7 @@
 	}
 
 	&-footer {
-		border-color: $concrete;
+		border: none;
 		flex-shrink: 0;
 	}
 }
