@@ -81,6 +81,7 @@ function HeaderListView(props) {
 		headerInput,
 		headerDefault,
 		headerLabel,
+		hideHeaderCount,
 		items,
 		required,
 		searchPlaceholder,
@@ -103,10 +104,14 @@ function HeaderListView(props) {
 				headerDefault,
 				headerLabel,
 				required,
-				nbItems: items.length,
-				nbItemsSelected: items.filter(item => !!item.checked).length,
 				t,
 			};
+
+			if (!hideHeaderCount) {
+				propsDefault.nbItems = items.length;
+				propsDefault.nbItemsSelected = items.filter(item => !!item.checked).length;
+			}
+
 			return <Header {...propsDefault} />;
 		}
 	}
@@ -122,6 +127,7 @@ HeaderListView.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.object),
 	headerInput: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
+	hideHeaderCount: PropTypes.bool,
 	items: ListView.propTypes.items,
 	onInputChange: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
