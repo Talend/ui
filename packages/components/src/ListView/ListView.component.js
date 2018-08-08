@@ -27,8 +27,8 @@ function ListView(props) {
 			{props.items && props.items.length ? (
 				<ItemsListView {...props} />
 			) : (
-					<span className={theme['empty-message']}>{label}</span>
-				)}
+				<span className={theme['empty-message']}>{label}</span>
+			)}
 		</div>
 	);
 }
