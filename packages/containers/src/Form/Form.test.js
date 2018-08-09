@@ -16,6 +16,7 @@ describe('Container(Form)', () => {
 				className="foo"
 				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
+				loading
 			/>,
 		);
 		const props = wrapper.props();
