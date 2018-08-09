@@ -15,14 +15,13 @@ describe('NestedListView component', () => {
 			schema: {
 				title: 'Nested ListView',
 				schema: {
-					items: [{
-						title: 'Bar',
-						key: ['foo', 'bar'],
-						titleMap: [
-							{ label: 'Baz', value: 'baz' },
-							{ label: 'Boo', value: 'boo' },
-						],
-					}],
+					items: [
+						{
+							title: 'Bar',
+							key: ['foo', 'bar'],
+							titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
+						},
+					],
 					required: true,
 					emptyLabel: 'emptyLabel',
 					title: 'title',
@@ -49,15 +48,12 @@ describe('NestedListView component', () => {
 			// const wrapper = shallow(<NestedListView {...props} />);
 			// const event = {};
 			// const value = { bar: ['baz'] };
-
 			// wrapper.instance().onChange(event, value);
-
 			// // then
 			// expect(props.onChange).toHaveBeenCalledWith(event, {
 			// 	schema: props.schema,
 			// 	...value,
 			// });
-
 			// expect(props.onFinish).toHaveBeenCalledWith(event, {
 			// 	schema: props.schema,
 			// 	...value,
@@ -169,14 +165,13 @@ describe('NestedListView utils', () => {
 		it('should init items props', () => {
 			// given
 			const schema = {
-				items: [{
-					title: 'Bar',
-					key: ['foo', 'bar'],
-					titleMap: [
-						{ label: 'Baz', value: 'baz' },
-						{ label: 'Boo', value: 'boo' },
-					],
-				}],
+				items: [
+					{
+						title: 'Bar',
+						key: ['foo', 'bar'],
+						titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
+					},
+				],
 				required: true,
 				emptyLabel: 'emptyLabel',
 				title: 'title',
