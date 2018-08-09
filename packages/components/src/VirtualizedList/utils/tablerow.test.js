@@ -14,7 +14,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = insertSelectionConfiguration(isSelected, selectionToggle, children);
+			const result = insertSelectionConfiguration({ isSelected, selectionToggle, children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -28,7 +28,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = insertSelectionConfiguration(null, null, children);
+			const result = insertSelectionConfiguration({ children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -49,7 +49,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = toColumns(null, theme, children);
+			const result = toColumns({ theme, children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -63,7 +63,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = toColumns(null, theme, children);
+			const result = toColumns({ theme, children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -82,7 +82,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = toColumns(id, {}, children);
+			const result = toColumns({ id, theme: {}, children });
 
 			// then
 			expect(result).toMatchSnapshot();
