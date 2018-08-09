@@ -6,36 +6,12 @@ import {
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
 
-import memoizeOne from 'memoize-one';
-import isEqual from 'lodash/isEqual';
 import getRowSelectionRenderer from '../RowSelection';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
-
-const getMemoizedRowSelectionRenderer = memoizeOne(getRowSelectionRenderer, isEqual);
-const getMemoizedDecorateRowClick = memoizeOne(decorateRowClick);
-const getMemoizedDecorateRowDoubleClick = memoizeOne(decorateRowDoubleClick);
-const getMemoizedRowClassnameGetter = memoizeOne(
-	collection =>
-		function rowClassnameGetter({ index }) {
-			return classNames(
-				...['tc-list-item', rowThemes, collection[index] && collection[index].className],
-			);
-		},
-);
-const getMemoizedRowGetter = memoizeOne(
-	collection =>
-		function rowGetter({ index }) {
-			return collection[index];
-		},
-);
-
-function getRowData(rowProps) {
-	return rowProps.rowData;
-}
 
 /**
  * List renderer that renders a react-virtualized Table
@@ -53,15 +29,15 @@ function ListTable(props) {
 
 	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
-		RowTableRenderer = getMemoizedRowSelectionRenderer(RowTableRenderer, {
+		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
 			isActive,
-			getRowData,
+			getRowData: rowProps => rowProps.rowData,
 		});
 	}
 
-	const onRowClickCallback = getMemoizedDecorateRowClick(onRowClick);
-	const onRowDoubleClickCallback = getMemoizedDecorateRowDoubleClick(onRowDoubleClick);
+	const onRowClickCallback = decorateRowClick(onRowClick);
+	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
 
 	return (
 		<VirtualizedTable
@@ -71,9 +47,11 @@ function ListTable(props) {
 			id={id}
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
-			rowClassName={getMemoizedRowClassnameGetter(collection)}
+			rowClassName={({ index }) =>
+				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
+			}
 			rowCount={collection.length}
-			rowGetter={getMemoizedRowGetter(collection)}
+			rowGetter={({ index }) => collection[index]}
 			rowRenderer={RowTableRenderer}
 			{...restProps}
 		/>

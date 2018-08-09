@@ -1,27 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
-import isEqual from 'lodash/isEqual';
-import memoizeOne from 'memoize-one';
 
 import getRowSelectionRenderer from '../RowSelection';
 
 import theme from './ListGrid.scss';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
-
-const getMemoizedRowSelectionRenderer = memoizeOne(getRowSelectionRenderer, isEqual);
-const getMemoizedDecorateRowClick = memoizeOne(decorateRowClick);
-const getMemoizedDecorateRowDoubleClick = memoizeOne(decorateRowDoubleClick);
-const getMemoizedRowGetter = memoizeOne(
-	collection =>
-		function rowGetter(index) {
-			return collection[index];
-		},
-);
-
-function getRowData(rowProps) {
-	return rowProps.rowData;
-}
 
 /**
  * List renderer that accepts a custom row renderer.
@@ -40,10 +24,10 @@ function ListGrid(props) {
 
 	let enhancedRowRenderer = rowRenderer;
 	if (isActive || isSelected) {
-		enhancedRowRenderer = getMemoizedRowSelectionRenderer(rowRenderer, {
+		enhancedRowRenderer = getRowSelectionRenderer(rowRenderer, {
 			isActive,
 			isSelected,
-			getRowData,
+			getRowData: ({ index }) => collection[index],
 		});
 	}
 
@@ -52,11 +36,11 @@ function ListGrid(props) {
 			className={theme['tc-list-list']}
 			collection={collection}
 			overscanRowCount={10}
-			onRowClick={getMemoizedDecorateRowClick(onRowClick)}
-			onRowDoubleClick={getMemoizedDecorateRowDoubleClick(onRowDoubleClick)}
+			onRowClick={decorateRowClick(onRowClick)}
+			onRowDoubleClick={decorateRowDoubleClick(onRowDoubleClick)}
 			rowCount={collection.length}
 			rowRenderer={enhancedRowRenderer}
-			rowGetter={getMemoizedRowGetter(collection)}
+			rowGetter={index => collection[index]}
 			{...restProps}
 		/>
 	);
