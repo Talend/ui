@@ -13,7 +13,6 @@ function TitleSubHeader({
 	iconId,
 	loading,
 	inProgress,
-	editMode,
 	editable,
 	subTitle,
 	getComponent,
@@ -44,10 +43,9 @@ function TitleSubHeader({
 						'tc-subheader-details-text-title',
 					)}
 				>
-					{editable || editMode ? (
+					{editable ? (
 						<Renderer.EditableText
 							text={title}
-							editMode={editMode}
 							inProgress={inProgress}
 							{...rest}
 						/>
@@ -62,17 +60,16 @@ function TitleSubHeader({
 						</h1>
 					)}
 				</div>
-				{subTitle &&
-					!editMode && (
-						<small
-							className={classNames(
-								theme['tc-subheader-details-text-subtitle'],
-								'tc-subheader-details-text-subtitle',
-							)}
-						>
-							{subTitle}
-						</small>
-					)}
+				{subTitle && (
+					<small
+						className={classNames(
+							theme['tc-subheader-details-text-subtitle'],
+							'tc-subheader-details-text-subtitle',
+						)}
+					>
+						{subTitle}
+					</small>
+				)}
 			</div>
 		</div>
 	);
@@ -80,7 +77,6 @@ function TitleSubHeader({
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
-	editMode: PropTypes.bool,
 	iconId: PropTypes.string,
 	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
@@ -90,7 +86,6 @@ TitleSubHeader.propTypes = {
 };
 
 TitleSubHeader.defaultProps = {
-	editMode: false,
 	loading: false,
 	inProgress: false,
 	t: getDefaultT(),
