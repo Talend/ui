@@ -48,6 +48,7 @@
     "date-fns": "^1.27.2",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
+    "memoize-one": "^4.0.0",
     "rc-slider": "8.6.1",
     "rc-tooltip": "3.7.2",
     "react-autowhatever": "10.1.2",

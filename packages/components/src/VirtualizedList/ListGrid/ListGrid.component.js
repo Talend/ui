@@ -1,11 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
+import isEqual from 'lodash/isEqual';
+import memoizeOne from 'memoize-one';
 
 import getRowSelectionRenderer from '../RowSelection';
 
 import theme from './ListGrid.scss';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
+
+const getMemoizedRowSelectionRenderer = memoizeOne(getRowSelectionRenderer, isEqual);
+const getMemoizedDecorateRowClick = memoizeOne(decorateRowClick);
+const getMemoizedDecorateRowDoubleClick = memoizeOne(decorateRowDoubleClick);
+const getMemoizedRowGetter = memoizeOne(
+	collection =>
+		function rowGetter(index) {
+			return collection[index];
+		},
+);
+
+function getRowData(rowProps) {
+	return rowProps.rowData;
+}
 
 /**
  * List renderer that accepts a custom row renderer.
@@ -13,26 +29,21 @@ import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
  */
 function ListGrid(props) {
 	const {
-		children,
 		collection,
-		id,
-		height,
 		isActive,
 		isSelected,
-		noRowsRenderer,
 		onRowClick,
 		onRowDoubleClick,
-		rowHeight,
 		rowRenderer,
-		width,
+		...restProps
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
 	if (isActive || isSelected) {
-		enhancedRowRenderer = getRowSelectionRenderer(rowRenderer, {
+		enhancedRowRenderer = getMemoizedRowSelectionRenderer(rowRenderer, {
 			isActive,
 			isSelected,
-			getRowData: ({ index }) => collection[index],
+			getRowData,
 		});
 	}
 
@@ -40,20 +51,14 @@ function ListGrid(props) {
 		<VirtualizedList
 			className={theme['tc-list-list']}
 			collection={collection}
-			id={id}
-			height={height}
 			overscanRowCount={10}
-			onRowClick={decorateRowClick(onRowClick)}
-			onRowDoubleClick={decorateRowDoubleClick(onRowDoubleClick)}
-			noRowsRenderer={noRowsRenderer}
+			onRowClick={getMemoizedDecorateRowClick(onRowClick)}
+			onRowDoubleClick={getMemoizedDecorateRowDoubleClick(onRowDoubleClick)}
 			rowCount={collection.length}
-			rowHeight={rowHeight}
 			rowRenderer={enhancedRowRenderer}
-			rowGetter={index => collection[index]}
-			width={width}
-		>
-			{children}
-		</VirtualizedList>
+			rowGetter={getMemoizedRowGetter(collection)}
+			{...restProps}
+		/>
 	);
 }
 

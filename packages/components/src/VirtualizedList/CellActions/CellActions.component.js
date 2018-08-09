@@ -11,22 +11,23 @@ const LIST_ACTION_CLASS_NAME = 'tc-list-actions';
 /**
  * Cell that renders actions
  */
-function CellActions({ cellData }) {
-	return (
-		<div
-			className={classNames(
-				LIST_ACTION_CLASS_NAME,
-				tableTheme[LIST_ACTION_CLASS_NAME],
-				largeTheme[LIST_ACTION_CLASS_NAME],
-			)}
-		>
-			<Actions
-				actions={cellData}
-				hideLabel
-				link
-			/>
-		</div>
-	);
+class CellActions extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		return this.props.cellData !== nextProps.cellData;
+	}
+	render() {
+		return (
+			<div
+				className={classNames(
+					LIST_ACTION_CLASS_NAME,
+					tableTheme[LIST_ACTION_CLASS_NAME],
+					largeTheme[LIST_ACTION_CLASS_NAME],
+				)}
+			>
+				<Actions actions={this.props} hideLabel link />
+			</div>
+		);
+	}
 }
 
 CellActions.displayName = 'VirtualizedList(CellActions)';

@@ -5,73 +5,78 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
+
+import memoizeOne from 'memoize-one';
+import isEqual from 'lodash/isEqual';
 import getRowSelectionRenderer from '../RowSelection';
-import { toColumns } from '../utils/tablerow';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
 
+const getMemoizedRowSelectionRenderer = memoizeOne(getRowSelectionRenderer, isEqual);
+const getMemoizedDecorateRowClick = memoizeOne(decorateRowClick);
+const getMemoizedDecorateRowDoubleClick = memoizeOne(decorateRowDoubleClick);
+const getMemoizedRowClassnameGetter = memoizeOne(
+	collection =>
+		function rowClassnameGetter({ index }) {
+			return classNames(
+				...['tc-list-item', rowThemes, collection[index] && collection[index].className],
+			);
+		},
+);
+const getMemoizedRowGetter = memoizeOne(
+	collection =>
+		function rowGetter({ index }) {
+			return collection[index];
+		},
+);
+
+function getRowData(rowProps) {
+	return rowProps.rowData;
+}
+
 /**
  * List renderer that renders a react-virtualized Table
  */
 function ListTable(props) {
 	const {
-		children,
 		collection,
-		disableHeader,
-		height,
 		id,
 		isActive,
 		isSelected,
-		noRowsRenderer,
 		onRowClick,
 		onRowDoubleClick,
-		sort,
-		sortBy,
-		sortDirection,
-		width,
-		rowHeight,
+		...restProps
 	} = props;
 
 	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
-		RowTableRenderer = getRowSelectionRenderer(DefaultTableRowRenderer, {
+		RowTableRenderer = getMemoizedRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
 			isActive,
-			getRowData: rowProps => rowProps.rowData,
+			getRowData,
 		});
 	}
 
-	const onRowClickCallback = decorateRowClick(onRowClick);
-	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
+	const onRowClickCallback = getMemoizedDecorateRowClick(onRowClick);
+	const onRowDoubleClickCallback = getMemoizedDecorateRowDoubleClick(onRowDoubleClick);
 
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
 			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
 			headerHeight={35}
-			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
-			noRowsRenderer={noRowsRenderer}
-			rowClassName={({ index }) =>
-				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
-			}
+			rowClassName={getMemoizedRowClassnameGetter(collection)}
 			rowCount={collection.length}
-			rowGetter={({ index }) => collection[index]}
-			rowHeight={rowHeight}
+			rowGetter={getMemoizedRowGetter(collection)}
 			rowRenderer={RowTableRenderer}
-			sort={sort}
-			sortBy={sortBy}
-			sortDirection={sortDirection}
-			width={width}
-			disableHeader={disableHeader}
-		>
-			{toColumns(id, theme, children)}
-		</VirtualizedTable>
+			{...restProps}
+		/>
 	);
 }
 ListTable.displayName = 'VirtualizedList(ListTable)';
