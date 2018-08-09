@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import memoizeOne from 'memoize-one';
 
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
@@ -9,11 +8,7 @@ import ListTable from './ListTable';
 import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
 import Loader from '../Loader';
-import { toColumns } from './utils/tablerow';
 
-import tableTheme from './ListTable/ListTable.scss';
-
-const getMemoizedToColumns = memoizeOne(toColumns);
 const { TABLE } = listTypes;
 
 /**
@@ -71,6 +66,7 @@ class RendererSelector extends React.Component {
 		const collection = inProgress ? [] : this.props.collection;
 
 		const commonProps = {
+			children,
 			collection,
 			height,
 			id,
@@ -99,11 +95,7 @@ class RendererSelector extends React.Component {
 			customProps = { rowRenderer: getRowRenderer(type) };
 		}
 
-		return (
-			<ListRenderer {...commonProps} {...customProps}>
-				{getMemoizedToColumns(id, tableTheme, children)}
-			</ListRenderer>
-		);
+		return <ListRenderer {...commonProps} {...customProps} />;
 	}
 }
 RendererSelector.displayName = 'VirtualizedList(RendererSelector)';

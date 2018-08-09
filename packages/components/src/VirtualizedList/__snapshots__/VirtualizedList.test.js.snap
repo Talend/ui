@@ -46,8 +46,10 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-"
     columnData={
       Object {
+        "id": "my-list-id",
         "label": "Select this element",
         "onChange": [Function],
       }
@@ -57,6 +59,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     disableSort={true}
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-"
     headerRenderer={[Function]}
     id="tc-list-internal-row-selector"
     label=""
@@ -66,10 +69,17 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-id"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
@@ -78,10 +88,17 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Name"
     style={Object {}}
@@ -90,10 +107,17 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Description"
     style={Object {}}

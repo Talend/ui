@@ -5,8 +5,9 @@ import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
-import { insertSelectionConfiguration } from './utils/tablerow';
+import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import theme from './VirtualizedList.scss';
+import tableTheme from './ListTable/ListTable.scss';
 
 const { LARGE } = listTypes;
 
@@ -34,10 +35,15 @@ function VirtualizedList(props) {
 		disableHeader,
 	} = props;
 
-	const contentsConfiguration = insertSelectionConfiguration({
-		children,
+	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		isSelected,
 		selectionToggle,
+		children,
+	});
+	const columnDefinitions = toColumns({
+		id,
+		theme: tableTheme,
+		children: columnDefinitionsWithSelection,
 	});
 
 	if (type === LARGE && inProgress) {
@@ -65,7 +71,7 @@ function VirtualizedList(props) {
 					disableHeader={disableHeader}
 					inProgress={inProgress}
 				>
-					{contentsConfiguration}
+					{columnDefinitions}
 				</RendererSelector>
 			)}
 		</AutoSizer>

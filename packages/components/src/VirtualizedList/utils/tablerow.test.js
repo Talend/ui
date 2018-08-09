@@ -14,11 +14,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = insertSelectionConfiguration({
-				children,
-				isSelected,
-				selectionToggle,
-			});
+			const result = insertSelectionConfiguration(isSelected, selectionToggle, children);
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -32,7 +28,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = insertSelectionConfiguration({ children });
+			const result = insertSelectionConfiguration(null, null, children);
 
 			// then
 			expect(result).toMatchSnapshot();
