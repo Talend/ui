@@ -117,13 +117,19 @@ export function toQueryParam(obj) {
 
 // customRegistry can be used to add extensions or custom trigger
 // (not portable accross integrations)
-export default function createTriggers({ url, customRegistry, lang = 'en', headers, fetchConfig, security }) {
+export default function createTriggers({
+	url,
+	customRegistry,
+	lang = 'en',
+	headers,
+	fetchConfig,
+	security,
+}) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
 	}
 	const cache = {};
 	const actualHeaders = merge({}, DEFAULT_HEADERS, headers);
-	;
 	return function onDefaultTrigger(event, { trigger, schema, properties, errors }) {
 		const services = {
 			...defaultRegistry,
@@ -173,13 +179,16 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 			family: trigger.family,
 			type: trigger.type,
 		})}`;
-		return fetch(fetchUrl, mergeCSRFToken({ security })({
-			method: 'POST',
-			headers: actualHeaders,
-			body: JSON.stringify(parameters),
-			credentials: 'include',
-			...fetchConfig,
-		}))
+		return fetch(
+			fetchUrl,
+			mergeCSRFToken({ security })({
+				method: 'POST',
+				headers: actualHeaders,
+				body: JSON.stringify(parameters),
+				credentials: 'include',
+				...fetchConfig,
+			}),
+		)
 			.then(toJSON)
 			.then(onSuccess)
 			.catch(onError);
