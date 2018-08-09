@@ -371,7 +371,7 @@ describe('Container List', () => {
 		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
-		const data = {};
+		const data = { filterDocked: true, searchQuery: '' };
 		expect(dispatchActionCreator).not.toBeCalled();
 		// when
 		props.toolbar.filter.onToggle(event, data);
