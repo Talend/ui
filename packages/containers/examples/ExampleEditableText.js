@@ -4,9 +4,10 @@ import { EditableText } from '../src';
 
 const props = {
 	text: 'Example text',
-	actionCreatorCancel: 'subheaderbar:cancel',
-	actionCreatorSubmit: 'subheaderbar:submit',
-	actionCreatorChange: 'subheaderbar:change',
+	actionCreatorCancel: 'editabletext:cancel',
+	actionCreatorSubmit: 'editabletext:submit',
+	actionCreatorChange: 'editabletext:change',
+	actionCreatorEdit: 'editabletext:edit',
 };
 
 const ExampleEditableText = {

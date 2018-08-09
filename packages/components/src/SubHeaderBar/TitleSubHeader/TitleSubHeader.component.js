@@ -5,6 +5,7 @@ import Skeleton from '../../Skeleton';
 import { EditableText } from '../..';
 import theme from './TitleSubHeader.scss';
 import Icon from '../../Icon';
+import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 
 function TitleSubHeader({
@@ -15,11 +16,14 @@ function TitleSubHeader({
 	editMode,
 	editable,
 	subTitle,
+	getComponent,
 	...rest
 }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
+
+	const Renderer = Inject.getAll(getComponent, { EditableText });
 	return (
 		<div
 			className={classNames(theme['tc-subheader-details'], 'tc-subheader-details', {
@@ -41,7 +45,12 @@ function TitleSubHeader({
 					)}
 				>
 					{editable || editMode ? (
-						<EditableText text={title} editMode={editMode} inProgress={inProgress} {...rest} />
+						<Renderer.EditableText
+							text={title}
+							editMode={editMode}
+							inProgress={inProgress}
+							{...rest}
+						/>
 					) : (
 						<h1
 							className={classNames(
@@ -77,6 +86,7 @@ TitleSubHeader.propTypes = {
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
 	subTitle: PropTypes.string,
+	...Inject.PropTypes,
 };
 
 TitleSubHeader.defaultProps = {

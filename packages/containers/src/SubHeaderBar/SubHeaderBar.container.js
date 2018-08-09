@@ -63,7 +63,6 @@ class SubHeaderBar extends React.Component {
 			{
 				...state.toJS(),
 			},
-			this.props,
 		);
 		return <Component {...props} />;
 	}
