@@ -30,6 +30,7 @@ function reduceRegistry(acc, config) {
 	assertTypeOf(config, 'components', 'object');
 	assertTypeOf(config, 'expressions', 'object');
 	assertTypeOf(config, 'actionCreators', 'object');
+	assertTypeOf(config, 'sagaRouter', 'object');
 	['sagas', 'components', 'expressions', 'actionCreators', 'sagaRouter'].forEach(key => {
 		if (config[key]) {
 			acc[key] = mergeObjects(acc, config, key);
