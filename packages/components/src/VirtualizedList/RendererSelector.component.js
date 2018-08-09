@@ -59,7 +59,6 @@ class RendererSelector extends React.Component {
 			onRowClick,
 			onRowDoubleClick,
 			rowHeight,
-			selectionToggle,
 			sort,
 			sortBy,
 			sortDirection,
@@ -81,7 +80,6 @@ class RendererSelector extends React.Component {
 			onRowClick,
 			onRowDoubleClick,
 			rowHeight,
-			selectionToggle,
 			width,
 		};
 

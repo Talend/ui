@@ -57,7 +57,6 @@ function VirtualizedList(props) {
 					onRowClick={onRowClick}
 					onRowDoubleClick={onRowDoubleClick}
 					rowHeight={rowHeight}
-					selectionToggle={selectionToggle}
 					sort={sort}
 					sortBy={sortBy}
 					sortDirection={sortDirection}

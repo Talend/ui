@@ -37,7 +37,6 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   onRowClick={[Function]}
   onRowDoubleClick={[Function]}
   rowHeight={50}
-  selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"

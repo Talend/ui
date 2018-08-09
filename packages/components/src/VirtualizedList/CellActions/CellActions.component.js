@@ -24,7 +24,7 @@ class CellActions extends React.Component {
 					largeTheme[LIST_ACTION_CLASS_NAME],
 				)}
 			>
-				<Actions actions={this.props} hideLabel link />
+				<Actions actions={this.props.cellData} hideLabel link />
 			</div>
 		);
 	}

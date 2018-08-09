@@ -25,16 +25,22 @@ exports[`RendererSelector should render grid list 1`] = `
   onRowDoubleClick={[Function]}
   rowHeight={50}
   rowRenderer={[Function]}
-  selectionToggle={[Function]}
   width={1024}
 >
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-id"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
@@ -43,10 +49,17 @@ exports[`RendererSelector should render grid list 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Name"
     style={Object {}}
@@ -55,10 +68,17 @@ exports[`RendererSelector should render grid list 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Description"
     style={Object {}}
@@ -92,7 +112,6 @@ exports[`RendererSelector should render table list by default 1`] = `
   onRowClick={[Function]}
   onRowDoubleClick={[Function]}
   rowHeight={50}
-  selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
@@ -101,10 +120,17 @@ exports[`RendererSelector should render table list by default 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-id"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
@@ -113,10 +139,17 @@ exports[`RendererSelector should render table list by default 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Name"
     style={Object {}}
@@ -125,10 +158,17 @@ exports[`RendererSelector should render table list by default 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Description"
     style={Object {}}
@@ -162,7 +202,6 @@ exports[`RendererSelector should render table list when requested 1`] = `
   onRowClick={[Function]}
   onRowDoubleClick={[Function]}
   rowHeight={50}
-  selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
@@ -171,10 +210,17 @@ exports[`RendererSelector should render table list when requested 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-id"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
@@ -183,10 +229,17 @@ exports[`RendererSelector should render table list when requested 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Name"
     style={Object {}}
@@ -195,10 +248,17 @@ exports[`RendererSelector should render table list when requested 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
+    className="theme-cell tc-list-cell-name"
+    columnData={
+      Object {
+        "id": "my-list-id",
+      }
+    }
     dataKey="name"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
+    headerClassName="theme-header tc-list-cell-name"
     headerRenderer={[Function]}
     label="Description"
     style={Object {}}
