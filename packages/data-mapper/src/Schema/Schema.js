@@ -41,7 +41,7 @@ function getRowsClassNames(rowsClassName, side, elements, dataAccessor, schemaPr
 	const rowsClassNames = {};
 	for (let i = 0; i < elements.length; i += 1) {
 		const element = elements[i];
-		const elementId = dataAccessor.getElementId(element);
+		const elementId = element.id;
 		rowsClassNames[elementId] = classnames(
 			{
 				highlighted: isHighlighted(

@@ -27,19 +27,8 @@ export default class DataAccessorWrapper {
 	/**
 	 * @private
 	 */
-	internalGetMappingItemIndex(mapping, source, target) {
-		return mapping.findIndex(item => item.source.id === source.id && item.target.id === target.id);
-	}
-
-	/**
-	 * @private
-	 */
 	side(schema) {
 		return this.schema2side[this.getSchemaId(schema)];
-	}
-
-	isRegistered(schema) {
-		return side(schema);
 	}
 
 	registerSchema(schema, side) {
@@ -56,7 +45,7 @@ export default class DataAccessorWrapper {
 		this.cache[side] = {};
 		const elements = schema.elements;
 		for (let i = 0; i < elements.length; i += 1) {
-			this.cache[side][this.getElementId(elements[i])] = elements[i];
+			this.cache[side][elements[i].id] = elements[i];
 		}
 	}
 
@@ -112,7 +101,7 @@ export default class DataAccessorWrapper {
 	 * Default implementation is based on element id.
 	 */
 	areElementsEqual(element1, element2) {
-		return this.getElementId(element1) === this.getElementId(element2);
+		return element1.id === element2.id;
 	}
 
 	getSchemaId(schema) {
@@ -167,14 +156,6 @@ export default class DataAccessorWrapper {
 			return this.getSchemaElementFromCache(schema, id);
 		}
 		return this.access(schema).getElementFromId(id);
-	}
-
-	/**
-	 * Returns the identifier of the element.
-	 * Identifier must be unique.
-	 */
-	getElementId(element) {
-		return element.id;
 	}
 
 	/**
@@ -262,7 +243,9 @@ export default class DataAccessorWrapper {
 	removeMapping(mapping, source, target) {
 		this.mappingVersion += 1;
 		// FIXME Use ES6 feature instead
-		const index = this.internalGetMappingItemIndex(mapping, source, target);
+		const index = mapping.findIndex(
+			item => item.source.id === source.id && item.target.id === target.id
+		);
 		if (index >= 0) {
 			return removeMappingItem(mapping, index);
 		}

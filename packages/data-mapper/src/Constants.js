@@ -15,6 +15,7 @@ const Events = {
 	DND_IN_PROGRESS: 'dnd-in-progress',
 };
 
+/* eslint-disable no-bitwise */
 const StateStatus = {
 	NONE: 0,
 	FOCUSED: 1,
@@ -34,6 +35,7 @@ const FILTERING_STATE_STATUS =
 	StateStatus.FOCUSED | StateStatus.SELECTION | StateStatus.PENDING | StateStatus.DND;
 
 const UNDO_REDO_STATE_STATUS = StateStatus.MAPPING | StateStatus.PENDING | StateStatus.DND;
+/* eslint-enable no-bitwise */
 
 const Commands = {
 	ADD_MAPPING: 'add-mapping',

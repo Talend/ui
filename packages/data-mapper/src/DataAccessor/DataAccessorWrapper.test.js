@@ -14,7 +14,7 @@ it('data-accessor-wrapper-schema', () => {
 
 it('data-accessor-wrapper-element', () => {
 	const element = dataAccessor.getSchemaElement(schema, 0);
-	expect(dataAccessor.getElementId(element)).toBe(TestData.element1.id);
+	expect(element.id).toBe(TestData.element1.id);
 	expect(dataAccessor.getSchemaElementIndex(schema, element)).toBe(0);
 });
 

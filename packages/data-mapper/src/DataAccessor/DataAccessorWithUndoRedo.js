@@ -3,12 +3,8 @@ import DataAccessorWrapper from './DataAccessorWrapper';
 
 function storeMapping(dataAccessor, mapping) {
 	return mapping.map(item => ({
-		sourceId: dataAccessor.getElementId(
-			dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
-		),
-		targetId: dataAccessor.getElementId(
-			dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
-		),
+		sourceId: dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT).id,
+		targetId: dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT).id,
 	}));
 }
 
@@ -32,8 +28,8 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		const cmd = {
 			code: Constants.Commands.ADD_MAPPING,
 			label: `Map ${sourceLabel} to ${targetLabel}`,
-			sourceId: this.getElementId(source),
-			targetId: this.getElementId(target),
+			sourceId: source.id,
+			targetId: target.id,
 		};
 		this.undoStack.push(cmd);
 		this.clearRedoStack();
@@ -46,8 +42,8 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 		const cmd = {
 			code: Constants.Commands.REMOVE_MAPPING,
 			label: `Clear mapping between ${sourceLabel} and ${targetLabel}`,
-			sourceId: this.getElementId(source),
-			targetId: this.getElementId(target),
+			sourceId: source.id,
+			targetId: target.id,
 		};
 		this.undoStack.push(cmd);
 		this.clearRedoStack();

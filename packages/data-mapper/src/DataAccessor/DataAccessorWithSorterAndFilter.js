@@ -80,16 +80,7 @@ export default class DataAccessorWithSorterAndFilter {
 	 * @param {object} element2 - the second element to be compared
 	 */
 	areElementsEqual(element1, element2) {
-		return this.getElementId(element1) === this.getElementId(element2);
-	}
-
-	/**
-	 * Returns the identifier of the element.
-	 * Identifier must be unique.
-	 * @param {object} element - The element
-	 */
-	getElementId(element) {
-		return element.id;
+		return element1.id === element2.id;
 	}
 
 	/**
@@ -117,7 +108,8 @@ export default class DataAccessorWithSorterAndFilter {
 	/**
 	 * Returns the nth element.
 	 * @param {integer} index - The index of the wanted element.
-	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters and sorter.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account
+	 *                                         the filters and sorter.
 	 */
 	getElement(index, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
@@ -134,7 +126,8 @@ export default class DataAccessorWithSorterAndFilter {
 	 * Returns the index of the given element,
 	 * returns -1 if it is unknown.
 	 * @param {object} element - the element1
-	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account the filters and sorter.
+	 * @param {boolean} withFiltersAndSorter - if true then the result takes into account
+	 *                                         the filters and sorter.
 	 */
 	getElementIndex(element, withFiltersAndSorter) {
 		if (withFiltersAndSorter) {
@@ -154,7 +147,7 @@ export default class DataAccessorWithSorterAndFilter {
 	getElementFromId(elementId) {
 		const elements = this.getElements(false);
 		if (elements) {
-			return elements.find(elem => this.getElementId(elem) === elementId);
+			return elements.find(elem => elem.id === elementId);
 		}
 		return null;
 	}

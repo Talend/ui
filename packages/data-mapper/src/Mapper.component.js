@@ -307,9 +307,7 @@ class MapperComponent extends Component {
 	}
 
 	getConnectionKey(sourceElement, targetElement) {
-		const key1 = this.props.dataAccessor.getElementId(sourceElement);
-		const key2 = this.props.dataAccessor.getElementId(targetElement);
-		return `${key1}-${key2}`;
+		return `${sourceElement.id}-${targetElement.id}`;
 	}
 
 	getConnection(sourceElement, targetElement) {
@@ -413,8 +411,7 @@ class MapperComponent extends Component {
 	}
 
 	getAnchorKey(elem, side) {
-		const key = this.props.dataAccessor.getElementId(elem);
-		return `${side}-${key}`;
+		return `${side}-${elem.id}`;
 	}
 
 	getAnchor(elem, side, mapped) {
@@ -429,18 +426,16 @@ class MapperComponent extends Component {
 	}
 
 	updatePropertyValue(dataAccessor, item, visibleElements, anchors, property, value) {
-		const elemId = dataAccessor.getElementId(item.element);
 		if (dataAccessor.includes(visibleElements[item.side], item.element)) {
-			anchors[item.side][elemId][property] = value;
+			anchors[item.side][item.element.id][property] = value;
 		}
 	}
 
 	populateAnchors(dataAccessor, anchors, visibleElements, side, visibleMapping) {
 		for (let i = 0; i < visibleElements[side].length; i += 1) {
 			const elem = visibleElements[side][i];
-			const elemId = dataAccessor.getElementId(elem);
 			const mapped = dataAccessor.isElementMapped(visibleMapping, elem, side);
-			anchors[side][elemId] = this.getAnchor(elem, side, mapped);
+			anchors[side][elem.id] = this.getAnchor(elem, side, mapped);
 		}
 	}
 
