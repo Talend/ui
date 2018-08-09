@@ -22,6 +22,8 @@ import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 
+import theme from './Form.scss';
+
 /**
  * @type {string} After trigger name for field value has changed
  */
@@ -173,8 +175,10 @@ class Form extends React.Component {
 				}}
 			>
 				{this.props.children}
-				<div className={this.props.buttonBlockClass}>
-					{renderActions(this.props.actions, this.handleActionClick, this.props.getComponent)}
+				<div className={theme['form-actions']}>
+					<div className={`form-actions ${this.props.buttonBlockClass}`}>
+						{renderActions(this.props.actions, this.handleActionClick, this.props.getComponent)}
+					</div>
 				</div>
 			</RJSForm>
 		);
