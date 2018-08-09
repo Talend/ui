@@ -58,6 +58,13 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
+.tc-main-title-active {
+	&:hover,
+	&:focus {
+		color: $scooter;
+	}
+}
+
 // manage actions display on row hover
 :global(.tc-list-large-row),
 :global(.ReactVirtualized__Table__row) {

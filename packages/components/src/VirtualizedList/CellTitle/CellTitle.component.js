@@ -42,7 +42,9 @@ function CellTitle({ cellData, columnData, getComponent, rowData, rowIndex, type
 			<CellTitleSelector
 				id={titleId}
 				cellData={cellData}
-				className={theme['main-title']}
+				className={classNames(theme['main-title'], {
+					[theme['tc-main-title-active']]: onClick,
+				})}
 				displayMode={displayMode}
 				onClick={onClick}
 				onEditCancel={onEditCancel}
