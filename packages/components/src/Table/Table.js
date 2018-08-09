@@ -29,6 +29,7 @@ export default function Table({
 	onScroll,
 	onEnterRow,
 	onLeaveRow,
+	renderingListener,
 }) {
 	return (
 		<div className={classnames('tc-table', theme['tc-table'])}>
@@ -36,13 +37,14 @@ export default function Table({
 				<TitleBar key="title-bar" title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
 			<table>
-				{title && <caption key="caption">{title}</caption>}
+				{title && <caption key="caption" className={classnames({'sr-only':title})}>{title}</caption>}
 				{withHeader && (
 					<TableHeader
 						key="headers"
 						columns={columns}
 						sorters={sorters}
 						onSortChange={onSortChange}
+						renderingListener={renderingListener}
 					/>
 				)}
 				<TableBody
@@ -53,6 +55,7 @@ export default function Table({
 					onScroll={onScroll}
 					onEnterRow={onEnterRow}
 					onLeaveRow={onLeaveRow}
+					renderingListener={renderingListener}
 				/>
 			</table>
 		</div>
