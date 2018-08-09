@@ -80,7 +80,6 @@ class NestedListViewWidget extends React.Component {
 			const { items, value, searchCriteria, toggledChildren } = state;
 			const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
-
 			// Toggle all values
 			const itemValue = value[item.key] || [];
 			value[item.key] = itemValue.length === 0 ? availableOptions : [];
@@ -149,7 +148,7 @@ class NestedListViewWidget extends React.Component {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			this.setState(state =>
-				getItemsProps(state.items, state.value, item.value, state.toggledChildren)
+				getItemsProps(state.items, state.value, item.value, state.toggledChildren),
 			);
 		}, 400);
 	}
