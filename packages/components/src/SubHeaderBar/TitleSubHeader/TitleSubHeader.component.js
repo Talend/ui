@@ -44,11 +44,7 @@ function TitleSubHeader({
 					)}
 				>
 					{editable ? (
-						<Renderer.EditableText
-							text={title}
-							inProgress={inProgress}
-							{...rest}
-						/>
+						<Renderer.EditableText text={title} inProgress={inProgress} {...rest} />
 					) : (
 						<h1
 							className={classNames(
