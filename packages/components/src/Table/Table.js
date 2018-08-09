@@ -37,7 +37,11 @@ export default function Table({
 				<TitleBar key="title-bar" title={title} filters={filters} onFilterChange={onFilterChange} />
 			)}
 			<table>
-				{title && <caption key="caption" className={classnames({'sr-only':title})}>{title}</caption>}
+				{title && (
+					<caption key="caption" className={classnames({ 'sr-only': title })}>
+						{title}
+					</caption>
+				)}
 				{withHeader && (
 					<TableHeader
 						key="headers"
