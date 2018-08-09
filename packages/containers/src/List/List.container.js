@@ -301,7 +301,7 @@ class List extends React.Component {
 						this.props.dispatchActionCreator(
 							props.toolbar.filter.onToggleFilter,
 							event,
-							data,
+							{ filterDocked: state.filterDocked, searchQuery: state.searchQuery },
 							this.context,
 						);
 					}
