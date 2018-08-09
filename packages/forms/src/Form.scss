@@ -4,23 +4,21 @@
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-        min-height: 0;
+		min-height: 0;
 
-        > :global(.form-group) {
-            flex-grow: 1;
-            min-height: 0;
-            overflow-y: auto;
-        }
+		> :global(.form-group) {
+			flex-grow: 1;
+			min-height: 0;
+			overflow-y: auto;
+		}
 	}
-
-
 }
 :global(.tc-drawer-container) {
 	:global(.rjsf) > :global(.form-group) {
 		padding: $padding-small;
 	}
 
-    .form-actions {
+	.form-actions {
 		background-color: $wild-sand;
 		padding: $padding-small;
 		width: 100%;
@@ -29,7 +27,7 @@
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-        :global(.rjsf) > :global(.form-group) {
+		:global(.rjsf) > :global(.form-group) {
 			width: 600px;
 			margin: 0 auto;
 		}
