@@ -37,6 +37,7 @@ exports[`Schema should accept a single schema 1`] = `
         >
           <td
             className="td-name theme-tc-table-row-cell"
+            headers="name-col-id"
           >
             <div
               className="draggable-component"
@@ -55,6 +56,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-type theme-tc-table-row-cell"
+            headers="type-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -64,6 +66,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-description theme-tc-table-row-cell"
+            headers="desc-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
@@ -80,6 +83,7 @@ exports[`Schema should accept a single schema 1`] = `
         >
           <td
             className="td-name theme-tc-table-row-cell"
+            headers="name-col-id"
           >
             <div
               className="draggable-component"
@@ -98,6 +102,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-type theme-tc-table-row-cell"
+            headers="type-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -107,6 +112,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-description theme-tc-table-row-cell"
+            headers="desc-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
@@ -123,6 +129,7 @@ exports[`Schema should accept a single schema 1`] = `
         >
           <td
             className="td-name theme-tc-table-row-cell"
+            headers="name-col-id"
           >
             <div
               className="draggable-component"
@@ -141,6 +148,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-type theme-tc-table-row-cell"
+            headers="type-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -150,6 +158,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-description theme-tc-table-row-cell"
+            headers="desc-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"
@@ -166,6 +175,7 @@ exports[`Schema should accept a single schema 1`] = `
         >
           <td
             className="td-name theme-tc-table-row-cell"
+            headers="name-col-id"
           >
             <div
               className="draggable-component"
@@ -184,6 +194,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-type theme-tc-table-row-cell"
+            headers="type-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -193,6 +204,7 @@ exports[`Schema should accept a single schema 1`] = `
           </td>
           <td
             className="td-description theme-tc-table-row-cell"
+            headers="desc-col-id"
           >
             <div
               className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-description"

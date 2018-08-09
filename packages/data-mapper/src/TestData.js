@@ -93,18 +93,22 @@ export const mapping = [
 
 export const Columns = {
 	NAME: {
+		id: 'name-col-id',
 		key: 'name',
 		label: 'Name',
 	},
 	TYPE: {
+		id: 'type-col-id',
 		key: 'type',
 		label: 'Type',
 	},
 	DESC: {
+		id: 'desc-col-id',
 		key: 'description',
 		label: 'Description',
 	},
 	MANDATORY: {
+		id: 'mand-col-id',
 		key: 'mandatory',
 		label: '',
 	},
