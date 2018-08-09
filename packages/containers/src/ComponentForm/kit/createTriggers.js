@@ -15,9 +15,9 @@
  */
 /* eslint-disable no-param-reassign */
 
-import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
+import { mergeCSRFToken } from '@talend/react-cmf/lib/middlewares/http/csrfHandling';
 
 import flatten from './flatten';
 import defaultRegistry from './defaultRegistry';
@@ -30,6 +30,7 @@ const DEFAULT_HEADERS = {
 function noOpTrigger({ error, trigger }) {
 	// eslint-disable-next-line no-console
 	console.error(`${JSON.stringify(trigger)} failed with error ${error || '-'}`);
+	return {};
 }
 
 /**
@@ -116,12 +117,13 @@ export function toQueryParam(obj) {
 
 // customRegistry can be used to add extensions or custom trigger
 // (not portable accross integrations)
-export default function createTriggers({ url, customRegistry, lang = 'en', headers, fetchConfig }) {
+export default function createTriggers({ url, customRegistry, lang = 'en', headers, fetchConfig, security }) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
 	}
 	const cache = {};
 	const actualHeaders = merge({}, DEFAULT_HEADERS, headers);
+	;
 	return function onDefaultTrigger(event, { trigger, schema, properties, errors }) {
 		const services = {
 			...defaultRegistry,
@@ -171,13 +173,13 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 			family: trigger.family,
 			type: trigger.type,
 		})}`;
-		return fetch(fetchUrl, {
+		return fetch(fetchUrl, mergeCSRFToken({ security })({
 			method: 'POST',
 			headers: actualHeaders,
 			body: JSON.stringify(parameters),
 			credentials: 'include',
 			...fetchConfig,
-		})
+		}))
 			.then(toJSON)
 			.then(onSuccess)
 			.catch(onError);
