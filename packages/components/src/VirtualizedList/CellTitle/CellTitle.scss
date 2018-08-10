@@ -8,6 +8,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	position: relative;
 
 	.icon {
+		filter: url(#gamma-color-mapping);
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
@@ -56,12 +57,16 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 			text-decoration: none;
 		}
 	}
-}
 
-.tc-main-title-active {
 	&:hover,
 	&:focus {
-		color: $scooter;
+		.tc-main-title-active {
+			color: $scooter;
+		}
+
+		.tc-main-title-icon-active {
+			filter: none;
+		}
 	}
 }
 

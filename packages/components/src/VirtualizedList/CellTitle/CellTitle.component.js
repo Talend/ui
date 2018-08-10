@@ -37,13 +37,23 @@ function CellTitle({ cellData, columnData, getComponent, rowData, rowIndex, type
 
 	return (
 		<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
-			{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
+			{iconKey &&
+				rowData[iconKey] && (
+					<Icon
+						name={rowData[iconKey]}
+						className={classNames(theme.icon, {
+							[theme['tc-main-title-icon-active']]: onClick,
+							'tc-main-title-icon-active': onClick,
+						})}
+					/>
+				)}
 
 			<CellTitleSelector
 				id={titleId}
 				cellData={cellData}
 				className={classNames(theme['main-title'], {
 					[theme['tc-main-title-active']]: onClick,
+					'tc-main-title-active': onClick,
 				})}
 				displayMode={displayMode}
 				onClick={onClick}

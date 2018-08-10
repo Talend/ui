@@ -37,6 +37,44 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div>
     <h4>

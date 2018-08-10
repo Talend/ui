@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import talendIcons from '@talend/icons/dist/react';
+import talendIcons, { filters } from '@talend/icons/dist/react';
+
+function addKeyValue(Component, index) {
+	return <Component.type {...Component.props} key={index} />;
+}
 
 /**
  * If you want to use Icon with SVG you have to load this
@@ -22,6 +26,7 @@ function IconsProvider({ defaultIcons, icons }) {
 					{iconset[id]}
 				</symbol>
 			))}
+			{Object.keys(filters).map((id, index) => addKeyValue(filters[id], index))}
 		</svg>
 	);
 }

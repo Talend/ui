@@ -121,6 +121,44 @@ exports[`Storyshots SidePanel default 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -382,6 +420,44 @@ exports[`Storyshots SidePanel docked 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={false}
@@ -643,6 +719,44 @@ exports[`Storyshots SidePanel large docked 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={false}
@@ -904,6 +1018,44 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1165,6 +1317,44 @@ exports[`Storyshots SidePanel links 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1426,6 +1616,44 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1656,6 +1884,44 @@ exports[`Storyshots SidePanel reverse 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1917,6 +2183,44 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="tc-layout theme-layout"
@@ -2546,6 +2850,44 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="tc-layout theme-layout"
@@ -3175,6 +3517,44 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-portal"
@@ -3449,6 +3829,44 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-tdc"
@@ -3723,6 +4141,44 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-tdp"
@@ -3997,6 +4453,44 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-tds"
@@ -4271,6 +4765,44 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-tfd"
@@ -4545,6 +5077,44 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-tic"
@@ -4819,6 +5389,44 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg>
+      <defs>
+        <filter
+          id="gamma-color-mapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncG
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncB
+              exponent="7"
+              type="gamma"
+            />
+            <feFuncA
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
   </svg>
   <div
     className="theme-tmc"
