@@ -234,15 +234,18 @@ class InputDateTimePicker extends React.Component {
 			return;
 		}
 
-		if (isShown) {
-			this.mountDocumentHandler();
-		} else {
-			this.unmountDocumentHandler();
-		}
-
-		this.setState({
-			isDropdownShown: isShown,
-		});
+		this.setState(
+			{
+				isDropdownShown: isShown,
+			},
+			() => {
+				if (isShown) {
+					this.mountDocumentHandler();
+				} else {
+					this.unmountDocumentHandler();
+				}
+			},
+		);
 	}
 
 	updateDateTime(date, time, textInput = getTextDate(date, time), errorMsg) {
