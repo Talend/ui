@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import cases from 'jest-in-case';
 
 import isSameDay from 'date-fns/is_same_day';
 import isSameMinute from 'date-fns/is_same_minute';
@@ -713,73 +714,87 @@ describe('InputDateTimePicker', () => {
 			expect(overlayWrapper.prop('show')).toBe(true);
 		});
 
-		it('should close the dropdown when clicking or focusing outside the component', () => {
-			const map = {};
+		cases(
+			'should close the dropdown when interacting outside the component',
+			({ eventToCheck }) => {
+				const map = {};
 
-			document.addEventListener = jest.fn((event, cb) => {
-				map[event] = cb;
-			});
+				document.addEventListener = jest.fn((event, cb) => {
+					map[event] = cb;
+				});
 
-			const wrapper = mount(<InputDateTimePicker />);
+				const wrapper = mount(<InputDateTimePicker />);
 
-			const inputWrapper = wrapper.find('DebounceInput');
-			inputWrapper.simulate('focus');
+				const inputWrapper = wrapper.find('DebounceInput');
+				inputWrapper.simulate('focus');
 
-			wrapper.update();
+				wrapper.update();
 
-			const overlayWrapperBefore = wrapper.find('Overlay').first();
-			expect(overlayWrapperBefore.prop('show')).toBe(true);
+				const overlayWrapperBefore = wrapper.find('Overlay').first();
+				expect(overlayWrapperBefore.prop('show')).toBe(true);
 
-			map.click({
-				path: ['whatever', 'path', 'which', 'is', 'outside', 'the', 'component'],
-			});
+				map[eventToCheck]({
+					path: ['whatever', 'path', 'which', 'is', 'outside', 'the', 'component'],
+				});
 
-			wrapper.update();
+				wrapper.update();
 
-			const overlayWrapperAfter = wrapper.find('Overlay').first();
-			expect(overlayWrapperAfter.prop('show')).toBe(false);
-		});
+				const overlayWrapperAfter = wrapper.find('Overlay').first();
+				expect(overlayWrapperAfter.prop('show')).toBe(false);
+			},
+			[
+				{ name: 'focus event', eventToCheck: 'focus' },
+				{ name: 'click event', eventToCheck: 'click' },
+			],
+		);
 
-		it('should not close the dropdown when clicking or focusing inside the component', () => {
-			const map = {};
+		cases(
+			'should not close the dropdown when interacting inside the component',
+			({ eventToCheck }) => {
+				const map = {};
 
-			document.addEventListener = jest.fn((event, cb) => {
-				map[event] = cb;
-			});
+				document.addEventListener = jest.fn((event, cb) => {
+					map[event] = cb;
+				});
 
-			const wrapper = mount(<InputDateTimePicker />);
+				const wrapper = mount(<InputDateTimePicker />);
 
-			const inputWrapper = wrapper.find('DebounceInput');
-			inputWrapper.simulate('focus');
+				const inputWrapper = wrapper.find('DebounceInput');
+				inputWrapper.simulate('focus');
 
-			wrapper.update();
+				wrapper.update();
 
-			const overlayWrapperBefore = wrapper.find('Overlay').first();
-			expect(overlayWrapperBefore.prop('show')).toBe(true);
+				const overlayWrapperBefore = wrapper.find('Overlay').first();
+				expect(overlayWrapperBefore.prop('show')).toBe(true);
 
-			const containerEl = wrapper.getDOMNode();
+				const containerEl = wrapper.getDOMNode();
 
-			map.click({
-				path: [
-					'parent',
-					'component',
-					'path',
-					containerEl,
-					'whatever',
-					'path',
-					'which',
-					'is',
-					'inside',
-					'the',
-					'component',
-				],
-			});
+				map[eventToCheck]({
+					path: [
+						'parent',
+						'component',
+						'path',
+						containerEl,
+						'whatever',
+						'path',
+						'which',
+						'is',
+						'inside',
+						'the',
+						'component',
+					],
+				});
 
-			wrapper.update();
+				wrapper.update();
 
-			const overlayWrapperAfter = wrapper.find('Overlay').first();
-			expect(overlayWrapperAfter.prop('show')).toBe(true);
-		});
+				const overlayWrapperAfter = wrapper.find('Overlay').first();
+				expect(overlayWrapperAfter.prop('show')).toBe(true);
+			},
+			[
+				{ name: 'focus event', eventToCheck: 'focus' },
+				{ name: 'click event', eventToCheck: 'click' },
+			],
+		);
 
 		it('should close the dropdown when picker is submitted', () => {
 			const wrapper = shallow(<InputDateTimePicker />);
