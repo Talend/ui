@@ -1,22 +1,23 @@
 :global(.tc-drawer-container),
 :global(.modal-body) {
-	> .uiform {
+	> :global(.rjsf) {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 		min-height: 0;
-	}
 
-	.form-content {
-		flex-grow: 1;
-		min-height: 0;
-		overflow-y: auto;
+		> :global(.form-group) {
+			flex-grow: 1;
+			min-height: 0;
+			overflow-y: auto;
+		}
 	}
 }
 :global(.tc-drawer-container) {
-	.form-content {
+	:global(.rjsf) > :global(.form-group) {
 		padding: $padding-small;
 	}
+
 	.form-actions {
 		background-color: $wild-sand;
 		padding: $padding-small;
@@ -26,7 +27,7 @@
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content {
+		:global(.rjsf) > :global(.form-group) {
 			width: 600px;
 			margin: 0 auto;
 		}

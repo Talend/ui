@@ -97,34 +97,38 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     <div />
   </div>
   <div
-    className="buttons"
+    className="theme-form-actions"
   >
-    <button
-      aria-label="Submit"
-      className="theme-btn-disabled btn btn-primary"
-      disabled={true}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="submit"
+    <div
+      className="form-actions buttons"
     >
-      <span>
-        Submit
-      </span>
-    </button>
-    <button
-      aria-label="Reset"
-      className="btn btn-link"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="reset"
-    >
-      <span>
-        Reset
-      </span>
-    </button>
+      <button
+        aria-label="Submit"
+        className="theme-btn-disabled btn btn-primary"
+        disabled={true}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="submit"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        aria-label="Reset"
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="reset"
+      >
+        <span>
+          Reset
+        </span>
+      </button>
+    </div>
   </div>
 </form>
 `;
