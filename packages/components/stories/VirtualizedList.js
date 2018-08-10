@@ -8,6 +8,7 @@ import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 import CellBadge from '../src/VirtualizedList/CellBadge';
+import CellDateTime from '../src/VirtualizedList/CellDatetime';
 
 function NoRowsRenderer() {
 	return (
@@ -66,7 +67,7 @@ const fewTitleActions = [
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 		hideLabel: true,
-	}
+	},
 ];
 
 const lotOfTitleActions = [
@@ -179,6 +180,7 @@ const collection = [
 		display: 'text',
 		className: 'item-0-class',
 		titleActions: fewTitleActions,
+		subscription: new Date(2017, 1, 21),
 	},
 	{
 		id: 1,
@@ -191,6 +193,7 @@ const collection = [
 		display: 'text',
 		className: 'item-1-class',
 		titleActions: lotOfTitleActions,
+		subscription: new Date(2016, 1, 21),
 	},
 	{
 		id: 2,
@@ -203,6 +206,7 @@ const collection = [
 		display: 'text',
 		className: 'item-2-class',
 		persistentActions,
+		subscription: new Date(2018, 6, 10),
 	},
 	{
 		id: 3,
@@ -215,6 +219,7 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
+		subscription: new Date(2018, 5, 1),
 	},
 	{
 		id: 4,
@@ -227,6 +232,7 @@ const collection = [
 		icon: 'talend-file-json-o',
 		display: 'input',
 		className: 'item-4-class',
+		subscription: new Date(2016, 5, 1),
 	},
 	{
 		id: 5,
@@ -239,6 +245,7 @@ const collection = [
 			'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 		icon: 'talend-file-json-o',
 		className: 'item-5-class',
+		subscription: new Date(2018, 7, 1),
 	},
 ];
 
@@ -301,6 +308,12 @@ storiesOf('Virtualized List', module)
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />
 					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content
+						label="Member since"
+						dataKey="subscription"
+						columnData={{ mode: 'ago' }}
+						{...CellDateTime}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>

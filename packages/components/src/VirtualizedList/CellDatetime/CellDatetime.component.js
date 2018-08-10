@@ -13,13 +13,15 @@ const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
 export function computeValue(cellData, columnData, t) {
 	try {
-		if (columnData.mode === 'ago') {
-			return distanceInWordsToNow(cellData, {
-				addSuffix: true,
-				locale: getLocale(t),
-			});
-		} else if (columnData.mode === 'format') {
-			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+		if (cellData !== undefined) {
+			if (columnData.mode === 'ago') {
+				return distanceInWordsToNow(cellData, {
+					addSuffix: true,
+					locale: getLocale(t),
+				});
+			} else if (columnData.mode === 'format') {
+				return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			}
 		}
 	} catch (e) {
 		invariant(true, 'Conversion error in list cell ', columnData);
