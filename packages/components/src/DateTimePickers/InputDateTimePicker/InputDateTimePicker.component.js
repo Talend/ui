@@ -144,27 +144,25 @@ class InputDateTimePicker extends React.Component {
 			"UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
 		);
 
-		this.state = (() => {
-			const selectedDateTime = this.props.selectedDateTime;
-			if (selectedDateTime !== undefined) {
-				const date = startOfDay(selectedDateTime);
-				const hours = getHours(selectedDateTime);
-				const minutes = getMinutes(selectedDateTime);
-				const time = hoursAndMinutesToTime(hours, minutes);
-				const fullDate = startOfMinute(selectedDateTime);
+		const selectedDateTime = this.props.selectedDateTime;
+		if (selectedDateTime !== undefined) {
+			const date = startOfDay(selectedDateTime);
+			const hours = getHours(selectedDateTime);
+			const minutes = getMinutes(selectedDateTime);
+			const time = hoursAndMinutesToTime(hours, minutes);
+			const fullDate = startOfMinute(selectedDateTime);
 
-				return {
-					date,
-					time,
-					lastFullDate: fullDate,
-					textInput: getTextDate(date, time),
-				};
-			}
-
-			return {
+			this.state = {
+				date,
+				time,
+				lastFullDate: fullDate,
+				textInput: getTextDate(date, time),
+			};
+		} else {
+			this.state = {
 				textInput: '',
 			};
-		})();
+		}
 
 		this.onChangeInput = this.onChangeInput.bind(this);
 		this.onSubmitPicker = this.onSubmitPicker.bind(this);
