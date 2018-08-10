@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthYearView should render a MonthYearView 1`] = `
+<ViewLayout
+  bodyElement={
+    <div
+      className="theme-body"
+    >
+      <div
+        className="theme-month"
+      >
+        <MonthPicker
+          onSelect={[Function]}
+          selectedMonthIndex={8}
+        />
+      </div>
+      <div
+        className="theme-year"
+      >
+        <YearPicker
+          onSelect={[Function]}
+          selectedYear={2012}
+        />
+      </div>
+    </div>
+  }
+  header={
+    Object {
+      "leftElement": <IconButton
+        aria-label="Switch back to date and time pickers view"
+        className="theme-action-left"
+        icon={
+            Object {
+                "className": "theme-action-left-icon",
+                "name": "talend-arrow-left",
+              }
+        }
+        onClick={[Function]}
+    />,
+      "middleElement": <HeaderTitle
+        monthIndex={8}
+        year={2012}
+    />,
+    }
+  }
+/>
+`;
