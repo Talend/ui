@@ -29,7 +29,7 @@ const DEFAULT_HEADERS = {
 
 function noOpTrigger({ error, trigger }) {
 	// eslint-disable-next-line no-console
-	console.error(`${JSON.stringify(trigger)} failed with error ${error || '-'}`);
+	console.error(`${JSON.stringify(trigger)} doesnt exists or fails with error ${error || '-'}`);
 	return {};
 }
 
