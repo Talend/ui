@@ -44,6 +44,7 @@ function CellTitle({ cellData, columnData, getComponent, rowData, rowIndex, type
 				cellData={cellData}
 				className={classNames(theme['main-title'], {
 					[theme['tc-main-title-active']]: onClick,
+					'tc-main-title-active': onClick,
 				})}
 				displayMode={displayMode}
 				onClick={onClick}
