@@ -203,7 +203,7 @@ export default class DataAccessorWrapper {
 		this.mappingVersion += 1;
 		// FIXME Use ES6 feature instead
 		const index = mapping.findIndex(
-			item => item.source.id === source.id && item.target.id === target.id
+			item => item.source.id === source.id && item.target.id === target.id,
 		);
 		if (index >= 0) {
 			return removeMappingItem(mapping, index);
