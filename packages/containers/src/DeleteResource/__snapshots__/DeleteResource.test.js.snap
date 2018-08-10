@@ -27,7 +27,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
     Object {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
-      "label": "DELETE",
+      "label": "REMOVE",
       "model": Object {
         "collectionId": undefined,
         "found": true,
@@ -80,7 +80,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     Object {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
-      "label": "DELETE",
+      "label": "REMOVE",
       "model": Object {
         "collectionId": undefined,
         "found": false,

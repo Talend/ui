@@ -171,6 +171,7 @@ class Form extends React.Component {
 				ref={c => {
 					this.form = c;
 				}}
+				safeRenderCompletion
 			>
 				{this.props.children}
 				<div className={this.props.buttonBlockClass}>
