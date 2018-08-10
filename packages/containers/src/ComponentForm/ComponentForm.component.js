@@ -166,8 +166,8 @@ export class TCompForm extends React.Component {
 			headers: config.headers,
 			lang: props.lang,
 			security: {
-				CSRFTokenCookieKey: this.props.CSRFTokenCookieKey,
-				CSRFTokenHeaderKey: this.props.CSRFTokenHeaderKey,
+				CSRFTokenCookieKey: props.CSRFTokenCookieKey,
+				CSRFTokenHeaderKey: props.CSRFTokenHeaderKey,
 			},
 		});
 	}
