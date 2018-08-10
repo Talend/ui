@@ -207,8 +207,9 @@ class List extends React.Component {
 						data,
 						this.context,
 					);
+				} else {
+					this.onSelectSortBy(event, data);
 				}
-				this.onSelectSortBy(event, data);
 			},
 		};
 		if (!props.list.itemProps) {
@@ -287,8 +288,9 @@ class List extends React.Component {
 							data,
 							this.context,
 						);
+					} else {
+						this.onSelectSortBy(event, data);
 					}
-					this.onSelectSortBy(event, data);
 				};
 			}
 
@@ -304,8 +306,9 @@ class List extends React.Component {
 							{ filterDocked: state.filterDocked, searchQuery: state.searchQuery },
 							this.context,
 						);
+					} else {
+						this.onToggle(event, data);
 					}
-					this.onToggle(event, data);
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
 					if (
@@ -318,8 +321,9 @@ class List extends React.Component {
 							data,
 							this.context,
 						);
+					} else {
+						this.onFilter(event, data);
 					}
-					this.onFilter(event, data);
 				};
 				props.toolbar.filter.docked = state.filterDocked;
 				props.toolbar.filter.value = state.searchQuery;
