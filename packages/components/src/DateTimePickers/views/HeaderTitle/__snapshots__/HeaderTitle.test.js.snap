@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderTitle should render a button 1`] = `
+<button
+  className="theme-common theme-button"
+  type="button"
+  whateverButtonProp="whateverValue"
+>
+  September 2012
+</button>
+`;
+
+exports[`HeaderTitle should render a span 1`] = `
+<span
+  className="theme-common"
+>
+  September 2012
+</span>
+`;
