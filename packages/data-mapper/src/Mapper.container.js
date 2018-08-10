@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import { ActionBar, Table } from '@talend/react-components';
 import Mapper from './Mapper.component';
@@ -22,12 +22,12 @@ function createSorter() {
 	return {
 		direction: SortDirection.NONE,
 		icons: sorterIcons,
-	}
+	};
 }
 
 function createSorters(keys) {
 	const sorters = {};
-	keys.forEach(key => sorters[key] = createSorter());
+	keys.forEach(key => (sorters[key] = createSorter()));
 	return sorters;
 }
 
@@ -55,11 +55,11 @@ function isSelectionEmpty(selection) {
 }
 
 function updateShowAllIcon(showAll) {
-	return showAll? 'talend-eye-slash' : 'talend-eye';
+	return showAll ? 'talend-eye-slash' : 'talend-eye';
 }
 
 function updateShowAllTooltip(showAll) {
-	return showAll? 'Hide all connections' : 'Show all connections';
+	return showAll ? 'Hide all connections' : 'Show all connections';
 }
 
 function updateClearDisabled(dataAccessor, selection, mapping) {
@@ -132,9 +132,7 @@ function navigateBetweenSchema(state, mapper, usePosition) {
 	const targetSide = Constants.switchMappingSide(selection.side);
 	const targetSchema = getSchema(state, targetSide);
 	let targetElem = null;
-	if (selection.connected != null
-		&& selection.connected.length > 0
-		&& !usePosition) {
+	if (selection.connected != null && selection.connected.length > 0 && !usePosition) {
 		targetElem = selection.connected[0];
 	}
 	if (targetElem == null && usePosition) {
@@ -159,16 +157,16 @@ function switchToTargetSchema(state, mapper) {
 	let targetElem = null;
 	if (state.mappingKey) {
 		// try to find an element...
-		targetElem = findTargetElement(
-			dataAccessor,
-			targetSchema,
-			selection,
-			state.mappingKey,
-		);
+		targetElem = findTargetElement(dataAccessor, targetSchema, selection, state.mappingKey);
 	}
 	if (targetElem == null) {
 		// for connexion context we try to get a non connected element
-		targetElem = findNonConnectedTargetElement(dataAccessor, targetSchema, state.mapping, targetSide);
+		targetElem = findNonConnectedTargetElement(
+			dataAccessor,
+			targetSchema,
+			state.mapping,
+			targetSide,
+		);
 	}
 	return {
 		element: targetElem,
@@ -200,9 +198,10 @@ function haveSameData(element1, element2, key) {
  */
 function findTargetElement(dataAccessor, schema, selection, mappingKey) {
 	const elements = dataAccessor.getSchemaElements(schema, true);
-	return elements.find(elem =>
-		haveSameData(elem, selection.element, mappingKey)
-		&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem))
+	return elements.find(
+		elem =>
+			haveSameData(elem, selection.element, mappingKey) &&
+			(selection.connected == null || !dataAccessor.includes(selection.connected, elem)),
 	);
 }
 
@@ -238,7 +237,9 @@ function computeFilter(elements, filter, active, params) {
 }
 
 function updateSortedElements(elements, sorters, columns) {
-	const sortedColumn = columns.find(col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]));
+	const sortedColumn = columns.find(
+		col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]),
+	);
 	if (sortedColumn) {
 		const sortedKey = sortedColumn.key;
 		return sort(elements, sortedKey, sorters[sortedKey].direction);
@@ -266,7 +267,6 @@ function updateSorters(sorters, columns, columnKey) {
 }
 
 function getCompare(key, direction) {
-
 	const coefs = {
 		none: 0,
 		ascending: 1,
@@ -324,9 +324,11 @@ function navigateUpDown(state, nav) {
 	const schema = getCurrentSelectedSchema(state);
 	let newSelectedElement = getNextElement(dataAccessor, schema, selection.element, nav);
 
-	if (state.pendingItem != null
-		&& state.pendingItem.side !== selection.side
-		&& selection.side === Constants.MappingSide.OUTPUT) {
+	if (
+		state.pendingItem != null &&
+		state.pendingItem.side !== selection.side &&
+		selection.side === Constants.MappingSide.OUTPUT
+	) {
 		// do not select an already connected output elements
 		while (dataAccessor.isElementMapped(state.mapping, newSelectedElement, selection.side)) {
 			newSelectedElement = getNextElement(dataAccessor, schema, newSelectedElement, nav);
@@ -425,7 +427,6 @@ function getNextElement(dataAccessor, schema, element, nav) {
 	}
 	return dataAccessor.getSchemaElement(schema, newSelectedElemIndex, true);
 }
-
 
 function sort(elements, key, direction) {
 	if (isActiveSorter({ direction })) {
@@ -579,7 +580,7 @@ class DataMapperContainer extends React.Component {
 			reveal = true;
 			focus = true;
 		} else if (this.isStartConnectionEvent(ev)) {
-			const selection = navigate(this.state, ev.keyCode, this.mapper, false)
+			const selection = navigate(this.state, ev.keyCode, this.mapper, false);
 			this.setState(prevState => ({
 				trigger: null,
 				selection,
@@ -600,13 +601,17 @@ class DataMapperContainer extends React.Component {
 			reveal = true;
 		} else if (this.isEndConnectionEvent(ev)) {
 			if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
-				this.performMapping(this.state.pendingItem.element,
-					this.state.selection.element,
-					this.state.pendingItem.side);
-			} else {
-				this.performMapping(this.state.selection.element,
+				this.performMapping(
 					this.state.pendingItem.element,
-					this.state.pendingItem.side);
+					this.state.selection.element,
+					this.state.pendingItem.side,
+				);
+			} else {
+				this.performMapping(
+					this.state.selection.element,
+					this.state.pendingItem.element,
+					this.state.pendingItem.side,
+				);
 			}
 			handled = true;
 			reveal = true;
@@ -645,9 +650,7 @@ class DataMapperContainer extends React.Component {
 		}
 		if (reveal) {
 			// reveal
-			this.mapper
-				.getDecoratedComponentInstance()
-				.revealSelection(this.state.selection);
+			this.mapper.getDecoratedComponentInstance().revealSelection(this.state.selection);
 		}
 		if (focus) {
 			focusElement('[data-focusable]');
@@ -671,16 +674,18 @@ class DataMapperContainer extends React.Component {
 	}
 
 	isStartConnectionEvent(ev) {
-		if (ev.keyCode === keycode.codes.enter
-			&& !isSelectionEmpty(this.state.selection)
-			&& this.state.pendingItem == null) {
+		if (
+			ev.keyCode === keycode.codes.enter &&
+			!isSelectionEmpty(this.state.selection) &&
+			this.state.pendingItem == null
+		) {
 			if (this.state.selection.side === Constants.MappingSide.INPUT) {
 				// input case
 				// at least one output element must be free (i.e. not connected)
 				return !this.state.dataAccessor.isFullMapped(
 					this.state.mapping,
 					this.state.output.schema,
-					Constants.MappingSide.OUTPUT
+					Constants.MappingSide.OUTPUT,
 				);
 			}
 			// output case
@@ -688,29 +693,31 @@ class DataMapperContainer extends React.Component {
 			return !this.state.dataAccessor.isElementMapped(
 				this.state.mapping,
 				this.state.selection.element,
-				this.state.selection.side
+				this.state.selection.side,
 			);
 		}
 		return false;
 	}
 
 	isEndConnectionEvent(ev) {
-		return ev.keyCode === keycode.codes.enter
-			&& !isSelectionEmpty(this.state.selection)
-			&& this.state.pendingItem != null
-			&& this.state.selection.side !== this.state.pendingItem.side;
+		return (
+			ev.keyCode === keycode.codes.enter &&
+			!isSelectionEmpty(this.state.selection) &&
+			this.state.pendingItem != null &&
+			this.state.selection.side !== this.state.pendingItem.side
+		);
 	}
 
 	isNavigationEvent(ev) {
 		const key = ev.keyCode;
-		const isValidKey = key === keycode.codes.up
-			|| key === keycode.codes.down
-			|| key === keycode.codes.pgup
-			|| key === keycode.codes.pgdn;
-		const isValidSwitch = (key === keycode.codes.left || key === keycode.codes.right)
-			&& this.state.pendingItem == null;
-		return !isSelectionEmpty(this.state.selection)
-			&& (isValidKey || isValidSwitch);
+		const isValidKey =
+			key === keycode.codes.up ||
+			key === keycode.codes.down ||
+			key === keycode.codes.pgup ||
+			key === keycode.codes.pgdn;
+		const isValidSwitch =
+			(key === keycode.codes.left || key === keycode.codes.right) && this.state.pendingItem == null;
+		return !isSelectionEmpty(this.state.selection) && (isValidKey || isValidSwitch);
 	}
 
 	isEscapeEvent(ev) {
@@ -720,15 +727,19 @@ class DataMapperContainer extends React.Component {
 
 	isDeleteEvent(ev) {
 		const isValidKey = ev.keyCode === keycode.codes.del;
-		return isValidKey
-			&& !isSelectionEmpty(this.state.selection)
-			&& this.state.selection.connected != null;
+		return (
+			isValidKey &&
+			!isSelectionEmpty(this.state.selection) &&
+			this.state.selection.connected != null
+		);
 	}
 
 	isHandledEvent(ev) {
-		return ((ev.keyCode === keycode.codes.left || ev.keyCode === keycode.codes.right)
-			&& this.state.pendingItem != null)
-			|| ev.keyCode === keycode.codes.enter;
+		return (
+			((ev.keyCode === keycode.codes.left || ev.keyCode === keycode.codes.right) &&
+				this.state.pendingItem != null) ||
+			ev.keyCode === keycode.codes.enter
+		);
 	}
 
 	performMapping(sourceElement, targetElement, selectionSide) {
@@ -738,16 +749,22 @@ class DataMapperContainer extends React.Component {
 			selectedSourceElement = targetElement;
 			selectedTargetElement = sourceElement;
 		}
-		const mapping = this.state.dataAccessor.addMapping(this.state.mapping, sourceElement, targetElement)
+		const mapping = this.state.dataAccessor.addMapping(
+			this.state.mapping,
+			sourceElement,
+			targetElement,
+		);
 		const selection = {
 			element: selectedSourceElement,
-			connected: appendConnected(this.state.dataAccessor,
+			connected: appendConnected(
+				this.state.dataAccessor,
 				this.state.mapping,
 				selectedSourceElement,
 				selectedTargetElement,
-				selectionSide),
+				selectionSide,
+			),
 			side: selectionSide,
-		}
+		};
 		this.setState(prevState => ({
 			trigger: {
 				code: Constants.Events.ADD_MAPPING,
@@ -818,7 +835,11 @@ class DataMapperContainer extends React.Component {
 	}
 
 	clearConnection() {
-		const mapping = removeConnections(this.state.dataAccessor, this.state.mapping, this.state.selection);
+		const mapping = removeConnections(
+			this.state.dataAccessor,
+			this.state.mapping,
+			this.state.selection,
+		);
 		const selection = clearConnected(this.state.selection);
 		this.setState(prevState => ({
 			trigger: {
@@ -855,8 +876,14 @@ class DataMapperContainer extends React.Component {
 	}
 
 	selectElement(ctrl, element, side) {
-		const selection = updateSelection(this.state.dataAccessor, ctrl, this.state.mapping,
-			this.state.selection, element, side);
+		const selection = updateSelection(
+			this.state.dataAccessor,
+			ctrl,
+			this.state.mapping,
+			this.state.selection,
+			element,
+			side,
+		);
 		if (this.state.pendingItem == null) {
 			this.setState(prevState => ({
 				trigger: null,
@@ -886,13 +913,9 @@ class DataMapperContainer extends React.Component {
 				status: Constants.StateStatus.SELECTION | Constants.StateStatus.PENDING,
 			}));
 		} else if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
-			this.performMapping(this.state.pendingItem.element,
-				element,
-				side);
+			this.performMapping(this.state.pendingItem.element, element, side);
 		} else {
-			this.performMapping(element,
-				this.state.pendingItem.element,
-				side);
+			this.performMapping(element, this.state.pendingItem.element, side);
 		}
 	}
 
@@ -912,7 +935,8 @@ class DataMapperContainer extends React.Component {
 	}
 
 	onEnterElement(element, side) {
-		if (this.state.focused &&
+		if (
+			this.state.focused &&
 			this.state.focused.side === side &&
 			this.state.dataAccessor.areElementsEqual(this.state.focused.element, element)
 		) {
@@ -993,9 +1017,14 @@ class DataMapperContainer extends React.Component {
 	canDrop(sourceItem, targetItem) {
 		let update = true;
 		if (this.state.dnd != null) {
-			if (this.state.dnd.target != null
-				&& this.state.dataAccessor.areElementsEqual(this.state.dnd.target.element, targetItem.element)
-				&& this.state.dnd.target.side === targetItem.side) {
+			if (
+				this.state.dnd.target != null &&
+				this.state.dataAccessor.areElementsEqual(
+					this.state.dnd.target.element,
+					targetItem.element,
+				) &&
+				this.state.dnd.target.side === targetItem.side
+			) {
 				update = false;
 			}
 			if (this.state.dnd.source.side === targetItem.side) {
@@ -1013,16 +1042,21 @@ class DataMapperContainer extends React.Component {
 				status: Constants.StateStatus.DND,
 			}));
 		}
-		return targetItem.side !== sourceItem.side
-			&& ((targetItem.side === Constants.MappingSide.INPUT
-					&& !this.state.dataAccessor.isElementMapped(
-						this.state.mapping, sourceItem.element, sourceItem.side
-					))
-				|| (targetItem.side === Constants.MappingSide.OUTPUT
-					&& !this.state.dataAccessor.isElementMapped(
-						this.state.mapping, targetItem.element, targetItem.side
-					))
-			);
+		return (
+			targetItem.side !== sourceItem.side &&
+			((targetItem.side === Constants.MappingSide.INPUT &&
+				!this.state.dataAccessor.isElementMapped(
+					this.state.mapping,
+					sourceItem.element,
+					sourceItem.side,
+				)) ||
+				(targetItem.side === Constants.MappingSide.OUTPUT &&
+					!this.state.dataAccessor.isElementMapped(
+						this.state.mapping,
+						targetItem.element,
+						targetItem.side,
+					)))
+		);
 	}
 
 	drop(sourceItem, targetItem) {
@@ -1042,22 +1076,22 @@ class DataMapperContainer extends React.Component {
 	}
 
 	filterAndSortElements(filters, id, active, params, side) {
-    const schema = getSchema(this.state, side);
-    const schemaState = this.state[side];
-    const { sorters, columns } = schemaState;
-    const elements = schemaState.schema.elements;
-    const filteredElements = updateFilteredElements(elements, filters, id, active, params);
-    const sortedElements = updateSortedElements(filteredElements, sorters, columns);
-    this.state.dataAccessor.setFilteredElements(schema, filteredElements);
-    this.state.dataAccessor.setSortedElements(schema, sortedElements);
-  }
+		const schema = getSchema(this.state, side);
+		const schemaState = this.state[side];
+		const { sorters, columns } = schemaState;
+		const elements = schemaState.schema.elements;
+		const filteredElements = updateFilteredElements(elements, filters, id, active, params);
+		const sortedElements = updateSortedElements(filteredElements, sorters, columns);
+		this.state.dataAccessor.setFilteredElements(schema, filteredElements);
+		this.state.dataAccessor.setSortedElements(schema, sortedElements);
+	}
 
 	onFilterChange(id, active, params, side) {
 		const schema = getSchema(this.state, side);
-    const schemaState = this.state[side];
-    const { filters } = schemaState;
+		const schemaState = this.state[side];
+		const { filters } = schemaState;
 
-    this.filterAndSortElements(filters, id, active, params, side);
+		this.filterAndSortElements(filters, id, active, params, side);
 
 		const updatedFilters = updateFilters(filters, id, active, params);
 		const selection = filterItem(this.state, this.state.selection);
@@ -1097,7 +1131,11 @@ class DataMapperContainer extends React.Component {
 		const sorters = this.state[side].sorters;
 		const columns = this.state[side].columns;
 		const updatedSorters = updateSorters(sorters, columns, columnKey);
-		const updatedSortedElements = updateSortedElements(this.state.dataAccessor.getFilteredElements(schema), updatedSorters, columns);
+		const updatedSortedElements = updateSortedElements(
+			this.state.dataAccessor.getFilteredElements(schema),
+			updatedSorters,
+			columns,
+		);
 		this.state.dataAccessor.setSortedElements(schema, updatedSortedElements);
 		this.setState(prevState => ({
 			trigger: {
@@ -1118,8 +1156,14 @@ class DataMapperContainer extends React.Component {
 	}
 
 	revealConnection(sourceId, targetId) {
-		const source = this.state.dataAccessor.getElementFromCache(Constants.MappingSide.INPUT, sourceId);
-		const target = this.state.dataAccessor.getElementFromCache(Constants.MappingSide.OUTPUT, targetId);
+		const source = this.state.dataAccessor.getElementFromCache(
+			Constants.MappingSide.INPUT,
+			sourceId,
+		);
+		const target = this.state.dataAccessor.getElementFromCache(
+			Constants.MappingSide.OUTPUT,
+			targetId,
+		);
 		const mapperInstance = this.mapper.getDecoratedComponentInstance();
 		mapperInstance.revealConnection(source, target);
 	}
@@ -1128,81 +1172,87 @@ class DataMapperContainer extends React.Component {
 		const dataAccessor = this.state.dataAccessor;
 		const cmd = dataAccessor.getCurrentUndoCommand();
 		const mapping = dataAccessor.undo(this.state.mapping);
-		this.setState(prevState => ({
-			trigger: {
-				code: Constants.Events.UNDO,
+		this.setState(
+			prevState => ({
+				trigger: {
+					code: Constants.Events.UNDO,
+				},
+				pendingItem: null,
+				dnd: null,
+				mapping,
+				actions: {
+					...prevState.actions,
+					undo: {
+						...prevState.actions.undo,
+						tooltipLabel: prevState.dataAccessor.getUndoLabel(),
+						disabled: !prevState.dataAccessor.canUndo(),
+					},
+					redo: {
+						...prevState.actions.redo,
+						tooltipLabel: prevState.dataAccessor.getRedoLabel(),
+						disabled: !prevState.dataAccessor.canRedo(),
+					},
+					clear: {
+						...prevState.actions.clear,
+						disabled: updateClearDisabled(prevState.dataAccessor, prevState.selection, mapping),
+					},
+					clearAll: {
+						...prevState.actions.clearAll,
+						disabled: updateClearAllDisabled(mapping),
+					},
+				},
+				status: Constants.UNDO_REDO_STATE_STATUS,
+			}),
+			() => {
+				if (cmd.code === Constants.Commands.REMOVE_MAPPING) {
+					// reveal connection
+					this.revealConnection(cmd.sourceId, cmd.targetId);
+				}
 			},
-			pendingItem: null,
-			dnd: null,
-			mapping,
-			actions: {
-				...prevState.actions,
-				undo: {
-					...prevState.actions.undo,
-					tooltipLabel: prevState.dataAccessor.getUndoLabel(),
-					disabled: !prevState.dataAccessor.canUndo(),
-				},
-				redo: {
-					...prevState.actions.redo,
-					tooltipLabel: prevState.dataAccessor.getRedoLabel(),
-					disabled: !prevState.dataAccessor.canRedo(),
-				},
-				clear: {
-					...prevState.actions.clear,
-					disabled: updateClearDisabled(prevState.dataAccessor, prevState.selection, mapping),
-				},
-				clearAll: {
-					...prevState.actions.clearAll,
-					disabled: updateClearAllDisabled(mapping),
-				},
-			},
-			status: Constants.UNDO_REDO_STATE_STATUS,
-		}), () => {
-			if (cmd.code === Constants.Commands.REMOVE_MAPPING) {
-				// reveal connection
-				this.revealConnection(cmd.sourceId, cmd.targetId);
-			}
-		});
+		);
 	}
 
 	onRedo() {
 		const cmd = this.state.dataAccessor.getCurrentRedoCommand();
 		const mapping = this.state.dataAccessor.redo(this.state.mapping);
-		this.setState(prevState => ({
-			trigger: {
-				code: Constants.Events.REDO,
+		this.setState(
+			prevState => ({
+				trigger: {
+					code: Constants.Events.REDO,
+				},
+				pendingItem: null,
+				dnd: null,
+				mapping,
+				actions: {
+					...prevState.actions,
+					undo: {
+						...prevState.actions.undo,
+						tooltipLabel: prevState.dataAccessor.getUndoLabel(),
+						disabled: !prevState.dataAccessor.canUndo(),
+					},
+					redo: {
+						...prevState.actions.redo,
+						tooltipLabel: prevState.dataAccessor.getRedoLabel(),
+						disabled: !prevState.dataAccessor.canRedo(),
+					},
+					clear: {
+						...prevState.actions.clear,
+						disabled: updateClearDisabled(prevState.dataAccessor, prevState.selection, mapping),
+					},
+					clearAll: {
+						...prevState.actions.clearAll,
+						disabled: updateClearAllDisabled(mapping),
+					},
+				},
+				status: Constants.UNDO_REDO_STATE_STATUS,
+			}),
+			() => {
+				if (cmd.code === Constants.Commands.ADD_MAPPING) {
+					// reveal connection
+					this.revealConnection(cmd.sourceId, cmd.targetId);
+				}
 			},
-			pendingItem: null,
-			dnd: null,
-			mapping,
-			actions: {
-				...prevState.actions,
-				undo: {
-					...prevState.actions.undo,
-					tooltipLabel: prevState.dataAccessor.getUndoLabel(),
-					disabled: !prevState.dataAccessor.canUndo(),
-				},
-				redo: {
-					...prevState.actions.redo,
-					tooltipLabel: prevState.dataAccessor.getRedoLabel(),
-					disabled: !prevState.dataAccessor.canRedo(),
-				},
-				clear: {
-					...prevState.actions.clear,
-					disabled: updateClearDisabled(prevState.dataAccessor, prevState.selection, mapping),
-				},
-				clearAll: {
-					...prevState.actions.clearAll,
-					disabled: updateClearAllDisabled(mapping),
-				},
-			},
-			status: Constants.UNDO_REDO_STATE_STATUS,
-		}), () => {
-			if (cmd.code === Constants.Commands.ADD_MAPPING) {
-				// reveal connection
-				this.revealConnection(cmd.sourceId, cmd.targetId);
-			}
-		});
+		);
 	}
 
 	updateMapperRef(ref) {
@@ -1210,16 +1260,10 @@ class DataMapperContainer extends React.Component {
 	}
 
 	render() {
-		const {
-			mappingActions,
-			...rest
-		} = this.props;
+		const { mappingActions, ...rest } = this.props;
 		return (
 			<div {...rest}>
-				<ActionBar
-					className="main-tools"
-					actions={layoutActions(this.state.actions)}
-				/>
+				<ActionBar className="main-tools" actions={layoutActions(this.state.actions)} />
 				<Mapper
 					ref={this.updateMapperRef}
 					dataAccessor={this.state.dataAccessor}
