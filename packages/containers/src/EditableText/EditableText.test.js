@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
-import Container, { DEFAULT_STATE, DISPLAY_NAME } from './EditableText.container';
+import Container, { DISPLAY_NAME } from './EditableText.container';
 import Connect from './EditableText.connect';
-import { getComponentState, getEditMode } from './EditableText.selectors';
+import { getEditMode } from './EditableText.selectors';
 
 describe('Connect', () => {
 	it('should connect EditableText', () => {
@@ -22,7 +22,7 @@ describe('EditableText container', () => {
 		let state;
 		const props = {
 			state: Map({ editMode: true }),
-			setState: jest.fn(fn => (state = fn())),
+			setState: jest.fn(fn => (state = fn)),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('submit', event);
@@ -60,7 +60,7 @@ describe('EditableText container', () => {
 		let state;
 		const props = {
 			state: Map({ editMode: true }),
-			setState: jest.fn(fn => (state = fn())),
+			setState: jest.fn(fn => (state = fn)),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('cancel', event);
@@ -94,13 +94,13 @@ describe('EditableText container', () => {
 		const event = {};
 		let state;
 		const props = {
-			state: Map({ editMode: true }),
-			setState: jest.fn(fn => (state = fn())),
+			state: Map({ editMode: false }),
+			setState: jest.fn(fn => (state = fn)),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('edit', event);
 		expect(props.setState).toHaveBeenCalled();
-		expect(state.editMode).toEqual(false);
+		expect(state.editMode).toEqual(true);
 	});
 	it('should call onEdit when edit event trigger', () => {
 		const event = {};
@@ -160,12 +160,6 @@ describe('EditableText selectors', () => {
 				components: Map({ [DISPLAY_NAME]: Map({ myEditableText: componentState }) }),
 			},
 		};
-	});
-	it('should return the state', () => {
-		expect(getComponentState(mockState, 'myEditableText')).toEqual(componentState);
-	});
-	it('should return the default state', () => {
-		expect(getComponentState(mockState, 'wrongComponentId')).toEqual(DEFAULT_STATE);
 	});
 	it('should return the editMode', () => {
 		expect(getEditMode(mockState, 'myEditableText')).toEqual(true);
