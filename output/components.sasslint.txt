@@ -4,8 +4,11 @@
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
+src/EditableText/EditableText.scss
+  103:4  error  Duplicate properties are not allowed within a block  no-duplicate-properties
+
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 3 problems (1 error, 2 warnings)
 
