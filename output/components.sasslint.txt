@@ -1,11 +1,14 @@
 > sass-lint -v -q
 
 
+src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.scss
+  1:2  error  Class '.dropdownWrapper' should be written in lowercase with hyphens  class-name-format
+
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 3 problems (1 error, 2 warnings)
 
