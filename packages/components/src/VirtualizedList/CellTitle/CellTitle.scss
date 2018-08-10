@@ -56,6 +56,13 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 			text-decoration: none;
 		}
 	}
+
+	&:hover,
+	&:focus {
+		.tc-main-title-active {
+			color: $scooter;
+		}
+	}
 }
 
 // manage actions display on row hover

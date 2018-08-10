@@ -38,6 +38,36 @@ describe('CellTitle', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render without active class if no onClick on the title', () => {
+		// given
+		const columnData = {
+			id: 'my-title',
+			displayModeKey: 'displayMode',
+			onEditCancel: jest.fn(),
+			onEditSubmit: jest.fn(),
+		};
+		const rowData = {
+			id: 1,
+			displayMode: 'text',
+			icon: 'talend-file-o',
+			title: 'my awesome title',
+		};
+
+		// when
+		const wrapper = shallow(
+			<CellTitle
+				cellData={'my awesome title'}
+				columnData={columnData}
+				getComponent={jest.fn()}
+				rowData={rowData}
+				rowIndex={1}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	describe('icon', () => {
 		const rowData = {
 			id: 1,
