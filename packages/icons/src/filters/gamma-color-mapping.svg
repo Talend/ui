@@ -1,6 +1,6 @@
 <svg>
 	<defs>
-		<filter id="gamma-color-mapping">
+		<filter id="talend-grayscale">
 			<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale"/>
 			<feComponentTransfer in="grayscale" result="gammadarken">
 				<feFuncR type="gamma" exponent="7"/>

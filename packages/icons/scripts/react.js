@@ -10,7 +10,7 @@ let buff = Object.keys(lib.svgs).map(key => {
 });
 
 buff = buff.concat(
-	Object.keys(lib.filters).map(key => `filters['talend-${key}'] = (${lib.filters[key]});`),
+	Object.keys(lib.filters).map(key => `filters['${key}'] = (${lib.filters[key]});`),
 );
 
 buff.unshift('');

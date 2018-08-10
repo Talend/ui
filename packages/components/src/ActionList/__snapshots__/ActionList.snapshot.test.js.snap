@@ -89,7 +89,7 @@ exports[`Storyshots ActionList default 1`] = `
     <svg>
       <defs>
         <filter
-          id="gamma-color-mapping"
+          id="talend-grayscale"
         >
           <feColorMatrix
             in="SourceGraphic"
@@ -421,7 +421,7 @@ exports[`Storyshots ActionList single 1`] = `
     <svg>
       <defs>
         <filter
-          id="gamma-color-mapping"
+          id="talend-grayscale"
         >
           <feColorMatrix
             in="SourceGraphic"
@@ -593,7 +593,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
     <svg>
       <defs>
         <filter
-          id="gamma-color-mapping"
+          id="talend-grayscale"
         >
           <feColorMatrix
             in="SourceGraphic"

@@ -40,10 +40,10 @@ const HTML_TPL = (icons, style) => `
 				filter: none;
 			}
 
-			.gammacolormapping {
-				filter: url(#gamma-color-mapping);
+			.grayscale {
+				filter: url(#talend-grayscale);
 			}
-			.gammacolormapping:hover {
+			.grayscale:hover {
 				filter: none;
 			}
 		</style>
@@ -98,7 +98,7 @@ const HTML_TPL = (icons, style) => `
 				<select id="select-filter" class="form-control" onChange="setFilter(this.value)">
 					<option value="no-filter">No filter</option>
 					<option value="colormapping">Color mapping</option>
-					<option value="gammacolormapping">Gamma color mapping</option>
+					<option value="grayscale">grayscale</option>
 				</select>
 			</div>
 			<div class="form-group">

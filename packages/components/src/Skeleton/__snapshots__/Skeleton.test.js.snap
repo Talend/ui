@@ -40,7 +40,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     <svg>
       <defs>
         <filter
-          id="gamma-color-mapping"
+          id="talend-grayscale"
         >
           <feColorMatrix
             in="SourceGraphic"

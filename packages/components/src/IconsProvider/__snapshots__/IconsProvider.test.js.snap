@@ -20,7 +20,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
   <svg>
     <defs>
       <filter
-        id="gamma-color-mapping"
+        id="talend-grayscale"
       >
         <feColorMatrix
           in="SourceGraphic"
@@ -85,7 +85,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
   <svg>
     <defs>
       <filter
-        id="gamma-color-mapping"
+        id="talend-grayscale"
       >
         <feColorMatrix
           in="SourceGraphic"
@@ -3444,7 +3444,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
   <svg>
     <defs>
       <filter
-        id="gamma-color-mapping"
+        id="talend-grayscale"
       >
         <feColorMatrix
           in="SourceGraphic"
@@ -6810,7 +6810,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
   <svg>
     <defs>
       <filter
-        id="gamma-color-mapping"
+        id="talend-grayscale"
       >
         <feColorMatrix
           in="SourceGraphic"
