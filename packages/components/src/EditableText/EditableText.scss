@@ -29,6 +29,7 @@ $tc-circle-editable-text-size: 16px !default;
 	display: flex;
 	margin: 0;
 	height: 100%;
+	position: relative;
 
 	& &-text {
 		flex-direction: column;
@@ -72,13 +73,23 @@ $tc-circle-editable-text-size: 16px !default;
 		}
 	}
 	& &-form {
+		width: 100%;
 		display: flex;
 		align-items: center;
-		padding-left: $padding-large;
+		padding: {
+			left: $padding-large;
+			right: $padding-large;
+		}
+
+		:global(.form-group) {
+			width: 100%;
+			margin: 0;
+		}
 
 		& .tc-editable-text-form-input {
 			@include input-text($tc-input-editable-text-input-weight);
-			width: 18rem;
+			width: 100%;
+			padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
 			&::selection {
 				background: lighten($scooter, 25%);
 			}
@@ -86,6 +97,8 @@ $tc-circle-editable-text-size: 16px !default;
 
 		&-buttons {
 			display: flex;
+			position: absolute;
+			right: $padding-large;
 
 			&-icon {
 				border: 0.1rem solid $dove-gray;
