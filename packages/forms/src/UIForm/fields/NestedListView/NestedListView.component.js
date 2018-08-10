@@ -80,7 +80,6 @@ class NestedListViewWidget extends React.Component {
 			const { items, value, searchCriteria, toggledChildren } = state;
 			const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
-
 			// Toggle all values
 			const itemValue = value[item.key] || [];
 			value[item.key] = itemValue.length === 0 ? availableOptions : [];
@@ -131,11 +130,10 @@ class NestedListViewWidget extends React.Component {
 	/**
 	 * Propagate a ListView value change
 	 * @param { Object } event The event that triggered the change
-	 * @param { Array } newValue The new Value
+	 * @param { Object } newValue The new Value
 	 */
 	onChange(event, newValue) {
-		const value = newValue.length ? newValue : undefined;
-		const payload = { schema: this.props.schema, value };
+		const payload = { schema: this.props.schema, value: newValue };
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
 	}
@@ -227,7 +225,7 @@ class NestedListViewWidget extends React.Component {
 }
 
 NestedListViewWidget.defaultProps = {
-	value: [],
+	value: {},
 	t: getDefaultT(),
 };
 
@@ -246,7 +244,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
-		value: PropTypes.arrayOf(PropTypes.string),
+		value: PropTypes.object,
 		t: PropTypes.func,
 	};
 }
