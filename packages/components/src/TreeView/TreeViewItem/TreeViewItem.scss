@@ -65,7 +65,7 @@ $item-height: 40px;
 		}
 
 		.tc-treeview-toggle {
-			width: 12px;
+			width: $svg-sm-size;
 			margin: 0;
 			margin-right: $padding-large;
 			position: relative;
