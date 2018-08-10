@@ -18,7 +18,7 @@ exports[`InputDateTimePicker render should render 1`] = `
     value="2017-04-04 15:27"
   />
   <div
-    className="theme-dropdownWrapper"
+    className="theme-dropdown-wrapper"
   >
     <Overlay
       animation={[Function]}

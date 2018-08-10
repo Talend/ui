@@ -288,7 +288,7 @@ class InputDateTimePicker extends React.Component {
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
 				/>
-				<div className={theme.dropdownWrapper} ref={this.setDropdownWrapperRef}>
+				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
 						<Popover className={theme.popover}>
 							<DateTimePicker
