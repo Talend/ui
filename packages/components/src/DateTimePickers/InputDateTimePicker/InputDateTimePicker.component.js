@@ -18,8 +18,20 @@ import theme from './InputDateTimePicker.scss';
 
 const DEBOUNCE_TIMEOUT = 300;
 
+/*
+ * Split the date and time parts based on the middle space
+ * ex: '  whatever   other-string  ' => ['whatever', 'other-string']
+ */
 const splitDateAndTimePartsRegex = new RegExp(/^\s*([^\s]+?)\s+([^\s]+?)\s*$/);
+/*
+ * Split the date part into year, month and day
+ * ex : ' 2018-2-05  ' => ['2018', '2', '05']
+ */
 const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
+/*
+ * Split the time part into hours and minutes
+ * ex : ' 14:35  ' => ['14', '35']
+ */
 const timePartRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
 
 function hoursAndMinutesToTime(hours, minutes) {
