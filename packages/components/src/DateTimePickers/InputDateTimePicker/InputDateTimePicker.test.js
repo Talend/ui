@@ -705,7 +705,7 @@ describe('InputDateTimePicker', () => {
 
 			const inputWrapper = wrapper.find('DebounceInput');
 
-			inputWrapper.prop('onFocus')();
+			inputWrapper.simulate('focus');
 
 			wrapper.update();
 
@@ -723,7 +723,7 @@ describe('InputDateTimePicker', () => {
 			const wrapper = mount(<InputDateTimePicker />);
 
 			const inputWrapper = wrapper.find('DebounceInput');
-			inputWrapper.prop('onFocus')();
+			inputWrapper.simulate('focus');
 
 			wrapper.update();
 
@@ -750,7 +750,7 @@ describe('InputDateTimePicker', () => {
 			const wrapper = mount(<InputDateTimePicker />);
 
 			const inputWrapper = wrapper.find('DebounceInput');
-			inputWrapper.prop('onFocus')();
+			inputWrapper.simulate('focus');
 
 			wrapper.update();
 
@@ -793,7 +793,7 @@ describe('InputDateTimePicker', () => {
 
 			const inputWrapper = wrapper.find('DateTimePicker');
 
-			inputWrapper.prop('onSubmit')({
+			inputWrapper.simulate('submit', {
 				date: new Date(2018, 0, 1),
 				time: 50,
 			});
