@@ -19,7 +19,6 @@ class EditableText extends React.Component {
 		actionCreatorEdit: PropTypes.string,
 		actionCreatorSubmit: PropTypes.string,
 		actionCreatorChange: PropTypes.string,
-		actionCreatorGoBack: PropTypes.string,
 		onCancel: PropTypes.func,
 		onEdit: PropTypes.func,
 		onSubmit: PropTypes.func,
@@ -41,9 +40,7 @@ class EditableText extends React.Component {
 	}
 
 	onSubmit(event, data) {
-		this.props.setState(() => ({
-			editMode: false,
-		}));
+		this.props.setState({ editMode: false });
 		if (this.props.onSubmit) {
 			this.props.onSubmit(event, data);
 		}
@@ -56,9 +53,7 @@ class EditableText extends React.Component {
 	}
 
 	onCancel(event) {
-		this.props.setState(() => ({
-			editMode: false,
-		}));
+		this.props.setState({ editMode: false });
 		if (this.props.onCancel) {
 			this.props.onCancel(event);
 		}
@@ -70,9 +65,7 @@ class EditableText extends React.Component {
 	}
 
 	onEdit(event) {
-		this.props.setState(() => ({
-			editMode: !this.props.state.get('editMode', false),
-		}));
+		this.props.setState({ editMode: true });
 		if (this.props.onEdit) {
 			this.props.onEdit(event);
 		}

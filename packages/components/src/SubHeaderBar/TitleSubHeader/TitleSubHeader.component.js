@@ -22,7 +22,7 @@ function TitleSubHeader({
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 
-	const Renderer = Inject.getAll(getComponent, { EditableText });
+	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
 			className={classNames(theme['tc-subheader-details'], 'tc-subheader-details', {
@@ -44,7 +44,7 @@ function TitleSubHeader({
 					)}
 				>
 					{editable ? (
-						<Renderer.EditableText text={title} inProgress={inProgress} {...rest} />
+						<InjectedEditableText text={title} inProgress={inProgress} {...rest} />
 					) : (
 						<h1
 							className={classNames(

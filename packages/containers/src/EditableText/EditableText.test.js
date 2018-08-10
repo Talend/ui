@@ -38,7 +38,6 @@ describe('EditableText container', () => {
 			setState: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('submit', event, data);
-		expect(props.setState).toHaveBeenCalled();
 		expect(props.onSubmit).toHaveBeenCalledWith(event, data);
 	});
 	it('should call ActionCreatorSubmit when submit event trigger', () => {
@@ -114,7 +113,6 @@ describe('EditableText container', () => {
 		expect(props.onEdit).toHaveBeenCalledWith(event);
 	});
 	it('should call onEdit when edit event trigger', () => {
-		// Given
 		const event = {};
 		const props = {
 			setState: jest.fn(),
@@ -122,28 +120,22 @@ describe('EditableText container', () => {
 			dispatchActionCreator: jest.fn(),
 			actionCreatorEdit: 'myEditActionCreator',
 		};
-		// When
 		shallow(<Container {...props} />).simulate('edit', event);
-		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorEdit, event, {
 			props,
 		});
 	});
 	it('should call onChange when change event trigger', () => {
-		// Given
 		const event = { target: { value: 'my onChangeTitle' } };
 		const props = {
 			setState: jest.fn(),
 			state: Map({ editMode: false }),
 			onChange: jest.fn(),
 		};
-		// When
 		shallow(<Container {...props} />).simulate('change', event);
-		// Then
 		expect(props.onChange).toHaveBeenCalledWith(event, event.target.value);
 	});
 	it('should call onChange when change event tigger', () => {
-		// Given
 		const event = { target: { value: 'my onChangeTitle' } };
 		const props = {
 			setState: jest.fn(),
@@ -151,9 +143,7 @@ describe('EditableText container', () => {
 			dispatchActionCreator: jest.fn(),
 			actionCreatorChange: 'myChangeActionCreator',
 		};
-		// When
 		shallow(<Container {...props} />).simulate('change', event);
-		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorChange, event, {
 			props,
 			value: event.target.value,

@@ -54,10 +54,10 @@ class SubHeaderBar extends React.Component {
 			{},
 			omit(this.props, cmfConnect.INJECTED_PROPS),
 			{
-				onEdit: this.onEdit,
-				onCancel: this.onCancel,
-				onSubmit: this.onSubmit,
-				onChange: this.onChange,
+				onEdit: this.props.onEdit,
+				onCancel: this.props.onCancel,
+				onSubmit: this.props.onSubmit,
+				onChange: this.props.onChange,
 				onGoBack: hasGoBack && this.onGoBack,
 			},
 			{
