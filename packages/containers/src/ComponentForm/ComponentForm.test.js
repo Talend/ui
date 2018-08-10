@@ -175,7 +175,12 @@ describe('ComponentForm', () => {
 		it('should pass security props to createTrigger', () => {
 			const state = fromJS(addSchemaMock.ui);
 			const wrapper = shallow(
-				<TCompForm state={state} triggerURL="http://trigger" CSRFTokenCookieKey="fooCookie" CSRFTokenHeaderKey="fooHeader" />,
+				<TCompForm
+					state={state}
+					triggerURL="http://trigger"
+					CSRFTokenCookieKey="fooCookie"
+					CSRFTokenHeaderKey="fooHeader"
+				/>,
 			);
 			const trigger = wrapper.instance().trigger;
 			expect(trigger).toBeDefined();
