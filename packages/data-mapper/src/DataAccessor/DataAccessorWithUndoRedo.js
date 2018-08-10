@@ -23,11 +23,9 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 	}
 
 	addMapping(mapping, source, target) {
-		const sourceLabel = this.getElementLabel(source);
-		const targetLabel = this.getElementLabel(target);
 		const cmd = {
 			code: Constants.Commands.ADD_MAPPING,
-			label: `Map ${sourceLabel} to ${targetLabel}`,
+			label: `Map ${source.name} to ${target.name}`,
 			sourceId: source.id,
 			targetId: target.id,
 		};
@@ -37,11 +35,9 @@ export default class DataAccessorWithUndoRedo extends DataAccessorWrapper {
 	}
 
 	removeMapping(mapping, source, target) {
-		const sourceLabel = this.getElementLabel(source);
-		const targetLabel = this.getElementLabel(target);
 		const cmd = {
 			code: Constants.Commands.REMOVE_MAPPING,
-			label: `Clear mapping between ${sourceLabel} and ${targetLabel}`,
+			label: `Clear mapping between ${source.name} and ${target.name}`,
 			sourceId: source.id,
 			targetId: target.id,
 		};

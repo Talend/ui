@@ -76,7 +76,7 @@ it('data-accessor-with-undo-redo', () => {
 
 	expect(dataAccessor.getUndoLabel()).toBe('Undo "Clear all mapping"');
 
-	expect(dataAccessor.isMappingEmpty(mapping)).toBe(true);
+	expect(mapping.length).toBe(0);
 
 	cmd = dataAccessor.getCurrentUndoCommand();
 	expect(cmd.code).toBe(Constants.Commands.CLEAR_MAPPING);
@@ -89,10 +89,7 @@ it('data-accessor-with-undo-redo', () => {
 	expect(dataAccessor.canUndo()).toBe(true);
 	expect(dataAccessor.canRedo()).toBe(true);
 
-	expect(dataAccessor.isMappingEmpty(mapping)).toBe(false);
-
-	const mappingItems = dataAccessor.getMappingItems(mapping);
-	expect(mappingItems.length).toBe(3);
+	expect(mapping.length).toBe(3);
 
 	cmd = dataAccessor.getCurrentRedoCommand();
 	expect(cmd.code).toBe(Constants.Commands.CLEAR_MAPPING);

@@ -16,8 +16,7 @@ import { Constants } from './index';
  * @param {string} side - the mapping side, i.e. input or output.
  */
 function getMappedElements(dataAccessor, mapping, side) {
-	const mappingItems = dataAccessor.getMappingItems(mapping);
-	return mappingItems.map(item => dataAccessor.getMappedElement(item, side));
+	return mapping.map(item => dataAccessor.getMappedElement(item, side));
 }
 
 /**
@@ -539,8 +538,7 @@ class MapperComponent extends Component {
 		}
 
 		const visibleMapping = this.getVisibleMapping();
-
-		const hasVisibleMapping = !dataAccessor.isMappingEmpty(visibleMapping);
+		const hasVisibleMapping = visibleMapping.length > 0;
 
 		// if there is no mapping and no pending connection and no drag and drop in progress
 		// then there is no connection to display

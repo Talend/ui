@@ -66,8 +66,8 @@ function updateClearDisabled(dataAccessor, selection, mapping) {
 	return !selection || !dataAccessor.isElementMapped(mapping, selection.element, selection.side);
 }
 
-function updateClearAllDisabled(dataAccessor, mapping) {
-	return dataAccessor.isMappingEmpty(mapping);
+function updateClearAllDisabled(mapping) {
+	return mapping.length === 0;
 }
 
 function removeConnections(dataAccessor, mapping, selection) {
@@ -188,6 +188,12 @@ function updateFilters(filters, id, active, params) {
 	return updatedFilters;
 }
 
+function haveSameData(element1, element2, key) {
+	const data1 = element1[key];
+	const data2 = element2[key];
+	return data1 && data2 && data1 === data2;
+}
+
 /**
  * This method tries to find an element in the schema with the same name as
  * given element.
@@ -195,7 +201,7 @@ function updateFilters(filters, id, active, params) {
 function findTargetElement(dataAccessor, schema, selection, mappingKey) {
 	const elements = dataAccessor.getSchemaElements(schema, true);
 	return elements.find(elem =>
-		dataAccessor.haveSameData(elem, selection.element, mappingKey)
+		haveSameData(elem, selection.element, mappingKey)
 		&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem))
 	);
 }
@@ -770,7 +776,7 @@ class DataMapperContainer extends React.Component {
 				},
 				clearAll: {
 					...prevState.actions.clearAll,
-					disabled: updateClearAllDisabled(prevState.dataAccessor, mapping),
+					disabled: updateClearAllDisabled(mapping),
 				},
 			},
 			status: Constants.MAPPING_STATE_STATUS,
@@ -841,7 +847,7 @@ class DataMapperContainer extends React.Component {
 				},
 				clearAll: {
 					...prevState.actions.clearAll,
-					disabled: updateClearAllDisabled(prevState.dataAccessor, mapping),
+					disabled: updateClearAllDisabled(mapping),
 				},
 			},
 			status: Constants.MAPPING_STATE_STATUS,
@@ -1147,7 +1153,7 @@ class DataMapperContainer extends React.Component {
 				},
 				clearAll: {
 					...prevState.actions.clearAll,
-					disabled: updateClearAllDisabled(prevState.dataAccessor, mapping),
+					disabled: updateClearAllDisabled(mapping),
 				},
 			},
 			status: Constants.UNDO_REDO_STATE_STATUS,
@@ -1187,7 +1193,7 @@ class DataMapperContainer extends React.Component {
 				},
 				clearAll: {
 					...prevState.actions.clearAll,
-					disabled: updateClearAllDisabled(prevState.dataAccessor, mapping),
+					disabled: updateClearAllDisabled(mapping),
 				},
 			},
 			status: Constants.UNDO_REDO_STATE_STATUS,
@@ -1206,7 +1212,7 @@ class DataMapperContainer extends React.Component {
 	render() {
 		const {
 			mappingActions,
-			...rest,
+			...rest
 		} = this.props;
 		return (
 			<div {...rest}>

@@ -429,7 +429,7 @@ export default class Schema extends Component {
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<Table
-					title={withTitle && dataAccessor.getSchemaName(schema)}
+					title={withTitle && schema.name}
 					elements={elements}
 					columns={columnsWithDnd}
 					rowsClassName={getRowsClassNames(rowsClassName, side, elements, dataAccessor, this.props)}

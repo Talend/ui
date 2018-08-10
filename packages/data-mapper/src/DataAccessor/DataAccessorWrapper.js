@@ -28,12 +28,11 @@ export default class DataAccessorWrapper {
 	 * @private
 	 */
 	side(schema) {
-		return this.schema2side[this.getSchemaId(schema)];
+		return this.schema2side[schema.id];
 	}
 
 	registerSchema(schema, side) {
-		const schemaId = this.getSchemaId(schema);
-		this.schema2side[schemaId] = side;
+		this.schema2side[schema.id] = side;
 		this.internalDataAccessors[side] = new DataAccessorWithSorterAndFilter(schema.elements);
 		this.populateCache(schema, side);
 	}
@@ -104,17 +103,6 @@ export default class DataAccessorWrapper {
 		return element1.id === element2.id;
 	}
 
-	getSchemaId(schema) {
-		return schema.id;
-	}
-
-	/**
-	 * Returns the name of the schema.
-	 */
-	getSchemaName(schema) {
-		return schema.name;
-	}
-
 	/**
 	 * Returns the number of elements in the schema.
 	 * @param {object} schema - The schema
@@ -159,13 +147,6 @@ export default class DataAccessorWrapper {
 	}
 
 	/**
-	 * Returns a label for the given element.
-	 */
-	getElementLabel(element) {
-		return element.name;
-	}
-
-	/**
 	 * Returns true if the array of elements contains the specified element.
 	 */
 	includes(elements, element) {
@@ -177,34 +158,12 @@ export default class DataAccessorWrapper {
 		return false;
 	}
 
-	haveSameData(element1, element2, key) {
-		const data1 = element1[key];
-		const data2 = element2[key];
-		return data1 && data2 && data1 === data2;
-	}
-
 	/**
 	 * MAPPING SECTION
 	 */
 
 	getMappingVersion() {
 		return this.mappingVersion;
-	}
-
-	/**
-	 * Returns an array of all the mapping items. A mapping item defines
-	 * a mapping between a source and a target element.
-	 * { source: element, target: element }
-	 */
-	getMappingItems(mapping) {
-		return mapping;
-	}
-
-	/**
-	 * Returns true if the given mapping is empty
-	 */
-	isMappingEmpty(mapping) {
-		return !mapping.length;
 	}
 
 	/**
@@ -256,7 +215,7 @@ export default class DataAccessorWrapper {
 	 * Remove all the mapping items.
 	 * Returns the updated mapping.
 	 */
-	clearMapping(mapping) {
+	clearMapping() {
 		this.mappingVersion += 1;
 		return [];
 	}
@@ -274,8 +233,7 @@ export default class DataAccessorWrapper {
 	 */
 	isElementMapped(mapping, element, side) {
 		if (mapping != null) {
-			const mappingItems = this.getMappingItems(mapping);
-			return mappingItems.find(item => this.isElementInMappingItem(item, element, side));
+			return mapping.find(item => this.isElementInMappingItem(item, element, side));
 		}
 		return false;
 	}
@@ -294,8 +252,7 @@ export default class DataAccessorWrapper {
 	}
 
 	getMappingItemsWithElement(mapping, element, side) {
-		const mappingItems = this.getMappingItems(mapping);
-		return mappingItems.filter(item => this.isElementInMappingItem(item, element, side));
+		return mapping.filter(item => this.isElementInMappingItem(item, element, side));
 	}
 
 	getConnectedElements(mapping, element, side) {
