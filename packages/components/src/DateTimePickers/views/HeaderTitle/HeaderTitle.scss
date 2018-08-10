@@ -1,0 +1,13 @@
+@import '../../shared/styles/mixins';
+
+.common {
+	@include main;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.button {
+	@include nav-action;
+}
