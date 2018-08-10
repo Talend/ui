@@ -54,6 +54,10 @@ $tc-input-subheader-sub-title-weight: 300 !default;
 				text-transform: uppercase;
 				margin: 0;
 			}
+
+			:global(.tc-editable-text) {
+				width: 30rem;
+			}
 		}
 
 		&-subtitle {
