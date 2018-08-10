@@ -6,12 +6,12 @@ import addSchemaMock from './ComponentForm.test.schema';
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
 
 jest.mock('./kit', () => ({
-	createTriggers({ url, customRegistry }) {
+	createTriggers({ url, customRegistry, security }) {
 		function trigger() {
 			trigger.isCalled = true;
 			return Promise.resolve(trigger.data || {});
 		}
-		trigger.mockInfo = { url, customRegistry };
+		trigger.mockInfo = { url, customRegistry, security };
 		trigger.mockReturnWith = function mockReturnWith(data) {
 			this.data = data;
 		};
@@ -171,6 +171,18 @@ describe('ComponentForm', () => {
 		});
 	});
 
+	describe('#security', () => {
+		it('should pass security props to createTrigger', () => {
+			const state = fromJS(addSchemaMock.ui);
+			const wrapper = shallow(
+				<TCompForm state={state} triggerURL="http://trigger" CSRFTokenCookieKey="fooCookie" CSRFTokenHeaderKey="fooHeader" />,
+			);
+			const trigger = wrapper.instance().trigger;
+			expect(trigger).toBeDefined();
+			expect(trigger.mockInfo.security.CSRFTokenCookieKey).toBe('fooCookie');
+			expect(trigger.mockInfo.security.CSRFTokenHeaderKey).toBe('fooHeader');
+		});
+	});
 	describe('#update', () => {
 		it('should recreate trigger if triggerURL or customTriggers props change', () => {
 			// given

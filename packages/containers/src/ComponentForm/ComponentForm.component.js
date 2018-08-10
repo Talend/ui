@@ -228,10 +228,6 @@ TCompForm.propTypes = {
 	CSRFTokenCookieKey: PropTypes.string,
 	CSRFTokenHeaderKey: PropTypes.string,
 };
-TCompForm.defaultProps = {
-	CSRFTokenCookieKey: 'csrfToken',
-	CSRFTokenHeaderKey: 'X-CSRF-Token',
-};
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
