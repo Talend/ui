@@ -110,68 +110,64 @@ describe('InjectDropdownMenuItem', () => {
 });
 
 describe('Dropup', () => {
-	it('should switch to dropup when it is near the bottom of a tc-dropdown-container', () => {
-		const isDropup = true;
-		const isDropdown = false;
+	const isDropup = true;
+	const isDropdown = false;
 
-		function testSwitch({ containerPosition, menuPosition, isInitialDropup, expectedDropupState }) {
-			// given
-			const container = document.createElement('div');
-			container.classList.add('tc-dropdown-container');
-			container.getBoundingClientRect = () => containerPosition;
+	function testSwitch({ containerPosition, menuPosition, isInitialDropup, isDropupExpected }) {
+		// given
+		const container = document.createElement('div');
+		container.classList.add('tc-dropdown-container');
+		container.getBoundingClientRect = () => containerPosition;
 
-			const wrapper = mount(
-				<ActionDropdown
-					items={[{ label: 'item 1' }, { label: 'item 2' }]}
-					dropup={isInitialDropup}
-				/>,
-				{
-					attachTo: container,
-				},
-			);
-			container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
-
-			// when
-			wrapper
-				.find('button')
-				.first()
-				.simulate('click');
-
-			// then
-			expect(container.querySelector('.dropdown').classList.contains('dropup')).toBe(
-				expectedDropupState,
-			);
-		}
-
-		cases('dropdown/dropup switch', testSwitch, [
+		const wrapper = mount(
+			<ActionDropdown
+				items={[{ label: 'item 1' }, { label: 'item 2' }]}
+				dropup={isInitialDropup}
+			/>,
 			{
-				name: 'should dropup on dropdown bottom overflow',
-				containerPosition: { top: 0, bottom: 35 },
-				menuPosition: { top: 20, bottom: 40 },
-				isInitialDropup: false,
-				isDropupOrIsDropdown: isDropup,
+				attachTo: container,
 			},
-			{
-				name: 'should dropdown on dropup top overflow',
-				containerPosition: { top: 0, bottom: 35 },
-				menuPosition: { top: -5, bottom: 0 },
-				isInitialDropup: true,
-				isDropupOrIsDropdown: isDropdown,
-			},
-			{
-				name: 'should do nothing on dropdown without overflow',
-				containerPosition: { top: 0, bottom: 35 },
-				menuPosition: { top: 20, bottom: 30 },
-				isInitialDropup: false,
-				isDropupOrIsDropdown: isDropdown,
-			},
-			{
-				name: 'should do nothing on dropup without overflow',
-				containerPosition: { top: 0, bottom: 35 },
-				menuPosition: { top: 20, bottom: 30 },
-				isInitialDropup: true,
-				isDropupOrIsDropdown: isDropup,
-			},
-		]);
-	});
+		);
+		container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
+
+		// when
+		wrapper
+			.find('button')
+			.first()
+			.simulate('click');
+
+		// then
+		expect(container.firstChild.classList.contains('dropup')).toBe(isDropupExpected);
+	}
+
+	cases('dropdown/dropup switch', testSwitch, [
+		{
+			name: 'should dropup on dropdown bottom overflow',
+			containerPosition: { top: 0, bottom: 35 },
+			menuPosition: { top: 20, bottom: 40 },
+			isInitialDropup: false,
+			isDropupExpected: true,
+		},
+		{
+			name: 'should dropdown on dropup top overflow',
+			containerPosition: { top: 0, bottom: 35 },
+			menuPosition: { top: -5, bottom: 0 },
+			isInitialDropup: true,
+			isDropupExpected: false,
+		},
+		{
+			name: 'should do nothing on dropdown without overflow',
+			containerPosition: { top: 0, bottom: 35 },
+			menuPosition: { top: 20, bottom: 30 },
+			isInitialDropup: false,
+			isDropupExpected: false,
+		},
+		{
+			name: 'should do nothing on dropup without overflow',
+			containerPosition: { top: 0, bottom: 35 },
+			menuPosition: { top: 20, bottom: 30 },
+			isInitialDropup: true,
+			isDropupExpected: true,
+		},
+	]);
 });
