@@ -75,6 +75,7 @@ exports[`Dialog should render action 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -139,6 +140,7 @@ exports[`Dialog should render error 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -199,6 +201,7 @@ exports[`Dialog should render header 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -255,6 +258,7 @@ exports[`Dialog should render large 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -320,6 +324,7 @@ exports[`Dialog should render small 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -384,6 +389,7 @@ exports[`Dialog should render subtitle 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >

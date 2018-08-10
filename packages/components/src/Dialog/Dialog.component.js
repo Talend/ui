@@ -30,6 +30,7 @@ function Dialog({
 	error,
 	progress,
 	size,
+	type,
 	...props
 }) {
 	const Renderers = Inject.getAll(getComponent, {
@@ -53,7 +54,10 @@ function Dialog({
 		>
 			{injected('before-modal-header')}
 			{header && (
-				<Modal.Header closeButton={closeButton}>
+				<Modal.Header
+					className={classNames({ informative: type === Dialog.TYPES.INFORMATIVE })}
+					closeButton={closeButton}
+				>
 					<Modal.Title id={headerId}>{header}</Modal.Title>
 					{subtext &&
 						subtext.length && (
@@ -87,10 +91,16 @@ function Dialog({
 	);
 }
 
+Dialog.TYPES = {
+	DEFAULT: 'default',
+	INFORMATIVE: 'informative',
+};
+
 Dialog.displayName = 'Dialog';
 
 Dialog.defaultProps = {
 	closeButton: true,
+	type: Dialog.TYPES.DEFAULT,
 };
 
 Dialog.propTypes = {
@@ -110,6 +120,7 @@ Dialog.propTypes = {
 	progress: PropTypes.object,
 	flex: PropTypes.bool,
 	className: PropTypes.string,
+	type: PropTypes.oneOf(Object.values(Dialog.TYPES)),
 };
 
 export default Dialog;

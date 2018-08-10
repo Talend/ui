@@ -26,6 +26,10 @@
 			bottom: $modal-title-padding-bottom;
 		}
 
+		&.informative {
+			text-align: center;
+		}
+
 		.modal {
 			&-title {
 				font-size: 16px;
@@ -40,9 +44,7 @@
 				margin-top: 1px;
 
 				&.error {
-					font-size: 14px;
 					color: $chestnut-rose;
-					margin-top: 1px;
 				}
 			}
 		}

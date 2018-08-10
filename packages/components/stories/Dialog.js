@@ -43,6 +43,16 @@ const errored = {
 		onClick: action('ok'),
 	},
 };
+const informative = {
+	show: true,
+	header: 'Hello world',
+	type: Dialog.TYPES.INFORMATIVE,
+	onHide: action('onHide'),
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
 const smallProps = {
 	show: true,
 	header: 'Hello world',
@@ -110,6 +120,12 @@ storiesOf('Dialog', module)
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...errored}>{children}</Dialog>
+		</div>
+	))
+	.addWithInfo('informative', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...informative}>{children}</Dialog>
 		</div>
 	))
 	.addWithInfo('small', () => (
