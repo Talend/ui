@@ -16,27 +16,21 @@ describe('NestedListView component', () => {
 			onFinish: jest.fn(),
 			schema: {
 				title: 'Nested ListView',
-				items: [{
-					title: 'Bar',
-					key: ['baz', 'bar'],
-					toggleId: 'baz.bar',
-					titleMap: [
-						{ name: 'Bar_1', value: 'Bar_1' },
-						{ name: 'Bar_2', value: 'Bar_2' },
+				schema: {
+					items: [
+						{
+							title: 'Bar',
+							key: ['foo', 'bar'],
+							titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
+						},
 					],
-				}, {
-					title: 'Foo',
-					key: ['baz', 'foo'],
-					toggleId: 'baz.foo',
-					titleMap: [
-						{ name: 'Foo_1', value: 'Foo_1' },
-						{ name: 'Foo_2', value: 'Foo_2' },
-					],
-				}],
-				required: true,
-				emptyLabel: 'emptyLabel',
-				noResultLabel: 'noResultLabel',
-				placeholder: 'placeholder',
+					required: true,
+					emptyLabel: 'emptyLabel',
+					title: 'title',
+					noResultLabel: 'noResultLabel',
+					placeholder: 'placeholder',
+				},
+				value: {},
 				t: jest.fn(),
 			},
 			value: {},
@@ -328,14 +322,13 @@ describe('NestedListView utils', () => {
 		it('should init items props', () => {
 			// given
 			const schema = {
-				items: [{
-					title: 'Bar',
-					key: ['foo', 'bar'],
-					titleMap: [
-						{ label: 'Baz', value: 'baz' },
-						{ label: 'Boo', value: 'boo' },
-					],
-				}],
+				items: [
+					{
+						title: 'Bar',
+						key: ['foo', 'bar'],
+						titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
+					},
+				],
 				required: true,
 				emptyLabel: 'emptyLabel',
 				title: 'title',

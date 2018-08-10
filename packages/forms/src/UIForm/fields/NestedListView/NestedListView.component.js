@@ -147,7 +147,7 @@ class NestedListViewWidget extends React.Component {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			this.setState(state =>
-				getItemsProps(state.items, state.value, item.value, state.toggledChildren)
+				getItemsProps(state.items, state.value, item.value, state.toggledChildren),
 			);
 		}, 400);
 	}
