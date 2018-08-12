@@ -3,21 +3,29 @@ import { put, takeEvery, take } from 'redux-saga/effects';
 import Constants from './List.constant';
 
 export function* onToggleFilter(data) {
-	yield put(cmf.actions.components.mergeState('Container(List)', 'default', {
-		filterDocked: !data.payload.filterDocked,
-		searchQuery: '',
-	}));
+	yield put(
+		cmf.actions.components.mergeState('Container(List)', 'default', {
+			filterDocked: !data.payload.filterDocked,
+			searchQuery: '',
+		}),
+	);
 }
 
 export function* onFilterChange(data) {
-	yield put(cmf.actions.components.mergeState('Container(List)', 'default', { searchQuery: data.payload.query }));
+	yield put(
+		cmf.actions.components.mergeState('Container(List)', 'default', {
+			searchQuery: data.payload.query,
+		}),
+	);
 }
 
 export function* onChangeSortChange(data) {
-	yield put(cmf.actions.components.mergeState('Container(List)', 'default', {
-		sortOn: data.payload.field,
-		sortAsc: !data.payload.isDescending,
-	}));
+	yield put(
+		cmf.actions.components.mergeState('Container(List)', 'default', {
+			sortOn: data.payload.field,
+			sortAsc: !data.payload.isDescending,
+		}),
+	);
 }
 
 function* defaultHandler() {

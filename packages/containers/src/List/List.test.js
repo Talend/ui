@@ -349,12 +349,7 @@ describe('Container List', () => {
 		const dispatch = jest.fn();
 		const setState = jest.fn();
 		const wrapper = shallow(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatch={dispatch}
-				setState={setState}
-			/>,
+			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
 			{
 				lifecycleExperimental: true,
 			},
@@ -375,12 +370,7 @@ describe('Container List', () => {
 		const dispatch = jest.fn();
 		const setState = jest.fn();
 		const wrapper = shallow(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatch={dispatch}
-				setState={setState}
-			/>,
+			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
 			{
 				lifecycleExperimental: true,
 			},
@@ -401,12 +391,7 @@ describe('Container List', () => {
 		const dispatch = jest.fn();
 		const setState = jest.fn();
 		const wrapper = shallow(
-			<Container
-				{...cloneDeep(settings)}
-				items={items}
-				dispatch={dispatch}
-				setState={setState}
-			/>,
+			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
 			{
 				lifecycleExperimental: true,
 			},
