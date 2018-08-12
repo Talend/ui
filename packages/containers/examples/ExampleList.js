@@ -35,22 +35,7 @@ CustomHeader.propTypes = {
 	label: PropTypes.string,
 };
 
-function onToggleFilter() {
-	return { type: 'TOGGLE_FILTER' };
-}
-
-function onFilterChange() {
-	return { type: 'FILTER_CHANGE' };
-}
-
-function onChangeSortOrder() {
-	return { type: 'CHANGE_SORT_ORDER' };
-}
-
 api.component.register('helloHeader', CustomHeader);
-api.actionCreator.register('filter:onToggleFilter', onToggleFilter);
-api.actionCreator.register('filter:onFilterChange', onFilterChange);
-api.actionCreator.register('sort:onChangeSortOrder', onChangeSortOrder);
 
 const list = {
 	columns: [
@@ -99,15 +84,12 @@ const toolbar = {
 	sort: {
 		field: 'id',
 		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
-		onChangeSortOrder: 'sort:onChangeSortOrder',
 	},
 	display: {
 		displayModes: ['large', 'table'],
 	},
 	filter: {
 		placeholder: 'find an object',
-		onToggleFilter: 'filter:onToggleFilter',
-		onFilterChange: 'filter:onFilterChange',
 	},
 };
 

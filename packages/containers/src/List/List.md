@@ -34,23 +34,23 @@ The we have to give to the column the sort function we want to apply.
 
 It's all done. The list would apply the custom sort.
 
-## Callback support for filterBar and sorting
+## Custom action support for filterBar and sorting
 
-1. Callback for filterBar
+1. custom action for filterBar
 
-The callback function for filterBar is introduced to have custom actions onToggle or onFilter (ex: for a server side filter).
-Following callback functions are supported,
+The custom actions for filterBar allows to override default actions onToggle or onFilter (ex: for a server side filter).
+Following actions allows to override the default saga,
 
-```javascript
-dispatchActionCreator(props.toolbar.filter.onToggleFilter, event, data, context);
-dispatchActionCreator(props.toolbar.filter.onFilterChange, event, data, context);
+```
+	ON_TOGGLE_FILTER: 'ON_TOGGLE_FILTER',
+	ON_FILTER_CHANGE: 'ON_FILTER_CHANGE'
 ```
 
-2. Callback for sorting
+2. custom action for sorting
 
-The callback functions on sort is introduced to have custom actions onSorting (ex: for a server side sorting).
-Following callback functions are supported,
+The custom actions on sort allows to override default action onSorting (ex: for a server side sorting).
+Following action allows to override the default saga,
 
-```javascript
-dispatchActionCreator(props.toolbar.sort.onChangeSortOrder, event, data, context);
+```
+	LIST_CHANGE_SORT_ORDER: 'LIST_CHANGE_SORT_ORDER'
 ```

@@ -13,6 +13,7 @@ import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
+import Constants from './List.constant';
 
 const ConnectedCellTitle = cmfConnect({})(CellTitle);
 export const connectedCellDictionary = {
@@ -67,13 +68,8 @@ class List extends React.Component {
 			titleProps: PropTypes.object,
 		}),
 		toolbar: PropTypes.shape({
-			sort: PropTypes.shape({
-				onChangeSortOrder: PropTypes.func,
-			}),
-			filter: PropTypes.shape({
-				onFilterChange: PropTypes.func,
-				onToggleFilter: PropTypes.func,
-			}),
+			sort: PropTypes.object,
+			filter: PropTypes.object,
 			pagination: PropTypes.shape({
 				onChange: PropTypes.func,
 			}),
@@ -197,19 +193,11 @@ class List extends React.Component {
 			field: state.sortOn,
 			isDescending: !state.sortAsc,
 			onChange: (event, data) => {
-				if (
-					props.toolbar.sort.onChangeSortOrder &&
-					typeof props.toolbar.sort.onChangeSortOrder === 'string'
-				) {
-					this.props.dispatchActionCreator(
-						props.toolbar.sort.onChangeSortOrder,
-						event,
-						data,
-						this.context,
-					);
-				} else {
-					this.onSelectSortBy(event, data);
-				}
+				this.props.dispatch({
+					type: Constants.LIST_CHANGE_SORT_ORDER,
+					payload: data,
+					event,
+				});
 			},
 		};
 		if (!props.list.itemProps) {
@@ -278,52 +266,28 @@ class List extends React.Component {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
 				props.toolbar.sort.onChange = (event, data) => {
-					if (
-						props.toolbar.sort.onChangeSortOrder &&
-						typeof props.toolbar.sort.onChangeSortOrder === 'string'
-					) {
-						this.props.dispatchActionCreator(
-							props.toolbar.sort.onChangeSortOrder,
-							event,
-							data,
-							this.context,
-						);
-					} else {
-						this.onSelectSortBy(event, data);
-					}
+					this.props.dispatch({
+						type: Constants.LIST_CHANGE_SORT_ORDER,
+						payload: data,
+						event,
+					});
 				};
 			}
 
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
-					if (
-						props.toolbar.filter.onToggleFilter &&
-						typeof props.toolbar.filter.onToggleFilter === 'string'
-					) {
-						this.props.dispatchActionCreator(
-							props.toolbar.filter.onToggleFilter,
-							event,
-							{ filterDocked: state.filterDocked, searchQuery: state.searchQuery },
-							this.context,
-						);
-					} else {
-						this.onToggle(event, data);
-					}
+					this.props.dispatch({
+						type: Constants.LIST_TOGGLE_FILTER,
+						payload: Object.assign({}, data, { filterDocked: state.filterDocked }),
+						event,
+					});
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
-					if (
-						props.toolbar.filter.onFilterChange &&
-						typeof props.toolbar.filter.onFilterChange === 'string'
-					) {
-						this.props.dispatchActionCreator(
-							props.toolbar.filter.onFilterChange,
-							event,
-							data,
-							this.context,
-						);
-					} else {
-						this.onFilter(event, data);
-					}
+					this.props.dispatch({
+						type: Constants.LIST_FILTER_CHANGE,
+						payload: data,
+						event,
+					});
 				};
 				props.toolbar.filter.docked = state.filterDocked;
 				props.toolbar.filter.value = state.searchQuery;
