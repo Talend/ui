@@ -11,6 +11,19 @@ const headerProps = {
 	header: 'Hello world',
 	show: true,
 };
+
+const subtitleProps = {
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	show: true,
+};
+const errorProps = {
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	error: 'Vestibulum molestie id massa eu pretium.',
+	show: true,
+};
+
 const actionProps = {
 	show: true,
 	header: 'Hello world',
@@ -59,6 +72,14 @@ describe('Dialog', () => {
 	});
 	it('should render header', () => {
 		const wrapper = shallow(<Dialog {...headerProps}>{children}</Dialog>);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render subtitle', () => {
+		const wrapper = shallow(<Dialog {...subtitleProps}>{children}</Dialog>);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render error', () => {
+		const wrapper = shallow(<Dialog {...errorProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render action', () => {
