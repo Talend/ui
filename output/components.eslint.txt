@@ -17,6 +17,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
+/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
+   9:27  error  Absolute imports should come before relative imports                                 import/imports-first
+  11:33  error  'notification' is missing in props validation                                        react/prop-types
+  11:47  error  'leaveFn' is missing in props validation                                             react/prop-types
+  11:56  error  't' is missing in props validation                                                   react/prop-types
+  89:3   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
   56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -34,5 +41,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 14 problems (13 errors, 1 warning)
+✖ 19 problems (18 errors, 1 warning)
 
