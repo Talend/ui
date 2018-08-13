@@ -34,7 +34,7 @@ function getAction(action, index) {
 	}
 	return (
 		<Action
-			id={action.id}
+			{...action}
 			key={`${index}-enum-header-action`}
 			label={action.label}
 			icon={action.icon}
