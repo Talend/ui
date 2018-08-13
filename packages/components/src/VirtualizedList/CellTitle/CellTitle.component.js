@@ -54,8 +54,8 @@ class CellTitle extends React.Component {
 						<Icon
 							name={rowData[iconKey]}
 							className={classNames(theme.icon, {
-								[theme['tc-main-title-icon-active']]: onClick,
-								'tc-main-title-icon-active': onClick,
+								[theme['tc-main-title-icon-clickable']]: onClick,
+								'tc-main-title-icon-clickable': onClick,
 							})}
 						/>
 					)}
@@ -64,8 +64,8 @@ class CellTitle extends React.Component {
 					id={titleId}
 					cellData={cellData}
 					className={classNames(theme['main-title'], {
-						[theme['tc-main-title-active']]: onClick,
-						'tc-main-title-active': onClick,
+						[theme['tc-main-title-clickable']]: onClick,
+						'tc-main-title-clickable': onClick,
 					})}
 					displayMode={displayMode}
 					onClick={onClick}

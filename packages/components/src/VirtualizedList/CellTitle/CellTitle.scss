@@ -64,11 +64,11 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 	&:hover,
 	&:focus {
-		.tc-main-title-active {
+		.tc-main-title-clickable {
 			color: $scooter;
 		}
 
-		.tc-main-title-icon-active {
+		.tc-main-title-icon-clickable {
 			color: $brand-primary;
 			filter: none;
 		}
