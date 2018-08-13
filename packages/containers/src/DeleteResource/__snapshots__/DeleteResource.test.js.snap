@@ -4,12 +4,15 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 <ConfirmDialog
   cancelAction={
     Object {
+      "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
-      "label": "No",
+      "label": "CANCEL",
       "model": Object {
+        "collectionId": undefined,
         "found": true,
         "id": undefined,
         "label": "myLabel",
+        "redirectUrl": undefined,
         "resourceType": "myResourceType",
         "resourceTypeLabel": "resourceLabel",
         "uri": "/myEndpoint",
@@ -24,11 +27,13 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
     Object {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
-      "label": "Yes",
+      "label": "REMOVE",
       "model": Object {
+        "collectionId": undefined,
         "found": true,
         "id": undefined,
         "label": "myLabel",
+        "redirectUrl": undefined,
         "resourceType": "myResourceType",
         "resourceTypeLabel": "resourceLabel",
         "uri": "/myEndpoint",
@@ -52,12 +57,15 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
 <ConfirmDialog
   cancelAction={
     Object {
+      "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
-      "label": "No",
+      "label": "CANCEL",
       "model": Object {
+        "collectionId": undefined,
         "found": false,
         "id": undefined,
         "label": "",
+        "redirectUrl": undefined,
         "resourceType": "unknownResourceType",
         "resourceTypeLabel": "unknownResourceType",
         "uri": "/myEndpoint",
@@ -72,11 +80,13 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     Object {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
-      "label": "Yes",
+      "label": "REMOVE",
       "model": Object {
+        "collectionId": undefined,
         "found": false,
         "id": undefined,
         "label": "",
+        "redirectUrl": undefined,
         "resourceType": "unknownResourceType",
         "resourceTypeLabel": "unknownResourceType",
         "uri": "/myEndpoint",

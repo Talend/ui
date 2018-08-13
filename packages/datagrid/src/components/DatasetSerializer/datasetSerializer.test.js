@@ -8,8 +8,10 @@ import {
 	getFieldQuality,
 	getPinnedColumnDefs,
 	getQuality,
+	getQualityValue,
 	getRowData,
 	getType,
+	getTypeValue,
 	sanitizeAvro,
 } from './datasetSerializer';
 
@@ -21,31 +23,38 @@ const sample = {
 			{
 				name: 'field0',
 				doc: 'Nom de la gare',
-				type: {
-					type: 'string',
-					dqType: 'FR Commune',
-					dqTypeKey: 'FR_COMMUNE',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 38,
-					'-1': 62,
-					total: 100,
-				},
+				type: [
+					{
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+							total: 100,
+						},
+						type: 'string',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+					{
+						type: 'null',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+				],
 			},
 			{
 				name: 'field1',
 				doc: 'Code UIC',
 				type: {
+					'@talend-quality@': {
+						0: 0,
+						1: 100,
+						'-1': 0,
+						total: 100,
+					},
 					type: 'int',
 					dqType: '',
 					dqTypeKey: '',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 100,
-					'-1': 0,
-					total: 100,
 				},
 			},
 		],
@@ -170,32 +179,7 @@ describe('#getColumnDefs', () => {
 	});
 
 	it('should returns the columns definitions with optional', () => {
-		const schemaWithOptionalType = {
-			schema: {
-				type: 'record',
-				name: 'StringArrayRecord',
-				fields: [
-					{
-						name: 'field0',
-						doc: 'Nom de la gare',
-						type: [
-							'null',
-							{
-								type: 'string',
-								dqType: 'FR Commune',
-								dqTypeKey: 'FR_COMMUNE',
-							},
-						],
-						'@talend-quality@': {
-							0: 0,
-							1: 38,
-							'-1': 62,
-						},
-					},
-				],
-			},
-		};
-		const columnDefs = getColumnDefs(schemaWithOptionalType);
+		const columnDefs = getColumnDefs(sample);
 
 		expect(columnDefs).toMatchSnapshot();
 	});
@@ -256,9 +240,35 @@ describe('#getCellValue', () => {
 	});
 });
 
+describe('#getTypeValue', () => {
+	it('should return the type with a star', () => {
+		expect(getTypeValue({ type: 'hello', dqType: '' })).toEqual('hello*');
+	});
+	it('should return the dqType', () => {
+		expect(getTypeValue({ type: 'hello', dqType: 'world' }, true)).toEqual('world');
+	});
+});
+
 describe('#getType', () => {
 	it('should return the optional type', () => {
-		const type = getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']);
+		const type = getType([
+			{
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+				type: 'string',
+				dqType: '',
+				dqTypeKey: '',
+			},
+			{
+				dqType: '',
+				dqTypeKey: '',
+				type: 'null',
+			},
+		]);
 
 		expect(type).toBe('string');
 	});
@@ -291,6 +301,54 @@ describe('#getType', () => {
 		});
 
 		expect(type).toBe('string*');
+	});
+});
+
+describe('#getQualityValue', () => {
+	it('should return the quality from an array', () => {
+		const type = [
+			{
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+				type: 'string',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+			{
+				type: 'null',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+		];
+		expect(getQualityValue(type)).toEqual({
+			0: 0,
+			1: 38,
+			'-1': 62,
+			total: 100,
+		});
+	});
+	it('should return the quality from an object', () => {
+		const type = {
+			'@talend-quality@': {
+				0: 0,
+				1: 38,
+				'-1': 62,
+				total: 100,
+			},
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		};
+		expect(getQualityValue(type)).toEqual({
+			0: 0,
+			1: 38,
+			'-1': 62,
+			total: 100,
+		});
 	});
 });
 

@@ -85,6 +85,7 @@
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
     "jest-in-case": "^1.0.2",
+    "jsdom": "^11.11.0",
     "prettier": "^1.6.1",
     "react-storybook-cmf": "^0.4.0",
     "react-stub-context": "^0.7.0",

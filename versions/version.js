@@ -52,6 +52,8 @@ const STACK_VERSION = {
 
 const VERSIONS = require('./dependencies');
 
+const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
+
 const files = [
 	'./packages/cmf/package.json',
 	'./packages/cmf-cqrs/package.json',

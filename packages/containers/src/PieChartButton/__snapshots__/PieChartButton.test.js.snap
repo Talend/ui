@@ -3,31 +3,28 @@
 exports[`PieChartButton container should render 1`] = `
 <PieChartButton
   available={true}
-  display="small"
   inProgress={undefined}
-  labelIndex={0}
   loading={undefined}
-  minimumPercentage={5}
   model={
     Array [
       Object {
-        "color": "red",
+        "color": "rio-grande",
         "percentage": 10,
       },
       Object {
-        "color": "blue",
+        "color": "chestnut-rose",
         "percentage": 15,
       },
       Object {
-        "color": "cyan",
+        "color": "lightning-yellow",
         "percentage": 5,
       },
       Object {
-        "color": "yellow",
+        "color": "dove-gray",
         "percentage": 20,
       },
       Object {
-        "color": "black",
+        "color": "silver-chalice",
         "percentage": 15,
       },
     ]
@@ -36,38 +33,34 @@ exports[`PieChartButton container should render 1`] = `
   overlayComponent={null}
   overlayId="pie-chart-popover"
   overlayPlacement="bottom"
-  tooltipPlacement="top"
 />
 `;
 
 exports[`PieChartButton container should render 2`] = `
 <PieChartButton
   available={true}
-  display="small"
   inProgress={undefined}
-  labelIndex={0}
   loading={undefined}
-  minimumPercentage={5}
   model={
     Array [
       Object {
-        "color": "red",
+        "color": "rio-grande",
         "percentage": 10,
       },
       Object {
-        "color": "blue",
+        "color": "chestnut-rose",
         "percentage": 15,
       },
       Object {
-        "color": "cyan",
+        "color": "lightning-yellow",
         "percentage": 5,
       },
       Object {
-        "color": "yellow",
+        "color": "dove-gray",
         "percentage": 20,
       },
       Object {
-        "color": "black",
+        "color": "silver-chalice",
         "percentage": 15,
       },
     ]
@@ -76,6 +69,5 @@ exports[`PieChartButton container should render 2`] = `
   overlayComponent={null}
   overlayId="pie-chart-popover"
   overlayPlacement="bottom"
-  tooltipPlacement="top"
 />
 `;

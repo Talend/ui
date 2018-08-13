@@ -5,8 +5,9 @@ import { checkA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
 import cmf from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import api, { actions } from '@talend/react-cmf';
+import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
+import { call, put } from 'redux-saga/effects';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
@@ -99,6 +100,11 @@ function httpPhotosGet2() {
 	});
 }
 
+function* sagaPhotoGet3() {
+	const answer = yield call(sagas.http.get, 'https://jsonplaceholder.typicode.com/photos/');
+	yield put(actions.collections.addOrReplace('photos3', answer.data));
+}
+
 function sortByLength(sortBy) {
 	return function sort(a, b) {
 		return a.get(sortBy).length - b.get(sortBy).length;
@@ -107,6 +113,7 @@ function sortByLength(sortBy) {
 
 api.registry.addToRegistry('_list_sort:sortByLength', sortByLength);
 
+api.sagas.register('saga:get:photos3', sagaPhotoGet3);
 api.actionCreator.register('http:get:photos1', httpPhotosGet1);
 api.actionCreator.register('http:get:photos2', httpPhotosGet2);
 api.actionCreator.register('object:view', objectView);
@@ -396,6 +403,7 @@ function loadStories() {
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',
+			className: 'btn-inverse',
 			actionCreator: 'cancel:hide:dialog',
 		};
 		actions['action:overlay:component'] = {
@@ -406,6 +414,7 @@ function loadStories() {
 				customProps: 'customProps',
 			},
 			overlayPlacement: 'bottom',
+			payload: { type: 'BUTTON_OVERLAY' },
 		};
 		actions['action:icon:toggle'] = {
 			icon: 'talend-panel-opener-right',

@@ -49,26 +49,30 @@ export function sanitizeAvro(avro) {
 }
 
 /**
+ * Extract the value of type from { type: string, dqType: string }
+ * If the type is optional, add a '*'
+ * @param {object} type;
+ * @param {boolean} optional;
+ */
+export function getTypeValue(type, optional) {
+	return `${type.dqType || type.type}${optional ? '' : '*'}`;
+}
+
+/**
  * getType - manage the type from an AVRO type
  *
  * @param  {array|object} 	avro type
- * @return {string}      		return the type showed in the datagrid
+ * @return {string} return the type showed in the datagrid
  * @example
- * 	getType([{ type: 'string', dqType: '', dqTypeKey: '' }, 'null']); // string
- * 	getType({ type: 'string', dqType: '', dqTypeKey: '' }); // string*
- * 	getType({ type: 'string', dqType: 'Type', dqTypeKey: '' }); // Type*
  */
-export function getType(type, mandatory = true) {
-	if (isArray(type)) {
-		const notNullType = type.find(subType => subType !== 'null');
-		const nullType = type.find(subType => subType === 'null');
-
-		if (notNullType && nullType) {
-			return `${getType(notNullType, false)}`;
-		}
+export function getType(type) {
+	if (Array.isArray(type)) {
+		return getTypeValue(
+			type.find(subType => subType.type !== 'null'),
+			type.find(subType => subType.type === 'null'),
+		);
 	}
-
-	return `${type.dqType || type.type}${mandatory ? '*' : ''}`;
+	return getTypeValue(type);
 }
 
 export function getQuality(qualityTotal, rowsTotal) {
@@ -78,11 +82,22 @@ export function getQuality(qualityTotal, rowsTotal) {
 	};
 }
 
-export function getFieldQuality(quality) {
-	if (!quality) {
+/**
+ * Extract the quality from the type.
+ * @param {object or array} type
+ */
+export function getQualityValue(type) {
+	if (isArray(type)) {
+		return type.find(value => value[QUALITY_KEY] !== undefined)[QUALITY_KEY];
+	}
+	return type[QUALITY_KEY];
+}
+
+export function getFieldQuality(type) {
+	if (!type) {
 		return {};
 	}
-
+	const quality = getQualityValue(type);
 	return {
 		[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
 		[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
@@ -110,7 +125,7 @@ export function getColumnDefs(sample) {
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc,
 		type: getType(avroField.type),
-		[QUALITY_KEY]: getFieldQuality(avroField[QUALITY_KEY]),
+		[QUALITY_KEY]: getFieldQuality(avroField.type),
 	}));
 }
 

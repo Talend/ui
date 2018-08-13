@@ -16,6 +16,7 @@ describe('Container(Form)', () => {
 				className="foo"
 				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
+				loading
 			/>,
 		);
 		const props = wrapper.props();
@@ -43,7 +44,7 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform />);
 		expect(wrapper.find('TalendForm').length).toBe(1);
 		expect(wrapper.find('TalendUIForm').length).toBe(1);
 	});

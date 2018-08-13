@@ -94,6 +94,7 @@ class ListViewWidget extends React.Component {
 			event.stopPropagation();
 			event.preventDefault();
 		} else if (event.keyCode === keycode('escape')) {
+			clearTimeout(this.timerSearch);
 			event.stopPropagation();
 			event.preventDefault();
 			this.switchToDefaultMode();

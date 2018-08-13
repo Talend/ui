@@ -9,7 +9,6 @@ import DataGrid, {
 	injectedCellRenderer,
 	injectedHeaderRenderer,
 	AG_GRID,
-	getRowDataInfos,
 } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
@@ -26,29 +25,38 @@ const sample = {
 			{
 				name: 'field0',
 				doc: 'Nom de la gare',
-				type: {
-					type: 'string',
-					dqType: 'FR Commune',
-					dqTypeKey: 'FR_COMMUNE',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 38,
-					'-1': 62,
-				},
+				type: [
+					{
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+							total: 100,
+						},
+						type: 'string',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+					{
+						type: 'null',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+				],
 			},
 			{
 				name: 'field1',
 				doc: 'Code UIC',
 				type: {
+					'@talend-quality@': {
+						0: 0,
+						1: 100,
+						'-1': 0,
+						total: 100,
+					},
 					type: 'int',
 					dqType: '',
 					dqTypeKey: '',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 100,
-					'-1': 0,
 				},
 			},
 		],
@@ -163,6 +171,62 @@ describe('#DataGrid', () => {
 	it('should render DataGrid', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should not call forceRedrawRows when the DataGrid is loading', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
+	});
+
+	it('should not call forceRedrawRows when the DataGrid is not ready', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when forceRedrawRows return true', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRows).toHaveBeenCalled();
+		expect(redrawRows).toHaveBeenCalled();
+	});
+
+	it('should not call redrawRows when forceRedrawRows return false', () => {
+		const forceRedrawRows = jest.fn(() => false);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRows).toHaveBeenCalled();
+		expect(redrawRows).not.toHaveBeenCalled();
 	});
 
 	it('should render DataGrid with columnsDefs and rowData', () => {
@@ -710,48 +774,5 @@ describe('#injectedHeaderRenderer', () => {
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
 		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
-	});
-});
-
-describe('getRowDataInfos', () => {
-	it('should return the metadata of the rowdata', () => {
-		// given
-		const rowData = [
-			{
-				loading: false,
-				'indexes.index': 0,
-			},
-			{
-				loading: false,
-				'indexes.index': 1,
-			},
-			{
-				loading: true,
-				'indexes.index': 2,
-			},
-			{
-				loading: false,
-				'indexes.index': 3,
-				'data.text': 'hello',
-			},
-			{
-				loading: false,
-				'indexes.index': 4,
-				'data.text': 'hello',
-			},
-			{
-				loading: false,
-				'indexes.index': 5,
-				'data.text': 'hello',
-			},
-		];
-		// when
-		const result = getRowDataInfos(rowData);
-		// then
-		expect(result).toEqual({
-			notLoaded: 2,
-			loading: 1,
-			loaded: 3,
-		});
 	});
 });

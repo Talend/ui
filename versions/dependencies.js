@@ -3,7 +3,6 @@
 
 const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 module.exports = {
@@ -97,6 +96,7 @@ module.exports = {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
+	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
 	'react-stub-context': '^0.7.0',

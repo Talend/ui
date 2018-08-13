@@ -105,6 +105,45 @@ describe('Container List', () => {
 		expect(props).toMatchSnapshot();
 	});
 
+	it('should define the cellDictionary props', () => {
+		const getComponent = jest.fn(() => 'my custom component');
+		const wrapper = shallow(
+			<Container
+				cellDictionary={{ custom: { component: 'componentId' } }}
+				getComponent={getComponent}
+				items={fromJS([])}
+			/>,
+		);
+		const props = wrapper.props();
+
+		expect(props.list.cellDictionary).toEqual({
+			custom: { cellRenderer: 'my custom component' },
+			title: {
+				cellRenderer: jasmine.any(Function),
+				cellType: 'title',
+				className: 'tc-list-title-cell',
+			},
+		});
+		expect(getComponent).toHaveBeenCalledWith('componentId');
+	});
+
+	it('should define the headerDictionary props', () => {
+		const getComponent = jest.fn(() => 'my custom component');
+		const wrapper = shallow(
+			<Container
+				getComponent={getComponent}
+				items={fromJS([])}
+				headerDictionary={{ custom: { component: 'componentId' } }}
+			/>,
+		);
+		const props = wrapper.props();
+
+		expect(props.list.headerDictionary).toEqual({
+			custom: { headerRenderer: 'my custom component' },
+		});
+		expect(getComponent).toHaveBeenCalledWith('componentId');
+	});
+
 	it('should add multiSelection props', () => {
 		const multiSelectionSetting = cloneDeep(settings);
 		multiSelectionSetting.idKey = 'id';

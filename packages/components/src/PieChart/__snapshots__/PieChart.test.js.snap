@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChart should render a PieChartButton 1`] = `
+<PieChartButton
+  available={true}
+  onClick={[Function]}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
+/>
+`;
+
+exports[`PieChart should render a PieChartIcon with a tooltip 1`] = `
+<TooltipTrigger
+  label="myToolTip"
+  tooltipPlacement="top"
+>
+  <Translate(PieChartIcon)
+    label="myToolTip"
+  />
+</TooltipTrigger>
+`;
+
+exports[`decorateWithTooltip should return component with no tooltip 1`] = `
+<PieChartButton
+  available={true}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
+/>
+`;
+
+exports[`decorateWithTooltip should return component with tooltip 1`] = `
+<TooltipTrigger
+  label="label"
+  tooltipPlacement="top"
+>
+  <PieChartButton
+    available={true}
+    overlayId="pie-chart-popover"
+    overlayPlacement="bottom"
+  />
+</TooltipTrigger>
+`;
