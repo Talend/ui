@@ -111,7 +111,7 @@ Array [
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
         Object {
-            "id": null,
+            "id": undefined,
           }
     }
     dataKey="id"
@@ -135,7 +135,7 @@ Array [
     className="tc-list-cell-id"
     columnData={
         Object {
-            "id": null,
+            "id": undefined,
           }
     }
     dataKey="id"
