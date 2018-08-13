@@ -19,15 +19,15 @@ exports[`NestedListView component should render component 1`] = `
             "children": Array [
               Object {
                 "checked": false,
-                "label": "Bar_1",
+                "label": "Bar 1",
                 "onChange": [Function],
-                "value": "Bar_1",
+                "value": "bar_1",
               },
               Object {
                 "checked": false,
-                "label": "Bar_2",
+                "label": "Bar 2",
                 "onChange": [Function],
-                "value": "Bar_2",
+                "value": "bar_2",
               },
             ],
             "expanded": false,
@@ -43,15 +43,15 @@ exports[`NestedListView component should render component 1`] = `
             "children": Array [
               Object {
                 "checked": false,
-                "label": "Foo_1",
+                "label": "Foo 1",
                 "onChange": [Function],
-                "value": "Foo_1",
+                "value": "foo_1",
               },
               Object {
                 "checked": false,
-                "label": "Foo_2",
+                "label": "Foo 2",
                 "onChange": [Function],
-                "value": "Foo_2",
+                "value": "foo_2",
               },
             ],
             "expanded": false,
@@ -86,15 +86,15 @@ exports[`NestedListView component should render component 1`] = `
             "children": Array [
               Object {
                 "checked": false,
-                "label": "Bar_1",
+                "label": "Bar 1",
                 "onChange": [Function],
-                "value": "Bar_1",
+                "value": "bar_1",
               },
               Object {
                 "checked": false,
-                "label": "Bar_2",
+                "label": "Bar 2",
                 "onChange": [Function],
-                "value": "Bar_2",
+                "value": "bar_2",
               },
             ],
             "expanded": false,
@@ -110,15 +110,15 @@ exports[`NestedListView component should render component 1`] = `
             "children": Array [
               Object {
                 "checked": false,
-                "label": "Foo_1",
+                "label": "Foo 1",
                 "onChange": [Function],
-                "value": "Foo_1",
+                "value": "foo_1",
               },
               Object {
                 "checked": false,
-                "label": "Foo_2",
+                "label": "Foo 2",
                 "onChange": [Function],
-                "value": "Foo_2",
+                "value": "foo_2",
               },
             ],
             "expanded": false,

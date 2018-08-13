@@ -16,45 +16,23 @@ describe('NestedListView component', () => {
 			onFinish: jest.fn(),
 			schema: {
 				title: 'Nested ListView',
-<<<<<<< HEAD
-				schema: {
-					items: [
-						{
-							title: 'Bar',
-							key: ['foo', 'bar'],
-							titleMap: [{ label: 'Baz', value: 'baz' }, { label: 'Boo', value: 'boo' }],
-						},
-					],
-					required: true,
-					emptyLabel: 'emptyLabel',
-					title: 'title',
-					noResultLabel: 'noResultLabel',
-					placeholder: 'placeholder',
-				},
-				value: {},
-=======
-				items: [{
-					title: 'Bar',
-					key: ['baz', 'bar'],
-					toggleId: 'baz.bar',
-					titleMap: [
-						{ name: 'Bar_1', value: 'Bar_1' },
-						{ name: 'Bar_2', value: 'Bar_2' },
-					],
-				}, {
-					title: 'Foo',
-					key: ['baz', 'foo'],
-					toggleId: 'baz.foo',
-					titleMap: [
-						{ name: 'Foo_1', value: 'Foo_1' },
-						{ name: 'Foo_2', value: 'Foo_2' },
-					],
-				}],
+				items: [
+					{
+						title: 'Bar',
+						key: ['baz', 'bar'],
+						titleMap: [{ name: 'Bar 1', value: 'bar_1' }, { name: 'Bar 2', value: 'bar_2' }],
+					},
+					{
+						title: 'Foo',
+						key: ['baz', 'foo'],
+						titleMap: [{ name: 'Foo 1', value: 'foo_1' }, { name: 'Foo 2', value: 'foo_2' }],
+					},
+				],
 				required: true,
 				emptyLabel: 'emptyLabel',
 				noResultLabel: 'noResultLabel',
 				placeholder: 'placeholder',
->>>>>>> Minor fix and tests almost finished
+				value: {},
 				t: jest.fn(),
 			},
 			value: {},
@@ -119,21 +97,6 @@ describe('NestedListView component', () => {
 	describe('onChange', () => {
 		it('should call both onChange and onFinish props', () => {
 			// when
-<<<<<<< HEAD
-			// const wrapper = shallow(<NestedListView {...props} />);
-			// const event = {};
-			// const value = { bar: ['baz'] };
-			// wrapper.instance().onChange(event, value);
-			// // then
-			// expect(props.onChange).toHaveBeenCalledWith(event, {
-			// 	schema: props.schema,
-			// 	...value,
-			// });
-			// expect(props.onFinish).toHaveBeenCalledWith(event, {
-			// 	schema: props.schema,
-			// 	...value,
-			// });
-=======
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			const event = {};
 			const value = { bar: ['baz'] };
@@ -209,7 +172,6 @@ describe('NestedListView component', () => {
 		beforeEach(() => {
 			event.stopPropagation.mockReset();
 			event.preventDefault.mockReset();
->>>>>>> Minor fix and tests almost finished
 		});
 
 		it('should manage enter key pressed', () => {
