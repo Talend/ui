@@ -1,0 +1,67 @@
+{
+	"jsonSchema": {
+		"title": "A nested ListView form",
+		"description": "A nested ListView form example.",
+		"type": "object",
+		"properties": {
+			"food": {
+				"title": "Food",
+				"type": "object",
+				"properties": {
+					"fruits": {
+						"title": "Fruits",
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"orange",
+								"pear",
+								"passion_fruit"
+							],
+							"enumNames": [
+								"Orange",
+								"Pear",
+								"Passion fruit"
+							]
+						}
+					},
+					"vegetables": {
+						"title": "Vegetables",
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"carot",
+								"lettuce",
+								"turnip"
+							],
+							"enumNames": [
+								"Carot",
+								"Lettuce",
+								"Turnip"
+							]
+						}
+					}
+				},
+				"items": {},
+				"uniqueItems": true
+			}
+		}
+	},
+	"uiSchema": {
+		"food": {
+			"ui:widget": "nestedListView"
+		}
+	},
+	"properties": {
+		"food": {
+			"fruits": [
+				"orange"
+			],
+			"vegetables": [
+				"lettuce",
+				"carot"
+			]
+		}
+	}
+}

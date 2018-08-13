@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NestedListView component should render component 1`] = `
+<div
+  className="theme-nested-list-view"
+>
+  <FieldTemplate
+    description={undefined}
+    errorMessage={undefined}
+    id="NestedListView"
+    isValid={true}
+    required={true}
+  >
+    <Translate(ListView)
+      displayedItems={
+        Array [
+          Object {
+            "checked": false,
+            "children": Array [
+              Object {
+                "checked": false,
+                "label": "Bar 1",
+                "onChange": [Function],
+                "value": "bar_1",
+              },
+              Object {
+                "checked": false,
+                "label": "Bar 2",
+                "onChange": [Function],
+                "value": "bar_2",
+              },
+            ],
+            "expanded": false,
+            "isSwitchBox": false,
+            "key": "bar",
+            "label": "Bar",
+            "onChange": [Function],
+            "onExpandToggle": [Function],
+            "toggleId": "baz.bar",
+          },
+          Object {
+            "checked": false,
+            "children": Array [
+              Object {
+                "checked": false,
+                "label": "Foo 1",
+                "onChange": [Function],
+                "value": "foo_1",
+              },
+              Object {
+                "checked": false,
+                "label": "Foo 2",
+                "onChange": [Function],
+                "value": "foo_2",
+              },
+            ],
+            "expanded": false,
+            "isSwitchBox": false,
+            "key": "foo",
+            "label": "Foo",
+            "onChange": [Function],
+            "onExpandToggle": [Function],
+            "toggleId": "baz.foo",
+          },
+        ]
+      }
+      emptyLabel="emptyLabel"
+      getItemHeight={[Function]}
+      headerDefault={
+        Array [
+          Object {
+            "icon": "talend-search",
+            "id": "NestedListView-search",
+            "label": "Search for specific values",
+            "onClick": [Function],
+          },
+        ]
+      }
+      headerLabel="Nested ListView"
+      id="NestedListView"
+      isSwitchBox={false}
+      items={
+        Array [
+          Object {
+            "checked": false,
+            "children": Array [
+              Object {
+                "checked": false,
+                "label": "Bar 1",
+                "onChange": [Function],
+                "value": "bar_1",
+              },
+              Object {
+                "checked": false,
+                "label": "Bar 2",
+                "onChange": [Function],
+                "value": "bar_2",
+              },
+            ],
+            "expanded": false,
+            "isSwitchBox": false,
+            "key": "bar",
+            "label": "Bar",
+            "onChange": [Function],
+            "onExpandToggle": [Function],
+            "toggleId": "baz.bar",
+          },
+          Object {
+            "checked": false,
+            "children": Array [
+              Object {
+                "checked": false,
+                "label": "Foo 1",
+                "onChange": [Function],
+                "value": "foo_1",
+              },
+              Object {
+                "checked": false,
+                "label": "Foo 2",
+                "onChange": [Function],
+                "value": "foo_2",
+              },
+            ],
+            "expanded": false,
+            "isSwitchBox": false,
+            "key": "foo",
+            "label": "Foo",
+            "onChange": [Function],
+            "onExpandToggle": [Function],
+            "toggleId": "baz.foo",
+          },
+        ]
+      }
+      noResultLabel="noResultLabel"
+      onAddKeyDown={[Function]}
+      onInputChange={[Function]}
+      required={true}
+      searchCriteria={null}
+      searchPlaceholder="placeholder"
+      showToggleAll={false}
+      t={[Function]}
+      toggledChildren={Array []}
+      value={Object {}}
+    />
+  </FieldTemplate>
+</div>
+`;
