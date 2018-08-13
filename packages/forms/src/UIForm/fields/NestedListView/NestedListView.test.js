@@ -16,6 +16,22 @@ describe('NestedListView component', () => {
 			onFinish: jest.fn(),
 			schema: {
 				title: 'Nested ListView',
+				schema: {
+					properties: {
+						bar: {
+							items: {
+								enum: ['bar_1', 'bar_2'],
+								enumNames: ['Bar 1', 'Bar 2'],
+							},
+						},
+						foo: {
+							items: {
+								enum: ['foo_1', 'foo_2'],
+								enumNames: ['Foo 1', 'Foo 2'],
+							},
+						},
+					},
+				},
 				items: [
 					{
 						title: 'Bar',
@@ -80,17 +96,32 @@ describe('NestedListView component', () => {
 		});
 	});
 
-	describe.skip('onParentChange', () => {
+	describe('onParentChange', () => {
 		it('should select all children when parent is selected and no child is selected', () => {
-			// @todo
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			const event = {};
+			const item = { key: 'foo' };
+
+			wrapper.instance().onParentChange(event, item);
+
+			// then
+			const { value } = wrapper.state();
+			expect(value.foo).toEqual(['foo_1', 'foo_2']);
 		});
 
-		it('should unselect all children when parent is selected and some children are already selected', () => {
-			// @todo
-		});
+		it('should unselect all children when parent is selected and at least a child is already selected', () => {
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			wrapper.setState({ value: { foo: ['foo_2'] } });
+			const event = {};
+			const item = { key: 'foo' };
 
-		it('should unselect all children when parent is selected', () => {
-			// @todo
+			wrapper.instance().onParentChange(event, item);
+
+			// then
+			const { value } = wrapper.state();
+			expect(value.foo).toEqual([]);
 		});
 	});
 
@@ -200,24 +231,28 @@ describe('NestedListView component', () => {
 		});
 	});
 
-	describe.skip('switchToSearchMode', () => {
-		// when
-		const wrapper = shallow(<NestedListViewWidget {...props} />);
+	describe('switchToSearchMode', () => {
+		it('should switch to "search" mode in the state', () => {
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 
-		wrapper.instance().switchToSearchMode();
+			wrapper.instance().switchToSearchMode();
 
-		// then
-		expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_SEARCH');
+			// then
+			expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_SEARCH');
+		});
 	});
 
-	describe.skip('switchToDefaultMode', () => {
-		// when
-		const wrapper = shallow(<NestedListViewWidget {...props} />);
+	describe('switchToDefaultMode', () => {
+		it('should switch to "default" mode in the state', () => {
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 
-		wrapper.instance().switchToDefaultMode();
+			wrapper.instance().switchToDefaultMode();
 
-		// then
-		expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_DEFAULT');
+			// then
+			expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_DEFAULT');
+		});
 	});
 });
 
