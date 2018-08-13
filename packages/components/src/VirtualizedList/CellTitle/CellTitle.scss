@@ -62,8 +62,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		}
 	}
 
-	&:hover,
-	&:focus {
+	&:hover {
 		.tc-main-title-clickable {
 			color: $scooter;
 		}
@@ -72,6 +71,12 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 			color: $brand-primary;
 			filter: none;
 		}
+	}
+}
+
+.tc-main-title-clickable {
+	&:focus {
+		color: $scooter;
 	}
 }
 
