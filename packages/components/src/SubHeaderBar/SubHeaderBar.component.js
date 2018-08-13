@@ -94,7 +94,7 @@ function SubHeaderBar({
 						/>
 					)}
 					{injected('before-title')}
-					<TitleSubHeader t={t} {...rest} />
+					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />
 					{injected('after-title')}
 				</SubHeaderBarActions>
 				{Array.isArray(left) && (

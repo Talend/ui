@@ -20,8 +20,8 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         onClick={[Function]}
       />
       <TitleSubHeader
-        editMode={false}
         editable={false}
+        getComponent={undefined}
         inProgress={false}
         loading={false}
         t={[Function]}

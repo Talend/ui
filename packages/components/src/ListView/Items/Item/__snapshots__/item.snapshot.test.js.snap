@@ -14,6 +14,7 @@ exports[`Item should display a selected item 1`] = `
         htmlFor="checkbox-0-item"
       >
         <input
+          aria-label="Deselect toto"
           checked={true}
           id="checkbox-0-item"
           onChange={[Function]}

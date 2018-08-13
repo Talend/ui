@@ -77,7 +77,7 @@ describe('InlineForm', () => {
 		expect(
 			wrapper
 				.find('Action')
-				.first()
+				.at(1)
 				.props().disabled,
 		).toBe(false);
 		wrapper.setState({ value: ' ' });
@@ -90,7 +90,7 @@ describe('InlineForm', () => {
 		expect(
 			wrapper
 				.find('Action')
-				.first()
+				.at(1)
 				.props().disabled,
 		).toBe(true);
 		wrapper.find('form').simulate('submit', event);
