@@ -5,7 +5,6 @@ import { Action } from '../Actions';
 import theme from './EditableText.scss';
 import getDefaultT from '../translate';
 
-
 class InlineForm extends React.Component {
 	static propTypes = {
 		text: PropTypes.string.isRequired,
