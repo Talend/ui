@@ -41,7 +41,7 @@ const HTML_TPL = (icons, style) => `
 			}
 
 			.grayscale {
-				filter: url(#talend-grayscale);
+				filter: url("#talend-grayscale");
 			}
 			.grayscale:hover {
 				filter: none;
