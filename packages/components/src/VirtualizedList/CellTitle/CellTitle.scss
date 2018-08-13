@@ -6,6 +6,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	display: flex;
 	align-items: center;
 	position: relative;
+	height: 100%;
 
 	.icon {
 		flex-shrink: 0;
@@ -20,9 +21,11 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 	.edit-form {
 		flex-grow: 1;
+		height: 100%;
 
 		> input {
 			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -35,6 +38,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		display: block;
 
 		padding: 0 $padding-normal;
+		height: 100%;
 
 		color: $tc-list-title-color;
 		font-size: inherit;

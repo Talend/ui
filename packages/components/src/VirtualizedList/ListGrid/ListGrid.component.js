@@ -13,18 +13,13 @@ import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
  */
 function ListGrid(props) {
 	const {
-		children,
 		collection,
-		id,
-		height,
 		isActive,
 		isSelected,
-		noRowsRenderer,
 		onRowClick,
 		onRowDoubleClick,
-		rowHeight,
 		rowRenderer,
-		width,
+		...restProps
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
@@ -40,20 +35,14 @@ function ListGrid(props) {
 		<VirtualizedList
 			className={theme['tc-list-list']}
 			collection={collection}
-			id={id}
-			height={height}
 			overscanRowCount={10}
 			onRowClick={decorateRowClick(onRowClick)}
 			onRowDoubleClick={decorateRowDoubleClick(onRowDoubleClick)}
-			noRowsRenderer={noRowsRenderer}
 			rowCount={collection.length}
-			rowHeight={rowHeight}
 			rowRenderer={enhancedRowRenderer}
 			rowGetter={index => collection[index]}
-			width={width}
-		>
-			{children}
-		</VirtualizedList>
+			{...restProps}
+		/>
 	);
 }
 

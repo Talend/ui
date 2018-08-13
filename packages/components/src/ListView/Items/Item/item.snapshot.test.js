@@ -16,9 +16,7 @@ describe('Item', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Item {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Item {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
