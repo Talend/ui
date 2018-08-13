@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 function itemLabelClasses() {
 	return classNames(theme['tc-listview-item-label'], 'tc-listview-item-label');
@@ -21,7 +23,7 @@ class Item extends Component {
 	}
 
 	render() {
-		const { id, item, parentItem, isSwitchBox, searchCriteria, children } = this.props;
+		const { id, item, parentItem, isSwitchBox, searchCriteria, children, t } = this.props;
 
 		/**
 		 * This function allow to get component rendering based on searchCriteria
@@ -42,6 +44,16 @@ class Item extends Component {
 			{ 'switch-nested': children },
 			{ switch: isSwitchBox },
 		);
+		const ariaLabel = item.checked
+			? t('TC_LISTVIEW_DESELECT', { defaultValue: 'Deselect {{ value }}', value: item.label })
+			: t('TC_LISTVIEW_SELECT', { defaultValue: 'Select {{ value }}', value: item.label });
+
+		let expandLabel;
+		if (children) {
+			expandLabel = item.expanded
+				? t('TC_LISTVIEW_COLLAPSE', { defaultValue: 'Collapse {{ value }}', value: item.label })
+				: t('TC_LISTVIEW_EXPAND', { defaultValue: 'Expand {{ value }}', value: item.label });
+		}
 
 		return (
 			<div id={id}>
@@ -53,6 +65,7 @@ class Item extends Component {
 								type="checkbox"
 								checked={item.checked}
 								onChange={event => item.onChange(event, item, parentItem)}
+								aria-label={ariaLabel}
 							/>
 							<span className={itemLabelClasses()}>
 								{searchCriteria ? getSearchedLabel(item.label) : item.label}
@@ -64,6 +77,8 @@ class Item extends Component {
 									bsStyle="link"
 									icon="talend-caret-down"
 									onClick={event => item.onExpandToggle(event, item)}
+									label={expandLabel}
+									hideLabel
 								/>
 							</div>
 						)}
@@ -77,4 +92,4 @@ class Item extends Component {
 
 Item.propTypes = ItemPropTypes;
 
-export default Item;
+export default translate(I18N_DOMAIN_COMPONENTS)(Item);
