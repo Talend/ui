@@ -21,6 +21,7 @@ import SliderExample from './ExampleSlider';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
+import EditableTextExample from './ExampleEditableText';
 import TabBarExample from './ExampleTabBar';
 import TypeaheadExample from './ExampleTypeahead';
 
@@ -47,6 +48,7 @@ export default {
 	SidePanelExample,
 	SliderExample,
 	SubHeaderBarExample,
+	EditableTextExample,
 	TabBarExample,
 	TreeViewExample,
 	TypeaheadExample,
