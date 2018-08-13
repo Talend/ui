@@ -167,12 +167,19 @@ class InputDateTimePicker extends React.Component {
 
 		this.state.isDropdownShown = false;
 
+		this.componentContainerEvents = [];
+
 		this.onChangeInput = this.onChangeInput.bind(this);
 		this.onSubmitPicker = this.onSubmitPicker.bind(this);
 		this.setContainerRef = this.setContainerRef.bind(this);
 		this.setDropdownWrapperRef = this.setDropdownWrapperRef.bind(this);
 		this.onFocusInput = this.onFocusInput.bind(this);
 		this.documentHandler = this.documentHandler.bind(this);
+		this.componentContainerHandler = this.componentContainerHandler.bind(this);
+	}
+
+	componentDidMount() {
+		this.mountComponentContainerHandler();
 	}
 
 	componentDidUpdate(prevProp, prevState) {
@@ -188,6 +195,7 @@ class InputDateTimePicker extends React.Component {
 
 	componentWillUnmount() {
 		this.unmountDocumentHandler();
+		this.unmountComponentContainerHandler();
 	}
 
 	onSubmitPicker({ date, time }) {
@@ -232,12 +240,29 @@ class InputDateTimePicker extends React.Component {
 		document.removeEventListener('focus', this.documentHandler);
 	}
 
+	mountComponentContainerHandler() {
+		this.containerRef.addEventListener('click', this.componentContainerHandler);
+		this.containerRef.addEventListener('focus', this.componentContainerHandler);
+	}
+
+	unmountComponentContainerHandler() {
+		this.containerRef.removeEventListener('click', this.componentContainerHandler);
+		this.containerRef.removeEventListener('focus', this.componentContainerHandler);
+	}
+
 	documentHandler(e) {
-		const isActionOutOfComponent = e.path.every(node => node !== this.containerRef);
+		const eventIndex = this.componentContainerEvents.indexOf(e);
+		const isActionOutOfComponent = eventIndex === -1;
 
 		if (isActionOutOfComponent) {
 			this.switchDropdownVisibility(false);
+		} else {
+			this.componentContainerEvents.splice(eventIndex, 1);
 		}
+	}
+
+	componentContainerHandler(e) {
+		this.componentContainerEvents.push(e);
 	}
 
 	switchDropdownVisibility(isShown) {
