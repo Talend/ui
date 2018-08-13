@@ -5,6 +5,7 @@ import Skeleton from '../../Skeleton';
 import { EditableText } from '../..';
 import theme from './TitleSubHeader.scss';
 import Icon from '../../Icon';
+import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 
 function TitleSubHeader({
@@ -12,14 +13,16 @@ function TitleSubHeader({
 	iconId,
 	loading,
 	inProgress,
-	editMode,
 	editable,
 	subTitle,
+	getComponent,
 	...rest
 }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
+
+	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
 			className={classNames(theme['tc-subheader-details'], 'tc-subheader-details', {
@@ -40,8 +43,8 @@ function TitleSubHeader({
 						'tc-subheader-details-text-title',
 					)}
 				>
-					{editable || editMode ? (
-						<EditableText text={title} editMode={editMode} inProgress={inProgress} {...rest} />
+					{editable ? (
+						<InjectedEditableText text={title} inProgress={inProgress} {...rest} />
 					) : (
 						<h1
 							className={classNames(
@@ -53,17 +56,16 @@ function TitleSubHeader({
 						</h1>
 					)}
 				</div>
-				{subTitle &&
-					!editMode && (
-						<small
-							className={classNames(
-								theme['tc-subheader-details-text-subtitle'],
-								'tc-subheader-details-text-subtitle',
-							)}
-						>
-							{subTitle}
-						</small>
-					)}
+				{subTitle && (
+					<small
+						className={classNames(
+							theme['tc-subheader-details-text-subtitle'],
+							'tc-subheader-details-text-subtitle',
+						)}
+					>
+						{subTitle}
+					</small>
+				)}
 			</div>
 		</div>
 	);
@@ -71,16 +73,15 @@ function TitleSubHeader({
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
-	editMode: PropTypes.bool,
 	iconId: PropTypes.string,
 	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
 	subTitle: PropTypes.string,
+	...Inject.PropTypes,
 };
 
 TitleSubHeader.defaultProps = {
-	editMode: false,
 	loading: false,
 	inProgress: false,
 	t: getDefaultT(),
