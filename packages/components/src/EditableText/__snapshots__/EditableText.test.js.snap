@@ -14179,7 +14179,6 @@ exports[`InlineForm should render 1`] = `
       icon="talend-check"
       label={undefined}
       name="action-submit-title"
-      onClick={[Function]}
       type="submit"
     />
   </div>
