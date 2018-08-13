@@ -14,8 +14,6 @@
  *  limitations under the License.
  */
 /* eslint-disable no-param-reassign */
-
-import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
 
@@ -27,7 +25,7 @@ const DEFAULT_HEADERS = {
 	Accept: 'application/json',
 };
 
-function passthroughTrigger({ error, trigger, body }) {
+function passthroughTrigger({ body }) {
 	return body;
 }
 
