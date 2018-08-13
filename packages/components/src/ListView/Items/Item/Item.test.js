@@ -10,9 +10,11 @@ const item = {
 describe('Item', () => {
 	it('should trigger callback on item click', () => {
 		// given
-		const itemInstance = <Item item={item} />;
-		const wrapper = shallow(itemInstance);
-		const checkbox = wrapper.find('[type="checkbox"]');
+		const wrapper = shallow(<Item item={item} />);
+		const checkbox = wrapper
+			.dive()
+			.shallow()
+			.find('[type="checkbox"]');
 		const event = { target: {} };
 
 		// when
