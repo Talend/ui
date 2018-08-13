@@ -18,49 +18,62 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
  * - a button with a click action (columnData.onClick)
  * - actions (rowData[columnData.actionsKey])
  */
-function CellTitle({ cellData, columnData, getComponent, rowData, rowIndex, type }) {
-	const {
-		id,
-		onClick,
-		actionsKey,
-		persistentActionsKey,
-		displayModeKey,
-		iconKey,
-		onEditCancel,
-		onEditSubmit,
-		...columnDataRest
-	} = columnData;
+class CellTitle extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		return (
+			this.props.cellData !== nextProps.cellData ||
+			this.props.columnData !== nextProps.columnData ||
+			this.props.getComponent !== nextProps.getComponent ||
+			this.props.rowData !== nextProps.rowData ||
+			this.props.rowIndex !== nextProps.rowIndex ||
+			this.props.type !== nextProps.type
+		);
+	}
+	render() {
+		const { cellData, columnData, getComponent, rowData, rowIndex, type } = this.props;
+		const {
+			id,
+			onClick,
+			actionsKey,
+			persistentActionsKey,
+			displayModeKey,
+			iconKey,
+			onEditCancel,
+			onEditSubmit,
+			...columnDataRest
+		} = columnData;
 
-	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
-	const titleId = id && `${id}-${rowIndex}-title-cell`;
-	const actionsId = id && `${id}-${rowIndex}-title-actions`;
+		const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
+		const titleId = id && `${id}-${rowIndex}-title-cell`;
+		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
-	return (
-		<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
-			{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
+		return (
+			<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
+				{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
 
-			<CellTitleSelector
-				id={titleId}
-				cellData={cellData}
-				className={theme['main-title']}
-				displayMode={displayMode}
-				onClick={onClick}
-				onEditCancel={onEditCancel}
-				onEditSubmit={onEditSubmit}
-				rowData={rowData}
-				columnData={columnDataRest}
-			/>
-			<CellTitleActions
-				getComponent={getComponent}
-				id={actionsId}
-				rowData={rowData}
-				actionsKey={actionsKey}
-				persistentActionsKey={persistentActionsKey}
-				displayMode={displayMode}
-				type={type}
-			/>
-		</div>
-	);
+				<CellTitleSelector
+					id={titleId}
+					cellData={cellData}
+					className={theme['main-title']}
+					displayMode={displayMode}
+					onClick={onClick}
+					onEditCancel={onEditCancel}
+					onEditSubmit={onEditSubmit}
+					rowData={rowData}
+					columnData={columnDataRest}
+				/>
+				<CellTitleActions
+					getComponent={getComponent}
+					id={actionsId}
+					rowData={rowData}
+					actionsKey={actionsKey}
+					persistentActionsKey={persistentActionsKey}
+					displayMode={displayMode}
+					type={type}
+				/>
+			</div>
+		);
+	}
 }
 
 CellTitle.displayName = 'VirtualizedList(CellTitle)';
