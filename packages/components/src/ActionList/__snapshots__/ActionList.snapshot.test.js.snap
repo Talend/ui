@@ -3,12 +3,8 @@
 exports[`Storyshots ActionList default 1`] = `
 <div>
   <svg
+    className="theme-hide"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -92,34 +88,11 @@ exports[`Storyshots ActionList default 1`] = `
           id="talend-grayscale"
         >
           <feColorMatrix
-            in="SourceGraphic"
-            result="grayscale"
             type="saturate"
             values="0"
           />
-          <feComponentTransfer
-            in="grayscale"
-            result="gammadarken"
-          >
-            <feFuncR
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncG
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncB
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncA
-              type="gamma"
-            />
-          </feComponentTransfer>
           <feColorMatrix
-            in="gammadarken"
-            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
           />
         </filter>
       </defs>
@@ -335,12 +308,8 @@ exports[`Storyshots ActionList default 1`] = `
 exports[`Storyshots ActionList single 1`] = `
 <div>
   <svg
+    className="theme-hide"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -424,34 +393,11 @@ exports[`Storyshots ActionList single 1`] = `
           id="talend-grayscale"
         >
           <feColorMatrix
-            in="SourceGraphic"
-            result="grayscale"
             type="saturate"
             values="0"
           />
-          <feComponentTransfer
-            in="grayscale"
-            result="gammadarken"
-          >
-            <feFuncR
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncG
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncB
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncA
-              type="gamma"
-            />
-          </feComponentTransfer>
           <feColorMatrix
-            in="gammadarken"
-            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
           />
         </filter>
       </defs>
@@ -507,12 +453,8 @@ exports[`Storyshots ActionList single 1`] = `
 exports[`Storyshots ActionList with custom class names 1`] = `
 <div>
   <svg
+    className="theme-hide"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -596,34 +538,11 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           id="talend-grayscale"
         >
           <feColorMatrix
-            in="SourceGraphic"
-            result="grayscale"
             type="saturate"
             values="0"
           />
-          <feComponentTransfer
-            in="grayscale"
-            result="gammadarken"
-          >
-            <feFuncR
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncG
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncB
-              exponent="7"
-              type="gamma"
-            />
-            <feFuncA
-              type="gamma"
-            />
-          </feComponentTransfer>
           <feColorMatrix
-            in="gammadarken"
-            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
           />
         </filter>
       </defs>

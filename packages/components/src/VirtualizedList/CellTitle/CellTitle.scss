@@ -8,7 +8,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	position: relative;
 
 	.icon {
-		filter: url(#talend-grayscale);
+		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
@@ -65,6 +65,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		}
 
 		.tc-main-title-icon-active {
+			color: $brand-primary;
 			filter: none;
 		}
 	}

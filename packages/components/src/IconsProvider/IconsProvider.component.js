@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import talendIcons, { filters } from '@talend/icons/dist/react';
+import theme from './IconsProvider.scss';
 
 function addKeyValue(Component, index) {
 	return <Component.type {...Component.props} key={index} />;
@@ -18,9 +19,8 @@ function addKeyValue(Component, index) {
 function IconsProvider({ defaultIcons, icons }) {
 	const iconset = Object.assign({}, defaultIcons, icons);
 	const ids = Object.keys(iconset);
-	const style = { display: 'none' };
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" style={style}>
+		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className={theme.hide}>
 			{ids.map((id, index) => (
 				<symbol key={index} id={id}>
 					{iconset[id]}
