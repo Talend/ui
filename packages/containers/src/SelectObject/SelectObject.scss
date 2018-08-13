@@ -39,8 +39,7 @@
 			}
 
 			:global(.active) {
-				background-color: rgba($brand-primary, 0.12);
-				color: $brand-primary;
+				background: rgba($black, 0.05);
 			}
 
 			:global(.list-group-item-text) {
