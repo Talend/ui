@@ -22,6 +22,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
     />
     <Typeahead
       autoFocus={true}
+      caret={true}
       disabled={false}
       docked={false}
       focusedItemIndex={undefined}
@@ -49,13 +50,6 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       }
       value=""
     />
-    <div
-      className="theme-caret"
-    >
-      <span
-        className="caret"
-      />
-    </div>
   </div>
 </FieldTemplate>
 `;
