@@ -11,7 +11,7 @@ function List({ data, ...props }) {
 	// The datas can be an array or an array in an object. We assign the value correctly here.
 	const dataset = Array.isArray(data) ? data : data.dataset;
 	return (
-		<ul className={`${theme.container} tc-object-viewer list-unstyled`}>
+		<ul className={`${theme.container} tc-object-viewer list-unstyled`} id={props.id}>
 			{dataset.map((obj, index) => (
 				<li key={index}>
 					<JSONLike data={obj} {...props} jsonpath={`$[${index}]`} />
@@ -23,6 +23,7 @@ function List({ data, ...props }) {
 
 List.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	id: PropTypes.string,
 };
 
 export default List;

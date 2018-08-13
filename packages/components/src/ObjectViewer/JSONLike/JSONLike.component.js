@@ -51,18 +51,20 @@ export function NativeValue({ data, edit, className, onSelect, onChange, jsonpat
 	}
 
 	const lineValueClasses = classNames(className, theme.native, theme[type]);
+	//
+	// return (
+	// 	<span
+	// 		className={lineValueClasses}
+	// 		role="button"
+	// 		tabIndex="0"
+	// 		onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
+	// 		onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+	// 	>
+	// 		{display}
+	// 	</span>
+	// );
 
-	return (
-		<span
-			className={lineValueClasses}
-			role="button"
-			tabIndex="0"
-			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
-			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-		>
-			{display}
-		</span>
-	);
+	return <span className={lineValueClasses}>{display}</span>;
 }
 
 NativeValue.propTypes = {
@@ -98,37 +100,19 @@ function getName(name) {
 	return <span className={`${theme.name} ${theme['line-key']}`}>{name}</span>;
 }
 
-export function LineItem({
-	name,
-	tag,
-	onMouseOver,
-	mouseOverData,
-	jsonpath,
-	selectedJsonpath,
-	onSelect,
-	children,
-}) {
-	const props = {};
-
-	if (onMouseOver && onMouseOver !== noop) {
-		props.onMouseOver = e => onMouseOver(e, mouseOverData);
-	}
-
-	const isHovered = false && mouseOverData.data.jsonpath === jsonpath;
+export function LineItem({ name, tag, jsonpath, selectedJsonpath, onSelect, children }) {
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
-
 	const classes = classNames(theme.line, {
 		[theme['selected-line']]: isSelectedLine,
-		[theme['unselected-line-hover']]: isHovered,
 	});
 
 	return (
 		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
+			tabIndex="0"
 			className={classes}
 			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-			{...props}
 		>
 			{getName(name)}
 			{tag}
@@ -140,9 +124,7 @@ export function LineItem({
 LineItem.propTypes = {
 	name: PropTypes.string,
 	tag: PropTypes.node,
-	onMouseOver: PropTypes.func,
 	children: PropTypes.node,
-	mouseOverData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	jsonpath: PropTypes.string,
 	selectedJsonpath: PropTypes.string,
 	onSelect: PropTypes.func.isRequired,
@@ -248,7 +230,6 @@ export function ComplexItem({
 	...props
 }) {
 	const isOpened = opened.indexOf(jsonpath) !== -1;
-	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
@@ -268,7 +249,6 @@ export function ComplexItem({
 			/>
 			<LineItem
 				name={name}
-				mouseOverData={{ data, isOpened, isEdited }}
 				onSelect={onSelect}
 				onToggle={props.onToggle}
 				jsonpath={jsonpath}
@@ -331,7 +311,6 @@ ComplexItem.propTypes = {
 	edited: PropTypes.arrayOf(PropTypes.string).isRequired,
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
-	onMouseOver: PropTypes.func,
 	onEdit: PropTypes.func,
 	onToggle: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
@@ -351,7 +330,6 @@ export function Item({ data, name, opened, edited, tagged, jsonpath, ...props })
 		COMPLEX_TYPES.push(props.tupleLabel);
 	}
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
-	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const tag = tagged && tagged[jsonpath];
 
 	if (data === undefined || data === null) {
@@ -359,8 +337,6 @@ export function Item({ data, name, opened, edited, tagged, jsonpath, ...props })
 			<LineItem
 				name={name}
 				tag={tag}
-				onMouseOver={props.onMouseOver}
-				mouseOverData={{ data, isOpened, isEdited }}
 				onSelect={props.onSelect}
 				jsonpath={jsonpath}
 				selectedJsonpath={props.selectedJsonpath}
@@ -375,8 +351,6 @@ export function Item({ data, name, opened, edited, tagged, jsonpath, ...props })
 		return (
 			<LineItem
 				name={name}
-				onMouseOver={props.onMouseOver}
-				mouseOverData={{ data, isOpened, isEdited }}
 				onSelect={props.onSelect}
 				jsonpath={jsonpath}
 				selectedJsonpath={props.selectedJsonpath}
@@ -430,7 +404,6 @@ Item.propTypes = {
 	tagged: PropTypes.objectOf(PropTypes.node),
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
-	onMouseOver: PropTypes.func,
 	onEdit: PropTypes.func,
 	onToggle: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
@@ -445,7 +418,6 @@ Item.defaultProps = {
 	opened: [],
 	edited: [],
 	jsonpath: '$',
-	onMouseOver: noop,
 	onEdit: noop,
 	onToggle: noop,
 	onSelect: noop,
@@ -458,17 +430,22 @@ Item.defaultProps = {
  */
 export function JSONLike({ onSubmit, className, style, ...props }) {
 	const rootIsObject = isObject(props.data);
-	let rootComputedLabel = null;
 
+	let label = null;
 	if (rootIsObject) {
 		if (props.rootLabel) {
-			rootComputedLabel = props.rootLabel;
+			label = (
+				<TooltipTrigger label={props.rootLabel} tooltipPlacement="right">
+					<div className={theme['root-label-overflow']}>{props.rootLabel}</div>
+				</TooltipTrigger>
+			);
 		}
 	}
 
 	if (onSubmit) {
 		return (
 			<form
+				id={props.id && `${props.id}-form`}
 				className={classNames('tc-object-viewer', theme.container, className)}
 				style={style}
 				onSubmit={event => {
@@ -476,29 +453,26 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 					event.preventDefault();
 				}}
 			>
-				{rootComputedLabel ? (
-					<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
-						<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
-					</TooltipTrigger>
-				) : null}
+				{label}
 				<Item {...props} />
 			</form>
 		);
 	}
 
 	return (
-		<div className={classNames('tc-object-viewer', theme.container, className)} style={style}>
-			{rootComputedLabel ? (
-				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
-					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
-				</TooltipTrigger>
-			) : null}
+		<div
+			id={props.id && `${props.id}-container`}
+			className={classNames('tc-object-viewer', theme.container, className)}
+			style={style}
+		>
+			{label}
 			<Item {...props} />
 		</div>
 	);
 }
 
 JSONLike.propTypes = {
+	id: PropTypes.string,
 	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => PropTypes[t])),
 	onSubmit: PropTypes.func,
 	className: PropTypes.string,
