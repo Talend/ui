@@ -115,7 +115,7 @@ cd docs
 http-server
 ```
 
-# How build in local
+# How to build in local
 
 ```
 # go the UI root

@@ -1,4 +1,4 @@
-const svgs = require('./svgs');
-const filters = require('./filters');
-exports.svgs = svgs.default;
-exports.filters = filters.default;
+const extractFiles = require('./extract').default;
+
+exports.svgs = extractFiles('./svg');
+exports.filters = extractFiles('./filters');
