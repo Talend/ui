@@ -1,6 +1,5 @@
-/* eslint-disable-next-line import/no-extraneous-dependencies */
-import ReactDOM from 'react-dom';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import classNames from 'classnames';
