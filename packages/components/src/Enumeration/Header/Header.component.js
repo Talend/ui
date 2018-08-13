@@ -36,11 +36,8 @@ function getAction(action, index) {
 		<Action
 			{...action}
 			key={`${index}-enum-header-action`}
-			label={action.label}
-			icon={action.icon}
 			onClick={onClick}
 			btooltipPlacement="bottom"
-			inProgress={action.inProgress}
 			hideLabel
 			link
 		/>
