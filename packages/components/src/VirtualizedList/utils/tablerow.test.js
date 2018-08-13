@@ -1,9 +1,6 @@
 import React from 'react';
 import VirtualizedList from '../VirtualizedList.component';
-import {
-	insertSelectionConfiguration,
-	toColumns,
-} from './tablerow';
+import { insertSelectionConfiguration, toColumns } from './tablerow';
 
 describe('tablerow', () => {
 	describe('#insertSelectionConfiguration', () => {
@@ -12,24 +9,12 @@ describe('tablerow', () => {
 			const isSelected = jest.fn();
 			const selectionToggle = jest.fn();
 			const children = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					width={50}
-				/>,
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-					width={350}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
-			const result = insertSelectionConfiguration({
-				children,
-				isSelected,
-				selectionToggle,
-			});
+			const result = insertSelectionConfiguration({ isSelected, selectionToggle, children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -38,16 +23,8 @@ describe('tablerow', () => {
 		it('should NOT insert selection column when selection callback is NOT provided', () => {
 			// given
 			const children = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					width={50}
-				/>,
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-					width={350}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
@@ -72,7 +49,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = toColumns(null, theme, children);
+			const result = toColumns({ theme, children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -82,16 +59,11 @@ describe('tablerow', () => {
 			// given
 			const theme = { cell: 'theme-classname' };
 			const children = [
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-					className={'my-classname'}
-					width={50}
-				/>,
+				<VirtualizedList.Content label="Id" dataKey="id" className={'my-classname'} width={50} />,
 			];
 
 			// when
-			const result = toColumns(null, theme, children);
+			const result = toColumns({ theme, children });
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -110,7 +82,7 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = toColumns(id, {}, children);
+			const result = toColumns({ id, theme: {}, children });
 
 			// then
 			expect(result).toMatchSnapshot();
