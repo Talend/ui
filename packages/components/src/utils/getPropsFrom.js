@@ -1,15 +1,5 @@
-const NATIVE_PROPS = [
-	'aria-',
-	'data-',
-	'autoFocus',
-	'className',
-	'id',
-	'name',
-	'target',
-	'rel',
-	'role',
-	'title',
-];
+const NATIVE_PROPS = ['autoFocus', 'className', 'id', 'name', 'target', 'rel', 'role', 'title'];
+const NATIVE_PROPS_GROUPS = ['aria-', 'data-'];
 
 function extractComponentProps(Component, props) {
 	if (!Component) {
@@ -27,7 +17,10 @@ function extractComponentProps(Component, props) {
 function extractNativeProps(props) {
 	const extractedProps = {};
 	Object.keys(props).forEach(propName => {
-		if (NATIVE_PROPS.some(nativeProp => propName.startsWith(nativeProp))) {
+		if (
+			NATIVE_PROPS.some(nativeProp => propName === nativeProp) ||
+			NATIVE_PROPS_GROUPS.some(nativeProp => propName.startsWith(nativeProp))
+		) {
 			extractedProps[propName] = props[propName];
 		}
 	});
