@@ -14164,23 +14164,22 @@ exports[`InlineForm should render 1`] = `
   >
     <Action
       bsStyle="link"
-      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon"
-      disabled={false}
-      hideLabel={true}
-      icon="talend-check"
-      label={undefined}
-      name="action-submit-title"
-      onClick={[Function]}
-      type="submit"
-    />
-    <Action
-      bsStyle="link"
-      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon"
+      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
       hideLabel={true}
       icon="talend-cross"
       label={undefined}
       name="action-cancel-title"
       onClick={[Function]}
+    />
+    <Action
+      bsStyle="link"
+      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
+      disabled={false}
+      hideLabel={true}
+      icon="talend-check"
+      label={undefined}
+      name="action-submit-title"
+      type="submit"
     />
   </div>
 </form>
