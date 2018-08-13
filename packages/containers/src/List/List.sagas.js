@@ -3,23 +3,29 @@ import Connected from './List.connect';
 import Constants from './List.constant';
 
 export function* onToggleFilter(data) {
-	yield put(Connected.setStateAction({
-		filterDocked: !data.payload.filterDocked,
-		searchQuery: '',
-	}));
+	yield put(
+		Connected.setStateAction({
+			filterDocked: !data.payload.filterDocked,
+			searchQuery: '',
+		}),
+	);
 }
 
 export function* onFilterChange(data) {
-	yield put(Connected.setStateAction({
-		searchQuery: data.payload.query,
-	}));
+	yield put(
+		Connected.setStateAction({
+			searchQuery: data.payload.query,
+		}),
+	);
 }
 
 export function* onChangeSortChange(data) {
-	yield put(Connected.setStateAction({
-		sortOn: data.payload.field,
-		sortAsc: !data.payload.isDescending,
-	}));
+	yield put(
+		Connected.setStateAction({
+			sortOn: data.payload.field,
+			sortAsc: !data.payload.isDescending,
+		}),
+	);
 }
 
 function* defaultHandler() {
