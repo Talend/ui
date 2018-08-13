@@ -16,6 +16,7 @@ import {
 	actions as actionsSubHeader,
 	actionsCreators as actionsCreatorsSubHeader,
 } from './subheaderbar.storybook';
+import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -136,6 +137,10 @@ api.actionCreator.register('subheaderbar:cancel', actionsCreatorsSubHeader.cance
 api.actionCreator.register('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
 api.actionCreator.register('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
 api.actionCreator.register('tabbar:select', selectTab);
+api.actionCreator.register('editabletext:submit', actionsCreatorsEditableText.submitEditableText);
+api.actionCreator.register('editabletext:edit', actionsCreatorsEditableText.editEditableText);
+api.actionCreator.register('editabletext:cancel', actionsCreatorsEditableText.cancelEditableText);
+api.actionCreator.register('editabletext:change', actionsCreatorsEditableText.changeEditableText);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);

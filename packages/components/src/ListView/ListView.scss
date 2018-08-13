@@ -7,7 +7,7 @@ $tc-listview-font-size: 1.4rem !default;
 	flex-direction: column;
 
 	:global(.btn.btn-link) {
-		padding: 0 $padding-smaller;
+		padding: 0 $padding-small;
 
 		svg {
 			fill: $tc-listview-svg-color;
