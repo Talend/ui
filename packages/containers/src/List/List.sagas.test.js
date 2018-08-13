@@ -1,6 +1,6 @@
-import cmf from '@talend/react-cmf';
 import { put } from 'redux-saga/effects';
 import { onToggleFilter, onFilterChange, onChangeSortChange } from './List.sagas';
+import Connected from './List.connect';
 
 describe('List sagas', () => {
 	it('should check onToggleFilter action', () => {
@@ -9,7 +9,7 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				cmf.actions.components.mergeState('Container(List)', 'default', {
+				Connected.setStateAction({
 					filterDocked: !data.payload.filterDocked,
 					searchQuery: '',
 				}),
@@ -22,7 +22,7 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				cmf.actions.components.mergeState('Container(List)', 'default', {
+				Connected.setStateAction({
 					searchQuery: data.payload.query,
 				}),
 			),
@@ -34,7 +34,7 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				cmf.actions.components.mergeState('Container(List)', 'default', {
+				Connected.setStateAction({
 					sortOn: data.payload.field,
 					sortAsc: !data.payload.isDescending,
 				}),

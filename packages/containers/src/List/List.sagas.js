@@ -1,31 +1,25 @@
-import cmf from '@talend/react-cmf';
 import { put, takeEvery, take } from 'redux-saga/effects';
+import Connected from './List.connect';
 import Constants from './List.constant';
 
 export function* onToggleFilter(data) {
-	yield put(
-		cmf.actions.components.mergeState('Container(List)', 'default', {
-			filterDocked: !data.payload.filterDocked,
-			searchQuery: '',
-		}),
-	);
+	yield put(Connected.setStateAction({
+		filterDocked: !data.payload.filterDocked,
+		searchQuery: '',
+	}));
 }
 
 export function* onFilterChange(data) {
-	yield put(
-		cmf.actions.components.mergeState('Container(List)', 'default', {
-			searchQuery: data.payload.query,
-		}),
-	);
+	yield put(Connected.setStateAction({
+		searchQuery: data.payload.query,
+	}));
 }
 
 export function* onChangeSortChange(data) {
-	yield put(
-		cmf.actions.components.mergeState('Container(List)', 'default', {
-			sortOn: data.payload.field,
-			sortAsc: !data.payload.isDescending,
-		}),
-	);
+	yield put(Connected.setStateAction({
+		sortOn: data.payload.field,
+		sortAsc: !data.payload.isDescending,
+	}));
 }
 
 function* defaultHandler() {
