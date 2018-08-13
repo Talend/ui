@@ -10,6 +10,7 @@ describe('CellTitle', () => {
 	it('should render title selector component', () => {
 		// given
 		const columnData = {
+			iconKey: 'icon',
 			id: 'my-title',
 			displayModeKey: 'displayMode',
 			onClick: jest.fn(),
@@ -36,11 +37,18 @@ describe('CellTitle', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('CellTitleSelector').props().className).toBe(
+			'theme-main-title theme-tc-main-title-active tc-main-title-active',
+		);
+		expect(wrapper.find('Icon').props().className).toBe(
+			'theme-icon theme-tc-main-title-icon-active tc-main-title-icon-active',
+		);
 	});
 
 	it('should render without active class if no onClick on the title', () => {
 		// given
 		const columnData = {
+			iconKey: 'icon',
 			id: 'my-title',
 			displayModeKey: 'displayMode',
 			onEditCancel: jest.fn(),
@@ -65,7 +73,8 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('CellTitleSelector').props().className).toBe('theme-main-title');
+		expect(wrapper.find('Icon').props().className).toBe('theme-icon');
 	});
 
 	describe('icon', () => {
@@ -74,29 +83,6 @@ describe('CellTitle', () => {
 			title: 'my awesome title',
 			icon: 'talend-file-o',
 		};
-
-		it('should render the icon', () => {
-			// given
-			const columnData = {
-				id: 'my-title',
-				iconKey: 'icon',
-			};
-
-			// when
-			const wrapper = shallow(
-				<CellTitle
-					cellData={'my awesome title'}
-					columnData={columnData}
-					getComponent={jest.fn()}
-					rowData={rowData}
-					rowIndex={1}
-					type={LARGE}
-				/>,
-			);
-
-			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
-		});
 
 		it('should NOT render the icon when no iconKey is provided', () => {
 			// given

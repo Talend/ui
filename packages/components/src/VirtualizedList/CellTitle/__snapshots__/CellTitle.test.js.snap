@@ -244,55 +244,15 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 </div>
 `;
 
-exports[`CellTitle icon should render the icon 1`] = `
-<div
-  className="tc-list-title theme-tc-list-title"
-  id="my-title-1-title-cell"
->
-  <Icon
-    className="theme-icon"
-    name="talend-file-o"
-  />
-  <CellTitleSelector
-    cellData="my awesome title"
-    className="theme-main-title"
-    columnData={Object {}}
-    displayMode="text"
-    id="my-title-1-title-cell"
-    onClick={undefined}
-    onEditCancel={undefined}
-    onEditSubmit={undefined}
-    rowData={
-      Object {
-        "icon": "talend-file-o",
-        "id": 1,
-        "title": "my awesome title",
-      }
-    }
-  />
-  <Translate(VirtualizedList(CellTitleActions))
-    actionsKey={undefined}
-    displayMode="text"
-    getComponent={[Function]}
-    id="my-title-1-title-actions"
-    persistentActionsKey={undefined}
-    rowData={
-      Object {
-        "icon": "talend-file-o",
-        "id": 1,
-        "title": "my awesome title",
-      }
-    }
-    type="LARGE"
-  />
-</div>
-`;
-
 exports[`CellTitle should render title selector component 1`] = `
 <div
   className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
+  <Icon
+    className="theme-icon theme-tc-main-title-icon-active tc-main-title-icon-active"
+    name="talend-file-o"
+  />
   <CellTitleSelector
     cellData="my awesome title"
     className="theme-main-title theme-tc-main-title-active tc-main-title-active"
@@ -335,6 +295,10 @@ exports[`CellTitle should render without active class if no onClick on the title
   className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
+  <Icon
+    className="theme-icon"
+    name="talend-file-o"
+  />
   <CellTitleSelector
     cellData="my awesome title"
     className="theme-main-title"
