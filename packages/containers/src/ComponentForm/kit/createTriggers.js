@@ -14,8 +14,6 @@
  *  limitations under the License.
  */
 /* eslint-disable no-param-reassign */
-
-import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
 
@@ -27,9 +25,8 @@ const DEFAULT_HEADERS = {
 	Accept: 'application/json',
 };
 
-function noOpTrigger({ error, trigger }) {
-	// eslint-disable-next-line no-console
-	console.error(`${JSON.stringify(trigger)} failed with error ${error || '-'}`);
+function passthroughTrigger({ body }) {
+	return body;
 }
 
 /**
@@ -141,7 +138,7 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 			}
 		}
 		function onSuccess(body) {
-			const result = (services[trigger.type] || noOpTrigger)({
+			const result = (services[trigger.type] || passthroughTrigger)({
 				body,
 				errors,
 				properties,
