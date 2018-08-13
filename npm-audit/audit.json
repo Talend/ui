@@ -138,9 +138,7 @@
       "findings": [
         {
           "version": "2.3.6",
-          "paths": [
-            "fontgen-loader>webfonts-generator>handlebars>uglify-js"
-          ],
+          "paths": ["fontgen-loader>webfonts-generator>handlebars>uglify-js"],
           "dev": false,
           "optional": true,
           "bundled": false
@@ -158,9 +156,7 @@
         "name": "Tom MacWright"
       },
       "module_name": "uglify-js",
-      "cves": [
-        "CVE-2015-8857"
-      ],
+      "cves": ["CVE-2015-8857"],
       "vulnerable_versions": "<= 2.4.23",
       "patched_versions": ">= 2.4.24",
       "overview": "Versions of `uglify-js` prior to 2.4.24 are affected by a vulnerability which may cause crafted JavaScript to have altered functionality after minification.\n\n",
@@ -180,9 +176,7 @@
       "findings": [
         {
           "version": "2.3.6",
-          "paths": [
-            "fontgen-loader>webfonts-generator>handlebars>uglify-js"
-          ],
+          "paths": ["fontgen-loader>webfonts-generator>handlebars>uglify-js"],
           "dev": false,
           "optional": true,
           "bundled": false
@@ -200,9 +194,7 @@
         "name": "Adam Baldwin"
       },
       "module_name": "uglify-js",
-      "cves": [
-        "CVE-2015-8858"
-      ],
+      "cves": ["CVE-2015-8858"],
       "vulnerable_versions": "<2.6.0",
       "patched_versions": ">=2.6.0",
       "overview": "Versions of `uglify-js` prior to 2.6.0 are affected by a regular expression denial of service vulnerability when malicious inputs are passed into the `parse()` method.\n\n\n### Proof of Concept\n\n```\nvar u = require('uglify-js');\nvar genstr = function (len, chr) {\n    var result = \"\";\n    for (i=0; i<=len; i++) {\n        result = result + chr;\n    }\n\n    return result;\n}\n\nu.parse(\"var a = \" + genstr(process.argv[2], \"1\") + \".1ee7;\");\n```\n\n### Results\n```\n$ time node test.js 10000\nreal\t0m1.091s\nuser\t0m1.047s\nsys\t0m0.039s\n\n$ time node test.js 80000\nreal\t0m6.486s\nuser\t0m6.229s\nsys\t0m0.094s\n```",
@@ -222,9 +214,7 @@
       "findings": [
         {
           "version": "2.0.0",
-          "paths": [
-            "fontgen-loader>webfonts-generator>handlebars"
-          ],
+          "paths": ["fontgen-loader>webfonts-generator>handlebars"],
           "dev": false,
           "optional": false,
           "bundled": false
@@ -242,9 +232,7 @@
         "name": "Matias P. Brutti"
       },
       "module_name": "handlebars",
-      "cves": [
-        "CVE-2015-8861"
-      ],
+      "cves": ["CVE-2015-8861"],
       "vulnerable_versions": "<4.0.0",
       "patched_versions": ">=4.0.0",
       "overview": "Versions of `handlebars` prior to 4.0.0 are affected by a cross-site scripting vulnerability when attributes in handlebar templates are not quoted.\n\n\n## Proof of Concept\nTemplate:\n```<a href={{foo}}/>```\n\nInput:\n```{ 'foo' : 'test.com onload=alert(1)'}```\n\nRendered result:\n```<a href=test.com onload=alert(1)/>```",
@@ -285,9 +273,7 @@
         "name": "Cristian-Alexandru Staicu"
       },
       "module_name": "parsejson",
-      "cves": [
-        "CVE-2017-16113"
-      ],
+      "cves": ["CVE-2017-16113"],
       "vulnerable_versions": "<=0.0.3",
       "patched_versions": "<0.0.0",
       "overview": "Affected versions of `parsejson` are vulnerable to a regular expression denial of service when parsing untrusted user input.",
@@ -345,9 +331,7 @@
         "name": "Cristian-Alexandru Staicu"
       },
       "module_name": "debug",
-      "cves": [
-        "CVE-2017-16137"
-      ],
+      "cves": ["CVE-2017-16137"],
       "vulnerable_versions": "<= 2.6.8 || >= 3.0.0 <= 3.0.1",
       "patched_versions": ">= 2.6.9 < 3.0.0 || >= 3.1.0",
       "overview": "Affected versions of `debug` are vulnerable to regular expression denial of service when untrusted user input is passed into the `o` formatter. \n\nAs it takes 50,000 characters to block the event loop for 2 seconds, this issue is a low severity issue.",
@@ -378,5 +362,5 @@
     "optionalDependencies": 743,
     "totalDependencies": 34514
   },
-  "runId": "bc427c56-0728-45b0-8560-e4b1d15a86db"
+  "runId": "9664524b-32f9-45b6-bee4-18e71894ecb8"
 }
