@@ -113,7 +113,6 @@ $tc-circle-editable-text-size: 16px !default;
 				display: flex;
 				border-radius: 50%;
 				padding: 0;
-				margin-left: $padding-large;
 				justify-content: center;
 				align-items: center;
 
@@ -124,11 +123,6 @@ $tc-circle-editable-text-size: 16px !default;
 
 				&:last-child {
 					margin-left: $padding-small;
-
-					> svg {
-						width: $tc-icon-editable-text-size;
-						height: $tc-icon-editable-text-size;
-					}
 				}
 			}
 

@@ -5,7 +5,6 @@ import { Action } from '../Actions';
 import theme from './EditableText.scss';
 import getDefaultT from '../translate';
 
-function noop() {}
 
 class InlineForm extends React.Component {
 	static propTypes = {
@@ -107,7 +106,6 @@ class InlineForm extends React.Component {
 						name="action-submit-title"
 						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
 						icon="talend-check"
-						onClick={noop}
 						bsStyle="link"
 						className={classNames(
 							theme['tc-editable-text-form-buttons-icon'],
