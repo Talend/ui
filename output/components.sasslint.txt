@@ -7,8 +7,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/VirtualizedList/CellTitle/CellTitle.scss
-  12:15  error  Quotes around URLs are required  url-quotes
-
-✖ 3 problems (1 error, 2 warnings)
+✖ 2 problems (0 errors, 2 warnings)
 
