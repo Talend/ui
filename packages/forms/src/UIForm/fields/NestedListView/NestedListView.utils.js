@@ -12,14 +12,8 @@ export function getItemsProps(items, value, searchCriteria, toggledChildren) {
 
 		// Filter children items if search criteria has been provided
 		const children = searchCriteria
-<<<<<<< HEAD
 			? item.children
 				.filter(child => child.label.toLowerCase().includes(searchCriteria.toLowerCase()))
-=======
-			? item.children.filter(child =>
-					child.label.toLowerCase().includes(searchCriteria.toLowerCase()),
-			  )
->>>>>>> d5c19808d0118e242e992296c591652e66bd6c35
 			: item.children;
 
 		if (children.length > 0) {
