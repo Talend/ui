@@ -5,7 +5,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
   className="col-lg-offset-2 col-lg-8"
 >
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -33,20 +33,24 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div>

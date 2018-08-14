@@ -3,7 +3,7 @@
 exports[`Storyshots HeaderBar barebone 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -297,20 +297,24 @@ exports[`Storyshots HeaderBar barebone 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -337,7 +341,7 @@ exports[`Storyshots HeaderBar barebone 1`] = `
 exports[`Storyshots HeaderBar default 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -631,20 +635,24 @@ exports[`Storyshots HeaderBar default 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -970,7 +978,7 @@ exports[`Storyshots HeaderBar default 1`] = `
 exports[`Storyshots HeaderBar while searching 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -1264,20 +1272,24 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -1654,7 +1666,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
 exports[`Storyshots HeaderBar with environment dropdown 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -1948,20 +1960,24 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -2352,7 +2368,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
 exports[`Storyshots HeaderBar with full logo 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -2646,20 +2662,24 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -2985,7 +3005,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
 exports[`Storyshots HeaderBar with help split dropdown 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -3279,20 +3299,24 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -3618,7 +3642,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
 exports[`Storyshots HeaderBar with no search result 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -3912,20 +3936,24 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -4280,7 +4308,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
 exports[`Storyshots HeaderBar with read notifications 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -4574,20 +4602,24 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -4941,7 +4973,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
 exports[`Storyshots HeaderBar with search input 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -5235,20 +5267,24 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -5597,7 +5633,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
 exports[`Storyshots HeaderBar with search results 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -5891,20 +5927,24 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -6592,7 +6632,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
 exports[`Storyshots HeaderBar with unread notifications 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -6886,20 +6926,24 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -7253,7 +7297,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
 exports[`Storyshots HeaderBar without products 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -7547,20 +7591,24 @@ exports[`Storyshots HeaderBar without products 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -7781,7 +7829,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
 exports[`Storyshots HeaderBar without user and with information 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -8075,20 +8123,24 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -8437,7 +8489,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
 exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -8731,20 +8783,24 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -9082,7 +9138,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
 exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -9376,20 +9432,24 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -9727,7 +9787,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
 exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -10021,20 +10081,24 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -10372,7 +10436,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
 exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -10666,20 +10730,24 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -11017,7 +11085,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
 exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -11311,20 +11379,24 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -11662,7 +11734,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
 exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -11956,20 +12028,24 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -12307,7 +12383,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
 exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
 <div>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -12601,20 +12677,24 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div

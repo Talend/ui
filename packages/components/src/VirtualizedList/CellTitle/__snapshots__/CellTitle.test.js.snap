@@ -250,12 +250,12 @@ exports[`CellTitle should render title selector component 1`] = `
   id="my-title-1-title-cell"
 >
   <Icon
-    className="theme-icon theme-tc-main-title-icon-active tc-main-title-icon-active"
+    className="theme-icon theme-tc-main-title-icon-clickable tc-main-title-icon-clickable"
     name="talend-file-o"
   />
   <CellTitleSelector
     cellData="my awesome title"
-    className="theme-main-title theme-tc-main-title-active tc-main-title-active"
+    className="theme-main-title theme-tc-main-title-clickable tc-main-title-clickable"
     columnData={Object {}}
     displayMode="text"
     id="my-title-1-title-cell"

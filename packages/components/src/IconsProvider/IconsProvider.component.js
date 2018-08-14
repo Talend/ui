@@ -25,7 +25,11 @@ function IconsProvider({ defaultIcons, icons }) {
 					{iconset[id]}
 				</symbol>
 			))}
-			{Object.keys(filters).map((id, index) => addKeyValue(filters[id], index))}
+			{Object.keys(filters).map((id, index) => (
+				<svg key={`svg-filter-${index}`} id={id}>
+					{filters[id]}
+				</svg>
+			))}
 		</svg>
 	);
 }

@@ -35,10 +35,10 @@ describe('CellTitle', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find('CellTitleSelector').props().className).toBe(
-			'theme-main-title theme-tc-main-title-active tc-main-title-active',
+			'theme-main-title theme-tc-main-title-clickable tc-main-title-clickable',
 		);
 		expect(wrapper.find('Icon').props().className).toBe(
-			'theme-icon theme-tc-main-title-icon-active tc-main-title-icon-active',
+			'theme-icon theme-tc-main-title-icon-clickable tc-main-title-icon-clickable',
 		);
 	});
 

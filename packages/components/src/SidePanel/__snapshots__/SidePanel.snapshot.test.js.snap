@@ -41,7 +41,7 @@ exports[`Storyshots SidePanel default 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -117,20 +117,24 @@ exports[`Storyshots SidePanel default 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -313,7 +317,7 @@ exports[`Storyshots SidePanel docked 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -389,20 +393,24 @@ exports[`Storyshots SidePanel docked 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -585,7 +593,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -661,20 +669,24 @@ exports[`Storyshots SidePanel large docked 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -857,7 +869,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -933,20 +945,24 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -1129,7 +1145,7 @@ exports[`Storyshots SidePanel links 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -1205,20 +1221,24 @@ exports[`Storyshots SidePanel links 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -1401,7 +1421,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -1477,20 +1497,24 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -1642,7 +1666,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -1718,20 +1742,24 @@ exports[`Storyshots SidePanel reverse 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <nav
@@ -1914,7 +1942,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -1990,20 +2018,24 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -2554,7 +2586,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -2630,20 +2662,24 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -3194,7 +3230,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -3270,20 +3306,24 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -3479,7 +3519,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -3555,20 +3595,24 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -3764,7 +3808,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -3840,20 +3884,24 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -4049,7 +4097,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -4125,20 +4173,24 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -4334,7 +4386,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -4410,20 +4462,24 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -4619,7 +4675,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -4695,20 +4751,24 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
@@ -4904,7 +4964,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
-    className="theme-hide"
+    className="sr-only"
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -4980,20 +5040,24 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
-    <svg>
-      <defs>
-        <filter
-          id="talend-grayscale"
-        >
-          <feColorMatrix
-            type="saturate"
-            values="0"
-          />
-          <feColorMatrix
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
-          />
-        </filter>
-      </defs>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+            />
+          </filter>
+        </defs>
+      </svg>
     </svg>
   </svg>
   <div
