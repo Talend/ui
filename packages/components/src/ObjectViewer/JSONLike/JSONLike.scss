@@ -1,68 +1,21 @@
 // JSONLike styles
 .container {
 	display: block;
+	font-size: 1.4rem;
+
+	li {
+		list-style-type: none;
+	}
 
 	svg {
 		margin-right: $caret-width-large;
 	}
 
-	li {
-		list-style-type: none;
-		font-size: 1rem;
-	}
-
 	button {
-		font-size: 1.4rem;
 		background: transparent;
 		border: none;
 		padding: 0;
-	}
-
-	button > sup {
-		top: -1;
-		margin-left: 15px;
-	}
-
-	.link {
-		cursor: pointer;
-	}
-
-	.opened {
-		color: red;
-	}
-
-	.wider-icon-selection {
-		display: inline-flex;
-		width: 9px;
-		height: 9px;
-		color: $scooter;
-		padding: 0;
-		font-size: 1rem;
-	}
-
-	:global(.btn) {
-		text-transform: none;
-	}
-
-	.name:after {
-		content: ':  ';
-	}
-
-	sup {
-		top: $object-viewer-badge-offset;
-		height: 9px;
-		width: 9px;
-		background-color: rgba($brand-primary, 0.3);
-		color: $brand-primary;
-		font-size: 10px;
-		padding: 2px 5px;
-		display: inline-table;
-		margin-left: 10px;
-		vertical-align: text-bottom;
-	}
-
-	sup::before {
-		margin-right: 15px;
+		text-align: left;
 	}
 
 	.root-label-overflow {
@@ -78,35 +31,116 @@
 	}
 
 	.line {
+		display: flex;
+		flex-wrap: wrap;
+
+		.icon {
+			flex: 0 0 2rem;
+
+			width: 0.9rem;
+			height: 0.9rem;
+			color: $scooter;
+		}
+
+		.line-main {
+			flex: 1;
+			user-select: text;
+		}
+
+		.complex-item {
+			flex: 1 1 100%;
+			border-left: solid 1px $alto;
+			margin-left: $padding-smaller;
+		}
+
+		.key {
+			padding-left: $padding-smaller;
+			//display: inline;
+			color: $dove-gray;
+		}
+
+		.value {
+			max-width: calc(100% - 6em);
+			color: $brand-primary;
+			vertical-align: bottom;
+			border: none;
+			background: none;
+			padding: 0;
+			cursor: text;
+			margin-left: $padding-smaller;
+			display: inline-block;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+
+			&:hover {
+				white-space: normal;
+				word-break: break-all;
+				overflow: visible;
+				vertical-align: top;
+			}
+		}
+
+		.type {
+			font-family: 'Inconsolata';
+			font-size: 1.2rem;
+			color: $dark-silver;
+			opacity: 0.75;
+			display: inline;
+			margin-right: $padding-normal;
+			margin-left: $padding-smaller;
+			vertical-align: text-bottom;
+		}
+
+		.badge {
+			top: -1px;
+			margin-left: $padding-small;
+			background-color: rgba($brand-primary, 0.3);
+			color: $brand-primary;
+			font-size: 1rem;
+			padding: $padding-smaller/2 $padding-smaller;
+			display: inline-table;
+			//vertical-align: text-bottom;
+		}
+	}
+
+/*
+	button > sup {
+		top: -1;
+		margin-left: 15px;
+	}
+
+	.link {
+		cursor: pointer;
+	}
+
+	.opened {
+		color: red;
+	}
+
+	:global(.btn) {
+		text-transform: none;
+	}
+
+
+	sup::before {
+		margin-right: 15px;
+	}
+
+
+
+
+
+	.line {
 		font-size: 14px;
-	}
+		display: flex;
 
-	.line-key {
-		padding-left: 5px;
-		display: inline;
-		color: $dove-gray;
-	}
-
-	.line-value {
-		max-width: calc(100% - 6em);
-		color: $brand-primary;
-		vertical-align: bottom;
-		border: none;
-		background: none;
-		padding: 0;
-		cursor: text;
-		margin-left: 4px;
-		display: inline-block;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-
-	.line-value:hover {
-		white-space: normal;
-		word-break: break-all;
-		overflow: visible;
-		vertical-align: top;
+		> button {
+			width: 100%;
+			cursor: text;
+			text-align: left;
+			user-select: text;
+		}
 	}
 
 	.line-type {
@@ -124,8 +158,5 @@
 		cursor: default;
 	}
 
-	.vertical-line {
-		border-left: solid 1px $alto;
-		margin-left: 4px;
-	}
+	*/
 }
