@@ -18,8 +18,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
-  21:1   error  Line 21 exceeds the maximum line length of 100  max-len
-  39:54  error  'onSelect' is defined but never used            no-unused-vars
+  21:1   error  Line 21 exceeds the maximum line length of 100             max-len
+  33:10  error  'stopAndSelectWithEnterOrSpace' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/RichTooltip/RichTooltip.test.js
   3:23  error  'RichTooltipContent' is defined but never used  no-unused-vars
