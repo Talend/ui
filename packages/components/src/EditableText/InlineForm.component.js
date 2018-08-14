@@ -5,8 +5,6 @@ import { Action } from '../Actions';
 import theme from './EditableText.scss';
 import getDefaultT from '../translate';
 
-function noop() {}
-
 class InlineForm extends React.Component {
 	static propTypes = {
 		text: PropTypes.string.isRequired,
@@ -89,20 +87,6 @@ class InlineForm extends React.Component {
 					)}
 				>
 					<Action
-						type="submit"
-						name="action-submit-title"
-						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
-						icon="talend-check"
-						onClick={noop}
-						bsStyle="link"
-						className={classNames(
-							theme['tc-editable-text-form-buttons-icon'],
-							'tc-editable-text-form-buttons-icon',
-						)}
-						disabled={notFilled}
-						hideLabel
-					/>
-					<Action
 						name="action-cancel-title"
 						label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
 						icon="talend-cross"
@@ -111,7 +95,24 @@ class InlineForm extends React.Component {
 						className={classNames(
 							theme['tc-editable-text-form-buttons-icon'],
 							'tc-editable-text-form-buttons-icon',
+							theme['tc-editable-text-form-buttons-cancel'],
+							'tc-editable-text-form-buttons-cancel',
 						)}
+						hideLabel
+					/>
+					<Action
+						type="submit"
+						name="action-submit-title"
+						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
+						icon="talend-check"
+						bsStyle="link"
+						className={classNames(
+							theme['tc-editable-text-form-buttons-icon'],
+							'tc-editable-text-form-buttons-icon',
+							theme['tc-editable-text-form-buttons-submit'],
+							'tc-editable-text-form-buttons-submit',
+						)}
+						disabled={notFilled}
 						hideLabel
 					/>
 				</div>
