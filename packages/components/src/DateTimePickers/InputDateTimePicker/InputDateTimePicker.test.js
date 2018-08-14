@@ -785,7 +785,7 @@ describe('InputDateTimePicker', () => {
 				expect(overlayWrapperAfter.prop('show')).toBe(false);
 			},
 			[
-				{ name: 'focus event', eventToCheck: 'focus' },
+				{ name: 'focusin event', eventToCheck: 'focusin' },
 				{ name: 'click event', eventToCheck: 'click' },
 			],
 		);
@@ -817,7 +817,7 @@ describe('InputDateTimePicker', () => {
 				expect(overlayWrapperAfter.prop('show')).toBe(true);
 			},
 			[
-				{ name: 'focus event', eventToCheck: 'focus' },
+				{ name: 'focusin event', eventToCheck: 'focusin' },
 				{ name: 'click event', eventToCheck: 'click' },
 			],
 		);

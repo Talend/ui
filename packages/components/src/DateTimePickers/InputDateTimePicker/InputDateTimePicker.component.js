@@ -232,22 +232,22 @@ class InputDateTimePicker extends React.Component {
 
 	mountDocumentHandler() {
 		document.addEventListener('click', this.documentHandler);
-		document.addEventListener('focus', this.documentHandler);
+		document.addEventListener('focusin', this.documentHandler);
 	}
 
 	unmountDocumentHandler() {
 		document.removeEventListener('click', this.documentHandler);
-		document.removeEventListener('focus', this.documentHandler);
+		document.removeEventListener('focusin', this.documentHandler);
 	}
 
 	mountComponentContainerHandler() {
 		this.containerRef.addEventListener('click', this.componentContainerHandler);
-		this.containerRef.addEventListener('focus', this.componentContainerHandler);
+		this.containerRef.addEventListener('focusin', this.componentContainerHandler);
 	}
 
 	unmountComponentContainerHandler() {
 		this.containerRef.removeEventListener('click', this.componentContainerHandler);
-		this.containerRef.removeEventListener('focus', this.componentContainerHandler);
+		this.containerRef.removeEventListener('focusin', this.componentContainerHandler);
 	}
 
 	documentHandler(e) {
