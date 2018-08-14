@@ -17,8 +17,7 @@ export function getItemsProps(items, value, searchCriteria, toggledChildren) {
 			: children;
 
 		if (finalChildren.length > 0) {
-			const checked =
-				item.key in value && children.some(child => itemValue.includes(child.value));
+			const checked = item.key in value && children.some(child => itemValue.includes(child.value));
 
 			finalItems.push({
 				...item,
