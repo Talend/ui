@@ -8,24 +8,23 @@
  */
 export function getItemsProps(items, value, searchCriteria, toggledChildren) {
 	const displayedItems = items.reduce((finalItems, item) => {
+		const { children } = item;
 		const itemValue = value[item.key] || [];
 
 		// Filter children items if search criteria has been provided
-		const children = searchCriteria
-			? item.children.filter(child =>
-					child.label.toLowerCase().includes(searchCriteria.toLowerCase()),
-			  )
-			: item.children;
+		const finalChildren = searchCriteria
+			? children.filter(({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase()))
+			: children;
 
-		if (children.length > 0) {
+		if (finalChildren.length > 0) {
 			const checked =
-				item.key in value && item.children.some(child => itemValue.includes(child.value));
+				item.key in value && children.some(child => itemValue.includes(child.value));
 
 			finalItems.push({
 				...item,
 				checked,
 				expanded: toggledChildren.includes(item.toggleId),
-				children: children.map(child => ({
+				children: finalChildren.map(child => ({
 					...child,
 					checked: itemValue.includes(child.value),
 				})),
