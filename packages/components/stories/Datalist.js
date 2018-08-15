@@ -18,6 +18,7 @@ const propsMultiSection = {
 	],
 	onFinish: action('onFinish'),
 	onChange: action('onChange'),
+	onTokenChange: action('onTokenChange'),
 };
 
 const singleSectionProps = {
@@ -33,6 +34,7 @@ const singleSectionProps = {
 	],
 	onFinish: action('onFinish'),
 	onChange: action('onChange'),
+	onTokenChange: action('onTokenChange'),
 };
 
 storiesOf('Datalist', module)
