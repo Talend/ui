@@ -51,7 +51,7 @@ class Datalist extends Component {
 			};
 		}
 
-		return schema
+		return schema;
 	}
 
 	/**

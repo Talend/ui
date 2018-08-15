@@ -536,7 +536,7 @@ describe('Datalist component', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('change', { target: { value: 'foob' }});
+		input.simulate('change', { target: { value: 'foob' } });
 
 		// then
 		expect(onLiveChange).toBeCalledWith(expect.anything(), { value: 'foob' });

@@ -41,8 +41,6 @@ describe('Datalist component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-
-
 	describe('onLiveChange', () => {
 		it('should call triggers onLiveChange', () => {
 			// given
@@ -55,23 +53,25 @@ describe('Datalist component', () => {
 				schema: {
 					type: 'string',
 				},
-				triggers: [
-					trigger,
-				],
+				triggers: [trigger],
 			};
 			const onTrigger = jest.fn();
-			const input = mount(<Datalist
-				onChange={jest.fn()}
-				onTrigger={(e, p) => {
-					onTrigger(e, p); // ensure we capture it
-					return new Promise((resolve, reject) => resolve({}));
-				}}
-				onFinish={jest.fn()}
-				schema={schema}
-			/>).find('input').at(0);
+			const input = mount(
+				<Datalist
+					onChange={jest.fn()}
+					onTrigger={(e, p) => {
+						onTrigger(e, p); // ensure we capture it
+						return new Promise((resolve, reject) => resolve({}));
+					}}
+					onFinish={jest.fn()}
+					schema={schema}
+				/>,
+			)
+				.find('input')
+				.at(0);
 
 			// when
-			input.simulate('change', { target: { value: 'x' }});
+			input.simulate('change', { target: { value: 'x' } });
 
 			// then
 			expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
