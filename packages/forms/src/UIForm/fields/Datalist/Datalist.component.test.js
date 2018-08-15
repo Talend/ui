@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Datalist from './Datalist.component';
 
 const schema = {
@@ -39,6 +39,47 @@ describe('Datalist component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	describe('onLiveChange', () => {
+		it('should call triggers onLiveChange', () => {
+			// given
+			const onEvent = 'change';
+			const trigger = {
+				onEvent,
+			};
+			const schema = {
+				type: 'string',
+				schema: {
+					type: 'string',
+				},
+				triggers: [trigger],
+			};
+			const onTrigger = jest.fn();
+			const input = mount(
+				<Datalist
+					onChange={jest.fn()}
+					onTrigger={(e, p) => {
+						onTrigger(e, p); // ensure we capture it
+						return new Promise((resolve, reject) => resolve({}));
+					}}
+					onFinish={jest.fn()}
+					schema={schema}
+				/>,
+			)
+				.find('input')
+				.at(0);
+
+			// when
+			input.simulate('change', { target: { value: 'x' } });
+
+			// then
+			expect(onTrigger).toHaveBeenCalledWith(expect.anything(), {
+				schema,
+				trigger,
+				properties: 'x', // no form so it ends up like that
+			});
+		});
 	});
 
 	describe('onChange', () => {

@@ -7,6 +7,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:updateSnapshot": "jest --updateSnapshot",
     "test:slimerjs": "slimerjs stories/slimer.js",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",

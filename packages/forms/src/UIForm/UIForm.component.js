@@ -31,6 +31,7 @@ export class UIFormComponent extends React.Component {
 		this.state = state;
 
 		this.onChange = this.onChange.bind(this);
+		this.onLiveChange = this.onLiveChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
@@ -90,6 +91,23 @@ export class UIFormComponent extends React.Component {
 			oldProperties: this.props.properties,
 			properties: newProperties,
 			formData: newProperties,
+		});
+	}
+
+	/**
+	 * Fire onLiveChange callback while interacting with form fields
+	 * @param event The event that triggered the callback
+	 * @param schema The payload field schema
+	 * @param value The payload new value, it contains the schema, value and properties.
+	 */
+	onLiveChange(event, { schema, value }) {
+		if (!this.props.onLiveChange) {
+			return;
+		}
+		this.props.onLiveChange(event, {
+			schema,
+			value,
+			properties: this.props.properties,
 		});
 	}
 
@@ -332,6 +350,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
+		onLiveChange: PropTypes.func,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		getComponent: PropTypes.func,
