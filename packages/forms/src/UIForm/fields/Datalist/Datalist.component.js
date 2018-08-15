@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
+import { mutateValue } from '../../utils/properties';
 import FieldTemplate from '../FieldTemplate';
 
 export function escapeRegexCharacters(str) {
@@ -25,6 +26,7 @@ class Datalist extends Component {
 		super(props);
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
+		this.onLiveChange = this.onLiveChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 	}
@@ -32,6 +34,26 @@ class Datalist extends Component {
 	componentDidMount() {
 		this.callTrigger({ type: 'didMount' });
 	}
+
+	getSchema() {
+		const schema = this.props.schema;
+
+		// with the possibility to have async suggestions, on restricted values inputs
+		// the validation doesn't have the enum list as it is not in the jsonSchema
+		// so we rebuild it with current titleMap from async call
+		if (schema.restricted && !schema.schema.enum) {
+			return {
+				...schema,
+				schema: {
+					...schema.schema,
+					enum: this.getTitleMap().map(entry => entry.value),
+				},
+			};
+		}
+
+		return schema
+	}
+
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on datalist item selection
@@ -39,22 +61,9 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(event, payload) {
-		let mergedSchema = this.props.schema;
+		const schema = this.getSchema();
 
-		// with the possibility to have async suggestions, on restricted values inputs
-		// the validation doesn't have the enum list as it is not in the jsonSchema
-		// so we rebuild it with current titleMap from async call
-		if (mergedSchema.restricted && !mergedSchema.schema.enum) {
-			mergedSchema = {
-				...mergedSchema,
-				schema: {
-					...mergedSchema.schema,
-					enum: this.getTitleMap().map(entry => entry.value),
-				},
-			};
-		}
-
-		const payloadWithSchema = { ...payload, schema: mergedSchema };
+		const payloadWithSchema = { ...payload, schema };
 		this.callTrigger(event);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
@@ -80,7 +89,12 @@ class Datalist extends Component {
 		return titleMap;
 	}
 
-	callTrigger(event) {
+	onLiveChange(event, payload) {
+		const properties = mutateValue(this.props.properties, this.props.schema, payload.value);
+		this.callTrigger(event, { properties });
+	}
+
+	callTrigger(event, triggerOverrides = {}) {
 		const trigger =
 			this.props.schema.triggers && this.props.schema.triggers.find(t => t.onEvent === event.type);
 		if (!trigger) {
@@ -102,6 +116,7 @@ class Datalist extends Component {
 				schema: this.props.schema,
 				errors: this.props.errors,
 				properties: this.props.properties,
+				...triggerOverrides,
 			})
 			.then(onResponse, onError);
 	}
@@ -124,6 +139,7 @@ class Datalist extends Component {
 					disabled={this.props.schema.disabled || false}
 					multiSection={false}
 					onChange={this.onChange}
+					onLiveChange={this.onLiveChange}
 					onFocus={this.callTrigger}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}

@@ -16,6 +16,7 @@ exports[`Datalist component should render 1`] = `
     multiSection={false}
     onChange={[Function]}
     onFocus={[Function]}
+    onLiveChange={[Function]}
     placeholder="Type here"
     readOnly={false}
     restricted={false}

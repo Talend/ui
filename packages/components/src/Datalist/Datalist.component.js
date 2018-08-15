@@ -18,6 +18,7 @@ class Datalist extends Component {
 		super(props);
 		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onLiveChange = this.onLiveChange.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
@@ -77,6 +78,20 @@ class Datalist extends Component {
 		this.updateValue(event, value, false);
 		// resetting selection here in order to reinit the section + item indexes
 		this.resetSelection();
+	}
+
+	/**
+	 * Update value (non persistent) on input value change and update the suggestions.
+	 * Compare to onChange, it is systematically triggered but only for temporary
+	 * values, i.e. the final value will go through onChange and not onLiveChange.
+	 *
+	 * @param event the change event
+	 * @param payload the event data, it contains <em>value</em>.
+	 */
+	onLiveChange(event, payload) {
+		if (this.props.onLiveChange) {
+			this.props.onLiveChange(event, payload);
+		}
 	}
 
 	/**
@@ -155,6 +170,9 @@ class Datalist extends Component {
 				});
 				break;
 			default:
+				if (!event.ctrlKey && !event.metaKey && !event.altKey && event.which != 8) {
+					this.onLiveChange(event, { value: this.state.value + (event.key || '') });
+				}
 				break;
 		}
 	}
@@ -273,6 +291,8 @@ class Datalist extends Component {
 			} else {
 				this.resetValue();
 			}
+		} else {
+			this.onLiveChange(event, { value });
 		}
 	}
 
@@ -382,6 +402,7 @@ Datalist.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
 		onChange: PropTypes.func.isRequired,
+		onLiveChange: PropTypes.func,
 		onFocus: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,

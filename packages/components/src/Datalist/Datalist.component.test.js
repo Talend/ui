@@ -521,4 +521,25 @@ describe('Datalist component', () => {
 		expect(instance.updateSuggestions).toHaveBeenCalled();
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
+
+	it('should call onLiveChange for temporary values', () => {
+		// given
+		const onLiveChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				multiSection={false}
+				onChange={jest.fn()}
+				onLiveChange={onLiveChange}
+				value={'foo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+
+		// when
+		input.simulate('change', { target: { value: 'foob' }});
+
+		// then
+		expect(onLiveChange).toBeCalledWith(expect.anything(), { value: 'foob' });
+		expect(wrapper.props().value).toBe('foo');
+	});
 });
