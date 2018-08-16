@@ -45,12 +45,14 @@
 		.line-main {
 			flex: 1;
 			user-select: text;
+			width: 100%;
 		}
 
 		.complex-item {
 			flex: 1 1 100%;
 			border-left: solid 1px $alto;
 			margin-left: $padding-smaller;
+			width: 100%;
 		}
 
 		.key {
