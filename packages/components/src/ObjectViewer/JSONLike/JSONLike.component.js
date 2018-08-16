@@ -3,11 +3,12 @@ import React from 'react';
 import invariant from 'invariant';
 import { isObject } from 'lodash';
 import classNames from 'classnames';
-import keycode from 'keycode';
+import { translate } from 'react-i18next';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.scss';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 function noop() {}
 
@@ -30,12 +31,6 @@ function stopAndSelect(event, { onSelect, jsonpath }) {
 	onSelect(event, jsonpath);
 }
 
-function stopAndSelectWithEnterOrSpace(event, { onSelect, jsonpath }) {
-	if (keycode(event) === 'enter' || keycode(event) === 'space') {
-		stopAndSelect(event, { onSelect, jsonpath });
-	}
-}
-
 export function NativeValue({ data, edit, className, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
@@ -51,18 +46,6 @@ export function NativeValue({ data, edit, className, onChange, jsonpath }) {
 	}
 
 	const lineValueClasses = classNames(className, theme.native, theme[type]);
-	//
-	// return (
-	// 	<span
-	// 		className={lineValueClasses}
-	// 		role="button"
-	// 		tabIndex="0"
-	// 		onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
-	// 		onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-	// 	>
-	// 		{display}
-	// 	</span>
-	// );
 
 	return <span className={lineValueClasses}>{display}</span>;
 }
@@ -110,26 +93,44 @@ export function LineItem({
 	icon,
 	type,
 	value,
+	t,
 }) {
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
 	const lineMainClassNames = classNames(theme['line-main'], {
 		[theme['selected-line']]: isSelectedLine,
 	});
 
-	return (
-		<span className={theme.line}>
-			{icon}
+	const lineChildren = [
+		getName(name),
+		value,
+		type && <div className={`tc-object-viewer-line-type ${theme.type}`}>({type})</div>,
+		badge,
+		tag,
+	];
+
+	let line;
+	if (onSelect) {
+		line = [
+			<span id={jsonpath} className="sr-only">
+				{t('OBJECT_VIEWER_SELECT_LINE', { defaultValue: 'To select this line press ENTER' })}
+			</span>,
 			<button
 				className={lineMainClassNames}
 				type="button"
 				onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+				aria-describedby={jsonpath}
 			>
-				{getName(name)}
-				{value}
-				{type && <div className={`tc-object-viewer-line-type ${theme.type}`}>({type})</div>}
-				{badge}
-				{tag}
-			</button>
+				{lineChildren}
+			</button>,
+		];
+	} else {
+		line = <div className={lineMainClassNames}>{lineChildren}</div>;
+	}
+
+	return (
+		<span className={theme.line}>
+			{icon}
+			{line}
 			{children}
 		</span>
 	);
@@ -146,6 +147,7 @@ LineItem.propTypes = {
 	icon: PropTypes.node,
 	type: PropTypes.string,
 	value: PropTypes.node,
+	t: PropTypes.func.isRequired,
 };
 
 /**
@@ -235,6 +237,19 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
+function getIconLabel(isOpened, itemName, t) {
+	if (isOpened) {
+		return t('OBJECT_VIEWER_COLLAPSE', {
+			defaultValue: "Hide the {{itemName}} item's content",
+			itemName,
+		});
+	}
+	return t('OBJECT_VIEWER_EXPAND', {
+		defaultValue: "Show the {{itemName}} item's content",
+		itemName,
+	});
+}
+
 export function ComplexItem({
 	data,
 	name,
@@ -269,6 +284,8 @@ export function ComplexItem({
 						e.stopPropagation();
 						props.onToggle(e, { data, isOpened, jsonpath });
 					}}
+					aria-hidden={false}
+					aria-label={getIconLabel(isOpened, name, props.t)}
 				/>
 			}
 			badge={
@@ -278,6 +295,7 @@ export function ComplexItem({
 			}
 			tag={tag}
 			type={props.showType ? info.type : null}
+			t={props.t}
 		>
 			{isOpened ? (
 				<ul className={theme['complex-item']}>
@@ -328,6 +346,7 @@ ComplexItem.propTypes = {
 		keys: PropTypes.array,
 		length: PropTypes.number,
 	}).isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 export function Item({ data, name, opened, edited, tagged, jsonpath, ...props }) {
@@ -345,6 +364,7 @@ export function Item({ data, name, opened, edited, tagged, jsonpath, ...props })
 				onSelect={props.onSelect}
 				jsonpath={jsonpath}
 				selectedJsonpath={props.selectedJsonpath}
+				t={props.t}
 			/>
 		);
 	}
@@ -371,6 +391,7 @@ export function Item({ data, name, opened, edited, tagged, jsonpath, ...props })
 				}
 				type={props.showType ? info.type : null}
 				tag={tag}
+				t={props.t}
 			/>
 		);
 	}
@@ -415,6 +436,7 @@ Item.propTypes = {
 	onChange: PropTypes.func,
 	nativeValueClassName: PropTypes.string,
 	showType: PropTypes.bool,
+	t: PropTypes.func.isRequired,
 };
 
 Item.defaultProps = {
@@ -483,4 +505,4 @@ JSONLike.propTypes = {
 	tupleLabel: PropTypes.string,
 };
 
-export default JSONLike;
+export default translate(I18N_DOMAIN_COMPONENTS)(JSONLike);

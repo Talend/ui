@@ -46,6 +46,16 @@
 			flex: 1;
 			user-select: text;
 			width: 100%;
+
+			&:focus,
+			&:hover {
+				.value {
+					white-space: normal;
+					word-break: break-all;
+					overflow: visible;
+					vertical-align: top;
+				}
+			}
 		}
 
 		.complex-item {
@@ -74,13 +84,6 @@
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-
-			&:hover {
-				white-space: normal;
-				word-break: break-all;
-				overflow: visible;
-				vertical-align: top;
-			}
 		}
 
 		.type {
