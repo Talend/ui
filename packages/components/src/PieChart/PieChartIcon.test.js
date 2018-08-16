@@ -44,6 +44,18 @@ describe('PieChart', () => {
 			const wrapper = shallow(<PieChartIconComponent display="small" model={pieChartData} />);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
+		it('should spread extra props on svg', () => {
+			// given
+			const ariaLabel = 'Invalid values: 50%. Empty values: 14%. Valid values: 36%';
+
+			// when
+			const wrapper = shallow(
+				<PieChartIconComponent model={pieChartData} aria-label={ariaLabel} />,
+			);
+
+			// then
+			expect(wrapper.find('svg').prop('aria-label')).toBe(ariaLabel);
+		});
 	});
 
 	describe('getCircle', () => {
