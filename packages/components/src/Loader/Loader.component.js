@@ -11,7 +11,7 @@ function Loader({ id, className, size = SIZE.default }) {
 	const loaderClassNames = classNames('tc-loader', theme['tc-loader'], className);
 
 	return (
-		<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
+		<div id={id} className={loaderClassNames}>
 			<CircularProgress size={size} />
 		</div>
 	);
