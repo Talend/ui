@@ -524,9 +524,9 @@ describe('Datalist component', () => {
 
 	it('should call onTokenChange when user type in the input', () => {
 		// given
-		const onTokenChange = jest.fn();
+		const onLiveChange = jest.fn();
 		const wrapper = mount(
-			<Datalist id="my-datalist" isValid onTokenChange={onTokenChange} {...props} />,
+			<Datalist id="my-datalist" isValid onLiveChange={onLiveChange} {...props} />,
 		);
 		const event = { target: { value: 'fo' } };
 
@@ -535,6 +535,6 @@ describe('Datalist component', () => {
 		input.simulate('change', event);
 
 		// then
-		expect(onTokenChange).toBeCalledWith(expect.anything(), 'fo');
+		expect(onLiveChange).toBeCalledWith(expect.anything(), 'fo');
 	});
 });

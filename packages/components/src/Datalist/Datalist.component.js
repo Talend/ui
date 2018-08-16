@@ -77,10 +77,6 @@ class Datalist extends Component {
 		this.updateValue(event, value, false);
 		// resetting selection here in order to reinit the section + item indexes
 		this.resetSelection();
-
-		if (this.props.onTokenChange) {
-			this.props.onTokenChange(event, value);
-		}
 	}
 
 	/**
@@ -277,6 +273,8 @@ class Datalist extends Component {
 			} else {
 				this.resetValue();
 			}
+		} else if (this.props.onLiveChange) {
+			this.props.onLiveChange(event, value);
 		}
 	}
 
@@ -387,7 +385,7 @@ if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
-		onTokenChange: PropTypes.func,
+		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
 		readOnly: PropTypes.bool,
