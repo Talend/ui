@@ -2,10 +2,7 @@ import get from 'lodash/get';
 import { List } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
-import {
-	configureGetPagination,
-	configureGetPagedItems,
-} from './selector';
+import { configureGetPagination, configureGetPagedItems } from './selector';
 
 function componentId(ownProps) {
 	return ownProps.collectionId;

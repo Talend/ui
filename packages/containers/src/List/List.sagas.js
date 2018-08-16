@@ -13,17 +13,23 @@ export function* updateList(data) {
 	results = sortList(componentState, results, data.props.config);
 	results = filterList(componentState, results, data.props.config);
 	yield put(
-		Connected.setStateAction({
-			items: results,
-		}, collectionId),
+		Connected.setStateAction(
+			{
+				items: results,
+			},
+			collectionId,
+		),
 	);
 }
 
 export function* onFilterChange(data) {
 	yield put(
-		Connected.setStateAction({
-			searchQuery: data.payload.query,
-		}, data.props.collectionId || 'default'),
+		Connected.setStateAction(
+			{
+				searchQuery: data.payload.query,
+			},
+			data.props.collectionId || 'default',
+		),
 	);
 	yield call(updateList, data);
 }
@@ -31,10 +37,13 @@ export function* onFilterChange(data) {
 export function* onToggleFilter(data) {
 	const filterData = data;
 	yield put(
-		Connected.setStateAction({
-			filterDocked: !filterData.payload.filterDocked,
-			searchQuery: '',
-		}, filterData.props.collectionId),
+		Connected.setStateAction(
+			{
+				filterDocked: !filterData.payload.filterDocked,
+				searchQuery: '',
+			},
+			filterData.props.collectionId,
+		),
 	);
 	if (!filterData.payload.filterDocked && filterData.payload.searchQuery) {
 		filterData.payload.searchQuery = '';
@@ -44,10 +53,13 @@ export function* onToggleFilter(data) {
 
 export function* onChangeSortChange(data) {
 	yield put(
-		Connected.setStateAction({
-			sortOn: data.payload.field,
-			sortAsc: !data.payload.isDescending,
-		}, data.props.collectionId || 'default'),
+		Connected.setStateAction(
+			{
+				sortOn: data.payload.field,
+				sortAsc: !data.payload.isDescending,
+			},
+			data.props.collectionId || 'default',
+		),
 	);
 	yield call(updateList, data);
 }

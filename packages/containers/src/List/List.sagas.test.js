@@ -56,10 +56,13 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				Connected.setStateAction({
-					filterDocked: !data.payload.filterDocked,
-					searchQuery: '',
-				}, data.props.collectionId),
+				Connected.setStateAction(
+					{
+						filterDocked: !data.payload.filterDocked,
+						searchQuery: '',
+					},
+					data.props.collectionId,
+				),
 			),
 		);
 	});
@@ -68,9 +71,12 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				Connected.setStateAction({
-					searchQuery: data.payload.query,
-				}, data.props.collectionId),
+				Connected.setStateAction(
+					{
+						searchQuery: data.payload.query,
+					},
+					data.props.collectionId,
+				),
 			),
 		);
 		expect(gen.next().value).toEqual(call(updateList, data));
@@ -80,10 +86,13 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				Connected.setStateAction({
-					sortOn: data.payload.field,
-					sortAsc: !data.payload.isDescending,
-				}, data.props.collectionId),
+				Connected.setStateAction(
+					{
+						sortOn: data.payload.field,
+						sortAsc: !data.payload.isDescending,
+					},
+					data.props.collectionId,
+				),
 			),
 		);
 		expect(gen.next().value).toEqual(call(updateList, data));
@@ -93,9 +102,12 @@ describe('List sagas', () => {
 
 		expect(gen.next().value).toEqual(
 			put(
-				Connected.setStateAction({
-					items: localConfig.items,
-				}, data.props.collectionId),
+				Connected.setStateAction(
+					{
+						items: localConfig.items,
+					},
+					data.props.collectionId,
+				),
 			),
 		);
 	});

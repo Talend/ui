@@ -91,7 +91,9 @@ export function sortList(componentState, items, localConfig) {
 export function filterList(componentState, items, localConfig) {
 	let results = items;
 	if (componentState && componentState.get('searchQuery')) {
-		results = items.filter(item => contains(item, componentState.get('searchQuery'), localConfig.columns));
+		results = items.filter(item =>
+			contains(item, componentState.get('searchQuery'), localConfig.columns),
+		);
 	}
 	return results;
 }
