@@ -1,49 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`JSONLike ComplexItem basic render 1`] = `
-<div>
-  <Icon
-    className="theme-wider-icon-selection"
-    name="talend-chevron-left"
-    onClick={[Function]}
-    transform="rotate-180"
-  />
-  <LineItem
-    jsonpath={undefined}
-    mouseOverData={
-      Object {
-        "data": undefined,
-        "isEdited": false,
-        "isOpened": false,
-      }
-    }
-    name={undefined}
-    onSelect={[Function]}
-    onToggle={undefined}
-    selectedJsonpath={undefined}
-  >
-    <span
-      className="theme-hierarchical"
+<LineItem
+  badge={
+    <TooltipTrigger
+      className="offset"
+      label=""
+      tooltipPlacement="right"
     >
-      <TooltipTrigger
-        className="offset"
-        label=""
-        tooltipPlacement="right"
+      <sup
+        className="theme-badge badge"
       >
-        <sup
-          className="badge"
-        >
-          (undefined)
-        </sup>
-      </TooltipTrigger>
-    </span>
-  </LineItem>
-</div>
+        (undefined)
+      </sup>
+    </TooltipTrigger>
+  }
+  icon={
+    <Icon
+      aria-hidden={false}
+      aria-label="Show the name item's content"
+      className="theme-icon"
+      name="talend-chevron-left"
+      onClick={[Function]}
+      transform="rotate-180"
+    />
+  }
+  jsonpath={undefined}
+  name="name"
+  onSelect={[Function]}
+  selectedJsonpath={undefined}
+  t={[Function]}
+  tag={undefined}
+  type={null}
+/>
 `;
 
 exports[`JSONLike should render 1`] = `
 <div
   className="tc-object-viewer theme-container"
+  id="my-object-container"
   style={undefined}
 >
   <Item
@@ -56,9 +51,9 @@ exports[`JSONLike should render 1`] = `
       }
     }
     edited={Array []}
+    id="my-object"
     jsonpath="$"
     onEdit={[Function]}
-    onMouseOver={[Function]}
     onSelect={[Function]}
     onToggle={[Function]}
     opened={Array []}

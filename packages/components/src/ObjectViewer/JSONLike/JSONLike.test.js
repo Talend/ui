@@ -8,6 +8,7 @@ import Component, {
 	getDataInfo,
 	ComplexItem,
 } from './JSONLike.component';
+import getDefaultT from '../../translate';
 
 describe('JSONLike', () => {
 	it('should render', () => {
@@ -17,7 +18,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(<Component data={data} />);
+		const wrapper = shallow(<Component.WrappedComponent id="my-object" data={data} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
@@ -162,7 +163,14 @@ describe('JSONLike', () => {
 			const mockOnSelect = jest.fn();
 			// when
 			const wrapper = shallow(
-				<ComplexItem onSelect={mockOnSelect} opened={[]} edited={[]} info={{}} />,
+				<ComplexItem
+					name="name"
+					onSelect={mockOnSelect}
+					opened={[]}
+					edited={[]}
+					info={{}}
+					t={getDefaultT()}
+				/>,
 			);
 
 			// expect
@@ -171,8 +179,9 @@ describe('JSONLike', () => {
 
 		it('should render injected elements next to name/sup', () => {
 			const mockHandler = jest.fn();
-			const wrapper = shallow(
+			const wrapper = mount(
 				<ComplexItem
+					name="name"
 					opened={['$']}
 					edited={[]}
 					tag={<span id="injected">hello world</span>}
@@ -181,8 +190,10 @@ describe('JSONLike', () => {
 					info={{
 						type: 'string',
 					}}
+					t={getDefaultT()}
 				/>,
 			);
+
 			expect(
 				wrapper
 					.find('TooltipTrigger+#injected')
@@ -191,9 +202,7 @@ describe('JSONLike', () => {
 			).toEqual('hello world');
 		});
 
-		// skeletton test to be activated when enzyme will fix
-		// https://github.com/airbnb/enzyme/issues/308
-		xit('don"t trigger wrapping form submit when used', () => {
+		it('don"t trigger wrapping form submit when used', () => {
 			// given
 			const mockOnSelect = jest.fn();
 			const mockOnToggle = jest.fn();
@@ -202,11 +211,13 @@ describe('JSONLike', () => {
 			const wrapper = mount(
 				<form onSubmit={mockOnSubmitClick}>
 					<ComplexItem
+						name="name"
 						onSelect={mockOnSelect}
 						onToggle={mockOnToggle}
 						opened={[]}
 						edited={[]}
 						info={{}}
+						t={getDefaultT()}
 					/>
 					<button type="submit" onClick={mockOnSubmitClick} />
 				</form>,

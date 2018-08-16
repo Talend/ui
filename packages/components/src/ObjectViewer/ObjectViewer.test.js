@@ -6,7 +6,7 @@ describe('ObjectViewer', () => {
 	it('should render Tree by default', () => {
 		const wrapper = shallow(<ObjectViewer data={{}} />);
 		expect(wrapper.find(ObjectViewer.Tree).length).toBe(1);
-		expect(wrapper.name()).toBe('JSONLike');
+		expect(wrapper.name()).toBe('Translate(JSONLike)');
 	});
 	it('should render List', () => {
 		const wrapper = shallow(<ObjectViewer displayMode="list" data={{}} />);
@@ -16,7 +16,7 @@ describe('ObjectViewer', () => {
 	it('should render Tree', () => {
 		const wrapper = shallow(<ObjectViewer displayMode="tree" data={{}} />);
 		expect(wrapper.find(ObjectViewer.Tree).length).toBe(1);
-		expect(wrapper.name()).toBe('JSONLike');
+		expect(wrapper.name()).toBe('Translate(JSONLike)');
 	});
 	it('should render Table', () => {
 		const wrapper = shallow(<ObjectViewer displayMode="table" data={{}} />);

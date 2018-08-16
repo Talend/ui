@@ -14,7 +14,7 @@ describe('Table', () => {
 			dataset: 'toto',
 		};
 		// When
-		const wrapper = shallow(<Table data={data} flat />);
+		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -22,7 +22,7 @@ describe('Table', () => {
 		// Given
 		const data = [];
 		// When
-		const wrapper = shallow(<Table data={data} flat />);
+		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -35,7 +35,7 @@ describe('Table', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<Table data={data} flat />);
+		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -43,7 +43,7 @@ describe('Table', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<Table data={data} flat />);
+		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -51,22 +51,41 @@ describe('Table', () => {
 
 describe('Table.getHeaders', () => {
 	it('should transform json path to key', () => {
-		const headers = getHeaders(["$['attr'][0]['foo']"], true);
-		expect(headers[0]).toBe('attr[0].foo');
-		expect(headers.length).toBe(1);
-		expect(getHeaders(['attr.foo'], true)[0]).toBe('attr.foo');
+		const headersWithArrayPath = getHeaders(["$['attr'][0]['foo']"], true, 'my-id');
+		expect(headersWithArrayPath.length).toBe(1);
+		expect(headersWithArrayPath[0]).toEqual({
+			key: "$['attr'][0]['foo']",
+			header: 'attr[0].foo',
+			id: 'my-id-attr[0].foo',
+		});
+
+		const headersWithObjectPath = getHeaders(['attr.foo'], true, 'my-id');
+		expect(headersWithObjectPath[0]).toEqual({
+			key: 'attr.foo',
+			header: 'attr.foo',
+			id: 'my-id-attr.foo',
+		});
 	});
 
 	it('should transform json path to key even if the json path is deeply nested', () => {
-		const headers = getHeaders(
+		const headersWithArrayPath = getHeaders(
 			["$['Action'][0]['Geography'][0]['CountryCode'][0]['Geography']['CountryCode']"],
 			true,
+			'my-id',
 		);
-		expect(headers[0]).toBe('Action[0].Geography[0].CountryCode[0].Geography.CountryCode');
-		expect(headers.length).toBe(1);
-		expect(getHeaders(['Action.Geography.CountryCode'], true)[0]).toBe(
-			'Action.Geography.CountryCode',
-		);
+		expect(headersWithArrayPath.length).toBe(1);
+		expect(headersWithArrayPath[0]).toEqual({
+			key: "$['Action'][0]['Geography'][0]['CountryCode'][0]['Geography']['CountryCode']",
+			header: 'Action[0].Geography[0].CountryCode[0].Geography.CountryCode',
+			id: 'my-id-Action[0].Geography[0].CountryCode[0].Geography.CountryCode',
+		});
+
+		const headersWithObjectPath = getHeaders(['Action.Geography.CountryCode'], true, 'my-id');
+		expect(headersWithObjectPath[0]).toEqual({
+			key: 'Action.Geography.CountryCode',
+			header: 'Action.Geography.CountryCode',
+			id: 'my-id-Action.Geography.CountryCode',
+		});
 	});
 });
 
@@ -101,7 +120,10 @@ describe('Table.getAbsolutePath', () => {
 describe('buildContentHeaders', () => {
 	it('should return a jsx array with a type', () => {
 		// Given
-		const headers = ['myHeader1', 'myHeader2'];
+		const headers = [
+			{ header: 'myHeader1', id: 'myHeader1Id' },
+			{ header: 'myHeader2', id: 'myHeader2Id' },
+		];
 		const schema = new Map();
 		schema.set('myHeader1', 'type1').set('myHeader2', 'type2');
 		// When
@@ -111,7 +133,10 @@ describe('buildContentHeaders', () => {
 	});
 	it('should return a jsx array with no type', () => {
 		// Given
-		const headers = ['myHeader1', 'myHeader2'];
+		const headers = [
+			{ header: 'myHeader1', id: 'myHeader1Id' },
+			{ header: 'myHeader2', id: 'myHeader2Id' },
+		];
 		const schema = new Map();
 		schema.set('keyHeader1', 'type1').set('keyHeader2', 'type2');
 		// When

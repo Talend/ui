@@ -12,7 +12,7 @@ describe('ObjectViewer.List', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<List data={data} flat />);
+		const wrapper = shallow(<List id="my-object-list" data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -20,7 +20,7 @@ describe('ObjectViewer.List', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<List data={data} flat />);
+		const wrapper = shallow(<List id="my-object-list" data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -31,10 +31,10 @@ describe('ObjectViewer.List', () => {
 		expect(element.type).toBe('ul');
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);
-		expect(wrapper.find('JSONLike').length).toBe(2);
+		expect(wrapper.find('Translate(JSONLike)').length).toBe(2);
 		expect(
 			wrapper
-				.find('JSONLike')
+				.find('Translate(JSONLike)')
 				.first()
 				.props(),
 		).toEqual({
