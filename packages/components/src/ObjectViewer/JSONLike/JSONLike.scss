@@ -1,4 +1,3 @@
-// JSONLike styles
 .container {
 	display: block;
 	font-size: 1.4rem;
@@ -45,7 +44,7 @@
 		.line-main {
 			flex: 1;
 			user-select: text;
-			width: 100%;
+			max-width: 100%;
 
 			&:focus,
 			&:hover {
@@ -62,12 +61,11 @@
 			flex: 1 1 100%;
 			border-left: solid 1px $alto;
 			margin-left: $padding-smaller;
-			width: 100%;
+			max-width: 100%;
 		}
 
 		.key {
 			padding-left: $padding-smaller;
-			//display: inline;
 			color: $dove-gray;
 		}
 
@@ -105,63 +103,6 @@
 			font-size: 1rem;
 			padding: $padding-smaller/2 $padding-smaller;
 			display: inline-table;
-			//vertical-align: text-bottom;
 		}
 	}
-
-	/*
-	button > sup {
-		top: -1;
-		margin-left: 15px;
-	}
-
-	.link {
-		cursor: pointer;
-	}
-
-	.opened {
-		color: red;
-	}
-
-	:global(.btn) {
-		text-transform: none;
-	}
-
-
-	sup::before {
-		margin-right: 15px;
-	}
-
-
-
-
-
-	.line {
-		font-size: 14px;
-		display: flex;
-
-		> button {
-			width: 100%;
-			cursor: text;
-			text-align: left;
-			user-select: text;
-		}
-	}
-
-	.line-type {
-		font-family: 'Inconsolata';
-		font-size: 12px;
-		color: $dark-silver;
-		opacity: 0.75;
-		display: inline;
-		margin-right: 15px;
-		margin-left: 4px;
-		vertical-align: text-bottom;
-		border: none;
-		background: none;
-		padding: 0;
-		cursor: default;
-	}
-
-	*/
 }
