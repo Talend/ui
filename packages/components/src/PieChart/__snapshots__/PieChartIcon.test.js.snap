@@ -80,6 +80,8 @@ exports[`PieChart snapshots render should render a PieChart 1`] = `
 
 exports[`PieChart snapshots render should render a Skeleton when the state is loading 1`] = `
 <span
+  aria-busy="true"
+  aria-label="Loading chart"
   className="theme-tc-pie-chart-loading tc-pie-chart-loading"
 >
   <Translate(Skeleton)
