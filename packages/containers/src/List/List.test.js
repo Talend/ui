@@ -348,6 +348,7 @@ describe('Container List', () => {
 		// given
 		const dispatch = jest.fn();
 		const setState = jest.fn();
+		const context = {};
 		const wrapper = shallow(
 			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
 			{
@@ -357,7 +358,7 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		const event = { type: 'click' };
 		const payload = { filterDocked: true, searchQuery: '' };
-		const data = { event, payload, type: 'LIST_TOGGLE_FILTER' };
+		const data = { context, event, payload, props, type: 'LIST_TOGGLE_FILTER' };
 		expect(dispatch).not.toBeCalled();
 		// when
 		props.toolbar.filter.onToggle(event, payload);
@@ -369,6 +370,7 @@ describe('Container List', () => {
 		// given
 		const dispatch = jest.fn();
 		const setState = jest.fn();
+		const context = {};
 		const wrapper = shallow(
 			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
 			{
@@ -378,7 +380,7 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		const event = { type: 'click' };
 		const payload = { searchQuery: 'test' };
-		const data = { event, payload, type: 'LIST_FILTER_CHANGE' };
+		const data = { context, event, payload, props, type: 'LIST_FILTER_CHANGE' };
 		expect(dispatch).not.toBeCalled();
 		// when
 		props.toolbar.filter.onFilter(event, payload);
@@ -390,6 +392,7 @@ describe('Container List', () => {
 		// given
 		const dispatch = jest.fn();
 		const setState = jest.fn();
+		const context = {};
 		const wrapper = shallow(
 			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
 			{
@@ -399,7 +402,7 @@ describe('Container List', () => {
 		const props = wrapper.props();
 		const event = { type: 'click' };
 		const payload = { isDescending: true, field: 'name' };
-		const data = { event, payload, type: 'LIST_CHANGE_SORT_ORDER' };
+		const data = { context, event, payload, props, type: 'LIST_CHANGE_SORT_ORDER' };
 		expect(dispatch).not.toBeCalled();
 		// when
 		props.list.sort.onChange(event, payload);
@@ -535,7 +538,7 @@ describe('Connected List', () => {
 		};
 
 		// when
-		const props = mapStateToProps(state, { collectionId: 'cid' });
+		const props = mapStateToProps(state, { collectionId: 'cid', items });
 
 		// then
 		expect(props).toMatchSnapshot();
@@ -593,7 +596,7 @@ describe('Connected List', () => {
 		};
 
 		// when
-		const props = mapStateToProps(state, { collectionId: 'cid', toolbar: {} });
+		const props = mapStateToProps(state, { collectionId: 'cid', items, toolbar: {} });
 
 		// then
 		expect(props).toMatchSnapshot();

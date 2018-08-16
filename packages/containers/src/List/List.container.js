@@ -197,6 +197,8 @@ class List extends React.Component {
 					type: Constants.LIST_CHANGE_SORT_ORDER,
 					payload: data,
 					event,
+					props,
+					context: this.context,
 				});
 			},
 		};
@@ -270,6 +272,8 @@ class List extends React.Component {
 						type: Constants.LIST_CHANGE_SORT_ORDER,
 						payload: data,
 						event,
+						props,
+						context: this.context,
 					});
 				};
 			}
@@ -278,8 +282,13 @@ class List extends React.Component {
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.props.dispatch({
 						type: Constants.LIST_TOGGLE_FILTER,
-						payload: Object.assign({}, data, { filterDocked: state.filterDocked }),
+						payload: Object.assign({}, data, {
+							filterDocked: state.filterDocked,
+							searchQuery: state.searchQuery,
+						}),
 						event,
+						props,
+						context: this.context,
 					});
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
@@ -287,6 +296,8 @@ class List extends React.Component {
 						type: Constants.LIST_FILTER_CHANGE,
 						payload: data,
 						event,
+						props,
+						context: this.context,
 					});
 				};
 				props.toolbar.filter.docked = state.filterDocked;

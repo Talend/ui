@@ -3,7 +3,6 @@ import { List } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import {
-	configureGetFilteredItems,
 	configureGetPagination,
 	configureGetPagedItems,
 } from './selector';
@@ -12,10 +11,12 @@ function componentId(ownProps) {
 	return ownProps.collectionId;
 }
 
-function getItems(state, config) {
-	const items = configureGetFilteredItems(config)(state);
-
-	return items || new List();
+function getItems(componentState, config) {
+	let items = config.items;
+	if (componentState && componentState.get('items')) {
+		items = componentState.get('items');
+	}
+	return items;
 }
 
 function getPagedItems(state, config) {
@@ -26,20 +27,20 @@ function getPagedItems(state, config) {
 
 export function mapStateToProps(state, ownProps, cmfProps) {
 	const props = {};
-	const config = {
+	props.config = {
 		collectionId: ownProps.collectionId,
 		items: ownProps.items,
 	};
 	if (ownProps.list) {
-		config.columns = ownProps.list.columns;
+		props.config.columns = ownProps.list.columns;
 	}
 
-	props.items = getItems(state, config);
+	props.items = getItems(ownProps.state, props.config);
 
 	const totalResults = props.items.size;
 
 	if (get(ownProps, ['toolbar', 'pagination'])) {
-		props.items = getPagedItems(state, config);
+		props.items = getPagedItems(state, props.config);
 	}
 
 	const cmfState = get(cmfProps, 'state');
@@ -48,7 +49,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 		if (props.state.has('toolbar')) {
 			props.state = props.state.mergeIn(
 				['toolbar', 'pagination'],
-				configureGetPagination(state, config),
+				configureGetPagination(state, props.config),
 			);
 		}
 	}

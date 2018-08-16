@@ -1,6 +1,7 @@
 import { store } from '@talend/react-cmf/lib/mock';
 import { fromJS } from 'immutable';
 import { mapStateToProps } from './List.connect';
+import { sortList, filterList } from './selector';
 
 const localConfig = {
 	collectionId: 'default',
@@ -31,72 +32,60 @@ state.cmf.collections = fromJS({
 
 describe('List Selector tests', () => {
 	it('should not filter the list when there is no search query', () => {
-		state.cmf.components = fromJS({
-			'Container(List)': {
-				default: {
-					displayMode: 'large',
-					searchQuery: '',
-					itemsPerPage: 0,
-					startIndex: 0,
-					sortOn: 'name',
-					sortAsc: true,
-					filterDocked: true,
-				},
-			},
+		const componentState = fromJS({
+			displayMode: 'large',
+			searchQuery: '',
+			itemsPerPage: 0,
+			startIndex: 0,
+			sortOn: 'name',
+			sortAsc: true,
+			filterDocked: true,
 		});
 
-		const props = mapStateToProps(state, localConfig);
-		expect(props.items.size).toBe(localConfig.items.length);
+		const results = filterList(componentState, localConfig.items, localConfig.list);
+		expect(results.length).toBe(localConfig.items.length);
 	});
 
 	it('should filter the list when filter on visible column', () => {
-		state.cmf.components = fromJS({
-			'Container(List)': {
-				default: {
-					displayMode: 'large',
-					searchQuery: 'value2',
-					itemsPerPage: 0,
-					startIndex: 0,
-					sortOn: 'name',
-					sortAsc: true,
-					filterDocked: true,
-				},
-			},
+		const componentState = fromJS({
+			displayMode: 'large',
+			searchQuery: 'value2',
+			itemsPerPage: 0,
+			startIndex: 0,
+			sortOn: 'name',
+			sortAsc: true,
+			filterDocked: true,
 		});
 
-		const props = mapStateToProps(state, localConfig);
-		expect(props.items.size).toBe(1);
+		const results = filterList(componentState, localConfig.items, localConfig.list);
+		expect(results.length).toBe(1);
 	});
 
-	it('should return no elements when search on non visible column', () => {
-		state.cmf.components = fromJS({
-			'Container(List)': {
-				default: {
-					displayMode: 'large',
-					searchQuery: 'text',
-					itemsPerPage: 0,
-					startIndex: 0,
-					sortOn: 'name',
-					sortAsc: true,
-					filterDocked: true,
-				},
-			},
+	it('should sort the list when sorting is applied', () => {
+		const componentState = fromJS({
+			displayMode: 'large',
+			searchQuery: 'value2',
+			itemsPerPage: 0,
+			startIndex: 0,
+			sortOn: 'name',
+			sortAsc: false,
+			filterDocked: true,
 		});
 
-		const props = mapStateToProps(state, localConfig);
-		expect(props.items.size).toBe(0);
+		const results = sortList(componentState, fromJS(localConfig.items), localConfig.list);
+		expect(results.toJS()[0].value).toBe('value2');
 	});
 
 	it('should return items in a page when pagination applied', () => {
 		state.cmf.components = fromJS({
 			'Container(List)': {
 				default: {
-					itemsPerPage: 1,
-					startIndex: 1,
+					itemsPerPage: 2,
+					startIndex: 0,
 				},
 			},
 		});
 		const props = mapStateToProps(state, { ...localConfig, toolbar: { pagination: {} } });
-		expect(props.items.size).toBe(1);
+		expect(props.items.length).toBe(2);
 	});
 });

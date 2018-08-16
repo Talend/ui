@@ -22,7 +22,7 @@ function getCollection(state, collectionId) {
 	return state.cmf.collections.get(collectionId);
 }
 
-function getCollectionItems(state, collectionId) {
+export function getCollectionItems(state, collectionId) {
 	const collection = getCollection(state, collectionId);
 
 	if (Map.isMap(collection)) {
@@ -41,91 +41,72 @@ export function configureGetPagination(state, { collectionId }) {
 	return null;
 }
 
-function getCollectionData(collectionId) {
-	return state => getCollectionItems(state, collectionId);
-}
-
-function getComponentState(collectionId) {
+export function getComponentState(collectionId) {
 	return state => state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
 }
 
-export function configureGetFilteredItems(configure) {
-	const localConfig = configure;
-
-	const getFilteredList = createSelector(
-		[getCollectionData(localConfig.collectionId), getComponentState(localConfig.collectionId)],
-		(items, componentState) => {
-			let results = items || localConfig.items;
-			if (componentState) {
-				const searchQuery = componentState.get('searchQuery');
-				if (searchQuery && results) {
-					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
+export function sortList(componentState, items, localConfig) {
+	if (!List.isList(items)) {
+		return new List();
+	}
+	let results = items;
+	if (componentState) {
+		const sortBy = componentState.get('sortOn');
+		const sortAsc = componentState.get('sortAsc');
+		let compare = (a, b) => {
+			if (a.get(sortBy)) {
+				if (a.get(sortBy).localCompare) {
+					return a.get(sortBy).localeCompare(b.get(sortBy));
 				}
-			}
-			return results;
-		},
-	);
-
-	const getSortedList = createSelector(
-		[getFilteredList, getComponentState(localConfig.collectionId)],
-		(items, componentState) => {
-			if (!List.isList(items)) {
-				return new List();
-			}
-			let results = items;
-			if (componentState) {
-				const sortBy = componentState.get('sortOn');
-				const sortAsc = componentState.get('sortAsc');
-				let compare = (a, b) => {
-					if (a.get(sortBy)) {
-						if (a.get(sortBy).localCompare) {
-							return a.get(sortBy).localeCompare(b.get(sortBy));
-						}
-						const aValue = `${a.get(sortBy) || ''}`.toLowerCase();
-						const bValue = `${b.get(sortBy) || ''}`.toLowerCase();
-						if (aValue < bValue) {
-							return -1;
-						}
-						if (aValue > bValue) {
-							return 1;
-						}
-						return 0;
-					}
-					if (!b[sortBy]) {
-						return 0;
-					}
+				const aValue = `${a.get(sortBy) || ''}`.toLowerCase();
+				const bValue = `${b.get(sortBy) || ''}`.toLowerCase();
+				if (aValue < bValue) {
 					return -1;
-				};
-
-				const sortedColumn = get(localConfig, 'columns', [])
-					.filter(column => column.key === sortBy)
-					.pop();
-				if (sortedColumn && sortedColumn.sortFunction) {
-					compare = cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy);
 				}
-				results = results.sort(compare);
-				if (!sortAsc) {
-					results = results.reverse();
+				if (aValue > bValue) {
+					return 1;
 				}
+				return 0;
 			}
-			return results;
-		},
-	);
+			if (!b[sortBy]) {
+				return 0;
+			}
+			return -1;
+		};
 
-	return createSelector([getSortedList, getComponentState], items => items);
+		const sortedColumn = get(localConfig, 'columns', [])
+			.filter(column => column.key === sortBy)
+			.pop();
+		if (sortedColumn && sortedColumn.sortFunction) {
+			compare = cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy);
+		}
+		results = results.sort(compare);
+		if (!sortAsc) {
+			results = results.reverse();
+		}
+	}
+	return results;
+}
+
+export function filterList(componentState, items, localConfig) {
+	let results = items;
+	if (componentState && componentState.get('searchQuery')) {
+		results = items.filter(item => contains(item, componentState.get('searchQuery'), localConfig.columns));
+	}
+	return results;
 }
 
 export function configureGetPagedItems(configure) {
-	const getSortedList = configureGetFilteredItems(configure);
-
 	const getPagedList = createSelector(
-		[getSortedList, getComponentState(configure.collectionId)],
-		(items, componentState) => {
-			let results = items;
+		[getComponentState(configure.collectionId)],
+		componentState => {
+			let results = configure.items;
 			if (componentState) {
+				if (componentState.get('items')) {
+					results = componentState && componentState.get('items');
+				}
 				const startIndex = componentState.get('startIndex');
 				const itemsPerPage = componentState.get('itemsPerPage');
-
 				if (itemsPerPage > 0 && startIndex > 0) {
 					results = results.slice(
 						startIndex - 1,
