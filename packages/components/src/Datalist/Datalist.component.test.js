@@ -522,7 +522,7 @@ describe('Datalist component', () => {
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
 
-	it('should call onTokenChange when user type in the input', () => {
+	it('should call onLiveChange when user type in the input', () => {
 		// given
 		const onLiveChange = jest.fn();
 		const wrapper = mount(
