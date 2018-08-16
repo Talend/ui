@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
 import { Action } from '../Actions';
 import theme from './Notification.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { translate } from 'react-i18next';
 
 function CloseButtonComponent({ notification, leaveFn, t }) {
 	return (
