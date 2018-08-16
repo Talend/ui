@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
+import { Overlay, Popover } from 'react-bootstrap';
 import getMinutes from 'date-fns/get_minutes';
 import getHours from 'date-fns/get_hours';
 import getDate from 'date-fns/get_date';
@@ -164,12 +165,42 @@ class InputDateTimePicker extends React.Component {
 			};
 		}
 
+		this.state.isDropdownShown = false;
+
+		this.componentContainerEvents = [];
+
 		this.onChangeInput = this.onChangeInput.bind(this);
 		this.onSubmitPicker = this.onSubmitPicker.bind(this);
+		this.setContainerRef = this.setContainerRef.bind(this);
+		this.setDropdownWrapperRef = this.setDropdownWrapperRef.bind(this);
+		this.onFocusInput = this.onFocusInput.bind(this);
+		this.documentHandler = this.documentHandler.bind(this);
+		this.componentContainerHandler = this.componentContainerHandler.bind(this);
+	}
+
+	componentDidMount() {
+		this.mountComponentContainerHandler();
+	}
+
+	componentDidUpdate(prevProp, prevState) {
+		const isDropdownShown = this.state.isDropdownShown;
+		if (prevState.isDropdownShown !== isDropdownShown) {
+			if (isDropdownShown) {
+				this.mountDocumentHandler();
+			} else {
+				this.unmountDocumentHandler();
+			}
+		}
+	}
+
+	componentWillUnmount() {
+		this.unmountDocumentHandler();
+		this.unmountComponentContainerHandler();
 	}
 
 	onSubmitPicker({ date, time }) {
 		this.updateDateTime(date, time);
+		this.switchDropdownVisibility(false);
 	}
 
 	onChangeInput(event) {
@@ -185,6 +216,63 @@ class InputDateTimePicker extends React.Component {
 
 		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
 		this.updateDateTime(date, time, fullString, errMsg);
+	}
+
+	onFocusInput() {
+		this.switchDropdownVisibility(true);
+	}
+
+	setContainerRef(ref) {
+		this.containerRef = ref;
+	}
+
+	setDropdownWrapperRef(ref) {
+		this.dropdownWrapperRef = ref;
+	}
+
+	mountDocumentHandler() {
+		document.addEventListener('click', this.documentHandler);
+		document.addEventListener('focusin', this.documentHandler);
+	}
+
+	unmountDocumentHandler() {
+		document.removeEventListener('click', this.documentHandler);
+		document.removeEventListener('focusin', this.documentHandler);
+	}
+
+	mountComponentContainerHandler() {
+		this.containerRef.addEventListener('click', this.componentContainerHandler);
+		this.containerRef.addEventListener('focusin', this.componentContainerHandler);
+	}
+
+	unmountComponentContainerHandler() {
+		this.containerRef.removeEventListener('click', this.componentContainerHandler);
+		this.containerRef.removeEventListener('focusin', this.componentContainerHandler);
+	}
+
+	documentHandler(e) {
+		const eventIndex = this.componentContainerEvents.indexOf(e);
+		const isActionOutOfComponent = eventIndex === -1;
+
+		if (isActionOutOfComponent) {
+			this.switchDropdownVisibility(false);
+		} else {
+			this.componentContainerEvents.splice(eventIndex, 1);
+		}
+	}
+
+	componentContainerHandler(e) {
+		this.componentContainerEvents.push(e);
+	}
+
+	switchDropdownVisibility(isShown) {
+		if (this.state.isDropdownShown === isShown) {
+			return;
+		}
+
+		this.setState({
+			isDropdownShown: isShown,
+		});
 	}
 
 	updateDateTime(date, time, textInput = getTextDate(date, time), errorMsg) {
@@ -220,23 +308,28 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 		return (
-			<div>
+			<div ref={this.setContainerRef}>
 				<DebounceInput
 					{...inputProps}
 					type="text"
+					onFocus={this.onFocusInput}
 					placeholder={inputProps.placeholder || 'YYYY-MM-DD hh:mm'}
 					value={this.state.textInput}
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
 				/>
-				<div className={theme.dropdown}>
-					<DateTimePicker
-						selection={{
-							date: this.state.date,
-							time: this.state.time,
-						}}
-						onSubmit={this.onSubmitPicker}
-					/>
+				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
+					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
+						<Popover className={theme.popover}>
+							<DateTimePicker
+								selection={{
+									date: this.state.date,
+									time: this.state.time,
+								}}
+								onSubmit={this.onSubmitPicker}
+							/>
+						</Popover>
+					</Overlay>
 				</div>
 			</div>
 		);
