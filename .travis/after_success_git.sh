@@ -17,20 +17,20 @@ if [ -n "$GH_TOKEN" ]; then
 		if [[ "$TALEND_COMMIT_MSG" =~ 'icon' ]]; then
 			git add packages/components/src
 			git add packages/icons/src/svg
-			git -c user.name="travis" -c user.email="travis" commit -m "test(ci): optimize icons"
+			git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): optimize icons [skip ci]"
 			echo "✓ Commit optimized icons and components snapshots to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
 		git add npm-audit/
-		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update libs security audit"
+		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): update libs security audit [skip ci]"
 		echo "✓ Commit updated audit output to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		git add output/
-		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
+		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): update code style outputs [skip ci]"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		find packages/*/src -name "*.scss" -o -name "*.js" -o -name "*.json" | xargs git add
-		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): prettier"
+		git -c user.name="travis" -c user.email="travis" commit -m "chore(ci): prettier [skip ci]"
 		echo "✓ Commit prettified files to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		git push -q https://build-travis-ci:$GH_TOKEN@github.com/Talend/ui $TRAVIS_PULL_REQUEST_BRANCH
