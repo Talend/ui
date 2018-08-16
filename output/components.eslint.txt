@@ -18,7 +18,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
-   9:27  error  Absolute imports should come before relative imports                                 import/imports-first
   11:33  error  'notification' is missing in props validation                                        react/prop-types
   11:47  error  'leaveFn' is missing in props validation                                             react/prop-types
   11:56  error  't' is missing in props validation                                                   react/prop-types
@@ -41,5 +40,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 19 problems (18 errors, 1 warning)
+✖ 18 problems (17 errors, 1 warning)
 
