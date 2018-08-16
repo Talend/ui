@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount, ReactWrapper } from 'enzyme';
+import cases from 'jest-in-case';
+import simulant from 'simulant';
 
 import isSameDay from 'date-fns/is_same_day';
 import isSameMinute from 'date-fns/is_same_minute';
@@ -9,17 +11,24 @@ import getMinutes from 'date-fns/get_minutes';
 import InputDateTimePicker from './InputDateTimePicker.component';
 import DateTimePicker from '../DateTimePicker';
 
+function getRootElement() {
+	const rootElement = document.createElement('div');
+	document.body.appendChild(rootElement);
+	return rootElement;
+}
+
 describe('InputDateTimePicker', () => {
 	describe('render', () => {
 		it('should render', () => {
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2017, 3, 4, 15, 27)} />,
+				{ disableLifecycleMethods: true },
 			);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render with "date", "time", "textInput" values based on state', () => {
-			const wrapper = shallow(<InputDateTimePicker />);
+			const wrapper = shallow(<InputDateTimePicker />, { disableLifecycleMethods: true });
 
 			const date = new Date(2016, 6, 25);
 			const time = 456;
@@ -30,6 +39,8 @@ describe('InputDateTimePicker', () => {
 				time,
 				textInput,
 			});
+
+			wrapper.update();
 
 			const inputWrapper = wrapper.find('DebounceInput');
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
@@ -42,7 +53,9 @@ describe('InputDateTimePicker', () => {
 	describe('constructor', () => {
 		it('should default set the state based on "selectedDateTime" when given', () => {
 			const date = new Date(2015, 3, 4, 12, 36);
-			const wrapper = shallow(<InputDateTimePicker selectedDateTime={date} />);
+			const wrapper = shallow(<InputDateTimePicker selectedDateTime={date} />, {
+				disableLifecycleMethods: true,
+			});
 
 			const testedDate = wrapper.state('date');
 			const expectedDate = new Date(2015, 3, 4);
@@ -58,7 +71,7 @@ describe('InputDateTimePicker', () => {
 		});
 
 		it('should default set the state with undefined and empty values when "selectedDateTime" is not given', () => {
-			const wrapper = shallow(<InputDateTimePicker />);
+			const wrapper = shallow(<InputDateTimePicker />, { disableLifecycleMethods: true });
 
 			expect(wrapper.state('date')).toBeUndefined();
 			expect(wrapper.state('time')).toBeUndefined();
@@ -76,7 +89,9 @@ describe('InputDateTimePicker', () => {
 					'whatever',
 				];
 
-				const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
+				const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />, {
+					disableLifecycleMethods: true,
+				});
 
 				const inputWrapper = wrapper.find('DebounceInput');
 
@@ -95,7 +110,9 @@ describe('InputDateTimePicker', () => {
 				it('should have undefined date when date part format is wrong', () => {
 					const invalidFormatValues = ['023-06-05 10:00', '2023-06- 10:00', '2023--05 10:00'];
 
-					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />, {
+						disableLifecycleMethods: true,
+					});
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
@@ -111,7 +128,9 @@ describe('InputDateTimePicker', () => {
 				it('should have undefined date if month is before 1 or after 12', () => {
 					const invalidFormatValues = ['2023-0-05 10:00', '2023-13-05 10:00'];
 
-					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />, {
+						disableLifecycleMethods: true,
+					});
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
@@ -127,7 +146,9 @@ describe('InputDateTimePicker', () => {
 				it('should have undefined date if day is before 1', () => {
 					const invalidFormatValue = '2023-02-0 10:00';
 
-					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />, {
+						disableLifecycleMethods: true,
+					});
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					inputWrapper.prop('onChange')({
@@ -141,7 +162,9 @@ describe('InputDateTimePicker', () => {
 				it('should have undefined date if day is after the last day of month', () => {
 					const invalidFormatValues = ['2018-06-31 10:00', '2018-02-29 10:00'];
 
-					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />);
+					const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1)} />, {
+						disableLifecycleMethods: true,
+					});
 
 					const inputWrapper = wrapper.find('DebounceInput');
 					invalidFormatValues.forEach(invalidValue => {
@@ -169,6 +192,7 @@ describe('InputDateTimePicker', () => {
 
 					const wrapper = shallow(
 						<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+						{ disableLifecycleMethods: true },
 					);
 
 					const inputWrapper = wrapper.find('DebounceInput');
@@ -187,6 +211,7 @@ describe('InputDateTimePicker', () => {
 
 					const wrapper = shallow(
 						<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+						{ disableLifecycleMethods: true },
 					);
 
 					const inputWrapper = wrapper.find('DebounceInput');
@@ -203,6 +228,7 @@ describe('InputDateTimePicker', () => {
 
 					const wrapper = shallow(
 						<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+						{ disableLifecycleMethods: true },
 					);
 
 					const inputWrapper = wrapper.find('DebounceInput');
@@ -225,6 +251,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -252,6 +279,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -276,6 +304,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -299,6 +328,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+				{ disableLifecycleMethods: true },
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
@@ -317,6 +347,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
@@ -337,6 +368,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -364,6 +396,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -393,6 +426,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
+				{ disableLifecycleMethods: true },
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
@@ -413,6 +447,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={new Date(2015, 0, 1, 10, 35)} onChange={onChange} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -445,6 +480,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -473,6 +509,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -494,6 +531,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -515,6 +553,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -536,6 +575,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -557,6 +597,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -579,6 +620,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -610,6 +652,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -641,6 +684,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -674,6 +718,7 @@ describe('InputDateTimePicker', () => {
 
 			const wrapper = shallow(
 				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				{ disableLifecycleMethods: true },
 			);
 
 			const inputWrapper = wrapper.find('DebounceInput');
@@ -689,6 +734,118 @@ describe('InputDateTimePicker', () => {
 			dateTimePickerWrapper.prop('onSubmit')(pickerDatas);
 
 			expect(onError).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('dropdown management', () => {
+		it('should have the dropdown closed by default', () => {
+			const wrapper = mount(<InputDateTimePicker />, { attachTo: getRootElement() });
+
+			const overlayWrapper = wrapper.find('Overlay').first();
+			expect(overlayWrapper.prop('show')).toBe(false);
+		});
+
+		it('should open the dropdown on input focus', () => {
+			const wrapper = mount(<InputDateTimePicker />, { attachTo: getRootElement() });
+
+			const inputWrapper = wrapper.find('DebounceInput');
+
+			inputWrapper.simulate('focus');
+
+			wrapper.update();
+
+			const overlayWrapper = wrapper.find('Overlay').first();
+			expect(overlayWrapper.prop('show')).toBe(true);
+		});
+
+		cases(
+			'should close the dropdown when interacting outside the component',
+			({ eventToCheck }) => {
+				const wrapper = mount(
+					<div>
+						<InputDateTimePicker />
+						<input className="some-random-input" />
+					</div>,
+					{ attachTo: getRootElement() },
+				);
+
+				const inputWrapper = wrapper.find('DebounceInput');
+				inputWrapper.simulate('focus');
+
+				wrapper.update();
+
+				const overlayWrapperBefore = wrapper.find('Overlay').first();
+				expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+				simulant.fire(document.body.querySelector('input.some-random-input'), eventToCheck);
+
+				wrapper.update();
+
+				const overlayWrapperAfter = wrapper.find('Overlay').first();
+				expect(overlayWrapperAfter.prop('show')).toBe(false);
+			},
+			[
+				{ name: 'focusin event', eventToCheck: 'focusin' },
+				{ name: 'click event', eventToCheck: 'click' },
+			],
+		);
+
+		cases(
+			'should not close the dropdown when interacting inside the component',
+			({ eventToCheck }) => {
+				const wrapper = mount(
+					<div>
+						<InputDateTimePicker />
+						<input className="some-random-input" />
+					</div>,
+					{ attachTo: getRootElement() },
+				);
+
+				const inputWrapper = wrapper.find('DebounceInput');
+				inputWrapper.simulate('focus');
+
+				wrapper.update();
+
+				const overlayWrapperBefore = wrapper.find('Overlay').first();
+				expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+				simulant.fire(wrapper.getDOMNode().querySelector('button'), eventToCheck);
+
+				wrapper.update();
+
+				const overlayWrapperAfter = wrapper.find('Overlay').first();
+				expect(overlayWrapperAfter.prop('show')).toBe(true);
+			},
+			[
+				{ name: 'focusin event', eventToCheck: 'focusin' },
+				{ name: 'click event', eventToCheck: 'click' },
+			],
+		);
+
+		it('should close the dropdown when picker is submitted', () => {
+			const wrapper = mount(<InputDateTimePicker />, { attachTo: getRootElement() });
+
+			const inputWrapper = wrapper.find('DebounceInput');
+			inputWrapper.simulate('focus');
+
+			wrapper.update();
+
+			const overlayWrapperBefore = wrapper.find('Overlay').first();
+			expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+			const portalInstance = wrapper.find('Portal').instance();
+			const dropdownContent = new ReactWrapper(portalInstance.props.children);
+
+			const pickerWrapper = dropdownContent.find(DateTimePicker);
+			pickerWrapper.prop('onSubmit')({
+				date: new Date(2018, 0, 1),
+				time: 50,
+			});
+
+			wrapper.update();
+
+			const overlayWrapperAfter = wrapper.find('Overlay').first();
+			expect(overlayWrapperAfter.prop('show')).toBe(false);
 		});
 	});
 });
