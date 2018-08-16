@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, ReactWrapper } from 'enzyme';
 import cases from 'jest-in-case';
 import simulant from 'simulant';
 
@@ -823,18 +823,20 @@ describe('InputDateTimePicker', () => {
 		);
 
 		it('should close the dropdown when picker is submitted', () => {
-			const wrapper = mount(<InputDateTimePicker />);
+			const wrapper = mount(<InputDateTimePicker />, { attachTo: getRootElement() });
 
-			wrapper.setState({
-				isDropdownShown: true,
-			});
+			const inputWrapper = wrapper.find('DebounceInput');
+			inputWrapper.simulate('focus');
 
 			wrapper.update();
 
 			const overlayWrapperBefore = wrapper.find('Overlay').first();
 			expect(overlayWrapperBefore.prop('show')).toBe(true);
 
-			const pickerWrapper = wrapper.find('DateTimePicker');
+			const portalInstance = wrapper.find('Portal').instance();
+			const dropdownContent = new ReactWrapper(portalInstance.props.children);
+
+			const pickerWrapper = dropdownContent.find(DateTimePicker);
 			pickerWrapper.prop('onSubmit')({
 				date: new Date(2018, 0, 1),
 				time: 50,
