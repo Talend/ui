@@ -11,7 +11,7 @@ exports[`InputDateTimePicker should render 1`] = `
 >
   <InputDateTimePicker
     onChange={[Function]}
-    selectedDateTime={1533884400000}
+    selectedDateTime={2018-08-10T07:00:00.000Z}
   />
 </FieldTemplate>
 `;

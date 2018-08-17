@@ -5,11 +5,11 @@ import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimeP
 import FieldTemplate from '../FieldTemplate';
 
 function convertDateToTimestamp(date) {
-	return date;
+	return date.getTime();
 }
 
 function convertTimestampToDate(timestamp) {
-	return timestamp;
+	return new Date(timestamp);
 }
 
 function convertDateToString(date) {
