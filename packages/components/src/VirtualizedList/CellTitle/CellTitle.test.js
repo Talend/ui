@@ -34,12 +34,6 @@ describe('CellTitle', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find('CellTitleSelector').props().className).toBe(
-			'theme-main-title theme-tc-main-title-clickable tc-main-title-clickable',
-		);
-		expect(wrapper.find('Icon').props().className).toBe(
-			'theme-icon theme-tc-main-title-icon-clickable tc-main-title-icon-clickable',
-		);
 	});
 
 	it('should render without active class if no onClick on the title', () => {
@@ -70,8 +64,7 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(wrapper.find('CellTitleSelector').props().className).toBe('theme-main-title');
-		expect(wrapper.find('Icon').props().className).toBe('theme-icon');
+		expect(wrapper.props().className).toBe('theme-tc-list-title tc-list-title');
 	});
 
 	describe('icon', () => {
