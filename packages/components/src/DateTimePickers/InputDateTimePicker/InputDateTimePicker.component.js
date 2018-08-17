@@ -137,6 +137,32 @@ function extractTime(strToParse) {
 	return [timeValidated];
 }
 
+function computeDateRelatedState(selectedDateTime) {
+	const isDateTimeValid = isDateValid(selectedDateTime);
+
+	if (selectedDateTime !== undefined && isDateTimeValid) {
+		const date = startOfDay(selectedDateTime);
+		const hours = getHours(selectedDateTime);
+		const minutes = getMinutes(selectedDateTime);
+		const time = hoursAndMinutesToTime(hours, minutes);
+		const fullDate = startOfMinute(selectedDateTime);
+
+		return {
+			date,
+			time,
+			lastFullDate: fullDate,
+			textInput: getTextDate(date, time),
+		};
+	}
+
+	return {
+		date: undefined,
+		time: undefined,
+		lastFullDate: selectedDateTime,
+		textInput: '',
+	};
+}
+
 const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onError'];
 
 class InputDateTimePicker extends React.Component {
@@ -153,31 +179,13 @@ class InputDateTimePicker extends React.Component {
 			"UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
 		);
 
-		const selectedDateTime = this.props.selectedDateTime;
-		const isDateTimeValid = isDateValid(selectedDateTime);
-
-		if (selectedDateTime !== undefined && isDateTimeValid) {
-			const date = startOfDay(selectedDateTime);
-			const hours = getHours(selectedDateTime);
-			const minutes = getMinutes(selectedDateTime);
-			const time = hoursAndMinutesToTime(hours, minutes);
-			const fullDate = startOfMinute(selectedDateTime);
+		const dateRelatedPartState = computeDateRelatedState(this.props.selectedDateTime);
 
 			this.state = {
-				date,
-				time,
-				lastFullDate: fullDate,
-				textInput: getTextDate(date, time),
+			...dateRelatedPartState,
+			inputFocused: false,
+			isDropdownShown: false,
 			};
-		} else {
-			this.state = {
-				lastFullDate: selectedDateTime,
-				textInput: '',
-			};
-		}
-
-		this.state.inputFocused = false;
-		this.state.isDropdownShown = false;
 
 		this.componentContainerEvents = [];
 
