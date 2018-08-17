@@ -181,11 +181,11 @@ class InputDateTimePicker extends React.Component {
 
 		const dateRelatedPartState = computeDateRelatedState(this.props.selectedDateTime);
 
-			this.state = {
+		this.state = {
 			...dateRelatedPartState,
 			inputFocused: false,
 			isDropdownShown: false,
-			};
+		};
 
 		this.componentContainerEvents = [];
 
@@ -201,6 +201,23 @@ class InputDateTimePicker extends React.Component {
 
 	componentDidMount() {
 		this.mountComponentContainerHandler();
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const newSelectedDateTime = nextProps.selectedDateTime;
+
+		const selectedDateTimePropsUpdated = newSelectedDateTime !== this.props.selectedDateTime;
+		const selectedDateTimePropDivergedFromState = newSelectedDateTime !== this.state.lastFullDate;
+		const needDateTimeStateUpdate =
+			selectedDateTimePropsUpdated && selectedDateTimePropDivergedFromState;
+
+		if (needDateTimeStateUpdate) {
+			const dateRelatedPartState = computeDateRelatedState(newSelectedDateTime);
+
+			this.setState({
+				...dateRelatedPartState,
+			});
+		}
 	}
 
 	componentDidUpdate(prevProp, prevState) {

@@ -4,6 +4,7 @@ import cases from 'jest-in-case';
 import simulant from 'simulant';
 
 import isSameDay from 'date-fns/is_same_day';
+import isEqual from 'date-fns/is_equal';
 import isSameMinute from 'date-fns/is_same_minute';
 import getHours from 'date-fns/get_hours';
 import getMinutes from 'date-fns/get_minutes';
@@ -82,6 +83,76 @@ describe('InputDateTimePicker', () => {
 			const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date('')} />, {
 				disableLifecycleMethods: true,
 			});
+
+			expect(wrapper.state('date')).toBeUndefined();
+			expect(wrapper.state('time')).toBeUndefined();
+			expect(wrapper.state('textInput')).toBe('');
+			const stateLastFullDate = wrapper.state('lastFullDate');
+			expect(stateLastFullDate).toBeInstanceOf(Date);
+			expect(isNaN(stateLastFullDate.getTime())).toBe(true);
+		});
+	});
+
+	describe('props update', () => {
+		it('should set the state based on valid "selectedDateTime" updated', () => {
+			const defaultDate = new Date(2014, 1, 9, 12, 21, 3, 452);
+			const date = new Date(2015, 3, 4, 12, 36, 42, 125);
+			const wrapper = shallow(<InputDateTimePicker selectedDateTime={defaultDate} />, {
+				disableLifecycleMethods: true,
+			});
+
+			wrapper.setProps({
+				selectedDateTime: date,
+			});
+
+			wrapper.update();
+
+			const testedDate = wrapper.state('date');
+			const expectedDate = new Date(2015, 3, 4);
+			expect(isEqual(testedDate, expectedDate)).toBe(true);
+
+			const testedTime = wrapper.state('time');
+			const expectedTime = 12 * 60 + 36;
+			expect(testedTime).toBe(expectedTime);
+
+			const testedTextInput = wrapper.state('textInput');
+			const expectedTextInput = '2015-04-04 12:36';
+			expect(testedTextInput).toBe(expectedTextInput);
+
+			const testedLastFullDate = wrapper.state('lastFullDate');
+			const expectedLastFullDate = new Date(2015, 3, 4, 12, 36);
+			expect(isEqual(testedLastFullDate, expectedLastFullDate)).toBe(true);
+		});
+
+		it('should set the state with undefined and empty values when "selectedDateTime" is given as undefined', () => {
+			const defaultDate = new Date(2014, 1, 9, 12, 21, 3, 452);
+			const wrapper = shallow(<InputDateTimePicker selectedDateTime={defaultDate} />, {
+				disableLifecycleMethods: true,
+			});
+
+			wrapper.setProps({
+				selectedDateTime: undefined,
+			});
+
+			wrapper.update();
+
+			expect(wrapper.state('date')).toBeUndefined();
+			expect(wrapper.state('time')).toBeUndefined();
+			expect(wrapper.state('textInput')).toBe('');
+			expect(wrapper.state('lastFullDate')).toBeUndefined();
+		});
+
+		it('should set the state with the invalid date and empty values when "selectedDateTime" is given as an invalid date', () => {
+			const defaultDate = new Date(2014, 1, 9, 12, 21, 3, 452);
+			const wrapper = shallow(<InputDateTimePicker selectedDateTime={defaultDate} />, {
+				disableLifecycleMethods: true,
+			});
+
+			wrapper.setProps({
+				selectedDateTime: new Date(''),
+			});
+
+			wrapper.update();
 
 			expect(wrapper.state('date')).toBeUndefined();
 			expect(wrapper.state('time')).toBeUndefined();
