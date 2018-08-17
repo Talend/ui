@@ -15,7 +15,7 @@ import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
-import TextArea from '../fields/TextArea';
+import TextArea, { TextAreaTextMode } from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
 
 const widgets = {
@@ -42,6 +42,7 @@ const widgets = {
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
+	textarea_text: TextAreaTextMode,
 
 	// widgets
 	buttons: Buttons,

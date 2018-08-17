@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import FieldTemplate from '../FieldTemplate';
+import FieldTemplate from '../../FieldTemplate';
 
-export default function TextTextMode(props) {
+export default function TextMode(props) {
 	const { id, schema, value } = props;
 	const { title, type } = schema;
 
@@ -14,7 +14,7 @@ export default function TextTextMode(props) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	TextTextMode.propTypes = {
+	TextMode.propTypes = {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
@@ -24,8 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-TextTextMode.defaultProps = {
-	isValid: true,
+TextMode.defaultProps = {
 	schema: {},
 	value: '',
 };
