@@ -19,6 +19,7 @@ exports[`UIForm component should render form 1`] = `
     className="theme-form-content"
   >
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -50,6 +51,7 @@ exports[`UIForm component should render form 1`] = `
       }
     />
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -82,6 +84,7 @@ exports[`UIForm component should render form 1`] = `
       }
     />
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -154,6 +157,7 @@ exports[`UIForm component should render provided actions 1`] = `
     className="theme-form-content"
   >
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -185,6 +189,7 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     />
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -217,6 +222,7 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     />
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}

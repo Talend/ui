@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text field text display mode should render input 1`] = `
+<FieldTemplate
+  id="myForm"
+  isValid={true}
+  label="My input title"
+>
+  <div>
+    toto
+  </div>
+</FieldTemplate>
+`;
+
+exports[`Text field text display mode should render password input 1`] = `
+<FieldTemplate
+  id="myForm"
+  isValid={true}
+  label="My input title"
+>
+  <div>
+    **********
+  </div>
+</FieldTemplate>
+`;
