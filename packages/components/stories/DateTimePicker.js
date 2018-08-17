@@ -5,6 +5,60 @@ import { IconsProvider } from '../src/index';
 
 import InputDateTimePicker, { DateTimePicker } from '../src/DateTimePickers';
 
+class TestPickerWrapper extends React.Component {
+	static propTypes = {
+		...InputDateTimePicker.propTypes,
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			inputEvalValue: '',
+			selectedDateTime: this.props.selectedDateTime,
+		};
+		this.onSubmitEval = this.onSubmitEval.bind(this);
+		this.onChangeEvalInput = this.onChangeEvalInput.bind(this);
+	}
+
+	onSubmitEval() {
+		this.setState(prevState => ({
+			selectedDateTime: eval(prevState.inputEvalValue),
+		}));
+	}
+
+	onChangeEvalInput(event) {
+		this.setState({
+			inputEvalValue: event.target.value,
+		});
+	}
+	render() {
+		return (
+			<div>
+				<div>
+					<label htmlFor="TestWrapper_storybook_eval-input">
+						Text to eval for updating 'selectedDateTime' prop
+					</label>
+					<br />
+					<input
+						id="TestWrapper_storybook_eval-input"
+						type="text"
+						onChange={this.onChangeEvalInput}
+						value={this.state.inputEvalValue}
+					/>
+					<button onClick={this.onSubmitEval}>Update</button>
+				</div>
+				<br />
+				<InputDateTimePicker
+					{...this.props}
+					selectedDateTime={this.state.selectedDateTime}
+					onChange={action('onChange (error message, dateTime)')}
+					name="Datetime"
+				/>
+			</div>
+		);
+	}
+}
 
 storiesOf('DateTimePicker', module)
 	.add('InputDateTimePicker', () => (
@@ -13,7 +67,7 @@ storiesOf('DateTimePicker', module)
 			<IconsProvider />
 
 			<div>
-				<InputDateTimePicker
+				<TestPickerWrapper
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 					onChange={action('onChange (error message, dateTime)')}
 					name="Datetime"
