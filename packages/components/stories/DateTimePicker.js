@@ -15,8 +15,7 @@ storiesOf('DateTimePicker', module)
 			<div>
 				<InputDateTimePicker
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-					onChange={action('onChange (DateTime)')}
-					onError={action('onError (message)')}
+					onChange={action('onChange (error message, dateTime)')}
 					name="Datetime"
 				/>
 			</div>

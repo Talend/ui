@@ -378,7 +378,7 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 			expect(onChange).toHaveBeenCalled();
-			expect(isSameMinute(onChange.mock.calls[0][0], new Date(2005, 8, 25, 2, 46))).toBe(true);
+			expect(isSameMinute(onChange.mock.calls[0][1], new Date(2005, 8, 25, 2, 46))).toBe(true);
 		});
 
 		it('should callback with undefined when the datetime change with an invalid input value', () => {
@@ -415,7 +415,7 @@ describe('InputDateTimePicker', () => {
 					},
 				});
 
-				expect(onChange).toHaveBeenCalledWith(undefined);
+				expect(onChange.mock.calls[0][1]).toBeUndefined();
 			});
 		});
 
@@ -436,12 +436,12 @@ describe('InputDateTimePicker', () => {
 			});
 
 			expect(onChange).toHaveBeenCalled();
-			expect(isSameMinute(onChange.mock.calls[0][0], new Date(2015, 11, 30, 20, 50))).toBe(true);
+			expect(isSameMinute(onChange.mock.calls[0][1], new Date(2015, 11, 30, 20, 50))).toBe(true);
 		});
 
 		it('should not callback if datetime has not changed from undefined value', () => {
 			const firstInvalidInput = 'whatever';
-			const secondInvalidInput = 'something else';
+			const secondInvalidInput = 'somethingelse';
 
 			const onChange = jest.fn();
 
@@ -500,15 +500,15 @@ describe('InputDateTimePicker', () => {
 		});
 	});
 
-	describe('callback onError', () => {
+	describe('callback onChange with error', () => {
 		it('should callback with error message when format is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const invalidInput = 'blablabla';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -519,18 +519,18 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(typeof onError.mock.calls[0][0]).toBe('string');
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(typeof onChange.mock.calls[0][0]).toBe('string');
 		});
 
 		it('should callback with error message when month number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const invalidInput = '2018-15-01 00:00';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -541,18 +541,18 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(typeof onError.mock.calls[0][0]).toBe('string');
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(typeof onChange.mock.calls[0][0]).toBe('string');
 		});
 
 		it('should callback with error message when day number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const invalidInput = '2018-10-36 00:00';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -563,18 +563,18 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(typeof onError.mock.calls[0][0]).toBe('string');
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(typeof onChange.mock.calls[0][0]).toBe('string');
 		});
 
 		it('should callback with error message when hours number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const invalidInput = '2018-10-01 36:00';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -585,18 +585,18 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(typeof onError.mock.calls[0][0]).toBe('string');
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(typeof onChange.mock.calls[0][0]).toBe('string');
 		});
 
 		it('should callback with error message when minutes number is invalid while it was valid before', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const invalidInput = '2018-10-01 00:70';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -607,8 +607,8 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(typeof onError.mock.calls[0][0]).toBe('string');
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(typeof onChange.mock.calls[0][0]).toBe('string');
 		});
 
 		it('should callback with no error message (undefined) when input has been correctly parsed while it was invalid before', () => {
@@ -616,10 +616,10 @@ describe('InputDateTimePicker', () => {
 			const invalidInput = 'kjqhsdfkhsd';
 			const validInput = '2018-10-01 00:55';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -631,7 +631,7 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			onError.mockReset();
+			onChange.mockReset();
 
 			inputWrapper.prop('onChange')({
 				target: {
@@ -639,8 +639,8 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(onError.mock.calls[0][0]).toBeUndefined();
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(onChange.mock.calls[0][0]).toBeUndefined();
 		});
 
 		it('should callback if error message has changed', () => {
@@ -648,10 +648,10 @@ describe('InputDateTimePicker', () => {
 			const firstInvalidInput = '2018-72-01 00:00';
 			const secondValidInput = '2018-05-01 42:00';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -663,7 +663,7 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			onError.mockReset();
+			onChange.mockReset();
 
 			inputWrapper.prop('onChange')({
 				target: {
@@ -671,8 +671,8 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).toHaveBeenCalledTimes(1);
-			expect(typeof onError.mock.calls[0][0]).toBe('string');
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(typeof onChange.mock.calls[0][0]).toBe('string');
 		});
 
 		it('should not callback if error message has not changed', () => {
@@ -680,10 +680,10 @@ describe('InputDateTimePicker', () => {
 			const firstInvalidInput = '2018-72-01 00:00';
 			const secondValidInput = '2018-42-01 00:00';
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -695,7 +695,7 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			onError.mockReset();
+			onChange.mockReset();
 
 			inputWrapper.prop('onChange')({
 				target: {
@@ -703,21 +703,21 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
-			expect(onError).not.toHaveBeenCalled();
+			expect(onChange).not.toHaveBeenCalled();
 		});
 
 		it('should not callback if still no error when changed with input or picker', () => {
 			const defaultDateTime = new Date(2015, 0, 1, 10, 35);
 			const validInput = '2018-09-01 12:26';
 			const pickerDatas = {
-				date: new Date(2020, 3, 6),
-				time: 23 * 60 + 45,
+				date: new Date(2018, 8, 1),
+				time: 12 * 60 + 26,
 			};
 
-			const onError = jest.fn();
+			const onChange = jest.fn();
 
 			const wrapper = shallow(
-				<InputDateTimePicker selectedDateTime={defaultDateTime} onError={onError} />,
+				<InputDateTimePicker selectedDateTime={defaultDateTime} onChange={onChange} />,
 				{ disableLifecycleMethods: true },
 			);
 
@@ -729,11 +729,13 @@ describe('InputDateTimePicker', () => {
 				},
 			});
 
+			onChange.mockReset();
+
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
 			dateTimePickerWrapper.prop('onSubmit')(pickerDatas);
 
-			expect(onError).not.toHaveBeenCalled();
+			expect(onChange).not.toHaveBeenCalled();
 		});
 	});
 

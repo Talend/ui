@@ -75,7 +75,7 @@ class InputDateTimePicker extends React.Component {
 	 * We call onFinish to trigger validation
 	 * @param date
 	 */
-	onChange(date) {
+	onChange(errorMessage, date) {
 		const { schema } = this.props;
 		const type = schema.schema.type;
 

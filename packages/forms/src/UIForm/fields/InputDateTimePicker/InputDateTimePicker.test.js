@@ -96,7 +96,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(changedDate);
+					componentOnChange(undefined, changedDate);
 
 					expect(onChange.mock.calls[0][1].value).toBe(expectedTimestamp);
 				});
@@ -117,7 +117,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(undefined);
+					componentOnChange(undefined, undefined);
 
 					expect(onChange.mock.calls[0][1].value).toBeUndefined();
 				});
@@ -183,7 +183,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(changedDate);
+					componentOnChange(undefined, changedDate);
 
 					expect(onChange.mock.calls[0][1].value).toBe(expectedStr);
 				});
@@ -204,7 +204,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(undefined);
+					componentOnChange(undefined, undefined);
 
 					expect(onChange.mock.calls[0][1].value).toBeUndefined();
 				});
