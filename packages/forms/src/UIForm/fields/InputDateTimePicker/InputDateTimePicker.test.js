@@ -10,8 +10,16 @@ const schema = {
 	placeholder: 'Type here',
 	readOnly: false,
 	title: 'My date picker',
-	type: 'number',
 };
+
+function getSchema(type) {
+	return {
+		...schema,
+		schema: {
+			type,
+		},
+	};
+}
 
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
@@ -22,7 +30,7 @@ describe('InputDateTimePicker', () => {
 				errorMessage="You've done something wrong"
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				schema={schema}
+				schema={getSchema('number')}
 				value={1533884400000}
 			/>,
 		);

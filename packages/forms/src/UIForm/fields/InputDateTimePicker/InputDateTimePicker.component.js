@@ -1,24 +1,88 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
+
+function convertDateToTimestamp(date) {
+	return date;
+}
+
+function convertTimestampToDate(timestamp) {
+	return timestamp;
+}
+
+function convertDateToString(date) {
+	return date;
+}
+
+function convertStringToDate(str) {
+	return str;
+}
+
+function convertToDate(type, value) {
+	if (value === undefined) {
+		return undefined;
+	}
+
+	const typeOfValue = typeof value;
+	if (typeOfValue !== type) {
+		console.warn(
+			new Error(`'InputDateTimePicker' expected type of '${type}' and got '${typeOfValue}'`),
+		);
+	}
+
+	switch (type) {
+		case 'number':
+			return convertTimestampToDate(value);
+		case 'string':
+			return convertStringToDate(value);
+		default:
+			console.warn(
+				new Error(`'InputDateTimePicker' only accept 'number' or 'string' type not '${type}'`),
+			);
+			return undefined;
+	}
+}
+
+function convertFromDate(type, date) {
+	if (date === undefined) {
+		return undefined;
+	}
+
+	switch (type) {
+		case 'number':
+			return convertDateToTimestamp(date);
+		case 'string':
+			return convertDateToString(date);
+		default:
+			console.warn(
+				new Error(`'InputDateTimePicker' only accept 'number' or 'string' type not '${type}'`),
+			);
+			return undefined;
+	}
+}
 
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
+		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
 	}
 
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation
 	 * @param date
-	 * @param payload
 	 */
 	onChange(date) {
+		const { schema } = this.props;
+		const type = schema.schema.type;
+
+		const value = convertFromDate(type, date);
 		const payload = {
 			schema: this.props.schema,
-			value: date,
+			value,
 		};
 		this.props.onChange(null, payload);
 		this.props.onFinish(null, payload);
@@ -26,6 +90,9 @@ class InputDateTimePicker extends React.Component {
 
 	render() {
 		const { schema } = this.props;
+		const type = schema.schema.type;
+		const datetime = this.convertToDate(type, this.props.value);
+
 		return (
 			<FieldTemplate
 				description={schema.description}
@@ -35,10 +102,7 @@ class InputDateTimePicker extends React.Component {
 				label={schema.title}
 				required={schema.required}
 			>
-				<InputDateTimePickerComponent
-					selectedDateTime={this.props.value}
-					onChange={this.onChange}
-				/>
+				<InputDateTimePickerComponent selectedDateTime={datetime} onChange={this.onChange} />
 			</FieldTemplate>
 		);
 	}
