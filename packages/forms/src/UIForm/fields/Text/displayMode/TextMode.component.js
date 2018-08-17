@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import FieldTemplate from '../../FieldTemplate';
+import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode(props) {
 	const { id, schema, value } = props;
@@ -8,7 +8,7 @@ export default function TextMode(props) {
 
 	return (
 		<FieldTemplate id={id} label={title}>
-			<div>{type === 'password' && value ? '**********' : value}</div>
+			{type === 'password' && value ? '**********' : value}
 		</FieldTemplate>
 	);
 }

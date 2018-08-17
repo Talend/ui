@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import FieldTemplate from '../../FieldTemplate';
+import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
 export default function TextMode({ id, schema, value }) {
 	const { rows = 5, title } = schema;

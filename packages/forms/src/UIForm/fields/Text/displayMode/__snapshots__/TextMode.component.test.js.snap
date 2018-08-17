@@ -3,23 +3,17 @@
 exports[`Text field text display mode should render input 1`] = `
 <FieldTemplate
   id="myForm"
-  isValid={true}
   label="My input title"
 >
-  <div>
-    toto
-  </div>
+  toto
 </FieldTemplate>
 `;
 
 exports[`Text field text display mode should render password input 1`] = `
 <FieldTemplate
   id="myForm"
-  isValid={true}
   label="My input title"
 >
-  <div>
-    **********
-  </div>
+  **********
 </FieldTemplate>
 `;

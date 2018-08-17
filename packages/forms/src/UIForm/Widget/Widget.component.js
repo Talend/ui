@@ -55,7 +55,7 @@ export default function Widget(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
-		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		errors: PropTypes.object,
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			conditions: PropTypes.arrayOf(

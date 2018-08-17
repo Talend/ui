@@ -3,7 +3,6 @@
 exports[`TextArea field text display mode should render provided rows 1`] = `
 <FieldTemplate
   id="myForm"
-  isValid={true}
   label="My input title"
 >
   <pre
@@ -22,7 +21,6 @@ exports[`TextArea field text display mode should render provided rows 1`] = `
 exports[`TextArea field text display mode should render textarea 1`] = `
 <FieldTemplate
   id="myForm"
-  isValid={true}
   label="My input title"
 >
   <pre
