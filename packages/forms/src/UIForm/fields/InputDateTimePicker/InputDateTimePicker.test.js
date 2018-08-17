@@ -123,5 +123,92 @@ describe('InputDateTimePicker', () => {
 				});
 			});
 		});
+
+		describe('form string type', () => {
+			describe('when spreading value to the component', () => {
+				it('should convert string to date', () => {
+					const dateStr = '2025-02-25T03:35:00Z';
+					const expectedTimestamp = 1740454500000;
+					const wrapper = shallow(
+						<InputDateTimePicker
+							id="my-datepicker"
+							isValid
+							onChange={jest.fn()}
+							onFinish={jest.fn()}
+							schema={getSchema('string')}
+							value={dateStr}
+						/>,
+					);
+
+					const componentWrapper = wrapper.find('InputDateTimePicker');
+					const dateSpread = componentWrapper.prop('selectedDateTime');
+					expect(dateSpread.getTime()).toBe(expectedTimestamp);
+				});
+
+				it('should convert an undefined string to an undefined date', () => {
+					const dateStr = undefined;
+					const wrapper = shallow(
+						<InputDateTimePicker
+							id="my-datepicker"
+							isValid
+							onChange={jest.fn()}
+							onFinish={jest.fn()}
+							schema={getSchema('string')}
+							value={dateStr}
+						/>,
+					);
+
+					const componentWrapper = wrapper.find('InputDateTimePicker');
+					const dateSpread = componentWrapper.prop('selectedDateTime');
+					expect(dateSpread).toBeUndefined();
+				});
+			});
+
+			describe('when component onChange occurs', () => {
+				it('should convert date to string', () => {
+					const dateStr = '2027-01-01T03:35:00Z';
+					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
+					const expectedStr = '2015-11-25T19:11:00.000Z';
+					const onChange = jest.fn();
+					const wrapper = shallow(
+						<InputDateTimePicker
+							id="my-datepicker"
+							isValid
+							onChange={onChange}
+							onFinish={jest.fn()}
+							schema={getSchema('string')}
+							value={dateStr}
+						/>,
+					);
+
+					const componentWrapper = wrapper.find('InputDateTimePicker');
+					const componentOnChange = componentWrapper.prop('onChange');
+					componentOnChange(changedDate);
+
+					expect(onChange.mock.calls[0][1].value).toBe(expectedStr);
+				});
+
+				it('should convert an undefined date to an undefined string', () => {
+					const dateStr = '2027-01-01T03:35:00Z';
+					const onChange = jest.fn();
+					const wrapper = shallow(
+						<InputDateTimePicker
+							id="my-datepicker"
+							isValid
+							onChange={onChange}
+							onFinish={jest.fn()}
+							schema={getSchema('string')}
+							value={dateStr}
+						/>,
+					);
+
+					const componentWrapper = wrapper.find('InputDateTimePicker');
+					const componentOnChange = componentWrapper.prop('onChange');
+					componentOnChange(undefined);
+
+					expect(onChange.mock.calls[0][1].value).toBeUndefined();
+				});
+			});
+		});
 	});
 });

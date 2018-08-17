@@ -13,11 +13,11 @@ function convertTimestampToDate(timestamp) {
 }
 
 function convertDateToString(date) {
-	return date;
+	return date.toISOString();
 }
 
 function convertStringToDate(str) {
-	return str;
+	return new Date(str);
 }
 
 function convertToDate(type, value) {

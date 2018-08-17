@@ -6,16 +6,28 @@
     "properties": {
       "propSimpleNumber": {
         "type": "number"
+      },
+      "propSimpleString": {
+        "type": "string"
       }
     }
   },
   "uiSchema": [
     {
       "key": "propSimpleNumber",
-      "title": "Basic input date time picker",
+      "title": "Basic with number type",
+      "description": "Without any constraints",
+      "widget": "inputDateTimePicker"
+    },
+    {
+      "key": "propSimpleString",
+      "title": "Basic with string type",
       "description": "Without any constraints",
       "widget": "inputDateTimePicker"
     }
   ],
-  "properties": {}
+  "properties": {
+    "propSimpleNumber": 1514764800000,
+    "propSimpleString": "2018-01-01T00:00:00.000Z"
+  }
 }
