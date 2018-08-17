@@ -77,6 +77,19 @@ describe('InputDateTimePicker', () => {
 			expect(wrapper.state('time')).toBeUndefined();
 			expect(wrapper.state('textInput')).toBe('');
 		});
+
+		it('should default set the state with the invalid date and empty values when "selectedDateTime" is given as an invalid date', () => {
+			const wrapper = shallow(<InputDateTimePicker selectedDateTime={new Date('')} />, {
+				disableLifecycleMethods: true,
+			});
+
+			expect(wrapper.state('date')).toBeUndefined();
+			expect(wrapper.state('time')).toBeUndefined();
+			expect(wrapper.state('textInput')).toBe('');
+			const stateLastFullDate = wrapper.state('lastFullDate');
+			expect(stateLastFullDate).toBeInstanceOf(Date);
+			expect(isNaN(stateLastFullDate.getTime())).toBe(true);
+		});
 	});
 
 	describe('input changes update the state', () => {
@@ -849,5 +862,57 @@ describe('InputDateTimePicker', () => {
 			const overlayWrapperAfter = wrapper.find('Overlay').first();
 			expect(overlayWrapperAfter.prop('show')).toBe(false);
 		});
+	});
+
+	describe('render error label', () => {
+		cases(
+			'should apply an "invalid label" on input AND remove placeholder when date invalid and input not focused',
+			({ date, isFocused, expectApplied }) => {
+				const wrapper = shallow(<InputDateTimePicker />, { disableLifecycleMethods: true });
+
+				wrapper.setState({
+					lastFullDate: date,
+					inputFocused: isFocused,
+				});
+
+				const errorLabelExists = wrapper.find('.tc-inputdatetimepicker-invalid-label').exists();
+				const overlayWrapper = wrapper.find('DebounceInput');
+				const placeholder = overlayWrapper.prop('placeholder');
+
+				if (expectApplied) {
+					expect(errorLabelExists).toBe(true);
+					expect(placeholder).toBeUndefined();
+				} else {
+					expect(errorLabelExists).toBe(false);
+					expect(placeholder.length).toBeGreaterThan(0);
+				}
+			},
+			[
+				{
+					name: 'date valid AND input focused',
+					date: new Date(2015, 5, 6, 12, 35),
+					isFocused: true,
+					expectApplied: false,
+				},
+				{
+					name: 'date valid AND input not focused',
+					date: new Date(2015, 5, 6, 12, 35),
+					isFocused: false,
+					expectApplied: false,
+				},
+				{
+					name: 'date not valid AND input focused',
+					date: new Date(''),
+					isFocused: true,
+					expectApplied: false,
+				},
+				{
+					name: 'date not valid AND input not focused',
+					date: new Date(''),
+					isFocused: false,
+					expectApplied: true,
+				},
+			],
+		);
 	});
 });

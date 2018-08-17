@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
@@ -34,6 +35,14 @@ const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/)
  * ex : ' 14:35  ' => ['14', '35']
  */
 const timePartRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
+
+function isDateValid(date) {
+	if (date === undefined) {
+		return true;
+	}
+
+	return date instanceof Date && !isNaN(date.getTime());
+}
 
 function hoursAndMinutesToTime(hours, minutes) {
 	return hours * 60 + minutes;
@@ -145,7 +154,9 @@ class InputDateTimePicker extends React.Component {
 		);
 
 		const selectedDateTime = this.props.selectedDateTime;
-		if (selectedDateTime !== undefined) {
+		const isDateTimeValid = isDateValid(selectedDateTime);
+
+		if (selectedDateTime !== undefined && isDateTimeValid) {
 			const date = startOfDay(selectedDateTime);
 			const hours = getHours(selectedDateTime);
 			const minutes = getMinutes(selectedDateTime);
@@ -160,10 +171,12 @@ class InputDateTimePicker extends React.Component {
 			};
 		} else {
 			this.state = {
+				lastFullDate: selectedDateTime,
 				textInput: '',
 			};
 		}
 
+		this.state.inputFocused = false;
 		this.state.isDropdownShown = false;
 
 		this.componentContainerEvents = [];
@@ -173,6 +186,7 @@ class InputDateTimePicker extends React.Component {
 		this.setContainerRef = this.setContainerRef.bind(this);
 		this.setDropdownWrapperRef = this.setDropdownWrapperRef.bind(this);
 		this.onFocusInput = this.onFocusInput.bind(this);
+		this.onBlurInput = this.onBlurInput.bind(this);
 		this.documentHandler = this.documentHandler.bind(this);
 		this.componentContainerHandler = this.componentContainerHandler.bind(this);
 	}
@@ -218,7 +232,16 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onFocusInput() {
+		this.setState({
+			inputFocused: true,
+		});
 		this.switchDropdownVisibility(true);
+	}
+
+	onBlurInput() {
+		this.setState({
+			inputFocused: false,
+		});
 	}
 
 	setContainerRef(ref) {
@@ -303,17 +326,40 @@ class InputDateTimePicker extends React.Component {
 
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
+
+		const isDateTimeValid = isDateValid(this.state.lastFullDate);
+		const inputFocused = this.state.inputFocused;
+		const needInvalidLabel = !isDateTimeValid && !inputFocused;
+
+		const defaultPlaceholder = 'YYYY-MM-DD hh:mm';
+		const placeholder = needInvalidLabel ? undefined : inputProps.placeholder || defaultPlaceholder;
+
+		const textInput = needInvalidLabel ? '' : this.state.textInput;
+
 		return (
 			<div ref={this.setContainerRef}>
-				<DebounceInput
-					{...inputProps}
-					type="text"
-					onFocus={this.onFocusInput}
-					placeholder={inputProps.placeholder || 'YYYY-MM-DD hh:mm'}
-					value={this.state.textInput}
-					debounceTimeout={DEBOUNCE_TIMEOUT}
-					onChange={this.onChangeInput}
-				/>
+				<div className={theme.inputContainer}>
+					<DebounceInput
+						{...inputProps}
+						type="text"
+						onFocus={this.onFocusInput}
+						onBlur={this.onBlurInput}
+						placeholder={placeholder}
+						value={textInput}
+						debounceTimeout={DEBOUNCE_TIMEOUT}
+						onChange={this.onChangeInput}
+					/>
+					{needInvalidLabel && (
+						<p
+							className={classNames(
+								'tc-inputdatetimepicker-invalid-label',
+								theme.invalidPlaceHolder,
+							)}
+						>
+							INVALID DATE
+						</p>
+					)}
+				</div>
 				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
 						<Popover className={theme.popover}>

@@ -1,3 +1,20 @@
+.inputContainer {
+	position: relative;
+
+	.input {
+		position: relative;
+		z-index: 1;
+		background: none;
+	}
+
+	.invalidPlaceHolder {
+		position: absolute;
+		top: 0;
+		width: 155px;
+		color: red;
+	}
+}
+
 .dropdown-wrapper {
 	position: relative;
 }
