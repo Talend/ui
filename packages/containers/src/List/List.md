@@ -42,8 +42,8 @@ The custom actions for filterBar allows to override default actions onToggle or 
 Following actions allows to override the default saga,
 
 ```
-	ON_TOGGLE_FILTER: 'ON_TOGGLE_FILTER',
-	ON_FILTER_CHANGE: 'ON_FILTER_CHANGE'
+	LIST_TOGGLE_FILTER: 'LIST_TOGGLE_FILTER',
+	LIST_FILTER_CHANGE: 'LIST_FILTER_CHANGE'
 ```
 
 2. custom action for sorting
