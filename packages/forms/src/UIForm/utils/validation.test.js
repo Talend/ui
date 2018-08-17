@@ -77,41 +77,61 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toBe(null);
 		});
+
+		it('should return the error.message if the value is an Error object, without validating further', () => {
+			const schema = {
+				key: ['firstname'],
+				customValidation: true,
+				required: true,
+				schema: {
+					type: 'string',
+				},
+				type: 'text',
+			};
+			const errorMessage = 'This is a custom error message bubbling up from the widget';
+			const widgetError = new Error(errorMessage);
+			const value = widgetError;
+			const properties = { firstname: '' };
+
+			const errors = validateValue(schema, value, properties, customValidationFn);
+
+			expect(errors).toBe(widgetError.message);
+		});
 	});
 
 	describe('#validateArray', () => {
 		const schema = {
 			key: ['comments'],
 			items: [{
-				key: ['comments', '', 'name'],
-				title: 'Name',
-				required: true,
-				schema: { title: 'Name', type: 'string' },
-				type: 'text',
+					key: ['comments', '', 'name'],
+					title: 'Name',
+					required: true,
+					schema: { title: 'Name', type: 'string' },
+					type: 'text',
 			}, {
-				key: ['comments', '', 'email'],
-				title: 'Email',
-				description: 'Email will be used for evil.',
-				schema: {
+					key: ['comments', '', 'email'],
 					title: 'Email',
-					type: 'string',
-					pattern: '^\\S+@\\S+$',
 					description: 'Email will be used for evil.',
-				},
-				type: 'text',
+					schema: {
+						title: 'Email',
+						type: 'string',
+						pattern: '^\\S+@\\S+$',
+						description: 'Email will be used for evil.',
+					},
+					type: 'text',
 			}, {
-				key: ['comments', '', 'comment'],
-				type: 'textarea',
-				rows: 3,
-				title: 'Comment',
-				maxlength: 20,
-				validationMessage: "Don't be greedy!",
-				schema: {
+					key: ['comments', '', 'comment'],
+					type: 'textarea',
+					rows: 3,
 					title: 'Comment',
-					type: 'string',
-					maxLength: 20,
+					maxlength: 20,
 					validationMessage: "Don't be greedy!",
-				},
+					schema: {
+						title: 'Comment',
+						type: 'string',
+						maxLength: 20,
+						validationMessage: "Don't be greedy!",
+					},
 			}],
 			title: 'comments',
 			required: true,
@@ -198,35 +218,35 @@ describe('Validation utils', () => {
 		const arraySchema = {
 			key: ['comments'],
 			items: [{
-				key: ['comments', '', 'name'],
-				title: 'Name',
-				required: true,
-				schema: { title: 'Name', type: 'string' },
-				type: 'text',
+					key: ['comments', '', 'name'],
+					title: 'Name',
+					required: true,
+					schema: { title: 'Name', type: 'string' },
+					type: 'text',
 			}, {
-				key: ['comments', '', 'email'],
-				title: 'Email',
-				description: 'Email will be used for evil.',
-				schema: {
+					key: ['comments', '', 'email'],
 					title: 'Email',
-					type: 'string',
-					pattern: '^\\S+@\\S+$',
 					description: 'Email will be used for evil.',
-				},
-				type: 'text',
+					schema: {
+						title: 'Email',
+						type: 'string',
+						pattern: '^\\S+@\\S+$',
+						description: 'Email will be used for evil.',
+					},
+					type: 'text',
 			}, {
-				key: ['comments', '', 'comment'],
-				type: 'textarea',
-				rows: 3,
-				title: 'Comment',
-				maxlength: 20,
-				validationMessage: "Don't be greedy!",
-				schema: {
+					key: ['comments', '', 'comment'],
+					type: 'textarea',
+					rows: 3,
 					title: 'Comment',
-					type: 'string',
-					maxLength: 20,
+					maxlength: 20,
 					validationMessage: "Don't be greedy!",
-				},
+					schema: {
+						title: 'Comment',
+						type: 'string',
+						maxLength: 20,
+						validationMessage: "Don't be greedy!",
+					},
 			}],
 			title: 'comments',
 			required: true,

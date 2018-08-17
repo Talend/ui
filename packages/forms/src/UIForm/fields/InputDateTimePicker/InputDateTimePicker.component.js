@@ -26,6 +26,11 @@ function convertToDate(type, value) {
 	}
 
 	const typeOfValue = typeof value;
+
+	if (typeOfValue === 'object' && value instanceof Error) {
+		return undefined;
+	}
+
 	if (typeOfValue !== type) {
 		console.warn(
 			new Error(`'InputDateTimePicker' expected type of '${type}' and got '${typeOfValue}'`),
@@ -79,7 +84,10 @@ class InputDateTimePicker extends React.Component {
 		const { schema } = this.props;
 		const type = schema.schema.type;
 
-		const value = convertFromDate(type, date);
+		const hasError = errorMessage !== undefined;
+
+		const value = hasError ? new Error(errorMessage) : convertFromDate(type, date);
+
 		const payload = {
 			schema: this.props.schema,
 			value,
