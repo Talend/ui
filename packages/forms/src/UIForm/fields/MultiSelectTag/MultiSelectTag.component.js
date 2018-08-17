@@ -3,6 +3,7 @@ import React from 'react';
 import keycode from 'keycode';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
+import Icon from '@talend/react-components/lib/Icon';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.scss';
@@ -214,10 +215,8 @@ export default class MultiSelectTag extends React.Component {
 						readOnly={schema.readOnly || false}
 						theme={this.theme}
 						value={this.state.value}
+						caret
 					/>
-					<div className={theme.caret}>
-						<span className="caret" />
-					</div>
 				</div>
 			</FieldTemplate>
 		);

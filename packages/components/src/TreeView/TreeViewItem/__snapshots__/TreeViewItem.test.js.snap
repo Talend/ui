@@ -4,6 +4,8 @@ exports[`TreeView should render items with icon 1`] = `
 <li
   className="tc-treeview-item-li theme-tc-treeview-li"
   data-hidden={undefined}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="tc-treeview-item theme-tc-treeview-item"
@@ -14,7 +16,7 @@ exports[`TreeView should render items with icon 1`] = `
     role="button"
     style={
       Object {
-        "paddingLeft": "20px",
+        "paddingLeft": "30px",
       }
     }
     tabIndex="0"
@@ -27,7 +29,7 @@ exports[`TreeView should render items with icon 1`] = `
           "title": "A pokemon",
         }
       }
-      toggled={true}
+      toggled={false}
     />
     <span
       className="tc-treeview-item-name"
@@ -63,6 +65,8 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
 <li
   className="tc-treeview-item-li theme-tc-treeview-li"
   data-hidden={undefined}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="tc-treeview-item theme-tc-treeview-item"
@@ -73,7 +77,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     role="button"
     style={
       Object {
-        "paddingLeft": "20px",
+        "paddingLeft": "30px",
       }
     }
     tabIndex="0"

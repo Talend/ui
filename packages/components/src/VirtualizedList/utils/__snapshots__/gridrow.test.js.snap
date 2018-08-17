@@ -5,7 +5,7 @@ exports[`gridrow #renderCell should render content field 1`] = `
   cellData: 
   1
   columnData: 
-  {"custom":"lol","id":"my-id"}
+  {"custom":"lol"}
   dataKey: 
   id
   rowData: 

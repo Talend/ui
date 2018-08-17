@@ -129,7 +129,6 @@ stories
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				right={injectedComponentsRight}
-				editMode
 			>
 				{center}
 			</SubHeaderBar>

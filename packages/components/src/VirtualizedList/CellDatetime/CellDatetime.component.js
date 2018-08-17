@@ -30,12 +30,20 @@ export function computeValue(cellData, columnData, t) {
 /**
  * Cell renderer that displays text + icon
  */
-export function CellDatetimeComponent({ cellData, columnData, t }) {
-	return (
-		<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>
-			{computeValue(cellData, columnData, t)}
-		</div>
-	);
+export class CellDatetimeComponent extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		return (
+			this.props.cellData !== nextProps.cellData || this.props.columnData !== nextProps.columnData
+		);
+	}
+	render() {
+		const { cellData, columnData, t } = this.props;
+		return (
+			<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>
+				{computeValue(cellData, columnData, t)}
+			</div>
+		);
+	}
 }
 
 CellDatetimeComponent.displayName = 'VirtualizedList(CellDatetime)';

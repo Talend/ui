@@ -2,8 +2,6 @@
 
 exports[`Loader should render a default loader 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
@@ -33,8 +31,6 @@ exports[`Loader should render a default loader 1`] = `
 
 exports[`Loader should render a default loader if size is not specified 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
@@ -64,8 +60,6 @@ exports[`Loader should render a default loader if size is not specified 1`] = `
 
 exports[`Loader should render a large loader 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
@@ -95,8 +89,6 @@ exports[`Loader should render a large loader 1`] = `
 
 exports[`Loader should render a small loader 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
