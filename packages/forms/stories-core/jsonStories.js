@@ -58,6 +58,43 @@ function createCommonProps(tab) {
 	};
 }
 
+class DisplayModeForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.toggleDisplayModeText = this.toggleDisplayModeText.bind(this);
+	}
+
+	toggleDisplayModeText(event) {
+		this.setState({ displayMode: event.target.checked ? 'text' : undefined });
+	}
+
+	render() {
+		return (
+			<div>
+				<form>
+					<div className="form-group">
+						<div className="checkbox">
+							<label>
+								<input
+									type="checkbox"
+									checked={this.state.displayMode === 'text'}
+									onChange={this.toggleDisplayModeText}
+								/>
+								Text mode
+							</label>
+						</div>
+					</div>
+				</form>
+
+				<hr style={{ borderColor: 'black' }} />
+
+				<UIForm {...this.props} displayMode={this.state.displayMode} />
+			</div>
+		);
+	}
+}
+
 function createStory(category, sampleFilenames, filename) {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
@@ -80,7 +117,7 @@ function createStory(category, sampleFilenames, filename) {
 							Documentation
 						</a>
 					)}
-					<UIForm {...createCommonProps('state')} data={data} />
+					<DisplayModeForm {...createCommonProps('state')} data={data} />
 				</section>
 			);
 		},

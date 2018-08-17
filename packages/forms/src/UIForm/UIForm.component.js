@@ -268,20 +268,23 @@ export class UIFormComponent extends React.Component {
 							errors={this.props.errors}
 							templates={this.props.templates}
 							widgets={this.state.widgets}
+							displayMode={this.props.displayMode}
 						/>
 					))}
 				</div>
 				{this.props.children}
-				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
-					<Buttons
-						id={`${this.props.id}-${this.props.id}-actions`}
-						onTrigger={this.onTrigger}
-						className={this.props.buttonBlockClass}
-						schema={{ items: actions }}
-						onClick={this.onActionClick}
-						getComponent={this.props.getComponent}
-					/>
-				</div>
+				{this.props.displayMode !== 'text' ? (
+					<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
+						<Buttons
+							id={`${this.props.id}-${this.props.id}-actions`}
+							onTrigger={this.onTrigger}
+							className={this.props.buttonBlockClass}
+							schema={{ items: actions }}
+							onClick={this.onActionClick}
+							getComponent={this.props.getComponent}
+						/>
+					</div>
+				) : null}
 			</form>
 		);
 	}
@@ -328,7 +331,11 @@ if (process.env.NODE_ENV !== 'production') {
 		/** Custom templates */
 		templates: PropTypes.object,
 		/** Custom widgets */
-		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		widgets: PropTypes.object,
+		/**
+		 * Display mode: example 'text'
+		 */
+		displayMode: PropTypes.string,
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,

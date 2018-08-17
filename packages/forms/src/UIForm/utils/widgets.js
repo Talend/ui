@@ -14,7 +14,7 @@ import MultiSelectTag from '../fields/MultiSelectTag';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
-import Text from '../fields/Text';
+import Text, { TextTextMode } from '../fields/Text';
 import TextArea from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
 
@@ -37,6 +37,11 @@ const widgets = {
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
+
+	// fields: text mode
+	number_text: TextTextMode,
+	password_text: TextTextMode,
+	text_text: TextTextMode,
 
 	// widgets
 	buttons: Buttons,
