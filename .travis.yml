@@ -12,7 +12,7 @@ notifications:
 before_install:
   - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
-  - if [[ "$TRAVIS_COMMIT_MESSAGE" =~ 'chore(ci)' ]]; then travis_terminate 0; fi
+  - if [[ "$TALEND_COMMIT_MSG" =~ 'chore(ci)' ]]; then travis_terminate 0; fi
   # Configure git
   - .travis/before_install.sh
 
