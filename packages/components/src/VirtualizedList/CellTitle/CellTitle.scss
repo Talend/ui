@@ -61,22 +61,19 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 			text-decoration: none;
 		}
 	}
+}
 
-	&:hover {
-		.tc-main-title-clickable {
-			color: $scooter;
-		}
-
-		.tc-main-title-icon-clickable {
+.tc-list-title-filter {
+	&:hover,
+	&:global(.ally-focus-within) {
+		.icon {
 			color: $brand-primary;
 			filter: none;
 		}
-	}
-}
 
-.tc-main-title-clickable {
-	&:focus {
-		color: $scooter;
+		.main-title {
+			color: $scooter;
+		}
 	}
 }
 
