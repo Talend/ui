@@ -3,10 +3,9 @@
  * @param {Array} items
  * @param {Object} value
  * @param {String} searchCriteria
- * @param {Array} toggledChildren
- * @returns {Object}
+ * @returns {Array}
  */
-export function getDisplayedItems(items, value, searchCriteria, toggledChildren) {
+export function getDisplayedItems(items, value, searchCriteria) {
 	return items.reduce((finalItems, item) => {
 		const { children } = item;
 		const itemValue = value[item.key] || [];
@@ -22,7 +21,6 @@ export function getDisplayedItems(items, value, searchCriteria, toggledChildren)
 			finalItems.push({
 				...item,
 				checked,
-				expanded: toggledChildren.includes(item.toggleId),
 				children: finalChildren.map(child => ({
 					...child,
 					checked: itemValue.includes(child.value),
@@ -43,19 +41,17 @@ export function getDisplayedItems(items, value, searchCriteria, toggledChildren)
  * @param { Function } callbacks.onExpandToggle
  * @param { Function } callbacks.onParentChange
  * @param { Function } callbacks.onCheck
- * @returns { Object }
+ * @returns { Array }
  */
-export function initItems(schema, value, searchCriteria, toggledChildren, callbacks) {
+export function initItems(schema, value, searchCriteria, callbacks) {
 	const { onExpandToggle, onParentChange, onCheck } = callbacks;
 
 	const items = schema.items.map(item => {
-		const key = item.key[1]; // This is ugly (get a parent "id")
-		const toggleId = item.key.join('.'); // Build an internal id to manage toggling state
+		const key = item.key[item.key.length - 1]; // This is ugly (get a parent "id")
 
 		return {
 			label: item.title,
 			key,
-			toggleId,
 			onExpandToggle,
 			onChange: onParentChange,
 			children: item.titleMap.map(option => ({
@@ -68,6 +64,6 @@ export function initItems(schema, value, searchCriteria, toggledChildren, callba
 
 	return {
 		items,
-		displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+		displayedItems: getDisplayedItems(items, value, searchCriteria),
 	};
 }

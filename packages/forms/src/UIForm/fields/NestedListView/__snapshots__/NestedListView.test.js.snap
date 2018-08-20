@@ -30,12 +30,10 @@ exports[`NestedListView component should render component 1`] = `
                 "value": "bar_2",
               },
             ],
-            "expanded": false,
             "key": "bar",
             "label": "Bar",
             "onChange": [Function],
             "onExpandToggle": [Function],
-            "toggleId": "baz.bar",
           },
           Object {
             "checked": false,
@@ -53,12 +51,10 @@ exports[`NestedListView component should render component 1`] = `
                 "value": "foo_2",
               },
             ],
-            "expanded": false,
             "key": "foo",
             "label": "Foo",
             "onChange": [Function],
             "onExpandToggle": [Function],
-            "toggleId": "baz.foo",
           },
         ]
       }
@@ -93,12 +89,10 @@ exports[`NestedListView component should render component 1`] = `
                 "value": "bar_2",
               },
             ],
-            "expanded": false,
             "key": "bar",
             "label": "Bar",
             "onChange": [Function],
             "onExpandToggle": [Function],
-            "toggleId": "baz.bar",
           },
           Object {
             "checked": false,
@@ -116,12 +110,10 @@ exports[`NestedListView component should render component 1`] = `
                 "value": "foo_2",
               },
             ],
-            "expanded": false,
             "key": "foo",
             "label": "Foo",
             "onChange": [Function],
             "onExpandToggle": [Function],
-            "toggleId": "baz.foo",
           },
         ]
       }
@@ -132,7 +124,6 @@ exports[`NestedListView component should render component 1`] = `
       searchPlaceholder="placeholder"
       showToggleAll={false}
       t={[Function]}
-      toggledChildren={Array []}
       value={Object {}}
     />
   </FieldTemplate>

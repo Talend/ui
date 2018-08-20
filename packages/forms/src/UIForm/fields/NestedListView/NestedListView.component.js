@@ -41,7 +41,9 @@ class NestedListViewWidget extends React.Component {
 			},
 		];
 
-		const toggledChildren = [];
+		this.onAddKeyDown = this.onInputKeyDown.bind(this);
+		this.onInputChange = this.onInputChange.bind(this);
+
 		const searchCriteria = null;
 
 		const callbacks = {
@@ -50,12 +52,8 @@ class NestedListViewWidget extends React.Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
-		this.onAddKeyDown = this.onInputKeyDown.bind(this);
-		this.onInputChange = this.onInputChange.bind(this);
-
 		this.state = {
-			...initItems(schema, value, searchCriteria, toggledChildren, callbacks),
-			toggledChildren,
+			...initItems(schema, value, searchCriteria, callbacks),
 			searchCriteria,
 			value,
 		};
@@ -67,16 +65,16 @@ class NestedListViewWidget extends React.Component {
 	 * @param {Object} item
 	 */
 	onExpandToggle(event, item) {
-		this.setState(({ items, value, searchCriteria, toggledChildren }) => {
-			const { toggleId } = item;
+		this.setState(({ items, value, searchCriteria }) => {
+			const expanded = items.find(item => item.expanded);
 
-			const newToggledChildren = toggledChildren.includes(toggleId)
-				? toggledChildren.filter(toggled => toggled !== toggleId)
-				: [...toggledChildren, toggleId];
+			const newItems = expanded && expanded.key === item.key
+				? items.map(fieldItem => ({ ...fieldItem, expanded: false })) // Collapse everything
+				: items.map(fieldItem => ({ ...fieldItem, expanded: fieldItem.key === item.key, })); // Expand selected
 
 			return {
-				displayedItems: getDisplayedItems(items, value, searchCriteria, newToggledChildren),
-				toggledChildren: newToggledChildren,
+				items: newItems,
+				displayedItems: getDisplayedItems(newItems, value, searchCriteria),
 			};
 		});
 	}
@@ -88,7 +86,7 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onParentChange(event, item) {
 		this.setState(
-			({ items, value, searchCriteria, toggledChildren }) => {
+			({ items, value, searchCriteria }) => {
 				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
 				// Toggle all values
@@ -96,7 +94,7 @@ class NestedListViewWidget extends React.Component {
 
 				return {
 					value: { ...value, [item.key]: itemValue.length === 0 ? availableOptions : [] },
-					displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+					displayedItems: getDisplayedItems(items, value, searchCriteria),
 				};
 			},
 			() => this.onChange(event, this.state.value),
@@ -111,7 +109,7 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onCheck(event, item, parent) {
 		this.setState(
-			({ items, value, searchCriteria, toggledChildren }) => {
+			({ items, value, searchCriteria }) => {
 				const { key } = parent;
 
 				// Toggle checked value from state
@@ -130,7 +128,7 @@ class NestedListViewWidget extends React.Component {
 
 				return {
 					value,
-					displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+					displayedItems: getDisplayedItems(items, value, searchCriteria),
 				};
 			},
 			() => this.onChange(event, this.state.value),
@@ -157,9 +155,9 @@ class NestedListViewWidget extends React.Component {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			const { value: searchCriteria } = item;
-			this.setState(({ items, value, toggledChildren }) => ({
+			this.setState(({ items, value }) => ({
 				searchCriteria,
-				displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+				displayedItems: getDisplayedItems(items, value, searchCriteria),
 			}));
 		}, 400);
 	}
@@ -195,8 +193,8 @@ class NestedListViewWidget extends React.Component {
 	switchToDefaultMode() {
 		const searchCriteria = null;
 
-		this.setState(({ items, value, toggledChildren }) => ({
-			displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+		this.setState(({ items, value }) => ({
+			displayedItems: getDisplayedItems(items, value, searchCriteria),
 			searchCriteria,
 			headerInput: this.defaultHeaderActions,
 			displayMode: DISPLAY_MODE_DEFAULT,
