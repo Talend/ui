@@ -97,5 +97,5 @@ export function filterList(componentState, localConfig, items) {
 	return results;
 }
 
-export const sortCurried = (componentState, localConfig) =>
-		results => sortList(componentState, localConfig, results);
+export const sortCurried = (componentState, localConfig) => results =>
+	sortList(componentState, localConfig, results);

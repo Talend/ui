@@ -9,7 +9,6 @@ const getFilteredItems = filterListFn => (componentState, config, results) => {
 	return filterItemsCurried(filterListFn(componentState, config, results));
 };
 
-
 export function* updateList({ props, context }) {
 	const collectionId = props.collectionId || 'default';
 	const state = context.store.getState();
