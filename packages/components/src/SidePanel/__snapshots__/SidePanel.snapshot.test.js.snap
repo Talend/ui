@@ -145,16 +145,17 @@ exports[`Storyshots SidePanel default 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls="context"
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id="context-toggle-dock"
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -169,9 +170,6 @@ exports[`Storyshots SidePanel default 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -421,16 +419,17 @@ exports[`Storyshots SidePanel docked 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Expand"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Expand menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -445,9 +444,6 @@ exports[`Storyshots SidePanel docked 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -697,16 +693,17 @@ exports[`Storyshots SidePanel large docked 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Expand"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Expand menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -721,9 +718,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -973,16 +967,17 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -997,9 +992,6 @@ exports[`Storyshots SidePanel large reverse 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -1249,16 +1241,17 @@ exports[`Storyshots SidePanel links 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls="context"
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id="context-toggle-dock"
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -1273,9 +1266,6 @@ exports[`Storyshots SidePanel links 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -1770,16 +1760,17 @@ exports[`Storyshots SidePanel reverse 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -1794,9 +1785,6 @@ exports[`Storyshots SidePanel reverse 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -2056,16 +2044,17 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
-            title="Collapse"
           >
             <button
               aria-controls={undefined}
-              aria-label=""
+              aria-label="Collapse menu"
               className="btn-icon-only btn btn-link"
               disabled={false}
               id={undefined}
               onClick={[Function]}
+              onFocus={[Function]}
               onMouseDown={[Function]}
+              onMouseOver={[Function]}
               role={null}
               type="button"
             >
@@ -2080,9 +2069,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                   xlinkHref="#talend-opener"
                 />
               </svg>
-              <span>
-                
-              </span>
             </button>
           </div>
           <ul
@@ -2700,16 +2686,17 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
-            title="Collapse"
           >
             <button
               aria-controls={undefined}
-              aria-label=""
+              aria-label="Collapse menu"
               className="btn-icon-only btn btn-link"
               disabled={false}
               id={undefined}
               onClick={[Function]}
+              onFocus={[Function]}
               onMouseDown={[Function]}
+              onMouseOver={[Function]}
               role={null}
               type="button"
             >
@@ -2724,9 +2711,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                   xlinkHref="#talend-opener"
                 />
               </svg>
-              <span>
-                
-              </span>
             </button>
           </div>
           <ul
@@ -3345,16 +3329,17 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -3369,9 +3354,6 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -3634,16 +3616,17 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -3658,9 +3641,6 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -3923,16 +3903,17 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -3947,9 +3928,6 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -4212,16 +4190,17 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4236,9 +4215,6 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -4501,16 +4477,17 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4525,9 +4502,6 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -4790,16 +4764,17 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4814,9 +4789,6 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -5079,16 +5051,17 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -5103,9 +5076,6 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
