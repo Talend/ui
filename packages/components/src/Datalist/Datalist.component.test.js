@@ -521,4 +521,20 @@ describe('Datalist component', () => {
 		expect(instance.updateSuggestions).toHaveBeenCalled();
 		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
 	});
+
+	it('should call onLiveChange when user type in the input', () => {
+		// given
+		const onLiveChange = jest.fn();
+		const wrapper = mount(
+			<Datalist id="my-datalist" isValid onLiveChange={onLiveChange} {...props} />,
+		);
+		const event = { target: { value: 'fo' } };
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', event);
+
+		// then
+		expect(onLiveChange).toBeCalledWith(expect.anything(), 'fo');
+	});
 });

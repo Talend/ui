@@ -23,6 +23,7 @@ describe('Action', () => {
 
 			// unknown props should be removed
 			waattt: 'the hell',
+			titleWat: 'lol',
 		};
 
 		// when
