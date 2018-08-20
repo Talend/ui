@@ -64,7 +64,6 @@ exports[`NestedListView component should render component 1`] = `
           },
         ]
       }
-      emptyLabel="emptyLabel"
       getItemHeight={[Function]}
       headerDefault={
         Array [
@@ -78,7 +77,6 @@ exports[`NestedListView component should render component 1`] = `
       }
       headerLabel="Nested ListView"
       id="NestedListView"
-      isSwitchBox={false}
       items={
         Array [
           Object {
@@ -131,7 +129,6 @@ exports[`NestedListView component should render component 1`] = `
           },
         ]
       }
-      noResultLabel="noResultLabel"
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
       required={true}

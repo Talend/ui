@@ -6,8 +6,8 @@
  * @param {Array} toggledChildren
  * @returns {Object}
  */
-export function getItemsProps(items, value, searchCriteria, toggledChildren) {
-	const displayedItems = items.reduce((finalItems, item) => {
+export function getDisplayedItems(items, value, searchCriteria, toggledChildren) {
+	return items.reduce((finalItems, item) => {
 		const { children } = item;
 		const itemValue = value[item.key] || [];
 
@@ -32,13 +32,6 @@ export function getItemsProps(items, value, searchCriteria, toggledChildren) {
 
 		return finalItems;
 	}, []);
-
-	return {
-		displayedItems,
-		items,
-		searchCriteria,
-		toggledChildren,
-	};
 }
 
 /**
@@ -75,13 +68,7 @@ export function initItems(schema, value, searchCriteria, toggledChildren, callba
 	});
 
 	return {
-		...getItemsProps(items, value, searchCriteria, toggledChildren),
-		isSwitchBox: false,
-		showToggleAll: false,
-		emptyLabel: schema.emptyLabel,
-		headerLabel: schema.title,
-		noResultLabel: schema.noResultLabel,
-		required: schema.required,
-		searchPlaceholder: schema.placeholder,
+		items,
+		displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
 	};
 }

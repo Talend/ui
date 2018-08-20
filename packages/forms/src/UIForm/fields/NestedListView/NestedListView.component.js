@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import { getItemsProps, initItems } from './NestedListView.utils';
+import { initItems, getDisplayedItems } from './NestedListView.utils';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './NestedListView.scss';
@@ -14,6 +14,8 @@ import theme from './NestedListView.scss';
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
+
+const getItemHeight = () => DEFAULT_ITEM_HEIGHT;
 
 class NestedListViewWidget extends React.Component {
 	constructor(props) {
@@ -40,15 +42,19 @@ class NestedListViewWidget extends React.Component {
 		];
 
 		const toggledChildren = [];
+		const searchCriteria = null;
+
+		const callbacks = {
+			onExpandToggle: this.onExpandToggle.bind(this),
+			onParentChange: this.onParentChange.bind(this),
+			onCheck: this.onCheck.bind(this),
+		};
 
 		this.state = {
-			...initItems(schema, value, null, toggledChildren, this.getInitItemsCallbacks()),
+			...initItems(schema, value, searchCriteria, toggledChildren, callbacks),
 			toggledChildren,
+			searchCriteria,
 			value,
-			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
-			headerDefault: this.defaultHeaderActions,
-			onAddKeyDown: this.onInputKeyDown.bind(this),
-			onInputChange: this.onInputChange.bind(this),
 		};
 	}
 
@@ -58,15 +64,17 @@ class NestedListViewWidget extends React.Component {
 	 * @param {Object} item
 	 */
 	onExpandToggle(event, item) {
-		this.setState(state => {
-			const { items, value, searchCriteria, toggledChildren } = state;
+		this.setState(({ items, value, searchCriteria, toggledChildren }) => {
 			const { toggleId } = item;
 
 			const newToggledChildren = toggledChildren.includes(toggleId)
 				? toggledChildren.filter(toggled => toggled !== toggleId)
 				: [...toggledChildren, toggleId];
 
-			return getItemsProps(items, value, searchCriteria, newToggledChildren);
+			return {
+				displayedItems: getDisplayedItems(items, value, searchCriteria, newToggledChildren),
+				toggledChildren: newToggledChildren,
+			};
 		});
 	}
 
@@ -76,30 +84,27 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } item
 	 */
 	onParentChange(event, item) {
-		this.setState(state => {
-			const { items, value, searchCriteria, toggledChildren } = state;
+		this.setState(({ items, value, searchCriteria, toggledChildren }) => {
 			const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
 			// Toggle all values
 			const itemValue = value[item.key] || [];
 			value[item.key] = itemValue.length === 0 ? availableOptions : [];
 
-			this.onChange(event, value);
-
 			return {
 				value,
-				...getItemsProps(items, value, searchCriteria, toggledChildren),
+				displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
 			};
-		});
+		}, () => this.onChange(event, this.state.value));
 	}
 
 	/**
 	 * Handle checked item (child) in the ListView change
-	 * @param { Object } event The event that triggered the change
-	 * @param { Object } checked
+	 * @param { Object } event
+	 * @param { Object } item
 	 * @param { Object } parent
 	 */
-	onCheck(event, checked, parent) {
+	onCheck(event, item, parent) {
 		this.setState(state => {
 			const { items, value, searchCriteria, toggledChildren } = state;
 			const { key } = parent;
@@ -107,24 +112,22 @@ class NestedListViewWidget extends React.Component {
 			// Toggle checked value from state
 			const isParentKeyInValue = parent.key in value;
 
-			if (!isParentKeyInValue || !value[key].includes(checked.value)) {
+			if (!isParentKeyInValue || !value[key].includes(item.value)) {
 				// Add
 				if (!isParentKeyInValue) {
 					value[key] = [];
 				}
-				value[key].push(checked.value);
+				value[key].push(item.value);
 			} else {
 				// Remove
-				value[key] = value[key].filter(storedValue => storedValue !== checked.value);
+				value[key] = value[key].filter(storedValue => storedValue !== item.value);
 			}
-
-			this.onChange(event, value);
 
 			return {
 				value,
-				...getItemsProps(items, value, searchCriteria, toggledChildren),
+				displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
 			};
-		});
+		}, () => this.onChange(event, this.state.value));
 	}
 
 	/**
@@ -140,15 +143,17 @@ class NestedListViewWidget extends React.Component {
 
 	/**
 	 * Search input change
-	 * @param { Object } event The change event
-	 * @param { Array } value
+	 * @param { Object } event
+	 * @param { Object } item
 	 */
 	onInputChange(event, item) {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
-			this.setState(state =>
-				getItemsProps(state.items, state.value, item.value, state.toggledChildren),
-			);
+			const { value: searchCriteria } = item;
+			this.setState(({ items, value, toggledChildren }) => ({
+				searchCriteria,
+				displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+			}));
 		}, 400);
 	}
 
@@ -158,26 +163,12 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onInputKeyDown(event) {
 		if (event.keyCode === keycode('enter')) {
-			event.stopPropagation();
 			event.preventDefault();
 		} else if (event.keyCode === keycode('escape')) {
 			clearTimeout(this.timerSearch);
-			event.stopPropagation();
 			event.preventDefault();
 			this.switchToDefaultMode();
 		}
-	}
-
-	/**
-	 * Get all callbacks use to init ListView items
-	 * @returns {Object}
-	 */
-	getInitItemsCallbacks() {
-		return {
-			onExpandToggle: this.onExpandToggle.bind(this),
-			onParentChange: this.onParentChange.bind(this),
-			onCheck: this.onCheck.bind(this),
-		};
 	}
 
 	/**
@@ -195,28 +186,40 @@ class NestedListViewWidget extends React.Component {
 	 * Reset display to no filter
 	 */
 	switchToDefaultMode() {
+		const searchCriteria = null;
+
 		this.setState(({ items, value, toggledChildren }) => ({
-			...getItemsProps(items, value, null, toggledChildren),
+			displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+			searchCriteria,
 			headerInput: this.defaultHeaderActions,
 			displayMode: DISPLAY_MODE_DEFAULT,
 		}));
 	}
 
 	render() {
+		const { schema } = this.props;
 		return (
 			<div className={theme['nested-list-view']}>
 				<FieldTemplate
-					description={this.props.schema.description}
+					description={schema.description}
 					errorMessage={this.props.errorMessage}
 					id={this.props.id}
 					isValid={this.props.isValid}
-					required={this.props.schema.required}
+					required={schema.required}
 				>
 					<ListView
 						{...this.state}
+						getItemHeight={getItemHeight}
 						id={this.props.id}
 						items={this.state.displayedItems}
 						t={this.props.t}
+						headerDefault={this.defaultHeaderActions}
+						onAddKeyDown={this.onInputKeyDown.bind(this)}
+						onInputChange={this.onInputChange.bind(this)}
+						headerLabel={schema.title}
+						required={schema.required}
+						searchPlaceholder={schema.placeholder}
+						showToggleAll={false}
 					/>
 				</FieldTemplate>
 			</div>

@@ -196,12 +196,10 @@ describe('NestedListView component', () => {
 
 	describe('onInputKeyDown', () => {
 		const event = {
-			stopPropagation: jest.fn(),
 			preventDefault: jest.fn(),
 		};
 
 		beforeEach(() => {
-			event.stopPropagation.mockReset();
 			event.preventDefault.mockReset();
 		});
 
@@ -213,7 +211,6 @@ describe('NestedListView component', () => {
 			wrapper.instance().onInputKeyDown(event);
 
 			// then
-			expect(event.stopPropagation).toHaveBeenCalled();
 			expect(event.preventDefault).toHaveBeenCalled();
 		});
 
@@ -225,7 +222,6 @@ describe('NestedListView component', () => {
 			wrapper.instance().onInputKeyDown(event);
 
 			// then
-			expect(event.stopPropagation).toHaveBeenCalled();
 			expect(event.preventDefault).toHaveBeenCalled();
 			expect(wrapper.state('displayMode')).toEqual('DISPLAY_MODE_DEFAULT');
 		});
@@ -257,104 +253,6 @@ describe('NestedListView component', () => {
 });
 
 describe('NestedListView utils', () => {
-	describe('getItemsProps', () => {
-		let items;
-		let value;
-		let searchCriteria;
-		let toggledChildren;
-
-		beforeEach(() => {
-			items = [
-				{
-					key: 'vegetables',
-					toggleId: 'vegetables',
-					children: [
-						{ label: 'potatoe', value: 'potatoe' },
-						{ label: 'lettuce', value: 'lettuce' },
-					],
-				},
-				{
-					key: 'fruits',
-					toggleId: 'fruits',
-					children: [
-						{ label: 'orange', value: 'orange' },
-						{ label: 'kiwi', value: 'kiwi' },
-						{ label: 'banana', value: 'banana' },
-					],
-				},
-			];
-			value = [];
-			searchCriteria = '';
-			toggledChildren = [];
-		});
-
-		it('should get items props', () => {
-			// when
-			const props = getItemsProps(items, value, searchCriteria, toggledChildren);
-
-			// then
-			expect(props.items).toEqual(items);
-			expect(props.searchCriteria).toEqual(searchCriteria);
-			expect(props.toggledChildren).toEqual(toggledChildren);
-			expect(props.displayedItems).toHaveLength(2);
-			expect(props.displayedItems[0].children).toHaveLength(2);
-			expect(props.displayedItems[1].children).toHaveLength(3);
-		});
-
-		it('should get items props with a preset field value', () => {
-			// given
-			value = { fruits: ['orange'] };
-
-			// when
-			const props = getItemsProps(items, value, searchCriteria, toggledChildren);
-
-			// then
-			expect(props.displayedItems[1].children[0].checked).toBe(true);
-			expect(props.displayedItems[1].children[1].checked).toBe(false);
-			expect(props.displayedItems[1].children[2].checked).toBe(false);
-		});
-
-		it('should get items with a whole group selected', () => {
-			// given
-			value = { fruits: ['orange', 'kiwi', 'banana'] };
-
-			// when
-			const props = getItemsProps(items, value, searchCriteria, toggledChildren);
-
-			// then
-			expect(props.displayedItems[0].checked).toBe(false);
-			expect(props.displayedItems[1].checked).toBe(true);
-			expect(props.displayedItems[1].children[0].checked).toBe(true);
-			expect(props.displayedItems[1].children[1].checked).toBe(true);
-			expect(props.displayedItems[1].children[2].checked).toBe(true);
-		});
-
-		it('should get items props when a search criteria is provided', () => {
-			// given
-			searchCriteria = 'u';
-
-			// when
-			const props = getItemsProps(items, value, searchCriteria, toggledChildren);
-
-			// then
-			expect(props.displayedItems).toHaveLength(1);
-			expect(props.displayedItems[0].children).toHaveLength(1);
-			expect(props.searchCriteria).toBe(searchCriteria);
-		});
-
-		it('should get items props with toggled children', () => {
-			// given
-			toggledChildren = ['vegetables'];
-
-			// when
-			const props = getItemsProps(items, value, searchCriteria, toggledChildren);
-
-			// then
-			expect(props.displayedItems[0].expanded).toBe(true);
-			expect(props.displayedItems[1].expanded).toBe(false);
-		});
-	});
-
 	describe('initItems', () => {
 		it('should init items props', () => {
 			// given
@@ -391,11 +289,8 @@ describe('NestedListView utils', () => {
 			expect(props.items[0].onChange).toBe(callbacks.onParentChange);
 			expect(props.items[0].children[0].onChange).toBe(callbacks.onCheck);
 			expect(props.items[0].children[1].onChange).toBe(callbacks.onCheck);
-			expect(props.emptyLabel).toBe(schema.emptyLabel);
-			expect(props.headerLabel).toBe(schema.title);
-			expect(props.noResultLabel).toBe(schema.noResultLabel);
-			expect(props.required).toBe(schema.required);
-			expect(props.searchPlaceholder).toBe(schema.placeholder);
+			expect(props.displayedItems).toHaveLength(1);
+			expect(props.displayedItems[0].children).toHaveLength(2);
 		});
 	});
 });

@@ -1,4 +1,5 @@
 {
+	"doc": "NestedListView/README.md",
 	"jsonSchema": {
 		"title": "A nested ListView form",
 		"description": "A nested ListView form example.",
@@ -42,9 +43,7 @@
 							]
 						}
 					}
-				},
-				"items": {},
-				"uniqueItems": true
+				}
 			}
 		}
 	},
