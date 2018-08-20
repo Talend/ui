@@ -7,7 +7,7 @@ import Tabs from '../fieldsets/Tabs';
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
 import Code from '../fields/Code';
-import Datalist from '../fields/Datalist';
+import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
 import MultiSelectTag from '../fields/MultiSelectTag';
@@ -39,6 +39,7 @@ const widgets = {
 	textarea: TextArea,
 
 	// fields: text mode
+	datalist_text: DatalistTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,

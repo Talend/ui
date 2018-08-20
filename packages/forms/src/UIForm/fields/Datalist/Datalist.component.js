@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
+import callTrigger from './Datalist.trigger';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -27,6 +28,7 @@ class Datalist extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 	}
 
 	componentDidMount() {
@@ -80,30 +82,23 @@ class Datalist extends Component {
 		return titleMap;
 	}
 
+	onTrigger(event, trigger) {
+		return this.props.onTrigger(event, {
+			trigger,
+			schema: this.props.schema,
+			errors: this.props.errors,
+			properties: this.props.properties,
+		});
+	}
+
 	callTrigger(event) {
-		const trigger =
-			this.props.schema.triggers && this.props.schema.triggers.find(t => t.onEvent === event.type);
-		if (!trigger) {
-			return;
-		}
-		const onError = () => {
-			this.setState({ isLoading: false });
-		};
-		const onResponse = data => {
-			this.setState({
-				isLoading: false,
-				...data,
-			});
-		};
-		this.setState({ isLoading: true });
-		this.props
-			.onTrigger(event, {
-				trigger,
-				schema: this.props.schema,
-				errors: this.props.errors,
-				properties: this.props.properties,
-			})
-			.then(onResponse, onError);
+		callTrigger(event, {
+			eventNames: [event.type],
+			triggersDefinitions: this.props.schema.triggers,
+			onTrigger: this.onTrigger,
+			onLoading: isLoading => this.setState({ isLoading }),
+			onResponse: data => this.setState(data),
+		});
 	}
 
 	render() {

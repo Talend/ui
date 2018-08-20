@@ -116,6 +116,7 @@
     }
   ],
   "properties": {
-    "simpleDatalist": "Pine[apple]"
+    "simpleDatalist": "Pine[apple]",
+    "restrictedAsyncTitleMap": "clafoutis"
   }
 }
