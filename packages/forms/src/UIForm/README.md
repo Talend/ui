@@ -524,7 +524,7 @@ Text.defaultProps = {
 ```
 
 | Props | Type | Description |
-|---|---|
+|---|---|---|
 | id | `string` | This is your widget id, you want use it as it is without any modification. |
 | isValid | `boolean` | If the field is valid (used by FieldTemplate). |
 | errorMessage | `string` | The error to display if the field is not valid (used by FieldTemplate). |
