@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -59,6 +60,11 @@ function createCommonProps(tab) {
 }
 
 class DisplayModeForm extends React.Component {
+	static propTypes = {
+		category: PropTypes.string,
+		doc: PropTypes.string,
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -71,7 +77,19 @@ class DisplayModeForm extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<section>
+				<IconsProvider />
+				{this.props.doc && (
+					<a
+						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${
+							this.props.category
+						}/${this.props.doc}`}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Documentation
+					</a>
+				)}
 				<form>
 					<div className="form-group">
 						<div className="checkbox">
@@ -90,7 +108,7 @@ class DisplayModeForm extends React.Component {
 				<hr style={{ borderColor: 'black' }} />
 
 				<UIForm {...this.props} displayMode={this.state.displayMode} />
-			</div>
+			</section>
 		);
 	}
 }
@@ -106,19 +124,12 @@ function createStory(category, sampleFilenames, filename) {
 		story() {
 			const { doc, ...data } = object(name, sampleFilenames(filename));
 			return (
-				<section>
-					<IconsProvider />
-					{doc && (
-						<a
-							href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Documentation
-						</a>
-					)}
-					<DisplayModeForm {...createCommonProps('state')} data={data} />
-				</section>
+				<DisplayModeForm
+					{...createCommonProps('state')}
+					data={data}
+					doc={doc}
+					category={category}
+				/>
 			);
 		},
 	};
