@@ -163,7 +163,7 @@ function computeDateRelatedState(selectedDateTime) {
 	};
 }
 
-const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onError'];
+const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange'];
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
