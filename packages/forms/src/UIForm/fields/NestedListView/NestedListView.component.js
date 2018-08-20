@@ -50,6 +50,9 @@ class NestedListViewWidget extends React.Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
+		this.onAddKeyDown = this.onInputKeyDown.bind(this);
+		this.onInputChange = this.onInputChange.bind(this);
+
 		this.state = {
 			...initItems(schema, value, searchCriteria, toggledChildren, callbacks),
 			toggledChildren,
@@ -90,10 +93,9 @@ class NestedListViewWidget extends React.Component {
 
 				// Toggle all values
 				const itemValue = value[item.key] || [];
-				value[item.key] = itemValue.length === 0 ? availableOptions : [];
 
 				return {
-					value,
+					value: { ...value, [item.key]: itemValue.length === 0 ? availableOptions : [] },
 					displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
 				};
 			},
@@ -109,8 +111,7 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onCheck(event, item, parent) {
 		this.setState(
-			state => {
-				const { items, value, searchCriteria, toggledChildren } = state;
+			({ items, value, searchCriteria, toggledChildren }) => {
 				const { key } = parent;
 
 				// Toggle checked value from state
@@ -204,6 +205,7 @@ class NestedListViewWidget extends React.Component {
 
 	render() {
 		const { schema } = this.props;
+
 		return (
 			<div className={theme['nested-list-view']}>
 				<FieldTemplate
@@ -220,8 +222,8 @@ class NestedListViewWidget extends React.Component {
 						items={this.state.displayedItems}
 						t={this.props.t}
 						headerDefault={this.defaultHeaderActions}
-						onAddKeyDown={this.onInputKeyDown.bind(this)}
-						onInputChange={this.onInputChange.bind(this)}
+						onAddKeyDown={this.onAddKeyDown}
+						onInputChange={this.onInputChange}
 						headerLabel={schema.title}
 						required={schema.required}
 						searchPlaceholder={schema.placeholder}

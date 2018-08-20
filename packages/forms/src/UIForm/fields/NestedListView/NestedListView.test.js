@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { NestedListViewWidget } from './NestedListView.component';
-import { getItemsProps, initItems } from './NestedListView.utils';
+import { initItems } from './NestedListView.utils';
 
 jest.useFakeTimers();
 

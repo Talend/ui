@@ -54,7 +54,6 @@ export function initItems(schema, value, searchCriteria, toggledChildren, callba
 
 		return {
 			label: item.title,
-			isSwitchBox: false,
 			key,
 			toggleId,
 			onExpandToggle,
