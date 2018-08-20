@@ -1,6 +1,8 @@
-import { put, call } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
-import { onToggleFilter, onFilterChange, onChangeSortChange, updateList } from './List.sagas';
+import { onToggleFilter,
+	onFilterChange,
+	onChangeSortChange } from './List.sagas';
 import Connected from './List.connect';
 import mock, { store } from '../../../cmf/lib/mock';
 
@@ -79,7 +81,6 @@ describe('List sagas', () => {
 				),
 			),
 		);
-		expect(gen.next().value).toEqual(call(updateList, data));
 	});
 	it('should check onChangeSortChange action', () => {
 		const gen = onChangeSortChange(data);
@@ -90,21 +91,6 @@ describe('List sagas', () => {
 					{
 						sortOn: data.payload.field,
 						sortAsc: !data.payload.isDescending,
-					},
-					data.props.collectionId,
-				),
-			),
-		);
-		expect(gen.next().value).toEqual(call(updateList, data));
-	});
-	it('should check updateList', () => {
-		const gen = updateList(data);
-
-		expect(gen.next().value).toEqual(
-			put(
-				Connected.setStateAction(
-					{
-						items: localConfig.items,
 					},
 					data.props.collectionId,
 				),

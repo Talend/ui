@@ -30,16 +30,73 @@ state.cmf.collections = fromJS({
 });
 
 describe('List Selector tests', () => {
+	it('should not filter the list when there is no search query', () => {
+		state.cmf.components = fromJS({
+			'Container(List)': {
+				default: {
+					displayMode: 'large',
+					searchQuery: '',
+					itemsPerPage: 0,
+					startIndex: 0,
+					sortOn: 'name',
+					sortAsc: true,
+					filterDocked: true,
+				},
+			},
+		});
+
+		const props = mapStateToProps(state, localConfig);
+		expect(props.items.size).toBe(localConfig.items.length);
+	});
+
+	it('should filter the list when filter on visible column', () => {
+		state.cmf.components = fromJS({
+			'Container(List)': {
+				default: {
+					displayMode: 'large',
+					searchQuery: 'value2',
+					itemsPerPage: 0,
+					startIndex: 0,
+					sortOn: 'name',
+					sortAsc: true,
+					filterDocked: true,
+				},
+			},
+		});
+
+		const props = mapStateToProps(state, localConfig);
+		expect(props.items.size).toBe(1);
+	});
+
+	it('should return no elements when search on non visible column', () => {
+		state.cmf.components = fromJS({
+			'Container(List)': {
+				default: {
+					displayMode: 'large',
+					searchQuery: 'text',
+					itemsPerPage: 0,
+					startIndex: 0,
+					sortOn: 'name',
+					sortAsc: true,
+					filterDocked: true,
+				},
+			},
+		});
+
+		const props = mapStateToProps(state, localConfig);
+		expect(props.items.size).toBe(0);
+	});
+
 	it('should return items in a page when pagination applied', () => {
 		state.cmf.components = fromJS({
 			'Container(List)': {
 				default: {
-					itemsPerPage: 2,
+					itemsPerPage: 1,
 					startIndex: 1,
 				},
 			},
 		});
 		const props = mapStateToProps(state, { ...localConfig, toolbar: { pagination: {} } });
-		expect(props.items.toJS().length).toBe(2);
+		expect(props.items.size).toBe(1);
 	});
 });

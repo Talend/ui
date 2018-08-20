@@ -2,19 +2,14 @@ import get from 'lodash/get';
 import { List } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
-import configureGetPagedItems from './selector';
-import { configureGetPagination, getCollectionItems } from './utils';
+import { configureGetFilteredItems,
+	configureGetPagedItems,
+	configureGetPagination,
+	getCollectionItems,
+} from './selector';
 
 function componentId(ownProps) {
 	return ownProps.collectionId;
-}
-
-function getItems(componentState, config) {
-	let items = config.items;
-	if (componentState && componentState.get('items')) {
-		items = componentState.get('items');
-	}
-	return items;
 }
 
 function getPagedItems(state, config) {
@@ -25,10 +20,9 @@ function getPagedItems(state, config) {
 
 export function mapStateToProps(state, ownProps, cmfProps) {
 	const props = {};
-	if (ownProps.defaultSaga !== false) {
-		props.saga = 'List#root';
-	}
+	let filteredItems;
 	const collectionItems = getCollectionItems(state, ownProps.collectionId);
+
 	props.config = {
 		collectionId: ownProps.collectionId,
 		items: collectionItems || ownProps.items || new List(),
@@ -36,9 +30,12 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 	if (ownProps.list) {
 		props.config.columns = ownProps.list.columns;
 	}
+	if (ownProps.defaultSaga !== false) {
+		props.saga = 'List#root';
+		filteredItems = configureGetFilteredItems(props.config)(state);
+	}
 
-	props.items = getItems(ownProps.state, props.config);
-
+	props.items = filteredItems || props.config.items;
 	const totalResults = props.items.size;
 
 	if (get(ownProps, ['toolbar', 'pagination'])) {

@@ -1,31 +1,6 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
-import { List } from 'immutable';
+import { put, takeEvery } from 'redux-saga/effects';
 import Connected from './List.connect';
 import Constants from './List.constant';
-import { getCollectionItems, sortCurried, filterList } from './utils';
-
-const getFilteredItems = filterListFn => (componentState, config, results) => {
-	const filterItemsCurried = sortCurried(componentState, config);
-	return filterItemsCurried(filterListFn(componentState, config, results));
-};
-
-export function* updateList({ props, context }) {
-	const collectionId = props.collectionId || 'default';
-	const state = context.store.getState();
-	const stateItems = getCollectionItems(state, collectionId);
-	const componentState = state.cmf.components.getIn(['Container(List)', collectionId]);
-
-	const items = stateItems || props.config.items || new List();
-	const results = getFilteredItems(filterList)(componentState, props.config, items);
-	yield put(
-		Connected.setStateAction(
-			{
-				items: results,
-			},
-			collectionId,
-		),
-	);
-}
 
 export function* onFilterChange(data) {
 	yield put(
@@ -36,7 +11,6 @@ export function* onFilterChange(data) {
 			data.props.collectionId || 'default',
 		),
 	);
-	yield call(updateList, data);
 }
 
 export function* onToggleFilter(data) {
@@ -50,10 +24,6 @@ export function* onToggleFilter(data) {
 			filterData.props.collectionId,
 		),
 	);
-	if (!filterData.payload.filterDocked && filterData.payload.searchQuery) {
-		filterData.payload.searchQuery = '';
-		yield call(onFilterChange, filterData);
-	}
 }
 
 export function* onChangeSortChange(data) {
@@ -66,7 +36,6 @@ export function* onChangeSortChange(data) {
 			data.props.collectionId || 'default',
 		),
 	);
-	yield call(updateList, data);
 }
 
 function* defaultHandler() {
