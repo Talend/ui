@@ -1,8 +1,6 @@
 import { put } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
-import { onToggleFilter,
-	onFilterChange,
-	onChangeSortChange } from './List.sagas';
+import { onToggleFilter, onFilterChange, onChangeSortChange } from './List.sagas';
 import Connected from './List.connect';
 import mock, { store } from '../../../cmf/lib/mock';
 

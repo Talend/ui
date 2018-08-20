@@ -2,7 +2,8 @@ import get from 'lodash/get';
 import { List } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
-import { configureGetFilteredItems,
+import {
+	configureGetFilteredItems,
 	configureGetPagedItems,
 	configureGetPagination,
 	getCollectionItems,
