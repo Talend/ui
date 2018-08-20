@@ -2,7 +2,8 @@ import get from 'lodash/get';
 import { List } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
-import { configureGetPagination, configureGetPagedItems } from './selector';
+import configureGetPagedItems from './selector';
+import { configureGetPagination, getCollectionItems } from './utils';
 
 function componentId(ownProps) {
 	return ownProps.collectionId;
@@ -24,9 +25,13 @@ function getPagedItems(state, config) {
 
 export function mapStateToProps(state, ownProps, cmfProps) {
 	const props = {};
+	if (ownProps.defaultSaga !== false) {
+		props.saga = 'List#root';
+	}
+	const collectionItems = getCollectionItems(state, ownProps.collectionId);
 	props.config = {
 		collectionId: ownProps.collectionId,
-		items: ownProps.items,
+		items: collectionItems || ownProps.items || new List(),
 	};
 	if (ownProps.list) {
 		props.config.columns = ownProps.list.columns;
@@ -64,9 +69,6 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
-	defaultProps: {
-		saga: 'List#default',
-	},
 	componentId,
 	mapStateToProps,
 })(Container);

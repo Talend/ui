@@ -77,6 +77,7 @@ class List extends React.Component {
 		cellDictionary: PropTypes.object,
 		displayMode: PropTypes.string,
 		items: ImmutablePropTypes.list.isRequired,
+		defaultSaga: PropTypes.bool,
 		...cmfConnect.propTypes,
 	};
 
@@ -92,9 +93,6 @@ class List extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onSelectSortBy = this.onSelectSortBy.bind(this);
-		this.onFilter = this.onFilter.bind(this);
-		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onChangePage = this.onChangePage.bind(this);
 		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
@@ -102,27 +100,8 @@ class List extends React.Component {
 		this.isSelected = this.isSelected.bind(this);
 	}
 
-	onSelectSortBy(event, payload) {
-		this.props.setState({
-			sortOn: payload.field,
-			sortAsc: !payload.isDescending,
-		});
-	}
-
-	onFilter(event, payload) {
-		this.props.setState({ searchQuery: payload.query });
-	}
-
 	onChangePage(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
-	}
-
-	onToggle() {
-		// clearing filter when toggle
-		this.props.setState({
-			filterDocked: !this.props.state.get('filterDocked'),
-			searchQuery: '',
-		});
 	}
 
 	onSelectDisplayMode(event, payload) {

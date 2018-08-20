@@ -1,17 +1,23 @@
-import { put, takeEvery, take, call } from 'redux-saga/effects';
+import { put, takeEvery, call } from 'redux-saga/effects';
+import { List } from 'immutable';
 import Connected from './List.connect';
 import Constants from './List.constant';
-import { getCollectionItems, sortList, filterList } from './selector';
+import { getCollectionItems, sortCurried, filterList } from './utils';
 
-export function* updateList(data) {
-	const collectionId = data.props.collectionId || 'default';
-	const state = data.context.store.getState();
+const getFilteredItems = filterListFn => (componentState, config, results) => {
+	const filterItemsCurried = sortCurried(componentState, config);
+	return filterItemsCurried(filterListFn(componentState, config, results));
+};
+
+
+export function* updateList({ props, context }) {
+	const collectionId = props.collectionId || 'default';
+	const state = context.store.getState();
+	const stateItems = getCollectionItems(state, collectionId);
 	const componentState = state.cmf.components.getIn(['Container(List)', collectionId]);
-	const items = getCollectionItems(state, collectionId);
 
-	let results = items || data.props.config.items;
-	results = sortList(componentState, results, data.props.config);
-	results = filterList(componentState, results, data.props.config);
+	const items = stateItems || props.config.items || new List();
+	const results = getFilteredItems(filterList)(componentState, props.config, items);
 	yield put(
 		Connected.setStateAction(
 			{
@@ -68,9 +74,8 @@ function* defaultHandler() {
 	yield takeEvery(Constants.LIST_TOGGLE_FILTER, onToggleFilter);
 	yield takeEvery(Constants.LIST_FILTER_CHANGE, onFilterChange);
 	yield takeEvery(Constants.LIST_CHANGE_SORT_ORDER, onChangeSortChange);
-	yield take('DO_NOT_QUIT');
 }
 
 export default {
-	'List#default': defaultHandler,
+	'List#root': defaultHandler,
 };

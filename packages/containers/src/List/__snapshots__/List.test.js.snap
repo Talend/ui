@@ -63,6 +63,7 @@ Object {
         author: "Jean-Pierre DUPONT with super long name",
     },
 ],
+  "saga": "List#root",
 }
 `;
 
@@ -129,6 +130,7 @@ Object {
         author: "Jean-Pierre DUPONT with super long name",
     },
 ],
+  "saga": "List#root",
 }
 `;
 
@@ -195,6 +197,7 @@ Object {
         author: "Jean-Pierre DUPONT with super long name",
     },
 ],
+  "saga": "List#root",
 }
 `;
 
