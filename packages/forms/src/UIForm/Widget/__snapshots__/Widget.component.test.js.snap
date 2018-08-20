@@ -35,6 +35,49 @@ exports[`Widget component should render custom widget 1`] = `
   widgets={
     Object {
       "customWidget": [Function],
+      "customWidget_text": [Function],
+    }
+  }
+/>
+`;
+
+exports[`Widget component should render custom widget in specific display mode 1`] = `
+<customWidget_text
+  displayMode="text"
+  errorMessage="This is not ok"
+  errors={
+    Object {
+      "user,firstname": "This is not ok",
+    }
+  }
+  id="myForm_user_firstname"
+  isValid={false}
+  onChange={[Function]}
+  onTrigger={[Function]}
+  options={undefined}
+  properties={
+    Object {
+      "comment": "",
+      "user": Object {
+        "firstname": "my firstname",
+        "lastname": "my lastname",
+      },
+    }
+  }
+  schema={
+    Object {
+      "key": Array [
+        "user",
+        "firstname",
+      ],
+      "type": "customWidget",
+    }
+  }
+  value="my firstname"
+  widgets={
+    Object {
+      "customWidget": [Function],
+      "customWidget_text": [Function],
     }
   }
 />
@@ -51,6 +94,44 @@ exports[`Widget component should render nothing if widget does not exist 1`] = `
 
 exports[`Widget component should render widget 1`] = `
 <Text
+  errorMessage="This is not ok"
+  errors={
+    Object {
+      "user,firstname": "This is not ok",
+    }
+  }
+  id="myForm_user_firstname"
+  isValid={false}
+  onChange={[Function]}
+  onFinish={[Function]}
+  onTrigger={[Function]}
+  options={undefined}
+  properties={
+    Object {
+      "comment": "",
+      "user": Object {
+        "firstname": "my firstname",
+        "lastname": "my lastname",
+      },
+    }
+  }
+  schema={
+    Object {
+      "key": Array [
+        "user",
+        "firstname",
+      ],
+      "type": "text",
+    }
+  }
+  value="my firstname"
+  widgets={Object {}}
+/>
+`;
+
+exports[`Widget component should render widget with the specific displayMode 1`] = `
+<TextMode
+  displayMode="text"
   errorMessage="This is not ok"
   errors={
     Object {
