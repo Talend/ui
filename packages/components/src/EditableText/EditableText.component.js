@@ -20,7 +20,7 @@ function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
 			</span>
 			<Action
 				name="action-edit"
-				label={t('EDITABLE_TEXT_EDIT', { defaultValue: 'Edit' })}
+				label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
 				icon="talend-pencil"
 				onClick={onEdit}
 				bsStyle="link"
@@ -49,7 +49,7 @@ function EditableText({ editMode, loading, inProgress, ...rest }) {
 	const allyProps = {};
 	if (inProgress) {
 		allyProps['aria-label'] = rest.t('EDITABLE_TEXT_IN_PROGRESS', {
-			defaultValue: 'Edition in progress',
+			defaultValue: 'Edit in progress',
 		});
 		allyProps['aria-busy'] = true;
 	}
