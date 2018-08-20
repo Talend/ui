@@ -9,10 +9,7 @@ import shouldRender from './condition';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
-	let id = widgetId;
-	if (displayMode) {
-		id = `${widgetId}_${displayMode}`;
-	}
+	const id = displayMode ? `${widgetId}_${displayMode}` : widgetId;
 
 	// Get the widget and fallback to default mode widget if not found
 	let widget = customWidgets[id] || defaultWidgets[id];
