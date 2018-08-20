@@ -23,6 +23,10 @@
       "propStringInitWithError": {
         "type": "string",
         "format": "iso-datetime"
+      },
+      "propDisabled": {
+        "type": "number",
+        "format": "timestamp"
       }
     }
   },
@@ -54,6 +58,13 @@
       "title": "Basic with string type",
       "description": "Initialised with a bad format",
       "widget": "inputDateTimePicker"
+    },
+    {
+      "key": "propDisabled",
+      "title": "Disabled widget",
+      "widget": "inputDateTimePicker",
+      "description": "You can always try to click...",
+      "disabled": true
     }
   ],
   "properties": {

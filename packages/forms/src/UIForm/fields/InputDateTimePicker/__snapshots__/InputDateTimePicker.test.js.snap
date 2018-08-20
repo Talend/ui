@@ -11,6 +11,7 @@ exports[`InputDateTimePicker should render 1`] = `
 >
   <InputDateTimePicker
     autoFocus={true}
+    disabled={false}
     id="my-datepicker"
     onChange={[Function]}
     selectedDateTime={2018-08-10T07:00:00.000Z}
