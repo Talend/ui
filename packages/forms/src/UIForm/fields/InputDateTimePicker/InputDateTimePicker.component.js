@@ -4,6 +4,8 @@ import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 
+export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
+
 function convertDateToTimestamp(date) {
 	return date.getTime();
 }
@@ -84,6 +86,8 @@ class InputDateTimePicker extends React.Component {
 		const { schema } = this.props;
 		const type = schema.schema.type;
 
+		this.errorMessage = errorMessage;
+
 		const hasError = errorMessage !== undefined;
 
 		const value = hasError ? new Error(errorMessage) : convertFromDate(type, date);
@@ -101,10 +105,15 @@ class InputDateTimePicker extends React.Component {
 		const type = schema.schema.type;
 		const datetime = this.convertToDate(type, this.props.value);
 
+		const isNotWidgetError =
+			this.props.errorMessage !== undefined && this.props.errorMessage !== this.errorMessage;
+
+		const errorMessage = isNotWidgetError ? GENERIC_FORMAT_ERROR : this.props.errorMessage;
+
 		return (
 			<FieldTemplate
 				description={schema.description}
-				errorMessage={this.props.errorMessage}
+				errorMessage={errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={schema.title}

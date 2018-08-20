@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import InputDateTimePicker from './InputDateTimePicker.component';
+import InputDateTimePicker, { GENERIC_FORMAT_ERROR } from './InputDateTimePicker.component';
 
 const schema = {
 	autoFocus: true,
@@ -238,7 +238,39 @@ describe('InputDateTimePicker', () => {
 				expect(payloadSpread.value.message).toBe(errorMessage);
 			});
 
-			it('should spread the last value to the component when receiving an Error object from the data', () => {});
+			it('should spread the last value to the component when receiving an Error object from the form', () => {});
+		});
+
+		describe('from form', () => {
+			it('should override the form error message if is not coming from the widget', () => {
+				const timestamp = 999999999999999999999;
+				const onChange = jest.fn();
+
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						onChange={onChange}
+						onFinish={jest.fn()}
+						schema={getSchema('number')}
+						value={timestamp}
+					/>,
+				);
+
+				const componentWrapper = wrapper.find('InputDateTimePicker');
+				const componentOnChange = componentWrapper.prop('onChange');
+				const widgetErrorMessage = "An error message from the underlying widget's component";
+				componentOnChange(widgetErrorMessage, undefined);
+
+				const formErrorMessage = 'A specific error message from the form';
+				wrapper.setProps({
+					errorMessage: formErrorMessage,
+				});
+
+				const fieldWrapper = wrapper.find('FieldTemplate');
+
+				expect(fieldWrapper.prop('errorMessage')).toBe(GENERIC_FORMAT_ERROR);
+			});
 		});
 	});
 });

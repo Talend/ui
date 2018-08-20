@@ -1,3 +1,4 @@
+import cases from 'jest-in-case';
 import customFormats from './customFormats';
 
 describe('custom formats', () => {
@@ -7,6 +8,7 @@ describe('custom formats', () => {
 		FORMAT_URL_GIT: 'GIT URL ERROR',
 		FORMAT_NO_LEADING_TRAILING_SPACE: 'NO LEADING ERROR',
 		FORMAT_STRING_WITHOUT_SPACE: 'STRING WITHOUT SPACE ERROR',
+		FORMAT_TIMESTAMP_OUT_OF_RANGE: 'TIMESTAMP OUT OF RANGE',
 	};
 	const customValidation = customFormats(key => mockedTranslation[key]);
 
@@ -269,4 +271,44 @@ describe('custom formats', () => {
 		expect(resultKO3).toBe(mockedTranslation.FORMAT_STRING_WITHOUT_SPACE);
 		expect(resultKO4).toBe(mockedTranslation.FORMAT_STRING_WITHOUT_SPACE);
 	});
+
+	cases(
+		'should validate a timestamp',
+		({ testedValue, expectToBeValid }) => {
+			const result = customValidation.timestamp(testedValue);
+
+			if (expectToBeValid) {
+				expect(result).toBe(null);
+			} else {
+				expect(result).toBe(mockedTranslation.FORMAT_TIMESTAMP_OUT_OF_RANGE);
+			}
+		},
+		[
+			{
+				name: 'simple valid timestamp',
+				testedValue: 46567832457,
+				expectToBeValid: true,
+			},
+			{
+				name: 'top range valid timestamp',
+				testedValue: 8640000000000000,
+				expectToBeValid: true,
+			},
+			{
+				name: 'bottom range valid timestamp',
+				testedValue: -8640000000000000,
+				expectToBeValid: true,
+			},
+			{
+				name: 'out of top range invalid timestamp',
+				testedValue: 8640000000000001,
+				expectToBeValid: false,
+			},
+			{
+				name: 'out of bottom range invalid timestamp',
+				testedValue: -8640000000000001,
+				expectToBeValid: false,
+			},
+		],
+	);
 });

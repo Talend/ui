@@ -9,6 +9,10 @@
       },
       "propSimpleString": {
         "type": "string"
+      },
+      "propNumberInitWithError": {
+        "type": "number",
+        "format": "timestamp"
       }
     }
   },
@@ -24,10 +28,17 @@
       "title": "Basic with string type",
       "description": "Without any constraints",
       "widget": "inputDateTimePicker"
+    },
+    {
+      "key": "propNumberInitWithError",
+      "title": "Basic with number type",
+      "description": "Initialised with a bad format",
+      "widget": "inputDateTimePicker"
     }
   ],
   "properties": {
     "propSimpleNumber": 1514764800000,
-    "propSimpleString": "2018-01-01T00:00:00.000Z"
+    "propSimpleString": "2018-01-01T00:00:00.000Z",
+    "propNumberInitWithError": 8640000099000000
   }
 }

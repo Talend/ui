@@ -19,6 +19,8 @@ const urlGit = new RegExp(
 const leadingTralingSpaceRegExp = /^\s|\s$/;
 const stringWithoutSpaceRegExp = /^\S+$/;
 
+const MAX_TIMESTAMP = 8640000000000000;
+
 const customFormats = t => ({
 	email: fieldData => {
 		if (typeof fieldData === 'string' && !emailRegExp.test(fieldData)) {
@@ -57,6 +59,14 @@ const customFormats = t => ({
 		if (typeof fieldData === 'string' && !stringWithoutSpaceRegExp.test(fieldData)) {
 			return t('FORMAT_STRING_WITHOUT_SPACE', {
 				defaultValue: 'must be a string without space',
+			});
+		}
+		return null;
+	},
+	timestamp: fieldData => {
+		if (typeof fieldData === 'number' && Math.abs(fieldData) > MAX_TIMESTAMP) {
+			return t('FORMAT_TIMESTAMP_OUT_OF_RANGE', {
+				defaultValue: 'must be a valid timestamp',
 			});
 		}
 		return null;
