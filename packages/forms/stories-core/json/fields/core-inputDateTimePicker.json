@@ -7,6 +7,9 @@
       "propSimpleNumber": {
         "type": "number"
       },
+      "propAutofocus": {
+        "type": "number"
+      },
       "propSimpleString": {
         "type": "string"
       },
@@ -24,13 +27,17 @@
     {
       "key": "propSimpleNumber",
       "title": "Basic with number type",
-      "description": "Without any constraints",
       "widget": "inputDateTimePicker"
+    },
+    {
+      "key": "propAutofocus",
+      "title": "Autofocus input",
+      "widget": "inputDateTimePicker",
+      "autoFocus": true
     },
     {
       "key": "propSimpleString",
       "title": "Basic with string type",
-      "description": "Without any constraints",
       "widget": "inputDateTimePicker"
     },
     {

@@ -123,6 +123,7 @@ class InputDateTimePicker extends React.Component {
 					id={this.props.id}
 					selectedDateTime={datetime}
 					onChange={this.onChange}
+					autoFocus={schema.autoFocus}
 				/>
 			</FieldTemplate>
 		);
