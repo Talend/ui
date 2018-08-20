@@ -282,7 +282,7 @@ Those validations change the `errors` object accordingly.
 
 ### Conditional rendering
 
-It is possible to render parts of the forms defined in uiSchema, depending on properties values.  
+It is possible to render parts of the forms defined in uiSchema, depending on properties values.
 The uiSchema accepts a `conditions` property, which define all conditions to match to be rendered.
 
 | UISchema conditions property | Description |
@@ -291,7 +291,7 @@ The uiSchema accepts a `conditions` property, which define all conditions to mat
 | conditions[].path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
 | conditions[].values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
 
-Let's take this example: 
+Let's take this example:
 ```json
 {
   "jsonSchema": {
@@ -322,7 +322,7 @@ Let's take this example:
 }
 ```
 
-We want 
+We want
 * `civility` to appear only for humans
 * `lastname` and `firstname` to appear only for humans and animals
 
@@ -375,19 +375,19 @@ class MyComponent extends React.Component {
 	}
 
 	onChange(event, { schema, value, oldProperties, properties }) {
-		
+
 	}
-	
+
 	onErrors(event, errors) {
-		
+
 	}
 
 	onTrigger(event, { trigger, schema, properties }) {
-		
+
 	}
-	
+
 	onSubmit(event, properties) {
-		
+
 	}
 
 	render() {
@@ -415,7 +415,7 @@ class MyComponent extends React.Component {
 	onChange(event, { schema, value, oldProperties, properties }) {
 		// save properties in your app state
 	}
-	
+
 	onErrors(event, errors) {
 		// save errors in your app state
 	}
@@ -425,7 +425,7 @@ class MyComponent extends React.Component {
 		// inject them back to the forms
 		const properties = myAppState.properties;
 		const errors = myAppState.errors;
-		
+
 		return (<UIForm
 		    {...props}
 		    id={'my-unique-form-id'}
@@ -440,3 +440,116 @@ class MyComponent extends React.Component {
 Changing UIForm's `props.data` will replace the existing pieces in the form.
 
 So you need to synchronize the UIForm's state with your own stat system
+
+### Custom widgets
+
+You can add new widgets, or override an existing widget by passing a widget dictionary to the form.
+
+```
+import React from 'react';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
+
+function MyComponent(props) {
+	const customWidgets = {
+		text: MyCustomIText, // this overrides the default text input widget
+		fancyInput: MyFancyInput, // this adds a new widget, with "fancyInput" name
+	};
+
+	return (<UIForm
+		{...props}
+		widgets={customWidgets}
+	/>);
+}
+```
+
+To develop a custom widget, you can use the following template
+
+```
+import PropTypes from 'prop-types';
+import React from 'react';
+import FieldTemplate from '@talend/react-forms/lib/UIForm/FieldTemplate';
+
+export default function MyWidget(props) {
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const {
+		autoFocus,
+		description,
+		disabled,
+		placeholder,
+		readOnly,
+		title,
+		type,
+	} = schema;
+
+	return (
+		<FieldTemplate
+			description={description}
+			errorMessage={errorMessage}
+			id={id}
+			isValid={isValid}
+			label={title}
+			labelAfter
+			required={schema.required}
+		>
+			{// do whatever you want here}
+		</FieldTemplate>
+	);
+}
+
+if (process.env.NODE_ENV !== 'production') {
+	Text.propTypes = {
+		id: PropTypes.string,
+		isValid: PropTypes.bool,
+		errorMessage: PropTypes.string,
+		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
+		schema: PropTypes.shape({
+			autoFocus: PropTypes.bool,
+			description: PropTypes.string,
+			disabled: PropTypes.bool,
+			placeholder: PropTypes.string,
+			readOnly: PropTypes.bool,
+			title: PropTypes.string,
+			type: PropTypes.string,
+		}),
+		value: PropTypes.any,
+	};
+}
+
+Text.defaultProps = {
+	isValid: true,
+	schema: {},
+	value: '',
+};
+```
+
+| Props | Type | Description |
+|---|---|
+| id | `string` | This is your widget id, you want use it as it is without any modification. |
+| isValid | `boolean` | If the field is valid (used by FieldTemplate). |
+| errorMessage | `string` | The error to display if the field is not valid (used by FieldTemplate). |
+| onChange | `function` | Call this when the value is supposed to be edited. |
+| onFinish | `function` | Call this when your value edition is finished. It triggers validation. |
+| schema | `object` | The merged json/ui schema. |
+| value | `any` | The value your widget handle. |
+
+
+### Display mode
+
+UIForm accept a `displayMode` props. The value `text` will switch display to a definition list, following the ui specs.
+
+```
+import React from 'react';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
+
+function MyComponent(props) {
+	return (<UIForm
+		{...props}
+		displayMode="text"
+	/>);
+}
+```
+
+The rendered widgets will be selected with the name `${widgetId}_${displayMode}`.
+For example, the textarea will be the one registered under `textarea_text` id.
+You can pass custom widgets for text mode with the `widgets` props.
