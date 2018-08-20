@@ -16,6 +16,11 @@ const urlGit = new RegExp(
 		urlGitProtocolGit.source
 	}`,
 );
+
+// EcmaScript ISO 8601 Extended Format: https://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15
+// Only handle full string (date and time with full second fraction) and only UTC timezone
+const isoDateTimeRegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
+
 const leadingTralingSpaceRegExp = /^\s|\s$/;
 const stringWithoutSpaceRegExp = /^\S+$/;
 
@@ -69,6 +74,22 @@ const customFormats = t => ({
 				defaultValue: 'must be a valid timestamp',
 			});
 		}
+		return null;
+	},
+	'iso-datetime': fieldData => {
+		if (typeof fieldData === 'string') {
+			if (isoDateTimeRegExp.test(fieldData)) {
+				const date = new Date(fieldData);
+				if (!isNaN(date.getTime())) {
+					return null;
+				}
+			}
+
+			return t('FORMAT_ISO_DATETIME', {
+				defaultValue: 'must be a valid ISO 8601 datetime (e.g.: 2018-01-01T00:00:00.000Z)',
+			});
+		}
+
 		return null;
 	},
 });

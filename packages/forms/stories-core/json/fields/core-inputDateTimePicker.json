@@ -13,6 +13,10 @@
       "propNumberInitWithError": {
         "type": "number",
         "format": "timestamp"
+      },
+      "propStringInitWithError": {
+        "type": "string",
+        "format": "iso-datetime"
       }
     }
   },
@@ -34,11 +38,18 @@
       "title": "Basic with number type",
       "description": "Initialised with a bad format",
       "widget": "inputDateTimePicker"
+    },
+    {
+      "key": "propStringInitWithError",
+      "title": "Basic with string type",
+      "description": "Initialised with a bad format",
+      "widget": "inputDateTimePicker"
     }
   ],
   "properties": {
     "propSimpleNumber": 1514764800000,
     "propSimpleString": "2018-01-01T00:00:00.000Z",
-    "propNumberInitWithError": 8640000099000000
+    "propNumberInitWithError": 8640000099000000,
+    "propStringInitWithError": "whatever-bad-format-defined-in-the-form-side"
   }
 }
