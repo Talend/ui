@@ -18,8 +18,6 @@ import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
 import theme from './UIForm.scss';
 
-const formTemplates = { text: TextModeFormTemplate };
-
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
