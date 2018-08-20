@@ -1,8 +1,21 @@
 <svg>
 	<defs>
 		<filter id="talend-grayscale">
-			<feColorMatrix type="saturate" values="0"/>
-			<feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"/>
+				<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale" />
+				<feComponentTransfer in="grayscale" result="gammadarken">
+					<feFuncR type="gamma" amplitude="1" exponent="7" offset="0.0" />
+					<feFuncG type="gamma" amplitude="1" exponent="7" offset="0.0" />
+					<feFuncB type="gamma" amplitude="1" exponent="7" offset="0.0" />
+					<feFuncA type="gamma" amplitude="1" exponent="1" offset="0.0" />
+				</feComponentTransfer>
+				<feColorMatrix
+					in="gammadarken"
+					type="matrix"
+					values="0.33 0 0 0 0.1
+        					0 0.33 0 0 0.1
+        					0 0 0.33 0 0.1
+        					0 0 0 1 0"
+				/>
 		</filter>
 	</defs>
 </svg>

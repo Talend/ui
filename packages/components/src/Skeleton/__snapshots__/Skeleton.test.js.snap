@@ -42,11 +42,44 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>

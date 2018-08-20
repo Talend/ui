@@ -306,11 +306,44 @@ exports[`Storyshots HeaderBar barebone 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -644,11 +677,44 @@ exports[`Storyshots HeaderBar default 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -1281,11 +1347,44 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -1969,11 +2068,44 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -2671,11 +2803,44 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -3308,11 +3473,44 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -3945,11 +4143,44 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -4611,11 +4842,44 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -5276,11 +5540,44 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -5936,11 +6233,44 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -6935,11 +7265,44 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -7600,11 +7963,44 @@ exports[`Storyshots HeaderBar without products 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -8132,11 +8528,44 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -8792,11 +9221,44 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -9441,11 +9903,44 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -10090,11 +10585,44 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -10739,11 +11267,44 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -11388,11 +11949,44 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -12037,11 +12631,44 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
@@ -12686,11 +13313,44 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             id="talend-grayscale"
           >
             <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
               type="saturate"
               values="0"
             />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
             <feColorMatrix
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .9 0"
+              in="gammadarken"
+              type="matrix"
+              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
             />
           </filter>
         </defs>
