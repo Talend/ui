@@ -7,6 +7,7 @@ import { translate } from 'react-i18next';
 import { Action } from '../Actions';
 import theme from './Notification.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 
 function CloseButtonComponent({ notification, leaveFn, t }) {
 	return (
@@ -24,6 +25,14 @@ function CloseButtonComponent({ notification, leaveFn, t }) {
 		/>
 	);
 }
+CloseButtonComponent.propTypes = {
+	notification: PropTypes.object,
+	leaveFn: PropTypes.func,
+	t: PropTypes.func,
+};
+CloseButtonComponent.defaultProps = {
+	t: getDefaultT(),
+};
 export const CloseButton = translate(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
 
 export function MessageAction({ action }) {
@@ -86,7 +95,7 @@ export function Notification({ notification, leaveFn, ...props }) {
 	const leaveAction = event => props.onMouseOut(event, notification);
 
 	return (
-		<div
+		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			role={isError ? 'alert' : 'status'}
 			className={classes}
 			onClick={event => props.onClick(event, notification)}
