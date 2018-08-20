@@ -273,6 +273,8 @@ class Datalist extends Component {
 			} else {
 				this.resetValue();
 			}
+		} else if (this.props.onLiveChange) {
+			this.props.onLiveChange(event, value);
 		}
 	}
 
@@ -383,6 +385,7 @@ if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
+		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
 		readOnly: PropTypes.bool,
