@@ -68,9 +68,10 @@ class NestedListViewWidget extends React.Component {
 		this.setState(({ items, value, searchCriteria }) => {
 			const expanded = items.find(item => item.expanded);
 
-			const newItems = expanded && expanded.key === item.key
-				? items.map(fieldItem => ({ ...fieldItem, expanded: false })) // Collapse everything
-				: items.map(fieldItem => ({ ...fieldItem, expanded: fieldItem.key === item.key, })); // Expand selected
+			const newItems =
+				expanded && expanded.key === item.key
+					? items.map(fieldItem => ({ ...fieldItem, expanded: false })) // Collapse everything
+					: items.map(fieldItem => ({ ...fieldItem, expanded: fieldItem.key === item.key })); // Expand selected
 
 			return {
 				items: newItems,
