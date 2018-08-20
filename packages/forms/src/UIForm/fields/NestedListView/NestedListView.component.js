@@ -66,11 +66,10 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onExpandToggle(event, item) {
 		this.setState(({ items, value, searchCriteria }) => {
-			const expanded = items.find(item => item.expanded);
-
-			const newItems = expanded && expanded.key === item.key
-				? items.map(fieldItem => ({ ...fieldItem, expanded: false })) // Collapse everything
-				: items.map(fieldItem => ({ ...fieldItem, expanded: fieldItem.key === item.key, })); // Expand selected
+			const newItems = items.map(fieldItem => ({
+				...fieldItem,
+				expanded: fieldItem.key === item.key ? !fieldItem.expanded : fieldItem.expanded,
+			}));
 
 			return {
 				items: newItems,
@@ -112,24 +111,19 @@ class NestedListViewWidget extends React.Component {
 		this.setState(
 			({ items, value, searchCriteria }) => {
 				const { key } = parent;
+				const newValue = { ...value };
 
-				// Toggle checked value from state
-				const isParentKeyInValue = parent.key in value;
-
-				if (!isParentKeyInValue || !value[key].includes(item.value)) {
-					// Add
-					if (!isParentKeyInValue) {
-						value[key] = [];
-					}
-					value[key].push(item.value);
-				} else {
-					// Remove
-					value[key] = value[key].filter(storedValue => storedValue !== item.value);
+				if (!(key in value)) {
+					newValue[key] = [];
 				}
 
+				newValue[key] = newValue[key].includes(item.value)
+					? newValue[key].filter(storedValue => storedValue !== item.value) // Unselect
+					: newValue[key].concat(item.value); // Select
+
 				return {
-					value,
-					displayedItems: getDisplayedItems(items, value, searchCriteria),
+					value: newValue,
+					displayedItems: getDisplayedItems(items, newValue, searchCriteria),
 				};
 			},
 			() => this.onChange(event, this.state.value),

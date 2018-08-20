@@ -6,30 +6,32 @@
  * @returns {Array}
  */
 export function getDisplayedItems(items, value, searchCriteria) {
-	return items.reduce((finalItems, item) => {
-		const { children } = item;
-		const itemValue = value[item.key] || [];
+	let filterMethod;
 
-		// Filter children items if search criteria has been provided
-		const finalChildren = searchCriteria
-			? children.filter(({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase()))
-			: children;
+	if (searchCriteria) {
+		// Filter items children with text search criteria
+		filterMethod = ({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase());
+	}
 
-		if (finalChildren.length > 0) {
-			const checked = item.key in value && children.some(child => itemValue.includes(child.value));
+	return items
+		.map(item => ({
+			...item,
+			children: filterMethod ? item.children.filter(filterMethod) : item.children,
+		}))
+		.filter(item => item.children.length > 0) // Remove empty sections
+		.map(item => {
+			// Final formatting for ListView
+			const itemValue = value[item.key] || [];
 
-			finalItems.push({
+			return {
 				...item,
-				checked,
-				children: finalChildren.map(child => ({
+				checked: item.key in value && item.children.some(child => itemValue.includes(child.value)),
+				children: item.children.map(child => ({
 					...child,
 					checked: itemValue.includes(child.value),
 				})),
-			});
-		}
-
-		return finalItems;
-	}, []);
+			};
+		});
 }
 
 /**
