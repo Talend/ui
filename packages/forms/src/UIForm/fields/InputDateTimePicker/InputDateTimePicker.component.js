@@ -119,7 +119,11 @@ class InputDateTimePicker extends React.Component {
 				label={schema.title}
 				required={schema.required}
 			>
-				<InputDateTimePickerComponent selectedDateTime={datetime} onChange={this.onChange} />
+				<InputDateTimePickerComponent
+					id={this.props.id}
+					selectedDateTime={datetime}
+					onChange={this.onChange}
+				/>
 			</FieldTemplate>
 		);
 	}
