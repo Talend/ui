@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { Action } from '../Actions';
 import NotificationsContainer, {
 	Notification,
@@ -12,18 +12,11 @@ import NotificationsContainer, {
 jest.useFakeTimers();
 
 describe('CloseButton', () => {
-	it('should render an Action', () => {
-		const notification = { foo: 'bar' };
-		const leaveFn = jest.fn();
-		const wrapper = shallow(<CloseButton notification={notification} leaveFn={leaveFn} />);
-		expect(wrapper.type()).toBe(Action);
-	});
-
 	it('should call leaveFn props when the user click', () => {
 		const notification = { foo: 'bar' };
 		const leaveFn = jest.fn();
-		const wrapper = shallow(<CloseButton notification={notification} leaveFn={leaveFn} />);
-		wrapper.simulate('click');
+		const wrapper = mount(<CloseButton notification={notification} leaveFn={leaveFn} />);
+		wrapper.find('button').simulate('click');
 		expect(leaveFn).toHaveBeenCalledWith(notification);
 	});
 });
@@ -85,41 +78,35 @@ describe('TimerBar', () => {
 });
 
 describe('Notification', () => {
-	it('should render null if type === error', () => {
-		const props = {
+	const event = {};
+	let wrapper;
+	let props;
+	beforeEach(() => {
+		props = {
 			notification: { message: 'foo', type: 'error' },
+			onClick: jest.fn(),
+			onMouseEnter: jest.fn(),
+			onMouseOut: jest.fn(),
 		};
-		const wrapper = shallow(<Notification {...props} />);
+		wrapper = shallow(<Notification {...props} />);
+	});
+
+	it('should render error', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should call onMouseEnter with the notification when focus', () => {
+		wrapper.simulate('focus', event);
+		expect(props.onMouseEnter).toHaveBeenCalledWith(event, props.notification);
+	});
 	it('should call onMouseEnter with the notification when mouseenter', () => {
-		const props = {
-			notification: { message: 'foo', type: 'error' },
-			onMouseEnter: jest.fn(),
-		};
-		const wrapper = shallow(<Notification {...props} />);
-		const event = {};
 		wrapper.simulate('mouseEnter', event);
 		expect(props.onMouseEnter).toHaveBeenCalledWith(event, props.notification);
 	});
 	it('should call onMouseOut with the notification when mouseleave', () => {
-		const props = {
-			notification: { message: 'foo', type: 'error' },
-			onMouseOut: jest.fn(),
-		};
-		const wrapper = shallow(<Notification {...props} />);
-		const event = {};
 		wrapper.simulate('mouseLeave', event);
 		expect(props.onMouseOut).toHaveBeenCalledWith(event, props.notification);
 	});
 	it('should call onClick with the notification when mouseleave', () => {
-		const props = {
-			notification: { message: 'foo', type: 'error' },
-			onClick: jest.fn(),
-			leaveFn: jest.fn(),
-		};
-		const wrapper = shallow(<Notification {...props} />);
-		const event = {};
 		wrapper.simulate('click', event);
 		expect(props.onClick).toHaveBeenCalledWith(event, props.notification);
 	});
@@ -163,8 +150,6 @@ describe('NotificationContainer', () => {
 				},
 				stopPropagation: mockStopPropagation,
 			};
-			// Registry.cancel = jest.fn();
-			// Registry.register = jest.fn();
 		});
 
 		it('onMouseEnter', () => {
@@ -224,7 +209,6 @@ describe('NotificationContainer', () => {
 		const mockLeaveFn = jest.fn();
 
 		beforeEach(() => {
-			// Registry.register = jest.fn();
 			notifications = [
 				{
 					id: 0,
