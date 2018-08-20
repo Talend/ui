@@ -5,13 +5,16 @@
     "title": "InputDateTimePicker",
     "properties": {
       "propSimpleNumber": {
-        "type": "number"
+        "type": "number",
+        "format": "timestamp"
       },
       "propAutofocus": {
-        "type": "number"
+        "type": "number",
+        "format": "timestamp"
       },
       "propSimpleString": {
-        "type": "string"
+        "type": "string",
+        "format": "iso-datetime"
       },
       "propNumberInitWithError": {
         "type": "number",
