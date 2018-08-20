@@ -15,8 +15,8 @@ import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
-import Text from '../fields/Text';
-import TextArea from '../fields/TextArea';
+import Text, { TextTextMode } from '../fields/Text';
+import TextArea, { TextAreaTextMode } from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
 
 const widgets = {
@@ -38,6 +38,12 @@ const widgets = {
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
+
+	// fields: text mode
+	number_text: TextTextMode,
+	password_text: TextTextMode,
+	text_text: TextTextMode,
+	textarea_text: TextAreaTextMode,
 
 	// widgets
 	buttons: Buttons,

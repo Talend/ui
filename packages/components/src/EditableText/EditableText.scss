@@ -26,52 +26,32 @@ $tc-circle-editable-text-size: 16px !default;
 }
 
 .tc-editable-text {
-	display: flex;
-	margin: 0;
-	height: 100%;
-	position: relative;
+	margin: 0 110px 0 0;
+	max-width: 90rem;
 
-	& &-text {
-		flex-direction: column;
-		justify-content: center;
-		overflow: hidden;
-		flex: 1 auto;
-		margin-right: 110px;
-		max-width: 90rem;
-		display: inline-flex;
+	&-title {
+		display: flex;
 		align-items: center;
+		max-width: 90rem;
+	}
 
-		&-wording-button {
-			@include input-text($tc-input-editable-text-title-weight);
-			@include ellipsis;
-			text-transform: uppercase;
-			margin: 0;
-		}
+	&-wording {
+		@include input-text($tc-input-editable-text-title-weight);
+		@include ellipsis;
+		text-transform: uppercase;
+		flex: 0 1 auto;
+	}
 
-		&-wording-button {
-			padding: 0;
-			letter-spacing: inherit;
+	&-pencil {
+		padding-left: $padding-small;
+		padding-right: $padding-small;
+		flex: 0 0 auto;
 
-			&:global(.btn-link) {
-				color: $black;
-
-				&:focus,
-				&:hover,
-				&:active {
-					color: $black;
-				}
-			}
-		}
-
-		&-pencil {
-			padding-left: $padding-small;
-			padding-right: $padding-small;
-
-			&:global(.btn-link) {
-				color: $silver;
-			}
+		&:global(.btn-link) {
+			color: $silver;
 		}
 	}
+
 	& &-form {
 		width: 100%;
 		display: flex;
