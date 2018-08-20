@@ -303,6 +303,7 @@ exports[`Storyshots HeaderBar barebone 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -343,7 +344,7 @@ exports[`Storyshots HeaderBar barebone 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -674,6 +675,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -714,7 +716,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -1344,6 +1346,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -1384,7 +1387,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -2065,6 +2068,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -2105,7 +2109,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -2800,6 +2804,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -2840,7 +2845,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -3470,6 +3475,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -3510,7 +3516,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -4140,6 +4146,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -4180,7 +4187,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -4839,6 +4846,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -4879,7 +4887,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -5537,6 +5545,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -5577,7 +5586,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -6230,6 +6239,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -6270,7 +6280,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -7262,6 +7272,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -7302,7 +7313,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -7960,6 +7971,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -8000,7 +8012,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -8525,6 +8537,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -8565,7 +8578,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -9218,6 +9231,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -9258,7 +9272,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -9900,6 +9914,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -9940,7 +9955,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -10582,6 +10597,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -10622,7 +10638,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -11264,6 +11280,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -11304,7 +11321,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -11946,6 +11963,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -11986,7 +12004,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -12628,6 +12646,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -12668,7 +12687,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>
@@ -13310,6 +13329,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
       <svg>
         <defs>
           <filter
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -13350,7 +13370,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             <feColorMatrix
               in="gammadarken"
               type="matrix"
-              values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
             />
           </filter>
         </defs>

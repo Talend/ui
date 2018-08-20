@@ -19,6 +19,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
     <svg>
       <defs>
         <filter
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -59,7 +60,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
           <feColorMatrix
             in="gammadarken"
             type="matrix"
-            values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
           />
         </filter>
       </defs>
@@ -94,6 +95,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
     <svg>
       <defs>
         <filter
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -134,7 +136,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
           <feColorMatrix
             in="gammadarken"
             type="matrix"
-            values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
           />
         </filter>
       </defs>
@@ -3461,6 +3463,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     <svg>
       <defs>
         <filter
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -3501,7 +3504,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
           <feColorMatrix
             in="gammadarken"
             type="matrix"
-            values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
           />
         </filter>
       </defs>
@@ -6835,6 +6838,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     <svg>
       <defs>
         <filter
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -6875,7 +6879,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
           <feColorMatrix
             in="gammadarken"
             type="matrix"
-            values="0.33 0 0 0 0.1 0 0.33 0 0 0.1 0 0 0.33 0 0.1 0 0 0 1 0"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0    0 0 1 0"
           />
         </filter>
       </defs>

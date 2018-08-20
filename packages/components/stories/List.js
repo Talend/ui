@@ -24,6 +24,7 @@ CellWithHello.propTypes = {
 };
 
 const icons = {
+	'talend-elastic': talendIcons['talend-elastic'],
 	'talend-scheduler': talendIcons['talend-scheduler'],
 	'talend-apache': talendIcons['talend-apache'],
 	'talend-badge': talendIcons['talend-badge'],
@@ -217,6 +218,17 @@ const props = {
 				author:
 					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-3-class',
+			},
+			{
+				id: 4,
+				name: 'Title with actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-elastic',
+				display: 'text',
+				className: 'item-0-class',
 			},
 		],
 		titleProps: {
