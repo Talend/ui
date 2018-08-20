@@ -51,6 +51,7 @@ export function initItems(schema, value, searchCriteria, callbacks) {
 
 		return {
 			label: item.title,
+			expanded: false,
 			key,
 			onExpandToggle,
 			onChange: onParentChange,

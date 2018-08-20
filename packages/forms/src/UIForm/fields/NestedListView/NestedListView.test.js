@@ -286,6 +286,7 @@ describe('NestedListView utils', () => {
 	describe.skip('getDisplayedItems', () => {
 		it('should getDisplayedItems', () => {
 			// @todo
+			getDisplayedItems();
 		});
 	});
 });

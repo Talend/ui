@@ -91,10 +91,11 @@ class NestedListViewWidget extends React.Component {
 
 				// Toggle all values
 				const itemValue = value[item.key] || [];
+				const newValue = { ...value, [item.key]: itemValue.length === 0 ? availableOptions : [] };
 
 				return {
-					value: { ...value, [item.key]: itemValue.length === 0 ? availableOptions : [] },
-					displayedItems: getDisplayedItems(items, value, searchCriteria),
+					value: newValue,
+					displayedItems: getDisplayedItems(items, newValue, searchCriteria),
 				};
 			},
 			() => this.onChange(event, this.state.value),
