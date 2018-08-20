@@ -84,18 +84,21 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } item
 	 */
 	onParentChange(event, item) {
-		this.setState(({ items, value, searchCriteria, toggledChildren }) => {
-			const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
+		this.setState(
+			({ items, value, searchCriteria, toggledChildren }) => {
+				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
-			// Toggle all values
-			const itemValue = value[item.key] || [];
-			value[item.key] = itemValue.length === 0 ? availableOptions : [];
+				// Toggle all values
+				const itemValue = value[item.key] || [];
+				value[item.key] = itemValue.length === 0 ? availableOptions : [];
 
-			return {
-				value,
-				displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
-			};
-		}, () => this.onChange(event, this.state.value));
+				return {
+					value,
+					displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+				};
+			},
+			() => this.onChange(event, this.state.value),
+		);
 	}
 
 	/**
@@ -105,29 +108,32 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } parent
 	 */
 	onCheck(event, item, parent) {
-		this.setState(state => {
-			const { items, value, searchCriteria, toggledChildren } = state;
-			const { key } = parent;
+		this.setState(
+			state => {
+				const { items, value, searchCriteria, toggledChildren } = state;
+				const { key } = parent;
 
-			// Toggle checked value from state
-			const isParentKeyInValue = parent.key in value;
+				// Toggle checked value from state
+				const isParentKeyInValue = parent.key in value;
 
-			if (!isParentKeyInValue || !value[key].includes(item.value)) {
-				// Add
-				if (!isParentKeyInValue) {
-					value[key] = [];
+				if (!isParentKeyInValue || !value[key].includes(item.value)) {
+					// Add
+					if (!isParentKeyInValue) {
+						value[key] = [];
+					}
+					value[key].push(item.value);
+				} else {
+					// Remove
+					value[key] = value[key].filter(storedValue => storedValue !== item.value);
 				}
-				value[key].push(item.value);
-			} else {
-				// Remove
-				value[key] = value[key].filter(storedValue => storedValue !== item.value);
-			}
 
-			return {
-				value,
-				displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
-			};
-		}, () => this.onChange(event, this.state.value));
+				return {
+					value,
+					displayedItems: getDisplayedItems(items, value, searchCriteria, toggledChildren),
+				};
+			},
+			() => this.onChange(event, this.state.value),
+		);
 	}
 
 	/**
