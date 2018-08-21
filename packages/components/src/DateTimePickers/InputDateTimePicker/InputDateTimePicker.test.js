@@ -448,7 +448,7 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')({
+			dateTimePickerWrapper.prop('onSubmit')(null, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -468,7 +468,7 @@ describe('InputDateTimePicker', () => {
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')({
+			dateTimePickerWrapper.prop('onSubmit')(null, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -558,7 +558,7 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')({
+			dateTimePickerWrapper.prop('onSubmit')(null, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -630,7 +630,7 @@ describe('InputDateTimePicker', () => {
 			onChange.mockReset();
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
-			dateTimePickerWrapper.prop('onSubmit')(pickerIndenticalDatas);
+			dateTimePickerWrapper.prop('onSubmit')(null, pickerIndenticalDatas);
 
 			expect(onChange).not.toHaveBeenCalled();
 		});
@@ -905,7 +905,7 @@ describe('InputDateTimePicker', () => {
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(pickerDatas);
+			dateTimePickerWrapper.prop('onSubmit')(null, pickerDatas);
 
 			expect(onChange).not.toHaveBeenCalled();
 		});
@@ -1032,7 +1032,7 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
-			pickerWrapper.prop('onSubmit')({
+			pickerWrapper.prop('onSubmit')(null, {
 				date: new Date(2018, 0, 1),
 				time: 50,
 			});

@@ -238,7 +238,7 @@ class InputDateTimePicker extends React.Component {
 		this.unmountComponentContainerHandler();
 	}
 
-	onSubmitPicker({ date, time }) {
+	onSubmitPicker(event, { date, time }) {
 		this.updateDateTime(date, time);
 		this.switchDropdownVisibility(false);
 	}

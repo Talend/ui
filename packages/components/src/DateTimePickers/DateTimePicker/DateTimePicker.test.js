@@ -7,6 +7,12 @@ import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 
+function getSyntheticMockedEvent() {
+	return {
+		persist: () => {},
+	};
+}
+
 describe('DateTimePicker', () => {
 	it('should render', () => {
 		mockDate(new Date(2018, 5, 12));
@@ -86,7 +92,8 @@ describe('DateTimePicker', () => {
 		const dateTimeView = wrapper.find(DateTimeView);
 		expect(wrapper.state('selectedDate')).toBe(d1);
 
-		dateTimeView.prop('onSelectDate')(null, d2);
+		const mockedEvent = getSyntheticMockedEvent();
+		dateTimeView.prop('onSelectDate')(mockedEvent, d2);
 		expect(wrapper.state('selectedDate')).toBe(d2);
 
 		wrapper.setProps({
@@ -117,7 +124,8 @@ describe('DateTimePicker', () => {
 		const dateTimeView = wrapper.find(DateTimeView);
 		expect(wrapper.state('selectedTime')).toBe(t1);
 
-		dateTimeView.prop('onSelectTime')(null, t2);
+		const mockedEvent = getSyntheticMockedEvent();
+		dateTimeView.prop('onSelectTime')(mockedEvent, t2);
 		expect(wrapper.state('selectedTime')).toBe(t2);
 
 		wrapper.setProps({
@@ -167,9 +175,10 @@ describe('DateTimePicker', () => {
 		});
 
 		const dateTimeView = wrapper.find(DateTimeView);
-		dateTimeView.prop('onSelectTime')(null, time);
+		const mockedEvent = getSyntheticMockedEvent();
+		dateTimeView.prop('onSelectTime')(mockedEvent, time);
 
-		expect(onSubmit).toHaveBeenCalledWith({
+		expect(onSubmit.mock.calls[0][1]).toEqual({
 			date,
 			time,
 		});
@@ -185,7 +194,8 @@ describe('DateTimePicker', () => {
 		});
 
 		const dateTimeView = wrapper.find(DateTimeView);
-		dateTimeView.prop('onSelectTime')(null, time);
+		const mockedEvent = getSyntheticMockedEvent();
+		dateTimeView.prop('onSelectTime')(mockedEvent, time);
 
 		expect(onSubmit).not.toHaveBeenCalled();
 	});
