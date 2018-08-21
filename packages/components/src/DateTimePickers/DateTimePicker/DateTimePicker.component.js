@@ -79,7 +79,7 @@ class DateTimePicker extends React.Component {
 		this.setState(newState);
 	}
 
-	onSelectDate(selectedDate) {
+	onSelectDate(event, selectedDate) {
 		this.setState({ selectedDate }, () => {
 			this.trySubmit();
 		});

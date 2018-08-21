@@ -86,7 +86,7 @@ describe('DateTimePicker', () => {
 		const dateTimeView = wrapper.find(DateTimeView);
 		expect(wrapper.state('selectedDate')).toBe(d1);
 
-		dateTimeView.prop('onSelectDate')(d2);
+		dateTimeView.prop('onSelectDate')(null, d2);
 		expect(wrapper.state('selectedDate')).toBe(d2);
 
 		wrapper.setProps({

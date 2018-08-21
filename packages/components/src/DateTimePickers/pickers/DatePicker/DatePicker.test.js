@@ -384,7 +384,7 @@ describe('DatePicker', () => {
 
 				dayPickerAction.simulate('click');
 
-				expect(onSelect).toHaveBeenCalledWith(expectedNewSelectedDate);
+				expect(onSelect.mock.calls[0][1]).toEqual(expectedNewSelectedDate);
 			});
 		});
 
