@@ -10,7 +10,7 @@ import Code from '../fields/Code';
 import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
-import MultiSelectTag from '../fields/MultiSelectTag';
+import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
@@ -39,6 +39,7 @@ const widgets = {
 	textarea: TextArea,
 
 	// fields: text mode
+	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
