@@ -1,4 +1,13 @@
 /**
+ * Check if an item as children, use as filter
+ * @param {Object} item
+ * @returns {Boolean}
+ */
+function hasChildren(item) {
+	return item.children.length > 0;
+}
+
+/**
  * Build the ListView component props to match current state's values
  * @param {Array} items
  * @param {Object} value
@@ -13,22 +22,18 @@ export function getDisplayedItems(items, value, searchCriteria) {
 
 	return items
 		.map(item => {
-			// Add boolean "checked" to checked children
-			const checkedChildren = item.children.map(child => ({
+			const newChildren = item.children.map(child => ({
 				...child,
 				checked: (value[item.key] || []).includes(child.value),
 			}));
 
 			return {
 				...item,
-				// Section checked or not (at least 1 item checked)
-				checked: checkedChildren.some(child => child.checked),
-				// Filtered and "checked" or not children
-				children: textFilter ? checkedChildren.filter(textFilter) : checkedChildren,
+				checked: newChildren.some(child => child.checked),
+				children: textFilter ? newChildren.filter(textFilter) : newChildren,
 			};
 		})
-		// Remove empty sections
-		.filter(item => item.children.length > 0);
+		.filter(hasChildren);
 }
 
 /**
