@@ -163,8 +163,7 @@ export function handleResponse(response) {
 		return Promise.resolve({});
 	}
 	if (response.json) {
-		return response.json()
-			.then(json => ({ data: json, headers: response.headers }));
+		return response.json().then(json => ({ data: json, headers: response.headers }));
 	}
 	return Promise.reject(new HTTPError(response));
 }
