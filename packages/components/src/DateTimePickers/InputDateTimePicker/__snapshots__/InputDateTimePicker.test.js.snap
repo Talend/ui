@@ -10,6 +10,7 @@ exports[`InputDateTimePicker render should render 1`] = `
       element="input"
       forceNotifyByEnter={true}
       forceNotifyOnBlur={true}
+      id="DEFAULT_ID"
       inputRef={undefined}
       minLength={0}
       onBlur={[Function]}
@@ -34,6 +35,7 @@ exports[`InputDateTimePicker render should render 1`] = `
       <Popover
         bsClass="popover"
         className="theme-popover"
+        id="DEFAULT_ID-popover"
         placement="right"
       >
         <DateTimePicker

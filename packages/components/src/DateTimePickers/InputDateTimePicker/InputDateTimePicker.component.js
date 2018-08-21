@@ -167,6 +167,7 @@ const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange'];
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
+		id: PropTypes.string.isRequired,
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		readOnly: PropTypes.bool,
@@ -391,7 +392,7 @@ class InputDateTimePicker extends React.Component {
 				</div>
 				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
-						<Popover className={theme.popover}>
+						<Popover className={theme.popover} id={`${this.props.id}-popover`}>
 							<DateTimePicker
 								selection={{
 									date: this.state.date,
