@@ -250,7 +250,7 @@ class InputDateTimePicker extends React.Component {
 		const fullDate = getObjectDate(date, time);
 		const errorMsg = undefined;
 
-		this.triggerChange(fullDate, errorMsg);
+		this.triggerChange(event, fullDate, errorMsg);
 		this.setState({
 			date,
 			time,
@@ -276,7 +276,7 @@ class InputDateTimePicker extends React.Component {
 		const fullDate = getObjectDate(date, time);
 		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
 
-		this.triggerChange(fullDate, errMsg);
+		this.triggerChange(event, fullDate, errMsg);
 		this.setState({
 			date,
 			time,
@@ -355,14 +355,14 @@ class InputDateTimePicker extends React.Component {
 		});
 	}
 
-	triggerChange(fullDate, errorMsg) {
+	triggerChange(event, fullDate, errorMsg) {
 		const fullDateUpdated =
 			fullDate !== this.state.lastFullDate && !isSameMinute(fullDate, this.state.lastFullDate);
 
 		const errorUpdated = errorMsg !== this.state.lastErrMsg;
 
 		if (this.props.onChange && (fullDateUpdated || errorUpdated)) {
-			this.props.onChange(errorMsg, fullDate);
+			this.props.onChange(event, errorMsg, fullDate);
 		}
 	}
 

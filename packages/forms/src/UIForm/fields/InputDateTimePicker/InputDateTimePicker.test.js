@@ -96,7 +96,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(undefined, changedDate);
+					componentOnChange(null, undefined, changedDate);
 
 					expect(onChange.mock.calls[0][1].value).toBe(expectedTimestamp);
 				});
@@ -117,7 +117,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(undefined, undefined);
+					componentOnChange(null, undefined, undefined);
 
 					expect(onChange.mock.calls[0][1].value).toBeUndefined();
 				});
@@ -183,8 +183,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(undefined, changedDate);
-
+					componentOnChange(null, undefined, changedDate);
 					expect(onChange.mock.calls[0][1].value).toBe(expectedStr);
 				});
 
@@ -204,7 +203,7 @@ describe('InputDateTimePicker', () => {
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
-					componentOnChange(undefined, undefined);
+					componentOnChange(null, undefined, undefined);
 
 					expect(onChange.mock.calls[0][1].value).toBeUndefined();
 				});
@@ -231,7 +230,7 @@ describe('InputDateTimePicker', () => {
 				const componentWrapper = wrapper.find('InputDateTimePicker');
 				const componentOnChange = componentWrapper.prop('onChange');
 				const errorMessage = "An error message from the underlying widget's component";
-				componentOnChange(errorMessage, undefined);
+				componentOnChange(null, errorMessage, undefined);
 
 				const payloadSpread = onChange.mock.calls[0][1];
 				expect(payloadSpread.value).toBeInstanceOf(Error);
@@ -260,7 +259,7 @@ describe('InputDateTimePicker', () => {
 				const componentWrapper = wrapper.find('InputDateTimePicker');
 				const componentOnChange = componentWrapper.prop('onChange');
 				const widgetErrorMessage = "An error message from the underlying widget's component";
-				componentOnChange(widgetErrorMessage, undefined);
+				componentOnChange(null, widgetErrorMessage, undefined);
 
 				const formErrorMessage = 'A specific error message from the form';
 				wrapper.setProps({
