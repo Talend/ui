@@ -14,14 +14,13 @@ export function* onFilterChange(data) {
 }
 
 export function* onToggleFilter(data) {
-	const filterData = data;
 	yield put(
 		Connected.setStateAction(
 			{
-				filterDocked: !filterData.payload.filterDocked,
+				filterDocked: !data.payload.filterDocked,
 				searchQuery: '',
 			},
-			filterData.props.collectionId,
+			data.props.collectionId || 'default',
 		),
 	);
 }
