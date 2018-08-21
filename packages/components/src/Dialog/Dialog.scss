@@ -2,3 +2,12 @@
 	display: flex;
 	flex-direction: column;
 }
+
+
+:global(.modal-header) {
+	padding-top: 17px;
+}
+
+:global(.modal-subtitle) {
+	margin-bottom: 0;
+}
