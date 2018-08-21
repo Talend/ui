@@ -111,11 +111,11 @@ export function configureGetFilteredItems(configure) {
 	return createSelector([getSortedList, getComponentState], items => items);
 }
 
-export function configureGetPagedItems(configure) {
+export function configureGetPagedItems(configure, filteredItems) {
 	const getPagedList = createSelector(
 		[getComponentState(configure.collectionId)],
 		componentState => {
-			let results = configure.items;
+			let results = filteredItems;
 			if (componentState) {
 				results = componentState.get('items', results);
 				const startIndex = componentState.get('startIndex');

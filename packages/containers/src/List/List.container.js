@@ -175,6 +175,7 @@ class List extends React.Component {
 				this.props.dispatch({
 					type: Constants.LIST_CHANGE_SORT_ORDER,
 					payload: data,
+					collectionId: props.collectionId,
 					event,
 				});
 			},
@@ -248,6 +249,7 @@ class List extends React.Component {
 					this.props.dispatch({
 						type: Constants.LIST_CHANGE_SORT_ORDER,
 						payload: data,
+						collectionId: props.collectionId,
 						event,
 					});
 				};
@@ -261,6 +263,7 @@ class List extends React.Component {
 							filterDocked: state.filterDocked,
 							searchQuery: state.searchQuery,
 						}),
+						collectionId: props.collectionId,
 						event,
 					});
 				};
@@ -268,6 +271,7 @@ class List extends React.Component {
 					this.props.dispatch({
 						type: Constants.LIST_FILTER_CHANGE,
 						payload: data,
+						collectionId: props.collectionId,
 						event,
 					});
 				};

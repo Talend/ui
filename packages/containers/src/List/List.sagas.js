@@ -8,7 +8,7 @@ export function* onFilterChange(data) {
 			{
 				searchQuery: data.payload.query,
 			},
-			data.props.collectionId || 'default',
+			data.collectionId || 'default',
 		),
 	);
 }
@@ -20,7 +20,7 @@ export function* onToggleFilter(data) {
 				filterDocked: !data.payload.filterDocked,
 				searchQuery: '',
 			},
-			data.props.collectionId || 'default',
+			data.collectionId || 'default',
 		),
 	);
 }
@@ -32,7 +32,7 @@ export function* onChangeSortChange(data) {
 				sortOn: data.payload.field,
 				sortAsc: !data.payload.isDescending,
 			},
-			data.props.collectionId || 'default',
+			data.collectionId || 'default',
 		),
 	);
 }
