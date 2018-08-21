@@ -336,6 +336,17 @@ class InputDateTimePicker extends React.Component {
 			return setMinutes(date, time);
 		})();
 
+		this.triggerChange(fullDate, errorMsg);
+		this.setState({
+			date,
+			time,
+			textInput,
+			lastFullDate: fullDate,
+			lastErrMsg: errorMsg,
+		});
+	}
+
+	triggerChange(fullDate, errorMsg) {
 		const fullDateUpdated =
 			fullDate !== this.state.lastFullDate && !isSameMinute(fullDate, this.state.lastFullDate);
 
@@ -344,14 +355,6 @@ class InputDateTimePicker extends React.Component {
 		if (this.props.onChange && (fullDateUpdated || errorUpdated)) {
 			this.props.onChange(errorMsg, fullDate);
 		}
-
-		this.setState({
-			date,
-			time,
-			textInput,
-			lastFullDate: fullDate,
-			lastErrMsg: errorMsg,
-		});
 	}
 
 	render() {
