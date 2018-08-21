@@ -163,7 +163,10 @@ export function handleResponse(response) {
 		return Promise.resolve({});
 	}
 	if (response.json) {
-		return response.json();
+		return response.json()
+			.then((json) => {
+				return Promise.resolve({ data: json, headers: response.headers });
+			});
 	}
 	return Promise.reject(new HTTPError(response));
 }
@@ -238,14 +241,14 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 		.then(handleResponse)
 		.then(response => {
 			const newAction = Object.assign({}, action);
-			dispatch(http.onResponse(response));
+			dispatch(http.onResponse(response.data));
 			if (newAction.transform) {
-				newAction.response = newAction.transform(response);
+				newAction.response = newAction.transform(response.data);
 			} else {
-				newAction.response = response;
+				newAction.response = response.data;
 			}
 			if (newAction.onResponse) {
-				dispatch(http.onActionResponse(newAction, newAction.response));
+				dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
 			}
 			return next(newAction);
 		})
