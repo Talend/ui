@@ -46,7 +46,7 @@ export function initItems(schema, value, searchCriteria, callbacks) {
 	const { onExpandToggle, onParentChange, onCheck } = callbacks;
 
 	const items = schema.items.map(item => {
-		const key = item.key[item.key.length - 1]; // This is ugly (get a parent "id")
+		const key = item.key[item.key.length - 1];
 
 		return {
 			label: item.title,
