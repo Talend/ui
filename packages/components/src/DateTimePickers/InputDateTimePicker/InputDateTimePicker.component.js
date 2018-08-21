@@ -67,6 +67,14 @@ function getTextDate(date, time) {
 	return `${dateText} ${timeText}`;
 }
 
+function getObjectDate(date, time) {
+	if (date === undefined || time === undefined) {
+		return undefined;
+	}
+
+	return setMinutes(date, time);
+}
+
 function extractDate(strToParse) {
 	const dateMatches = strToParse.match(datePartRegex);
 
@@ -328,13 +336,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	updateDateTime(date, time, textInput = getTextDate(date, time), errorMsg) {
-		const fullDate = (() => {
-			if (date === undefined || time === undefined) {
-				return undefined;
-			}
-
-			return setMinutes(date, time);
-		})();
+		const fullDate = getObjectDate(date, time);
 
 		this.triggerChange(fullDate, errorMsg);
 		this.setState({
