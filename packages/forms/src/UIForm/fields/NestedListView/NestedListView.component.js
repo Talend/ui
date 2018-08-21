@@ -41,7 +41,7 @@ class NestedListViewWidget extends React.Component {
 			},
 		];
 
-		this.onAddKeyDown = this.onInputKeyDown.bind(this);
+		this.onInputKeyDown = this.onInputKeyDown.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 
 		const searchCriteria = null;
@@ -84,6 +84,9 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } item
 	 */
 	onParentChange(event, item) {
+		console.log('[SG]', 'parent change', event);
+		console.log('[SG]', 'parent change', event.currentTarget);
+		console.log('[SG]', 'parent change', event.currentTarget());
 		this.setState(
 			({ items, value, searchCriteria }) => {
 				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
@@ -215,7 +218,7 @@ class NestedListViewWidget extends React.Component {
 						items={this.state.displayedItems}
 						t={this.props.t}
 						headerDefault={this.defaultHeaderActions}
-						onAddKeyDown={this.onAddKeyDown}
+						onAddKeyDown={this.onInputKeyDown}
 						onInputChange={this.onInputChange}
 						headerLabel={schema.title}
 						required={schema.required}
