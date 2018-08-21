@@ -77,7 +77,7 @@ describe('YearPicker', () => {
 		const yearItem = wrapper.prop('items').find(item => item.id === yearToSelect);
 		wrapper.prop('onSelect')(null, yearItem);
 
-		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
+		expect(onSelect.mock.calls[0][1]).toEqual(yearToSelect);
 		restoreDate();
 	});
 });

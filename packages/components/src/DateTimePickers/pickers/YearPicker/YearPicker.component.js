@@ -27,7 +27,7 @@ class YearPicker extends React.Component {
 	}
 
 	onSelect(event, item) {
-		return this.props.onSelect(item.id);
+		return this.props.onSelect(event, item.id);
 	}
 
 	render() {

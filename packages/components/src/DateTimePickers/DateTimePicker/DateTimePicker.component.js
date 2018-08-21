@@ -104,7 +104,7 @@ class DateTimePicker extends React.Component {
 		this.onSelectCalendarMonthYear({ monthIndex });
 	}
 
-	onSelectCalendarYear(year) {
+	onSelectCalendarYear(event, year) {
 		this.onSelectCalendarMonthYear({ year });
 	}
 
