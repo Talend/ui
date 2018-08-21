@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import Widget from '../../Widget';
-import Message from '../../Message';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
 import defaultWidgets from '../../utils/widgets';
-
-import theme from './Array.scss';
 
 function adaptKeyWithIndex(keys, index) {
 	let indexedKeys = keys;
@@ -137,24 +133,25 @@ export default class ArrayWidget extends React.Component {
 	}
 
 	render() {
-		const { errorMessage, isValid, schema } = this.props;
+		const { displayMode, schema } = this.props;
 		const canReorder = schema.reorder !== false;
 
-		const templateId = 'array';
-		const ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
+		const baseTemplateId = 'array';
+		const templateId = `${baseTemplateId}_${displayMode}`;
+		let ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
+		if (!ArrayTemplate) {
+			ArrayTemplate = this.props.templates[baseTemplateId] || defaultTemplates[baseTemplateId];
+		}
 
 		return (
-			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
-				<ArrayTemplate
-					{...this.props}
-					canReorder={canReorder}
-					onAdd={this.onAdd}
-					onReorder={this.onReorder}
-					onRemove={this.onRemove}
-					renderItem={this.renderItem}
-				/>
-				<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
-			</div>
+			<ArrayTemplate
+				{...this.props}
+				canReorder={canReorder}
+				onAdd={this.onAdd}
+				onReorder={this.onReorder}
+				onRemove={this.onRemove}
+				renderItem={this.renderItem}
+			/>
 		);
 	}
 }
@@ -168,9 +165,8 @@ ArrayWidget.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayWidget.propTypes = {
-		errorMessage: PropTypes.string,
+		displayMode: PropTypes.string,
 		id: PropTypes.string,
-		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { DefaultArrayTemplate } from './DefaultArrayTemplate.component';
+import DefaultArrayTemplate from './DefaultArrayTemplate.component';
 
 const schema = {
 	key: ['comments'],
@@ -89,7 +89,7 @@ describe('Default Array Template component', () => {
 	it('should render default array template', () => {
 		// when
 		const wrapper = shallow(
-			<DefaultArrayTemplate
+			<DefaultArrayTemplate.WrappedComponent
 				canReorder
 				id={'my-template'}
 				onAdd={jest.fn()}
@@ -97,9 +97,6 @@ describe('Default Array Template component', () => {
 				onReorder={jest.fn()}
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
-				t={function translate(key, options) {
-					return options.defaultValue;
-				}}
 				value={value}
 			/>,
 		);
