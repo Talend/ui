@@ -16,25 +16,20 @@ More than 2 levels is currently not supported.
 
 ```json
 "food": {
-  "title": "Food",
   "type": "object",
   "properties": {
     "fruits": {
-      "title": "Fruits",
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["orange", "pear", "passion_fruit"],
-        "enumNames": ["Orange", "Pear", "Passion fruit"]
+        "enum": ["orange", "pear", "passion_fruit"]
       }
     },
     "vegetables": {
-      "title": "Vegetables",
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["carot", "lettuce", "turnip"],
-        "enumNames": ["Carot", "Lettuce", "Turnip"]
+        "enum": ["carot", "lettuce", "turnip"]
       }
     }
   }
@@ -52,15 +47,31 @@ More than 2 levels is currently not supported.
 | widget | The widget to use | `nestedListView` |
 
 ```json
-[
+{
+  "key": "food",
+  "title": "Food",
+  "widget": "nestedListView",
+  "items": [
     {
-      "key": "nestedListView",
-      "title": "My NestedListView",
-      "description": "NestedListView's description",
-      "placeholder": "Search filter",
-      "widget": "nestedListView"
+      "key": "food.fruits",
+      "title": "Fruits",
+      "titleMap": {
+        "orange": "Orange",
+        "pear": "Pear",
+        "passion_fruit": "Passion fruit"
+      }
+    },
+    {
+      "key": "food.vegetables",
+      "title": "Vegetables",
+      "titleMap": {
+        "carot": "Carot",
+        "lettuce": "Lettuce",
+        "turnip": "Turnip"
+      }
     }
   ]
+}
 ```
 
 ![NestedListview](screenshot.gif)
