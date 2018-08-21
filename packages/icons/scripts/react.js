@@ -4,12 +4,10 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const lib = require('../src');
 
-const buff = Object.keys(lib.svgs)
-	.map(key => {
-		const svg = `${lib.svgs[key]}`.replace(/class/g, 'className').replace(/fill-rule/g, 'fillRule');
-		return `icons['talend-${key}'] = (${svg});`;
-	})
-	.concat(Object.keys(lib.filters).map(key => `filters['${key}'] = (${lib.filters[key]});`));
+const buff = Object.keys(lib.svgs).map(key => {
+	const svg = `${lib.svgs[key]}`.replace(/class/g, 'className').replace(/fill-rule/g, 'fillRule');
+	return `icons['talend-${key}'] = (${svg});`;
+});
 
 buff.unshift('');
 buff.unshift('const icons = {};');
