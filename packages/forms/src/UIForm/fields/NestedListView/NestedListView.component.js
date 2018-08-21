@@ -94,7 +94,7 @@ class NestedListViewWidget extends React.Component {
 				// Toggle all values
 				this.value = {
 					...this.value,
-					[item.key]: (this.value[item.key] || []).length === 0 ? availableOptions : []
+					[item.key]: (this.value[item.key] || []).length === 0 ? availableOptions : [],
 				};
 
 				return {
