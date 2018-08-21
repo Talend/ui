@@ -37,20 +37,18 @@ export function getDisplayedItems(items, value, searchCriteria) {
 }
 
 /**
- * Define the items from schema, and init the items related state
- * @param { Object } schema The merged schema
- * @param { Array } value the listView value
- * @param { string } searchCriteria The filter criteria
- * @param { Object } callbacks
- * @param { Function } callbacks.onExpandToggle
- * @param { Function } callbacks.onParentChange
- * @param { Function } callbacks.onCheck
- * @returns { Array }
+ * Prepare items from schema to be used within ListView
+ * @param {Object} schema
+ * @param {Object} callbacks
+ * @param {Function} callbacks.onExpandToggle
+ * @param {Function} callbacks.onParentChange
+ * @param {Function} callbacks.onCheck
+ * @returns {Array}
  */
-export function initItems(schema, value, searchCriteria, callbacks) {
+export function prepareItemsFromSchema(schema, callbacks) {
 	const { onExpandToggle, onParentChange, onCheck } = callbacks;
 
-	const items = schema.items.map(item => {
+	return schema.items.map(item => {
 		const key = item.key[item.key.length - 1];
 
 		return {
@@ -66,9 +64,4 @@ export function initItems(schema, value, searchCriteria, callbacks) {
 			})),
 		};
 	});
-
-	return {
-		items,
-		displayedItems: getDisplayedItems(items, value, searchCriteria),
-	};
 }

@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
-import { initItems, getDisplayedItems } from './NestedListView.utils';
+import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './NestedListView.scss';
@@ -52,10 +52,13 @@ class NestedListViewWidget extends React.Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
+		const items = prepareItemsFromSchema(schema, callbacks);
+
 		this.state = {
-			...initItems(schema, value, searchCriteria, callbacks),
+			items,
 			searchCriteria,
 			value,
+			displayedItems: getDisplayedItems(items, value, searchCriteria),
 		};
 	}
 

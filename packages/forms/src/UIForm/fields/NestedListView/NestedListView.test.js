@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import keycode from 'keycode';
 
 import { NestedListViewWidget } from './NestedListView.component';
-import { initItems, getDisplayedItems } from './NestedListView.utils';
+import { prepareItemsFromSchema, getDisplayedItems } from './NestedListView.utils';
 
 jest.useFakeTimers();
 
@@ -257,8 +257,8 @@ describe('NestedListView component', () => {
 });
 
 describe('NestedListView utils', () => {
-	describe('initItems', () => {
-		it('should init items props', () => {
+	describe('prepareItemsFromSchema', () => {
+		it('should prepare items from schema prop', () => {
 			// given
 			const schema = {
 				items: [
@@ -273,9 +273,6 @@ describe('NestedListView utils', () => {
 				placeholder: 'placeholder',
 			};
 
-			const value = [];
-			const searchCriteria = '';
-
 			const callbacks = {
 				onExpandToggle: jest.fn(),
 				onParentChange: jest.fn(),
@@ -283,15 +280,13 @@ describe('NestedListView utils', () => {
 			};
 
 			// when
-			const props = initItems(schema, value, searchCriteria, callbacks);
+			const items = prepareItemsFromSchema(schema, callbacks);
 
 			// then
-			expect(props.items[0].onExpandToggle).toBe(callbacks.onExpandToggle);
-			expect(props.items[0].onChange).toBe(callbacks.onParentChange);
-			expect(props.items[0].children[0].onChange).toBe(callbacks.onCheck);
-			expect(props.items[0].children[1].onChange).toBe(callbacks.onCheck);
-			expect(props.displayedItems).toHaveLength(1);
-			expect(props.displayedItems[0].children).toHaveLength(2);
+			expect(items[0].onExpandToggle).toBe(callbacks.onExpandToggle);
+			expect(items[0].onChange).toBe(callbacks.onParentChange);
+			expect(items[0].children[0].onChange).toBe(callbacks.onCheck);
+			expect(items[0].children[1].onChange).toBe(callbacks.onCheck);
 		});
 	});
 
