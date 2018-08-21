@@ -73,11 +73,9 @@ describe('NestedListView component', () => {
 			wrapper.instance().onExpandToggle(event, item);
 
 			// then
-			const { displayedItems, items } = wrapper.state();
+			const { displayedItems } = wrapper.state();
 			expect(displayedItems[0].expanded).toBe(false);
 			expect(displayedItems[1].expanded).toBe(true);
-			expect(items[0].expanded).toBe(false);
-			expect(items[1].expanded).toBe(true);
 		});
 
 		it('should collapse an already expanded section', () => {
@@ -89,16 +87,14 @@ describe('NestedListView component', () => {
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			const beforeState = wrapper.state();
 			beforeState.displayedItems[1].expanded = true;
-			beforeState.items[1].expanded = true;
+			wrapper.instance().items[1].expanded = true;
 			wrapper.setState(beforeState);
 			wrapper.instance().onExpandToggle(event, item);
 
 			// then
-			const { displayedItems, items } = wrapper.state();
+			const { displayedItems } = wrapper.state();
 			expect(displayedItems[0].expanded).toBe(false);
 			expect(displayedItems[1].expanded).toBe(false);
-			expect(items[0].expanded).toBe(false);
-			expect(items[1].expanded).toBe(false);
 		});
 	});
 

@@ -52,13 +52,12 @@ class NestedListViewWidget extends React.Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
-		const items = prepareItemsFromSchema(schema, callbacks);
+		this.items = prepareItemsFromSchema(schema, callbacks);
 
 		this.state = {
-			items,
 			searchCriteria,
 			value,
-			displayedItems: getDisplayedItems(items, value, searchCriteria),
+			displayedItems: getDisplayedItems(this.items, value, searchCriteria),
 		};
 	}
 
@@ -68,8 +67,8 @@ class NestedListViewWidget extends React.Component {
 	 * @param {Object} item
 	 */
 	onExpandToggle(event, item) {
-		this.setState(({ items, value, searchCriteria }) => {
-			const newItems = items.map(fieldItem => {
+		this.setState(({ value, searchCriteria }) => {
+			this.items = this.items.map(fieldItem => {
 				if (fieldItem.key === item.key) {
 					return { ...fieldItem, expanded: !fieldItem.expanded };
 				}
@@ -77,8 +76,7 @@ class NestedListViewWidget extends React.Component {
 			});
 
 			return {
-				items: newItems,
-				displayedItems: getDisplayedItems(newItems, value, searchCriteria),
+				displayedItems: getDisplayedItems(this.items, value, searchCriteria),
 			};
 		});
 	}
@@ -90,7 +88,7 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onParentChange(event, item) {
 		this.setState(
-			({ items, value, searchCriteria }) => {
+			({ value, searchCriteria }) => {
 				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
 				// Toggle all values
@@ -99,7 +97,7 @@ class NestedListViewWidget extends React.Component {
 
 				return {
 					value: newValue,
-					displayedItems: getDisplayedItems(items, newValue, searchCriteria),
+					displayedItems: getDisplayedItems(this.items, newValue, searchCriteria),
 				};
 			},
 			() => this.onChange(event, this.state.value),
@@ -114,7 +112,7 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onCheck(event, item, parent) {
 		this.setState(
-			({ items, value, searchCriteria }) => {
+			({ value, searchCriteria }) => {
 				const { key } = parent;
 				const newValue = { ...value };
 
@@ -128,7 +126,7 @@ class NestedListViewWidget extends React.Component {
 
 				return {
 					value: newValue,
-					displayedItems: getDisplayedItems(items, newValue, searchCriteria),
+					displayedItems: getDisplayedItems(this.items, newValue, searchCriteria),
 				};
 			},
 			() => this.onChange(event, this.state.value),
@@ -155,9 +153,9 @@ class NestedListViewWidget extends React.Component {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			const { value: searchCriteria } = item;
-			this.setState(({ items, value }) => ({
+			this.setState(({ value }) => ({
 				searchCriteria,
-				displayedItems: getDisplayedItems(items, value, searchCriteria),
+				displayedItems: getDisplayedItems(this.items, value, searchCriteria),
 			}));
 		}, 400);
 	}
@@ -193,8 +191,8 @@ class NestedListViewWidget extends React.Component {
 	switchToDefaultMode() {
 		const searchCriteria = null;
 
-		this.setState(({ items, value }) => ({
-			displayedItems: getDisplayedItems(items, value, searchCriteria),
+		this.setState(({ value }) => ({
+			displayedItems: getDisplayedItems(this.items, value, searchCriteria),
 			searchCriteria,
 			headerInput: this.defaultHeaderActions,
 			displayMode: DISPLAY_MODE_DEFAULT,
