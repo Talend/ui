@@ -296,28 +296,27 @@ describe('NestedListView utils', () => {
 	});
 
 	describe('getDisplayedItems', () => {
-		const items = [{
-			key: 'foo',
-			label: 'Foo',
-			children: [
-				{ label: 'Foo 1', value: 'foo_1' },
-				{ label: 'Foo 2', value: 'foo_2' },
-			],
-		}, {
-			key: 'bar',
-			label: 'Bar',
-			children: [
-				{ label: 'Bar 1', value: 'bar_1' },
-				{ label: 'Bar 2', value: 'bar_2' },
-				{ label: 'Bar 3', value: 'bar_3' },
-			],
-		}, {
-			key: 'single',
-			label: 'Single',
-			children: [
-				{ label: 'Single', value: 'single' },
-			],
-		}];
+		const items = [
+			{
+				key: 'foo',
+				label: 'Foo',
+				children: [{ label: 'Foo 1', value: 'foo_1' }, { label: 'Foo 2', value: 'foo_2' }],
+			},
+			{
+				key: 'bar',
+				label: 'Bar',
+				children: [
+					{ label: 'Bar 1', value: 'bar_1' },
+					{ label: 'Bar 2', value: 'bar_2' },
+					{ label: 'Bar 3', value: 'bar_3' },
+				],
+			},
+			{
+				key: 'single',
+				label: 'Single',
+				children: [{ label: 'Single', value: 'single' }],
+			},
+		];
 
 		const value = { foo: ['foo_1'] };
 
