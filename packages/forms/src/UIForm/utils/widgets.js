@@ -6,7 +6,7 @@ import Tabs from '../fieldsets/Tabs';
 
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
-import Code from '../fields/Code';
+import Code, { CodeTextMode } from '../fields/Code';
 import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
@@ -39,6 +39,7 @@ const widgets = {
 	textarea: TextArea,
 
 	// fields: text mode
+	code_text: CodeTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
