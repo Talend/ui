@@ -109,38 +109,18 @@ const HTML_TPL = (icons, style) => `
 		<ul>
 			${icons}
 		</ul>
-		<svg>
-			<filter id="colormapping" color-interpolation-filters="sRGB">
-				<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale" />
-				<feColorMatrix in="grayscale" type="matrix" values="0.64 0 0 0 0.36
-					0.47 0 0 0 0.53 
-					0.33 0 0 0 0.67 
-					0 0 0 1 0" />
-			</filter>
-			<filter id="talend-grayscale" color-interpolation-filters="sRGB">
-				<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale" />
-				<feComponentTransfer in="grayscale" result="gammadarken">
-					<feFuncR type="gamma" amplitude="1" exponent="7" offset="0.0" />
-					<feFuncG type="gamma" amplitude="1" exponent="7" offset="0.0" />
-					<feFuncB type="gamma" amplitude="1" exponent="7" offset="0.0" />
-					<feFuncA type="gamma" amplitude="1" exponent="1" offset="0.0" />
-				</feComponentTransfer>
-				<feColorMatrix in="gammadarken" type="matrix" values="0.77 0 0 0 0.33
-				0 0.77 0 0 0.33 
-				0 0 0.77 0 0.33 
-				0    0 0 1 0" />
-			</filter>
-		</svg>
 	</body>
 </html>
 `;
 
-const buff = Object.keys(lib.svgs).map(
-	key =>
-		`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${
-			lib.svgs[key]
-		}</svg><span>${key}</span></li>`,
-);
+const buff = Object.keys(lib.svgs)
+	.map(
+		key =>
+			`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${
+				lib.svgs[key]
+			}</svg><span>${key}</span></li>`,
+	)
+	.concat(Object.keys(lib.filters).map(key => `${lib.filters[key]}`));
 
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);

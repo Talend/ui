@@ -298,12 +298,36 @@ exports[`Storyshots HeaderBar barebone 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -670,12 +694,36 @@ exports[`Storyshots HeaderBar default 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -1341,12 +1389,36 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -2063,12 +2135,36 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -2799,12 +2895,36 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -3470,12 +3590,36 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -4141,12 +4285,36 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -4841,12 +5009,36 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -5540,12 +5732,36 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -6234,12 +6450,36 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -7267,12 +7507,36 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -7966,12 +8230,36 @@ exports[`Storyshots HeaderBar without products 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -8532,12 +8820,36 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -9226,12 +9538,36 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -9909,12 +10245,36 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -10592,12 +10952,36 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -11275,12 +11659,36 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -11958,12 +12366,36 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -12641,12 +13073,36 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -13324,12 +13780,36 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix

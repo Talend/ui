@@ -34,12 +34,36 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       </svg>
     </symbol>
     <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
       id="grayscale"
     >
       <svg>
         <defs>
           <filter
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
