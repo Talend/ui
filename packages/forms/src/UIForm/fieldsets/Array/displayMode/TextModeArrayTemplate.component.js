@@ -13,9 +13,11 @@ export default function TextModeArrayTemplate(props) {
 
 			<dd>
 				<ol aria-labelledby={id}>
-					{value.map((_, index) => (
-						<li>{renderItem(index)}</li>
-					))}
+					{value.map((val, index) => {
+						const valueIsObject = typeof val === 'object';
+						const classNames = valueIsObject ? theme.block : undefined;
+						return <li className={classNames}>{valueIsObject ? renderItem(index) : val}</li>;
+					})}
 				</ol>
 			</dd>
 		</div>

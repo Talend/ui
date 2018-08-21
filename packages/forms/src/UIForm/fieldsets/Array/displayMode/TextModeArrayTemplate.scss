@@ -1,5 +1,14 @@
 .tf-array-text-mode {
 	ol {
 		list-style: none;
+		padding-left: 0;
+
+		li {
+			padding-left: $padding-larger;
+
+			&.block {
+				border-left: 2px solid $silver;
+			}
+		}
 	}
 }
