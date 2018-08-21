@@ -18,6 +18,10 @@ describe('Widget component', () => {
 		},
 		comment: '',
 	};
+	const customWidgets = {
+		customWidget: () => <div>my widget</div>,
+		customWidget_text: () => <div>my widget in text display mode</div>,
+	};
 
 	it('should render widget', () => {
 		// when
@@ -30,6 +34,25 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={schema}
 				errors={errors}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render widget with the specific displayMode', () => {
+		// when
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={schema}
+				errors={errors}
+				displayMode={'text'}
 			/>,
 		);
 
@@ -55,11 +78,6 @@ describe('Widget component', () => {
 
 	it('should render custom widget', () => {
 		// given
-		const widgets = {
-			customWidget() {
-				return <div>my widget</div>;
-			},
-		};
 		const customWidgetSchema = {
 			...schema,
 			type: 'customWidget',
@@ -74,7 +92,32 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={customWidgetSchema}
 				errors={errors}
-				widgets={widgets}
+				widgets={customWidgets}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render custom widget in specific display mode', () => {
+		// given
+		const customWidgetSchema = {
+			...schema,
+			type: 'customWidget',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={customWidgetSchema}
+				errors={errors}
+				widgets={customWidgets}
+				displayMode={'text'}
 			/>,
 		);
 

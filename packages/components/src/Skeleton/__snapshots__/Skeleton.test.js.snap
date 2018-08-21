@@ -95,7 +95,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       small
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -108,7 +108,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       medium
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium tc-skeleton-heartbeat"
       style={
         Object {
@@ -121,7 +121,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       large
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-large tc-skeleton tc-skeleton-circle tc-skeleton-circle-large tc-skeleton-heartbeat"
       style={
         Object {
@@ -134,7 +134,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       custom size override class definition 
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -150,7 +150,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       small:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -163,7 +163,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       medium:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-medium tc-skeleton tc-skeleton-text tc-skeleton-text-medium tc-skeleton-heartbeat"
       style={
         Object {
@@ -176,7 +176,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       large:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-large tc-skeleton tc-skeleton-text tc-skeleton-text-large tc-skeleton-heartbeat"
       style={
         Object {
@@ -189,7 +189,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       extra-large:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-xlarge tc-skeleton tc-skeleton-text tc-skeleton-text-xlarge tc-skeleton-heartbeat"
       style={
         Object {
@@ -202,7 +202,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       custom width:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -215,7 +215,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       Button: 
     </h4>
     <span
-      aria-label=" button (loading)"
+      aria-label="button (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-button theme-tc-skeleton-button-medium tc-skeleton tc-skeleton-button tc-skeleton-button-medium tc-skeleton-heartbeat"
       style={
         Object {
@@ -229,7 +229,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
-      aria-label=" icon (loading)"
+      aria-label="icon (loading)"
       className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium tc-skeleton-heartbeat"
       focusable="false"
       name="talend-locked"
@@ -244,7 +244,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
-      aria-label=" icon (loading)"
+      aria-label="icon (loading)"
       className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium theme-skeleton-96x96 tc-skeleton-heartbeat"
       focusable="false"
       name="talend-table"
