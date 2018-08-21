@@ -6,11 +6,9 @@
 		"type": "object",
 		"properties": {
 			"food": {
-				"title": "Food",
 				"type": "object",
 				"properties": {
 					"fruits": {
-						"title": "Fruits",
 						"type": "array",
 						"items": {
 							"type": "string",
@@ -18,16 +16,10 @@
 								"orange",
 								"pear",
 								"passion_fruit"
-							],
-							"enumNames": [
-								"Orange",
-								"Pear",
-								"Passion fruit"
 							]
 						}
 					},
 					"vegetables": {
-						"title": "Vegetables",
 						"type": "array",
 						"items": {
 							"type": "string",
@@ -35,11 +27,6 @@
 								"carot",
 								"lettuce",
 								"turnip"
-							],
-							"enumNames": [
-								"Carot",
-								"Lettuce",
-								"Turnip"
 							]
 						}
 					}
@@ -47,11 +34,33 @@
 			}
 		}
 	},
-	"uiSchema": {
-		"food": {
-			"ui:widget": "nestedListView"
+	"uiSchema": [
+		{
+			"key": "food",
+			"title": "Food",
+			"widget": "nestedListView",
+			"items": [
+				{
+					"key": "fruits",
+					"title": "Fruits",
+					"titleMap": {
+						"orange": "Orange",
+						"pear": "Pear",
+						"passion_fruit": "Passion fruit"
+					}
+				},
+				{
+					"key": "vegetables",
+					"title": "Vegetables",
+					"titleMap": {
+						"carot": "Carot",
+						"lettuce": "Lettuce",
+						"turnip": "Turnip"
+					}
+				}
+			]
 		}
-	},
+	],
 	"properties": {
 		"food": {
 			"fruits": [
