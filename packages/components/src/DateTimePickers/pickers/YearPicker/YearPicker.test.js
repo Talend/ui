@@ -75,7 +75,7 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={onSelect} />);
 
 		const yearItem = wrapper.prop('items').find(item => item.id === yearToSelect);
-		wrapper.prop('onSelect')(yearItem);
+		wrapper.prop('onSelect')(null, yearItem);
 
 		expect(onSelect).toHaveBeenCalledWith(yearToSelect);
 		restoreDate();

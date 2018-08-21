@@ -118,7 +118,7 @@ describe('TimePicker', () => {
 			);
 
 			const timeItem = wrapper.prop('items').find(item => item.id === timeToSelect);
-			wrapper.prop('onSelect')(timeItem);
+			wrapper.prop('onSelect')(null, timeItem);
 
 			expect(onSelect).toHaveBeenCalledWith(timeToSelect);
 		});

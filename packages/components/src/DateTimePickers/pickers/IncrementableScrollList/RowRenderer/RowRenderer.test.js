@@ -40,6 +40,6 @@ describe('RowRenderer', () => {
 		wrapper.simulate('click');
 
 		// then
-		expect(onSelect).toBeCalledWith(items[props.index]);
+		expect(onSelect.mock.calls[0][1]).toEqual(items[props.index]);
 	});
 });
