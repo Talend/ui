@@ -11,26 +11,24 @@ export function getDisplayedItems(items, value, searchCriteria) {
 		textFilter = ({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase());
 	}
 
-	return (
-		items
-			.map(item => {
-				// Add boolean "checked" to checked children
-				const checkedChildren = item.children.map(child => ({
-					...child,
-					checked: (value[item.key] || []).includes(child.value),
-				}));
+	return items
+		.map(item => {
+			// Add boolean "checked" to checked children
+			const checkedChildren = item.children.map(child => ({
+				...child,
+				checked: (value[item.key] || []).includes(child.value),
+			}));
 
-				return {
-					...item,
-					// Section checked or not (at least 1 item checked)
-					checked: checkedChildren.some(child => child.checked),
-					// Filtered and "checked" or not children
-					children: textFilter ? checkedChildren.filter(textFilter) : checkedChildren,
-				};
-			})
-			// Remove empty sections
-			.filter(item => item.children.length > 0)
-	);
+			return {
+				...item,
+				// Section checked or not (at least 1 item checked)
+				checked: checkedChildren.some(child => child.checked),
+				// Filtered and "checked" or not children
+				children: textFilter ? checkedChildren.filter(textFilter) : checkedChildren,
+			};
+		})
+		// Remove empty sections
+		.filter(item => item.children.length > 0);
 }
 
 /**
