@@ -41,7 +41,7 @@
 			"widget": "nestedListView",
 			"items": [
 				{
-					"key": "fruits",
+					"key": "food.fruits",
 					"title": "Fruits",
 					"titleMap": {
 						"orange": "Orange",
@@ -50,7 +50,7 @@
 					}
 				},
 				{
-					"key": "vegetables",
+					"key": "food.vegetables",
 					"title": "Vegetables",
 					"titleMap": {
 						"carot": "Carot",
