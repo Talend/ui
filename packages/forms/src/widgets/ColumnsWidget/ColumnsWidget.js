@@ -65,17 +65,17 @@ export default class ColumnsWidget extends React.Component {
 				)}
 				{schema.properties
 					? Object.keys(schema.properties).map(key => (
-							<Column
-								{...props}
-								key={key}
-								columnKey={key}
-								schema={schema.properties[key]}
-								formData={formData[key]}
-								onChange={this.onColumnChange(key)}
-								onBlur={onBlur}
-								className={`tf-column-${key}`}
-							/>
-					  ))
+						<Column
+							{...props}
+							key={key}
+							columnKey={key}
+							schema={schema.properties[key]}
+							formData={formData[key]}
+							onChange={this.onColumnChange(key)}
+							onBlur={onBlur}
+							className={`tf-column-${key}`}
+						/>
+					))
 					: null}
 			</div>
 		);
