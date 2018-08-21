@@ -247,7 +247,18 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
-		this.updateDateTime(date, time);
+		const fullDate = getObjectDate(date, time);
+		const errorMsg = undefined;
+
+		this.triggerChange(fullDate, errorMsg);
+		this.setState({
+			date,
+			time,
+			textInput: getTextDate(date, time),
+			lastFullDate: fullDate,
+			lastErrMsg: errorMsg,
+		});
+
 		this.switchDropdownVisibility(false);
 	}
 
@@ -262,8 +273,17 @@ class InputDateTimePicker extends React.Component {
 		const timeStrToParse = canParseFullString ? splitMatches[2] : fullString;
 		const [time, errMsgTime] = extractTime(timeStrToParse);
 
+		const fullDate = getObjectDate(date, time);
 		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
-		this.updateDateTime(date, time, fullString, errMsg);
+
+		this.triggerChange(fullDate, errMsg);
+		this.setState({
+			date,
+			time,
+			textInput: fullString,
+			lastFullDate: fullDate,
+			lastErrMsg: errMsg,
+		});
 	}
 
 	onFocusInput() {
@@ -332,19 +352,6 @@ class InputDateTimePicker extends React.Component {
 
 		this.setState({
 			isDropdownShown: isShown,
-		});
-	}
-
-	updateDateTime(date, time, textInput = getTextDate(date, time), errorMsg) {
-		const fullDate = getObjectDate(date, time);
-
-		this.triggerChange(fullDate, errorMsg);
-		this.setState({
-			date,
-			time,
-			textInput,
-			lastFullDate: fullDate,
-			lastErrMsg: errorMsg,
 		});
 	}
 
