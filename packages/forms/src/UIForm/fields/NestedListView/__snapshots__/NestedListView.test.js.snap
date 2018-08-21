@@ -127,7 +127,6 @@ exports[`NestedListView component should render component 1`] = `
       searchCriteria={null}
       searchPlaceholder={undefined}
       showToggleAll={false}
-      value={Object {}}
     />
   </FieldTemplate>
 </div>

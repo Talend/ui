@@ -53,11 +53,11 @@ class NestedListViewWidget extends React.Component {
 		};
 
 		this.items = prepareItemsFromSchema(schema, callbacks);
+		this.value = value;
 
 		this.state = {
 			searchCriteria,
-			value,
-			displayedItems: getDisplayedItems(this.items, value, searchCriteria),
+			displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 		};
 	}
 
@@ -67,7 +67,7 @@ class NestedListViewWidget extends React.Component {
 	 * @param {Object} item
 	 */
 	onExpandToggle(event, item) {
-		this.setState(({ value, searchCriteria }) => {
+		this.setState(({ searchCriteria }) => {
 			this.items = this.items.map(fieldItem => {
 				if (fieldItem.key === item.key) {
 					return { ...fieldItem, expanded: !fieldItem.expanded };
@@ -76,7 +76,7 @@ class NestedListViewWidget extends React.Component {
 			});
 
 			return {
-				displayedItems: getDisplayedItems(this.items, value, searchCriteria),
+				displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 			};
 		});
 	}
@@ -88,19 +88,20 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onParentChange(event, item) {
 		this.setState(
-			({ value, searchCriteria }) => {
+			({ searchCriteria }) => {
 				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
 
 				// Toggle all values
-				const itemValue = value[item.key] || [];
-				const newValue = { ...value, [item.key]: itemValue.length === 0 ? availableOptions : [] };
+				this.value = {
+					...this.value,
+					[item.key]: (this.value[item.key] || []).length === 0 ? availableOptions : []
+				};
 
 				return {
-					value: newValue,
-					displayedItems: getDisplayedItems(this.items, newValue, searchCriteria),
+					displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 				};
 			},
-			() => this.onChange(event, this.state.value),
+			() => this.onChange(event),
 		);
 	}
 
@@ -112,24 +113,22 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onCheck(event, item, parent) {
 		this.setState(
-			({ value, searchCriteria }) => {
+			({ searchCriteria }) => {
 				const { key } = parent;
-				const newValue = { ...value };
 
-				if (!(key in value)) {
-					newValue[key] = [];
+				if (!(key in this.value)) {
+					this.value[key] = [];
 				}
 
-				newValue[key] = newValue[key].includes(item.value)
-					? newValue[key].filter(storedValue => storedValue !== item.value) // Unselect
-					: newValue[key].concat(item.value); // Select
+				this.value[key] = this.value[key].includes(item.value)
+					? this.value[key].filter(storedValue => storedValue !== item.value) // Unselect
+					: this.value[key].concat(item.value); // Select
 
 				return {
-					value: newValue,
-					displayedItems: getDisplayedItems(this.items, newValue, searchCriteria),
+					displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 				};
 			},
-			() => this.onChange(event, this.state.value),
+			() => this.onChange(event),
 		);
 	}
 
@@ -138,8 +137,8 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } event The event that triggered the change
 	 * @param { Object } newValue The new Value
 	 */
-	onChange(event, newValue) {
-		const payload = { schema: this.props.schema, value: newValue };
+	onChange(event) {
+		const payload = { schema: this.props.schema, value: this.value };
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
 	}
@@ -153,9 +152,9 @@ class NestedListViewWidget extends React.Component {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			const { value: searchCriteria } = item;
-			this.setState(({ value }) => ({
+			this.setState(() => ({
 				searchCriteria,
-				displayedItems: getDisplayedItems(this.items, value, searchCriteria),
+				displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 			}));
 		}, 400);
 	}
@@ -191,8 +190,8 @@ class NestedListViewWidget extends React.Component {
 	switchToDefaultMode() {
 		const searchCriteria = null;
 
-		this.setState(({ value }) => ({
-			displayedItems: getDisplayedItems(this.items, value, searchCriteria),
+		this.setState(() => ({
+			displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 			searchCriteria,
 			headerInput: this.defaultHeaderActions,
 			displayMode: DISPLAY_MODE_DEFAULT,

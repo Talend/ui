@@ -109,7 +109,7 @@ describe('NestedListView component', () => {
 			wrapper.instance().onParentChange(event, item);
 
 			// then
-			const { value } = wrapper.state();
+			const { value } = wrapper.instance();
 			expect(value.foo).toEqual(['foo_1', 'foo_2']);
 		});
 
@@ -120,11 +120,11 @@ describe('NestedListView component', () => {
 
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.setState({ value: { foo: ['foo_2'] } });
+			wrapper.instance().value = { foo: ['foo_2'] };
 			wrapper.instance().onParentChange(event, item);
 
 			// then
-			const { value } = wrapper.state();
+			const { value } = wrapper.instance();
 			expect(value.foo).toEqual([]);
 		});
 	});
@@ -137,7 +137,8 @@ describe('NestedListView component', () => {
 
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.instance().onChange(event, value);
+			wrapper.instance().value = value;
+			wrapper.instance().onChange(event);
 
 			// then
 			expect(props.onChange).toHaveBeenCalledWith(event, {
@@ -164,7 +165,8 @@ describe('NestedListView component', () => {
 			wrapper.instance().onCheck(event, checked, parent);
 
 			// then
-			expect(wrapper.state('value')).toEqual({ bar: ['Bar_2'] });
+			const { value } = wrapper.instance();
+			expect(value).toEqual({ bar: ['Bar_2'] });
 		});
 
 		it('should remove a value', () => {
@@ -179,7 +181,8 @@ describe('NestedListView component', () => {
 			wrapper.instance().onCheck(event, checked, parent);
 
 			// then
-			expect(wrapper.state('value')).toEqual({ bar: ['Bar_1'] });
+			const { value } = wrapper.instance();
+			expect(value).toEqual({ bar: ['Bar_1'] });
 		});
 	});
 
