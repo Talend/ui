@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Notification should render null if type === error 1`] = `
+exports[`Notification should render error 1`] = `
 <div
   className="theme-tc-notification tc-notification theme-tc-notification-error tc-notification-error"
   onClick={[Function]}
+  onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
-  role="status"
+  role="alert"
+  tabIndex={0}
 >
-  <CloseButton
+  <Translate(CloseButtonComponent)
     leaveFn={undefined}
     notification={
       Object {
