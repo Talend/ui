@@ -66,10 +66,12 @@ class NestedListViewWidget extends React.Component {
 	 */
 	onExpandToggle(event, item) {
 		this.setState(({ items, value, searchCriteria }) => {
-			const newItems = items.map(fieldItem => ({
-				...fieldItem,
-				expanded: fieldItem.key === item.key ? !fieldItem.expanded : fieldItem.expanded,
-			}));
+			const newItems = items.map(fieldItem => {
+				if (fieldItem.key === item.key) {
+					return { ...fieldItem, expanded: !fieldItem.expanded };
+				}
+				return fieldItem;
+			});
 
 			return {
 				items: newItems,
