@@ -82,6 +82,8 @@
     "propSimpleNumber": 1514764800000,
     "propSimpleString": "2018-01-01T00:00:00.000Z",
     "propNumberInitWithError": 8640000099000000,
-    "propStringInitWithError": "whatever-bad-format-defined-in-the-form-side"
+    "propStringInitWithError": "whatever-bad-format-defined-in-the-form-side",
+    "propDisabled": 946684800000,
+    "propReadOnly": 0
   }
 }
