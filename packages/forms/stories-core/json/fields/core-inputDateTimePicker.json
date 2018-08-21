@@ -27,6 +27,10 @@
       "propDisabled": {
         "type": "number",
         "format": "timestamp"
+      },
+      "propReadOnly": {
+        "type": "number",
+        "format": "timestamp"
       }
     }
   },
@@ -65,6 +69,13 @@
       "widget": "inputDateTimePicker",
       "description": "You can always try to click...",
       "disabled": true
+    },
+    {
+      "key": "propReadOnly",
+      "title": "Readonly widget",
+      "widget": "inputDateTimePicker",
+      "description": "You can always try to change me",
+      "readOnly": true
     }
   ],
   "properties": {

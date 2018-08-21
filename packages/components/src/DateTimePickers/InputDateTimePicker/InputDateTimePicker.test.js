@@ -844,6 +844,19 @@ describe('InputDateTimePicker', () => {
 			expect(overlayWrapper.prop('show')).toBe(true);
 		});
 
+		it('should not open the dropdown on input focus when component is readOnly', () => {
+			const wrapper = mount(<InputDateTimePicker readOnly />, { attachTo: getRootElement() });
+
+			const inputWrapper = wrapper.find('DebounceInput');
+
+			inputWrapper.simulate('focus');
+
+			wrapper.update();
+
+			const overlayWrapper = wrapper.find('Overlay').first();
+			expect(overlayWrapper.prop('show')).toBe(false);
+		});
+
 		cases(
 			'should close the dropdown when interacting outside the component',
 			({ eventToCheck }) => {

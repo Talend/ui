@@ -169,6 +169,7 @@ class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
+		readOnly: PropTypes.bool,
 	};
 
 	constructor(props) {
@@ -260,7 +261,10 @@ class InputDateTimePicker extends React.Component {
 		this.setState({
 			inputFocused: true,
 		});
-		this.switchDropdownVisibility(true);
+
+		if (!this.props.readOnly) {
+			this.switchDropdownVisibility(true);
+		}
 	}
 
 	onBlurInput() {
