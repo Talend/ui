@@ -253,6 +253,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 		}),
 		value: PropTypes.object,
+		t: PropTypes.func,
 	};
 }
 
