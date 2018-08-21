@@ -117,7 +117,7 @@ describe('DateTimePicker', () => {
 		const dateTimeView = wrapper.find(DateTimeView);
 		expect(wrapper.state('selectedTime')).toBe(t1);
 
-		dateTimeView.prop('onSelectTime')(t2);
+		dateTimeView.prop('onSelectTime')(null, t2);
 		expect(wrapper.state('selectedTime')).toBe(t2);
 
 		wrapper.setProps({
@@ -166,9 +166,8 @@ describe('DateTimePicker', () => {
 			isDateTimeView: true,
 		});
 
-		// TODO: Switch with the future internal submit button directly
 		const dateTimeView = wrapper.find(DateTimeView);
-		dateTimeView.prop('onSelectTime')(time);
+		dateTimeView.prop('onSelectTime')(null, time);
 
 		expect(onSubmit).toHaveBeenCalledWith({
 			date,
@@ -186,7 +185,7 @@ describe('DateTimePicker', () => {
 		});
 
 		const dateTimeView = wrapper.find(DateTimeView);
-		dateTimeView.prop('onSelectTime')(time);
+		dateTimeView.prop('onSelectTime')(null, time);
 
 		expect(onSubmit).not.toHaveBeenCalled();
 	});
