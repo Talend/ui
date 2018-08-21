@@ -38,6 +38,6 @@ describe('MonthPicker', () => {
 
 		juneAction.simulate('click');
 
-		expect(onSelect).toHaveBeenCalledWith(monthIndexToSelect);
+		expect(onSelect.mock.calls[0][1]).toEqual(monthIndexToSelect);
 	});
 });
