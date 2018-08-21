@@ -6,32 +6,29 @@
  * @returns {Array}
  */
 export function getDisplayedItems(items, value, searchCriteria) {
-	let filterMethod;
-
+	let textFilter;
 	if (searchCriteria) {
-		// Filter items children with text search criteria
-		filterMethod = ({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase());
+		textFilter = ({ label }) => label.toLowerCase().includes(searchCriteria.toLowerCase());
 	}
 
 	return items
-		.map(item => ({
-			...item,
-			children: filterMethod ? item.children.filter(filterMethod) : item.children,
-		}))
-		.filter(item => item.children.length > 0) // Remove empty sections
 		.map(item => {
-			// Final formatting for ListView
-			const itemValue = value[item.key] || [];
+			// Add boolean "checked" to checked children
+			const checkedChildren = item.children.map(child => ({
+				...child,
+				checked: (value[item.key] || []).includes(child.value),
+			}));
 
 			return {
 				...item,
-				checked: item.key in value && item.children.some(child => itemValue.includes(child.value)),
-				children: item.children.map(child => ({
-					...child,
-					checked: itemValue.includes(child.value),
-				})),
+				// Section checked or not (at least 1 item checked)
+				checked: checkedChildren.some(child => child.checked),
+				// Filtered and "checked" or not children
+				children: textFilter ? checkedChildren.filter(textFilter) : checkedChildren,
 			};
-		});
+		})
+		// Remove empty sections
+		.filter(item => item.children.length > 0);
 }
 
 /**
