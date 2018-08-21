@@ -12,7 +12,11 @@ export default function TextModeArrayTemplate(props) {
 			</dt>
 
 			<dd>
-				<ol aria-labelledby={id}>{value.map((_, index) => <li>{renderItem(index)}</li>)}</ol>
+				<ol aria-labelledby={id}>
+					{value.map((_, index) => (
+						<li>{renderItem(index)}</li>
+					))}
+				</ol>
 			</dd>
 		</div>
 	);
