@@ -8,10 +8,8 @@ More than 2 levels is currently not supported.
 | type | `object` | 
 | properties | `object` | Every property of the value object (the key used in `properties` being the value's key)
 | properties[key] | `object` | 
-| properties[key].type | `array` | 
 | properties[key].items | `object` | 
 | properties[key].items.enum | `array` | The list of available values for this key of the value
-| properties[key].items.enumNames | `array` | The list of labels display for each value
 
 
 ```json
