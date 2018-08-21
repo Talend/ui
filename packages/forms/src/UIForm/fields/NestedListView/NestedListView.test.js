@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import keycode from 'keycode';
 
 import { NestedListViewWidget } from './NestedListView.component';
 import { initItems, getDisplayedItems } from './NestedListView.utils';
@@ -20,12 +21,14 @@ describe('NestedListView component', () => {
 					properties: {
 						bar: {
 							items: {
+								type: 'string',
 								enum: ['bar_1', 'bar_2'],
 								enumNames: ['Bar 1', 'Bar 2'],
 							},
 						},
 						foo: {
 							items: {
+								type: 'string',
 								enum: ['foo_1', 'foo_2'],
 								enumNames: ['Foo 1', 'Foo 2'],
 							},
@@ -34,18 +37,16 @@ describe('NestedListView component', () => {
 				},
 				items: [
 					{
+						key: ['bar'],
 						title: 'Bar',
-						key: ['baz', 'bar'],
 						titleMap: [{ name: 'Bar 1', value: 'bar_1' }, { name: 'Bar 2', value: 'bar_2' }],
 					},
 					{
+						key: ['foo'],
 						title: 'Foo',
-						key: ['baz', 'foo'],
 						titleMap: [{ name: 'Foo 1', value: 'foo_1' }, { name: 'Foo 2', value: 'foo_2' }],
 					},
 				],
-				required: true,
-				placeholder: 'placeholder',
 				value: {},
 				t: jest.fn(),
 			},
@@ -63,38 +64,52 @@ describe('NestedListView component', () => {
 
 	describe('onExpandToggle', () => {
 		it('should expand the right children', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			// given
 			const event = {};
 			const item = { key: 'foo' };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			wrapper.instance().onExpandToggle(event, item);
 
 			// then
-			// @todo
+			const { displayedItems, items } = wrapper.state();
+			expect(displayedItems[0].expanded).toBe(false);
+			expect(displayedItems[1].expanded).toBe(true);
+			expect(items[0].expanded).toBe(false);
+			expect(items[1].expanded).toBe(true);
 		});
 
 		it('should collapse an already expanded section', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.setState({});
+			// given
 			const event = {};
 			const item = { key: 'foo' };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			const beforeState = wrapper.state();
+			beforeState.displayedItems[1].expanded = true;
+			beforeState.items[1].expanded = true;
+			wrapper.setState(beforeState);
 			wrapper.instance().onExpandToggle(event, item);
 
 			// then
-			// @todo
+			const { displayedItems, items } = wrapper.state();
+			expect(displayedItems[0].expanded).toBe(false);
+			expect(displayedItems[1].expanded).toBe(false);
+			expect(items[0].expanded).toBe(false);
+			expect(items[1].expanded).toBe(false);
 		});
 	});
 
 	describe('onParentChange', () => {
 		it('should select all children when parent is selected and no child is selected', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			// given
 			const event = {};
 			const item = { key: 'foo' };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			wrapper.instance().onParentChange(event, item);
 
 			// then
@@ -103,12 +118,13 @@ describe('NestedListView component', () => {
 		});
 
 		it('should unselect all children when parent is selected and at least a child is already selected', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			wrapper.setState({ value: { foo: ['foo_2'] } });
+			// given
 			const event = {};
 			const item = { key: 'foo' };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			wrapper.setState({ value: { foo: ['foo_2'] } });
 			wrapper.instance().onParentChange(event, item);
 
 			// then
@@ -119,11 +135,12 @@ describe('NestedListView component', () => {
 
 	describe('onChange', () => {
 		it('should call both onChange and onFinish props', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			// given
 			const event = {};
 			const value = { bar: ['baz'] };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			wrapper.instance().onChange(event, value);
 
 			// then
@@ -141,12 +158,13 @@ describe('NestedListView component', () => {
 
 	describe('onCheck', () => {
 		it('should add a value', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			// given
 			const event = {};
 			const checked = { value: 'Bar_2' };
 			const parent = { key: 'bar' };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			wrapper.instance().onCheck(event, checked, parent);
 
 			// then
@@ -155,14 +173,13 @@ describe('NestedListView component', () => {
 
 		it('should remove a value', () => {
 			// given
+			const event = {};
+			const checked = { value: 'Bar_2' };
+			const parent = { key: 'bar' };
 			props.value = { bar: ['Bar_1', 'Bar_2'] };
 
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			const event = {};
-			const checked = { value: 'Bar_2' };
-			const parent = { key: 'bar' };
-
 			wrapper.instance().onCheck(event, checked, parent);
 
 			// then
@@ -172,11 +189,12 @@ describe('NestedListView component', () => {
 
 	describe('onInputChange', () => {
 		it('should debounced-refresh items props', () => {
-			// when
-			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			// given
 			const event = {};
 			const item = { value: 'foo' };
 
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
 			wrapper.instance().onInputChange(event, item);
 			jest.runAllTimers();
 
@@ -187,9 +205,7 @@ describe('NestedListView component', () => {
 	});
 
 	describe('onInputKeyDown', () => {
-		const event = {
-			preventDefault: jest.fn(),
-		};
+		const event = { preventDefault: jest.fn() };
 
 		beforeEach(() => {
 			event.preventDefault.mockReset();
@@ -198,8 +214,7 @@ describe('NestedListView component', () => {
 		it('should manage enter key pressed', () => {
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			event.keyCode = 13;
-
+			event.keyCode = keycode('enter');
 			wrapper.instance().onInputKeyDown(event);
 
 			// then
@@ -209,8 +224,7 @@ describe('NestedListView component', () => {
 		it('should manage esc key pressed', () => {
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-			event.keyCode = 27;
-
+			event.keyCode = keycode('escape');
 			wrapper.instance().onInputKeyDown(event);
 
 			// then
@@ -223,7 +237,6 @@ describe('NestedListView component', () => {
 		it('should switch to "search" mode in the state', () => {
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-
 			wrapper.instance().switchToSearchMode();
 
 			// then
@@ -235,7 +248,6 @@ describe('NestedListView component', () => {
 		it('should switch to "default" mode in the state', () => {
 			// when
 			const wrapper = shallow(<NestedListViewWidget {...props} />);
-
 			wrapper.instance().switchToDefaultMode();
 
 			// then
@@ -283,10 +295,69 @@ describe('NestedListView utils', () => {
 		});
 	});
 
-	describe.skip('getDisplayedItems', () => {
-		it('should getDisplayedItems', () => {
-			// @todo
-			getDisplayedItems();
+	describe('getDisplayedItems', () => {
+		const items = [{
+			key: 'foo',
+			label: 'Foo',
+			children: [
+				{ label: 'Foo 1', value: 'foo_1' },
+				{ label: 'Foo 2', value: 'foo_2' },
+			],
+		}, {
+			key: 'bar',
+			label: 'Bar',
+			children: [
+				{ label: 'Bar 1', value: 'bar_1' },
+				{ label: 'Bar 2', value: 'bar_2' },
+				{ label: 'Bar 3', value: 'bar_3' },
+			],
+		}, {
+			key: 'single',
+			label: 'Single',
+			children: [
+				{ label: 'Single', value: 'single' },
+			],
+		}];
+
+		const value = { foo: ['foo_1'] };
+
+		it('should get displayed items with preset values', () => {
+			// given
+			const searchCriteria = '';
+
+			// when
+			const displayedItems = getDisplayedItems(items, value, searchCriteria);
+
+			// then
+			expect(displayedItems).toHaveLength(3); // Number of displayed items and sub items
+			expect(displayedItems[0].children).toHaveLength(2);
+			expect(displayedItems[1].children).toHaveLength(3);
+			expect(displayedItems[2].children).toHaveLength(1);
+			expect(displayedItems[0].checked).toBe(true); // Sections checked
+			expect(displayedItems[1].checked).toBe(false);
+			expect(displayedItems[0].children[0].checked).toBe(true); // Elements checked
+			expect(displayedItems[0].children[1].checked).toBe(false);
+			expect(displayedItems[1].children[0].checked).toBe(false);
+			expect(displayedItems[1].children[1].checked).toBe(false);
+			expect(displayedItems[1].children[2].checked).toBe(false);
+			expect(displayedItems[2].children[0].checked).toBe(false);
+		});
+
+		it('should filter displayed items according to given search criteria', () => {
+			// given
+			const searchCriteria = '2';
+
+			// when
+			const displayedItems = getDisplayedItems(items, value, searchCriteria);
+
+			// then
+			expect(displayedItems).toHaveLength(2); // Number of displayed items and sub items
+			expect(displayedItems[0].children).toHaveLength(1);
+			expect(displayedItems[1].children).toHaveLength(1);
+			expect(displayedItems[0].checked).toBe(true); // Sections checked
+			expect(displayedItems[1].checked).toBe(false);
+			expect(displayedItems[0].children[0].checked).toBe(false); // Elements checked
+			expect(displayedItems[1].children[0].checked).toBe(false);
 		});
 	});
 });

@@ -9,7 +9,7 @@ exports[`NestedListView component should render component 1`] = `
     errorMessage={undefined}
     id="NestedListView"
     isValid={true}
-    required={true}
+    required={undefined}
   >
     <Translate(ListView)
       displayedItems={
@@ -123,9 +123,9 @@ exports[`NestedListView component should render component 1`] = `
       }
       onAddKeyDown={[Function]}
       onInputChange={[Function]}
-      required={true}
+      required={undefined}
       searchCriteria={null}
-      searchPlaceholder="placeholder"
+      searchPlaceholder={undefined}
       showToggleAll={false}
       t={[Function]}
       value={Object {}}
