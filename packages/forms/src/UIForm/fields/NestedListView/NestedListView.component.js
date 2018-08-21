@@ -216,7 +216,6 @@ class NestedListViewWidget extends React.Component {
 						getItemHeight={getItemHeight}
 						id={this.props.id}
 						items={this.state.displayedItems}
-						t={this.props.t}
 						headerDefault={this.defaultHeaderActions}
 						onAddKeyDown={this.onInputKeyDown}
 						onInputChange={this.onInputChange}
@@ -252,7 +251,6 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 		}),
 		value: PropTypes.object,
-		t: PropTypes.func,
 	};
 }
 
