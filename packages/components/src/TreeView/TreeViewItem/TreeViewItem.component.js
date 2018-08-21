@@ -204,7 +204,9 @@ class TreeViewItem extends React.Component {
 						/>
 					)}
 					<TreeViewIcon icon={icon} toggled={shouldShowToggledIcon} />
-					<span className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}>{name}</span>
+					<span className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}>
+						{name}
+					</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}
 						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action, a.id))}
