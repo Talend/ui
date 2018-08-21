@@ -84,9 +84,6 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } item
 	 */
 	onParentChange(event, item) {
-		console.log('[SG]', 'parent change', event);
-		console.log('[SG]', 'parent change', event.currentTarget);
-		console.log('[SG]', 'parent change', event.currentTarget());
 		this.setState(
 			({ items, value, searchCriteria }) => {
 				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
