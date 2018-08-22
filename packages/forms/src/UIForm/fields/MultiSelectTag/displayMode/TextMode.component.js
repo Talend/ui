@@ -40,12 +40,11 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
-		}),
+		}).isRequired,
 		value: PropTypes.arrayOf(PropTypes.string),
 	};
 }
 
 MultiSelectTagTextMode.defaultProps = {
-	schema: {},
 	value: [],
 };
