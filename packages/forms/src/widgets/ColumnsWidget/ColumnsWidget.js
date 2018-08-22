@@ -58,25 +58,28 @@ export default class ColumnsWidget extends React.Component {
 
 	render() {
 		const { name, schema, formData, onBlur, ...props } = this.props;
+
+		const columns = schema.properties
+			? Object.keys(schema.properties).map(key => (
+				<Column
+					{...props}
+					key={key}
+					columnKey={key}
+					schema={schema.properties[key]}
+					formData={formData[key]}
+					onChange={this.onColumnChange(key)}
+					onBlur={onBlur}
+					className={`tf-column-${key}`}
+				/>)
+			)
+			: null;
+
 		return (
 			<div className={`tf-widget-columns ${theme.columns}`}>
 				{(schema.title || name) && (
 					<TitleField id={`${name}__title`} title={schema.title || name} />
 				)}
-				{schema.properties
-					? Object.keys(schema.properties).map(key => (
-							<Column
-								{...props}
-								key={key}
-								columnKey={key}
-								schema={schema.properties[key]}
-								formData={formData[key]}
-								onChange={this.onColumnChange(key)}
-								onBlur={onBlur}
-								className={`tf-column-${key}`}
-							/>
-					  ))
-					: null}
+				{columns}
 			</div>
 		);
 	}
