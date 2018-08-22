@@ -44,8 +44,6 @@ class NestedListViewWidget extends React.Component {
 		this.onInputKeyDown = this.onInputKeyDown.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 
-		const searchCriteria = null;
-
 		const callbacks = {
 			onExpandToggle: this.onExpandToggle.bind(this),
 			onParentChange: this.onParentChange.bind(this),
@@ -56,8 +54,8 @@ class NestedListViewWidget extends React.Component {
 		this.value = value;
 
 		this.state = {
-			searchCriteria,
-			displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
+			searchCriteria: null,
+			displayedItems: getDisplayedItems(this.items, this.value),
 		};
 	}
 

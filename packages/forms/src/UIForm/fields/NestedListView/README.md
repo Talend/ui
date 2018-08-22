@@ -43,6 +43,10 @@ More than 2 levels is currently not supported.
 | description | A description to display below the ListView |  |
 | placeholder | The search input placeholder |  |
 | widget | The widget to use | `nestedListView` |
+| items | An array of sub values | 
+| items[index].key | The sub value's key | 
+| items[index].title | The sub value's title | 
+| items[index].titleMap | The sub value's array mapping keys of JSON Schema enum with labels | 
 
 ```json
 {
