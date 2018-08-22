@@ -38,15 +38,18 @@ class TextMode extends React.Component {
 		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
 		const titleEntry = titleMap.find(entry => entry.value === value);
 
+		let displayValue = (titleEntry && titleEntry.name) || value;
+		if (value && this.state.isLoading) {
+			displayValue = (
+				<span className={this.state.isLoading ? theme.loading : undefined} aria-busy="true">
+					{value} {`(${t('DATALIST_WIDGET_LOADING_LABELS', { defaultValue: 'loading labels' })})`}
+				</span>
+			);
+		}
+
 		return (
 			<FieldTemplate id={id} label={title}>
-				{value && this.state.isLoading ? (
-					<span className={this.state.isLoading ? theme.loading : undefined} aria-busy="true">
-						{value} {`(${t('DATALIST_WIDGET_LOADING_LABELS', { defaultValue: 'loading labels' })})`}
-					</span>
-				) : (
-					(titleEntry && titleEntry.name) || value
-				)}
+				{displayValue}
 			</FieldTemplate>
 		);
 	}
