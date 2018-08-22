@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
-		}),
+		}).isRequired,
 		value: PropTypes.bool,
 	};
 }
