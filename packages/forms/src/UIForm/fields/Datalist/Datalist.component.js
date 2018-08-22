@@ -62,6 +62,15 @@ class Datalist extends Component {
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
+	onTrigger(event, trigger) {
+		return this.props.onTrigger(event, {
+			trigger,
+			schema: this.props.schema,
+			errors: this.props.errors,
+			properties: this.props.properties,
+		});
+	}
+
 	getTitleMap() {
 		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
 
@@ -80,15 +89,6 @@ class Datalist extends Component {
 		}
 
 		return titleMap;
-	}
-
-	onTrigger(event, trigger) {
-		return this.props.onTrigger(event, {
-			trigger,
-			schema: this.props.schema,
-			errors: this.props.errors,
-			properties: this.props.properties,
-		});
 	}
 
 	callTrigger(event) {
