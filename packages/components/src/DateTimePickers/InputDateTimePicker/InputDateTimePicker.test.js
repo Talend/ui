@@ -543,6 +543,32 @@ describe('InputDateTimePicker', () => {
 			});
 		});
 
+		it('should callback with undefined and no error when the input change to an empty value', () => {
+			const onChange = jest.fn();
+
+			const wrapper = shallow(
+				<InputDateTimePicker
+					id={DEFAULT_ID}
+					selectedDateTime={new Date(2015, 0, 1, 10, 35)}
+					onChange={onChange}
+				/>,
+				{ disableLifecycleMethods: true },
+			);
+
+			const inputWrapper = wrapper.find('DebounceInput');
+
+			inputWrapper.prop('onChange')({
+				target: {
+					value: '',
+				},
+			});
+
+			const errorMessage = onChange.mock.calls[0][1];
+			const datetime = onChange.mock.calls[0][2];
+			expect(errorMessage).toBeUndefined();
+			expect(datetime).toBeUndefined();
+		});
+
 		it('should callback with the correct date when the datetime change with the picker', () => {
 			const testedDate = new Date(2015, 11, 30);
 			const testedTime = 1250;

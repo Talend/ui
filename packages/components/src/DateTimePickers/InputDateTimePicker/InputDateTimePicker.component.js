@@ -265,6 +265,19 @@ class InputDateTimePicker extends React.Component {
 
 	onChangeInput(event) {
 		const fullString = event.target.value;
+
+		if (fullString === '') {
+			this.triggerChange(event, undefined, undefined);
+			this.setState({
+				date: undefined,
+				time: undefined,
+				textInput: fullString,
+				lastFullDate: undefined,
+				lastErrMsg: undefined,
+			});
+			return;
+		}
+
 		const splitMatches = fullString.match(splitDateAndTimePartsRegex);
 		const canParseFullString = splitMatches !== null;
 
