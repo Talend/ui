@@ -105,3 +105,21 @@ polygon, circles, ellipse should be used instead of path.
 ## No display="none" elements
 
 those are useless as they can't be styled and only add size to icons
+
+# How to test in local
+
+```
+yarn docs
+cd docs
+# use your command-line http server to provide the content
+http-server
+```
+
+# How to build in local
+
+```
+# go the UI root
+cd ../..
+yarn build-icons
+# this builds the new icons and build components with this new icons and launch the unit test
+```

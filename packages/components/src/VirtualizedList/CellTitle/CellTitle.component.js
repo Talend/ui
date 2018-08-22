@@ -48,7 +48,13 @@ class CellTitle extends React.Component {
 		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
 		return (
-			<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
+			<div
+				id={titleId}
+				className={classNames(theme['tc-list-title'], 'tc-list-title', {
+					[theme['tc-list-title-filter']]: onClick,
+					'tc-list-title-filter': onClick,
+				})}
+			>
 				{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
 
 				<CellTitleSelector
