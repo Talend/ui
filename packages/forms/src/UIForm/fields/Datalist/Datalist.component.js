@@ -4,6 +4,7 @@ import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
 import callTrigger from './Datalist.trigger';
+import { DID_MOUNT } from './constants';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -32,7 +33,7 @@ class Datalist extends Component {
 	}
 
 	componentDidMount() {
-		this.callTrigger({ type: 'didMount' });
+		this.callTrigger({ type: DID_MOUNT });
 	}
 	/**
 	 * On change callback

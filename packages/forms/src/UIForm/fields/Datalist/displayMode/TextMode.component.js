@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import callTrigger from '../Datalist.trigger';
+import { DID_MOUNT, FOCUS } from '../constants';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import { I18N_DOMAIN_FORMS } from '../../../../constants';
-import theme from './TextMode.scss';
 import getDefaultT from '../../../../translate';
+import theme from './TextMode.scss';
 
 class TextMode extends React.Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class TextMode extends React.Component {
 			});
 
 		callTrigger(null, {
-			eventNames: ['didMount', 'focus'],
+			eventNames: [DID_MOUNT, FOCUS],
 			triggersDefinitions: this.props.schema.triggers,
 			onTrigger,
 			onLoading: isLoading => this.setState({ isLoading }),
