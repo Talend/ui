@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 
 import theme from './TextModeArrayTemplate.scss';
 
+function renderListItem(val, index, renderItem) {
+	const valueIsObject = typeof val === 'object';
+	const classNames = valueIsObject ? theme.block : undefined;
+	return (
+		<li key={index} className={classNames}>
+			{valueIsObject ? renderItem(index) : val}
+		</li>
+	);
+}
+
 export default function TextModeArrayTemplate(props) {
 	const { id, renderItem, schema, value } = props;
 	return (
@@ -13,11 +23,7 @@ export default function TextModeArrayTemplate(props) {
 
 			<dd>
 				<ol aria-labelledby={id}>
-					{value.map((val, index) => {
-						const valueIsObject = typeof val === 'object';
-						const classNames = valueIsObject ? theme.block : undefined;
-						return <li className={classNames}>{valueIsObject ? renderItem(index) : val}</li>;
-					})}
+					{value.map((val, index) => renderListItem(val, index, renderItem))}
 				</ol>
 			</dd>
 		</div>

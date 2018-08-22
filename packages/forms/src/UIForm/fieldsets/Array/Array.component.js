@@ -121,6 +121,16 @@ export default class ArrayWidget extends React.Component {
 		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
+	getArrayTemplate() {
+		const baseTemplateId = 'array';
+		const templateId = `${baseTemplateId}_${this.props.displayMode}`;
+		const ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
+		if (!ArrayTemplate) {
+			return this.props.templates[baseTemplateId] || defaultTemplates[baseTemplateId];
+		}
+		return ArrayTemplate;
+	}
+
 	renderItem(index) {
 		return (
 			<Widget
@@ -133,15 +143,9 @@ export default class ArrayWidget extends React.Component {
 	}
 
 	render() {
-		const { displayMode, schema } = this.props;
+		const { schema } = this.props;
 		const canReorder = schema.reorder !== false;
-
-		const baseTemplateId = 'array';
-		const templateId = `${baseTemplateId}_${displayMode}`;
-		let ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
-		if (!ArrayTemplate) {
-			ArrayTemplate = this.props.templates[baseTemplateId] || defaultTemplates[baseTemplateId];
-		}
+		const ArrayTemplate = this.getArrayTemplate();
 
 		return (
 			<ArrayTemplate
