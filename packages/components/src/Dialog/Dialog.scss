@@ -1,12 +1,44 @@
-:global(.modal-flex) :global(.modal-body) {
-	display: flex;
-	flex-direction: column;
-}
+:global {
 
-:global(.modal-header) {
-	padding-top: 17px;
-}
+  .modal-flex .modal-body {
+    display: flex;
+    flex-direction: column;
+  }
 
-:global(.modal-subtitle) {
-	margin-bottom: 0;
+  .modal-header {
+    position: relative;
+    width: $modal-md;
+    max-height: 7rem;
+
+    .modal-title,
+    .modal-subtitle {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .modal-title {
+      line-height: 1;
+    }
+
+    .modal-subtitle {
+      margin-bottom: 0;
+      padding-top: .5rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-weight: normal;
+      color: $gray;
+
+      &:hover,
+      &:focus,
+      &:active {
+        font-weight: bold;
+        color: $black;
+      }
+    }
+  }
 }
