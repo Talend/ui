@@ -41,7 +41,7 @@ class TextMode extends React.Component {
 		let displayValue = (titleEntry && titleEntry.name) || value;
 		if (value && this.state.isLoading) {
 			displayValue = (
-				<span className={this.state.isLoading ? theme.loading : undefined} aria-busy="true">
+				<span className={theme.loading} aria-busy="true">
 					{value} {`(${t('DATALIST_WIDGET_LOADING_LABELS', { defaultValue: 'loading labels' })})`}
 				</span>
 			);
