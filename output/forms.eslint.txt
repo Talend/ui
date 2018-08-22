@@ -11,9 +11,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  64:6  error  Expected indentation of 4 tab characters but found 5  react/jsx-indent
-  74:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
-
-✖ 5 problems (5 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
