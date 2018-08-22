@@ -370,14 +370,14 @@ class InputDateTimePicker extends React.Component {
 
 		const isDateTimeValid = isDateValid(this.state.lastFullDate);
 		const inputFocused = this.state.inputFocused;
-		const needInvalidLabel = !isDateTimeValid && !inputFocused;
+		const needInvalidPlaceholder = !isDateTimeValid && !inputFocused;
 
 		const defaultPlaceholder = 'YYYY-MM-DD hh:mm';
-		const placeholder = needInvalidLabel
+		const placeholder = needInvalidPlaceholder
 			? 'INVALID DATE'
 			: inputProps.placeholder || defaultPlaceholder;
 
-		const textInput = needInvalidLabel ? '' : this.state.textInput;
+		const textInput = needInvalidPlaceholder ? '' : this.state.textInput;
 
 		return (
 			<div ref={this.setContainerRef}>

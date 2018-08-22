@@ -1047,7 +1047,7 @@ describe('InputDateTimePicker', () => {
 	describe('render error placeholder', () => {
 		cases(
 			'should apply an "invalid placeholder" on input AND override the regular one when date is invalid and input is not focused',
-			({ date, isFocused, expectApplied }) => {
+			({ date, isFocused, overrideExpected }) => {
 				const REGULAR_PLACEHOLDER = 'REGULAR_PLACEHOLDER';
 				const wrapper = shallow(
 					<InputDateTimePicker id={DEFAULT_ID} placeholder={REGULAR_PLACEHOLDER} />,
@@ -1064,7 +1064,7 @@ describe('InputDateTimePicker', () => {
 				const inputWrapper = wrapper.find('DebounceInput');
 				const placeholder = inputWrapper.prop('placeholder');
 
-				if (expectApplied) {
+				if (overrideExpected) {
 					expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
 				} else {
 					expect(placeholder).toBe(REGULAR_PLACEHOLDER);
@@ -1075,25 +1075,25 @@ describe('InputDateTimePicker', () => {
 					name: 'date valid AND input focused',
 					date: new Date(2015, 5, 6, 12, 35),
 					isFocused: true,
-					expectApplied: false,
+					overrideExpected: false,
 				},
 				{
 					name: 'date valid AND input not focused',
 					date: new Date(2015, 5, 6, 12, 35),
 					isFocused: false,
-					expectApplied: false,
+					overrideExpected: false,
 				},
 				{
 					name: 'date not valid AND input focused',
 					date: new Date(''),
 					isFocused: true,
-					expectApplied: false,
+					overrideExpected: false,
 				},
 				{
 					name: 'date not valid AND input not focused',
 					date: new Date(''),
 					isFocused: false,
-					expectApplied: true,
+					overrideExpected: true,
 				},
 			],
 		);
