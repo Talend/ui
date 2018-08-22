@@ -3,13 +3,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin-left: -$padding-normal;
-		margin-top: -$padding-normal;
 
 		> * {
 			flex: 1;
-			margin-left: $padding-normal;
-			margin-top: $padding-normal;
 			min-width: 30rem;
+			margin-left: $padding-normal;
 		}
 	}
 }

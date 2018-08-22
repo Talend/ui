@@ -1,7 +1,7 @@
 import ArrayWidget from '../fieldsets/Array';
 import createCollapsibleFieldset from '../fieldsets/CollapsibleFieldset';
 import Columns from '../fieldsets/Columns';
-import Fieldset from '../fieldsets/Fieldset';
+import Fieldset, { FieldsetTextMode } from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
 import { Button, Buttons } from '../fields/Button';
@@ -37,6 +37,9 @@ const widgets = {
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
+
+	// fieldsets: text mode
+	fieldset_text: FieldsetTextMode,
 
 	// fields: text mode
 	code_text: CodeTextMode,

@@ -1,0 +1,45 @@
+multipass: true
+full: true
+js2svg:
+  pretty: true
+  indent: '	'
+
+plugins:
+  - removeDoctype
+  - removeXMLProcInst
+  - removeComments
+  - removeMetadata
+  - removeEditorsNSData
+  - cleanupAttrs
+  - minifyStyles
+  - convertStyleToAttrs
+  - removeRasterImages
+  - cleanupNumericValues
+  - cleanupListOfValues
+  - convertColors
+  - removeUnknownsAndDefaults
+  - removeNonInheritableGroupAttrs
+  - removeUselessStrokeAndFill
+  - removeViewBox
+  - cleanupEnableBackground
+  - removeHiddenElems
+  - removeEmptyText
+  - convertShapeToPath
+  - moveElemsAttrsToGroup
+  - moveGroupAttrsToElems
+  - collapseGroups
+  - convertTransform
+  - removeEmptyAttrs
+  - removeEmptyContainers
+  - mergePaths
+  - removeUnusedNS
+  - transformsWithOnePath
+  - sortAttrs
+  - removeTitle
+  - removeDesc
+  - removeDimensions: true
+  - removeAttrs
+  - removeElementsByAttr
+  - addClassesToSVGElement
+  - removeStyleElement
+  - addAttributesToSVGElement
