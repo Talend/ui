@@ -395,7 +395,7 @@ class InputDateTimePicker extends React.Component {
 
 		return (
 			<div ref={this.setContainerRef}>
-				<div className={theme.inputContainer}>
+				<div className={theme['input-container']}>
 					<DebounceInput
 						{...inputProps}
 						type="text"

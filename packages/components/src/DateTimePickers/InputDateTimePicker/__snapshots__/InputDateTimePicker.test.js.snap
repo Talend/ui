@@ -3,7 +3,7 @@
 exports[`InputDateTimePicker render should render 1`] = `
 <div>
   <div
-    className="theme-inputContainer"
+    className="theme-input-container"
   >
     <DebounceInput
       className="form-control"
