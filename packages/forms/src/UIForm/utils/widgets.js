@@ -11,6 +11,7 @@ import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
 import MultiSelectTag from '../fields/MultiSelectTag';
+import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
@@ -56,6 +57,7 @@ const widgets = {
 	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,
+	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
 	toggle: Toggle,
 };
