@@ -1044,29 +1044,30 @@ describe('InputDateTimePicker', () => {
 		});
 	});
 
-	describe('render error label', () => {
+	describe('render error placeholder', () => {
 		cases(
-			'should apply an "invalid label" on input AND remove placeholder when date invalid and input not focused',
+			'should apply an "invalid placeholder" on input AND override the regular one when date is invalid and input is not focused',
 			({ date, isFocused, expectApplied }) => {
-				const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} />, {
-					disableLifecycleMethods: true,
-				});
+				const REGULAR_PLACEHOLDER = 'REGULAR_PLACEHOLDER';
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} placeholder={REGULAR_PLACEHOLDER} />,
+					{
+						disableLifecycleMethods: true,
+					},
+				);
 
 				wrapper.setState({
 					lastFullDate: date,
 					inputFocused: isFocused,
 				});
 
-				const errorLabelExists = wrapper.find('.tc-inputdatetimepicker-invalid-label').exists();
-				const overlayWrapper = wrapper.find('DebounceInput');
-				const placeholder = overlayWrapper.prop('placeholder');
+				const inputWrapper = wrapper.find('DebounceInput');
+				const placeholder = inputWrapper.prop('placeholder');
 
 				if (expectApplied) {
-					expect(errorLabelExists).toBe(true);
-					expect(placeholder).toBeUndefined();
+					expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
 				} else {
-					expect(errorLabelExists).toBe(false);
-					expect(placeholder.length).toBeGreaterThan(0);
+					expect(placeholder).toBe(REGULAR_PLACEHOLDER);
 				}
 			},
 			[

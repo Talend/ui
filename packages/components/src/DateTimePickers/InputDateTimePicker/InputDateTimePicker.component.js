@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
@@ -374,7 +373,9 @@ class InputDateTimePicker extends React.Component {
 		const needInvalidLabel = !isDateTimeValid && !inputFocused;
 
 		const defaultPlaceholder = 'YYYY-MM-DD hh:mm';
-		const placeholder = needInvalidLabel ? undefined : inputProps.placeholder || defaultPlaceholder;
+		const placeholder = needInvalidLabel
+			? 'INVALID DATE'
+			: inputProps.placeholder || defaultPlaceholder;
 
 		const textInput = needInvalidLabel ? '' : this.state.textInput;
 
@@ -390,18 +391,8 @@ class InputDateTimePicker extends React.Component {
 						value={textInput}
 						debounceTimeout={DEBOUNCE_TIMEOUT}
 						onChange={this.onChangeInput}
-						className={classNames('form-control')}
+						className="form-control"
 					/>
-					{needInvalidLabel && (
-						<p
-							className={classNames(
-								'tc-inputdatetimepicker-invalid-label',
-								theme.invalidPlaceHolder,
-							)}
-						>
-							INVALID DATE
-						</p>
-					)}
 				</div>
 				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
