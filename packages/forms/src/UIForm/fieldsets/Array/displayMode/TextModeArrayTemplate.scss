@@ -9,6 +9,10 @@
 			&.block {
 				border-left: 2px solid $silver;
 			}
+
+			:global(.form-group) {
+				padding-top: 0;
+			}
 		}
 	}
 }
