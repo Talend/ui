@@ -18,6 +18,8 @@ import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
 const DEBOUNCE_TIMEOUT = 300;
+const DEFAULT_PLACEHOLDER = 'YYYY-MM-DD hh:mm';
+const INVALID_PLACEHOLDER = 'INVALID DATE';
 
 /*
  * Split the date and time parts based on the middle space
@@ -372,10 +374,9 @@ class InputDateTimePicker extends React.Component {
 		const inputFocused = this.state.inputFocused;
 		const needInvalidPlaceholder = !isDateTimeValid && !inputFocused;
 
-		const defaultPlaceholder = 'YYYY-MM-DD hh:mm';
 		const placeholder = needInvalidPlaceholder
-			? 'INVALID DATE'
-			: inputProps.placeholder || defaultPlaceholder;
+			? INVALID_PLACEHOLDER
+			: inputProps.placeholder || DEFAULT_PLACEHOLDER;
 
 		const textInput = needInvalidPlaceholder ? '' : this.state.textInput;
 
