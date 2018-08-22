@@ -29,10 +29,6 @@ function convertToDate(type, value) {
 
 	const typeOfValue = typeof value;
 
-	if (typeOfValue === 'object' && value instanceof Error) {
-		return undefined;
-	}
-
 	if (typeOfValue !== type) {
 		console.warn(
 			new Error(`'InputDateTimePicker' expected type of '${type}' and got '${typeOfValue}'`),
@@ -73,8 +69,22 @@ function convertFromDate(type, date) {
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			value: props.value,
+		};
+
 		this.onChange = this.onChange.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const newValue = nextProps.value;
+		if (newValue !== this.state.value && !(newValue instanceof Error)) {
+			this.setState({
+				value: newValue,
+			});
+		}
 	}
 
 	/**
@@ -103,7 +113,7 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const { schema } = this.props;
 		const type = schema.schema.type;
-		const datetime = this.convertToDate(type, this.props.value);
+		const datetime = this.convertToDate(type, this.state.value);
 
 		const isNotWidgetError =
 			this.props.errorMessage !== undefined && this.props.errorMessage !== this.errorMessage;
@@ -153,7 +163,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
-		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Error)]),
 	};
 }
 

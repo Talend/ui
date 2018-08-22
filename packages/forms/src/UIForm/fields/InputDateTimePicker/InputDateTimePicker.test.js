@@ -237,7 +237,33 @@ describe('InputDateTimePicker', () => {
 				expect(payloadSpread.value.message).toBe(errorMessage);
 			});
 
-			it('should spread the last value to the component when receiving an Error object from the form', () => {});
+			it('should not spread an Error object but the last value to the component when receiving an Error object from the form', () => {
+				const initialDateStr = '2027-01-01T03:35:00.000Z';
+				const expectedDateSpread = new Date(Date.UTC(2027, 0, 1, 3, 35));
+				const onChange = jest.fn();
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						onChange={onChange}
+						onFinish={jest.fn()}
+						schema={getSchema('string')}
+						value={initialDateStr}
+					/>,
+				);
+
+				const errorMessage = "An error message from the underlying widget's component";
+				wrapper.setProps({
+					value: new Error(errorMessage),
+				});
+
+				wrapper.update();
+
+				const componentWrapper = wrapper.find('InputDateTimePicker');
+
+				const datetime = componentWrapper.prop('selectedDateTime');
+				expect(datetime.getTime()).toBe(expectedDateSpread.getTime());
+			});
 		});
 
 		describe('from form', () => {
