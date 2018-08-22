@@ -3,11 +3,6 @@
 	flex-direction: row-reverse;
 	justify-content: flex-end;
 
-	> dt > :global(label.control-label) {
-		color: inherit;
-		font-size: inherit;
-	}
-
 	.icon {
 		height: 1.5rem;
 		width: 1.5rem;
@@ -17,4 +12,10 @@
 			height: 1.3rem;
 		}
 	}
+}
+
+// override bootstrap style. This for is needed to write a bigger weight selector
+form div:not(.has-success):not(.has-warning):not(.has-error).checkbox label {
+	color: inherit;
+	font-size: inherit;
 }
