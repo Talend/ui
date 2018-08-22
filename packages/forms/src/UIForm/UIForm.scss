@@ -1,5 +1,12 @@
 .uiform {
 	font-size: 1.6rem;
+
+	:global(.tf-title-text-mode) {
+		font-size: 1.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #555;
+	}
 }
 
 :global(.tc-drawer-container),
