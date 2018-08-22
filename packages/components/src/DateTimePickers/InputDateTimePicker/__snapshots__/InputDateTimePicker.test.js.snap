@@ -6,6 +6,7 @@ exports[`InputDateTimePicker render should render 1`] = `
     className="theme-inputContainer"
   >
     <DebounceInput
+      className="form-control"
       debounceTimeout={300}
       element="input"
       forceNotifyByEnter={true}

@@ -390,6 +390,7 @@ class InputDateTimePicker extends React.Component {
 						value={textInput}
 						debounceTimeout={DEBOUNCE_TIMEOUT}
 						onChange={this.onChangeInput}
+						className={classNames('form-control')}
 					/>
 					{needInvalidLabel && (
 						<p
