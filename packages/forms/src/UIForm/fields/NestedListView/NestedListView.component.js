@@ -67,18 +67,16 @@ class NestedListViewWidget extends React.Component {
 	 * @param {Object} item
 	 */
 	onExpandToggle(event, item) {
-		this.setState(({ searchCriteria }) => {
-			this.items = this.items.map(fieldItem => {
-				if (fieldItem.key === item.key) {
-					return { ...fieldItem, expanded: !fieldItem.expanded };
-				}
-				return fieldItem;
-			});
-
-			return {
-				displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
-			};
+		this.items = this.items.map(fieldItem => {
+			if (fieldItem.key === item.key) {
+				return { ...fieldItem, expanded: !fieldItem.expanded };
+			}
+			return fieldItem;
 		});
+
+		this.setState(({ searchCriteria }) => ({
+			displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
+		}));
 	}
 
 	/**
@@ -87,20 +85,18 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } item
 	 */
 	onParentChange(event, item) {
+		const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
+
+		// Toggle all values
+		this.value = {
+			...this.value,
+			[item.key]: (this.value[item.key] || []).length === 0 ? availableOptions : [],
+		};
+
 		this.setState(
-			({ searchCriteria }) => {
-				const { enum: availableOptions } = this.props.schema.schema.properties[item.key].items;
-
-				// Toggle all values
-				this.value = {
-					...this.value,
-					[item.key]: (this.value[item.key] || []).length === 0 ? availableOptions : [],
-				};
-
-				return {
-					displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
-				};
-			},
+			({ searchCriteria }) => ({
+				displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
+			}),
 			() => this.onChange(event),
 		);
 	}
@@ -112,22 +108,20 @@ class NestedListViewWidget extends React.Component {
 	 * @param { Object } parent
 	 */
 	onCheck(event, item, parent) {
+		const { key } = parent;
+
+		if (!(key in this.value)) {
+			this.value[key] = [];
+		}
+
+		this.value[key] = this.value[key].includes(item.value)
+			? this.value[key].filter(storedValue => storedValue !== item.value) // Unselect
+			: this.value[key].concat(item.value); // Select
+
 		this.setState(
-			({ searchCriteria }) => {
-				const { key } = parent;
-
-				if (!(key in this.value)) {
-					this.value[key] = [];
-				}
-
-				this.value[key] = this.value[key].includes(item.value)
-					? this.value[key].filter(storedValue => storedValue !== item.value) // Unselect
-					: this.value[key].concat(item.value); // Select
-
-				return {
-					displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
-				};
-			},
+			({ searchCriteria }) => ({
+				displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
+			}),
 			() => this.onChange(event),
 		);
 	}
@@ -152,10 +146,10 @@ class NestedListViewWidget extends React.Component {
 		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			const { value: searchCriteria } = item;
-			this.setState(() => ({
+			this.setState({
 				searchCriteria,
 				displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
-			}));
+			});
 		}, 400);
 	}
 
@@ -190,12 +184,12 @@ class NestedListViewWidget extends React.Component {
 	switchToDefaultMode() {
 		const searchCriteria = null;
 
-		this.setState(() => ({
+		this.setState({
 			displayedItems: getDisplayedItems(this.items, this.value, searchCriteria),
 			searchCriteria,
 			headerInput: this.defaultHeaderActions,
 			displayMode: DISPLAY_MODE_DEFAULT,
-		}));
+		});
 	}
 
 	render() {
