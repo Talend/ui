@@ -5,7 +5,7 @@ import Fieldset, { FieldsetTextMode } from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
 import { Button, Buttons } from '../fields/Button';
-import { CheckBox, CheckBoxes } from '../fields/CheckBox';
+import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
 import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
@@ -43,6 +43,8 @@ const widgets = {
 	fieldset_text: FieldsetTextMode,
 
 	// fields: text mode
+	checkbox_text: TextModeCheckBox,
+	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
