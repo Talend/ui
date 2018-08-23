@@ -9,7 +9,6 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-
 function Text({ text, loading }) {
 	return (
 		<div>
@@ -46,17 +45,17 @@ function Table({ services, t }) {
 }
 
 function AboutDialog({
-		services,
-		expanded,
-		show,
-		version,
-		loading,
-		icon,
-		copyrights,
-		onToggle,
-		onHide,
-		t,
-	}) {
+	services,
+	expanded,
+	show,
+	version,
+	loading,
+	icon,
+	copyrights,
+	onToggle,
+	onHide,
+	t,
+}) {
 	const bar = {
 		actions: {
 			center: [
@@ -88,7 +87,10 @@ function AboutDialog({
 					loading={loading}
 				/>
 				<Text
-					text={copyrights || t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })}
+					text={
+						copyrights ||
+						t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })
+					}
 					loading={loading}
 				/>
 			</div>

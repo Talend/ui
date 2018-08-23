@@ -23,7 +23,9 @@ describe('AboutDialog', () => {
 	});
 
 	it('should render with custom copyright', () => {
-		const wrapper = shallow(<AboutDialog.WrappedComponent copyrights="custom copyrights" {...props} />);
+		const wrapper = shallow(
+			<AboutDialog.WrappedComponent copyrights="custom copyrights" {...props} />,
+		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
