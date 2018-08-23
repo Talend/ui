@@ -44,6 +44,7 @@ const widgets = {
 
 	// fields: text mode
 	checkbox_text: TextModeCheckBox,
+	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
