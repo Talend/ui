@@ -39,7 +39,7 @@ describe('InputDateTimePicker', () => {
 
 	describe('data conversion between widget and form', () => {
 		describe('form number type', () => {
-			describe('when spreading value to the component', () => {
+			describe('from form to component', () => {
 				it('should convert number to date', () => {
 					const timestamp = 1533884400000;
 					const wrapper = shallow(
@@ -77,7 +77,7 @@ describe('InputDateTimePicker', () => {
 				});
 			});
 
-			describe('when component onChange occurs', () => {
+			describe('from component to form', () => {
 				it('should convert date to number', () => {
 					const timestamp = undefined;
 					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
@@ -125,7 +125,7 @@ describe('InputDateTimePicker', () => {
 		});
 
 		describe('form string type', () => {
-			describe('when spreading value to the component', () => {
+			describe('from form to component', () => {
 				it('should convert string to date', () => {
 					const dateStr = '2025-02-25T03:35:00Z';
 					const expectedTimestamp = 1740454500000;
@@ -164,7 +164,7 @@ describe('InputDateTimePicker', () => {
 				});
 			});
 
-			describe('when component onChange occurs', () => {
+			describe('from component to form', () => {
 				it('should convert date to string', () => {
 					const dateStr = '2027-01-01T03:35:00Z';
 					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
@@ -212,8 +212,8 @@ describe('InputDateTimePicker', () => {
 	});
 
 	describe('errors handling', () => {
-		describe('from widget', () => {
-			it('should spread an Error object to the form when receiving a message Error from the component', () => {
+		describe('coming from component', () => {
+			it('should spread an Error object to the form when receiving a message error from the component', () => {
 				const dateStr = '2027-01-01T03:35:00Z';
 				const onChange = jest.fn();
 				const wrapper = shallow(
@@ -266,7 +266,7 @@ describe('InputDateTimePicker', () => {
 			});
 		});
 
-		describe('from form', () => {
+		describe('coming from form', () => {
 			it('should override the form error message if is not coming from the widget', () => {
 				const timestamp = 999999999999999999999;
 				const onChange = jest.fn();
