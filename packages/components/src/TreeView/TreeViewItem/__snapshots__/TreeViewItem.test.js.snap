@@ -32,7 +32,7 @@ exports[`TreeView should render items with icon 1`] = `
       toggled={false}
     />
     <span
-      className="tc-treeview-item-name"
+      className="tc-treeview-item-name theme-tc-treeview-item-name"
     >
       grandpa
     </span>
@@ -93,7 +93,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       toggled={true}
     />
     <span
-      className="tc-treeview-item-name"
+      className="tc-treeview-item-name theme-tc-treeview-item-name"
     >
       grandpa
     </span>
