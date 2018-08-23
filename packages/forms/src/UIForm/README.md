@@ -287,7 +287,7 @@ The uiSchema accepts a `condition` property, which defines recursively all condi
 
 | UISchema conditions property | Description |
 |---|---|
-| condition | Each item defines a condition to meet to be rendered. All conditions must be met. |
+| condition | Defines a condition to meet to be rendered. |
 | condition.path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
 | condition.values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
 | condition.strategy | Defines evaluation strategy, DEFAULT just takes the string value and LENGTH takes the length of arrays/strings. |
