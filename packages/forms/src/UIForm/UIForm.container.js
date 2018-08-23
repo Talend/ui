@@ -127,5 +127,7 @@ if (process.env.NODE_ENV !== 'production') {
 		templates: PropTypes.object,
 		/** Custom widgets */
 		widgets: PropTypes.object,
+		/** Display mode: example 'text' */
+		displayMode: PropTypes.string,
 	};
 }
