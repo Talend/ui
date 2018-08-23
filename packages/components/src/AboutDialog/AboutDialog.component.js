@@ -9,6 +9,7 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
+
 function Text({ text, loading }) {
 	return (
 		<div>
@@ -48,48 +49,56 @@ function Table({ services, t }) {
 	);
 }
 
-class AboutDialog extends React.Component {
-	render() {
-		const { services, expanded, show, version, loading, icon, onToggle, t } = this.props;
-		const bar = {
-			actions: {
-				center: [
-					{
-						label: expanded
-							? t('LESS', { defaultValue: 'Less' })
-							: t('MORE', { defaultValue: 'More' }),
-						bsStyle: 'default btn-inverse',
-						onClick: onToggle,
-						loading,
-					},
-				],
-			},
-		};
+function AboutDialog({
+		services,
+		expanded,
+		show,
+		version,
+		loading,
+		icon,
+		copyrights,
+		onToggle,
+		onHide,
+		t,
+	}) {
+	const bar = {
+		actions: {
+			center: [
+				{
+					label: expanded
+						? t('LESS', { defaultValue: 'Less' })
+						: t('MORE', { defaultValue: 'More' }),
+					bsStyle: 'default btn-inverse',
+					onClick: onToggle,
+					loading,
+				},
+			],
+		},
+	};
 
-		return (
-			<Dialog
-				header={t('ABOUT_MODAL_TITLE', { defaultValue: 'About my super product' })}
-				className={classNames(theme['about-dialog'], 'about-dialog')}
-				type={Dialog.TYPES.INFORMATIVE}
-				onHide={this.close}
-				actionbar={bar}
-				show={show}
-			>
-				<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
-				<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
-					<Text
-						text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version })}
-						loading={loading}
-					/>
-					<Text
-						text={t('ABOUT_COPYRIGHT', { defaultValue: '© 2018 Talend. All Rights Reserved' })}
-						loading={loading}
-					/>
-				</div>
-				{expanded && <Table t={t} services={services} />}
-			</Dialog>
-		);
-	}
+	return (
+		<Dialog
+			header={t('ABOUT_HEADER', { defaultValue: 'About my super product' })}
+			className={classNames(theme['about-dialog'], 'about-dialog')}
+			type={Dialog.TYPES.INFORMATIVE}
+			onHide={onHide}
+			actionbar={bar}
+			show={show}
+		>
+			<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
+			<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
+				<Text
+					text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version })}
+					loading={loading}
+				/>
+				<Text
+					text={copyrights || t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })}
+					loading={loading}
+				/>
+			</div>
+			{expanded && <Table t={t} services={services} />}
+		</Dialog>
+	);
 }
 
 AboutDialog.displayName = 'AboutDialog';
@@ -118,7 +127,9 @@ if (process.env.NODE_ENV !== 'production') {
 		expanded: PropTypes.bool,
 		show: PropTypes.bool,
 		loading: PropTypes.bool,
+		copyrights: PropTypes.string,
 		onToggle: PropTypes.func,
+		onHide: PropTypes.func,
 		version: PropTypes.string,
 		icon: PropTypes.string,
 		t: PropTypes.func.isRequired,
@@ -129,6 +140,7 @@ if (process.env.NODE_ENV !== 'production') {
 		expanded: false,
 		show: false,
 		loading: false,
+		copyright: null,
 		version: '',
 		icon: '',
 		t: getDefaultT(),

@@ -22,6 +22,11 @@ describe('AboutDialog', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render with custom copyright', () => {
+		const wrapper = shallow(<AboutDialog.WrappedComponent copyrights="custom copyrights" {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render services', () => {
 		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} expanded />);
 		expect(wrapper.getElement()).toMatchSnapshot();

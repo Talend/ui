@@ -152,3 +152,45 @@ exports[`AboutDialog should render services 1`] = `
   />
 </Dialog>
 `;
+
+exports[`AboutDialog should render with custom copyright 1`] = `
+<Dialog
+  actionbar={
+    Object {
+      "actions": Object {
+        "center": Array [
+          Object {
+            "bsStyle": "default btn-inverse",
+            "label": "More",
+            "loading": false,
+            "onClick": [Function],
+          },
+        ],
+      },
+    }
+  }
+  className="theme-about-dialog about-dialog"
+  closeButton={true}
+  header="About my super product"
+  onHide={undefined}
+  show={true}
+  type="informative"
+>
+  <Icon
+    className="theme-about-logo about-logo"
+    name="talend-tdp-colored"
+  />
+  <div
+    className="theme-about-excerpt about-excerpt"
+  >
+    <Text
+      loading={false}
+      text="Version: Summer 18"
+    />
+    <Text
+      loading={false}
+      text="custom copyrights"
+    />
+  </div>
+</Dialog>
+`;
