@@ -64,9 +64,11 @@ function convertFromDate(type, date) {
 			return convertDateToTimestamp(date);
 		case 'string':
 			return convertDateToString(date);
-		default:
-			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return undefined;
+		default: {
+			const unhandleTypeError = new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
+			console.error(unhandleTypeError);
+			return unhandleTypeError;
+		}
 	}
 }
 

@@ -302,6 +302,30 @@ describe('InputDateTimePicker', () => {
 
 				expect(fieldWrapper.prop('errorMessage')).toBe(GENERIC_FORMAT_ERROR);
 			});
+
+			it('should spread an Error object to the form when type defined is not handled by the widget and a value try to be converted to date', () => {
+				const initialValue = undefined;
+				const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
+				const onChange = jest.fn();
+
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						onChange={onChange}
+						onFinish={jest.fn()}
+						schema={getSchema('UNHANDLE_TYPE')}
+						value={initialValue}
+					/>,
+				);
+
+				const componentWrapper = wrapper.find('InputDateTimePicker');
+				const componentOnChange = componentWrapper.prop('onChange');
+				componentOnChange(null, undefined, changedDate);
+
+				const onChangePayload = onChange.mock.calls[0][1];
+				expect(onChangePayload.value).toBeInstanceOf(Error);
+			});
 		});
 
 		cases(
