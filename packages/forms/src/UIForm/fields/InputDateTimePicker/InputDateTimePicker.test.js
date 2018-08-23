@@ -344,6 +344,16 @@ describe('InputDateTimePicker', () => {
 					value: 1081866600000,
 					specifiedType: 'string',
 				},
+				{
+					name: 'number too high',
+					value: 86400000000000000,
+					specifiedType: 'number',
+				},
+				{
+					name: 'number too low',
+					value: -86400000000000000,
+					specifiedType: 'number',
+				},
 			],
 		);
 	});
