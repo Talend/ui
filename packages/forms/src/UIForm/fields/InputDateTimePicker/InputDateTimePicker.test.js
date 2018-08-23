@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import cases from 'jest-in-case';
 
 import InputDateTimePicker, { GENERIC_FORMAT_ERROR } from './InputDateTimePicker.component';
 
@@ -302,5 +303,48 @@ describe('InputDateTimePicker', () => {
 				expect(fieldWrapper.prop('errorMessage')).toBe(GENERIC_FORMAT_ERROR);
 			});
 		});
+
+		cases(
+			"should give an 'InvalidDate' to the component if date cannot be converted",
+			({ value, specifiedType }) => {
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						errorMessage="You've done something wrong"
+						onChange={jest.fn()}
+						onFinish={jest.fn()}
+						schema={getSchema(specifiedType)}
+						value={value}
+					/>,
+				);
+				const componentWrapper = wrapper.find('InputDateTimePicker');
+				const selectedDateTime = componentWrapper.prop('selectedDateTime');
+				expect(selectedDateTime).toBeInstanceOf(Date);
+				expect(isNaN(selectedDateTime.getTime())).toBe(true);
+			},
+			[
+				{
+					name: 'unknown type',
+					value: 1081866600000,
+					specifiedType: 'whatever',
+				},
+				{
+					name: 'unhandle type object',
+					value: {},
+					specifiedType: 'object',
+				},
+				{
+					name: 'unhandle type boolean',
+					value: true,
+					specifiedType: 'boolean',
+				},
+				{
+					name: 'wrong value type against specified type',
+					value: 1081866600000,
+					specifiedType: 'string',
+				},
+			],
+		);
 	});
 });

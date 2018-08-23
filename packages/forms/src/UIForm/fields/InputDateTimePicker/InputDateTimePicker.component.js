@@ -6,6 +6,8 @@ import FieldTemplate from '../FieldTemplate';
 
 export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
 
+const INVALID_DATE = new Date('');
+
 function convertDateToTimestamp(date) {
 	return date.getTime();
 }
@@ -33,6 +35,7 @@ function convertToDate(type, value) {
 		console.warn(
 			new Error(`'InputDateTimePicker' expected type of '${type}' and got '${typeOfValue}'`),
 		);
+		return INVALID_DATE;
 	}
 
 	switch (type) {
@@ -44,7 +47,7 @@ function convertToDate(type, value) {
 			console.warn(
 				new Error(`'InputDateTimePicker' only accept 'number' or 'string' type not '${type}'`),
 			);
-			return undefined;
+			return INVALID_DATE;
 	}
 }
 
