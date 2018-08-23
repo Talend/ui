@@ -22,7 +22,7 @@ function getCollection(state, collectionId) {
 	return state.cmf.collections.get(collectionId);
 }
 
-function getCollectionItems(state, collectionId) {
+export function getCollectionItems(state, collectionId) {
 	const collection = getCollection(state, collectionId);
 
 	if (Map.isMap(collection)) {
@@ -41,10 +41,6 @@ export function configureGetPagination(state, { collectionId }) {
 	return null;
 }
 
-function getCollectionData(collectionId) {
-	return state => getCollectionItems(state, collectionId);
-}
-
 function getComponentState(collectionId) {
 	return state => state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
 }
@@ -53,10 +49,10 @@ export function configureGetFilteredItems(configure) {
 	const localConfig = configure;
 
 	const getFilteredList = createSelector(
-		[getCollectionData(localConfig.collectionId), getComponentState(localConfig.collectionId)],
-		(items, componentState) => {
-			let results = items || localConfig.items;
-			if (componentState && localConfig.defaultFilter !== false) {
+		getComponentState(localConfig.collectionId),
+		componentState => {
+			let results = localConfig.items;
+			if (componentState) {
 				const searchQuery = componentState.get('searchQuery');
 				if (searchQuery && results) {
 					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
@@ -66,14 +62,20 @@ export function configureGetFilteredItems(configure) {
 		},
 	);
 
+	return createSelector([getFilteredList, getComponentState], items => items);
+}
+
+export function configureGetSortedItems(configure, listItems) {
+	const localConfig = configure;
+
 	const getSortedList = createSelector(
-		[getFilteredList, getComponentState(localConfig.collectionId)],
-		(items, componentState) => {
-			if (!List.isList(items)) {
+		getComponentState(localConfig.collectionId),
+		componentState => {
+			if (!List.isList(listItems)) {
 				return new List();
 			}
-			let results = items;
-			if (componentState && localConfig.defaultSorting !== false) {
+			let results = listItems;
+			if (componentState) {
 				const sortBy = componentState.get('sortOn');
 				const sortAsc = componentState.get('sortAsc');
 				let compare = (a, b) => {
@@ -115,13 +117,11 @@ export function configureGetFilteredItems(configure) {
 	return createSelector([getSortedList, getComponentState], items => items);
 }
 
-export function configureGetPagedItems(configure) {
-	const getSortedList = configureGetFilteredItems(configure);
-
+export function configureGetPagedItems(configure, listItems) {
 	const getPagedList = createSelector(
-		[getSortedList, getComponentState(configure.collectionId)],
-		(items, componentState) => {
-			let results = items;
+		getComponentState(configure.collectionId),
+		componentState => {
+			let results = listItems;
 			if (componentState) {
 				const startIndex = componentState.get('startIndex');
 				const itemsPerPage = componentState.get('itemsPerPage');
