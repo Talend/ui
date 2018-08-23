@@ -44,7 +44,7 @@ const widgets = {
 
 	// fields: text mode
 	code_text: CodeTextMode,
-  datalist_text: DatalistTextMode,
+	datalist_text: DatalistTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
