@@ -89,7 +89,7 @@
 
 	&-tabs {
 		border: none;
-		font-size: $font-size-small;
+		font-size: $font-size-base;
 
 		> li {
 			margin: 0;
@@ -102,21 +102,20 @@
 
 			> a,
 			> button {
-				padding: $padding-normal;
-				letter-spacing: 0.6px;
-				line-height: 1;
-				text-transform: uppercase;
-				color: rgba(1, 1, 1, 0.6);
 				background: transparent;
 				border: none;
+				border-radius: 0;
+				color: $dark-silver;
+				letter-spacing: 0.6px;
+				line-height: 1;
+				margin-bottom: 5px;
 				outline: none;
+				padding: $padding-normal;
+				text-transform: uppercase;
 
+				&:hover,
 				&:focus {
-					background: rgba(0, 0, 0, 0.06);
-				}
-
-				&:hover {
-					background: rgba(0, 0, 0, 0.03);
+					background: $concrete;
 				}
 			}
 
@@ -124,11 +123,12 @@
 				> a,
 				> button {
 					box-shadow: 0 -2px 0 $brand-primary inset;
+					border: none;
+					color: $black;
 
-					&,
 					&:focus,
 					&:hover {
-						background: transparent;
+						background: $concrete;
 						border: none;
 					}
 				}

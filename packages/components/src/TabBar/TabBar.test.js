@@ -1,70 +1,92 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import keycode from 'keycode';
+import { shallow, mount } from 'enzyme';
 import TabBar from './TabBar.component';
 
-const onClick = jest.fn();
-const props = {
+const tabProps = {
+	id: 'my-tabs',
 	items: [
 		{
-			id: 'tab-bar-action-1',
 			key: '1',
 			label: 'Tab1',
+			'data-feature': 'action.1',
 		},
 		{
-			id: 'tab-bar-action-2',
 			key: '2',
 			label: 'Tab2',
+			'data-feature': 'action.2',
 		},
 		{
-			id: 'tab-bar-action-3',
 			key: '3',
 			label: 'Tab3',
+			'data-feature': 'action.3',
+		},
+		{
+			key: '4',
+			label: 'Tab4',
+			'data-feature': 'action.4',
+		},
+		{
+			key: '5',
+			label: 'Tab5',
+			'data-feature': 'action.5',
 		},
 	],
-	onSelect: onClick,
-	selectedKey: '2',
+	onSelect: jest.fn(),
+	selectedKey: '3',
 };
 
-describe('TabBar', () => {
-	it('should trigger tab callback on tab click', () => {
+describe('TabBar component', () => {
+	it('should render', () => {
 		// given
-		const tabBar = <TabBar {...props} />;
-		const wrapper = mount(tabBar);
+
+		// when
+		const wrapper = shallow(<TabBar {...tabProps}>I'm the content</TabBar>);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should select item on click', () => {
+		// given
+		const onSelect = jest.fn();
+		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
 
 		// when
 		wrapper
-			.find('button')
-			.at(1)
+			.find('a')
+			.first()
 			.simulate('click');
 
 		// then
-		expect(onClick).toBeCalledWith(expect.anything(), props.items[1]);
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
-	it('should select a tab from its key', () => {
-		const tabBar = <TabBar {...props} />;
-		const wrapper = mount(tabBar);
+	it('should select first item on home keydown', () => {
+		// given
+		const onSelect = jest.fn();
+		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />, {
+			attachTo: document.body,
+		});
+		const event = { which: keycode.codes.home };
 
-		expect(
-			wrapper
-				.find('li')
-				.at(0)
-				.props()
-				.className.includes('active'),
-		).toBe(false);
-		expect(
-			wrapper
-				.find('li')
-				.at(1)
-				.props()
-				.className.includes('active'),
-		).toBe(true);
-		expect(
-			wrapper
-				.find('li')
-				.at(2)
-				.props()
-				.className.includes('active'),
-		).toBe(false);
+		// when
+		wrapper.simulate('keydown', event);
+
+		// then
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
+	});
+
+	it('should select first item on end keydown', () => {
+		// given
+		const onSelect = jest.fn();
+		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
+		const event = { which: keycode.codes.end };
+
+		// when
+		wrapper.simulate('keydown', event);
+
+		// then
+		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[4]);
 	});
 });

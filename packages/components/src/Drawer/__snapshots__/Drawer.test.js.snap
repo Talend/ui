@@ -225,48 +225,81 @@ exports[`Drawer should render with tabs 1`] = `
     <div
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
-      <nav
-        className="nav tc-tab-bar tc-drawer-tabs theme-tc-drawer-tabs theme-tc-tab-bar"
+      <div
+        className="clearfix row"
+        id={undefined}
+        onKeyDown={[Function]}
       >
-        <ul
-          className="nav nav-tabs tc-tab-bar-actions"
+        <div
+          className="col-sm-12"
         >
-          <li
-            className="tc-tab-bar-action"
+          <ul
+            className="nav nav-tabs"
+            role="tablist"
           >
-            <button
-              aria-label="Tab 1"
-              className="btn btn-link"
-              disabled={false}
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
             >
-              <span>
+              <a
+                aria-controls={null}
+                aria-selected={false}
+                href="#"
+                id={null}
+                label="Tab 1"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+                tabIndex={-1}
+              >
                 Tab 1
-              </span>
-            </button>
-          </li>
-          <li
-            className="tc-tab-bar-action active"
-          >
-            <button
-              aria-label="Tab 2"
-              className="btn btn-link"
-              disabled={false}
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              </a>
+            </li>
+            <li
+              className="active"
+              role="presentation"
+              style={undefined}
             >
-              <span>
+              <a
+                aria-controls={null}
+                aria-selected={true}
+                href="#"
+                id={null}
+                label="Tab 2"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+                tabIndex={undefined}
+              >
                 Tab 2
-              </span>
-            </button>
-          </li>
-        </ul>
-      </nav>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-sm-12"
+        >
+          <div
+            className="tab-content"
+          >
+            <div
+              aria-hidden={true}
+              aria-labelledby={null}
+              className="tab-pane fade"
+              id={null}
+              role="tabpanel"
+            />
+            <div
+              aria-hidden={false}
+              aria-labelledby={null}
+              className="tab-pane active fade in"
+              id={null}
+              role="tabpanel"
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <div
       style={
