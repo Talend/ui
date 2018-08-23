@@ -17,6 +17,7 @@ const properties = {
 };
 
 const TRUTHY_CONDITIONS = [
+	undefined,
 	{
 		values: ['foo'],
 		path: 'string',
@@ -63,6 +64,33 @@ const TRUTHY_CONDITIONS = [
 		values: [null],
 		path: 'null',
 	},
+	// complex with children
+	{
+		children: [
+			{
+				shouldBe: false,
+				values: [0, 1, 2],
+				strategy: 'length',
+				path: 'string',
+				children: [
+					{
+						shouldBe: false,
+						values: [0],
+						strategy: 'length',
+						path: 'arrayObj',
+					},
+				],
+			},
+			{
+				values: [undefined],
+				path: 'undefined',
+			},
+			{
+				values: [null],
+				path: 'null',
+			},
+		],
+	},
 ];
 
 const FALSY_CONDITIONS = [
@@ -76,20 +104,56 @@ const FALSY_CONDITIONS = [
 		values: ['foo'],
 		path: 'objectEmpty.title', // doesnt exist
 	},
+	// complex with children
+	{
+		children: [
+			{
+				shouldBe: false,
+				values: [0, 1, 2],
+				strategy: 'length',
+				path: 'string',
+				children: [
+					{
+						shouldBe: true, // we make this one wrong to be false
+						values: [0],
+						strategy: 'length',
+						path: 'arrayObj',
+					},
+				],
+			},
+			{
+				values: [undefined],
+				path: 'undefined',
+			},
+			{
+				values: [null],
+				path: 'null',
+			},
+		],
+	},
+	{
+		children: [
+			{
+				values: [undefined],
+				path: 'undefined',
+			},
+			{
+				values: ['wrong'],
+				path: 'null',
+			},
+		],
+	},
 ];
 
 describe('condition', () => {
-	it('should return true if no condition', () => {
-		expect(shouldRender(undefined, properties)).toBeTruthy();
-	});
 	it('should return true if condition is filled', () => {
 		TRUTHY_CONDITIONS.forEach(condition => {
-			expect(shouldRender([condition], properties)).toBeTruthy();
+			expect(shouldRender(condition, properties)).toBeTruthy();
 		});
 	});
 	it('should return false if condition is not filled', () => {
 		FALSY_CONDITIONS.forEach(condition => {
-			expect(shouldRender([condition], properties)).toBeFalsy();
+			expect(shouldRender(condition, properties)).toBeFalsy();
 		});
 	});
 });
