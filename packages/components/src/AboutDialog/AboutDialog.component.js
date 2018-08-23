@@ -12,11 +12,11 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 function Text({ text, loading }) {
 	return (
 		<div>
-			{loading ? (
-				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-			) : (
-				<span>{text}</span>
-			)}
+			{
+				loading ? (
+					<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+				) : text
+			}
 		</div>
 	);
 }
@@ -69,6 +69,7 @@ class AboutDialog extends React.Component {
 		return (
 			<Dialog
 				header={t('ABOUT_MODAL_TITLE', { defaultValue: 'About my super product' })}
+				className={classNames(theme['about-dialog'], 'about-dialog')}
 				type={Dialog.TYPES.INFORMATIVE}
 				onHide={this.close}
 				actionbar={bar}

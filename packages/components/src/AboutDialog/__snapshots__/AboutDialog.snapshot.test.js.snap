@@ -16,6 +16,7 @@ exports[`AboutDialog should render 1`] = `
       },
     }
   }
+  className="theme-about-dialog about-dialog"
   closeButton={true}
   header="About my super product"
   onHide={undefined}
@@ -57,6 +58,7 @@ exports[`AboutDialog should render in loading mode 1`] = `
       },
     }
   }
+  className="theme-about-dialog about-dialog"
   closeButton={true}
   header="About my super product"
   onHide={undefined}
@@ -98,6 +100,7 @@ exports[`AboutDialog should render services 1`] = `
       },
     }
   }
+  className="theme-about-dialog about-dialog"
   closeButton={true}
   header="About my super product"
   onHide={undefined}
