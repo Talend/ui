@@ -12,11 +12,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 function Text({ text, loading }) {
 	return (
 		<div>
-			{
-				loading ? (
-					<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				) : text
-			}
+			{loading ? <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} /> : text}
 		</div>
 	);
 }
