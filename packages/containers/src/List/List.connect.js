@@ -29,7 +29,7 @@ function getPagedItems(state, config, items) {
 	if (config.defaultPaging !== false) {
 		return configureGetPagedItems(config, items)(state);
 	}
-	return config.items;
+	return items;
 }
 
 export function mapStateToProps(state, ownProps, cmfProps) {
