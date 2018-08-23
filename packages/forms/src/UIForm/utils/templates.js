@@ -1,7 +1,7 @@
-import DefaultArrayTemplate from '../fieldsets/Array/DefaultArrayTemplate.component';
+import DefaultArrayTemplateComponent from '../fieldsets/Array/DefaultArrayTemplate.component';
 
 const widgets = {
-	array: DefaultArrayTemplate,
+	array: DefaultArrayTemplateComponent,
 };
 
 export default widgets;

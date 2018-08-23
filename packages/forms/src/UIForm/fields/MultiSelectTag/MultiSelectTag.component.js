@@ -3,7 +3,6 @@ import React from 'react';
 import keycode from 'keycode';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
-import Icon from '@talend/react-components/lib/Icon';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.scss';
