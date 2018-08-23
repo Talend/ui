@@ -56,7 +56,7 @@ export function configureGetFilteredItems(configure) {
 		[getCollectionData(localConfig.collectionId), getComponentState(localConfig.collectionId)],
 		(items, componentState) => {
 			let results = items || localConfig.items;
-			if (componentState) {
+			if (componentState && localConfig.defaultFilter !== false) {
 				const searchQuery = componentState.get('searchQuery');
 				if (searchQuery && results) {
 					results = results.filter(item => contains(item, searchQuery, localConfig.columns));
@@ -73,7 +73,7 @@ export function configureGetFilteredItems(configure) {
 				return new List();
 			}
 			let results = items;
-			if (componentState) {
+			if (componentState && localConfig.defaultSorting !== false) {
 				const sortBy = componentState.get('sortOn');
 				const sortAsc = componentState.get('sortAsc');
 				let compare = (a, b) => {
