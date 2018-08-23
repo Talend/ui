@@ -30,11 +30,15 @@ function evaluateChildrenCondition(properties, condition) {
 	if (!condition.children || condition.children.length === 0) {
 		return true;
 	}
-	const evaluator = (condition.childrenOperator || 'AND').toUpperCase() === 'AND' ?
-			Array.prototype.every : Array.prototype.some;
-	return evaluator.call(condition.children, cond =>
-					evaluateInlineCondition(properties, cond) &&
-					evaluateChildrenCondition(properties, cond));
+	const evaluator =
+		(condition.childrenOperator || 'AND').toUpperCase() === 'AND'
+			? Array.prototype.every
+			: Array.prototype.some;
+	return evaluator.call(
+		condition.children,
+		cond =>
+			evaluateInlineCondition(properties, cond) && evaluateChildrenCondition(properties, cond),
+	);
 }
 
 /**

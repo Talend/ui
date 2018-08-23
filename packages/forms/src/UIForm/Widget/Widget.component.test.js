@@ -178,10 +178,12 @@ describe('Widget component', () => {
 		// when
 		const withConditions = {
 			...schema,
-			condition: { children: [
-				{ path: 'user.firstname', values: ['toto', 'my firstname'] },
-				{ path: 'user.lastname', values: ['my lastname'] },
-			] },
+			condition: {
+				children: [
+					{ path: 'user.firstname', values: ['toto', 'my firstname'] },
+					{ path: 'user.lastname', values: ['my lastname'] },
+				],
+			},
 		};
 		const wrapper = shallow(
 			<Widget schema={withConditions} properties={properties} errors={errors} />,
