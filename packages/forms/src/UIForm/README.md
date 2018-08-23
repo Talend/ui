@@ -283,13 +283,17 @@ Those validations change the `errors` object accordingly.
 ### Conditional rendering
 
 It is possible to render parts of the forms defined in uiSchema, depending on properties values.
-The uiSchema accepts a `conditions` property, which define all conditions to match to be rendered.
+The uiSchema accepts a `condition` property, which defines recursively all conditions to match to be rendered.
 
 | UISchema conditions property | Description |
 |---|---|
-| conditions[] | Each item defines a condition to meet to be rendered. All conditions must be met. |
-| conditions[].path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
-| conditions[].values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
+| condition | Each item defines a condition to meet to be rendered. All conditions must be met. |
+| condition.path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
+| condition.values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
+| condition.strategy | Defines evaluation strategy, DEFAULT just takes the string value and LENGTH takes the length of arrays/strings. |
+| condition.shouldBe | Defines if the expected result of the equality test is true (default) or false. |
+| condition.children | Define an array of nested conditions composed with childrenOperator. |
+| condition.childrenOperator | How to combine the children conditions, can be OR or AND (default). |
 
 Let's take this example:
 ```json
@@ -331,19 +335,19 @@ We want
   "uiSchema": [
     {
       "widget": "fieldset",
-      "conditions": [{
+      "condition": {
         "path": "entity.kind",
         "values": ["human", "animal"]
-      }],
+      },
       "items": [
         {
           "key": "entity.civility",
           "title": "Civility",
           "description": "This should be visible only for humans",
-          "conditions": [{
+          "condition": {
             "path": "entity.kind",
             "values": ["human"]
-          }]
+          }
         },
         {
           "key": "entity.lastname",

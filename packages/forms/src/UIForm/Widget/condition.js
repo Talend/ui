@@ -5,7 +5,7 @@ function getValue(value, strategy) {
 	if (!strategy) {
 		return value;
 	}
-	switch (strategy) {
+	switch (strategy.toLowerCase()) {
 		case 'length':
 			if (value && value.length) {
 				return value.length;
@@ -16,10 +16,25 @@ function getValue(value, strategy) {
 	}
 }
 
-function evaluateCondition(properties, condition) {
+function evaluateInlineCondition(properties, condition) {
+	if (!condition.path || !condition.values) {
+		return true;
+	}
+
 	const value = get(properties, condition.path);
 	const actual = getValue(value, condition.strategy);
 	return (condition.shouldBe !== false) === includes(condition.values, actual);
+}
+
+function evaluateChildrenCondition(properties, condition) {
+	if (!condition.children || condition.children.length === 0) {
+		return true;
+	}
+	const evaluator = (condition.childrenOperator || 'AND').toUpperCase() === 'AND' ?
+			Array.prototype.every : Array.prototype.some;
+	return evaluator.call(condition.children, cond =>
+					evaluateInlineCondition(properties, cond) &&
+					evaluateChildrenCondition(properties, cond));
 }
 
 /**
@@ -37,13 +52,17 @@ function evaluateCondition(properties, condition) {
  *   Currently you can set this property to <code>length</code> to evaluate the length of an array
  *   when the extracted instance is an array, otherwise it will set the value to zero. Other
  *   strategy values will just return false.</li>
+ *   <li><em>children</em>: an array of nested conditions</li>
+ *   <li><em>childrenOperator</em>: how to combine children (OR/AND)</li>
  * </ul>
  *
  * @example {
  *   values:["A", "B"],
  *   path: "someProp.someArray",
  *   shouldBe: true,
- *   evaluationStrategy: "length"
+ *   evaluationStrategy: "length",
+ *   children: [],
+ *   childrenOperator: "OR",
  * }
  *
  * The combination of the conditions is done through an <code>AND</code>
@@ -54,6 +73,16 @@ function evaluateCondition(properties, condition) {
  * @param conditions array of conditions to evaluate.
  * @returns true if the conditions are met, false otherwise.
  */
-export default function shouldRender(conditions, properties) {
-	return !conditions || conditions.every(cond => evaluateCondition(properties, cond));
+export default function shouldRender(condition, properties) {
+	if (!condition) {
+		return true;
+	}
+
+	// quit fast condition (don't evaluate the whole graph)
+	if (!evaluateInlineCondition(properties, condition)) {
+		return false;
+	}
+
+	// navigate the nested graph
+	return evaluateChildrenCondition(properties, condition);
 }

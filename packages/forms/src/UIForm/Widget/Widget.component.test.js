@@ -178,10 +178,10 @@ describe('Widget component', () => {
 		// when
 		const withConditions = {
 			...schema,
-			conditions: [
+			condition: { children: [
 				{ path: 'user.firstname', values: ['toto', 'my firstname'] },
 				{ path: 'user.lastname', values: ['my lastname'] },
-			],
+			] },
 		};
 		const wrapper = shallow(
 			<Widget schema={withConditions} properties={properties} errors={errors} />,
@@ -195,10 +195,13 @@ describe('Widget component', () => {
 		// when
 		const withConditions = {
 			...schema,
-			conditions: [
-				{ path: 'user.firstname', values: ['toto', 'my firstname'] },
-				{ path: 'user.lastname', values: ['my lastname is not here'] },
-			],
+			condition: {
+				children: [
+					{ path: 'user.firstname', values: ['toto', 'my firstname'] },
+					{ path: 'user.lastname', values: ['my lastname is not here'] },
+				],
+				childrenOperator: 'AND',
+			},
 		};
 		const wrapper = shallow(
 			<Widget schema={withConditions} properties={properties} errors={errors} />,
@@ -211,7 +214,7 @@ describe('Widget component', () => {
 	it('should render widget when conditions are using shouldBe=true', () => {
 		const uiSpec = {
 			...schema,
-			conditions: [{ path: 'user.firstname', values: ['my firstname'], shouldBe: false }],
+			condition: { path: 'user.firstname', values: ['my firstname'], shouldBe: false },
 		};
 
 		// negative case
@@ -247,7 +250,7 @@ describe('Widget component', () => {
 	it('should render widget when conditions are using an evaluation strategy', () => {
 		const uiSpec = {
 			...schema,
-			conditions: [{ path: 'user.names', values: [1], strategy: 'length' }],
+			condition: { path: 'user.names', values: [1], strategy: 'length' },
 		};
 
 		// negative cases
