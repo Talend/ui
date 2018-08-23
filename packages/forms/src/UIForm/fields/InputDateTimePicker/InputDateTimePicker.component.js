@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
+import { isoDateTimeRegExp } from '../../customFormats';
 
 export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
 
@@ -21,6 +22,10 @@ function convertDateToString(date) {
 }
 
 function convertStringToDate(str) {
+	if (!isoDateTimeRegExp.test(str)) {
+		return INVALID_DATE;
+	}
+
 	return new Date(str);
 }
 

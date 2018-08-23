@@ -19,7 +19,7 @@ const urlGit = new RegExp(
 
 // EcmaScript ISO 8601 Extended Format: https://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15
 // Only handle full string (date and time with full second fraction) and only UTC timezone
-const isoDateTimeRegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
+export const isoDateTimeRegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
 
 const leadingTralingSpaceRegExp = /^\s|\s$/;
 const stringWithoutSpaceRegExp = /^\S+$/;

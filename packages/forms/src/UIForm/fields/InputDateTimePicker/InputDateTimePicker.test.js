@@ -354,6 +354,31 @@ describe('InputDateTimePicker', () => {
 					value: -86400000000000000,
 					specifiedType: 'number',
 				},
+				{
+					name: 'string non sens',
+					value: 'hkqkjaezlrnezncfkl',
+					specifiedType: 'string',
+				},
+				{
+					name: 'string missing "T" format part',
+					value: '2018-01-01 00:00:00.000Z',
+					specifiedType: 'string',
+				},
+				{
+					name: 'string missing "-" format separators',
+					value: '2018 01 01T00:00:00.000Z',
+					specifiedType: 'string',
+				},
+				{
+					name: 'string missing ":" format separators',
+					value: '2018-01-01T00 00 00.000Z',
+					specifiedType: 'string',
+				},
+				{
+					name: 'string non accepting comma for second fraction',
+					value: '2018-01-01T00:00:00,000Z',
+					specifiedType: 'string',
+				},
 			],
 		);
 	});
