@@ -8,7 +8,7 @@ const props = {
 	show: true,
 	onToggle: action('onToggle'),
 	version: 'Summer 18',
-	copyright: '© 2018 Talend. All Rights Reserved',
+	icon: 'talend-tdp-colored',
 	services: ['API', 'Dataset', 'Preparation', 'Transformation'].map(name => ({
 		version: '2.8.0-SNAPSHOT',
 		build: '87d0dcd-12e0d6f',
@@ -27,5 +27,5 @@ storiesOf('AboutDialog', module)
 		</div>
 	))
 	.addWithInfo('default', () => <AboutDialog {...props} />)
-	.addWithInfo('expanded', () => <AboutDialog expanded {...props} />)
-	.addWithInfo('loading', () => <AboutDialog loading {...props} />);
+	.addWithInfo('loading', () => <AboutDialog loading {...props} />)
+	.addWithInfo('expanded', () => <AboutDialog expanded {...props} />);
