@@ -9,7 +9,6 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-
 export class AboutDialog extends React.Component {
 	render() {
 		const { services, expanded, show, version, copyright, onToggle, t } = this.props;
@@ -18,14 +17,15 @@ export class AboutDialog extends React.Component {
 				center: [
 					{
 						actionId: 'help:about:toggle',
-						label: expanded ? t('LESS', { defaultValue: 'Less' }) : t('MORE', { defaultValue: 'More' }),
+						label: expanded
+							? t('LESS', { defaultValue: 'Less' })
+							: t('MORE', { defaultValue: 'More' }),
 						bsStyle: 'default btn-inverse',
 						onClick: onToggle,
 					},
 				],
 			},
 		};
-
 
 		return (
 			<Dialog
@@ -64,7 +64,6 @@ export class AboutDialog extends React.Component {
 		);
 	}
 }
-
 
 AboutDialog.displayName = 'AboutDialog';
 AboutDialog.defaultProps = {
