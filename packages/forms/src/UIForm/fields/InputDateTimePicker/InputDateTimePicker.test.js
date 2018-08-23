@@ -98,7 +98,8 @@ describe('InputDateTimePicker', () => {
 					const componentOnChange = componentWrapper.prop('onChange');
 					componentOnChange(null, undefined, changedDate);
 
-					expect(onChange.mock.calls[0][1].value).toBe(expectedTimestamp);
+					const onChangePayload = onChange.mock.calls[0][1];
+					expect(onChangePayload.value).toBe(expectedTimestamp);
 				});
 
 				it('should convert an undefined date to an undefined number', () => {
@@ -119,7 +120,8 @@ describe('InputDateTimePicker', () => {
 					const componentOnChange = componentWrapper.prop('onChange');
 					componentOnChange(null, undefined, undefined);
 
-					expect(onChange.mock.calls[0][1].value).toBeUndefined();
+					const onChangePayload = onChange.mock.calls[0][1];
+					expect(onChangePayload.value).toBeUndefined();
 				});
 			});
 		});
@@ -184,7 +186,9 @@ describe('InputDateTimePicker', () => {
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const componentOnChange = componentWrapper.prop('onChange');
 					componentOnChange(null, undefined, changedDate);
-					expect(onChange.mock.calls[0][1].value).toBe(expectedStr);
+
+					const onChangePayload = onChange.mock.calls[0][1];
+					expect(onChangePayload.value).toBe(expectedStr);
 				});
 
 				it('should convert an undefined date to an undefined string', () => {
@@ -205,7 +209,8 @@ describe('InputDateTimePicker', () => {
 					const componentOnChange = componentWrapper.prop('onChange');
 					componentOnChange(null, undefined, undefined);
 
-					expect(onChange.mock.calls[0][1].value).toBeUndefined();
+					const onChangePayload = onChange.mock.calls[0][1];
+					expect(onChangePayload.value).toBeUndefined();
 				});
 			});
 		});
@@ -232,9 +237,9 @@ describe('InputDateTimePicker', () => {
 				const errorMessage = "An error message from the underlying widget's component";
 				componentOnChange(null, errorMessage, undefined);
 
-				const payloadSpread = onChange.mock.calls[0][1];
-				expect(payloadSpread.value).toBeInstanceOf(Error);
-				expect(payloadSpread.value.message).toBe(errorMessage);
+				const onChangePayload = onChange.mock.calls[0][1];
+				expect(onChangePayload.value).toBeInstanceOf(Error);
+				expect(onChangePayload.value.message).toBe(errorMessage);
 			});
 
 			it('should not spread an Error object but the last value to the component when receiving an Error object from the form', () => {
