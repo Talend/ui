@@ -55,7 +55,9 @@ export class AboutDialog extends React.Component {
 				center: [
 					{
 						actionId: 'help:about:toggle',
-						label: expanded ? t('LESS', { defaultValue: 'Less' }) : t('MORE', { defaultValue: 'More' }),
+						label: expanded
+							? t('LESS', { defaultValue: 'Less' })
+							: t('MORE', { defaultValue: 'More' }),
 						bsStyle: 'default btn-inverse',
 						onClick: onToggle,
 						loading,
@@ -63,7 +65,6 @@ export class AboutDialog extends React.Component {
 				],
 			},
 		};
-
 
 		return (
 			<Dialog
@@ -89,7 +90,6 @@ export class AboutDialog extends React.Component {
 		);
 	}
 }
-
 
 AboutDialog.displayName = 'AboutDialog';
 AboutDialog.defaultProps = {
