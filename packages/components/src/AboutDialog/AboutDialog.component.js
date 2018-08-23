@@ -9,17 +9,14 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-
 function Line({ text, loading }) {
 	return (
 		<div>
-			{
-				loading ? (
-					<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				) : (
-					<span>{text}</span>
-				)
-			}
+			{loading ? (
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+			) : (
+				<span>{text}</span>
+			)}
 		</div>
 	);
 }
@@ -85,7 +82,7 @@ export class AboutDialog extends React.Component {
 						loading={loading}
 					/>
 				</div>
-				{ expanded && <ServicesTable t={t} services={services} /> }
+				{expanded && <ServicesTable t={t} services={services} />}
 			</Dialog>
 		);
 	}
