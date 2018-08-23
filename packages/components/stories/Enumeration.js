@@ -7,6 +7,8 @@ import { checkA11y } from '@storybook/addon-a11y';
 import { Enumeration, IconsProvider } from '../src/index';
 import i18n from './config/i18n';
 
+import './Enumeration.css';
+
 const addItemAction = {
 	label: 'Add item',
 	icon: 'talend-plus',
@@ -248,6 +250,26 @@ const withIconProps = {
 	],
 };
 
+const withClassProps = {
+	...props,
+	items: [
+		{
+			values: ['User 1'],
+		},
+		{
+			icon: {
+				name: 'talend-warning',
+				title: 'Inactive user',
+			},
+			className: 'inactive',
+			values: ['User 2'],
+		},
+		{
+			values: ['User 3'],
+		},
+	],
+};
+
 storiesOf('Enumeration', module)
 	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
@@ -388,6 +410,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...withIconProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with row class', () => (
+		<div>
+			<p>With custom class on second row: </p>
+			<IconsProvider />
+			<Enumeration
+				{...withClassProps}
 			/>
 		</div>
 	));
