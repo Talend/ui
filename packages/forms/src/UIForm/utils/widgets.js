@@ -1,16 +1,17 @@
 import ArrayWidget from '../fieldsets/Array';
 import createCollapsibleFieldset from '../fieldsets/CollapsibleFieldset';
 import Columns from '../fieldsets/Columns';
-import Fieldset from '../fieldsets/Fieldset';
+import Fieldset, { FieldsetTextMode } from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
-import Code from '../fields/Code';
+import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
 import MultiSelectTag from '../fields/MultiSelectTag';
+import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import Select from '../fields/Select';
@@ -38,8 +39,12 @@ const widgets = {
 	text: Text,
 	textarea: TextArea,
 
+	// fieldsets: text mode
+	fieldset_text: FieldsetTextMode,
+
 	// fields: text mode
-	datalist_text: DatalistTextMode,
+	code_text: CodeTextMode,
+  datalist_text: DatalistTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
@@ -53,6 +58,7 @@ const widgets = {
 	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,
+	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
 	toggle: Toggle,
 };

@@ -58,11 +58,13 @@ export default class ColumnsWidget extends React.Component {
 
 	render() {
 		const { name, schema, formData, onBlur, ...props } = this.props;
+
 		return (
 			<div className={`tf-widget-columns ${theme.columns}`}>
 				{(schema.title || name) && (
 					<TitleField id={`${name}__title`} title={schema.title || name} />
 				)}
+				{/* eslint-disable react/jsx-indent, no-mixed-spaces-and-tabs */}
 				{schema.properties
 					? Object.keys(schema.properties).map(key => (
 							<Column
@@ -77,6 +79,7 @@ export default class ColumnsWidget extends React.Component {
 							/>
 					  ))
 					: null}
+				{/* eslint-enable react/jsx-indent, no-mixed-spaces-and-tabs  */}
 			</div>
 		);
 	}
