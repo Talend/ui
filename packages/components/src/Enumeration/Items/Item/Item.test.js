@@ -128,7 +128,10 @@ describe('Item', () => {
 			},
 		};
 		const wrapper = mount(<Item {...props} />);
-		const buttons = wrapper.find('.tc-enumeration-item').at(0).find(Button);
+		const buttons = wrapper
+			.find('.tc-enumeration-item')
+			.at(0)
+			.find(Button);
 		const button = buttons.at(0);
 		expect(button.props().className.includes('special'));
 	});
