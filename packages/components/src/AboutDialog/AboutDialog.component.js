@@ -9,7 +9,6 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-
 function Text({ text, loading }) {
 	return (
 		<div>
@@ -86,7 +85,7 @@ export class AboutDialog extends React.Component {
 						loading={loading}
 					/>
 				</div>
-				{ expanded && <Table t={t} services={services} /> }
+				{expanded && <Table t={t} services={services} />}
 			</Dialog>
 		);
 	}
