@@ -48,7 +48,7 @@ function Table({ services, t }) {
 	);
 }
 
-export class AboutDialog extends React.Component {
+class AboutDialog extends React.Component {
 	render() {
 		const { services, expanded, show, version, loading, icon, onToggle, t } = this.props;
 		const bar = {

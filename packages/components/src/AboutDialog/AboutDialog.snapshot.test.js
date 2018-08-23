@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AboutDialog } from './AboutDialog.component';
+import AboutDialog from './AboutDialog.component';
 
 jest.mock('react-dom');
 
@@ -18,17 +18,17 @@ const props = {
 
 describe('AboutDialog', () => {
 	it('should render', () => {
-		const wrapper = shallow(<AboutDialog {...props} />);
+		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render services', () => {
-		const wrapper = shallow(<AboutDialog {...props} expanded />);
+		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} expanded />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render in loading mode', () => {
-		const wrapper = shallow(<AboutDialog {...props} loading />);
+		const wrapper = shallow(<AboutDialog.WrappedComponent {...props} loading />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
