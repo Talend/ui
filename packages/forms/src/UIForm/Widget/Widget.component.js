@@ -21,10 +21,10 @@ function getWidget(displayMode, widgetId, customWidgets) {
 }
 
 export default function Widget(props) {
-	const { conditions, key, options, type, validationMessage, widget, displayMode } = props.schema;
+	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
 	const widgetId = widget || type;
 
-	if (widgetId === 'hidden' || !shouldRender(conditions, props.properties)) {
+	if (widgetId === 'hidden' || !shouldRender(condition, props.properties)) {
 		return null;
 	}
 

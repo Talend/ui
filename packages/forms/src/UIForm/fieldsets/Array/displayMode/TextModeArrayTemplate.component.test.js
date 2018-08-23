@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DefaultArrayTemplate from './DefaultArrayTemplate.component';
+import TextModeArrayTemplate from './TextModeArrayTemplate.component';
 
 const schema = {
-	description: 'Tnstructions to fill it',
 	key: ['comments'],
 	items: [
 		{
@@ -68,6 +67,8 @@ const schema = {
 	type: 'array',
 };
 
+const simpleValue = ['Jimmy', 'JM', 'Geoffroy'];
+
 const value = [
 	{
 		name: 'Jimmy',
@@ -86,21 +87,29 @@ const value = [
 	},
 ];
 
-describe('Default Array Template component', () => {
-	it('should render default array template', () => {
+describe('Array Template in text mode', () => {
+	it('should render array template with complex items', () => {
 		// when
 		const wrapper = shallow(
-			<DefaultArrayTemplate.WrappedComponent
-				canReorder
+			<TextModeArrayTemplate
 				id={'my-template'}
-				onAdd={jest.fn()}
-				onRemove={jest.fn()}
-				onReorder={jest.fn()}
 				renderItem={index => <div>Render item {index}</div>}
 				schema={schema}
 				value={value}
-				errorMessage={'This is an error'}
-				isValid
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render array template with simple items', () => {
+		// when
+		const wrapper = shallow(
+			<TextModeArrayTemplate
+				id={'my-template'}
+				renderItem={index => <div>Render item {index}</div>}
+				schema={schema}
+				value={simpleValue}
 			/>,
 		);
 
