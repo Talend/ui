@@ -7,10 +7,9 @@ exports[`AboutDialog should render 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "actionId": "help:about:toggle",
             "bsStyle": "default btn-inverse",
             "label": "More",
-            "loading": undefined,
+            "loading": false,
             "onClick": [Function],
           },
         ],
@@ -30,12 +29,12 @@ exports[`AboutDialog should render 1`] = `
   <div
     className="theme-about-excerpt about-excerpt"
   >
-    <Line
-      loading={undefined}
+    <Text
+      loading={false}
       text="Version: Summer 18"
     />
-    <Line
-      loading={undefined}
+    <Text
+      loading={false}
       text="© 2018 Talend. All Rights Reserved"
     />
   </div>
@@ -49,7 +48,6 @@ exports[`AboutDialog should render in loading mode 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "actionId": "help:about:toggle",
             "bsStyle": "default btn-inverse",
             "label": "More",
             "loading": true,
@@ -72,11 +70,11 @@ exports[`AboutDialog should render in loading mode 1`] = `
   <div
     className="theme-about-excerpt about-excerpt"
   >
-    <Line
+    <Text
       loading={true}
       text="Version: Summer 18"
     />
-    <Line
+    <Text
       loading={true}
       text="© 2018 Talend. All Rights Reserved"
     />
@@ -91,10 +89,9 @@ exports[`AboutDialog should render services 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "actionId": "help:about:toggle",
             "bsStyle": "default btn-inverse",
             "label": "Less",
-            "loading": undefined,
+            "loading": false,
             "onClick": [Function],
           },
         ],
@@ -114,16 +111,16 @@ exports[`AboutDialog should render services 1`] = `
   <div
     className="theme-about-excerpt about-excerpt"
   >
-    <Line
-      loading={undefined}
+    <Text
+      loading={false}
       text="Version: Summer 18"
     />
-    <Line
-      loading={undefined}
+    <Text
+      loading={false}
       text="© 2018 Talend. All Rights Reserved"
     />
   </div>
-  <ServicesTable
+  <Table
     services={
       Array [
         Object {

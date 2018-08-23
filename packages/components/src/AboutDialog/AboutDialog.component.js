@@ -10,7 +10,7 @@ import theme from './AboutDialog.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 
-function Line({ text, loading }) {
+function Text({ text, loading }) {
 	return (
 		<div>
 			{
@@ -24,7 +24,11 @@ function Line({ text, loading }) {
 	);
 }
 
-function ServicesTable({ services, t }) {
+function Table({ services, t }) {
+	if (!services || !services.length) {
+		return null;
+	}
+
 	return (
 		<table className={classNames(theme['about-versions'], 'about-versions')}>
 			<thead>
@@ -54,7 +58,6 @@ export class AboutDialog extends React.Component {
 			actions: {
 				center: [
 					{
-						actionId: 'help:about:toggle',
 						label: expanded
 							? t('LESS', { defaultValue: 'Less' })
 							: t('MORE', { defaultValue: 'More' }),
@@ -76,16 +79,16 @@ export class AboutDialog extends React.Component {
 			>
 				<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
 				<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
-					<Line
+					<Text
 						text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version })}
 						loading={loading}
 					/>
-					<Line
+					<Text
 						text={t('ABOUT_COPYRIGHT', { defaultValue: '© 2018 Talend. All Rights Reserved' })}
 						loading={loading}
 					/>
 				</div>
-				{ expanded && <ServicesTable t={t} services={services} /> }
+				{ expanded && <Table t={t} services={services} /> }
 			</Dialog>
 		);
 	}
@@ -97,12 +100,12 @@ AboutDialog.defaultProps = {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-	Line.propTypes = {
+	Text.propTypes = {
 		text: PropTypes.string,
 		loading: PropTypes.bool,
 	};
 
-	ServicesTable.propTypes = {
+	Table.propTypes = {
 		services: PropTypes.arrayOf(
 			PropTypes.shape({
 				name: PropTypes.string,
@@ -121,8 +124,16 @@ if (process.env.NODE_ENV !== 'production') {
 		version: PropTypes.string,
 		icon: PropTypes.string,
 		t: PropTypes.func.isRequired,
-		...ServicesTable.propTypes,
-		...Line.propTypes,
+		...Table.propTypes,
+	};
+
+	AboutDialog.defaultProps = {
+		expanded: false,
+		show: false,
+		loading: false,
+		version: '',
+		icon: '',
+		t: getDefaultT(),
 	};
 }
 
