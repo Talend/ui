@@ -5,12 +5,12 @@ import Fieldset, { FieldsetTextMode } from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
 
 import { Button, Buttons } from '../fields/Button';
-import { CheckBox, CheckBoxes } from '../fields/CheckBox';
+import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
-import MultiSelectTag from '../fields/MultiSelectTag';
+import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
@@ -43,8 +43,11 @@ const widgets = {
 	fieldset_text: FieldsetTextMode,
 
 	// fields: text mode
+	checkbox_text: TextModeCheckBox,
+	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
 	datalist_text: DatalistTextMode,
+	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
