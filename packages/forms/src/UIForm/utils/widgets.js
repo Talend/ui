@@ -7,7 +7,7 @@ import Tabs from '../fieldsets/Tabs';
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
-import Datalist from '../fields/Datalist';
+import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
 import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
@@ -46,6 +46,7 @@ const widgets = {
 	checkbox_text: TextModeCheckBox,
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
+	datalist_text: DatalistTextMode,
 	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
