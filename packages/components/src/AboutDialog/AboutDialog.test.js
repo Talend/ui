@@ -16,13 +16,11 @@ const props = {
 describe('AboutDialog', () => {
 	it('should trigger action callback on more click', () => {
 		const toggle = jest.fn();
-		const wrapper = mount(
-			<AboutDialog.WrappedComponent
-				onToggle={toggle}
-				{...props}
-			/>
-		);
-		wrapper.find('button').at(1).simulate('click');
+		const wrapper = mount(<AboutDialog.WrappedComponent onToggle={toggle} {...props} />);
+		wrapper
+			.find('button')
+			.at(1)
+			.simulate('click');
 		expect(toggle).toHaveBeenCalled();
 	});
 });
