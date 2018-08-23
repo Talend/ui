@@ -48,6 +48,7 @@ const icons = {
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
+	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
 };
 
 const selected = [
@@ -182,7 +183,7 @@ const props = {
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
 				actions,
-				icon: 'talend-file-xls-o',
+				icon: 'talend-file-s3-o',
 				display: 'text',
 				className: 'item-0-class',
 			},

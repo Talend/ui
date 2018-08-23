@@ -8,12 +8,14 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-info tc-notification-info"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
+      tabIndex={0}
     >
       <button
-        aria-label=""
+        aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
@@ -76,12 +78,14 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-error tc-notification-error"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status"
+      role="alert"
+      tabIndex={0}
     >
       <button
-        aria-label=""
+        aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
@@ -146,12 +150,14 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-warning tc-notification-warning"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
+      tabIndex={0}
     >
       <button
-        aria-label=""
+        aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
@@ -195,12 +201,14 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-warning tc-notification-warning"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
+      tabIndex={0}
     >
       <button
-        aria-label=""
+        aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import tv4 from 'tv4';
 import { translate } from 'react-i18next';
 
+import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
@@ -240,6 +241,38 @@ export class UIFormComponent extends React.Component {
 		if (!this.state.mergedSchema) {
 			return null;
 		}
+
+		const formTemplate =
+			this.props.displayMode === 'text' ? TextModeFormTemplate : DefaultFormTemplate;
+		const widgetsRenderer = () =>
+			this.state.mergedSchema.map((nextSchema, index) => (
+				<Widget
+					id={this.props.id}
+					key={index}
+					onChange={this.onChange}
+					onFinish={this.onFinish}
+					onTrigger={this.onTrigger}
+					schema={nextSchema}
+					properties={this.props.properties}
+					errors={this.props.errors}
+					templates={this.props.templates}
+					widgets={this.state.widgets}
+					displayMode={this.props.displayMode}
+				/>
+			));
+		const buttonsRenderer = () => (
+			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
+				<Buttons
+					id={`${this.props.id}-${this.props.id}-actions`}
+					onTrigger={this.onTrigger}
+					className={this.props.buttonBlockClass}
+					schema={{ items: actions }}
+					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
+				/>
+			</div>
+		);
+
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
@@ -255,33 +288,7 @@ export class UIFormComponent extends React.Component {
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
-				<div className={theme['form-content']}>
-					{this.state.mergedSchema.map((nextSchema, index) => (
-						<Widget
-							id={this.props.id}
-							key={index}
-							onChange={this.onChange}
-							onFinish={this.onFinish}
-							onTrigger={this.onTrigger}
-							schema={nextSchema}
-							properties={this.props.properties}
-							errors={this.props.errors}
-							templates={this.props.templates}
-							widgets={this.state.widgets}
-						/>
-					))}
-				</div>
-				{this.props.children}
-				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
-					<Buttons
-						id={`${this.props.id}-${this.props.id}-actions`}
-						onTrigger={this.onTrigger}
-						className={this.props.buttonBlockClass}
-						schema={{ items: actions }}
-						onClick={this.onActionClick}
-						getComponent={this.props.getComponent}
-					/>
-				</div>
+				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 			</form>
 		);
 	}
@@ -328,7 +335,9 @@ if (process.env.NODE_ENV !== 'production') {
 		/** Custom templates */
 		templates: PropTypes.object,
 		/** Custom widgets */
-		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		widgets: PropTypes.object,
+		/** Display mode: example 'text' */
+		displayMode: PropTypes.string,
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,

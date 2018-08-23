@@ -9,6 +9,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	height: 100%;
 
 	.icon {
+		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
@@ -58,6 +59,20 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		&:hover,
 		&:focus {
 			text-decoration: none;
+		}
+	}
+}
+
+.tc-list-title-filter {
+	&:hover,
+	&:global(.ally-focus-within) {
+		.icon {
+			color: $brand-primary;
+			filter: none;
+		}
+
+		.main-title {
+			color: $scooter;
 		}
 	}
 }
