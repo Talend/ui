@@ -77,7 +77,6 @@ class List extends React.Component {
 		cellDictionary: PropTypes.object,
 		displayMode: PropTypes.string,
 		items: ImmutablePropTypes.list.isRequired,
-		defaultSaga: PropTypes.bool,
 		...cmfConnect.propTypes,
 	};
 

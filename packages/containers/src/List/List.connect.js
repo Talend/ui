@@ -4,43 +4,44 @@ import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import {
 	configureGetFilteredItems,
-	configureGetPagedItems,
 	configureGetPagination,
-	getCollectionItems,
+	configureGetPagedItems,
 } from './selector';
 
 function componentId(ownProps) {
 	return ownProps.collectionId;
 }
 
-function getPagedItems(state, config, filteredItems) {
-	const items = configureGetPagedItems(config, filteredItems)(state);
+function getItems(state, config) {
+	const items = configureGetFilteredItems(config)(state);
+
+	return items || new List();
+}
+
+function getPagedItems(state, config) {
+	const items = configureGetPagedItems(config)(state);
 
 	return items || new List();
 }
 
 export function mapStateToProps(state, ownProps, cmfProps) {
 	const props = {};
-	let filteredItems;
-	const collectionItems = getCollectionItems(state, ownProps.collectionId);
-
-	props.config = {
+	const config = {
 		collectionId: ownProps.collectionId,
-		items: collectionItems || ownProps.items || new List(),
+		items: ownProps.items,
+		defaultFilter: get(ownProps, ['toolbar', 'filter', 'defaultFilter']),
+		defaultSorting: get(ownProps, ['sort', 'defaultSorting']),
 	};
 	if (ownProps.list) {
-		props.config.columns = ownProps.list.columns;
-	}
-	if (ownProps.defaultSaga !== false) {
-		props.saga = 'List#root';
-		filteredItems = configureGetFilteredItems(props.config)(state);
+		config.columns = ownProps.list.columns;
 	}
 
-	props.items = filteredItems || props.config.items;
+	props.items = getItems(state, config);
+
 	const totalResults = props.items.size;
 
 	if (get(ownProps, ['toolbar', 'pagination'])) {
-		props.items = getPagedItems(state, props.config, props.items);
+		props.items = getPagedItems(state, config);
 	}
 
 	const cmfState = get(cmfProps, 'state');
@@ -49,7 +50,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 		if (props.state.has('toolbar')) {
 			props.state = props.state.mergeIn(
 				['toolbar', 'pagination'],
-				configureGetPagination(state, props.config),
+				configureGetPagination(state, config),
 			);
 		}
 	}
@@ -67,6 +68,9 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+	defaultProps: {
+		saga: 'List#root',
+	},
 	componentId,
 	mapStateToProps,
 })(Container);
