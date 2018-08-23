@@ -43,8 +43,8 @@ const widgets = {
 	fieldset_text: FieldsetTextMode,
 
 	// fields: text mode
-  code_text: CodeTextMode,
-  multiSelectTag_text: MultiSelectTagTextMode,
+	code_text: CodeTextMode,
+	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
