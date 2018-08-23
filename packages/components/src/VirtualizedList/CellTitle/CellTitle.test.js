@@ -1,15 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { listTypes } from '../utils/constants';
 import CellTitle from './CellTitle.component';
-
-const { LARGE } = listTypes;
 
 describe('CellTitle', () => {
 	it('should render title selector component', () => {
 		// given
 		const columnData = {
+			iconKey: 'icon',
 			id: 'my-title',
 			displayModeKey: 'displayMode',
 			onClick: jest.fn(),
@@ -38,35 +36,43 @@ describe('CellTitle', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render without active class if no onClick on the title', () => {
+		// given
+		const columnData = {
+			iconKey: 'icon',
+			id: 'my-title',
+			displayModeKey: 'displayMode',
+			onEditCancel: jest.fn(),
+			onEditSubmit: jest.fn(),
+		};
+		const rowData = {
+			id: 1,
+			displayMode: 'text',
+			icon: 'talend-file-o',
+			title: 'my awesome title',
+		};
+
+		// when
+		const wrapper = shallow(
+			<CellTitle
+				cellData={'my awesome title'}
+				columnData={columnData}
+				getComponent={jest.fn()}
+				rowData={rowData}
+				rowIndex={1}
+			/>,
+		);
+
+		// then
+		expect(wrapper.props().className).toBe('theme-tc-list-title tc-list-title');
+	});
+
 	describe('icon', () => {
 		const rowData = {
 			id: 1,
 			title: 'my awesome title',
 			icon: 'talend-file-o',
 		};
-
-		it('should render the icon', () => {
-			// given
-			const columnData = {
-				id: 'my-title',
-				iconKey: 'icon',
-			};
-
-			// when
-			const wrapper = shallow(
-				<CellTitle
-					cellData={'my awesome title'}
-					columnData={columnData}
-					getComponent={jest.fn()}
-					rowData={rowData}
-					rowIndex={1}
-					type={LARGE}
-				/>,
-			);
-
-			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
-		});
 
 		it('should NOT render the icon when no iconKey is provided', () => {
 			// given

@@ -41,12 +41,8 @@ exports[`Storyshots SidePanel default 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -121,6 +117,83 @@ exports[`Storyshots SidePanel default 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -300,12 +373,8 @@ exports[`Storyshots SidePanel docked 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -380,6 +449,83 @@ exports[`Storyshots SidePanel docked 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={false}
@@ -559,12 +705,8 @@ exports[`Storyshots SidePanel large docked 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -639,6 +781,83 @@ exports[`Storyshots SidePanel large docked 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={false}
@@ -818,12 +1037,8 @@ exports[`Storyshots SidePanel large reverse 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -898,6 +1113,83 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1077,12 +1369,8 @@ exports[`Storyshots SidePanel links 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1157,6 +1445,83 @@ exports[`Storyshots SidePanel links 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1336,12 +1701,8 @@ exports[`Storyshots SidePanel not dockable 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1416,6 +1777,83 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1566,12 +2004,8 @@ exports[`Storyshots SidePanel reverse 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1646,6 +2080,83 @@ exports[`Storyshots SidePanel reverse 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1825,12 +2336,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1905,6 +2412,83 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="tc-layout theme-layout"
@@ -2452,12 +3036,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -2532,6 +3112,83 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="tc-layout theme-layout"
@@ -3079,12 +3736,8 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3159,6 +3812,83 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-portal"
@@ -3351,12 +4081,8 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3431,6 +4157,83 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tdc"
@@ -3623,12 +4426,8 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3703,6 +4502,83 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tdp"
@@ -3895,12 +4771,8 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3975,6 +4847,83 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tds"
@@ -4167,12 +5116,8 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -4247,6 +5192,83 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tfd"
@@ -4439,12 +5461,8 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -4519,6 +5537,83 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tic"
@@ -4711,12 +5806,8 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -4791,6 +5882,83 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tmc"
