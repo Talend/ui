@@ -2,12 +2,8 @@
 
 exports[`IconsProvider should override talend icons by using defaultIcons props 1`] = `
 <svg
+  className="sr-only"
   focusable="false"
-  style={
-    Object {
-      "display": "none",
-    }
-  }
   xmlns="http://www.w3.org/2000/svg"
 >
   <symbol
@@ -17,17 +13,90 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
       id="OverrideDefaultIcon"
     />
   </symbol>
+  <svg
+    id="colormapping"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="colormapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feColorMatrix
+            in="grayscale"
+            type="matrix"
+            values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
+  <svg
+    id="grayscale"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="talend-grayscale"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncG
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncB
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            type="matrix"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
 </svg>
 `;
 
 exports[`IconsProvider should override talend icons by using defaultIcons props and render custom icon 1`] = `
 <svg
+  className="sr-only"
   focusable="false"
-  style={
-    Object {
-      "display": "none",
-    }
-  }
   xmlns="http://www.w3.org/2000/svg"
 >
   <symbol
@@ -44,17 +113,90 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
       id="customIcon"
     />
   </symbol>
+  <svg
+    id="colormapping"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="colormapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feColorMatrix
+            in="grayscale"
+            type="matrix"
+            values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
+  <svg
+    id="grayscale"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="talend-grayscale"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncG
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncB
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            type="matrix"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
 </svg>
 `;
 
 exports[`IconsProvider should render default talend-icons 1`] = `
 <svg
+  className="sr-only"
   focusable="false"
-  style={
-    Object {
-      "display": "none",
-    }
-  }
   xmlns="http://www.w3.org/2000/svg"
 >
   <symbol
@@ -1838,11 +1980,9 @@ exports[`IconsProvider should render default talend-icons 1`] = `
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g>
-        <path
-          d="M2.75,6.39488462e-14 L2.75,5.341 L1.176,5.341 L1.176,7.473 L-1.27009514e-13,7.473 L1.999,16 L14,16 L16,7.473 L15,7.473 L15,5.341 L13.249,5.341 L13.249,4.275 L9.25,6.39488462e-14 L2.75,6.39488462e-14 Z M3.75,5.341 L3.75,1.077 L8.25,1.077 L8.25,5.341 L12.249,5.341 L12.249,7.473 L4.46,7.473 L3.75,7.473 L3.75,5.341 Z M9.25,1.61 L11.75,4.275 L9.25,4.275 L9.25,1.61 Z M1.28,8.538 L4.46,8.538 L12.96,8.538 L14.719,8.538 L13.22,14.935 L2.781,14.935 L1.28,8.538 Z"
-        />
-      </g>
+      <path
+        d="M2.75,6.39488462e-14 L2.75,5.341 L1.176,5.341 L1.176,7.473 L-1.27009514e-13,7.473 L1.999,16 L14,16 L16,7.473 L15,7.473 L15,5.341 L13.249,5.341 L13.249,4.275 L9.25,6.39488462e-14 L2.75,6.39488462e-14 Z M3.75,5.341 L3.75,1.077 L8.25,1.077 L8.25,5.341 L12.249,5.341 L12.249,7.473 L4.46,7.473 L3.75,7.473 L3.75,5.341 Z M9.25,1.61 L11.75,4.275 L9.25,4.275 L9.25,1.61 Z M1.28,8.538 L4.46,8.538 L12.96,8.538 L14.719,8.538 L13.22,14.935 L2.781,14.935 L1.28,8.538 Z"
+      />
     </svg>
   </symbol>
   <symbol
@@ -3365,17 +3505,90 @@ exports[`IconsProvider should render default talend-icons 1`] = `
       />
     </svg>
   </symbol>
+  <svg
+    id="colormapping"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="colormapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feColorMatrix
+            in="grayscale"
+            type="matrix"
+            values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
+  <svg
+    id="grayscale"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="talend-grayscale"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncG
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncB
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            type="matrix"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
 </svg>
 `;
 
 exports[`IconsProvider should render default talend-icons and custom icons defined on icons prop 1`] = `
 <svg
+  className="sr-only"
   focusable="false"
-  style={
-    Object {
-      "display": "none",
-    }
-  }
   xmlns="http://www.w3.org/2000/svg"
 >
   <symbol
@@ -5159,11 +5372,9 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g>
-        <path
-          d="M2.75,6.39488462e-14 L2.75,5.341 L1.176,5.341 L1.176,7.473 L-1.27009514e-13,7.473 L1.999,16 L14,16 L16,7.473 L15,7.473 L15,5.341 L13.249,5.341 L13.249,4.275 L9.25,6.39488462e-14 L2.75,6.39488462e-14 Z M3.75,5.341 L3.75,1.077 L8.25,1.077 L8.25,5.341 L12.249,5.341 L12.249,7.473 L4.46,7.473 L3.75,7.473 L3.75,5.341 Z M9.25,1.61 L11.75,4.275 L9.25,4.275 L9.25,1.61 Z M1.28,8.538 L4.46,8.538 L12.96,8.538 L14.719,8.538 L13.22,14.935 L2.781,14.935 L1.28,8.538 Z"
-        />
-      </g>
+      <path
+        d="M2.75,6.39488462e-14 L2.75,5.341 L1.176,5.341 L1.176,7.473 L-1.27009514e-13,7.473 L1.999,16 L14,16 L16,7.473 L15,7.473 L15,5.341 L13.249,5.341 L13.249,4.275 L9.25,6.39488462e-14 L2.75,6.39488462e-14 Z M3.75,5.341 L3.75,1.077 L8.25,1.077 L8.25,5.341 L12.249,5.341 L12.249,7.473 L4.46,7.473 L3.75,7.473 L3.75,5.341 Z M9.25,1.61 L11.75,4.275 L9.25,4.275 L9.25,1.61 Z M1.28,8.538 L4.46,8.538 L12.96,8.538 L14.719,8.538 L13.22,14.935 L2.781,14.935 L1.28,8.538 Z"
+      />
     </svg>
   </symbol>
   <symbol
@@ -6693,5 +6904,82 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
       id="customIcon"
     />
   </symbol>
+  <svg
+    id="colormapping"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="colormapping"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feColorMatrix
+            in="grayscale"
+            type="matrix"
+            values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
+  <svg
+    id="grayscale"
+  >
+    <svg>
+      <defs>
+        <filter
+          color-interpolation-filters="sRGB"
+          id="talend-grayscale"
+        >
+          <feColorMatrix
+            in="SourceGraphic"
+            result="grayscale"
+            type="saturate"
+            values="0"
+          />
+          <feComponentTransfer
+            in="grayscale"
+            result="gammadarken"
+          >
+            <feFuncR
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncG
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncB
+              amplitude="1"
+              exponent="7"
+              offset="0.0"
+              type="gamma"
+            />
+            <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
+              type="gamma"
+            />
+          </feComponentTransfer>
+          <feColorMatrix
+            in="gammadarken"
+            type="matrix"
+            values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </svg>
 </svg>
 `;

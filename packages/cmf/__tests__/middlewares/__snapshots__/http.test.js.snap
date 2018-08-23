@@ -31,7 +31,12 @@ Object {
 
 exports[`json function should resolve if attr json is on response 1`] = `
 Object {
-  "foo": "bar",
+  "data": Object {
+    "foo": "bar",
+  },
+  "headers": Object {
+    "content-type": "application/json",
+  },
 }
 `;
 
