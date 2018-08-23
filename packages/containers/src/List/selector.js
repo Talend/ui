@@ -118,24 +118,21 @@ export function configureGetSortedItems(configure, listItems) {
 }
 
 export function configureGetPagedItems(configure, listItems) {
-	const getPagedList = createSelector(
-		getComponentState(configure.collectionId),
-		componentState => {
-			let results = listItems;
-			if (componentState) {
-				const startIndex = componentState.get('startIndex');
-				const itemsPerPage = componentState.get('itemsPerPage');
+	const getPagedList = createSelector(getComponentState(configure.collectionId), componentState => {
+		let results = listItems;
+		if (componentState) {
+			const startIndex = componentState.get('startIndex');
+			const itemsPerPage = componentState.get('itemsPerPage');
 
-				if (itemsPerPage > 0 && startIndex > 0) {
-					results = results.slice(
-						startIndex - 1,
-						Math.min(startIndex + itemsPerPage - 1, results.size),
-					);
-				}
+			if (itemsPerPage > 0 && startIndex > 0) {
+				results = results.slice(
+					startIndex - 1,
+					Math.min(startIndex + itemsPerPage - 1, results.size),
+				);
 			}
-			return results;
-		},
-	);
+		}
+		return results;
+	});
 
 	return createSelector([getPagedList, getComponentState], items => items);
 }
