@@ -4,10 +4,12 @@ import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
+import { UnhandleTypeError, UnexpectedTypeError } from './WrongTypeError';
 
 export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
 
 const INVALID_DATE = new Date('');
+const HANDLE_CONVERTION_TYPE = ['string', 'number'];
 
 function convertDateToTimestamp(date) {
 	return date.getTime();
@@ -37,9 +39,7 @@ function convertToDate(type, value) {
 	const typeOfValue = typeof value;
 
 	if (typeOfValue !== type) {
-		console.warn(
-			new Error(`'InputDateTimePicker' expected type of '${type}' and got '${typeOfValue}'`),
-		);
+		console.error(new UnexpectedTypeError(type, typeOfValue));
 		return INVALID_DATE;
 	}
 
@@ -49,9 +49,7 @@ function convertToDate(type, value) {
 		case 'string':
 			return convertStringToDate(value);
 		default:
-			console.warn(
-				new Error(`'InputDateTimePicker' only accept 'number' or 'string' type not '${type}'`),
-			);
+			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
 			return INVALID_DATE;
 	}
 }
@@ -67,9 +65,7 @@ function convertFromDate(type, date) {
 		case 'string':
 			return convertDateToString(date);
 		default:
-			console.warn(
-				new Error(`'InputDateTimePicker' only accept 'number' or 'string' type not '${type}'`),
-			);
+			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
 			return undefined;
 	}
 }
