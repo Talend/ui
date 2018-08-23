@@ -16,7 +16,7 @@ function componentId(ownProps) {
 
 function getItems(state, config) {
 	let items = config.items;
-	if (config.defaultFilter !== false) {
+	if (config.defaultFiltering !== false) {
 		items = configureGetFilteredItems(config)(state);
 	}
 	if (config.defaultSorting !== false) {
@@ -26,7 +26,7 @@ function getItems(state, config) {
 }
 
 function getPagedItems(state, config, items) {
-	if (config.defaultFilter !== false && config.defaultSorting !== false) {
+	if (config.defaultPaging !== false) {
 		return configureGetPagedItems(config, items)(state);
 	}
 	return config.items;
@@ -38,8 +38,9 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 	const config = {
 		collectionId: ownProps.collectionId,
 		items: collectionItems || ownProps.items || ownProps.listItems,
-		defaultFilter: get(ownProps, ['toolbar', 'filter', 'defaultFilter']),
-		defaultSorting: get(ownProps, ['sort', 'defaultSorting']),
+		defaultFiltering: get(ownProps, ['toolbar', 'filter', 'defaultFiltering']),
+		defaultSorting: get(ownProps, ['toolbar', 'sort', 'defaultSorting']),
+		defaultPaging: get(ownProps, ['toolbar', 'pagination', 'defaultPaging']),
 	};
 	if (ownProps.list) {
 		config.columns = ownProps.list.columns;

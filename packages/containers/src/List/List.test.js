@@ -598,4 +598,94 @@ describe('Connected List', () => {
 		// then
 		expect(props).toMatchSnapshot();
 	});
+
+	it('should disable filtering when defaultFiltering is set to false', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					'Container(List)': {
+						default: {
+							displayMode: 'large',
+							searchQuery: 'Title',
+							itemsPerPage: 0,
+							startIndex: 0,
+							sortOn: 'name',
+							sortAsc: true,
+							filterDocked: true,
+						},
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+		const initalSettings = cloneDeep(settings);
+		initalSettings.items = fromJS(items);
+		initalSettings.toolbar.filter.defaultFiltering = false;
+		// when : no collectionId defined
+		const props = mapStateToProps(state, initalSettings);
+
+		// then
+		expect(props.items.size).toBe(items.size);
+	});
+
+	it('should disable sorting when defaultSorting is set to false', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					'Container(List)': {
+						default: {
+							displayMode: 'large',
+							searchQuery: 'Title',
+							itemsPerPage: 0,
+							startIndex: 0,
+							sortOn: 'id',
+							sortAsc: false,
+							filterDocked: true,
+						},
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+		const initalSettings = cloneDeep(settings);
+		initalSettings.items = fromJS(items);
+		initalSettings.toolbar.sort.defaultSorting = false;
+		// when : no collectionId defined
+		const props = mapStateToProps(state, initalSettings);
+
+		// then
+		expect(props.items.toJS()[0].id).toBe(1);
+	});
+
+	it('should disable paging when defaultPaging is set to false', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					'Container(List)': {
+						default: {
+							displayMode: 'large',
+							searchQuery: 'Title',
+							itemsPerPage: 1,
+							startIndex: 1,
+							sortOn: 'name',
+							sortAsc: true,
+							filterDocked: true,
+						},
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+		const initalSettings = cloneDeep(settings);
+		initalSettings.items = fromJS(items);
+		initalSettings.toolbar.pagination.defaultPaging = false;
+		// when : no collectionId defined
+		const props = mapStateToProps(state, initalSettings);
+
+		// then
+		expect(props.items.size).toBe(items.size);
+	});
 });
