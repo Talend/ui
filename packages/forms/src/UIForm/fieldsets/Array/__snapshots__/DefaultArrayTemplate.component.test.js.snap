@@ -5,7 +5,9 @@ exports[`Default Array Template component should render default array template 1
   className="theme-tf-array-fieldset tf-array-fieldset"
   data-content="comments"
 >
-  <legend>
+  <legend
+    className="sr-only"
+  >
     comments
   </legend>
   <Action
@@ -73,5 +75,10 @@ exports[`Default Array Template component should render default array template 1
       </ArrayItem>
     </li>
   </ol>
+  <Message
+    description="Tnstructions to fill it"
+    errorMessage="This is an error"
+    isValid={true}
+  />
 </fieldset>
 `;
