@@ -78,12 +78,19 @@ $item-height: 40px;
 
 		&[data-selected='true'] {
 			background: rgba($black, 0.05);
-			font-weight: bold;
-			color: black;
+			font-weight: 600;
+			color: $black;
 
 			.tc-treeview-folder {
 				fill: $lightning-yellow;
 			}
+		}
+
+		.tc-treeview-item-name {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 40rem;
 		}
 	}
 
