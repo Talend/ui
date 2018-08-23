@@ -41,7 +41,7 @@ describe('InputDateTimePicker', () => {
 		describe('form number type', () => {
 			describe('from form to component', () => {
 				it('should convert number to date', () => {
-					const timestamp = 1533884400000;
+					const initialTimestamp = 1533884400000;
 					const wrapper = shallow(
 						<InputDateTimePicker
 							id="my-datepicker"
@@ -49,17 +49,17 @@ describe('InputDateTimePicker', () => {
 							onChange={jest.fn()}
 							onFinish={jest.fn()}
 							schema={getSchema('number')}
-							value={timestamp}
+							value={initialTimestamp}
 						/>,
 					);
 
 					const componentWrapper = wrapper.find('InputDateTimePicker');
 					const dateSpread = componentWrapper.prop('selectedDateTime');
-					expect(dateSpread.getTime()).toBe(timestamp);
+					expect(dateSpread.getTime()).toBe(initialTimestamp);
 				});
 
 				it('should convert an undefined number to an undefined date', () => {
-					const timestamp = undefined;
+					const initialTimestamp = undefined;
 					const wrapper = shallow(
 						<InputDateTimePicker
 							id="my-datepicker"
@@ -67,7 +67,7 @@ describe('InputDateTimePicker', () => {
 							onChange={jest.fn()}
 							onFinish={jest.fn()}
 							schema={getSchema('number')}
-							value={timestamp}
+							value={initialTimestamp}
 						/>,
 					);
 
@@ -79,7 +79,7 @@ describe('InputDateTimePicker', () => {
 
 			describe('from component to form', () => {
 				it('should convert date to number', () => {
-					const timestamp = undefined;
+					const initialTimestamp = undefined;
 					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
 					const expectedTimestamp = 1448478660000;
 					const onChange = jest.fn();
@@ -90,7 +90,7 @@ describe('InputDateTimePicker', () => {
 							onChange={onChange}
 							onFinish={jest.fn()}
 							schema={getSchema('number')}
-							value={timestamp}
+							value={initialTimestamp}
 						/>,
 					);
 
@@ -102,7 +102,7 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should convert an undefined date to an undefined number', () => {
-					const timestamp = 1081866600000;
+					const initialTimestamp = 1081866600000;
 					const onChange = jest.fn();
 					const wrapper = shallow(
 						<InputDateTimePicker
@@ -111,7 +111,7 @@ describe('InputDateTimePicker', () => {
 							onChange={onChange}
 							onFinish={jest.fn()}
 							schema={getSchema('number')}
-							value={timestamp}
+							value={initialTimestamp}
 						/>,
 					);
 
@@ -127,7 +127,7 @@ describe('InputDateTimePicker', () => {
 		describe('form string type', () => {
 			describe('from form to component', () => {
 				it('should convert string to date', () => {
-					const dateStr = '2025-02-25T03:35:00Z';
+					const initialDateStr = '2025-02-25T03:35:00Z';
 					const expectedTimestamp = 1740454500000;
 					const wrapper = shallow(
 						<InputDateTimePicker
@@ -136,7 +136,7 @@ describe('InputDateTimePicker', () => {
 							onChange={jest.fn()}
 							onFinish={jest.fn()}
 							schema={getSchema('string')}
-							value={dateStr}
+							value={initialDateStr}
 						/>,
 					);
 
@@ -146,7 +146,7 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should convert an undefined string to an undefined date', () => {
-					const dateStr = undefined;
+					const initialDateStr = undefined;
 					const wrapper = shallow(
 						<InputDateTimePicker
 							id="my-datepicker"
@@ -154,7 +154,7 @@ describe('InputDateTimePicker', () => {
 							onChange={jest.fn()}
 							onFinish={jest.fn()}
 							schema={getSchema('string')}
-							value={dateStr}
+							value={initialDateStr}
 						/>,
 					);
 
@@ -166,7 +166,7 @@ describe('InputDateTimePicker', () => {
 
 			describe('from component to form', () => {
 				it('should convert date to string', () => {
-					const dateStr = '2027-01-01T03:35:00Z';
+					const initialDateStr = '2027-01-01T03:35:00Z';
 					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
 					const expectedStr = '2015-11-25T19:11:00.000Z';
 					const onChange = jest.fn();
@@ -177,7 +177,7 @@ describe('InputDateTimePicker', () => {
 							onChange={onChange}
 							onFinish={jest.fn()}
 							schema={getSchema('string')}
-							value={dateStr}
+							value={initialDateStr}
 						/>,
 					);
 
@@ -188,7 +188,7 @@ describe('InputDateTimePicker', () => {
 				});
 
 				it('should convert an undefined date to an undefined string', () => {
-					const dateStr = '2027-01-01T03:35:00Z';
+					const initialDateStr = '2027-01-01T03:35:00Z';
 					const onChange = jest.fn();
 					const wrapper = shallow(
 						<InputDateTimePicker
@@ -197,7 +197,7 @@ describe('InputDateTimePicker', () => {
 							onChange={onChange}
 							onFinish={jest.fn()}
 							schema={getSchema('string')}
-							value={dateStr}
+							value={initialDateStr}
 						/>,
 					);
 
@@ -214,7 +214,7 @@ describe('InputDateTimePicker', () => {
 	describe('errors handling', () => {
 		describe('coming from component', () => {
 			it('should spread an Error object to the form when receiving a message error from the component', () => {
-				const dateStr = '2027-01-01T03:35:00Z';
+				const initialDateStr = '2027-01-01T03:35:00Z';
 				const onChange = jest.fn();
 				const wrapper = shallow(
 					<InputDateTimePicker
@@ -223,7 +223,7 @@ describe('InputDateTimePicker', () => {
 						onChange={onChange}
 						onFinish={jest.fn()}
 						schema={getSchema('string')}
-						value={dateStr}
+						value={initialDateStr}
 					/>,
 				);
 
@@ -268,7 +268,7 @@ describe('InputDateTimePicker', () => {
 
 		describe('coming from form', () => {
 			it('should override the form error message if is not coming from the widget', () => {
-				const timestamp = 999999999999999999999;
+				const initialTimestamp = 999999999999999999999;
 				const onChange = jest.fn();
 
 				const wrapper = shallow(
@@ -278,7 +278,7 @@ describe('InputDateTimePicker', () => {
 						onChange={onChange}
 						onFinish={jest.fn()}
 						schema={getSchema('number')}
-						value={timestamp}
+						value={initialTimestamp}
 					/>,
 				);
 
