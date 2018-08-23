@@ -10,7 +10,7 @@ import Code, { CodeTextMode } from '../fields/Code';
 import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
-import MultiSelectTag from '../fields/MultiSelectTag';
+import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
@@ -46,6 +46,7 @@ const widgets = {
 	checkbox_text: TextModeCheckBox,
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
+	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
