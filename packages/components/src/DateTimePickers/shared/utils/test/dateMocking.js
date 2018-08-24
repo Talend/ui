@@ -11,6 +11,16 @@ const SET_METHODS_OVERRIDE_TO_UTC = [
 ];
 const GET_METHODS_OVERRIDE_TO_UTC = SET_METHODS_OVERRIDE_TO_UTC.concat('Day');
 
+function overrideStaticMethods(BaseDate, OverridenDate) {
+	Object.getOwnPropertyNames(BaseDate)
+		.filter(key => !['name', 'length'].includes(key))
+		.map(key => [key, BaseDate[key]])
+		.forEach(([key, value]) => {
+			// eslint-disable-next-line no-param-reassign
+			OverridenDate[key] = value;
+		});
+}
+
 function overridePrototypesMethods(NewDate) {
 	function overrideLocalToUtc(allMethods, methodsToOverride) {
 		allMethods
@@ -57,13 +67,7 @@ export function mockDate(mockingDate = new Date(0)) {
 		return new OriginalDate(...finalArgs);
 	};
 
-	Object.getOwnPropertyNames(OriginalDate)
-		.filter(key => !['name', 'length'].includes(key))
-		.map(key => [key, OriginalDate[key]])
-		.forEach(([key, value]) => {
-			// eslint-disable-next-line no-param-reassign
-			Date[key] = value;
-		});
+	overrideStaticMethods(OriginalDate, Date);
 
 	overridePrototypesMethods(Date);
 
