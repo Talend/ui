@@ -265,37 +265,37 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onChangeInput(event) {
-		const fullString = event.target.value;
+		const textInput = event.target.value;
 
-		if (fullString === '') {
+		if (textInput === '') {
 			this.updateDatePartStateAndTriggerChange(event, {
 				date: undefined,
 				time: undefined,
-				textInput: fullString,
+				textInput,
 				datetime: undefined,
 				errorMessage: undefined,
 			});
 			return;
 		}
 
-		const splitMatches = fullString.match(splitDateAndTimePartsRegex);
-		const canParseFullString = splitMatches !== null;
+		const splitMatches = textInput.match(splitDateAndTimePartsRegex);
+		const canParseTextInput = splitMatches !== null;
 
-		const dateStrToParse = canParseFullString ? splitMatches[1] : fullString;
-		const [date, errMsgDate] = extractDate(dateStrToParse);
+		const dateTextToParse = canParseTextInput ? splitMatches[1] : textInput;
+		const [date, errMsgDate] = extractDate(dateTextToParse);
 
-		const timeStrToParse = canParseFullString ? splitMatches[2] : fullString;
-		const [time, errMsgTime] = extractTime(timeStrToParse);
+		const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
+		const [time, errMsgTime] = extractTime(timeTextToParse);
 
 		const fullDate = getObjectDate(date, time);
-		const errorMessage = canParseFullString
+		const errorMessage = canParseTextInput
 			? errMsgDate || errMsgTime
 			: 'DATETIME - INCORRECT FORMAT';
 
 		this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
-			textInput: fullString,
+			textInput,
 			datetime: fullDate,
 			errorMessage,
 		});
