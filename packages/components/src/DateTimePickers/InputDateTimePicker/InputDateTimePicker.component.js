@@ -179,6 +179,7 @@ class InputDateTimePicker extends React.Component {
 		id: PropTypes.string.isRequired,
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
+		onBlur: PropTypes.func,
 		readOnly: PropTypes.bool,
 	};
 
@@ -261,6 +262,7 @@ class InputDateTimePicker extends React.Component {
 		});
 
 		this.switchDropdownVisibility(false);
+		this.triggerBlur(event);
 	}
 
 	onChangeInput(event) {
@@ -344,12 +346,13 @@ class InputDateTimePicker extends React.Component {
 		this.containerRef.removeEventListener('focusin', this.componentContainerHandler);
 	}
 
-	documentHandler(e) {
-		const eventIndex = this.componentContainerEvents.indexOf(e);
+	documentHandler(event) {
+		const eventIndex = this.componentContainerEvents.indexOf(event);
 		const isActionOutOfComponent = eventIndex === -1;
 
 		if (isActionOutOfComponent) {
 			this.switchDropdownVisibility(false);
+			this.triggerBlur(event);
 		} else {
 			this.componentContainerEvents.splice(eventIndex, 1);
 		}
@@ -377,6 +380,12 @@ class InputDateTimePicker extends React.Component {
 
 		if (this.props.onChange && (fullDateUpdated || errorUpdated)) {
 			this.props.onChange(event, errorMsg, fullDate);
+		}
+	}
+
+	triggerBlur(event) {
+		if (this.props.onBlur) {
+			this.props.onBlur(event);
 		}
 	}
 

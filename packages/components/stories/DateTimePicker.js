@@ -52,7 +52,8 @@ class TestPickerWrapper extends React.Component {
 				<InputDateTimePicker
 					{...this.props}
 					selectedDateTime={this.state.selectedDateTime}
-					onChange={action('onChange (error message, dateTime)')}
+					onChange={action('onChange (event, error message, dateTime)')}
+					onBlur={action('onBlur (event)')}
 					name="Datetime"
 				/>
 			</div>

@@ -458,4 +458,31 @@ describe('InputDateTimePicker', () => {
 			],
 		);
 	});
+
+	it('should trigger onFinish when the component blur', () => {
+		const initialTimestamp = 1533884400000;
+		const initialSchema = getSchema('number');
+		const fakeEvent = {
+			whatever: 'property',
+		};
+		const onFinish = jest.fn();
+		const wrapper = shallow(
+			<InputDateTimePicker
+				id="my-datepicker"
+				isValid
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={initialSchema}
+				value={initialTimestamp}
+			/>,
+		);
+
+		const componentWrapper = wrapper.find('InputDateTimePicker');
+		componentWrapper.prop('onBlur')(fakeEvent);
+
+		const onFinishEvent = onFinish.mock.calls[0][0];
+		const onFinishPayload = onFinish.mock.calls[0][1];
+		expect(onFinishEvent).toBe(fakeEvent);
+		expect(onFinishPayload.schema).toBe(initialSchema);
+	});
 });

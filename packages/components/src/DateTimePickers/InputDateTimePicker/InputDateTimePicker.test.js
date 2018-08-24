@@ -945,6 +945,99 @@ describe('InputDateTimePicker', () => {
 		});
 	});
 
+	describe.only('callback onBlur', () => {
+		cases(
+			'should callback only with focus or click event outside the component and not inside',
+			({ eventType, isOutside, shouldBlur }) => {
+				const onBlur = jest.fn();
+
+				const wrapper = mount(
+					<div>
+						<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} />
+						<input className="some-random-input" />
+					</div>,
+					{ attachTo: getRootElement() },
+				);
+
+				const inputWrapper = wrapper.find('DebounceInput');
+				inputWrapper.simulate('focus');
+
+				wrapper.update();
+
+				if (isOutside) {
+					const ousideElement = document.body.querySelector('input.some-random-input');
+					simulant.fire(ousideElement, eventType);
+				} else {
+					const insideElement = wrapper.getDOMNode().querySelector('button');
+					simulant.fire(insideElement, eventType);
+				}
+
+				wrapper.update();
+
+				if (shouldBlur) {
+					expect(onBlur).toHaveBeenCalledTimes(1);
+				} else {
+					expect(onBlur).not.toHaveBeenCalled();
+				}
+			},
+			[
+				{
+					name: 'focus outside',
+					eventType: 'focusin',
+					isOutside: true,
+					shouldBlur: true,
+				},
+				{
+					name: 'click outside',
+					eventType: 'click',
+					isOutside: true,
+					shouldBlur: true,
+				},
+				{
+					name: 'focus inside',
+					eventType: 'focusin',
+					isOutside: false,
+					shouldBlur: false,
+				},
+				{
+					name: 'click inside',
+					eventType: 'click',
+					isOutside: false,
+					shouldBlur: false,
+				},
+			],
+		);
+
+		it('should callback when dropdown picker is submitted', () => {
+			const onBlur = jest.fn();
+
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} />, {
+				attachTo: getRootElement(),
+			});
+
+			const inputWrapper = wrapper.find('DebounceInput');
+			inputWrapper.simulate('focus');
+
+			wrapper.update();
+
+			const overlayWrapperBefore = wrapper.find('Overlay').first();
+			expect(overlayWrapperBefore.prop('show')).toBe(true);
+
+			const portalInstance = wrapper.find('Portal').instance();
+			const dropdownContent = new ReactWrapper(portalInstance.props.children);
+
+			const pickerWrapper = dropdownContent.find(DateTimePicker);
+			pickerWrapper.prop('onSubmit')(null, {
+				date: new Date(2018, 0, 1),
+				time: 50,
+			});
+
+			wrapper.update();
+
+			expect(onBlur).toHaveBeenCalledTimes(1);
+		});
+	});
+
 	describe('dropdown management', () => {
 		it('should have the dropdown closed by default', () => {
 			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />, {

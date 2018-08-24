@@ -89,6 +89,7 @@ class InputDateTimePicker extends React.Component {
 		};
 
 		this.onChange = this.onChange.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
 	}
 
@@ -103,7 +104,6 @@ class InputDateTimePicker extends React.Component {
 
 	/**
 	 * On change callback
-	 * We call onFinish to trigger validation
 	 * @param date
 	 */
 	onChange(event, errorMessage, date) {
@@ -119,7 +119,12 @@ class InputDateTimePicker extends React.Component {
 			value,
 		};
 		this.props.onChange(event, payload);
-		this.props.onFinish(event, payload);
+	}
+
+	onBlur(event) {
+		this.props.onFinish(event, {
+			schema: this.props.schema,
+		});
 	}
 
 	render() {
@@ -142,6 +147,7 @@ class InputDateTimePicker extends React.Component {
 					id={this.props.id}
 					selectedDateTime={datetime}
 					onChange={this.onChange}
+					onBlur={this.onBlur}
 					autoFocus={schema.autoFocus}
 					disabled={schema.disabled}
 					readOnly={schema.readOnly}
