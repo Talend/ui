@@ -31,7 +31,6 @@ jest.mock('react-bootstrap/lib/Modal', () => {
 	return Modal;
 });
 
-
 describe('AboutDialog', () => {
 	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
 		const onToggle = jest.fn();
@@ -47,11 +46,12 @@ describe('AboutDialog', () => {
 			})),
 		};
 
-		const wrapper = mount(
-			<AboutDialog {...props} />,
-		);
+		const wrapper = mount(<AboutDialog {...props} />);
 
-		wrapper.find('button').at(0).simulate('click');
+		wrapper
+			.find('button')
+			.at(0)
+			.simulate('click');
 
 		expect(onToggle).toHaveBeenCalled();
 	});
