@@ -282,14 +282,14 @@ class InputDateTimePicker extends React.Component {
 		const canParseTextInput = splitMatches !== null;
 
 		const dateTextToParse = canParseTextInput ? splitMatches[1] : textInput;
-		const [date, errMsgDate] = extractDate(dateTextToParse);
+		const [date, errorMessageDate] = extractDate(dateTextToParse);
 
 		const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
-		const [time, errMsgTime] = extractTime(timeTextToParse);
+		const [time, errorMessageTime] = extractTime(timeTextToParse);
 
 		const datetime = getObjectDate(date, time);
 		const errorMessage = canParseTextInput
-			? errMsgDate || errMsgTime
+			? errorMessageDate || errorMessageTime
 			: 'DATETIME - INCORRECT FORMAT';
 
 		this.updateDatePartStateAndTriggerChange(event, {
