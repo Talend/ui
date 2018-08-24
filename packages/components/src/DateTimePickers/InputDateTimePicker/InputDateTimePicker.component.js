@@ -249,15 +249,15 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
-		const fullDate = getObjectDate(date, time);
-		const errorMsg = undefined;
+		const datetime = getObjectDate(date, time);
+		const errorMessage = undefined;
 
 		this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: getTextDate(date, time),
-			datetime: fullDate,
-			errorMessage: errorMsg,
+			datetime,
+			errorMessage,
 		});
 
 		this.switchDropdownVisibility(false);
@@ -288,14 +288,16 @@ class InputDateTimePicker extends React.Component {
 		const [time, errMsgTime] = extractTime(timeStrToParse);
 
 		const fullDate = getObjectDate(date, time);
-		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
+		const errorMessage = canParseFullString
+			? errMsgDate || errMsgTime
+			: 'DATETIME - INCORRECT FORMAT';
 
 		this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: fullString,
 			datetime: fullDate,
-			errorMessage: errMsg,
+			errorMessage,
 		});
 	}
 
