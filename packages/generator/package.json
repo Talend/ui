@@ -2,6 +2,7 @@
   "name": "generator-talend",
   "description": "Talend's JavaScript generator",
   "main": "generators/app/index.js",
+  "mainSrc": "generators/app/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "start": "echo nothing to start",

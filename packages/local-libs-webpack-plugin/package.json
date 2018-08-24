@@ -1,0 +1,32 @@
+{
+  "name": "@talend/local-libs-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Easier development on local libraries",
+  "main": "index.js",
+  "mainSrc": "index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "webpack",
+    "talend",
+    "libs",
+    "link"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/local-libs-webpack-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "devDependencies": {
+    "eslint": "3.4.0",
+    "eslint-config-airbnb": "10.0.1",
+    "eslint-plugin-import": "1.14.0",
+    "jest-cli": "20.0.3"
+  }
+}

@@ -2,6 +2,7 @@
   "name": "@talend/react-datagrid",
   "description": "Provide a datagrid for at least talend applications based on ag-grid",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",

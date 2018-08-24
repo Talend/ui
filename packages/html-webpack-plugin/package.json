@@ -5,6 +5,7 @@
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "main": "index.js",
+  "mainSrc": "index.js",
   "scripts": {
     "test": "jest"
   },

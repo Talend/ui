@@ -3,6 +3,7 @@
   "version": "0.206.0-2",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/",

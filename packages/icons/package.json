@@ -2,6 +2,7 @@
   "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
   "main": "index.js",
+  "mainSrc": "index.js",
   "style": "build/octicons.css",
   "license": "(OFL-1.1 OR MIT)",
   "scripts": {

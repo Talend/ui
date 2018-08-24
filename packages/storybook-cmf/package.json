@@ -20,6 +20,7 @@
     "test:demo": "echo nothing to demo"
   },
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "devDependencies": {
     "@storybook/react": "^3.3.14",
     "@talend/react-cmf": "^0.206.0-2",

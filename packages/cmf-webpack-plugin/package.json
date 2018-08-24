@@ -2,6 +2,7 @@
   "name": "@talend/react-cmf-webpack-plugin",
   "description": "@talend/react-cmf webpack plugin for merging CMF settings",
   "main": "dist/index.js",
+  "mainSrc": "src/index.js",
   "scripts": {
     "prepublish": "npm run build && npm run test",
     "build": "rimraf ./dist && babel -d dist ./src/ --ignore **/*.test.js",
