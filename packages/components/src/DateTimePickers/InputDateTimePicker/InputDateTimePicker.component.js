@@ -257,7 +257,7 @@ class InputDateTimePicker extends React.Component {
 			time,
 			textInput: getTextDate(date, time),
 			datetime: fullDate,
-			lastErrMsg: errorMsg,
+			errorMessage: errorMsg,
 		});
 
 		this.switchDropdownVisibility(false);
@@ -273,7 +273,7 @@ class InputDateTimePicker extends React.Component {
 				time: undefined,
 				textInput: fullString,
 				datetime: undefined,
-				lastErrMsg: undefined,
+				errorMessage: undefined,
 			});
 			return;
 		}
@@ -295,7 +295,7 @@ class InputDateTimePicker extends React.Component {
 			time,
 			textInput: fullString,
 			datetime: fullDate,
-			lastErrMsg: errMsg,
+			errorMessage: errMsg,
 		});
 	}
 
@@ -372,12 +372,12 @@ class InputDateTimePicker extends React.Component {
 	updateDatePartStateAndTriggerChange(event, dateStatePart) {
 		const lastInfos = {
 			datetime: this.state.datetime,
-			errorMessage: this.state.lastErrMsg,
+			errorMessage: this.state.errorMessage,
 		};
 		this.setState(dateStatePart, () => {
 			const newInfos = {
 				datetime: dateStatePart.datetime,
-				errorMessage: dateStatePart.lastErrMsg,
+				errorMessage: dateStatePart.errorMessage,
 			};
 			this.triggerChange(event, lastInfos, newInfos);
 		});
