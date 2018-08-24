@@ -154,12 +154,12 @@ function computeDateRelatedState(selectedDateTime) {
 		const hours = getHours(selectedDateTime);
 		const minutes = getMinutes(selectedDateTime);
 		const time = hoursAndMinutesToTime(hours, minutes);
-		const fullDate = startOfMinute(selectedDateTime);
+		const datetime = startOfMinute(selectedDateTime);
 
 		return {
 			date,
 			time,
-			datetime: fullDate,
+			datetime,
 			textInput: getTextDate(date, time),
 		};
 	}
@@ -287,7 +287,7 @@ class InputDateTimePicker extends React.Component {
 		const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
 		const [time, errMsgTime] = extractTime(timeTextToParse);
 
-		const fullDate = getObjectDate(date, time);
+		const datetime = getObjectDate(date, time);
 		const errorMessage = canParseTextInput
 			? errMsgDate || errMsgTime
 			: 'DATETIME - INCORRECT FORMAT';
@@ -296,7 +296,7 @@ class InputDateTimePicker extends React.Component {
 			date,
 			time,
 			textInput,
-			datetime: fullDate,
+			datetime,
 			errorMessage,
 		});
 	}
@@ -386,13 +386,13 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	triggerChange(event, lastInfos, newInfos = {}) {
-		const fullDateUpdated =
+		const datetimeUpdated =
 			newInfos.datetime !== lastInfos.datetime &&
 			!isSameMinute(newInfos.datetime, lastInfos.datetime);
 
 		const errorUpdated = newInfos.errorMessage !== lastInfos.errorMessage;
 
-		if (this.props.onChange && (fullDateUpdated || errorUpdated)) {
+		if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
 			this.props.onChange(event, newInfos.errorMessage, newInfos.datetime);
 		}
 	}
@@ -406,9 +406,9 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
-		const isDateTimeValid = isDateValid(this.state.datetime);
+		const isDatetimeValid = isDateValid(this.state.datetime);
 		const inputFocused = this.state.inputFocused;
-		const needInvalidPlaceholder = !isDateTimeValid && !inputFocused;
+		const needInvalidPlaceholder = !isDatetimeValid && !inputFocused;
 
 		const placeholder = needInvalidPlaceholder
 			? INVALID_PLACEHOLDER
