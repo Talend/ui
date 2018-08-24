@@ -7,6 +7,12 @@
       "comments"
     ],
     "properties": {
+      "names": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "comments": {
         "type": "array",
         "maxItems": 2,
@@ -58,6 +64,7 @@
     }
   },
   "uiSchema": [
+    { "key": "names" },
     {
       "key": "comments",
       "triggers": ["validation"],
@@ -104,7 +111,13 @@
     }
   ],
   "properties": {
+    "names": ["aze", "bslkdjf"],
     "comments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this"
+      },
       {
         "name": "Jimmy",
         "email": "jimmy@lol.com",

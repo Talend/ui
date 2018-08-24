@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Badge from './Badge.component';
 
@@ -7,24 +7,39 @@ describe('BadgeSpec', () => {
 	it('should render Badge', () => {
 		// given
 		const props = {
+			id: 'my-badge',
 			label: 'Label',
 		};
 		// when
-		const wrapper = renderer.create(<Badge {...props} />).toJSON();
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render Badge as button', () => {
+		// given
+		const props = {
+			id: 'my-badge',
+			label: 'Label',
+			onSelect: jest.fn(),
+		};
+		// when
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render Badge with delete icon', () => {
 		// given
 		const props = {
+			id: 'my-badge',
 			label: 'Label',
 			onDelete: () => {},
 		};
 		// when
-		const wrapper = renderer.create(<Badge {...props} />).toJSON();
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render selected Badge with delete icon', () => {
@@ -35,9 +50,9 @@ describe('BadgeSpec', () => {
 			onDelete: () => {},
 		};
 		// when
-		const wrapper = renderer.create(<Badge {...props} />).toJSON();
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled Badge with delete icon and delete id', () => {
@@ -49,9 +64,9 @@ describe('BadgeSpec', () => {
 			id: 'delete',
 		};
 		// when
-		const wrapper = renderer.create(<Badge {...props} />).toJSON();
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render Badge with selection handler and select id', () => {
@@ -62,9 +77,9 @@ describe('BadgeSpec', () => {
 			id: 'select',
 		};
 		// when
-		const wrapper = renderer.create(<Badge {...props} />).toJSON();
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render Badge with category and delete icon', () => {
@@ -75,8 +90,8 @@ describe('BadgeSpec', () => {
 			onDelete: () => {},
 		};
 		// when
-		const wrapper = renderer.create(<Badge {...props} />).toJSON();
+		const wrapper = shallow(<Badge.WrappedComponent {...props} />);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
