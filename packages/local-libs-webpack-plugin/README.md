@@ -27,7 +27,7 @@ module.exports = {
 
 It can also be useful to use webpack's env variables for conditional options:
 
-Example command: `$ yarn start --env mylib myotherlib`
+Example command (webpack): `$ yarn start --env.mylib --env.myotherlib`
 
 webpack.config.js
 ```js
