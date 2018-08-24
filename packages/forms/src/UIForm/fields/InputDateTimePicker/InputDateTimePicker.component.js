@@ -11,6 +11,14 @@ export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
 const INVALID_DATE = new Date('');
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
 
+function isDateValid(date) {
+	if (date === undefined) {
+		return true;
+	}
+
+	return date instanceof Date && !isNaN(date.getTime());
+}
+
 function convertDateToTimestamp(date) {
 	return date.getTime();
 }
@@ -102,8 +110,6 @@ class InputDateTimePicker extends React.Component {
 		const { schema } = this.props;
 		const type = schema.schema.type;
 
-		this.errorMessage = errorMessage;
-
 		const hasError = errorMessage !== undefined;
 
 		const value = hasError ? new Error(errorMessage) : convertFromDate(type, date);
@@ -121,10 +127,7 @@ class InputDateTimePicker extends React.Component {
 		const type = schema.schema.type;
 		const datetime = this.convertToDate(type, this.state.value);
 
-		const isNotWidgetError =
-			this.props.errorMessage !== undefined && this.props.errorMessage !== this.errorMessage;
-
-		const errorMessage = isNotWidgetError ? GENERIC_FORMAT_ERROR : this.props.errorMessage;
+		const errorMessage = !isDateValid(datetime) ? GENERIC_FORMAT_ERROR : this.props.errorMessage;
 
 		return (
 			<FieldTemplate

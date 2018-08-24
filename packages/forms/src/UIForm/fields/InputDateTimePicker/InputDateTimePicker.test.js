@@ -243,7 +243,7 @@ describe('InputDateTimePicker', () => {
 				expect(onChangePayload.value.message).toBe(errorMessage);
 			});
 
-			it('should not spread an Error object but the last value to the component when receiving an Error object from the form', () => {
+			it('should not spread an Error object but the last value to the component when receiving an Error object from the form which was coming first from widget', () => {
 				const initialDateStr = '2027-01-01T03:35:00.000Z';
 				const expectedDateSpread = new Date(Date.UTC(2027, 0, 1, 3, 35));
 				const onChange = jest.fn();
@@ -273,35 +273,76 @@ describe('InputDateTimePicker', () => {
 		});
 
 		describe('coming from form', () => {
-			it('should override the form error message if is not coming from the widget', () => {
-				const initialTimestamp = 999999999999999999999;
-				const onChange = jest.fn();
+			cases(
+				'should override the form error message only if the data result in an invalid date',
+				({ isWidgetError, formErrorMessage, formValue, genericMessageExpected }) => {
+					const initialTimestamp = 999999999999999999999;
+					const onChange = jest.fn();
 
-				const wrapper = shallow(
-					<InputDateTimePicker
-						id="my-datepicker"
-						isValid
-						onChange={onChange}
-						onFinish={jest.fn()}
-						schema={getSchema('number')}
-						value={initialTimestamp}
-					/>,
-				);
+					const wrapper = shallow(
+						<InputDateTimePicker
+							id="my-datepicker"
+							isValid
+							onChange={onChange}
+							onFinish={jest.fn()}
+							schema={getSchema('number')}
+							value={initialTimestamp}
+						/>,
+					);
 
-				const componentWrapper = wrapper.find('InputDateTimePicker');
-				const componentOnChange = componentWrapper.prop('onChange');
-				const widgetErrorMessage = "An error message from the underlying widget's component";
-				componentOnChange(null, widgetErrorMessage, undefined);
+					const componentWrapper = wrapper.find('InputDateTimePicker');
+					const componentOnChange = componentWrapper.prop('onChange');
+					const widgetErrorMessage = isWidgetError ? formErrorMessage : undefined;
+					componentOnChange(null, widgetErrorMessage, undefined);
 
-				const formErrorMessage = 'A specific error message from the form';
-				wrapper.setProps({
-					errorMessage: formErrorMessage,
-				});
+					wrapper.setProps({
+						errorMessage: formErrorMessage,
+						value: formValue,
+					});
 
-				const fieldWrapper = wrapper.find('FieldTemplate');
+					const fieldWrapper = wrapper.find('FieldTemplate');
 
-				expect(fieldWrapper.prop('errorMessage')).toBe(GENERIC_FORMAT_ERROR);
-			});
+					const expectedMessage = genericMessageExpected ? GENERIC_FORMAT_ERROR : formErrorMessage;
+					expect(fieldWrapper.prop('errorMessage')).toBe(expectedMessage);
+				},
+				[
+					{
+						name: 'Widget Error => Display the form error (which is the widget error)',
+						isWidgetError: true,
+						formErrorMessage: "An error message from the underlying widget's component",
+						formValue: undefined,
+						genericMessageExpected: false,
+					},
+					{
+						name: 'Form Error with InvalidDate => Display the generic error',
+						isWidgetError: false,
+						formErrorMessage: 'The timestamp format is invalid',
+						formValue: 99999999999999999999,
+						genericMessageExpected: true,
+					},
+					{
+						name: 'Form Error wrong type => Display the generic error',
+						isWidgetError: false,
+						formErrorMessage: 'number expected but got string',
+						formValue: '2018-01-01T00:00:00.000Z',
+						genericMessageExpected: true,
+					},
+					{
+						name: 'Form Error with Date valid => Display the form error',
+						isWidgetError: false,
+						formErrorMessage: 'The date should be between in year 2018',
+						formValue: 1483228800000,
+						genericMessageExpected: false,
+					},
+					{
+						name: 'Form Error required value => Display the form error',
+						isWidgetError: false,
+						formErrorMessage: 'The value is required',
+						formValue: undefined,
+						genericMessageExpected: false,
+					},
+				],
+			);
 
 			it('should spread an Error object to the form when type defined is not handled by the widget and a value try to be converted to date', () => {
 				const initialValue = undefined;

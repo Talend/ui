@@ -32,7 +32,8 @@
         "type": "number",
         "format": "timestamp"
       }
-    }
+    },
+    "required": ["propAutofocus"]
   },
   "uiSchema": [
     {

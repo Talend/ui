@@ -3,7 +3,7 @@
 exports[`InputDateTimePicker should render 1`] = `
 <FieldTemplate
   description="This is my date picker"
-  errorMessage="GENERIC FORMAT ERROR"
+  errorMessage="You've done something wrong"
   id="my-datepicker"
   isValid={false}
   label="My date picker"
