@@ -25,7 +25,7 @@ const actionProps = {
 const subtitle = {
 	show: true,
 	header: 'Hello world',
-	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	onHide: action('onHide'),
 	action: {
 		label: 'OK',
