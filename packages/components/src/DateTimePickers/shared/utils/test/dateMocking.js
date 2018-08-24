@@ -1,4 +1,5 @@
 let OriginalDate;
+let currentMockingDate;
 
 const SET_METHODS_OVERRIDE_TO_UTC = [
 	'Date',
@@ -53,13 +54,17 @@ function overridePrototypesMethods(NewDate) {
 }
 
 export function mockDate(mockingDate = new Date(0)) {
-	if (OriginalDate === undefined) {
-		OriginalDate = Date;
+	currentMockingDate = mockingDate;
+	const alreadyMocked = OriginalDate !== undefined;
+	if (alreadyMocked) {
+		return;
 	}
+
+	OriginalDate = Date;
 
 	global.Date = function DateConstructor(...args) {
 		if (args.length === 0) {
-			return mockingDate;
+			return currentMockingDate;
 		}
 
 		const finalArgs = args.length >= 2 ? [Date.UTC(...args)] : args;
@@ -72,7 +77,7 @@ export function mockDate(mockingDate = new Date(0)) {
 	overridePrototypesMethods(Date);
 
 	global.Date.now = function DateNow() {
-		return mockingDate.getTime();
+		return currentMockingDate.getTime();
 	};
 }
 
