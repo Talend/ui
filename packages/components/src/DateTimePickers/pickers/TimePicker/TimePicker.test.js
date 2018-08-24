@@ -4,6 +4,13 @@ import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 
 import TimePicker from './TimePicker.component';
 
+beforeAll(() => {
+	mockDate();
+});
+afterAll(() => {
+	restoreDate();
+});
+
 describe('TimePicker', () => {
 	it('should render', () => {
 		const wrapper = shallow(<TimePicker selectedTime={1250} onSelect={() => {}} />);
@@ -79,8 +86,6 @@ describe('TimePicker', () => {
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(271);
-
-			restoreDate();
 		});
 
 		it('should default render with the closest selectable time of current time in middle', () => {
@@ -88,8 +93,6 @@ describe('TimePicker', () => {
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(133);
-
-			restoreDate();
 		});
 
 		it('should render with the "selectedTime" in middle if matches exactly a selectable time', () => {

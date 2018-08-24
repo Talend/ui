@@ -7,6 +7,13 @@ import YearPicker from './YearPicker.component';
 
 const NB_YEAR_RANGE = 300;
 
+beforeAll(() => {
+	mockDate();
+});
+afterAll(() => {
+	restoreDate();
+});
+
 describe('YearPicker', () => {
 	it('should render', () => {
 		mockDate(new Date(2015, 11, 31));
@@ -14,8 +21,6 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-
-		restoreDate();
 	});
 
 	it('should have the right number of years selectable', () => {
@@ -37,8 +42,6 @@ describe('YearPicker', () => {
 		expect(items[0].id).toBe(firstYearExpected);
 		const lastIndex = items.length - 1;
 		expect(items[lastIndex].id).toBe(lastYearExpected);
-
-		restoreDate();
 	});
 
 	it('should default render with current year in middle when "selectedYear" prop is not provided', () => {
@@ -48,8 +51,6 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
 
 		expect(wrapper.prop('initialIndex')).toBe(150);
-
-		restoreDate();
 	});
 
 	it('should render with "selectedYear" prop in middle when provided', () => {
@@ -60,8 +61,6 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={() => {}} />);
 
 		expect(wrapper.prop('initialIndex')).toBe(155);
-
-		restoreDate();
 	});
 
 	it('should callback with the year picked', () => {
@@ -78,6 +77,5 @@ describe('YearPicker', () => {
 		wrapper.prop('onSelect')(null, yearItem);
 
 		expect(onSelect.mock.calls[0][1]).toEqual(yearToSelect);
-		restoreDate();
 	});
 });

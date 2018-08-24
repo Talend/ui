@@ -13,6 +13,13 @@ function getSyntheticMockedEvent() {
 	};
 }
 
+beforeAll(() => {
+	mockDate();
+});
+afterAll(() => {
+	restoreDate();
+});
+
 describe('DateTimePicker', () => {
 	it('should render', () => {
 		mockDate(new Date(2018, 5, 12));
@@ -20,8 +27,6 @@ describe('DateTimePicker', () => {
 		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-
-		restoreDate();
 	});
 
 	describe('view switching', () => {
@@ -215,8 +220,6 @@ describe('DateTimePicker', () => {
 				monthIndex: 4,
 				year: 2016,
 			});
-
-			restoreDate();
 		});
 
 		it('should at initialization define the calendar displayed based on date selection prop when given', () => {

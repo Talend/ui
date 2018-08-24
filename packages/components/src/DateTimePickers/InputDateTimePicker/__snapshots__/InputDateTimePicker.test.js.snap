@@ -43,7 +43,7 @@ exports[`InputDateTimePicker render should render 1`] = `
           onSubmit={[Function]}
           selection={
             Object {
-              "date": 2017-04-03T22:00:00.000Z,
+              "date": 2017-04-04T00:00:00.000Z,
               "time": 927,
             }
           }

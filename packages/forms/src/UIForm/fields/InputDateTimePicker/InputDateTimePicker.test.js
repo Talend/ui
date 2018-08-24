@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
+import {
+	mockDate,
+	restoreDate,
+} from '@talend/react-components/lib/DateTimePickers/shared/utils/test/dateMocking';
 
 import InputDateTimePicker, { GENERIC_FORMAT_ERROR } from './InputDateTimePicker.component';
 
@@ -21,6 +25,13 @@ function getSchema(type) {
 		},
 	};
 }
+
+beforeAll(() => {
+	mockDate();
+});
+afterAll(() => {
+	restoreDate();
+});
 
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
@@ -81,7 +92,7 @@ describe('InputDateTimePicker', () => {
 			describe('from component to form', () => {
 				it('should convert date to number', () => {
 					const initialTimestamp = undefined;
-					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
+					const changedDate = new Date(2015, 10, 25, 19, 11);
 					const expectedTimestamp = 1448478660000;
 					const onChange = jest.fn();
 					const wrapper = shallow(
@@ -170,7 +181,7 @@ describe('InputDateTimePicker', () => {
 			describe('from component to form', () => {
 				it('should convert date to string', () => {
 					const initialDateStr = '2027-01-01T03:35:00.000Z';
-					const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
+					const changedDate = new Date(2015, 10, 25, 19, 11);
 					const expectedStr = '2015-11-25T19:11:00.000Z';
 					const onChange = jest.fn();
 					const wrapper = shallow(
@@ -245,7 +256,7 @@ describe('InputDateTimePicker', () => {
 
 			it('should not spread an Error object but the last value to the component when receiving an Error object from the form which was coming first from widget', () => {
 				const initialDateStr = '2027-01-01T03:35:00.000Z';
-				const expectedDateSpread = new Date(Date.UTC(2027, 0, 1, 3, 35));
+				const expectedDateSpread = new Date(2027, 0, 1, 3, 35);
 				const onChange = jest.fn();
 				const wrapper = shallow(
 					<InputDateTimePicker
@@ -346,7 +357,7 @@ describe('InputDateTimePicker', () => {
 
 			it('should spread an Error object to the form when type defined is not handled by the widget and a value try to be converted to date', () => {
 				const initialValue = undefined;
-				const changedDate = new Date(Date.UTC(2015, 10, 25, 19, 11));
+				const changedDate = new Date(2015, 10, 25, 19, 11);
 				const onChange = jest.fn();
 
 				const wrapper = shallow(

@@ -11,6 +11,7 @@ import getMinutes from 'date-fns/get_minutes';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 import DateTimePicker from '../DateTimePicker';
+import { mockDate, restoreDate } from '../shared/utils/test/dateMocking';
 
 function getRootElement() {
 	const rootElement = document.createElement('div');
@@ -18,6 +19,13 @@ function getRootElement() {
 	return rootElement;
 }
 const DEFAULT_ID = 'DEFAULT_ID';
+
+beforeAll(() => {
+	mockDate();
+});
+afterAll(() => {
+	restoreDate();
+});
 
 describe('InputDateTimePicker', () => {
 	describe('render', () => {

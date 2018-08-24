@@ -1,7 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 import MonthYearView from './MonthYearView.component';
+
+beforeAll(() => {
+	mockDate();
+});
+afterAll(() => {
+	restoreDate();
+});
 
 describe('MonthYearView', () => {
 	it('should render a MonthYearView', () => {
