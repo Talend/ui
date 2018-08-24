@@ -4,13 +4,19 @@
 		flex-direction: column;
 	}
 
+	.modal-content,
+	.modal-title,
+	.modal-subtitle {
+		width: 100%;
+	}
+
 	.modal-header {
 		position: relative;
-		width: $modal-md;
 		max-height: 7rem;
 
 		.modal-title,
 		.modal-subtitle {
+			display: inline-block;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
