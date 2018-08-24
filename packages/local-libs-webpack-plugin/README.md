@@ -11,8 +11,8 @@ LocalLibsWebpackPlugin will let you use npm modules locally, without using npm l
 
 # Usage
 
-webpack.config.js
 ```js
+// webpack.config.js
 const LocalLibsWebpackPlugin = require('@talend/local-libs-webpack-plugin');
 
 module.exports = {
@@ -29,8 +29,8 @@ It can also be useful to use webpack's env variables for conditional options:
 
 Example command (webpack): `$ yarn start --env.mylib --env.myotherlib`
 
-webpack.config.js
 ```js
+// webpack.config.js
 const LocalLibsWebpackPlugin = require('@talend/local-libs-webpack-plugin');
 
 module.exports = {

@@ -1,21 +1,25 @@
 const path = require('path');
 
-function getJson(packagePath) {
-	return require(path.resolve(packagePath));
+function getJson(filePath) {
+	return require(path.resolve(filePath));
 }
 
-function isLerna(packagePath) {
-	if (packagePath.includes('lerna.json')) {
+function isLerna(filePath) {
+	if (filePath.includes('lerna.json')) {
 		return true;
 	}
 	return false;
 }
 
+/**
+ * `mylib/lib/package.json` -> `mylib/lib`
+ */
+
 function pathWithoutFilename(filePath) {
-	if (indexOf('/') > 0) {
+	if (filePath.indexOf('/') > 0) {
 		return filePath.substr(0, filePath.lastIndexOf('/'));
 	}
-	if (indexOf('.') === -1) {
+	if (filePath.indexOf('.') === -1) {
 		return filePath;
 	}
 	return '';
@@ -35,7 +39,7 @@ function getPackageJsonInfo(packagePath) {
 /**
  * `mylib/lib/somefile` -> `mylib/src/somefile`
  */
-function libToSrcPath(libPath) {
+function libToSrcPath(libPath, lib) {
 	return libPath.replace(`${lib.name}/${lib.main}`, `${lib.name}/${lib.mainSrc}`);
 }
 
@@ -98,7 +102,7 @@ class LocalLibsWebpackPlugin {
 				linkedLibs.forEach(lib => {
 					if (result.request.startsWith(lib.name)) {
 						if (lib.mainSrc && lib.main) {
-							result.request = libToSrcPath(result.request);
+							result.request = libToSrcPath(result.request, lib);
 						}
 						result.request = result.request.replace(lib.name, lib.path);
 					}
