@@ -413,7 +413,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('with row class', () => (
+	.addWithInfo('with custom class for row', () => (
 		<div>
 			<p>With custom class on second row: </p>
 			<IconsProvider />
