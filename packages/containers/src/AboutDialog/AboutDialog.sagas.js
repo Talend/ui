@@ -14,32 +14,27 @@ export function* fetch({ url }) {
 	const { response, data } = yield call(cmf.sagas.http.get, url);
 
 	if (response.ok) {
-		yield put(cmf.actions.collections.addOrReplace(
-			Constants.COLLECTION_ID,
-			{
+		yield put(
+			cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, {
 				version: data.displayVersion,
 				services: data.services.map(({ serviceName, buildId, versionId }) => ({
 					name: serviceName,
 					version: versionId,
 					build: buildId,
 				})),
-			},
-		));
+			}),
+		);
 		yield put(Connected.setStateAction({ loading: false }));
 	}
 }
 
 export function* show(action) {
-	yield all([
-		put(Connected.setStateAction({ show: true })),
-		call(fetch, action),
-	]);
+	yield all([put(Connected.setStateAction({ show: true })), call(fetch, action)]);
 }
 
 export function* hide() {
 	yield put(Connected.setStateAction({ show: false }));
 }
-
 
 function* defaultHandler() {
 	yield takeEvery(Constants.ABOUT_DIALOG_SHOW, show);

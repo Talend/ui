@@ -10,7 +10,6 @@ export const DEFAULT_STATE = new Map({
 	expanded: false,
 });
 
-
 class AboutDialog extends React.Component {
 	static displayName = 'Container(AboutDialog)';
 	static propTypes = {
