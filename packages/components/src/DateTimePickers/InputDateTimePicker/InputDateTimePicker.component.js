@@ -159,7 +159,7 @@ function computeDateRelatedState(selectedDateTime) {
 		return {
 			date,
 			time,
-			lastFullDate: fullDate,
+			datetime: fullDate,
 			textInput: getTextDate(date, time),
 		};
 	}
@@ -167,7 +167,7 @@ function computeDateRelatedState(selectedDateTime) {
 	return {
 		date: undefined,
 		time: undefined,
-		lastFullDate: selectedDateTime,
+		datetime: selectedDateTime,
 		textInput: '',
 	};
 }
@@ -219,7 +219,7 @@ class InputDateTimePicker extends React.Component {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
 		const selectedDateTimePropsUpdated = newSelectedDateTime !== this.props.selectedDateTime;
-		const selectedDateTimePropDivergedFromState = newSelectedDateTime !== this.state.lastFullDate;
+		const selectedDateTimePropDivergedFromState = newSelectedDateTime !== this.state.datetime;
 		const needDateTimeStateUpdate =
 			selectedDateTimePropsUpdated && selectedDateTimePropDivergedFromState;
 
@@ -252,11 +252,11 @@ class InputDateTimePicker extends React.Component {
 		const fullDate = getObjectDate(date, time);
 		const errorMsg = undefined;
 
-		this.updateDatePartStateAndTrigger(event, {
+		this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: getTextDate(date, time),
-			lastFullDate: fullDate,
+			datetime: fullDate,
 			lastErrMsg: errorMsg,
 		});
 
@@ -268,11 +268,11 @@ class InputDateTimePicker extends React.Component {
 		const fullString = event.target.value;
 
 		if (fullString === '') {
-			this.updateDatePartStateAndTrigger(event, {
+			this.updateDatePartStateAndTriggerChange(event, {
 				date: undefined,
 				time: undefined,
 				textInput: fullString,
-				lastFullDate: undefined,
+				datetime: undefined,
 				lastErrMsg: undefined,
 			});
 			return;
@@ -290,11 +290,11 @@ class InputDateTimePicker extends React.Component {
 		const fullDate = getObjectDate(date, time);
 		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
 
-		this.updateDatePartStateAndTrigger(event, {
+		this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: fullString,
-			lastFullDate: fullDate,
+			datetime: fullDate,
 			lastErrMsg: errMsg,
 		});
 	}
@@ -369,14 +369,14 @@ class InputDateTimePicker extends React.Component {
 		});
 	}
 
-	updateDatePartStateAndTrigger(event, dateStatePart) {
+	updateDatePartStateAndTriggerChange(event, dateStatePart) {
 		const lastInfos = {
-			datetime: this.state.lastFullDate,
+			datetime: this.state.datetime,
 			errorMessage: this.state.lastErrMsg,
 		};
 		this.setState(dateStatePart, () => {
 			const newInfos = {
-				datetime: dateStatePart.lastFullDate,
+				datetime: dateStatePart.datetime,
 				errorMessage: dateStatePart.lastErrMsg,
 			};
 			this.triggerChange(event, lastInfos, newInfos);
@@ -404,7 +404,7 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
-		const isDateTimeValid = isDateValid(this.state.lastFullDate);
+		const isDateTimeValid = isDateValid(this.state.datetime);
 		const inputFocused = this.state.inputFocused;
 		const needInvalidPlaceholder = !isDateTimeValid && !inputFocused;
 

@@ -103,9 +103,9 @@ describe('InputDateTimePicker', () => {
 			expect(wrapper.state('date')).toBeUndefined();
 			expect(wrapper.state('time')).toBeUndefined();
 			expect(wrapper.state('textInput')).toBe('');
-			const stateLastFullDate = wrapper.state('lastFullDate');
-			expect(stateLastFullDate).toBeInstanceOf(Date);
-			expect(isNaN(stateLastFullDate.getTime())).toBe(true);
+			const stateDatetime = wrapper.state('datetime');
+			expect(stateDatetime).toBeInstanceOf(Date);
+			expect(isNaN(stateDatetime.getTime())).toBe(true);
 		});
 	});
 
@@ -138,9 +138,9 @@ describe('InputDateTimePicker', () => {
 			const expectedTextInput = '2015-04-04 12:36';
 			expect(testedTextInput).toBe(expectedTextInput);
 
-			const testedLastFullDate = wrapper.state('lastFullDate');
-			const expectedLastFullDate = new Date(2015, 3, 4, 12, 36);
-			expect(isEqual(testedLastFullDate, expectedLastFullDate)).toBe(true);
+			const testedDatetime = wrapper.state('datetime');
+			const expectedDatetime = new Date(2015, 3, 4, 12, 36);
+			expect(isEqual(testedDatetime, expectedDatetime)).toBe(true);
 		});
 
 		it('should set the state with undefined and empty values when "selectedDateTime" is given as undefined', () => {
@@ -161,7 +161,7 @@ describe('InputDateTimePicker', () => {
 			expect(wrapper.state('date')).toBeUndefined();
 			expect(wrapper.state('time')).toBeUndefined();
 			expect(wrapper.state('textInput')).toBe('');
-			expect(wrapper.state('lastFullDate')).toBeUndefined();
+			expect(wrapper.state('datetime')).toBeUndefined();
 		});
 
 		it('should set the state with the invalid date and empty values when "selectedDateTime" is given as an invalid date', () => {
@@ -182,9 +182,9 @@ describe('InputDateTimePicker', () => {
 			expect(wrapper.state('date')).toBeUndefined();
 			expect(wrapper.state('time')).toBeUndefined();
 			expect(wrapper.state('textInput')).toBe('');
-			const stateLastFullDate = wrapper.state('lastFullDate');
-			expect(stateLastFullDate).toBeInstanceOf(Date);
-			expect(isNaN(stateLastFullDate.getTime())).toBe(true);
+			const stateDatetime = wrapper.state('datetime');
+			expect(stateDatetime).toBeInstanceOf(Date);
+			expect(isNaN(stateDatetime.getTime())).toBe(true);
 		});
 	});
 
@@ -1184,7 +1184,7 @@ describe('InputDateTimePicker', () => {
 				);
 
 				wrapper.setState({
-					lastFullDate: date,
+					datetime: date,
 					inputFocused: isFocused,
 				});
 
