@@ -9,15 +9,15 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function Text({ text, loading }) {
+function Text({ text, loading, size = Skeleton.SIZES.large }) {
 	return (
 		<div>
-			{loading ? <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} /> : text}
+			{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}
 		</div>
 	);
 }
 
-function Table({ services, t }) {
+function Table({ services, loading, t }) {
 	if (!services || !services.length) {
 		return null;
 	}
@@ -32,11 +32,11 @@ function Table({ services, t }) {
 				</tr>
 			</thead>
 			<tbody>
-				{services.map(service => (
+				{(loading ? Array(3).fill('') : services).map(service => (
 					<tr>
-						<td>{service.name}</td>
-						<td>{service.build}</td>
-						<td>{service.version}</td>
+						<td><Text loading={loading} text={service.name} /></td>
+						<td><Text loading={loading} text={service.build} /></td>
+						<td><Text loading={loading} text={service.version} /></td>
 					</tr>
 				))}
 			</tbody>
@@ -48,6 +48,7 @@ function AboutDialog({
 	services,
 	expanded,
 	show,
+	product,
 	version,
 	loading,
 	icon,
@@ -65,7 +66,6 @@ function AboutDialog({
 						: t('MORE', { defaultValue: 'More' }),
 					bsStyle: 'default btn-inverse',
 					onClick: onToggle,
-					loading,
 				},
 			],
 		},
@@ -73,7 +73,7 @@ function AboutDialog({
 
 	return (
 		<Dialog
-			header={t('ABOUT_HEADER', { defaultValue: 'About my super product' })}
+			header={t('ABOUT_HEADER', { defaultValue: 'About {{product}}', product })}
 			className={classNames(theme['about-dialog'], 'about-dialog')}
 			type={Dialog.TYPES.INFORMATIVE}
 			onHide={onHide}
@@ -84,6 +84,7 @@ function AboutDialog({
 			<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
 				<Text
 					text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version })}
+					size={Skeleton.SIZES.xlarge}
 					loading={loading}
 				/>
 				<Text
@@ -94,7 +95,7 @@ function AboutDialog({
 					loading={loading}
 				/>
 			</div>
-			{expanded && <Table t={t} services={services} />}
+			{expanded && <Table t={t} loading={loading} services={services} />}
 		</Dialog>
 	);
 }
@@ -108,6 +109,7 @@ if (process.env.NODE_ENV !== 'production') {
 	Text.propTypes = {
 		text: PropTypes.string,
 		loading: PropTypes.bool,
+		size: PropTypes.string,
 	};
 
 	Table.propTypes = {
@@ -128,6 +130,7 @@ if (process.env.NODE_ENV !== 'production') {
 		copyrights: PropTypes.string,
 		onToggle: PropTypes.func,
 		onHide: PropTypes.func,
+		product: PropTypes.string,
 		version: PropTypes.string,
 		icon: PropTypes.string,
 		t: PropTypes.func.isRequired,
@@ -141,6 +144,7 @@ if (process.env.NODE_ENV !== 'production') {
 		copyright: null,
 		version: '',
 		icon: '',
+		product: 'this product',
 		t: getDefaultT(),
 	};
 }
