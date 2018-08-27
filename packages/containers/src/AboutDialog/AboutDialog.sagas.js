@@ -6,7 +6,7 @@ import Constants from './AboutDialog.constant';
 
 /**
  * This saga takes care of fetching versions for the AboutDialog
- * container according to the provided versions URL in the action's payload.
+ * container according to the provided versions URL in the action payload.
  * @param {Object} action
  */
 export function* fetch({ url }) {
