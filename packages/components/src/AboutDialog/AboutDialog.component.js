@@ -52,6 +52,7 @@ function AboutDialog({
 	loading,
 	icon,
 	copyrights,
+	productName,
 	onToggle,
 	onHide,
 	t,
@@ -73,7 +74,7 @@ function AboutDialog({
 
 	return (
 		<Dialog
-			header={t('ABOUT_HEADER', { defaultValue: 'About my super product' })}
+			header={t('ABOUT_HEADER', { defaultValue: 'About {{productName}}', productName })}
 			className={classNames(theme['about-dialog'], 'about-dialog')}
 			type={Dialog.TYPES.INFORMATIVE}
 			onHide={onHide}
@@ -126,6 +127,7 @@ if (process.env.NODE_ENV !== 'production') {
 		show: PropTypes.bool,
 		loading: PropTypes.bool,
 		copyrights: PropTypes.string,
+		productName: PropTypes.string.isRequired,
 		onToggle: PropTypes.func,
 		onHide: PropTypes.func,
 		version: PropTypes.string,

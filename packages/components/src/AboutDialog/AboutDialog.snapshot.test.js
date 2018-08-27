@@ -6,6 +6,7 @@ jest.mock('react-dom');
 
 const props = {
 	show: true,
+	productName: 'Product',
 	onToggle: jest.fn(),
 	version: 'Summer 18',
 	icon: 'talend-tdp-colored',
