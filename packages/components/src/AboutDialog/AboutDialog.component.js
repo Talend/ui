@@ -9,7 +9,7 @@ import theme from './AboutDialog.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-function Text({ text, loading, size = Skeleton.SIZES.large }) {
+function Text({ text, loading, size = Skeleton.SIZES.medium }) {
 	return (
 		<div>
 			{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}
@@ -18,10 +18,6 @@ function Text({ text, loading, size = Skeleton.SIZES.large }) {
 }
 
 function Table({ services, loading, t }) {
-	if (!services || !services.length) {
-		return null;
-	}
-
 	return (
 		<table className={classNames(theme['about-versions'], 'about-versions')}>
 			<thead>
@@ -32,7 +28,7 @@ function Table({ services, loading, t }) {
 				</tr>
 			</thead>
 			<tbody>
-				{(loading ? Array(3).fill('') : services).map(service => (
+				{(loading ? [{}, {}, {}] : services).map(service => (
 					<tr>
 						<td><Text loading={loading} text={service.name} /></td>
 						<td><Text loading={loading} text={service.build} /></td>
@@ -92,6 +88,7 @@ function AboutDialog({
 						copyrights ||
 						t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })
 					}
+					size={Skeleton.SIZES.large}
 					loading={loading}
 				/>
 			</div>
