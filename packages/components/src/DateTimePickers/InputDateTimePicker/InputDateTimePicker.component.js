@@ -172,7 +172,7 @@ function computeDateRelatedState(selectedDateTime) {
 	};
 }
 
-const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onBlur'];
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
@@ -219,7 +219,10 @@ class InputDateTimePicker extends React.Component {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
 		const selectedDateTimePropsUpdated = newSelectedDateTime !== this.props.selectedDateTime;
-		const selectedDateTimePropDivergedFromState = newSelectedDateTime !== this.state.datetime;
+		const selectedDateTimePropDivergedFromState = !isSameMinute(
+			newSelectedDateTime,
+			this.state.datetime,
+		);
 		const needDateTimeStateUpdate =
 			selectedDateTimePropsUpdated && selectedDateTimePropDivergedFromState;
 
