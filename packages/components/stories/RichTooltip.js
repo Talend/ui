@@ -31,10 +31,7 @@ const addInfo = {
 	onClick: action('header.add.onClick'),
 };
 
-const header = [
-	<HeaderTitle title="Pipelines" />,
-	<Action {...addInfo} />,
-];
+const header = [<HeaderTitle title="Pipelines" />, <Action {...addInfo} />];
 
 const footer = (
 	<ActionBar

@@ -431,6 +431,9 @@ describe('json function', () => {
 	it('should resolve if attr json is on response', () => {
 		const response = {
 			status: HTTP_STATUS.OK,
+			headers: {
+				'content-type': 'application/json',
+			},
 			json: () => new Promise(resolve => resolve({ foo: 'bar' })),
 		};
 		return handleResponse(response).then(r => {

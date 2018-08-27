@@ -157,10 +157,13 @@ public class Item extends Component {
         hoverOnButton(this.getElement());
 
         // on some list display, actions are in an ellipsis dropdown. Open it
-        boolean isInEllipsis = false;
-        final WebElement ellipsisButton = this.getEllipsisActionButton();
-        if (ellipsisButton != null) {
-            isInEllipsis = !getEllipsisMenu().findElements(By.cssSelector("#" + actionId)).isEmpty();
+        WebElement ellipsisButton = this.getEllipsisActionButton();
+        boolean isInEllipsis =
+                ellipsisButton != null &&
+                !getEllipsisMenu().findElements(By.cssSelector("#" + actionId)).isEmpty();
+        if (isInEllipsis) {
+            hoverOnButton(ellipsisButton);
+            ellipsisButton = this.getEllipsisActionButton(); // reselect du to tooltip that replace dom element
             wait.until(elementToBeClickable(ellipsisButton)).click();
         }
 

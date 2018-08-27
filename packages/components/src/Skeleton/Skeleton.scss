@@ -5,6 +5,7 @@ $tc-skeleton-icon-size: 24px !default;
 $tc-skeleton-circle-small-size: 16px !default;
 $tc-skeleton-circle-medium-size: 20px !default;
 $tc-skeleton-circle-large-size: 24px !default;
+$tc-skeleton-circle-xlarge-size: 66px !default;
 $tc-skeleton-text-height: 14px !default;
 $tc-skeleton-text-width-small: 30px !default;
 $tc-skeleton-text-width-medium: 60px !default;
@@ -41,6 +42,10 @@ $tc-skeleton-color: $black !default;
 		&-large {
 			width: $tc-skeleton-circle-large-size;
 			height: $tc-skeleton-circle-large-size;
+		}
+		&-xlarge {
+			width: $tc-skeleton-circle-xlarge-size;
+			height: $tc-skeleton-circle-xlarge-size;
 		}
 	}
 
