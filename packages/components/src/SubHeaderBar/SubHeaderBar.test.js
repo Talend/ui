@@ -6,6 +6,7 @@ import Container, {
 	SubHeaderBarActions,
 	CustomInject,
 } from './SubHeaderBar.component';
+import Skeleton from '../Skeleton';
 
 function getComponent(name) {
 	if (name === 'Action') {
@@ -218,6 +219,17 @@ describe('SubHeaderBar', () => {
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
+	});
+
+	it('Should render SubHeader component if right actions are in loading state', () => {
+		const props = {
+			title: 'myTitle',
+			rightActionsLoading: true,
+			onGoBack: jest.fn(),
+		};
+		const wrapper = shallow(<SubHeaderBar {...props} />);
+		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
+		expect(wrapper.find(SubHeaderBarActions).at(1).find(Skeleton)).toHaveLength(1);
 	});
 });
 

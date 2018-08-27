@@ -75,7 +75,6 @@ function SubHeaderBar({
 	const Renderer = Inject.getAll(getComponent, { Action, ActionBar });
 	const hasRight =
 		Array.isArray(right) || has(components, 'before-right') || has(components, 'after-right');
-
 	let rightActions;
 
 	if (rightActionsLoading) {
