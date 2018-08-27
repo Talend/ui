@@ -81,23 +81,18 @@ function SubHeaderBar({
 	if (rightActionsLoading) {
 		rightActions = (
 			<SubHeaderBarActions
-				className={classNames(
-					theme['tc-subheader-navbar-right'],
-					'tc-subheader-navbar-right',
-				)}
+				className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
 				right
 			>
 				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
 			</SubHeaderBarActions>
 		);
 	} else {
-		rightActions = Array.isArray(right) &&
+		rightActions =
+			Array.isArray(right) &&
 			right.map((item, index) => (
 				<SubHeaderBarActions
-					className={classNames(
-						theme['tc-subheader-navbar-right'],
-						'tc-subheader-navbar-right',
-					)}
+					className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
 					key={index}
 					right
 				>
