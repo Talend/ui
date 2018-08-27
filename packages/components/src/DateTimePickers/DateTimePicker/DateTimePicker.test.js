@@ -13,14 +13,14 @@ function getSyntheticMockedEvent() {
 	};
 }
 
-beforeAll(() => {
-	mockDate();
-});
-afterAll(() => {
-	restoreDate();
-});
-
 describe('DateTimePicker', () => {
+	beforeAll(() => {
+		mockDate();
+	});
+	afterAll(() => {
+		restoreDate();
+	});
+
 	it('should render', () => {
 		mockDate(new Date(2018, 5, 12));
 

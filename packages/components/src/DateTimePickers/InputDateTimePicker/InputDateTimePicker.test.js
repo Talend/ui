@@ -20,14 +20,14 @@ function getRootElement() {
 }
 const DEFAULT_ID = 'DEFAULT_ID';
 
-beforeAll(() => {
-	mockDate();
-});
-afterAll(() => {
-	restoreDate();
-});
-
 describe('InputDateTimePicker', () => {
+	beforeAll(() => {
+		mockDate();
+	});
+	afterAll(() => {
+		restoreDate();
+	});
+
 	describe('render', () => {
 		it('should render', () => {
 			const wrapper = shallow(

@@ -7,14 +7,14 @@ import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 
 jest.mock('date-fns/is_today');
 
-beforeAll(() => {
-	mockDate();
-});
-afterAll(() => {
-	restoreDate();
-});
-
 describe('DatePicker', () => {
+	beforeAll(() => {
+		mockDate();
+	});
+	afterAll(() => {
+		restoreDate();
+	});
+
 	function mockIsTodayWith(newToday) {
 		isToday.mockImplementation(date => isSameDay(date, newToday));
 	}

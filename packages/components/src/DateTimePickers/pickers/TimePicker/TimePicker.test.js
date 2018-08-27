@@ -4,14 +4,14 @@ import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 
 import TimePicker from './TimePicker.component';
 
-beforeAll(() => {
-	mockDate();
-});
-afterAll(() => {
-	restoreDate();
-});
-
 describe('TimePicker', () => {
+	beforeAll(() => {
+		mockDate();
+	});
+	afterAll(() => {
+		restoreDate();
+	});
+
 	it('should render', () => {
 		const wrapper = shallow(<TimePicker selectedTime={1250} onSelect={() => {}} />);
 		expect(wrapper.getElement()).toMatchSnapshot();

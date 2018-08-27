@@ -7,14 +7,14 @@ import YearPicker from './YearPicker.component';
 
 const NB_YEAR_RANGE = 300;
 
-beforeAll(() => {
-	mockDate();
-});
-afterAll(() => {
-	restoreDate();
-});
-
 describe('YearPicker', () => {
+	beforeAll(() => {
+		mockDate();
+	});
+	afterAll(() => {
+		restoreDate();
+	});
+
 	it('should render', () => {
 		mockDate(new Date(2015, 11, 31));
 

@@ -4,14 +4,14 @@ import { shallow } from 'enzyme';
 import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 import HeaderTitle from './HeaderTitle.component';
 
-beforeAll(() => {
-	mockDate();
-});
-afterAll(() => {
-	restoreDate();
-});
-
 describe('HeaderTitle', () => {
+	beforeAll(() => {
+		mockDate();
+	});
+	afterAll(() => {
+		restoreDate();
+	});
+
 	it('should render a span', () => {
 		// When
 		const wrapper = shallow(<HeaderTitle monthIndex={8} year={2012} />);
