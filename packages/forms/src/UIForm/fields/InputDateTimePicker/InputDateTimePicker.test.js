@@ -286,7 +286,7 @@ describe('InputDateTimePicker', () => {
 		describe('coming from form', () => {
 			cases(
 				'should override the form error message only if the data result in an invalid date',
-				({ isWidgetError, formErrorMessage, formValue, genericMessageExpected }) => {
+				({ formErrorMessage, formValue, genericMessageExpected }) => {
 					const initialTimestamp = 999999999999999999999;
 					const onChange = jest.fn();
 
@@ -301,11 +301,6 @@ describe('InputDateTimePicker', () => {
 						/>,
 					);
 
-					const componentWrapper = wrapper.find('InputDateTimePicker');
-					const componentOnChange = componentWrapper.prop('onChange');
-					const widgetErrorMessage = isWidgetError ? formErrorMessage : undefined;
-					componentOnChange(null, widgetErrorMessage, undefined);
-
 					wrapper.setProps({
 						errorMessage: formErrorMessage,
 						value: formValue,
@@ -319,35 +314,30 @@ describe('InputDateTimePicker', () => {
 				[
 					{
 						name: 'Widget Error => Display the form error (which is the widget error)',
-						isWidgetError: true,
 						formErrorMessage: "An error message from the underlying widget's component",
 						formValue: undefined,
 						genericMessageExpected: false,
 					},
 					{
 						name: 'Form Error with InvalidDate => Display the generic error',
-						isWidgetError: false,
 						formErrorMessage: 'The timestamp format is invalid',
 						formValue: 99999999999999999999,
 						genericMessageExpected: true,
 					},
 					{
 						name: 'Form Error wrong type => Display the generic error',
-						isWidgetError: false,
 						formErrorMessage: 'number expected but got string',
 						formValue: '2018-01-01T00:00:00.000Z',
 						genericMessageExpected: true,
 					},
 					{
 						name: 'Form Error with Date valid => Display the form error',
-						isWidgetError: false,
-						formErrorMessage: 'The date should be between in year 2018',
+						formErrorMessage: 'The date should be in year 2018',
 						formValue: 1483228800000,
 						genericMessageExpected: false,
 					},
 					{
 						name: 'Form Error required value => Display the form error',
-						isWidgetError: false,
 						formErrorMessage: 'The value is required',
 						formValue: undefined,
 						genericMessageExpected: false,
