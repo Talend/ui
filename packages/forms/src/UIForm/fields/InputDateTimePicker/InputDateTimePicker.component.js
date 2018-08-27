@@ -133,8 +133,9 @@ class InputDateTimePicker extends React.Component {
 		const { schema } = this.props;
 		const type = schema.schema.type;
 		const datetime = this.convertToDate(type, this.state.value);
-
-		const errorMessage = !isDateValid(datetime) ? GENERIC_FORMAT_ERROR : this.props.errorMessage;
+		const isWidgetError = this.props.value instanceof Error;
+		const errorMessage =
+			isWidgetError || isDateValid(datetime) ? this.props.errorMessage : GENERIC_FORMAT_ERROR;
 
 		return (
 			<FieldTemplate

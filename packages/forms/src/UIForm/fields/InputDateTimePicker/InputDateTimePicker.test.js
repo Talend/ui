@@ -315,7 +315,7 @@ describe('InputDateTimePicker', () => {
 					{
 						name: 'Widget Error => Display the form error (which is the widget error)',
 						formErrorMessage: "An error message from the underlying widget's component",
-						formValue: undefined,
+						formValue: new Error("An error message from the underlying widget's component"),
 						genericMessageExpected: false,
 					},
 					{
@@ -367,6 +367,100 @@ describe('InputDateTimePicker', () => {
 
 				const onChangePayload = onChange.mock.calls[0][1];
 				expect(onChangePayload.value).toBeInstanceOf(Error);
+			});
+		});
+
+		describe('coming from one then the other', () => {
+			it('should spread the component error when coming from the component lastly', () => {
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						onChange={jest.fn()}
+						onFinish={jest.fn()}
+						schema={getSchema('number')}
+						value={undefined}
+					/>,
+				);
+
+				// Update to a form data error
+				const formError = 'Wrong timestamp format';
+				const badTimestamp = 8640000000000002;
+				wrapper.setProps({
+					errorMessage: formError,
+					value: badTimestamp,
+				});
+				wrapper.update();
+
+				const fieldWrapperBefore = wrapper.find('FieldTemplate');
+				expect(fieldWrapperBefore.prop('errorMessage')).toBe(GENERIC_FORMAT_ERROR);
+
+				const componentWrapperBefore = wrapper.find('InputDateTimePicker');
+				const datetimeBefore = componentWrapperBefore.prop('selectedDateTime');
+				expect(isNaN(datetimeBefore.getTime())).toBe(true);
+
+				// Update to a component input error
+				const componentErrorMessage = 'A component format error';
+				const componentError = new Error(componentErrorMessage);
+				wrapper.setProps({
+					errorMessage: componentErrorMessage,
+					value: componentError,
+				});
+				wrapper.update();
+
+				const fieldWrapperAfter = wrapper.find('FieldTemplate');
+				expect(fieldWrapperAfter.prop('errorMessage')).toBe(componentErrorMessage);
+
+				const componentWrapperAfter = wrapper.find('InputDateTimePicker');
+				const datetimeAfter = componentWrapperAfter.prop('selectedDateTime');
+				expect(datetimeAfter).toBe(datetimeBefore);
+			});
+
+			it('should spread the generic error message when coming from the form lastly', () => {
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						onChange={jest.fn()}
+						onFinish={jest.fn()}
+						schema={getSchema('number')}
+						value={784561354}
+					/>,
+				);
+				const componentWrapperInitial = wrapper.find('InputDateTimePicker');
+				const datetimeInitial = componentWrapperInitial.prop('selectedDateTime');
+
+				// Update to a component input error
+				const componentErrorMessage = 'A component format error';
+				const componentError = new Error(componentErrorMessage);
+				wrapper.setProps({
+					errorMessage: componentErrorMessage,
+					value: componentError,
+				});
+				wrapper.update();
+
+				const fieldWrapperBefore = wrapper.find('FieldTemplate');
+				expect(fieldWrapperBefore.prop('errorMessage')).toBe(componentErrorMessage);
+
+				const componentWrapperBefore = wrapper.find('InputDateTimePicker');
+				const datetimeBefore = componentWrapperBefore.prop('selectedDateTime');
+				expect(datetimeBefore).toBe(datetimeInitial);
+
+				// Update to a form data error
+				const formError = 'Wrong timestamp format';
+				const badTimestamp = 8640000000000002;
+				wrapper.setProps({
+					errorMessage: formError,
+					value: badTimestamp,
+				});
+				wrapper.update();
+
+				const fieldWrapperAfter = wrapper.find('FieldTemplate');
+				expect(fieldWrapperAfter.prop('errorMessage')).toBe(GENERIC_FORMAT_ERROR);
+
+				const componentWrapperAfter = wrapper.find('InputDateTimePicker');
+				const datetimeAfter = componentWrapperAfter.prop('selectedDateTime');
+				expect(isNaN(datetimeAfter.getTime())).toBe(true);
 			});
 		});
 
