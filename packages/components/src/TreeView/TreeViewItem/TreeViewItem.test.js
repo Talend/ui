@@ -106,4 +106,19 @@ describe('TreeView', () => {
 		expect(props.onSelect).toHaveBeenCalled();
 		expect(focus).toHaveBeenCalled();
 	});
+
+	it('when item has focus and the user type space it should call props.onClick and props.onSelect', () => {
+		const props = {
+			...defaultProps,
+			onClick: jest.fn(),
+			onSelect: jest.fn(),
+		};
+		const focus = jest.fn();
+		const wrapper = shallow(<TreeViewItem {...props} />);
+		wrapper.instance().containerRef = { focus };
+		wrapper.find('.tc-treeview-item').simulate('keyDown', { keyCode: keycode.codes.space });
+		expect(props.onClick).toHaveBeenCalled();
+		expect(props.onSelect).toHaveBeenCalled();
+		expect(focus).toHaveBeenCalled();
+	});
 });

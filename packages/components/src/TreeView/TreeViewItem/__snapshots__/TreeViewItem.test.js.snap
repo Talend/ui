@@ -85,7 +85,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     <Icon
       className="theme-tc-treeview-toggle"
       name="talend-caret-down"
-      title="Collapse"
       transform={undefined}
     />
     <TreeViewIcon

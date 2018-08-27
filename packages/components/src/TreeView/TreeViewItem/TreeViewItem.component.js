@@ -91,6 +91,7 @@ class TreeViewItem extends React.Component {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this.renderIconAction = this.renderIconAction.bind(this);
 		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
 		this.onMouseLeave = this.onMouseLeave.bind(this);
 		this.onMouseEnter = this.onMouseEnter.bind(this);
@@ -112,7 +113,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	onKeyDown(event) {
-		if (event.keyCode === keycode.codes.enter) {
+		if (event.keyCode === keycode.codes.enter || event.keyCode === keycode.codes.space) {
 			this.onSelect();
 		}
 	}
@@ -136,22 +137,21 @@ class TreeViewItem extends React.Component {
 		);
 	}
 
-	renderIconAction(label, icon, action, id) {
+	renderIconAction({ action, id, ...actionProps }) {
 		let safeId = id;
 		if (!id && this.props.id) {
-			safeId = `${this.props.id}-${icon}`;
+			safeId = `${this.props.id}-${actionProps.icon}`;
 		}
 		return (
 			<Action
-				label={label}
-				icon={icon}
+				{...actionProps}
 				onClick={event => {
 					event.stopPropagation();
 					action(this.props.item);
 				}}
 				tooltipPlacement="right"
 				hideLabel
-				key={label}
+				key={actionProps.label}
 				id={safeId}
 				link
 			/>
@@ -172,7 +172,6 @@ class TreeViewItem extends React.Component {
 			counter = children.length,
 		} = item;
 		const paddingLeft = `${depth * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
-		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 		const shouldShowToggledIcon = !!(children.length && (toggled || this.state.hovered));
 
 		return (
@@ -200,7 +199,6 @@ class TreeViewItem extends React.Component {
 							className={css['tc-treeview-toggle']}
 							name="talend-caret-down"
 							transform={toggled ? undefined : 'rotate-270'}
-							title={toggleIconLabel}
 						/>
 					)}
 					<TreeViewIcon icon={icon} toggled={shouldShowToggledIcon} />
@@ -209,7 +207,7 @@ class TreeViewItem extends React.Component {
 					</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}
-						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action, a.id))}
+						{actions && actions.map(this.renderIconAction)}
 					</div>
 				</div>
 				{children &&
