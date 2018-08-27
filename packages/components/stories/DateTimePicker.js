@@ -23,6 +23,7 @@ class TestPickerWrapper extends React.Component {
 
 	onSubmitEval() {
 		this.setState(prevState => ({
+			// eslint-disable-next-line no-eval
 			selectedDateTime: eval(prevState.inputEvalValue),
 		}));
 	}

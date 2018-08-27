@@ -47,6 +47,7 @@ function convertToDate(type, value) {
 	const typeOfValue = typeof value;
 
 	if (typeOfValue !== type) {
+		// eslint-disable-next-line no-console
 		console.error(new UnexpectedTypeError(type, typeOfValue));
 		return INVALID_DATE;
 	}
@@ -57,6 +58,7 @@ function convertToDate(type, value) {
 		case 'string':
 			return convertStringToDate(value);
 		default:
+			// eslint-disable-next-line no-console
 			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
 			return INVALID_DATE;
 	}
