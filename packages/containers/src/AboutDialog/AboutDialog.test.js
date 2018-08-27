@@ -4,7 +4,6 @@ import Container from './AboutDialog.container';
 import Connected, { mapStateToProps } from './AboutDialog.connect';
 import Constants from './AboutDialog.constant';
 
-
 describe('Connected AboutDialog', () => {
 	it('should connect AboutDialog', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
