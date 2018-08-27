@@ -7,12 +7,19 @@ exports[`Datalist component should render 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
-  required={undefined}
+  required={true}
 >
   <Datalist component
     autoFocus={true}
     disabled={false}
     id="my-datalist"
+    inputProps={
+      Object {
+        "aria-describedby": "my-datalist-description my-datalist-error",
+        "aria-invalid": false,
+        "aria-required": true,
+      }
+    }
     multiSection={false}
     onChange={[Function]}
     onFocus={[Function]}

@@ -5,9 +5,12 @@ exports[`Toggle field should render autoFocused input 1`] = `
   description="my text input hint"
   errorMessage="My error message"
   isValid={true}
-  required={undefined}
+  required={true}
 >
   <Toggle
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     checked={true}
     className="switch checkbox"
@@ -25,9 +28,12 @@ exports[`Toggle field should render disabled input 1`] = `
   description="my text input hint"
   errorMessage="My error message"
   isValid={true}
-  required={undefined}
+  required={true}
 >
   <Toggle
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={undefined}
     checked={true}
     className="switch checkbox"
@@ -45,9 +51,12 @@ exports[`Toggle field should render input 1`] = `
   description="my text input hint"
   errorMessage="My error message"
   isValid={true}
-  required={undefined}
+  required={true}
 >
   <Toggle
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={undefined}
     checked={true}
     className="switch checkbox"

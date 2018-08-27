@@ -32,6 +32,7 @@ function FieldTemplate(props) {
 			{props.children}
 			{props.label && props.labelAfter && <Label id={props.id} label={props.label} />}
 			<Message
+				id={props.id}
 				errorMessage={props.errorMessage}
 				description={props.description}
 				isValid={props.isValid}

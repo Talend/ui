@@ -4,6 +4,7 @@ import keycode from 'keycode';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescribedBy } from '../../Message/generateId';
 
 import theme from './MultiSelectTag.scss';
 
@@ -215,6 +216,11 @@ export default class MultiSelectTag extends React.Component {
 						theme={this.theme}
 						value={this.state.value}
 						caret
+						inputProps={{
+							'aria-invalid': !isValid,
+							'aria-required': schema.required,
+							'aria-describedby': generateDescribedBy(id),
+						}}
 					/>
 				</div>
 			</FieldTemplate>

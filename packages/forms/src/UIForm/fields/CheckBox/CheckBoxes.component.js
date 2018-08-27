@@ -27,6 +27,7 @@ export default function CheckBoxes(props) {
 				<SimpleCheckBox
 					id={id}
 					key={index}
+					isValid={isValid}
 					label={item.name}
 					onChange={(event, payload) =>
 						onChange(event, {

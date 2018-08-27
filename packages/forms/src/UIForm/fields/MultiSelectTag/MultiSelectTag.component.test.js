@@ -18,6 +18,7 @@ describe('MultiSelectTag field', () => {
 			disabled: false,
 			placeholder: 'Type here',
 			readOnly: false,
+			required: true,
 			restricted: false,
 			title: 'Tags',
 			titleMap: [{ name: 'toto', value: 'titi' }, { name: 'tata', value: 'tutu' }],

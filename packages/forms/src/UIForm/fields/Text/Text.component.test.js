@@ -8,6 +8,7 @@ describe('Text field', () => {
 		autoFocus: true,
 		description: 'my text input hint',
 		placeholder: 'Type something here',
+		required: true,
 		title: 'My input title',
 		type: 'text',
 	};

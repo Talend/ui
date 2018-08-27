@@ -6,13 +6,16 @@ exports[`Radios field should render disabled input 1`] = `
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
-  required={undefined}
+  required={true}
 >
   <div
     className="radio"
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={true}
@@ -33,6 +36,9 @@ exports[`Radios field should render disabled input 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={true}
@@ -53,6 +59,9 @@ exports[`Radios field should render disabled input 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={true}
         disabled={true}
@@ -77,13 +86,16 @@ exports[`Radios field should render inline radios 1`] = `
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
-  required={undefined}
+  required={true}
 >
   <div
     className="radio-inline"
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -104,6 +116,9 @@ exports[`Radios field should render inline radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -124,6 +139,9 @@ exports[`Radios field should render inline radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={true}
         disabled={false}
@@ -148,13 +166,16 @@ exports[`Radios field should render radios 1`] = `
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
-  required={undefined}
+  required={true}
 >
   <div
     className="radio"
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -175,6 +196,9 @@ exports[`Radios field should render radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -195,6 +219,9 @@ exports[`Radios field should render radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        aria-required={true}
         autoFocus={true}
         checked={true}
         disabled={false}

@@ -7,7 +7,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   id="my-select-tag"
   isValid={true}
   label="Tags"
-  required={undefined}
+  required={true}
 >
   <div
     className="theme-wrapper form-control"
@@ -27,6 +27,13 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       docked={false}
       focusedItemIndex={undefined}
       id="my-select-tag"
+      inputProps={
+        Object {
+          "aria-describedby": "my-select-tag-description my-select-tag-error",
+          "aria-invalid": false,
+          "aria-required": true,
+        }
+      }
       isLoadingText="Loading..."
       items={null}
       multiSection={false}

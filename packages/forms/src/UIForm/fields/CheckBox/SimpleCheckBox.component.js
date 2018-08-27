@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { generateDescribedBy } from '../../Message/generateId';
 
-export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, value }) {
+export default function SimpleCheckBox({ id, isValid, label, onChange, onFinish, schema, value }) {
 	const { autoFocus, disabled = false } = schema;
 
 	return (
@@ -18,6 +19,10 @@ export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, 
 					}}
 					type="checkbox"
 					checked={value}
+					// eslint-disable-next-line jsx-a11y/aria-proptypes
+					aria-invalid={!isValid}
+					aria-required={schema.required}
+					aria-describedby={generateDescribedBy(id)}
 				/>
 				<span className="control-label" htmlFor={id}>
 					{label}
@@ -30,6 +35,7 @@ export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
 		id: PropTypes.string,
+		isValid: PropTypes.string,
 		label: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,

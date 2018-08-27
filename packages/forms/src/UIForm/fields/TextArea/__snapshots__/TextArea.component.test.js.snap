@@ -8,9 +8,12 @@ exports[`TextArea field should render disabled textarea 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={true}
@@ -34,9 +37,12 @@ exports[`TextArea field should render provided rows 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={false}
@@ -60,9 +66,12 @@ exports[`TextArea field should render readonly textarea 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={false}
@@ -86,9 +95,12 @@ exports[`TextArea field should render textarea 1`] = `
   isValid={true}
   label="My input title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={false}

@@ -7,6 +7,7 @@ describe('SimpleCheckBox field', () => {
 	const schema = {
 		autoFocus: true,
 		disabled: false,
+		required: true,
 	};
 
 	it('should render input', () => {

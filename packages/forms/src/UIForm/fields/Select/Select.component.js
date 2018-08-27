@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescribedBy } from '../../Message/generateId';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -41,6 +42,10 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				}}
 				readOnly={readOnly}
 				value={value}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
+				aria-invalid={!isValid}
+				aria-required={schema.required}
+				aria-describedby={generateDescribedBy(id)}
 			>
 				<option disabled>{placeholder}</option>
 				{schema.titleMap &&

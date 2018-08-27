@@ -16,6 +16,7 @@ export default function CheckBox(props) {
 		>
 			<SimpleCheckBox
 				id={id}
+				isValid={isValid}
 				label={title || value}
 				onChange={onChange}
 				onFinish={onFinish}

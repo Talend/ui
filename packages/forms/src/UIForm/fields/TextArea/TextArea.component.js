@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescribedBy } from '../../Message/generateId';
 
 export default function TextArea({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const {
@@ -36,6 +37,10 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 				readOnly={readOnly}
 				rows={rows}
 				value={value}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
+				aria-invalid={!isValid}
+				aria-required={schema.required}
+				aria-describedby={generateDescribedBy(id)}
 			/>
 		</FieldTemplate>
 	);

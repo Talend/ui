@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescribedBy } from '../../Message/generateId';
 
 import { convertValue } from '../../utils/properties';
 
@@ -31,7 +32,6 @@ export default function Text(props) {
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				label={title}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event =>
 					onChange(event, { schema, value: convertValue(type, event.target.value) })
@@ -40,6 +40,10 @@ export default function Text(props) {
 				readOnly={readOnly}
 				type={type}
 				value={value}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
+				aria-invalid={!isValid}
+				aria-required={schema.required}
+				aria-describedby={generateDescribedBy(id)}
 			/>
 		</FieldTemplate>
 	);

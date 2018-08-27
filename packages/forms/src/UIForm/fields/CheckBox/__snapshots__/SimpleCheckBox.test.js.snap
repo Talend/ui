@@ -6,6 +6,9 @@ exports[`SimpleCheckBox field should render disabled input 1`] = `
 >
   <label>
     <input
+      aria-describedby="myForm-description myForm-error"
+      aria-invalid={true}
+      aria-required={true}
       autoFocus={true}
       checked={true}
       disabled={true}
@@ -30,6 +33,9 @@ exports[`SimpleCheckBox field should render input 1`] = `
 >
   <label>
     <input
+      aria-describedby="myForm-description myForm-error"
+      aria-invalid={true}
+      aria-required={true}
       autoFocus={true}
       checked={true}
       disabled={false}
