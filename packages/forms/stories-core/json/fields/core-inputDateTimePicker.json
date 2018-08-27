@@ -45,7 +45,8 @@
       "key": "propAutofocus",
       "title": "Autofocus input",
       "widget": "inputDateTimePicker",
-      "autoFocus": true
+      "autoFocus": true,
+      "placeholder": "Type the date here..."
     },
     {
       "key": "propSimpleString",

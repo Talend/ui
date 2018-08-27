@@ -153,6 +153,7 @@ class InputDateTimePicker extends React.Component {
 					autoFocus={schema.autoFocus}
 					disabled={schema.disabled}
 					readOnly={schema.readOnly}
+					placeholder={schema.placeholder}
 				/>
 			</FieldTemplate>
 		);

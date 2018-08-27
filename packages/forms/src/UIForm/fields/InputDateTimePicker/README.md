@@ -43,6 +43,7 @@ This widget surprisingly allows you to render an InputDateTimePicker.
 | title       | The title to display above field                               |         |
 | autoFocus   | Focus input on render                                          | `false` |
 | disabled    | Disable the input                                              | `false` |
+| placeholder | Text to display as placeholder                                 |         |
 | readOnly    | Set the input as non modifiable and prevent datepicker to open | `false` |
 
 ```json
@@ -53,6 +54,7 @@ This widget surprisingly allows you to render an InputDateTimePicker.
 		"title": "End date",
 		"autoFocus": false,
 		"disabled": false,
+		"placeholder": "Type the date here...",
 		"readOnly": false
 	}
 ]
