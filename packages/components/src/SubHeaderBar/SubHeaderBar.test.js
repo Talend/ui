@@ -229,7 +229,12 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
-		expect(wrapper.find(SubHeaderBarActions).at(1).find(Skeleton)).toHaveLength(1);
+		expect(
+			wrapper
+				.find(SubHeaderBarActions)
+				.at(1)
+				.find(Skeleton),
+		).toHaveLength(1);
 	});
 });
 
