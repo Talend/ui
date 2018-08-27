@@ -76,6 +76,7 @@ function convertFromDate(type, date) {
 			return convertDateToString(date);
 		default: {
 			const unhandleTypeError = new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
+			// eslint-disable-next-line no-console
 			console.error(unhandleTypeError);
 			return unhandleTypeError;
 		}
