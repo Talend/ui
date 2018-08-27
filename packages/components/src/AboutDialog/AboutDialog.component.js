@@ -10,11 +10,7 @@ import theme from './AboutDialog.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 function Text({ text, loading, size = Skeleton.SIZES.medium }) {
-	return (
-		<div>
-			{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}
-		</div>
-	);
+	return <div>{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}</div>;
 }
 
 function Table({ services, loading, t }) {
@@ -30,9 +26,15 @@ function Table({ services, loading, t }) {
 			<tbody>
 				{(loading ? [{}, {}, {}] : services).map(service => (
 					<tr>
-						<td><Text loading={loading} text={service.name} /></td>
-						<td><Text loading={loading} text={service.build} /></td>
-						<td><Text loading={loading} text={service.version} /></td>
+						<td>
+							<Text loading={loading} text={service.name} />
+						</td>
+						<td>
+							<Text loading={loading} text={service.build} />
+						</td>
+						<td>
+							<Text loading={loading} text={service.version} />
+						</td>
 					</tr>
 				))}
 			</tbody>
