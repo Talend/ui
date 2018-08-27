@@ -102,13 +102,15 @@ describe('Validation utils', () => {
 	describe('#validateArray', () => {
 		const schema = {
 			key: ['comments'],
-			items: [{
+			items: [
+				{
 					key: ['comments', '', 'name'],
 					title: 'Name',
 					required: true,
 					schema: { title: 'Name', type: 'string' },
 					type: 'text',
-			}, {
+				},
+				{
 					key: ['comments', '', 'email'],
 					title: 'Email',
 					description: 'Email will be used for evil.',
@@ -119,7 +121,8 @@ describe('Validation utils', () => {
 						description: 'Email will be used for evil.',
 					},
 					type: 'text',
-			}, {
+				},
+				{
 					key: ['comments', '', 'comment'],
 					type: 'textarea',
 					rows: 3,
@@ -132,7 +135,8 @@ describe('Validation utils', () => {
 						maxLength: 20,
 						validationMessage: "Don't be greedy!",
 					},
-			}],
+				},
+			],
 			title: 'comments',
 			required: true,
 			schema: {
@@ -217,13 +221,15 @@ describe('Validation utils', () => {
 	describe('#validateSingle', () => {
 		const arraySchema = {
 			key: ['comments'],
-			items: [{
+			items: [
+				{
 					key: ['comments', '', 'name'],
 					title: 'Name',
 					required: true,
 					schema: { title: 'Name', type: 'string' },
 					type: 'text',
-			}, {
+				},
+				{
 					key: ['comments', '', 'email'],
 					title: 'Email',
 					description: 'Email will be used for evil.',
@@ -234,7 +240,8 @@ describe('Validation utils', () => {
 						description: 'Email will be used for evil.',
 					},
 					type: 'text',
-			}, {
+				},
+				{
 					key: ['comments', '', 'comment'],
 					type: 'textarea',
 					rows: 3,
@@ -247,7 +254,8 @@ describe('Validation utils', () => {
 						maxLength: 20,
 						validationMessage: "Don't be greedy!",
 					},
-			}],
+				},
+			],
 			title: 'comments',
 			required: true,
 			schema: {
@@ -382,10 +390,7 @@ describe('Validation utils', () => {
 			// given
 			const schema = {
 				key: ['user'],
-				items: [
-					{ key: ['user', 'lastname'] },
-					{ key: ['user', 'firstname'] },
-				],
+				items: [{ key: ['user', 'lastname'] }, { key: ['user', 'firstname'] }],
 			};
 			const errors = { 'user,firstname': 'this is not ok' };
 
@@ -400,10 +405,7 @@ describe('Validation utils', () => {
 			// given
 			const schema = {
 				key: ['user'],
-				items: [
-					{ key: ['user', 'lastname'] },
-					{ key: ['user', 'firstname'] },
-				],
+				items: [{ key: ['user', 'lastname'] }, { key: ['user', 'firstname'] }],
 			};
 			const errors = {};
 
