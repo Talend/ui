@@ -8,6 +8,7 @@ import Icon from '../../Icon';
 import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
+import getDefaultT from '../../translate';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;
@@ -78,18 +79,21 @@ class TreeViewItem extends React.Component {
 			counter: PropTypes.number,
 			showCounter: PropTypes.bool,
 		}).isRequired,
-		onClick: PropTypes.func.isRequired,
+		onToggle: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
 		depth: PropTypes.number,
+		t: PropTypes.func,
 	};
 
 	static defaultProps = {
 		depth: 0,
+		t: getDefaultT(),
 	};
 
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
+		this.onToggle = this.onToggle.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.renderIconAction = this.renderIconAction.bind(this);
 		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
@@ -113,15 +117,34 @@ class TreeViewItem extends React.Component {
 	}
 
 	onKeyDown(event) {
-		if (event.keyCode === keycode.codes.enter || event.keyCode === keycode.codes.space) {
-			this.onSelect();
+		switch (event.keyCode) {
+			case keycode.codes.enter:
+			case keycode.codes.space:
+				this.onSelect();
+				break;
+			case keycode.codes.left:
+				if (this.props.item.toggled) {
+					this.onToggle(event);
+				}
+				break;
+			case keycode.codes.right:
+				if (!this.props.item.toggled) {
+					this.onToggle(event);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
 	onSelect() {
 		this.containerRef.focus();
-		this.props.onClick(this.props.item);
 		return this.props.onSelect(this.props.item);
+	}
+
+	onToggle(event) {
+		event.stopPropagation();
+		return this.props.onToggle(this.props.item);
 	}
 
 	renderTreeViewItem(child, i) {
@@ -130,7 +153,7 @@ class TreeViewItem extends React.Component {
 				id={this.props.id && `${this.props.id}-${i}`}
 				item={child}
 				onSelect={this.props.onSelect}
-				onClick={this.props.onClick}
+				onToggle={this.props.onToggle}
 				depth={this.props.depth + 1}
 				key={i}
 			/>
@@ -159,7 +182,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, item, depth = 0 } = this.props;
+		const { id, item, depth = 0, t } = this.props;
 		const {
 			toggled = false,
 			selected,
@@ -173,6 +196,9 @@ class TreeViewItem extends React.Component {
 		} = item;
 		const paddingLeft = `${depth * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
 		const shouldShowToggledIcon = !!(children.length && (toggled || this.state.hovered));
+		const toggleLabel = toggled
+			? t('TREEVIEW_EXPAND', { defaultValue: 'Show its sub elements' })
+			: t('TREEVIEW_EXPAND', { defaultValue: 'Hide its sub elements' });
 
 		return (
 			<li
@@ -195,10 +221,14 @@ class TreeViewItem extends React.Component {
 					onKeyDown={this.onKeyDown}
 				>
 					{!children.length || (
-						<Icon
+						<Action
 							className={css['tc-treeview-toggle']}
-							name="talend-caret-down"
-							transform={toggled ? undefined : 'rotate-270'}
+							icon="talend-caret-down"
+							iconTransform={toggled ? undefined : 'rotate-270'}
+							onClick={this.onToggle}
+							aria-label={toggleLabel}
+							hideLabel
+							link
 						/>
 					)}
 					<TreeViewIcon icon={icon} toggled={shouldShowToggledIcon} />

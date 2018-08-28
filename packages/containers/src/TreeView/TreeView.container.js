@@ -94,7 +94,7 @@ class TreeView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
-		this.onClick = this.onClick.bind(this);
+		this.onToggle = this.onToggle.bind(this);
 	}
 
 	onSelect(data) {
@@ -115,7 +115,7 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onClick(data) {
+	onToggle(data) {
 		this.props.setState(prevState => toggleState(prevState, data[this.props.idAttr]));
 		if (this.props.onClickActionCreator) {
 			this.props.dispatchActionCreator(
@@ -140,7 +140,12 @@ class TreeView extends React.Component {
 		const structure = transform(this.props.data.toJS(), this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
-			<Component {...props} structure={structure} onSelect={this.onSelect} onClick={this.onClick} />
+			<Component
+				{...props}
+				structure={structure}
+				onSelect={this.onSelect}
+				onToggle={this.onToggle}
+			/>
 		);
 	}
 }
