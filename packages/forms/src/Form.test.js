@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
 
 // FIXME: Temporary fix only on tests while the issue
 // described on the following pull request isn't fixed.
@@ -12,6 +11,8 @@ import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
+
+import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
 
 import Form, { renderActionIcon, renderActions } from './Form';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';

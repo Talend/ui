@@ -4,19 +4,32 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
+import Message from '../../Message';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 
-import theme from './Array.scss';
+import theme from './DefaultArrayTemplate.scss';
 
-export function DefaultArrayTemplate(props) {
-	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, schema, t, value } = props;
+function DefaultArrayTemplate(props) {
+	const {
+		canReorder,
+		errorMessage,
+		id,
+		isValid,
+		onAdd,
+		onRemove,
+		onReorder,
+		renderItem,
+		schema,
+		t,
+		value,
+	} = props;
 	return (
 		<fieldset
 			className={classNames(theme['tf-array-fieldset'], 'tf-array-fieldset')}
 			data-content={schema.title}
 		>
-			{schema.title && <legend>{schema.title}</legend>}
+			{schema.title && <legend className="sr-only">{schema.title}</legend>}
 			<Action
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
@@ -40,6 +53,7 @@ export function DefaultArrayTemplate(props) {
 					</li>
 				))}
 			</ol>
+			<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
 		</fieldset>
 	);
 }
@@ -51,7 +65,9 @@ DefaultArrayTemplate.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	DefaultArrayTemplate.propTypes = {
 		canReorder: PropTypes.bool,
+		errorMessage: PropTypes.string,
 		id: PropTypes.string,
+		isValid: PropTypes.bool,
 		onAdd: PropTypes.func.isRequired,
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,

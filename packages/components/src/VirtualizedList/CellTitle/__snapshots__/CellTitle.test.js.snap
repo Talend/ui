@@ -2,7 +2,7 @@
 
 exports[`CellTitle actions should NOT render the actions when no actions key is provided 1`] = `
 <div
-  className="tc-list-title theme-tc-list-title"
+  className="theme-tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
@@ -64,7 +64,7 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
 
 exports[`CellTitle actions should NOT render the actions when rowData has no actions 1`] = `
 <div
-  className="tc-list-title theme-tc-list-title"
+  className="theme-tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
@@ -104,7 +104,7 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
 
 exports[`CellTitle actions should render the actions 1`] = `
 <div
-  className="tc-list-title theme-tc-list-title"
+  className="theme-tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
@@ -166,7 +166,7 @@ exports[`CellTitle actions should render the actions 1`] = `
 
 exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1`] = `
 <div
-  className="tc-list-title theme-tc-list-title"
+  className="theme-tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
@@ -206,7 +206,7 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
 
 exports[`CellTitle icon should NOT render the icon when the rowData has no icon value 1`] = `
 <div
-  className="tc-list-title theme-tc-list-title"
+  className="theme-tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
@@ -244,55 +244,15 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 </div>
 `;
 
-exports[`CellTitle icon should render the icon 1`] = `
+exports[`CellTitle should render title selector component 1`] = `
 <div
-  className="tc-list-title theme-tc-list-title"
+  className="theme-tc-list-title tc-list-title theme-tc-list-title-filter tc-list-title-filter"
   id="my-title-1-title-cell"
 >
   <Icon
     className="theme-icon"
     name="talend-file-o"
   />
-  <CellTitleSelector
-    cellData="my awesome title"
-    className="theme-main-title"
-    columnData={Object {}}
-    displayMode="text"
-    id="my-title-1-title-cell"
-    onClick={undefined}
-    onEditCancel={undefined}
-    onEditSubmit={undefined}
-    rowData={
-      Object {
-        "icon": "talend-file-o",
-        "id": 1,
-        "title": "my awesome title",
-      }
-    }
-  />
-  <Translate(VirtualizedList(CellTitleActions))
-    actionsKey={undefined}
-    displayMode="text"
-    getComponent={[Function]}
-    id="my-title-1-title-actions"
-    persistentActionsKey={undefined}
-    rowData={
-      Object {
-        "icon": "talend-file-o",
-        "id": 1,
-        "title": "my awesome title",
-      }
-    }
-    type="LARGE"
-  />
-</div>
-`;
-
-exports[`CellTitle should render title selector component 1`] = `
-<div
-  className="tc-list-title theme-tc-list-title"
-  id="my-title-1-title-cell"
->
   <CellTitleSelector
     cellData="my awesome title"
     className="theme-main-title"
