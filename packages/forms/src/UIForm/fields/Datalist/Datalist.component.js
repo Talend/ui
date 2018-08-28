@@ -112,10 +112,12 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
+				labelAfter
 			>
 				<DataListComponent
 					{...props}
 					{...this.state}
+					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || false}
 					multiSection={false}
