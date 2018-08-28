@@ -1,189 +1,91 @@
 {
-  "properties": {
-    "configuration": {
-      "bodyFieldsOnly": false,
-      "commonDataSet": {
-        "dataStore": {
-          "enableCustomization": true,
-          "apiVersion": "V2018_2",
-          "role": 0,
-          "loginType": "BASIC"
-        }
-      }
-    }
-  },
   "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
     "properties": {
-      "configuration": {
-        "properties": {
-          "schema": {
-            "items": {
-              "title": "Schema",
-              "type": "string"
-            },
-            "title": "Schema",
-            "type": "array"
-          },
-          "searchCondition": {
-            "items": {
-              "properties": {
-                "field": {
-                  "title": "field",
-                  "type": "string"
-                },
-                "value2": {
-                  "title": "value2",
-                  "type": "string"
-                },
-                "value": {
-                  "title": "value",
-                  "type": "string"
-                },
-                "operator": {
-                  "title": "operator",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "title": "searchCondition",
-            "type": "array"
-          },
-          "bodyFieldsOnly": {
-            "default": false,
-            "title": "Body fields only",
-            "type": "boolean"
-          },
-          "commonDataSet": {
-            "properties": {
-              "recordType": {
-                "title": "Record Type",
-                "type": "string"
-              },
-              "dataStore": {
-                "properties": {
-                  "loginType": {
-                    "default": "BASIC",
-                    "enum": [
-                      "BASIC",
-                      "TBA"
-                    ],
-                    "title": "Login Type",
-                    "type": "string"
-                  },
-                  "consumerSecret": {
-                    "title": "Consumer Secret",
-                    "type": "string"
-                  },
-                  "tokenSecret": {
-                    "title": "Token Secret",
-                    "type": "string"
-                  },
-                  "consumerKey": {
-                    "title": "Consumer Key",
-                    "type": "string"
-                  },
-                  "applicationId": {
-                    "title": "ApplicationId",
-                    "type": "string"
-                  },
-                  "account": {
-                    "title": "Account",
-                    "type": "string"
-                  },
-                  "enableCustomization": {
-                    "default": true,
-                    "title": "Enable Customization",
-                    "type": "boolean"
-                  },
-                  "tokenId": {
-                    "title": "Token ID",
-                    "type": "string"
-                  },
-                  "endpoint": {
-                    "title": "Endpoint",
-                    "type": "string"
-                  },
-                  "role": {
-                    "default": 0,
-                    "title": "Role",
-                    "type": "number"
-                  },
-                  "password": {
-                    "title": "Password",
-                    "type": "string"
-                  },
-                  "email": {
-                    "title": "E-mail",
-                    "type": "string"
-                  },
-                  "apiVersion": {
-                    "default": "V2018_2",
-                    "enum": [
-                      "V2018_2"
-                    ],
-                    "title": "apiVersion",
-                    "type": "string"
-                  }
-                },
-                "title": "dataStore",
-                "type": "object"
-              }
-            },
-            "title": "commonDataSet",
-            "type": "object"
-          }
-        },
-        "title": "configuration",
-        "type": "object"
+      "name": {
+        "type": "string"
+      },
+      "lastname": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      },
+      "age": {
+        "type": "number"
+      },
+      "readonlyField": {
+        "type": "string"
+      },
+      "disabledField": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "pattern": "^\\S+@\\S+$"
+      },
+      "comment": {
+        "type": "string",
+        "maxLength": 20
       }
     },
-    "required": [],
-    "title": "Input",
-    "type": "object"
+    "required": [
+      "name",
+      "firstname",
+      "email",
+      "comment"
+    ]
   },
-  "uiSchema": [{
-      "items": [
-        {
-          "items": [
-            {
-              "items": [
-                {
-                  "key": "configuration.commonDataSet.dataStore.endpoint",
-                  "placeholder": "endpoint",
-                  "required": false,
-                  "title": "Endpoint",
-                  "widget": "text",
-                  "type": "text"
-                },
-                {
-                  "key": "configuration.commonDataSet.dataStore.apiVersion",
-                  "placeholder": "apiVersion",
-                  "required": false,
-                  "restricted": true,
-                  "title": "apiVersion",
-                  "titleMap":[
-                    {
-                      "name": "2018.2",
-                      "value": "V2018_2"
-                    }
-                  ],
-                  "widget": "datalist",
-                  "type": "select"
-                }
-              ],
-              "widget": "columns"
-            }
-          ],
-          "key": "configuration.commonDataSet",
-          "placeholder": "commonDataSet",
-          "required": false,
-          "title": "commonDataSet",
-          "type": "fieldset"
-        }
-      ],
-      "key": "configuration",
-      "widget": "tabs",
-      "title": "configuration"
-  }]
+  "uiSchema": [
+    {
+      "key": "name",
+      "title": "Name"
+    },
+    {
+      "key": "lastname",
+      "title": "Last Name (with description)",
+      "description": "Hint: this is the last name",
+      "autoFocus": true
+    },
+    {
+      "key": "firstname",
+      "title": "First Name (with placeholder)",
+      "placeholder": "Enter your firstname here"
+    },
+    {
+      "key": "age",
+      "title": "Age"
+    },
+    {
+      "key": "email",
+      "title": "Email (with pattern validation and custom validation message)",
+      "description": "Email will be used for evil.",
+      "validationMessage": "Please enter a valid email address, e.g. user@email.com"
+    },
+    {
+      "key": "readonlyField",
+      "title": "Field (read only mode)",
+      "readOnly": true
+    },
+    {
+      "key": "disabledField",
+      "title": "Field (disabled mode)",
+      "disabled": true
+    },
+    {
+      "key": "comment",
+      "widget": "textarea",
+      "title": "Comment",
+      "rows": 5,
+      "validationMessage": "Don't be greedy!"
+    }
+  ],
+  "properties": {
+    "name": "Chuck Norris",
+    "readonlyField": "You can't change that",
+    "disabledField": "You can't change that",
+    "email": "ChuckyFTW@gmail.com",
+    "comment": "lol"
+  }
 }
