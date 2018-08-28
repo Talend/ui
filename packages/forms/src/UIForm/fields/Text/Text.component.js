@@ -16,6 +16,10 @@ export default function Text(props) {
 		type,
 	} = schema;
 
+	if (type === 'hidden') {
+		return <input id={id} type={type} value={value} />;
+	}
+
 	return (
 		<FieldTemplate
 			description={description}
