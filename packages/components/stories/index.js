@@ -1,3 +1,4 @@
+import './AboutDialog';
 import './Action';
 import './ActionBar';
 import './ActionDropdown';
