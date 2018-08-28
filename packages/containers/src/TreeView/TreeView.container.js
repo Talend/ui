@@ -19,11 +19,27 @@ export const DEFAULT_STATE = new Immutable.Map({
 	[SELECTED_ATTR]: undefined,
 });
 
-function toggleState(prevProps, id) {
+function itemHasChildId(data, idAttr, idToMatch) {
+	if (!data.children || !data.children.length) {
+		return true;
+	}
+	return data.children.some(
+		child => child[idAttr] === idToMatch || itemHasChildId(child, idAttr, idToMatch),
+	);
+}
+
+function toggleState(prevProps, data, idAttr) {
+	const id = data[idAttr];
 	const opened = prevProps.state.get(OPENED_ATTR);
 	const index = opened.indexOf(id);
 	if (index !== -1) {
-		return prevProps.state.set(OPENED_ATTR, opened.delete(index));
+		let nextState = prevProps.state.set(OPENED_ATTR, opened.delete(index));
+		const selectedId = nextState.get(SELECTED_ATTR);
+		if (selectedId !== undefined && itemHasChildId(data.children, idAttr, selectedId)) {
+			nextState = nextState.set(SELECTED_ATTR, undefined);
+		}
+
+		return nextState;
 	}
 	return prevProps.state.set(OPENED_ATTR, prevProps.state.get(OPENED_ATTR).push(id));
 }
@@ -47,15 +63,15 @@ export function transform(items, props, parent) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = props[SELECTED_ATTR] || (state && state.get(SELECTED_ATTR));
-	const opened = state && state.get(OPENED_ATTR).toJS();
+	const selectedId = state ? state.get(SELECTED_ATTR) : props[SELECTED_ATTR];
+	const opened = state && state.get(OPENED_ATTR);
 
 	return items.map(item => {
 		const selected = item[props.idAttr] === selectedId;
 		const elem = {
 			...item,
 			id: item[props.idAttr],
-			toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
+			toggled: item.toggled || opened.includes(item[props.idAttr]),
 			name: item[props.nameAttr],
 			selected,
 			parent,
@@ -116,7 +132,7 @@ class TreeView extends React.Component {
 	}
 
 	onToggle(data) {
-		this.props.setState(prevState => toggleState(prevState, data[this.props.idAttr]));
+		this.props.setState(prevState => toggleState(prevState, data, this.props.idAttr));
 		if (this.props.onClickActionCreator) {
 			this.props.dispatchActionCreator(
 				this.props.onClickActionCreator,

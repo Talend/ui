@@ -46,6 +46,12 @@ TreeViewIcon.propTypes = {
 	toggled: PropTypes.bool,
 };
 
+function focusOn(element) {
+	if (element) {
+		element.focus();
+	}
+}
+
 /**
  * Internal: you should not use it
  * Single item of TreeView component
@@ -123,42 +129,28 @@ class TreeViewItem extends React.Component {
 				this.onSelect();
 				break;
 			case keycode.codes.left:
-				if (!this.hasChildren()) {
-					const parent = this.getParentItem();
-					if (parent) {
-						parent.focus();
-					}
-				} else if (this.props.item.toggled) {
+				if (this.hasChildren() && this.props.item.toggled) {
 					this.onToggle(event);
+				} else if (!this.hasChildren() || !this.props.item.toggled) {
+					focusOn(this.getParentItem());
 				}
 				break;
 			case keycode.codes.right:
-				if (!this.props.item.toggled) {
+				if (this.hasChildren() && !this.props.item.toggled) {
 					this.onToggle(event);
+				} else if (this.hasChildren() && this.props.item.toggled) {
+					focusOn(this.getFirstChildItem());
 				}
 				break;
-			case keycode.codes.down: {
-				const nextElement = this.getNextItem();
-				if (nextElement) {
-					nextElement.focus();
-				}
+			case keycode.codes.down:
+				focusOn(this.getNextItem());
 				break;
-			}
-			case keycode.codes.up: {
-				const previousElement = this.getPreviousItem();
-
-				if (previousElement) {
-					previousElement.focus();
-				}
+			case keycode.codes.up:
+				focusOn(this.getPreviousItem());
 				break;
-			}
 			default:
 				break;
 		}
-	}
-
-	hasChildren() {
-		return this.props.item.children && this.props.item.children.length;
 	}
 
 	onSelect() {
@@ -176,6 +168,10 @@ class TreeViewItem extends React.Component {
 			.closest('.tc-treeview-item-li')
 			.parentElement.closest('.tc-treeview-item-li');
 		return parent && parent.querySelector('.tc-treeview-item');
+	}
+
+	getFirstChildItem() {
+		return this.containerRef.nextSibling.querySelector('.tc-treeview-item');
 	}
 
 	getNextItem() {
@@ -225,6 +221,10 @@ class TreeViewItem extends React.Component {
 		} while (hasNext);
 
 		return previousElement;
+	}
+
+	hasChildren() {
+		return this.props.item.children && this.props.item.children.length;
 	}
 
 	renderTreeViewItem(child, i) {
