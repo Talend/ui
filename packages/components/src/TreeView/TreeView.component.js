@@ -88,7 +88,7 @@ class TreeView extends React.Component {
 						)}
 					</header>
 				)}
-				<nav className={theme['tc-treeview-nav']}>
+				<nav className={`${theme['tc-treeview-nav']} tc-treeview-nav`}>
 					<ul className={theme['tc-treeview-ul']}>
 						{structure.map((item, i) => (
 							<TreeViewItem

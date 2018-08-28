@@ -23,8 +23,10 @@ $item-height: 4rem;
 
 		.tc-treeview-toggle {
 			position: relative;
-			display: flex;
+			display: inline-flex;
 			margin-right: $padding-large;
+			min-height: auto;
+			height: auto;
 
 			svg {
 				width: $svg-sm-size;
@@ -40,10 +42,10 @@ $item-height: 4rem;
 			&:before {
 				content: '';
 				position: absolute;
-				left: -15px;
-				right: -15px;
-				top: 0;
-				bottom: 0;
+				left: -$padding-normal;
+				right: -$padding-normal;
+				top: -$padding-small;
+				bottom: -$padding-small;
 			}
 		}
 

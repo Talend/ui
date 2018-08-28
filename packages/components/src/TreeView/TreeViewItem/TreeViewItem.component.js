@@ -123,7 +123,12 @@ class TreeViewItem extends React.Component {
 				this.onSelect();
 				break;
 			case keycode.codes.left:
-				if (this.props.item.toggled) {
+				if (!this.hasChildren()) {
+					const parent = this.getParentItem();
+					if (parent) {
+						parent.focus();
+					}
+				} else if (this.props.item.toggled) {
 					this.onToggle(event);
 				}
 				break;
@@ -132,9 +137,28 @@ class TreeViewItem extends React.Component {
 					this.onToggle(event);
 				}
 				break;
+			case keycode.codes.down: {
+				const nextElement = this.getNextItem();
+				if (nextElement) {
+					nextElement.focus();
+				}
+				break;
+			}
+			case keycode.codes.up: {
+				const previousElement = this.getPreviousItem();
+
+				if (previousElement) {
+					previousElement.focus();
+				}
+				break;
+			}
 			default:
 				break;
 		}
+	}
+
+	hasChildren() {
+		return this.props.item.children && this.props.item.children.length;
 	}
 
 	onSelect() {
@@ -145,6 +169,62 @@ class TreeViewItem extends React.Component {
 	onToggle(event) {
 		event.stopPropagation();
 		return this.props.onToggle(this.props.item);
+	}
+
+	getParentItem() {
+		const parent = this.containerRef
+			.closest('.tc-treeview-item-li')
+			.parentElement.closest('.tc-treeview-item-li');
+		return parent && parent.querySelector('.tc-treeview-item');
+	}
+
+	getNextItem() {
+		let nextElement;
+		let currentFound;
+		let hasNext;
+
+		const nodes = this.containerRef
+			.closest('.tc-treeview-nav')
+			.querySelectorAll('.tc-treeview-item')
+			.values();
+
+		do {
+			const { value, done } = nodes.next();
+
+			if (currentFound) {
+				nextElement = value;
+				hasNext = false;
+			} else {
+				currentFound = value === this.containerRef;
+				hasNext = !done;
+			}
+		} while (hasNext);
+
+		return nextElement;
+	}
+
+	getPreviousItem() {
+		let previousElement;
+		let hasNext;
+
+		const nodes = this.containerRef
+			.closest('.tc-treeview-nav')
+			.querySelectorAll('.tc-treeview-item')
+			.values();
+
+		do {
+			const { value, done } = nodes.next();
+			const currentFound = value === this.containerRef;
+
+			if (currentFound) {
+				hasNext = false;
+			} else {
+				previousElement = value;
+				hasNext = !done;
+			}
+		} while (hasNext);
+
+		return previousElement;
 	}
 
 	renderTreeViewItem(child, i) {
@@ -200,6 +280,15 @@ class TreeViewItem extends React.Component {
 			? t('TREEVIEW_EXPAND', { defaultValue: 'Show its sub elements' })
 			: t('TREEVIEW_EXPAND', { defaultValue: 'Hide its sub elements' });
 
+		let itemLabel = name;
+		if (children.length) {
+			const description = t('TREEVIEW_HAS_CHILDREN', {
+				defaultValue:
+					'This element has children. To expand it press right, to collapse if press left.',
+			});
+			itemLabel = `${itemLabel}. ${description}`;
+		}
+
 		return (
 			<li
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
@@ -215,10 +304,11 @@ class TreeViewItem extends React.Component {
 					style={{ paddingLeft }}
 					role="button"
 					tabIndex="0"
-					ref={element => {
-						this.containerRef = element;
+					ref={ref => {
+						this.containerRef = ref;
 					}}
 					onKeyDown={this.onKeyDown}
+					aria-label={itemLabel}
 				>
 					{!children.length || (
 						<Action
@@ -227,7 +317,6 @@ class TreeViewItem extends React.Component {
 							iconTransform={toggled ? undefined : 'rotate-270'}
 							onClick={this.onToggle}
 							aria-label={toggleLabel}
-							hideLabel
 							link
 						/>
 					)}
