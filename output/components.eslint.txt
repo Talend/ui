@@ -31,14 +31,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeView.component.js
   52:4  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-  160:2  error  hasChildren should be placed after getPreviousItem  react/sort-comp
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 16 problems (14 errors, 2 warnings)
+✖ 15 problems (13 errors, 2 warnings)
 
