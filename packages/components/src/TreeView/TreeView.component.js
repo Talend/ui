@@ -49,6 +49,7 @@ class TreeView extends React.Component {
 		super(props);
 
 		if (props.onClick && process.env.NODE_ENV !== 'production') {
+			// eslint-disable-next-line no-console
 			console.warn(
 				'Treeview: props.onClick is deprecated please use onToggle that is way more explicit',
 			);
@@ -99,7 +100,7 @@ class TreeView extends React.Component {
 							onToggle={onToggle || onClick}
 							onToggleAllSiblings={onToggleAllSiblings}
 							key={i}
-							index={i}
+							index={i + 1}
 							selectedId={selectedId}
 							siblingsNumber={structure.length}
 							level={1}

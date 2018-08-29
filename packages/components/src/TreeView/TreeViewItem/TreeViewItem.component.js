@@ -93,12 +93,10 @@ class TreeViewItem extends React.Component {
 		onSelect: PropTypes.func.isRequired,
 		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		siblingsNumber: PropTypes.number.isRequired,
-		t: PropTypes.func,
 	};
 
 	static defaultProps = {
 		level: 1,
-		t: getDefaultT(),
 	};
 
 	constructor(props) {
@@ -291,7 +289,7 @@ class TreeViewItem extends React.Component {
 						onToggle={this.props.onToggle}
 						onToggleAllSiblings={this.props.onToggleAllSiblings}
 						key={i}
-						index={i}
+						index={i + 1}
 						selectedId={this.props.selectedId}
 						siblingsNumber={children.length}
 						level={this.props.level + 1}
@@ -323,7 +321,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, index, item, level, selectedId, siblingsNumber, t } = this.props;
+		const { id, index, item, level, selectedId, siblingsNumber } = this.props;
 		const {
 			toggled = false,
 			hidden,
