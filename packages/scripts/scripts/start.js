@@ -11,8 +11,8 @@ module.exports = function start(env) {
 			'--config', hereRelative(__dirname, '../config/webpack.config.js'),
 			'--content-base', 'build/',
 			'--open',
+			'--progress',
 		],
 		{ stdio: 'inherit', env }
 	);
 };
-
