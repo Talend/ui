@@ -2,6 +2,7 @@ import shouldRender from './condition';
 
 const properties = {
 	string: 'foo',
+	stringUppercase: 'FOO',
 	stringEmpty: '',
 	number: 2,
 	zero: 0,
@@ -49,6 +50,11 @@ const TRUTHY_CONDITIONS = [
 		strategy: 'length',
 		path: 'arrayEmpty',
 	},
+	{
+		values: ['0'],
+		strategy: 'length',
+		path: 'arrayEmpty',
+	},
 	// check if string is filled
 	{
 		shouldBe: false,
@@ -91,12 +97,54 @@ const TRUTHY_CONDITIONS = [
 			},
 		],
 	},
+	{
+		values: ['foo'],
+		strategy: 'contains',
+		path: 'string',
+	},
+	{
+		values: ['oo'],
+		strategy: 'contains',
+		path: 'string',
+	},
+	{
+		values: ['fo'],
+		strategy: 'contains',
+		path: 'string',
+	},
+	{
+		values: ['foo'],
+		strategy: 'contains',
+		path: 'arrayString',
+	},
+	{
+		values: ['oo'],
+		strategy: 'contains(lowercase=true)',
+		path: 'stringUppercase',
+	},
+	{
+		values: ['2'],
+		strategy: 'contains',
+		path: 'number',
+	},
+	{
+		shouldBe: false,
+		values: ['2'],
+		strategy: 'length',
+		path: 'string',
+	},
 ];
 
 const FALSY_CONDITIONS = [
 	{
 		shouldBe: false,
 		values: [0, 1, 2, 3], // foo is 3
+		strategy: 'length',
+		path: 'string',
+	},
+	{
+		shouldBe: false,
+		values: ['3'],
 		strategy: 'length',
 		path: 'string',
 	},
@@ -143,16 +191,26 @@ const FALSY_CONDITIONS = [
 			},
 		],
 	},
+	{
+		values: [0],
+		strategy: 'contains',
+		path: 'string',
+	},
+	{
+		values: ['nothere'],
+		strategy: 'contains',
+		path: 'arrayString',
+	},
 ];
 
 describe('condition', () => {
-	it('should return true if condition is filled', () => {
-		TRUTHY_CONDITIONS.forEach(condition => {
+	TRUTHY_CONDITIONS.forEach(condition => {
+		it(`truthy: ${JSON.stringify(condition)}`, () => {
 			expect(shouldRender(condition, properties)).toBeTruthy();
 		});
 	});
-	it('should return false if condition is not filled', () => {
-		FALSY_CONDITIONS.forEach(condition => {
+	FALSY_CONDITIONS.forEach(condition => {
+		it(`falsy: ${JSON.stringify(condition)}`, () => {
 			expect(shouldRender(condition, properties)).toBeFalsy();
 		});
 	});

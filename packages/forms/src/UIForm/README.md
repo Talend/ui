@@ -290,7 +290,7 @@ The uiSchema accepts a `condition` property, which defines recursively all condi
 | condition | Defines a condition to meet to be rendered. |
 | condition.path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
 | condition.values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
-| condition.strategy | Defines evaluation strategy, DEFAULT just takes the string value and LENGTH takes the length of arrays/strings. |
+| condition.strategy | Defines evaluation strategy, `default` just takes the string value, `length` takes the length of arrays/strings, `contains` test if the string is contained. Note that some strategy can be configured using the syntax `strategyName(param1=value2,param2=value2). Currently `contains` support a boolean `lowercase` which can be set to `true` to do a case insensitive comparison (ensure your values are lowercase). |
 | condition.shouldBe | Defines if the expected result of the equality test is true (default) or false. |
 | condition.children | Define an array of nested conditions composed with childrenOperator. |
 | condition.childrenOperator | How to combine the children conditions, can be OR or AND (default). |
