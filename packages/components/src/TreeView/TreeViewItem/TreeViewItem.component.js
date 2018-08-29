@@ -281,7 +281,7 @@ class TreeViewItem extends React.Component {
 
 		const { children } = this.props.item;
 		return (
-			<ul role="group" className={css['tc-treeview-ul']}>
+			<ul key="children" role="group" className={css['tc-treeview-ul']}>
 				{children.map((child, i) => (
 					<TreeViewItem
 						id={this.props.id && `${this.props.id}-${i}`}
@@ -361,23 +361,28 @@ class TreeViewItem extends React.Component {
 					className={classNames('tc-treeview-item', css['tc-treeview-item'])}
 					style={{ paddingLeft }}
 				>
-					{!children.length || (
+					{children.length ? (
 						<Action
+							key="toggle"
 							className={css['tc-treeview-toggle']}
 							icon="talend-caret-down"
 							iconTransform={toggled ? undefined : 'rotate-270'}
 							onClick={this.onToggle}
+							label=""
 							aria-hidden
 							tabIndex="-1"
 							link
 						/>
-					)}
-					<TreeViewIcon icon={icon} toggled={showOpenedFolder} />
-					<span className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}>
+					) : null}
+					<TreeViewIcon key="icon" icon={icon} toggled={showOpenedFolder} />
+					<span
+						key="label"
+						className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}
+					>
 						{name}
 					</span>
-					<div className={css['tc-treeview-item-ctrl']}>
-						{showCounter && <Badge label={counter.toString()} />}
+					<div key="actions" className={css['tc-treeview-item-ctrl']}>
+						{showCounter && <Badge key="badge" label={counter.toString()} />}
 						{actions && actions.map(this.renderIconAction)}
 					</div>
 				</div>

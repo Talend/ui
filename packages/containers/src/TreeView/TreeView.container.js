@@ -101,7 +101,7 @@ export function transform(items, props, parent) {
 class TreeView extends React.Component {
 	static displayName = DISPLAY_NAME;
 	static propTypes = {
-		data: ImmutablePropTypes.List,
+		data: ImmutablePropTypes.list,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		onClick: PropTypes.func,

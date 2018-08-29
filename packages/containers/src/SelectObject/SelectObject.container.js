@@ -136,7 +136,7 @@ class SelectObject extends React.Component {
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		breadCrumbsRootLabel: PropTypes.string,
-		filterMode: PropTypes.oneOfType(SelectObject.FILTER_MODE),
+		filterMode: PropTypes.oneOf([SelectObject.FILTER_MODE.ALL, SelectObject.FILTER_MODE.LEAF]),
 	};
 	static defaultProps = {
 		sourceData: new Immutable.List(),
