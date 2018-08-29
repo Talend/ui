@@ -48,7 +48,7 @@ getIcon.propTypes = {
 };
 
 function getLabel({ hideLabel, label, loading }) {
-	if (hideLabel || !label) {
+	if (hideLabel) {
 		return null;
 	}
 	if (loading) {
