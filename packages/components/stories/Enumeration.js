@@ -7,8 +7,6 @@ import { checkA11y } from '@storybook/addon-a11y';
 import { Enumeration, IconsProvider } from '../src/index';
 import i18n from './config/i18n';
 
-import './Enumeration.css';
-
 const addItemAction = {
 	label: 'Add item',
 	icon: 'talend-plus',
