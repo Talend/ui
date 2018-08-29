@@ -26,6 +26,14 @@ exports[`Text field should render disabled input 1`] = `
 </FieldTemplate>
 `;
 
+exports[`Text field should render hidden input 1`] = `
+<input
+  id="myForm"
+  type="hidden"
+  value="toto"
+/>
+`;
+
 exports[`Text field should render input 1`] = `
 <FieldTemplate
   description="my text input hint"
