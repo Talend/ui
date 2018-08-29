@@ -21,7 +21,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 
 function itemHasChildId(data, idAttr, idToMatch) {
 	if (!data.children || !data.children.length) {
-		return true;
+		return false;
 	}
 	return data.children.some(
 		child => child[idAttr] === idToMatch || itemHasChildId(child, idAttr, idToMatch),
@@ -35,13 +35,21 @@ function toggleState(prevProps, data, idAttr) {
 	if (index !== -1) {
 		let nextState = prevProps.state.set(OPENED_ATTR, opened.delete(index));
 		const selectedId = nextState.get(SELECTED_ATTR);
-		if (selectedId !== undefined && itemHasChildId(data.children, idAttr, selectedId)) {
+		if (selectedId !== undefined && itemHasChildId(data, idAttr, selectedId)) {
 			nextState = nextState.set(SELECTED_ATTR, undefined);
 		}
 
 		return nextState;
 	}
 	return prevProps.state.set(OPENED_ATTR, prevProps.state.get(OPENED_ATTR).push(id));
+}
+
+function openAllState(prevProps, data, idAttr) {
+	const nextOpened = data
+		.reduce((accu, item) => accu.add(item[idAttr]), prevProps.state.get(OPENED_ATTR).toSet())
+		.toList();
+
+	return prevProps.state.set(OPENED_ATTR, nextOpened);
 }
 
 function selectWrapper(prevProps, id) {
@@ -63,23 +71,21 @@ export function transform(items, props, parent) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = state ? state.get(SELECTED_ATTR) : props[SELECTED_ATTR];
-	const opened = state && state.get(OPENED_ATTR);
+	const selectedId = state.get(SELECTED_ATTR);
+	const opened = state.get(OPENED_ATTR);
 
 	return items.map(item => {
-		const selected = item[props.idAttr] === selectedId;
 		const elem = {
 			...item,
 			id: item[props.idAttr],
 			toggled: item.toggled || opened.includes(item[props.idAttr]),
 			name: item[props.nameAttr],
-			selected,
 			parent,
 		};
 
 		elem.children = transform(item[props.childrenAttr], props, elem);
 
-		if (selected) {
+		if (item[props.idAttr] === selectedId) {
 			for (let current = elem; current.parent; current = current.parent) {
 				current.parent.toggled = true;
 			}
@@ -111,6 +117,7 @@ class TreeView extends React.Component {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
 		this.onToggle = this.onToggle.bind(this);
+		this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
 	}
 
 	onSelect(data) {
@@ -149,6 +156,15 @@ class TreeView extends React.Component {
 		}
 	}
 
+	onToggleAllSiblings(data) {
+		this.props.setState(prevState => openAllState(prevState, data, this.props.idAttr));
+	}
+
+	getSelectedId() {
+		const state = this.props.state || DEFAULT_STATE;
+		return state.get(SELECTED_ATTR);
+	}
+
 	render() {
 		if (!this.props.data) {
 			return null;
@@ -161,6 +177,8 @@ class TreeView extends React.Component {
 				structure={structure}
 				onSelect={this.onSelect}
 				onToggle={this.onToggle}
+				onToggleAllSiblings={this.onToggleAllSiblings}
+				selectedId={this.getSelectedId()}
 			/>
 		);
 	}

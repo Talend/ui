@@ -6,6 +6,10 @@ $item-height: 4rem;
 	align-items: center;
 	flex-wrap: wrap;
 
+	&:focus {
+		outline: none;
+	}
+
 	:global(.btn-link) {
 		padding: 0;
 	}
@@ -22,11 +26,12 @@ $item-height: 4rem;
 		transition: 200ms ease-out;
 
 		.tc-treeview-toggle {
-			position: relative;
+			position: absolute;
+			padding: 1rem;
 			display: inline-flex;
-			margin-right: $padding-large;
 			min-height: auto;
 			height: auto;
+			margin-left: -3rem;
 
 			svg {
 				width: $svg-sm-size;
@@ -36,16 +41,6 @@ $item-height: 4rem;
 
 			&:hover svg {
 				fill: rgba($black, 0.7);
-			}
-
-			// increase click area
-			&:before {
-				content: '';
-				position: absolute;
-				left: -$padding-normal;
-				right: -$padding-normal;
-				top: -$padding-small;
-				bottom: -$padding-small;
 			}
 		}
 
@@ -69,29 +64,29 @@ $item-height: 4rem;
 			text-overflow: ellipsis;
 			max-width: 40rem;
 		}
+	}
 
-		&:hover,
-		&:global(.ally-focus-within) {
-			background: rgba($black, 0.05);
-			color: $scooter;
+	&[aria-selected='true'] > .tc-treeview-item {
+		background: rgba($black, 0.05);
+		font-weight: 600;
+		color: $black;
 
-			.tc-treeview-folder {
-				fill: $lightning-yellow;
-			}
+		.tc-treeview-folder {
+			fill: $lightning-yellow;
+		}
+	}
 
-			:global(.btn-link) {
-				visibility: visible;
-			}
+	.tc-treeview-item:hover,
+	&:focus > .tc-treeview-item {
+		background: rgba($black, 0.05);
+		color: $scooter;
+
+		.tc-treeview-folder {
+			fill: $lightning-yellow;
 		}
 
-		&[data-selected='true'] {
-			background: rgba($black, 0.05);
-			font-weight: 600;
-			color: $black;
-
-			.tc-treeview-folder {
-				fill: $lightning-yellow;
-			}
+		:global(.btn-link) {
+			visibility: visible;
 		}
 	}
 

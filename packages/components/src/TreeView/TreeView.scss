@@ -19,13 +19,9 @@
 		}
 	}
 
-	.tc-treeview-nav {
+	.tc-treeview-ul {
 		padding: $padding-small 0;
 		overflow: auto;
-
-		.tc-treeview-ul {
-			padding: 0;
-			list-style-type: none;
-		}
+		list-style-type: none;
 	}
 }

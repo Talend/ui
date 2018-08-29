@@ -65,42 +65,47 @@ class TreeView extends React.Component {
 			onClick,
 			onSelect,
 			onToggle,
+			onToggleAllSiblings,
 			noHeader,
 			className,
+			selectedId,
 			style,
 		} = this.props;
+		const titleId = id && `${id}-title`;
 		return (
 			<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
-				{!noHeader && (
-					<header className={theme['tc-treeview-header']}>
-						<span>{headerText}</span>
-						{addAction && (
-							<Action
-								label={addActionLabel}
-								icon="talend-plus"
-								onClick={addAction}
-								tooltipPlacement="right"
-								hideLabel
-								link
-								id={id && `${id}-add`}
-								key={addActionLabel}
-							/>
-						)}
-					</header>
-				)}
-				<nav className={`${theme['tc-treeview-nav']} tc-treeview-nav`}>
-					<ul className={theme['tc-treeview-ul']}>
-						{structure.map((item, i) => (
-							<TreeViewItem
-								id={id && `${id}-${i}`}
-								item={item}
-								onSelect={onSelect}
-								onToggle={onToggle || onClick}
-								key={i}
-							/>
-						))}
-					</ul>
-				</nav>
+				<header className={classNames(theme['tc-treeview-header'], { 'sr-only': noHeader })}>
+					<span id={titleId}>{headerText}</span>
+					{addAction && (
+						<Action
+							label={addActionLabel}
+							icon="talend-plus"
+							onClick={addAction}
+							tooltipPlacement="right"
+							hideLabel
+							link
+							id={id && `${id}-add`}
+							key={addActionLabel}
+						/>
+					)}
+				</header>
+				<ul className={theme['tc-treeview-ul']} role="tree" aria-labelledby={titleId}>
+					{structure.map((item, i) => (
+						<TreeViewItem
+							id={id && `${id}-${i}`}
+							item={item}
+							itemSiblings={structure}
+							onSelect={onSelect}
+							onToggle={onToggle || onClick}
+							onToggleAllSiblings={onToggleAllSiblings}
+							key={i}
+							index={i}
+							selectedId={selectedId}
+							siblingsNumber={structure.length}
+							level={1}
+						/>
+					))}
+				</ul>
 			</div>
 		);
 	}
@@ -116,16 +121,18 @@ TreeView.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	TreeView.propTypes = {
-		id: PropTypes.string,
+		id: PropTypes.string.isRequired,
 		headerText: PropTypes.string,
 		structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 		addAction: PropTypes.func,
 		addActionLabel: PropTypes.string,
 		onClick: PropTypes.func, // deprecated, use onToggle
 		onToggle: PropTypes.func.isRequired,
+		onToggleAllSiblings: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
 		noHeader: PropTypes.bool,
 		className: PropTypes.string,
+		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		style: PropTypes.object,
 	};
 }

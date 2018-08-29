@@ -1,4 +1,14 @@
-const NATIVE_PROPS = ['autoFocus', 'className', 'id', 'name', 'target', 'rel', 'role', 'title'];
+const NATIVE_PROPS = [
+	'autoFocus',
+	'className',
+	'id',
+	'name',
+	'target',
+	'rel',
+	'role',
+	'tabIndex',
+	'title',
+];
 const NATIVE_PROPS_GROUPS = ['aria-', 'data-'];
 
 function extractComponentProps(Component, props) {
