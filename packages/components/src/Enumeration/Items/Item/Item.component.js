@@ -21,10 +21,11 @@ function itemClasses(isSelected) {
 	});
 }
 
-function itemLabelClasses() {
+function itemLabelClasses(className) {
 	return classNames({
 		[theme['tc-enumeration-item-label']]: true,
 		'tc-enumeration-item-label': true,
+		[className]: className,
 	});
 }
 
@@ -91,7 +92,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 	function getActionLabel() {
 		if (searchCriteria) {
 			return (
-				<button role="gridcell" className={itemLabelClasses()} disabled="disabled">
+				<button role="gridcell" className={itemLabelClasses(item.className)} disabled="disabled">
 					{getSearchedLabel(actualLabel)}
 				</button>
 			);
@@ -99,7 +100,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 
 		return (
 			<Button
-				className={itemLabelClasses()}
+				className={itemLabelClasses(item.className)}
 				role="gridcell"
 				onClick={event => onSelectItem(item, event)}
 				key={item.index}
