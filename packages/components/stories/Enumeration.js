@@ -252,7 +252,7 @@ const withIconProps = {
 
 const withClassProps = {
 	...props,
-	className: theme['tc-enumeration'],
+	className: theme['enum-with-class'],
 	items: [
 		{
 			values: ['User 1'],
