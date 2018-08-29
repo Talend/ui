@@ -1,0 +1,7 @@
+.tc-enumeration {
+	:global(.tc-enumeration-items) {
+		button.inactive > span {
+			opacity: 0.4;
+		}
+	}
+}

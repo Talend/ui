@@ -7,6 +7,8 @@ import { checkA11y } from '@storybook/addon-a11y';
 import { Enumeration, IconsProvider } from '../src/index';
 import i18n from './config/i18n';
 
+import theme from './Enumeration.scss';
+
 const addItemAction = {
 	label: 'Add item',
 	icon: 'talend-plus',
@@ -250,6 +252,7 @@ const withIconProps = {
 
 const withClassProps = {
 	...props,
+	className: theme['tc-enumeration'],
 	items: [
 		{
 			values: ['User 1'],
@@ -259,7 +262,7 @@ const withClassProps = {
 				name: 'talend-warning',
 				title: 'Inactive user',
 			},
-			className: 'inactive',
+			className: theme.inactive,
 			values: ['User 2'],
 		},
 		{
