@@ -20,16 +20,19 @@ const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
 
-function enumerationClasses() {
-	return classNames({
-		[theme['tc-enumeration']]: true,
-		'tc-enumeration': true,
-	});
+function enumerationClasses(classNameProp) {
+	return classNames(
+		{
+			[theme['tc-enumeration']]: true,
+			'tc-enumeration': true,
+		},
+		classNameProp,
+	);
 }
 
 export function EnumerationComponent(props) {
 	return (
-		<div id={props.id} className={enumerationClasses()}>
+		<div id={props.id} className={enumerationClasses(props.className)}>
 			<HeaderEnumeration {...props} />
 			<ItemsEnumeration {...props} />
 		</div>
@@ -79,6 +82,7 @@ EnumerationComponent.propTypes = {
 	inputValue: PropTypes.string,
 	label: PropTypes.string,
 	showCheckboxes: PropTypes.bool,
+	className: PropTypes.string,
 	t: PropTypes.func.isRequired,
 	...ItemEditPropTypes,
 };
