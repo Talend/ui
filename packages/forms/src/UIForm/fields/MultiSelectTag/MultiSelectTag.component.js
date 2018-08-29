@@ -6,6 +6,7 @@ import Badge from '@talend/react-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.scss';
+import callTrigger from '../../trigger';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -15,12 +16,12 @@ function getNewItemText(value) {
 	return `${value} (new)`;
 }
 
-function getLabel(titleMap, value) {
+function getLabel(titleMap, value, defaultName) {
 	const itemConf = titleMap.find(item => item.value === value);
 	if (itemConf) {
 		return itemConf.name;
 	}
-	return value;
+	return defaultName || value;
 }
 
 export default class MultiSelectTag extends React.Component {
@@ -38,6 +39,7 @@ export default class MultiSelectTag extends React.Component {
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onRemoveTag = this.onRemoveTag.bind(this);
 		this.onAddTag = this.onAddTag.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 		this.resetSuggestions = this.resetSuggestions.bind(this);
 	}
 
@@ -52,6 +54,12 @@ export default class MultiSelectTag extends React.Component {
 		if (this.state.suggestions) {
 			this.updateSuggestions(undefined, nextProps);
 		}
+	}
+
+	getTitleMap(props) {
+		return (
+			this.state.titleMap || (props && props.schema.titleMap) || this.props.schema.titleMap || []
+		);
 	}
 
 	/**
@@ -93,11 +101,28 @@ export default class MultiSelectTag extends React.Component {
 		this.updateSuggestions(value);
 	}
 
+	onTrigger(event, trigger) {
+		return this.props.onTrigger(event, {
+			trigger,
+			schema: this.props.schema,
+			errors: this.props.errors,
+			properties: this.props.properties,
+		});
+	}
+
 	/**
 	 * Update suggestions on input focus
 	 */
-	onFocus() {
+	onFocus(event) {
 		this.updateSuggestions();
+
+		callTrigger(event, {
+			eventNames: [event.type],
+			triggersDefinitions: this.props.schema.triggers,
+			onTrigger: this.onTrigger,
+			onLoading: isLoading => this.setState({ isLoading }),
+			onResponse: data => this.setState(data),
+		}).then(() => this.updateSuggestions());
 	}
 
 	/**
@@ -154,7 +179,7 @@ export default class MultiSelectTag extends React.Component {
 		this.setState(oldState => {
 			const currentValue = value === undefined ? oldState.value : value;
 			const currentProps = props === undefined ? this.props : props;
-			let suggestions = currentProps.schema.titleMap
+			let suggestions = this.getTitleMap(currentProps)
 				.map(item => ({ value: item.value, title: item.name }))
 				.filter(item => currentProps.value.indexOf(item.value) < 0);
 
@@ -178,6 +203,7 @@ export default class MultiSelectTag extends React.Component {
 
 	render() {
 		const { id, isValid, errorMessage, schema } = this.props;
+		const names = this.props.resolveName(this.props.value);
 
 		return (
 			<FieldTemplate
@@ -190,7 +216,7 @@ export default class MultiSelectTag extends React.Component {
 			>
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
-						const label = getLabel(schema.titleMap, val);
+						const label = getLabel(this.getTitleMap(), val, names[index]);
 						const badgeProps = { label, key: index };
 						if (!schema.readOnly && !schema.disabled) {
 							badgeProps.onDelete = event => this.onRemoveTag(event, index);
@@ -203,6 +229,7 @@ export default class MultiSelectTag extends React.Component {
 						autoFocus={schema.autoFocus || false}
 						disabled={schema.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
+						isLoading={this.state.isLoading}
 						items={this.state.suggestions}
 						multiSection={false}
 						onBlur={this.resetSuggestions}
@@ -227,8 +254,12 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
+		errors: PropTypes.object,
+		resolveName: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func.isRequired,
+		properties: PropTypes.object,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -243,6 +274,11 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			triggers: PropTypes.arrayOf(
+				PropTypes.shape({
+					onEvent: PropTypes.string,
+				}),
+			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 	};
@@ -250,6 +286,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 MultiSelectTag.defaultProps = {
 	isValid: true,
+	resolveName: value => value,
 	schema: {},
 	value: [],
 };

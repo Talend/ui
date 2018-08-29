@@ -89,6 +89,38 @@ describe('ComponentForm', () => {
 			});
 		});
 
+		it('should add titleMap entry name for array', () => {
+			// given
+			const schema = {
+				key: ['my', 'awesome', 'value'],
+				titleMap: [
+					{
+						name: 'Not this one',
+						value: 'no',
+					},
+					{
+						name: 'Neither this one',
+						value: 'neither',
+					},
+					{
+						name: 'Yes this is the name',
+						value: 'correct value',
+					},
+				],
+			};
+			const properties = { my: { awesome: { value: ['correct value', 'neither'] } } };
+			const value = ['correct value', 'neither'];
+
+			// when
+			resolveNameForTitleMap({ schema, properties, value });
+
+			// then
+			expect(properties.my.awesome).toEqual({
+				value: ['correct value', 'neither'],
+				$value_name: ['Yes this is the name', 'Neither this one'],
+			});
+		});
+
 		it('should remove titleMap entry name when there is no value anymore', () => {
 			// given
 			const schema = {
