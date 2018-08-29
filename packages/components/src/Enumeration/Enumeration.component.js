@@ -21,10 +21,13 @@ const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
 
 function enumerationClasses(classNameProp) {
-	return classNames({
-		[theme['tc-enumeration']]: true,
-		'tc-enumeration': true,
-	}, classNameProp);
+	return classNames(
+		{
+			[theme['tc-enumeration']]: true,
+			'tc-enumeration': true,
+		},
+		classNameProp,
+	);
 }
 
 export function EnumerationComponent(props) {
