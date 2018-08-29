@@ -111,6 +111,19 @@ const propsCollapsiblePanel = {
 	onToggle: action('onToggle'),
 };
 
+const propsCollapsiblePanelOnSelect = {
+	header: [
+		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
+		label1,
+		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+	onSelect: action('onSelect'),
+};
+
 const propsInProgressCollapsiblePanel = {
 	header: [status, label1, label4, button, label3],
 	content,
@@ -267,6 +280,10 @@ storiesOf('CollapsiblePanel', module)
 			<p>No content - Header without Actions :</p>
 			<div id="without-actions">
 				<CollapsiblePanel {...propsPanelWithoutActions} />
+			</div>
+			<p>No content - With onSelect handler :</p>
+			<div id="on-select">
+				<CollapsiblePanel {...propsCollapsiblePanelOnSelect} />
 			</div>
 			<p>Header with groups :</p>
 			<div id="with-groups">
