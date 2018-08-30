@@ -21,10 +21,13 @@ function stringOrNumberToNumber(value) {
  * It supports number and string as input.
  * In case of an error it will call onError. By default it throws an exception.
  */
-function stringOrNumberToString(value, onError = val => {
-	const error = { error: 'the passed value is not a string or a number', value: val };
-	throw error;
-}) {
+function stringOrNumberToString(
+	value,
+	onError = val => {
+		const error = { error: 'the passed value is not a string or a number', value: val };
+		throw error;
+	},
+) {
 	if (!value) {
 		return value;
 	}
@@ -41,7 +44,8 @@ function stringOrNumberToString(value, onError = val => {
  * "foo=bar;dummy=1" will return [{foo:"bar",dummy:"1"}]
  */
 function parseParameters(parameterString) {
-	return parameterString.split(';')
+	return parameterString
+		.split(';')
 		.map(it => {
 			const sep = it.indexOf('=');
 			if (sep > 0) {
@@ -53,10 +57,13 @@ function parseParameters(parameterString) {
 				value: it.trim(),
 			};
 		})
-		.reduce((a, v) => ({
-			...a,
-			...v,
-		}), {});
+		.reduce(
+			(a, v) => ({
+				...a,
+				...v,
+			}),
+			{},
+		);
 }
 
 /**
@@ -89,8 +96,10 @@ function areEqualsAsNumbers(expected, actualStringOrNumber) {
 }
 
 function containsString(expected, actualStringOrNumber, valueProcessor = v => v) {
-	return actualStringOrNumber &&
-		valueProcessor(stringOrNumberToString(actualStringOrNumber)).includes(expected);
+	return (
+		actualStringOrNumber &&
+		valueProcessor(stringOrNumberToString(actualStringOrNumber)).includes(expected)
+	);
 }
 
 // this will not fail in case actualStringOrNumber is not a string or number
@@ -127,7 +136,8 @@ function toContainsEvaluator(actual, options) {
 		}
 		return expected => actual.indexOf(expected) >= 0;
 	}
-	if (options.lowercase === 'true') { // allows case insensitve comparison
+	if (options.lowercase === 'true') {
+		// allows case insensitve comparison
 		return expected => containsString(expected, actual, v => v.toLowerCase());
 	}
 	return expected => containsString(expected, actual);
@@ -163,7 +173,7 @@ function evaluateInlineCondition(properties, condition) {
 	const strategyConfig = parseStrategy(condition.strategy) || { name: 'default' };
 	const value = get(properties, condition.path);
 	const evaluator = toEvaluator(value, strategyConfig);
-	return (condition.shouldBe !== false) === (findIndex(condition.values, evaluator) >= 0);
+	return (condition.shouldBe !== false) === findIndex(condition.values, evaluator) >= 0;
 }
 
 function evaluateChildrenCondition(properties, condition) {
