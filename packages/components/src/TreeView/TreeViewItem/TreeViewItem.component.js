@@ -8,7 +8,6 @@ import Icon from '../../Icon';
 import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
-import getDefaultT from '../../translate';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;
