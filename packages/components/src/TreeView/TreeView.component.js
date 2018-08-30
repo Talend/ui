@@ -102,7 +102,6 @@ class TreeView extends React.Component {
 							key={i}
 							index={i + 1}
 							selectedId={selectedId}
-							siblingsNumber={structure.length}
 							level={1}
 						/>
 					))}

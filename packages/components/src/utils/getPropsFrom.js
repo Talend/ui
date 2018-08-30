@@ -3,10 +3,10 @@ const NATIVE_PROPS = [
 	'className',
 	'id',
 	'name',
-	'target',
 	'rel',
 	'role',
 	'tabIndex',
+	'target',
 	'title',
 ];
 const NATIVE_PROPS_GROUPS = ['aria-', 'data-'];

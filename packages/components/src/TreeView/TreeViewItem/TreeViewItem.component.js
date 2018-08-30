@@ -91,7 +91,6 @@ class TreeViewItem extends React.Component {
 		onToggleAllSiblings: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
 		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-		siblingsNumber: PropTypes.number.isRequired,
 	};
 
 	static defaultProps = {
@@ -290,7 +289,6 @@ class TreeViewItem extends React.Component {
 						key={i}
 						index={i + 1}
 						selectedId={this.props.selectedId}
-						siblingsNumber={children.length}
 						level={this.props.level + 1}
 					/>
 				))}
@@ -320,7 +318,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, index, item, level, selectedId, siblingsNumber } = this.props;
+		const { id, index, item, level, selectedId, itemSiblings } = this.props;
 		const {
 			toggled = false,
 			hidden,
@@ -342,7 +340,7 @@ class TreeViewItem extends React.Component {
 				aria-expanded={this.isToggled()}
 				aria-level={level}
 				aria-posinset={index}
-				aria-setsize={siblingsNumber}
+				aria-setsize={itemSiblings.length}
 				aria-selected={selectedId === item.id}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
 				onClick={this.onSelect}
@@ -364,6 +362,7 @@ class TreeViewItem extends React.Component {
 							className={css['tc-treeview-toggle']}
 							icon="talend-caret-down"
 							iconTransform={toggled ? undefined : 'rotate-270'}
+							id={id && `${id}-toggle`}
 							onClick={this.onToggle}
 							label=""
 							aria-hidden
