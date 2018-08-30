@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
-import callTrigger from './Datalist.trigger';
+import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 
 export function escapeRegexCharacters(str) {
