@@ -77,16 +77,18 @@ function parseStrategy(strategy) {
 		return strategy;
 	}
 
-	const extraction = strategy.match(/^([a-zA-Z]{1}\w*)(?:\((.+)?\))?$/);
-	if (extraction && extraction[2]) {
-		return {
-			name: extraction[1],
-			params: parseParameters(extraction[2]),
-		};
-	}
+	const strategyPattern = /^([a-zA-Z]{1}\w*)(?:\((.+)?\))?$/;
+	const matches = strategy.match(strategyPattern);
+	const isMatching = matches !== undefined;
+
+	const name = isMatching ? matches[1] : strategy;
+	const parameters = isMatching ? matches[2] : undefined;
+
+	const hasParameters = parameters !== undefined;
+
 	return {
-		name: strategy.toLowerCase(),
-		params: {},
+		name: name.toLowerCase(),
+		params: hasParameters ? parseParameters(parameters) : {},
 	};
 }
 
