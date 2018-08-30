@@ -153,19 +153,11 @@ function toDefaultEvaluator(value) {
 	return expected => value === expected || areEqualsAsString(expected, value);
 }
 
-/**
- * builds an evaluator (function) for the corresponding strategy.
- */
-function toEvaluator(value, strategyConfig) {
-	switch (strategyConfig.name) {
-		case 'length':
-			return toLengthEvaluator(value);
-		case 'contains':
-			return toContainsEvaluator(value, strategyConfig.params);
-		default:
-			return toDefaultEvaluator(value);
-	}
-}
+const evaluatorRegistry = {
+	length: value => toLengthEvaluator(value),
+	contains: (value, config) => toContainsEvaluator(value, config),
+	default: value => toDefaultEvaluator(value),
+};
 
 function evaluateInlineCondition(properties, condition) {
 	if (!condition.path || !condition.values) {
@@ -174,7 +166,7 @@ function evaluateInlineCondition(properties, condition) {
 
 	const strategyConfig = parseStrategy(condition.strategy) || { name: 'default' };
 	const value = get(properties, condition.path);
-	const evaluator = toEvaluator(value, strategyConfig);
+	const evaluator = evaluatorRegistry[strategyConfig.name](value, strategyConfig.params);
 	return (condition.shouldBe !== false) === findIndex(condition.values, evaluator) >= 0;
 }
 
