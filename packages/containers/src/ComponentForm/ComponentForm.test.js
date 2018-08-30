@@ -168,10 +168,7 @@ describe('ComponentForm', () => {
 
 		it('should render a UIForm', () => {
 			// given
-			const state = fromJS({
-				...addSchemaMock.ui,
-				errors: { key: 'This is wrong' },
-			});
+			const state = fromJS(addSchemaMock.ui);
 
 			// when
 			const wrapper = shallow(<TCompForm state={state} />);
@@ -180,17 +177,13 @@ describe('ComponentForm', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		it('should memoize uiSpecs and errors', () => {
+		it('should memoize uiSpecs', () => {
 			// given
-			const state = fromJS({
-				...addSchemaMock.ui,
-				errors: { key: 'This is wrong' },
-			});
+			const state = fromJS(addSchemaMock.ui);
 
 			const wrapper = shallow(<TCompForm state={state} />);
 			const jsonSchema = wrapper.props().jsonSchema;
 			const uiSchema = wrapper.props().uiSchema;
-			const errors = wrapper.props().errors;
 
 			// when
 			wrapper.instance().forceUpdate();
@@ -199,7 +192,6 @@ describe('ComponentForm', () => {
 			// then
 			expect(wrapper.props().jsonSchema).toBe(jsonSchema);
 			expect(wrapper.props().uiSchema).toBe(uiSchema);
-			expect(wrapper.props().errors).toBe(errors);
 		});
 	});
 
@@ -392,7 +384,8 @@ describe('ComponentForm', () => {
 						expect(wrapper.state()).toEqual({ properties });
 					});
 			});
-			it('should set cmf state with errors, and schemas', () => {
+
+			it('should set cmf state with schemas', () => {
 				// given
 				const setState = jest.fn();
 				const wrapper = shallow(
@@ -400,7 +393,6 @@ describe('ComponentForm', () => {
 				);
 				const trigger = wrapper.instance().trigger;
 				const data = {
-					errors: {},
 					jsonSchema: addSchemaMock.ui.jsonSchema,
 					uiSchema: addSchemaMock.ui.uiSchema,
 				};

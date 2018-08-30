@@ -80,7 +80,6 @@ export class TCompForm extends React.Component {
 
 		this.getMemoizedJsonSchema = memoizeOne(toJS);
 		this.getMemoizedUiSchema = memoizeOne(toJS);
-		this.getMemoizedErrors = memoizeOne(toJS);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -145,7 +144,7 @@ export class TCompForm extends React.Component {
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
-			if (data.errors || data.jsonSchema || data.uiSchema) {
+			if (data.jsonSchema || data.uiSchema) {
 				this.props.setState(data);
 			}
 			return data;
@@ -202,11 +201,6 @@ export class TCompForm extends React.Component {
 			onSubmit: this.onSubmit,
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
-
-		const errors = this.props.state.get('errors');
-		if (errors) {
-			props.errors = this.getMemoizedErrors(errors);
-		}
 
 		return <Form {...props} uiform />;
 	}
