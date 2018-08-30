@@ -1,4 +1,4 @@
-import shouldRender from './condition';
+import shouldRender, { $internals } from './condition';
 
 const properties = {
 	string: 'foo',
@@ -202,6 +202,50 @@ const FALSY_CONDITIONS = [
 		path: 'arrayString',
 	},
 ];
+
+describe('parseParameters', () => {
+	const parseParameters = $internals.parseParameters;
+
+	it('should return an empty object from an empty string', () => {
+		expect(Object.keys(parseParameters('')).length).toBe(0);
+	});
+	it('should return an object with one entry from a single parameter', () => {
+		const parsed = parseParameters('a=b');
+		expect(Object.keys(parsed).length).toBe(1);
+		expect(parsed.a).toBe('b');
+	});
+	it('should return an object with two entry from two parameters', () => {
+		const parsed = parseParameters('a=b;lowercase=true');
+		expect(Object.keys(parsed).length).toBe(2);
+		expect(parsed.a).toBe('b');
+		expect(parsed.lowercase).toBe('true');
+	});
+	it('should skip trailing and leading spaces', () => {
+		const parsed = parseParameters(' a = b ; lowercase = true ');
+		expect(Object.keys(parsed).length).toBe(2);
+		expect(parsed.a).toBe('b');
+		expect(parsed.lowercase).toBe('true');
+	});
+});
+
+describe('parseStrategy', () => {
+	const parseStrategy = $internals.parseStrategy;
+
+	it('should return a falsy value for undefined strategy', () => {
+		expect(parseStrategy(undefined)).toBeFalsy();
+	});
+	it('should return the strategy if there is no parameter', () => {
+		const parsed = parseStrategy('foo');
+		expect(parsed.name).toBe('foo');
+		expect(Object.keys(parsed.params).length).toBe(0);
+	});
+	it('should return the strategy and parameters if any', () => {
+		const parsed = parseStrategy('foo(a=b)');
+		expect(parsed.name).toBe('foo');
+		expect(Object.keys(parsed.params).length).toBe(1);
+		expect(parsed.params.a).toBe('b');
+	});
+});
 
 describe('condition', () => {
 	TRUTHY_CONDITIONS.forEach(condition => {

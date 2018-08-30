@@ -46,6 +46,8 @@ function stringOrNumberToString(
 function parseParameters(parameterString) {
 	return parameterString
 		.split(';')
+		.map(it => it.trim())
+		.filter(it => it.length > 0)
 		.map(it => {
 			const sep = it.indexOf('=');
 			if (sep > 0) {
@@ -227,7 +229,7 @@ function evaluateChildrenCondition(properties, condition) {
  * @param conditions array of conditions to evaluate.
  * @returns true if the conditions are met, false otherwise.
  */
-export default function shouldRender(condition, properties) {
+function shouldRender(condition, properties) {
 	if (!condition) {
 		return true;
 	}
@@ -240,3 +242,10 @@ export default function shouldRender(condition, properties) {
 	// navigate the nested graph
 	return evaluateChildrenCondition(properties, condition);
 }
+
+export const $internals = {
+	parseParameters,
+	parseStrategy,
+};
+
+export default shouldRender;
