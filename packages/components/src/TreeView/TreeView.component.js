@@ -44,71 +44,57 @@ import theme from './TreeView.scss';
  * <TreeView {...defaultProps} />
  *
  */
-class TreeView extends React.Component {
-	constructor(props) {
-		super(props);
-
-		if (props.onClick && process.env.NODE_ENV !== 'production') {
-			// eslint-disable-next-line no-console
-			console.warn(
-				'Treeview: props.onClick is deprecated please use onToggle that is way more explicit',
-			);
-		}
-	}
-
-	render() {
-		const {
-			id,
-			headerText,
-			structure,
-			addAction,
-			addActionLabel,
-			onClick,
-			onSelect,
-			onToggle,
-			onToggleAllSiblings,
-			noHeader,
-			className,
-			selectedId,
-			style,
-		} = this.props;
-		const titleId = id && `${id}-title`;
-		return (
-			<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
-				<header className={classNames(theme['tc-treeview-header'], { 'sr-only': noHeader })}>
-					<span id={titleId}>{headerText}</span>
-					{addAction && (
-						<Action
-							label={addActionLabel}
-							icon="talend-plus"
-							onClick={addAction}
-							tooltipPlacement="right"
-							hideLabel
-							link
-							id={id && `${id}-add`}
-							key={addActionLabel}
-						/>
-					)}
-				</header>
-				<ul className={theme['tc-treeview-ul']} role="tree" aria-labelledby={titleId}>
-					{structure.map((item, i) => (
-						<TreeViewItem
-							id={id && `${id}-${i}`}
-							item={item}
-							itemSiblings={structure}
-							onSelect={onSelect}
-							onToggle={onToggle || onClick}
-							onToggleAllSiblings={onToggleAllSiblings}
-							key={i}
-							index={i + 1}
-							selectedId={selectedId}
-							level={1}
-						/>
-					))}
-				</ul>
-			</div>
-		);
-	}
+function TreeView(props) {
+	const {
+		id,
+		headerText,
+		structure,
+		addAction,
+		addActionLabel,
+		onSelect,
+		onToggle,
+		onToggleAllSiblings,
+		noHeader,
+		className,
+		selectedId,
+		style,
+	} = props;
+	const titleId = id && `${id}-title`;
+	return (
+		<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
+			<header className={classNames(theme['tc-treeview-header'], { 'sr-only': noHeader })}>
+				<span id={titleId}>{headerText}</span>
+				{addAction && (
+					<Action
+						label={addActionLabel}
+						icon="talend-plus"
+						onClick={addAction}
+						tooltipPlacement="right"
+						hideLabel
+						link
+						id={id && `${id}-add`}
+						key={addActionLabel}
+					/>
+				)}
+			</header>
+			<ul className={theme['tc-treeview-ul']} role="tree" aria-labelledby={titleId}>
+				{structure.map((item, i) => (
+					<TreeViewItem
+						id={id && `${id}-${i}`}
+						item={item}
+						itemSiblings={structure}
+						onSelect={onSelect}
+						onToggle={onToggle}
+						onToggleAllSiblings={onToggleAllSiblings}
+						key={i}
+						index={i + 1}
+						selectedId={selectedId}
+						level={1}
+					/>
+				))}
+			</ul>
+		</div>
+	);
 }
 
 TreeView.displayName = 'TreeView';
@@ -126,7 +112,6 @@ if (process.env.NODE_ENV !== 'production') {
 		structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 		addAction: PropTypes.func,
 		addActionLabel: PropTypes.string,
-		onClick: PropTypes.func, // deprecated, use onToggle
 		onToggle: PropTypes.func.isRequired,
 		onToggleAllSiblings: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,

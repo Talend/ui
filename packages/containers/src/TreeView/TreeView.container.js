@@ -105,6 +105,7 @@ class TreeView extends React.Component {
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		onClick: PropTypes.func,
+		onToggle: PropTypes.func,
 		onSelect: PropTypes.func,
 		onClickActionCreator: PropTypes.string,
 		onSelectActionCreator: PropTypes.string,
@@ -118,6 +119,13 @@ class TreeView extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 		this.onToggle = this.onToggle.bind(this);
 		this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
+
+		if (props.onClick && process.env.NODE_ENV !== 'production') {
+			// eslint-disable-next-line no-console
+			console.warn(
+				'Treeview container: props.onClick is deprecated please use onToggle that is way more explicit',
+			);
+		}
 	}
 
 	onSelect(data) {
@@ -151,6 +159,10 @@ class TreeView extends React.Component {
 				data,
 			);
 		}
+		if (this.props.onToggle) {
+			this.props.onToggle(data);
+		}
+		// deprecated
 		if (this.props.onClick) {
 			this.props.onClick(data);
 		}
@@ -161,6 +173,11 @@ class TreeView extends React.Component {
 	}
 
 	getSelectedId() {
+		const selectedId = this.props[SELECTED_ATTR];
+		if (selectedId !== undefined) {
+			return selectedId;
+		}
+
 		const state = this.props.state || DEFAULT_STATE;
 		return state.get(SELECTED_ATTR);
 	}

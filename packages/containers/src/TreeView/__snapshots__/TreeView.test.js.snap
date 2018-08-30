@@ -22,8 +22,10 @@ exports[`TreeView should render the data 1`] = `
   id="tc-treeview"
   idAttr="id"
   nameAttr="name"
-  onClick={[Function]}
   onSelect={[Function]}
+  onToggle={[Function]}
+  onToggleAllSiblings={[Function]}
+  selectedId={undefined}
   structure={
     Array [
       Object {
@@ -31,7 +33,6 @@ exports[`TreeView should render the data 1`] = `
         "id": 1,
         "name": "foo",
         "parent": undefined,
-        "selected": false,
         "toggled": false,
       },
       Object {
@@ -39,7 +40,6 @@ exports[`TreeView should render the data 1`] = `
         "id": 2,
         "name": "bar",
         "parent": undefined,
-        "selected": false,
         "toggled": false,
       },
     ]
