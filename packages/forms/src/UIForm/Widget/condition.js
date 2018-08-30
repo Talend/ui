@@ -77,15 +77,12 @@ function parseStrategy(strategy) {
 		return strategy;
 	}
 
-	const start = strategy.indexOf('(');
-	if (start > 0) {
-		const end = strategy.indexOf(')', start);
-		if (end > 0) {
-			return {
-				name: strategy.substring(0, start).toLowerCase(),
-				params: parseParameters(strategy.substring(start + 1, end)),
-			};
-		}
+	const extraction = strategy.match(/^([a-zA-Z]{1}\w*)(?:\((.+)?\))?$/);
+	if (extraction && extraction[2]) {
+		return {
+			name: extraction[1],
+			params: parseParameters(extraction[2]),
+		};
 	}
 	return {
 		name: strategy.toLowerCase(),
