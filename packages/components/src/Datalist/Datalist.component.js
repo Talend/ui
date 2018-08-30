@@ -257,9 +257,7 @@ class Datalist extends Component {
 			if (this.props.multiSection) {
 				const groups = this.props.titleMap;
 				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-					const itemObj = groups[sectionIndex].suggestions.find(
-						item => item.name === value,
-					);
+					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value);
 					if (itemObj) {
 						enumValue = itemObj;
 						break;
@@ -329,9 +327,7 @@ class Datalist extends Component {
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
-				groups = value
-					? groups.filter(itemValue => regex.test(itemValue.name))
-					: groups;
+				groups = value ? groups.filter(itemValue => regex.test(itemValue.name)) : groups;
 			}
 		}
 
