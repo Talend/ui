@@ -179,8 +179,6 @@ class Datalist extends Component {
 	 */
 	getSelectedLabel() {
 		if (this.state.titleMapping) {
-			// const titleMap = this.state.titleMapping[this.state.value];
-			// return (titleMap && titleMap.name) || this.state.value;
 			return this.state.titleMapping[this.state.value] || this.state.value;
 		}
 		return this.state.value;
@@ -249,9 +247,10 @@ class Datalist extends Component {
 	 */
 	updateValue(event, value, persist) {
 		const previousValue = persist ? value : this.state.previousValue;
+		const newValue = typeof value === 'object' ? value.name : value;
 		this.setState({
 			// setting the filtered value so it needs to be actual value
-			value: value.name,
+			value: newValue,
 		});
 		if (persist) {
 			let enumValue = value;
@@ -259,7 +258,7 @@ class Datalist extends Component {
 				const groups = this.props.titleMap;
 				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
 					const itemObj = groups[sectionIndex].suggestions.find(
-						item => (item.title || item.name) === value,
+						item => item.name === value,
 					);
 					if (itemObj) {
 						enumValue = itemObj;
@@ -271,7 +270,7 @@ class Datalist extends Component {
 			if (selectedEnumValue || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
-					previousValue: previousValue.title || previousValue.name,
+					previousValue: previousValue.name,
 				});
 			} else {
 				this.resetValue();
@@ -324,14 +323,14 @@ class Datalist extends Component {
 					.map(group => ({
 						...group,
 						suggestions: value
-							? group.suggestions.filter(item => regex.test(item.title || item.name))
+							? group.suggestions.filter(item => regex.test(item.name))
 							: group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
 				groups = value
-					? groups.filter(itemValue => regex.test(itemValue.title || itemValue.name))
+					? groups.filter(itemValue => regex.test(itemValue.name))
 					: groups;
 			}
 		}
