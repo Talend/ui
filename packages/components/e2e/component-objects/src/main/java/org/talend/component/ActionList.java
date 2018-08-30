@@ -57,7 +57,7 @@ public class ActionList extends Component {
         Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(MENU_ITEMS_SELECTOR)).iterator();
         while (elements.hasNext()) {
             WebElement el = elements.next();
-            if (el.getText().equals(label)) {
+            if (el.getText().equalsIgnoreCase(label)) {
                 return el;
             }
         }
