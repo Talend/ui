@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
+import get from 'lodash/get';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
@@ -162,9 +163,7 @@ export default class MultiSelectTag extends React.Component {
 	 * @returns {*|Array}
 	 */
 	getTitleMap(props) {
-		return (
-			this.state.titleMap || (props && props.schema.titleMap) || this.props.schema.titleMap || []
-		);
+		return this.state.titleMap || get(props, 'schema.titleMap') || this.props.schema.titleMap || [];
 	}
 
 	/**
