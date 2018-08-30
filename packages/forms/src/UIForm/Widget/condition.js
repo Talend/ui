@@ -35,7 +35,7 @@ function stringOrNumberToString(
 		return JSON.stringify(value);
 	}
 	if (typeof value === 'string') {
-		return value.toString();
+		return value;
 	}
 	return onError(value);
 }
