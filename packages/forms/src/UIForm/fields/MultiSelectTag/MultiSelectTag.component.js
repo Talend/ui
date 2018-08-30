@@ -56,12 +56,6 @@ export default class MultiSelectTag extends React.Component {
 		}
 	}
 
-	getTitleMap(props) {
-		return (
-			this.state.titleMap || (props && props.schema.titleMap) || this.props.schema.titleMap || []
-		);
-	}
-
 	/**
 	 * Manage suggestion selection
 	 * @param { object } event
@@ -156,6 +150,21 @@ export default class MultiSelectTag extends React.Component {
 		const payload = { schema: this.props.schema, value };
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
+	}
+
+	/**
+	 * Resolve the title map.
+	 * The dummy version is that it's provided in schema. But with async titleMap loading,
+	 * we store them in state.
+	 * If we have something in state, it means that it comes from async load,
+	 * considered as more important that schema.
+	 * @param props
+	 * @returns {*|Array}
+	 */
+	getTitleMap(props) {
+		return (
+			this.state.titleMap || (props && props.schema.titleMap) || this.props.schema.titleMap || []
+		);
 	}
 
 	/**
