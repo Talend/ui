@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
-import callTrigger from '../Datalist.trigger';
+import callTrigger from '../../../trigger';
 import { DID_MOUNT, FOCUS } from '../constants';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import { I18N_DOMAIN_FORMS } from '../../../../constants';

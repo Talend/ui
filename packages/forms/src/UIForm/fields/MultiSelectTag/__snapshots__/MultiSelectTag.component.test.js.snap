@@ -27,6 +27,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       docked={false}
       focusedItemIndex={undefined}
       id="my-select-tag"
+      isLoading={undefined}
       isLoadingText="Loading..."
       items={null}
       multiSection={false}
