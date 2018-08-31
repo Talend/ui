@@ -6785,24 +6785,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="le title 1"
+                        title=""
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             1
+                            
                           </span>
                         </span>
                         <p
@@ -6829,43 +6818,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo"
+                        title=""
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             2 
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            s e
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            phants e
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            mentaires ont des ai
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             cum erat inquam controversia autem mihi utrumqo
+                            
                           </span>
                         </span>
                         <p
@@ -6919,19 +6878,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="title 3"
+                        title=""
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             3
+                            
                           </span>
                         </span>
                         <p
@@ -6991,19 +6944,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="title 4"
+                        title=""
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             4
+                            
                           </span>
                         </span>
                         <p
@@ -7024,19 +6971,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="title 5"
+                        title=""
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             5
+                            
                           </span>
                         </span>
                         <p
@@ -7057,19 +6998,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="title 6"
+                        title=""
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             6
+                            
                           </span>
                         </span>
                         <p

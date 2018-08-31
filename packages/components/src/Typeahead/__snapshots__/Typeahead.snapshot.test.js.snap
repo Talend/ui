@@ -80,24 +80,13 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <div
               className="theme-item"
-              title="le title 1"
+              title=""
             >
               <span
                 className="theme-item-title tc-typeahead-item-title"
               >
                 <span>
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   tit
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   1
+                  
                 </span>
               </span>
               <p
@@ -124,42 +113,13 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <div
               className="theme-item"
-              title="title 2 les elephants elementaires ont des aile"
+              title=""
             >
               <span
                 className="theme-item-title tc-typeahead-item-title"
               >
                 <span>
-                  tit
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   2 
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  s e
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  phants e
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  mentaires ont des ai
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
+                  
                 </span>
               </span>
               <p
@@ -208,19 +168,13 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           >
             <div
               className="theme-item"
-              title="title 3"
+              title=""
             >
               <span
                 className="theme-item-title tc-typeahead-item-title"
               >
                 <span>
-                  tit
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   3
+                  
                 </span>
               </span>
               <p
@@ -380,13 +334,13 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <div
               className="theme-item"
-              title="le title 1"
+              title=""
             >
               <span
                 className="theme-item-title tc-typeahead-item-title"
               >
                 <span>
-                  le title 1
+                  
                 </span>
               </span>
               <p
@@ -407,13 +361,13 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <div
               className="theme-item"
-              title="title 2 les elephants elementaires ont des aile"
+              title=""
             >
               <span
                 className="theme-item-title tc-typeahead-item-title"
               >
                 <span>
-                  title 2 les elephants elementaires ont des aile
+                  
                 </span>
               </span>
               <p
@@ -462,13 +416,13 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           >
             <div
               className="theme-item"
-              title="title 3"
+              title=""
             >
               <span
                 className="theme-item-title tc-typeahead-item-title"
               >
                 <span>
-                  title 3
+                  
                 </span>
               </span>
               <p
