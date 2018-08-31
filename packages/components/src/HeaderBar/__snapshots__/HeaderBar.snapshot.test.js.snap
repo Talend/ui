@@ -314,6 +314,7 @@ exports[`Storyshots HeaderBar barebone 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -340,23 +341,33 @@ exports[`Storyshots HeaderBar barebone 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -699,6 +710,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -725,23 +737,33 @@ exports[`Storyshots HeaderBar default 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -1383,6 +1405,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -1409,23 +1432,33 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -2118,6 +2151,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -2144,23 +2178,33 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -2867,6 +2911,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -2893,23 +2938,33 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -3551,6 +3606,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -3577,23 +3633,33 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -4235,6 +4301,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -4261,23 +4328,33 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -4948,6 +5025,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -4974,23 +5052,33 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -5660,6 +5748,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -5686,23 +5775,33 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -6367,6 +6466,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -6393,23 +6493,33 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -7348,6 +7458,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -7374,23 +7485,33 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -8060,6 +8181,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -8086,23 +8208,33 @@ exports[`Storyshots HeaderBar without products 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -8639,6 +8771,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -8665,23 +8798,33 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -9346,6 +9489,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -9372,23 +9516,33 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -10042,6 +10196,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -10068,23 +10223,33 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -10738,6 +10903,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -10764,23 +10930,33 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -11434,6 +11610,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -11460,23 +11637,33 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -12130,6 +12317,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -12156,23 +12344,33 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -12826,6 +13024,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -12852,23 +13051,33 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -13522,6 +13731,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             />
             <feColorMatrix
               in="grayscale"
+              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -13548,23 +13758,33 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               result="gammadarken"
             >
               <feFuncR
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncG
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncB
+                amplitude="1"
                 exponent="7"
+                offset="0.0"
                 type="gamma"
               />
               <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
+              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>

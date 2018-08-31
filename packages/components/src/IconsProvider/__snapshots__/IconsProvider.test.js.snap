@@ -30,6 +30,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
           />
           <feColorMatrix
             in="grayscale"
+            type="matrix"
             values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
           />
         </filter>
@@ -56,23 +57,33 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
             result="gammadarken"
           >
             <feFuncR
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncG
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncB
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
               type="gamma"
             />
           </feComponentTransfer>
           <feColorMatrix
             in="gammadarken"
+            type="matrix"
             values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
           />
         </filter>
@@ -119,6 +130,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
           />
           <feColorMatrix
             in="grayscale"
+            type="matrix"
             values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
           />
         </filter>
@@ -145,23 +157,33 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
             result="gammadarken"
           >
             <feFuncR
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncG
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncB
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
               type="gamma"
             />
           </feComponentTransfer>
           <feColorMatrix
             in="gammadarken"
+            type="matrix"
             values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
           />
         </filter>
@@ -3500,6 +3522,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
           />
           <feColorMatrix
             in="grayscale"
+            type="matrix"
             values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
           />
         </filter>
@@ -3526,23 +3549,33 @@ exports[`IconsProvider should render default talend-icons 1`] = `
             result="gammadarken"
           >
             <feFuncR
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncG
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncB
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
               type="gamma"
             />
           </feComponentTransfer>
           <feColorMatrix
             in="gammadarken"
+            type="matrix"
             values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
           />
         </filter>
@@ -6888,6 +6921,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
           />
           <feColorMatrix
             in="grayscale"
+            type="matrix"
             values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
           />
         </filter>
@@ -6914,23 +6948,33 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
             result="gammadarken"
           >
             <feFuncR
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncG
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncB
+              amplitude="1"
               exponent="7"
+              offset="0.0"
               type="gamma"
             />
             <feFuncA
+              amplitude="1"
+              exponent="1"
+              offset="0.0"
               type="gamma"
             />
           </feComponentTransfer>
           <feColorMatrix
             in="gammadarken"
+            type="matrix"
             values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
           />
         </filter>
