@@ -22,7 +22,10 @@ const props = {
 const multiSectionMap = [
 	{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }] },
 	{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
-	{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }] },
+	{
+		title: 'cat 3',
+		suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }],
+	},
 	{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 ];
 
@@ -69,8 +72,14 @@ describe('Datalist component', () => {
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{ suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }], title: 'cat 1' },
-			{ suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }], title: 'cat 3' },
+			{
+				suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }],
+				title: 'cat 1',
+			},
+			{
+				suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }],
+				title: 'cat 3',
+			},
 		]);
 	});
 
@@ -124,7 +133,10 @@ describe('Datalist component', () => {
 			.at(0)
 			.simulate('change', { target: { value: 'foo' } });
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ name: 'foo', value: 'foo', description: 'foo description' }, { name: 'foobar', value: 'foobar', description: 'foobar description' }]);
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ name: 'foo', value: 'foo', description: 'foo description' },
+			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
+		]);
 	});
 
 	it('should reset suggestions and change value on blur when value in suggestions', () => {
@@ -230,7 +242,12 @@ describe('Datalist component', () => {
 			.simulate('focus');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ name: 'foo', value: 'foo', description: 'foo description' }, { name: 'bar', value: 'bar' }, { name: 'foobar', value: 'foobar', description: 'foobar description' }, { name: 'lol', value: 'lol' }]);
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ name: 'foo', value: 'foo', description: 'foo description' },
+			{ name: 'bar', value: 'bar' },
+			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
+			{ name: 'lol', value: 'lol' },
+		]);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
 
