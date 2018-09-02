@@ -373,6 +373,7 @@ form {
 		}
 	}
 
+	&-control-container,
 	&-control {
 		+ label {
 			position: absolute;
@@ -394,6 +395,7 @@ form {
 		}
 	}
 
+	&-control-container,
 	&-control:focus,
 	&-control[placeholder]:not([placeholder='']),
 	&-control:not(:empty),

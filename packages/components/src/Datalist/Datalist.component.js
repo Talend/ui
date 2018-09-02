@@ -347,22 +347,21 @@ class Datalist extends Component {
 	render() {
 		const label = this.getSelectedLabel();
 		return (
-			<div className={theme['tc-datalist']}>
-				<Typeahead
-					{...omit(this.props, PROPS_TO_OMIT)}
-					focusedItemIndex={this.state.focusedItemIndex}
-					focusedSectionIndex={this.state.focusedSectionIndex}
-					items={this.state.suggestions}
-					onBlur={this.onBlur}
-					onChange={this.onChange}
-					onFocus={this.onFocus}
-					onKeyDown={this.onKeyDown}
-					onSelect={this.onSelect}
-					theme={this.theme}
-					value={label}
-					caret
-				/>
-			</div>
+			<Typeahead
+				{...omit(this.props, PROPS_TO_OMIT)}
+				className={classNames('tc-datalist', this.props.className)}
+				focusedItemIndex={this.state.focusedItemIndex}
+				focusedSectionIndex={this.state.focusedSectionIndex}
+				items={this.state.suggestions}
+				onBlur={this.onBlur}
+				onChange={this.onChange}
+				onFocus={this.onFocus}
+				onKeyDown={this.onKeyDown}
+				onSelect={this.onSelect}
+				theme={this.theme}
+				value={label}
+				caret
+			/>
 		);
 	}
 }
@@ -377,6 +376,7 @@ Datalist.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
+		className: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFocus: PropTypes.func,
 		onLiveChange: PropTypes.func,
