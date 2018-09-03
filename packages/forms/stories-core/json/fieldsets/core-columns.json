@@ -4,6 +4,10 @@
     "type": "object",
     "title": "Comment",
     "properties": {
+      "civility": {
+        "type": "string",
+        "enum": ["M", "Mrs"]
+      },
       "name": {
         "type": "string"
       },
@@ -41,16 +45,27 @@
   "uiSchema": [
     {
       "widget": "columns",
+      "title": "User title",
+      "items": [
+        {
+          "key": "civility",
+          "title": "Civility",
+          "widget": "datalist"
+        },
+        {
+          "key": "name",
+          "title": "Name"
+        }
+      ]
+    },
+    {
+      "widget": "columns",
       "title": "My awesome columns",
       "items": [
         {
           "widget": "fieldset",
           "title": "User Fieldset",
           "items": [
-            {
-              "key": "name",
-              "title": "Name"
-            },
             {
               "key": "lastname",
               "title": "Last Name (with description)",

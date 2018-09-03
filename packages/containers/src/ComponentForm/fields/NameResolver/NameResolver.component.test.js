@@ -1,14 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Datalist from './Datalist.component';
+import withNameResolver from './NameResolver.component';
 
-describe('Datalist component', () => {
+const NameResolverDumbComponent = withNameResolver(props => <div {...props} />);
+
+describe('Name resolver component', () => {
 	it('should resolve unknown value name from properties', () => {
 		// given
 		const properties = { my: { path: { myValue: 'lol', $myValue_name: 'lol name' } } };
 		const schema = { key: ['my', 'path', 'myValue'] };
 
-		const wrapper = shallow(<Datalist properties={properties} schema={schema} />);
+		const wrapper = shallow(<NameResolverDumbComponent properties={properties} schema={schema} />);
 		const resolveName = wrapper.prop('resolveName');
 
 		// when
@@ -23,7 +25,7 @@ describe('Datalist component', () => {
 		const properties = { my: { path: { myValue: 'lol' } } };
 		const schema = { key: ['my', 'path', 'myValue'] };
 
-		const wrapper = shallow(<Datalist properties={properties} schema={schema} />);
+		const wrapper = shallow(<NameResolverDumbComponent properties={properties} schema={schema} />);
 		const resolveName = wrapper.prop('resolveName');
 
 		// when
