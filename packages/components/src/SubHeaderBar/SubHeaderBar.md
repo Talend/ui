@@ -10,7 +10,8 @@ It provides a way to display a back button with an editable title.
 | -- | -- | -- |
 | left | control actions to display on the left | [{ id: 'whatever', label: 'Foo' }] |
 | center | control actions to display on the center | same |
-| right | control actions to display on the left | same |
+| right | control actions to display on the right | same |
+| rightActionsLoading | if true displays Skeleton instead of control actions at the right, to indicate loading | true/false |
 | title | the title of the current document displayed just after the back button | 'Yes we can' |
 | onGoBack | function called when the user click the back button | onClick(event) {} |
 | className | add a className to the root header tag | 'my-css-class' |

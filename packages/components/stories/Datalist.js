@@ -11,9 +11,9 @@ const propsMultiSection = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'faa' }] },
+		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }, { name: 'faa', value: 'faa' }] },
 		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
-		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
+		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }] },
 		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 	],
 	onFinish: action('onFinish'),
@@ -27,9 +27,9 @@ const singleSectionProps = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ name: 'My foo', value: 'foo' },
+		{ name: 'My foo', value: 'foo', description: 'foo description' },
 		{ name: 'My bar', value: 'bar' },
-		{ name: 'My foobar', value: 'foobar' },
+		{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
 		{ name: 'My lol', value: 'lol' },
 	],
 	onFinish: action('onFinish'),
