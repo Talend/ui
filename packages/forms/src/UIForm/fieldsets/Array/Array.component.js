@@ -6,12 +6,16 @@ import defaultTemplates from '../../utils/templates';
 import defaultWidgets from '../../utils/widgets';
 
 function adaptKeyWithIndex(keys, index) {
-	let indexedKeys = keys;
-	const firstIndexPlaceholder = indexedKeys.indexOf('');
-	if (firstIndexPlaceholder >= 0) {
-		indexedKeys = [...keys];
-		indexedKeys[firstIndexPlaceholder] = index;
+	if (!keys) {
+		return;
 	}
+
+	let firstIndexPlaceholder = keys.indexOf('');
+	if (firstIndexPlaceholder === -1) {
+		firstIndexPlaceholder = keys.length;
+	}
+	const indexedKeys = [...keys];
+	indexedKeys[firstIndexPlaceholder] = index;
 	return indexedKeys;
 }
 
@@ -29,15 +33,25 @@ function getRange(previousIndex, nextIndex) {
 	};
 }
 
-function getItemSchema(arraySchema, index) {
-	// insert index in all fields
-	const items = arraySchema.items.map(item => ({
+function getNestedItemSchema(item, index) {
+	const adaptedItem = {
 		...item,
 		key: adaptKeyWithIndex(item.key, index),
-	}));
+	};
+
+	if (item.items) {
+		adaptedItem.items = adaptedItem.items.map(nestedItem => getNestedItemSchema(nestedItem, index));
+	}
+
+	return adaptedItem;
+}
+
+function getArrayItemSchema(arraySchema, index) {
+	// insert index in all fields
+	const items = arraySchema.items.map(item => getNestedItemSchema(item, index));
 
 	// insert index in item schema key
-	const key = arraySchema.key.concat(index);
+	const key = adaptKeyWithIndex(arraySchema.key, index);
 
 	return {
 		key,
@@ -136,7 +150,7 @@ export default class ArrayWidget extends React.Component {
 			<Widget
 				{...this.props}
 				id={this.props.id && `${this.props.id}-${index}`}
-				schema={getItemSchema(this.props.schema, index)}
+				schema={getArrayItemSchema(this.props.schema, index)}
 				value={this.props.value[index]}
 			/>
 		);
