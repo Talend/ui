@@ -1,3 +1,4 @@
+import AboutDialogExample from './ExampleAboutDialog';
 import ActionExample from './ExampleAction';
 import ActionBarExample from './ExampleActionBar';
 import ActionDropdown from './ExampleActionDropdown';
@@ -26,6 +27,7 @@ import TabBarExample from './ExampleTabBar';
 import TypeaheadExample from './ExampleTypeahead';
 
 export default {
+	AboutDialogExample,
 	ActionExample,
 	ActionBarExample,
 	ActionDropdown,
