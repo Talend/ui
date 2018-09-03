@@ -14,6 +14,10 @@ function Text({ text, loading, size = Skeleton.SIZES.medium }) {
 }
 
 function Table({ services, loading, t }) {
+	if (!services || !services.length) {
+		return null;
+	}
+	
 	return (
 		<table className={classNames(theme['about-versions'], 'about-versions')}>
 			<thead>
