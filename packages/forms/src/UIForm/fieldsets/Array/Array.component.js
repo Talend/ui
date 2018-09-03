@@ -6,10 +6,6 @@ import defaultTemplates from '../../utils/templates';
 import defaultWidgets from '../../utils/widgets';
 
 function adaptKeyWithIndex(keys, index) {
-	if (!keys) {
-		return;
-	}
-
 	let firstIndexPlaceholder = keys.indexOf('');
 	if (firstIndexPlaceholder === -1) {
 		firstIndexPlaceholder = keys.length;
@@ -36,7 +32,7 @@ function getRange(previousIndex, nextIndex) {
 function getNestedItemSchema(item, index) {
 	const adaptedItem = {
 		...item,
-		key: adaptKeyWithIndex(item.key, index),
+		key: item.key && adaptKeyWithIndex(item.key, index),
 	};
 
 	if (item.items) {
@@ -51,7 +47,7 @@ function getArrayItemSchema(arraySchema, index) {
 	const items = arraySchema.items.map(item => getNestedItemSchema(item, index));
 
 	// insert index in item schema key
-	const key = adaptKeyWithIndex(arraySchema.key, index);
+	const key = arraySchema.key && adaptKeyWithIndex(arraySchema.key, index);
 
 	return {
 		key,
