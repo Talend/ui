@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
@@ -35,7 +36,6 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 								value={option.value}
 								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}
-								aria-required={schema.required}
 								aria-describedby={generateDescribedBy(id)}
 							/>
 							<span>{option.name}</span>
