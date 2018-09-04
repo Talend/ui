@@ -3,6 +3,8 @@
 exports[`TextArea field should render disabled textarea 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   id="myForm"
   isValid={true}
@@ -32,6 +34,8 @@ exports[`TextArea field should render disabled textarea 1`] = `
 exports[`TextArea field should render provided rows 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   id="myForm"
   isValid={true}
@@ -61,6 +65,8 @@ exports[`TextArea field should render provided rows 1`] = `
 exports[`TextArea field should render readonly textarea 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   id="myForm"
   isValid={true}
@@ -90,6 +96,8 @@ exports[`TextArea field should render readonly textarea 1`] = `
 exports[`TextArea field should render textarea 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   id="myForm"
   isValid={true}

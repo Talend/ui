@@ -32,9 +32,10 @@ function FieldTemplate(props) {
 			{props.children}
 			{props.label && props.labelAfter && <Label id={props.id} label={props.label} />}
 			<Message
-				id={props.id}
-				errorMessage={props.errorMessage}
 				description={props.description}
+				descriptionId={props.descriptionId}
+				errorId={props.errorId}
+				errorMessage={props.errorMessage}
 				isValid={props.isValid}
 			/>
 		</div>
@@ -45,6 +46,8 @@ if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		children: PropTypes.node,
 		description: PropTypes.string,
+		descriptionId: PropTypes.string.isRequired,
+		errorId: PropTypes.string.isRequired,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,

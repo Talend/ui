@@ -1,22 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { generateErrorId, generateDescriptionId } from './generateId';
+import PropTypes from 'prop-types';
 
 export default function Message(props) {
-	const { id, errorMessage, description, isValid } = props;
+	const { description, descriptionId, errorId, errorMessage, isValid } = props;
 
 	return (
 		<div>
-			<p key="description" className="help-block" id={generateDescriptionId(id)}>
+			<p key="description" className="help-block" id={descriptionId}>
 				{isValid ? description : ''}
 			</p>
-			<p
-				key="error"
-				className="help-block"
-				role="status"
-				aria-live="assertive"
-				id={generateErrorId(id)}
-			>
+			<p key="error" className="help-block" role="status" aria-live="assertive" id={errorId}>
 				{isValid ? '' : errorMessage}
 			</p>
 		</div>
@@ -25,9 +18,10 @@ export default function Message(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Message.propTypes = {
-		errorMessage: PropTypes.string,
 		description: PropTypes.string,
-		id: PropTypes.string.isRequired,
+		descriptionId: PropTypes.string.isRequired,
+		errorId: PropTypes.string.isRequired,
+		errorMessage: PropTypes.string,
 		isValid: PropTypes.bool,
 	};
 }

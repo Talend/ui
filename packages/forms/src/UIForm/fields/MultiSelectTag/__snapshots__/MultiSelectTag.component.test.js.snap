@@ -3,6 +3,8 @@
 exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
 <FieldTemplate
   description="This is the MultiSelectTag field"
+  descriptionId="my-select-tag-description"
+  errorId="my-select-tag-error"
   errorMessage="This is wrong"
   id="my-select-tag"
   isValid={true}

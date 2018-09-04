@@ -3,6 +3,8 @@
 exports[`Radios field should render disabled input 1`] = `
 <FieldTemplate
   description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
@@ -15,7 +17,6 @@ exports[`Radios field should render disabled input 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={true}
@@ -38,7 +39,6 @@ exports[`Radios field should render disabled input 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={true}
@@ -61,7 +61,6 @@ exports[`Radios field should render disabled input 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={true}
         disabled={true}
@@ -83,6 +82,8 @@ exports[`Radios field should render disabled input 1`] = `
 exports[`Radios field should render inline radios 1`] = `
 <FieldTemplate
   description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
@@ -95,7 +96,6 @@ exports[`Radios field should render inline radios 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -118,7 +118,6 @@ exports[`Radios field should render inline radios 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -141,7 +140,6 @@ exports[`Radios field should render inline radios 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={true}
         disabled={false}
@@ -163,6 +161,8 @@ exports[`Radios field should render inline radios 1`] = `
 exports[`Radios field should render radios 1`] = `
 <FieldTemplate
   description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
@@ -175,7 +175,6 @@ exports[`Radios field should render radios 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -198,7 +197,6 @@ exports[`Radios field should render radios 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -221,7 +219,6 @@ exports[`Radios field should render radios 1`] = `
       <input
         aria-describedby="myForm-description myForm-error"
         aria-invalid={false}
-        aria-required={true}
         autoFocus={true}
         checked={true}
         disabled={false}

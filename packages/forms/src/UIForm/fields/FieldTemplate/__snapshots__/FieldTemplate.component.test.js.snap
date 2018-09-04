@@ -13,8 +13,9 @@ exports[`FieldTemplate should render invalid className 1`] = `
   />
   <Message
     description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
     errorMessage="This is wrong o_o"
-    id="myAwesomeField"
     isValid={false}
   />
 </div>
@@ -33,8 +34,9 @@ exports[`FieldTemplate should render with label after 1`] = `
   />
   <Message
     description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
     errorMessage="This is wrong o_o"
-    id="myAwesomeField"
     isValid={true}
   />
 </div>
@@ -53,8 +55,9 @@ exports[`FieldTemplate should render with label before 1`] = `
   />
   <Message
     description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
     errorMessage="This is wrong o_o"
-    id="myAwesomeField"
     isValid={true}
   />
 </div>

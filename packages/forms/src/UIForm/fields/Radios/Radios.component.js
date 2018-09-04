@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
-import { generateDescribedBy } from '../../Message/generateId';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export default function Radios({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const { autoFocus, description, disabled = false, inline, title } = schema;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	const radioClassNames = classNames({
 		radio: !inline,
@@ -15,6 +17,8 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 	return (
 		<FieldTemplate
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
@@ -36,7 +40,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 								value={option.value}
 								// eslint-disable-next-line jsx-a11y/aria-proptypes
 								aria-invalid={!isValid}
-								aria-describedby={generateDescribedBy(id)}
+								aria-describedby={`${descriptionId} ${errorId}`}
 							/>
 							<span>{option.name}</span>
 						</label>

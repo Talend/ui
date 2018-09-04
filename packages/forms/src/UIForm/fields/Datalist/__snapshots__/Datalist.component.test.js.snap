@@ -3,6 +3,8 @@
 exports[`Datalist component should render 1`] = `
 <FieldTemplate
   description="This is my datalist"
+  descriptionId="my-datalist-description"
+  errorId="my-datalist-error"
   errorMessage="This should be correct"
   id="my-datalist"
   isValid={true}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
-import { generateDescribedBy } from '../../Message/generateId';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { convertValue } from '../../utils/properties';
 
@@ -20,10 +20,14 @@ export default function Text(props) {
 	if (type === 'hidden') {
 		return <input id={id} type={type} value={value} />;
 	}
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
 			id={id}
 			isValid={isValid}
@@ -47,7 +51,7 @@ export default function Text(props) {
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
 				aria-required={schema.required}
-				aria-describedby={generateDescribedBy(id)}
+				aria-describedby={`${descriptionId} ${errorId}`}
 			/>
 		</FieldTemplate>
 	);

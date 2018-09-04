@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function getValues(value = [], itemValue, checked) {
 	if (checked) {
@@ -14,10 +15,14 @@ function getValues(value = [], itemValue, checked) {
 export default function CheckBoxes(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const { description, title, titleMap } = schema;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	return (
 		<FieldTemplate
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
@@ -25,6 +30,7 @@ export default function CheckBoxes(props) {
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
+					describedby={`${descriptionId} ${errorId}`}
 					id={id}
 					key={index}
 					isValid={isValid}

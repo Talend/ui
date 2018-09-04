@@ -3,6 +3,8 @@
 exports[`Toggle field should render autoFocused input 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   required={true}
@@ -26,6 +28,8 @@ exports[`Toggle field should render autoFocused input 1`] = `
 exports[`Toggle field should render disabled input 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   required={true}
@@ -49,6 +53,8 @@ exports[`Toggle field should render disabled input 1`] = `
 exports[`Toggle field should render input 1`] = `
 <FieldTemplate
   description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   required={true}

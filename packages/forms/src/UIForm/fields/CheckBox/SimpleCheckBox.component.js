@@ -1,8 +1,17 @@
+/* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { generateDescribedBy } from '../../Message/generateId';
 
-export default function SimpleCheckBox({ id, isValid, label, onChange, onFinish, schema, value }) {
+export default function SimpleCheckBox({
+	describedby,
+	id,
+	isValid,
+	label,
+	onChange,
+	onFinish,
+	schema,
+	value,
+}) {
 	const { autoFocus, disabled = false } = schema;
 
 	return (
@@ -12,7 +21,6 @@ export default function SimpleCheckBox({ id, isValid, label, onChange, onFinish,
 					id={id}
 					autoFocus={autoFocus}
 					disabled={disabled}
-					label={label}
 					onChange={event => {
 						onChange(event, { schema, value: event.target.checked });
 						onFinish(event, { schema, value: event.target.checked });
@@ -21,8 +29,7 @@ export default function SimpleCheckBox({ id, isValid, label, onChange, onFinish,
 					checked={value}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
-					aria-required={schema.required}
-					aria-describedby={generateDescribedBy(id)}
+					aria-describedby={describedby}
 				/>
 				<span className="control-label" htmlFor={id}>
 					{label}
@@ -34,6 +41,7 @@ export default function SimpleCheckBox({ id, isValid, label, onChange, onFinish,
 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
+		describedby: PropTypes.string.isRequired,
 		id: PropTypes.string,
 		isValid: PropTypes.string,
 		label: PropTypes.string,
