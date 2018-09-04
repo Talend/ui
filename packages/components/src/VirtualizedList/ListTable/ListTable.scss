@@ -1,7 +1,7 @@
 @import '../colors';
 
 $tc-list-table-cell-padding: $padding-small !default;
-$tc-list-table-header-color: $black !default;
+$tc-list-table-header-color: $dove-gray !default;
 $tc-list-table-border: 1px solid darken($concrete, 5%);
 
 .tc-list-table {
@@ -24,16 +24,12 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 	}
 
 	:global(.ReactVirtualized__Table__headerRow) {
-		// box-shadow: $shadow-default;
-
 		.header {
 			color: $tc-list-table-header-color;
 			display: inline-flex;
 			font-size: 1.2rem;
 			font-weight: 600;
-			color: $dove-gray;
 			padding: $tc-list-table-cell-padding;
-			// text-transform: uppercase;
 		}
 	}
 
@@ -42,7 +38,6 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 	}
 
 	.grid {
-		// box-shadow: $shadow-default;
 		.cell {
 			&:first-child {
 				border-left: none;
