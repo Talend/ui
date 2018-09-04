@@ -24,7 +24,6 @@ got ${resourcePath}`,
 }
 
 export function* redirect(url) {
-	debugger;
 	if (!url) {
 		throw new Error('redirect action must have data.model.redirectUrl value');
 	}
