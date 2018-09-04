@@ -5,8 +5,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Message/generateId.js
-  1:1  error  'uuid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-✖ 2 problems (2 errors, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
