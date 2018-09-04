@@ -52,6 +52,7 @@ exports[`Items should render 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={4}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -100,7 +101,7 @@ exports[`Items should render 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={4}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -118,7 +119,7 @@ exports[`Items should render 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -313,27 +314,22 @@ exports[`Items should render 1`] = `
                           t={[Function]}
                           tReady={false}
                         >
-                          <div>
-                            <div
-                              className="checkbox-container"
-                            >
-                              <div
-                                className="checkbox"
+                          <div
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label>
-                                  <input
-                                    aria-label="Select Lorem ipsum dolor sit amet 0"
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor sit amet 0
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>
@@ -438,28 +434,24 @@ exports[`Items should render 1`] = `
                           t={[Function]}
                           tReady={false}
                         >
-                          <div>
-                            <div
-                              className="checkbox-container"
-                            >
-                              <div
-                                className="checkbox"
+                          <div
+                            aria-selected={true}
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label>
-                                  <input
-                                    aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                                    checked={true}
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor sit amet 1
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>
@@ -561,27 +553,22 @@ exports[`Items should render 1`] = `
                           t={[Function]}
                           tReady={false}
                         >
-                          <div>
-                            <div
-                              className="checkbox-container"
-                            >
-                              <div
-                                className="checkbox"
+                          <div
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label>
-                                  <input
-                                    aria-label="Select Lorem ipsum dolor sit amet 2"
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor sit amet 2
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>
@@ -668,6 +655,7 @@ exports[`Items should render with nested items 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={3}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -725,7 +713,7 @@ exports[`Items should render with nested items 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={3}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -743,7 +731,7 @@ exports[`Items should render with nested items 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -932,27 +920,22 @@ exports[`Items should render with nested items 1`] = `
                           t={[Function]}
                           tReady={false}
                         >
-                          <div>
-                            <div
-                              className="checkbox-container"
-                            >
-                              <div
-                                className="checkbox"
+                          <div
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor default"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label>
-                                  <input
-                                    aria-label="Select Lorem ipsum dolor default"
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor default
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor default
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>
@@ -1090,132 +1073,128 @@ exports[`Items should render with nested items 1`] = `
                           t={[Function]}
                           tReady={false}
                         >
-                          <div>
-                            <div
-                              className="checkbox-container"
-                            >
-                              <div
-                                className="checkbox switch-nested"
+                          <div
+                            aria-selected={true}
+                            className="checkbox switch-nested"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor Parent"
+                                checked={true}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label>
-                                  <input
-                                    aria-label="Deselect Lorem ipsum dolor Parent"
-                                    checked={true}
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor Parent
-                                  </span>
-                                </label>
-                                <div
-                                  className="checkbox-nested-expand"
+                                Lorem ipsum dolor Parent
+                              </span>
+                            </label>
+                            <div
+                              className="checkbox-nested-expand"
+                            >
+                              <Action
+                                bsStyle="link"
+                                hideLabel={true}
+                                icon="talend-caret-down"
+                                label="Expand Lorem ipsum dolor Parent"
+                                onClick={[Function]}
+                              >
+                                <Translate(ActionButton)
+                                  bsStyle="link"
+                                  hideLabel={true}
+                                  icon="talend-caret-down"
+                                  label="Expand Lorem ipsum dolor Parent"
+                                  onClick={[Function]}
                                 >
-                                  <Action
+                                  <I18n
+                                    bindI18n="languageChanged loaded"
+                                    bindStore="added removed"
                                     bsStyle="link"
                                     hideLabel={true}
+                                    i18n={Object {}}
                                     icon="talend-caret-down"
                                     label="Expand Lorem ipsum dolor Parent"
+                                    ns={
+                                      Array [
+                                        "tui-components",
+                                      ]
+                                    }
+                                    nsMode="default"
                                     onClick={[Function]}
+                                    translateFuncName="t"
+                                    usePureComponent={false}
+                                    wait={false}
+                                    withRef={false}
                                   >
-                                    <Translate(ActionButton)
+                                    <ActionButton
+                                      available={true}
                                       bsStyle="link"
+                                      disabled={false}
                                       hideLabel={true}
+                                      i18n={Object {}}
                                       icon="talend-caret-down"
+                                      inProgress={false}
                                       label="Expand Lorem ipsum dolor Parent"
+                                      loading={false}
                                       onClick={[Function]}
+                                      t={[Function]}
+                                      tReady={false}
+                                      tooltipPlacement="top"
                                     >
-                                      <I18n
-                                        bindI18n="languageChanged loaded"
-                                        bindStore="added removed"
-                                        bsStyle="link"
-                                        hideLabel={true}
-                                        i18n={Object {}}
-                                        icon="talend-caret-down"
+                                      <TooltipTrigger
                                         label="Expand Lorem ipsum dolor Parent"
-                                        ns={
-                                          Array [
-                                            "tui-components",
-                                          ]
-                                        }
-                                        nsMode="default"
-                                        onClick={[Function]}
-                                        translateFuncName="t"
-                                        usePureComponent={false}
-                                        wait={false}
-                                        withRef={false}
+                                        tooltipPlacement="top"
                                       >
-                                        <ActionButton
-                                          available={true}
+                                        <Button
+                                          active={false}
+                                          aria-label="Expand Lorem ipsum dolor Parent"
+                                          block={false}
+                                          bsClass="btn"
                                           bsStyle="link"
+                                          className="btn-icon-only"
                                           disabled={false}
-                                          hideLabel={true}
-                                          i18n={Object {}}
-                                          icon="talend-caret-down"
-                                          inProgress={false}
-                                          label="Expand Lorem ipsum dolor Parent"
-                                          loading={false}
                                           onClick={[Function]}
-                                          t={[Function]}
-                                          tReady={false}
-                                          tooltipPlacement="top"
+                                          onFocus={[Function]}
+                                          onMouseDown={[Function]}
+                                          onMouseOver={[Function]}
+                                          role={null}
                                         >
-                                          <TooltipTrigger
-                                            label="Expand Lorem ipsum dolor Parent"
-                                            tooltipPlacement="top"
+                                          <button
+                                            aria-label="Expand Lorem ipsum dolor Parent"
+                                            className="btn-icon-only btn btn-link"
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseDown={[Function]}
+                                            onMouseOver={[Function]}
+                                            role={null}
+                                            type="button"
                                           >
-                                            <Button
-                                              active={false}
-                                              aria-label="Expand Lorem ipsum dolor Parent"
-                                              block={false}
-                                              bsClass="btn"
-                                              bsStyle="link"
-                                              className="btn-icon-only"
-                                              disabled={false}
-                                              onClick={[Function]}
-                                              onFocus={[Function]}
-                                              onMouseDown={[Function]}
-                                              onMouseOver={[Function]}
-                                              role={null}
+                                            <Icon
+                                              key="icon"
+                                              name="talend-caret-down"
                                             >
-                                              <button
-                                                aria-label="Expand Lorem ipsum dolor Parent"
-                                                className="btn-icon-only btn btn-link"
-                                                disabled={false}
-                                                onClick={[Function]}
-                                                onFocus={[Function]}
-                                                onMouseDown={[Function]}
-                                                onMouseOver={[Function]}
-                                                role={null}
-                                                type="button"
+                                              <svg
+                                                aria-hidden="true"
+                                                className="theme-tc-svg-icon tc-svg-icon"
+                                                focusable="false"
+                                                name="talend-caret-down"
+                                                title={null}
                                               >
-                                                <Icon
-                                                  key="icon"
-                                                  name="talend-caret-down"
-                                                >
-                                                  <svg
-                                                    aria-hidden="true"
-                                                    className="theme-tc-svg-icon tc-svg-icon"
-                                                    focusable="false"
-                                                    name="talend-caret-down"
-                                                    title={null}
-                                                  >
-                                                    <use
-                                                      xlinkHref="#talend-caret-down"
-                                                    />
-                                                  </svg>
-                                                </Icon>
-                                              </button>
-                                            </Button>
-                                          </TooltipTrigger>
-                                        </ActionButton>
-                                      </I18n>
-                                    </Translate(ActionButton)>
-                                  </Action>
-                                </div>
-                              </div>
+                                                <use
+                                                  xlinkHref="#talend-caret-down"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </TooltipTrigger>
+                                    </ActionButton>
+                                  </I18n>
+                                </Translate(ActionButton)>
+                              </Action>
                             </div>
                           </div>
                         </Item>
@@ -1286,6 +1265,7 @@ exports[`Items should render with provided id 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={4}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -1334,7 +1314,7 @@ exports[`Items should render with provided id 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={4}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -1352,7 +1332,7 @@ exports[`Items should render with provided id 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -1552,31 +1532,25 @@ exports[`Items should render with provided id 1`] = `
                           tReady={false}
                         >
                           <div
+                            className="checkbox"
                             id="my-widget-1-item"
+                            role="option"
                           >
-                            <div
-                              className="checkbox-container"
+                            <label
+                              htmlFor="checkbox-my-widget-1-item"
                             >
-                              <div
-                                className="checkbox"
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                id="checkbox-my-widget-1-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label
-                                  htmlFor="checkbox-my-widget-1-item"
-                                >
-                                  <input
-                                    aria-label="Select Lorem ipsum dolor sit amet 0"
-                                    id="checkbox-my-widget-1-item"
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor sit amet 0
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>
@@ -1686,32 +1660,27 @@ exports[`Items should render with provided id 1`] = `
                           tReady={false}
                         >
                           <div
+                            aria-selected={true}
+                            className="checkbox"
                             id="my-widget-2-item"
+                            role="option"
                           >
-                            <div
-                              className="checkbox-container"
+                            <label
+                              htmlFor="checkbox-my-widget-2-item"
                             >
-                              <div
-                                className="checkbox"
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                id="checkbox-my-widget-2-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label
-                                  htmlFor="checkbox-my-widget-2-item"
-                                >
-                                  <input
-                                    aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                                    checked={true}
-                                    id="checkbox-my-widget-2-item"
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor sit amet 1
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>
@@ -1818,31 +1787,25 @@ exports[`Items should render with provided id 1`] = `
                           tReady={false}
                         >
                           <div
+                            className="checkbox"
                             id="my-widget-3-item"
+                            role="option"
                           >
-                            <div
-                              className="checkbox-container"
+                            <label
+                              htmlFor="checkbox-my-widget-3-item"
                             >
-                              <div
-                                className="checkbox"
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                id="checkbox-my-widget-3-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
-                                <label
-                                  htmlFor="checkbox-my-widget-3-item"
-                                >
-                                  <input
-                                    aria-label="Select Lorem ipsum dolor sit amet 2"
-                                    id="checkbox-my-widget-3-item"
-                                    onChange={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    className="theme-tc-listview-item-label tc-listview-item-label"
-                                  >
-                                    Lorem ipsum dolor sit amet 2
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
                           </div>
                         </Item>
                       </I18n>

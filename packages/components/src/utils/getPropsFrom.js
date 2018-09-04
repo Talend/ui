@@ -14,7 +14,7 @@ function extractComponentProps(Component, props) {
 	return extractedProps;
 }
 
-function extractNativeProps(props) {
+export function extractNativeProps(props) {
 	const extractedProps = {};
 	Object.keys(props).forEach(propName => {
 		if (
@@ -29,7 +29,7 @@ function extractNativeProps(props) {
 
 export default function getPropsFrom(Component, props) {
 	if (!Component) {
-		return {};
+		return { ...extractNativeProps(props) };
 	}
 	return {
 		...extractNativeProps(props),
