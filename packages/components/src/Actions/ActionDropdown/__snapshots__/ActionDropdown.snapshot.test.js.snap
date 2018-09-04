@@ -60,6 +60,7 @@ exports[`ActionDropdown should render "no option" item when items array is empty
 exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
 <ActionDropdown
   bsStyle="default"
+  i18n={Object {}}
   id="dropdown-id"
   items={
     Array [
@@ -75,16 +76,20 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     ]
   }
   label="related items"
+  t={[Function]}
+  tReady={false}
   tooltipPlacement="top"
 >
   <DropdownButton
     aria-label="related items"
     bsStyle="default"
     className="theme-tc-dropdown-button tc-dropdown-button"
+    i18n={Object {}}
     id="dropdown-id"
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
+    tReady={false}
     title={
       Array [
         null,
@@ -129,12 +134,14 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
               bsRole="toggle"
               bsStyle="default"
               className="theme-tc-dropdown-button tc-dropdown-button"
+              i18n={Object {}}
               id="dropdown-id"
               key=".0"
               onClick={[Function]}
               onKeyDown={[Function]}
               open={false}
               role="button"
+              tReady={false}
               useAnchor={false}
             >
               <Button
@@ -147,10 +154,12 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                 bsStyle="default"
                 className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
                 disabled={false}
+                i18n={Object {}}
                 id="dropdown-id"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
+                tReady={false}
               >
                 <button
                   aria-expanded={false}
@@ -158,10 +167,12 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   aria-label="related items"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
                   disabled={false}
+                  i18n={Object {}}
                   id="dropdown-id"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
+                  tReady={false}
                   type="button"
                 >
                   <span
@@ -323,10 +334,12 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   aria-label="related items"
   bsStyle="link"
   className="theme-tc-dropdown-button tc-dropdown-button"
+  i18n={Object {}}
   id="dropdown-id"
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
+  tReady={false}
   title={
     Array [
       null,
@@ -338,47 +351,230 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     ]
   }
 >
-  <MenuItem
-    bsClass="dropdown"
-    className="theme-tc-dropdown-item tc-dropdown-item"
-    disabled={false}
-    divider={false}
-    eventKey={
-      Object {
-        "icon": "talend-icon",
-        "label": "document 1",
-        "onClick": [Function],
-      }
-    }
-    header={false}
-    icon="talend-icon"
-    label="document 1"
-    onClick={[Function]}
-    title="document 1"
+  <Uncontrolled(Dropdown)
+    bsStyle="link"
+    id="dropdown-id"
+    onSelect={[Function]}
+    onToggle={[Function]}
+    role="button"
   >
-    <Icon
-      name="talend-icon"
-    />
-    document 1
-  </MenuItem>
-  <MenuItem
-    bsClass="dropdown"
-    className="theme-tc-dropdown-item tc-dropdown-item"
-    disabled={false}
-    divider={false}
-    eventKey={
-      Object {
-        "label": "document 2",
-        "onClick": [Function],
-      }
-    }
-    header={false}
-    label="document 2"
-    onClick={[Function]}
-    title="document 2"
-  >
-    document 2
-  </MenuItem>
+    <Dropdown
+      bsClass="dropdown"
+      bsStyle="link"
+      componentClass={[Function]}
+      id="dropdown-id"
+      onSelect={[Function]}
+      onToggle={[Function]}
+      role="button"
+    >
+      <ButtonGroup
+        block={false}
+        bsClass="btn-group"
+        bsStyle="link"
+        className="dropdown"
+        justified={false}
+        vertical={false}
+      >
+        <div
+          className="dropdown btn-group btn-group-link"
+        >
+          <DropdownToggle
+            aria-label="related items"
+            bsClass="dropdown-toggle"
+            bsRole="toggle"
+            bsStyle="link"
+            className="theme-tc-dropdown-button tc-dropdown-button"
+            i18n={Object {}}
+            id="dropdown-id"
+            key=".0"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            open={false}
+            role="button"
+            tReady={false}
+            useAnchor={false}
+          >
+            <Button
+              active={false}
+              aria-expanded={false}
+              aria-haspopup={true}
+              aria-label="related items"
+              block={false}
+              bsClass="btn"
+              bsStyle="link"
+              className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
+              disabled={false}
+              i18n={Object {}}
+              id="dropdown-id"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tReady={false}
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                aria-label="related items"
+                className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                i18n={Object {}}
+                id="dropdown-id"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tReady={false}
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                  key="label"
+                >
+                  related items
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+            </Button>
+          </DropdownToggle>
+          <DropdownMenu
+            bsClass="dropdown-menu"
+            bsRole="menu"
+            key=".1"
+            labelledBy="dropdown-id"
+            onClose={[Function]}
+            onSelect={[Function]}
+            pullRight={false}
+          >
+            <RootCloseWrapper
+              disabled={true}
+              event="click"
+              onRootClose={[Function]}
+            >
+              <ul
+                aria-labelledby="dropdown-id"
+                className="dropdown-menu"
+                role="menu"
+              >
+                <MenuItem
+                  bsClass="dropdown"
+                  className="theme-tc-dropdown-item tc-dropdown-item"
+                  disabled={false}
+                  divider={false}
+                  eventKey={
+                    Object {
+                      "icon": "talend-icon",
+                      "label": "document 1",
+                      "onClick": [Function],
+                    }
+                  }
+                  header={false}
+                  icon="talend-icon"
+                  key=".2:$0"
+                  label="document 1"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  title="document 1"
+                >
+                  <li
+                    className="theme-tc-dropdown-item tc-dropdown-item"
+                    role="presentation"
+                  >
+                    <SafeAnchor
+                      componentClass="a"
+                      icon="talend-icon"
+                      label="document 1"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                      title="document 1"
+                    >
+                      <a
+                        href="#"
+                        icon="talend-icon"
+                        label="document 1"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                        title="document 1"
+                      >
+                        <Icon
+                          name="talend-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="theme-tc-svg-icon tc-svg-icon"
+                            focusable="false"
+                            name="talend-icon"
+                            title={null}
+                          >
+                            <use
+                              xlinkHref="#talend-icon"
+                            />
+                          </svg>
+                        </Icon>
+                        document 1
+                      </a>
+                    </SafeAnchor>
+                  </li>
+                </MenuItem>
+                <MenuItem
+                  bsClass="dropdown"
+                  className="theme-tc-dropdown-item tc-dropdown-item"
+                  disabled={false}
+                  divider={false}
+                  eventKey={
+                    Object {
+                      "label": "document 2",
+                      "onClick": [Function],
+                    }
+                  }
+                  header={false}
+                  key=".2:$1"
+                  label="document 2"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  title="document 2"
+                >
+                  <li
+                    className="theme-tc-dropdown-item tc-dropdown-item"
+                    role="presentation"
+                  >
+                    <SafeAnchor
+                      componentClass="a"
+                      label="document 2"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                      title="document 2"
+                    >
+                      <a
+                        href="#"
+                        label="document 2"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                        title="document 2"
+                      >
+                        document 2
+                      </a>
+                    </SafeAnchor>
+                  </li>
+                </MenuItem>
+              </ul>
+            </RootCloseWrapper>
+          </DropdownMenu>
+        </div>
+      </ButtonGroup>
+    </Dropdown>
+  </Uncontrolled(Dropdown)>
 </DropdownButton>
 `;
 
@@ -387,10 +583,12 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   aria-label="related items"
   bsStyle="default"
   className="theme-tc-dropdown-button tc-dropdown-button"
+  i18n={Object {}}
   id="dropdown-id"
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
+  tReady={false}
   title={
     Array [
       <Icon
@@ -404,117 +602,502 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
     ]
   }
 >
-  <MenuItem
-    bsClass="dropdown"
-    className="theme-tc-dropdown-item tc-dropdown-item"
-    disabled={false}
-    divider={false}
-    eventKey={
-      Object {
-        "icon": "talend-icon",
-        "label": "document 1",
-        "onClick": [Function],
-      }
-    }
-    header={false}
-    icon="talend-icon"
-    key="0"
-    label="document 1"
-    onClick={[Function]}
-    title="document 1"
-  >
-    <Icon
-      name="talend-icon"
-    />
-    document 1
-  </MenuItem>
-  <MenuItem
-    bsClass="dropdown"
-    className="theme-tc-dropdown-item tc-dropdown-item"
-    disabled={false}
-    divider={false}
-    eventKey={
-      Object {
-        "label": "document 2",
-        "onClick": [Function],
-      }
-    }
-    header={false}
-    key="1"
-    label="document 2"
-    onClick={[Function]}
-    title="document 2"
-  >
-    document 2
-  </MenuItem>
-</DropdownButton>
-`;
-
-exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
-<TooltipTrigger
-  label="related items"
-  tooltipPlacement="right"
->
-  <DropdownButton
-    aria-label="related items"
+  <Uncontrolled(Dropdown)
     bsStyle="default"
-    className="theme-tc-dropdown-button tc-dropdown-button"
     id="dropdown-id"
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
-    title={
-      Array [
-        <Icon
-          name="fa fa-file-excel-o"
-      />,
-        null,
-      ]
-    }
   >
-    <MenuItem
+    <Dropdown
       bsClass="dropdown"
-      className="theme-tc-dropdown-item tc-dropdown-item"
-      disabled={false}
-      divider={false}
-      eventKey={
-        Object {
-          "icon": "talend-icon",
-          "label": "document 1",
-          "onClick": [Function],
-        }
-      }
-      header={false}
-      icon="talend-icon"
-      label="document 1"
-      onClick={[Function]}
-      title="document 1"
+      bsStyle="default"
+      componentClass={[Function]}
+      id="dropdown-id"
+      onSelect={[Function]}
+      onToggle={[Function]}
+      role="button"
     >
+      <ButtonGroup
+        block={false}
+        bsClass="btn-group"
+        bsStyle="default"
+        className="dropdown"
+        justified={false}
+        vertical={false}
+      >
+        <div
+          className="dropdown btn-group btn-group-default"
+        >
+          <DropdownToggle
+            aria-label="related items"
+            bsClass="dropdown-toggle"
+            bsRole="toggle"
+            bsStyle="default"
+            className="theme-tc-dropdown-button tc-dropdown-button"
+            i18n={Object {}}
+            id="dropdown-id"
+            key=".0"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            open={false}
+            role="button"
+            tReady={false}
+            useAnchor={false}
+          >
+            <Button
+              active={false}
+              aria-expanded={false}
+              aria-haspopup={true}
+              aria-label="related items"
+              block={false}
+              bsClass="btn"
+              bsStyle="default"
+              className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
+              disabled={false}
+              i18n={Object {}}
+              id="dropdown-id"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tReady={false}
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                aria-label="related items"
+                className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+                disabled={false}
+                i18n={Object {}}
+                id="dropdown-id"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tReady={false}
+                type="button"
+              >
+                <Icon
+                  key="icon"
+                  name="fa fa-file-excel-o"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-file-excel-o"
+                    focusable="false"
+                    title={null}
+                  />
+                </Icon>
+                <span
+                  className="tc-dropdown-button-title-label"
+                  key="label"
+                >
+                  related items
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+            </Button>
+          </DropdownToggle>
+          <DropdownMenu
+            bsClass="dropdown-menu"
+            bsRole="menu"
+            key=".1"
+            labelledBy="dropdown-id"
+            onClose={[Function]}
+            onSelect={[Function]}
+            pullRight={false}
+          >
+            <RootCloseWrapper
+              disabled={true}
+              event="click"
+              onRootClose={[Function]}
+            >
+              <ul
+                aria-labelledby="dropdown-id"
+                className="dropdown-menu"
+                role="menu"
+              >
+                <MenuItem
+                  bsClass="dropdown"
+                  className="theme-tc-dropdown-item tc-dropdown-item"
+                  disabled={false}
+                  divider={false}
+                  eventKey={
+                    Object {
+                      "icon": "talend-icon",
+                      "label": "document 1",
+                      "onClick": [Function],
+                    }
+                  }
+                  header={false}
+                  icon="talend-icon"
+                  key=".2:$0"
+                  label="document 1"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  title="document 1"
+                >
+                  <li
+                    className="theme-tc-dropdown-item tc-dropdown-item"
+                    role="presentation"
+                  >
+                    <SafeAnchor
+                      componentClass="a"
+                      icon="talend-icon"
+                      label="document 1"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                      title="document 1"
+                    >
+                      <a
+                        href="#"
+                        icon="talend-icon"
+                        label="document 1"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                        title="document 1"
+                      >
+                        <Icon
+                          name="talend-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="theme-tc-svg-icon tc-svg-icon"
+                            focusable="false"
+                            name="talend-icon"
+                            title={null}
+                          >
+                            <use
+                              xlinkHref="#talend-icon"
+                            />
+                          </svg>
+                        </Icon>
+                        document 1
+                      </a>
+                    </SafeAnchor>
+                  </li>
+                </MenuItem>
+                <MenuItem
+                  bsClass="dropdown"
+                  className="theme-tc-dropdown-item tc-dropdown-item"
+                  disabled={false}
+                  divider={false}
+                  eventKey={
+                    Object {
+                      "label": "document 2",
+                      "onClick": [Function],
+                    }
+                  }
+                  header={false}
+                  key=".2:$1"
+                  label="document 2"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  title="document 2"
+                >
+                  <li
+                    className="theme-tc-dropdown-item tc-dropdown-item"
+                    role="presentation"
+                  >
+                    <SafeAnchor
+                      componentClass="a"
+                      label="document 2"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                      title="document 2"
+                    >
+                      <a
+                        href="#"
+                        label="document 2"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                        title="document 2"
+                      >
+                        document 2
+                      </a>
+                    </SafeAnchor>
+                  </li>
+                </MenuItem>
+              </ul>
+            </RootCloseWrapper>
+          </DropdownMenu>
+        </div>
+      </ButtonGroup>
+    </Dropdown>
+  </Uncontrolled(Dropdown)>
+</DropdownButton>
+`;
+
+exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
+<DropdownButton
+  aria-label="related items"
+  bsStyle="default"
+  className="theme-tc-dropdown-button tc-dropdown-button"
+  i18n={Object {}}
+  id="dropdown-id"
+  onFocus={[Function]}
+  onMouseOver={[Function]}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  role="button"
+  tReady={false}
+  title={
+    Array [
       <Icon
-        name="talend-icon"
-      />
-      document 1
-    </MenuItem>
-    <MenuItem
+        name="fa fa-file-excel-o"
+    />,
+      null,
+    ]
+  }
+>
+  <Uncontrolled(Dropdown)
+    bsStyle="default"
+    id="dropdown-id"
+    onSelect={[Function]}
+    onToggle={[Function]}
+    role="button"
+  >
+    <Dropdown
       bsClass="dropdown"
-      className="theme-tc-dropdown-item tc-dropdown-item"
-      disabled={false}
-      divider={false}
-      eventKey={
-        Object {
-          "label": "document 2",
-          "onClick": [Function],
-        }
-      }
-      header={false}
-      label="document 2"
-      onClick={[Function]}
-      title="document 2"
+      bsStyle="default"
+      componentClass={[Function]}
+      id="dropdown-id"
+      onSelect={[Function]}
+      onToggle={[Function]}
+      role="button"
     >
-      document 2
-    </MenuItem>
-  </DropdownButton>
-</TooltipTrigger>
+      <ButtonGroup
+        block={false}
+        bsClass="btn-group"
+        bsStyle="default"
+        className="dropdown"
+        justified={false}
+        vertical={false}
+      >
+        <div
+          className="dropdown btn-group btn-group-default"
+        >
+          <DropdownToggle
+            aria-label="related items"
+            bsClass="dropdown-toggle"
+            bsRole="toggle"
+            bsStyle="default"
+            className="theme-tc-dropdown-button tc-dropdown-button"
+            i18n={Object {}}
+            id="dropdown-id"
+            key=".0"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseOver={[Function]}
+            open={false}
+            role="button"
+            tReady={false}
+            useAnchor={false}
+          >
+            <Button
+              active={false}
+              aria-expanded={false}
+              aria-haspopup={true}
+              aria-label="related items"
+              block={false}
+              bsClass="btn"
+              bsStyle="default"
+              className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
+              disabled={false}
+              i18n={Object {}}
+              id="dropdown-id"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseOver={[Function]}
+              role="button"
+              tReady={false}
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                aria-label="related items"
+                className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+                disabled={false}
+                i18n={Object {}}
+                id="dropdown-id"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                tReady={false}
+                type="button"
+              >
+                <Icon
+                  key="icon"
+                  name="fa fa-file-excel-o"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-file-excel-o"
+                    focusable="false"
+                    title={null}
+                  />
+                </Icon>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+            </Button>
+          </DropdownToggle>
+          <DropdownMenu
+            bsClass="dropdown-menu"
+            bsRole="menu"
+            key=".1"
+            labelledBy="dropdown-id"
+            onClose={[Function]}
+            onSelect={[Function]}
+            pullRight={false}
+          >
+            <RootCloseWrapper
+              disabled={true}
+              event="click"
+              onRootClose={[Function]}
+            >
+              <ul
+                aria-labelledby="dropdown-id"
+                className="dropdown-menu"
+                role="menu"
+              >
+                <MenuItem
+                  bsClass="dropdown"
+                  className="theme-tc-dropdown-item tc-dropdown-item"
+                  disabled={false}
+                  divider={false}
+                  eventKey={
+                    Object {
+                      "icon": "talend-icon",
+                      "label": "document 1",
+                      "onClick": [Function],
+                    }
+                  }
+                  header={false}
+                  icon="talend-icon"
+                  key=".2:$0"
+                  label="document 1"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  title="document 1"
+                >
+                  <li
+                    className="theme-tc-dropdown-item tc-dropdown-item"
+                    role="presentation"
+                  >
+                    <SafeAnchor
+                      componentClass="a"
+                      icon="talend-icon"
+                      label="document 1"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                      title="document 1"
+                    >
+                      <a
+                        href="#"
+                        icon="talend-icon"
+                        label="document 1"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                        title="document 1"
+                      >
+                        <Icon
+                          name="talend-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="theme-tc-svg-icon tc-svg-icon"
+                            focusable="false"
+                            name="talend-icon"
+                            title={null}
+                          >
+                            <use
+                              xlinkHref="#talend-icon"
+                            />
+                          </svg>
+                        </Icon>
+                        document 1
+                      </a>
+                    </SafeAnchor>
+                  </li>
+                </MenuItem>
+                <MenuItem
+                  bsClass="dropdown"
+                  className="theme-tc-dropdown-item tc-dropdown-item"
+                  disabled={false}
+                  divider={false}
+                  eventKey={
+                    Object {
+                      "label": "document 2",
+                      "onClick": [Function],
+                    }
+                  }
+                  header={false}
+                  key=".2:$1"
+                  label="document 2"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onSelect={[Function]}
+                  title="document 2"
+                >
+                  <li
+                    className="theme-tc-dropdown-item tc-dropdown-item"
+                    role="presentation"
+                  >
+                    <SafeAnchor
+                      componentClass="a"
+                      label="document 2"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                      title="document 2"
+                    >
+                      <a
+                        href="#"
+                        label="document 2"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                        title="document 2"
+                      >
+                        document 2
+                      </a>
+                    </SafeAnchor>
+                  </li>
+                </MenuItem>
+              </ul>
+            </RootCloseWrapper>
+          </DropdownMenu>
+        </div>
+      </ButtonGroup>
+    </Dropdown>
+  </Uncontrolled(Dropdown)>
+</DropdownButton>
 `;
 
 exports[`ActionDropdown should render icon-only items with item hideLabel props 1`] = `
@@ -661,6 +1244,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
 exports[`ActionDropdown should render immutable items 1`] = `
 <ActionDropdown
   bsStyle="default"
+  i18n={Object {}}
   id="dropdown-id"
   items={
     Immutable.List [
@@ -676,16 +1260,20 @@ exports[`ActionDropdown should render immutable items 1`] = `
     ]
   }
   label="related items"
+  t={[Function]}
+  tReady={false}
   tooltipPlacement="top"
 >
   <DropdownButton
     aria-label="related items"
     bsStyle="default"
     className="theme-tc-dropdown-button tc-dropdown-button"
+    i18n={Object {}}
     id="dropdown-id"
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
+    tReady={false}
     title={
       Array [
         null,
@@ -730,12 +1318,14 @@ exports[`ActionDropdown should render immutable items 1`] = `
               bsRole="toggle"
               bsStyle="default"
               className="theme-tc-dropdown-button tc-dropdown-button"
+              i18n={Object {}}
               id="dropdown-id"
               key=".0"
               onClick={[Function]}
               onKeyDown={[Function]}
               open={false}
               role="button"
+              tReady={false}
               useAnchor={false}
             >
               <Button
@@ -748,10 +1338,12 @@ exports[`ActionDropdown should render immutable items 1`] = `
                 bsStyle="default"
                 className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
                 disabled={false}
+                i18n={Object {}}
                 id="dropdown-id"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
+                tReady={false}
               >
                 <button
                   aria-expanded={false}
@@ -759,10 +1351,12 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   aria-label="related items"
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
                   disabled={false}
+                  i18n={Object {}}
                   id="dropdown-id"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
+                  tReady={false}
                   type="button"
                 >
                   <span
@@ -917,4 +1511,291 @@ exports[`ActionDropdown should render immutable items 1`] = `
     </Uncontrolled(Dropdown)>
   </DropdownButton>
 </ActionDropdown>
+`;
+
+exports[`ActionDropdown should render loader item 1`] = `
+<DropdownMenu
+  bsClass="dropdown-menu"
+  bsRole="menu"
+  key=".1"
+  labelledBy="dropdown-id"
+  onClose={[Function]}
+  onSelect={[Function]}
+  pullRight={false}
+>
+  <RootCloseWrapper
+    disabled={true}
+    event="click"
+    onRootClose={[Function]}
+  >
+    <ul
+      aria-labelledby="dropdown-id"
+      className="dropdown-menu"
+      role="menu"
+    >
+      <MenuItem
+        bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item theme-tc-dropdown-loader tc-dropdown-loader"
+        disabled={false}
+        divider={false}
+        header={true}
+        key=".$1"
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+      >
+        <li
+          className="theme-tc-dropdown-item tc-dropdown-item theme-tc-dropdown-loader tc-dropdown-loader dropdown-header"
+          onKeyDown={[Function]}
+          role="heading"
+        >
+          <Translate(CircularProgress)>
+            <I18n
+              bindI18n="languageChanged loaded"
+              bindStore="added removed"
+              i18n={Object {}}
+              ns={
+                Array [
+                  "tui-components",
+                ]
+              }
+              nsMode="default"
+              translateFuncName="t"
+              usePureComponent={false}
+              wait={false}
+              withRef={false}
+            >
+              <CircularProgress
+                i18n={Object {}}
+                size="default"
+                t={[Function]}
+                tReady={false}
+              >
+                <svg
+                  aria-busy="true"
+                  aria-label="Loading "
+                  className="tc-circular-progress theme-loader theme-animate theme-default"
+                  focusable="false"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    className="theme-path"
+                    cx={25}
+                    cy={25}
+                    fill="none"
+                    r={20}
+                    style={
+                      Object {
+                        "strokeDasharray": 12.566370614359172,
+                        "strokeDashoffset": 0,
+                      }
+                    }
+                  />
+                </svg>
+              </CircularProgress>
+            </I18n>
+          </Translate(CircularProgress)>
+        </li>
+      </MenuItem>
+    </ul>
+  </RootCloseWrapper>
+</DropdownMenu>
+`;
+
+exports[`ActionDropdown should render loader item below existing items 1`] = `
+<DropdownMenu
+  bsClass="dropdown-menu"
+  bsRole="menu"
+  key=".1"
+  labelledBy="dropdown-id"
+  onClose={[Function]}
+  onSelect={[Function]}
+  pullRight={false}
+>
+  <RootCloseWrapper
+    disabled={true}
+    event="click"
+    onRootClose={[Function]}
+  >
+    <ul
+      aria-labelledby="dropdown-id"
+      className="dropdown-menu"
+      role="menu"
+    >
+      <MenuItem
+        bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item"
+        disabled={false}
+        divider={false}
+        eventKey={
+          Object {
+            "icon": "talend-icon",
+            "label": "document 1",
+            "onClick": [Function],
+          }
+        }
+        header={false}
+        icon="talend-icon"
+        key=".2:$0"
+        label="document 1"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+        title="document 1"
+      >
+        <li
+          className="theme-tc-dropdown-item tc-dropdown-item"
+          role="presentation"
+        >
+          <SafeAnchor
+            componentClass="a"
+            icon="talend-icon"
+            label="document 1"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+            title="document 1"
+          >
+            <a
+              href="#"
+              icon="talend-icon"
+              label="document 1"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1"
+              title="document 1"
+            >
+              <Icon
+                name="talend-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="theme-tc-svg-icon tc-svg-icon"
+                  focusable="false"
+                  name="talend-icon"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-icon"
+                  />
+                </svg>
+              </Icon>
+              document 1
+            </a>
+          </SafeAnchor>
+        </li>
+      </MenuItem>
+      <MenuItem
+        bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item"
+        disabled={false}
+        divider={false}
+        eventKey={
+          Object {
+            "label": "document 2",
+            "onClick": [Function],
+          }
+        }
+        header={false}
+        key=".2:$1"
+        label="document 2"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+        title="document 2"
+      >
+        <li
+          className="theme-tc-dropdown-item tc-dropdown-item"
+          role="presentation"
+        >
+          <SafeAnchor
+            componentClass="a"
+            label="document 2"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="menuitem"
+            tabIndex="-1"
+            title="document 2"
+          >
+            <a
+              href="#"
+              label="document 2"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1"
+              title="document 2"
+            >
+              document 2
+            </a>
+          </SafeAnchor>
+        </li>
+      </MenuItem>
+      <MenuItem
+        bsClass="dropdown"
+        className="theme-tc-dropdown-item tc-dropdown-item theme-tc-dropdown-loader tc-dropdown-loader"
+        disabled={false}
+        divider={false}
+        header={true}
+        key=".$3"
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+      >
+        <li
+          className="theme-tc-dropdown-item tc-dropdown-item theme-tc-dropdown-loader tc-dropdown-loader dropdown-header"
+          onKeyDown={[Function]}
+          role="heading"
+        >
+          <Translate(CircularProgress)>
+            <I18n
+              bindI18n="languageChanged loaded"
+              bindStore="added removed"
+              i18n={Object {}}
+              ns={
+                Array [
+                  "tui-components",
+                ]
+              }
+              nsMode="default"
+              translateFuncName="t"
+              usePureComponent={false}
+              wait={false}
+              withRef={false}
+            >
+              <CircularProgress
+                i18n={Object {}}
+                size="default"
+                t={[Function]}
+                tReady={false}
+              >
+                <svg
+                  aria-busy="true"
+                  aria-label="Loading "
+                  className="tc-circular-progress theme-loader theme-animate theme-default"
+                  focusable="false"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    className="theme-path"
+                    cx={25}
+                    cy={25}
+                    fill="none"
+                    r={20}
+                    style={
+                      Object {
+                        "strokeDasharray": 12.566370614359172,
+                        "strokeDashoffset": 0,
+                      }
+                    }
+                  />
+                </svg>
+              </CircularProgress>
+            </I18n>
+          </Translate(CircularProgress)>
+        </li>
+      </MenuItem>
+    </ul>
+  </RootCloseWrapper>
+</DropdownMenu>
 `;
