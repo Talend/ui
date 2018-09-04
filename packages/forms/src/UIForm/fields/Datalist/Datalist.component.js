@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
+import callTrigger from '../../trigger';
+import { DID_MOUNT } from './constants';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -27,10 +29,11 @@ class Datalist extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 	}
 
 	componentDidMount() {
-		this.callTrigger({ type: 'didMount' });
+		this.callTrigger({ type: DID_MOUNT });
 	}
 	/**
 	 * On change callback
@@ -60,6 +63,15 @@ class Datalist extends Component {
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
+	onTrigger(event, trigger) {
+		return this.props.onTrigger(event, {
+			trigger,
+			schema: this.props.schema,
+			errors: this.props.errors,
+			properties: this.props.properties,
+		});
+	}
+
 	getTitleMap() {
 		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
 
@@ -81,29 +93,13 @@ class Datalist extends Component {
 	}
 
 	callTrigger(event) {
-		const trigger =
-			this.props.schema.triggers && this.props.schema.triggers.find(t => t.onEvent === event.type);
-		if (!trigger) {
-			return;
-		}
-		const onError = () => {
-			this.setState({ isLoading: false });
-		};
-		const onResponse = data => {
-			this.setState({
-				isLoading: false,
-				...data,
-			});
-		};
-		this.setState({ isLoading: true });
-		this.props
-			.onTrigger(event, {
-				trigger,
-				schema: this.props.schema,
-				errors: this.props.errors,
-				properties: this.props.properties,
-			})
-			.then(onResponse, onError);
+		callTrigger(event, {
+			eventNames: [event.type],
+			triggersDefinitions: this.props.schema.triggers,
+			onTrigger: this.onTrigger,
+			onLoading: isLoading => this.setState({ isLoading }),
+			onResponse: data => this.setState(data),
+		});
 	}
 
 	render() {
@@ -116,10 +112,12 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
+				labelAfter
 			>
 				<DataListComponent
 					{...props}
 					{...this.state}
+					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || false}
 					multiSection={false}

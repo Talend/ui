@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Modal from 'react-bootstrap/lib/Modal';
+import classNames from 'classnames';
+
+import './Dialog.scss';
 
 import Action from '../Actions/Action';
 import ActionBar from '../ActionBar';
@@ -16,13 +19,18 @@ function Dialog({
 	action,
 	actionbar,
 	children,
+	className,
 	closeButton,
 	components,
+	flex,
 	footer,
 	getComponent,
 	header,
+	subtitle,
+	error,
 	progress,
 	size,
+	type,
 	...props
 }) {
 	const Renderers = Inject.getAll(getComponent, {
@@ -31,10 +39,12 @@ function Dialog({
 	});
 	const injected = Inject.all(getComponent, components);
 	const headerId = 'tc-dialog-header';
+	const subtext = error || subtitle;
 
 	return (
 		<Modal
 			bsSize={size}
+			className={classNames({ 'modal-flex': flex }, className)}
 			role="dialog"
 			// we disable jsx-a11y/aria-props because the version we use does not consider it valid (bug)
 			// eslint-disable-next-line jsx-a11y/aria-props
@@ -44,8 +54,17 @@ function Dialog({
 		>
 			{injected('before-modal-header')}
 			{header && (
-				<Modal.Header closeButton={closeButton}>
+				<Modal.Header
+					className={classNames({ informative: type === Dialog.TYPES.INFORMATIVE })}
+					closeButton={closeButton}
+				>
 					<Modal.Title id={headerId}>{header}</Modal.Title>
+					{subtext &&
+						subtext.length && (
+							<h3 className={classNames({ error: error && error.length }, 'modal-subtitle')}>
+								{subtext}
+							</h3>
+						)}
 				</Modal.Header>
 			)}
 			{injected('after-modal-header')}
@@ -72,14 +91,22 @@ function Dialog({
 	);
 }
 
+Dialog.TYPES = {
+	DEFAULT: 'default',
+	INFORMATIVE: 'informative',
+};
+
 Dialog.displayName = 'Dialog';
 
 Dialog.defaultProps = {
 	closeButton: true,
+	type: Dialog.TYPES.DEFAULT,
 };
 
 Dialog.propTypes = {
 	header: PropTypes.string,
+	subtitle: PropTypes.string,
+	error: PropTypes.string,
 	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
 	children: PropTypes.element,
 	show: PropTypes.bool,
@@ -91,6 +118,9 @@ Dialog.propTypes = {
 	getComponent: PropTypes.func,
 	components: PropTypes.object,
 	progress: PropTypes.object,
+	flex: PropTypes.bool,
+	className: PropTypes.string,
+	type: PropTypes.oneOf(Object.values(Dialog.TYPES)),
 };
 
 export default Dialog;

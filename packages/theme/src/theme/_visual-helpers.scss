@@ -51,7 +51,7 @@
 	$btn-inverse-line-height: calc(#{$btn-line-height} - (2 * #{$border-width}));
 
 	&.btn-inverse {
-		background-color: $white;
+		background-color: transparent;
 		color: $btn-color;
 		box-shadow: none;
 		border: $border-width solid $btn-color;
@@ -65,7 +65,7 @@
 			&.focus,
 			&:focus,
 			&:hover {
-				background-color: $white;
+				background-color: transparent;
 				color: shade($btn-color, 12%);
 				border-color: shade($btn-color, 12%);
 			}

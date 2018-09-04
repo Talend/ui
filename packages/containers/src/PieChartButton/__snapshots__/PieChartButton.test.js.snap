@@ -1,69 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PieChartButton container should render 1`] = `
-<Translate(PieChartButton)
-  available={undefined}
+<PieChartButton
+  available={true}
   inProgress={undefined}
   loading={undefined}
   model={
     Array [
       Object {
-        "color": "red",
+        "color": "rio-grande",
         "percentage": 10,
       },
       Object {
-        "color": "blue",
+        "color": "chestnut-rose",
         "percentage": 15,
       },
       Object {
-        "color": "cyan",
+        "color": "lightning-yellow",
         "percentage": 5,
       },
       Object {
-        "color": "yellow",
+        "color": "dove-gray",
         "percentage": 20,
       },
       Object {
-        "color": "black",
+        "color": "silver-chalice",
         "percentage": 15,
       },
     ]
   }
   onClick={[Function]}
   overlayComponent={null}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
 />
 `;
 
 exports[`PieChartButton container should render 2`] = `
-<Translate(PieChartButton)
-  available={undefined}
+<PieChartButton
+  available={true}
   inProgress={undefined}
   loading={undefined}
   model={
     Array [
       Object {
-        "color": "red",
+        "color": "rio-grande",
         "percentage": 10,
       },
       Object {
-        "color": "blue",
+        "color": "chestnut-rose",
         "percentage": 15,
       },
       Object {
-        "color": "cyan",
+        "color": "lightning-yellow",
         "percentage": 5,
       },
       Object {
-        "color": "yellow",
+        "color": "dove-gray",
         "percentage": 20,
       },
       Object {
-        "color": "black",
+        "color": "silver-chalice",
         "percentage": 15,
       },
     ]
   }
   onClick={[Function]}
   overlayComponent={null}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
 />
 `;

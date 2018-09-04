@@ -57,6 +57,7 @@ function FilterInput(props) {
 		onChange: event => onFilter(event, event.target.value),
 		onKeyDown: event => onKeyDown(event, onToggle, onBlur),
 		autoFocus,
+		role: 'searchbox',
 	};
 
 	if (debounceMinLength || debounceTimeout) {
@@ -146,6 +147,7 @@ export class FilterBarComponent extends React.Component {
 					icon="talend-search"
 					bsStyle="link"
 					tooltipPlacement={this.props.tooltipPlacement}
+					role="search"
 				/>
 			);
 		}

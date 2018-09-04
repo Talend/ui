@@ -5,6 +5,44 @@ exports[`Render a table width custom configuration custom-table 1`] = `
   className="tc-table theme-tc-table"
 >
   <table>
+    <thead
+      className="tc-table-head theme-tc-table-head sr-only"
+    >
+      <tr
+        className="tc-table-head-row theme-tc-table-head-row"
+      >
+        <th
+          className="th-name theme-tc-table-head-th"
+          id="my-table-name"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
+          >
+            Name
+          </div>
+        </th>
+        <th
+          className="th-type theme-tc-table-head-th"
+          id="my-table-type"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
+          >
+            Type
+          </div>
+        </th>
+        <th
+          className="th-desc theme-tc-table-head-th"
+          id="my-table-desc"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
+          >
+            Description
+          </div>
+        </th>
+      </tr>
+    </thead>
     <tbody
       className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
@@ -17,6 +55,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -26,6 +65,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -35,6 +75,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -51,6 +92,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -60,6 +102,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -69,6 +112,7 @@ exports[`Render a table width custom configuration custom-table 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -95,6 +139,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
       >
         <th
           className="th-name theme-tc-table-head-th"
+          id="my-table-name"
         >
           <div
             className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
@@ -104,6 +149,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </th>
         <th
           className="th-type theme-tc-table-head-th"
+          id="my-table-type"
         >
           <div
             className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
@@ -113,6 +159,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </th>
         <th
           className="th-desc theme-tc-table-head-th"
+          id="my-table-desc"
         >
           <div
             className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
@@ -134,6 +181,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -143,6 +191,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -152,6 +201,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -168,6 +218,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -177,6 +228,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -186,6 +238,7 @@ exports[`Render a table width custom header custom-table-with-header 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -204,6 +257,44 @@ exports[`Render a table width default configuration default-table 1`] = `
   className="tc-table theme-tc-table"
 >
   <table>
+    <thead
+      className="tc-table-head theme-tc-table-head sr-only"
+    >
+      <tr
+        className="tc-table-head-row theme-tc-table-head-row"
+      >
+        <th
+          className="th-name theme-tc-table-head-th"
+          id="my-table-name"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
+          >
+            Name
+          </div>
+        </th>
+        <th
+          className="th-type theme-tc-table-head-th"
+          id="my-table-type"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
+          >
+            Type
+          </div>
+        </th>
+        <th
+          className="th-desc theme-tc-table-head-th"
+          id="my-table-desc"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
+          >
+            Description
+          </div>
+        </th>
+      </tr>
+    </thead>
     <tbody
       className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
@@ -216,6 +307,7 @@ exports[`Render a table width default configuration default-table 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -225,6 +317,7 @@ exports[`Render a table width default configuration default-table 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -234,6 +327,7 @@ exports[`Render a table width default configuration default-table 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -250,6 +344,7 @@ exports[`Render a table width default configuration default-table 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -259,6 +354,7 @@ exports[`Render a table width default configuration default-table 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -268,6 +364,7 @@ exports[`Render a table width default configuration default-table 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -294,6 +391,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
       >
         <th
           className="th-name theme-tc-table-head-th"
+          id="my-table-name"
         >
           <div
             className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
@@ -303,6 +401,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         </th>
         <th
           className="th-type theme-tc-table-head-th"
+          id="my-table-type"
         >
           <div
             className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
@@ -312,6 +411,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         </th>
         <th
           className="th-desc theme-tc-table-head-th"
+          id="my-table-desc"
         >
           <div
             className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
@@ -333,6 +433,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -342,6 +443,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -351,6 +453,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"
@@ -367,6 +470,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
       >
         <td
           className="td-name theme-tc-table-row-cell"
+          headers="my-table-name"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-name"
@@ -376,6 +480,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         </td>
         <td
           className="td-type theme-tc-table-row-cell"
+          headers="my-table-type"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-type"
@@ -385,6 +490,7 @@ exports[`Render a table width default header default-table-with-header 1`] = `
         </td>
         <td
           className="td-desc theme-tc-table-row-cell"
+          headers="my-table-desc"
         >
           <div
             className="tc-table-cell tc-table-row-data theme-tc-table-row-data tc-table-row-data-desc"

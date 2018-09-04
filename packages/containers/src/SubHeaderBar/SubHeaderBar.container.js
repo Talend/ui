@@ -6,9 +6,7 @@ import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DISPLAY_NAME = 'Container(SubHeaderBar)';
-export const DEFAULT_STATE = new Immutable.Map({
-	editMode: false,
-});
+export const DEFAULT_STATE = new Immutable.Map({});
 
 class SubHeaderBar extends React.Component {
 	static displayName = DISPLAY_NAME;
@@ -35,66 +33,7 @@ class SubHeaderBar extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onCancel = this.onCancel.bind(this);
-		this.onEdit = this.onEdit.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
-		this.onChange = this.onChange.bind(this);
 		this.onGoBack = this.onGoBack.bind(this);
-	}
-
-	onSubmit(event, data) {
-		this.props.setState(() => ({
-			editMode: false,
-		}));
-		if (this.props.onSubmit) {
-			this.props.onSubmit(event, data);
-		}
-		if (this.props.actionCreatorSubmit) {
-			this.props.dispatchActionCreator(this.props.actionCreatorSubmit, event, {
-				props: this.props,
-				data,
-			});
-		}
-	}
-
-	onCancel(event) {
-		this.props.setState(() => ({
-			editMode: false,
-		}));
-		if (this.props.onCancel) {
-			this.props.onCancel(event);
-		}
-		if (this.props.actionCreatorCancel) {
-			this.props.dispatchActionCreator(this.props.actionCreatorCancel, event, {
-				props: this.props,
-			});
-		}
-	}
-
-	onEdit(event) {
-		this.props.setState(() => ({
-			editMode: !this.props.state.get('editMode', false),
-		}));
-		if (this.props.onEdit) {
-			this.props.onEdit(event);
-		}
-		if (this.props.actionCreatorEdit) {
-			this.props.dispatchActionCreator(this.props.actionCreatorEdit, event, {
-				props: this.props,
-			});
-		}
-	}
-
-	onChange(event) {
-		if (this.props.onChange) {
-			this.props.onChange(event, event.target.value);
-		}
-		if (this.props.actionCreatorChange) {
-			this.props.dispatchActionCreator(this.props.actionCreatorChange, event, {
-				props: this.props,
-				value: event.target.value,
-			});
-		}
 	}
 
 	onGoBack(event) {
@@ -115,10 +54,10 @@ class SubHeaderBar extends React.Component {
 			{},
 			omit(this.props, cmfConnect.INJECTED_PROPS),
 			{
-				onEdit: this.onEdit,
-				onCancel: this.onCancel,
-				onSubmit: this.onSubmit,
-				onChange: this.onChange,
+				onEdit: this.props.onEdit,
+				onCancel: this.props.onCancel,
+				onSubmit: this.props.onSubmit,
+				onChange: this.props.onChange,
 				onGoBack: hasGoBack && this.onGoBack,
 			},
 			{

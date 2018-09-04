@@ -1,5 +1,4 @@
 import {
-	Breadcrumbs,
 	CircularProgress,
 	Drawer,
 	Icon,
@@ -10,6 +9,7 @@ import {
 import { cmfConnect } from '@talend/react-cmf';
 
 import actionAPI from './actionAPI';
+import AboutDialog from './AboutDialog';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
@@ -20,6 +20,7 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import AppLoader from './AppLoader';
 import Badge from './Badge';
+import Breadcrumbs from './Breadcrumbs';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
 import HeaderBar from './HeaderBar';
@@ -34,6 +35,7 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import EditableText from './EditableText';
 import Typeahead from './Typeahead';
 import TabBar from './TabBar';
 
@@ -42,6 +44,7 @@ const Layout = cmfConnect({})(PureLayout);
 
 export {
 	actionAPI,
+	AboutDialog,
 	Action,
 	ActionBar,
 	ActionButton,
@@ -71,6 +74,7 @@ export {
 	SelectObject,
 	SidePanel,
 	SubHeaderBar,
+	EditableText,
 	TabBar,
 	TooltipTrigger,
 	TreeView,

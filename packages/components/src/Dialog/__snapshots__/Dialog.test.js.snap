@@ -9,6 +9,7 @@ exports[`Dialog should render 1`] = `
   backdrop={true}
   bsClass="modal"
   bsSize={undefined}
+  className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
   keyboard={true}
@@ -50,6 +51,7 @@ exports[`Dialog should render action 1`] = `
   backdrop={true}
   bsClass="modal"
   bsSize={undefined}
+  className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
   keyboard={true}
@@ -73,6 +75,7 @@ exports[`Dialog should render action 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -104,7 +107,7 @@ exports[`Dialog should render action 1`] = `
 </Modal>
 `;
 
-exports[`Dialog should render header 1`] = `
+exports[`Dialog should render error 1`] = `
 <Modal
   animation={true}
   aria-labelledby="tc-dialog-header"
@@ -113,6 +116,7 @@ exports[`Dialog should render header 1`] = `
   backdrop={true}
   bsClass="modal"
   bsSize={undefined}
+  className=""
   dialogComponentClass={[Function]}
   enforceFocus={true}
   keyboard={true}
@@ -136,6 +140,68 @@ exports[`Dialog should render header 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      componentClass="h4"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </ModalTitle>
+    <h3
+      className="error modal-subtitle"
+    >
+      Vestibulum molestie id massa eu pretium.
+    </h3>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
+  >
+    <div>
+      BODY
+    </div>
+  </ModalBody>
+</Modal>
+`;
+
+exports[`Dialog should render header 1`] = `
+<Modal
+  animation={true}
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  bsSize={undefined}
+  className=""
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -167,6 +233,7 @@ exports[`Dialog should render large 1`] = `
   backdrop={false}
   bsClass="modal"
   bsSize="large"
+  className=""
   dialogClassName="customDialogClassName"
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -191,6 +258,7 @@ exports[`Dialog should render large 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -231,6 +299,7 @@ exports[`Dialog should render small 1`] = `
   backdrop={false}
   bsClass="modal"
   bsSize="small"
+  className=""
   dialogClassName="customDialogClassName"
   dialogComponentClass={[Function]}
   enforceFocus={true}
@@ -255,6 +324,7 @@ exports[`Dialog should render small 1`] = `
 >
   <ModalHeader
     bsClass="modal-header"
+    className=""
     closeButton={true}
     closeLabel="Close"
   >
@@ -283,5 +353,66 @@ exports[`Dialog should render small 1`] = `
       onClick={[Function]}
     />
   </ModalFooter>
+</Modal>
+`;
+
+exports[`Dialog should render subtitle 1`] = `
+<Modal
+  animation={true}
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  bsSize={undefined}
+  className=""
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    className=""
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      componentClass="h4"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </ModalTitle>
+    <h3
+      className="modal-subtitle"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </h3>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
+  >
+    <div>
+      BODY
+    </div>
+  </ModalBody>
 </Modal>
 `;
