@@ -23,8 +23,8 @@ got ${resourcePath}`,
 	return resourceType;
 }
 
-export function* redirect(action) {
-	const url = get(action, 'data.model.redirectUrl');
+export function* redirect(url) {
+	debugger;
 	if (!url) {
 		throw new Error('redirect action must have data.model.redirectUrl value');
 	}
@@ -75,17 +75,26 @@ export function* deleteResourceValidate(
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 				model: {
+					id: safeId,
 					labelResource: resource.get('label') || resource.get('name', ''),
 				},
 			});
+			yield put(
+				cmf.actions.collections.mutate(resourceLocator, {
+					delete: [safeId],
+				}),
+			);
 		}
-		yield call(redirect, action);
+		const url = get(action, 'data.model.redirectUrl');
+		yield call(redirect, url);
 	}
 }
 
 export function* deleteResourceCancel() {
 	const action = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
-	yield call(redirect, action);
+	const url =
+		get(action, 'data.model.onCancelRedirectUrl') || get(action, 'data.model.redirectUrl');
+	yield call(redirect, url);
 }
 
 /**

@@ -21,7 +21,7 @@ describe('internals', () => {
 	});
 	describe('redirect', () => {
 		it('should put a redirect action', () => {
-			const gen = internals.redirect({ data: { model: { redirectUrl: '/foo' } } });
+			const gen = internals.redirect('/foo');
 			const effect = gen.next().value;
 			expect(effect.PUT.action.cmf.routerReplace).toBe('/foo');
 		});
@@ -49,6 +49,7 @@ describe('internals', () => {
 						uri: '/api',
 						resourceType: 'datasets',
 						id: '123',
+						redirectUrl: '/resources',
 					},
 				},
 			};
@@ -69,8 +70,9 @@ describe('internals', () => {
 			expect(effect.PUT.action.type).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_SUCCESS);
 			expect(effect.PUT.action.model.labelResource).toBe('Foo');
 			effect = gen.next().value;
+			effect = gen.next().value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
-			expect(effect.CALL.args[0]).toBe(action);
+			expect(effect.CALL.args[0]).toBe('/resources');
 		});
 		it('should use resourceUri as backend api to delete resource if provided', () => {
 			const action = {
@@ -164,10 +166,10 @@ describe('internals', () => {
 			const gen = internals.deleteResourceCancel();
 			let effect = gen.next().value;
 			expect(effect.TAKE.pattern).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
-			const action = {};
+			const action = { data: { model: { onCancelRedirectUrl: '/cancel' } } };
 			effect = gen.next(action).value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
-			expect(effect.CALL.args[0]).toBe(action);
+			expect(effect.CALL.args[0]).toBe('/cancel');
 		});
 	});
 });
