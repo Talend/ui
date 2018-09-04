@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
-import callTrigger from './Datalist.trigger';
+import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 import { generateDescribedBy } from '../../Message/generateId';
 
@@ -113,10 +113,12 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
+				labelAfter
 			>
 				<DataListComponent
 					{...props}
 					{...this.state}
+					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || false}
 					multiSection={false}

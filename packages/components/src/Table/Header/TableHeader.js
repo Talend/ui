@@ -39,9 +39,11 @@ function renderHeaderCell(column, sorters, onSortChange) {
 /**
  * This component displays the header of the table.
  */
-export default function TableHeader({ columns, sorters, onSortChange }) {
+export default function TableHeader({ columns, sorters, onSortChange, withHeader }) {
 	return (
-		<thead className={classnames('tc-table-head', theme['tc-table-head'])}>
+		<thead
+			className={classnames('tc-table-head', theme['tc-table-head'], { 'sr-only': !withHeader })}
+		>
 			<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
 				{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
 			</tr>
@@ -61,4 +63,5 @@ TableHeader.propTypes = {
 	).isRequired,
 	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
+	withHeader: PropTypes.bool,
 };
