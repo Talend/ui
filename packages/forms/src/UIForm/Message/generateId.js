@@ -1,9 +1,13 @@
 import uuid from 'uuid';
 
+function generateId(id, suffix) {
+	return id ? `${id}-${suffix}` : uuid.v4();
+}
+
 export function generateDescriptionId(id) {
-	return id ? `${id}-description` : uuid.v4();
+	return generateId(id, 'description');
 }
 
 export function generateErrorId(id) {
-	return id ? `${id}-error` : uuid.v4();
+	return generateId(id, 'error');
 }
