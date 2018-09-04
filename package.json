@@ -14,12 +14,18 @@
   "scripts": {
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
+    "build": "lerna exec -- yarn run prepublish",
+    "build-cmf": "lerna exec --scope=@talend/react-cmf -- yarn run prepublish",
+    "build-components": "lerna exec --scope=@talend/react-components -- yarn run prepublish",
+    "build-containers": "lerna exec --scope=@talend/react-containers -- yarn run prepublish",
+    "build-forms": "lerna exec --scope=@talend/react-forms -- yarn run prepublish",
     "build-icons": "lerna exec --scope=@talend/icons -- yarn run prepublish && lerna exec --scope=@talend/react-components -- yarn test -- -u",
+    "build-theme": "lerna exec --scope=@talend/bootstrap-theme -- yarn run prepublish",
     "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test",
     "test:cov": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test:cov",
     "test:demo": "lerna exec -- yarn test:demo",
     "test:nonreg": "node screenshots.js",
-    "start": "echo please start from the given package",
+    "start": "echo Please use an other npm script like start-components",
     "start-components": "cd packages/components && yarn start",
     "start-containers": "cd packages/containers && yarn start",
     "start-datagrid": "cd packages/datagrid && yarn start",
@@ -44,10 +50,6 @@
       "patterns": ["packages/components/src/**/*"],
       "extensions": "js,css,scss,svg"
     },
-    "build-sagas": {
-      "patterns": ["packages/sagas/src/**/*"],
-      "extensions": "js"
-    },
     "build-containers": {
       "patterns": ["packages/containers/src/**/*"],
       "extensions": "js,css,scss,svg"
@@ -59,10 +61,6 @@
     "build-icons": {
       "patterns": ["packages/icons/src/svg/*"],
       "extensions": "svg"
-    },
-    "build-logging": {
-      "patterns": ["packages/logging/src/**/*"],
-      "extensions": "js"
     },
     "build-theme": {
       "patterns": ["packages/theme/src/**/*"],
