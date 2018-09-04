@@ -3,8 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Tab from 'react-bootstrap/lib/Tab';
-import Col from 'react-bootstrap/lib/Col';
-import Row from 'react-bootstrap/lib/Row';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import keycode from 'keycode';
@@ -61,31 +59,27 @@ class TabBar extends React.Component {
 				onKeyDown={this.handleKeyDown}
 				generateChildId={generateChildId}
 			>
-				<Row className="clearfix">
-					<Col sm={12}>
-						<Nav
-							bsStyle="tabs"
-							ref={ref => {
-								this.ref = ref;
-							}}
-						>
-							{items.map(item => (
-								<NavItem {...item} eventKey={item.key} componentClass="button">
-									{item.label}
-								</NavItem>
-							))}
-						</Nav>
-					</Col>
-					<Col sm={12}>
-						<Tab.Content>
-							{items.map(item => (
-								<Tab.Pane eventKey={item.key} key={item.key}>
-									{selectedKey === item.key ? children : null}
-								</Tab.Pane>
-							))}
-						</Tab.Content>
-					</Col>
-				</Row>
+				<div>
+					<Nav
+						bsStyle="tabs"
+						ref={ref => {
+							this.ref = ref;
+						}}
+					>
+						{items.map(item => (
+							<NavItem {...item} eventKey={item.key} componentClass="button">
+								{item.label}
+							</NavItem>
+						))}
+					</Nav>
+					<Tab.Content>
+						{items.map(item => (
+							<Tab.Pane eventKey={item.key} key={item.key}>
+								{selectedKey === item.key ? children : null}
+							</Tab.Pane>
+						))}
+					</Tab.Content>
+				</div>
 			</Tab.Container>
 		);
 	}
