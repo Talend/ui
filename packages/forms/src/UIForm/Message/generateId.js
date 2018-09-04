@@ -1,7 +1,10 @@
 import uuid from 'uuid';
 
 function generateId(id, suffix) {
-	return id ? `${id}-${suffix}` : uuid.v4();
+	if (id) {
+		return `${id}-${suffix}`;
+	}
+	return uuid.v4();
 }
 
 export function generateDescriptionId(id) {
