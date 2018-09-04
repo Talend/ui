@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
-import Button from 'react-bootstrap/lib/Button';
 import keycode from 'keycode';
 
 class TabBar extends React.Component {
