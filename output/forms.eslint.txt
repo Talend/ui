@@ -5,9 +5,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-  10:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-  11:5  error  The attribute aria-required is not supported by the role checkbox. This role is implicit on the element input    jsx-a11y/role-supports-aria-props
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/Message/generateId.js
+  1:1  error  'uuid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 3 problems (3 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
