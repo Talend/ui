@@ -10,10 +10,10 @@ import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
-import CircularProgress from "../../CircularProgress/CircularProgress.component";
-import { translate } from "react-i18next";
-import I18N_DOMAIN_COMPONENTS from "../../constants";
-import getDefaultT from "../../translate";
+import CircularProgress from '../../CircularProgress/CircularProgress.component';
+import { translate } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import getDefaultT from '../../translate';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -221,21 +221,27 @@ class ActionDropdown extends React.Component {
 				{!items.length &&
 					!items.size &&
 					!loading &&
-					!components && <Renderers.MenuItem disabled>
-					{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-				</Renderers.MenuItem>}
+					!components && (
+						<Renderers.MenuItem disabled>
+							{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+						</Renderers.MenuItem>
+					)}
 				{injected('beforeItemsDropdown')}
 				{items.map((item, key) => getMenuItem(item, key, getComponent))}
-				{loading && <Renderers.MenuItem
-					key={items ? items.length + 1 : 0}
-					header={true}
-					className={classNames(
-						theme['tc-dropdown-item'], 'tc-dropdown-item',
-						theme['tc-dropdown-loader'], 'tc-dropdown-loader',
-					)}
-				>
-					<CircularProgress />
-				</Renderers.MenuItem>}
+				{loading && (
+					<Renderers.MenuItem
+						key={items ? items.length + 1 : 0}
+						header={true}
+						className={classNames(
+							theme['tc-dropdown-item'],
+							'tc-dropdown-item',
+							theme['tc-dropdown-loader'],
+							'tc-dropdown-loader',
+						)}
+					>
+						<CircularProgress />
+					</Renderers.MenuItem>
+				)}
 				{injected('itemsDropdown')}
 				{injected('afterItemsDropdown')}
 			</Renderers.DropdownButton>

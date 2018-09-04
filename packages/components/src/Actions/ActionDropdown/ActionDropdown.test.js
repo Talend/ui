@@ -23,11 +23,8 @@ describe('ActionDropdown', () => {
 			],
 		};
 
-		const actionDropdownInstance = mount(
-			<ActionDropdown {...props} />
-		);
-		const dropdownButton = actionDropdownInstance
-			.find('DropdownToggle');
+		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
+		const dropdownButton = actionDropdownInstance.find('DropdownToggle');
 
 		// when
 		dropdownButton.simulate('click');
