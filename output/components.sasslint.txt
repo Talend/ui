@@ -7,8 +7,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/VirtualizedList/ListTable/ListTable.scss
-  34:4  error  Duplicate properties are not allowed within a block  no-duplicate-properties
-
-✖ 3 problems (1 error, 2 warnings)
+✖ 2 problems (0 errors, 2 warnings)
 
