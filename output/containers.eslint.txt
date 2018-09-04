@@ -2,6 +2,9 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.js
+  27:2  error  Unexpected 'debugger' statement  no-debugger
+
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
@@ -17,5 +20,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-✖ 5 problems (5 errors, 0 warnings)
+✖ 6 problems (6 errors, 0 warnings)
 
