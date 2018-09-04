@@ -1,4 +1,5 @@
 import has from 'lodash/has';
+import omit from 'lodash/omit';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -41,15 +42,12 @@ SubHeaderBarActions.propTypes = {
 	hasRight: PropTypes.bool,
 };
 
-function CustomInject({ getComponent, left, right, center, nowrap, ...props }) {
-	if (nowrap) {
-		return <Inject getComponent={getComponent} {...props} />;
-	}
-	return (
-		<SubHeaderBarActions left={left} right={right} center={center}>
-			<Inject getComponent={getComponent} {...props} />
-		</SubHeaderBarActions>
-	);
+function CustomInject(props) {
+	// These (omitted) props have been used in previous
+	// implementation for the __wrappers__ of the injected components
+	// If we don't omit them they will be passed to the injected components
+	// That would be a __breaking change__
+	return <Inject {...omit(props, ['left', 'right', 'center', 'nowrap'])} />;
 }
 CustomInject.propTypes = {
 	nowrap: PropTypes.bool,
@@ -106,8 +104,8 @@ function SubHeaderBar({
 			<Renderer.ActionBar
 				className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}
 			>
-				{injected('left')}
 				<SubHeaderBarActions left>
+					{injected('left')}
 					{injected('before-back')}
 					{onGoBack && (
 						<Renderer.Action
@@ -123,24 +121,23 @@ function SubHeaderBar({
 					{injected('before-title')}
 					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />
 					{injected('after-title')}
+					{Array.isArray(left) &&
+						left.map((item, index) => <Renderer.Action key={index} {...item} />)}
 				</SubHeaderBarActions>
-				{Array.isArray(left) && (
-					<SubHeaderBarActions left>
-						{left.map((item, index) => (
-							<Renderer.Action key={index} {...item} />
-						))}
-					</SubHeaderBarActions>
-				)}
-				{injected('center')}
-				{Array.isArray(center) &&
-					center.map((item, index) => (
-						<SubHeaderBarActions center hasRight={hasRight} key={index}>
-							<Renderer.Action key={index} {...item} />
-						</SubHeaderBarActions>
-					))}
-				{injected('right')}
-				{rightActions}
-				{injected('after-right')}
+				<SubHeaderBarActions center hasRight={hasRight}>
+					{injected('center')}
+					{Array.isArray(center) &&
+						center.map((item, index) => <Renderer.Action key={index} {...item} />)}
+				</SubHeaderBarActions>
+				<SubHeaderBarActions
+					className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
+					right
+				>
+					{injected('right')}
+					{Array.isArray(right) &&
+						right.map((item, index) => <Renderer.Action key={index} {...item} />)}
+					{injected('after-right')}
+				</SubHeaderBarActions>
 			</Renderer.ActionBar>
 			{injected('after-actionbar')}
 		</header>
