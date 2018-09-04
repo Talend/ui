@@ -226,78 +226,69 @@ exports[`Drawer should render with tabs 1`] = `
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
       <div
-        className="clearfix row"
         id={undefined}
         onKeyDown={[Function]}
       >
-        <div
-          className="col-sm-12"
+        <ul
+          className="nav nav-tabs"
+          role="tablist"
         >
-          <ul
-            className="nav nav-tabs"
-            role="tablist"
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
           >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
+            <button
+              aria-controls={null}
+              aria-selected={false}
+              href="#"
+              id={null}
+              label="Tab 1"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={-1}
             >
-              <a
-                aria-controls={null}
-                aria-selected={false}
-                href="#"
-                id={null}
-                label="Tab 1"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="tab"
-                tabIndex={-1}
-              >
-                Tab 1
-              </a>
-            </li>
-            <li
-              className="active"
-              role="presentation"
-              style={undefined}
+              Tab 1
+            </button>
+          </li>
+          <li
+            className="active"
+            role="presentation"
+            style={undefined}
+          >
+            <button
+              aria-controls={null}
+              aria-selected={true}
+              href="#"
+              id={null}
+              label="Tab 2"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={undefined}
             >
-              <a
-                aria-controls={null}
-                aria-selected={true}
-                href="#"
-                id={null}
-                label="Tab 2"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="tab"
-                tabIndex={undefined}
-              >
-                Tab 2
-              </a>
-            </li>
-          </ul>
-        </div>
+              Tab 2
+            </button>
+          </li>
+        </ul>
         <div
-          className="col-sm-12"
+          className="tab-content"
         >
           <div
-            className="tab-content"
-          >
-            <div
-              aria-hidden={true}
-              aria-labelledby={null}
-              className="tab-pane fade"
-              id={null}
-              role="tabpanel"
-            />
-            <div
-              aria-hidden={false}
-              aria-labelledby={null}
-              className="tab-pane active fade in"
-              id={null}
-              role="tabpanel"
-            />
-          </div>
+            aria-hidden={true}
+            aria-labelledby={null}
+            className="tab-pane fade"
+            id={null}
+            role="tabpanel"
+          />
+          <div
+            aria-hidden={false}
+            aria-labelledby={null}
+            className="tab-pane active fade in"
+            id={null}
+            role="tabpanel"
+          />
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@ describe('TabBar component', () => {
 
 		// when
 		wrapper
-			.find('a')
+			.find('button')
 			.first()
 			.simulate('click');
 
