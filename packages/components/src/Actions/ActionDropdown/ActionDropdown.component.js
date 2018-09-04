@@ -4,11 +4,15 @@ import React from 'react';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
+import CircularProgress from '../../CircularProgress/CircularProgress.component';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import getDefaultT from '../../translate';
 
 export const DROPDOWN_CONTAINER_CN = 'tc-dropdown-container';
 
@@ -140,6 +144,12 @@ class ActionDropdown extends React.Component {
 	}
 
 	onToggle(isOpen, event) {
+		this.setState({ isOpen }, () => {
+			if (this.props.onToggle) {
+				this.props.onToggle(isOpen);
+			}
+		});
+
 		if (!isOpen) {
 			this.setState({ dropup: this.props.dropup });
 			return;
@@ -178,6 +188,8 @@ class ActionDropdown extends React.Component {
 			getComponent,
 			components,
 			className,
+			loading,
+			t,
 			...rest
 		} = this.props;
 
@@ -213,9 +225,28 @@ class ActionDropdown extends React.Component {
 			>
 				{!items.length &&
 					!items.size &&
-					!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
+					!loading &&
+					!components && (
+						<Renderers.MenuItem key="empty" disabled>
+							{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+						</Renderers.MenuItem>
+					)}
 				{injected('beforeItemsDropdown')}
 				{items.map((item, key) => getMenuItem(item, key, getComponent))}
+				{loading && (
+					<Renderers.MenuItem
+						key={items ? items.length + 1 : 0}
+						header
+						className={classNames(
+							theme['tc-dropdown-item'],
+							'tc-dropdown-item',
+							theme['tc-dropdown-loader'],
+							'tc-dropdown-loader',
+						)}
+					>
+						<CircularProgress />
+					</Renderers.MenuItem>
+				)}
 				{injected('itemsDropdown')}
 				{injected('afterItemsDropdown')}
 			</Renderers.DropdownButton>
@@ -254,6 +285,8 @@ ActionDropdown.propTypes = {
 	]).isRequired,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
+	loading: PropTypes.bool,
+	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltipLabel: PropTypes.string,
@@ -263,12 +296,15 @@ ActionDropdown.propTypes = {
 		itemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
+	t: PropTypes.func,
 };
 
 ActionDropdown.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	items: [],
+	t: getDefaultT(),
 };
 
-export { ActionDropdown as default, getMenuItem, InjectDropdownMenuItem };
+export { getMenuItem, InjectDropdownMenuItem };
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionDropdown);

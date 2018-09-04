@@ -9,6 +9,35 @@ function getComponent(key) {
 }
 
 describe('ActionDropdown', () => {
+	it('should call onToggle callback when click on trigger', () => {
+		// given
+		const onToggle = jest.fn();
+		const props = {
+			id: 'dropdwon-id',
+			label: 'Dropdown',
+			onToggle,
+			items: [
+				{ id: 'item1', label: 'Item 1', model: 'model' },
+				{ id: 'item2', label: 'Item 2', model: 'model' },
+			],
+		};
+
+		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
+		const dropdownButton = actionDropdownInstance.find('DropdownToggle');
+
+		// when
+		dropdownButton.simulate('click');
+
+		// then
+		expect(onToggle).toBeCalledWith(true);
+
+		// when
+		dropdownButton.simulate('click');
+
+		// then
+		expect(onToggle).toBeCalledWith(false);
+	});
+
 	it('should call onSelect callback when click on item', () => {
 		// given
 		const onSelectClick = jest.fn();
@@ -166,7 +195,7 @@ describe('Dropup', () => {
 		// dropdown that is under the bottom of body element
 		const bodyBottomOverflowEvent = getActionDropdownEvent(20, 40, bodyElement);
 
-		const wrapper = shallow(<ActionDropdown items={[{ label: 'item 1' }, { label: 'item 2' }]} />);
+		const wrapper = shallow(<ActionDropdown.WrappedComponent items={[{ label: 'item 1' }, { label: 'item 2' }]} />);
 		expect(wrapper.state().dropup).toBeFalsy();
 
 		// when / then

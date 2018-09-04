@@ -161,9 +161,8 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       aria-hidden="true"
       className="tc-breadcrumb-menu"
     >
-      <ActionDropdown
+      <Translate(ActionDropdown)
         aria-label="Open first links menu"
-        bsStyle="default"
         id="42-ellipsis"
         items={
           Array [
@@ -190,7 +189,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
         label="…"
         link={true}
         noCaret={true}
-        tooltipPlacement="top"
       />
     </li>
     <li
@@ -260,9 +258,8 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       aria-hidden="true"
       className="tc-breadcrumb-menu"
     >
-      <ActionDropdown
+      <Translate(ActionDropdown)
         aria-label="Open first links menu"
-        bsStyle="default"
         id="my-breadcrumb-ellipsis"
         items={
           Array [
@@ -277,7 +274,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
         label="…"
         link={true}
         noCaret={true}
-        tooltipPlacement="top"
       />
     </li>
     <li
@@ -367,9 +363,8 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       aria-hidden="true"
       className="tc-breadcrumb-menu"
     >
-      <ActionDropdown
+      <Translate(ActionDropdown)
         aria-label="Open first links menu"
-        bsStyle="default"
         id="42-ellipsis"
         items={
           Array [
@@ -384,7 +379,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
         label="…"
         link={true}
         noCaret={true}
-        tooltipPlacement="top"
       />
     </li>
     <li
