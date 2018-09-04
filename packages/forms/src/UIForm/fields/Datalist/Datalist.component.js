@@ -5,6 +5,7 @@ import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
 import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -104,9 +105,13 @@ class Datalist extends Component {
 
 	render() {
 		const props = omit(this.props, PROPS_TO_OMIT);
+		const descriptionId = generateDescriptionId(this.props.id);
+		const errorId = generateErrorId(this.props.id);
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
+				descriptionId={descriptionId}
+				errorId={errorId}
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
@@ -126,6 +131,11 @@ class Datalist extends Component {
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap()}
+					inputProps={{
+						'aria-invalid': !this.props.isValid,
+						'aria-required': this.props.schema.required,
+						'aria-describedby': `${descriptionId} ${errorId}`,
+					}}
 				/>
 			</FieldTemplate>
 		);
