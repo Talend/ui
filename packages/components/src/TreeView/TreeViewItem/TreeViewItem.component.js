@@ -9,8 +9,9 @@ import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
 
-const PADDING_NORMAL = 15;
-const PADDING_LARGE = 20;
+const BASE_PADDING = 30;
+const CARET_WIDTH = 12;
+const PADDING = 20;
 
 /**
  * return the default open or closed folder icon if non is specified on item
@@ -91,6 +92,23 @@ class TreeViewItem extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
+		this.onMouseLeave = this.onMouseLeave.bind(this);
+		this.onMouseEnter = this.onMouseEnter.bind(this);
+		this.state = {
+			hovered: false,
+		};
+	}
+
+	onMouseEnter() {
+		this.setState({
+			hovered: true,
+		});
+	}
+
+	onMouseLeave() {
+		this.setState({
+			hovered: false,
+		});
 	}
 
 	onKeyDown(event) {
@@ -153,12 +171,17 @@ class TreeViewItem extends React.Component {
 			icon,
 			counter = children.length,
 		} = item;
+		const paddingLeft = `${depth * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
 		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
-
-		const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
+		const shouldShowToggledIcon = !!(children.length && (toggled || this.state.hovered));
 
 		return (
-			<li className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}>
+			<li
+				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
+				data-hidden={hidden}
+				onMouseEnter={this.onMouseEnter}
+				onMouseLeave={this.onMouseLeave}
+			>
 				<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 					className={classNames('tc-treeview-item', css['tc-treeview-item'])}
 					data-selected={selected}
@@ -180,8 +203,10 @@ class TreeViewItem extends React.Component {
 							title={toggleIconLabel}
 						/>
 					)}
-					<TreeViewIcon icon={icon} toggled={toggled} />
-					<span className="tc-treeview-item-name">{name}</span>
+					<TreeViewIcon icon={icon} toggled={shouldShowToggledIcon} />
+					<span className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}>
+						{name}
+					</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}
 						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action, a.id))}

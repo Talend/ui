@@ -1,0 +1,21 @@
+.checkbox {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+
+	.icon {
+		height: 1.5rem;
+		width: 1.5rem;
+		margin-right: $padding-normal;
+
+		&.cross {
+			height: 1.3rem;
+		}
+	}
+}
+
+// override bootstrap style. This for is needed to write a bigger weight selector
+form div:not(.has-success):not(.has-warning):not(.has-error).checkbox label {
+	color: inherit;
+	font-size: inherit;
+}

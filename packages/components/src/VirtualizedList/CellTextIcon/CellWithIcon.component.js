@@ -8,17 +8,28 @@ import styles from './CellWithIcon.scss';
 /**
  * Cell renderer that displays text + icon
  */
-function CellWithIcon({ columnData, rowData, cellData }) {
-	const action = columnData.getIcon(rowData);
+class CellWithIcon extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		return (
+			this.props.cellData !== nextProps.cellData ||
+			this.props.columnData !== nextProps.columnData ||
+			this.props.rowData !== nextProps.rowData
+		);
+	}
 
-	return (
-		<div className={classnames('cell-icon-container', styles['cell-icon-container'])}>
-			<div>{cellData}</div>
-			<div className={classnames('icon-container', styles['icon-container'])}>
-				{action && <Action {...action} hideLabel link />}
+	render() {
+		const { columnData, rowData, cellData } = this.props;
+		const action = columnData.getIcon(rowData);
+
+		return (
+			<div className={classnames('cell-icon-container', styles['cell-icon-container'])}>
+				<div>{cellData}</div>
+				<div className={classnames('icon-container', styles['icon-container'])}>
+					{action && <Action {...action} hideLabel link />}
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 CellWithIcon.displayName = 'VirtualizedList(CellWithIcon)';

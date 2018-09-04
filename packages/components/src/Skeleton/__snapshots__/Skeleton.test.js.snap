@@ -5,12 +5,8 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
   className="col-lg-offset-2 col-lg-8"
 >
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -37,6 +33,83 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div>
     <h4>
@@ -46,7 +119,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       small
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -59,7 +132,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       medium
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium tc-skeleton-heartbeat"
       style={
         Object {
@@ -72,7 +145,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       large
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-large tc-skeleton tc-skeleton-circle tc-skeleton-circle-large tc-skeleton-heartbeat"
       style={
         Object {
@@ -85,7 +158,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       custom size override class definition 
     </div>
     <span
-      aria-label=" circle (loading)"
+      aria-label="circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -101,7 +174,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       small:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -114,7 +187,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       medium:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-medium tc-skeleton tc-skeleton-text tc-skeleton-text-medium tc-skeleton-heartbeat"
       style={
         Object {
@@ -127,7 +200,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       large:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-large tc-skeleton tc-skeleton-text tc-skeleton-text-large tc-skeleton-heartbeat"
       style={
         Object {
@@ -140,7 +213,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       extra-large:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-xlarge tc-skeleton tc-skeleton-text tc-skeleton-text-xlarge tc-skeleton-heartbeat"
       style={
         Object {
@@ -153,7 +226,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       custom width:
     </div>
     <span
-      aria-label=" text (loading)"
+      aria-label="text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small tc-skeleton-heartbeat"
       style={
         Object {
@@ -166,7 +239,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
       Button: 
     </h4>
     <span
-      aria-label=" button (loading)"
+      aria-label="button (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-button theme-tc-skeleton-button-medium tc-skeleton tc-skeleton-button tc-skeleton-button-medium tc-skeleton-heartbeat"
       style={
         Object {
@@ -180,7 +253,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
-      aria-label=" icon (loading)"
+      aria-label="icon (loading)"
       className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium tc-skeleton-heartbeat"
       focusable="false"
       name="talend-locked"
@@ -195,7 +268,7 @@ exports[`Storyshots Translate(Skeleton) default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
-      aria-label=" icon (loading)"
+      aria-label="icon (loading)"
       className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium theme-skeleton-96x96 tc-skeleton-heartbeat"
       focusable="false"
       name="talend-table"

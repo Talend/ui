@@ -20,9 +20,9 @@ function renderFilter(filter, onFilterChange) {
  */
 export default function FiltersBar({ filters, onFilterChange }) {
 	return (
-		<div className={classnames('tc-table-filters-bar', theme['tc-table-filters-bar'])}>
+		<form className={classnames('tc-table-filters-bar', theme['tc-table-filters-bar'])}>
 			{filters.map(filter => renderFilter(filter, onFilterChange))}
-		</div>
+		</form>
 	);
 }
 

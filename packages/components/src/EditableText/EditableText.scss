@@ -18,64 +18,58 @@ $tc-input-editable-text-size-small: 1rem !default;
 $tc-input-editable-text-title-weight: 900 !default;
 $tc-input-editable-text-input-weight: $form-base-font-weight !default;
 
+$tc-icon-editable-text-size: 8px !default;
+$tc-circle-editable-text-size: 16px !default;
+
 :global(.tc-editable-text-blink) {
 	@include heartbeat(object-blink);
 }
 
 .tc-editable-text {
-	display: flex;
-	margin: 0;
-	height: 100%;
+	margin: 0 110px 0 0;
+	max-width: 90rem;
 
-	& &-text {
-		flex-direction: column;
-		justify-content: center;
-		overflow: hidden;
-		flex: 1 auto;
-		margin-right: 110px;
-		max-width: 90rem;
-		display: inline-flex;
+	&-title {
+		display: flex;
 		align-items: center;
+		max-width: 90rem;
+	}
 
-		&-wording-button {
-			@include input-text($tc-input-editable-text-title-weight);
-			@include ellipsis;
-			text-transform: uppercase;
+	&-wording {
+		@include input-text($tc-input-editable-text-title-weight);
+		@include ellipsis;
+		text-transform: uppercase;
+		flex: 0 1 auto;
+	}
+
+	&-pencil {
+		padding-left: $padding-small;
+		padding-right: $padding-small;
+		flex: 0 0 auto;
+
+		&:global(.btn-link) {
+			color: $silver;
+		}
+	}
+
+	& &-form {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: {
+			left: $padding-large;
+			right: $padding-large;
+		}
+
+		:global(.form-group) {
+			width: 100%;
 			margin: 0;
 		}
 
-		&-wording-button {
-			padding: 0;
-			letter-spacing: inherit;
-
-			&:global(.btn-link) {
-				color: $black;
-
-				&:focus,
-				&:hover,
-				&:active {
-					color: $black;
-				}
-			}
-		}
-
-		&-pencil {
-			padding-left: $padding-small;
-			padding-right: $padding-small;
-
-			&:global(.btn-link) {
-				color: $silver;
-			}
-		}
-	}
-	& &-form {
-		display: flex;
-		align-items: center;
-		padding-left: $padding-large;
-
 		& .tc-editable-text-form-input {
 			@include input-text($tc-input-editable-text-input-weight);
-			width: 18rem;
+			width: 100%;
+			padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
 			&::selection {
 				background: lighten($scooter, 25%);
 			}
@@ -83,31 +77,42 @@ $tc-input-editable-text-input-weight: $form-base-font-weight !default;
 
 		&-buttons {
 			display: flex;
+			position: absolute;
+			right: $padding-large;
+			align-items: center;
+			justify-content: center;
+			height: 32px;
+			top: 0;
 
 			&-icon {
-				border: 0.2rem solid currentColor;
-				width: $tc-input-editable-text-size-large;
-				height: $tc-input-editable-text-size-large;
+				border: 0.1rem solid $dove-gray;
+				color: $dove-gray;
+				width: $tc-circle-editable-text-size;
+				height: $tc-circle-editable-text-size;
 				min-height: auto;
 				display: flex;
 				border-radius: 50%;
 				padding: 0;
-				margin-left: $padding-large;
 				justify-content: center;
 				align-items: center;
 
 				> :global(.tc-svg-icon) {
-					width: $tc-input-editable-text-size-medium;
-					height: $tc-input-editable-text-size-medium;
+					width: $tc-icon-editable-text-size;
+					height: $tc-icon-editable-text-size;
 				}
 
 				&:last-child {
 					margin-left: $padding-small;
+				}
+			}
 
-					> svg {
-						width: $tc-input-editable-text-size-small;
-						height: $tc-input-editable-text-size-small;
-					}
+			&-submit {
+				border-color: $rio-grande;
+				background: $rio-grande;
+				fill: white;
+
+				> svg {
+					color: white;
 				}
 			}
 		}

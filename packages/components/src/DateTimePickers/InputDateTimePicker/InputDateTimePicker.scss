@@ -1,3 +1,22 @@
-.dropdown {
+.dropdown-wrapper {
+	position: relative;
+}
+
+.popover {
 	width: 320px; // TODO: Remove when width sizing management has been covered
+	max-width: none;
+	padding: 0;
+	border-radius: 0;
+
+	&:global(.popover) {
+		margin: 0;
+	}
+
+	:global(.arrow) {
+		display: none;
+	}
+
+	:global(.popover-content) {
+		padding: 0;
+	}
 }

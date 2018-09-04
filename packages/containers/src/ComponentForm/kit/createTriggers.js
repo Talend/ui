@@ -27,10 +27,10 @@ const DEFAULT_HEADERS = {
 	Accept: 'application/json',
 };
 
-function noOpTrigger({ error, trigger }) {
+function passthroughTrigger({ error, trigger, body }) {
 	// eslint-disable-next-line no-console
 	console.error(`${JSON.stringify(trigger)} doesnt exists or fails with error ${error || '-'}`);
-	return {};
+	return body;
 }
 
 /**
@@ -149,7 +149,7 @@ export default function createTriggers({
 			}
 		}
 		function onSuccess(body) {
-			const result = (services[trigger.type] || noOpTrigger)({
+			const result = (services[trigger.type] || passthroughTrigger)({
 				body,
 				errors,
 				properties,

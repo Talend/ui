@@ -9,6 +9,7 @@ import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import TitleSubHeader from './TitleSubHeader';
 import Inject from '../Inject';
+import Skeleton from '../Skeleton';
 import theme from './SubHeaderBar.scss';
 
 function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {
@@ -67,12 +68,38 @@ function SubHeaderBar({
 	left,
 	center,
 	right,
+	rightActionsLoading,
 	...rest
 }) {
 	const injected = Inject.all(getComponent, components, CustomInject);
 	const Renderer = Inject.getAll(getComponent, { Action, ActionBar });
 	const hasRight =
 		Array.isArray(right) || has(components, 'before-right') || has(components, 'after-right');
+	let rightActions;
+
+	if (rightActionsLoading) {
+		rightActions = (
+			<SubHeaderBarActions
+				className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
+				right
+			>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+			</SubHeaderBarActions>
+		);
+	} else {
+		rightActions =
+			Array.isArray(right) &&
+			right.map((item, index) => (
+				<SubHeaderBarActions
+					className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
+					key={index}
+					right
+				>
+					<Renderer.Action key={index} {...item} />
+				</SubHeaderBarActions>
+			));
+	}
+
 	return (
 		<header className={classNames(theme['tc-subheader'], 'tc-subheader', className)}>
 			{injected('before-actionbar')}
@@ -94,7 +121,7 @@ function SubHeaderBar({
 						/>
 					)}
 					{injected('before-title')}
-					<TitleSubHeader t={t} {...rest} />
+					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />
 					{injected('after-title')}
 				</SubHeaderBarActions>
 				{Array.isArray(left) && (
@@ -112,19 +139,7 @@ function SubHeaderBar({
 						</SubHeaderBarActions>
 					))}
 				{injected('right')}
-				{Array.isArray(right) &&
-					right.map((item, index) => (
-						<SubHeaderBarActions
-							className={classNames(
-								theme['tc-subheader-navbar-right'],
-								'tc-subheader-navbar-right',
-							)}
-							key={index}
-							right
-						>
-							<Renderer.Action key={index} {...item} />
-						</SubHeaderBarActions>
-					))}
+				{rightActions}
 				{injected('after-right')}
 			</Renderer.ActionBar>
 			{injected('after-actionbar')}
@@ -142,6 +157,7 @@ SubHeaderBar.propTypes = {
 	right: PropTypes.array,
 	center: PropTypes.array,
 	inProgress: PropTypes.bool,
+	rightActionsLoading: PropTypes.bool,
 	...Inject.PropTypes,
 };
 

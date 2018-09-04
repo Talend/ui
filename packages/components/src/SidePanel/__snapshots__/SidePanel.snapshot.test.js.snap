@@ -41,12 +41,8 @@ exports[`Storyshots SidePanel default 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -121,6 +117,83 @@ exports[`Storyshots SidePanel default 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -130,16 +203,17 @@ exports[`Storyshots SidePanel default 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls="context"
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id="context-toggle-dock"
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -154,9 +228,6 @@ exports[`Storyshots SidePanel default 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -302,12 +373,8 @@ exports[`Storyshots SidePanel docked 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -382,6 +449,83 @@ exports[`Storyshots SidePanel docked 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={false}
@@ -391,16 +535,17 @@ exports[`Storyshots SidePanel docked 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Expand"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Expand menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -415,9 +560,6 @@ exports[`Storyshots SidePanel docked 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -563,12 +705,8 @@ exports[`Storyshots SidePanel large docked 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -643,6 +781,83 @@ exports[`Storyshots SidePanel large docked 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={false}
@@ -652,16 +867,17 @@ exports[`Storyshots SidePanel large docked 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Expand"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Expand menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -676,9 +892,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -824,12 +1037,8 @@ exports[`Storyshots SidePanel large reverse 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -904,6 +1113,83 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -913,16 +1199,17 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -937,9 +1224,6 @@ exports[`Storyshots SidePanel large reverse 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -1085,12 +1369,8 @@ exports[`Storyshots SidePanel links 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1165,6 +1445,83 @@ exports[`Storyshots SidePanel links 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1174,16 +1531,17 @@ exports[`Storyshots SidePanel links 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls="context"
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id="context-toggle-dock"
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -1198,9 +1556,6 @@ exports[`Storyshots SidePanel links 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -1346,12 +1701,8 @@ exports[`Storyshots SidePanel not dockable 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1426,6 +1777,83 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1576,12 +2004,8 @@ exports[`Storyshots SidePanel reverse 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1656,6 +2080,83 @@ exports[`Storyshots SidePanel reverse 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <nav
     aria-expanded={true}
@@ -1665,16 +2166,17 @@ exports[`Storyshots SidePanel reverse 1`] = `
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
-      title="Collapse"
     >
       <button
         aria-controls={undefined}
-        aria-label=""
+        aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
         id={undefined}
         onClick={[Function]}
+        onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseOver={[Function]}
         role={null}
         type="button"
       >
@@ -1689,9 +2191,6 @@ exports[`Storyshots SidePanel reverse 1`] = `
             xlinkHref="#talend-opener"
           />
         </svg>
-        <span>
-          
-        </span>
       </button>
     </div>
     <ul
@@ -1837,12 +2336,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -1917,6 +2412,83 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="tc-layout theme-layout"
@@ -1936,16 +2508,17 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
-            title="Collapse"
           >
             <button
               aria-controls={undefined}
-              aria-label=""
+              aria-label="Collapse menu"
               className="btn-icon-only btn btn-link"
               disabled={false}
               id={undefined}
               onClick={[Function]}
+              onFocus={[Function]}
               onMouseDown={[Function]}
+              onMouseOver={[Function]}
               role={null}
               type="button"
             >
@@ -1960,9 +2533,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                   xlinkHref="#talend-opener"
                 />
               </svg>
-              <span>
-                
-              </span>
             </button>
           </div>
           <ul
@@ -2466,12 +3036,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -2546,6 +3112,83 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="tc-layout theme-layout"
@@ -2565,16 +3208,17 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
-            title="Collapse"
           >
             <button
               aria-controls={undefined}
-              aria-label=""
+              aria-label="Collapse menu"
               className="btn-icon-only btn btn-link"
               disabled={false}
               id={undefined}
               onClick={[Function]}
+              onFocus={[Function]}
               onMouseDown={[Function]}
+              onMouseOver={[Function]}
               role={null}
               type="button"
             >
@@ -2589,9 +3233,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                   xlinkHref="#talend-opener"
                 />
               </svg>
-              <span>
-                
-              </span>
             </button>
           </div>
           <ul
@@ -3054,7 +3695,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
 </div>
 `;
 
-exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
+exports[`Storyshots SidePanel 🎨 [MDM] SidePanel 1`] = `
 <div>
   <nav
     style={
@@ -3095,12 +3736,8 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3175,6 +3812,428 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+  </svg>
+  <div
+    className="theme-mdm"
+  >
+    <div
+      className="t7"
+      style={
+        Object {
+          "height": "100vh",
+        }
+      }
+    >
+      <nav
+        aria-expanded={true}
+        className="theme-tc-side-panel tc-side-panel"
+        id="context"
+        role="navigation"
+      >
+        <div
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
+        >
+          <button
+            aria-controls="context"
+            aria-label="Collapse menu"
+            className="btn-icon-only btn btn-link"
+            disabled={false}
+            id="context-toggle-dock"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseOver={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-opener"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-opener"
+              />
+            </svg>
+          </button>
+        </div>
+        <ul
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+        >
+          <li
+            aria-current={true}
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
+            role="presentation"
+            title="Preparations"
+          >
+            <button
+              aria-label="Preparations"
+              className="btn btn-link"
+              disabled={false}
+              id="context-nav-preparations"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role="link"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="theme-tc-svg-icon tc-svg-icon"
+                focusable="false"
+                name="talend-dataprep"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-dataprep"
+                />
+              </svg>
+              <span>
+                Preparations
+              </span>
+            </button>
+          </li>
+          <li
+            className="theme-tc-action-list-item tc-action-list-item"
+            role="presentation"
+            title="Datasets"
+          >
+            <button
+              aria-label="Datasets"
+              className="btn btn-link"
+              disabled={false}
+              id="context-nav-datasets"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role="link"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="theme-tc-svg-icon tc-svg-icon"
+                focusable="false"
+                name="talend-download"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-download"
+                />
+              </svg>
+              <span>
+                Datasets
+              </span>
+            </button>
+          </li>
+          <li
+            className="theme-tc-action-list-item tc-action-list-item"
+            role="presentation"
+            title="Favorites"
+          >
+            <button
+              aria-label="Favorites"
+              className="btn btn-link"
+              disabled={false}
+              id="context-nav-favorites"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role="link"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="theme-tc-svg-icon tc-svg-icon"
+                focusable="false"
+                name="talend-star"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-star"
+                />
+              </svg>
+              <span>
+                Favorites
+              </span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
+<div>
+  <nav
+    style={
+      Object {
+        "bottom": 0,
+        "position": "fixed",
+        "textAlign": "center",
+        "width": "100vw",
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="btn-group"
+    >
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        en
+         
+        (default)
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        fr
+         
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        it
+         
+      </button>
+    </div>
+  </nav>
+  <svg
+    className="sr-only"
+    focusable="false"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-arrow-left"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 7H4.4l4-4L7 1.6.6 8 7 14.4 8.4 13l-4-4H15z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-dataprep"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 6a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM8 8a2 2 0 1 0-2-2 1.999 1.999 0 0 0 2 2zm16-1.6a2 2 0 1 0-2-2 1.999 1.999 0 0 0 2 2zm5.027 23.85l-8.055-14.504A3.303 3.303 0 0 0 20 14.738V11.5a1.894 1.894 0 0 0 2-1.75A1.892 1.892 0 0 0 20 8h-8a1.892 1.892 0 0 0-2 1.75 1.894 1.894 0 0 0 2 1.75v3.238a3.288 3.288 0 0 0-.972 1.008L2.971 30.25A1.08 1.08 0 0 0 4 32h24a1.08 1.08 0 0 0 1.027-1.75zM7.111 28l2.222-4h13.335l2.22 4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-download"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 11v5H0v-5h2v3h12v-3zm-2.6-4L12 5.6l-3 3V0H7v8.6l-3-3L2.6 7 8 12z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-opener"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.508 7.998l5.23 5.151c.1.099.1.258 0 .356l-1.444 1.421a.258.258 0 0 1-.36 0L1.538 9.613c-.007-.006-.015-.003-.02-.009L.073 8.182a.25.25 0 0 1 0-.355l.001-.001c.002-.002.001-.006.004-.008l1.443-1.422c.003-.002.006-.001.008-.003l5.4-5.319a.258.258 0 0 1 .36 0l1.444 1.421a.25.25 0 0 1 0 .356L3.508 7.998zm12.417 5.151c.1.098.1.257 0 .355l-1.443 1.422a.258.258 0 0 1-.36 0L8.727 9.612c-.006-.005-.016-.003-.022-.008L7.263 8.182a.249.249 0 0 1 0-.356c.002-.002.002-.006.004-.009l1.443-1.42c.002-.003.006-.002.008-.005l5.4-5.319a.258.258 0 0 1 .36 0l1.443 1.422c.1.098.1.257 0 .355l-5.225 5.148 5.23 5.151z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.1 9.26a8.07 8.07 0 0 1 3.718-8.077 7.965 7.965 0 0 1 8.073-.164 8.15 8.15 0 0 1 3.994 8.33 7.995 7.995 0 0 1-14.337 3.376A7.94 7.94 0 0 1 .1 9.26zm4.08-.195a1.146 1.146 0 0 0 1.78.842c.344.072.99.191.81.744a2.273 2.273 0 0 1 .226 1.782c.313.62-.065 1.737.688 2.024.868.007 1.13-.925 1.578-1.474-.197-.682 1.003-.914.457-1.68-.186-.767.678-1.228.984-1.837.189-.366.277-.618-.178-.37-.694.03-1.144-.674-1.396-1.238.482-.922.777.76 1.17.98.784-.094 1.15-.826 1.448-1.365.483-.054.743.491 1.19.462.358.321.118 1.652.697 1.409-.066-.643.476-1.58 1.08-1.482-.034.71.483.35.34-.156a6.702 6.702 0 0 0-3.133-5.338c-.55-.012-.856-.293-1.072-.11-.063.427-.17.693-.705.588-.572-.204-1.033.75-1.48.38.183-.175.399-.9-.255-.834-.773.002-1.802-.105-2.245.68-.113.453.67.72.816.887.394-.756 1.496.19.456.237a3.907 3.907 0 0 0-2.123.625c.562.34.003.556-.336.571-.089.248-.1.867.194.765.61.136 1.163-1.317 1.76-.526.163.337.696.5.364-.045-.252-.256-.403-.745.057-.312.134.199.852 1.24.713.519.102-.518.378.555.769.404.844.362-.097 1.107-.676.806-.464.056-.687.585-1.123.043-.268-.163-.008-.697-.58-.476-.809.048-1.613.153-1.992.991-.418.4-.167 1-.283 1.503zm.906-4.761c.29.598 1.485-.156.79-.75-.471-.591-.995-.09-.498.426-.002.18-.168.24-.291.324z"
+        />
+      </svg>
+    </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-portal"
@@ -3195,16 +4254,17 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -3219,9 +4279,6 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -3369,12 +4426,8 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3449,6 +4502,83 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tdc"
@@ -3469,16 +4599,17 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -3493,9 +4624,6 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -3643,12 +4771,8 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3723,6 +4847,83 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tdp"
@@ -3743,16 +4944,17 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -3767,9 +4969,6 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -3917,12 +5116,8 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -3997,6 +5192,83 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tds"
@@ -4017,16 +5289,17 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4041,9 +5314,6 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -4191,12 +5461,8 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -4271,6 +5537,83 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tfd"
@@ -4291,16 +5634,17 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4315,9 +5659,6 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -4465,12 +5806,8 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -4545,6 +5882,83 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tic"
@@ -4565,16 +5979,17 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4589,9 +6004,6 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
@@ -4739,12 +6151,8 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
     </div>
   </nav>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -4819,6 +6227,83 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              type="matrix"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncG
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncB
+                amplitude="1"
+                exponent="7"
+                offset="0.0"
+                type="gamma"
+              />
+              <feFuncA
+                amplitude="1"
+                exponent="1"
+                offset="0.0"
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              type="matrix"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     className="theme-tmc"
@@ -4839,16 +6324,17 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
       >
         <div
           className="theme-toggle-btn tc-side-panel-toggle-btn"
-          title="Collapse"
         >
           <button
             aria-controls="context"
-            aria-label=""
+            aria-label="Collapse menu"
             className="btn-icon-only btn btn-link"
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
+            onFocus={[Function]}
             onMouseDown={[Function]}
+            onMouseOver={[Function]}
             role={null}
             type="button"
           >
@@ -4863,9 +6349,6 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
                 xlinkHref="#talend-opener"
               />
             </svg>
-            <span>
-              
-            </span>
           </button>
         </div>
         <ul
