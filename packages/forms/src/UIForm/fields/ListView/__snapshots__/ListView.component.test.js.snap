@@ -405,6 +405,11 @@ exports[`ListView field render should render no items message 1`] = `
   className="theme-tc-listview tc-listview"
 >
   <HeaderListView
+    containerProps={
+      Object {
+        "aria-describedby": "my-list-view-description my-list-view-error",
+      }
+    }
     displayMode="DISPLAY_MODE_DEFAULT"
     displayedItems={Array []}
     getItemHeight={[Function]}

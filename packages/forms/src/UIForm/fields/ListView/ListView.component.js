@@ -8,6 +8,7 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -170,9 +171,14 @@ class ListViewWidget extends React.Component {
 	}
 
 	render() {
+		const descriptionId = generateDescriptionId(this.props.id);
+		const errorId = generateErrorId(this.props.id);
+
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
+				descriptionId={descriptionId}
+				errorId={errorId}
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
@@ -183,6 +189,7 @@ class ListViewWidget extends React.Component {
 					id={this.props.id}
 					items={this.state.displayedItems}
 					t={this.props.t}
+					containerProps={{ 'aria-describedby': `${descriptionId} ${errorId}` }}
 				/>
 			</FieldTemplate>
 		);
