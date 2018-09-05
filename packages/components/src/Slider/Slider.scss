@@ -57,8 +57,6 @@ $tc-slider-handle-size: 17px;
 			background-color: $brand-primary;
 		}
 		:global(.rc-slider-handle) {
-			width: $tc-slider-handle-size;
-			height: $tc-slider-handle-size;
 			border: 1px solid $alto;
 			box-shadow: $tc-slider-thumb-shadow;
 			background-color: $wild-sand;
