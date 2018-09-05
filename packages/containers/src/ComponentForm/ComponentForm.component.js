@@ -142,8 +142,6 @@ export class TCompForm extends React.Component {
 			// - trigger result that is does not fit user entry anymore,
 			// - erase a good value put by the enduser
 			if (data.properties) {
-				// eslint-disable-next-line no-console
-				console.log('ComponentForm.kit.defaultRegistry.update override internal form state', this.state.properties, data.properties);
 				this.setState({ properties: data.properties });
 			}
 			if (data.jsonSchema || data.uiSchema) {

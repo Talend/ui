@@ -73,7 +73,14 @@
                     "key": "id"
                   }
                 ]
-              },
+              }
+            ],
+            "widget": "datalist"
+          },
+          {
+            "widget": "button",
+            "title": "Do we like it ?",
+            "triggers": [
               {
                 "action":"updateProperties",
                 "family":"update",
@@ -90,10 +97,14 @@
                   }
                 ],
                 "type":"update"
-
               }
-            ],
-            "widget": "datalist"
+            ]
+          },
+          {
+            "conditions": [],
+            "key": "desert.like",
+            "title": "Like",
+            "widget": "text"
           },
           {
             "key": "desert.restrictedType",
@@ -141,12 +152,6 @@
             "key": "desert.description",
             "title": "Description",
             "widget": "textarea"
-          },
-          {
-            "conditions": [],
-            "key": "desert.like",
-            "title": "Like",
-            "widget": "text"
           }
         ],
         "widget": "fieldset"
