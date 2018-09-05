@@ -179,14 +179,16 @@ class TreeViewItem extends React.Component {
 		return this.props.onToggle(this.props.item);
 	}
 
+	getAllItems() {
+		return this.containerRef.closest('ul[role="tree"]').querySelectorAll('li[role="treeitem"]');
+	}
+
 	getFirstItem() {
 		return this.containerRef.closest('ul[role="tree"]').querySelector('li[role="treeitem"]');
 	}
 
 	getLastItem() {
-		const nodes = this.containerRef
-			.closest('ul[role="tree"]')
-			.querySelectorAll('li[role="treeitem"]');
+		const nodes = this.getAllItems();
 		return nodes.item(nodes.length - 1);
 	}
 
@@ -203,10 +205,7 @@ class TreeViewItem extends React.Component {
 		let currentFound;
 		let hasNext;
 
-		const nodes = this.containerRef
-			.closest('ul[role="tree"]')
-			.querySelectorAll('li[role="treeitem"]')
-			.values();
+		const nodes = this.getAllItems().values();
 
 		do {
 			const { value, done } = nodes.next();
@@ -227,10 +226,7 @@ class TreeViewItem extends React.Component {
 		let previousElement;
 		let hasNext;
 
-		const nodes = this.containerRef
-			.closest('ul[role="tree"]')
-			.querySelectorAll('li[role="treeitem"]')
-			.values();
+		const nodes = this.getAllItems().values();
 
 		do {
 			const { value, done } = nodes.next();

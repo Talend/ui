@@ -15,6 +15,7 @@ $item-height: 4rem;
 	}
 
 	.tc-treeview-item {
+		position: relative;
 		height: $item-height;
 		cursor: pointer;
 		padding-right: $padding-large;

@@ -9,9 +9,9 @@ const structure = [
 	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], toggled: false },
 	{ name: 'pikachu', children: [{ name: 'raichu' }], toggled: true },
 	{
+		id: 'selected',
 		name: 'Abra',
 		toggled: true,
-		selected: true,
 		children: [
 			{
 				name: 'Kadabra',
@@ -53,10 +53,10 @@ const structureWithIcons = [
 		},
 	},
 	{
+		id: 'selected',
 		name: 'Abra',
 		icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/63-Abra.png' },
 		toggled: true,
-		selected: true,
 		children: [
 			{
 				name: 'Kadabra',
@@ -152,6 +152,7 @@ const defaultProps = {
 	structure,
 	onSelect: action('onSelect'),
 	onToggle: action('onToggle'),
+	selectedId: 'selected',
 };
 
 const withAddAction = {
