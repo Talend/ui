@@ -14,7 +14,7 @@ function extractComponentProps(Component, props) {
 	return extractedProps;
 }
 
-export function extractNativeProps(props) {
+function extractNativeProps(props) {
 	const extractedProps = {};
 	Object.keys(props).forEach(propName => {
 		if (
