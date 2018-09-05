@@ -25,7 +25,7 @@ got ${resourcePath}`,
 
 export function* redirect(url) {
 	if (!url) {
-		throw new Error('redirect action must have data.model.redirectUrl value');
+		throw new Error('redirect url can not be empty');
 	}
 	yield put({
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
