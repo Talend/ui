@@ -3,14 +3,11 @@ import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
 import { translate } from 'react-i18next';
-import omit from 'lodash/omit';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
-import { extractNativeProps } from '../../utils/getPropsFrom';
-import { Button } from 'react-bootstrap';
 
 function listClasses() {
 	return classNames(theme['tc-list-items'], 'tc-list-items');
