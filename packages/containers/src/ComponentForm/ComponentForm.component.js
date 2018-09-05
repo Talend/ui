@@ -206,7 +206,7 @@ export class TCompForm extends React.Component {
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
 
-		return <Form {...props} uiform />;
+		return <Form {...props} />;
 	}
 }
 

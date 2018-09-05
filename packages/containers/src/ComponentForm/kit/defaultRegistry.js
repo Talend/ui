@@ -17,6 +17,7 @@
 import clonedeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import { removeError, addError, getError } from '@talend/react-forms/lib/UIForm/utils/errors';
+import { mutateValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 
 /**
  * Change errors on the target input
@@ -135,28 +136,12 @@ const trigger = {
 };
  */
 function updateProperties({ body, trigger, properties }) {
-	const newProperties = { ...properties };
 	const targetPath = trigger.options[0].path;
-	const getValue = () => {
-		if (trigger.options[0].type === 'object') {
-			return body;
-		}
-		return body.data;
+	const schema = { key: targetPath.split('.') };
+	const value = trigger.options[0].type === 'object' ? body : body.data;
+	return {
+		properties: mutateValue(properties, schema, value),
 	};
-	const targetSplitted = targetPath.split('.');
-	targetSplitted.reduce((acc, current, index) => {
-		if (!acc[current]) {
-			// eslint-disable-next-line no-param-reassign
-			acc[current] = {};
-		}
-		if (index === targetSplitted.length - 1) {
-			// eslint-disable-next-line no-param-reassign
-			acc[current] = getValue();
-		}
-		return acc[current];
-	}, newProperties);
-
-	return { properties: newProperties };
 }
 
 export default {
