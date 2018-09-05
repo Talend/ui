@@ -6,6 +6,14 @@ import defaultTemplates from '../../utils/templates';
 import defaultWidgets from '../../utils/widgets';
 
 function adaptKeyWithIndex(keys, index) {
+	/*
+	2 cases : 
+	- key = ["my", "array", "", "nested"] for nested items fields
+	- key = ["my", "array"] : this defines array itself. Each item will receive a key ["my", "array", index]
+	To check that, we spot the first empty string in the key
+	- find it: replace it, it's a nested element
+	- not found : it's an array item key, we add the index after
+	*/
 	let firstIndexPlaceholder = keys.indexOf('');
 	if (firstIndexPlaceholder === -1) {
 		firstIndexPlaceholder = keys.length;
