@@ -190,7 +190,7 @@ exports[`Items should render 1`] = `
                   rowIndex={0}
                 >
                   <div
-                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
                       Object {
@@ -259,7 +259,7 @@ exports[`Items should render 1`] = `
                   rowIndex={1}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -376,7 +376,7 @@ exports[`Items should render 1`] = `
                   rowIndex={2}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -498,7 +498,7 @@ exports[`Items should render 1`] = `
                   rowIndex={3}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="3-0"
                     style={
                       Object {
@@ -799,7 +799,7 @@ exports[`Items should render with nested items 1`] = `
                   rowIndex={0}
                 >
                   <div
-                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
                       Object {
@@ -865,7 +865,7 @@ exports[`Items should render with nested items 1`] = `
                   rowIndex={1}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -979,7 +979,7 @@ exports[`Items should render with nested items 1`] = `
                   rowIndex={2}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -1403,7 +1403,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={0}
                 >
                   <div
-                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
                       Object {
@@ -1472,7 +1472,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={1}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -1597,7 +1597,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={2}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -1727,7 +1727,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={3}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="3-0"
                     style={
                       Object {

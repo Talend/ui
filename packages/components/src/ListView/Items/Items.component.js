@@ -9,22 +9,9 @@ import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
-function listClasses() {
-	return classNames(theme['tc-list-items'], 'tc-list-items');
-}
-
-function itemsClasses() {
-	return classNames(theme['tc-listview-items'], 'tc-listview-items');
-}
-
-function itemContainer(additionalClassName) {
-	return classNames(
-		theme['tc-item-container'],
-		theme[additionalClassName],
-		'tc-item-container',
-		additionalClassName,
-	);
-}
+const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
+const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');
+const itemContainer = classNames(theme['tc-item-container'], 'tc-item-container');
 
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
@@ -82,7 +69,9 @@ export class ItemsComponent extends React.PureComponent {
 			>
 				{({ measure }) => (
 					<div
-						className={classNames(itemContainer(isToggle && 'toggle'), {
+						className={classNames(itemContainer, {
+							[theme.toggle]: isToggle,
+							toggle: isToggle,
 							expanded: currentItem && currentItem.expanded,
 						})}
 						key={key}
@@ -163,7 +152,7 @@ export class ItemsComponent extends React.PureComponent {
 
 	render() {
 		return (
-			<div className={itemsClasses()}>
+			<div className={itemsClasses}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -174,7 +163,7 @@ export class ItemsComponent extends React.PureComponent {
 							 */
 							ref={node => (this.list = node)}
 							items={this.props.items}
-							className={listClasses()}
+							className={listClasses}
 							rowRenderer={this.rowRenderer}
 							width={width}
 							height={height}
