@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDepp';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import {
