@@ -8,9 +8,12 @@ exports[`Select field should render disabled input 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <select
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={true}
@@ -52,9 +55,12 @@ exports[`Select field should render readOnly input 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <select
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={false}
@@ -96,9 +102,12 @@ exports[`Select field should render select multiple 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <select
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={false}
@@ -145,9 +154,12 @@ exports[`Select field should render simple select 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
-  required={undefined}
+  required={true}
 >
   <select
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
     autoFocus={true}
     className="form-control"
     disabled={false}
