@@ -10,6 +10,8 @@ describe('FieldTemplate', () => {
 			<FieldTemplate
 				isValid
 				description={'My awesome description'}
+				descriptionId={'myAwesomeField-description'}
+				errorId={'myAwesomeField-error'}
 				errorMessage={'This is wrong o_o'}
 				id={'myAwesomeField'}
 				label={'My awesome label'}
@@ -28,6 +30,8 @@ describe('FieldTemplate', () => {
 			<FieldTemplate
 				isValid
 				description={'My awesome description'}
+				descriptionId={'myAwesomeField-description'}
+				errorId={'myAwesomeField-error'}
 				errorMessage={'This is wrong o_o'}
 				id={'myAwesomeField'}
 				label={'My awesome label'}
@@ -47,6 +51,8 @@ describe('FieldTemplate', () => {
 			<FieldTemplate
 				isValid={false}
 				description={'My awesome description'}
+				descriptionId={'myAwesomeField-description'}
+				errorId={'myAwesomeField-error'}
 				errorMessage={'This is wrong o_o'}
 				id={'myAwesomeField'}
 				label={'My awesome label'}

@@ -171,7 +171,7 @@ export function renderItem(item, { value }) {
 	if (typeof item === 'string') {
 		title = item;
 	} else {
-		title = item.title ? item.title.trim() : '';
+		title = (item.title || item.name || '').trim();
 		description = item.description;
 	}
 	return (

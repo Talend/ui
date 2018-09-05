@@ -7,6 +7,7 @@ describe('Radios field', () => {
 	const schema = {
 		autoFocus: true,
 		description: 'My radios input hint',
+		required: true,
 		title: 'My radios title',
 		titleMap: [
 			{ name: 'My foo custom name', value: 'foo' },
