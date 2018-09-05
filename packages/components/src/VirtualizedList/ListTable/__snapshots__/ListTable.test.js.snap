@@ -16,7 +16,7 @@ exports[`ListGrid should render noRows 1`] = `
     disableHeader={false}
     estimatedRowSize={30}
     gridClassName="theme-grid tc-dropdown-container"
-    headerHeight={40}
+    headerHeight={35}
     headerRowRenderer={[Function]}
     headerStyle={Object {}}
     height={600}
@@ -48,7 +48,7 @@ exports[`ListGrid should render noRows 1`] = `
         role="row"
         style={
           Object {
-            "height": 40,
+            "height": 35,
             "overflow": "hidden",
             "paddingRight": 0,
             "width": 1024,
@@ -114,10 +114,10 @@ exports[`ListGrid should render noRows 1`] = `
         estimatedRowSize={30}
         getScrollbarSize={[Function]}
         gridClassName="theme-grid tc-dropdown-container"
-        headerHeight={40}
+        headerHeight={35}
         headerRowRenderer={[Function]}
         headerStyle={Object {}}
-        height={560}
+        height={565}
         noContentRenderer={[Function]}
         noRowsRenderer={[Function]}
         onRowsRendered={[Function]}
@@ -159,7 +159,7 @@ exports[`ListGrid should render noRows 1`] = `
               "WebkitOverflowScrolling": "touch",
               "boxSizing": "border-box",
               "direction": "ltr",
-              "height": 560,
+              "height": 565,
               "overflowX": "hidden",
               "overflowY": "hidden",
               "position": "relative",
@@ -185,7 +185,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
   disableHeader={false}
   estimatedRowSize={30}
   gridClassName="theme-grid tc-dropdown-container"
-  headerHeight={40}
+  headerHeight={35}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
   height={600}
@@ -250,7 +250,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
   disableHeader={true}
   estimatedRowSize={30}
   gridClassName="theme-grid tc-dropdown-container"
-  headerHeight={40}
+  headerHeight={35}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
   height={600}
@@ -315,7 +315,7 @@ exports[`ListGrid should render table with sort props 1`] = `
   disableHeader={false}
   estimatedRowSize={30}
   gridClassName="theme-grid tc-dropdown-container"
-  headerHeight={40}
+  headerHeight={35}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
   height={600}
