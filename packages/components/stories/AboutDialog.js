@@ -28,4 +28,5 @@ storiesOf('AboutDialog', module)
 	))
 	.addWithInfo('default', () => <AboutDialog {...props} />)
 	.addWithInfo('loading', () => <AboutDialog loading {...props} />)
-	.addWithInfo('expanded', () => <AboutDialog expanded {...props} />);
+	.addWithInfo('expanded', () => <AboutDialog expanded {...props} />)
+	.addWithInfo('expanded & loading', () => <AboutDialog expanded loading {...props} />);

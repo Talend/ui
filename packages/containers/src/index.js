@@ -9,6 +9,7 @@ import {
 import { cmfConnect } from '@talend/react-cmf';
 
 import actionAPI from './actionAPI';
+import AboutDialog from './AboutDialog';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
@@ -43,6 +44,7 @@ const Layout = cmfConnect({})(PureLayout);
 
 export {
 	actionAPI,
+	AboutDialog,
 	Action,
 	ActionBar,
 	ActionButton,

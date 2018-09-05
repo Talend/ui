@@ -7,12 +7,14 @@ describe('SimpleCheckBox field', () => {
 	const schema = {
 		autoFocus: true,
 		disabled: false,
+		required: true,
 	};
 
 	it('should render input', () => {
 		// when
 		const wrapper = shallow(
 			<SimpleCheckBox
+				describedby={'myForm-description myForm-error'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				id={'myForm'}
@@ -36,6 +38,7 @@ describe('SimpleCheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<SimpleCheckBox
+				describedby={'myForm-description myForm-error'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				id={'myForm'}

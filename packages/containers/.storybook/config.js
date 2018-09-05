@@ -288,6 +288,13 @@ function loadStories() {
 			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
+		actions['show:about'] = {
+			label: 'Show',
+			payload: {
+				type: 'ABOUT_DIALOG_SHOW',
+				url: 'https://tdp.us.cloud.talend.com/api/version',
+			},
+		};
 		actions['appheaderbar:logo'] = {
 			icon: 'talend-logo',
 		};

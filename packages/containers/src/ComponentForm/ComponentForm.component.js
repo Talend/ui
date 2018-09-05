@@ -171,6 +171,10 @@ export class TCompForm extends React.Component {
 			customRegistry: props.customTriggers,
 			headers: config.headers,
 			lang: props.lang,
+			security: {
+				CSRFTokenCookieKey: props.CSRFTokenCookieKey,
+				CSRFTokenHeaderKey: props.CSRFTokenHeaderKey,
+			},
 		});
 	}
 
@@ -222,6 +226,8 @@ TCompForm.propTypes = {
 	lang: PropTypes.string,
 	customTriggers: PropTypes.object,
 	dispatchOnChange: PropTypes.bool,
+	CSRFTokenCookieKey: PropTypes.string,
+	CSRFTokenHeaderKey: PropTypes.string,
 };
 
 export default cmfConnect({

@@ -31,6 +31,31 @@ const myAction = {
 	],
 };
 
+const loadingAdditionalContent = {
+	id: 'context-dropdown-related-items',
+	label: 'related items',
+	loading: true,
+	icon: 'talend-file-xls-o',
+	items: [],
+};
+
+const contentAndLoadingAdditionalContent = {
+	...loadingAdditionalContent,
+	items: [
+		{
+			id: 'context-dropdown-item-document-1',
+			icon: 'talend-file-json-o',
+			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+
+	]
+};
+
 const withImmutable = {
 	id: 'context-dropdown-related-items',
 	label: 'related immutable items',
@@ -160,7 +185,11 @@ const propsTooltip = {
 const oneEventAction = {
 	id: 'context-dropdown-events',
 	label: 'Dropdown',
-	items: [{ id: 'item-1', label: 'Item 1', 'data-feature': 'actiondropdown.items' }, { id: 'item-2', label: 'Item 2', 'data-feature': 'actiondropdown.items' }],
+	items: [{ id: 'item-1', label: 'Item 1', 'data-feature': 'actiondropdown.items' }, {
+		id: 'item-2',
+		label: 'Item 2',
+		'data-feature': 'actiondropdown.items'
+	}],
 	onSelect: action('onItemSelect'),
 };
 
@@ -189,7 +218,8 @@ storiesOf('ActionDropdown', module)
 				<ActionDropdown {...myAction} dropup />
 			</div>
 			<h3>Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.</h3>
-			<div id="auto-dropup" className={'tc-dropdown-container'} style={{ border: '1px solid black', overflow: 'scroll', height: '300px' }}>
+			<div id="auto-dropup" className={'tc-dropdown-container'}
+			     style={{ border: '1px solid black', overflow: 'scroll', height: '300px' }}>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />
 				ut labore et dolore magna aliqua.<br />
 				Ut enim ad minim veniam, quis nostrud exercitation ullamco la<br />
@@ -226,6 +256,14 @@ storiesOf('ActionDropdown', module)
 			<h3>With immutable items :</h3>
 			<div id="default">
 				<ActionDropdown {...withImmutable} />
+			</div>
+			<h3>Loading additional content</h3>
+			<div id="loadingAdditionalContent">
+				<ActionDropdown {...loadingAdditionalContent} />
+			</div>
+			<h3>Content and loading additional content</h3>
+			<div id="contentAndLoadingAdditionalContent">
+				<ActionDropdown {...contentAndLoadingAdditionalContent} />
 			</div>
 			<h3>Opened and with immutable items :</h3>
 			<div id="openImmutable">
