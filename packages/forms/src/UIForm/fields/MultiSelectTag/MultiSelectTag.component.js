@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import theme from './MultiSelectTag.scss';
 import callTrigger from '../../trigger';
@@ -212,10 +213,14 @@ export default class MultiSelectTag extends React.Component {
 	render() {
 		const { id, isValid, errorMessage, schema } = this.props;
 		const names = this.props.resolveName(this.props.value);
+		const descriptionId = generateDescriptionId(id);
+		const errorId = generateErrorId(id);
 
 		return (
 			<FieldTemplate
 				description={schema.description}
+				descriptionId={descriptionId}
+				errorId={errorId}
 				errorMessage={errorMessage}
 				id={id}
 				isValid={isValid}
@@ -250,6 +255,11 @@ export default class MultiSelectTag extends React.Component {
 						theme={this.theme}
 						value={this.state.value}
 						caret
+						inputProps={{
+							'aria-invalid': !isValid,
+							'aria-required': schema.required,
+							'aria-describedby': `${descriptionId} ${errorId}`,
+						}}
 					/>
 				</div>
 			</FieldTemplate>

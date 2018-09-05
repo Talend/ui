@@ -52,6 +52,8 @@ function* handleForm() {
 | lang             | string  | language code used by the backend to produce translated uiSpec   |
 | customTriggers   | object  | registry used to let uiSchema point to it                        |
 | dispatchOnChange | boolean | if this props is true an action is dispatch on every form change |
+| CSRFTokenCookieKey | string | control cookie key to read to get CSRF token value |
+| CSRFTokenHeaderKey | string | control http headers key to send to let server control CSRF token on each trigger called|
 
 All other props will be spread to the UIForm
 
