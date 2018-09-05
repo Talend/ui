@@ -29,7 +29,7 @@ function extractNativeProps(props) {
 
 export default function getPropsFrom(Component, props) {
 	if (!Component) {
-		return { ...extractNativeProps(props) };
+		return {};
 	}
 	return {
 		...extractNativeProps(props),
