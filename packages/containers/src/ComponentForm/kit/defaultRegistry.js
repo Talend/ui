@@ -111,10 +111,59 @@ function onError({ errors, error, schema }) {
 	return { errors: getNewErrors(errors, schema, extractErrorMessage(error)) };
 }
 
+/**
+ * Update the content of the properties
+ * @param body is the new value
+ * @param trigger the trigger that call it
+ * @example
+const trigger = {
+	"action":"guessMe",
+	"family":"test",
+	"options":[
+		{
+			"path":"root.updatable_config",
+			"type":"object" // or "string"
+		}
+	],
+	"parameters":[
+		{
+			"key":"arg0.name",
+			"path":"root.updatable_config.name"
+		}
+	],
+	"type":"update"
+};
+ */
+function updateProperties({ body, trigger, properties }) {
+	const newProperties = { ...properties };
+	const targetPath = trigger.options[0].path;
+	const getValue = () => {
+		if (trigger.options[0].type === 'object') {
+			return body;
+		}
+		return body.data;
+	};
+	const targetSplitted = targetPath.split('.');
+	targetSplitted.reduce((acc, current, index) => {
+		if (!acc[current]) {
+			// eslint-disable-next-line no-param-reassign
+			acc[current] = {};
+		}
+		if (index === targetSplitted.length - 1) {
+			// eslint-disable-next-line no-param-reassign
+			acc[current] = getValue();
+		}
+		return acc[current];
+	}, newProperties);
+
+	return { properties: newProperties };
+}
+
 export default {
 	// dynamic_values, server side
 	healthcheck: validation,
 	schema: updateSchema,
+	update: updateProperties,
 	validation,
 	suggestions,
 	error: onError,

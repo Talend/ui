@@ -20,6 +20,9 @@
             "type": {
               "type": "string"
             },
+            "like": {
+              "type": "string"
+            },
             "restrictedType": {
               "type": "string"
             },
@@ -70,6 +73,24 @@
                     "key": "id"
                   }
                 ]
+              },
+              {
+                "action":"updateProperties",
+                "family":"update",
+                "options":[
+                  {
+                    "path":"desert.like",
+                    "type":"string"
+                  }
+                ],
+                "parameters":[
+                  {
+                    "key":"type",
+                    "path":"desert.type"
+                  }
+                ],
+                "type":"update"
+
               }
             ],
             "widget": "datalist"
@@ -120,6 +141,12 @@
             "key": "desert.description",
             "title": "Description",
             "widget": "textarea"
+          },
+          {
+            "conditions": [],
+            "key": "desert.like",
+            "title": "Like",
+            "widget": "text"
           }
         ],
         "widget": "fieldset"
