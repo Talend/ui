@@ -71,6 +71,20 @@ function suggestionForDemo() {
 	};
 }
 
+function updateProperties({ type }) {
+	switch (type) {
+		case 'clafoutis':
+		case 'pomme-savane':
+		case 'crumble':
+		case 'tarte-au-citron':
+			return { data: 'yes !' };
+		case 'coquillettes-crevettes':
+			return { data: 'this is not a dessert !' };
+		default:
+			return { data: 'don t know that' };
+	}
+}
+
 const TRIGGERS = {
 	validation: {
 		urlValidation,
@@ -86,6 +100,9 @@ const TRIGGERS = {
 	},
 	suggestions: {
 		suggestionForDemo,
+	},
+	update: {
+		updateProperties,
 	},
 };
 

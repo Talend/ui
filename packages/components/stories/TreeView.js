@@ -9,9 +9,9 @@ const structure = [
 	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], toggled: false },
 	{ name: 'pikachu', children: [{ name: 'raichu' }], toggled: true },
 	{
+		id: 'selected',
 		name: 'Abra',
 		toggled: true,
-		selected: true,
 		children: [
 			{
 				name: 'Kadabra',
@@ -31,33 +31,46 @@ const structureWithIcons = [
 		name: 'hitmonlee',
 		children: [{ name: 'Hitmonchan' }],
 		toggled: false,
-		icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png' },
+		icon: {
+			name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png',
+		},
 	},
 	{
 		name: 'pikachu',
 		children: [
 			{
 				name: 'raichu',
-				icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/2026-Shiny-Raichu.png' },
+				icon: {
+					name:
+						'src-http://static.pokemonpets.com/images/monsters-images-300-300/2026-Shiny-Raichu.png',
+				},
 			},
 		],
 		toggled: true,
-		icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/2025-Shiny-Pikachu.png' },
+		icon: {
+			name:
+				'src-http://static.pokemonpets.com/images/monsters-images-300-300/2025-Shiny-Pikachu.png',
+		},
 	},
 	{
+		id: 'selected',
 		name: 'Abra',
 		icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/63-Abra.png' },
 		toggled: true,
-		selected: true,
 		children: [
 			{
 				name: 'Kadabra',
-				icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/64-Kadabra.png' },
+				icon: {
+					name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/64-Kadabra.png',
+				},
 				toggled: true,
 				children: [
 					{
 						name: 'Alakazam',
-						icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/65-Alakazam.png' },
+						icon: {
+							name:
+								'src-http://static.pokemonpets.com/images/monsters-images-300-300/65-Alakazam.png',
+						},
 					},
 				],
 			},
@@ -65,64 +78,81 @@ const structureWithIcons = [
 	},
 ];
 
-const removeAction = [{
-	action: action('itemRemoveCallback'),
-	icon: 'talend-trash',
-	label: 'remove element',
-}];
+const removeAction = [
+	{
+		action: action('itemRemoveCallback'),
+		icon: 'talend-trash',
+		label: 'remove element',
+	},
+];
 
-const actions = [{
-	action: action('itemAddCallback'),
-	icon: 'talend-plus',
-	label: 'Add Item',
-}, {
-	action: action('itemEditCallback'),
-	icon: 'talend-pencil',
-	label: 'Edit Item',
-}, {
-	action: action('itemRemoveCallback'),
-	icon: 'talend-trash',
-	label: 'Remove Item',
-}];
+const actions = [
+	{
+		action: action('itemAddCallback'),
+		icon: 'talend-plus',
+		label: 'Add Item',
+	},
+	{
+		action: action('itemEditCallback'),
+		icon: 'talend-pencil',
+		label: 'Edit Item',
+	},
+	{
+		action: action('itemRemoveCallback'),
+		icon: 'talend-trash',
+		label: 'Remove Item',
+	},
+];
 
-const structureWithCounterAndAction = [{
-	name: 'hitmonlee',
-	toggled: true,
-	children: [{
-		name: 'raichu',
+const structureWithCounterAndAction = [
+	{
+		name: 'hitmonlee',
+		toggled: true,
+		children: [
+			{
+				name: 'raichu',
+				showCounter: true,
+				counter: 111,
+				actions: removeAction,
+			},
+		],
+		counter: -1,
 		showCounter: true,
-		counter: 111,
 		actions: removeAction,
-	}],
-	counter: -1,
-	showCounter: true,
-	actions: removeAction,
-}, {
-	name: 'pikachu',
-	toggled: true,
-	counter: 2911,
-	showCounter: true,
-	actions: removeAction,
-}];
+	},
+	{
+		name: 'pikachu',
+		toggled: true,
+		counter: 2911,
+		showCounter: true,
+		actions: removeAction,
+	},
+];
 
-const structureWithActions = [{
-	name: 'hitmonlee',
-	toggled: true,
-	children: [{
-		name: 'raichu',
+const structureWithActions = [
+	{
+		name: 'hitmonlee',
+		toggled: true,
+		children: [
+			{
+				name: 'raichu',
+				actions,
+			},
+		],
 		actions,
-	}],
-	actions,
-}, {
-	name: 'pikachu',
-	toggled: true,
-	actions,
-}];
+	},
+	{
+		name: 'pikachu',
+		toggled: true,
+		actions,
+	},
+];
 
 const defaultProps = {
 	structure,
 	onSelect: action('onSelect'),
-	onClick: action('onClick'),
+	onToggle: action('onToggle'),
+	selectedId: 'selected',
 };
 
 const withAddAction = {
@@ -146,61 +176,89 @@ const withActions = {
 };
 withActions.structure = structureWithActions;
 
-const hugeStructure = [{
-	name: 'Hitmonlee1',
-	toggled: true,
-	children: [{
-		name: 'Hitmonchan2',
+const hugeStructure = [
+	{
+		name: 'Hitmonlee1',
 		toggled: true,
-		children: [{
-			name: 'Hitmonchan3',
-			toggled: true,
-			children: [{
-				name: 'Hitmonchan4',
+		children: [
+			{
+				name: 'Hitmonchan2',
 				toggled: true,
-				children: [{
-					name: 'Hitmonchan5',
-					toggled: true,
-					children: [{
-						name: 'Hitmonchan6',
+				children: [
+					{
+						name: 'Hitmonchan3',
 						toggled: true,
-						children: [{
-							name: 'Hitmonchan7',
-							toggled: true,
-							children: [{
-								name: 'Hitmonchan8',
+						children: [
+							{
+								name: 'Hitmonchan4',
 								toggled: true,
-								children: [{
-									name: 'Hitmonchan9',
-									toggled: true,
-									children: [{
-										name: 'Hitmonchan10',
+								children: [
+									{
+										name: 'Hitmonchan5',
 										toggled: true,
-										children: [{
-											name: 'Hitmonchen11',
-											toggled: true,
-											children: [{
-												name: 'Hitmonchen12',
+										children: [
+											{
+												name: 'Hitmonchan6',
 												toggled: true,
-												children: [{
-													name: 'Hitmonchen13',
-													toggled: true,
-													children: [{
-														name: 'Hitmonchen14',
-													}],
-												}],
-											}],
-										}],
-									}],
-								}],
-							}],
-						}],
-					}],
-				}],
-			}],
-		}],
-	}],
-}];
+												children: [
+													{
+														name: 'Hitmonchan7',
+														toggled: true,
+														children: [
+															{
+																name: 'Hitmonchan8',
+																toggled: true,
+																children: [
+																	{
+																		name: 'Hitmonchan9',
+																		toggled: true,
+																		children: [
+																			{
+																				name: 'Hitmonchan10',
+																				toggled: true,
+																				children: [
+																					{
+																						name: 'Hitmonchen11',
+																						toggled: true,
+																						children: [
+																							{
+																								name: 'Hitmonchen12',
+																								toggled: true,
+																								children: [
+																									{
+																										name: 'Hitmonchen13',
+																										toggled: true,
+																										children: [
+																											{
+																												name: 'Hitmonchen14',
+																											},
+																										],
+																									},
+																								],
+																							},
+																						],
+																					},
+																				],
+																			},
+																		],
+																	},
+																],
+															},
+														],
+													},
+												],
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+		],
+	},
+];
 
 const withDeepStructure = {
 	...defaultProps,
@@ -210,10 +268,13 @@ withDeepStructure.structure = hugeStructure;
 const cornerCaseLongName = {
 	...defaultProps,
 };
-cornerCaseLongName.structure = [{
-	name: 'Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1 Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1',
-	toggled: true,
-}];
+cornerCaseLongName.structure = [
+	{
+		name:
+			'Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1 Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1',
+		toggled: true,
+	},
+];
 
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
@@ -223,9 +284,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with action example: </h3>
 			<div style={style}>
 				<IconsProvider />
@@ -237,9 +296,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				The icons can be customized, passign the Icon components props
-			</p>
+			<p>The icons can be customized, passign the Icon components props</p>
 			<div style={style}>
 				<IconsProvider />
 				<TreeView {...withAddAction} structure={structureWithIcons} />
@@ -250,9 +307,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Custom header and action tooltip property-set example: </h3>
 			<div style={style}>
 				<IconsProvider />
@@ -264,9 +319,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without action example: </h3>
 			<div style={style}>
 				<IconsProvider />
@@ -278,9 +331,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set without header example: </h3>
 			<div style={style}>
 				<IconsProvider />
@@ -292,9 +343,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with remove action example: </h3>
 			<div style={style}>
 				<IconsProvider />
@@ -318,9 +367,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with deep structure: </h3>
 			<div style={style}>
 				<IconsProvider />
@@ -332,9 +379,7 @@ storiesOf('TreeView', module)
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
-			<p>
-				A view component to display any tree structure, like folders or categories.
-			</p>
+			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with cornercase: longname </h3>
 			<div style={style}>
 				<IconsProvider />
