@@ -5,9 +5,20 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/FieldTemplate/FieldTemplate.component.js
+  27:18  error  'loading' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.js
+  9:72  error  'loading' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
   10:11  error  Trailing spaces not allowed                     no-trailing-spaces
   12:1   error  Line 12 exceeds the maximum line length of 100  max-len
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
+  42:32  error  'loadingKeys' is missing in props validation           react/prop-types
+  43:13  error  'loadingKeys' is missing in props validation           react/prop-types
+  43:25  error  'loadingKeys.includes' is missing in props validation  react/prop-types
+
+✖ 8 problems (8 errors, 0 warnings)
 
