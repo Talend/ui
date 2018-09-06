@@ -3,16 +3,20 @@
 exports[`Radios field should render disabled input 1`] = `
 <FieldTemplate
   description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
-  required={undefined}
+  required={true}
 >
   <div
     className="radio"
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={false}
         disabled={true}
@@ -33,6 +37,8 @@ exports[`Radios field should render disabled input 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={false}
         disabled={true}
@@ -53,6 +59,8 @@ exports[`Radios field should render disabled input 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={true}
         disabled={true}
@@ -74,16 +82,20 @@ exports[`Radios field should render disabled input 1`] = `
 exports[`Radios field should render inline radios 1`] = `
 <FieldTemplate
   description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
-  required={undefined}
+  required={true}
 >
   <div
     className="radio-inline"
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -104,6 +116,8 @@ exports[`Radios field should render inline radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -124,6 +138,8 @@ exports[`Radios field should render inline radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={true}
         disabled={false}
@@ -145,16 +161,20 @@ exports[`Radios field should render inline radios 1`] = `
 exports[`Radios field should render radios 1`] = `
 <FieldTemplate
   description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
   label="My radios title"
-  required={undefined}
+  required={true}
 >
   <div
     className="radio"
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -175,6 +195,8 @@ exports[`Radios field should render radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={false}
         disabled={false}
@@ -195,6 +217,8 @@ exports[`Radios field should render radios 1`] = `
   >
     <label>
       <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
         autoFocus={true}
         checked={true}
         disabled={false}
