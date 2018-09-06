@@ -55,7 +55,7 @@ export default function Text(props) {
 	if (overlayComponent) {
 		const overlayProps = {
 			overlay: <Popover>{overlayComponent}</Popover>,
-			placement: overlayPlacement,
+			placement: overlayPlacement || 'right',
 		};
 
 		field = <OverlayTrigger {...overlayProps}>{input}</OverlayTrigger>;
@@ -106,5 +106,4 @@ Text.defaultProps = {
 	isValid: true,
 	schema: {},
 	value: '',
-	overlayPlacement: 'right',
 };
