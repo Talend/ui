@@ -199,7 +199,7 @@ export class TCompForm extends React.Component {
 					return { ...acc, [this.state[key]]: true };
 				}
 				return acc;
-			}, {})
+			}, {}),
 		);
 		console.log('getLoadingKeys', keys);
 		return keys;
