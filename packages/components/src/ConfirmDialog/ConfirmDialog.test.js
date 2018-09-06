@@ -130,6 +130,7 @@ describe('ConfirmDialog', () => {
 			size: 'large',
 			validateAction,
 			cancelAction,
+			progressLabel: 'This is loading',
 			progressValue: 25,
 		};
 

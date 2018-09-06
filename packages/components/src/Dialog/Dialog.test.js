@@ -11,6 +11,19 @@ const headerProps = {
 	header: 'Hello world',
 	show: true,
 };
+
+const subtitleProps = {
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	show: true,
+};
+const errorProps = {
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	error: 'Vestibulum molestie id massa eu pretium.',
+	show: true,
+};
+
 const actionProps = {
 	show: true,
 	header: 'Hello world',
@@ -45,6 +58,10 @@ const largeProps = {
 		onClick: jest.fn(),
 	},
 };
+const flexProps = {
+	header: 'Hello World',
+	flex: true,
+};
 
 const children = <div>BODY</div>;
 
@@ -55,6 +72,14 @@ describe('Dialog', () => {
 	});
 	it('should render header', () => {
 		const wrapper = shallow(<Dialog {...headerProps}>{children}</Dialog>);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render subtitle', () => {
+		const wrapper = shallow(<Dialog {...subtitleProps}>{children}</Dialog>);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render error', () => {
+		const wrapper = shallow(<Dialog {...errorProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render action', () => {
@@ -76,5 +101,13 @@ describe('Dialog', () => {
 			id: 'my-id',
 			className: 'foo',
 		});
+	});
+	it('render modal without modal-flex class if flex prop is not set', () => {
+		const wrapper = shallow(<Dialog {...defaultProps}>{children}</Dialog>);
+		expect(wrapper.hasClass('modal-flex')).toBe(false);
+	});
+	it('render modal with modal-flex class if flex prop is true', () => {
+		const wrapper = shallow(<Dialog {...flexProps}>{children}</Dialog>);
+		expect(wrapper.hasClass('modal-flex')).toBe(true);
 	});
 });

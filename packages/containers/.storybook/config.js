@@ -16,6 +16,7 @@ import {
 	actions as actionsSubHeader,
 	actionsCreators as actionsCreatorsSubHeader,
 } from './subheaderbar.storybook';
+import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -136,6 +137,10 @@ api.actionCreator.register('subheaderbar:cancel', actionsCreatorsSubHeader.cance
 api.actionCreator.register('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
 api.actionCreator.register('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
 api.actionCreator.register('tabbar:select', selectTab);
+api.actionCreator.register('editabletext:submit', actionsCreatorsEditableText.submitEditableText);
+api.actionCreator.register('editabletext:edit', actionsCreatorsEditableText.editEditableText);
+api.actionCreator.register('editabletext:cancel', actionsCreatorsEditableText.cancelEditableText);
+api.actionCreator.register('editabletext:change', actionsCreatorsEditableText.changeEditableText);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);
@@ -188,6 +193,29 @@ function loadStories() {
 							new Map({
 								id: 11,
 								label: 'sub foo',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+								children: new List([
+									new Map({
+										id: 111,
+										label: 'sub sub foo',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+									new Map({
+										id: 112,
+										label: 'sub sub foo bar',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
+							}),
+							new Map({
+								id: 12,
+								label: 'sub foo bar',
 								author: 'Jacques',
 								created: '10/12/2013',
 								modified: '13/02/2015',
@@ -283,6 +311,13 @@ function loadStories() {
 			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
+		actions['show:about'] = {
+			label: 'Show',
+			payload: {
+				type: 'ABOUT_DIALOG_SHOW',
+				url: 'https://tdp.us.cloud.talend.com/api/version',
+			},
+		};
 		actions['appheaderbar:logo'] = {
 			icon: 'talend-logo',
 		};
@@ -403,6 +438,7 @@ function loadStories() {
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',
+			className: 'btn-inverse',
 			actionCreator: 'cancel:hide:dialog',
 		};
 		actions['action:overlay:component'] = {

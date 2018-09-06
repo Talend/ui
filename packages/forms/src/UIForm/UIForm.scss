@@ -1,4 +1,16 @@
-:global(.tc-drawer-container) {
+.uiform {
+	font-size: 1.6rem;
+
+	:global(.tf-title-text-mode) {
+		font-size: 1.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #555;
+	}
+}
+
+:global(.tc-drawer-container),
+:global(.modal-body) {
 	> .uiform {
 		display: flex;
 		flex-direction: column;
@@ -9,15 +21,17 @@
 	.form-content {
 		flex-grow: 1;
 		min-height: 0;
-		padding: 10px;
 		overflow-y: auto;
 	}
-
+}
+:global(.tc-drawer-container) {
+	.form-content {
+		padding: 10px;
+	}
 	.form-actions {
-		padding: 0;
-		width: 100%;
-		padding: $padding-small;
 		background-color: $wild-sand;
+		padding: $padding-small;
+		width: 100%;
 	}
 }
 

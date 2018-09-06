@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox field in text mode should render checked value 1`] = `
+<FieldTemplate
+  className="theme-checkbox"
+  id="myForm"
+  label="My checkbox title"
+>
+  <Icon
+    aria-hidden={false}
+    aria-label={true}
+    className="theme-icon"
+    name="talend-check"
+  />
+</FieldTemplate>
+`;
+
+exports[`CheckBox field in text mode should render unchecked value 1`] = `
+<FieldTemplate
+  className="theme-checkbox"
+  id="myForm"
+  label="My checkbox title"
+>
+  <Icon
+    aria-hidden={false}
+    aria-label={false}
+    className="theme-icon theme-cross"
+    name="talend-cross"
+  />
+</FieldTemplate>
+`;

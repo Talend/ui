@@ -35,14 +35,10 @@ export function getId(parent) {
 
 /**
  * Enhance VirtualizedList.Content columnData with the row parent id
- * @param parent The row parent instance
  * @param field The VirtualizedList.Content instance
  */
-export function getColumnData(parent, field) {
-	return {
-		...field.props.columnData,
-		id: getId(parent),
-	};
+export function getColumnData(field) {
+	return field.props.columnData;
 }
 
 /**
@@ -78,7 +74,7 @@ export function getRowData(parent, index) {
  */
 export function getCellData(field, parent, index) {
 	return field.props.cellDataGetter({
-		columnData: getColumnData(parent, field),
+		columnData: getColumnData(field),
 		dataKey: getDataKey(field),
 		rowData: getRowData(parent, index),
 	});
@@ -107,7 +103,7 @@ export function renderCell(index, parent, field, type) {
 	const cellRenderer = getCellRenderer(field);
 	return cellRenderer({
 		cellData: getCellData(field, parent, index),
-		columnData: getColumnData(parent, field),
+		columnData: getColumnData(field),
 		dataKey: getDataKey(field),
 		rowData: getRowData(parent, index),
 		rowIndex: index,

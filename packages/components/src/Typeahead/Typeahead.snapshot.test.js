@@ -8,6 +8,7 @@ const itemsObject = [
 		icon: {
 			name: 'fa fa-filter',
 			title: 'icon',
+			role: 'search',
 		},
 		suggestions: [
 			{
@@ -69,6 +70,7 @@ describe('Typeahead', () => {
 			const props = {
 				id: 'my-search',
 				position: 'right',
+				role: 'searchbox',
 			};
 
 			// when
@@ -150,5 +152,24 @@ describe('Typeahead', () => {
 			// then
 			expect(wrapper).toMatchSnapshot();
 		});
+	});
+
+	it('should pass input extra props', () => {
+		// given
+		const props = {
+			id: 'my-search',
+			position: 'right',
+			role: 'searchbox',
+			inputProps: {
+				'aria-label': 'my custom label',
+				'aria-describedby': 'desc-id',
+			},
+		};
+
+		// when
+		const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
 	});
 });

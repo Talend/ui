@@ -33,3 +33,40 @@ The we have to give to the column the sort function we want to apply.
 ```
 
 It's all done. The list would apply the custom sort.
+
+## Custom action support for filterBar and sorting
+
+1. custom action for filterBar
+
+The custom actions for filterBar allows to override default actions onToggle or onFilter (ex: for a server side filter).
+Following sagas are dispatched to perform server side operations onToggle or onFilter,
+```
+	LIST_TOGGLE_FILTER: 'LIST_TOGGLE_FILTER',
+	LIST_FILTER_CHANGE: 'LIST_FILTER_CHANGE'
+```
+Setting the following attributes in cmf settings will disable the default filter and paging,
+```
+	"toolbar": {
+              "filter": {
+                "defaultFiltering": false
+              }
+              "pagination": {
+                "defaultPaging": false
+              }
+            }
+```
+
+2. custom action for sorting
+
+The custom actions on sort allows to override default action onSorting (ex: for a server side sorting).
+Following sagas are dispatched to perform server side operations onSorting,
+
+```
+	LIST_CHANGE_SORT_ORDER: 'LIST_CHANGE_SORT_ORDER'
+```
+Setting the following attributes in cmf settings will disable the default sorting,
+```
+	"sort": {
+               "defaultSorting": false
+            }
+```

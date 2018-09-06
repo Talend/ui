@@ -9,8 +9,9 @@ import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
 
-const PADDING_NORMAL = 15;
-const PADDING_LARGE = 20;
+const BASE_PADDING = 30;
+const CARET_WIDTH = 12;
+const PADDING = 20;
 
 /**
  * return the default open or closed folder icon if non is specified on item
@@ -44,6 +45,13 @@ TreeViewIcon.propTypes = {
 	toggled: PropTypes.bool,
 };
 
+function focusOn(event, element) {
+	event.stopPropagation();
+	if (element) {
+		element.focus();
+	}
+}
+
 /**
  * Internal: you should not use it
  * Single item of TreeView component
@@ -53,7 +61,6 @@ TreeViewIcon.propTypes = {
  * 		  item.actions optional, array with actions' to be displayed meta-info
  * @param onSelect required, callback function to trigger once item was clicked
  * @param onClick required, callback function to trigger once item was clicked
- * @param depth optional, depth of an item in a tree
  *
  * @returns XML, jsx to display
  */
@@ -61,10 +68,11 @@ TreeViewIcon.propTypes = {
 class TreeViewItem extends React.Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
+		index: PropTypes.number.isRequired,
 		item: PropTypes.shape({
+			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			name: PropTypes.string.isRequired,
 			toggled: PropTypes.bool,
-			selected: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
 			icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 			actions: PropTypes.arrayOf(
@@ -77,63 +85,239 @@ class TreeViewItem extends React.Component {
 			counter: PropTypes.number,
 			showCounter: PropTypes.bool,
 		}).isRequired,
-		onClick: PropTypes.func.isRequired,
+		itemSiblings: PropTypes.array,
+		level: PropTypes.number.isRequired,
+		onToggle: PropTypes.func.isRequired,
+		onToggleAllSiblings: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
-		depth: PropTypes.number,
+		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 
 	static defaultProps = {
-		depth: 0,
+		level: 1,
 	};
 
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
+		this.onToggle = this.onToggle.bind(this);
+		this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
-		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
+		this.renderIconAction = this.renderIconAction.bind(this);
+		this.renderTreeViewChildren = this.renderTreeViewChildren.bind(this);
+		this.onMouseLeave = this.onMouseLeave.bind(this);
+		this.onMouseEnter = this.onMouseEnter.bind(this);
+		this.state = {
+			hovered: false,
+		};
+	}
+
+	onMouseEnter() {
+		this.setState({
+			hovered: true,
+		});
+	}
+
+	onMouseLeave() {
+		this.setState({
+			hovered: false,
+		});
 	}
 
 	onKeyDown(event) {
-		if (event.keyCode === keycode.codes.enter) {
-			this.onSelect();
+		switch (event.keyCode) {
+			case keycode.codes.enter:
+			case keycode.codes.space:
+				this.onSelect(event);
+				break;
+			case keycode.codes.left:
+				if (this.hasChildren() && this.props.item.toggled) {
+					this.onToggle(event);
+				} else if (!this.hasChildren() || !this.props.item.toggled) {
+					focusOn(event, this.getParentItem());
+				}
+				break;
+			case keycode.codes.right:
+				if (this.hasChildren() && !this.props.item.toggled) {
+					this.onToggle(event);
+				} else if (this.hasChildren() && this.props.item.toggled) {
+					focusOn(event, this.getFirstChildItem());
+				}
+				break;
+			case keycode.codes.down:
+				focusOn(event, this.getNextItem());
+				break;
+			case keycode.codes.up:
+				focusOn(event, this.getPreviousItem());
+				break;
+			case keycode.codes.home:
+				focusOn(event, this.getFirstItem());
+				break;
+			case keycode.codes.end:
+				focusOn(event, this.getLastItem());
+				break;
+			case keycode.codes['numpad *']:
+				this.onToggleAllSiblings(event);
+				break;
+			default:
+				break;
 		}
 	}
 
-	onSelect() {
-		this.containerRef.focus();
-		this.props.onClick(this.props.item);
+	onToggleAllSiblings(event) {
+		event.stopPropagation();
+		return this.props.onToggleAllSiblings(this.props.itemSiblings);
+	}
+
+	onSelect(event) {
+		event.stopPropagation();
 		return this.props.onSelect(this.props.item);
 	}
 
-	renderTreeViewItem(child, i) {
+	onToggle(event) {
+		event.stopPropagation();
+		return this.props.onToggle(this.props.item);
+	}
+
+	getAllItems() {
+		return this.containerRef.closest('ul[role="tree"]').querySelectorAll('li[role="treeitem"]');
+	}
+
+	getFirstItem() {
+		return this.containerRef.closest('ul[role="tree"]').querySelector('li[role="treeitem"]');
+	}
+
+	getLastItem() {
+		const nodes = this.getAllItems();
+		return nodes.item(nodes.length - 1);
+	}
+
+	getParentItem() {
+		return this.containerRef.parentElement.closest('li[role="treeitem"]');
+	}
+
+	getFirstChildItem() {
+		return this.containerRef.querySelector('li[role="treeitem"]');
+	}
+
+	getNextItem() {
+		let nextElement;
+		let currentFound;
+		let hasNext;
+
+		const nodes = this.getAllItems().values();
+
+		do {
+			const { value, done } = nodes.next();
+
+			if (currentFound) {
+				nextElement = value;
+				hasNext = false;
+			} else {
+				currentFound = value === this.containerRef;
+				hasNext = !done;
+			}
+		} while (hasNext);
+
+		return nextElement;
+	}
+
+	getPreviousItem() {
+		let previousElement;
+		let hasNext;
+
+		const nodes = this.getAllItems().values();
+
+		do {
+			const { value, done } = nodes.next();
+			const currentFound = value === this.containerRef;
+
+			if (currentFound) {
+				hasNext = false;
+			} else {
+				previousElement = value;
+				hasNext = !done;
+			}
+		} while (hasNext);
+
+		return previousElement;
+	}
+
+	getTabIndex() {
+		let shouldBeFocusable;
+		if (this.props.selectedId === undefined) {
+			shouldBeFocusable = this.props.index === 0;
+		} else {
+			shouldBeFocusable = this.isSelected();
+		}
+
+		return shouldBeFocusable ? 0 : -1;
+	}
+
+	hasChildren() {
+		return this.props.item.children && this.props.item.children.length;
+	}
+
+	isSelected() {
+		const { item, selectedId } = this.props;
+		if (selectedId === undefined) {
+			return false;
+		}
+		if (Array.isArray(selectedId)) {
+			return selectedId.includes(item.id);
+		}
+		return item.id === selectedId;
+	}
+
+	isToggled() {
+		const { children = [], toggled = false } = this.props.item;
+		if (!children.length) {
+			return undefined;
+		}
+		return toggled;
+	}
+
+	renderTreeViewChildren() {
+		if (!this.isToggled()) {
+			return null;
+		}
+
+		const { children } = this.props.item;
 		return (
-			<TreeViewItem
-				id={this.props.id && `${this.props.id}-${i}`}
-				item={child}
-				onSelect={this.props.onSelect}
-				onClick={this.props.onClick}
-				depth={this.props.depth + 1}
-				key={i}
-			/>
+			<ul key="children" role="group" className={css['tc-treeview-ul']}>
+				{children.map((child, i) => (
+					<TreeViewItem
+						id={this.props.id && `${this.props.id}-${i}`}
+						item={child}
+						itemSiblings={children}
+						onSelect={this.props.onSelect}
+						onToggle={this.props.onToggle}
+						onToggleAllSiblings={this.props.onToggleAllSiblings}
+						key={i}
+						index={i + 1}
+						selectedId={this.props.selectedId}
+						level={this.props.level + 1}
+					/>
+				))}
+			</ul>
 		);
 	}
 
-	renderIconAction(label, icon, action, id) {
+	renderIconAction({ action, id, ...actionProps }) {
 		let safeId = id;
 		if (!id && this.props.id) {
-			safeId = `${this.props.id}-${icon}`;
+			safeId = `${this.props.id}-${actionProps.icon}`;
 		}
 		return (
 			<Action
-				label={label}
-				icon={icon}
+				{...actionProps}
 				onClick={event => {
 					event.stopPropagation();
 					action(this.props.item);
 				}}
 				tooltipPlacement="right"
 				hideLabel
-				key={label}
+				key={actionProps.label}
 				id={safeId}
 				link
 			/>
@@ -141,10 +325,9 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, item, depth = 0 } = this.props;
+		const { id, index, item, level, itemSiblings } = this.props;
 		const {
 			toggled = false,
-			selected,
 			hidden,
 			name,
 			children = [],
@@ -153,44 +336,60 @@ class TreeViewItem extends React.Component {
 			icon,
 			counter = children.length,
 		} = item;
-		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
-
-		const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
+		const paddingLeft = `${(level - 1) * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
+		const showOpenedFolder = !!(children.length && (toggled || this.state.hovered));
 
 		return (
-			<li className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}>
-				<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
+				id={id}
+				role="treeitem"
+				tabIndex={this.getTabIndex()}
+				aria-expanded={this.isToggled()}
+				aria-level={level}
+				aria-posinset={index}
+				aria-setsize={itemSiblings.length}
+				aria-selected={this.isSelected()}
+				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
+				onClick={this.onSelect}
+				onKeyDown={this.onKeyDown}
+				data-hidden={hidden}
+				onMouseEnter={this.onMouseEnter}
+				onMouseLeave={this.onMouseLeave}
+				ref={ref => {
+					this.containerRef = ref;
+				}}
+			>
+				<div
 					className={classNames('tc-treeview-item', css['tc-treeview-item'])}
-					data-selected={selected}
-					onClick={this.onSelect}
-					id={id}
 					style={{ paddingLeft }}
-					role="button"
-					tabIndex="0"
-					ref={element => {
-						this.containerRef = element;
-					}}
-					onKeyDown={this.onKeyDown}
 				>
-					{!children.length || (
-						<Icon
+					{children.length ? (
+						<Action
+							key="toggle"
 							className={css['tc-treeview-toggle']}
-							name="talend-caret-down"
-							transform={toggled ? undefined : 'rotate-270'}
-							title={toggleIconLabel}
+							icon="talend-caret-down"
+							iconTransform={toggled ? undefined : 'rotate-270'}
+							id={id && `${id}-toggle`}
+							onClick={this.onToggle}
+							label=""
+							aria-hidden
+							tabIndex="-1"
+							link
 						/>
-					)}
-					<TreeViewIcon icon={icon} toggled={toggled} />
-					<span className="tc-treeview-item-name">{name}</span>
-					<div className={css['tc-treeview-item-ctrl']}>
-						{showCounter && <Badge label={counter.toString()} />}
-						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action, a.id))}
+					) : null}
+					<TreeViewIcon key="icon" icon={icon} toggled={showOpenedFolder} />
+					<span
+						key="label"
+						className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}
+					>
+						{name}
+					</span>
+					<div key="actions" className={css['tc-treeview-item-ctrl']}>
+						{showCounter && <Badge key="badge" label={counter.toString()} />}
+						{actions && actions.map(this.renderIconAction)}
 					</div>
 				</div>
-				{children &&
-					toggled && (
-						<ul className={css['tc-treeview-ul']}>{children.map(this.renderTreeViewItem)}</ul>
-					)}
+				{this.renderTreeViewChildren()}
 			</li>
 		);
 	}

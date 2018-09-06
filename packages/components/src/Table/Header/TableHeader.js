@@ -20,7 +20,7 @@ function renderHeaderCell(column, sorters, onSortChange) {
 	const key = column.key;
 	const thKey = `th-${key}`;
 	return (
-		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])}>
+		<th key={thKey} className={classnames(thKey, theme['tc-table-head-th'])} id={column.id}>
 			<HeaderComponent
 				key={column.key}
 				column={column}
@@ -39,9 +39,11 @@ function renderHeaderCell(column, sorters, onSortChange) {
 /**
  * This component displays the header of the table.
  */
-export default function TableHeader({ columns, sorters, onSortChange }) {
+export default function TableHeader({ columns, sorters, onSortChange, withHeader }) {
 	return (
-		<thead className={classnames('tc-table-head', theme['tc-table-head'])}>
+		<thead
+			className={classnames('tc-table-head', theme['tc-table-head'], { 'sr-only': !withHeader })}
+		>
 			<tr className={classnames('tc-table-head-row', theme['tc-table-head-row'])}>
 				{columns.map(column => renderHeaderCell(column, sorters, onSortChange))}
 			</tr>
@@ -53,6 +55,7 @@ TableHeader.propTypes = {
 	columns: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string.isRequired,
+			id: PropTypes.string.isRequired,
 			label: PropTypes.string,
 			headRenderer: PropTypes.func,
 			headExtraProps: PropTypes.object,
@@ -60,4 +63,5 @@ TableHeader.propTypes = {
 	).isRequired,
 	sorters: PropTypes.object,
 	onSortChange: PropTypes.func,
+	withHeader: PropTypes.bool,
 };

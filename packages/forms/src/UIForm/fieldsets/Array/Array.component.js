@@ -1,21 +1,25 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import Widget from '../../Widget';
-import Message from '../../Message';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
 import defaultWidgets from '../../utils/widgets';
 
-import theme from './Array.scss';
-
 function adaptKeyWithIndex(keys, index) {
-	let indexedKeys = keys;
-	const firstIndexPlaceholder = indexedKeys.indexOf('');
-	if (firstIndexPlaceholder >= 0) {
-		indexedKeys = [...keys];
-		indexedKeys[firstIndexPlaceholder] = index;
+	/*
+	2 cases : 
+	- key = ["my", "array", "", "nested"] for nested items fields
+	- key = ["my", "array"] : this defines array itself. Each item will receive a key ["my", "array", index]
+	To check that, we spot the first empty string in the key
+	- find it: replace it, it's a nested element
+	- not found : it's an array item key, we add the index after
+	*/
+	let firstIndexPlaceholder = keys.indexOf('');
+	if (firstIndexPlaceholder === -1) {
+		firstIndexPlaceholder = keys.length;
 	}
+	const indexedKeys = [...keys];
+	indexedKeys[firstIndexPlaceholder] = index;
 	return indexedKeys;
 }
 
@@ -33,15 +37,25 @@ function getRange(previousIndex, nextIndex) {
 	};
 }
 
-function getItemSchema(arraySchema, index) {
-	// insert index in all fields
-	const items = arraySchema.items.map(item => ({
+function getNestedItemSchema(item, index) {
+	const adaptedItem = {
 		...item,
-		key: adaptKeyWithIndex(item.key, index),
-	}));
+		key: item.key && adaptKeyWithIndex(item.key, index),
+	};
+
+	if (item.items) {
+		adaptedItem.items = adaptedItem.items.map(nestedItem => getNestedItemSchema(nestedItem, index));
+	}
+
+	return adaptedItem;
+}
+
+function getArrayItemSchema(arraySchema, index) {
+	// insert index in all fields
+	const items = arraySchema.items.map(item => getNestedItemSchema(item, index));
 
 	// insert index in item schema key
-	const key = arraySchema.key.concat(index);
+	const key = arraySchema.key && adaptKeyWithIndex(arraySchema.key, index);
 
 	return {
 		key,
@@ -125,36 +139,41 @@ export default class ArrayWidget extends React.Component {
 		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
+	getArrayTemplate() {
+		const baseTemplateId = 'array';
+		const templateId = `${baseTemplateId}_${this.props.displayMode}`;
+		const ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
+		if (!ArrayTemplate) {
+			return this.props.templates[baseTemplateId] || defaultTemplates[baseTemplateId];
+		}
+		return ArrayTemplate;
+	}
+
 	renderItem(index) {
 		return (
 			<Widget
 				{...this.props}
 				id={this.props.id && `${this.props.id}-${index}`}
-				schema={getItemSchema(this.props.schema, index)}
+				schema={getArrayItemSchema(this.props.schema, index)}
 				value={this.props.value[index]}
 			/>
 		);
 	}
 
 	render() {
-		const { errorMessage, isValid, schema } = this.props;
+		const { schema } = this.props;
 		const canReorder = schema.reorder !== false;
-
-		const templateId = 'array';
-		const ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
+		const ArrayTemplate = this.getArrayTemplate();
 
 		return (
-			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
-				<ArrayTemplate
-					{...this.props}
-					canReorder={canReorder}
-					onAdd={this.onAdd}
-					onReorder={this.onReorder}
-					onRemove={this.onRemove}
-					renderItem={this.renderItem}
-				/>
-				<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
-			</div>
+			<ArrayTemplate
+				{...this.props}
+				canReorder={canReorder}
+				onAdd={this.onAdd}
+				onReorder={this.onReorder}
+				onRemove={this.onRemove}
+				renderItem={this.renderItem}
+			/>
 		);
 	}
 }
@@ -168,9 +187,8 @@ ArrayWidget.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayWidget.propTypes = {
-		errorMessage: PropTypes.string,
+		displayMode: PropTypes.string,
 		id: PropTypes.string,
-		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,

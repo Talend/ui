@@ -29,6 +29,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 				icon={icon.name}
 				bsStyle={icon.bsStyle}
 				className={classNames(theme['only-icon-cls'], 'tc-typeahead-toggle')}
+				role={icon.role}
 				tooltipPlacement={icon.tooltipPlacement}
 			/>
 		);
@@ -80,6 +81,8 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			value: rest.value,
 			icon,
 			caret: rest.caret,
+			role: rest.role,
+			...rest.inputProps,
 		},
 	};
 
@@ -150,6 +153,7 @@ Typeahead.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 		bsStyle: PropTypes.string,
+		role: PropTypes.string,
 	}),
 
 	// input

@@ -9,22 +9,9 @@ import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
-function listClasses() {
-	return classNames(theme['tc-list-items'], 'tc-list-items');
-}
-
-function itemsClasses() {
-	return classNames(theme['tc-listview-items'], 'tc-listview-items');
-}
-
-function itemContainer(additionalClassName) {
-	return classNames(
-		theme['tc-item-container'],
-		theme[additionalClassName],
-		'tc-item-container',
-		additionalClassName,
-	);
-}
+const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
+const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');
+const itemContainer = classNames(theme['tc-item-container'], 'tc-item-container');
 
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
@@ -82,7 +69,9 @@ export class ItemsComponent extends React.PureComponent {
 			>
 				{({ measure }) => (
 					<div
-						className={classNames(itemContainer(isToggle && 'toggle'), {
+						className={classNames(itemContainer, {
+							[theme.toggle]: isToggle,
+							toggle: isToggle,
 							expanded: currentItem && currentItem.expanded,
 						})}
 						key={key}
@@ -112,6 +101,10 @@ export class ItemsComponent extends React.PureComponent {
 		const { id, isSwitchBox, toggleAllChecked, onToggleAll, t } = this.props;
 		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		const toggleAllSelector = isSwitchBox ? 'switch checkbox' : 'checkbox';
+		const label = toggleAllChecked
+			? t('LISTVIEW_ITEMS_DESELECT_ALL', { defaultValue: 'Deselect all' })
+			: t('LISTVIEW_ITEMS_SELECT_ALL', { defaultValue: 'Select all' });
+
 		return (
 			<div className={toggleAllSelector}>
 				<label htmlFor={toggleAllId}>
@@ -119,9 +112,9 @@ export class ItemsComponent extends React.PureComponent {
 						id={toggleAllId}
 						type="checkbox"
 						onChange={onToggleAll}
-						checked={!!toggleAllChecked}
+						checked={toggleAllChecked}
 					/>
-					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', { defaultValue: 'Toggle all' })}</strong>
+					<strong>{label}</strong>
 				</label>
 			</div>
 		);
@@ -159,7 +152,7 @@ export class ItemsComponent extends React.PureComponent {
 
 	render() {
 		return (
-			<div className={itemsClasses()}>
+			<div className={itemsClasses}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -170,12 +163,14 @@ export class ItemsComponent extends React.PureComponent {
 							 */
 							ref={node => (this.list = node)}
 							items={this.props.items}
-							className={listClasses()}
+							className={listClasses}
 							rowRenderer={this.rowRenderer}
 							width={width}
 							height={height}
 							rowCount={this.getRowCount()}
 							rowHeight={this.getRowHeight}
+							role="listbox"
+							containerProps={this.props.containerProps}
 						/>
 					)}
 				</AutoSizer>
@@ -185,6 +180,7 @@ export class ItemsComponent extends React.PureComponent {
 }
 
 ItemsComponent.propTypes = {
+	containerProps: PropTypes.object,
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({

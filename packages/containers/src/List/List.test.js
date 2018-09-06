@@ -344,6 +344,69 @@ describe('Container List', () => {
 		expect(props.rowHeight).toBe(3);
 	});
 
+	it('should call action creator when onToggle event is triggered', () => {
+		// given
+		const dispatch = jest.fn();
+		const setState = jest.fn();
+		const wrapper = shallow(
+			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
+			{
+				lifecycleExperimental: true,
+			},
+		);
+		const props = wrapper.props();
+		const event = { type: 'click' };
+		const payload = { filterDocked: true, searchQuery: '' };
+		const data = { event, payload, type: 'LIST_TOGGLE_FILTER' };
+		expect(dispatch).not.toBeCalled();
+		// when
+		props.toolbar.filter.onToggle(event, payload);
+		// then
+		expect(dispatch).toBeCalledWith(data);
+	});
+
+	it('should call action creator when onFilter event is triggered', () => {
+		// given
+		const dispatch = jest.fn();
+		const setState = jest.fn();
+		const wrapper = shallow(
+			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
+			{
+				lifecycleExperimental: true,
+			},
+		);
+		const props = wrapper.props();
+		const event = { type: 'click' };
+		const payload = { searchQuery: 'test' };
+		const data = { event, payload, type: 'LIST_FILTER_CHANGE' };
+		expect(dispatch).not.toBeCalled();
+		// when
+		props.toolbar.filter.onFilter(event, payload);
+		// then
+		expect(dispatch).toBeCalledWith(data);
+	});
+
+	it('should call action creator when sorting onChange event is triggered', () => {
+		// given
+		const dispatch = jest.fn();
+		const setState = jest.fn();
+		const wrapper = shallow(
+			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
+			{
+				lifecycleExperimental: true,
+			},
+		);
+		const props = wrapper.props();
+		const event = { type: 'click' };
+		const payload = { isDescending: true, field: 'name' };
+		const data = { event, payload, type: 'LIST_CHANGE_SORT_ORDER' };
+		expect(dispatch).not.toBeCalled();
+		// when
+		props.list.sort.onChange(event, payload);
+		// then
+		expect(dispatch).toBeCalledWith(data);
+	});
+
 	describe('Toggle selection', () => {
 		it('should select one item', () => {
 			// given
@@ -472,7 +535,7 @@ describe('Connected List', () => {
 		};
 
 		// when
-		const props = mapStateToProps(state, { collectionId: 'cid' });
+		const props = mapStateToProps(state, { collectionId: 'cid', items });
 
 		// then
 		expect(props).toMatchSnapshot();
@@ -530,9 +593,99 @@ describe('Connected List', () => {
 		};
 
 		// when
-		const props = mapStateToProps(state, { collectionId: 'cid', toolbar: {} });
+		const props = mapStateToProps(state, { collectionId: 'cid', items, toolbar: {} });
 
 		// then
 		expect(props).toMatchSnapshot();
+	});
+
+	it('should disable filtering when defaultFiltering is set to false', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					'Container(List)': {
+						default: {
+							displayMode: 'large',
+							searchQuery: 'Title',
+							itemsPerPage: 0,
+							startIndex: 0,
+							sortOn: 'name',
+							sortAsc: true,
+							filterDocked: true,
+						},
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+		const initalSettings = cloneDeep(settings);
+		initalSettings.items = fromJS(items);
+		initalSettings.toolbar.filter.defaultFiltering = false;
+		// when : no collectionId defined
+		const props = mapStateToProps(state, initalSettings);
+
+		// then
+		expect(props.items.size).toBe(items.size);
+	});
+
+	it('should disable sorting when defaultSorting is set to false', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					'Container(List)': {
+						default: {
+							displayMode: 'large',
+							searchQuery: 'Title',
+							itemsPerPage: 0,
+							startIndex: 0,
+							sortOn: 'id',
+							sortAsc: false,
+							filterDocked: true,
+						},
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+		const initalSettings = cloneDeep(settings);
+		initalSettings.items = fromJS(items);
+		initalSettings.toolbar.sort.defaultSorting = false;
+		// when : no collectionId defined
+		const props = mapStateToProps(state, initalSettings);
+
+		// then
+		expect(props.items.toJS()[0].id).toBe(1);
+	});
+
+	it('should disable paging when defaultPaging is set to false', () => {
+		// given
+		const state = {
+			cmf: {
+				components: fromJS({
+					'Container(List)': {
+						default: {
+							displayMode: 'large',
+							searchQuery: 'Title',
+							itemsPerPage: 1,
+							startIndex: 1,
+							sortOn: 'name',
+							sortAsc: true,
+							filterDocked: true,
+						},
+					},
+				}),
+				collections: new Map(),
+			},
+		};
+		const initalSettings = cloneDeep(settings);
+		initalSettings.items = fromJS(items);
+		initalSettings.toolbar.pagination.defaultPaging = false;
+		// when : no collectionId defined
+		const props = mapStateToProps(state, initalSettings);
+
+		// then
+		expect(props.items.size).toBe(items.size);
 	});
 });

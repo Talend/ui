@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Action } from '../../index';
+import { Action } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleInput from './CellTitleInput.component';
 
