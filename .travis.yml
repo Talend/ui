@@ -12,7 +12,6 @@ notifications:
 before_install:
   - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
-  - if [[ "$TALEND_COMMIT_MSG" =~ 'chore(ci)' ]]; then travis_terminate 0; fi
   # Configure git
   - .travis/before_install.sh
 
@@ -22,7 +21,7 @@ matrix:
     - language: node_js
       env: NAME=test_react_15 REACT_VERSION="^15.6.2"
       node_js:
-        - '8'
+        - '10'
       before_install:
         # this install is necessary to get version.js dependencies
         - npm install commander@^2.9.0
