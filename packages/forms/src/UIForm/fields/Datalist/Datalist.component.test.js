@@ -8,6 +8,7 @@ const schema = {
 	disabled: false,
 	placeholder: 'Type here',
 	readOnly: false,
+	required: true,
 	restricted: true,
 	title: 'My List',
 	titleMap: [

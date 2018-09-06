@@ -9,6 +9,7 @@ describe('TextArea field', () => {
 		description: 'my text input hint',
 		key: ['user', 'comment'],
 		placeholder: 'Type something here',
+		required: true,
 		title: 'My input title',
 		type: 'text',
 	};

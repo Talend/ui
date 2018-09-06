@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -58,6 +59,60 @@ function createCommonProps(tab) {
 	};
 }
 
+class DisplayModeForm extends React.Component {
+	static propTypes = {
+		category: PropTypes.string,
+		doc: PropTypes.string,
+	};
+
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.toggleDisplayModeText = this.toggleDisplayModeText.bind(this);
+	}
+
+	toggleDisplayModeText(event) {
+		this.setState({ displayMode: event.target.checked ? 'text' : undefined });
+	}
+
+	render() {
+		return (
+			<section>
+				<IconsProvider />
+				{this.props.doc && (
+					<a
+						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${
+							this.props.category
+						}/${this.props.doc}`}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Documentation
+					</a>
+				)}
+				<form>
+					<div className="form-group">
+						<div className="checkbox">
+							<label>
+								<input
+									type="checkbox"
+									checked={this.state.displayMode === 'text'}
+									onChange={this.toggleDisplayModeText}
+								/>
+								Text mode
+							</label>
+						</div>
+					</div>
+				</form>
+
+				<hr style={{ borderColor: 'black' }} />
+
+				<UIForm {...this.props} displayMode={this.state.displayMode} />
+			</section>
+		);
+	}
+}
+
 function createStory(category, sampleFilenames, filename) {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
@@ -69,19 +124,12 @@ function createStory(category, sampleFilenames, filename) {
 		story() {
 			const { doc, ...data } = object(name, sampleFilenames(filename));
 			return (
-				<section>
-					<IconsProvider />
-					{doc && (
-						<a
-							href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Documentation
-						</a>
-					)}
-					<UIForm {...createCommonProps('state')} data={data} />
-				</section>
+				<DisplayModeForm
+					{...createCommonProps('state')}
+					data={data}
+					doc={doc}
+					category={category}
+				/>
 			);
 		},
 	};

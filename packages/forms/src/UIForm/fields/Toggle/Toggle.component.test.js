@@ -6,6 +6,7 @@ import Toggle from './Toggle.component';
 describe('Toggle field', () => {
 	const schema = {
 		description: 'my text input hint',
+		required: true,
 		title: 'My input title',
 		type: 'text',
 	};

@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "children": [],
+    "id": "desert",
+    "label": "Desert",
+    "name": "desert",
+    "version": 0
+  },
+  "ui": {
+    "jsonSchema": {
+      "properties": {
+        "configuration": {
+          "properties": {
+            "solrDataset": {
+              "properties": {
+                "schema": {
+                  "items": {
+                    "title": "schema",
+                    "type": "string"
+                  },
+                  "title": "schema",
+                  "type": "array"
+                },
+                "solrUrl": {
+                  "properties": {
+                    "password": {
+                      "title": "password",
+                      "type": "string"
+                    },
+                    "login": {
+                      "title": "login",
+                      "type": "string"
+                    },
+                    "url": {
+                      "pattern": "^(http://|https://).*",
+                      "title": "URL",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "title": "solrUrl",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "core"
+              ],
+              "title": "solrDataset",
+              "type": "object"
+            }
+          },
+          "title": "configuration",
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "Input",
+      "type": "object"
+    },
+    "properties": {},
+    "uiSchema": [
+      {
+        "items": [
+          {
+            "key": "configuration.solrDataset.solrUrl.url",
+            "placeholder": "url",
+            "required": true,
+            "title": "URL",
+            "widget": "text"
+          },
+          {
+            "key": "configuration.solrDataset.solrUrl.login",
+            "placeholder": "login",
+            "required": false,
+            "title": "login",
+            "widget": "text"
+          },
+          {
+            "key": "configuration.solrDataset.solrUrl.password",
+            "placeholder": "password",
+            "required": false,
+            "title": "password",
+            "type": "password",
+            "widget": "text"
+          },
+          {
+            "key": "button_healthcheck_configuration.solrDataset.solrUrl",
+            "title": "Validate Datastore",
+            "triggers": [
+              {
+                "action": "basicAuth",
+                "family": "Solr",
+                "parameters": [
+                  {
+                    "key": "basicAuth.username",
+                    "path": "configuration.solrDataset.solrUrl.login"
+                  },
+                  {
+                    "key": "basicAuth.password",
+                    "path": "configuration.solrDataset.solrUrl.password"
+                  },
+                  {
+                    "key": "basicAuth.url",
+                    "path": "configuration.solrDataset.solrUrl.url"
+                  }
+                ],
+                "type": "healthcheck"
+              }
+            ],
+            "widget": "button"
+          }
+        ],
+        "key": "configuration.solrDataset.solrUrl",
+        "placeholder": "solrUrl",
+        "required": false,
+        "title": "solrUrl"
+      }
+    ]
+  }
+}
