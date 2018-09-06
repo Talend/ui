@@ -64,6 +64,7 @@ class TabBar extends React.Component {
 				<div>
 					<Nav
 						bsStyle="tabs"
+						className="tc-tab-bar"
 						ref={ref => {
 							this.ref = ref;
 						}}
