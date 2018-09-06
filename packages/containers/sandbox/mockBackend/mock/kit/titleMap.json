@@ -20,6 +20,9 @@
             "type": {
               "type": "string"
             },
+            "like": {
+              "type": "string"
+            },
             "restrictedType": {
               "type": "string"
             },
@@ -73,6 +76,35 @@
               }
             ],
             "widget": "datalist"
+          },
+          {
+            "widget": "button",
+            "title": "Do we like it ?",
+            "triggers": [
+              {
+                "action":"updateProperties",
+                "family":"update",
+                "options":[
+                  {
+                    "path":"desert.like",
+                    "type":"string"
+                  }
+                ],
+                "parameters":[
+                  {
+                    "key":"type",
+                    "path":"desert.type"
+                  }
+                ],
+                "type":"update"
+              }
+            ]
+          },
+          {
+            "conditions": [],
+            "key": "desert.like",
+            "title": "Like",
+            "widget": "text"
           },
           {
             "key": "desert.restrictedType",
