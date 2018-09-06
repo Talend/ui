@@ -9,7 +9,8 @@ import { convertValue } from '../../utils/properties';
 export default function Text(props) {
 	const {
 		id,
-		isValid, errorMessage,
+		isValid,
+		errorMessage,
 		onChange,
 		onFinish,
 		schema,
@@ -34,21 +35,23 @@ export default function Text(props) {
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
-	const input = (<input
-		id={id}
-		autoFocus={autoFocus}
-		className="form-control"
-		disabled={disabled}
-		onBlur={event => onFinish(event, { schema })}
-		onChange={event => onChange(event, { schema, value: convertValue(type, event.target.value) })}
-		placeholder={placeholder}
-		readOnly={readOnly}
-		type={type}
-		value={value}
-		aria-invalid={!isValid} // eslint-disable-line jsx-a11y/aria-proptypes
-		aria-required={schema.required}
-		aria-describedby={`${descriptionId} ${errorId}`}
-	/>);
+	const input = (
+		<input
+			id={id}
+			autoFocus={autoFocus}
+			className="form-control"
+			disabled={disabled}
+			onBlur={event => onFinish(event, { schema })}
+			onChange={event => onChange(event, { schema, value: convertValue(type, event.target.value) })}
+			placeholder={placeholder}
+			readOnly={readOnly}
+			type={type}
+			value={value}
+			aria-invalid={!isValid} // eslint-disable-line jsx-a11y/aria-proptypes
+			aria-required={schema.required}
+			aria-describedby={`${descriptionId} ${errorId}`}
+		/>
+	);
 
 	let field;
 
