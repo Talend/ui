@@ -86,8 +86,7 @@ export function* deleteResourceValidate(
 
 export function* deleteResourceCancel() {
 	const action = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
-	const url =
-		get(action, 'data.model.onCancelRedirectUrl', get(action, 'data.model.redirectUrl'));
+	const url = get(action, 'data.model.onCancelRedirectUrl', get(action, 'data.model.redirectUrl'));
 	yield call(redirect, url);
 }
 
