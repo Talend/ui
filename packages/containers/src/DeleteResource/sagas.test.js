@@ -70,7 +70,6 @@ describe('internals', () => {
 			expect(effect.PUT.action.type).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_SUCCESS);
 			expect(effect.PUT.action.model.labelResource).toBe('Foo');
 			effect = gen.next().value;
-			effect = gen.next().value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
 			expect(effect.CALL.args[0]).toBe('/resources');
 		});

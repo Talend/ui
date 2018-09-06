@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import isString from 'lodash/isString';
 import { take, put, race, call, select } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
 import deleteResourceConst from './constants';
@@ -24,7 +25,7 @@ got ${resourcePath}`,
 }
 
 export function* redirect(url) {
-	if (!url) {
+	if (!isString(url)) {
 		throw new Error('redirect url can not be empty');
 	}
 	yield put({
@@ -78,21 +79,15 @@ export function* deleteResourceValidate(
 					labelResource: resource.get('label') || resource.get('name', ''),
 				},
 			});
-			yield put(
-				cmf.actions.collections.mutate(resourceLocator, {
-					delete: [safeId],
-				}),
-			);
 		}
-		const url = get(action, 'data.model.redirectUrl');
-		yield call(redirect, url);
+		yield call(redirect, get(action, 'data.model.redirectUrl'));
 	}
 }
 
 export function* deleteResourceCancel() {
 	const action = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
 	const url =
-		get(action, 'data.model.onCancelRedirectUrl') || get(action, 'data.model.redirectUrl');
+		get(action, 'data.model.onCancelRedirectUrl', get(action, 'data.model.redirectUrl'));
 	yield call(redirect, url);
 }
 
