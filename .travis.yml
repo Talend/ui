@@ -32,7 +32,7 @@ matrix:
     - language: node_js
       env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
-        - '8'
+        - '10'
       script:
         - yarn test
 
