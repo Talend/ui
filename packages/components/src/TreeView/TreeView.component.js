@@ -77,7 +77,7 @@ function TreeView(props) {
 					/>
 				)}
 			</header>
-			<ul className={theme['tc-treeview-ul']} role="tree" aria-labelledby={titleId}>
+			<ul className={theme['tc-treeview-list']} role="tree" aria-labelledby={titleId}>
 				{structure.map((item, i) => (
 					<TreeViewItem
 						id={id && `${id}-${i}`}
@@ -117,7 +117,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func.isRequired,
 		noHeader: PropTypes.bool,
 		className: PropTypes.string,
-		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 		style: PropTypes.object,
 	};
 }

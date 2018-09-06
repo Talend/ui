@@ -90,7 +90,7 @@ class TreeViewItem extends React.Component {
 		onToggle: PropTypes.func.isRequired,
 		onToggleAllSiblings: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
-		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 
 	static defaultProps = {
@@ -243,12 +243,23 @@ class TreeViewItem extends React.Component {
 		return previousElement;
 	}
 
+	isSelected() {
+		const { item, selectedId } = this.props;
+		if (selectedId === undefined) {
+			return false;
+		}
+		if (Array.isArray(selectedId)) {
+			return selectedId.includes(item.id);
+		}
+		return item.id === selectedId;
+	}
+
 	getTabIndex() {
 		let shouldBeFocusable;
 		if (this.props.selectedId === undefined) {
 			shouldBeFocusable = this.props.index === 0;
 		} else {
-			shouldBeFocusable = this.props.item.id === this.props.selectedId;
+			shouldBeFocusable = this.isSelected();
 		}
 
 		return shouldBeFocusable ? 0 : -1;
@@ -337,7 +348,7 @@ class TreeViewItem extends React.Component {
 				aria-level={level}
 				aria-posinset={index}
 				aria-setsize={itemSiblings.length}
-				aria-selected={selectedId === item.id}
+				aria-selected={this.isSelected()}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
 				onClick={this.onSelect}
 				onKeyDown={this.onKeyDown}

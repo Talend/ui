@@ -25,7 +25,7 @@ exports[`TreeView should render 1`] = `
   </header>
   <ul
     aria-labelledby="id-title"
-    className="theme-tc-treeview-ul"
+    className="theme-tc-treeview-list"
     role="tree"
   >
     <TreeViewItem
