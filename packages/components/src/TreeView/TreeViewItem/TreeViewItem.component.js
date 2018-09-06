@@ -243,17 +243,6 @@ class TreeViewItem extends React.Component {
 		return previousElement;
 	}
 
-	isSelected() {
-		const { item, selectedId } = this.props;
-		if (selectedId === undefined) {
-			return false;
-		}
-		if (Array.isArray(selectedId)) {
-			return selectedId.includes(item.id);
-		}
-		return item.id === selectedId;
-	}
-
 	getTabIndex() {
 		let shouldBeFocusable;
 		if (this.props.selectedId === undefined) {
@@ -267,6 +256,17 @@ class TreeViewItem extends React.Component {
 
 	hasChildren() {
 		return this.props.item.children && this.props.item.children.length;
+	}
+
+	isSelected() {
+		const { item, selectedId } = this.props;
+		if (selectedId === undefined) {
+			return false;
+		}
+		if (Array.isArray(selectedId)) {
+			return selectedId.includes(item.id);
+		}
+		return item.id === selectedId;
 	}
 
 	isToggled() {
@@ -325,7 +325,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, index, item, level, selectedId, itemSiblings } = this.props;
+		const { id, index, item, level, itemSiblings } = this.props;
 		const {
 			toggled = false,
 			hidden,
