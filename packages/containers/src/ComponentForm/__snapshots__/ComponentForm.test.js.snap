@@ -94,7 +94,6 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
   onChange={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
-  uiform={true}
   widgets={
     Object {
       "datalist": [Function],

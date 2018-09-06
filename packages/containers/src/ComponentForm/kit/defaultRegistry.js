@@ -17,6 +17,7 @@
 import clonedeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import { removeError, addError, getError } from '@talend/react-forms/lib/UIForm/utils/errors';
+import { mutateValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 
 /**
  * Change errors on the target input
@@ -111,10 +112,43 @@ function onError({ errors, error, schema }) {
 	return { errors: getNewErrors(errors, schema, extractErrorMessage(error)) };
 }
 
+/**
+ * Update the content of the properties
+ * @param body is the new value
+ * @param trigger the trigger that call it
+ * @example
+const trigger = {
+	"action":"guessMe",
+	"family":"test",
+	"options":[
+		{
+			"path":"root.updatable_config",
+			"type":"object" // or "string"
+		}
+	],
+	"parameters":[
+		{
+			"key":"arg0.name",
+			"path":"root.updatable_config.name"
+		}
+	],
+	"type":"update"
+};
+ */
+function updateProperties({ body, trigger, properties }) {
+	const targetPath = trigger.options[0].path;
+	const schema = { key: targetPath.split('.') };
+	const value = trigger.options[0].type === 'object' ? body : body.data;
+	return {
+		properties: mutateValue(properties, schema, value),
+	};
+}
+
 export default {
 	// dynamic_values, server side
 	healthcheck: validation,
 	schema: updateSchema,
+	update: updateProperties,
 	validation,
 	suggestions,
 	error: onError,
