@@ -35,14 +35,13 @@ export default function Table({
 			)}
 			<table>
 				{title && <caption key="caption">{title}</caption>}
-				{withHeader && (
-					<TableHeader
-						key="headers"
-						columns={columns}
-						sorters={sorters}
-						onSortChange={onSortChange}
-					/>
-				)}
+				<TableHeader
+					key="headers"
+					columns={columns}
+					sorters={sorters}
+					onSortChange={onSortChange}
+					withHeader={withHeader}
+				/>
 				<TableBody
 					key="body"
 					elements={elements}

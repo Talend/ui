@@ -162,4 +162,10 @@ stories
 				{center}
 			</SubHeaderBar>
 		</div>
+	))
+	.addWithInfo('with right actions loading', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
+		</div>
 	));

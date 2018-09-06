@@ -24,7 +24,7 @@ export default function callTrigger(
 ) {
 	const triggers = triggersDefinitions.filter(t => eventNames.indexOf(t.onEvent) > -1);
 	if (!triggers || !triggers.length) {
-		return null;
+		return Promise.resolve();
 	}
 
 	onLoading(true);

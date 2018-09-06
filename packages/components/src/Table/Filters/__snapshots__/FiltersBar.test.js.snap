@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`two-filters 1`] = `
-<div
+<form
   className="tc-table-filters-bar theme-tc-table-filters-bar"
 >
   <button
@@ -47,5 +47,5 @@ exports[`two-filters 1`] = `
       </span>
     </label>
   </div>
-</div>
+</form>
 `;
