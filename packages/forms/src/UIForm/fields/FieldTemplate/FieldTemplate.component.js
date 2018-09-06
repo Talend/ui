@@ -24,6 +24,7 @@ function FieldTemplate(props) {
 	const groupsClassNames = classNames('form-group', theme.template, {
 		'has-error': !props.isValid,
 		required: props.required,
+		loading: props.loading,
 	});
 
 	return (

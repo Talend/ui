@@ -6,7 +6,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, loading } = props;
 	const {
 		autoFocus,
 		description,
@@ -34,6 +34,7 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			loading={loading}
 		>
 			<input
 				id={id}
@@ -45,7 +46,7 @@ export default function Text(props) {
 					onChange(event, { schema, value: convertValue(type, event.target.value) })
 				}
 				placeholder={placeholder}
-				readOnly={readOnly}
+				readOnly={readOnly || loading}
 				type={type}
 				value={value}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes

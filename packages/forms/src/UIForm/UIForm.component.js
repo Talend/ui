@@ -258,6 +258,7 @@ export class UIFormComponent extends React.Component {
 					templates={this.props.templates}
 					widgets={this.state.widgets}
 					displayMode={this.props.displayMode}
+					loadingKeys={this.props.loadingKeys}
 				/>
 			));
 		const buttonsRenderer = () => (
@@ -344,6 +345,7 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		getComponent: PropTypes.func,
+		loadingKeys: PropTypes.arrayOf(PropTypes.string),
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }

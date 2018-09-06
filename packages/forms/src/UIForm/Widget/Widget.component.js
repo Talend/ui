@@ -37,6 +37,14 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
+
+	let loading;
+	if (props.schema.key && props.loadingKeys) {
+		if (props.loadingKeys.includes(props.schema.key.join('.'))) {
+			loading = true;
+		}
+	}
+
 	return (
 		<WidgetImpl
 			{...props}
@@ -46,6 +54,7 @@ export default function Widget(props) {
 			isValid={!error}
 			value={getValue(props.properties, props.schema)}
 			options={options}
+			loading={loading}
 		/>
 	);
 }

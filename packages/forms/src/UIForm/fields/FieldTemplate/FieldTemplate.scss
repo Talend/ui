@@ -1,5 +1,10 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
 .template {
 	&:global(.required) :global(.control-label):after {
 		content: '*';
+	}
+	&:global(.loading) {
+		@include heartbeat(object-blink);
 	}
 }

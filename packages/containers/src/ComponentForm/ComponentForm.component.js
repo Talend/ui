@@ -6,6 +6,7 @@ import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
+import objectId from 'bson-objectid';
 import kit from './kit';
 import tcompFieldsWidgets from './fields';
 
@@ -70,11 +71,14 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 export class TCompForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { loadingKeys: {} };
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
+		this.addLoadingKeys = this.addLoadingKeys.bind(this);
+		this.resetLoadingKeys = this.resetLoadingKeys.bind(this);
+		this.getLoadingKeys = this.getLoadingKeys.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
 		this.setupTrigger(props);
 
@@ -130,7 +134,9 @@ export class TCompForm extends React.Component {
 			type: TCompForm.ON_TRIGGER_BEGIN,
 			...payload,
 		});
+		const id = this.addLoadingKeys(payload.trigger);
 		return this.trigger(event, payload).then(data => {
+			this.resetLoadingKeys(id);
 			this.props.dispatch({
 				type: TCompForm.ON_TRIGGER_END,
 				...payload,
@@ -186,6 +192,43 @@ export class TCompForm extends React.Component {
 		};
 	}
 
+	getLoadingKeys() {
+		const keys = Object.keys(
+			Object.keys(this.state).reduce((acc, key) => {
+				if (key.startsWith('loading-')) {
+					return { ...acc, [this.state[key]]: true };
+				}
+				return acc;
+			}, {})
+		);
+		console.log('getLoadingKeys', keys);
+		return keys;
+	}
+
+	addLoadingKeys(trigger) {
+		console.log('addLoadingKeys', trigger);
+		if (!trigger) {
+			return undefined;
+		}
+		if (!trigger.options) {
+			return undefined;
+		}
+		if (!trigger.options[0]) {
+			return undefined;
+		}
+		const id = `loading-${objectId()}`;
+		console.log('addLoadingKeys.id', id);
+		this.setState({ [id]: trigger.options[0].path });
+		return id;
+	}
+
+	resetLoadingKeys(id) {
+		console.log('resetLoadingKeys', id);
+		if (id && this.state[id]) {
+			this.setState({ [id]: undefined });
+		}
+	}
+
 	render() {
 		const uiSpecs = this.getUISpec();
 
@@ -204,6 +247,7 @@ export class TCompForm extends React.Component {
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
+			loadingKeys: this.getLoadingKeys(),
 		};
 
 		return <Form {...props} />;
