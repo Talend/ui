@@ -30,7 +30,7 @@ program.on('--help', () => {
 
 program.parse(process.argv);
 
-const stackVersion = program.stack || require('./lerna.json').version;
+const stackVersion = program.stack || require('../lerna.json').version;
 
 if (program.debug) {
 	console.log(`use stack version ${stackVersion}`);
@@ -55,20 +55,22 @@ const VERSIONS = require('./dependencies');
 const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 
 const files = [
-	'./packages/cmf/package.json',
-	'./packages/cmf-cqrs/package.json',
-	'./packages/cmf-webpack-plugin/package.json',
-	'./packages/components/package.json',
-	'./packages/containers/package.json',
-	'./packages/forms/package.json',
-	'./packages/generator/package.json',
-	'./packages/icons/package.json',
-	'./packages/sagas/package.json',
-	'./packages/theme/package.json',
-	'./packages/datagrid/package.json',
+	path.join(__dirname, '../packages/cmf/package.json'),
+	path.join(__dirname, '../packages/cmf-cqrs/package.json'),
+	path.join(__dirname, '../packages/cmf-webpack-plugin/package.json'),
+	path.join(__dirname, '../packages/components/package.json'),
+	path.join(__dirname, '../packages/containers/package.json'),
+	path.join(__dirname, '../packages/forms/package.json'),
+	path.join(__dirname, '../packages/generator/package.json'),
+	path.join(__dirname, '../packages/icons/package.json'),
+	path.join(__dirname, '../packages/sagas/package.json'),
+	path.join(__dirname, '../packages/theme/package.json'),
+	path.join(__dirname, '../packages/datagrid/package.json'),
 ];
 
-const templates = ['./packages/generator/generators/react-cmf/templates/package.json'];
+const templates = [
+	path.join(__dirname, '../packages/generator/generators/react-cmf/templates/package.json'),
+];
 
 if (program.debug) {
 	console.log(`will update ${files}`);
@@ -138,7 +140,7 @@ function save(ppath, data) {
 			throw new Error(`error opening file: ${err}`);
 		}
 
-		fs.write(fd, data, 0, data.length, null, error => {
+		fs.write(fd, data, 0, data.length, error => {
 			if (error) {
 				throw new Error(`error writing file: ${error}`);
 			}
@@ -184,7 +186,11 @@ function updateFiles(filesList, versions) {
 }
 
 if (program.path) {
-	const filesList = [program.path];
+	let filePath = program.path;
+	if (!path.isAbsolute(filePath)) {
+		filePath = path.join(process.cwd(), filePath);
+	}
+	const filesList = [filePath];
 	updateFiles(filesList, Object.assign({}, VERSIONS, STACK_VERSION));
 } else {
 	updateFiles(files, Object.assign(VERSIONS));
