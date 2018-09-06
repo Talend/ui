@@ -346,5 +346,40 @@ describe('Array component', () => {
 			// then
 			expect(item).toMatchSnapshot();
 		});
+
+		it('should render adapt schema injecting the index deeply', () => {
+			// given
+			const deepSchema = {
+				...schema,
+				items: [
+					{
+						widget: 'fieldset',
+						title: 'Extra level of fieldset for nesting',
+						items: schema.items,
+					},
+				],
+			};
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={deepSchema}
+					value={value}
+				/>,
+			);
+
+			// when
+			const item = wrapper.instance().renderItem(1);
+
+			// then
+			const nestedItemsKey = item.props.schema.items[0].items.map(nextItem => nextItem.key);
+			expect(nestedItemsKey).toEqual([
+				['comments', 1, 'name'],
+				['comments', 1, 'email'],
+				['comments', 1, 'comment'],
+			]);
+		});
 	});
 });

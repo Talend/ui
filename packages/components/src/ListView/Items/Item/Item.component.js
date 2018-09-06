@@ -56,35 +56,37 @@ class Item extends Component {
 		}
 
 		return (
-			<div id={id}>
-				<div className="checkbox-container">
-					<div className={itemClassName} key={item.index}>
-						<label htmlFor={itemId}>
-							<input
-								id={itemId}
-								type="checkbox"
-								checked={item.checked}
-								onChange={event => item.onChange(event, item, parentItem)}
-								aria-label={ariaLabel}
-							/>
-							<span className={itemLabelClasses()}>
-								{searchCriteria ? getSearchedLabel(item.label) : item.label}
-							</span>
-						</label>
-						{children && (
-							<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
-								<Action
-									bsStyle="link"
-									icon="talend-caret-down"
-									onClick={event => item.onExpandToggle(event, item)}
-									label={expandLabel}
-									hideLabel
-								/>
-							</div>
-						)}
-						{children && item.expanded && <div className="checkbox-nested">{children}</div>}
+			<div
+				id={id}
+				className={itemClassName}
+				key={item.index}
+				role="option"
+				aria-selected={item.checked}
+			>
+				<label htmlFor={itemId}>
+					<input
+						id={itemId}
+						type="checkbox"
+						checked={item.checked}
+						onChange={event => item.onChange(event, item, parentItem)}
+						aria-label={ariaLabel}
+					/>
+					<span className={itemLabelClasses()}>
+						{searchCriteria ? getSearchedLabel(item.label) : item.label}
+					</span>
+				</label>
+				{children && (
+					<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
+						<Action
+							bsStyle="link"
+							icon="talend-caret-down"
+							onClick={event => item.onExpandToggle(event, item)}
+							label={expandLabel}
+							hideLabel
+						/>
 					</div>
-				</div>
+				)}
+				{children && item.expanded && <div className="checkbox-nested">{children}</div>}
 			</div>
 		);
 	}
