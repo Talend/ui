@@ -15,48 +15,44 @@ exports[`JSONLike ComplexItem basic render 1`] = `
       </sup>
     </TooltipTrigger>
   }
+  edited={Array []}
+  hasChildren={true}
   icon={
-    <Icon
-      aria-hidden={false}
-      aria-label="Show the name item's content"
-      className="theme-icon"
-      name="talend-chevron-left"
+    <Action
+      aria-hidden={true}
+      className="theme-toggle tc-object-viewer-toggle"
+      icon="talend-caret-down"
+      iconTransform="rotate-270"
+      id={undefined}
+      label=""
+      link={true}
       onClick={[Function]}
-      transform="rotate-180"
+      tabIndex="-1"
     />
   }
-  jsonpath={undefined}
+  info={Object {}}
+  isOpened={false}
   name="name"
   onSelect={[Function]}
-  selectedJsonpath={undefined}
+  opened={Array []}
   t={[Function]}
-  tag={undefined}
   type={null}
 />
 `;
 
 exports[`JSONLike should render 1`] = `
-<div
-  className="tc-object-viewer theme-container"
-  id="my-object-container"
-  style={undefined}
->
-  <Item
-    data={
-      Object {
-        "bar": Object {
-          "hello": "hello",
-        },
-        "foo": "foo",
-      }
+<JSONLike
+  data={
+    Object {
+      "bar": Object {
+        "hello": "hello",
+      },
+      "foo": "foo",
     }
-    edited={Array []}
-    id="my-object"
-    jsonpath="$"
-    onEdit={[Function]}
-    onSelect={[Function]}
-    onToggle={[Function]}
-    opened={Array []}
-  />
-</div>
+  }
+  id="my-object"
+  onKeyDown={[Function]}
+  onSelect={[Function]}
+  onToggle={[Function]}
+/>
 `;

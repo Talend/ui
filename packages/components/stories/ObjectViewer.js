@@ -223,17 +223,14 @@ const handler = {
 	onToggle: action('onToggle'),
 };
 
-let selectedJsonpath = "$[0]['attributes']";
+const selectedJsonpath = "$[0]['attributes']";
 const showType = true;
 
 const handlerHighlight = {
 	edited: ["$[0]['int']"],
 	opened: ['$', '$[0]', "$[0]['attributes']"],
 	onClick: action('onClick'),
-	onSelect: (e, jsonpath) => {
-		selectedJsonpath = jsonpath;
-		action('onSelect');
-	},
+	onSelect: action('onSelect'),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 	onToggle: action('onToggle'),
@@ -243,10 +240,7 @@ const openedNativeTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
 	onClick: action('onClick'),
-	onSelect: (e, jsonpath) => {
-		selectedJsonpath = jsonpath;
-		action('onSelect');
-	},
+	onSelect: action('onSelect'),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 	onToggle: action('onToggle'),
@@ -256,7 +250,7 @@ const rootOpenedTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
 	onClick: action('onClick'),
-	onSelect: (e, jsonpath) => (selectedJsonpath = jsonpath),
+	onSelect: action('onSelect'),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 	onToggle: action('onToggle'),
@@ -300,10 +294,7 @@ const handlerTags = {
 		"$[0]['location']": withInfo,
 	},
 	onClick: action('onClick'),
-	onSelect: (e, jsonpath) => {
-		selectedJsonpath = jsonpath;
-		action('onSelect');
-	},
+	onSelect: action('onSelect'),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 	onToggle: action('onToggle'),

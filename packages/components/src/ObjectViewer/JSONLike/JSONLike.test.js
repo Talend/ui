@@ -202,12 +202,11 @@ describe('JSONLike', () => {
 			).toEqual('hello world');
 		});
 
-		it('don"t trigger wrapping form submit when used', () => {
+		it("don't trigger wrapping form submit when used", () => {
 			// given
 			const mockOnSelect = jest.fn();
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
-			// when
 			const wrapper = mount(
 				<form onSubmit={mockOnSubmitClick}>
 					<ComplexItem
@@ -222,11 +221,16 @@ describe('JSONLike', () => {
 					<button type="submit" onClick={mockOnSubmitClick} />
 				</form>,
 			);
-			wrapper.find('button.tc-svg-anchor').simulate('click');
+
+			expect(mockOnToggle).not.toBeCalled();
+			expect(mockOnSubmitClick).not.toBeCalled();
+
+			// when
+			wrapper.find('button.tc-object-viewer-toggle').simulate('click');
 
 			// expect
-			expect(mockOnToggle.mock.calls.length).toEqual(1);
-			expect(mockOnSubmitClick.mock.calls.length).toEqual(0);
+			expect(mockOnToggle).toBeCalled();
+			expect(mockOnSubmitClick).not.toBeCalled();
 		});
 	});
 });

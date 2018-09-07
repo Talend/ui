@@ -2,6 +2,10 @@
 	display: block;
 	font-size: 1.4rem;
 
+	> ul {
+		padding: 0;
+	}
+
 	li {
 		list-style-type: none;
 	}
@@ -24,35 +28,52 @@
 		text-overflow: ellipsis;
 	}
 
-	.selected-line {
-		background-color: rgba(93, 136, 170, 0.1);
-		color: $dove-gray;
-	}
-
-	.line {
+	.list-item {
 		display: flex;
+		flex-direction: column;
 		flex-wrap: wrap;
 
-		.icon {
-			flex: 0 0 2rem;
+		&:focus {
+			outline: none;
 
-			width: 0.9rem;
-			height: 0.9rem;
-			color: $scooter;
+			> .line {
+				background: rgba($black, 0.05);
+				color: $scooter;
+			}
 		}
 
-		.line-main {
-			flex: 1;
-			user-select: text;
-			max-width: 100%;
+		&[aria-selected='true'] > .line {
+			background-color: rgba(93, 136, 170, 0.1);
+			color: $dove-gray;
+		}
 
-			&:focus,
-			&:hover {
-				.value {
-					white-space: normal;
-					word-break: break-all;
-					overflow: visible;
-					vertical-align: top;
+		.line {
+			display: flex;
+
+			.toggle {
+				min-height: auto;
+				line-height: unset;
+
+				> svg {
+					width: 0.9rem;
+					height: 0.9rem;
+					color: $scooter;
+				}
+			}
+
+			.line-main {
+				max-width: 100%;
+				display: flex;
+				align-items: center;
+
+				&:focus,
+				&:hover {
+					.value {
+						white-space: normal;
+						word-break: break-all;
+						overflow: visible;
+						vertical-align: top;
+					}
 				}
 			}
 		}
@@ -70,15 +91,8 @@
 		}
 
 		.value {
-			max-width: calc(100% - 6em);
 			color: $brand-primary;
-			vertical-align: bottom;
-			border: none;
-			background: none;
-			padding: 0;
-			cursor: text;
 			margin-left: $padding-smaller;
-			display: inline-block;
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
@@ -96,7 +110,7 @@
 		}
 
 		.badge {
-			top: -1px;
+			top: -0.1rem;
 			margin-left: $padding-small;
 			background-color: rgba($brand-primary, 0.3);
 			color: $brand-primary;

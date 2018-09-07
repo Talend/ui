@@ -78,7 +78,7 @@ export function transform(items, props, parent) {
 		const elem = {
 			...item,
 			id: item[props.idAttr],
-			toggled: item.toggled || opened.includes(item[props.idAttr]),
+			isOpened: item.isOpened || opened.includes(item[props.idAttr]),
 			name: item[props.nameAttr],
 			parent,
 		};
@@ -87,7 +87,7 @@ export function transform(items, props, parent) {
 
 		if (item[props.idAttr] === selectedId) {
 			for (let current = elem; current.parent; current = current.parent) {
-				current.parent.toggled = true;
+				current.parent.isOpened = true;
 			}
 		}
 

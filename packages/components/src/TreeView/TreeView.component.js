@@ -82,7 +82,7 @@ function TreeView(props) {
 					<TreeViewItem
 						id={id && `${id}-${i}`}
 						item={item}
-						itemSiblings={structure}
+						siblings={structure}
 						onSelect={onSelect}
 						onToggle={onToggle}
 						onToggleAllSiblings={onToggleAllSiblings}
