@@ -29,6 +29,7 @@ class Datalist extends Component {
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
+		this.addCustomValue = this.addCustomValue.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 	}
@@ -44,7 +45,6 @@ class Datalist extends Component {
 	 */
 	onChange(event, payload) {
 		let mergedSchema = this.props.schema;
-
 		// with the possibility to have async suggestions, on restricted values inputs
 		// the validation doesn't have the enum list as it is not in the jsonSchema
 		// so we rebuild it with current titleMap from async call
@@ -73,23 +73,44 @@ class Datalist extends Component {
 		});
 	}
 
+	addCustomValue(value, multiSection) {
+		if(multiSection) {
+			return { title: 'CUSTOM', suggestions: [{name: this.props.resolveName(value), value }]};
+		}
+		return {name: this.props.resolveName(value), value };
+	}
+
 	getTitleMap() {
-		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
+		const isMultiSection = this.props.schema.options && this.props.schema.options.multiSection;
+		const titleMap =
+			this.state.titleMap ||
+			((this.props.schema.options && this.props.schema.options.titleMap) ||
+				this.props.schema.titleMap) ||
+			[];
+		let titleMapFind = titleMap;
 
 		if (!this.props.schema.restricted) {
 			const isMultiple = this.props.schema.schema.type === 'array';
-			const values = isMultiple ? this.props.value : [this.props.value];
-			const additionalOptions = values
-				.filter(value => value)
-				.filter(value => !titleMap.find(option => option.value === value))
-				.map(value => ({ name: this.props.resolveName(value), value }))
-				.reduce((acc, titleMapEntry) => {
-					acc.push(titleMapEntry);
-					return acc;
-				}, []);
-			return titleMap.concat(additionalOptions);
-		}
+			let values = isMultiple ? this.props.value : [this.props.value];
 
+			if (isMultiSection) {
+				titleMapFind = titleMap && titleMap.reduce((prev, current) => {
+					prev.push(...current.suggestions);
+					return prev;
+				 }, []);
+			}
+
+			const additionalOptions = values
+			.filter(value => value)
+			.filter(value => !titleMapFind.find(option => option.value === value))
+			.map(value => (this.addCustomValue(value, isMultiSection)))
+			.reduce((acc, titleMapEntry) => {
+				acc.push(titleMapEntry);
+				return acc;
+			}, []);
+			return titleMap.concat(additionalOptions);
+
+		}
 		return titleMap;
 	}
 
@@ -125,7 +146,9 @@ class Datalist extends Component {
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || false}
-					multiSection={false}
+					multiSection={
+						(this.props.schema.options && this.props.schema.options.multiSection) || false
+					}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
 					placeholder={this.props.schema.placeholder}
