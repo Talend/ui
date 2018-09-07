@@ -24,7 +24,7 @@ matrix:
         - '10'
       before_install:
         # this install is necessary to get version.js dependencies
-        - npm install commander@^2.9.0
+        - npm install commander
         - ./versions/version.js
       script:
         - yarn test
