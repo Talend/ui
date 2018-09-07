@@ -124,4 +124,43 @@ describe('UIForm container', () => {
 			expect(instance.state).toMatchSnapshot();
 		});
 	});
+
+	describe('#onTrigger', () => {
+		it('should call onTrigger from props', () => {
+			// given
+			const onTrigger = jest.fn(() => Promise.resolve({}));
+			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const instance = wrapper.instance();
+			expect(onTrigger).not.toBeCalled();
+
+			const event = { target: {} };
+			const payload = {
+				properties: {},
+				schema: {},
+			};
+
+			// when
+			instance.onTrigger(event, payload);
+
+			// then
+			expect(onTrigger).toBeCalledWith(event, payload);
+		});
+
+		it('should update state errors', done => {
+			// given
+			const errors = { firstname: 'my firstname is invalid' };
+			const onTrigger = jest.fn(() => Promise.resolve({ errors }));
+			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const instance = wrapper.instance();
+
+			// when
+			const triggerPromise = instance.onTrigger();
+
+			// then
+			triggerPromise.then(() => {
+				expect(instance.state.errors).toBe(errors);
+				done();
+			});
+		});
+	});
 });

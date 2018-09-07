@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -15,6 +16,8 @@ function getSelectedOptions(select, multiple) {
 
 export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
 
@@ -41,6 +44,10 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				}}
 				readOnly={readOnly}
 				value={value}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
+				aria-invalid={!isValid}
+				aria-required={schema.required}
+				aria-describedby={`${descriptionId} ${errorId}`}
 			>
 				<option disabled>{placeholder}</option>
 				{schema.titleMap &&

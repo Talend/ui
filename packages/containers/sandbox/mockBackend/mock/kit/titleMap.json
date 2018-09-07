@@ -20,8 +20,17 @@
             "type": {
               "type": "string"
             },
+            "like": {
+              "type": "string"
+            },
             "restrictedType": {
               "type": "string"
+            },
+            "typeTags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           "type": "object",
@@ -34,7 +43,9 @@
     "properties": {
       "desert": {
         "type": "clafoutis",
-        "$type_name": "Clafoutis aux poires et aux fruits"
+        "$type_name": "Clafoutis aux poires et aux fruits",
+        "typeTags": ["clafoutis"],
+        "$typeTags_name": ["Clafoutis aux poires et aux fruits"]
       }
     },
     "uiSchema": [
@@ -48,9 +59,6 @@
           },
           {
             "key": "desert.type",
-            "schema": {
-              "type": "string"
-            },
             "title": "Types",
             "titleMap": [],
             "triggers": [
@@ -70,11 +78,37 @@
             "widget": "datalist"
           },
           {
+            "widget": "button",
+            "title": "Do we like it ?",
+            "triggers": [
+              {
+                "action":"updateProperties",
+                "family":"update",
+                "options":[
+                  {
+                    "path":"desert.like",
+                    "type":"string"
+                  }
+                ],
+                "parameters":[
+                  {
+                    "key":"type",
+                    "path":"desert.type"
+                  }
+                ],
+                "type":"update"
+              }
+            ]
+          },
+          {
+            "conditions": [],
+            "key": "desert.like",
+            "title": "Like",
+            "widget": "text"
+          },
+          {
             "key": "desert.restrictedType",
             "restricted": true,
-            "schema": {
-              "type": "string"
-            },
             "title": "Types (restricted)",
             "titleMap": [],
             "triggers": [
@@ -92,6 +126,26 @@
               }
             ],
             "widget": "datalist"
+          },
+          {
+            "key": "desert.typeTags",
+            "title": "Types tags",
+            "titleMap": [],
+            "triggers": [
+              {
+                "action": "suggestionForDemo",
+                "family": "remote",
+                "type": "suggestions",
+                "onEvent": "focus",
+                "parameters": [
+                  {
+                    "path": "desert.typeTags",
+                    "key": "id"
+                  }
+                ]
+              }
+            ],
+            "widget": "multiSelectTag"
           },
           {
             "conditions": [],

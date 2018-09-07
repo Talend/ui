@@ -139,6 +139,59 @@ describe('defaultRegistry', () => {
 			});
 		});
 	});
+	describe('update', () => {
+		it('should return a new properties with type object', () => {
+			const body = { bar: 'bar' };
+			const trigger = {
+				options: [{ path: 'root.foo', type: 'object' }],
+			};
+			const properties = {
+				root: { name: 'my object' },
+			};
+			const result = service.update({ body, trigger, properties });
+			expect(result).toEqual({
+				properties: {
+					root: {
+						name: 'my object',
+						foo: { bar: 'bar' },
+					},
+				},
+			});
+		});
+		it('should return a new properties with type string', () => {
+			const body = { data: 'foo' };
+			const trigger = {
+				options: [{ path: 'root.foo', type: 'string' }],
+			};
+			const properties = {
+				root: { name: 'my object' },
+			};
+			const result = service.update({ body, trigger, properties });
+			expect(result).toEqual({
+				properties: {
+					root: {
+						name: 'my object',
+						foo: 'foo',
+					},
+				},
+			});
+		});
+		it('should create missing sub objects', () => {
+			const body = { bar: 'bar' };
+			const trigger = {
+				options: [{ path: 'root.foo', type: 'object' }],
+			};
+			const properties = {};
+			const result = service.update({ body, trigger, properties });
+			expect(result).toEqual({
+				properties: {
+					root: {
+						foo: { bar: 'bar' },
+					},
+				},
+			});
+		});
+	});
 	describe('healthcheck', () => {
 		it('should be === validation', () => {
 			// this is the case today but may change in the futur

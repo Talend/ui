@@ -5,6 +5,44 @@ exports[`Render a table width custom configuration custom-table 1`] = `
   className="tc-table theme-tc-table"
 >
   <table>
+    <thead
+      className="tc-table-head theme-tc-table-head sr-only"
+    >
+      <tr
+        className="tc-table-head-row theme-tc-table-head-row"
+      >
+        <th
+          className="th-name theme-tc-table-head-th"
+          id="my-table-name"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
+          >
+            Name
+          </div>
+        </th>
+        <th
+          className="th-type theme-tc-table-head-th"
+          id="my-table-type"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
+          >
+            Type
+          </div>
+        </th>
+        <th
+          className="th-desc theme-tc-table-head-th"
+          id="my-table-desc"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
+          >
+            Description
+          </div>
+        </th>
+      </tr>
+    </thead>
     <tbody
       className="tc-table-body theme-tc-table-body"
       onScroll={undefined}
@@ -219,6 +257,44 @@ exports[`Render a table width default configuration default-table 1`] = `
   className="tc-table theme-tc-table"
 >
   <table>
+    <thead
+      className="tc-table-head theme-tc-table-head sr-only"
+    >
+      <tr
+        className="tc-table-head-row theme-tc-table-head-row"
+      >
+        <th
+          className="th-name theme-tc-table-head-th"
+          id="my-table-name"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-name"
+          >
+            Name
+          </div>
+        </th>
+        <th
+          className="th-type theme-tc-table-head-th"
+          id="my-table-type"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-type"
+          >
+            Type
+          </div>
+        </th>
+        <th
+          className="th-desc theme-tc-table-head-th"
+          id="my-table-desc"
+        >
+          <div
+            className="tc-table-header-cell tc-table-head-label theme-tc-table-head-label tc-table-head-label-desc"
+          >
+            Description
+          </div>
+        </th>
+      </tr>
+    </thead>
     <tbody
       className="tc-table-body theme-tc-table-body"
       onScroll={undefined}

@@ -449,7 +449,7 @@ So you need to synchronize the UIForm's state with your own stat system
 
 You can add new widgets, or override an existing widget by passing a widget dictionary to the form.
 
-```
+```javascript
 import React from 'react';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 
@@ -468,10 +468,10 @@ function MyComponent(props) {
 
 To develop a custom widget, you can use the following template
 
-```
+```javascript
 import PropTypes from 'prop-types';
 import React from 'react';
-import FieldTemplate from '@talend/react-forms/lib/UIForm/FieldTemplate';
+import FieldTemplate from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
 
 export default function MyWidget(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
@@ -542,7 +542,7 @@ Text.defaultProps = {
 
 UIForm accept a `displayMode` props. The value `text` will switch display to a definition list, following the ui specs.
 
-```
+```javascript
 import React from 'react';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 
