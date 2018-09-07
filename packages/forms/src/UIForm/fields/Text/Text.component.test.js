@@ -191,4 +191,18 @@ describe('Text field', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should render input with tooltip', () => {
+		// given
+		const props = {
+			schema,
+			overlayComponent: <span>Foo</span>,
+		};
+
+		// when
+		const wrapper = shallow(<Text {...props} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });

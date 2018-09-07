@@ -68,6 +68,57 @@ exports[`Text field should render input 1`] = `
 </FieldTemplate>
 `;
 
+exports[`Text field should render input with tooltip 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId={42}
+  errorId={42}
+  errorMessage={undefined}
+  id={undefined}
+  isValid={true}
+  label="My input title"
+  labelAfter={true}
+  required={true}
+>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        placement="right"
+      >
+        <span>
+          Foo
+        </span>
+      </Popover>
+    }
+    placement="right"
+    trigger={
+      Array [
+        "hover",
+        "focus",
+      ]
+    }
+  >
+    <input
+      aria-describedby="42 42"
+      aria-invalid={false}
+      aria-required={true}
+      autoFocus={true}
+      className="form-control"
+      disabled={false}
+      id={undefined}
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something here"
+      readOnly={false}
+      type="text"
+      value=""
+    />
+  </OverlayTrigger>
+</FieldTemplate>
+`;
+
 exports[`Text field should render password input 1`] = `
 <FieldTemplate
   description="my text input hint"
