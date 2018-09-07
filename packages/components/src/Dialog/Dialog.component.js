@@ -18,6 +18,11 @@ import Progress from '../Progress';
 function Dialog({
 	action,
 	actionbar,
+    backdrop,
+    keyboard,
+    autoFocus,
+    enforceFocus,
+    restoreFocus,
 	children,
 	className,
 	closeButton,
@@ -43,6 +48,11 @@ function Dialog({
 
 	return (
 		<Modal
+			backdrop={backdrop}
+			keyboard={keyboard}
+			autoFocus={autoFocus}
+			enforceFocus={enforceFocus}
+			restoreFocus={restoreFocus}
 			bsSize={size}
 			className={classNames({ 'modal-flex': flex }, className)}
 			role="dialog"
@@ -99,12 +109,18 @@ Dialog.TYPES = {
 Dialog.displayName = 'Dialog';
 
 Dialog.defaultProps = {
+	autoFocus: true,
+	backdrop: true,
 	closeButton: true,
+	enforceFocus: true,
+	keyboard: true,
+	restoreFocus: true,
 	type: Dialog.TYPES.DEFAULT,
 };
 
 Dialog.propTypes = {
 	header: PropTypes.string,
+	backdrop: PropTypes.bool,
 	subtitle: PropTypes.string,
 	error: PropTypes.string,
 	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
@@ -115,6 +131,9 @@ Dialog.propTypes = {
 	actionbar: PropTypes.object,
 	closeButton: PropTypes.bool,
 	keyboard: PropTypes.bool,
+	autoFocus: PropTypes.bool,
+	enforceFocus: PropTypes.bool,
+	restoreFocus: PropTypes.bool,
 	getComponent: PropTypes.func,
 	components: PropTypes.object,
 	progress: PropTypes.object,
