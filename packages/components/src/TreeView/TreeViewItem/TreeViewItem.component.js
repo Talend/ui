@@ -90,7 +90,7 @@ class TreeViewItem extends React.Component {
 		level: PropTypes.number.isRequired,
 		onKeyDown: PropTypes.func.isRequired,
 		onToggle: PropTypes.func.isRequired,
-		onToggleAllSiblings: PropTypes.func.isRequired,
+		onToggleAllSiblings: PropTypes.func,
 		onSelect: PropTypes.func.isRequired,
 		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
@@ -292,6 +292,7 @@ class TreeViewItem extends React.Component {
 						id={this.props.id && `${this.props.id}-${i}`}
 						item={child}
 						siblings={children}
+						onKeyDown={this.props.onKeyDown}
 						onSelect={this.props.onSelect}
 						onToggle={this.props.onToggle}
 						onToggleAllSiblings={this.props.onToggleAllSiblings}
@@ -327,7 +328,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, index, item, level, siblings } = this.props;
+		const { id, index, item, level, onKeyDown, onSelect, onToggle, siblings } = this.props;
 		const {
 			isOpened = false,
 			hidden,
@@ -352,9 +353,9 @@ class TreeViewItem extends React.Component {
 				aria-setsize={siblings.length}
 				aria-selected={this.isSelected()}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
-				onClick={this.onSelect}
+				onClick={e => onSelect(e, item)}
 				onKeyDown={e =>
-					this.props.onKeyDown(e, this.containerRef, {
+					onKeyDown(e, this.containerRef, {
 						...item,
 						hasChildren: children.length,
 						isOpened,
@@ -379,7 +380,7 @@ class TreeViewItem extends React.Component {
 							icon="talend-caret-down"
 							iconTransform={isOpened ? undefined : 'rotate-270'}
 							id={id && `${id}-toggle`}
-							onClick={this.onToggle}
+							onClick={e => onToggle(e, item)}
 							label=""
 							aria-hidden
 							tabIndex="-1"
@@ -404,4 +405,4 @@ class TreeViewItem extends React.Component {
 	}
 }
 
-export default withTreeGesture(TreeViewItem);
+export default TreeViewItem;

@@ -146,7 +146,7 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onToggle(data) {
+	onToggle(event, data) {
 		this.props.setState(prevState => toggleState(prevState, data, this.props.idAttr));
 		if (this.props.onClickActionCreator) {
 			this.props.dispatchActionCreator(

@@ -149,6 +149,7 @@ const structureWithActions = [
 ];
 
 const defaultProps = {
+	id: 'my-treeview',
 	structure,
 	onSelect: action('onSelect'),
 	onToggle: action('onToggle'),
