@@ -18,7 +18,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
-  22:1  error  Line 22 exceeds the maximum line length of 100  max-len
+   23:1   error  Line 23 exceeds the maximum line length of 100  max-len
+  275:51  error  't' is missing in props validation              react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/RichTooltip/RichTooltip.test.js
   3:23  error  'RichTooltipContent' is defined but never used  no-unused-vars
@@ -27,11 +28,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
+  11:8  error  'withTreeGesture' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   47:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 13 problems (12 errors, 1 warning)
+✖ 15 problems (14 errors, 1 warning)
 

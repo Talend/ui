@@ -8,7 +8,7 @@ src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/ObjectViewer/JSONLike/JSONLike.scss
-  104:29  warning  Space expected around operator  space-around-operator
+  118:29  warning  Space expected around operator  space-around-operator
 
 ✖ 3 problems (0 errors, 3 warnings)
 
