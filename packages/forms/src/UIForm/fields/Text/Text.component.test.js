@@ -8,6 +8,7 @@ describe('Text field', () => {
 		autoFocus: true,
 		description: 'my text input hint',
 		placeholder: 'Type something here',
+		required: true,
 		title: 'My input title',
 		type: 'text',
 	};
@@ -167,5 +168,27 @@ describe('Text field', () => {
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema });
+	});
+
+	it('should render hidden input', () => {
+		// given
+		const hiddenSchema = {
+			...schema,
+			type: 'hidden',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={hiddenSchema}
+				value={'toto'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

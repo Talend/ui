@@ -3,16 +3,27 @@
 exports[`Datalist component should render 1`] = `
 <FieldTemplate
   description="This is my datalist"
+  descriptionId="my-datalist-description"
+  errorId="my-datalist-error"
   errorMessage="This should be correct"
   id="my-datalist"
   isValid={true}
   label="My List"
-  required={undefined}
+  labelAfter={true}
+  required={true}
 >
   <Datalist component
     autoFocus={true}
+    className="form-control-container"
     disabled={false}
     id="my-datalist"
+    inputProps={
+      Object {
+        "aria-describedby": "my-datalist-description my-datalist-error",
+        "aria-invalid": false,
+        "aria-required": true,
+      }
+    }
     multiSection={false}
     onChange={[Function]}
     onFocus={[Function]}

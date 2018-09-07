@@ -1,13 +1,28 @@
-.tc-dropdown-button:global(.btn-link) {
-	&:hover,
-	&:focus,
-	&:active {
-		text-decoration: none;
-	}
-}
+$tc-dropdown-loader-padding: $padding-small !default;
 
-.tc-dropdown-item {
-	a svg {
-		margin: 0 $padding-smaller;
+.tc-dropdown {
+	&-button:global(.btn-link) {
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+		}
+	}
+
+	&-item {
+		a svg {
+			margin: 0 $padding-smaller;
+		}
+	}
+
+	&-loader {
+		margin: -$tc-dropdown-loader-padding 0;
+		padding: $tc-dropdown-loader-padding 0;
+		text-align: center;
+		background: $concrete;
+
+		:global(.divider) + & {
+			margin: -($tc-dropdown-loader-padding - 1px) 0;
+		}
 	}
 }

@@ -15,9 +15,9 @@
  */
 /* eslint-disable no-param-reassign */
 
-import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
+import { mergeCSRFToken } from '@talend/react-cmf/lib/middlewares/http/csrfHandling';
 
 import flatten from './flatten';
 import defaultRegistry from './defaultRegistry';
@@ -27,9 +27,10 @@ const DEFAULT_HEADERS = {
 	Accept: 'application/json',
 };
 
-function noOpTrigger({ error, trigger }) {
+function passthroughTrigger({ error, trigger, body }) {
 	// eslint-disable-next-line no-console
-	console.error(`${JSON.stringify(trigger)} failed with error ${error || '-'}`);
+	console.error(`${JSON.stringify(trigger)} doesnt exists or fails with error ${error || '-'}`);
+	return body;
 }
 
 /**
@@ -116,7 +117,14 @@ export function toQueryParam(obj) {
 
 // customRegistry can be used to add extensions or custom trigger
 // (not portable accross integrations)
-export default function createTriggers({ url, customRegistry, lang = 'en', headers, fetchConfig }) {
+export default function createTriggers({
+	url,
+	customRegistry,
+	lang = 'en',
+	headers,
+	fetchConfig,
+	security,
+}) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
 	}
@@ -141,7 +149,7 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 			}
 		}
 		function onSuccess(body) {
-			const result = (services[trigger.type] || noOpTrigger)({
+			const result = (services[trigger.type] || passthroughTrigger)({
 				body,
 				errors,
 				properties,
@@ -171,13 +179,16 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 			family: trigger.family,
 			type: trigger.type,
 		})}`;
-		return fetch(fetchUrl, {
-			method: 'POST',
-			headers: actualHeaders,
-			body: JSON.stringify(parameters),
-			credentials: 'include',
-			...fetchConfig,
-		})
+		return fetch(
+			fetchUrl,
+			mergeCSRFToken({ security })({
+				method: 'POST',
+				headers: actualHeaders,
+				body: JSON.stringify(parameters),
+				credentials: 'include',
+				...fetchConfig,
+			}),
+		)
 			.then(toJSON)
 			.then(onSuccess)
 			.catch(onError);

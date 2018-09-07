@@ -1,5 +1,6 @@
 import bootstrap from './bootstrap';
 import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
+import AboutDialog from './AboutDialog';
 import {
 	Action,
 	Actions,
@@ -24,6 +25,7 @@ import Datalist from './Datalist';
 import Dialog from './Dialog';
 import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
+import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
@@ -123,6 +125,7 @@ const BootstrapCheckbox = bootstrap.Checkbox;
 const BootstrapTable = bootstrap.Table;
 
 export {
+	AboutDialog,
 	Action,
 	Actions,
 	ActionBar,
@@ -143,6 +146,7 @@ export {
 	Dialog,
 	DraggableComponent,
 	Drawer,
+	EditableText,
 	Emphasis,
 	Enumeration,
 	FilterBar,

@@ -1,5 +1,5 @@
 const url = require('url');
-const example = require('./mock/kit/example.json');
+const forms = require('./mock/kit');
 
 function getTriggerInfo(req) {
 	return {
@@ -71,6 +71,20 @@ function suggestionForDemo() {
 	};
 }
 
+function updateProperties({ type }) {
+	switch (type) {
+		case 'clafoutis':
+		case 'pomme-savane':
+		case 'crumble':
+		case 'tarte-au-citron':
+			return { data: 'yes !' };
+		case 'coquillettes-crevettes':
+			return { data: 'this is not a dessert !' };
+		default:
+			return { data: 'don t know that' };
+	}
+}
+
 const TRIGGERS = {
 	validation: {
 		urlValidation,
@@ -87,6 +101,9 @@ const TRIGGERS = {
 	suggestions: {
 		suggestionForDemo,
 	},
+	update: {
+		updateProperties,
+	},
 };
 
 function trigger(req) {
@@ -95,9 +112,9 @@ function trigger(req) {
 }
 
 module.exports = function addRoutes(app) {
-	app.get('/api/v1/forms/example', (req, res) => {
+	app.get('/api/v1/forms/:formId', (req, res) => {
 		// eslint-disable-next-line global-require
-		res.json(example);
+		res.json(forms[req.params.formId]);
 	});
 	app.post('/api/v1/application/action', (req, res) => {
 		res.json(trigger(req));

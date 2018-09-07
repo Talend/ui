@@ -17,6 +17,12 @@
           "type": "string",
           "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
         }
+      },
+      "asyncTitleMap": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       }
     },
     "required": [
@@ -62,11 +68,31 @@
       "description": "This field doesn't accept new items",
       "title": "Tags",
       "widget": "multiSelectTag"
+    },
+    {
+      "key":"asyncTitleMap",
+      "restricted": true,
+      "title": "Tags with async options",
+      "widget": "multiSelectTag",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"asyncTitleMap"
+            }
+          ]
+        }
+      ]
     }
   ],
   "properties": {
     "tags": [
       "Pine[apple]"
-    ]
+    ],
+    "asyncTitleMap": ["clafoutis"]
   }
 }

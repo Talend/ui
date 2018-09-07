@@ -19,6 +19,7 @@ exports[`UIForm component should render form 1`] = `
     className="theme-form-content"
   >
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -50,6 +51,7 @@ exports[`UIForm component should render form 1`] = `
       }
     />
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -82,6 +84,7 @@ exports[`UIForm component should render form 1`] = `
       }
     />
     <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -135,7 +138,7 @@ exports[`UIForm component should render form 1`] = `
 </form>
 `;
 
-exports[`UIForm component should render provided actions 1`] = `
+exports[`UIForm component should render form in text display mode 1`] = `
 <form
   acceptCharset={undefined}
   action={undefined}
@@ -150,10 +153,11 @@ exports[`UIForm component should render provided actions 1`] = `
   onSubmit={[Function]}
   target={undefined}
 >
-  <div
+  <dl
     className="theme-form-content"
   >
     <Widget
+      displayMode="text"
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -185,6 +189,7 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     />
     <Widget
+      displayMode="text"
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -217,6 +222,121 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     />
     <Widget
+      displayMode="text"
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "key": Array [
+            "check",
+          ],
+          "title": "Check the thing",
+          "triggers": Array [
+            "after",
+          ],
+          "widget": "button",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+  </dl>
+</form>
+`;
+
+exports[`UIForm component should render provided actions 1`] = `
+<form
+  acceptCharset={undefined}
+  action={undefined}
+  autoComplete="off"
+  className="tf-uiform theme-uiform my-form-class"
+  encType={undefined}
+  id="myFormId"
+  method={undefined}
+  name={undefined}
+  noValidate={true}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  target={undefined}
+>
+  <div
+    className="theme-form-content"
+  >
+    <Widget
+      displayMode={undefined}
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "autoFocus": true,
+          "description": "Hint: this is the last name",
+          "key": Array [
+            "lastname",
+          ],
+          "minlength": 10,
+          "ngModelOptions": Object {},
+          "schema": Object {
+            "minLength": 10,
+            "type": "string",
+          },
+          "title": "Last Name (with description)",
+          "type": "text",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+    <Widget
+      displayMode={undefined}
+      errors={Object {}}
+      id="myFormId"
+      onChange={[Function]}
+      onFinish={[Function]}
+      onTrigger={[Function]}
+      properties={Object {}}
+      schema={
+        Object {
+          "key": Array [
+            "firstname",
+          ],
+          "ngModelOptions": Object {},
+          "placeholder": "Enter your firstname here",
+          "required": true,
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "First Name (with placeholder)",
+          "triggers": Array [
+            "after",
+          ],
+          "type": "text",
+        }
+      }
+      templates={undefined}
+      widgets={
+        Object {
+          "custom": [Function],
+        }
+      }
+    />
+    <Widget
+      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}

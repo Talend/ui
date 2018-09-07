@@ -9,7 +9,7 @@ exports[`title-bar 1`] = `
   >
     TALEND.SCHEMA
   </span>
-  <div
+  <form
     className="tc-table-filters-bar theme-tc-table-filters-bar"
   >
     <button
@@ -55,6 +55,6 @@ exports[`title-bar 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </form>
 </div>
 `;

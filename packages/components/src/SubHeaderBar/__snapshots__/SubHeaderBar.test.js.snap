@@ -19,8 +19,9 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         label="Go Back"
         onClick={[Function]}
       />
-      <InputTitleSubHeader
-        editMode={false}
+      <TitleSubHeader
+        editable={false}
+        getComponent={undefined}
         inProgress={false}
         loading={false}
         t={[Function]}
