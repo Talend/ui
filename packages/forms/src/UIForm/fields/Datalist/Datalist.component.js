@@ -73,13 +73,6 @@ class Datalist extends Component {
 		});
 	}
 
-	addCustomValue(value, multiSection) {
-		if (multiSection) {
-			return { title: 'CUSTOM', suggestions: [{ name: this.props.resolveName(value), value }] };
-		}
-		return { name: this.props.resolveName(value), value };
-	}
-
 	getTitleMap() {
 		const isMultiSection = this.props.schema.options && this.props.schema.options.multiSection;
 		const titleMap =
@@ -91,7 +84,7 @@ class Datalist extends Component {
 
 		if (!this.props.schema.restricted) {
 			const isMultiple = this.props.schema.schema.type === 'array';
-			let values = isMultiple ? this.props.value : [this.props.value];
+			const values = isMultiple ? this.props.value : [this.props.value];
 
 			if (isMultiSection) {
 				titleMapFind =
@@ -113,6 +106,13 @@ class Datalist extends Component {
 			return titleMap.concat(additionalOptions);
 		}
 		return titleMap;
+	}
+
+	addCustomValue(value, multiSection) {
+		if (multiSection) {
+			return { title: 'CUSTOM', suggestions: [{ name: this.props.resolveName(value), value }] };
+		}
+		return { name: this.props.resolveName(value), value };
 	}
 
 	callTrigger(event) {
@@ -206,6 +206,20 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			options: PropTypes.shape({
+				multiSection: PropTypes.bool,
+				titleMap: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string.isRequired,
+						suggestions: PropTypes.arrayOf(
+							PropTypes.shape({
+								name: PropTypes.string.isRequired,
+								value: PropTypes.string.isRequired,
+							}),
+						),
+					}),
+				),
+			}),
 		}),
 		value: PropTypes.string,
 	};
