@@ -5,9 +5,22 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
+   76:2   error  addCustomValue should be placed after getTitleMap             react/sort-comp
+   84:44  error  'schema.options' is missing in props validation               react/prop-types
+   84:73  error  'schema.options' is missing in props validation               react/prop-types
+   84:81  error  'schema.options.multiSection' is missing in props validation  react/prop-types
+   87:24  error  'schema.options' is missing in props validation               react/prop-types
+   87:53  error  'schema.options' is missing in props validation               react/prop-types
+   87:61  error  'schema.options.titleMap' is missing in props validation      react/prop-types
+   94:8   error  'values' is never reassigned. Use 'const' instead             prefer-const
+  151:26  error  'schema.options' is missing in props validation               react/prop-types
+  151:55  error  'schema.options' is missing in props validation               react/prop-types
+  151:63  error  'schema.options.multiSection' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
   10:11  error  Trailing spaces not allowed                     no-trailing-spaces
   12:1   error  Line 12 exceeds the maximum line length of 100  max-len
 
-✖ 3 problems (3 errors, 0 warnings)
+✖ 14 problems (14 errors, 0 warnings)
 
