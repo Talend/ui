@@ -74,10 +74,10 @@ class Datalist extends Component {
 	}
 
 	addCustomValue(value, multiSection) {
-		if(multiSection) {
-			return { title: 'CUSTOM', suggestions: [{name: this.props.resolveName(value), value }]};
+		if (multiSection) {
+			return { title: 'CUSTOM', suggestions: [{ name: this.props.resolveName(value), value }] };
 		}
-		return {name: this.props.resolveName(value), value };
+		return { name: this.props.resolveName(value), value };
 	}
 
 	getTitleMap() {
@@ -94,22 +94,23 @@ class Datalist extends Component {
 			let values = isMultiple ? this.props.value : [this.props.value];
 
 			if (isMultiSection) {
-				titleMapFind = titleMap && titleMap.reduce((prev, current) => {
-					prev.push(...current.suggestions);
-					return prev;
-				 }, []);
+				titleMapFind =
+					titleMap &&
+					titleMap.reduce((prev, current) => {
+						prev.push(...current.suggestions);
+						return prev;
+					}, []);
 			}
 
 			const additionalOptions = values
-			.filter(value => value)
-			.filter(value => !titleMapFind.find(option => option.value === value))
-			.map(value => (this.addCustomValue(value, isMultiSection)))
-			.reduce((acc, titleMapEntry) => {
-				acc.push(titleMapEntry);
-				return acc;
-			}, []);
+				.filter(value => value)
+				.filter(value => !titleMapFind.find(option => option.value === value))
+				.map(value => this.addCustomValue(value, isMultiSection))
+				.reduce((acc, titleMapEntry) => {
+					acc.push(titleMapEntry);
+					return acc;
+				}, []);
 			return titleMap.concat(additionalOptions);
-
 		}
 		return titleMap;
 	}
