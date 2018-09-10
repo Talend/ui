@@ -36,17 +36,11 @@ const schemaMultiSection = {
 		titleMap: [
 			{
 				title: 'test1',
-				suggestions: [
-					{ name: 'Foo2', value: 'foo2' },
-					{ name: 'Lol', value: 'lol' },
-				],
+				suggestions: [{ name: 'Foo2', value: 'foo2' }, { name: 'Lol', value: 'lol' }],
 			},
 			{
 				title: 'test2',
-				suggestions: [
-					{ name: 'Foo', value: 'foo' },
-					{ name: 'Bar', value: 'bar' },
-				],
+				suggestions: [{ name: 'Foo', value: 'foo' }, { name: 'Bar', value: 'bar' }],
 			},
 		],
 	},

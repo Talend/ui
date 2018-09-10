@@ -111,7 +111,10 @@ class Datalist extends Component {
 
 	addCustomValue(value, multiSection) {
 		if (multiSection) {
-			return { title: this.props.t('DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }), suggestions: [{ name: this.props.resolveName(value), value }] };
+			return {
+				title: this.props.t('DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
+				suggestions: [{ name: this.props.resolveName(value), value }],
+			};
 		}
 		return { name: this.props.resolveName(value), value };
 	}
