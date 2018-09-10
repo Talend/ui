@@ -150,8 +150,6 @@ describe('TreeGesture HOC', () => {
 			.find(getSelector(expectedActivePosition))
 			.prop('id')
 			.toString();
-		// console.log(element.debug());
-		// console.log(wrapper.find(getSelector(expectedActivePosition)).debug());
 
 		// when
 		element.simulate('keydown', event);

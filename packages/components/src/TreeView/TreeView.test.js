@@ -1,8 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import TreeView from './TreeView.component';
-import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 const defaultProps = {
 	id: 'id',

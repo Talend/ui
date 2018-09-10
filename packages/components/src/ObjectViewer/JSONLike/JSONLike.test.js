@@ -17,6 +17,10 @@ const callbacksProps = {
 };
 
 describe('JSONLike', () => {
+	it('should have tree gestures', () => {
+		expect(Component.WrappedComponent.displayName).toBe('TreeGesture(JSONLike)');
+	});
+
 	it('should render', () => {
 		const data = {
 			foo: 'foo',
@@ -27,7 +31,7 @@ describe('JSONLike', () => {
 		const wrapper = shallow(
 			<Component.WrappedComponent id="my-object" data={data} {...callbacksProps} />,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should support className', () => {
@@ -37,7 +41,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(<Component data={data} className="extra-test" {...callbacksProps} />);
+		const wrapper = shallow(<Component {...callbacksProps} data={data} className="extra-test" />);
 		expect(wrapper.props().className).toContain('extra-test');
 	});
 
@@ -166,7 +170,7 @@ describe('JSONLike', () => {
 	});
 
 	describe('ComplexItem', () => {
-		it('basic render', () => {
+		it('should render', () => {
 			// when
 			const wrapper = shallow(
 				<ComplexItem {...callbacksProps} name="name" opened={[]} edited={[]} info={{}} />,

@@ -121,7 +121,7 @@ function Table({ flat, data, title, ...props }) {
 		</table>
 	);
 }
-
+Table.displayName = 'Table';
 Table.propTypes = {
 	id: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,

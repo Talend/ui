@@ -20,7 +20,7 @@ function List({ data, ...props }) {
 		</ul>
 	);
 }
-
+List.displayName = 'List';
 List.propTypes = {
 	data: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.object]).isRequired,
 	id: PropTypes.string,

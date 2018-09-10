@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`JSONLike ComplexItem basic render 1`] = `
+exports[`JSONLike ComplexItem should render 1`] = `
 <LineItem
   badge={
     <TooltipTrigger
@@ -45,19 +45,51 @@ exports[`JSONLike ComplexItem basic render 1`] = `
 `;
 
 exports[`JSONLike should render 1`] = `
-<JSONLike
-  data={
-    Object {
-      "bar": Object {
-        "hello": "hello",
-      },
-      "foo": "foo",
-    }
-  }
-  id="my-object"
-  onKeyDown={[Function]}
-  onSelect={[Function]}
-  onToggle={[Function]}
-  onToggleAllSiblings={[Function]}
-/>
+<div
+  className="tc-object-viewer theme-container"
+  id="my-object-container"
+  style={undefined}
+>
+  <ul
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    className="theme-tc-object-viewer-list"
+    role="tree"
+  >
+    <Item
+      data={
+        Object {
+          "bar": Object {
+            "hello": "hello",
+          },
+          "foo": "foo",
+        }
+      }
+      edited={Array []}
+      id="my-object-root"
+      index={1}
+      jsonpath="$"
+      level={1}
+      onEdit={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      onToggle={[Function]}
+      onToggleAllSiblings={[Function]}
+      opened={Array []}
+      siblings={
+        Array [
+          Object {
+            "data": Object {
+              "bar": Object {
+                "hello": "hello",
+              },
+              "foo": "foo",
+            },
+            "jsonpath": "$",
+          },
+        ]
+      }
+    />
+  </ul>
+</div>
 `;

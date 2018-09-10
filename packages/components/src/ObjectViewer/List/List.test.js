@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import List from './List.component';
+import JSONLike from '../JSONLike';
 
 describe('ObjectViewer.List', () => {
 	it('should render List with props data as an object', () => {
@@ -31,10 +32,10 @@ describe('ObjectViewer.List', () => {
 		expect(element.type).toBe('ul');
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);
-		expect(wrapper.find('Translate(TreeGesture(JSONLike))').length).toBe(2);
+		expect(wrapper.find(JSONLike).length).toBe(2);
 		expect(
 			wrapper
-				.find('Translate(TreeGesture(JSONLike))')
+				.find(JSONLike)
 				.first()
 				.props(),
 		).toEqual({
