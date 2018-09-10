@@ -1,4 +1,4 @@
-import shouldRender, { $internals } from './condition';
+import shouldRender from './condition';
 
 const properties = {
 	string: 'foo',
@@ -20,232 +20,116 @@ const properties = {
 const TRUTHY_CONDITIONS = [
 	undefined,
 	{
-		values: ['foo'],
-		path: 'string',
+		'===': [{ var: 'string' }, 'foo'],
 	},
 	{
-		values: [2],
-		path: 'number',
+		'===': [{ var: 'number' }, 2],
 	},
 	{
-		values: ['Hello world'],
-		path: 'object.title',
+		'===': [{ var: 'object.title' }, 'Hello world'],
 	},
 	// check if array has at least one item
 	{
-		shouldBe: false,
-		values: [0],
-		strategy: 'length',
-		path: 'arrayString',
+		'!==': [{ var: 'arrayString.length' }, 0],
 	},
 	{
-		shouldBe: false,
-		values: [0],
-		strategy: 'length',
-		path: 'arrayObj',
+		'!==': [{ var: 'arrayString.length' }, 0],
 	},
 	// check if array is empty
 	{
-		values: [0],
-		strategy: 'length',
-		path: 'arrayEmpty',
+		'===': [{ var: 'arrayEmpty.length' }, 0],
 	},
 	{
-		values: ['0'],
-		strategy: 'length',
-		path: 'arrayEmpty',
+		'==': [{ var: 'arrayEmpty.length' }, '0'],
 	},
 	// check if string is filled
 	{
-		shouldBe: false,
-		values: [0, 1, 2], // foo is 3
-		strategy: 'length',
-		path: 'string',
+		'>': [{ var: 'string.length' }, 2],  // foo is 3
 	},
 	{
-		values: [undefined],
-		path: 'undefined',
+		'==': [{ var: 'undefined' }, undefined],
 	},
 	{
-		values: [null],
-		path: 'null',
+		'==': [{ var: 'null' }, null],
 	},
 	// complex with children
 	{
-		children: [
+		and: [
 			{
-				shouldBe: false,
-				values: [0, 1, 2],
-				strategy: 'length',
-				path: 'string',
-				children: [
-					{
-						shouldBe: false,
-						values: [0],
-						strategy: 'length',
-						path: 'arrayObj',
-					},
+				or: [
+					{ '>': [{ var: 'string.length' }, 2] },
+					{ '>': [{ var: 'arrayObj.length' }, 0] },
 				],
 			},
 			{
-				values: [undefined],
-				path: 'undefined',
+				'==': [{ var: 'undefined' }, undefined],
 			},
 			{
-				values: [null],
-				path: 'null',
+				'==': [{ var: 'null' }, null],
 			},
 		],
 	},
 	{
-		values: ['foo'],
-		strategy: 'contains',
-		path: 'string',
+		in: [{ var: 'string' }, ['foo']],
 	},
 	{
-		values: ['oo'],
-		strategy: 'contains',
-		path: 'string',
+		in: ['oo', { var: 'string' }],
 	},
 	{
-		values: ['fo'],
-		strategy: 'contains',
-		path: 'string',
+		in: ['fo', { var: 'string' }],
 	},
 	{
-		values: ['foo'],
-		strategy: 'contains',
-		path: 'arrayString',
+		in: ['foo', { var: 'arrayString' }],
 	},
 	{
-		values: ['oo'],
-		strategy: 'contains(lowercase=true)',
-		path: 'stringUppercase',
-	},
-	{
-		values: ['2'],
-		strategy: 'contains',
-		path: 'number',
-	},
-	{
-		shouldBe: false,
-		values: ['2'],
-		strategy: 'length',
-		path: 'string',
+		in: ['oo', { lowercase: [{ var: 'stringUppercase' }] }],
 	},
 ];
 
 const FALSY_CONDITIONS = [
 	{
-		shouldBe: false,
-		values: [0, 1, 2, 3], // foo is 3
-		strategy: 'length',
-		path: 'string',
+		'>': [{ var: 'string.length' }, 3],
 	},
 	{
-		shouldBe: false,
-		values: ['3'],
-		strategy: 'length',
-		path: 'string',
+		'>': [{ var: 'string.length' }, { toNumber: '3' }],
 	},
 	{
-		values: ['foo'],
-		path: 'objectEmpty.title', // doesnt exist
+		'==': [{ var: 'objectEmpty.title' }, 'foo'],  // doesnt exist
 	},
 	// complex with children
 	{
-		children: [
+		and: [
 			{
-				shouldBe: false,
-				values: [0, 1, 2],
-				strategy: 'length',
-				path: 'string',
-				children: [
-					{
-						shouldBe: true, // we make this one wrong to be false
-						values: [0],
-						strategy: 'length',
-						path: 'arrayObj',
-					},
-				],
+				'>': [{ var: 'string.length' }, 2],
 			},
 			{
-				values: [undefined],
-				path: 'undefined',
+				'==': [{ var: 'arrayObj.length' }, 0],  // we make this one wrong to be false
 			},
 			{
-				values: [null],
-				path: 'null',
+				'==': [{ var: 'undefined' }, undefined],
+			},
+			{
+				'==': [{ var: 'null' }, null],
 			},
 		],
 	},
 	{
-		children: [
+		and: [
 			{
-				values: [undefined],
-				path: 'undefined',
+				'==': [{ var: 'undefined' }, undefined],
 			},
 			{
-				values: ['wrong'],
-				path: 'null',
+				'==': [{ var: 'null' }, 'wrong'],
 			},
 		],
 	},
 	{
-		values: [0],
-		strategy: 'contains',
-		path: 'string',
+		in: [{ var: 'string' }, [0]],
 	},
 	{
-		values: ['nothere'],
-		strategy: 'contains',
-		path: 'arrayString',
+		in: ['nothere', { var: 'arrayString' }],
 	},
 ];
-
-describe('parseParameters', () => {
-	const parseParameters = $internals.parseParameters;
-
-	it('should return an empty object from an empty string', () => {
-		expect(Object.keys(parseParameters('')).length).toBe(0);
-	});
-	it('should return an object with one entry from a single parameter', () => {
-		const parsed = parseParameters('a=b');
-		expect(Object.keys(parsed).length).toBe(1);
-		expect(parsed.a).toBe('b');
-	});
-	it('should return an object with two entry from two parameters', () => {
-		const parsed = parseParameters('a=b;lowercase=true');
-		expect(Object.keys(parsed).length).toBe(2);
-		expect(parsed.a).toBe('b');
-		expect(parsed.lowercase).toBe('true');
-	});
-	it('should skip trailing and leading spaces', () => {
-		const parsed = parseParameters(' a = b ; lowercase = true ');
-		expect(Object.keys(parsed).length).toBe(2);
-		expect(parsed.a).toBe('b');
-		expect(parsed.lowercase).toBe('true');
-	});
-});
-
-describe('parseStrategy', () => {
-	const parseStrategy = $internals.parseStrategy;
-
-	it('should return a falsy value for undefined strategy', () => {
-		expect(parseStrategy(undefined)).toBe($internals.DEFAULT_STRATEGY);
-	});
-	it('should return the strategy if there is no parameter', () => {
-		const parsed = parseStrategy('foo');
-		expect(parsed.name).toBe('foo');
-		expect(Object.keys(parsed.params).length).toBe(0);
-	});
-	it('should return the strategy and parameters if any', () => {
-		const parsed = parseStrategy('foo(a=b)');
-		expect(parsed.name).toBe('foo');
-		expect(Object.keys(parsed.params).length).toBe(1);
-		expect(parsed.params.a).toBe('b');
-	});
-});
 
 describe('condition', () => {
 	TRUTHY_CONDITIONS.forEach(condition => {
