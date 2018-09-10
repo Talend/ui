@@ -8,7 +8,13 @@ import Component, {
 	getDataInfo,
 	ComplexItem,
 } from './JSONLike.component';
-import getDefaultT from '../../translate';
+
+const callbacksProps = {
+	onKeyDown: jest.fn(),
+	onSelect: jest.fn(),
+	onToggle: jest.fn(),
+	onToggleAllSiblings: jest.fn(),
+};
 
 describe('JSONLike', () => {
 	it('should render', () => {
@@ -18,7 +24,9 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(<Component.WrappedComponent id="my-object" data={data} />);
+		const wrapper = shallow(
+			<Component.WrappedComponent id="my-object" data={data} {...callbacksProps} />,
+		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
@@ -29,7 +37,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(<Component data={data} className="extra-test" />);
+		const wrapper = shallow(<Component data={data} className="extra-test" {...callbacksProps} />);
 		expect(wrapper.props().className).toContain('extra-test');
 	});
 
@@ -159,18 +167,9 @@ describe('JSONLike', () => {
 
 	describe('ComplexItem', () => {
 		it('basic render', () => {
-			// given
-			const mockOnSelect = jest.fn();
 			// when
 			const wrapper = shallow(
-				<ComplexItem
-					name="name"
-					onSelect={mockOnSelect}
-					opened={[]}
-					edited={[]}
-					info={{}}
-					t={getDefaultT()}
-				/>,
+				<ComplexItem {...callbacksProps} name="name" opened={[]} edited={[]} info={{}} />,
 			);
 
 			// expect
@@ -178,19 +177,20 @@ describe('JSONLike', () => {
 		});
 
 		it('should render injected elements next to name/sup', () => {
-			const mockHandler = jest.fn();
 			const wrapper = mount(
 				<ComplexItem
+					{...callbacksProps}
 					name="name"
 					opened={['$']}
 					edited={[]}
-					tag={<span id="injected">hello world</span>}
-					onToggle={mockHandler}
-					onSelect={mockHandler}
+					tag={
+						<span id="injected" key="tag">
+							hello world
+						</span>
+					}
 					info={{
 						type: 'string',
 					}}
-					t={getDefaultT()}
 				/>,
 			);
 
@@ -204,19 +204,17 @@ describe('JSONLike', () => {
 
 		it("don't trigger wrapping form submit when used", () => {
 			// given
-			const mockOnSelect = jest.fn();
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
 			const wrapper = mount(
 				<form onSubmit={mockOnSubmitClick}>
 					<ComplexItem
+						{...callbacksProps}
 						name="name"
-						onSelect={mockOnSelect}
 						onToggle={mockOnToggle}
 						opened={[]}
 						edited={[]}
 						info={{}}
-						t={getDefaultT()}
 					/>
 					<button type="submit" onClick={mockOnSubmitClick} />
 				</form>,

@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import keycode from 'keycode';
 
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
-import withTreeGesture from '../../Tree/WithTreeGesture.component';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;
@@ -45,13 +43,6 @@ TreeViewIcon.propTypes = {
 	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),
 	isOpened: PropTypes.bool,
 };
-
-function focusOn(event, element) {
-	event.stopPropagation();
-	if (element) {
-		element.focus();
-	}
-}
 
 /**
  * Internal: you should not use it
@@ -90,7 +81,6 @@ class TreeViewItem extends React.Component {
 		level: PropTypes.number.isRequired,
 		onKeyDown: PropTypes.func.isRequired,
 		onToggle: PropTypes.func.isRequired,
-		onToggleAllSiblings: PropTypes.func,
 		onSelect: PropTypes.func.isRequired,
 		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
@@ -101,10 +91,6 @@ class TreeViewItem extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onSelect = this.onSelect.bind(this);
-		this.onToggle = this.onToggle.bind(this);
-		this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
-		this.onKeyDown = this.onKeyDown.bind(this);
 		this.renderIconAction = this.renderIconAction.bind(this);
 		this.renderTreeViewChildren = this.renderTreeViewChildren.bind(this);
 		this.onMouseLeave = this.onMouseLeave.bind(this);
@@ -124,61 +110,6 @@ class TreeViewItem extends React.Component {
 		this.setState({
 			hovered: false,
 		});
-	}
-
-	onKeyDown(event) {
-		switch (event.keyCode) {
-			case keycode.codes.enter:
-			case keycode.codes.space:
-				this.onSelect(event);
-				break;
-			case keycode.codes.left:
-				if (this.hasChildren() && this.props.item.isOpened) {
-					this.onToggle(event);
-				} else if (!this.hasChildren() || !this.props.item.isOpened) {
-					focusOn(event, this.getParentItem());
-				}
-				break;
-			case keycode.codes.right:
-				if (this.hasChildren() && !this.props.item.isOpened) {
-					this.onToggle(event);
-				} else if (this.hasChildren() && this.props.item.isOpened) {
-					focusOn(event, this.getFirstChildItem());
-				}
-				break;
-			case keycode.codes.down:
-				focusOn(event, this.getNextItem());
-				break;
-			case keycode.codes.up:
-				focusOn(event, this.getPreviousItem());
-				break;
-			case keycode.codes.home:
-				focusOn(event, this.getFirstItem());
-				break;
-			case keycode.codes.end:
-				focusOn(event, this.getLastItem());
-				break;
-			case keycode.codes['numpad *']:
-				this.onToggleAllSiblings(event);
-				break;
-			default:
-				break;
-		}
-	}
-
-	onToggleAllSiblings(event) {
-		event.stopPropagation();
-		return this.props.onToggleAllSiblings(this.props.siblings);
-	}
-
-	onSelect(event) {
-		event.stopPropagation();
-		return this.props.onSelect(this.props.item);
-	}
-
-	onToggle(event) {
-		event.stopPropagation();
-		return this.props.onToggle(this.props.item);
 	}
 
 	getAllItems() {
@@ -295,7 +226,6 @@ class TreeViewItem extends React.Component {
 						onKeyDown={this.props.onKeyDown}
 						onSelect={this.props.onSelect}
 						onToggle={this.props.onToggle}
-						onToggleAllSiblings={this.props.onToggleAllSiblings}
 						key={i}
 						index={i + 1}
 						selectedId={this.props.selectedId}

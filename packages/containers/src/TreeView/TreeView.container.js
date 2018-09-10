@@ -45,7 +45,6 @@ function toggleState(prevProps, data, idAttr) {
 }
 
 function openAllState(prevProps, data, idAttr) {
-	debugger;
 	const nextOpened = data
 		.reduce((accu, item) => accu.add(item[idAttr]), prevProps.state.get(OPENED_ATTR).toSet())
 		.toList();

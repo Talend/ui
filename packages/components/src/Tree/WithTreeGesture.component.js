@@ -156,6 +156,7 @@ export default function withTreeGesture(WrappedComponent) {
 		...omit(WrappedComponent.propTypes, 'onKeyDown'),
 		onToggleAllSiblings: PropTypes.func.isRequired,
 	};
+	TreeGesture.displayName = `TreeGesture(${WrappedComponent.displayName})`;
 
 	return TreeGesture;
 }

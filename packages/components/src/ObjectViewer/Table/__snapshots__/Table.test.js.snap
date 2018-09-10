@@ -7,7 +7,9 @@ exports[`Table should render Table with props data as an array 1`] = `
 >
   <caption
     className="sr-only"
-  />
+  >
+    my-viewer
+  </caption>
   <thead>
     <tr>
       <th
@@ -22,7 +24,7 @@ exports[`Table should render Table with props data as an array 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(JSONLike)
+        <Translate(TreeGesture(JSONLike))
           data="header1"
           id="my-viewer"
           jsonpath="$[0]['field0']"
@@ -34,7 +36,7 @@ exports[`Table should render Table with props data as an array 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(JSONLike)
+        <Translate(TreeGesture(JSONLike))
           data={undefined}
           id="my-viewer"
           jsonpath="$[1]['field0']"
@@ -53,7 +55,9 @@ exports[`Table should render Table with props data as an object 1`] = `
 >
   <caption
     className="sr-only"
-  />
+  >
+    my-viewer
+  </caption>
   <thead>
     <tr>
       <th
@@ -75,7 +79,7 @@ exports[`Table should render Table with props data as an object 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(JSONLike)
+        <Translate(TreeGesture(JSONLike))
           data="header1"
           id="my-viewer"
           jsonpath="$[0]['field0']"
@@ -87,7 +91,7 @@ exports[`Table should render Table with props data as an object 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(JSONLike)
+        <Translate(TreeGesture(JSONLike))
           data={undefined}
           id="my-viewer"
           jsonpath="$[1]['field0']"
@@ -106,7 +110,9 @@ exports[`Table should render if data is empty 1`] = `
 >
   <caption
     className="sr-only"
-  />
+  >
+    my-viewer
+  </caption>
   <thead>
     <tr>
       <th

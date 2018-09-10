@@ -22,7 +22,7 @@ function List({ data, ...props }) {
 }
 
 List.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	data: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.object]).isRequired,
 	id: PropTypes.string,
 };
 

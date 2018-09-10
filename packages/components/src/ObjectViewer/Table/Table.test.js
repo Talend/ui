@@ -8,13 +8,19 @@ import Table, {
 } from './Table.component';
 
 describe('Table', () => {
+	const props = {
+		id: 'my-viewer',
+		title: 'my-viewer',
+		flat: true,
+	};
+
 	it('should render null if data.datas is not an array', () => {
 		// Given
 		const data = {
 			dataset: 'toto',
 		};
 		// When
-		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
+		const wrapper = shallow(<Table {...props} data={data} />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -22,7 +28,7 @@ describe('Table', () => {
 		// Given
 		const data = [];
 		// When
-		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
+		const wrapper = shallow(<Table {...props} data={data} />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -35,7 +41,7 @@ describe('Table', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
+		const wrapper = shallow(<Table {...props} data={data} />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -43,7 +49,7 @@ describe('Table', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<Table id="my-viewer" data={data} flat />);
+		const wrapper = shallow(<Table {...props} data={data} />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

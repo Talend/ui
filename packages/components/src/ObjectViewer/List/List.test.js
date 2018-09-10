@@ -31,10 +31,10 @@ describe('ObjectViewer.List', () => {
 		expect(element.type).toBe('ul');
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);
-		expect(wrapper.find('Translate(JSONLike)').length).toBe(2);
+		expect(wrapper.find('Translate(TreeGesture(JSONLike))').length).toBe(2);
 		expect(
 			wrapper
-				.find('Translate(JSONLike)')
+				.find('Translate(TreeGesture(JSONLike))')
 				.first()
 				.props(),
 		).toEqual({

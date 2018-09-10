@@ -10,6 +10,7 @@ import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import withTreeGesture from '../../Tree/WithTreeGesture.component';
+import getDefaultT from '../../translate';
 
 function noop() {}
 
@@ -350,7 +351,9 @@ export function ComplexItem(props) {
 		</LineItem>
 	);
 }
-
+ComplexItem.defaultProps = {
+	t: getDefaultT(),
+};
 ComplexItem.propTypes = {
 	data: PropTypes.oneOfType([
 		PropTypes.bool,
@@ -370,6 +373,7 @@ ComplexItem.propTypes = {
 	onToggle: PropTypes.func.isRequired,
 	opened: PropTypes.arrayOf(PropTypes.string).isRequired,
 	showType: PropTypes.bool,
+	t: PropTypes.func,
 };
 
 export function Item(props) {
@@ -500,7 +504,7 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 
 	return <div {...containerProps}>{objectTree}</div>;
 }
-
+JSONLike.displayName = 'JSONLike';
 JSONLike.propTypes = {
 	'aria-label': PropTypes.string,
 	id: PropTypes.string,
