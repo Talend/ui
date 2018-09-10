@@ -149,7 +149,7 @@ describe('toggleState', () => {
 describe('select', () => {
 	it('should highlight', () => {
 		const prevState = { state: DEFAULT_STATE };
-		prevState.state = selectWrapper(prevState, path);
+		prevState.state = selectWrapper(prevState, { jsonpath: path });
 
 		expect(prevState.state.get('selectedJsonpath')).toEqual(path);
 	});
