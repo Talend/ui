@@ -1,10 +1,7 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import keycode from 'keycode';
-import cases from 'jest-in-case';
+import { shallow } from 'enzyme';
 
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
-import TreeView from '../TreeView.component';
 
 const item = {
 	id: 1,
