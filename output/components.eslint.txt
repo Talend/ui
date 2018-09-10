@@ -27,10 +27,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeView.test.js
-  2:19  error  'mount' is defined but never used              no-unused-vars
-  5:8   error  'toJsonWithoutI18n' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.test.js
   2:10  error  'mount' is defined but never used     no-unused-vars
   3:8   error  'keycode' is defined but never used   no-unused-vars
@@ -43,5 +39,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 19 problems (18 errors, 1 warning)
+✖ 17 problems (16 errors, 1 warning)
 
