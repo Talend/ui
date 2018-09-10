@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
+import getDefaultT from '../../../translate';
 import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -110,7 +111,7 @@ class Datalist extends Component {
 
 	addCustomValue(value, multiSection) {
 		if (multiSection) {
-			return { title: 'CUSTOM', suggestions: [{ name: this.props.resolveName(value), value }] };
+			return { title: this.props.t('DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }), suggestions: [{ name: this.props.resolveName(value), value }] };
 		}
 		return { name: this.props.resolveName(value), value };
 	}
@@ -170,6 +171,7 @@ Datalist.displayName = 'Datalist field';
 Datalist.defaultProps = {
 	resolveName: value => value,
 	value: '',
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -222,6 +224,7 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}),
 		value: PropTypes.string,
+		t: PropTypes.func,
 	};
 }
 

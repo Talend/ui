@@ -22,6 +22,41 @@ const schema = {
 	},
 };
 
+const schemaMultiSection = {
+	autoFocus: true,
+	description: 'This is my datalist',
+	disabled: false,
+	placeholder: 'Type here',
+	readOnly: false,
+	required: true,
+	restricted: true,
+	title: 'My List',
+	options: {
+		multiSection: true,
+		titleMap: [
+			{
+				title: 'test1',
+				suggestions: [
+					{ name: 'Foo2', value: 'foo2' },
+					{ name: 'Lol', value: 'lol' },
+				],
+			},
+			{
+				title: 'test2',
+				suggestions: [
+					{ name: 'Foo', value: 'foo' },
+					{ name: 'Bar', value: 'bar' },
+				],
+			},
+		],
+	},
+
+	type: 'string',
+	schema: {
+		type: 'string',
+	},
+};
+
 describe('Datalist component', () => {
 	it('should render', () => {
 		// when
@@ -34,6 +69,25 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				onTrigger={jest.fn()}
 				schema={schema}
+				value={'foo'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with multisection', () => {
+		// when
+		const wrapper = shallow(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={schemaMultiSection}
 				value={'foo'}
 			/>,
 		);
