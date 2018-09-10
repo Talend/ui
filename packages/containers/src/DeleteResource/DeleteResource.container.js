@@ -37,6 +37,7 @@ export class DeleteResource extends React.Component {
 		resourceUri: PropTypes.string,
 		collectionId: PropTypes.string,
 		female: PropTypes.string,
+		onCancelRedirectUrl: PropTypes.string,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
@@ -78,6 +79,7 @@ export class DeleteResource extends React.Component {
 			...this.getLabelInfo(),
 			id: this.props.resourceId,
 			redirectUrl: this.props.redirectUrl,
+			onCancelRedirectUrl: this.props.onCancelRedirectUrl,
 		};
 	}
 
