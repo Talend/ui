@@ -128,7 +128,7 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onSelect(data) {
+	onSelect(event, data) {
 		this.props.setState(prevState => selectWrapper(prevState, data[this.props.idAttr]));
 		if (this.props.onSelectActionCreator) {
 			this.props.dispatchActionCreator(
