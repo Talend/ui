@@ -33,14 +33,8 @@ function Badge({
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
 	const children = [
-		category ? (
-			<span key="category" className={categoryClasses}>
-				{category}
-			</span>
-		) : null,
-		<span key="label" className={labelClasses}>
-			{label}
-		</span>,
+		category ? <span className={categoryClasses}>{category}</span> : null,
+		<span className={labelClasses}>{label}</span>,
 	];
 	const badgeProps = {
 		id: id && `tc-badge-select-${id}`,
@@ -51,13 +45,12 @@ function Badge({
 	return (
 		<div className={containerClasses} style={style}>
 			{onSelect ? (
-				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
+				<button {...badgeProps} type="button" disabled={disabled} onClick={onSelect} />
 			) : (
-				<div {...badgeProps} key="div" />
+				<div {...badgeProps} />
 			)}
 			{onDelete && (
 				<Action
-					key="delete"
 					id={id && `tc-badge-delete-${id}`}
 					label={t('BADGE_DELETE', { defaultValue: 'delete' })}
 					hideLabel

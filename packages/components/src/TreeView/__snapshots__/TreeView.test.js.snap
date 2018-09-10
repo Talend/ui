@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeView should render 1`] = `
+exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <div
   className="tc-treeview theme-tc-treeview"
   style={undefined}
@@ -8,9 +8,7 @@ exports[`TreeView should render 1`] = `
   <header
     className="theme-tc-treeview-header"
   >
-    <span
-      id="id-title"
-    >
+    <span>
       some elements
     </span>
     <Action
@@ -23,55 +21,16 @@ exports[`TreeView should render 1`] = `
       tooltipPlacement="right"
     />
   </header>
-  <ul
-    aria-labelledby="id-title"
-    className="theme-tc-treeview-list"
-    role="tree"
+  <nav
+    className="theme-tc-treeview-nav"
   >
-    <TreeViewItem
-      id="id-0"
-      index={1}
-      item={
-        Object {
-          "actions": Array [
-            Object {
-              "action": [Function],
-              "icon": "talend-trash",
-              "label": "remove element",
-            },
-          ],
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
-                  "name": "me",
-                  "selected": true,
-                },
-                Object {
-                  "name": "bro",
-                },
-              ],
-              "name": "mami",
-              "toggled": true,
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "name": "cousin",
-                },
-              ],
-              "name": "aunt",
-              "toggled": false,
-            },
-          ],
-          "counter": 101,
-          "name": "grandpa",
-          "showCounter": true,
-          "toggled": true,
-        }
-      }
-      itemSiblings={
-        Array [
+    <ul
+      className="theme-tc-treeview-ul"
+    >
+      <TreeViewItem
+        depth={0}
+        id="id-0"
+        item={
           Object {
             "actions": Array [
               Object {
@@ -108,15 +67,12 @@ exports[`TreeView should render 1`] = `
             "name": "grandpa",
             "showCounter": true,
             "toggled": true,
-          },
-        ]
-      }
-      level={1}
-      onSelect={[Function]}
-      onToggle={[Function]}
-      onToggleAllSiblings={[Function]}
-      selectedId={undefined}
-    />
-  </ul>
+          }
+        }
+        onClick={[Function]}
+        onSelect={[Function]}
+      />
+    </ul>
+  </nav>
 </div>
 `;

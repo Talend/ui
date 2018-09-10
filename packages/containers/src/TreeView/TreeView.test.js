@@ -29,8 +29,7 @@ describe('TreeView', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should select element', () => {
-		// given
+	it('should setState onClick', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -38,32 +37,28 @@ describe('TreeView', () => {
 			prevState.state = fn(prevState);
 		});
 		const dispatchActionCreator = jest.fn();
-		const onSelect = jest.fn();
-		const onSelectActionCreator = 'my:action';
+		const onClick = jest.fn();
+		const onClickActionCreator = 'my:action';
 		const props = {
 			setState,
 			dispatchActionCreator,
 			data,
-			onSelect,
-			onSelectActionCreator,
+			onClick,
+			onClickActionCreator,
 		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-
-		// when
-		wrapper.prop('onSelect')(data.get(0).toJS());
-
-		// then
+		wrapper.simulate('click', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('selectedId')).toEqual(1);
-		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(prevState.state.get('opened').toJS()).toEqual([1]);
+		expect(onClick).toHaveBeenCalledWith(data.get(0).toJS());
 		expect(dispatchActionCreator).toHaveBeenCalled();
-		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onClickActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
 
-	it('should open/close on toggle', () => {
+	it('should close if re onClick', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -72,19 +67,11 @@ describe('TreeView', () => {
 		});
 		const props = { setState, data };
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-
-		// when
-		wrapper.prop('onToggle')(data.get(0).toJS());
-
-		// then
+		wrapper.simulate('click', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('opened').toJS()).toEqual([1]);
-
-		// when
-		wrapper.prop('onToggle')(data.get(0).toJS());
-
-		// then
+		wrapper.simulate('click', data.get(0).toJS());
 		expect(setState.mock.calls.length).toBe(2);
 		expect(prevState.state.get('opened').toJS()).toEqual([]);
 	});
@@ -157,7 +144,7 @@ describe('transform', () => {
 		expect(transform()).toBeUndefined();
 	});
 
-	it('should add toggled booleans', () => {
+	it('add selected and toggled boolean every where', () => {
 		const props = {
 			...DEFAULT_PROPS,
 			state: Immutable.Map({
@@ -184,8 +171,10 @@ describe('transform', () => {
 		];
 		const structure = transform(items, props);
 		expect(structure[0].id).toBe(1);
+		expect(structure[0].selected).toBe(false);
 		expect(structure[0].toggled).toBe(true);
 		expect(structure[0].children[0].id).toBe(11);
+		expect(structure[0].children[0].selected).toBe(true);
 		expect(structure[0].children[0].toggled).toBe(true);
 	});
 

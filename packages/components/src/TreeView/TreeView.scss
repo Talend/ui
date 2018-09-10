@@ -2,26 +2,42 @@
 
 .tc-treeview {
 	.tc-treeview-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
 		color: $brand-primary;
-		line-height: 6rem;
+		display: flex;
+		line-height: $padding-large;
 		font-weight: bold;
 		text-transform: uppercase;
-
-		padding-left: $padding-large;
+		padding: $padding-large;
 		border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
 
-		:global(.btn-link .tc-svg-icon) {
-			stroke: $brand-primary;
+		:global(.btn-link) {
+			padding: 0;
+			margin-left: auto;
+			height: $padding-large;
+			min-height: auto;
+
+			:global(.tc-svg-icon) {
+				display: block;
+				height: $svg-md-size;
+				width: $svg-md-size;
+				stroke: $brand-primary;
+				fill: $brand-primary;
+				margin-right: 0;
+			}
 		}
 	}
 
-	.tc-treeview-list {
+	.tc-treeview-nav {
 		padding: $padding-small 0;
 		overflow: auto;
-		list-style-type: none;
+
+		.tc-treeview-ul {
+			padding: 0;
+			list-style-type: none;
+
+			.tc-treeview-li {
+				line-height: $padding-large;
+			}
+		}
 	}
 }
