@@ -77,7 +77,7 @@ function stringOrNumberToString(
  * @example
  parseParameters('foo=bar;dummy=1') == { foo: 'bar', dummy: '1' }
  */
-function parseParameters(parameterString) {
+function parseParameters(parameterString = '') {
 	return parameterString
 		.split(';')
 		.map(it => it.trim())
@@ -112,7 +112,6 @@ function parseStrategy(strategy) {
 	const parameters = isMatching ? matches[2] : undefined;
 
 	const hasParameters = parameters !== undefined;
-
 	return {
 		name: name.toLowerCase(),
 		params: hasParameters ? parseParameters(parameters) : {},
@@ -133,6 +132,9 @@ function containsString(expected, actualStringOrNumber, valueProcessor = v => v)
 // this will not fail in case actualStringOrNumber is not a string or number
 // but will return false sinc eit is used as a fallback comparison using coercing
 function areEqualsAsString(expected, actualStringOrNumber) {
+	if (actualStringOrNumber === expected) {
+		return true;
+	}
 	return actualStringOrNumber && stringOrNumberToString(actualStringOrNumber, v => v) === expected;
 }
 
@@ -143,6 +145,8 @@ function toLengthEvaluator(value) {
 	const length = get(value, 'length', 0);
 	return expected => areEqualsAsNumbers(length, expected);
 }
+
+const LOWER_CASE_TRUE = 'true';
 
 /**
  * If an array it checks if the expected element is present in the array.
@@ -156,12 +160,12 @@ function toContainsEvaluator(actual, options) {
 		return () => false;
 	}
 	if (Array.isArray(actual)) {
-		if (options.lowercase === 'true') {
+		if (options.lowercase === LOWER_CASE_TRUE) {
 			return expected => actual.map(it => it.toLowerCase()).indexOf(expected) >= 0;
 		}
 		return expected => actual.indexOf(expected) >= 0;
 	}
-	if (options.lowercase === 'true') {
+	if (options.lowercase === LOWER_CASE_TRUE) {
 		// allows case insensitve comparison
 		return expected => containsString(expected, actual, v => v.toLowerCase());
 	}
@@ -173,7 +177,7 @@ function toContainsEvaluator(actual, options) {
  * or tries a string comparison if possible.
  */
 function toDefaultEvaluator(value) {
-	return expected => value === expected || areEqualsAsString(expected, value);
+	return expected => areEqualsAsString(expected, value);
 }
 
 const evaluatorRegistry = {
