@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
-import { isObject } from 'lodash';
+import isObject from 'lodash/isObject';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
