@@ -4,6 +4,8 @@ import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
+import { translate } from 'react-i18next';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -231,4 +233,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default Datalist;
+export default translate(I18N_DOMAIN_FORMS)(Datalist);
