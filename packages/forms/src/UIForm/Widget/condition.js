@@ -1,19 +1,51 @@
 import get from 'lodash/get';
 import findIndex from 'lodash/findIndex';
 
+const STRATEGY_PATTERN = /^([a-zA-Z]{1}\w*)(?:\((.+)?\))?$/;
+const DEFAULT_STRATEGY = { name: 'default' };
+
+/**
+ * @param value the value that is not correct
+ * @param message Error param
+ * @param filename Error param
+ * @param linenum Error param
+ * @return instance of ValueError
+ */
+function ValueError(value, message, filename, linenum) {
+	const instance = new Error(message, filename, linenum);
+	instance.value = value;
+	Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+	if (Error.captureStackTrace) {
+		Error.captureStackTrace(instance, ValueError);
+	}
+	return instance;
+}
+
+ValueError.prototype = Object.create(Error.prototype, {
+	constructor: {
+		value: Error,
+		enumerable: false,
+		writable: true,
+		configurable: true,
+	},
+});
+Object.setPrototypeOf(ValueError, Error);
+
 /**
  * Tries to ensure the returned value is a number.
  * It supports string and number for now.
  */
 function stringOrNumberToNumber(value) {
+	let number;
 	if (typeof value === 'number') {
-		return value;
+		number = value;
+	} else if (typeof value === 'string') {
+		number = parseInt(value, 10); // 0xF
 	}
-	if (typeof value === 'string') {
-		return Number(value);
+	if (number === undefined || isNaN(number)) {
+		throw new ValueError(value, 'Value is not a string or a number');
 	}
-	const error = { error: 'the passed value is not a string or a number', value };
-	throw error;
+	return number;
 }
 
 /**
@@ -24,8 +56,7 @@ function stringOrNumberToNumber(value) {
 function stringOrNumberToString(
 	value,
 	onError = val => {
-		const error = { error: 'the passed value is not a string or a number', value: val };
-		throw error;
+		throw new ValueError(val, 'Value is not a string or a number');
 	},
 ) {
 	if (!value) {
@@ -41,7 +72,10 @@ function stringOrNumberToString(
 }
 
 /**
- * "foo=bar;dummy=1" will return [{foo:"bar",dummy:"1"}]
+ * @param {string} parameterString 'foo=bar;dummy=1'
+ * @return {Object} parameters
+ * @example
+ parseParameters('foo=bar;dummy=1') == { foo: 'bar', dummy: '1' }
  */
 function parseParameters(parameterString) {
 	return parameterString
@@ -55,30 +89,23 @@ function parseParameters(parameterString) {
 					[it.substring(0, sep).trim()]: it.substring(sep + 1, it.length).trim(),
 				};
 			}
-			return {
-				value: it.trim(),
-			};
+			return { value: it.trim() };
 		})
-		.reduce(
-			(a, v) => ({
-				...a,
-				...v,
-			}),
-			{},
-		);
+		.reduce((a, v) => ({ ...a, ...v }), {});
 }
 
 /**
  * parses a strategy based on this pattern "name(parameters)" and returns
  * an object containing { name, params }.
+ * @param {string} strategy "contains(lowercase=true)"
+ * @return {Object} { name: 'contains', params: { lowercase: 'true' }}
  */
 function parseStrategy(strategy) {
 	if (!strategy) {
-		return strategy;
+		return DEFAULT_STRATEGY;
 	}
 
-	const strategyPattern = /^([a-zA-Z]{1}\w*)(?:\((.+)?\))?$/;
-	const matches = strategy.match(strategyPattern);
+	const matches = strategy.match(STRATEGY_PATTERN);
 	const isMatching = matches !== undefined;
 
 	const name = isMatching ? matches[1] : strategy;
@@ -110,14 +137,11 @@ function areEqualsAsString(expected, actualStringOrNumber) {
 }
 
 /**
- * For an array or a string if compares the expected value to its length.
+ * For an array or a string it compares the expected value to its length.
  */
 function toLengthEvaluator(value) {
-	if (value && value.length) {
-		const length = value.length;
-		return expected => areEqualsAsNumbers(length, expected);
-	}
-	return expected => areEqualsAsNumbers(0, expected);
+	const length = get(value, 'length', 0);
+	return expected => areEqualsAsNumbers(length, expected);
 }
 
 /**
@@ -158,18 +182,18 @@ const evaluatorRegistry = {
 	default: value => toDefaultEvaluator(value),
 };
 
-function evaluateInlineCondition(properties, condition) {
+function evaluateInlineCondition(condition, properties) {
 	if (!condition.path || !condition.values) {
 		return true;
 	}
 
-	const strategyConfig = parseStrategy(condition.strategy) || { name: 'default' };
+	const strategyConfig = parseStrategy(condition.strategy);
 	const value = get(properties, condition.path);
 	const evaluator = evaluatorRegistry[strategyConfig.name](value, strategyConfig.params);
 	return (condition.shouldBe !== false) === findIndex(condition.values, evaluator) >= 0;
 }
 
-function evaluateChildrenCondition(properties, condition) {
+function evaluateChildrenCondition(condition, properties) {
 	if (!condition.children || condition.children.length === 0) {
 		return true;
 	}
@@ -180,7 +204,7 @@ function evaluateChildrenCondition(properties, condition) {
 	return evaluator.call(
 		condition.children,
 		cond =>
-			evaluateInlineCondition(properties, cond) && evaluateChildrenCondition(properties, cond),
+			evaluateInlineCondition(cond, properties) && evaluateChildrenCondition(cond, properties),
 	);
 }
 
@@ -226,17 +250,18 @@ function shouldRender(condition, properties) {
 	}
 
 	// quit fast condition (don't evaluate the whole graph)
-	if (!evaluateInlineCondition(properties, condition)) {
+	if (!evaluateInlineCondition(condition, properties)) {
 		return false;
 	}
 
 	// navigate the nested graph
-	return evaluateChildrenCondition(properties, condition);
+	return evaluateChildrenCondition(condition, properties);
 }
 
 export const $internals = {
 	parseParameters,
 	parseStrategy,
+	DEFAULT_STRATEGY,
 };
 
 export default shouldRender;

@@ -141,6 +141,7 @@ export class TCompForm extends React.Component {
 			// - race conditions,
 			// - trigger result that is does not fit user entry anymore,
 			// - erase a good value put by the enduser
+			// TODO(TUI-203): move this in UIForm.container
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}

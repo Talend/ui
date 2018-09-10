@@ -232,7 +232,7 @@ describe('parseStrategy', () => {
 	const parseStrategy = $internals.parseStrategy;
 
 	it('should return a falsy value for undefined strategy', () => {
-		expect(parseStrategy(undefined)).toBeFalsy();
+		expect(parseStrategy(undefined)).toBe($internals.DEFAULT_STRATEGY);
 	});
 	it('should return the strategy if there is no parameter', () => {
 		const parsed = parseStrategy('foo');
