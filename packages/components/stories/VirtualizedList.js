@@ -50,6 +50,11 @@ const titleProps = {
 	onEditSubmit: action('submit-edit'),
 };
 
+const titlePropsWithTooltipLabel = {
+	...titleProps,
+	iconTooltipLabelKey: 'iconTooltipLabel',
+};
+
 const fewTitleActions = [
 	{
 		id: 'edit',
@@ -298,6 +303,8 @@ for (let i = collection.length; i < 100; i += 1) {
 		titleActions,
 	});
 }
+
+const collectionWithTooltupLabel = collection.map(item => item.icon ? { ...item, iconTooltipLabel: 'My tooltip label' } : item);
 
 storiesOf('Virtualized List', module)
 	.addDecorator(checkA11y)
@@ -570,6 +577,39 @@ storiesOf('Virtualized List', module)
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
+					/>
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > with tooltips in list item icons', () => (
+		<div>
+			<h1>Virtualized List</h1>
+			<p>
+				Tooltip label on list item icon can be enabled by passing
+				<b>iconKey, iconTooltipLabelKey</b> in titleProps,<br />
+				also the icon name and tooltip label should be provided in list item rowData
+				(in <b>collection</b> items)
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collectionWithTooltupLabel} id={'my-list'}>
+					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content
+						label="Name"
+						dataKey="name"
+						columnData={titlePropsWithTooltipLabel}
+						{...CellTitle}
+					/>
+					<VirtualizedList.Content
+						label="Tag"
+						dataKey="tag"
+						columnData={{ selected: true }}
+						{...CellBadge}
 					/>
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />

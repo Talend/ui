@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../../Icon';
+import TooltipTrigger from '../../TooltipTrigger';
 import CellTitleSelector from './CellTitleSelector.component';
 import CellTitleActions from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -38,6 +39,7 @@ class CellTitle extends React.Component {
 			persistentActionsKey,
 			displayModeKey,
 			iconKey,
+			iconTooltipLabelKey,
 			onEditCancel,
 			onEditSubmit,
 			...columnDataRest
@@ -47,6 +49,19 @@ class CellTitle extends React.Component {
 		const titleId = id && `${id}-${rowIndex}-title-cell`;
 		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
+		let icon = null;
+		if (iconKey) {
+			if (iconTooltipLabelKey && rowData[iconKey] && rowData[iconTooltipLabelKey]) {
+				icon = (
+					<TooltipTrigger label={rowData[iconTooltipLabelKey]} tooltipPlacement="top">
+						<Icon name={rowData[iconKey]} className={theme.icon} />
+					</TooltipTrigger>
+				);
+			} else if (rowData[iconKey]) {
+				icon = <Icon name={rowData[iconKey]} className={theme.icon} />;
+			}
+		}
+
 		return (
 			<div
 				id={titleId}
@@ -55,7 +70,7 @@ class CellTitle extends React.Component {
 					'tc-list-title-filter': onClick,
 				})}
 			>
-				{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
+				{icon}
 
 				<CellTitleSelector
 					id={titleId}
@@ -100,6 +115,8 @@ CellTitle.propTypes = {
 		displayModeKey: PropTypes.string,
 		// The icon property key. Icon = props.rowData[props.iconKey]
 		iconKey: PropTypes.string,
+		// The icon tooltip label key. tooltiplabel = props.rowData[iconTooltipLabelKey]
+		iconTooltipLabelKey: PropTypes.string,
 		// Input mode : the cancel callback on ESC keydown.
 		onEditCancel: PropTypes.func,
 		// Input mode : the submit callback on ENTER keydown or blur.
