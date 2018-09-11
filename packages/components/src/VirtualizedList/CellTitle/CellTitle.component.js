@@ -116,6 +116,8 @@ CellTitle.propTypes = {
 		displayModeKey: PropTypes.string,
 		// The icon property key. Icon = props.rowData[props.iconKey]
 		iconKey: PropTypes.string,
+		// The icon tooltip label key. tooltiplabel = props.rowData[iconTooltipLabelKey]
+		iconTooltipLabelKey: PropTypes.string,
 		// Input mode : the cancel callback on ESC keydown.
 		onEditCancel: PropTypes.func,
 		// Input mode : the submit callback on ENTER keydown or blur.
