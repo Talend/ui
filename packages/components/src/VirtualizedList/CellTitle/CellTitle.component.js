@@ -39,7 +39,7 @@ class CellTitle extends React.Component {
 			persistentActionsKey,
 			displayModeKey,
 			iconKey,
-			iconTooltipLabelKey,
+			iconLabelKey,
 			onEditCancel,
 			onEditSubmit,
 			...columnDataRest
@@ -50,16 +50,15 @@ class CellTitle extends React.Component {
 		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
 		let icon = null;
-		if (iconKey) {
-			if (iconTooltipLabelKey && rowData[iconKey] && rowData[iconTooltipLabelKey]) {
-				icon = (
-					<TooltipTrigger label={rowData[iconTooltipLabelKey]} tooltipPlacement="top">
-						<Icon name={rowData[iconKey]} className={theme.icon} />
-					</TooltipTrigger>
-				);
-			} else if (rowData[iconKey]) {
-				icon = <Icon name={rowData[iconKey]} className={theme.icon} />;
-			}
+		if (iconKey && rowData[iconKey]) {
+			icon = <Icon name={rowData[iconKey]} className={theme.icon} />;
+		}
+		if (icon && iconLabelKey && rowData[iconLabelKey]) {
+			icon = (
+				<TooltipTrigger label={rowData[iconLabelKey]} tooltipPlacement="top">
+					<Icon name={rowData[iconKey]} className={theme.icon} />
+				</TooltipTrigger>
+			);
 		}
 
 		return (
@@ -116,8 +115,8 @@ CellTitle.propTypes = {
 		displayModeKey: PropTypes.string,
 		// The icon property key. Icon = props.rowData[props.iconKey]
 		iconKey: PropTypes.string,
-		// The icon tooltip label key. tooltiplabel = props.rowData[iconTooltipLabelKey]
-		iconTooltipLabelKey: PropTypes.string,
+		// The icon tooltip label key. tooltiplabel = props.rowData[iconLabelKey]
+		iconLabelKey: PropTypes.string,
 		// Input mode : the cancel callback on ESC keydown.
 		onEditCancel: PropTypes.func,
 		// Input mode : the submit callback on ENTER keydown or blur.

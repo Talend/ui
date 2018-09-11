@@ -122,11 +122,11 @@ describe('CellTitle', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		it('should render icon with tooltip when iconTooltipLabelKey is provided and the rowData has tooltip label value', () => {
+		it('should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value', () => {
 			const columnData = {
 				id: 'my-title',
 				iconKey: 'icon',
-				iconTooltipLabelKey: 'iconTooltipLabel',
+				iconLabelKey: 'iconTooltipLabel',
 			};
 
 			const withTooltipLableRowData = {

@@ -52,7 +52,7 @@ const titleProps = {
 
 const titlePropsWithTooltipLabel = {
 	...titleProps,
-	iconTooltipLabelKey: 'iconTooltipLabel',
+	iconLabelKey: 'iconTooltipLabel',
 };
 
 const fewTitleActions = [
@@ -591,7 +591,7 @@ storiesOf('Virtualized List', module)
 			<h1>Virtualized List</h1>
 			<p>
 				Tooltip label on list item icon can be enabled by passing
-				<b>iconKey, iconTooltipLabelKey</b> in titleProps,<br />
+				<b>iconKey, iconLabelKey</b> in titleProps,<br />
 				also the icon name and tooltip label should be provided in list item rowData
 				(in <b>collection</b> items)
 			</p>
