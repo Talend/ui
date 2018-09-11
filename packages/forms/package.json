@@ -37,6 +37,7 @@
     "@talend/json-schema-form-core": "1.0.0-alpha.4",
     "ajv": "^6.2.1",
     "classnames": "^2.2.5",
+    "json-logic-js": "^1.2.2",
     "keycode": "^2.2.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
