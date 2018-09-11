@@ -5,8 +5,6 @@ import { checkA11y } from '@storybook/addon-a11y';
 
 import { Dialog } from '../src/index';
 
-import './Dialog.css';
-
 const defaultProps = {
 	show: true,
 };
