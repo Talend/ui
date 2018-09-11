@@ -69,7 +69,6 @@ class CellTitle extends React.Component {
 					'tc-list-title-filter': onClick,
 				})}
 			>
-
 				{icon}
 
 				<CellTitleSelector
