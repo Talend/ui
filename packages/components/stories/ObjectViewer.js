@@ -213,47 +213,39 @@ const data = [
 	},
 ];
 const primitiveArray = [1, 2, 3];
-
-const handler = {
-	edited: ["$[0]['int']"],
-	opened: ['$', '$[0]', "$[0]['attributes']"],
-	onClick: action('onClick'),
-	onSubmit: action('onSubmit'),
-	onChange: action('onChange'),
-	onToggle: action('onToggle'),
-};
-
 const selectedJsonpath = "$[0]['attributes']";
 const showType = true;
 
-const handlerHighlight = {
-	edited: ["$[0]['int']"],
-	opened: ['$', '$[0]', "$[0]['attributes']"],
-	onClick: action('onClick'),
+const callbacks = {
 	onSelect: action('onSelect'),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 	onToggle: action('onToggle'),
+	onToggleAllSiblings: action('onToggleAllSiblings'),
+};
+
+const handler = {
+	edited: ["$[0]['int']"],
+	opened: ['$', '$[0]', "$[0]['attributes']"],
+	...callbacks,
+};
+
+const handlerHighlight = {
+	edited: ["$[0]['int']"],
+	opened: ['$', '$[0]', "$[0]['attributes']"],
+	...callbacks,
 };
 
 const openedNativeTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
-	onClick: action('onClick'),
-	onSelect: action('onSelect'),
-	onSubmit: action('onSubmit'),
-	onChange: action('onChange'),
-	onToggle: action('onToggle'),
+	...callbacks,
 };
 
 const rootOpenedTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
-	onClick: action('onClick'),
-	onSelect: action('onSelect'),
-	onSubmit: action('onSubmit'),
-	onChange: action('onChange'),
-	onToggle: action('onToggle'),
+	...callbacks,
 };
 
 const withTagOnly = (
@@ -293,11 +285,7 @@ const handlerTags = {
 		"$[0]['null_value']": withTagOnly,
 		"$[0]['location']": withInfo,
 	},
-	onClick: action('onClick'),
-	onSelect: action('onSelect'),
-	onSubmit: action('onSubmit'),
-	onChange: action('onChange'),
-	onToggle: action('onToggle'),
+	...callbacks,
 };
 
 const stories = storiesOf('ObjectViewer', module);

@@ -11,7 +11,7 @@
 	}
 
 	svg {
-		margin-right: $caret-width-large;
+		margin: 0 0 0 1px; // this is du to the left ul border that takes 1px
 	}
 
 	button {

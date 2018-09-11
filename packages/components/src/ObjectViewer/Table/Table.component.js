@@ -20,18 +20,10 @@ export function getAbsolutePath(index, key, flat) {
 	return `$[${index}]['${key}']`;
 }
 
-function getHeaderId(baseId, key) {
-	if (!baseId) {
-		return null;
-	}
-
-	return `${baseId}-${key}`;
-}
-
 export function getHeaders(keys, isFlat, baseId) {
 	return keys.map(key => {
-		// $['id'][0]['foo'] -> id[0].foo
-		const header = isFlat
+		// This transforms $['id'][0]['foo'] into id[0].foo
+		const adaptedKey = isFlat
 			? key
 					.replace(/^\$\['/g, '')
 					.replace(/']\['/g, '.')
@@ -40,9 +32,9 @@ export function getHeaders(keys, isFlat, baseId) {
 					.replace(/']/g, '')
 			: key;
 		return {
-			id: getHeaderId(baseId, header),
+			id: `${baseId}-${adaptedKey}`,
 			key,
-			header,
+			header: adaptedKey,
 		};
 	});
 }
