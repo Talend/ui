@@ -244,7 +244,7 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 </div>
 `;
 
-exports[`CellTitle icon should render icon with tooltip when iconTooltipLabelKey is provided and the rowData has tooltip label value 1`] = `
+exports[`CellTitle icon should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value 1`] = `
 <div
   className="theme-tc-list-title tc-list-title"
   id="my-title-1-title-cell"
