@@ -4,9 +4,14 @@ exports[`ConfirmDialog should render with a large container 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
   aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
   bsSize="large"
   className="Modal"
+  enforceFocus={true}
   keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
   role="dialog"
   show={true}
 >
@@ -80,9 +85,14 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
   aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
   bsSize="large"
   className="Modal"
+  enforceFocus={true}
   keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
   role="dialog"
   show={true}
 >
@@ -176,9 +186,14 @@ exports[`ConfirmDialog should render with a small container 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
   aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
   bsSize="small"
   className="Modal"
+  enforceFocus={true}
   keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
   role="dialog"
   show={true}
 >
@@ -252,9 +267,14 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
   aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
   bsSize={undefined}
   className="Modal"
+  enforceFocus={true}
   keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
   role="dialog"
   show={true}
 >
@@ -341,9 +361,14 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
 <div
   aria-labelledby="tc-dialog-header"
   aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
   bsSize={undefined}
   className="Modal"
+  enforceFocus={true}
   keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
   role="dialog"
   show={true}
 >
@@ -417,9 +442,14 @@ exports[`ConfirmDialog should render without header 1`] = `
 <div
   aria-labelledby={null}
   aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
   bsSize={undefined}
   className="Modal"
+  enforceFocus={true}
   keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
   role="dialog"
   show={true}
 >

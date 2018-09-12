@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { checkA11y } from '@storybook/addon-a11y';
-import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y'; // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
 import { IconsProvider } from '../src/index';
@@ -66,7 +66,7 @@ const fewTitleActions = [
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 		hideLabel: true,
-	}
+	},
 ];
 
 const lotOfTitleActions = [
@@ -144,6 +144,46 @@ const titleActions = [
 				label: 'document 2',
 				'data-feature': 'list.item.related',
 				onClick: action('document 2 click'),
+			},
+			{
+				label: 'document 3',
+				'data-feature': 'list.item.related',
+				onClick: action('document 3 click'),
+			},
+			{
+				label: 'document 4',
+				'data-feature': 'list.item.related',
+				onClick: action('document 4 click'),
+			},
+			{
+				label: 'document 5',
+				'data-feature': 'list.item.related',
+				onClick: action('document 5 click'),
+			},
+			{
+				label: 'document 6',
+				'data-feature': 'list.item.related',
+				onClick: action('document 6 click'),
+			},
+			{
+				label: 'document 7',
+				'data-feature': 'list.item.related',
+				onClick: action('document 7 click'),
+			},
+			{
+				label: 'document 8',
+				'data-feature': 'list.item.related',
+				onClick: action('document 8 click'),
+			},
+			{
+				label: 'document 9',
+				'data-feature': 'list.item.related',
+				onClick: action('document 9 click'),
+			},
+			{
+				label: 'document 10',
+				'data-feature': 'list.item.related',
+				onClick: action('document 10 click'),
 			},
 		],
 		pullRight: true,
