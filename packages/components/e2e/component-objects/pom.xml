@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.talend</groupId>
     <artifactId>component-objects</artifactId>
-    <version>0.205.0</version>
+    <version>0.208.0</version>
 
     <properties>
         <!-- project -->
@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- dependencies -->
-        <selenium.version>2.53.1</selenium.version>
+        <selenium.version>3.6.0</selenium.version>
         <log4j.version>2.7</log4j.version>
         <!-- plugins -->
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
@@ -63,6 +63,13 @@
             <version>0.3.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

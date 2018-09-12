@@ -90,6 +90,7 @@ the delete service will use it to check if the resource exist in your applicatio
 * **female** : Only for i18n, allow to set the i18nkey to tell of the resource type if female or not
 * **collectionId** : specify the collection which stores resource. if not provided, then use `resourceType` as collection name
 * **resourceUri** : is the backend api to delete resource. if not provided, then `${uri}/${resourceType}/${id}` will be used.
+* **onCancelRedirectUrl** : is the url to redirect when cancel delete. if not provided then `redirectUrl` will be used.
 
 
 Example with resourcePath

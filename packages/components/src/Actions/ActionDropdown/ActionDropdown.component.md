@@ -1,6 +1,6 @@
 # ActionDropdown component
 
-This component display a dropdown with items in it. It used react-bootstrap component [DropdownButton](https://react-bootstrap.github.io/components/dropdowns/#btn-dropdowns), [MenuItem](https://react-bootstrap.github.io/components/dropdowns/#menu-items) and [TooltipTrigger](https://react-bootstrap.github.io/components/tooltips/#tooltips).
+This component displays a dropdown with items in it. It uses react-bootstrap component [DropdownButton](https://react-bootstrap.github.io/components/dropdowns/#btn-dropdowns), [MenuItem](https://react-bootstrap.github.io/components/dropdowns/#menu-items) and [TooltipTrigger](https://react-bootstrap.github.io/components/tooltips/#tooltips).
 
 A basic example of use
 
@@ -147,7 +147,9 @@ With the onSelect props you can add a callback when an item is selected.
 | items            | array of items displayed in the dropdown                                                                                     |
 | label            | string that defines the title used in the dropdown button or in the tooltip                                                  |
 | link             | boolean which condition the bsStyle                                                                                          |
+| loader           | boolean to indicate if we have to display a loader at then end of the dropdown                                               |
 | onSelect         | callback used when dropdown clicked                                                                                          |
+| onToggle         | callback used when dropdown is opened or hidden                                                                              |
 | tooltipPlacement | string ('up', 'down' ...) to position the tooltip overlay                                                                    |
 | tooltipLabel     | string label used to condition the used of overlay and label of overlay                                                      |
 | getComponent     | please see the component.md in cmf for more information.                                                                     |

@@ -686,6 +686,57 @@ exports[`Typeahead position should render search bar on the right 1`] = `
 </div>
 `;
 
+exports[`Typeahead should pass input extra props 1`] = `
+<div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      aria-describedby="desc-id"
+      aria-label="my custom label"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onChange={undefined}
+      onFocus={[Function]}
+      onKeyDown={undefined}
+      placeholder={undefined}
+      readOnly={false}
+      role="searchbox"
+      type="text"
+      value={undefined}
+    />
+  </div>
+  <div
+    id={undefined}
+  >
+    <div
+      className="theme-items-container tc-typeahead-items-container theme-item-container"
+      id="react-autowhatever-my-search"
+      role="listbox"
+    />
+  </div>
+</div>
+`;
+
 exports[`Typeahead with toggle should render button 1`] = `
 <button
   aria-label="Toggle search bar"

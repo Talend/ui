@@ -6,7 +6,7 @@ import { checkA11y } from '@storybook/addon-a11y';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
