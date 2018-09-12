@@ -77,7 +77,7 @@ describe('TabBar component', () => {
 		expect(onSelect).toHaveBeenCalledWith(expect.anything(), tabProps.items[0]);
 	});
 
-	it('should select first item on end keydown', () => {
+	it('should select last item on end keydown', () => {
 		// given
 		const onSelect = jest.fn();
 		const wrapper = mount(<TabBar {...tabProps} onSelect={onSelect} />);
