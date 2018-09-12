@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS } from 'immutable';
+import { Inject } from '@talend/react-components';
 
 import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';
@@ -85,7 +86,7 @@ describe('Component HomeListView', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should children transformed as array in props.drawer', () => {
+	it('should children transformed as array in props.drawers', () => {
 		const children = {
 			props: {
 				foo: 'bar',
@@ -110,6 +111,26 @@ describe('Component HomeListView', () => {
 			/>,
 		);
 		expect(wrapper.props().drawers).toMatchSnapshot();
+	});
+	it('should Inject components.drawer into props.drawers', () => {
+		const components = {
+			drawers: [{ component: 'Foo' }],
+		};
+		const getComponent = jest.fn(() => () => 'hello');
+		const wrapper = shallow(
+			<Component
+				header={<div>hello app</div>}
+				sidepanel={<div>hello sidepanel</div>}
+				list={<div>hello list</div>}
+				components={components}
+				getComponent={getComponent}
+			/>,
+		);
+		expect(wrapper.props().drawers[0].type).toBe(Inject);
+		expect(wrapper.props().drawers[0].props).toEqual({
+			getComponent,
+			component: 'Foo',
+		});
 	});
 });
 

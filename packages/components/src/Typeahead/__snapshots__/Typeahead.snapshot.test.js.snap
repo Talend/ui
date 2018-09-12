@@ -2,7 +2,11 @@
 
 exports[`Typeahead items should render typeahead items with match 1`] = `
 <div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
   className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
 >
   <div
     className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -16,21 +20,19 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-expanded={true}
-      aria-haspopup={true}
-      aria-owns="react-autowhatever-my-search"
+      aria-controls="react-autowhatever-my-search"
       autoComplete="off"
-      autoFocus={true}
+      autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onChange={undefined}
       onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
-      role="combobox"
+      role={undefined}
       type="text"
       value="le"
     />
@@ -39,8 +41,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     id={undefined}
   >
     <div
-      className="theme-items-container tc-typeahead-items-container"
+      className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
+      role="listbox"
     >
       <div
         className="theme-section-container tc-typeahead-section-container"
@@ -69,6 +72,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           role="listbox"
         >
           <li
+            aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
             onMouseDown={undefined}
             role="option"
@@ -112,6 +116,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             </div>
           </li>
           <li
+            aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
             onMouseDown={undefined}
             role="option"
@@ -195,6 +200,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           role="listbox"
         >
           <li
+            aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
             onMouseDown={undefined}
             role="option"
@@ -239,9 +245,13 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
 </div>
 `;
 
-exports[`Typeahead items should render typeahead with object items 1`] = `
+exports[`Typeahead items should render typeahead with loading entry 1`] = `
 <div
-  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-loading"
+  role="combobox"
 >
   <div
     className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -255,21 +265,19 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-expanded={true}
-      aria-haspopup={true}
-      aria-owns="react-autowhatever-my-search"
+      aria-controls="react-autowhatever-my-search"
       autoComplete="off"
-      autoFocus={true}
+      autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onChange={undefined}
       onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
-      role="combobox"
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -278,8 +286,64 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     id={undefined}
   >
     <div
-      className="theme-items-container tc-typeahead-items-container"
+      className="theme-items-container tc-typeahead-items-container theme-item-container theme-is-loading"
       id="react-autowhatever-my-search"
+      role="listbox"
+    >
+      <span
+        className="is-loading"
+      >
+        Loading...
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead with object items 1`] = `
+<div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onChange={undefined}
+      onFocus={[Function]}
+      onKeyDown={undefined}
+      placeholder={undefined}
+      readOnly={false}
+      role={undefined}
+      type="text"
+      value={undefined}
+    />
+  </div>
+  <div
+    id={undefined}
+  >
+    <div
+      className="theme-items-container tc-typeahead-items-container theme-item-container"
+      id="react-autowhatever-my-search"
+      role="listbox"
     >
       <div
         className="theme-section-container tc-typeahead-section-container"
@@ -308,6 +372,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           role="listbox"
         >
           <li
+            aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
             onMouseDown={undefined}
             role="option"
@@ -334,6 +399,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             </div>
           </li>
           <li
+            aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
             onMouseDown={undefined}
             role="option"
@@ -388,6 +454,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           role="listbox"
         >
           <li
+            aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
             onMouseDown={undefined}
             role="option"
@@ -422,7 +489,11 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
 
 exports[`Typeahead items should render typeahead with string items 1`] = `
 <div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
   className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
 >
   <div
     className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -436,21 +507,19 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-expanded={true}
-      aria-haspopup={true}
-      aria-owns="react-autowhatever-my-search"
+      aria-controls="react-autowhatever-my-search"
       autoComplete="off"
-      autoFocus={true}
+      autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onChange={undefined}
       onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
-      role="combobox"
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -459,14 +528,16 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     id={undefined}
   >
     <div
-      className="theme-items-container tc-typeahead-items-container"
+      className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
+      role="listbox"
     >
       <ul
         className="theme-items"
         role="listbox"
       >
         <li
+          aria-selected={false}
           id="react-autowhatever-my-search--item-0"
           onMouseDown={undefined}
           role="option"
@@ -486,6 +557,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           </div>
         </li>
         <li
+          aria-selected={false}
           id="react-autowhatever-my-search--item-1"
           onMouseDown={undefined}
           role="option"
@@ -512,7 +584,11 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
 
 exports[`Typeahead items should render typeahead without items 1`] = `
 <div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
   className="theme-tc-typeahead-container tc-typeahead-container"
+  role="combobox"
 >
   <div
     className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -526,21 +602,19 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-expanded={false}
-      aria-haspopup={false}
-      aria-owns="react-autowhatever-my-search"
+      aria-controls="react-autowhatever-my-search"
       autoComplete="off"
-      autoFocus={true}
+      autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onChange={undefined}
       onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
-      role="combobox"
+      role={undefined}
       type="text"
       value={undefined}
     />
@@ -549,8 +623,9 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     id={undefined}
   >
     <div
-      className="theme-items-container tc-typeahead-items-container theme-no-result"
+      className="theme-items-container tc-typeahead-items-container theme-item-container theme-no-result"
       id="react-autowhatever-my-search"
+      role="listbox"
     >
       <span
         className="no-result"
@@ -564,7 +639,11 @@ exports[`Typeahead items should render typeahead without items 1`] = `
 
 exports[`Typeahead position should render search bar on the right 1`] = `
 <div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
   className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+  role="combobox"
 >
   <div
     className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
@@ -578,21 +657,19 @@ exports[`Typeahead position should render search bar on the right 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-expanded={false}
-      aria-haspopup={false}
-      aria-owns="react-autowhatever-my-search"
+      aria-controls="react-autowhatever-my-search"
       autoComplete="off"
-      autoFocus={true}
+      autoFocus={false}
       className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
       disabled={false}
-      id="react-autowhatever-my-search-input"
+      id="my-search"
       onBlur={[Function]}
       onChange={undefined}
       onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
-      role="combobox"
+      role="searchbox"
       type="text"
       value={undefined}
     />
@@ -601,8 +678,60 @@ exports[`Typeahead position should render search bar on the right 1`] = `
     id={undefined}
   >
     <div
-      className="theme-items-container tc-typeahead-items-container"
+      className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
+      role="listbox"
+    />
+  </div>
+</div>
+`;
+
+exports[`Typeahead should pass input extra props 1`] = `
+<div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-right"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      aria-describedby="desc-id"
+      aria-label="my custom label"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onChange={undefined}
+      onFocus={[Function]}
+      onKeyDown={undefined}
+      placeholder={undefined}
+      readOnly={false}
+      role="searchbox"
+      type="text"
+      value={undefined}
+    />
+  </div>
+  <div
+    id={undefined}
+  >
+    <div
+      className="theme-items-container tc-typeahead-items-container theme-item-container"
+      id="react-autowhatever-my-search"
+      role="listbox"
     />
   </div>
 </div>
@@ -611,13 +740,13 @@ exports[`Typeahead position should render search bar on the right 1`] = `
 exports[`Typeahead with toggle should render button 1`] = `
 <button
   aria-label="Toggle search bar"
-  className="theme-only-icon-cls btn btn-link"
+  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
   disabled={false}
   onClick={[Function]}
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseOver={[Function]}
-  role={null}
+  role={undefined}
   type="button"
 >
   <i

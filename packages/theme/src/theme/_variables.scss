@@ -155,8 +155,8 @@ $table-border-color: #ddd !default;
 
 $btn-font-weight: normal !default;
 
-$btn-default-color: #333 !default;
-$btn-default-bg: #dedede !default;
+$btn-default-color: #fff !default;
+$btn-default-bg: $dark-silver !default;
 $btn-default-border: #ccc !default;
 
 $btn-primary-color: #fff !default;
@@ -194,7 +194,7 @@ $btn-border-radius-base: $border-radius-base !default;
 $btn-border-radius-large: $border-radius-large !default;
 $btn-border-radius-small: $border-radius-small !default;
 
-$btn-line-height: 3.3rem !default;
+$btn-line-height: 3.5rem !default;
 
 //== Forms
 //
@@ -228,13 +228,9 @@ $input-color-placeholder: #999 !default;
 //** Default `.form-control` height
 $input-height-base: ($line-height-computed + ($padding-smaller * 2) + 2) !default;
 //** Large `.form-control` height
-$input-height-large: (
-	ceil($font-size-large * $line-height-large) + ($padding-small * 2) + 2
-) !default;
+$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-small * 2) + 2) !default;
 //** Small `.form-control` height
-$input-height-small: (
-	floor($font-size-small * $line-height-small) + ($padding-smaller * 2) + 2
-) !default;
+$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-smaller * 2) + 2) !default;
 
 //** `.form-group` margin
 $form-group-margin-bottom: 25px !default;
@@ -280,9 +276,6 @@ $dropdown-link-disabled-color: $gray-light !default;
 
 //** Text color for headers within dropdown menus.
 $dropdown-header-color: $gray-light !default;
-
-//** Deprecated `$dropdown-caret-color` as of v3.1.0
-$dropdown-caret-color: $black !default;
 
 //-- Z-index master list
 //
@@ -596,15 +589,17 @@ $label-link-hover-color: #fff !default;
 //##
 
 //** Padding applied to the modal body
-$modal-inner-padding: 15px !default;
+$modal-inner-padding: 15px 30px !default;
 
 //** Padding applied to the modal title
-$modal-title-padding: 15px !default;
+$modal-title-padding: 30px !default;
+$modal-title-padding-top: 19px !default;
+$modal-title-padding-bottom: 14px !default;
 //** Modal title line-height
 $modal-title-line-height: $line-height-base !default;
 
 //** Background color of modal content area
-$modal-content-bg: lighten($brand-primary, 90%) !default;
+$modal-content-bg: $wild-sand !default;
 //** Modal content border color
 $modal-content-border-color: $shadow !default;
 //** Modal content border color **for IE8**
@@ -617,11 +612,11 @@ $modal-backdrop-opacity: 0.5 !default;
 //** Modal header border color
 $modal-header-border-color: #e5e5e5 !default;
 //** Modal footer border color
-$modal-footer-border-color: $modal-header-border-color !default;
+$modal-footer-border-color: transparent !default;
 
 $modal-lg: 900px !default;
-$modal-md: 600px !default;
-$modal-sm: 300px !default;
+$modal-md: 650px !default;
+$modal-sm: 550px !default;
 
 //== Alerts
 //

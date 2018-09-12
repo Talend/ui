@@ -22,13 +22,25 @@ function wrapChildren(children) {
 	return [children];
 }
 
-function HomeListView({ getComponent, id, hasTheme, sidepanel, list, header, children }) {
+function HomeListView({
+	getComponent,
+	components,
+	id,
+	hasTheme,
+	sidepanel,
+	list,
+	header,
+	children,
+}) {
 	if (!sidepanel || !list) {
 		return null;
 	}
 	let drawers = children || [];
 	if (!Array.isArray(drawers)) {
 		drawers = wrapChildren(drawers);
+	}
+	if (components && components.drawers) {
+		drawers = drawers.concat(Inject.map(getComponent, components.drawers));
 	}
 	const Renderers = Inject.getAll(getComponent, { HeaderBar, SidePanel, List });
 
@@ -51,6 +63,7 @@ HomeListView.propTypes = {
 	getComponent: PropTypes.func,
 	id: PropTypes.string,
 	hasTheme: PropTypes.bool,
+	components: PropTypes.object,
 	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
 	sidepanel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
 	list: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,

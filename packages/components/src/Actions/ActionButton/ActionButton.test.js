@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { ActionButton } from './ActionButton.component';
 
 const myAction = {
 	label: 'Click me',
+	title: 'Title to describe click me button',
 	icon: 'talend-caret-down',
-	onClick: jest.fn(),
 	'data-feature': 'action.feature',
 };
 
@@ -14,6 +14,10 @@ const mouseDownAction = {
 	icon: 'talend-caret-down',
 	onMouseDown: jest.fn(),
 };
+
+function OverlayComponent() {
+	return <div>OverlayComponent</div>;
+}
 
 describe('Action', () => {
 	it('should render a button', () => {
@@ -40,20 +44,56 @@ describe('Action', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should click on the button trigger the onclick props', () => {
+	it('should trigger the onclick props', () => {
 		// given
-		const wrapper = shallow(<ActionButton extra="extra" {...myAction} />);
+		const onClick = jest.fn();
+		const props = { ...myAction, onClick };
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
 
 		// when
-		wrapper.simulate('click');
+		wrapper.simulate('click', {});
 
 		// then
-		expect(myAction.onClick).toHaveBeenCalled();
-		expect(myAction.onClick.mock.calls.length).toBe(1);
-		const args = myAction.onClick.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+		expect(onClick.mock.calls.length).toBe(1);
+		expect(onClick).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
+	});
+
+	it('should trigger the onclick props when action has an overlay', () => {
+		// given
+		const onClick = jest.fn();
+		const props = { ...myAction, overlayComponent: OverlayComponent, onClick };
+		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
+
+		// when
+		wrapper.simulate('click', {});
+
+		// then
+		expect(onClick.mock.calls.length).toBe(1);
+		expect(onClick).toHaveBeenCalledWith(
+			{},
+			{
+				action: {
+					'data-feature': 'action.feature',
+					extra: 'extra',
+					icon: 'talend-caret-down',
+					label: 'Click me',
+					title: 'Title to describe click me button',
+				},
+				model: undefined,
+			},
+		);
 	});
 
 	it('should pass all props to the Button', () => {
@@ -126,10 +166,6 @@ describe('Action', () => {
 	});
 
 	it('should render a button without an overlay component if inProgress is true', () => {
-		function OverlayComponent() {
-			return <div>OverlayComponent</div>;
-		}
-
 		const props = {
 			...myAction,
 			inProgress: true,
@@ -146,14 +182,11 @@ describe('Action', () => {
 	});
 
 	it('should render a button with a overlay component', () => {
-		function OverlayComponent() {
-			return <div>OverlayComponent</div>;
-		}
-
 		const props = {
 			...myAction,
 			overlayComponent: OverlayComponent,
 			overlayPlacement: 'bottom',
+			overlayId: 'myOverlayId',
 		};
 
 		// when
@@ -162,5 +195,30 @@ describe('Action', () => {
 		// then
 		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should called ref method on overlay', () => {
+		// given
+		const myRefFunc = jest.fn();
+		const props = {
+			...myAction,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+			overlayRef: myRefFunc,
+			overlayId: 'myOverlayId',
+		};
+		// when
+		mount(<ActionButton {...props} />);
+
+		// then
+		expect(myRefFunc).toHaveBeenCalled();
+	});
+	it('should called ref method on button', () => {
+		// Given
+		const myRefFunc = jest.fn();
+		// when
+		mount(<ActionButton {...myAction} buttonRef={myRefFunc} />);
+
+		// then
+		expect(myRefFunc).toHaveBeenCalled();
 	});
 });

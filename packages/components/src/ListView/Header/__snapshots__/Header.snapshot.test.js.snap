@@ -12,7 +12,7 @@ exports[`Header should render header with one button 1`] = `
   >
     <button
       aria-label="Search for specific values"
-      className="btn btn-link"
+      className="btn-icon-only btn btn-link"
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -25,6 +25,7 @@ exports[`Header should render header with one button 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-search"
         title={null}
       >
         <use

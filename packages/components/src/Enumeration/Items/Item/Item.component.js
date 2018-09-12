@@ -1,11 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
+import { translate } from 'react-i18next';
+
 import { removeDuplicates, allIndexOf } from './utils';
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
 import { Checkbox } from '../../../Toggle';
 import ItemPropTypes from './Item.propTypes';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
+import Icon from '../../../Icon';
+import TooltipTrigger from '../../../TooltipTrigger';
 
 function itemClasses(isSelected) {
 	return classNames({
@@ -16,10 +21,11 @@ function itemClasses(isSelected) {
 	});
 }
 
-function itemLabelClasses() {
+function itemLabelClasses(className) {
 	return classNames({
 		[theme['tc-enumeration-item-label']]: true,
 		'tc-enumeration-item-label': true,
+		[className]: className,
 	});
 }
 
@@ -31,7 +37,7 @@ function itemDefaultActionsClasses() {
 	});
 }
 
-function Item({ id, item, searchCriteria, showCheckboxes }) {
+function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 	const { key, actions, onSelectItem } = item.itemProps;
 	const actualLabel = item[key] instanceof Array ? item[key].join(',') : item[key];
 
@@ -44,7 +50,6 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 				});
 			}
 		}
-
 		return (
 			<Action
 				key={index}
@@ -87,7 +92,7 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 	function getActionLabel() {
 		if (searchCriteria) {
 			return (
-				<button className={itemLabelClasses()} disabled="disabled">
+				<button role="gridcell" className={itemLabelClasses(item.className)} disabled="disabled">
 					{getSearchedLabel(actualLabel)}
 				</button>
 			);
@@ -95,31 +100,48 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 
 		return (
 			<Button
-				className={itemLabelClasses()}
+				className={itemLabelClasses(item.className)}
+				role="gridcell"
 				onClick={event => onSelectItem(item, event)}
 				key={item.index}
+				aria-label={t('TC_ENUMERATION_SELECT', {
+					defaultValue: 'Select item "{{label}}"',
+					label: actualLabel,
+				})}
+				bsStyle="link"
 			>
 				{showCheckboxes && (
 					<Checkbox
+						aria-label={t('TC_ENUMERATION_CHECK', {
+							defaultValue: 'Check item "{{label}}"',
+							label: actualLabel,
+						})}
 						className={classNames(theme['tc-enumeration-checkbox'], 'tc-enumeration-checkbox')}
 						checked={item.isSelected}
 					/>
 				)}
 				<span>{actualLabel}</span>
+				{item.icon && (
+					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
+						<Icon {...item.icon} aria-hidden="false" />
+					</TooltipTrigger>
+				)}
 			</Button>
 		);
 	}
 
 	return (
-		<li className={itemClasses(item.isSelected)} id={id}>
+		<div role="row" className={itemClasses(item.isSelected)} id={id} style={style}>
 			{getActionLabel()}
-			<div className={itemDefaultActionsClasses()}>
-				{actions.map((action, index) => getAction(action, index))}
+			<div className={itemDefaultActionsClasses()} role="gridcell">
+				{actions
+					.filter(action => !action.disabled)
+					.map((action, index) => getAction(action, index))}
 			</div>
-		</li>
+		</div>
 	);
 }
 
 Item.propTypes = ItemPropTypes;
 
-export default Item;
+export default translate(I18N_DOMAIN_COMPONENTS)(Item);

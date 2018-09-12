@@ -1,4 +1,4 @@
-import { take } from 'redux-saga/effects';
+import { take, takeLatest } from 'redux-saga/effects';
 
 import matchPath from '../sagaRouter/matchPath';
 
@@ -65,14 +65,7 @@ export function assignDocTitle(title) {
 	}
 }
 
-/**
- * A saga which listen to the REQUEST_SETTINGS_OK.
- * We use the routes of the settings to build a map [route: documentTitle].
- * We use the root path '/' to get the default document title and we assign it.
- * When the location changes @@router/LOCATION_CHANGE we update the document title.
- */
-export default function* changeDocumentTitle() {
-	const { settings } = yield take('REACT_CMF.REQUEST_SETTINGS_OK');
+export function* handleDocumentTitle({ settings }) {
 	const mapRoutes = buildMapFromRoutes(settings.routes, new Map());
 	const defaultDocTitle = mapRoutes.get('/');
 	assignDocTitle(defaultDocTitle);
@@ -82,4 +75,14 @@ export default function* changeDocumentTitle() {
 		const docTitle = getTitleFromRoutes(mapRoutes, router.payload.pathname, defaultDocTitle);
 		assignDocTitle(docTitle);
 	}
+}
+
+/**
+ * A saga which listen to the REQUEST_SETTINGS_OK.
+ * We use the routes of the settings to build a map [route: documentTitle].
+ * We use the root path '/' to get the default document title and we assign it.
+ * When the location changes @@router/LOCATION_CHANGE we update the document title.
+ */
+export default function* changeDocumentTitle() {
+	yield takeLatest('REACT_CMF.REQUEST_SETTINGS_OK', handleDocumentTitle);
 }

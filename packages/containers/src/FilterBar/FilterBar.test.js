@@ -16,6 +16,7 @@ describe('Filter container', () => {
 	it('should render', () => {
 		const props = {
 			docked: false,
+			value: 'a filter',
 			navbar: true,
 			dockable: true,
 			collectionToFilter: 'myCollectionToFilter',

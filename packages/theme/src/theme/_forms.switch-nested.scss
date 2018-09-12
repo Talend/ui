@@ -7,6 +7,7 @@
 		justify-content: flex-end;
 		.btn.btn-link {
 			line-height: 20px;
+			min-height: auto;
 			svg {
 				width: 10px;
 				height: 10px;
@@ -116,63 +117,5 @@
 
 	.checkbox-nested {
 		margin-left: 40px;
-		input[type='checkbox'] {
-			position: absolute;
-			clip: rect(1px, 1px, 1px, 1px);
-			padding: 0;
-			border: none;
-			height: 1px;
-			width: 1px;
-			overflow: hidden;
-
-			+ * {
-				color: tint($black, 50);
-			}
-
-			+ *:before,
-			+ *:after,
-			&:checked + *:before,
-			&:checked + *:after {
-				position: absolute;
-				content: '';
-				top: 0;
-				left: 0;
-				transition: background 0.2s ease, transform 0.2s ease;
-			}
-
-			+ *:before {
-				width: 1rem;
-				height: 1rem;
-				margin-top: 0.4rem;
-				border: 1px solid $silver;
-				border-radius: 2px;
-				transform: rotate(0deg);
-			}
-
-			&:checked + *:before {
-				width: 1rem;
-				height: 1rem;
-				margin-top: 0.4rem;
-				background: $alto;
-				border: none;
-				box-shadow: $switch-track-shadow;
-				transform: rotate(0deg);
-			}
-
-			+ *:after,
-			&:checked + *:after {
-				display: none;
-			}
-
-			&:checked {
-				+ * {
-					color: $text-color;
-				}
-
-				+ *:before {
-					background-color: $scooter;
-				}
-			}
-		}
 	}
 }

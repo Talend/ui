@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Actions } from '../src/index';
 
@@ -64,6 +65,7 @@ const actions = [
 ];
 
 storiesOf('Actions', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<p>By default :</p>

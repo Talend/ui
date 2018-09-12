@@ -1,4 +1,4 @@
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
@@ -13,6 +13,8 @@ export const DEFAULT_STATE = new Immutable.Map({
 
 export const DISPLAY_NAME = 'Container(FilterBar)';
 
+const DOCKED_ATTR = 'docked';
+
 class FilterBar extends React.Component {
 	static displayName = DISPLAY_NAME;
 
@@ -22,7 +24,7 @@ class FilterBar extends React.Component {
 	};
 
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		id: PropTypes.string,
 		placeholder: PropTypes.string,
 		filterInputValue: PropTypes.string,
@@ -67,8 +69,8 @@ class FilterBar extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
-			docked: state.get('docked'),
-			value: state.get(QUERY_ATTR, ''),
+			docked: this.props.docked != null ? this.props.docked : state.get(DOCKED_ATTR),
+			value: this.props.value ? this.props.value : state.get(QUERY_ATTR, ''),
 			onToggle: this.onToggle,
 			onFilter: this.onFilter,
 		});

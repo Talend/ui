@@ -33,6 +33,19 @@ const HTML_TPL = (icons, style) => `
 				margin-left: 47px;
 			}
 			${style}
+			.colormapping > svg > g {
+				filter: url(#colormapping);
+			}
+			.colormapping:hover > svg > g {
+				filter: none;
+			}
+
+			.grayscale > svg > g {
+				filter: url(#talend-grayscale);
+			}
+			.grayscale:hover > svg > g {
+				filter: none;
+			}
 		</style>
 		<script>
 			function setSize(size) {
@@ -41,6 +54,13 @@ const HTML_TPL = (icons, style) => `
 					var icon = elements[i];
 					icon.setAttribute('width', size);
 					icon.setAttribute('height', size);
+				}
+			}
+			function setFilter(filter) {
+				var elements = document.querySelectorAll('li > svg');
+				for (var i = 0; i < elements.length; i++) {
+					var icon = elements[i];
+					icon.setAttribute('class', filter);
 				}
 			}
 			function filter(term) {
@@ -74,6 +94,14 @@ const HTML_TPL = (icons, style) => `
 				</select>
 			</div>
 			<div class="form-group">
+				<label for="select-filter" class="sr-only">Select filter</label>
+				<select id="select-filter" class="form-control" onChange="setFilter(this.value)">
+					<option value="no-filter">No filter</option>
+					<option value="colormapping">Color mapping</option>
+					<option value="grayscale">grayscale</option>
+				</select>
+			</div>
+			<div class="form-group">
 				<label for="search-icon" class="sr-only">search</label>
 				<input id="search-icon" type="text" oninput="filter(this.value)" class="form-control" placeholder="search" style="width: 280px; margin-left: 7px" />
 			</div>
@@ -85,7 +113,14 @@ const HTML_TPL = (icons, style) => `
 </html>
 `;
 
-const buff = Object.keys(lib.svgs).map(key => `<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${lib.svgs[key]}</svg><span>${key}</span></li>`);
+const buff = Object.keys(lib.svgs)
+	.map(
+		key =>
+			`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${
+				lib.svgs[key]
+			}</svg><span>${key}</span></li>`,
+	)
+	.concat(Object.keys(lib.filters).map(key => `${lib.filters[key]}`));
 
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);

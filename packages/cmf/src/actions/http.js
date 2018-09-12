@@ -1,5 +1,5 @@
-import { HTTP_METHODS } from '../middlewares/http';
 import {
+	HTTP_METHODS,
 	ACTION_TYPE_HTTP_REQUEST,
 	ACTION_TYPE_HTTP_RESPONSE,
 	ACTION_TYPE_HTTP_ERRORS,
@@ -42,13 +42,14 @@ function onResponse(response) {
 	};
 }
 
-function onActionResponse(action, response) {
+function onActionResponse(action, response, headers) {
 	if (typeof action.onResponse === 'function') {
-		return action.onResponse(response);
+		return action.onResponse(response, headers);
 	}
 	return {
 		type: action.onResponse,
 		response,
+		headers,
 	};
 }
 

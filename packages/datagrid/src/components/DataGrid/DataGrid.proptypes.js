@@ -12,6 +12,7 @@ const DATAGRID_PROPTYPES = {
 	loading: PropTypes.bool,
 	enableColResize: PropTypes.bool,
 	columnMinWidth: PropTypes.number,
+	forceRedrawRows: PropTypes.func,
 	getComponent: PropTypes.func,
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
@@ -25,8 +26,12 @@ const DATAGRID_PROPTYPES = {
 	onVerticalScroll: PropTypes.func,
 	pinHeaderRenderer: PropTypes.string,
 	data: PropTypes.object,
+	rowData: PropTypes.array,
 	rowSelection: PropTypes.string,
 	rowHeight: PropTypes.number,
+	deltaRowDataMode: PropTypes.bool,
+	rowBuffer: PropTypes.number,
+	rowNodeIdentifier: PropTypes.string,
 };
 
 export default DATAGRID_PROPTYPES;

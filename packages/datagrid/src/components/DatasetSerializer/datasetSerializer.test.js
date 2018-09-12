@@ -1,4 +1,19 @@
-import { getColumnDefs, getRowData, getPinnedColumnDefs, getCellValue } from './datasetSerializer';
+import Immutable, { fromJS } from 'immutable';
+
+import { QUALITY_KEY } from '../../constants/';
+import {
+	convertSample,
+	getCellValue,
+	getColumnDefs,
+	getFieldQuality,
+	getPinnedColumnDefs,
+	getQuality,
+	getQualityValue,
+	getRowData,
+	getType,
+	getTypeValue,
+	sanitizeAvro,
+} from './datasetSerializer';
 
 const sample = {
 	schema: {
@@ -8,29 +23,38 @@ const sample = {
 			{
 				name: 'field0',
 				doc: 'Nom de la gare',
-				type: {
-					type: 'string',
-					dqType: 'FR Commune',
-					dqTypeKey: 'FR_COMMUNE',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 38,
-					'-1': 62,
-				},
+				type: [
+					{
+						'@talend-quality@': {
+							0: 0,
+							1: 38,
+							'-1': 62,
+							total: 100,
+						},
+						type: 'string',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+					{
+						type: 'null',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+				],
 			},
 			{
 				name: 'field1',
 				doc: 'Code UIC',
 				type: {
+					'@talend-quality@': {
+						0: 0,
+						1: 100,
+						'-1': 0,
+						total: 100,
+					},
 					type: 'int',
 					dqType: '',
 					dqTypeKey: '',
-				},
-				'@talend-quality@': {
-					0: 0,
-					1: 100,
-					'-1': 0,
 				},
 			},
 		],
@@ -142,16 +166,34 @@ describe('#getColumnDefs', () => {
 		expect(columnDefs).toMatchSnapshot();
 	});
 
+	it('should returns the columns definitions from immutable', () => {
+		const columnDefs = getColumnDefs(fromJS(sample));
+
+		expect(columnDefs).toMatchSnapshot();
+	});
+
 	it('should returns an empty columns definitions', () => {
 		const columnDefs = getColumnDefs();
 
 		expect(columnDefs).toEqual([]);
+	});
+
+	it('should returns the columns definitions with optional', () => {
+		const columnDefs = getColumnDefs(sample);
+
+		expect(columnDefs).toMatchSnapshot();
 	});
 });
 
 describe('#getRowData', () => {
 	it('should returns the row data', () => {
 		const rowData = getRowData(sample);
+
+		expect(rowData).toMatchSnapshot();
+	});
+
+	it('should returns the row data', () => {
+		const rowData = getRowData(fromJS(sample));
 
 		expect(rowData).toMatchSnapshot();
 	});
@@ -195,5 +237,194 @@ describe('#getCellValue', () => {
 		});
 
 		expect(value).toBe('myData');
+	});
+});
+
+describe('#getTypeValue', () => {
+	it('should return the type with a star', () => {
+		expect(getTypeValue({ type: 'hello', dqType: '' })).toEqual('hello*');
+	});
+	it('should return the dqType', () => {
+		expect(getTypeValue({ type: 'hello', dqType: 'world' }, true)).toEqual('world');
+	});
+});
+
+describe('#getType', () => {
+	it('should return the optional type', () => {
+		const type = getType([
+			{
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+				type: 'string',
+				dqType: '',
+				dqTypeKey: '',
+			},
+			{
+				dqType: '',
+				dqTypeKey: '',
+				type: 'null',
+			},
+		]);
+
+		expect(type).toBe('string');
+	});
+
+	it('should return the mandatory dqType', () => {
+		const type = getType({
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		});
+
+		expect(type).toBe('FR Commune*');
+	});
+
+	it('should return the type', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
+	});
+
+	it('should return the forced type to optional', () => {
+		const type = getType({
+			type: 'string',
+			dqType: '',
+			dqTypeKey: '',
+		});
+
+		expect(type).toBe('string*');
+	});
+});
+
+describe('#getQualityValue', () => {
+	it('should return the quality from an array', () => {
+		const type = [
+			{
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+				type: 'string',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+			{
+				type: 'null',
+				dqType: 'FR Commune',
+				dqTypeKey: 'FR_COMMUNE',
+			},
+		];
+		expect(getQualityValue(type)).toEqual({
+			0: 0,
+			1: 38,
+			'-1': 62,
+			total: 100,
+		});
+	});
+	it('should return the quality from an object', () => {
+		const type = {
+			'@talend-quality@': {
+				0: 0,
+				1: 38,
+				'-1': 62,
+				total: 100,
+			},
+			type: 'string',
+			dqType: 'FR Commune',
+			dqTypeKey: 'FR_COMMUNE',
+		};
+		expect(getQualityValue(type)).toEqual({
+			0: 0,
+			1: 38,
+			'-1': 62,
+			total: 100,
+		});
+	});
+});
+
+describe('getQuality', () => {
+	it('should get the calculated quality', () => {
+		expect(getQuality(7, 13)).toEqual({
+			percentage: 54,
+			total: 7,
+		});
+	});
+
+	it('should prevent zero division', () => {
+		expect(getQuality(0, 0)).toEqual({
+			percentage: 0,
+			total: 0,
+		});
+	});
+});
+
+describe('getFieldQuality', () => {
+	it('should enrich the quality', () => {
+		expect(getFieldQuality(sample.schema.fields[0][QUALITY_KEY])).toMatchSnapshot();
+	});
+});
+
+describe('convertSample', () => {
+	it('should return a plain sample from immutable', () => {
+		const sampleData = {
+			id: 42,
+		};
+		expect(convertSample(Immutable.Map(sampleData))).toEqual(sampleData);
+	});
+
+	it('should return the sample', () => {
+		const sampleData = {
+			id: 42,
+		};
+		expect(convertSample(sampleData)).toBe(sampleData);
+	});
+
+	describe('sanitizeAvro', () => {
+		it('should sanitize the optional avro type', () => {
+			const avro = sanitizeAvro({
+				name: 'field0',
+				doc: 'Nom de la gare',
+				type: [
+					'null',
+					{
+						type: 'string',
+						dqType: 'FR Commune',
+						dqTypeKey: 'FR_COMMUNE',
+					},
+				],
+				'@talend-quality@': {
+					0: 0,
+					1: 38,
+					'-1': 62,
+					total: 100,
+				},
+			});
+			expect(avro).toEqual({
+				'@talend-quality@': { '-1': 62, 0: 0, 1: 38, total: 100 },
+				doc: 'Nom de la gare',
+				name: 'field0',
+				type: { dqType: 'FR Commune', dqTypeKey: 'FR_COMMUNE', type: 'string' },
+			});
+		});
+
+		it('should not sanitize', () => {
+			const avro = {
+				'@talend-quality@': { '-1': 62, 0: 0, 1: 38, total: 100 },
+				doc: 'Nom de la gare',
+				name: 'field0',
+				type: { dqType: 'FR Commune', dqTypeKey: 'FR_COMMUNE', type: 'string' },
+			};
+			expect(sanitizeAvro(avro)).toBe(avro);
+		});
 	});
 });

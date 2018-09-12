@@ -98,6 +98,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -114,6 +115,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -128,6 +130,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 1."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -144,6 +147,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -153,30 +157,15 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     </a>
   </li>
   <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        1
-        /
-        2
-      </span>
-    </a>
+    1
+    /
+    2
   </li>
   <li
     className="btn-link"
@@ -184,6 +173,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 1."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -194,6 +184,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -208,6 +199,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -218,6 +210,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -327,6 +320,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -337,6 +331,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -351,6 +346,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -361,6 +357,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -370,30 +367,15 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     </a>
   </li>
   <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        2
-        /
-        2
-      </span>
-    </a>
+    2
+    /
+    2
   </li>
   <li
     className="btn-link disabled"
@@ -401,6 +383,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -417,6 +400,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -431,6 +415,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -447,6 +432,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -841,6 +827,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -851,6 +838,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -865,6 +853,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -875,6 +864,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -884,30 +874,15 @@ exports[`Pagination should render 1`] = `
     </a>
   </li>
   <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        2
-        /
-        4
-      </span>
-    </a>
+    2
+    /
+    4
   </li>
   <li
     className="btn-link"
@@ -915,6 +890,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 2."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -925,6 +901,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -939,6 +916,7 @@ exports[`Pagination should render 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id={undefined}
       onClick={[Function]}
@@ -949,6 +927,7 @@ exports[`Pagination should render 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -1058,6 +1037,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to first page."
       href="#"
       id="toolbar-pagination-nav-to-first"
       onClick={[Function]}
@@ -1068,6 +1048,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use
@@ -1082,6 +1063,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to previous page. Current page: 2."
       href="#"
       id="toolbar-pagination-nav-to-prev"
       onClick={[Function]}
@@ -1092,6 +1074,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -1101,30 +1084,15 @@ exports[`Pagination should render id if provided 1`] = `
     </a>
   </li>
   <li
-    className="disabled"
-    role="presentation"
-    style={undefined}
+    active={undefined}
+    activeHref={undefined}
+    activeKey={undefined}
+    className="theme-page-index"
+    onSelect={[Function]}
   >
-    <a
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      style={
-        Object {
-          "pointerEvents": "none",
-        }
-      }
-      tabIndex={-1}
-    >
-      <span
-        className="btn-link"
-      >
-        2
-        /
-        4
-      </span>
-    </a>
+    2
+    /
+    4
   </li>
   <li
     className="btn-link"
@@ -1132,6 +1100,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to next page. Current page: 2."
       href="#"
       id="toolbar-pagination-nav-to-next"
       onClick={[Function]}
@@ -1142,6 +1111,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-left"
         title={null}
       >
         <use
@@ -1156,6 +1126,7 @@ exports[`Pagination should render id if provided 1`] = `
     style={undefined}
   >
     <a
+      aria-label="Go to last page."
       href="#"
       id="toolbar-pagination-nav-to-last"
       onClick={[Function]}
@@ -1166,6 +1137,7 @@ exports[`Pagination should render id if provided 1`] = `
         aria-hidden="true"
         className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
         focusable="false"
+        name="talend-chevron-end"
         title={null}
       >
         <use

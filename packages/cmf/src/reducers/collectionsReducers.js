@@ -3,7 +3,7 @@
  */
 import { Map, List, fromJS } from 'immutable';
 import invariant from 'invariant';
-import ACTIONS from '../actions';
+import CONSTANTS from '../constant';
 
 export const defaultState = new Map();
 
@@ -59,7 +59,7 @@ function deleteMapElements(state, action) {
 	if (action.operations.delete.some(id => collection.has(id))) {
 		const changedCollection = action.operations.delete.reduce(
 			(collectionAccu, element) => collectionAccu.delete(element),
-			collection
+			collection,
 		);
 		return state.set(action.id, changedCollection);
 	}
@@ -90,9 +90,7 @@ function deleteCollectionElement(state, action) {
 function updateListElements(state, action) {
 	const updates = action.operations.update;
 
-	const changedCollection = state
-		.get(action.id)
-		.map(element => updates[getId(element)] || element);
+	const changedCollection = state.get(action.id).map(element => updates[getId(element)] || element);
 	return state.set(action.id, changedCollection);
 }
 
@@ -100,7 +98,7 @@ function updateMapElements(state, action) {
 	const updates = action.operations.update;
 	const changedCollection = Object.keys(updates).reduce(
 		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
-		state.get(action.id)
+		state.get(action.id),
 	);
 	return state.set(action.id, changedCollection);
 }
@@ -148,9 +146,9 @@ function mutateCollection(state, action) {
  */
 function collectionsReducers(state = defaultState, action) {
 	switch (action.type) {
-		case ACTIONS.collections.COLLECTION_ADD_OR_REPLACE:
+		case CONSTANTS.COLLECTION_ADD_OR_REPLACE:
 			return state.set(action.collectionId, fromJS(action.data));
-		case ACTIONS.collections.COLLECTION_REMOVE:
+		case CONSTANTS.COLLECTION_REMOVE:
 			if (!state.get(action.collectionId)) {
 				invariant(
 					process.env.NODE_ENV === 'production',
@@ -159,7 +157,7 @@ function collectionsReducers(state = defaultState, action) {
 				return state;
 			}
 			return state.delete(action.collectionId);
-		case ACTIONS.collections.COLLECTION_MUTATE:
+		case CONSTANTS.COLLECTION_MUTATE:
 			return mutateCollection(state, action);
 		default:
 			return state;

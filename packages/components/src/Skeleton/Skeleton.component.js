@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import Icon from '../Icon';
 import theme from './Skeleton.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import '../translate';
 
 const TYPES = {
 	icon: 'icon',
@@ -45,7 +45,7 @@ function getTranslatedType(t, type) {
  * @param {number} props.height height to override size's height
  * @param {string} props.className classes to apply on skeleton
  */
-function Skeleton({ type, size, width, height, name, className, t }) {
+function Skeleton({ heartbeat, type, size, width, height, name, className, t }) {
 	const classes = classnames(
 		theme['tc-skeleton'],
 		theme[`tc-skeleton-${type}`],
@@ -54,10 +54,11 @@ function Skeleton({ type, size, width, height, name, className, t }) {
 		`tc-skeleton-${type}`,
 		`tc-skeleton-${type}-${size}`,
 		className,
+		{ 'tc-skeleton-heartbeat': heartbeat },
 	);
 
 	const ariaLabel = t('SKELETON_LOADING', {
-		defaultValue: ' {{type}} (loading)',
+		defaultValue: '{{type}} (loading)',
 		type: getTranslatedType(t, type),
 	});
 
@@ -72,6 +73,7 @@ Skeleton.TYPES = TYPES;
 Skeleton.SIZES = SIZES;
 
 Skeleton.propTypes = {
+	heartbeat: PropTypes.bool,
 	type: PropTypes.oneOf([
 		Skeleton.TYPES.button,
 		Skeleton.TYPES.circle,
@@ -94,8 +96,9 @@ Skeleton.propTypes = {
 Skeleton.defaultProps = {
 	type: Skeleton.TYPES.text,
 	size: Skeleton.SIZES.medium,
+	heartbeat: true,
 };
 
 Skeleton.displayName = 'Skeleton';
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Skeleton);
+export default translate(I18N_DOMAIN_COMPONENTS)(Skeleton);

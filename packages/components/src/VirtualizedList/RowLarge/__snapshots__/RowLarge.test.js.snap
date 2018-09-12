@@ -19,7 +19,38 @@ exports[`RowLarge should render large row 1`] = `
     <div
       className="theme-header"
     >
-      
+      <VirtualizedList(CellTitle)
+        cellData="Title from second item"
+        columnData={
+          Object {
+            "actionsKey": "titleActions",
+            "displayModeKey": "display",
+            "iconKey": "icon",
+          }
+        }
+        dataKey="name"
+        rowData={
+          Object {
+            "description": "This comes from second element in collection",
+            "id": 1,
+            "name": "Title from second item",
+            "titleActions": Array [
+              Object {
+                "icon": "talend-pencil",
+                "label": "edit",
+                "onClick": [Function],
+              },
+              Object {
+                "icon": "talend-trash",
+                "label": "delete",
+                "onClick": [Function],
+              },
+            ],
+          }
+        }
+        rowIndex={1}
+        type="LARGE"
+      />
     </div>
     <ul
       className="theme-content"
@@ -36,20 +67,6 @@ exports[`RowLarge should render large row 1`] = `
           title="1"
         >
           1
-        </span>
-      </li>
-      <li>
-        <span
-          className="theme-field-label"
-        >
-          Name
-          : 
-        </span>
-        <span
-          className="theme-field-value"
-          title="Title from second item"
-        >
-          Title from second item
         </span>
       </li>
       <li>

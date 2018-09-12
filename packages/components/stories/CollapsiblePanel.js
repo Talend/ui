@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { CollapsiblePanel, IconsProvider } from '../src/index';
@@ -10,6 +11,7 @@ const icons = {
 	'talend-download': talendIcons['talend-download'],
 	'talend-check': talendIcons['talend-check'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-warning': talendIcons['talend-warning'],
 };
 
 const content = [
@@ -72,13 +74,7 @@ const label4 = {
 };
 
 const propsPanel = {
-	header: [
-		status,
-		label1,
-		label2,
-		button,
-		label3,
-	],
+	header: [status, label1, label2, button, label3],
 };
 
 const propsPanelWithActions = {
@@ -115,9 +111,9 @@ const propsCollapsiblePanel = {
 	onToggle: action('onToggle'),
 };
 
-const propsInProgressCollapsiblePanel = {
+const propsCollapsiblePanelOnSelect = {
 	header: [
-		status,
+		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
 		label1,
 		label4,
 		button,
@@ -125,8 +121,14 @@ const propsInProgressCollapsiblePanel = {
 	],
 	content,
 	onToggle: action('onToggle'),
+	onSelect: action('onSelect'),
 };
 
+const propsInProgressCollapsiblePanel = {
+	header: [status, label1, label4, button, label3],
+	content,
+	onToggle: action('onToggle'),
+};
 
 const propsFailedCollapsiblePanel = {
 	header: [
@@ -140,10 +142,20 @@ const propsFailedCollapsiblePanel = {
 	onToggle: action('onToggle'),
 };
 
-
 const propsSuccessfulCollapsiblePanel = {
 	header: [
-		{ ...status, status: 'successful', label: 'Successful',  icon: 'talend-check' },
+		{ ...status, status: 'successful', label: 'Successful', icon: 'talend-check' },
+		label1,
+		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+};
+const propsWarningCollapsiblePanel = {
+	header: [
+		{ ...status, status: 'warning', label: 'Warning', icon: 'talend-warning' },
 		label1,
 		label4,
 		button,
@@ -178,12 +190,7 @@ const propsCollapsiblePanelWithHeaderGroups = {
 };
 
 const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
-	header: [
-		{ ...status, progress: '70' },
-		label1,
-		label4,
-		[button, label3],
-	],
+	header: [{ ...status, progress: '70' }, label1, label4, [button, label3]],
 	content,
 	onToggle: action('onToggle'),
 	expanded: true,
@@ -209,17 +216,15 @@ const timeStamp = {
 };
 
 const propsCollapsibleSelectablePanel = {
-	header: [
-		[version1, readOnlyLabel],
-		timeStamp,
-	],
+	header: [[version1, readOnlyLabel], timeStamp],
 	content: {
 		head: [
 			{
 				label: '21 steps',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
-			}, {
+			},
+			{
 				label: 'by Henry-Mayeul de Benque',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
@@ -241,10 +246,7 @@ const propsCollapsibleSelectedPanel = {
 };
 
 const propsSelectedPanelWithoutContent = {
-	header: [
-		[version1, readOnlyLabel],
-		timeStamp,
-	],
+	header: [[version1, readOnlyLabel], timeStamp],
 	onSelect: action('onselect'),
 	onToggle: action('onToggle'),
 	expanded: true,
@@ -254,14 +256,12 @@ const propsSelectedPanelWithoutContent = {
 
 const propsCollapsibleSelectablePanelWithoutTag = {
 	...propsSelectedPanelWithoutContent,
-	header: [
-		version1,
-		timeStamp,
-	],
+	header: [version1, timeStamp],
 	theme: 'descriptive-panel',
 };
 
 storiesOf('CollapsiblePanel', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('Key/Value content', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
@@ -280,6 +280,10 @@ storiesOf('CollapsiblePanel', module)
 			<p>No content - Header without Actions :</p>
 			<div id="without-actions">
 				<CollapsiblePanel {...propsPanelWithoutActions} />
+			</div>
+			<p>No content - With onSelect handler :</p>
+			<div id="on-select">
+				<CollapsiblePanel {...propsCollapsiblePanelOnSelect} />
 			</div>
 			<p>Header with groups :</p>
 			<div id="with-groups">
@@ -325,10 +329,10 @@ storiesOf('CollapsiblePanel', module)
 			</div>
 			<p>Selected key/Value CollapsiblePanel:</p>
 			<div id="selected-key-value">
-				<CollapsiblePanel {...propsCollapsiblePanel} status={'selected'}/>
+				<CollapsiblePanel {...propsCollapsiblePanel} status={'selected'} />
 			</div>
 			<p>Selected key/Value CollapsiblePanel without content:</p>
-			<CollapsiblePanel {...propsPanelWithoutActions} status={'selected'}/>
+			<CollapsiblePanel {...propsPanelWithoutActions} status={'selected'} />
 		</div>
 	))
 	.addWithInfo('Status Collapsible', () => (
@@ -336,15 +340,19 @@ storiesOf('CollapsiblePanel', module)
 			<IconsProvider defaultIcons={icons} />
 			<p>CollapsiblePanel with status info:</p>
 			<div id="status-info">
-				<CollapsiblePanel {...propsInProgressCollapsiblePanel} status={'inProgress'}/>
+				<CollapsiblePanel {...propsInProgressCollapsiblePanel} status={'inProgress'} />
 			</div>
 			<p>CollapsiblePanel with status successful:</p>
 			<div id="status-success">
-				<CollapsiblePanel {...propsSuccessfulCollapsiblePanel} status={'successful'}/>
+				<CollapsiblePanel {...propsSuccessfulCollapsiblePanel} status={'successful'} />
 			</div>
 			<p>CollapsiblePanel with status failed:</p>
 			<div id="status-failed">
 				<CollapsiblePanel {...propsFailedCollapsiblePanel} status={'failed'} />
+			</div>
+			<p>CollapsiblePanel with status warning:</p>
+			<div id="status-warning">
+				<CollapsiblePanel {...propsWarningCollapsiblePanel} status={'warning'} />
 			</div>
 			<p>CollapsiblePanel with status canceled:</p>
 			<div id="status-canceled">

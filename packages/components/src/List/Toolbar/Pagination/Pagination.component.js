@@ -6,6 +6,7 @@ import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import Icon from '../../../Icon';
 
 import theme from './Pagination.scss';
+import getDefaultT from '../../../translate';
 
 const FIRST = 'first';
 const PREV = 'prev';
@@ -27,7 +28,7 @@ function getMenuItem(option, index) {
 	);
 }
 
-function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
+function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, ...opts }) {
 	const { itemsPerPageOptions, paginationIconProps = {} } = opts;
 	const {
 		first = { name: 'talend-chevron-end' },
@@ -68,43 +69,55 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 	function getNavigationItems() {
 		return [
 			<NavItem
-				key={'first'}
+				key={FIRST}
 				eventKey={FIRST}
 				id={id && `${id}-nav-to-first`}
 				className={'btn-link'}
 				disabled={startIndex <= 1}
+				aria-label={t('LIST_PAGINATION_GOTO_FIRST_PAGE', {
+					defaultValue: 'Go to first page.',
+				})}
 			>
 				<Icon {...first} />
 			</NavItem>,
 			<NavItem
-				key={'prev'}
+				key={PREV}
 				eventKey={PREV}
 				id={id && `${id}-nav-to-prev`}
 				className={'btn-link'}
 				disabled={startIndex <= 1}
+				aria-label={t('LIST_PAGINATION_GOTO_PREVIOUS_PAGE', {
+					defaultValue: 'Go to previous page. Current page: {{currentPage}}.',
+					currentPage,
+				})}
 			>
 				<Icon {...prev} />
 			</NavItem>,
-			<NavItem key={'current'} disabled>
-				<span className="btn-link">
-					{currentPage}/{pagesLength}
-				</span>
-			</NavItem>,
+			<li className={theme['page-index']}>
+				{currentPage}/{pagesLength}
+			</li>,
 			<NavItem
-				key={'next'}
+				key={NEXT}
 				eventKey={NEXT}
 				id={id && `${id}-nav-to-next`}
 				className={'btn-link'}
 				disabled={startIndex + itemsPerPage > totalResults}
+				aria-label={t('LIST_PAGINATION_GOTO_NEXT_PAGE', {
+					defaultValue: 'Go to next page. Current page: {{currentPage}}.',
+					currentPage,
+				})}
 			>
 				<Icon {...next} />
 			</NavItem>,
 			<NavItem
-				key={'last'}
+				key={LAST}
 				eventKey={LAST}
 				id={id && `${id}-nav-to-last`}
 				className={'btn-link'}
 				disabled={startIndex + itemsPerPage > totalResults}
+				aria-label={t('LIST_PAGINATION_GOTO_LAST_PAGE', {
+					defaultValue: 'Go to last page.',
+				})}
 			>
 				<Icon {...last} />
 			</NavItem>,
@@ -131,12 +144,14 @@ Pagination.propTypes = {
 	totalResults: PropTypes.number.isRequired,
 	itemsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
 	onChange: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 Pagination.defaultProps = {
 	itemsPerPage: 5,
 	startIndex: 1,
 	itemsPerPageOptions: [5, 10, 20, 50],
+	t: getDefaultT(),
 };
 
 export default Pagination;

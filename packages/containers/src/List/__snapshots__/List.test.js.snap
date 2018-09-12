@@ -140,6 +140,13 @@ Object {
     },
 ],
   "list": Object {
+    "cellDictionary": Object {
+      "title": Object {
+        "cellRenderer": [Function],
+        "cellType": "title",
+        "className": "tc-list-title-cell",
+      },
+    },
     "columns": Array [
       Object {
         "key": "id",
@@ -163,6 +170,7 @@ Object {
       },
     ],
     "id": "list",
+    "itemProps": Object {},
     "items": Array [
       Object {
         "actions": Array [],
@@ -210,6 +218,7 @@ Object {
   "toolbar": Object {
     "actionBar": Object {
       "actions": Object {},
+      "multiSelectActions": Object {},
     },
     "display": Object {
       "displayModes": Array [

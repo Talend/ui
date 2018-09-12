@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Toggle from './Toggle.component';
 
@@ -13,10 +13,10 @@ const defaultProps = {
 describe('Toggle', () => {
 	it('should render a Toggle', () => {
 		// when
-		const wrapper = renderer.create(<Toggle {...defaultProps} />).toJSON();
+		const wrapper = shallow(<Toggle {...defaultProps} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a checked Toggle', () => {
@@ -24,13 +24,14 @@ describe('Toggle', () => {
 		const props = {
 			...defaultProps,
 			checked: true,
+			'data-feature': 'toggle',
 		};
 
 		// when
-		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+		const wrapper = shallow(<Toggle {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a disabled Toggle', () => {
@@ -38,13 +39,14 @@ describe('Toggle', () => {
 		const props = {
 			...defaultProps,
 			disabled: true,
+			'data-feature': 'toggle',
 		};
 
 		// when
-		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+		const wrapper = shallow(<Toggle {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a autoFocused Toggle', () => {
@@ -55,10 +57,10 @@ describe('Toggle', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+		const wrapper = shallow(<Toggle {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a Toggle with label', () => {
@@ -69,10 +71,10 @@ describe('Toggle', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+		const wrapper = shallow(<Toggle {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a Checkbox', () => {
@@ -83,9 +85,17 @@ describe('Toggle', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Toggle {...props} />).toJSON();
+		const wrapper = shallow(<Toggle {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should pass extra props to input', () => {
+		// when
+		const wrapper = shallow(<Toggle {...defaultProps} aria-describedby="my-error-id" />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

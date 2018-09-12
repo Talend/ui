@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Action } from '../../index';
+import { Action } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleInput from './CellTitleInput.component';
 
@@ -38,18 +38,22 @@ function CellTitleSelector(props) {
 		return (
 			<Action
 				{...columnData}
+				{...rowData}
 				id={id && `${id}-btn`}
+				icon={undefined}
 				className={className}
 				onClick={event => onClick(event, rowData)}
 				role="link"
 				bsStyle="link"
 				label={cellData}
+				title={cellData}
+				type="button"
 			/>
 		);
 	}
 
 	return (
-		<span id={id} className={className}>
+		<span id={id} className={className} title={cellData}>
 			{cellData}
 		</span>
 	);

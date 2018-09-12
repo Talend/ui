@@ -3,17 +3,22 @@ import React from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
-import { getDefaultTranslate } from '../../../translate';
+import getDefaultT from '../../../translate';
 import theme from './SelectSortBy.scss';
 
-function SortByItem({ option, index, id }) {
+function SortByItem({ option, index, id, t }) {
+	const optionLabel = option.name || option.id;
 	return (
 		<MenuItem
 			id={id && `${id}-by-item-${option.id}`}
 			key={index}
 			eventKey={option}
+			aria-label={t('LIST_SELECT_SORT_BY', {
+				defaultValue: 'Select {{sortBy}} as current sort criteria.',
+				sortBy: optionLabel,
+			})}
 		>
-			{option.name || option.id}
+			{optionLabel}
 		</MenuItem>
 	);
 }
@@ -24,6 +29,7 @@ SortByItem.propTypes = {
 	}),
 	index: PropTypes.number,
 	id: PropTypes.string,
+	t: PropTypes.func,
 };
 
 function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
@@ -39,33 +45,45 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 	}
 
 	const getMenuItem = SortByItem;
+	const currentSortByLabel = selected ? selected.name || selected.id : 'N.C';
+	const currentSortOrderLabel = order
+		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
+		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
-			{options.length === 1 ?
-				(<li className="navbar-text">{ options[0].name }</li>) :
-				(<NavDropdown
+			{options.length === 1 ? (
+				<li className="navbar-text">{options[0].name}</li>
+			) : (
+				<NavDropdown
 					id={id ? `${id}-by` : uuid.v4()}
-					title={selected ? (selected.name || selected.id) : 'N.C'}
+					title={currentSortByLabel}
 					onSelect={onChangeField}
 					className={theme['sort-by-items']}
+					aria-label={t('LIST_CHANGE_SORT_BY', {
+						defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
+						sortBy: currentSortByLabel,
+					})}
 				>
-					{options.map((option, index) => getMenuItem({
-						option,
-						index,
-						id,
-					}))}
-				</NavDropdown>)
-			}
+					{options.map((option, index) =>
+						getMenuItem({
+							option,
+							index,
+							id,
+							t,
+						}),
+					)}
+				</NavDropdown>
+			)}
 			{selected && (
 				<NavItem
 					id={id && `${id}-order`}
 					onClick={onChangeOrder}
+					aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
+						defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+						sortOrder: currentSortOrderLabel,
+					})}
 				>
-					{
-						order ?
-							t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' }) :
-							t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' })
-					}
+					{currentSortOrderLabel}
 				</NavItem>
 			)}
 		</Nav>
@@ -87,7 +105,7 @@ SelectSortBy.propTypes = {
 };
 
 SelectSortBy.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 export default SelectSortBy;

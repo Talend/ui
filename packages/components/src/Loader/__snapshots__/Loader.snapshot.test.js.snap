@@ -2,12 +2,12 @@
 
 exports[`Loader should render a default loader 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
+    aria-busy="true"
+    aria-label="Loading "
     className="tc-circular-progress theme-loader theme-animate theme-default"
     focusable="false"
     viewBox="0 0 50 50"
@@ -31,12 +31,12 @@ exports[`Loader should render a default loader 1`] = `
 
 exports[`Loader should render a default loader if size is not specified 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
+    aria-busy="true"
+    aria-label="Loading "
     className="tc-circular-progress theme-loader theme-animate theme-default"
     focusable="false"
     viewBox="0 0 50 50"
@@ -60,12 +60,12 @@ exports[`Loader should render a default loader if size is not specified 1`] = `
 
 exports[`Loader should render a large loader 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
+    aria-busy="true"
+    aria-label="Loading "
     className="tc-circular-progress theme-loader theme-animate theme-large"
     focusable="false"
     viewBox="0 0 50 50"
@@ -89,12 +89,12 @@ exports[`Loader should render a large loader 1`] = `
 
 exports[`Loader should render a small loader 1`] = `
 <div
-  aria-atomic="true"
-  aria-busy="true"
   className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
+    aria-busy="true"
+    aria-label="Loading "
     className="tc-circular-progress theme-loader theme-animate theme-small"
     focusable="false"
     viewBox="0 0 50 50"

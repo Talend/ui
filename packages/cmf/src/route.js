@@ -8,21 +8,20 @@
 import PropTypes from 'prop-types';
 
 import React from 'react';
-import { connect } from 'react-redux';
+import cmfConnect from './cmfConnect';
 import registry from './registry';
-import { mapStateToViewProps } from './settings';
 import deprecated from './deprecated';
 import CONST from './constant';
 import component from './component';
 
 const getComponentFromRegistry = deprecated(
 	(context, id) => component.get(id, context),
-	'stop use api.route.getComponentFromRegistry. Please use api.component.get',
+	'stop use cmf.route.getComponentFromRegistry. Please use cmf.component.get',
 );
 
 const registerComponent = deprecated(
 	component.register,
-	'stop use api.route.registerComponent. please use api.component.register',
+	'stop use cmf.route.registerComponent. please use cmf.component.register',
 );
 
 /**
@@ -46,22 +45,26 @@ function getFunction(id, context) {
 	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
 }
 
-/**
- * DEPRECATED connection to support old component which are registred but
- * not CMF connected.
- * @param  {object} context React context with at least the stostore
- * @param  {any} component  React component to connect
- * @param  {string} view  the viewId to search for in settings
- * @return {any}       the connected component with it's view props injected
- */
-function oldConnectView(context, Component, view) {
-	return connect(state => mapStateToViewProps(state, { view }))(Component);
+function withProps(Component, item) {
+	if (item.view) {
+		// eslint-disable-next-line no-console
+		console.warn('DEPRECATED: view is deprecated please use componentId');
+	}
+	let CMFComponent = Component;
+	if (!Component.CMFContainer) {
+		CMFComponent = cmfConnect({})(Component);
+	}
+	const WithProps = props => (
+		<CMFComponent view={item.view} componentId={item.componentId} {...props} />
+	);
+	WithProps.displayName = 'WithProps';
+	WithProps.WrappedComponent = CMFComponent;
+	WithProps.propTypes = {
+		view: PropTypes.string,
+		componentId: PropTypes.string,
+	};
+	return WithProps;
 }
-
-export const connectView = deprecated(oldConnectView, args => {
-	const cName = args[1].displayName || args[1].name || 'Unknown';
-	return `The component ${cName} must be connected using cmfConnect`;
-});
 
 /**
  * Internal. Is here to replace all 'component' from an object by their
@@ -73,17 +76,8 @@ export const connectView = deprecated(oldConnectView, args => {
 function loadComponents(context, item, dispatch) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
-		item.component = component.get(item.component, context);
-		if (item.view && !item.component.CMFContainer) {
-			item.component = connectView(context, item.component, item.view);
-		} else if (item.view && item.component.CMFContainer) {
-			const WithView = item.component;
-			item.component = props => <WithView view={item.view} {...props} />;
-			item.component.displayName = 'WithView';
-			item.component.propTypes = {
-				view: PropTypes.string,
-			};
-		}
+		// we create an HOC to pass item.componentId
+		item.component = withProps(component.get(item.component, context), item);
 	}
 	if (item.components) {
 		// TODO: iterate over all keys to call loadComponents

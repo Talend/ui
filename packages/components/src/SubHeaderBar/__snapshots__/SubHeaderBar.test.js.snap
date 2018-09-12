@@ -4,7 +4,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
 <header
   className="theme-tc-subheader tc-subheader myClassName"
 >
-  <ActionBar
+  <Translate(ActionBar)
     className="theme-tc-subheader-navbar tc-subheader-navbar"
   >
     <SubHeaderBarActions
@@ -19,8 +19,9 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         label="Go Back"
         onClick={[Function]}
       />
-      <InputTitleSubHeader
-        editMode={false}
+      <TitleSubHeader
+        editable={false}
+        getComponent={undefined}
         inProgress={false}
         loading={false}
         t={[Function]}
@@ -72,6 +73,6 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         onClick={[Function]}
       />
     </SubHeaderBarActions>
-  </ActionBar>
+  </Translate(ActionBar)>
 </header>
 `;

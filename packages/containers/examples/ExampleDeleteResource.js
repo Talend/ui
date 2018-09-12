@@ -1,4 +1,6 @@
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
+import i18n, { LanguageSwitcher } from './config/i18n';
 import { DeleteResource } from '../src';
 
 /*
@@ -32,9 +34,12 @@ Also require two fields, uri it contains the uri to call and resourceType, the t
 const views = {
 	uri: '/myEndpoint',
 	resourceType: 'myResourceType',
+	resourceTypeLabel: 'resource',
 	header: 'My header title',
 	'cancel-action': 'dialog:delete:cancel',
 	'validate-action': 'dialog:delete:validate',
+	routeParams: { id: 'myID' },
+	female: true,
 };
 
 const params = {
@@ -46,6 +51,18 @@ const props = {
 	params,
 };
 
-export default function ExampleAction() {
-	return <DeleteResource {...props} />;
-}
+export default {
+	default: () => (
+		<div>
+			<DeleteResource {...props} />;
+		</div>
+	),
+	translated: () => (
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<LanguageSwitcher />
+				<DeleteResource {...props} />
+			</div>
+		</I18nextProvider>
+	),
+};

@@ -5,9 +5,10 @@ import ListView from '@talend/react-components/lib/ListView';
 import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
+import getDefaultT from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -94,6 +95,7 @@ class ListViewWidget extends React.Component {
 			event.stopPropagation();
 			event.preventDefault();
 		} else if (event.keyCode === keycode('escape')) {
+			clearTimeout(this.timerSearch);
 			event.stopPropagation();
 			event.preventDefault();
 			this.switchToDefaultMode();
@@ -169,9 +171,14 @@ class ListViewWidget extends React.Component {
 	}
 
 	render() {
+		const descriptionId = generateDescriptionId(this.props.id);
+		const errorId = generateErrorId(this.props.id);
+
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
+				descriptionId={descriptionId}
+				errorId={errorId}
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
@@ -182,6 +189,7 @@ class ListViewWidget extends React.Component {
 					id={this.props.id}
 					items={this.state.displayedItems}
 					t={this.props.t}
+					containerProps={{ 'aria-describedby': `${descriptionId} ${errorId}` }}
 				/>
 			</FieldTemplate>
 		);
@@ -190,7 +198,7 @@ class ListViewWidget extends React.Component {
 
 ListViewWidget.defaultProps = {
 	value: [],
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
@@ -219,4 +227,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { ListViewWidget };
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
+export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);

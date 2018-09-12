@@ -1,9 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Emphasis } from '../src/index';
 
 storiesOf('Emphasis', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('with value', () => (
 		<div>
 			<h1>With value</h1>

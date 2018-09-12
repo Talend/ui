@@ -1,0 +1,42 @@
+# Log files #
+*.log
+
+# Mac OS index files #
+.DS_Store
+
+# Eclipse project files #
+.project
+.settings
+bin/
+# Intellij project files #
+.idea/
+*.ipr
+*.iml
+*.iws
+out/
+
+# JavaScript/NodeJS files #
+.npm/
+npm-debug.log
+node_modules/
+.node-gyp
+coverage/
+
+# Compilation output #
+target/
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+.classpath
+
+# Talend web apps build directory
+build/

@@ -16,7 +16,7 @@ For more info, take a look at the complete [api]({{ site.baseurl }}{% link _post
 Components registration should be done via the CMF [route api]({{ site.baseurl }}{% link _posts/2017-02-28-api-route.md %}).
 
 ```javascript
-const registerComponent = api.route.registerComponent;
+const registerComponent = api.component.register;
 
 ...
 
@@ -28,7 +28,7 @@ registerComponent('App', App);
 Action creator registration should be done via the CMF [action api]({{ site.baseurl }}{% link _posts/2017-02-28-api-action.md %}).
 
 ```javascript
-const registerActionCreator = api.action.registerActionCreator;
+const registerActionCreator = api.actionCreator.register;
 
 ...
 

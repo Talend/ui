@@ -1,0 +1,14 @@
+@import '../../shared/styles/variables';
+
+.body {
+	display: flex;
+
+	.date {
+		flex: 3;
+	}
+
+	.time {
+		flex: 1;
+		border-left: $border-default;
+	}
+}

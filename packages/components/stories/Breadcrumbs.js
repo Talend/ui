@@ -2,8 +2,9 @@ import React from 'react';
 import { storiesOf, setAddon } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import infoAddon from '@storybook/addon-info';
-import { Breadcrumbs, IconsProvider } from '../src/index';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
+import { Breadcrumbs, IconsProvider } from '../src/index';
 
 setAddon(infoAddon);
 
@@ -12,11 +13,12 @@ const icons = {
 };
 
 storiesOf('Breadcrumbs', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => {
 		const items = [
 			{ text: 'Text A', title: 'Text title A', onClick: action('Text A clicked') },
 			{ text: 'Text B', title: 'Text title B', onClick: action('Text B clicked') },
-			{ text: 'Text C', title: 'Text title C', onClick: action('Text C clicked') },
+			{ text: 'text c in lower case', title: 'Text title C', onClick: action('Text C clicked') },
 		];
 		return (
 			<div>

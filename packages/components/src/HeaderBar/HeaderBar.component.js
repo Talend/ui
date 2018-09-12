@@ -10,7 +10,7 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import '../translate';
 
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
@@ -36,13 +36,25 @@ function Logo({ isFull, getComponent, t, ...props }) {
 	);
 }
 
-function Brand({ label, isSeparated, getComponent, ...props }) {
+function Brand({ label, isSeparated, getComponent, t, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: isSeparated,
 	});
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown, Action });
-	const ActionComponent = props && props.items ? Renderers.ActionDropdown : Renderers.Action;
-	const clickAction = props && props.items ? undefined : props.onClick;
+
+	let ActionComponent;
+	let clickAction;
+	let ariaLabel;
+	if (props && props.items) {
+		ActionComponent = Renderers.ActionDropdown;
+		ariaLabel = t('HEADER_BAR_APP_SWITCHER', {
+			defaultValue: 'Switch to another application. Current application: {{appName}}',
+			appName: label,
+		});
+	} else {
+		ActionComponent = Renderers.Action;
+		clickAction = props.onClick;
+	}
 
 	return (
 		<li role="presentation" className={className}>
@@ -53,6 +65,7 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
+					aria-label={ariaLabel}
 					onClick={clickAction}
 				/>
 			</span>
@@ -74,19 +87,22 @@ function Environment({ getComponent, ...props }) {
 	);
 }
 
-function Search({ getComponent, ...props }) {
+function Search({ getComponent, icon, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		'tc-header-bar-action',
 		theme['tc-header-bar-search'],
+		'tc-header-bar-search',
 		theme.separated,
 		theme.flex,
 	);
 	const Renderers = Inject.getAll(getComponent, { Typeahead });
+	const a11yIcon = icon && { ...icon, role: 'search' };
 
 	return (
 		<li role="presentation" className={className}>
-			<form className="navbar-form navbar-right" role="search">
-				<Renderers.Typeahead {...props} />
+			<form className="navbar-form navbar-right">
+				<Renderers.Typeahead {...props} role="searchbox" icon={a11yIcon} />
 			</form>
 		</li>
 	);
@@ -140,7 +156,7 @@ function Information({ getComponent, t, ...props }) {
 	);
 }
 
-function User({ name, firstName, lastName, getComponent, ...rest }) {
+function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-user'],
@@ -156,13 +172,20 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 		return params.name;
 	}
 
+	const displayName = getDisplayName({ name, firstName, lastName });
+	const ariaLabel = t('HEADERBAR_USER_MENU', {
+		defaultValue: 'Open user menu. Current user: {{name}}',
+		name: displayName,
+	});
+
 	return (
 		<li role="presentation" className={className}>
 			<Renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
 				pullRight
-				label={getDisplayName({ name, firstName, lastName })}
+				label={displayName}
+				aria-label={ariaLabel}
 				{...rest}
 			/>
 		</li>
@@ -171,11 +194,26 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 
 function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+
+	let icon;
+	let label;
+	if (hasUnread) {
+		icon = 'talend-bell-notification';
+		label = t('HEADERBAR_NOTIFICATION_UNREAD', {
+			defaultValue: 'Notifications (you have unread notifications)',
+		});
+	} else {
+		icon = 'talend-bell';
+		label = t('HEADERBAR_NOTIFICATION', {
+			defaultValue: "Notifications (you don't have unread notifications)",
+		});
+	}
+
 	const global = {
 		bsStyle: 'link',
-		icon: hasUnread ? 'talend-bell-notification' : 'talend-bell',
 		hideLabel: true,
-		label: t('HEADERBAR_NOTIFICATION', { defaultValue: 'Notifications' }),
+		icon,
+		label,
 		tooltipPlacement: 'bottom',
 		...props,
 	};
@@ -202,7 +240,13 @@ function HeaderBar(props) {
 
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
-			<ul className={theme['tc-header-bar-actions']}>
+			<ul
+				className={classNames(
+					theme['tc-header-bar-actions'],
+					'tc-header-bar-actions',
+					'navbar-nav',
+				)}
+			>
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
@@ -212,11 +256,19 @@ function HeaderBar(props) {
 						{...props.brand}
 						{...props.products}
 						isSeparated={!!props.env}
+						t={props.t}
 					/>
 				)}
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
-			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
+			<ul
+				className={classNames(
+					theme['tc-header-bar-actions'],
+					'tc-header-bar-actions',
+					'navbar-nav',
+					theme.right,
+				)}
+			>
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
 				{props.notification && (
 					<Components.AppNotification
@@ -236,7 +288,9 @@ function HeaderBar(props) {
 							t={props.t}
 						/>
 					)}
-				{props.user && <Components.User getComponent={props.getComponent} {...props.user} />}
+				{props.user && (
+					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
+				)}
 			</ul>
 		</nav>
 	);
@@ -328,4 +382,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(HeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS)(HeaderBar);

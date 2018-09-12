@@ -42,7 +42,6 @@ describe('ListGrid', () => {
 				isSelected={jest.fn()}
 				rowHeight={130}
 				rowRenderer={RowLarge}
-				selectionToggle={jest.fn()}
 				width={1024}
 			>
 				<VirtualizedList.Content label="Id" dataKey="id" />
@@ -66,7 +65,6 @@ describe('ListGrid', () => {
 				isSelected={jest.fn()}
 				rowHeight={130}
 				rowRenderer={RowLarge}
-				selectionToggle={jest.fn()}
 				width={1024}
 				noRowsRenderer={() => <div>No rows</div>}
 			>

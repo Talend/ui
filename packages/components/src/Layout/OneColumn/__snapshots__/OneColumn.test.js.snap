@@ -3,10 +3,9 @@
 exports[`OneColumn should render 1`] = `
 <div
   className="tc-layout-one-column theme-main"
+  role="main"
 >
-  <div
-    className="theme-tc-with-drawer"
-  >
+  <WithDrawer>
     <div
       style={
         Object {
@@ -21,9 +20,6 @@ exports[`OneColumn should render 1`] = `
         children
       </span>
     </div>
-    <div
-      className="theme-tc-with-drawer-container"
-    />
-  </div>
+  </WithDrawer>
 </div>
 `;

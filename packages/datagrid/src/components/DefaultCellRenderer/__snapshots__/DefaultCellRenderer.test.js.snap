@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_EMPTY_KEY quality cell 1`] = `
+exports[`#DefaultCellRenderer should render DefaultCellRenderer 1`] = `
 <div
+  aria-label={undefined}
   className="theme-td-cell td-cell"
 >
-  <QualityIndicator
-    tooltip="Incorrect value"
-    value={0}
+  <Translate(QualityIndicatorComponent)
+    qualityIndex={0}
   />
   <AvroRenderer
     avroRenderer={
@@ -31,60 +31,11 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
 </div>
 `;
 
-exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_INVALID_KEY quality cell 1`] = `
+exports[`#DefaultCellRenderer should render the default cell on loading state 1`] = `
 <div
+  aria-label={undefined}
   className="theme-td-cell td-cell"
 >
-  <QualityIndicator
-    tooltip="Incorrect value"
-    value={-1}
-  />
-  <AvroRenderer
-    avroRenderer={
-      Object {
-        "stringCellRenderer": "StringRenderer",
-      }
-    }
-    colDef={
-      Object {
-        "avro": Object {
-          "type": "string",
-        },
-      }
-    }
-    data={
-      Object {
-        "quality": -1,
-      }
-    }
-    getComponent={[Function]}
-  />
-</div>
-`;
-
-exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_VALID_KEY quality cell 1`] = `
-<div
-  className="theme-td-cell td-cell"
->
-  <AvroRenderer
-    avroRenderer={
-      Object {
-        "stringCellRenderer": "StringRenderer",
-      }
-    }
-    colDef={
-      Object {
-        "avro": Object {
-          "type": "string",
-        },
-      }
-    }
-    data={
-      Object {
-        "quality": 1,
-      }
-    }
-    getComponent={[Function]}
-  />
+  <Translate(Skeleton) />
 </div>
 `;

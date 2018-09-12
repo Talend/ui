@@ -9,7 +9,9 @@ $tc-list-table-header-color: $black !default;
 		display: flex;
 		align-items: center;
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
 			background: $tc-list-row-hover-bg;
 		}
 	}
@@ -38,7 +40,11 @@ $tc-list-table-header-color: $black !default;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			padding: $tc-list-table-cell-padding;
+			padding: 0 $tc-list-table-cell-padding;
+
+			height: 100%;
+			display: flex;
+			align-items: center;
 		}
 	}
 

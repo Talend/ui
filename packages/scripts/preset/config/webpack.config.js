@@ -1,21 +1,30 @@
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+
+const TalendHTML = require('@talend/html-webpack-plugin');
+const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
+const DEFAULT_APP_LOADER_ICON = 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+DQoJPHBhdGggZD0iTTkuNjk0IDE0LjY1MmExLjA3NiAxLjA3NiAwIDAgMS0uNzE1LjQyMSAxLjA4NiAxLjA4NiAwIDEgMS0uMTQ4LTIuMTU4Yy4yMzUgMCAuNDYyLjA3NS42NTIuMjIuMjMuMTczLjM4LjQyNy40Mi43MTRhMS4wNyAxLjA3IDAgMCAxLS4yMDkuODAzTTIuMTUgMi42MjdBMS4wODQgMS4wODQgMCAxIDEgLjQxOCAxLjMyMiAxLjA4NCAxLjA4NCAwIDAgMSAyLjE1IDIuNjI3bTExLjM4MyAyLjQ5MWEyLjQ2IDIuNDYgMCAwIDAtMS40ODIuNDk0TDguOTQgMS43OThhLjU5LjU5IDAgMSAwLS4xNTYuMTI1bDMuMTExIDMuODE2YTIuNDg2IDIuNDg2IDAgMCAwLS41NTcuNzE4bC04Ljg0LTQuMDYyYy4wNjUtLjE5LjA4Ni0uMzk0LjA1Ny0uNTk5QTEuMjc0IDEuMjc0IDAgMCAwIDIuMDU4Ljk1YTEuMjc4IDEuMjc4IDAgMCAwLS45NTItLjI0NyAxLjI4NiAxLjI4NiAwIDAgMCAuMzU2IDIuNTQ0IDEuMjc5IDEuMjc5IDAgMCAwIC45NTYtLjY2OGw4LjgzOCA0LjA2Yy0uMTEuMjY0LS4xNzYuNTUtLjE4Ny44NUgzLjU2M2EuNzg4Ljc4OCAwIDAgMC0uMzEtLjUzMy43OTkuNzk5IDAgMCAwLTEuMTEzLjE1NS43ODYuNzg2IDAgMCAwIC4xNTYgMS4xMDUuNzk5Ljc5OSAwIDAgMCAxLjI2Ny0uNTI3aDcuNTA2Yy4wMTQuMzIzLjA4OC42My4yMTUuOTFsLTEuOTAzLjk0MWEuNTkyLjU5MiAwIDEgMCAuMDg5LjE3OWwxLjkwNC0uOTRjLjE2Mi4yOTIuMzgyLjU0OC42NDUuNzUzbC0yLjQ3MyAzLjQwNGExLjI4IDEuMjggMCAwIDAtMS43NDIuMjkxIDEuMjg4IDEuMjg4IDAgMCAwIC4yNTMgMS44IDEuMjggMS4yOCAwIDAgMCAuOTUyLjI0NmMuMzQtLjA0OC42NC0uMjI1Ljg0Ny0uNDk5LjIwNy0uMjc0LjI5NC0uNjEyLjI0Ni0uOTUyYTEuMjc2IDEuMjc2IDAgMCAwLS4zOTktLjc2M2wyLjQ3OS0zLjQxYTIuNDY4IDIuNDY4IDAgMSAwIDEuMzUyLTQuNTMiLz4NCjwvc3ZnPg0K)';
 
 const babelrc = require('./.babelrc.json');
-const extractCSS = new ExtractTextPlugin({ filename: '[name]-[hash].css' });
+const LICENSE_BANNER = require('./licence');
 
 function getSassData(getUserConfig) {
-	const sassData = '@import \'~@talend/bootstrap-theme/src/theme/guidelines\';';
-	const userSassData = getUserConfig(['sass', 'data']);
-	if (userSassData) {
-		const adaptedUserSassData = Object.keys(userSassData)
-			.map(key => (`${key}: ${userSassData[key]};`))
-			.join('\n');
-		return `${adaptedUserSassData}\n${sassData}`;
+	let sassData = ['@import \'~@talend/bootstrap-theme/src/theme/guidelines\';'];
+
+	const userSassData = getUserConfig('sass');
+	if (userSassData && userSassData.data) {
+		sassData = Object.keys(userSassData.data)
+			.map(key => (`${key}: ${userSassData.data[key]};`))
+			.concat(sassData);
 	}
-	return sassData;
+	if (userSassData && userSassData.theme) {
+		sassData.push(`@import '~@talend/bootstrap-theme/src/theme/variations/${userSassData.theme}';`);
+	}
+
+	return sassData.join('\n');
 }
 
 function getCommonStyleLoaders(enableModules) {
@@ -29,10 +38,11 @@ function getCommonStyleLoaders(enableModules) {
 		};
 	}
 	return [
+		{ loader: MiniCssExtractPlugin.loader },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
-			options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })] },
+			options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['>0.25%', 'IE 11', 'not op_mini all'] })] },
 		},
 		{ loader: 'resolve-url-loader' },
 	];
@@ -51,8 +61,6 @@ module.exports = ({ getUserConfig }) => {
 	return {
 		entry: ['babel-polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
 		output: {
-			path: `${process.cwd()}/dist`,
-			publicPath: '/',
 			filename: '[name]-[hash].js',
 		},
 		module: {
@@ -67,17 +75,17 @@ module.exports = ({ getUserConfig }) => {
 				},
 				{
 					test: /\.css$/,
-					use: extractCSS.extract(getCommonStyleLoaders()),
+					use: getCommonStyleLoaders(),
 					exclude: /@talend/,
 				},
 				{
 					test: /\.scss$/,
-					use: extractCSS.extract(getSassLoaders(false, sassData)),
+					use: getSassLoaders(false, sassData),
 					include: /bootstrap-theme/,
 				},
 				{
 					test: /\.scss$/,
-					use: extractCSS.extract(getSassLoaders(true, sassData)),
+					use: getSassLoaders(true, sassData),
 					exclude: /bootstrap-theme/,
 				},
 				{
@@ -88,15 +96,25 @@ module.exports = ({ getUserConfig }) => {
 			],
 		},
 		plugins: [
-			extractCSS,
+			new MiniCssExtractPlugin({
+				filename: '[name]-[hash].css',
+			}),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
 				template: `${process.cwd()}/src/app/index.html`,
-				title: getUserConfig(['html', 'title']),
+				appLoader: AppLoader.APP_LOADER,
+				...getUserConfig('html'),
+			}),
+			new TalendHTML({
+				loadCSSAsync: true,
+				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/assets' },
 			]),
+			new webpack.BannerPlugin({
+				banner: LICENSE_BANNER,
+			}),
 		],
 	};
 };

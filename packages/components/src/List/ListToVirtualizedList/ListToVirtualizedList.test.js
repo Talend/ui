@@ -1,8 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import cloneDeep from 'lodash/cloneDeep';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
-import { ListToVirtualizedList, HiddenHeader } from './ListToVirtualizedList.component';
+import {
+	ListToVirtualizedList,
+	HiddenHeader,
+	compareOrder,
+} from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
 import CellBadge from '../../VirtualizedList/CellBadge';
 
@@ -10,8 +15,8 @@ const props = {
 	id: 'mylistid',
 	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
 	columns: [
-		{ key: 'id', label: 'Id' },
-		{ key: 'label', label: 'Label' },
+		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
+		{ key: 'label', label: 'Label', disableSort: true },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions', hideHeader: true },
 	],
@@ -67,6 +72,19 @@ describe('ListToVirtualizedList', () => {
 		expect(table.rowHeight).toBe(200);
 	});
 
+	it('columns should have disableSort prop to true if hideHeader or disableSort is true', () => {
+		const table = shallow(<ListToVirtualizedList {...props} />);
+		const columns = table.find(VirtualizedList.Content);
+		columns.forEach(element => {
+			const eProps = element.props();
+			if (eProps.label === 'Label' || eProps.label === 'Actions') {
+				expect(eProps.disableSort).toBeTruthy();
+			} else {
+				expect(eProps.disableSort).toBeFalsy();
+			}
+		});
+	});
+
 	it('should add actionsKey to titleProps', () => {
 		// when
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);
@@ -116,6 +134,44 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.cellRenderer).toBe(CellBadge.cellRenderer);
 			}
 		});
+	});
+
+	it('should support custom cell renderer', () => {
+		const renderer = function test() {
+			return 'ok';
+		};
+		const customDictionary = { customType: { cellRenderer: renderer } };
+		const wrapper = shallow(<ListToVirtualizedList {...props} cellDictionary={customDictionary} />);
+
+		// then
+		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		expect(column.props().cellRenderer).toBe(renderer);
+	});
+
+	it('should support custom header renderer', () => {
+		const renderer = function test() {
+			return 'ok';
+		};
+		const customHeaderDictionary = { customType: { headerRenderer: renderer } };
+		const wrapper = shallow(
+			<ListToVirtualizedList {...props} headerDictionary={customHeaderDictionary} />,
+		);
+
+		// then
+		const column = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		expect(column.props().headerRenderer).toBe(renderer);
+	});
+
+	it('should support column hide feature', () => {
+		const hideProps = cloneDeep(props);
+		hideProps.columns.find(column => column.label === 'Tag').hidden = true;
+		const wrapper = shallow(<ListToVirtualizedList {...hideProps} />);
+
+		// then
+		const columnId = wrapper.find(VirtualizedList.Content).find({ label: 'Id' });
+		const columnTag = wrapper.find(VirtualizedList.Content).find({ label: 'Tag' });
+		expect(columnId.length).toBe(1);
+		expect(columnTag.length).toBe(0);
 	});
 
 	it('should adapt sort info', () => {
@@ -216,5 +272,46 @@ describe('ListToVirtualizedList', () => {
 
 		// then
 		expect(isActive).toBeCalledWith(props.items[0]);
+	});
+
+	describe('compareOrder function', () => {
+		it('should return -1 to keep the lower order first', () => {
+			// given
+			const a = { order: 0 };
+			const b = { order: 1 };
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(-1);
+		});
+
+		it('should return 0 if there is no order set between 2 items', () => {
+			// given
+			const a = {};
+			const b = {};
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(0);
+		});
+
+		it('should return -1 if there is only a to pass an order to push b to the end', () => {
+			// given
+			const a = { order: 1 };
+			const b = {};
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(-1);
+		});
+		it('should return 1 if there is only b to pass an order to push a to the end', () => {
+			// given
+			const a = {};
+			const b = { order: 1 };
+			// when
+			const result = compareOrder(a, b);
+			// then
+			expect(result).toBe(1);
+		});
 	});
 });

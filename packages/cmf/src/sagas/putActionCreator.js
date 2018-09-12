@@ -1,11 +1,10 @@
 /**
  * This module provide helpers to use redux-saga in the CMF context
  * @module react-cmf/lib/saga
- * @see module:react-cmf/lib/api
  * @example
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 
-api.saga.putActionCreator('myaction', {}, {});
+cmf.saga.putActionCreator('myaction', {}, {});
  */
 
 import { put, select } from 'redux-saga/effects';

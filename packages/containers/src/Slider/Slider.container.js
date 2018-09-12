@@ -1,5 +1,5 @@
 import React from 'react';
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Slider';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
@@ -21,7 +21,7 @@ class Slider extends React.Component {
 	};
 
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		id: PropTypes.string,
 		value: PropTypes.number,
 	};

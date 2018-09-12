@@ -14,7 +14,7 @@ exports[`Header should render filter header 1`] = `
   />
   <button
     aria-label="Abort"
-    className="btn btn-link"
+    className="btn-icon-only btn btn-link"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -27,6 +27,7 @@ exports[`Header should render filter header 1`] = `
       aria-hidden="true"
       className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
+      name="talend-cross"
       title={null}
     >
       <use

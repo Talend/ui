@@ -4,10 +4,13 @@ exports[`CellTitleSelector should render the button 1`] = `
 <Action
   bsStyle="link"
   className="my-title-classname"
+  icon={undefined}
   id="my-title-btn"
   label="my value"
   onClick={[Function]}
   role="link"
+  title="my value"
+  type="button"
 />
 `;
 
@@ -29,6 +32,7 @@ exports[`CellTitleSelector should render the simple text 1`] = `
 <span
   className="my-title-classname"
   id="my-title"
+  title="my value"
 >
   my value
 </span>

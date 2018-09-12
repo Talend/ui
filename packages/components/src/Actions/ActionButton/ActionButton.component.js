@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
 import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
@@ -11,7 +11,8 @@ import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
+import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -91,6 +92,7 @@ function noOp() {}
 export function ActionButton(props) {
 	const {
 		bsStyle,
+		buttonRef,
 		inProgress,
 		disabled,
 		hideLabel,
@@ -100,8 +102,10 @@ export function ActionButton(props) {
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		overlayId,
 		overlayComponent,
 		overlayPlacement,
+		overlayRef,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -109,7 +113,6 @@ export function ActionButton(props) {
 		t,
 		...rest
 	} = props;
-
 	if (!available) {
 		return null;
 	}
@@ -122,27 +125,24 @@ export function ActionButton(props) {
 	const buttonContent = getContent(props);
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
-	let rClick = null;
-	let rMouseDown = null;
 
-	if (!overlayComponent) {
-		rClick =
-			onClick &&
-			(event =>
-				onClick(event, {
-					action: { label, ...rest },
-					model,
-				}));
-		rMouseDown = event =>
-			onMouseDown(event, {
+	const rClick =
+		onClick &&
+		(event =>
+			onClick(event, {
 				action: { label, ...rest },
 				model,
-			});
-	}
+			}));
+	const rMouseDown = event =>
+		onMouseDown(event, {
+			action: { label, ...rest },
+			model,
+		});
 
-	if (btnIsDisabled) {
-		buttonProps.className = classNames(buttonProps.className, theme['btn-disabled']);
-	}
+	buttonProps.className = classNames(buttonProps.className, {
+		'btn-icon-only': hideLabel || !label,
+		[theme['btn-disabled']]: btnIsDisabled,
+	});
 
 	let ariaLabel = tooltipLabel || label;
 	if (inProgress) {
@@ -155,32 +155,37 @@ export function ActionButton(props) {
 		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
 	}
 
+	const hasPopup = !inProgress && overlayComponent;
+	if (hasPopup) {
+		buttonProps['aria-haspopup'] = true;
+	}
 	let btn = (
 		<Button
-			onMouseDown={rMouseDown}
-			onClick={rClick}
+			onMouseDown={!overlayComponent ? rMouseDown : null}
+			onClick={!overlayComponent ? rClick : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
+			ref={buttonRef}
 			{...buttonProps}
 		>
 			{buttonContent}
 		</Button>
 	);
-	if (!inProgress && overlayComponent) {
+	if (hasPopup) {
 		btn = (
-			// this span is here to allow the tooltip trigger to work
-			<span>
-				<OverlayTrigger
-					trigger="click"
-					rootClose
-					placement={overlayPlacement}
-					overlay={<Popover>{overlayComponent}</Popover>}
-				>
-					{btn}
-				</OverlayTrigger>
-			</span>
+			<OverlayTrigger
+				onClick={rClick}
+				overlayRef={overlayRef}
+				overlayId={overlayId}
+				overlayPlacement={overlayPlacement}
+				overlayComponent={props.overlayComponent}
+				getComponent={props.getComponent}
+				preventScrolling={props.preventScrolling}
+			>
+				{btn}
+			</OverlayTrigger>
 		);
 	}
 	if (hideLabel || tooltip || tooltipLabel) {
@@ -190,7 +195,6 @@ export function ActionButton(props) {
 			</TooltipTrigger>
 		);
 	}
-
 	return btn;
 }
 
@@ -198,6 +202,7 @@ ActionButton.propTypes = {
 	...getIcon.propTypes,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
+	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
@@ -207,12 +212,11 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	overlayComponent: PropTypes.element,
-	overlayPlacement: OverlayTrigger.propTypes.placement,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: BaseOverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
+	...overlayPropTypes,
 };
 
 ActionButton.defaultProps = {
@@ -222,8 +226,8 @@ ActionButton.defaultProps = {
 	inProgress: false,
 	loading: false,
 	disabled: false,
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 ActionButton.displayName = 'ActionButton';
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(ActionButton);
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);

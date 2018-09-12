@@ -34,22 +34,28 @@ $tc-status-space-btn-icon-label: 5px !default;
 		&.muted {
 			color: $gray;
 		}
+
+		&.warning {
+			color: $brand-warning;
+		}
 	}
 
 	&-actions {
 		position: absolute;
 		top: 0;
 		left: 0;
-		visibility: hidden;
+		opacity: 0;
 	}
 
-	&.action:hover {
+	&.action:hover,
+	&.action:global(.ally-focus-within) {
+		.tc-status-icon,
 		.tc-status-label {
-			visibility: hidden;
+			opacity: 0;
 		}
 
 		.tc-status-actions {
-			visibility: visible;
+			opacity: 1;
 		}
 	}
 }

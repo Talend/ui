@@ -36,7 +36,7 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
  <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform, onClick }) {
+function Icon({ className, name, title, transform, onClick, ...props }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -44,15 +44,15 @@ function Icon({ className, name, title, transform, onClick }) {
 	};
 	if (name.startsWith('src-')) {
 		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
-		return <img className={classNames} src={name.substring(4)} alt={''} aria-hidden />;
+		return <img className={classNames} src={name.substring(4)} alt={''} aria-hidden {...props} />;
 	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
-		return <i className={classes} {...accessibility} />;
+		return <i className={classes} {...accessibility} {...props} />;
 	}
 	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
 		const classes = classnames(name, className, transform && FA_TRANSFORMS[transform]);
-		return <i className={classes} {...accessibility} />;
+		return <i className={classes} {...accessibility} {...props} />;
 	}
 	if (onClick && name) {
 		const classname = classnames(
@@ -65,7 +65,7 @@ function Icon({ className, name, title, transform, onClick }) {
 			// eslint doesn't recognizes the xlinkHref mention
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
-				<svg className={classname} {...accessibility}>
+				<svg name={name} className={classname} {...accessibility} {...props}>
 					<use xlinkHref={`#${name}`} />
 				</svg>
 			</button>
@@ -79,7 +79,7 @@ function Icon({ className, name, title, transform, onClick }) {
 			SVG_TRANSFORMS[transform],
 		);
 		return (
-			<svg className={classname} {...accessibility}>
+			<svg name={name} className={classname} {...accessibility} {...props}>
 				<use xlinkHref={`#${name}`} />
 			</svg>
 		);

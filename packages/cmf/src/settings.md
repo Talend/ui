@@ -2,7 +2,7 @@
 Settings
 ==
 
-Settings are your app configuration. 
+Settings are your app configuration.
 You configure 3 things :
 * the `actions`, which are the actions definitions
 * the `props`, which are basically the props to pass to a `component`
@@ -50,7 +50,7 @@ An action is a definition that **at least** holds the info to dispatch to the [s
 }
 ```
 
-The actions settings are a dictionary. 
+The actions settings are a dictionary.
 It should follow some rules:
 * the dictionary key is the action `id` property
 * the action has either a `payload` or an `actionCreator` property
@@ -90,7 +90,7 @@ Props will be applied to a `registered component`.
 }
 ```
 
-The props settings are a dictionary. 
+The props settings are a dictionary.
 It should follow some rules:
 * `actions` are references to an action setting id (ex : `"didMountActionCreator": "dataset:fetchAll"` where `dataset:fetchAll` is an action id)
 * it can have references to common settings parts (ex: `"header": { "_ref": "AppHeaderBar#default" }` where `AppHeaderBar#default` is a definition from `ref` part). CMF will replace the refs by the actual definitions.
@@ -125,9 +125,24 @@ CMF uses [React router](https://github.com/ReactTraining/react-router). The defi
         "path": "datastores",
         "component": "HomeListView",
         "view": "datastores"
+      },
+      {
+        "path": "*",
+        "component": "Redirect",
+        "to": "/404"
       }
     ]
   }
+}
+```
+
+You can redirect to a default route if no route match with the typed URL by the user. In the direct child of /, you can add a default route like below to redirect to your 404 page:
+
+```json
+{
+  "path": "*",
+  "component": "Redirect",
+  "to": "/404"
 }
 ```
 
@@ -137,10 +152,10 @@ You can use onEnter/onLeave lifecycle hooks. To do that, you need to:
 
 ```javascript
 // configure.js
-import { api } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf';
 import onEnter from './routeHooks.js';
 
-const registerRouteFunction = api.route.registerFunction;
+const registerRouteFunction = cmf.route.registerFunction;
 registerRouteFunction('my:route:onEnter', onEnterFetchThings);
 ```
 

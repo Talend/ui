@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import getDefaultT from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -70,6 +70,7 @@ class EnumerationForm extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
+		const disabledAction = props.uiSchema ? props.uiSchema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
@@ -139,13 +140,14 @@ class EnumerationForm extends React.Component {
 		];
 		this.defaultActions = [
 			{
-				disabled: false,
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_EDIT', { defaultValue: 'Edit' }),
 				icon: 'talend-pencil',
 				id: 'edit',
 				onClick: this.onEnterEditModeItem.bind(this),
 			},
 			{
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_REMOVE_VALUE', { defaultValue: 'Remove value' }),
 				icon: 'talend-trash',
 				id: 'delete',
@@ -165,13 +167,16 @@ class EnumerationForm extends React.Component {
 		];
 
 		if (this.allowImport) {
+			const dataFeature = this.props.uiSchema['data-feature'];
 			this.defaultHeaderActions.push({
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', {
 					defaultValue: 'Import values from a file',
 				}),
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.onImportButtonClick.bind(this),
+				'data-feature': dataFeature ? dataFeature.importFile : undefined,
 				displayMode: 'dropdown',
 				items: [
 					{
@@ -180,6 +185,7 @@ class EnumerationForm extends React.Component {
 						}),
 						id: 'append-uploding',
 						onClick: this.onImportAppendClick.bind(this),
+						'data-feature': dataFeature ? dataFeature.addFromFile : undefined,
 					},
 					{
 						label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', {
@@ -187,6 +193,7 @@ class EnumerationForm extends React.Component {
 						}),
 						id: 'append-uploding',
 						onClick: this.onImportOverwriteClick.bind(this),
+						'data-feature': dataFeature ? dataFeature.overwriteExisting : undefined,
 					},
 				],
 			});
@@ -196,11 +203,13 @@ class EnumerationForm extends React.Component {
 			label: t('ENUMERATION_WIDGET_ADD_ITEM', { defaultValue: 'Add item' }),
 			icon: 'talend-plus',
 			id: 'add',
+			disabled: disabledAction,
 			onClick: this.changeDisplayToAddMode.bind(this),
 		});
 
 		this.selectedHeaderActions = [
 			{
+				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES', {
 					defaultValue: 'Remove selected values',
 				}),
@@ -232,7 +241,7 @@ class EnumerationForm extends React.Component {
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
-				onSelectItem: this.onSelectItem.bind(this),
+				onSelectItem: !disabledAction ? this.onSelectItem.bind(this) : () => {},
 				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: this.itemEditActions,
@@ -850,8 +859,15 @@ class EnumerationForm extends React.Component {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value, prevState);
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
+			// in this case, we could have the loading state that implied we have just one icon
+			if (!validateAction && !abortAction) {
+				// returning null in setState prevent re-rendering
+				// see here for documentation https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes
+				return null;
+			}
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
+
 			let headerError = '';
 			if (valueExist) {
 				headerError = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -904,6 +920,7 @@ if (process.env.NODE_ENV !== 'production') {
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line
+		uiSchema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
 		t: PropTypes.func.isRequired,
@@ -911,10 +928,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 EnumerationForm.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 
 export { EnumerationForm };
-export default translate(I18N_DOMAIN_FORMS, {
-	i18n: DEFAULT_I18N,
-})(EnumerationForm);
+export default translate(I18N_DOMAIN_FORMS)(EnumerationForm);

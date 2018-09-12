@@ -111,7 +111,7 @@ In your app configuration phase
 import { api } from 'react-cmf';
 import MyContainer from '../components/my-container';
 
-const registerComponent = api.route.registerComponent;
+const registerComponent = api.component.register;
 registerComponent('MyContainer', MyContainer);
 ```
 
@@ -123,7 +123,7 @@ In your app configuration phase
 import { api } from 'react-cmf';
 import myAction from '../actions/my-action';
 
-const registerActionCreator = api.action.registerActionCreator;
+const registerActionCreator = api.actionCreator.register;
 registerActionCreator('my:action', myAction);
 ```
 

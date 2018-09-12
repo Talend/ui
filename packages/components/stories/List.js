@@ -1,25 +1,42 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 
+/**
+ * Cell renderer that displays hello + text
+ */
+function CellWithHello({ cellData }) {
+	return <div>hello {cellData} !</div>;
+}
+
+CellWithHello.displayName = 'VirtualizedList(CellWithHello)';
+CellWithHello.propTypes = {
+	cellData: PropTypes.string,
+};
+
 const icons = {
+	'talend-scheduler': talendIcons['talend-scheduler'],
 	'talend-apache': talendIcons['talend-apache'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-end': talendIcons['talend-chevron-end'],
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
+	'talend-cog': talendIcons['talend-cog'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
 	'talend-file': talendIcons['talend-file'],
 	'talend-file-json-o': talendIcons['talend-file-json-o'],
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-files-o': talendIcons['talend-files-o'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-icons': talendIcons['talend-icons'],
 	'talend-pencil': talendIcons['talend-pencil'],
@@ -31,6 +48,7 @@ const icons = {
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
+	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
 };
 
 const selected = [
@@ -44,6 +62,16 @@ const selected = [
 	},
 ];
 
+const overlayAction = {
+	id: 'overlay',
+	label: 'overlay',
+	icon: 'talend-pencil',
+	onClick: action('overlay.open'),
+	overlayComponent: <div>Overlay</div>,
+	overlayPlacement: 'bottom',
+	preventScrolling: true,
+};
+
 const actions = [
 	{
 		id: 'edit',
@@ -56,6 +84,50 @@ const actions = [
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
+	},
+	{
+		id: 'related',
+		displayMode: 'dropdown',
+		label: 'related items',
+		icon: 'talend-folder',
+		items: [
+			{
+				label: 'document 1',
+				onClick: action('document 1 click'),
+			},
+			{
+				label: 'document 2',
+				onClick: action('document 2 click'),
+			},
+		],
+		pullRight: true,
+	},
+];
+
+const lotsOfActions = [
+	{
+		id: 'edit',
+		label: 'edit',
+		icon: 'talend-pencil',
+		onClick: action('onEdit'),
+	},
+	{
+		id: 'delete',
+		label: 'delete',
+		icon: 'talend-trash',
+		onClick: action('onDelete'),
+	},
+	{
+		id: 'copy',
+		label: 'copy',
+		icon: 'talend-files-o',
+		onClick: action('onCopy'),
+	},
+	{
+		id: 'parameters',
+		label: 'efit parameters',
+		icon: 'talend-cog',
+		onClick: action('onEditParameters'),
 	},
 	{
 		id: 'related',
@@ -90,11 +162,18 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+			{ key: 'id', label: 'Id', order: 0 },
+			{ key: 'name', label: 'Name', order: 1 },
+			{ key: 'author', label: 'Author', order: 3 },
+			{ key: 'created', label: 'Created', order: 2 },
+			{
+				key: 'modified',
+				label: 'Modified',
+				order: 4,
+				header: 'icon',
+				data: { iconName: 'talend-scheduler' },
+			},
+			{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 		],
 		items: [
 			{
@@ -104,41 +183,39 @@ const props = {
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
 				actions,
-				icon: 'talend-file-xls-o',
+				icon: 'talend-file-s3-o',
 				display: 'text',
 				className: 'item-0-class',
 			},
 			{
-				persistentActions,
 				id: 1,
+				name: 'Title with a lot of actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				actions: lotsOfActions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-1-class',
+			},
+			{
+				id: 2,
 				name: 'Title in input mode',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
 				icon: 'talend-file-json-o',
 				display: 'input',
-				className: 'item-1-class',
-			},
-			{
-				persistentActions,
-				id: 2,
-				name: 'Super long title to trigger overflow on tile rendering',
-				created: '2016-09-22',
-				modified: '2016-09-22',
-				author:
-					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-2-class',
 			},
 			{
 				persistentActions,
 				id: 3,
-				name: 'Title with long long long long long long long long long long long text',
+				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT',
-				actions,
-				icon: 'talend-file-xls-o',
-				display: 'text',
+				author:
+					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-3-class',
 			},
 		],
@@ -161,7 +238,7 @@ const props = {
 					{
 						id: 'add',
 						label: 'Add Folder',
-						bsStyle: 'primary',
+						bsStyle: 'info',
 						icon: 'talend-plus-circle',
 						onClick: action('add.onClick'),
 					},
@@ -224,7 +301,12 @@ const propsWithVirtualized = {
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
+			{
+				key: 'created',
+				label: 'Created',
+				type: 'datetime',
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			},
 			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
 		],
 		items: [
@@ -256,8 +338,7 @@ const propsWithVirtualized = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: 1518596913333,
 				modified: minusOneHours,
-				author:
-					'Jean-Pierre DUPONT',
+				author: 'Jean-Pierre DUPONT',
 				className: 'item-2-class',
 			},
 			{
@@ -300,7 +381,7 @@ const itemPropsForItems = {
 };
 
 const sort = {
-	field: 'name',
+	field: 'modified',
 	isDescending: false,
 	onChange: action('sort.onChange'),
 };
@@ -381,6 +462,7 @@ const itemsForListWithIcons = [
 ];
 
 storiesOf('List', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
@@ -389,7 +471,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Table display', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list">
+		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
 				Display the list in table mode.<br />
@@ -411,7 +493,7 @@ storiesOf('List', module)
 		customProps.list.items = itemsForListWithIcons;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					Display the list in table mode.<br />
@@ -422,14 +504,14 @@ storiesOf('List', module)
 		);
 	})
 	.add('Large display', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list">
+		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
 				Display the list in large mode.<br />
 				You just need to pass the props displayMode.
-				<pre>&lt;List displayMode="large" ... &gt;</pre>
 			</p>
-			<List {...props} displayMode="large" />
+			<pre>&lt;List displayMode="large" ... &gt;</pre>
+			<List {...props} rowHeight={140} displayMode="large" />
 		</div>
 	))
 	.add('Large display with icons', () => {
@@ -443,8 +525,8 @@ storiesOf('List', module)
 		customProps.list.items = itemsForListWithIcons;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
-				<List {...customProps} displayMode="large" />
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<List {...customProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -461,7 +543,7 @@ storiesOf('List', module)
 		);
 
 		return (
-			<div style={{ height: '60vh' }}>
+			<div style={{ height: '70vh' }}>
 				<h1>List</h1>
 				<p>When the list is empty, a message is displayed instead of the rows.</p>
 				<h2>Table</h2>
@@ -477,7 +559,7 @@ storiesOf('List', module)
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
 		return (
-			<div style={{ height: '60vh' }}>
+			<div style={{ height: '70vh' }}>
 				<h1>List</h1>
 				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
 				<h2>Table</h2>
@@ -490,7 +572,7 @@ storiesOf('List', module)
 	.add('Column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>A column can contains only actions that appear on mouseover.</p>
 				<List {...columnActionsProps} />
@@ -511,18 +593,18 @@ storiesOf('List', module)
 		};
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onSelect and isSelected.<br />
 					<b>onSelect(event, item)</b> : item selection callback
 					<b>isSelected(item)</b> : returns true if the item is selected
-					<pre>
-						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
-						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
-					</pre>
 				</p>
+				<pre>
+					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
+					listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+				</pre>
 				<List {...selectedItemsProps} />
 			</div>
 		);
@@ -532,22 +614,22 @@ storiesOf('List', module)
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onRowClick and isActive.<br />
 					<b>onRowClick(event, item)</b> : item selection callback<br />
 					<b>isActive(item)</b> : returns true if the item is selected
-					<pre>
-						listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
-						listProps.itemProps.isActive = (item) => item.id === 0;<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
-					</pre>
 				</p>
+				<pre>
+					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
+					listProps.itemProps.isActive = (item) => item.id === 0;<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+				</pre>
 				<h2>Table</h2>
 				<List {...selectedItemsProps} />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} displayMode="large" />
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -555,7 +637,7 @@ storiesOf('List', module)
 		const tprops = cloneDeep(props);
 		tprops.toolbar = undefined;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>Table without toolbar</p>
 				<List {...tprops} />
@@ -564,21 +646,47 @@ storiesOf('List', module)
 	})
 	.add('Sort', () => {
 		const tprops = cloneDeep(props);
+		// disable sort on column author
+		let authorColumn = tprops.list.columns.find(e => e.key === 'author');
+		authorColumn.disableSort = true;
 		tprops.list.sort = sort;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
+				<p>You add sort management with column header click.</p>
+				<pre>
+					listProps.sort.field = 'modified';<br />
+					listProps.sort.isDescending = false;<br />
+					listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
+					isDescending);<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+				</pre>
 				<p>
-					You add sort management with column header click.<br />
-					<pre>
-						listProps.sort.field = 'name';<br />
-						listProps.sort.isDescending = false;<br />
-						listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
-						isDescending);<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
-					</pre>
+					To disable sort on a column, add the <strong>disableSort</strong> props (see Author
+					column).
 				</p>
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Custom cell renderer', () => {
+		const customProps = cloneDeep(props);
+
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'hello' },
+			{ key: 'cat', label: 'Cat' },
+		];
+
+		customProps.list.items = itemsForListWithIcons;
+		customProps.list.cellDictionary = { hello: { cellRenderer: CellWithHello } };
+
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display the list with a custom renderer for the status column.</p>
+				<List {...customProps} />
 			</div>
 		);
 	})
@@ -597,7 +705,7 @@ storiesOf('List', module)
 		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>
@@ -634,15 +742,13 @@ storiesOf('List', module)
 			},
 		};
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					You can get limited options for displayMode.<br />
-					<pre>
-						toolbarProps.display.displayModes = ['large', 'table'];<br />
-						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
-					</pre>
-				</p>
+				<p>You can get limited options for displayMode.</p>
+				<pre>
+					toolbarProps.display.displayModes = ['large', 'table'];<br />
+					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
@@ -660,16 +766,14 @@ storiesOf('List', module)
 		tprops.list.titleProps.onClick = null;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					To have not clickable titles, just don't pass any onClick callback
-					<pre>
-						const props = &#123;...&#125;;<br />
-						props.list.titleProps.onClick = null;<br />
-						&lt;List &#123;...props&#125; /&gt;
-					</pre>
-				</p>
+				<p>To have not clickable titles, just don't pass any onClick callback</p>
+				<pre>
+					const props = &#123;...&#125;;<br />
+					props.list.titleProps.onClick = null;<br />
+					&lt;List &#123;...props&#125; /&gt;
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
@@ -680,22 +784,20 @@ storiesOf('List', module)
 		tprops.list.columns[0].hideHeader = true;
 
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
+			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Display the list with hidden header labels.<br />
-					<pre>
-						const props = &#123;...&#125;;<br />
-						props.list.columns[0].hideHeader = true;<br />
-						&lt;List &#123;...props&#125; /&gt;
-					</pre>
-				</p>
+				<p>Display the list with hidden header labels.</p>
+				<pre>
+					const props = &#123;...&#125;;<br />
+					props.list.columns[0].hideHeader = true;<br />
+					&lt;List &#123;...props&#125; /&gt;
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
 	})
 	.add('Custom classnames', () => (
-		<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
+		<div style={{ height: '70vh' }} className="virtualized-list virtualized-list-customized-row">
 			<h1>List</h1>
 			<p>Display the list with hidden header labels.</p>
 			<List {...props} />
@@ -710,12 +812,44 @@ storiesOf('List', module)
 			</span>
 		</div>
 	))
-	.add('list with virtualized', () => (
+	.add('List cell renderer', () => (
 		<div className="virtualized-list">
-			<h1>List with virtualized and timestamp</h1>
+			<h1>List with specified VirtualizedList cell renderer</h1>
 			<p>CellDatetimeRenderer in action.</p>
 			<span>
 				<List {...propsWithVirtualized} />
 			</span>
 		</div>
-	));
+	))
+	.add('Table display with action overlay', () => {
+		const items = [...Array(100)].map((_, index) => ({
+			id: index,
+			name: 'Title with actions',
+			created: 1518596913333,
+			modified: minusThreeHours,
+			author: 'Jean-Pierre DUPONT',
+			actions: [overlayAction, ...actions],
+			icon: 'talend-file-xls-o',
+			display: 'text',
+			className: 'item-0-class',
+		}));
+
+		const listProps = {
+			...props,
+			list: {
+				...props.list,
+				items,
+			},
+		};
+
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<List {...listProps} />
+			</div>
+		);
+	});

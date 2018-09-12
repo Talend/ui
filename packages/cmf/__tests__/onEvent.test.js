@@ -52,7 +52,7 @@ describe('onEvent', () => {
 			config.docked = 'toggle';
 			handler(...args);
 			const callback = instance.props.setState.mock.calls[0][0];
-			callback(instance.props);
+			callback({ state: instance.props.state });
 			expect(instance.props.setState.mock.calls[1][0]).toEqual({ docked: true });
 		});
 	});

@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
-
+import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
@@ -57,24 +56,23 @@ function SidePanel({
 		'nav-inverse': !reverse,
 	});
 
-	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
-	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
+	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand menu' });
+	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse menu' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
 		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
 			{dockable && (
-				<div
-					className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}
-					title={toggleButtonTitle}
-				>
+				<div className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
 						bsStyle="link"
 						onClick={onToggleDock}
 						icon="talend-opener"
-						label=""
 						aria-controls={id}
+						label={toggleButtonTitle}
+						tooltipPlacement="right"
+						hideLabel
 					/>
 				</div>
 			)}
@@ -129,4 +127,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);
+export default translate(I18N_DOMAIN_COMPONENTS)(SidePanel);

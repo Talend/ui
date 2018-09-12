@@ -2,9 +2,12 @@ import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import { Enumeration, IconsProvider } from '../src/index';
 import i18n from './config/i18n';
+
+import theme from './Enumeration.scss';
 
 const addItemAction = {
 	label: 'Add item',
@@ -18,6 +21,31 @@ const loadingAction = {
 	icon: 'talend-cross',
 	inProgress: true,
 	id: 'loading',
+};
+
+const searchAction = {
+	disabled: false,
+	label: 'search',
+	icon: 'talend-search',
+	id: 'search',
+};
+
+const importAction = {
+	disabled: false,
+	label: 'import',
+	icon: 'talend-download',
+	id: 'upload',
+	displayMode: 'dropdown',
+	items: [
+		{
+			label: 'add',
+			id: 'append-uploding',
+		},
+		{
+			label: 'overwrite',
+			id: 'append-uploding',
+		},
+	],
 };
 
 const deleteItemAction = {
@@ -52,7 +80,7 @@ for (let i = 0; i < 1000; i += 1) {
 const props = {
 	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
-	headerDefault: [addItemAction, loadingAction],
+	headerDefault: [addItemAction, loadingAction, importAction],
 	headerSelected: [deleteItemAction],
 	headerInput: [validateAction, abortAction],
 	items,
@@ -191,7 +219,60 @@ const customLabelProps = {
 	label: 'Users',
 };
 
+const headerDisabled = {
+	...props,
+	headerDefault: [
+		{ ...addItemAction, disabled: true},
+		{ ...importAction, disabled: true},
+		{ ...searchAction },
+	]
+};
+headerDisabled.itemsProp.actionsDefault[0].disabled = true;
+headerDisabled.itemsProp.actionsDefault[1].disabled = true;
+
+const withIconProps = {
+	...props,
+	items: [
+		{
+			icon: {
+				name: 'talend-warning',
+				title: 'A warning',
+			},
+			values: ['An item with an icon appended'],
+		},
+		{
+			icon: {
+				name: 'talend-world',
+				title: 'The world',
+			},
+			values: ['An item with a world appended'],
+		},
+	],
+};
+
+const withClassProps = {
+	...props,
+	className: theme['enum-with-class'],
+	items: [
+		{
+			values: ['User 1'],
+		},
+		{
+			icon: {
+				name: 'talend-warning',
+				title: 'Inactive user',
+			},
+			className: theme.inactive,
+			values: ['User 2'],
+		},
+		{
+			values: ['User 3'],
+		},
+	],
+};
+
 storiesOf('Enumeration', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<p>By default :</p>
@@ -201,27 +282,36 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('default - empty list with i18n', () => (
-			<div>
-				<p>Empty list by default:</p>
-				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-				<button onClick={() => i18n.changeLanguage('it')}>it</button>
-				<IconsProvider />
-				<I18nextProvider i18n={i18n}>
-					<Enumeration
-						{...defaultEmptyListProps}
-					/>
-				</I18nextProvider>
-			</div>
+	.addWithInfo('default header action disabled', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<Enumeration
+				{...headerDisabled}
+			/>
+		</div>
 	))
-	.addWithInfo('default - empty list', () => (
-			<div>
-				<p>Empty list by default:</p>
-				<IconsProvider />
+	.addWithInfo('default - empty list with i18n', () => (
+		<div>
+			<p>Empty list by default:</p>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
+			<IconsProvider />
+			<I18nextProvider i18n={i18n}>
 				<Enumeration
 					{...defaultEmptyListProps}
 				/>
-			</div>
+			</I18nextProvider>
+		</div>
+	))
+	.addWithInfo('default - empty list', () => (
+		<div>
+			<p>Empty list by default:</p>
+			<IconsProvider />
+			<Enumeration
+				{...defaultEmptyListProps}
+			/>
+		</div>
 	))
 	.addWithInfo('default with dropdown', () => (
 		<div>
@@ -312,6 +402,24 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...customLabelProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with icon', () => (
+		<div>
+			<p>By default: </p>
+			<IconsProvider />
+			<Enumeration
+				{...withIconProps}
+			/>
+		</div>
+	))
+	.addWithInfo('with custom class for row', () => (
+		<div>
+			<p>With custom class on second row: </p>
+			<IconsProvider />
+			<Enumeration
+				{...withClassProps}
 			/>
 		</div>
 	));

@@ -28,6 +28,7 @@ i18n.init({
 				SIDEPANEL_EXPAND: 'Développer',
 				SIDEPANEL_COLLAPSE: 'Réduire',
 				VIRTUALIZEDLIST_NO_RESULT: 'Aucun résultat',
+				DATE_FNS_ABOUT_MINUTE: '{{count}} minutes',
 			},
 		},
 		it: {
@@ -54,6 +55,7 @@ i18n.init({
 				SIDEPANEL_EXPAND: 'Espandere',
 				SIDEPANEL_COLLAPSE: 'Collassare',
 				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
+				DATE_FNS_ABOUT_MINUTE: '{{count}} minuti',
 			},
 		},
 	},

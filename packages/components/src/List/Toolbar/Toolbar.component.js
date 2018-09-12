@@ -14,7 +14,7 @@ import ActionBar from '../../ActionBar';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N } from '../../translate';
+import '../../translate';
 import Inject from '../../Inject';
 
 function adaptActionsIds(actions, parentId) {
@@ -118,7 +118,7 @@ function Toolbar({
 							htmlFor={id && `${id}-pagination-size`}
 						/>
 					)}
-					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
+					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} t={t} />}
 					{injected('after-pagination')}
 					{injected('before-filter')}
 					{filter && (
@@ -153,4 +153,4 @@ Toolbar.propTypes = {
 
 Toolbar.defaultProps = {};
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Toolbar);
+export default translate(I18N_DOMAIN_COMPONENTS)(Toolbar);

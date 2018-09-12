@@ -10,8 +10,9 @@ module.exports = function start(env) {
 			'--inline',
 			'--config', hereRelative(__dirname, '../config/webpack.config.js'),
 			'--content-base', 'build/',
+			'--open',
+			'--progress',
 		],
 		{ stdio: 'inherit', env }
 	);
 };
-

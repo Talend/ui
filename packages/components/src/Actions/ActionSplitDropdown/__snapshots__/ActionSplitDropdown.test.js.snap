@@ -17,7 +17,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
       </span>
     </span>
   }
-  toggleLabel="Open \\"{{label}}\\" menu"
+  toggleLabel="Open \\"Add File\\" menu"
 >
   <MenuItem
     bsClass="dropdown"
@@ -47,7 +47,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
       </span>
     </span>
   }
-  toggleLabel="Open \\"{{label}}\\" menu"
+  toggleLabel="Open \\"Add File\\" menu"
 >
   <MenuItem
     bsClass="dropdown"
@@ -88,7 +88,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
       </span>
     </span>
   }
-  toggleLabel="Open \\"{{label}}\\" menu"
+  toggleLabel="Open \\"Add File\\" menu"
 >
   <MenuItem
     bsClass="dropdown"
@@ -132,7 +132,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
       </span>
     </span>
   }
-  toggleLabel="Open \\"{{label}}\\" menu"
+  toggleLabel="Open \\"Add File\\" menu"
 >
   <MenuItem
     bsClass="dropdown"

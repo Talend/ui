@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { api, cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { ActionSplitDropdown } from '@talend/react-components';
 
 import getOnClick from '../actionOnClick';
@@ -8,19 +8,19 @@ import getOnClick from '../actionOnClick';
 export function mapStateToProps(state, { actionId, actionIds } = {}) {
 	let props = {};
 	const context = {
-		registry: api.registry.getRegistry(),
+		registry: cmf.registry.getRegistry(),
 		store: {
 			getState: () => state,
 		},
 	};
 	if (actionId) {
-		props = api.action.getActionInfo(context, actionId);
+		props = cmf.action.getActionInfo(context, actionId);
 	}
 	if (actionIds) {
 		props.actionIds = actionIds;
 	}
 	if (props.actionIds) {
-		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+		props.items = props.actionIds.map(itemId => cmf.action.getActionInfo(context, itemId));
 	}
 	return props;
 }

@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
+import getDefaultT from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
-import InputTitleSubHeader from './InputTitleSubHeader';
+import TitleSubHeader from './TitleSubHeader';
 import Inject from '../Inject';
+import Skeleton from '../Skeleton';
 import theme from './SubHeaderBar.scss';
 
 function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {
@@ -67,12 +68,38 @@ function SubHeaderBar({
 	left,
 	center,
 	right,
+	rightActionsLoading,
 	...rest
 }) {
 	const injected = Inject.all(getComponent, components, CustomInject);
 	const Renderer = Inject.getAll(getComponent, { Action, ActionBar });
 	const hasRight =
 		Array.isArray(right) || has(components, 'before-right') || has(components, 'after-right');
+	let rightActions;
+
+	if (rightActionsLoading) {
+		rightActions = (
+			<SubHeaderBarActions
+				className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
+				right
+			>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
+			</SubHeaderBarActions>
+		);
+	} else {
+		rightActions =
+			Array.isArray(right) &&
+			right.map((item, index) => (
+				<SubHeaderBarActions
+					className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
+					key={index}
+					right
+				>
+					<Renderer.Action key={index} {...item} />
+				</SubHeaderBarActions>
+			));
+	}
+
 	return (
 		<header className={classNames(theme['tc-subheader'], 'tc-subheader', className)}>
 			{injected('before-actionbar')}
@@ -94,12 +121,14 @@ function SubHeaderBar({
 						/>
 					)}
 					{injected('before-title')}
-					<InputTitleSubHeader t={t} {...rest} />
+					<TitleSubHeader t={t} getComponent={getComponent} {...rest} />
 					{injected('after-title')}
 				</SubHeaderBarActions>
 				{Array.isArray(left) && (
 					<SubHeaderBarActions left>
-						{left.map((item, index) => <Renderer.Action key={index} {...item} />)}
+						{left.map((item, index) => (
+							<Renderer.Action key={index} {...item} />
+						))}
 					</SubHeaderBarActions>
 				)}
 				{injected('center')}
@@ -110,19 +139,7 @@ function SubHeaderBar({
 						</SubHeaderBarActions>
 					))}
 				{injected('right')}
-				{Array.isArray(right) &&
-					right.map((item, index) => (
-						<SubHeaderBarActions
-							className={classNames(
-								theme['tc-subheader-navbar-right'],
-								'tc-subheader-navbar-right',
-							)}
-							key={index}
-							right
-						>
-							<Renderer.Action key={index} {...item} />
-						</SubHeaderBarActions>
-					))}
+				{rightActions}
 				{injected('after-right')}
 			</Renderer.ActionBar>
 			{injected('after-actionbar')}
@@ -140,13 +157,14 @@ SubHeaderBar.propTypes = {
 	right: PropTypes.array,
 	center: PropTypes.array,
 	inProgress: PropTypes.bool,
+	rightActionsLoading: PropTypes.bool,
 	...Inject.PropTypes,
 };
 
 SubHeaderBar.defaultProps = {
-	t: getDefaultTranslate,
+	t: getDefaultT(),
 };
 SubHeaderBar.Content = SubHeaderBarActions;
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SubHeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS)(SubHeaderBar);
 export { SubHeaderBar, SubHeaderBarActions, CustomInject };

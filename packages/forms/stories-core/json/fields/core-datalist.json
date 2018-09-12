@@ -12,10 +12,19 @@
         "type": "string",
         "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
       },
+      "titleMapDatalist": {
+        "type": "string",
+        "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      },
       "enumNamesDatalist": {
         "type": "string",
-        "enum": [ "a", "p", "b", "c", "l", "g" ],
-        "enumNames": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+        "enum": [ "a", "p", "b", "c", "l", "g" ]
+      },
+      "asyncTitleMap": {
+        "type": "string"
+      },
+      "restrictedAsyncTitleMap": {
+        "type": "string"
       }
     },
     "required": [
@@ -37,13 +46,77 @@
       "widget": "datalist"
     },
     {
-      "key": "enumNamesDatalist",
-      "title": "Datalist with named options",
-      "description": "This datalist is based on enumNames jsonSchema properties",
-      "widget": "datalist"
+      "key": "titleMapDatalist",
+      "title": "Datalist with custom titles",
+      "description": "This datalist have custom displayed titles, different from values",
+      "widget": "datalist",
+      "titleMap": [
+        {
+          "name": "My Apple",
+          "value": "Apple"
+        },
+        {
+          "name": "My Pineapple",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "My Banana",
+          "value": "Banana"
+        },
+        {
+          "name": "My Cherry",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "My Lemon",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "My Grapefruit",
+          "value": "Grapefruit"
+        }
+      ]
+    },
+    {
+      "key":"asyncTitleMap",
+      "title": "Datalist with async options",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"asyncTitleMap"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key":"restrictedAsyncTitleMap",
+      "restricted": true,
+      "title": "Datalist with async options ans restricted value",
+      "widget": "datalist",
+      "triggers":[
+        {
+          "action":"SuggestionForDemo",
+          "family":"remote",
+          "type":"suggestions",
+          "onEvent":"focus",
+          "parameters":[
+            {
+              "key":"asyncTitleMap"
+            }
+          ]
+        }
+      ]
     }
   ],
   "properties": {
-    "simpleDatalist": "Pine[apple]"
+    "simpleDatalist": "Pine[apple]",
+    "restrictedAsyncTitleMap": "clafoutis"
   }
 }

@@ -1,5 +1,4 @@
-cmfConnect
-==
+# cmfConnect
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
@@ -12,8 +11,7 @@ cmfConnect
 
 Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
-API
---
+## API
 
 ```javascript
 cmfConnect({
@@ -25,8 +23,8 @@ cmfConnect({
 })(Component);
 ```
 
-How to use component state
---
+## How to use component state
+
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
@@ -94,8 +92,8 @@ this.props.setState(
 );
 ```
 
-If you want the component to support the props `initialState` to make the state spawned with this value;
-This lets save one render if you know the first state.
+If you want the component to be instantiated and rendered directly with a custum state and overwrite the `defaultState`, it can be done with the `initialState` prop.
+This saves one render if you know the first state.
 
 How to use expression
 --
@@ -167,7 +165,7 @@ import { cmfConnect } from "@talend/react-cmf";
 
 function SimpleButton ({label, onClick}) {
     return (
-      <button onClick={props.onClick}>{label}</button>
+      <button onClick={onClick}>{label}</button>
     );
   }
 }
@@ -211,11 +209,67 @@ export default cmfConnect({})(SimpleButton);
 		}
 	}
 }
+
+```
+
+## How to render conditionally
+
+Every component that connected with CMF can be rendered conditionally
+
+If you want to render some component conditionally, just pass "renderIf" prop (type boolean) to it
+
+You can also use Expression for this and customize this prop like "renderIfExpression" in
+CMF json configuration files
+
+## How to read and update component state from the outside
+
+Every cmfConnected component expose two static functions:
+* getState
+* setStateAction
+
+So if we take back the `Clock` example from below and we try to write a saga:
+
+```javascript
+import Clock from './Clock.connect';
+
+export default function* myDeLorean() {
+	const clockState = yield select(Clock.getState);
+	const action = Clock.setStateAction(clockState.set('date', new Date('2025/12/25')));
+	yield put(action);
+}
+```
+
+If you have multiple instance of the same component those api support `id` as a second argument.
+
+```javascript
+import Clock from './Clock.connect';
+
+export default function* myDeLorean({ componentId }) {
+	const state = yield select();
+	const clockState = Clock.getState(state, componentId);
+	yield put(
+		Clock.setStateAction(
+			clockState.set('date', new Date('2025/12/25'))
+		)
+	);
+// mutation
+Clock.setStateAction(componentState, 'a-component-id');
+```
+
+If your setState rely on the previous state value and you have some async operations between you can still rely on the callback function:
+
+```javascript
+Clock.setStateAction(
+	prevState => prevState.set(
+		'minutes',
+		prevState.get('date').getMinutes()
+	),
+	'a-component-id'
+);
 ```
 
 
-How to test
---
+## How to test
 
 
 When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).

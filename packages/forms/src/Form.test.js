@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
 
 // FIXME: Temporary fix only on tests while the issue
 // described on the following pull request isn't fixed.
@@ -12,6 +11,8 @@ import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
+
+import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
 
 import Form, { renderActionIcon, renderActions } from './Form';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
@@ -208,7 +209,12 @@ describe('<Form/>', () => {
 			input.simulate('change', { target: { value: 'Test' } });
 
 			// then
-			expect(input.instance().value).toEqual('Test');
+			expect(
+				wrapper
+					.find('input')
+					.first()
+					.instance().value,
+			).toEqual('Test');
 			setTimeout(() => {
 				wrapper.setState({}, () => {
 					expect(onChange.mock.calls.length).toEqual(1);
@@ -217,7 +223,7 @@ describe('<Form/>', () => {
 			}, 100);
 		});
 
-		it('should handles triggers and change if fied as ui:trigger property', done => {
+		it('should handles triggers and change if field as ui:trigger property', done => {
 			// given
 			const input = wrapper.find('input').at(1);
 

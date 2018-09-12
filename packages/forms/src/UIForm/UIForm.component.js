@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import tv4 from 'tv4';
 import { translate } from 'react-i18next';
 
+import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
@@ -14,7 +15,8 @@ import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import '../translate';
+import theme from './UIForm.scss';
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -36,8 +38,11 @@ export class UIFormComponent extends React.Component {
 		this.onActionClick = this.onActionClick.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
-		if (typeof props.language === 'function') {
+		if (props.language != null) {
 			Object.assign(language, props.language);
+			// Force update of language @talend even if already set
+			tv4.addLanguage('@talend', language);
+			tv4.language('@talend');
 		}
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', language);
@@ -53,7 +58,11 @@ export class UIFormComponent extends React.Component {
 	 * @param uiSchema
 	 */
 	componentWillReceiveProps({ jsonSchema, uiSchema }) {
-		if (!jsonSchema || !uiSchema) {
+		if (
+			!jsonSchema ||
+			!uiSchema ||
+			(this.props.jsonSchema === jsonSchema && this.props.uiSchema === uiSchema)
+		) {
 			return;
 		}
 		if (Object.keys(jsonSchema).length) {
@@ -142,12 +151,16 @@ export class UIFormComponent extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				this.onTrigger(event, {
-					trigger: schema.triggers[0],
-					schema,
-					properties: formData,
-					errors,
-				});
+				const trigger = schema.triggers.find(t => t.onEvent === undefined);
+				if (trigger) {
+					this.onTrigger(event, {
+						trigger,
+						schema,
+						properties: formData,
+						errors,
+						value,
+					});
+				}
 			}
 		}
 	}
@@ -167,6 +180,9 @@ export class UIFormComponent extends React.Component {
 
 		if (this.props.moz) {
 			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
+		}
+		if (!payload.trigger) {
+			throw new Error('onTrigger payload do not have required trigger property');
 		}
 		return onTrigger(event, {
 			properties: this.props.properties,
@@ -204,7 +220,7 @@ export class UIFormComponent extends React.Component {
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit({ formData: properties });
+				this.props.onSubmit(null, { formData: properties });
 			} else {
 				this.props.onSubmit(event, properties);
 			}
@@ -219,17 +235,50 @@ export class UIFormComponent extends React.Component {
 				label: 'Submit',
 				type: 'submit',
 				widget: 'button',
+				position: 'right',
 			},
 		];
 		if (!this.state.mergedSchema) {
 			return null;
 		}
+
+		const formTemplate =
+			this.props.displayMode === 'text' ? TextModeFormTemplate : DefaultFormTemplate;
+		const widgetsRenderer = () =>
+			this.state.mergedSchema.map((nextSchema, index) => (
+				<Widget
+					id={this.props.id}
+					key={index}
+					onChange={this.onChange}
+					onFinish={this.onFinish}
+					onTrigger={this.onTrigger}
+					schema={nextSchema}
+					properties={this.props.properties}
+					errors={this.props.errors}
+					templates={this.props.templates}
+					widgets={this.state.widgets}
+					displayMode={this.props.displayMode}
+				/>
+			));
+		const buttonsRenderer = () => (
+			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
+				<Buttons
+					id={`${this.props.id}-${this.props.id}-actions`}
+					onTrigger={this.onTrigger}
+					className={this.props.buttonBlockClass}
+					schema={{ items: actions }}
+					onClick={this.onActionClick}
+					getComponent={this.props.getComponent}
+				/>
+			</div>
+		);
+
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
-				className={classNames('tf-uiform', this.props.className)}
+				className={classNames('tf-uiform', theme.uiform, this.props.className)}
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}
@@ -239,33 +288,12 @@ export class UIFormComponent extends React.Component {
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
-				{this.state.mergedSchema.map((nextSchema, index) => (
-					<Widget
-						id={this.props.id}
-						key={index}
-						onChange={this.onChange}
-						onFinish={this.onFinish}
-						onTrigger={this.onTrigger}
-						schema={nextSchema}
-						properties={this.props.properties}
-						errors={this.props.errors}
-						templates={this.props.templates}
-						widgets={this.state.widgets}
-					/>
-				))}
-				{this.props.children}
-				<Buttons
-					id={`${this.props.id}-${this.props.id}-actions`}
-					onTrigger={this.onTrigger}
-					className={this.props.buttonBlockClass}
-					schema={{ items: actions }}
-					onClick={this.onActionClick}
-				/>
+				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 			</form>
 		);
 	}
 }
-const I18NUIForm = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(UIFormComponent);
+const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
 	I18NUIForm.propTypes = {
@@ -307,12 +335,15 @@ if (process.env.NODE_ENV !== 'production') {
 		/** Custom templates */
 		templates: PropTypes.object,
 		/** Custom widgets */
-		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		widgets: PropTypes.object,
+		/** Display mode: example 'text' */
+		displayMode: PropTypes.string,
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
+		getComponent: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }

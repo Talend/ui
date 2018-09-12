@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { api, cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 import { withRouter } from 'react-router';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 
@@ -8,9 +8,9 @@ export function mapStateToProps(state, ownProps) {
 	if (ownProps.actionIds) {
 		props.actions = ownProps.actionIds.map(id => {
 			const action = { actionId: id };
-			const info = api.action.getActionInfo(
+			const info = cmf.action.getActionInfo(
 				{
-					registry: api.registry.getRegistry(),
+					registry: cmf.registry.getRegistry(),
 					store: {
 						getState: () => state,
 					},

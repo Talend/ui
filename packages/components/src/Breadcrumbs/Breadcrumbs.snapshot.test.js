@@ -1,29 +1,25 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import Breadcrumbs from './Breadcrumbs.component';
+import { shallow } from 'enzyme';
+import { BreadcrumbsComponent } from './Breadcrumbs.component';
 
 jest.mock('react-dom');
 
 describe('Breadcrumbs', () => {
 	const items = [
-		{ text: 'Text A' },
-		{ text: 'Text B' },
-		{ text: 'Text C' },
-		{ text: 'Text D' },
+		{ text: 'Text A', title: 'Go to Page Text A' },
+		{ text: 'Text B', title: 'Go to Page Text B' },
+		{ text: 'Text C', title: 'Go to Page Text C' },
+		{ text: 'Text D', title: 'Go to Page Text D' },
 	];
 
 	it('should render items with ellipsis and 3 visible items by default', () => {
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={items} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(<BreadcrumbsComponent items={items} />);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should do nothing if items property is empty', () => {
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={null} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(<BreadcrumbsComponent items={undefined} />);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render small list of items without ellipsis', () => {
@@ -32,10 +28,8 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text B', title: 'Text tile B' },
 			{ text: 'Text C' },
 		];
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={customItems} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(<BreadcrumbsComponent items={customItems} />);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render list of items without ellipsis when set enough max items to display', () => {
@@ -46,10 +40,8 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text D' },
 			{ text: 'Text E' },
 		];
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={customItems} maxItems={5} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(<BreadcrumbsComponent items={customItems} maxItems={5} />);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render dropdown containing 3 items', () => {
@@ -60,10 +52,8 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text D' },
 			{ text: 'Text E' },
 		];
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={customItems} maxItems={2} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(<BreadcrumbsComponent items={customItems} maxItems={2} />);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should not render dropdown because all items are shown', () => {
@@ -74,16 +64,14 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text D' },
 			{ text: 'Text E' },
 		];
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs items={customItems} maxItems={customItems.length} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(
+			<BreadcrumbsComponent items={customItems} maxItems={customItems.length} />,
+		);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 
 	it('should render items ids when provided', () => {
-		const breadcrumbs = renderer.create(
-			<Breadcrumbs id="my-breadcrumb" items={items} />
-		).toJSON();
-		expect(breadcrumbs).toMatchSnapshot();
+		const breadcrumbs = shallow(<BreadcrumbsComponent id="my-breadcrumb" items={items} />);
+		expect(breadcrumbs.getElement()).toMatchSnapshot();
 	});
 });

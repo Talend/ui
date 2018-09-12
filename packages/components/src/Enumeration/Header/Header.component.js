@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import { Action, ActionDropdown } from '../../Actions/';
+import { Action, ActionDropdown } from '../../Actions';
 import theme from './Header.scss';
 
 function headerClasses() {
@@ -18,18 +18,14 @@ function getAction(action, index) {
 			action.onClick(event, { value: event.target.value });
 		}
 	}
-
 	if (action.displayMode === 'dropdown') {
 		return (
 			<ActionDropdown
+				{...action}
 				noCaret
 				key={`${index}-enum-header-action`}
-				label={action.label}
-				icon={action.icon}
 				onClick={onClick}
 				btooltipPlacement="bottom"
-				inProgress={action.inProgress}
-				items={action.items}
 				hideLabel
 				pullRight
 				link
@@ -38,12 +34,10 @@ function getAction(action, index) {
 	}
 	return (
 		<Action
+			{...action}
 			key={`${index}-enum-header-action`}
-			label={action.label}
-			icon={action.icon}
 			onClick={onClick}
 			btooltipPlacement="bottom"
-			inProgress={action.inProgress}
 			hideLabel
 			link
 		/>
@@ -53,9 +47,12 @@ function getAction(action, index) {
 function Header({ headerDefault, required, label }) {
 	return (
 		<header className={headerClasses()}>
-			<span>{label}{required && '*'}</span>
+			<span>
+				{label}
+				{required && '*'}
+			</span>
 			<div className="actions">
-				{headerDefault.map(getAction)}
+				{headerDefault.filter(action => !action.disabled).map(getAction)}
 			</div>
 		</header>
 	);

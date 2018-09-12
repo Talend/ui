@@ -5,14 +5,16 @@
 	.row-selection.selected {
 		background: $tc-list-row-selected-bg;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			background: $tc-list-row-selected-hover-bg;
 		}
 	}
 	.row-selection.active {
 		background: $tc-list-row-active-bg;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			background: $tc-list-row-active-hover-bg;
 		}
 	}

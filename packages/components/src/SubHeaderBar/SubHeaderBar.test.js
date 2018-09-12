@@ -6,6 +6,7 @@ import Container, {
 	SubHeaderBarActions,
 	CustomInject,
 } from './SubHeaderBar.component';
+import Skeleton from '../Skeleton';
 
 function getComponent(name) {
 	if (name === 'Action') {
@@ -45,7 +46,6 @@ describe('SubHeaderBarActions', () => {
 				<Icon name="talend-bell" />
 			</SubHeaderBarActions>,
 		);
-		expect(wrapper.instance().props.center).toBeTruthy();
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.find(ActionBar.Content).get(0).props.center).toBeTruthy();
 		expect(wrapper.find(Icon)).toHaveLength(1);
@@ -77,7 +77,6 @@ describe('SubHeaderBarActions', () => {
 				<Icon name="talend-bell" />
 			</SubHeaderBarActions>,
 		);
-		expect(wrapper.instance().props.right).toBeTruthy();
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.find(ActionBar.Content).get(0).props.right).toBeTruthy();
 		expect(wrapper.find(Icon)).toHaveLength(1);
@@ -220,6 +219,22 @@ describe('SubHeaderBar', () => {
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
+	});
+
+	it('Should render SubHeader component if right actions are in loading state', () => {
+		const props = {
+			title: 'myTitle',
+			rightActionsLoading: true,
+			onGoBack: jest.fn(),
+		};
+		const wrapper = shallow(<SubHeaderBar {...props} />);
+		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
+		expect(
+			wrapper
+				.find(SubHeaderBarActions)
+				.at(1)
+				.find(Skeleton),
+		).toHaveLength(1);
 	});
 });
 

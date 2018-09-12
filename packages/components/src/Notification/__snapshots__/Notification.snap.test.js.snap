@@ -4,22 +4,19 @@ exports[`Notification should render 1`] = `
 <div
   className="theme-tc-notification-container tc-notification-container"
 >
-  <div
-    className="react-addons-css-transition-group"
-    transitionEnterTimeout={300}
-    transitionLeaveTimeout={280}
-    transitionName="tc-notification"
-  >
+  <div>
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-info tc-notification-info"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
+      tabIndex={0}
     >
       <button
-        aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -30,6 +27,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use
@@ -60,6 +58,7 @@ exports[`Notification should render 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-undo"
               title={null}
             >
               <use
@@ -79,13 +78,15 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-error tc-notification-error"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="status"
+      role="alert"
+      tabIndex={0}
     >
       <button
-        aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -96,6 +97,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use
@@ -131,6 +133,7 @@ exports[`Notification should render 1`] = `
               aria-hidden="true"
               className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
+              name="talend-undo"
               title={null}
             >
               <use
@@ -147,13 +150,15 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-warning tc-notification-warning"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
+      tabIndex={0}
     >
       <button
-        aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -164,6 +169,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use
@@ -195,13 +201,15 @@ exports[`Notification should render 1`] = `
     <div
       className="theme-tc-notification tc-notification theme-tc-notification-warning tc-notification-warning"
       onClick={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
+      tabIndex={0}
     >
       <button
-        aria-label=""
-        className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -212,6 +220,7 @@ exports[`Notification should render 1`] = `
           aria-hidden="true"
           className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
+          name="talend-cross"
           title={null}
         >
           <use

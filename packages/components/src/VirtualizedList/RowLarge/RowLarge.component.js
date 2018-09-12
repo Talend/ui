@@ -3,8 +3,11 @@ import React from 'react';
 import classNames from 'classnames';
 import { extractSpecialFields, getId, getLabel, getRowData, renderCell } from '../utils/gridrow';
 
+import { listTypes } from '../utils/constants';
 import rowThemes from './RowThemes';
 import theme from './RowLarge.scss';
+
+const { LARGE } = listTypes;
 
 /**
  * Row renderer that displays a Large item
@@ -14,7 +17,7 @@ function RowLarge({ className, index, key, parent, style }) {
 
 	const parentId = getId(parent);
 	const id = parentId && `${parentId}-${index}`;
-	const titleCell = titleField && renderCell(index, parent, titleField);
+	const titleCell = titleField && renderCell(index, parent, titleField, LARGE);
 	const selectionCell = selectionField && renderCell(index, parent, selectionField);
 	const rowData = getRowData(parent, index);
 	const otherCellsListItems = otherFields.map((field, fieldIndex) => {
@@ -34,10 +37,10 @@ function RowLarge({ className, index, key, parent, style }) {
 	let onRowClick;
 	let onRowDoubleClick;
 	if (parent.props.onRowClick) {
-		onRowClick = event => parent.props.onRowClick(event, rowData);
+		onRowClick = event => parent.props.onRowClick({ event, rowData });
 	}
 	if (parent.props.onRowDoubleClick) {
-		onRowDoubleClick = event => parent.props.onRowDoubleClick(event, rowData);
+		onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
 	}
 
 	return (

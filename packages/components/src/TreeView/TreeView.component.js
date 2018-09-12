@@ -6,10 +6,6 @@ import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
 
-const cache = {
-	called: false,
-};
-
 /**
  * A view component to display any tree structure, like folders or categories.
  *
@@ -48,84 +44,82 @@ const cache = {
  * <TreeView {...defaultProps} />
  *
  */
-function TreeView({
-	id,
-	headerText,
-	structure,
-	addAction,
-	addActionLabel,
-	itemSelectCallback,
-	itemToggleCallback,
-	onClick,
-	onSelect,
-	noHeader,
-	className,
-	style,
-}) {
-	if (!cache.called && (itemSelectCallback || itemToggleCallback)) {
-		// eslint-disable-next-line
-		console.warn(`DEPRECATION WARNING: TreeView props migration:
-		itemToggleCallback -> onClick
-		itemSelectCallback -> onSelect`);
-		cache.called = true;
-	}
+function TreeView(props) {
+	const {
+		id,
+		headerText,
+		structure,
+		addAction,
+		addActionLabel,
+		onSelect,
+		onToggle,
+		onToggleAllSiblings,
+		noHeader,
+		className,
+		selectedId,
+		style,
+	} = props;
+	const titleId = id && `${id}-title`;
 	return (
 		<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
-			{!noHeader && (
-				<header className={theme['tc-treeview-header']}>
-					<span>{headerText}</span>
-					{addAction && (
-						<Action
-							label={addActionLabel}
-							icon="talend-plus"
-							onClick={addAction}
-							tooltipPlacement="right"
-							hideLabel
-							link
-							id={id && `${id}-add`}
-							key={addActionLabel}
-						/>
-					)}
-				</header>
-			)}
-			<nav className={theme['tc-treeview-nav']}>
-				<ul className={theme['tc-treeview-ul']}>
-					{structure.map((item, i) => (
-						<TreeViewItem
-							id={id && `${id}-${i}`}
-							item={item}
-							onSelect={onSelect || itemSelectCallback}
-							onClick={onClick || itemToggleCallback}
-							key={i}
-						/>
-					))}
-				</ul>
-			</nav>
+			<header className={classNames(theme['tc-treeview-header'], { 'sr-only': noHeader })}>
+				<span id={titleId}>{headerText}</span>
+				{addAction && (
+					<Action
+						label={addActionLabel}
+						icon="talend-plus"
+						onClick={addAction}
+						tooltipPlacement="right"
+						hideLabel
+						link
+						id={id && `${id}-add`}
+						key={addActionLabel}
+					/>
+				)}
+			</header>
+			<ul className={theme['tc-treeview-list']} role="tree" aria-labelledby={titleId}>
+				{structure.map((item, i) => (
+					<TreeViewItem
+						id={id && `${id}-${i}`}
+						item={item}
+						itemSiblings={structure}
+						onSelect={onSelect}
+						onToggle={onToggle}
+						onToggleAllSiblings={onToggleAllSiblings}
+						key={i}
+						index={i + 1}
+						selectedId={selectedId}
+						level={1}
+					/>
+				))}
+			</ul>
 		</div>
 	);
 }
 
 TreeView.displayName = 'TreeView';
 
-TreeView.propTypes = {
-	id: PropTypes.string,
-	headerText: PropTypes.string,
-	structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
-	addAction: PropTypes.func,
-	addActionLabel: PropTypes.string,
-	itemSelectCallback: PropTypes.func,
-	itemToggleCallback: PropTypes.func,
-	onClick: PropTypes.func.isRequired,
-	onSelect: PropTypes.func.isRequired,
-	noHeader: PropTypes.bool,
-	className: PropTypes.string,
-	style: PropTypes.object,
-};
-
 TreeView.defaultProps = {
 	id: 'tc-treeview',
 	addActionLabel: 'Add folder',
 	headerText: 'Folders',
 };
+
+if (process.env.NODE_ENV !== 'production') {
+	TreeView.propTypes = {
+		id: PropTypes.string.isRequired,
+		headerText: PropTypes.string,
+		structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
+		addAction: PropTypes.func,
+		addActionLabel: PropTypes.string,
+		onToggle: PropTypes.func.isRequired,
+		onToggleAllSiblings: PropTypes.func.isRequired,
+		onSelect: PropTypes.func.isRequired,
+		noHeader: PropTypes.bool,
+		className: PropTypes.string,
+		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
+		style: PropTypes.object,
+	};
+}
 
 export default TreeView;

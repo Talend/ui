@@ -1,7 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Immutable from 'immutable';
+import toJsonWithoutI18n from '../../../test/props-without-i18n';
 
 import ActionDropdown from './ActionDropdown.component';
 
@@ -19,7 +19,7 @@ const items = [
 const immutableItems = Immutable.fromJS(items);
 
 describe('ActionDropdown', () => {
-	it('should render a button with label', () => {
+	it('should render a button dropdown with its menu', () => {
 		// given
 		const props = {
 			id: 'dropdown-id',
@@ -28,10 +28,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		const wrapper = mount(<ActionDropdown {...props} />).find('ActionDropdown');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render the same as when plain object or immutable list', () => {
@@ -47,14 +47,14 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const immutableWrapper = shallow(<ActionDropdown {...immutableProps} />);
-		const wrapper = shallow(<ActionDropdown {...props} />);
+		const immutableWrapper = mount(<ActionDropdown {...immutableProps} />);
+		const wrapper = mount(<ActionDropdown {...props} />);
 
 		// then
 		expect(wrapper.html()).toEqual(immutableWrapper.html());
 	});
 
-	it('should render a button with label and a filled dropdown when immutable items', () => {
+	it('should render immutable items', () => {
 		// given
 		const props = {
 			id: 'dropdown-id',
@@ -63,10 +63,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		const wrapper = mount(<ActionDropdown {...props} />).find('ActionDropdown');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render a button with icon and label', () => {
@@ -79,13 +79,13 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
-	it('should render a button with icon', () => {
+	it('should render icon only with hideLabel props', () => {
 		// given
 		const props = {
 			id: 'dropdown-id',
@@ -97,10 +97,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render a button with "link" theme', () => {
@@ -113,10 +113,10 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownButton');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render "no option" item when items array is empty', () => {
@@ -128,9 +128,56 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+	});
+
+	it('should render loader item', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'related items',
+			loading: true,
+			items: [],
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
+
+		// then
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+	});
+
+	it('should render loader item below existing items', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'related items',
+			loading: true,
+			items,
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
+
+		// then
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+	});
+
+	it('should render icon-only items with item hideLabel props', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'related items',
+			items: items.map(item => ({ ...item, hideLabel: true })),
+		};
+
+		// when
+		const wrapper = mount(<ActionDropdown {...props} />).find('DropdownMenu');
+
+		// then
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });

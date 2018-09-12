@@ -13,6 +13,7 @@ describe('TreeView', () => {
 	let context;
 	let state;
 	let data;
+
 	beforeEach(() => {
 		context = mock.context();
 		state = mock.state();
@@ -22,11 +23,14 @@ describe('TreeView', () => {
 		]);
 		context.store.getState = () => state;
 	});
+
 	it('should render the data', () => {
 		const wrapper = shallow(<TreeView.WrappedComponent data={data} />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should setState onClick', () => {
+
+	it('should select element', () => {
+		// given
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -34,27 +38,32 @@ describe('TreeView', () => {
 			prevState.state = fn(prevState);
 		});
 		const dispatchActionCreator = jest.fn();
-		const onClick = jest.fn();
-		const onClickActionCreator = 'my:action';
+		const onSelect = jest.fn();
+		const onSelectActionCreator = 'my:action';
 		const props = {
 			setState,
 			dispatchActionCreator,
 			data,
-			onClick,
-			onClickActionCreator,
+			onSelect,
+			onSelectActionCreator,
 		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('click', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onSelect')(data.get(0).toJS());
+
+		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('opened').toJS()).toEqual([1]);
-		expect(onClick).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(prevState.state.get('selectedId')).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
 		expect(dispatchActionCreator).toHaveBeenCalled();
-		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onClickActionCreator);
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
-	it('should close if re onClick', () => {
+
+	it('should open/close on toggle', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -63,11 +72,19 @@ describe('TreeView', () => {
 		});
 		const props = { setState, data };
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('click', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onToggle')(data.get(0).toJS());
+
+		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('opened').toJS()).toEqual([1]);
-		wrapper.simulate('click', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onToggle')(data.get(0).toJS());
+
+		// then
 		expect(setState.mock.calls.length).toBe(2);
 		expect(prevState.state.get('opened').toJS()).toEqual([]);
 	});
@@ -100,6 +117,7 @@ describe('TreeView', () => {
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
+
 	it('should unselect onSelect twice', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
@@ -138,7 +156,8 @@ describe('transform', () => {
 	it('should return undefined if no items', () => {
 		expect(transform()).toBeUndefined();
 	});
-	it('add selected and toggled boolean every where', () => {
+
+	it('should add toggled booleans', () => {
 		const props = {
 			...DEFAULT_PROPS,
 			state: Immutable.Map({
@@ -165,10 +184,41 @@ describe('transform', () => {
 		];
 		const structure = transform(items, props);
 		expect(structure[0].id).toBe(1);
-		expect(structure[0].selected).toBe(false);
 		expect(structure[0].toggled).toBe(true);
 		expect(structure[0].children[0].id).toBe(11);
-		expect(structure[0].children[0].selected).toBe(true);
 		expect(structure[0].children[0].toggled).toBe(true);
+	});
+
+	it("should unfold selected's parents", () => {
+		const props = {
+			...DEFAULT_PROPS,
+			state: Immutable.Map({
+				opened: Immutable.List([1, 11, 111]),
+				selectedId: 111,
+			}),
+		};
+		const items = [
+			{
+				id: 1,
+				name: '1',
+				children: [
+					{
+						id: 11,
+						name: '11',
+						children: [{ id: 111, name: '1111' }],
+					},
+				],
+			},
+			{
+				id: 2,
+				name: '2',
+			},
+		];
+
+		const structure = transform(items, props);
+		expect(structure[0].toggled).toBe(true);
+		expect(structure[0].children[0].toggled).toBe(true);
+		expect(structure[0].children[0].children[0].toggled).toBe(true);
+		expect(structure[1].toggled).toBe(false);
 	});
 });

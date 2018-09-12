@@ -45,7 +45,7 @@ export function validate(form, value) {
 	}
 
 	let valueWrap = {};
-	if (!!value) {
+	if (typeof value !== 'undefined') {
 		valueWrap[propName] = value;
 	}
 

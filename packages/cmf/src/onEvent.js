@@ -61,7 +61,7 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				instance.props.setState(props => props.setState({ [key]: !props.state.get(key) }));
+				instance.props.setState(props => instance.props.setState({ [key]: !props.state.get(key) }));
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;

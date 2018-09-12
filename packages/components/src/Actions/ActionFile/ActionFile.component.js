@@ -68,10 +68,11 @@ class ActionFile extends React.Component {
 		...getIcon.propTypes,
 		id: PropTypes.string,
 		bsStyle: PropTypes.string,
+		className: PropTypes.string,
 		disabled: PropTypes.bool,
 		hideLabel: PropTypes.bool,
 		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
-		label: PropTypes.string.isRequired,
+		label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]),
 		link: PropTypes.bool,
 		model: PropTypes.object,
 		name: PropTypes.string,
@@ -105,7 +106,9 @@ class ActionFile extends React.Component {
 	render() {
 		const {
 			id,
+			bsStyle,
 			name,
+			className,
 			available,
 			disabled,
 			inProgress,
@@ -121,12 +124,13 @@ class ActionFile extends React.Component {
 		const localId = id || uuid.v4();
 		const buttonContent = getButtonContent(this.props);
 		const labelClasses = classNames(
-			'btn',
+			`btn btn-${bsStyle}`,
 			theme['btn-file'],
 			(disabled || inProgress) && 'disabled',
+			(hideLabel || !label) && 'btn-icon-only',
 		);
 		const btn = (
-			<span>
+			<span className={className}>
 				<input
 					onChange={this.handleChange}
 					type="file"

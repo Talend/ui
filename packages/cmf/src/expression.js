@@ -19,7 +19,6 @@ const regexExpression = new RegExp('(.*)Expression');
  * This module define expression which are just function
  * used to be called in the way you want in your APP with a context and a payload as params
  * @module react-cmf/lib/expression
- * @see module:react-cmf/lib/api
  */
 
 /**

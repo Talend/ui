@@ -1,24 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Toggle should pass extra props to input 1`] = `
+<div
+  className="checkbox tc-toggle switch checkbox"
+>
+  <label
+    data-feature={undefined}
+    htmlFor="id"
+  >
+    <input
+      aria-describedby="my-error-id"
+      checked={false}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span />
+  </label>
+</div>
+`;
+
 exports[`Toggle should render a Checkbox 1`] = `
 <div
   className="checkbox tc-toggle checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
-      autoFocus={undefined}
       checked={false}
       disabled={false}
       id="id"
-      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
-    <span>
-      
-    </span>
+    <span />
   </label>
 </div>
 `;
@@ -28,20 +46,17 @@ exports[`Toggle should render a Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
-      autoFocus={undefined}
       checked={false}
       disabled={false}
       id="id"
-      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
-    <span>
-      
-    </span>
+    <span />
   </label>
 </div>
 `;
@@ -51,14 +66,13 @@ exports[`Toggle should render a Toggle with label 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
-      autoFocus={undefined}
       checked={false}
       disabled={false}
       id="id"
-      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
@@ -74,6 +88,7 @@ exports[`Toggle should render a autoFocused Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
@@ -81,13 +96,10 @@ exports[`Toggle should render a autoFocused Toggle 1`] = `
       checked={false}
       disabled={false}
       id="id"
-      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
-    <span>
-      
-    </span>
+    <span />
   </label>
 </div>
 `;
@@ -97,20 +109,17 @@ exports[`Toggle should render a checked Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature="toggle.disable"
     htmlFor="id"
   >
     <input
-      autoFocus={undefined}
       checked={true}
       disabled={false}
       id="id"
-      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
-    <span>
-      
-    </span>
+    <span />
   </label>
 </div>
 `;
@@ -120,20 +129,17 @@ exports[`Toggle should render a disabled Toggle 1`] = `
   className="checkbox tc-toggle switch checkbox"
 >
   <label
+    data-feature={undefined}
     htmlFor="id"
   >
     <input
-      autoFocus={undefined}
       checked={false}
       disabled={true}
       id="id"
-      onBlur={undefined}
       onChange={[Function]}
       type="checkbox"
     />
-    <span>
-      
-    </span>
+    <span />
   </label>
 </div>
 `;

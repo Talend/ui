@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Items from './Items.component';
+import { ItemsComponent } from './Items.component';
 import toJsonWithoutI18n from './../../../test/props-without-i18n';
 
 jest.mock(
-	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	'react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
 	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
 );
 
@@ -28,7 +28,7 @@ describe('Items', () => {
 
 	it('should render', () => {
 		// when
-		const wrapper = mount(<Items {...props} />);
+		const wrapper = mount(<ItemsComponent {...props} />);
 
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('Items', () => {
 
 	it('should render with provided id', () => {
 		// when
-		const wrapper = mount(<Items {...props} id={'my-widget'} />);
+		const wrapper = mount(<ItemsComponent {...props} id={'my-widget'} />);
 
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('Items', () => {
 
 	it('should render without toggleAll checkbox', () => {
 		// when
-		const wrapper = mount(<Items {...props} showToggleAll={false} />);
+		const wrapper = mount(<ItemsComponent {...props} showToggleAll={false} />);
 
 		// then
 		expect(wrapper.find('#tc-listview-toggle-all').exists()).toBeFalsy();
@@ -52,7 +52,7 @@ describe('Items', () => {
 
 	it('should render with nested items', () => {
 		// when
-		const wrapper = mount(<Items {...propsNested} />);
+		const wrapper = mount(<ItemsComponent {...propsNested} />);
 
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();

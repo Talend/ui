@@ -1,4 +1,5 @@
-import { DEFAULT_STATE, DISPLAY_NAME } from './TabBar.container';
+import { TabBar } from '@talend/react-components';
+import { DEFAULT_STATE } from './TabBar.connect';
 
 /**
  * Selector on the state from the tabbar id given.
@@ -6,7 +7,7 @@ import { DEFAULT_STATE, DISPLAY_NAME } from './TabBar.container';
  * @param {string} idComponent
  */
 export function getComponentState(state, idComponent) {
-	return state.cmf.components.getIn([DISPLAY_NAME, idComponent], DEFAULT_STATE);
+	return state.cmf.components.getIn([TabBar.displayName, idComponent], DEFAULT_STATE);
 }
 
 /**

@@ -18,6 +18,10 @@ describe('Widget component', () => {
 		},
 		comment: '',
 	};
+	const customWidgets = {
+		customWidget: () => <div>my widget</div>,
+		customWidget_text: () => <div>my widget in text display mode</div>,
+	};
 
 	it('should render widget', () => {
 		// when
@@ -30,6 +34,25 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={schema}
 				errors={errors}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render widget with the specific displayMode', () => {
+		// when
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={schema}
+				errors={errors}
+				displayMode={'text'}
 			/>,
 		);
 
@@ -55,11 +78,6 @@ describe('Widget component', () => {
 
 	it('should render custom widget', () => {
 		// given
-		const widgets = {
-			customWidget() {
-				return <div>my widget</div>;
-			},
-		};
 		const customWidgetSchema = {
 			...schema,
 			type: 'customWidget',
@@ -74,7 +92,32 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={customWidgetSchema}
 				errors={errors}
-				widgets={widgets}
+				widgets={customWidgets}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render custom widget in specific display mode', () => {
+		// given
+		const customWidgetSchema = {
+			...schema,
+			type: 'customWidget',
+		};
+
+		// when
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={customWidgetSchema}
+				errors={errors}
+				widgets={customWidgets}
+				displayMode={'text'}
 			/>,
 		);
 
@@ -102,7 +145,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement().props.errorMessage).toBe('My custom validation message');
+		expect(wrapper.props().errorMessage).toBe('My custom validation message');
 	});
 
 	it('should pass message from errors when there is no validation message in schema', () => {
@@ -119,7 +162,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement().props.errorMessage).toBe('This is not ok');
+		expect(wrapper.props().errorMessage).toBe('This is not ok');
 	});
 
 	it("should render null when widgetId is 'hidden'", () => {
@@ -135,10 +178,12 @@ describe('Widget component', () => {
 		// when
 		const withConditions = {
 			...schema,
-			conditions: [
-				{ path: 'user.firstname', values: ['toto', 'my firstname'] },
-				{ path: 'user.lastname', values: ['my lastname'] },
-			],
+			condition: {
+				children: [
+					{ path: 'user.firstname', values: ['toto', 'my firstname'] },
+					{ path: 'user.lastname', values: ['my lastname'] },
+				],
+			},
 		};
 		const wrapper = shallow(
 			<Widget schema={withConditions} properties={properties} errors={errors} />,
@@ -152,10 +197,13 @@ describe('Widget component', () => {
 		// when
 		const withConditions = {
 			...schema,
-			conditions: [
-				{ path: 'user.firstname', values: ['toto', 'my firstname'] },
-				{ path: 'user.lastname', values: ['my lastname is not here'] },
-			],
+			condition: {
+				children: [
+					{ path: 'user.firstname', values: ['toto', 'my firstname'] },
+					{ path: 'user.lastname', values: ['my lastname is not here'] },
+				],
+				childrenOperator: 'AND',
+			},
 		};
 		const wrapper = shallow(
 			<Widget schema={withConditions} properties={properties} errors={errors} />,
@@ -163,5 +211,79 @@ describe('Widget component', () => {
 
 		// then
 		expect(wrapper.getElement()).toBe(null);
+	});
+
+	it('should render widget when conditions are using shouldBe=true', () => {
+		const uiSpec = {
+			...schema,
+			condition: { path: 'user.firstname', values: ['my firstname'], shouldBe: false },
+		};
+
+		// negative case
+		expect(
+			shallow(
+				<Widget
+					schema={uiSpec}
+					properties={{
+						user: {
+							firstname: 'my firstname',
+						},
+					}}
+					errors={errors}
+				/>,
+			).getElement(),
+		).toBe(null);
+		// positive case
+		expect(
+			shallow(
+				<Widget
+					schema={uiSpec}
+					properties={{
+						user: {
+							firstname: 'not my firstname',
+						},
+					}}
+					errors={errors}
+				/>,
+			).getElement(),
+		).not.toBe(null);
+	});
+
+	it('should render widget when conditions are using an evaluation strategy', () => {
+		const uiSpec = {
+			...schema,
+			condition: { path: 'user.names', values: [1], strategy: 'length' },
+		};
+
+		// negative cases
+		[undefined, [], ['foo', 'bar']].forEach(names => {
+			expect(
+				shallow(
+					<Widget
+						schema={uiSpec}
+						properties={{
+							user: {
+								names,
+							},
+						}}
+						errors={errors}
+					/>,
+				).getElement(),
+			).toBe(null);
+		});
+		// positive case
+		expect(
+			shallow(
+				<Widget
+					schema={uiSpec}
+					properties={{
+						user: {
+							names: ['my firstname'],
+						},
+					}}
+					errors={errors}
+				/>,
+			).getElement(),
+		).not.toBe(null);
 	});
 });

@@ -1,9 +1,12 @@
 import SagaTester from 'redux-saga-tester';
+import { takeLatest } from 'redux-saga/effects';
+
 import changeDocumentTitle, {
 	formatPath,
 	buildMapFromRoutes,
 	getTitleFromRoutes,
 	assignDocTitle,
+	handleDocumentTitle,
 } from '../../src/sagas/documentTitle';
 
 describe('changeDocumentTitle', () => {
@@ -43,6 +46,14 @@ describe('changeDocumentTitle', () => {
 
 		// then
 		expect(global.document.title).toBe('child2');
+
+		// when
+		sagaTester.dispatch({
+			type: '@@router/LOCATION_CHANGE',
+			payload: { pathname: '/child1' },
+		});
+
+		expect(global.document.title).toBe('child1');
 	});
 });
 
@@ -125,5 +136,15 @@ describe('buildMapFromRoutes', () => {
 			['/child1/child2', 'child2'],
 		]);
 		expect(testMap).toEqual(myMap);
+	});
+});
+
+describe('#changeDocumentTitle', () => {
+	it('should listen REACT_CMF.REQUEST_SETTINGS_OK', () => {
+		const generator = changeDocumentTitle();
+
+		expect(generator.next().value).toEqual(
+			takeLatest('REACT_CMF.REQUEST_SETTINGS_OK', handleDocumentTitle),
+		);
 	});
 });

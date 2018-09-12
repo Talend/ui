@@ -4,29 +4,9 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
 import Action from '../Actions/Action';
+import getDefaultT from '../translate';
 import theme from './Badge.scss';
-
-function renderDeleteIcon(onClick, id, disabled, t) {
-	if (onClick) {
-		const actionProps = {
-			label: t('BADGE_DELETE', { defaultValue: 'delete' }),
-			hideLabel: true,
-			onClick,
-			disabled,
-			icon: 'talend-cross',
-			className: classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon']),
-		};
-
-		if (id) {
-			actionProps.id = `tc-badge-delete-${id}`;
-		}
-
-		return <Action {...actionProps} />;
-	}
-	return null;
-}
 
 function Badge({
 	id,
@@ -52,24 +32,43 @@ function Badge({
 	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
+	const children = [
+		category ? (
+			<span key="category" className={categoryClasses}>
+				{category}
+			</span>
+		) : null,
+		<span key="label" className={labelClasses}>
+			{label}
+		</span>,
+	];
 	const badgeProps = {
+		id: id && `tc-badge-select-${id}`,
 		className: badgeClasses,
-		onClick: onSelect,
-		disabled,
-		type: 'button',
+		children,
 	};
-
-	if (id) {
-		badgeProps.id = `tc-badge-select-${id}`;
-	}
 
 	return (
 		<div className={containerClasses} style={style}>
-			<button {...badgeProps}>
-				{category && <span className={categoryClasses}>{category}</span>}
-				<span className={labelClasses}>{label}</span>
-			</button>
-			{renderDeleteIcon(onDelete, id, disabled, t)}
+			{onSelect ? (
+				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
+			) : (
+				<div {...badgeProps} key="div" />
+			)}
+			{onDelete && (
+				<Action
+					key="delete"
+					id={id && `tc-badge-delete-${id}`}
+					label={t('BADGE_DELETE', { defaultValue: 'delete' })}
+					hideLabel
+					onClick={onDelete}
+					disabled={disabled}
+					icon={'talend-cross'}
+					className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
+					link
+					role="button"
+				/>
+			)}
 		</div>
 	);
 }
@@ -90,6 +89,7 @@ Badge.propTypes = {
 Badge.defaultProps = {
 	selected: false,
 	disabled: false,
+	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Badge);
+export default translate(I18N_DOMAIN_COMPONENTS)(Badge);
