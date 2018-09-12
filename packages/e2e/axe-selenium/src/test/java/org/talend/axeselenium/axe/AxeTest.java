@@ -12,6 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
@@ -37,7 +40,7 @@ public class AxeTest {
     }
 
     @Test
-    public void valid_WCAG2a_HTML_should_return_no_violation() {
+    public void valid_WCAG2a_HTML_should_return_no_violation() throws IOException {
         // given
         driver.get("http://localhost:5005?valid=true");
 
@@ -52,7 +55,7 @@ public class AxeTest {
     }
 
     @Test
-    public void valid_WCAG2aa_HTML_should_return_no_violation() {
+    public void valid_WCAG2aa_HTML_should_return_no_violation() throws IOException {
         // given
         driver.get("http://localhost:5005?valid=true");
 
@@ -67,12 +70,13 @@ public class AxeTest {
     }
 
     @Test
-    public void invalid_WCAG2a_HTML_should_return_violation() {
+    public void invalid_WCAG2a_HTML_should_return_violation() throws IOException {
         // given
         driver.get("http://localhost:5005?valid=false");
 
         // when
         final JSONObject scanResult = axe.runWCAG2a();
+        axe.reportViolations(reportFolder, testName.getMethodName(), scanResult);
 
         // then
         final JSONArray violations = scanResult.getJSONArray("violations");
@@ -82,7 +86,7 @@ public class AxeTest {
     }
 
     @Test
-    public void invalid_WCAG2aa_HTML_should_return_violation() {
+    public void invalid_WCAG2aa_HTML_should_return_violation() throws IOException {
         // given
         driver.get("http://localhost:5005?valid=false");
 
@@ -98,7 +102,7 @@ public class AxeTest {
     }
 
     @Test
-    public void invalid_WCAG2a_element_should_return_violation() {
+    public void invalid_WCAG2a_element_should_return_violation() throws IOException {
         // given
         driver.get("http://localhost:5005?valid=false");
         final WebElement invalidTextAlternative = driver.findElement(By.id("invalid-alternative-text"));
@@ -113,7 +117,7 @@ public class AxeTest {
     }
 
     @Test
-    public void invalid_WCAG2aa_element_should_return_violation() {
+    public void invalid_WCAG2aa_element_should_return_violation() throws IOException {
         // given
         driver.get("http://localhost:5005?valid=false");
         final WebElement invalidContrastElement = driver.findElement(By.id("invalid-contrast"));
@@ -125,19 +129,5 @@ public class AxeTest {
         final JSONArray violations = scanResult.getJSONArray("violations");
         assertThat(violations.length(), is(1));
         assertThat(violations.getJSONObject(0).getString("id"), is("color-contrast"));
-    }
-
-    @Test
-    public void invalid_WCAG2aa_should_return_non_text_content_violations() {
-        // given
-        driver.get("http://localhost:5005?valid=false");
-
-        // when
-        final JSONObject scanResult = axe.runNonTextContent();
-
-        // then
-        final JSONArray violations = scanResult.getJSONArray("violations");
-        assertThat(violations.length(), is(1));
-        assertThat(violations.getJSONObject(0).getString("id"), is("image-alt"));
     }
 }

@@ -9,6 +9,9 @@ import org.talend.axeselenium.Reporter;
 import org.talend.axeselenium.Script;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -29,7 +32,7 @@ public class Axe {
      * Run WCAG 2.0 Level A scan.
      * @return the scan result JSON object.
      */
-    public JSONObject runWCAG2a() {
+    public JSONObject runWCAG2a() throws IOException {
         return runWCAG2a(null);
     }
 
@@ -37,7 +40,7 @@ public class Axe {
      * Run WCAG 2.0 Level A scan on a specific element.
      * @return the scan result JSON object.
      */
-    public JSONObject runWCAG2a(final WebElement element) {
+    public JSONObject runWCAG2a(final WebElement element) throws IOException {
         final Options options = Options.builder().runOnly("tag", "wcag2a").build();
         runAxeScript();
         return run(element, options);
@@ -47,7 +50,7 @@ public class Axe {
      * Run WCAG 2.0 Level AA scan.
      * @return the scan result JSON object.
      */
-    public JSONObject runWCAG2aa() {
+    public JSONObject runWCAG2aa() throws IOException {
         return runWCAG2aa(null);
     }
 
@@ -55,38 +58,9 @@ public class Axe {
      * Run WCAG 2.0 Level AA scan on a specific element.
      * @return the scan result JSON object.
      */
-    public JSONObject runWCAG2aa(final WebElement element) {
+    public JSONObject runWCAG2aa(final WebElement element) throws IOException {
         final Options options = Options.builder().runOnly("tag", "wcag2a", "wcag2aa").build();
         runAxeScript();
-        return run(element, options);
-    }
-
-    /**
-     * Run text-alternative category scan.
-     * @return the scan result JSON object.
-     */
-    public JSONObject runNonTextContent() {
-        return runNonTextContent(null);
-    }
-
-    /**
-     * Run text-alternative category scan on a specific element.
-     * @return the scan result JSON object.
-     */
-    public JSONObject runNonTextContent(final WebElement element) {
-        runAxeScript();
-
-        final Set<String> rules = new HashSet<>();
-        rules.add("label");
-        rules.add("button-name");
-        rules.add("link-name");
-        rules.add("hidden-content");
-        rules.addAll(getRules("cat.name-role-value"));
-        rules.addAll(getRules("cat.text-alternatives"));
-
-        final Options options = Options.builder()
-                .runOnly("rule", rules.toArray(new String[rules.size()]))
-                .build();
         return run(element, options);
     }
 
@@ -118,19 +92,20 @@ public class Axe {
      * @param result The scan result.
      * @return the formatted violation report string, null if no violation.
      */
-    public String reportViolations(final String reportFolder, final String name, final JSONObject result) {
+    public String reportViolations(final String reportFolder, final String name, final JSONObject result) throws FileNotFoundException {
         new File(reportFolder).mkdirs();
         final JSONArray violations = result.getJSONArray("violations");
         if (violations.length() > 0) {
             final String formattedViolations = reporter.report(violations);
-            reporter.writeResults(reportFolder + '/' + name, result);
-            reporter.writeResults(reportFolder + '/' + name, formattedViolations);
+            final String filePath = Paths.get(reportFolder, name).toString();
+            reporter.writeResults(filePath, result);
+            reporter.writeResults(filePath, formattedViolations);
             return formattedViolations;
         }
         return null;
     }
 
-    private void runAxeScript() {
+    private void runAxeScript() throws IOException {
         this.driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
         this.script.runAxeScript();
     }
@@ -142,5 +117,9 @@ public class Axe {
                 .stream()
                 .map(rule -> new JSONObject(rule).getString("ruleId"))
                 .collect(toList());
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Paths.get("C:", "lol", "mdr").toString());
     }
 }

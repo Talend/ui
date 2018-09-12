@@ -106,18 +106,6 @@ Same as previous but on a specific element.
 |---|---|---|
 | element | org.openqa.selenium.WebElement | The element (and its children) to scan. |
 
-#### Axe.runNonTextContent()
-
-Run a scan on whole document using a selection of rules about non-text content.
-
-#### Axe.runNonTextContent(final WebElement element)
-
-Same as previous but on a specific element.
-
-| Argument | Class | Description |
-|---|---|---|
-| element | org.openqa.selenium.WebElement | The element (and its children) to scan. |
-
 #### Axe.reportViolations(final String reportFolder, final String name, final JSONObject result)
 
 Save scan result in ${reportFolder}/${name}.json, build/save/return a formatted violation report.

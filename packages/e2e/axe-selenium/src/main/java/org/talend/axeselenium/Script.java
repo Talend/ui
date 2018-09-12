@@ -22,13 +22,13 @@ public class Script {
     /**
      * Get script content
      */
-    private String getContent() {
+    private String getContent() throws IOException {
         final StringBuilder sb = new StringBuilder();
-        BufferedReader reader = null;
 
-        try {
-            URLConnection connection = scriptUrl.openConnection();
-            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+        final URLConnection connection= scriptUrl.openConnection();
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -37,11 +37,6 @@ public class Script {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            if (reader != null) {
-                try { reader.close(); }
-                catch (IOException ignored) {}
-            }
         }
 
         return sb.toString();
@@ -50,7 +45,7 @@ public class Script {
     /**
      * Execute the axe script in the driver js executor
      */
-    public void runAxeScript() {
+    public void runAxeScript() throws IOException {
         final String script = getContent();
 
         final JavascriptExecutor js = (JavascriptExecutor) driver;

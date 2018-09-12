@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.util.Formatter;
 
 public class Reporter {
     private static final String lineSeparator = System.getProperty("line.separator");
@@ -15,36 +16,26 @@ public class Reporter {
      */
     public String report(final JSONArray violations) {
         final StringBuilder sb = new StringBuilder();
-        sb
-                .append("Found ")
-                .append(violations.length())
-                .append(" accessibility violations:");
+        final Formatter fmt = new Formatter(sb);
+
+        fmt.format("Found %d accessibility violations:", violations.length());
 
         for (int i = 0; i < violations.length(); i++) {
             final JSONObject violation = violations.getJSONObject(i);
-            sb
-                    .append(lineSeparator)
-                    .append(i + 1)
-                    .append(") ")
-                    .append(violation.getString("help"));
+            fmt.format(lineSeparator);
+            fmt.format("%d) %s", i + 1, violation.getString("help"));
 
             if (violation.has("helpUrl")) {
-                sb
-                        .append(": ")
-                        .append(violation.getString("helpUrl"));
+                fmt.format(": %s", i + 1, violation.getString("helpUrl"));
             }
 
             final JSONArray nodes = violation.getJSONArray("nodes");
 
             for (int j = 0; j < nodes.length(); j++) {
                 final JSONObject node = nodes.getJSONObject(j);
-                sb
-                        .append(lineSeparator)
-                        .append("  ")
-                        .append(getOrdinal(j + 1))
-                        .append(") ")
-                        .append(node.getJSONArray("target"))
-                        .append(lineSeparator);
+                fmt.format(lineSeparator);
+                fmt.format("  %s) %s", getOrdinal(j + 1), node.getJSONArray("target"));
+                fmt.format(lineSeparator);
 
                 final JSONArray all = node.getJSONArray("all");
                 final JSONArray none = node.getJSONArray("none");
@@ -53,31 +44,27 @@ public class Reporter {
                     all.put(none.getJSONObject(k));
                 }
 
-                appendFixes(sb, all, "Fix all of the following:");
-                appendFixes(sb, node.getJSONArray("any"), "Fix any of the following:");
+                appendFixes(fmt, all, "Fix all of the following:");
+                appendFixes(fmt, node.getJSONArray("any"), "Fix any of the following:");
             }
         }
 
         return sb.toString();
     }
 
-    private void appendFixes(final StringBuilder sb, final JSONArray arr, final String heading) {
+    private void appendFixes(final Formatter fmt, final JSONArray arr, final String heading) {
         if (arr != null && arr.length() > 0) {
-            sb
-                    .append("    ")
-                    .append(heading)
-                    .append(lineSeparator);
+            fmt.format("    %s", heading);
+            fmt.format(lineSeparator);
 
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject fix = arr.getJSONObject(i);
 
-                sb
-                        .append("      ")
-                        .append(fix.get("message"))
-                        .append(lineSeparator);
+                fmt.format("      %s", fix.get("message"));
+                fmt.format(lineSeparator);
             }
 
-            sb.append(lineSeparator);
+            fmt.format(lineSeparator);
         }
     }
 
@@ -107,10 +94,10 @@ public class Reporter {
      * @param output Object to write. Most useful if you pass in either the Builder.analyze() response or the
      *               violations array it contains.
      */
-    public void writeResults(final String name, final Object output) {
+    public void writeResults(final String name, final Object output) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter(name + ".json")) {
             out.println(output.toString());
-        } catch (final IOException ignored) {}
+        }
     }
 
     /**
@@ -119,9 +106,9 @@ public class Reporter {
      * @param name   Desired filename, sans extension
      * @param output Report to write
      */
-    public void writeResults(final String name, final String output) {
+    public void writeResults(final String name, final String output) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter(name + ".txt")) {
             out.println(output);
-        } catch (final IOException ignored) {}
+        }
     }
 }
