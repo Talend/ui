@@ -59,7 +59,9 @@ export class DeleteResource extends React.Component {
 	 * @param event
 	 */
 	onHide(event) {
-		this.props.dispatchActionCreator('DeleteResource#cancel', event, { model: this.getResourceInfo() });
+		this.props.dispatchActionCreator('DeleteResource#cancel', event, {
+			model: this.getResourceInfo(),
+		});
 	}
 
 	/**
