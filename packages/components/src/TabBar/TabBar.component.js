@@ -102,7 +102,7 @@ TabBar.propTypes = {
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
-	selectedKey: PropTypes.string.isRequired,
+	selectedKey: PropTypes.string,
 };
 
 TabBar.Tab = Tab;
