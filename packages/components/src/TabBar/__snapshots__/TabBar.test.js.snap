@@ -12,6 +12,7 @@ exports[`TabBar component should render 1`] = `
     <Nav
       bsClass="nav"
       bsStyle="tabs"
+      className="tc-tab-bar"
       justified={false}
       pullLeft={false}
       pullRight={false}
