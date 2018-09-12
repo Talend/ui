@@ -283,7 +283,7 @@ Those validations change the `errors` object accordingly.
 ### Conditional rendering
 
 It is possible to render parts of the forms defined in uiSchema, depending on properties values.
-The uiSchema accepts a `condition` property, which use [jsonLogic](http://jsonlogic.com). So please firt go their and read the doc.
+The uiSchema accepts a `condition` property, which use [jsonLogic](http://jsonlogic.com). So please first go their and read the doc.
 
 
 Let's take this example:

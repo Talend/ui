@@ -10,7 +10,7 @@ function toNumber(a) {
 	} else if (typeof a === 'string') {
 		return parseInt(a, 10);
 	}
-	throw new Error(`${a.toString()} is not a number`);
+	throw new TypeError(`${a.toString()} is not a number`);
 }
 
 jsonLogic.add_operation('lowercase', lowercase);
