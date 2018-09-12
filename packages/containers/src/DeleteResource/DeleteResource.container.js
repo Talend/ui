@@ -106,6 +106,9 @@ export class DeleteResource extends React.Component {
 				cancelAction={cancelAction}
 				validateAction={validateAction}
 				getComponent={this.props.getComponent}
+				onHide={() =>
+					this.props.dispatchActionCreator('DeleteResource#cancel', event, { model: resourceInfo })
+				}
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {
