@@ -97,7 +97,7 @@ TabBar.propTypes = {
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			id: PropTypes.string,
-			key: PropTypes.string.isRequired,
+			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
 		}).isRequired,
 	).isRequired,
