@@ -17,10 +17,10 @@ const LocalLibsWebpackPlugin = require('@talend/local-libs-webpack-plugin');
 
 module.exports = {
 	plugins: [
-		new LocalLibsWebpackPlugin: [
+		new LocalLibsWebpackPlugin([
 			'../relative/path/to/package.json',
-			'/can/also/use/lerna.json',
-		],
+			'./can/also/use/lerna.json',
+		]),
 	],
 };
 ```
@@ -33,14 +33,14 @@ Example command (webpack): `$ yarn start --env.mylib --env.myotherlib`
 // webpack.config.js
 const LocalLibsWebpackPlugin = require('@talend/local-libs-webpack-plugin');
 
-module.exports = {
+module.exports = (env = {}) => ({
 	plugins: [
-		new LocalLibsWebpackPlugin: {
+		new LocalLibsWebpackPlugin({
 			'../mylib/package.json': env.mylib,
 			'../myotherlib/lerna.json': env.myotherlib,
-		},
+		}),
 	],
-};
+});
 ```
 
 ## LICENSE
