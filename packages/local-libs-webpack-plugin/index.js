@@ -86,7 +86,7 @@ class LocalLibsWebpackPlugin {
 		console.log('LocalLibsWebpackPlugin: Link the following libs:');
 
 		Object.keys(compiler.options.resolve.alias).forEach((item) => {
-			console.log(`Link lib: "${item}", to: "${compiler.options.resolve.alias[item]}"`);
+			console.log(`Link "${item}" to: "${compiler.options.resolve.alias[item]}"`);
 		})
 	}
 }
