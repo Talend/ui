@@ -44,7 +44,7 @@ const TRUTHY_CONDITIONS = [
 	},
 	// check if string is filled
 	{
-		'>': [{ var: 'string.length' }, 2],  // foo is 3
+		'>': [{ var: 'string.length' }, 2], // foo is 3
 	},
 	{
 		'==': [{ var: 'undefined' }, undefined],
@@ -56,10 +56,7 @@ const TRUTHY_CONDITIONS = [
 	{
 		and: [
 			{
-				or: [
-					{ '>': [{ var: 'string.length' }, 2] },
-					{ '>': [{ var: 'arrayObj.length' }, 0] },
-				],
+				or: [{ '>': [{ var: 'string.length' }, 2] }, { '>': [{ var: 'arrayObj.length' }, 0] }],
 			},
 			{
 				'==': [{ var: 'undefined' }, undefined],
@@ -94,7 +91,7 @@ const FALSY_CONDITIONS = [
 		'>': [{ var: 'string.length' }, { toNumber: '3' }],
 	},
 	{
-		'==': [{ var: 'objectEmpty.title' }, 'foo'],  // doesnt exist
+		'==': [{ var: 'objectEmpty.title' }, 'foo'], // doesnt exist
 	},
 	// complex with children
 	{
@@ -103,7 +100,7 @@ const FALSY_CONDITIONS = [
 				'>': [{ var: 'string.length' }, 2],
 			},
 			{
-				'==': [{ var: 'arrayObj.length' }, 0],  // we make this one wrong to be false
+				'==': [{ var: 'arrayObj.length' }, 0], // we make this one wrong to be false
 			},
 			{
 				'==': [{ var: 'undefined' }, undefined],
