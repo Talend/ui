@@ -1,6 +1,6 @@
 {
   "name": "@talend/local-libs-webpack-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easier development on local libraries",
   "main": "index.js",
   "mainSrc": "index.js",
@@ -22,6 +22,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "eslint": "3.4.0",
