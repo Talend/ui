@@ -23,6 +23,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   }
   getComponent={undefined}
   header="My header title"
+  onHide={[Function]}
   show={true}
   validateAction={
     Object {
@@ -78,6 +79,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   }
   getComponent={undefined}
   header="My header title"
+  onHide={[Function]}
   show={true}
   validateAction={
     Object {
