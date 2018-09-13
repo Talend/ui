@@ -4,5 +4,9 @@ $tc-list-header-icon-margin-top: 3px !default;
 	display: flex;
 	flex-grow: 1;
 	justify-content: center;
-	margin-top: $tc-list-header-icon-margin-top;
+	padding-top: $tc-list-header-icon-margin-top;
+
+	span {
+		height: 1.6rem;
+	}
 }
