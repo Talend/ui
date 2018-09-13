@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import keyCode from 'keycode';
 
 import Code from './Code.component';
 
@@ -92,5 +93,43 @@ describe('Code field', () => {
 
 		// then
 		expect(textAreaSetAttribute).toBeCalledWith('id', props.id);
+	});
+
+	it('should focus on the wrapping div on double esc keydown', () => {
+		// given
+		const containerId = 'myCodeWidget-editor-container';
+		const wrapper = mount(<Code {...props} />);
+		const editor = wrapper.find('#myCodeWidget_wrapper');
+		expect(document.activeElement.getAttribute('id')).not.toBe(containerId);
+
+		// when
+		editor.simulate('keydown', { keyCode: keyCode.codes.esc });
+		expect(document.activeElement.getAttribute('id')).not.toBe(containerId);
+		editor.simulate('keydown', { keyCode: keyCode.codes.esc });
+
+		// then
+		expect(document.activeElement.getAttribute('id')).toBe(containerId);
+	});
+
+	it('should manage tabindex on textarea', () => {
+		// given
+		const wrapper = mount(<Code {...props} />);
+		const container = wrapper.find('#myCodeWidget-editor-container');
+		const editor = wrapper.find('#myCodeWidget_wrapper');
+		const textarea = document.activeElement;
+		expect(textarea.getAttribute('tabindex')).not.toBe('-1');
+
+		// when
+		editor.simulate('keydown', { keyCode: keyCode.codes.esc });
+		editor.simulate('keydown', { keyCode: keyCode.codes.esc });
+
+		// then
+		expect(textarea.getAttribute('tabindex')).toBe('-1');
+
+		// when
+		container.simulate('blur');
+
+		// then
+		expect(textarea.getAttribute('tabindex')).not.toBe('-1');
 	});
 });
