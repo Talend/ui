@@ -51,6 +51,17 @@ export class DeleteResource extends React.Component {
 		super(props, context);
 		this.getLabelInfo = this.getLabelInfo.bind(this);
 		this.getResourceInfo = this.getResourceInfo.bind(this);
+		this.onHide = this.onHide.bind(this);
+	}
+
+	/**
+	 * onHide handler, called when click outside delete modal
+	 * @param event
+	 */
+	onHide(event) {
+		this.props.dispatchActionCreator('DeleteResource#cancel', event, {
+			model: this.getResourceInfo(),
+		});
 	}
 
 	/**
@@ -106,6 +117,7 @@ export class DeleteResource extends React.Component {
 				cancelAction={cancelAction}
 				validateAction={validateAction}
 				getComponent={this.props.getComponent}
+				onHide={this.onHide}
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {
