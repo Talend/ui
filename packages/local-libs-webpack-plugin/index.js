@@ -1,7 +1,7 @@
 const path = require('path');
 
 function getJson(filePath) {
-	return require(path.resolve(filePath));
+	return require(path.resolve(filePath)); // eslint-disable-line global-require
 }
 
 function isLerna(filePath) {
@@ -52,6 +52,7 @@ class LocalLibsWebpackPlugin {
 	}
 
 	apply(compiler) {
+		/* eslint-disable no-param-reassign */
 		const linkedLibs = getLinkedLibs(this.options);
 		if (!linkedLibs.length) {
 			return;
@@ -75,7 +76,7 @@ class LocalLibsWebpackPlugin {
 		linkedLibs.forEach(lib => {
 			Object.keys(lib.peerDependencies).forEach(peerDependency => {
 				compiler.options.resolve.alias[peerDependency] = path.resolve('./node_modules', peerDependency);
-			})
+			});
 		});
 
 		// Add the linked libs last - to override if any of them are peerDependencies
@@ -83,11 +84,12 @@ class LocalLibsWebpackPlugin {
 			compiler.options.resolve.alias[lib.name] = path.resolve(lib.path);
 		});
 
-		console.log('LocalLibsWebpackPlugin: Link the following libs:');
+		console.log('LocalLibsWebpackPlugin: Link the following libs:'); // eslint-disable-line no-console
 
-		Object.keys(compiler.options.resolve.alias).forEach((item) => {
-			console.log(`Link "${item}" to: "${compiler.options.resolve.alias[item]}"`);
-		})
+		Object.keys(compiler.options.resolve.alias).forEach(item => {
+			console.log(`Link "${item}" to: "${compiler.options.resolve.alias[item]}"`); // eslint-disable-line no-console
+		});
+		/* eslint-enable no-param-reassign */
 	}
 }
 
