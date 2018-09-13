@@ -17,7 +17,7 @@
  * flatten an object means each keys are a jsonpath.
  * jsperf: https://jsperf.com/talend-flatten
  * @param {object} obj the source object
- * @param {boolean} includeObjects should include the complex structures (object/array) in the payload
+ * @param {boolean} includeObjects should include object/array in the payload
  * @return {object} flatten object
  * @example
  * flatten({ level1: { level2: 'foo' }})
