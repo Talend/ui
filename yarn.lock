@@ -380,15 +380,15 @@ address@1.0.3, address@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
 
-ag-grid-react@^17.0.0:
-  version "17.1.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-17.1.0.tgz#8c9cee63e32183787bafb2a2b85e1e966ad0be39"
+ag-grid-community@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-19.0.0.tgz#b0909835c63bdeef54047bf27ab16a10fdf61ed0"
+
+ag-grid-react@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-19.0.0.tgz#e8c7c3066111fb54944e3c829cc169a556d46144"
   dependencies:
     prop-types "15.6.0"
-
-ag-grid@^17.0.0:
-  version "17.1.1"
-  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-17.1.1.tgz#6c7010a65d6e8b6373e2fe97643c9eecf5417026"
 
 agent-base@^4.1.0:
   version "4.2.0"
@@ -10278,10 +10278,6 @@ react-docgen@^3.0.0-beta11:
     doctrine "^2.0.0"
     node-dir "^0.1.10"
     recast "^0.12.6"
-
-react-dom-factories@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.2.tgz#eb7705c4db36fb501b3aa38ff759616aa0ff96e0"
 
 react-dom@^15.6.2:
   version "15.6.2"
