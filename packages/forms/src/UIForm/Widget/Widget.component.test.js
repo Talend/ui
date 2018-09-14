@@ -179,9 +179,9 @@ describe('Widget component', () => {
 		const withConditions = {
 			...schema,
 			condition: {
-				children: [
-					{ path: 'user.firstname', values: ['toto', 'my firstname'] },
-					{ path: 'user.lastname', values: ['my lastname'] },
+				and: [
+					{ in: [{ var: 'user.firstname' }, ['toto', 'my firstname']] },
+					{ '==': [{ var: 'user.lastname' }, 'my lastname'] },
 				],
 			},
 		};
@@ -198,11 +198,10 @@ describe('Widget component', () => {
 		const withConditions = {
 			...schema,
 			condition: {
-				children: [
-					{ path: 'user.firstname', values: ['toto', 'my firstname'] },
-					{ path: 'user.lastname', values: ['my lastname is not here'] },
+				and: [
+					{ in: [{ var: 'user.firstname' }, ['toto', 'my firstname']] },
+					{ '==': [{ var: 'user.lastname' }, 'my lastname is not here'] },
 				],
-				childrenOperator: 'AND',
 			},
 		};
 		const wrapper = shallow(
@@ -211,79 +210,5 @@ describe('Widget component', () => {
 
 		// then
 		expect(wrapper.getElement()).toBe(null);
-	});
-
-	it('should render widget when conditions are using shouldBe=true', () => {
-		const uiSpec = {
-			...schema,
-			condition: { path: 'user.firstname', values: ['my firstname'], shouldBe: false },
-		};
-
-		// negative case
-		expect(
-			shallow(
-				<Widget
-					schema={uiSpec}
-					properties={{
-						user: {
-							firstname: 'my firstname',
-						},
-					}}
-					errors={errors}
-				/>,
-			).getElement(),
-		).toBe(null);
-		// positive case
-		expect(
-			shallow(
-				<Widget
-					schema={uiSpec}
-					properties={{
-						user: {
-							firstname: 'not my firstname',
-						},
-					}}
-					errors={errors}
-				/>,
-			).getElement(),
-		).not.toBe(null);
-	});
-
-	it('should render widget when conditions are using an evaluation strategy', () => {
-		const uiSpec = {
-			...schema,
-			condition: { path: 'user.names', values: [1], strategy: 'length' },
-		};
-
-		// negative cases
-		[undefined, [], ['foo', 'bar']].forEach(names => {
-			expect(
-				shallow(
-					<Widget
-						schema={uiSpec}
-						properties={{
-							user: {
-								names,
-							},
-						}}
-						errors={errors}
-					/>,
-				).getElement(),
-			).toBe(null);
-		});
-		// positive case
-		expect(
-			shallow(
-				<Widget
-					schema={uiSpec}
-					properties={{
-						user: {
-							names: ['my firstname'],
-						},
-					}}
-					errors={errors}
-				/>,
-			).getElement(),
-		).not.toBe(null);
 	});
 });
