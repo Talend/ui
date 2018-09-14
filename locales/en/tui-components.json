@@ -4,6 +4,7 @@
   "ABOUT_HEADER": "About my product",
   "ABOUT_VERSION_NAME": "Version: {{version}}",
   "ACTION_BAR_COUNT_SELECTED": "{{selected}} selected",
+  "ACTION_DROPDOWN_EMPTY": "No options",
   "ACTION_IN_PROGRESS": "{{label}} (in progress)",
   "ACTION_MENU_OPEN": "Open \"{{label}}\" menu",
   "APP_LOADER_LOADING": "Loading application",

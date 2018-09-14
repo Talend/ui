@@ -4,6 +4,7 @@
   "ABOUT_HEADER": "About my super product",
   "ABOUT_VERSION_NAME": "Version: {{version}}",
   "ACTION_BAR_COUNT_SELECTED": "{{selected}}が選択されました",
+  "ACTION_DROPDOWN_EMPTY": "No options",
   "ACTION_IN_PROGRESS": "{{label}} (進行中)",
   "ACTION_MENU_OPEN": "\"{{label}}\"メニューを開く",
   "APP_LOADER_LOADING": "アプリケーションのロード中",
