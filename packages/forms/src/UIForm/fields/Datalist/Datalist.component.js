@@ -33,6 +33,7 @@ class Datalist extends Component {
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
+		this.manageTitleMap = this.manageTitleMap.bind(this);
 		this.addCustomValue = this.addCustomValue.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
