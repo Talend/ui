@@ -3,9 +3,12 @@ import React from 'react';
 import keycode from 'keycode';
 import { mount } from 'enzyme';
 import cases from 'jest-in-case';
-import withTreeGesture from './WithTreeGesture.component';
+import withTreeGesture from './withTreeGesture';
 import Tree from '../../__mocks__/tree';
 
+// Legend : the comments indicates 2 numbers, level and index
+// Those are used in the following tests
+// "// level index"
 const treeProps = {
 	items: [
 		{ id: 0 }, // 0 0

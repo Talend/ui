@@ -9,7 +9,7 @@ import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import withTreeGesture from '../../Tree/WithTreeGesture.component';
+import withTreeGesture from '../../Tree/withTreeGesture';
 import getDefaultT from '../../translate';
 
 function noop() {}

@@ -5,7 +5,7 @@ import { Action } from '../';
 import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
-import withTreeGesture from '../Tree/WithTreeGesture.component';
+import withTreeGesture from '../Tree/withTreeGesture';
 
 /**
  * A view component to display any tree structure, like folders or categories.

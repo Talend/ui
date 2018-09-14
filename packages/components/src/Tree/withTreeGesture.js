@@ -4,7 +4,6 @@ import keycode from 'keycode';
 import omit from 'lodash/omit';
 
 function focusOn(event, element) {
-	event.stopPropagation();
 	if (element) {
 		element.focus();
 	}
@@ -79,24 +78,6 @@ export default function withTreeGesture(WrappedComponent) {
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
-			this.onSelect = this.onSelect.bind(this);
-			this.onToggle = this.onToggle.bind(this);
-			this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
-		}
-
-		onSelect(event, item) {
-			event.stopPropagation();
-			return this.props.onSelect(event, item);
-		}
-
-		onToggle(event, item) {
-			event.stopPropagation();
-			return this.props.onToggle(event, item);
-		}
-
-		onToggleAllSiblings(event, items) {
-			event.stopPropagation();
-			return this.props.onToggleAllSiblings(event, items);
 		}
 
 		onKeyDown(event, ref, item) {
@@ -104,39 +85,49 @@ export default function withTreeGesture(WrappedComponent) {
 			switch (event.keyCode) {
 				case keycode.codes.enter:
 				case keycode.codes.space:
-					this.onSelect(event, item);
+					event.stopPropagation();
+					this.props.onSelect(event, item);
 					break;
 				case keycode.codes.left:
 					if (hasChildren && isOpened) {
-						this.onToggle(event, item);
+						event.stopPropagation();
+						this.props.onToggle(event, item);
 					} else if (!hasChildren || !isOpened) {
+						event.stopPropagation();
 						focusOn(event, getParentItem(ref));
 					}
 					break;
 				case keycode.codes.right:
 					if (hasChildren && !isOpened) {
-						this.onToggle(event, item);
+						event.stopPropagation();
+						this.props.onToggle(event, item);
 					} else if (hasChildren && isOpened) {
+						event.stopPropagation();
 						focusOn(event, getFirstChildItem(ref));
 					}
 					break;
 				case keycode.codes.down:
+					event.stopPropagation();
 					focusOn(event, getNextItem(ref));
 					break;
 				case keycode.codes.up:
+					event.stopPropagation();
 					focusOn(event, getPreviousItem(ref));
 					break;
 				case keycode.codes.home:
+					event.stopPropagation();
 					focusOn(event, getFirstItem(ref));
 					break;
 				case keycode.codes.end:
+					event.stopPropagation();
 					focusOn(event, getLastItem(ref));
 					break;
 				default:
 					break;
 			}
 			if (event.nativeEvent.key === '*') {
-				this.onToggleAllSiblings(event, siblings);
+				event.stopPropagation();
+				this.props.onToggleAllSiblings(event, siblings);
 			}
 		}
 
@@ -154,6 +145,8 @@ export default function withTreeGesture(WrappedComponent) {
 
 	TreeGesture.propTypes = {
 		...omit(WrappedComponent.propTypes, 'onKeyDown'),
+		onSelect: PropTypes.func.isRequired,
+		onToggle: PropTypes.func.isRequired,
 		onToggleAllSiblings: PropTypes.func.isRequired,
 	};
 	TreeGesture.displayName = `TreeGesture(${WrappedComponent.displayName})`;
