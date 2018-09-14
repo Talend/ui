@@ -151,11 +151,14 @@ class Datalist extends Component {
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap(
-						this.state.titleMap || get(this.props, 'schema.options.titleMap') || this.props.schema.titleMap || [],
+						this.state.titleMap ||
+							get(this.props, 'schema.options.titleMap') ||
+							this.props.schema.titleMap ||
+							[],
 						get(this.props, 'schema.options.isMultiSection', false),
 						this.props.schema.restricted,
 						this.props.schema.schema.type,
-						this.props.value
+						this.props.value,
 					)}
 					inputProps={{
 						'aria-invalid': !this.props.isValid,
