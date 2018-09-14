@@ -32,7 +32,7 @@ const schemaMultiSection = {
 	restricted: true,
 	title: 'My List',
 	options: {
-		multiSection: true,
+		isMultiSection: true,
 		titleMap: [
 			{
 				title: 'test1',

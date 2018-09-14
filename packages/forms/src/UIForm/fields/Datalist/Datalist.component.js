@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
+import get from 'lodash/get';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
 import { translate } from 'react-i18next';
@@ -76,30 +77,21 @@ class Datalist extends Component {
 		});
 	}
 
-	getTitleMap() {
-		const isMultiSection = this.props.schema.options && this.props.schema.options.multiSection;
-		const titleMap =
-			this.state.titleMap ||
-			((this.props.schema.options && this.props.schema.options.titleMap) ||
-				this.props.schema.titleMap) ||
-			[];
+	getTitleMap(titleMap, isMultiSection, restricted, type, propsValue) {
 		let titleMapFind = titleMap;
 
-		if (!this.props.schema.restricted) {
-			const isMultiple = this.props.schema.schema.type === 'array';
-			const values = isMultiple ? this.props.value : [this.props.value];
+		if (!restricted) {
+			const isMultiple = type === 'array';
+			const values = isMultiple ? propsValue : [propsValue];
 
-			if (isMultiSection) {
-				titleMapFind =
-					titleMap &&
-					titleMap.reduce((prev, current) => {
-						prev.push(...current.suggestions);
-						return prev;
-					}, []);
+			if (isMultiSection && titleMap) {
+				titleMapFind = titleMap.reduce((prev, current) => {
+					prev.push(...current.suggestions);
+					return prev;
+				}, []);
 			}
 
 			const additionalOptions = values
-				.filter(value => value)
 				.filter(value => !titleMapFind.find(option => option.value === value))
 				.map(value => this.addCustomValue(value, isMultiSection))
 				.reduce((acc, titleMapEntry) => {
@@ -111,8 +103,8 @@ class Datalist extends Component {
 		return titleMap;
 	}
 
-	addCustomValue(value, multiSection) {
-		if (multiSection) {
+	addCustomValue(value, isMultiSection) {
+		if (isMultiSection) {
 			return {
 				title: this.props.t('DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
 				suggestions: [{ name: this.props.resolveName(value), value }],
@@ -153,14 +145,18 @@ class Datalist extends Component {
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || false}
-					multiSection={
-						(this.props.schema.options && this.props.schema.options.multiSection) || false
-					}
+					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
-					titleMap={this.getTitleMap()}
+					titleMap={this.getTitleMap(
+						this.state.titleMap || get(this.props, 'schema.options.titleMap') || this.props.schema.titleMap || [],
+						get(this.props, 'schema.options.isMultiSection', false),
+						this.props.schema.restricted,
+						this.props.schema.schema.type,
+						this.props.value
+					)}
 					inputProps={{
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,
@@ -214,7 +210,7 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			options: PropTypes.shape({
-				multiSection: PropTypes.bool,
+				isMultiSection: PropTypes.bool,
 				titleMap: PropTypes.arrayOf(
 					PropTypes.shape({
 						title: PropTypes.string.isRequired,

@@ -24,7 +24,7 @@ exports[`Datalist component should render 1`] = `
         "aria-required": true,
       }
     }
-    multiSection={false}
+    isMultiSection={false}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Type here"
@@ -76,7 +76,7 @@ exports[`Datalist component should render with multisection 1`] = `
         "aria-required": true,
       }
     }
-    multiSection={true}
+    isMultiSection={true}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Type here"

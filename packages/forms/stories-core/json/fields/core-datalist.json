@@ -26,7 +26,35 @@
       "restrictedAsyncTitleMap": {
         "type": "string"
       },
-      "datalistWithCategory": {
+      "datalistWithCategoryRestricted": {
+        "type": "string",
+        "enum": [
+          "salesforce",
+          "marketo",
+          "box",
+          "googledrive",
+          "dropbox",
+          "awss3",
+          "ftp",
+          "sftp",
+          "smtp",
+          "mongodb",
+          "soapclient",
+          "restclient",
+          "hdfs",
+          "hive",
+          "impala",
+          "aurora",
+          "hbase",
+          "netsuite",
+          "cassandra",
+          "redshift",
+          "awsmysql",
+          "saprfc",
+          "sap"
+        ]
+      },
+      "datalistWithCategoryNotRestricted": {
         "type": "string",
         "enum": [
           "salesforce",
@@ -141,11 +169,145 @@
       ]
     },
     {
-      "key": "datalistWithCategory",
-      "title": "Datalist With category",
+      "key": "datalistWithCategoryRestricted",
+      "title": "Datalist With category and restricted value",
       "widget": "datalist",
       "options": {
-        "multiSection": true,
+        "isMultiSection": true,
+        "titleMap": [
+          {
+            "title": "SaaS",
+            "suggestions": [
+              {
+                "value": "salesforce",
+                "name": "Salesforce"
+              },
+              {
+                "value": "marketo",
+                "name": "Marketo"
+              },
+              {
+                "value": "netsuite",
+                "name": "Netsuite"
+              }
+            ]
+          },
+          {
+            "title": "Collaboration",
+            "suggestions": [
+              {
+                "value": "box",
+                "name": "Box"
+              },
+              {
+                "value": "googledrive",
+                "name": "GoogleDrive"
+              },
+              {
+                "value": "dropbox",
+                "name": "Dropbox"
+              },
+              {
+                "value": "awss3",
+                "name": "AWS S3"
+              }
+            ]
+          },
+          {
+            "title": "Protocol",
+            "suggestions": [
+              {
+                "value": "ftp",
+                "name": "FTP"
+              },
+              {
+                "value": "sftp",
+                "name": "SFTP"
+              },
+              {
+                "value": "smtp",
+                "name": "Email"
+              },
+              {
+                "value": "soapclient",
+                "name": "SOAP Client"
+              },
+              {
+                "value": "restclient",
+                "name": "REST Client"
+              }
+            ]
+          },
+          {
+            "title": "Big Data",
+            "suggestions": [
+              {
+                "value": "mongodb",
+                "name": "MongoDB"
+              },
+              {
+                "value": "hdfs",
+                "name": "HDFS"
+              },
+              {
+                "value": "hive",
+                "name": "Hive"
+              },
+              {
+                "value": "impala",
+                "name": "Impala"
+              },
+              {
+                "value": "hbase",
+                "name": "HBase"
+              }
+            ]
+          },
+          {
+            "title": "Database",
+            "suggestions": [
+              {
+                "value": "aurora",
+                "name": "Aurora"
+              },
+              {
+                "value": "cassandra",
+                "name": "Cassandra"
+              },
+              {
+                "value": "redshift",
+                "name": "Redshift"
+              },
+              {
+                "value": "awsmysql",
+                "name": "AWS MySQL"
+              }
+            ]
+          },
+          {
+            "title": "Business",
+            "suggestions": [
+              {
+                "value": "saprfc",
+                "name": "SAP IDOC RFC Server"
+              },
+              {
+                "value": "sap",
+                "name": "SAP Standard"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "datalistWithCategoryNotRestricted",
+      "title": "Datalist With category and without restricted value",
+      "widget": "datalist",
+      "restricted": false,
+      "options": {
+        "isMultiSection": true,
+
         "titleMap": [
           {
             "title": "SaaS",
