@@ -130,7 +130,11 @@ describe('TreeGesture HOC', () => {
 			onToggleAllSiblings: jest.fn(),
 		};
 		const wrapper = mount(<ComponentWithGesture {...props} />);
-		const event = { keyCode: keycode.codes['numpad *'], stopPropagation: jest.fn() };
+		const event = {
+			keyCode: keycode.codes['numpad *'],
+			nativeEvent: { key: '*' },
+			stopPropagation: jest.fn(),
+		};
 		expect(props.onToggleAllSiblings).not.toBeCalled();
 
 		// when

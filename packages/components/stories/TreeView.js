@@ -154,6 +154,7 @@ const defaultProps = {
 	structure,
 	onSelect: action('onSelect'),
 	onToggle: action('onToggle'),
+	onToggleAllSiblings: action('onToggleAllSiblings'),
 	selectedId: 'selected',
 };
 

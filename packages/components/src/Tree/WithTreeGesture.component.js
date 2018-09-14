@@ -132,11 +132,11 @@ export default function withTreeGesture(WrappedComponent) {
 				case keycode.codes.end:
 					focusOn(event, getLastItem(ref));
 					break;
-				case keycode.codes['numpad *']:
-					this.onToggleAllSiblings(event, siblings);
-					break;
 				default:
 					break;
+			}
+			if (event.nativeEvent.key === '*') {
+				this.onToggleAllSiblings(event, siblings);
 			}
 		}
 
