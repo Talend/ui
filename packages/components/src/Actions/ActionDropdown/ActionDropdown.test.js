@@ -139,9 +139,6 @@ describe('InjectDropdownMenuItem', () => {
 });
 
 describe('Dropup', () => {
-	const isDropup = true;
-	const isDropdown = false;
-
 	function testSwitch({ containerPosition, menuPosition, isInitialDropup, isDropupExpected }) {
 		// given
 		const container = document.createElement('div');
