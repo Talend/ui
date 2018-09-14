@@ -140,7 +140,7 @@ export class TCompForm extends React.Component {
 			// need to rethink that, there are lots of potential issues :
 			// - race conditions,
 			// - trigger result that is does not fit user entry anymore,
-			// - ...
+			// - erase a good value put by the enduser
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
@@ -206,7 +206,7 @@ export class TCompForm extends React.Component {
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
 
-		return <Form {...props} uiform />;
+		return <Form {...props} />;
 	}
 }
 

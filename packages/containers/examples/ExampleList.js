@@ -4,7 +4,7 @@ import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 import { List } from '../src';
 import i18n from './config/i18n';

@@ -15,10 +15,15 @@ exports[`AboutDialog should render 1`] = `
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
+  enforceFocus={true}
   header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -58,10 +63,15 @@ exports[`AboutDialog should render in loading mode 1`] = `
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
+  enforceFocus={true}
   header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -101,10 +111,15 @@ exports[`AboutDialog should render services 1`] = `
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
+  enforceFocus={true}
   header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -172,10 +187,15 @@ exports[`AboutDialog should render with custom copyright 1`] = `
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
+  enforceFocus={true}
   header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
