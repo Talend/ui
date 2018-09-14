@@ -265,7 +265,7 @@ const collection = [
 		description: 'Simple row with title in edit mode',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-json-o',
-		display: 'input',
+		//display: 'input',
 		className: 'item-4-class',
 	},
 	{

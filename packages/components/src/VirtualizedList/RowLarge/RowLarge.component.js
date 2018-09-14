@@ -39,26 +39,6 @@ class RowLarge extends React.Component {
 		const titleCell = titleField && renderCell(index, parent, titleField, LARGE);
 		const selectionCell = selectionField && renderCell(index, parent, selectionField);
 		const rowData = getRowData(parent, index);
-		const otherCellsListItems = (
-			<dl>
-				{otherFields.map((field, fieldIndex) => {
-					if (fieldIndex > 0) {
-						return null;
-					}
-					const cellContent = renderCell(index, parent, field);
-					const tooltip = typeof cellContent === 'string' ? cellContent : null;
-					const label = getLabel(field);
-					return [
-						<dt key={fieldIndex}>
-							{label && <span className={theme['field-label']}>{label}: </span>}
-						</dt>,
-						<dd className={theme['field-value']} title={tooltip}>
-							{cellContent}
-						</dd>,
-					];
-				})}
-			</dl>
-		);
 
 		let onRowClick;
 		let onRowDoubleClick;
@@ -70,27 +50,41 @@ class RowLarge extends React.Component {
 		}
 
 		return (
-			<div role="row" aria-rowindex={index + 1}>
-				<div
-					role="gridcell"
-					aria-colindex={1}
-					aria-label={titleField && getCellData(titleField, parent, index)}
-				>
-					<div
-						className={classNames('tc-list-item', rowThemes, rowData.className)}
-						key={key}
-						role="button"
-						onClick={onRowClick}
-						onDoubleClick={onRowDoubleClick}
-						style={style}
-						tabIndex="0"
-					>
+			<div
+				className={classNames('tc-list-item', rowThemes, rowData.className, className)}
+				id={id}
+				key={key}
+				onClick={onRowClick}
+				onDoubleClick={onRowDoubleClick}
+				style={style}
+				tabIndex="0"
+				role="listitem"
+				aria-posinset={index + 1}
+				aria-setsize={parent.props.rowCount}
+				aria-label={titleField && getCellData(titleField, parent, index)}
+			>
+				<div className={theme['inner-box']}>
+					<div className={theme.header}>
+						{titleCell}
 						{selectionCell}
-						<dl className={`tc-list-large-row ${theme['inner-box']} ${className}`} id={id}>
-							<dt>{titleCell}</dt>
-							<dd>{otherCellsListItems}</dd>
-						</dl>
 					</div>
+					<dl className={`tc-list-large-content ${theme.content}`}>
+						{otherFields.map((field, fieldIndex) => {
+							const cellContent = renderCell(index, parent, field);
+							const tooltip = typeof cellContent === 'string' ? cellContent : null;
+							const label = getLabel(field);
+							return (
+								<div className={theme['field-group']}>
+									<dt key={fieldIndex} className={theme['field-label']}>
+										{label && `${label}:`}
+									</dt>
+									<dd className={theme['field-value']} title={tooltip}>
+										{cellContent}
+									</dd>
+								</div>
+							);
+						})}
+					</dl>
 				</div>
 			</div>
 		);
