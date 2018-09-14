@@ -77,14 +77,27 @@ class Datalist extends Component {
 		});
 	}
 
-	getTitleMap(titleMap, isMultiSection, restricted, type, propsValue) {
-		let titleMapFind = titleMap;
+	getTitleMap() {
+		return this.manageTitleMap(
+			this.state.titleMap ||
+				get(this.props, 'schema.options.titleMap') ||
+				this.props.schema.titleMap ||
+				[],
+			get(this.props, 'schema.options.isMultiSection', false),
+			this.props.schema.restricted,
+			this.props.schema.schema.type,
+			this.props.value,
+		);
+	}
+
+	manageTitleMap(titleMap, isMultiSection, restricted, type, propsValue) {
+		let titleMapFind = titleMap || [];
 
 		if (!restricted) {
 			const isMultiple = type === 'array';
 			const values = isMultiple ? propsValue : [propsValue];
 
-			if (isMultiSection && titleMap) {
+			if (isMultiSection) {
 				titleMapFind = titleMap.reduce((prev, current) => {
 					prev.push(...current.suggestions);
 					return prev;
@@ -150,16 +163,7 @@ class Datalist extends Component {
 					onFocus={this.callTrigger}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
-					titleMap={this.getTitleMap(
-						this.state.titleMap ||
-							get(this.props, 'schema.options.titleMap') ||
-							this.props.schema.titleMap ||
-							[],
-						get(this.props, 'schema.options.isMultiSection', false),
-						this.props.schema.restricted,
-						this.props.schema.schema.type,
-						this.props.value,
-					)}
+					titleMap={this.getTitleMap()}
 					inputProps={{
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,

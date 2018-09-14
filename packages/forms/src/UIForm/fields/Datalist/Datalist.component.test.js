@@ -297,16 +297,35 @@ describe('Datalist component', () => {
 			]);
 		});
 
-		it('should add unknown value to the titleMap if not restricted2', () => {
-			// when
+		it('should add unknown value with custom category to the titleMap if not restricted', () => {
+			// given
+			const multiSectionSchema = {
+				...schema,
+				options: {
+					isMultiSection: true,
+					titleMap: [
+						{
+							title: 'lol',
+							suggestions: [
+								{ name: 'Foo', value: 'foo' },
+								{ name: 'Bar', value: 'bar' },
+								{ name: 'Lol', value: 'lol' },
+							],
+						},
+					],
+				},
+				titleMap: undefined,
+			};
 			const props = {
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
-				schema: { ...schemaMultiSection, restricted: false },
+				schema: { ...multiSectionSchema, restricted: false },
 				value: 'hello',
 				resolveName: value => `${value}_name`,
 			};
+
+			// when
 			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
 
 			// then
@@ -316,10 +335,15 @@ describe('Datalist component', () => {
 					.find('Datalist')
 					.prop('titleMap'),
 			).toEqual([
-				{ name: 'Foo', value: 'foo' },
-				{ name: 'Bar', value: 'bar' },
-				{ name: 'Lol', value: 'lol' },
-				{ name: 'hello_name', value: 'hello' },
+				{
+					suggestions: [
+						{ name: 'Foo', value: 'foo' },
+						{ name: 'Bar', value: 'bar' },
+						{ name: 'Lol', value: 'lol' },
+					],
+					title: 'lol',
+				},
+				{ suggestions: [{ name: 'hello_name', value: 'hello' }], title: 'CUSTOM' },
 			]);
 		});
 
