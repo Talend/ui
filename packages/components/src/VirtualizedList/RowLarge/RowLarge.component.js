@@ -21,14 +21,14 @@ const { LARGE } = listTypes;
  * Row renderer that displays a Large item
  */
 class RowLarge extends React.Component {
-	shouldComponentUpdate(nextProps) {
-		return (
-			this.props.className !== nextProps.className ||
-			this.props.index !== nextProps.index ||
-			this.props.parent !== nextProps.parent ||
-			this.props.style !== nextProps.style
-		);
-	}
+	// shouldComponentUpdate(nextProps) {
+	// 	return (
+	// 		this.props.className !== nextProps.className ||
+	// 		this.props.index !== nextProps.index ||
+	// 		this.props.parent !== nextProps.parent ||
+	// 		this.props.style !== nextProps.style
+	// 	);
+	// }
 
 	render() {
 		const { className, index, onKeyDown, parent, style } = this.props;
@@ -72,18 +72,18 @@ class RowLarge extends React.Component {
 				aria-setsize={parent.props.rowCount}
 				aria-label={titleField && getCellData(titleField, parent, index)}
 			>
-				<div className={theme['inner-box']}>
-					<div className={theme.header}>
+				<div className={theme['inner-box']} key="inner-box">
+					<div className={theme.header} key="header">
 						{titleCell}
 						{selectionCell}
 					</div>
-					<dl className={`tc-list-large-content ${theme.content}`}>
+					<dl className={`tc-list-large-content ${theme.content}`} key="content">
 						{otherFields.map((field, fieldIndex) => {
 							const cellContent = renderCell(index, parent, field);
 							const tooltip = typeof cellContent === 'string' ? cellContent : null;
 							const label = getLabel(field);
 							return (
-								<div className={theme['field-group']} role="group">
+								<div className={theme['field-group']} role="group" key={label || index}>
 									<dt key={fieldIndex} className={theme['field-label']}>
 										{label && `${label}:`}
 									</dt>
