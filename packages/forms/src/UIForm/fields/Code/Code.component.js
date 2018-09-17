@@ -30,11 +30,7 @@ try {
 		}
 
 		componentDidUpdate() {
-			if (this.editor) {
-				const textarea = this.editor.textInput.getElement();
-				textarea.setAttribute('id', this.props.id);
-				textarea.setAttribute('aria-describedby', `${this.ids.descriptionId} ${this.ids.errorId}`);
-			}
+			this.attachTextareaAttributes();
 		}
 
 		onChange(value, event) {
@@ -66,7 +62,15 @@ try {
 
 		onLoad(editor) {
 			this.editor = editor;
-			this.componentDidUpdate();
+			this.attachTextareaAttributes();
+		}
+
+		attachTextareaAttributes() {
+			if (this.editor) {
+				const textarea = this.editor.textInput.getElement();
+				textarea.setAttribute('id', this.props.id);
+				textarea.setAttribute('aria-describedby', `${this.ids.descriptionId} ${this.ids.errorId}`);
+			}
 		}
 
 		render() {
