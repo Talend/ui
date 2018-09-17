@@ -81,9 +81,7 @@ class Datalist extends Component {
 	getTitleMap() {
 		return this.manageTitleMap(
 			this.state.titleMap ||
-				get(this.props, 'schema.options.titleMap') ||
-				this.props.schema.titleMap ||
-				[],
+				get(this.props, 'schema.options.titleMap', this.props.schema.titleMap || []),
 			get(this.props, 'schema.options.isMultiSection', false),
 			this.props.schema.restricted,
 			this.props.schema.schema.type,
