@@ -33,7 +33,6 @@ class Datalist extends Component {
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
-		this.addCustomValue = this.addCustomValue.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 	}
@@ -80,13 +79,15 @@ class Datalist extends Component {
 	getTitleMap() {
 		const titleMap =
 			this.state.titleMap ||
-			get(this.props, 'schema.options.titleMap', this.props.schema.titleMap || []);
+			get(this.props, 'schema.options.titleMap') ||
+			get(this.props, 'schema.titleMap') ||
+			[];
 		const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
 		const restricted = this.props.schema.restricted;
 		const type = this.props.schema.schema.type;
 		const propsValue = this.props.value;
 
-		let titleMapFind = titleMap || [];
+		let titleMapFind = titleMap;
 
 		if (!restricted) {
 			const isMultiple = type === 'array';
@@ -114,7 +115,7 @@ class Datalist extends Component {
 	addCustomValue(value, isMultiSection) {
 		if (isMultiSection) {
 			return {
-				title: this.props.t('DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
+				title: this.props.t('TF_DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
 				suggestions: [{ name: this.props.resolveName(value), value }],
 			};
 		}
