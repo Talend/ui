@@ -21,15 +21,6 @@ const { LARGE } = listTypes;
  * Row renderer that displays a Large item
  */
 class RowLarge extends React.Component {
-	// shouldComponentUpdate(nextProps) {
-	// 	return (
-	// 		this.props.className !== nextProps.className ||
-	// 		this.props.index !== nextProps.index ||
-	// 		this.props.parent !== nextProps.parent ||
-	// 		this.props.style !== nextProps.style
-	// 	);
-	// }
-
 	render() {
 		const { className, index, onKeyDown, parent, style } = this.props;
 		const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
@@ -50,6 +41,7 @@ class RowLarge extends React.Component {
 		}
 
 		return (
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
 				className={classNames(
 					'tc-list-item',

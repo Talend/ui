@@ -1,4 +1,3 @@
-import React from 'react';
 import RowLarge from './RowLarge.component';
 import { listTypes } from '../utils/constants';
 
