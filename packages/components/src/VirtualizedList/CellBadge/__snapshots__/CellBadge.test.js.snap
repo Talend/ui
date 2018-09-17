@@ -3,11 +3,7 @@
 exports[`CellActions should render 1`] = `
 <Translate(Badge)
   id="25"
-  label={
-    Object {
-      "label": "streaming",
-    }
-  }
+  label="streaming"
   selected={true}
 />
 `;

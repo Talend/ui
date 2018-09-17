@@ -72,7 +72,7 @@ function onKeyDown(event, ref) {
 
 export default function withListGesture(WrappedComponent) {
 	function ListGesture(props) {
-		return <WrappedComponent {...props} onKeyDown={onKeyDown} />;
+		return <WrappedComponent {...props} lol={'lol'} onKeyDown={onKeyDown} />;
 	}
 
 	ListGesture.propTypes = {

@@ -25,14 +25,13 @@ class RowLarge extends React.Component {
 		return (
 			this.props.className !== nextProps.className ||
 			this.props.index !== nextProps.index ||
-			this.props.key !== nextProps.key ||
 			this.props.parent !== nextProps.parent ||
 			this.props.style !== nextProps.style
 		);
 	}
 
 	render() {
-		const { className, index, key, onKeyDown, parent, style } = this.props;
+		const { className, index, onKeyDown, parent, style } = this.props;
 		const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 		const parentId = getId(parent);
@@ -60,7 +59,6 @@ class RowLarge extends React.Component {
 					className,
 				)}
 				id={id}
-				key={key}
 				onClick={onRowClick}
 				onDoubleClick={onRowDoubleClick}
 				onKeyDown={e => onKeyDown(e, this.ref)}
@@ -108,10 +106,8 @@ RowLarge.propTypes = {
 	className: PropTypes.string,
 	/** Row index */
 	index: PropTypes.number,
-	/** Row technical key to identify this row for React consolidation */
-	key: PropTypes.string,
-	/**  */
-	onKeyDown: PropTypes.string,
+	/** Keydown to handle focus gesture */
+	onKeyDown: PropTypes.func.isRequired,
 	/** Parent (ListGrid) component instance */
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
