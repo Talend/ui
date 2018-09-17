@@ -12,7 +12,7 @@ const { LARGE } = listTypes;
 /**
  * Row renderer that displays a Large item
  */
-function RowLarge({ className, index, key, parent, style }) {
+function RowLarge({ className, index, parent, style }) {
 	const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 	const parentId = getId(parent);
@@ -46,7 +46,6 @@ function RowLarge({ className, index, key, parent, style }) {
 	return (
 		<div
 			className={classNames('tc-list-item', rowThemes, rowData.className)}
-			key={key}
 			role="button"
 			onClick={onRowClick}
 			onDoubleClick={onRowDoubleClick}
@@ -69,8 +68,6 @@ RowLarge.propTypes = {
 	className: PropTypes.string,
 	/** Row index */
 	index: PropTypes.number,
-	/** Row technical key to identify this row for React consolidation */
-	key: PropTypes.string,
 	/** Parent (ListGrid) component instance */
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */

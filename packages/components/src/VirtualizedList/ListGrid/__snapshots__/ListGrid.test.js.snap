@@ -12,11 +12,9 @@ exports[`ListGrid should render noRows 1`] = `
   width={1024}
 >
   <List
-    aria-label="list"
     autoHeight={false}
     className="theme-tc-list-list"
     collection={Array []}
-    containerRole="list"
     estimatedRowSize={30}
     height={600}
     id="my-list"
@@ -25,7 +23,6 @@ exports[`ListGrid should render noRows 1`] = `
     onScroll={[Function]}
     overscanIndicesGetter={[Function]}
     overscanRowCount={10}
-    role="group"
     rowCount={0}
     rowGetter={[Function]}
     rowHeight={130}
@@ -36,7 +33,7 @@ exports[`ListGrid should render noRows 1`] = `
     width={1024}
   >
     <Grid
-      aria-label="list"
+      aria-label="grid"
       aria-readonly={true}
       autoContainerWidth={true}
       autoHeight={false}
@@ -47,7 +44,7 @@ exports[`ListGrid should render noRows 1`] = `
       collection={Array []}
       columnCount={1}
       columnWidth={1024}
-      containerRole="list"
+      containerRole="rowgroup"
       containerStyle={Object {}}
       estimatedColumnSize={100}
       estimatedRowSize={30}
@@ -63,7 +60,7 @@ exports[`ListGrid should render noRows 1`] = `
       overscanColumnCount={0}
       overscanIndicesGetter={[Function]}
       overscanRowCount={10}
-      role="group"
+      role="grid"
       rowCount={0}
       rowGetter={[Function]}
       rowHeight={130}
@@ -78,12 +75,12 @@ exports[`ListGrid should render noRows 1`] = `
       width={1024}
     >
       <div
-        aria-label="list"
+        aria-label="grid"
         aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-list"
         id="my-list"
         onScroll={[Function]}
-        role="group"
+        role="grid"
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
@@ -110,7 +107,6 @@ exports[`ListGrid should render noRows 1`] = `
 
 exports[`ListGrid should render react-virtualized list 1`] = `
 <List
-  aria-label="list"
   autoHeight={false}
   className="theme-tc-list-list"
   collection={
@@ -127,7 +123,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
       },
     ]
   }
-  containerRole="list"
   estimatedRowSize={30}
   height={600}
   id="my-list"
@@ -138,7 +133,6 @@ exports[`ListGrid should render react-virtualized list 1`] = `
   onScroll={[Function]}
   overscanIndicesGetter={[Function]}
   overscanRowCount={10}
-  role="group"
   rowCount={2}
   rowGetter={[Function]}
   rowHeight={130}
