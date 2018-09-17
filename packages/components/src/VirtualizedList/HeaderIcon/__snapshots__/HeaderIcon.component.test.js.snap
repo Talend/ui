@@ -4,10 +4,14 @@ exports[`HeaderIcon should render the header when there is no sort 1`] = `
 <div
   className="theme-tc-header-icon tc-header-icon"
 >
-  <Icon
-    name="talend-test"
+  <span
+    aria-label="test"
     title="test"
-  />
+  >
+    <Icon
+      name="talend-test"
+    />
+  </span>
 </div>
 `;
 
@@ -15,12 +19,16 @@ exports[`HeaderIcon should render unchecked checkbox 1`] = `
 <div
   className="theme-tc-header-icon tc-header-icon"
 >
-  <Icon
-    name="talend-test"
+  <span
+    aria-label="test"
     title="test"
-  />
-  <SortIndicator
-    sortDirection="desc"
-  />
+  >
+    <Icon
+      name="talend-test"
+    />
+    <SortIndicator
+      sortDirection="desc"
+    />
+  </span>
 </div>
 `;
