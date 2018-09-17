@@ -165,9 +165,6 @@ export function CellTitleActionsComponent({
 		<div
 			id={id}
 			className={classNames('main-title-actions-group', theme['main-title-actions-group'])}
-			onKeyDown={e => {
-				e.stopPropagation();
-			}}
 		>
 			{actions}
 		</div>

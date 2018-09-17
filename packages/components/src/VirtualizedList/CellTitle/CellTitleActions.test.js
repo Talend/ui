@@ -295,23 +295,4 @@ describe('CellTitleActions', () => {
 		// then
 		expect(wrapper.find('.main-title-actions-group').getElement()).toMatchSnapshot();
 	});
-
-	it('should stop keydown propagation', () => {
-		// given
-		const wrapper = shallow(
-			<CellTitleActionsComponent
-				{...props}
-				displayMode={cellTitleDisplayModes.TITLE_MODE_TEXT}
-				rowData={{ persistentActions }}
-			/>,
-		);
-
-		const event = { stopPropagation: jest.fn() };
-
-		// when
-		wrapper.simulate('keydown', event);
-
-		// then
-		expect(event.stopPropagation).toBeCalled();
-	});
 });

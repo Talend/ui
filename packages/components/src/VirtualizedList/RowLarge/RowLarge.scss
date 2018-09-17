@@ -5,14 +5,6 @@ $tc-list-large-field-value-color: $dove-gray !default;
 .tc-list-large {
 	padding: $padding-small;
 
-	&:hover,
-	&:focus,
-	&:global(.ally-focus-within) {
-		.inner-box {
-			background: $tc-list-large-hover-bg;
-		}
-	}
-
 	.inner-box {
 		border: 1px solid $alto;
 		border-radius: 3px;
@@ -20,6 +12,12 @@ $tc-list-large-field-value-color: $dove-gray !default;
 
 		display: flex;
 		flex-direction: column;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background: $tc-list-large-hover-bg;
+		}
 	}
 
 	.header {
@@ -34,26 +32,19 @@ $tc-list-large-field-value-color: $dove-gray !default;
 	}
 
 	.content {
+		column-count: 3;
+		flex: 1;
 		min-height: 0;
 		padding: 0 $padding-large;
-		margin: 0;
 
-		flex-shrink: 1;
-		flex-grow: 1;
-		flex-basis: 0;
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-	}
-
-	.field-group {
-		display: flex;
-		width: 33%;
+		> li {
+			list-style: none;
+			display: flex;
+		}
 	}
 
 	.field-label {
 		color: $tc-list-large-field-label-color;
-		font-weight: normal;
 		margin-bottom: $padding-small;
 		margin-right: $padding-small;
 		text-transform: uppercase;
