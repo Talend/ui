@@ -134,7 +134,6 @@ describe('TreeGesture HOC', () => {
 		};
 		const wrapper = mount(<ComponentWithGesture {...props} />);
 		const event = {
-			keyCode: keycode.codes['numpad *'],
 			nativeEvent: { key: '*' },
 			stopPropagation: jest.fn(),
 		};
