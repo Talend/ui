@@ -33,7 +33,6 @@ class Datalist extends Component {
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
-		this.manageTitleMap = this.manageTitleMap.bind(this);
 		this.addCustomValue = this.addCustomValue.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
@@ -79,17 +78,14 @@ class Datalist extends Component {
 	}
 
 	getTitleMap() {
-		return this.manageTitleMap(
+		const titleMap =
 			this.state.titleMap ||
-				get(this.props, 'schema.options.titleMap', this.props.schema.titleMap || []),
-			get(this.props, 'schema.options.isMultiSection', false),
-			this.props.schema.restricted,
-			this.props.schema.schema.type,
-			this.props.value,
-		);
-	}
+			get(this.props, 'schema.options.titleMap', this.props.schema.titleMap || []);
+		const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
+		const restricted = this.props.schema.restricted;
+		const type = this.props.schema.schema.type;
+		const propsValue = this.props.value;
 
-	manageTitleMap(titleMap, isMultiSection, restricted, type, propsValue) {
 		let titleMapFind = titleMap || [];
 
 		if (!restricted) {
