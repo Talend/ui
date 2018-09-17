@@ -121,6 +121,28 @@ describe('CellTitle', () => {
 			// then
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
+
+		it('should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value', () => {
+			const columnData = {
+				id: 'my-title',
+				iconKey: 'icon',
+				iconLabelKey: 'iconTooltipLabel',
+			};
+			const withTooltipLableRowData = {
+				...rowData,
+				iconTooltipLabel: 'My tooltip label', // no icon name value
+			};
+			const wrapper = shallow(
+				<CellTitle
+					cellData={'my awesome title'}
+					columnData={columnData}
+					getComponent={jest.fn()}
+					rowData={withTooltipLableRowData}
+					rowIndex={1}
+				/>,
+			);
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
 	});
 
 	describe('actions', () => {

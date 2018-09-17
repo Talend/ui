@@ -5,4 +5,8 @@ $tc-list-header-icon-margin-top: 3px !default;
 	flex-grow: 1;
 	justify-content: center;
 	margin-top: $tc-list-header-icon-margin-top;
+
+	span {
+		line-height: 0;
+	}
 }
