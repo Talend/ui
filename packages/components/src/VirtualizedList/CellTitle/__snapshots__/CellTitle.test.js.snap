@@ -244,6 +244,57 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 </div>
 `;
 
+exports[`CellTitle icon should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <TooltipTrigger
+    label="My tooltip label"
+    tooltipPlacement="top"
+  >
+    <Icon
+      className="theme-icon"
+      name="talend-file-o"
+    />
+  </TooltipTrigger>
+  <CellTitleSelector
+    cellData="my awesome title"
+    className="theme-main-title"
+    columnData={Object {}}
+    displayMode="text"
+    id="my-title-1-title-cell"
+    onClick={undefined}
+    onEditCancel={undefined}
+    onEditSubmit={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "iconTooltipLabel": "My tooltip label",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <Translate(VirtualizedList(CellTitleActions))
+    actionsKey={undefined}
+    displayMode="text"
+    getComponent={[Function]}
+    id="my-title-1-title-actions"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "iconTooltipLabel": "My tooltip label",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+    type={undefined}
+  />
+</div>
+`;
+
 exports[`CellTitle should render title selector component 1`] = `
 <div
   className="theme-tc-list-title tc-list-title theme-tc-list-title-filter tc-list-title-filter"
