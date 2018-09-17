@@ -5,6 +5,14 @@ $tc-list-large-field-value-color: $dove-gray !default;
 .tc-list-large {
 	padding: $padding-small;
 
+	&:hover,
+	&:focus,
+	&:global(.ally-focus-within) {
+		.inner-box {
+			background: $tc-list-large-hover-bg;
+		}
+	}
+
 	.inner-box {
 		border: 1px solid $alto;
 		border-radius: 3px;
@@ -12,12 +20,6 @@ $tc-list-large-field-value-color: $dove-gray !default;
 
 		display: flex;
 		flex-direction: column;
-
-		&:hover,
-		&:focus,
-		&:global(.ally-focus-within) {
-			background: $tc-list-large-hover-bg;
-		}
 	}
 
 	.header {

@@ -11,6 +11,7 @@ import {
 } from '../utils/gridrow';
 
 import { listTypes } from '../utils/constants';
+import withListGesture from '../../Gesture/withListGesture';
 import rowThemes from './RowThemes';
 import theme from './RowLarge.scss';
 
@@ -31,7 +32,7 @@ class RowLarge extends React.Component {
 	}
 
 	render() {
-		const { className, index, key, parent, style } = this.props;
+		const { className, index, key, onKeyDown, parent, style } = this.props;
 		const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
 
 		const parentId = getId(parent);
@@ -51,14 +52,24 @@ class RowLarge extends React.Component {
 
 		return (
 			<div
-				className={classNames('tc-list-item', rowThemes, rowData.className, className)}
+				className={classNames(
+					'tc-list-item',
+					'tc-list-large-row',
+					rowThemes,
+					rowData.className,
+					className,
+				)}
 				id={id}
 				key={key}
 				onClick={onRowClick}
 				onDoubleClick={onRowDoubleClick}
+				onKeyDown={e => onKeyDown(e, this.ref)}
 				style={style}
-				tabIndex="0"
+				ref={ref => {
+					this.ref = ref;
+				}}
 				role="listitem"
+				tabIndex="0"
 				aria-posinset={index + 1}
 				aria-setsize={parent.props.rowCount}
 				aria-label={titleField && getCellData(titleField, parent, index)}
@@ -74,7 +85,7 @@ class RowLarge extends React.Component {
 							const tooltip = typeof cellContent === 'string' ? cellContent : null;
 							const label = getLabel(field);
 							return (
-								<div className={theme['field-group']}>
+								<div className={theme['field-group']} role="group">
 									<dt key={fieldIndex} className={theme['field-label']}>
 										{label && `${label}:`}
 									</dt>
@@ -99,10 +110,12 @@ RowLarge.propTypes = {
 	index: PropTypes.number,
 	/** Row technical key to identify this row for React consolidation */
 	key: PropTypes.string,
+	/**  */
+	onKeyDown: PropTypes.string,
 	/** Parent (ListGrid) component instance */
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-export default RowLarge;
+export default withListGesture(RowLarge);
