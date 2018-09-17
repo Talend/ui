@@ -22,7 +22,7 @@ describe('Code field', () => {
 
 	it('should render ace-editor in FieldTemplate', () => {
 		// when
-		const wrapper = shallow(<Code {...props} />);
+		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe('Code field', () => {
 		const disabledSchema = { ...schema, disabled: true };
 
 		// when
-		const wrapper = shallow(<Code {...props} schema={disabledSchema} />);
+		const wrapper = shallow(<Code.WrappedComponent {...props} schema={disabledSchema} />);
 
 		// then
 		expect(wrapper.find('ReactAce').prop('disabled')).toBe(true);
@@ -44,7 +44,7 @@ describe('Code field', () => {
 		const readOnlySchema = { ...schema, readOnly: true };
 
 		// when
-		const wrapper = shallow(<Code {...props} schema={readOnlySchema} />);
+		const wrapper = shallow(<Code.WrappedComponent {...props} schema={readOnlySchema} />);
 
 		// then
 		expect(wrapper.find('ReactAce').prop('readOnly')).toBe(true);
@@ -52,7 +52,7 @@ describe('Code field', () => {
 
 	it('should trigger onChange', () => {
 		// given
-		const wrapper = shallow(<Code {...props} />);
+		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 		expect(props.onChange).not.toBeCalled();
 		const event = { target: { value: 'totoa' } };
 
@@ -65,7 +65,7 @@ describe('Code field', () => {
 
 	it('should trigger onFinish on input blur', () => {
 		// given
-		const wrapper = shallow(<Code {...props} />);
+		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 		expect(props.onFinish).not.toBeCalled();
 		const event = { target: { value: 'totoa' } };
 
@@ -78,7 +78,7 @@ describe('Code field', () => {
 
 	it('should add the field id to the textarea on load', () => {
 		// given
-		const wrapper = shallow(<Code {...props} />);
+		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 		const textAreaSetAttribute = jest.fn();
 		const editor = {
 			textInput: {
@@ -98,7 +98,7 @@ describe('Code field', () => {
 	it('should focus on the wrapping div on double esc keydown', () => {
 		// given
 		const containerId = 'myCodeWidget-editor-container';
-		const wrapper = mount(<Code {...props} />);
+		const wrapper = mount(<Code.WrappedComponent {...props} />);
 		const editor = wrapper.find('#myCodeWidget_wrapper');
 		expect(document.activeElement.getAttribute('id')).not.toBe(containerId);
 
@@ -113,7 +113,7 @@ describe('Code field', () => {
 
 	it('should manage tabindex on textarea', () => {
 		// given
-		const wrapper = mount(<Code {...props} />);
+		const wrapper = mount(<Code.WrappedComponent {...props} />);
 		const container = wrapper.find('#myCodeWidget-editor-container');
 		const editor = wrapper.find('#myCodeWidget_wrapper');
 		const textarea = document.activeElement;

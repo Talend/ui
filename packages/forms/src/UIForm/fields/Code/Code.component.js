@@ -2,10 +2,13 @@
 /* eslint-disable import/no-mutable-exports,jsx-a11y/no-static-element-interactions */
 import PropTypes from 'prop-types';
 import React from 'react';
+import { translate } from 'react-i18next';
 import keyCode from 'keycode';
 import FieldTemplate from '../FieldTemplate';
 import TextArea from '../TextArea';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import getDefaultT from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
@@ -27,6 +30,9 @@ try {
 			this.onLoad = this.onLoad.bind(this);
 			this.onBlur = this.onBlur.bind(this);
 			this.onKeyDown = this.onKeyDown.bind(this);
+
+			// this hold the last time the ESC is pressed to offer an escape solution from keyboard trap
+			this.lastEsc = null;
 		}
 
 		componentDidUpdate() {
@@ -69,18 +75,23 @@ try {
 			if (this.editor) {
 				const textarea = this.editor.textInput.getElement();
 				textarea.setAttribute('id', this.props.id);
-				textarea.setAttribute('aria-describedby', `${this.ids.descriptionId} ${this.ids.errorId}`);
+				textarea.setAttribute(
+					'aria-describedby',
+					`${this.ids.instructionsId} ${this.ids.descriptionId} ${this.ids.errorId}`,
+				);
 			}
 		}
 
 		render() {
-			const { id, isValid, errorMessage, schema, value } = this.props;
+			const { id, isValid, errorMessage, schema, value, t } = this.props;
 			const { autoFocus, description, disabled = false, options, readOnly = false, title } = schema;
 			const descriptionId = generateDescriptionId(id);
 			const errorId = generateErrorId(id);
+			const instructionsId = generateId(id, 'instructions');
 			this.ids = {
 				descriptionId,
 				errorId,
+				instructionsId,
 			};
 			return (
 				<FieldTemplate
@@ -102,7 +113,13 @@ try {
 						}}
 						tabIndex="-1"
 					>
+						<div id={instructionsId} className="sr-only">
+							{t('TF_CODE_ESCAPE', {
+								defaultValue: 'To focus out of the editor, press ESC key twice.',
+							})}
+						</div>
 						<AceEditor
+							key="ace"
 							className="tf-widget-code form-control"
 							disabled={disabled}
 							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
@@ -142,6 +159,7 @@ try {
 				title: PropTypes.string,
 				type: PropTypes.string,
 			}),
+			t: PropTypes.func,
 			value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		};
 	}
@@ -149,6 +167,7 @@ try {
 	Code.defaultProps = {
 		isValid: true,
 		schema: {},
+		t: getDefaultT(),
 	};
 
 	CodeWidget = Code;
@@ -157,4 +176,4 @@ try {
 	console.warn('CodeWidget react-ace not found, fallback to Textarea');
 }
 
-export default CodeWidget;
+export default translate(I18N_DOMAIN_FORMS)(CodeWidget);

@@ -17,6 +17,12 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
     onKeyDown={[Function]}
     tabIndex="-1"
   >
+    <div
+      className="sr-only"
+      id="myCodeWidget-instructions"
+    >
+      To focus out of the editor, press ESC key twice.
+    </div>
     <ReactAce
       className="tf-widget-code form-control"
       cursorStart={1}
