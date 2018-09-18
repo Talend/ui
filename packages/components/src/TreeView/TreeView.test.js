@@ -37,12 +37,21 @@ const defaultProps = {
 };
 
 describe('TreeView', () => {
+	it('should be wrapped by tree gesture HOC', () => {
+		expect(TreeView.displayName).toBe('TreeGesture(TreeView)');
+	});
+
 	it('should render', () => {
 		// when
 		const wrapper = shallow(<TreeView {...defaultProps} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('TreeView')
+				.shallow()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('when a user click on the add Action it should call props.addAction', () => {
@@ -55,7 +64,10 @@ describe('TreeView', () => {
 		expect(props.addAction).not.toBeCalled();
 
 		// when
-		wrapper.find('Action').simulate('click');
+		wrapper
+			.dive()
+			.find('Action')
+			.simulate('click');
 
 		// then
 		expect(props.addAction).toBeCalled();
