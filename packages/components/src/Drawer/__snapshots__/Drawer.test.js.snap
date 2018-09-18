@@ -226,6 +226,7 @@ exports[`Drawer should render with tabs 1`] = `
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
       <div
+        className="tc-drawer-tabs theme-tc-drawer-tabs"
         id="my-tabs"
         onKeyDown={[Function]}
       >
