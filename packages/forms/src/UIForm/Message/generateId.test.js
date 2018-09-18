@@ -1,4 +1,4 @@
-import { generateDescriptionId, generateErrorId } from './generateId';
+import { generateId, generateDescriptionId, generateErrorId } from './generateId';
 
 describe('GenerateId', () => {
 	describe('#generateDescriptionId', () => {
@@ -46,6 +46,30 @@ describe('GenerateId', () => {
 
 			// then
 			expect(generatedId).toBe('my-base-id-error');
+		});
+	});
+
+	describe('#generateId', () => {
+		it('should return generated id if the base id is undefined', () => {
+			// given
+			const id = undefined;
+
+			// when
+			const generatedId = generateId(id, 'my-suffix');
+
+			// then
+			expect(generatedId).toBe(42);
+		});
+
+		it('should return the generated id', () => {
+			// given
+			const id = 'my-base-id';
+
+			// when
+			const generatedId = generateId(id, 'my-suffix');
+
+			// then
+			expect(generatedId).toBe('my-base-id-my-suffix');
 		});
 	});
 });
