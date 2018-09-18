@@ -1,48 +1,70 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Tabs as RBTabs, Tab as RBTab } from 'react-bootstrap';
+import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
 import Fieldset from '../Fieldset';
 import { isValid } from '../../utils/validation';
 import theme from './Tabs.scss';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
+import getDefaultT from '../../../translate';
 
-export default function Tabs(props) {
-	const { schema, ...restProps } = props;
-	const tabs = schema.items;
+class Tabs extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { selectedKey: 0 };
+		this.onSelect = this.onSelect.bind(this);
+	}
 
-	return (
-		<RBTabs
-			className={classNames(theme['tf-tabs'], 'tf-tabs')}
-			id={`${restProps.id}-tabs`}
-		>
-			{tabs.map((tabSchema, index) => {
-				const tabIsValid = isValid(tabSchema, restProps.errors);
-				return (
-					<RBTab
-						eventKey={index}
-						key={index}
-						title={tabSchema.title}
-						tabClassName={classNames({ [theme['has-error']]: !tabIsValid })}
-					>
-						<Fieldset {...restProps} schema={tabSchema} />
-					</RBTab>
-				);
-			})}
-		</RBTabs>
-	);
+	onSelect(event, item) {
+		this.setState({ selectedKey: item.key });
+	}
+
+	render() {
+		const { schema, t, ...restProps } = this.props;
+		const tabs = schema.items.map((item, index) => {
+			const tabIsValid = isValid(item, restProps.errors);
+			return {
+				key: index,
+				label: item.title,
+				className: classNames({ [theme['has-error']]: !tabIsValid }),
+				'aria-label': tabIsValid
+					? undefined
+					: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
+				children: <Fieldset {...restProps} schema={item} />,
+			};
+		});
+		const { selectedKey } = this.state;
+
+		return (
+			<TabBar
+				className={classNames(theme['tf-tabs'], 'tf-tabs')}
+				id={`${restProps.id}-tabs`}
+				items={tabs}
+				onSelect={this.onSelect}
+				selectedKey={selectedKey}
+			/>
+		);
+	}
 }
+Tabs.defaultProps = {
+	t: getDefaultT(),
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	Tabs.propTypes = {
-		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		errors: PropTypes.object,
 		schema: PropTypes.shape({
 			items: PropTypes.arrayOf(
 				PropTypes.shape({
 					title: PropTypes.string.isRequired,
 					items: PropTypes.array.isRequired,
-				})
+				}),
 			).isRequired,
 		}).isRequired,
+		t: PropTypes.func,
 	};
 }
+
+export default translate(I18N_DOMAIN_FORMS)(Tabs);

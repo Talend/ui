@@ -52,11 +52,12 @@ class TabBar extends React.Component {
 	}
 
 	render() {
-		const { id, items, selectedKey, children, generateChildId } = this.props;
+		const { className, id, items, selectedKey, children, generateChildId } = this.props;
 		return (
 			<Tab.Container
 				id={id}
 				activeKey={selectedKey}
+				className={className}
 				onSelect={this.handleSelect}
 				onKeyDown={this.handleKeyDown}
 				generateChildId={generateChildId}
@@ -78,6 +79,7 @@ class TabBar extends React.Component {
 					<Tab.Content>
 						{items.map(item => (
 							<Tab.Pane eventKey={item.key} key={item.key}>
+								{item.children}
 								{selectedKey === item.key ? children : null}
 							</Tab.Pane>
 						))}
@@ -92,6 +94,7 @@ TabBar.displayName = 'TabBar';
 
 TabBar.propTypes = {
 	children: PropTypes.node,
+	className: PropTypes.string,
 	generateChildId: PropTypes.func,
 	id: PropTypes.string.isRequired,
 	items: PropTypes.arrayOf(
@@ -102,7 +105,7 @@ TabBar.propTypes = {
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
-	selectedKey: PropTypes.string,
+	selectedKey: PropTypes.any,
 };
 
 TabBar.Tab = Tab;
