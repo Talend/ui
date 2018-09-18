@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import bsonObjectid from 'bson-objectid';
+import omit from 'lodash/omit';
 import expression from '../src/expression';
 import mock from '../src/mock';
 import { mapStateToViewProps } from '../src/settings';
@@ -284,7 +285,10 @@ describe('cmfConnect', () => {
 			expect(action.cmf.componentState.componentState.get('foo')).toBe('baz');
 		});
 		it('should support no context in dispatchActionCreator', () => {
-			const TestComponent = props => <div className="test-component" {...props} />;
+			const TestComponent = props => {
+				const rest = Object.assign({}, omit(props, cmfConnect.INJECTED_PROPS));
+				return <div className="test-component" {...rest} />;
+			};
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
