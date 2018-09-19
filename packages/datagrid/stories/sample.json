@@ -51,7 +51,7 @@
             "name": "field3",
             "doc": "Segmentation",
             "type": {
-                "type": "string",
+                "type": "boolean",
                 "dqType": "",
                 "dqTypeKey": "",
                 "@talend-quality@": {
@@ -171,7 +171,7 @@
                 "quality": 1
             },
             "field3": {
-                "value": "",
+                "value": true,
                 "quality": 1
             },
             "field1": {
@@ -207,7 +207,7 @@
                 "quality": 0
             },
             "field3": {
-                "value": "c",
+                "value": false,
                 "quality": -1
             },
             "field0": {
@@ -267,7 +267,7 @@
                 "quality": 0
             },
             "field3": {
-                "value": "b",
+                "value": 0,
                 "quality": 1
             },
             "field8": {
@@ -303,7 +303,7 @@
                 "quality": 0
             },
             "field3": {
-                "value": "b",
+                "value": 1,
                 "quality": 1
             },
             "field9": {
@@ -351,8 +351,8 @@
                 "quality": 1
             },
             "field3": {
-                "value": "b",
-                "quality": 1
+                "value": " sqdqsd qssq ",
+                "quality": -1
             },
             "field9": {
                 "value": "",
@@ -407,8 +407,8 @@
                 "quality": 0
             },
             "field3": {
-                "value": "c",
-                "quality": 1
+                "value": 3223232,
+                "quality": -1
             }
         },
         "quality": 1
@@ -451,8 +451,8 @@
                 "quality": 0
             },
             "field3": {
-                "value": "c",
-                "quality": 1
+                "value": "csqd qsd qsd qsd sdsq dqs dqsdqs dqs long text",
+                "quality": -1
             }
         },
         "quality": 1

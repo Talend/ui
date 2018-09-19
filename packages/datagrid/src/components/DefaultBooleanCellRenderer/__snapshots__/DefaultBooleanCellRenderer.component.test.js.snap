@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatagridBooleanCellRenderer should render a boolean value 1`] = `
+<DefaultValueRenderer
+  className="td-cell-boolean"
+  value="false"
+/>
+`;
