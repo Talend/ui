@@ -336,23 +336,29 @@ storiesOf('Virtualized List', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id={'my-list'}>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
 					<VirtualizedList.Content
 						label="Tag"
 						dataKey="tag"
 						columnData={{ selected: true }}
+						width={-1}
 						{...CellBadge}
 					/>
-					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -373,21 +379,23 @@ storiesOf('Virtualized List', module)
 					sortBy={'name'}
 					sortDirection={'ASC'}
 				>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
 					<VirtualizedList.Content
 						label="Description (non sortable)"
 						dataKey="description"
 						disableSort
+						width={-1}
 					/>
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -409,17 +417,22 @@ storiesOf('Virtualized List', module)
 					selectionToggle={action('selectionToggle')}
 					onRowDoubleClick={action('doubleClick')}
 				>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -440,17 +453,22 @@ storiesOf('Virtualized List', module)
 					onRowClick={action('onRowClick')}
 					isActive={item => item.id === 6}
 				>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -472,17 +490,18 @@ storiesOf('Virtualized List', module)
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="Description" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content label="Description" dataKey="description" width={-1} />
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -506,17 +525,18 @@ storiesOf('Virtualized List', module)
 					selectionToggle={action('selectionToggle')}
 					type={listTypes.LARGE}
 				>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="Description" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content label="Description" dataKey="description" width={-1} />
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -539,17 +559,18 @@ storiesOf('Virtualized List', module)
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="Description" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content label="Description" dataKey="description" width={-1} />
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -576,17 +597,22 @@ storiesOf('Virtualized List', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id={'my-list'} disableHeader>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
+						width={-1}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -597,8 +623,8 @@ storiesOf('Virtualized List', module)
 			<p>
 				Tooltip label on list item icon can be enabled by passing
 				<b>iconKey, iconLabelKey</b> in titleProps,<br />
-				also the icon name and tooltip label should be provided in list item rowData
-				(in <b>collection</b> items)
+				also the icon name and tooltip label should be provided in list item rowData (in{' '}
+				<b>collection</b> items)
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
@@ -630,11 +656,15 @@ storiesOf('Virtualized List', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={[]} id={'my-list'} noRowsRenderer={NoRowsRenderer}>
-					<VirtualizedList.Content label="Id" dataKey="id" />
-					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Content label="Author" dataKey="author" />
-					<VirtualizedList.Content label="Created" dataKey="created" />
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
 			</section>
 		</div>

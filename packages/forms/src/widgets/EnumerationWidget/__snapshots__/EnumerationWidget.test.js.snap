@@ -13465,7 +13465,6 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               onToggle={[Function]}
                               pullRight={true}
                               role="button"
-                              tReady={false}
                               title={
                                 Array [
                                   <Icon
@@ -13523,7 +13522,6 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         onMouseOver={[Function]}
                                         open={false}
                                         role="button"
-                                        tReady={false}
                                         useAnchor={false}
                                       >
                                         <Button
@@ -13546,7 +13544,6 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           onKeyDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="button"
-                                          tReady={false}
                                         >
                                           <button
                                             aria-expanded={false}
@@ -13564,7 +13561,6 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                             onKeyDown={[Function]}
                                             onMouseOver={[Function]}
                                             role="button"
-                                            tReady={false}
                                             type="button"
                                           >
                                             <Icon
@@ -16974,7 +16970,6 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               onToggle={[Function]}
                               pullRight={true}
                               role="button"
-                              tReady={false}
                               title={
                                 Array [
                                   <Icon
@@ -17031,7 +17026,6 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         onMouseOver={[Function]}
                                         open={false}
                                         role="button"
-                                        tReady={false}
                                         useAnchor={false}
                                       >
                                         <Button
@@ -17053,7 +17047,6 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           onKeyDown={[Function]}
                                           onMouseOver={[Function]}
                                           role="button"
-                                          tReady={false}
                                         >
                                           <button
                                             aria-expanded={false}
@@ -17070,7 +17063,6 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             onKeyDown={[Function]}
                                             onMouseOver={[Function]}
                                             role="button"
-                                            tReady={false}
                                             type="button"
                                           >
                                             <Icon
