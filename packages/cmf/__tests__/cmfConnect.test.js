@@ -738,5 +738,28 @@ describe('cmfConnect', () => {
 			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
 			expect(mounted.html()).toBeNull();
 		});
+
+		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {
+			const ComponentToWrap = ({ onClick, labelBase, labelSuffix }) => (
+				<button onClick={onClick}>
+					{labelBase}-{labelSuffix}
+				</button>
+			);
+			ComponentToWrap.propTypes = {
+				onClick: PropTypes.func,
+				labelBase: PropTypes.string.isRequired,
+				labelSuffix: PropTypes.string,
+			};
+			ComponentToWrap.defaultProps = {
+				onClick() {},
+			};
+			ComponentToWrap.displayName = 'ComponentToWrap';
+			const CMFConnected = cmfConnect({})(ComponentToWrap);
+
+			const CMFContainer = CMFConnected.CMFContainer;
+			expect(CMFContainer.propTypes.labelBase).toBeUndefined();
+			expect(CMFContainer.propTypes.labelSuffix).toBeUndefined();
+			expect(CMFContainer.defaultProps).toBeUndefined();
+		});
 	});
 });
