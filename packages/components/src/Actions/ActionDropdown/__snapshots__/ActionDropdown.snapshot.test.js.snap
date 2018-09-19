@@ -89,7 +89,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
-    tReady={false}
     title={
       Array [
         null,
@@ -141,7 +140,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
               onKeyDown={[Function]}
               open={false}
               role="button"
-              tReady={false}
               useAnchor={false}
             >
               <Button
@@ -159,7 +157,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
-                tReady={false}
               >
                 <button
                   aria-expanded={false}
@@ -172,7 +169,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
-                  tReady={false}
                   type="button"
                 >
                   <span
@@ -339,7 +335,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
-  tReady={false}
   title={
     Array [
       null,
@@ -391,7 +386,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
             onKeyDown={[Function]}
             open={false}
             role="button"
-            tReady={false}
             useAnchor={false}
           >
             <Button
@@ -409,7 +403,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
               onClick={[Function]}
               onKeyDown={[Function]}
               role="button"
-              tReady={false}
             >
               <button
                 aria-expanded={false}
@@ -422,7 +415,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
-                tReady={false}
                 type="button"
               >
                 <span
@@ -588,7 +580,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
-  tReady={false}
   title={
     Array [
       <Icon
@@ -642,7 +633,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
             onKeyDown={[Function]}
             open={false}
             role="button"
-            tReady={false}
             useAnchor={false}
           >
             <Button
@@ -660,7 +650,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
               onClick={[Function]}
               onKeyDown={[Function]}
               role="button"
-              tReady={false}
             >
               <button
                 aria-expanded={false}
@@ -673,7 +662,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
-                tReady={false}
                 type="button"
               >
                 <Icon
@@ -852,7 +840,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
-  tReady={false}
   title={
     Array [
       <Icon
@@ -904,7 +891,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
             onMouseOver={[Function]}
             open={false}
             role="button"
-            tReady={false}
             useAnchor={false}
           >
             <Button
@@ -924,7 +910,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
               onKeyDown={[Function]}
               onMouseOver={[Function]}
               role="button"
-              tReady={false}
             >
               <button
                 aria-expanded={false}
@@ -939,7 +924,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
                 onKeyDown={[Function]}
                 onMouseOver={[Function]}
                 role="button"
-                tReady={false}
                 type="button"
               >
                 <Icon
@@ -1273,7 +1257,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
-    tReady={false}
     title={
       Array [
         null,
@@ -1325,7 +1308,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
               onKeyDown={[Function]}
               open={false}
               role="button"
-              tReady={false}
               useAnchor={false}
             >
               <Button
@@ -1343,7 +1325,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
-                tReady={false}
               >
                 <button
                   aria-expanded={false}
@@ -1356,7 +1337,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
-                  tReady={false}
                   type="button"
                 >
                   <span
