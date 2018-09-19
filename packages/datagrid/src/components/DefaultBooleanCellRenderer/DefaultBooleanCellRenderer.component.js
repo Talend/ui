@@ -5,8 +5,9 @@ import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer.co
 
 export default function DefaultBooleanCellRenderer({ data }) {
 	// convert the boolean to string to render this value
-	const value = String(data.value);
-	return <DefaultValueRenderer value={value} className={classNames('td-cell-boolean')} />;
+	return (
+		<DefaultValueRenderer value={String(data.value)} className={classNames('td-cell-boolean')} />
+	);
 }
 
 DefaultBooleanCellRenderer.propTypes = {
