@@ -1,6 +1,7 @@
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
 import { getValue } from '../utils/properties';
+import shouldValidate from '../utils/condition';
 
 /**
  * Adapt merged schema from jsfc with additional rules
@@ -168,10 +169,13 @@ export function validateSingle(
  * @returns {object} The validation result by field.
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
+
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
-		const subResults = validateSingle(
+		const { condition } = schema;
+		const isVisible = shouldValidate(condition, properties);
+		const subResults = !isVisible ? true : validateSingle(
 			schema,
 			value,
 			properties,

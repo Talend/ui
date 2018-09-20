@@ -341,6 +341,99 @@ describe('Validation utils', () => {
 				'user,lastname': 'Missing required property: lastname',
 			});
 		});
+
+		it('should validate all fields with condition not respected', () => {
+			// given
+			const mergedSchema = [
+				{
+					key: ['user', 'lastname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+				},
+				{
+					key: ['user', 'firstname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+					condition: { '==': [{ var: 'user.lastname' }, 'myName'] },
+				},
+				{
+					key: ['comment'],
+					customValidation: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'textarea',
+				},
+			];
+			const properties = {
+				user: {
+					lastname: 'badName',
+					firstname: '',
+				},
+				comment: '',
+			};
+
+			// when
+			const errors = validateAll(mergedSchema, properties, customValidationFn);
+
+			// then
+			expect(errors).toEqual({
+				comment: 'This field is invalid', // custom validation
+			});
+		});
+
+		it('should validate all fields with condition respected', () => {
+			// given
+			const mergedSchema = [
+				{
+					key: ['user', 'lastname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+				},
+				{
+					key: ['user', 'firstname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+					condition: { '==': [{ var: 'user.lastname' }, 'myName'] },
+				},
+				{
+					key: ['comment'],
+					customValidation: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'textarea',
+				},
+			];
+			const properties = {
+				user: {
+					lastname: 'myName',
+					firstname: '',
+				},
+				comment: '',
+			};
+
+			// when
+			const errors = validateAll(mergedSchema, properties, customValidationFn);
+
+			// then
+			expect(errors).toEqual({
+				comment: 'This field is invalid', // custom validation
+				'user,firstname': 'Missing required property: firstname',
+			});
+		});
 	});
 
 	describe('#isValid', () => {
