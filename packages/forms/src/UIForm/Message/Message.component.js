@@ -1,30 +1,27 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Message(props) {
-	const {
-		errorMessage,
-		description,
-		isValid,
-	} = props;
+	const { description, descriptionId, errorId, errorMessage, isValid } = props;
 
-	const message = isValid ? description : errorMessage;
-	return message ?
-		(
-			<p
-				className="help-block"
-				role="status"
-			>
-				{ message }
+	return (
+		<div>
+			<p key="description" className="help-block" id={descriptionId}>
+				{isValid ? description : ''}
 			</p>
-		) :
-		null;
+			<p key="error" className="help-block" role="status" aria-live="assertive" id={errorId}>
+				{isValid ? '' : errorMessage}
+			</p>
+		</div>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	Message.propTypes = {
-		errorMessage: PropTypes.string,
 		description: PropTypes.string,
+		descriptionId: PropTypes.string.isRequired,
+		errorId: PropTypes.string.isRequired,
+		errorMessage: PropTypes.string,
 		isValid: PropTypes.bool,
 	};
 }

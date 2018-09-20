@@ -2,6 +2,7 @@ import shouldRender from './condition';
 
 const properties = {
 	string: 'foo',
+	stringUppercase: 'FOO',
 	stringEmpty: '',
 	number: 2,
 	zero: 0,
@@ -19,140 +20,122 @@ const properties = {
 const TRUTHY_CONDITIONS = [
 	undefined,
 	{
-		values: ['foo'],
-		path: 'string',
+		'===': [{ var: 'string' }, 'foo'],
 	},
 	{
-		values: [2],
-		path: 'number',
+		'===': [{ var: 'number' }, 2],
 	},
 	{
-		values: ['Hello world'],
-		path: 'object.title',
+		'===': [{ var: 'object.title' }, 'Hello world'],
 	},
 	// check if array has at least one item
 	{
-		shouldBe: false,
-		values: [0],
-		strategy: 'length',
-		path: 'arrayString',
+		'!==': [{ var: 'arrayString.length' }, 0],
 	},
 	{
-		shouldBe: false,
-		values: [0],
-		strategy: 'length',
-		path: 'arrayObj',
+		'!==': [{ var: 'arrayString.length' }, 0],
 	},
 	// check if array is empty
 	{
-		values: [0],
-		strategy: 'length',
-		path: 'arrayEmpty',
+		'===': [{ var: 'arrayEmpty.length' }, 0],
+	},
+	{
+		'==': [{ var: 'arrayEmpty.length' }, '0'],
 	},
 	// check if string is filled
 	{
-		shouldBe: false,
-		values: [0, 1, 2], // foo is 3
-		strategy: 'length',
-		path: 'string',
+		'>': [{ var: 'string.length' }, 2], // foo is 3
 	},
 	{
-		values: [undefined],
-		path: 'undefined',
+		'==': [{ var: 'undefined' }, undefined],
 	},
 	{
-		values: [null],
-		path: 'null',
+		'==': [{ var: 'null' }, null],
 	},
 	// complex with children
 	{
-		children: [
+		and: [
 			{
-				shouldBe: false,
-				values: [0, 1, 2],
-				strategy: 'length',
-				path: 'string',
-				children: [
-					{
-						shouldBe: false,
-						values: [0],
-						strategy: 'length',
-						path: 'arrayObj',
-					},
-				],
+				or: [{ '>': [{ var: 'string.length' }, 2] }, { '>': [{ var: 'arrayObj.length' }, 0] }],
 			},
 			{
-				values: [undefined],
-				path: 'undefined',
+				'==': [{ var: 'undefined' }, undefined],
 			},
 			{
-				values: [null],
-				path: 'null',
+				'==': [{ var: 'null' }, null],
 			},
 		],
+	},
+	{
+		in: [{ var: 'string' }, ['foo']],
+	},
+	{
+		in: ['oo', { var: 'string' }],
+	},
+	{
+		in: ['fo', { var: 'string' }],
+	},
+	{
+		in: ['foo', { var: 'arrayString' }],
+	},
+	{
+		in: ['oo', { lowercase: [{ var: 'stringUppercase' }] }],
 	},
 ];
 
 const FALSY_CONDITIONS = [
 	{
-		shouldBe: false,
-		values: [0, 1, 2, 3], // foo is 3
-		strategy: 'length',
-		path: 'string',
+		'>': [{ var: 'string.length' }, 3],
 	},
 	{
-		values: ['foo'],
-		path: 'objectEmpty.title', // doesnt exist
+		'>': [{ var: 'string.length' }, { toNumber: '3' }],
+	},
+	{
+		'==': [{ var: 'objectEmpty.title' }, 'foo'], // doesnt exist
 	},
 	// complex with children
 	{
-		children: [
+		and: [
 			{
-				shouldBe: false,
-				values: [0, 1, 2],
-				strategy: 'length',
-				path: 'string',
-				children: [
-					{
-						shouldBe: true, // we make this one wrong to be false
-						values: [0],
-						strategy: 'length',
-						path: 'arrayObj',
-					},
-				],
+				'>': [{ var: 'string.length' }, 2],
 			},
 			{
-				values: [undefined],
-				path: 'undefined',
+				'==': [{ var: 'arrayObj.length' }, 0], // we make this one wrong to be false
 			},
 			{
-				values: [null],
-				path: 'null',
+				'==': [{ var: 'undefined' }, undefined],
+			},
+			{
+				'==': [{ var: 'null' }, null],
 			},
 		],
 	},
 	{
-		children: [
+		and: [
 			{
-				values: [undefined],
-				path: 'undefined',
+				'==': [{ var: 'undefined' }, undefined],
 			},
 			{
-				values: ['wrong'],
-				path: 'null',
+				'==': [{ var: 'null' }, 'wrong'],
 			},
 		],
+	},
+	{
+		in: [{ var: 'string' }, [0]],
+	},
+	{
+		in: ['nothere', { var: 'arrayString' }],
 	},
 ];
 
 describe('condition', () => {
-	it('should return true if condition is filled', () => {
-		TRUTHY_CONDITIONS.forEach(condition => {
+	TRUTHY_CONDITIONS.forEach(condition => {
+		it(`truthy: ${JSON.stringify(condition)}`, () => {
 			expect(shouldRender(condition, properties)).toBeTruthy();
 		});
 	});
-	it('should return false if condition is not filled', () => {
-		FALSY_CONDITIONS.forEach(condition => {
+	FALSY_CONDITIONS.forEach(condition => {
+		it(`falsy: ${JSON.stringify(condition)}`, () => {
 			expect(shouldRender(condition, properties)).toBeFalsy();
 		});
 	});

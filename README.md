@@ -31,6 +31,11 @@ front-end stack.
 
 :warning: If you've used `lerna bootstrap` in the past, please start by running `lerna clean` or you will have bad behavior with the following tools.
 
+### yarn run build
+
+Just build all the packages for static purpose.
+It execute the prepublish npm script in all sub packages.
+
 ### yarn run watch
 
 The stack has one entry point:
@@ -41,52 +46,15 @@ yarn run watch
 
 This watcher will trigger build and sync inside the stack for you.
 
-For example if you modify a component, it will rebuild component into lib folder and copy the content through forms and containers.
+For example if you modify a component, it will rebuild `components` into lib folder. Because we use yarn workspace all dependencies use that lib folder content.
 
 Be warned the [delete or rename are not taken into account](https://github.com/remy/nodemon/issues/656).
 
-### yarn run build
-
-Just build all the packages for static purpose.
-It use the prepublish command.
-
-### copylibs
-
-```
-./copylibs.js
-```
-
-This script will copy all the *lib* folders of the stach into their dependencies.
-
-This script for example will copy the *lib* folders of components into containers and forms node_modules.
-
-It accepts options:
-
-```
-./copylibs.js --watch
-```
-
-If the content of a lib folder change it triggers the copy.
-
-```
-./copylibs.js --scope=components
-```
-
-Only copy components into forms and containers.
-
-Same with all subfolders of packges.
-
 ### yarn start
 
-It will start all the stack for you:
+To start to dev on a package and see it in action just use one of the following
 
-- components on localhost:6006
-- containers on localhost:6007
-- forms on localhost:6008
-- theme on localhost:1337
-
-If you want to work accross the stack you should launch
-
-```
-./copylibs.js --watch
-```
+- yarn start-components on localhost:6006
+- yarn start-containers on localhost:6007
+- yarn start-forms on localhost:6008
+- yarn start-theme on localhost:1337

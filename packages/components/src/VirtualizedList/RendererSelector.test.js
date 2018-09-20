@@ -10,11 +10,26 @@ import NoRows from './NoRows';
 const { TABLE, LARGE } = listTypes;
 
 const contentFields = [
-	<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
-	<VirtualizedList.Content label="Name" dataKey="name" width={350} flexShrink={0} flexGrow={0} />,
 	<VirtualizedList.Content
-		label="Description"
+		key="id"
+		label="Id"
+		dataKey="id"
+		width={50}
+		flexShrink={0}
+		flexGrow={0}
+	/>,
+	<VirtualizedList.Content
+		key="name"
+		label="Name"
 		dataKey="name"
+		width={350}
+		flexShrink={0}
+		flexGrow={0}
+	/>,
+	<VirtualizedList.Content
+		key="desc"
+		label="Description"
+		dataKey="description"
 		width={350}
 		flexShrink={0}
 		flexGrow={0}
@@ -98,8 +113,7 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.prop('rowRenderer').displayName).toBe('VirtualizedList(RowLarge)');
 	});
 
 	it('should render the table with the default NoRows', () => {

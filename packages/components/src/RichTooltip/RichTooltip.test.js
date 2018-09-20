@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RichTooltip, { RichTooltipContent } from './RichTooltip.component';
+import RichTooltip from './RichTooltip.component';
 
 const Content = <div>Content</div>;
 const Header = <div>Header</div>;

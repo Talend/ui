@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import keycode from 'keycode';
 
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
@@ -15,13 +14,13 @@ const PADDING = 20;
 
 /**
  * return the default open or closed folder icon if non is specified on item
- * or if it is specified return the specified icon with `-closed` append if not toggled
+ * or if it is specified return the specified icon with `-closed` append if not opened
  * @param {String} iconName - icon name
- * @param {Boolean} toggled - state of the item
+ * @param {Boolean} isOpened - state of the item
  * @return {String}
  */
-export function getItemIcon(iconName = 'talend-folder', toggled) {
-	return toggled ? iconName : `${iconName}-closed`;
+export function getItemIcon(iconName = 'talend-folder', isOpened) {
+	return isOpened ? iconName : `${iconName}-closed`;
 }
 
 /**
@@ -29,20 +28,20 @@ export function getItemIcon(iconName = 'talend-folder', toggled) {
  * Instantiate an icon based on the icon config
  *
  * @param icon The icon name of the Icon props
- * @param toggled if the treeview is toggled
+ * @param isOpened if the treeview is opened
  */
-function TreeViewIcon({ icon, toggled }) {
+function TreeViewIcon({ icon, isOpened }) {
 	if (typeof icon === 'object') {
 		return <Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />;
 	}
 
 	return (
-		<Icon name={getItemIcon(icon, toggled)} className={classNames(css['tc-treeview-folder'])} />
+		<Icon name={getItemIcon(icon, isOpened)} className={classNames(css['tc-treeview-folder'])} />
 	);
 }
 TreeViewIcon.propTypes = {
 	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),
-	toggled: PropTypes.bool,
+	isOpened: PropTypes.bool,
 };
 
 /**
@@ -54,7 +53,6 @@ TreeViewIcon.propTypes = {
  * 		  item.actions optional, array with actions' to be displayed meta-info
  * @param onSelect required, callback function to trigger once item was clicked
  * @param onClick required, callback function to trigger once item was clicked
- * @param depth optional, depth of an item in a tree
  *
  * @returns XML, jsx to display
  */
@@ -62,10 +60,11 @@ TreeViewIcon.propTypes = {
 class TreeViewItem extends React.Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
+		index: PropTypes.number.isRequired,
 		item: PropTypes.shape({
+			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			name: PropTypes.string.isRequired,
-			toggled: PropTypes.bool,
-			selected: PropTypes.bool,
+			isOpened: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
 			icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 			actions: PropTypes.arrayOf(
@@ -78,20 +77,22 @@ class TreeViewItem extends React.Component {
 			counter: PropTypes.number,
 			showCounter: PropTypes.bool,
 		}).isRequired,
-		onClick: PropTypes.func.isRequired,
+		siblings: PropTypes.array,
+		level: PropTypes.number.isRequired,
+		onKeyDown: PropTypes.func.isRequired,
+		onToggle: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
-		depth: PropTypes.number,
+		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 
 	static defaultProps = {
-		depth: 0,
+		level: 1,
 	};
 
 	constructor(props) {
 		super(props);
-		this.onSelect = this.onSelect.bind(this);
-		this.onKeyDown = this.onKeyDown.bind(this);
-		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
+		this.renderIconAction = this.renderIconAction.bind(this);
+		this.renderTreeViewChildren = this.renderTreeViewChildren.bind(this);
 		this.onMouseLeave = this.onMouseLeave.bind(this);
 		this.onMouseEnter = this.onMouseEnter.bind(this);
 		this.state = {
@@ -111,47 +112,81 @@ class TreeViewItem extends React.Component {
 		});
 	}
 
-	onKeyDown(event) {
-		if (event.keyCode === keycode.codes.enter) {
-			this.onSelect();
+	getTabIndex() {
+		let shouldBeFocusable;
+		if (this.props.selectedId === undefined) {
+			shouldBeFocusable = this.props.level === 1 && this.props.index === 1;
+		} else {
+			shouldBeFocusable = this.isSelected();
 		}
+
+		return shouldBeFocusable ? 0 : -1;
 	}
 
-	onSelect() {
-		this.containerRef.focus();
-		this.props.onClick(this.props.item);
-		return this.props.onSelect(this.props.item);
+	hasChildren() {
+		return this.props.item.children && this.props.item.children.length;
 	}
 
-	renderTreeViewItem(child, i) {
+	isSelected() {
+		const { item, selectedId } = this.props;
+		if (selectedId === undefined) {
+			return false;
+		}
+		if (Array.isArray(selectedId)) {
+			return selectedId.includes(item.id);
+		}
+		return item.id === selectedId;
+	}
+
+	isOpened() {
+		const { children = [], isOpened = false } = this.props.item;
+		if (!children.length) {
+			return undefined;
+		}
+		return isOpened;
+	}
+
+	renderTreeViewChildren() {
+		if (!this.isOpened()) {
+			return null;
+		}
+
+		const { children } = this.props.item;
 		return (
-			<TreeViewItem
-				id={this.props.id && `${this.props.id}-${i}`}
-				item={child}
-				onSelect={this.props.onSelect}
-				onClick={this.props.onClick}
-				depth={this.props.depth + 1}
-				key={i}
-			/>
+			<ul key="children" role="group" className={css['tc-treeview-ul']}>
+				{children.map((child, i) => (
+					<TreeViewItem
+						id={this.props.id && `${this.props.id}-${i}`}
+						item={child}
+						siblings={children}
+						onKeyDown={this.props.onKeyDown}
+						onSelect={this.props.onSelect}
+						onToggle={this.props.onToggle}
+						key={i}
+						index={i + 1}
+						selectedId={this.props.selectedId}
+						level={this.props.level + 1}
+					/>
+				))}
+			</ul>
 		);
 	}
 
-	renderIconAction(label, icon, action, id) {
+	renderIconAction({ action, id, ...actionProps }) {
 		let safeId = id;
 		if (!id && this.props.id) {
-			safeId = `${this.props.id}-${icon}`;
+			safeId = `${this.props.id}-${actionProps.icon}`;
 		}
 		return (
 			<Action
-				label={label}
-				icon={icon}
+				{...actionProps}
 				onClick={event => {
 					event.stopPropagation();
 					action(this.props.item);
 				}}
 				tooltipPlacement="right"
 				hideLabel
-				key={label}
+				key={actionProps.label}
 				id={safeId}
 				link
 			/>
@@ -159,10 +194,9 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, item, depth = 0 } = this.props;
+		const { id, index, item, level, onKeyDown, onSelect, onToggle, siblings } = this.props;
 		const {
-			toggled = false,
-			selected,
+			isOpened = false,
 			hidden,
 			name,
 			children = [],
@@ -171,51 +205,67 @@ class TreeViewItem extends React.Component {
 			icon,
 			counter = children.length,
 		} = item;
-		const paddingLeft = `${depth * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
-		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
-		const shouldShowToggledIcon = !!(children.length && (toggled || this.state.hovered));
+		const paddingLeft = `${(level - 1) * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
+		const showOpenedFolder = !!(children.length && (isOpened || this.state.hovered));
 
 		return (
-			<li
+			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
+				id={id}
+				role="treeitem"
+				tabIndex={this.getTabIndex()}
+				aria-expanded={this.isOpened()}
+				aria-level={level}
+				aria-posinset={index}
+				aria-setsize={siblings.length}
+				aria-selected={this.isSelected()}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
+				onClick={e => onSelect(e, item)}
+				onKeyDown={e =>
+					onKeyDown(e, this.containerRef, {
+						...item,
+						hasChildren: children.length,
+						isOpened,
+						siblings,
+					})
+				}
 				data-hidden={hidden}
 				onMouseEnter={this.onMouseEnter}
 				onMouseLeave={this.onMouseLeave}
+				ref={ref => {
+					this.containerRef = ref;
+				}}
 			>
-				<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+				<div
 					className={classNames('tc-treeview-item', css['tc-treeview-item'])}
-					data-selected={selected}
-					onClick={this.onSelect}
-					id={id}
 					style={{ paddingLeft }}
-					role="button"
-					tabIndex="0"
-					ref={element => {
-						this.containerRef = element;
-					}}
-					onKeyDown={this.onKeyDown}
 				>
-					{!children.length || (
-						<Icon
+					{children.length ? (
+						<Action
+							key="toggle"
 							className={css['tc-treeview-toggle']}
-							name="talend-caret-down"
-							transform={toggled ? undefined : 'rotate-270'}
-							title={toggleIconLabel}
+							icon="talend-caret-down"
+							iconTransform={isOpened ? undefined : 'rotate-270'}
+							id={id && `${id}-toggle`}
+							onClick={e => onToggle(e, item)}
+							label=""
+							aria-hidden
+							tabIndex="-1"
+							link
 						/>
-					)}
-					<TreeViewIcon icon={icon} toggled={shouldShowToggledIcon} />
-					<span className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}>
+					) : null}
+					<TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />
+					<span
+						key="label"
+						className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}
+					>
 						{name}
 					</span>
-					<div className={css['tc-treeview-item-ctrl']}>
-						{showCounter && <Badge label={counter.toString()} />}
-						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action, a.id))}
+					<div key="actions" className={css['tc-treeview-item-ctrl']}>
+						{showCounter && <Badge key="badge" label={counter.toString()} />}
+						{actions && actions.map(this.renderIconAction)}
 					</div>
 				</div>
-				{children &&
-					toggled && (
-						<ul className={css['tc-treeview-ul']}>{children.map(this.renderTreeViewItem)}</ul>
-					)}
+				{this.renderTreeViewChildren()}
 			</li>
 		);
 	}

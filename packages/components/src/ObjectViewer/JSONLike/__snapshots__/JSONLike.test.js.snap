@@ -1,67 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`JSONLike ComplexItem basic render 1`] = `
-<div>
-  <Icon
-    className="theme-wider-icon-selection"
-    name="talend-chevron-left"
-    onClick={[Function]}
-    transform="rotate-180"
-  />
-  <LineItem
-    jsonpath={undefined}
-    mouseOverData={
-      Object {
-        "data": undefined,
-        "isEdited": false,
-        "isOpened": false,
-      }
-    }
-    name={undefined}
-    onSelect={[Function]}
-    onToggle={undefined}
-    selectedJsonpath={undefined}
-  >
-    <span
-      className="theme-hierarchical"
+exports[`JSONLike ComplexItem should render 1`] = `
+<LineItem
+  badge={
+    <TooltipTrigger
+      className="offset"
+      label=""
+      tooltipPlacement="right"
     >
-      <TooltipTrigger
-        className="offset"
-        label=""
-        tooltipPlacement="right"
+      <sup
+        aria-label="Contains  children"
+        className="theme-badge badge"
       >
-        <sup
-          className="badge"
-        >
-          (undefined)
-        </sup>
-      </TooltipTrigger>
-    </span>
-  </LineItem>
-</div>
+        (undefined)
+      </sup>
+    </TooltipTrigger>
+  }
+  edited={Array []}
+  hasChildren={true}
+  icon={
+    <Action
+      aria-hidden={true}
+      className="theme-toggle tc-object-viewer-toggle"
+      icon="talend-caret-down"
+      iconTransform="rotate-270"
+      id={undefined}
+      label=""
+      link={true}
+      onClick={[Function]}
+      tabIndex="-1"
+    />
+  }
+  info={Object {}}
+  isOpened={false}
+  name="name"
+  onKeyDown={[Function]}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  onToggleAllSiblings={[Function]}
+  opened={Array []}
+  t={[Function]}
+  type={null}
+/>
 `;
 
 exports[`JSONLike should render 1`] = `
 <div
   className="tc-object-viewer theme-container"
+  id="my-object-container"
   style={undefined}
 >
-  <Item
-    data={
-      Object {
-        "bar": Object {
-          "hello": "hello",
-        },
-        "foo": "foo",
+  <ul
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    className="theme-tc-object-viewer-list"
+    role="tree"
+  >
+    <Item
+      data={
+        Object {
+          "bar": Object {
+            "hello": "hello",
+          },
+          "foo": "foo",
+        }
       }
-    }
-    edited={Array []}
-    jsonpath="$"
-    onEdit={[Function]}
-    onMouseOver={[Function]}
-    onSelect={[Function]}
-    onToggle={[Function]}
-    opened={Array []}
-  />
+      edited={Array []}
+      id="my-object-root"
+      index={1}
+      jsonpath="$"
+      level={1}
+      onEdit={[Function]}
+      onKeyDown={[Function]}
+      onSelect={undefined}
+      onToggle={undefined}
+      onToggleAllSiblings={[Function]}
+      opened={Array []}
+      siblings={
+        Array [
+          Object {
+            "data": Object {
+              "bar": Object {
+                "hello": "hello",
+              },
+              "foo": "foo",
+            },
+            "jsonpath": "$",
+          },
+        ]
+      }
+    />
+  </ul>
 </div>
 `;

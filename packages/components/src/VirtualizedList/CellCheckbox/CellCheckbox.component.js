@@ -44,7 +44,7 @@ class CellCheckbox extends React.Component {
 CellCheckbox.displayName = 'VirtualizedList(CellCheckbox)';
 CellCheckbox.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
-	cellData: PropTypes.string,
+	cellData: PropTypes.bool,
 	// The custom props passed to <VirtualizedList.Content columnData={}>.
 	columnData: PropTypes.shape({
 		// The List id. This is used as the checkbox id prefix.
