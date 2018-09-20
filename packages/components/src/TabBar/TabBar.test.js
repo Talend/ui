@@ -5,6 +5,7 @@ import TabBar from './TabBar.component';
 
 const tabProps = {
 	id: 'my-tabs',
+	className: 'tabs-classname',
 	items: [
 		{
 			key: '1',
@@ -42,6 +43,20 @@ describe('TabBar component', () => {
 
 		// when
 		const wrapper = shallow(<TabBar {...tabProps}>I'm the content</TabBar>);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render items with defined children', () => {
+		// given
+		const items = tabProps.items.map((item, index) => ({
+			...item,
+			children: <div>child {index}</div>,
+		}));
+
+		// when
+		const wrapper = shallow(<TabBar {...tabProps} items={items} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
