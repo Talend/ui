@@ -5,7 +5,6 @@ import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/';
 import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
-import DefaultBooleanCellRenderer from '../src/components/DefaultBooleanCellRenderer';
 import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
 import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
 import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
@@ -20,8 +19,6 @@ function getComponent(component) {
 	switch (component) {
 		case 'DefaultIntCellRenderer':
 			return DefaultIntCellRenderer;
-		case 'DefaultBooleanCellRenderer':
-			return DefaultBooleanCellRenderer;
 		case 'DefaultHeaderRenderer':
 			return DefaultHeaderRenderer;
 		case 'DefaultPinHeaderRenderer':

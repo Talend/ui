@@ -65,7 +65,7 @@
             "name": "field4",
             "doc": "voyageurs 2016",
             "type": {
-                "type": "string",
+                "type": "date",
                 "dqType": "",
                 "dqTypeKey": "",
                 "@talend-quality@": {
@@ -79,7 +79,7 @@
             "name": "field5",
             "doc": "volume total d'usagers 2016 (voyageurs+ non voyageurs)",
             "type": {
-                "type": "string",
+                "type": "unknown",
                 "dqType": "",
                 "dqTypeKey": "",
                 "@talend-quality@": {

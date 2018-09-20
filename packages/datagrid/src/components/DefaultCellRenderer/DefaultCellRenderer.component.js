@@ -46,7 +46,7 @@ DefaultCellRenderer.propTypes = {
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
+				type: PropTypes.string,
 			}),
 		}),
 	}),
