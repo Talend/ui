@@ -180,7 +180,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 					properties,
 					customValidationFn,
 					true, // deep validation
-			);
+			  );
 		Object.assign(results, subResults);
 	});
 	return results;
