@@ -9,8 +9,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:11  error  Trailing spaces not allowed                     no-trailing-spaces
   12:1   error  Line 12 exceeds the maximum line length of 100  max-len
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/validation.js
-  183:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
-
-✖ 4 problems (4 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
