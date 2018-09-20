@@ -169,17 +169,18 @@ export function validateSingle(
  * @returns {object} The validation result by field.
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
-
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
-		const subResults = !shouldValidate(schema.condition, properties) ? true : validateSingle(
-			schema,
-			value,
-			properties,
-			customValidationFn,
-			true, // deep validation
-		);
+		const subResults = !shouldValidate(schema.condition, properties)
+			? true
+			: validateSingle(
+					schema,
+					value,
+					properties,
+					customValidationFn,
+					true, // deep validation
+			  );
 		Object.assign(results, subResults);
 	});
 	return results;
