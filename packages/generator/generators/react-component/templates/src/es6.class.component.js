@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class <%= props.name %> extends React.Component {
+	static displayName = '<%= props.name %>';
 	static propTypes = {
 		name: PropTypes.string,
 	};
