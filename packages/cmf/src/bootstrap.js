@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
-import { hashHistory } from 'react-router';
-import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { call, fork } from 'redux-saga/effects';
 import compose from 'redux';
 
+import defaultRouterBootstrap from './defaultRouter/defaultRouterBootstrap';
 import App from './App';
 import actionCreator from './actionCreator';
 import actions from './actions';
@@ -42,14 +41,14 @@ export function bootstrapRegistry(options) {
 	}
 }
 
-export function bootstrapSaga(options) {
+export function bootstrapSaga(options, history) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
 		if (options.sagaRouterConfig) {
 			// eslint-disable-next-line no-console
 			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
-			yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
+			yield fork(sagaRouter, history, options.sagaRouterConfig);
 		}
 		if (typeof options.saga === 'function') {
 			yield call(options.saga);
@@ -62,7 +61,7 @@ export function bootstrapSaga(options) {
 	};
 }
 
-export function bootstrapRedux(options, sagaMiddleware) {
+export function bootstrapRedux(options, customMiddlewares, reducerModifier) {
 	assertTypeOf(options, 'settingsURL', 'string');
 	assertTypeOf(options, 'preReducer', 'function');
 	assertTypeOf(options, 'httpMiddleware', 'function');
@@ -86,10 +85,13 @@ export function bootstrapRedux(options, sagaMiddleware) {
 		);
 	}
 	const middlewares = options.middlewares || [];
-	const store = storeAPI.initialize(options.reducer, options.preloadedState, enhancer, [
-		...middlewares,
-		sagaMiddleware,
-	]);
+	const store = storeAPI.initialize(
+		options.reducer,
+		options.preloadedState,
+		enhancer,
+		[...middlewares, ...customMiddlewares],
+		reducerModifier,
+	);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
 	} else {
@@ -117,22 +119,23 @@ export default function bootstrap(options = {}) {
 
 	bootstrapRegistry(options);
 	const appId = options.appId || 'app';
-	const saga = bootstrapSaga(options);
 
-	const history = options.history || hashHistory;
-	if (options.history) {
-		storeAPI.setRouterMiddleware(routerMiddleware(options.history));
-	}
-	const store = bootstrapRedux(options, saga.middleware);
+	const routerBootstrap = options.router || defaultRouterBootstrap;
+	const history = routerBootstrap.getHistory();
+	const routerMiddleware = routerBootstrap.getReduxMiddleware(history);
+	storeAPI.setReducerModifier(routerBootstrap.insertReducer);
+
+	const saga = bootstrapSaga(options, history);
+
+	const store = bootstrapRedux(options, [saga.middleware, routerMiddleware]);
+	const storeHistory = routerBootstrap.getStoreHistory(history, store);
 
 	saga.run();
 
 	render(
-		<App
-			store={store}
-			history={syncHistoryWithStore(history, store)}
-			loading={options.AppLoader}
-		/>,
+		<App store={store} history={storeHistory} loading={options.AppLoader}>
+			{routerBootstrap.getProvider}
+		</App>,
 		document.getElementById(appId),
 	);
 }

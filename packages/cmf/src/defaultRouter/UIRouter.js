@@ -10,8 +10,7 @@ import React from 'react';
 import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import route from './route';
-import Inject from './Inject.component';
+import route from '../route';
 
 /**
  * @typedef {Object} Router
@@ -29,9 +28,6 @@ const UIRouter = (props, context) => {
 	if (routes.path === '/' && routes.component) {
 		return <BaseRouter routes={routes} history={props.history} />;
 	}
-	if (props.loading) {
-		return <Inject component={props.loading} />;
-	}
 	return <div className="is-loading">loading</div>;
 };
 
@@ -39,10 +35,11 @@ UIRouter.propTypes = {
 	dispatch: PropTypes.func,
 	history: PropTypes.object,
 	routes: PropTypes.object,
-	loading: PropTypes.node,
 };
 UIRouter.contextTypes = {
 	registry: PropTypes.object,
 };
-const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
+function mapStateToProps(state) {
+	return { routes: state.cmf.settings.routes };
+}
 export default connect(mapStateToProps)(UIRouter);

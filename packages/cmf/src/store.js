@@ -2,8 +2,6 @@
  * This module is here to help app to create the redux store
  * @module react-cmf/lib/store
  */
-import { hashHistory } from 'react-router';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 import thunk from 'redux-thunk';
@@ -27,19 +25,8 @@ if (window) {
 	}
 }
 
-// Indicated wether or not the default router was overwritten
-let defaultRouterOverwrite = false;
+let reducerModifier;
 let defaultHttpMiddlewareOverwrite = false;
-
-/**
- * setRouterMiddleware overwrites the default router middleware
- *
- * @param middleware a router middleware
- */
-function setRouterMiddleware(middleware) {
-	middlewares.push(middleware);
-	defaultRouterOverwrite = true;
-}
 
 /**
  * setHttpMiddleware overwrites the default router middleware
@@ -51,6 +38,10 @@ function setHttpMiddleware(middleware) {
 	const cmfMiddlewareIndex = middlewares.indexOf(cmfMiddleware);
 	middlewares.splice(cmfMiddlewareIndex - 1, 0, middleware);
 	defaultHttpMiddlewareOverwrite = true;
+}
+
+function setReducerModifier(modifier) {
+	reducerModifier = modifier;
 }
 
 function addPreReducer(reducers) {
@@ -94,9 +85,11 @@ function getReducer(appReducer) {
 	if (!reducerObject.cmf) {
 		reducerObject.cmf = cmfReducers;
 	}
-	if (!reducerObject.routing) {
-		reducerObject.routing = routerReducer;
+
+	if (reducerModifier) {
+		return reducerModifier(enableBatching, preApplyReducer, combineReducers, reducerObject);
 	}
+
 	return enableBatching(preApplyReducer(combineReducers(reducerObject)));
 }
 
@@ -114,9 +107,6 @@ function getMiddlewares(middleware) {
 		});
 	} else if (middleware) {
 		middlewares.push(middleware);
-	}
-	if (!defaultRouterOverwrite) {
-		setRouterMiddleware(routerMiddleware(hashHistory));
 	}
 	if (!defaultHttpMiddlewareOverwrite) {
 		setHttpMiddleware(httpMiddleware());
@@ -145,20 +135,20 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 		enhancers.push(enhancer);
 	}
 	const middles = getMiddlewares(middleware);
-	const store = compose(applyMiddleware(...middles), ...enhancers)(createStore)(
-		reducer,
-		preloadedState,
-	);
+	const store = compose(
+		applyMiddleware(...middles),
+		...enhancers,
+	)(createStore)(reducer, preloadedState);
 
 	return store;
 }
 
 export default {
 	addPreReducer,
-	setRouterMiddleware,
+	setReducerModifier,
 	setHttpMiddleware,
 	initialize,
-	// for testing purepose only
+	// for testing purpose only
 	getReducer,
 	getMiddlewares,
 };

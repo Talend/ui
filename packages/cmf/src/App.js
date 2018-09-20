@@ -16,11 +16,31 @@ render(
 import PropTypes from 'prop-types';
 
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
+import get from 'lodash/get';
 
 import history from './history';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
+import Inject from './Inject.component';
+
+function AppSettings({ loading, initialized, routerHistory, children }) {
+	if (initialized) {
+		return children(routerHistory);
+	}
+	if (loading) {
+		return <Inject component={loading} />;
+	}
+	return <div className="is-loading">loading</div>;
+}
+AppSettings.propTypes = {
+	children: PropTypes.func,
+	routerHistory: PropTypes.object,
+	initialized: PropTypes.bool,
+	loading: PropTypes.node,
+};
+const ConnectedAppSettings = connect(state => ({
+	initialized: get(state, 'cmf.settings.initialized'),
+}))(AppSettings);
 
 /**
  * The React component that render your app and provide CMF environment.
@@ -33,7 +53,9 @@ export default function App(props) {
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				{props.children || <UIRouter history={hist} loading={props.loading} />}
+				<ConnectedAppSettings routerHistory={hist} loading={props.loading}>
+					{props.children}
+				</ConnectedAppSettings>
 			</RegistryProvider>
 		</Provider>
 	);
@@ -41,7 +63,7 @@ export default function App(props) {
 
 App.propTypes = {
 	store: PropTypes.object.isRequired,
-	children: PropTypes.node,
+	children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 	history: PropTypes.object,
 	loading: PropTypes.string,
 };
