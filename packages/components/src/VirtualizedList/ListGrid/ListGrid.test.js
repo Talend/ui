@@ -21,9 +21,9 @@ describe('ListGrid', () => {
 				onRowDoubleClick={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-				<VirtualizedList.Content label="" dataKey="description" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} />
 			</ListGrid>,
 		);
 
@@ -44,8 +44,8 @@ describe('ListGrid', () => {
 				rowRenderer={RowLarge}
 				width={1024}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
 			</ListGrid>,
 		);
 
@@ -68,8 +68,8 @@ describe('ListGrid', () => {
 				width={1024}
 				noRowsRenderer={() => <div>No rows</div>}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
 			</ListGrid>,
 		);
 

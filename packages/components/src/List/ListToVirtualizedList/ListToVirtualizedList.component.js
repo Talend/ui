@@ -82,6 +82,7 @@ export function ListToVirtualizedList(props) {
 						label: column.label,
 						dataKey: column.key,
 						disableSort: column.disableSort,
+						width: -1, // valid propType but disable inline style
 					};
 					if (titleProps && column.key === titleProps.key) {
 						Object.assign(cProps, listCellDictionary[titleCellType], {
