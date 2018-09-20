@@ -6,7 +6,11 @@
             "name": "field0",
             "doc": "Nom de la gare",
             "type": [
-              "null",
+              {
+                "type": "null",
+                "dqType": "",
+                "dqTypeKey": ""
+              },
               {
                 "type": "string",
                 "dqType": "FR Commune",
@@ -22,17 +26,21 @@
         }, {
             "name": "field1",
             "doc": "Code UIC",
-            "type": {
-                "type": "int",
-                "dqType": "",
-                "dqTypeKey": "",
-                "@talend-quality@": {
-                    "0": 1,
-                    "1": 99,
-                    "-1": 0,
-                    "total": 100
-                }
-            }
+            "type": [{
+              "type": "null",
+              "dqType": "",
+              "dqTypeKey": ""
+            }, {
+              "type": "int",
+              "dqType": "",
+              "dqTypeKey": "",
+              "@talend-quality@": {
+                  "0": 1,
+                  "1": 99,
+                  "-1": 0,
+                  "total": 100
+              }
+          }]
         }, {
             "name": "field2",
             "doc": "Code postal",
