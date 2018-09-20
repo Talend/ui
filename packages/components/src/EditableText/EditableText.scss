@@ -53,6 +53,7 @@ $tc-circle-editable-text-size: 16px !default;
 	}
 
 	& &-form {
+		position: relative;
 		width: 100%;
 		display: flex;
 		align-items: center;

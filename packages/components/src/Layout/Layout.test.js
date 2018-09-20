@@ -12,6 +12,7 @@ const footer = <h3>Footer</h3>;
 const one = <h1>Column one</h1>;
 const two = <h1>Column two</h1>;
 const tabs = {
+	id: 'my-tabs',
 	items: [
 		{
 			id: 'tab-bar-action-1',

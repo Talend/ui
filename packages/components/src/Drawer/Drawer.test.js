@@ -69,6 +69,7 @@ describe('Drawer', () => {
 	});
 	it('should render with tabs', () => {
 		const tabs = {
+			id: 'my-tabs',
 			items: [
 				{
 					key: '1',
@@ -94,6 +95,7 @@ describe('Drawer', () => {
 
 	it('should render with tabs specific actions by tab with selectedTabKey', () => {
 		const tabs = {
+			id: 'my-tabs',
 			items: [
 				{
 					key: '1',

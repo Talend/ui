@@ -31,6 +31,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
     <Translate(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
+      id="my-actions-ellispsis-actions"
       items={
         Array [
           Object {
@@ -214,6 +215,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
     <Translate(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
+      id="my-actions-ellispsis-actions"
       items={
         Array [
           Object {
@@ -327,6 +329,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
     <Translate(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
+      id="my-actions-ellispsis-actions"
       items={
         Array [
           Object {
