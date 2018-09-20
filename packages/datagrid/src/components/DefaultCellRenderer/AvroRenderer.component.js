@@ -18,7 +18,7 @@ AvroRenderer.propTypes = {
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.string,
+				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
 			}),
 		}),
 	}),
