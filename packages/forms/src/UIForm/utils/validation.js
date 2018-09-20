@@ -173,9 +173,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
-		const { condition } = schema;
-		const isVisible = shouldValidate(condition, properties);
-		const subResults = !isVisible ? true : validateSingle(
+		const subResults = !shouldValidate(schema.condition, properties) ? true : validateSingle(
 			schema,
 			value,
 			properties,
