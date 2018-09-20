@@ -179,8 +179,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 					value,
 					properties,
 					customValidationFn,
-					true, // deep validation
-			  );
+					true); // deep validation
 		Object.assign(results, subResults);
 	});
 	return results;
