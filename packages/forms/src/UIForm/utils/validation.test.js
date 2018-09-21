@@ -82,37 +82,41 @@ describe('Validation utils', () => {
 	describe('#validateArray', () => {
 		const schema = {
 			key: ['comments'],
-			items: [{
-				key: ['comments', '', 'name'],
-				title: 'Name',
-				required: true,
-				schema: { title: 'Name', type: 'string' },
-				type: 'text',
-			}, {
-				key: ['comments', '', 'email'],
-				title: 'Email',
-				description: 'Email will be used for evil.',
-				schema: {
+			items: [
+				{
+					key: ['comments', '', 'name'],
+					title: 'Name',
+					required: true,
+					schema: { title: 'Name', type: 'string' },
+					type: 'text',
+				},
+				{
+					key: ['comments', '', 'email'],
 					title: 'Email',
-					type: 'string',
-					pattern: '^\\S+@\\S+$',
 					description: 'Email will be used for evil.',
+					schema: {
+						title: 'Email',
+						type: 'string',
+						pattern: '^\\S+@\\S+$',
+						description: 'Email will be used for evil.',
+					},
+					type: 'text',
 				},
-				type: 'text',
-			}, {
-				key: ['comments', '', 'comment'],
-				type: 'textarea',
-				rows: 3,
-				title: 'Comment',
-				maxlength: 20,
-				validationMessage: "Don't be greedy!",
-				schema: {
+				{
+					key: ['comments', '', 'comment'],
+					type: 'textarea',
+					rows: 3,
 					title: 'Comment',
-					type: 'string',
-					maxLength: 20,
+					maxlength: 20,
 					validationMessage: "Don't be greedy!",
+					schema: {
+						title: 'Comment',
+						type: 'string',
+						maxLength: 20,
+						validationMessage: "Don't be greedy!",
+					},
 				},
-			}],
+			],
 			title: 'comments',
 			required: true,
 			schema: {
@@ -197,37 +201,41 @@ describe('Validation utils', () => {
 	describe('#validateSingle', () => {
 		const arraySchema = {
 			key: ['comments'],
-			items: [{
-				key: ['comments', '', 'name'],
-				title: 'Name',
-				required: true,
-				schema: { title: 'Name', type: 'string' },
-				type: 'text',
-			}, {
-				key: ['comments', '', 'email'],
-				title: 'Email',
-				description: 'Email will be used for evil.',
-				schema: {
+			items: [
+				{
+					key: ['comments', '', 'name'],
+					title: 'Name',
+					required: true,
+					schema: { title: 'Name', type: 'string' },
+					type: 'text',
+				},
+				{
+					key: ['comments', '', 'email'],
 					title: 'Email',
-					type: 'string',
-					pattern: '^\\S+@\\S+$',
 					description: 'Email will be used for evil.',
+					schema: {
+						title: 'Email',
+						type: 'string',
+						pattern: '^\\S+@\\S+$',
+						description: 'Email will be used for evil.',
+					},
+					type: 'text',
 				},
-				type: 'text',
-			}, {
-				key: ['comments', '', 'comment'],
-				type: 'textarea',
-				rows: 3,
-				title: 'Comment',
-				maxlength: 20,
-				validationMessage: "Don't be greedy!",
-				schema: {
+				{
+					key: ['comments', '', 'comment'],
+					type: 'textarea',
+					rows: 3,
 					title: 'Comment',
-					type: 'string',
-					maxLength: 20,
+					maxlength: 20,
 					validationMessage: "Don't be greedy!",
+					schema: {
+						title: 'Comment',
+						type: 'string',
+						maxLength: 20,
+						validationMessage: "Don't be greedy!",
+					},
 				},
-			}],
+			],
 			title: 'comments',
 			required: true,
 			schema: {
@@ -341,6 +349,99 @@ describe('Validation utils', () => {
 				'user,lastname': 'Missing required property: lastname',
 			});
 		});
+
+		it('should validate all fields with condition not respected', () => {
+			// given
+			const mergedSchema = [
+				{
+					key: ['user', 'lastname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+				},
+				{
+					key: ['user', 'firstname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+					condition: { '==': [{ var: 'user.lastname' }, 'myName'] },
+				},
+				{
+					key: ['comment'],
+					customValidation: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'textarea',
+				},
+			];
+			const properties = {
+				user: {
+					lastname: 'badName',
+					firstname: '',
+				},
+				comment: '',
+			};
+
+			// when
+			const errors = validateAll(mergedSchema, properties, customValidationFn);
+
+			// then
+			expect(errors).toEqual({
+				comment: 'This field is invalid', // custom validation
+			});
+		});
+
+		it('should validate all fields with condition respected', () => {
+			// given
+			const mergedSchema = [
+				{
+					key: ['user', 'lastname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+				},
+				{
+					key: ['user', 'firstname'],
+					required: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'text',
+					condition: { '==': [{ var: 'user.lastname' }, 'myName'] },
+				},
+				{
+					key: ['comment'],
+					customValidation: true,
+					schema: {
+						type: 'string',
+					},
+					type: 'textarea',
+				},
+			];
+			const properties = {
+				user: {
+					lastname: 'myName',
+					firstname: '',
+				},
+				comment: '',
+			};
+
+			// when
+			const errors = validateAll(mergedSchema, properties, customValidationFn);
+
+			// then
+			expect(errors).toEqual({
+				comment: 'This field is invalid', // custom validation
+				'user,firstname': 'Missing required property: firstname',
+			});
+		});
 	});
 
 	describe('#isValid', () => {
@@ -362,10 +463,7 @@ describe('Validation utils', () => {
 			// given
 			const schema = {
 				key: ['user'],
-				items: [
-					{ key: ['user', 'lastname'] },
-					{ key: ['user', 'firstname'] },
-				],
+				items: [{ key: ['user', 'lastname'] }, { key: ['user', 'firstname'] }],
 			};
 			const errors = { 'user,firstname': 'this is not ok' };
 
@@ -380,10 +478,7 @@ describe('Validation utils', () => {
 			// given
 			const schema = {
 				key: ['user'],
-				items: [
-					{ key: ['user', 'lastname'] },
-					{ key: ['user', 'firstname'] },
-				],
+				items: [{ key: ['user', 'lastname'] }, { key: ['user', 'firstname'] }],
 			};
 			const errors = {};
 
