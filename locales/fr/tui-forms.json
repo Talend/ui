@@ -55,5 +55,6 @@
   "FORMAT_URL_HTTP_HTTPS": "une URL valide est requise (exemples : http://mon.domaine.com ou https://mon.domaine.com)",
   "LISTVIEW_WIDGET_ABORT": "Abandonner",
   "LISTVIEW_WIDGET_SEARCH": "Rechercher",
-  "MULTISELECTTAG_WIDGET_NONE": "Aucun(e)"
+  "MULTISELECTTAG_WIDGET_NONE": "Aucun(e)",
+  "TF_DATALIST_CUSTOM_SECTION": "PERSONNALISÉES"
 }

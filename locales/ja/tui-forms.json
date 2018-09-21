@@ -55,5 +55,6 @@
   "FORMAT_URL_HTTP_HTTPS": "有効なURLを入力して下さい(例: http://my.domain.comまたはhttps://my.domain.com)",
   "LISTVIEW_WIDGET_ABORT": "中断",
   "LISTVIEW_WIDGET_SEARCH": "検索",
-  "MULTISELECTTAG_WIDGET_NONE": "なし"
+  "MULTISELECTTAG_WIDGET_NONE": "なし",
+  "TF_DATALIST_CUSTOM_SECTION": "[JA]CUSTOM"
 }

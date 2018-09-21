@@ -55,5 +55,6 @@
   "FORMAT_URL_HTTP_HTTPS": "must be a valid URL (e.g.: http://my.domain.com or https://my.domain.com)",
   "LISTVIEW_WIDGET_ABORT": "Abort",
   "LISTVIEW_WIDGET_SEARCH": "Search",
-  "MULTISELECTTAG_WIDGET_NONE": "none"
+  "MULTISELECTTAG_WIDGET_NONE": "none",
+  "TF_DATALIST_CUSTOM_SECTION": "CUSTOM"
 }
