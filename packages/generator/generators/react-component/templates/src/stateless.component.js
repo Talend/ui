@@ -7,6 +7,7 @@ function <%= props.name %>(props) {
 	);
 }
 
+<%= props.name %>.displayName = '<%= props.name %>';
 <%= props.name %>.propTypes = {
 	name: PropTypes.string,
 };
