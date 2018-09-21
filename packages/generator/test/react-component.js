@@ -1,4 +1,6 @@
+const fs = require('fs');
 const path = require('path');
+const mkdirp = require('mkdirp');
 const helpers = require('yeoman-test');
 const assert = require('yeoman-assert');
 
@@ -8,11 +10,19 @@ const BASE_FILES = [
 	'src/app/components/HelloWorld/index.js',
 ];
 
+function addIndexAndSettings(tmpdir) {
+	// `dir` is the path to the new temporary directory
+	mkdirp.sync(path.join(tmpdir, 'src/app/components'));
+	mkdirp.sync(path.join(tmpdir, 'src/settings'));
+	fs.copyFileSync(path.join(__dirname, 'template_index_js.txt'), path.join(tmpdir, 'src/app/components/index.js'));
+}
+
 describe('talend:react-component', () => {
 	describe('default settings', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
@@ -36,6 +46,7 @@ describe('talend:react-component', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
@@ -54,12 +65,33 @@ describe('talend:react-component', () => {
 				/function HelloWorld\(props\) {/
 			);
 		});
+		it('add it to parent index.js', () => {
+			assert.fileContent(
+				'src/app/components/index.js',
+				/import HelloWorld from '\.\/HelloWorld';/
+			);
+			assert.fileContent(
+				'src/app/components/index.js',
+				/HelloWorld,/
+			);
+		});
+		it('add HelloWorld.json', () => {
+			assert.fileContent(
+				'src/settings/HelloWorld.json',
+				/"props": {/
+			);
+			assert.fileContent(
+				'src/settings/HelloWorld.json',
+				/"HelloWorld#default": {/
+			);
+		});
 	});
 
 	describe('component type = connect', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
@@ -88,6 +120,7 @@ describe('talend:react-component', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
@@ -107,6 +140,7 @@ describe('talend:react-component', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',

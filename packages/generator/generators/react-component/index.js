@@ -1,8 +1,8 @@
 const yeoman = require('yeoman-generator');
 const yosay = require('yosay');
-const fs = require('fs');
 const path = require('path');
-const recast = require('recast');
+const parser = require('./parser');
+
 
 module.exports = yeoman.Base.extend({
 	prompting() {
@@ -131,40 +131,12 @@ module.exports = yeoman.Base.extend({
 			);
 		}
 		if (this.props.parentIndex) {
-			const indexPath = path.join(this.props.path, './index.js');
-			let code;
-			try {
-				code = fs.readFileSync(indexPath);
-			} catch (error) {
-				this.log(error.message);
-			}
-			if (code) {
-				const ast = recast.parse(code);
-				const b = recast.types.builders;
-				// first find last import
-				const imports = ast.program.body.filter(item => item.type === 'ImportDeclaration');
-				const lastIndexImport = ast.program.body.indexOf(imports[imports.length - 1]);
-				// inject the new import after the last one
-				ast.program.body.splice(lastIndexImport + 1, 0, b.importDeclaration([
-					b.importDefaultSpecifier(b.identifier(this.props.name)),
-				], b.stringLiteral(this.props.name)));
-				// find the default export
-				const exportDeclaration = ast.program.body.find(item => item.type === 'ExportDefaultDeclaration');
-				// create the export property
-				const expProperty = b.objectProperty(
-					b.identifier(this.props.name), b.identifier(this.props.name)
-				);
-				expProperty.shorthand = true;  // do not repeat Foo: Foo
-				// add it
-				exportDeclaration.declaration.properties.push(expProperty);
-				// configure output to match our guideline https://github.com/benjamn/recast/blob/master/lib/options.js
-				const output = recast.print(ast, { quote: 'single', useTabs: true, trailingComma: true }).code;
-				fs.writeFile(indexPath, output, err => {
-					if (err) {
-						throw err;
-					}
-					this.log(`update ${indexPath}`);
-				});
+			const indexPath = path.join(this.props.path, 'index.js');
+			const parsedCode = parser.parse(indexPath);
+			if (parsedCode) {
+				parser.addImport(parsedCode, this.props.name);
+				parser.updateDefaultExport(parsedCode, this.props.name);
+				parser.write(indexPath, parsedCode);
 			}
 		}
 		if (this.props.settings) {
@@ -176,3 +148,4 @@ module.exports = yeoman.Base.extend({
 		}
 	},
 });
+
