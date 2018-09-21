@@ -44,6 +44,12 @@ import expression from './expression';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
+import matchPath from './sagaRouter/matchPath';
+
+let routerConfiguration;
+export function setRouterConfiguration(conf) {
+	routerConfiguration = conf;
+}
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -70,6 +76,7 @@ export function getStateToProps({
 }) {
 	const props = Object.assign({}, defaultProps);
 
+	// cmf component state in redux store
 	const cmfProps = getStateProps(
 		state,
 		getComponentName(WrappedComponent),
@@ -78,21 +85,39 @@ export function getStateToProps({
 
 	Object.assign(props, cmfProps);
 
+	// settings
 	const viewProps = mapStateToViewProps(
 		state,
 		ownProps,
 		getComponentName(WrappedComponent),
 		getComponentId(componentId, ownProps),
 	);
-
 	Object.assign(props, viewProps);
 
-	let userProps = {};
-	if (mapStateToProps) {
-		userProps = mapStateToProps(state, { ...ownProps, ...props }, cmfProps);
+	// router
+	if (routerConfiguration) {
+		const router = ownProps.router || props.router;
+		if (router && router.path) {
+			const pathname = routerConfiguration.getCurrentPathname(state) || '/';
+			const match = matchPath(pathname, router);
+			if (!match) {
+				props.renderIf = false;
+				return props;
+			}
+			props.match = match;
+		}
 	}
+
+	// user custom mapStateToProps
+	const userProps = mapStateToProps
+		? mapStateToProps(state, { ...ownProps, ...props }, cmfProps)
+		: {};
 	Object.assign(props, userProps);
-	Object.assign(props, expression.mapStateToProps(state, { ...ownProps, ...props }));
+
+	// evaluate props.XXXExpression to props.XXX
+	const expressionsProps = expression.mapStateToProps(state, { ...ownProps, ...props });
+	Object.assign(props, expressionsProps);
+
 	return props;
 }
 

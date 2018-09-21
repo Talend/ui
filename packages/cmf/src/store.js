@@ -40,6 +40,16 @@ function setHttpMiddleware(middleware) {
 	defaultHttpMiddlewareOverwrite = true;
 }
 
+function addMiddleware(middleware) {
+	if (Array.isArray(middleware)) {
+		middleware.forEach(mid => {
+			middlewares.push(mid);
+		});
+	} else {
+		middlewares.push(middleware);
+	}
+}
+
 function setReducerModifier(modifier) {
 	reducerModifier = modifier;
 }
@@ -86,11 +96,12 @@ function getReducer(appReducer) {
 		reducerObject.cmf = cmfReducers;
 	}
 
+	let rootReducer = combineReducers(reducerObject);
 	if (reducerModifier) {
-		return reducerModifier(enableBatching, preApplyReducer, combineReducers, reducerObject);
+		rootReducer = reducerModifier(rootReducer);
 	}
 
-	return enableBatching(preApplyReducer(combineReducers(reducerObject)));
+	return enableBatching(preApplyReducer(rootReducer));
 }
 
 /**
@@ -108,6 +119,7 @@ function getMiddlewares(middleware) {
 	} else if (middleware) {
 		middlewares.push(middleware);
 	}
+
 	if (!defaultHttpMiddlewareOverwrite) {
 		setHttpMiddleware(httpMiddleware());
 	}
@@ -144,6 +156,7 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 }
 
 export default {
+	addMiddleware,
 	addPreReducer,
 	setReducerModifier,
 	setHttpMiddleware,

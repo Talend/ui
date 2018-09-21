@@ -10,14 +10,10 @@ import React from 'react';
 import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import route from '../route';
+import route from './route';
 
 /**
- * @typedef {Object} Router
- */
-
-/**
- * pure arrow function that render the router component.
+ * Render the router component.
  * You should never need to use this, it's an internal component
  * @param  {object} props   The waited props (history and routes)
  * @param  {object} context The react context with the registry

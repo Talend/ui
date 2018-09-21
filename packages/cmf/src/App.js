@@ -19,13 +19,12 @@ import React from 'react';
 import { Provider, connect } from 'react-redux';
 import get from 'lodash/get';
 
-import history from './history';
 import RegistryProvider from './RegistryProvider';
 import Inject from './Inject.component';
 
-function AppSettings({ loading, initialized, routerHistory, children }) {
+function AppSettings({ loading, initialized, history, children }) {
 	if (initialized) {
-		return children(routerHistory);
+		return children(history);
 	}
 	if (loading) {
 		return <Inject component={loading} />;
@@ -34,7 +33,7 @@ function AppSettings({ loading, initialized, routerHistory, children }) {
 }
 AppSettings.propTypes = {
 	children: PropTypes.func,
-	routerHistory: PropTypes.object,
+	history: PropTypes.object,
 	initialized: PropTypes.bool,
 	loading: PropTypes.node,
 };
@@ -49,11 +48,10 @@ const ConnectedAppSettings = connect(state => ({
  * @return {object} ReactElement
  */
 export default function App(props) {
-	const hist = props.history || history.get(props.store);
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				<ConnectedAppSettings routerHistory={hist} loading={props.loading}>
+				<ConnectedAppSettings history={props.history} loading={props.loading}>
 					{props.children}
 				</ConnectedAppSettings>
 			</RegistryProvider>

@@ -5,7 +5,6 @@ import { batchedSubscribe } from 'redux-batched-subscribe';
 import { call, fork } from 'redux-saga/effects';
 import compose from 'redux';
 
-import defaultRouterBootstrap from './defaultRouter/defaultRouterBootstrap';
 import App from './App';
 import actionCreator from './actionCreator';
 import actions from './actions';
@@ -16,6 +15,7 @@ import storeAPI from './store';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import { registerInternals } from './register';
+import { setRouterConfiguration } from './cmfConnect';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
@@ -41,11 +41,33 @@ export function bootstrapRegistry(options) {
 	}
 }
 
+export function bootstrapRouter(options) {
+	const routerConfiguration = options.router;
+
+	if (!routerConfiguration) {
+		return {
+			history: options.history,
+			getStoreHistory: () => options.history,
+		};
+	}
+
+	const history = options.history || routerConfiguration.getHistory();
+	storeAPI.addMiddleware(routerConfiguration.getReduxMiddleware(history));
+	storeAPI.setReducerModifier(routerConfiguration.insertReducerFactory(history));
+	setRouterConfiguration(routerConfiguration);
+
+	return {
+		history,
+		getStoreHistory: store => routerConfiguration.getStoreHistory(history, store),
+		rootComponent: routerConfiguration.rootComponent,
+	};
+}
+
 export function bootstrapSaga(options, history) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
-		if (options.sagaRouterConfig) {
+		if (history && options.sagaRouterConfig) {
 			// eslint-disable-next-line no-console
 			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
 			yield fork(sagaRouter, history, options.sagaRouterConfig);
@@ -55,13 +77,11 @@ export function bootstrapSaga(options, history) {
 		}
 	}
 	const middleware = createSagaMiddleware();
-	return {
-		middleware,
-		run: () => middleware.run(cmfSaga),
-	};
+	storeAPI.addMiddleware(middleware);
+	return () => middleware.run(cmfSaga);
 }
 
-export function bootstrapRedux(options, customMiddlewares, reducerModifier) {
+export function bootstrapRedux(options) {
 	assertTypeOf(options, 'settingsURL', 'string');
 	assertTypeOf(options, 'preReducer', 'function');
 	assertTypeOf(options, 'httpMiddleware', 'function');
@@ -85,13 +105,7 @@ export function bootstrapRedux(options, customMiddlewares, reducerModifier) {
 		);
 	}
 	const middlewares = options.middlewares || [];
-	const store = storeAPI.initialize(
-		options.reducer,
-		options.preloadedState,
-		enhancer,
-		[...middlewares, ...customMiddlewares],
-		reducerModifier,
-	);
+	const store = storeAPI.initialize(options.reducer, options.preloadedState, enhancer, middlewares);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
 	} else {
@@ -118,24 +132,16 @@ export default function bootstrap(options = {}) {
 	assertTypeOf(options, 'history', 'object');
 
 	bootstrapRegistry(options);
-	const appId = options.appId || 'app';
-
-	const routerBootstrap = options.router || defaultRouterBootstrap;
-	const history = routerBootstrap.getHistory();
-	const routerMiddleware = routerBootstrap.getReduxMiddleware(history);
-	storeAPI.setReducerModifier(routerBootstrap.insertReducer);
-
-	const saga = bootstrapSaga(options, history);
-
-	const store = bootstrapRedux(options, [saga.middleware, routerMiddleware]);
-	const storeHistory = routerBootstrap.getStoreHistory(history, store);
-
-	saga.run();
+	const router = bootstrapRouter(options);
+	const { history, getStoreHistory, rootComponent = options.rootComponent } = router;
+	const runSaga = bootstrapSaga(options, history);
+	const store = bootstrapRedux(options);
+	runSaga();
 
 	render(
-		<App store={store} history={storeHistory} loading={options.AppLoader}>
-			{routerBootstrap.getProvider}
+		<App store={store} history={getStoreHistory(store)} loading={options.AppLoader}>
+			{rootComponent}
 		</App>,
-		document.getElementById(appId),
+		document.getElementById(options.appId || 'app'),
 	);
 }
