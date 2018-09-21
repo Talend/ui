@@ -46,6 +46,7 @@ import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 import matchPath from './sagaRouter/matchPath';
 
+// allow to inject router pathname getter which is used in the route matching
 let routerConfiguration;
 export function setRouterConfiguration(conf) {
 	routerConfiguration = conf;
