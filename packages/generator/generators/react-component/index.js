@@ -134,7 +134,7 @@ module.exports = yeoman.Base.extend({
 			const indexPath = path.join(this.props.path, 'index.js');
 			const parsedCode = parser.parse(indexPath);
 			if (parsedCode) {
-				parser.addImport(parsedCode, this.props.name);
+				parser.addDefaultImport(parsedCode, this.props.name);
 				parser.updateDefaultExport(parsedCode, this.props.name);
 				parser.write(indexPath, parsedCode);
 			}

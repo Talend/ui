@@ -8,7 +8,7 @@ const recast = require('recast');
  * @param {string} componentName the name of the generated component
  * @return {Object} AST
  */
-function createImportDeclaration(componentName) {
+function createDefaultImportDeclaration(componentName) {
 	return recast.types.builders.importDeclaration([
 		recast.types.builders.importDefaultSpecifier(
 			recast.types.builders.identifier(componentName)
@@ -31,11 +31,11 @@ function getLastImportIndex(ast) {
 /**
  * @param {Object} AST of the parsed index.js
  */
-function addImport(ast, componentName) {
+function addDefaultImport(ast, componentName) {
 	ast.program.body.splice(
 		getLastImportIndex(ast) + 1,
 		0,
-		createImportDeclaration(componentName)
+		createDefaultImportDeclaration(componentName)
 	);
 }
 
@@ -89,7 +89,7 @@ function write(filePath, ast) {
 
 module.exports = {
 	parse,
-	addImport,
+	addDefaultImport,
 	updateDefaultExport,
 	write,
 };
