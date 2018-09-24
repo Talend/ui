@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import List from './List.component';
-import JSONLike from '../JSONLike';
 
 describe('ObjectViewer.List', () => {
 	it('should render List with props data as an object', () => {
@@ -13,7 +12,7 @@ describe('ObjectViewer.List', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<List id="my-object-list" data={data} flat />);
+		const wrapper = shallow(<List data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -21,7 +20,7 @@ describe('ObjectViewer.List', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<List id="my-object-list" data={data} flat />);
+		const wrapper = shallow(<List data={data} flat />);
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -32,10 +31,10 @@ describe('ObjectViewer.List', () => {
 		expect(element.type).toBe('ul');
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);
-		expect(wrapper.find(JSONLike).length).toBe(2);
+		expect(wrapper.find('JSONLike').length).toBe(2);
 		expect(
 			wrapper
-				.find(JSONLike)
+				.find('JSONLike')
 				.first()
 				.props(),
 		).toEqual({

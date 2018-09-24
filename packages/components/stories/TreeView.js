@@ -1,22 +1,21 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { checkA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 
 import { TreeView, IconsProvider } from '../src/index';
 
 const structure = [
-	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], isOpened: false },
-	{ name: 'pikachu', children: [{ name: 'raichu' }], isOpened: true },
+	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], toggled: false },
+	{ name: 'pikachu', children: [{ name: 'raichu' }], toggled: true },
 	{
 		id: 'selected',
 		name: 'Abra',
-		isOpened: true,
+		toggled: true,
 		children: [
 			{
 				name: 'Kadabra',
-				isOpened: true,
+				toggled: true,
 				children: [
 					{
 						name: 'Alakazam',
@@ -31,7 +30,7 @@ const structureWithIcons = [
 	{
 		name: 'hitmonlee',
 		children: [{ name: 'Hitmonchan' }],
-		isOpened: false,
+		toggled: false,
 		icon: {
 			name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png',
 		},
@@ -47,7 +46,7 @@ const structureWithIcons = [
 				},
 			},
 		],
-		isOpened: true,
+		toggled: true,
 		icon: {
 			name:
 				'src-http://static.pokemonpets.com/images/monsters-images-300-300/2025-Shiny-Pikachu.png',
@@ -57,14 +56,14 @@ const structureWithIcons = [
 		id: 'selected',
 		name: 'Abra',
 		icon: { name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/63-Abra.png' },
-		isOpened: true,
+		toggled: true,
 		children: [
 			{
 				name: 'Kadabra',
 				icon: {
 					name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/64-Kadabra.png',
 				},
-				isOpened: true,
+				toggled: true,
 				children: [
 					{
 						name: 'Alakazam',
@@ -108,7 +107,7 @@ const actions = [
 const structureWithCounterAndAction = [
 	{
 		name: 'hitmonlee',
-		isOpened: true,
+		toggled: true,
 		children: [
 			{
 				name: 'raichu',
@@ -123,7 +122,7 @@ const structureWithCounterAndAction = [
 	},
 	{
 		name: 'pikachu',
-		isOpened: true,
+		toggled: true,
 		counter: 2911,
 		showCounter: true,
 		actions: removeAction,
@@ -133,7 +132,7 @@ const structureWithCounterAndAction = [
 const structureWithActions = [
 	{
 		name: 'hitmonlee',
-		isOpened: true,
+		toggled: true,
 		children: [
 			{
 				name: 'raichu',
@@ -144,17 +143,15 @@ const structureWithActions = [
 	},
 	{
 		name: 'pikachu',
-		isOpened: true,
+		toggled: true,
 		actions,
 	},
 ];
 
 const defaultProps = {
-	id: 'my-treeview',
 	structure,
 	onSelect: action('onSelect'),
 	onToggle: action('onToggle'),
-	onToggleAllSiblings: action('onToggleAllSiblings'),
 	selectedId: 'selected',
 };
 
@@ -182,55 +179,55 @@ withActions.structure = structureWithActions;
 const hugeStructure = [
 	{
 		name: 'Hitmonlee1',
-		isOpened: true,
+		toggled: true,
 		children: [
 			{
 				name: 'Hitmonchan2',
-				isOpened: true,
+				toggled: true,
 				children: [
 					{
 						name: 'Hitmonchan3',
-						isOpened: true,
+						toggled: true,
 						children: [
 							{
 								name: 'Hitmonchan4',
-								isOpened: true,
+								toggled: true,
 								children: [
 									{
 										name: 'Hitmonchan5',
-										isOpened: true,
+										toggled: true,
 										children: [
 											{
 												name: 'Hitmonchan6',
-												isOpened: true,
+												toggled: true,
 												children: [
 													{
 														name: 'Hitmonchan7',
-														isOpened: true,
+														toggled: true,
 														children: [
 															{
 																name: 'Hitmonchan8',
-																isOpened: true,
+																toggled: true,
 																children: [
 																	{
 																		name: 'Hitmonchan9',
-																		isOpened: true,
+																		toggled: true,
 																		children: [
 																			{
 																				name: 'Hitmonchan10',
-																				isOpened: true,
+																				toggled: true,
 																				children: [
 																					{
 																						name: 'Hitmonchen11',
-																						isOpened: true,
+																						toggled: true,
 																						children: [
 																							{
 																								name: 'Hitmonchen12',
-																								isOpened: true,
+																								toggled: true,
 																								children: [
 																									{
 																										name: 'Hitmonchen13',
-																										isOpened: true,
+																										toggled: true,
 																										children: [
 																											{
 																												name: 'Hitmonchen14',
@@ -275,7 +272,7 @@ cornerCaseLongName.structure = [
 	{
 		name:
 			'Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1 Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1',
-		isOpened: true,
+		toggled: true,
 	},
 ];
 

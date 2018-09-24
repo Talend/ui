@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeView item should render 1`] = `
+exports[`TreeView should render 1`] = `
 <li
-  aria-expanded={false}
+  aria-expanded={true}
   aria-level={2}
   aria-posinset={1}
   aria-selected={false}
@@ -29,7 +29,7 @@ exports[`TreeView item should render 1`] = `
       aria-hidden={true}
       className="theme-tc-treeview-toggle"
       icon="talend-caret-down"
-      iconTransform="rotate-270"
+      iconTransform={undefined}
       id="my-treeview-toggle"
       label=""
       link={true}
@@ -38,7 +38,7 @@ exports[`TreeView item should render 1`] = `
     />
     <TreeViewIcon
       icon={undefined}
-      isOpened={false}
+      toggled={true}
     />
     <span
       className="tc-treeview-item-name theme-tc-treeview-item-name"
@@ -62,10 +62,123 @@ exports[`TreeView item should render 1`] = `
       />
     </div>
   </div>
+  <ul
+    className="theme-tc-treeview-ul"
+    role="group"
+  >
+    <TreeViewItem
+      id="my-treeview-0"
+      index={1}
+      item={
+        Object {
+          "children": Array [
+            Object {
+              "id": 111,
+              "name": "me",
+            },
+            Object {
+              "id": 112,
+              "name": "bro",
+            },
+          ],
+          "id": 11,
+          "name": "mami",
+          "toggled": true,
+        }
+      }
+      itemSiblings={
+        Array [
+          Object {
+            "children": Array [
+              Object {
+                "id": 111,
+                "name": "me",
+              },
+              Object {
+                "id": 112,
+                "name": "bro",
+              },
+            ],
+            "id": 11,
+            "name": "mami",
+            "toggled": true,
+          },
+          Object {
+            "children": Array [
+              Object {
+                "id": 121,
+                "name": "cousin",
+              },
+            ],
+            "id": 12,
+            "name": "aunt",
+            "toggled": false,
+          },
+        ]
+      }
+      level={3}
+      onSelect={[Function]}
+      onToggle={[Function]}
+      onToggleAllSiblings={[Function]}
+      selectedId={undefined}
+    />
+    <TreeViewItem
+      id="my-treeview-1"
+      index={2}
+      item={
+        Object {
+          "children": Array [
+            Object {
+              "id": 121,
+              "name": "cousin",
+            },
+          ],
+          "id": 12,
+          "name": "aunt",
+          "toggled": false,
+        }
+      }
+      itemSiblings={
+        Array [
+          Object {
+            "children": Array [
+              Object {
+                "id": 111,
+                "name": "me",
+              },
+              Object {
+                "id": 112,
+                "name": "bro",
+              },
+            ],
+            "id": 11,
+            "name": "mami",
+            "toggled": true,
+          },
+          Object {
+            "children": Array [
+              Object {
+                "id": 121,
+                "name": "cousin",
+              },
+            ],
+            "id": 12,
+            "name": "aunt",
+            "toggled": false,
+          },
+        ]
+      }
+      level={3}
+      onSelect={[Function]}
+      onToggle={[Function]}
+      onToggleAllSiblings={[Function]}
+      selectedId={undefined}
+    />
+  </ul>
 </li>
 `;
 
-exports[`TreeView item should render items with icon 1`] = `
+exports[`TreeView should render items with icon 1`] = `
 <li
   aria-expanded={undefined}
   aria-level={2}
@@ -97,7 +210,7 @@ exports[`TreeView item should render items with icon 1`] = `
           "title": "A pokemon",
         }
       }
-      isOpened={false}
+      toggled={false}
     />
     <span
       className="tc-treeview-item-name theme-tc-treeview-item-name"

@@ -9,18 +9,7 @@ import Component, {
 	ComplexItem,
 } from './JSONLike.component';
 
-const callbacksProps = {
-	onKeyDown: jest.fn(),
-	onSelect: jest.fn(),
-	onToggle: jest.fn(),
-	onToggleAllSiblings: jest.fn(),
-};
-
 describe('JSONLike', () => {
-	it('should have tree gestures', () => {
-		expect(Component.WrappedComponent.displayName).toBe('TreeGesture(JSONLike)');
-	});
-
 	it('should render', () => {
 		const data = {
 			foo: 'foo',
@@ -28,10 +17,8 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(
-			<Component.WrappedComponent id="my-object" data={data} {...callbacksProps} />,
-		);
-		expect(wrapper.dive().getElement()).toMatchSnapshot();
+		const wrapper = shallow(<Component data={data} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should support className', () => {
@@ -41,7 +28,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(<Component {...callbacksProps} data={data} className="extra-test" />);
+		const wrapper = shallow(<Component data={data} className="extra-test" />);
 		expect(wrapper.props().className).toContain('extra-test');
 	});
 
@@ -170,10 +157,12 @@ describe('JSONLike', () => {
 	});
 
 	describe('ComplexItem', () => {
-		it('should render', () => {
+		it('basic render', () => {
+			// given
+			const mockOnSelect = jest.fn();
 			// when
 			const wrapper = shallow(
-				<ComplexItem {...callbacksProps} name="name" opened={[]} edited={[]} info={{}} />,
+				<ComplexItem onSelect={mockOnSelect} opened={[]} edited={[]} info={{}} />,
 			);
 
 			// expect
@@ -181,23 +170,19 @@ describe('JSONLike', () => {
 		});
 
 		it('should render injected elements next to name/sup', () => {
-			const wrapper = mount(
+			const mockHandler = jest.fn();
+			const wrapper = shallow(
 				<ComplexItem
-					{...callbacksProps}
-					name="name"
 					opened={['$']}
 					edited={[]}
-					tag={
-						<span id="injected" key="tag">
-							hello world
-						</span>
-					}
+					tag={<span id="injected">hello world</span>}
+					onToggle={mockHandler}
+					onSelect={mockHandler}
 					info={{
 						type: 'string',
 					}}
 				/>,
 			);
-
 			expect(
 				wrapper
 					.find('TooltipTrigger+#injected')
@@ -206,15 +191,18 @@ describe('JSONLike', () => {
 			).toEqual('hello world');
 		});
 
-		it("don't trigger wrapping form submit when used", () => {
+		// skeletton test to be activated when enzyme will fix
+		// https://github.com/airbnb/enzyme/issues/308
+		xit('don"t trigger wrapping form submit when used', () => {
 			// given
+			const mockOnSelect = jest.fn();
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
+			// when
 			const wrapper = mount(
 				<form onSubmit={mockOnSubmitClick}>
 					<ComplexItem
-						{...callbacksProps}
-						name="name"
+						onSelect={mockOnSelect}
 						onToggle={mockOnToggle}
 						opened={[]}
 						edited={[]}
@@ -223,16 +211,11 @@ describe('JSONLike', () => {
 					<button type="submit" onClick={mockOnSubmitClick} />
 				</form>,
 			);
-
-			expect(mockOnToggle).not.toBeCalled();
-			expect(mockOnSubmitClick).not.toBeCalled();
-
-			// when
-			wrapper.find('button.tc-object-viewer-toggle').simulate('click');
+			wrapper.find('button.tc-svg-anchor').simulate('click');
 
 			// expect
-			expect(mockOnToggle).toBeCalled();
-			expect(mockOnSubmitClick).not.toBeCalled();
+			expect(mockOnToggle.mock.calls.length).toEqual(1);
+			expect(mockOnSubmitClick.mock.calls.length).toEqual(0);
 		});
 	});
 });
