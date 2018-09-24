@@ -1,5 +1,8 @@
 const yeoman = require('yeoman-generator');
 const yosay = require('yosay');
+const path = require('path');
+const parser = require('./parser');
+
 
 module.exports = yeoman.Base.extend({
 	prompting() {
@@ -55,9 +58,30 @@ module.exports = yeoman.Base.extend({
 			name: 'path',
 			message: 'path',
 			default: 'src/app/components',
+		}, {
+			type: 'input',
+			name: 'settings',
+			message(a) {
+				return `add ${a.name}.json in`;
+			},
+			default(a) {
+				if (a.path === 'src/app/components') {
+					return 'src/settings';
+				}
+				return false;
+			},
+		}, {
+			type: 'confirm',
+			name: 'parentIndex',
+			message(a) {
+				return `export in ${a.path}/index.js`;
+			},
+			default(a) {
+				return a.path === 'src/app/components';
+			},
 		}];
 
-		return this.prompt(prompts).then((props) => {
+		return this.prompt(prompts).then(props => {
 			// To access props later use this.props.someAnswer;
 			this.props = props;
 		});
@@ -106,5 +130,22 @@ module.exports = yeoman.Base.extend({
 				this
 			);
 		}
+		if (this.props.parentIndex) {
+			const indexPath = path.join(this.props.path, 'index.js');
+			const parsedCode = parser.parse(indexPath);
+			if (parsedCode) {
+				parser.addDefaultImport(parsedCode, this.props.name);
+				parser.updateDefaultExport(parsedCode, this.props.name);
+				parser.write(indexPath, parsedCode);
+			}
+		}
+		if (this.props.settings) {
+			this.fs.copyTpl(
+				this.templatePath('src/settings.json'),
+				this.destinationPath(`${this.props.settings}/${this.props.name}.json`),
+				this
+			);
+		}
 	},
 });
+
