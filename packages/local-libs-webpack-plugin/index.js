@@ -11,13 +11,36 @@ function isLerna(filePath) {
 	return false;
 }
 
+/**
+ * `mylib/lib/package.json` -> `mylib/lib`
+ */
+
+function pathWithoutFilename(filePath) {
+	if (filePath.indexOf('/') > 0) {
+		return filePath.substr(0, filePath.lastIndexOf('/'));
+	}
+	if (filePath.indexOf('.') === -1) {
+		return filePath;
+	}
+	return '';
+}
+
 function getPackageJsonInfo(packagePath) {
 	const packageJson = getJson(packagePath);
 	return {
 		name: packageJson.name,
 		path: path.resolve(packagePath.replace('/package.json', '')),
+		mainSrc: pathWithoutFilename(packageJson.mainSrc),
+		main: pathWithoutFilename(packageJson.main),
 		peerDependencies: packageJson.peerDependencies || {},
 	};
+}
+
+/**
+ * `mylib/lib/somefile` -> `mylib/src/somefile`
+ */
+function libToSrcPath(libPath, lib) {
+	return libPath.replace(`${lib.name}/${lib.main}`, `${lib.name}/${lib.mainSrc}`);
 }
 
 function getLinkedLibs(paths) {
@@ -66,22 +89,44 @@ class LocalLibsWebpackPlugin {
 			compiler.options.resolve.alias = {};
 		}
 
-		// use src files instead of lib files (if mainSrc field exist in package.json)
-		// this is useful when you don't want to run prepublish after every change
-		// But your local webpack config must be able to bundle the lib's source code
-		compiler.options.resolve.mainFields = ['mainSrc', 'browser', 'module', 'main'];
-
 		// peerDependencies should use project's node_modules - not the library's
-		// this will avoid multiple instances of react issue for example
+		// this will avoid issues like "multiple instances of react running"
 		linkedLibs.forEach(lib => {
 			Object.keys(lib.peerDependencies).forEach(peerDependency => {
 				compiler.options.resolve.alias[peerDependency] = path.resolve('./node_modules', peerDependency);
 			});
 		});
 
-		// Add the linked libs last - to override if any of them are peerDependencies
+		// Add the linked libs last - to override if any of them are also listed as peerDependencies
 		linkedLibs.forEach(lib => {
 			compiler.options.resolve.alias[lib.name] = path.resolve(lib.path);
+		});
+
+		// Look in webpack repo (NormalModuleReplacementPlugin) how to convert to webpack 4 when needed
+		compiler.plugin('normal-module-factory', nmf => {
+			nmf.plugin('before-resolve', (result, callback) => {
+				if (!result) {
+					return callback();
+				}
+				linkedLibs.forEach(lib => {
+					if (result.request.startsWith(lib.name)) {
+						// convert paths to use mainSrc (should also work on long import paths)
+						// Examples: '@talend/somelib', '@talend/somelib/some/path'
+						if (lib.mainSrc && lib.main) {
+							result.request = libToSrcPath(result.request, lib);
+						}
+						result.request = result.request.replace(lib.name, lib.path);
+					}
+
+					if (result.request.startsWith('.') && result.context.includes(lib.path)) {
+						// Example request: './SomeComponent'
+						// First we add the context (full absolute path), then transform to mainSrc path
+						const absolutePath = path.resolve(result.context, result.request);
+						result.request = absolutePath.replace(`${lib.path}/${lib.main}`, `${lib.path}/${lib.mainSrc}`);
+					}
+				});
+				return callback(null, result);
+			});
 		});
 
 		console.log('LocalLibsWebpackPlugin: Link the following libs:'); // eslint-disable-line no-console
