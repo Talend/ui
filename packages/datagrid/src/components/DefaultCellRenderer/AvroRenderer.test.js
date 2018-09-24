@@ -29,6 +29,19 @@ describe('#AvroRenderer', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render AvroRenderer and load default component when no renderer', () => {
+		const wrapper = shallow(
+			<AvroRenderer
+				avroRenderer={{ stringCellRenderer: 'stringCellRenderer' }}
+				colDef={{ avro: { type: { type: 'unknow' } } }}
+				data={{ value: 'value' }}
+				getComponent={getComponent}
+			/>,
+		);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should mount DummyComponent', () => {
 		const wrapper = mount(
 			<AvroRenderer
