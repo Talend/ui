@@ -17,15 +17,25 @@
  * flatten an object means each keys are a jsonpath.
  * jsperf: https://jsperf.com/talend-flatten
  * @param {object} obj the source object
+ * @param {boolean} includeObjects should include object/array in the payload
  * @return {object} flatten object
  * @example
  * flatten({ level1: { level2: 'foo' }})
  * // { 'level1.level2': 'foo' }
  */
-export default function flatten(obj) {
+export default function flatten(obj, includeObjects) {
 	const payload = {};
 
 	function step(anything, key) {
+		if (
+			key !== '' &&
+			(typeof anything === 'string' ||
+				typeof anything === 'number' ||
+				typeof anything === 'boolean' ||
+				includeObjects)
+		) {
+			payload[key] = anything;
+		}
 		if (Array.isArray(anything)) {
 			anything.forEach((item, index) => {
 				const itemKey = `${key}[${index}]`;
@@ -37,12 +47,6 @@ export default function flatten(obj) {
 				const item = anything[nextKey];
 				step(item, itemKey);
 			});
-		} else if (typeof anything === 'string') {
-			payload[key] = anything;
-		} else if (typeof anything === 'number') {
-			payload[key] = anything;
-		} else if (typeof anything === 'boolean') {
-			payload[key] = anything;
 		}
 	}
 	step(obj, '');

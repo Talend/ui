@@ -152,6 +152,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
+    width={0}
   />
   <Column
     cellDataGetter={[Function]}
@@ -163,6 +164,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     headerRenderer={[Function]}
     label="Name"
     style={Object {}}
+    width={0}
   />
   <Column
     cellDataGetter={[Function]}
@@ -174,6 +176,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     headerRenderer={[Function]}
     label=""
     style={Object {}}
+    width={0}
   />
 </List>
 `;
