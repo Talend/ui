@@ -206,7 +206,7 @@ describe('JSONLike', () => {
 			).toEqual('hello world');
 		});
 
-		it("don't trigger wrapping form submit when used", () => {
+		it("should toggle item but don't trigger form submit", () => {
 			// given
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
@@ -226,13 +226,40 @@ describe('JSONLike', () => {
 
 			expect(mockOnToggle).not.toBeCalled();
 			expect(mockOnSubmitClick).not.toBeCalled();
+			const event = { stopPropagation: jest.fn() };
 
 			// when
-			wrapper.find('button.tc-object-viewer-toggle').simulate('click');
+			wrapper.find('button.tc-object-viewer-toggle').simulate('click', event);
 
 			// expect
+			expect(event.stopPropagation).toBeCalled();
 			expect(mockOnToggle).toBeCalled();
 			expect(mockOnSubmitClick).not.toBeCalled();
+		});
+
+		it('should select item', () => {
+			// given
+			const mockOnSelect = jest.fn();
+			const wrapper = mount(
+				<ComplexItem
+					{...callbacksProps}
+					name="name"
+					onSelect={mockOnSelect}
+					opened={[]}
+					edited={[]}
+					info={{}}
+				/>,
+			);
+
+			expect(mockOnSelect).not.toBeCalled();
+			const event = { stopPropagation: jest.fn() };
+
+			// when
+			wrapper.find('li').simulate('click', event);
+
+			// expect
+			expect(event.stopPropagation).toBeCalled();
+			expect(mockOnSelect).toBeCalled();
 		});
 	});
 });
