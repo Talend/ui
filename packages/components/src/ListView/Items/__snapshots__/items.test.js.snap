@@ -52,6 +52,7 @@ exports[`Items should render 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={4}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -100,7 +101,7 @@ exports[`Items should render 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={4}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -118,7 +119,7 @@ exports[`Items should render 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -189,7 +190,7 @@ exports[`Items should render 1`] = `
                   rowIndex={0}
                 >
                   <div
-                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
                       Object {
@@ -208,12 +209,11 @@ exports[`Items should render 1`] = `
                         htmlFor="tc-listview-toggle-all"
                       >
                         <input
-                          checked={false}
                           id="tc-listview-toggle-all"
                           type="checkbox"
                         />
                         <strong>
-                          Toggle all
+                          Select all
                         </strong>
                       </label>
                     </div>
@@ -259,7 +259,7 @@ exports[`Items should render 1`] = `
                   rowIndex={1}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -271,7 +271,7 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -280,15 +280,47 @@ exports[`Items should render 1`] = `
                       }
                       measure={[Function]}
                     >
-                      <div>
-                        <div
-                          className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 0",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
+                      >
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
                             className="checkbox"
+                            role="option"
                           >
                             <label>
                               <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -299,9 +331,9 @@ exports[`Items should render 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -344,7 +376,7 @@ exports[`Items should render 1`] = `
                   rowIndex={2}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -356,7 +388,7 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -366,15 +398,50 @@ exports[`Items should render 1`] = `
                       }
                       measure={[Function]}
                     >
-                      <div>
-                        <div
-                          className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "label": "Lorem ipsum dolor sit amet 1",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
+                      >
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
+                            aria-selected={true}
                             className="checkbox"
+                            role="option"
                           >
                             <label>
                               <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                 checked={true}
                                 onChange={[Function]}
                                 type="checkbox"
@@ -386,9 +453,9 @@ exports[`Items should render 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -431,7 +498,7 @@ exports[`Items should render 1`] = `
                   rowIndex={3}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="3-0"
                     style={
                       Object {
@@ -443,7 +510,7 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -452,15 +519,47 @@ exports[`Items should render 1`] = `
                       }
                       measure={[Function]}
                     >
-                      <div>
-                        <div
-                          className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 2",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
+                      >
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
                             className="checkbox"
+                            role="option"
                           >
                             <label>
                               <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -471,9 +570,9 @@ exports[`Items should render 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
               </div>
@@ -556,6 +655,7 @@ exports[`Items should render with nested items 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={3}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -613,7 +713,7 @@ exports[`Items should render with nested items 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={3}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -631,7 +731,7 @@ exports[`Items should render with nested items 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -699,7 +799,7 @@ exports[`Items should render with nested items 1`] = `
                   rowIndex={0}
                 >
                   <div
-                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
                       Object {
@@ -718,12 +818,11 @@ exports[`Items should render with nested items 1`] = `
                         htmlFor="tc-listview-toggle-all"
                       >
                         <input
-                          checked={false}
                           id="tc-listview-toggle-all"
                           type="checkbox"
                         />
                         <strong>
-                          Toggle all
+                          Select all
                         </strong>
                       </label>
                     </div>
@@ -766,7 +865,7 @@ exports[`Items should render with nested items 1`] = `
                   rowIndex={1}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -778,7 +877,7 @@ exports[`Items should render with nested items 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -787,15 +886,47 @@ exports[`Items should render with nested items 1`] = `
                       }
                       measure={[Function]}
                     >
-                      <div>
-                        <div
-                          className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor default",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
+                      >
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor default",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
                             className="checkbox"
+                            role="option"
                           >
                             <label>
                               <input
+                                aria-label="Select Lorem ipsum dolor default"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -806,9 +937,9 @@ exports[`Items should render with nested items 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -848,7 +979,7 @@ exports[`Items should render with nested items 1`] = `
                   rowIndex={2}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -860,7 +991,7 @@ exports[`Items should render with nested items 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       isSwitchBox={false}
                       item={
                         Object {
@@ -882,15 +1013,74 @@ exports[`Items should render with nested items 1`] = `
                       }
                       measure={[Function]}
                     >
-                      <div>
-                        <div
-                          className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "children": Array [
+                              Object {
+                                "label": "Lorem ipsum dolor sit amet 0",
+                              },
+                              Object {
+                                "checked": true,
+                                "label": "Lorem ipsum dolor sit amet 1",
+                              },
+                              Object {
+                                "label": "Lorem ipsum dolor sit amet 2",
+                              },
+                            ],
+                            "label": "Lorem ipsum dolor Parent",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
+                      >
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "checked": true,
+                              "children": Array [
+                                Object {
+                                  "label": "Lorem ipsum dolor sit amet 0",
+                                },
+                                Object {
+                                  "checked": true,
+                                  "label": "Lorem ipsum dolor sit amet 1",
+                                },
+                                Object {
+                                  "label": "Lorem ipsum dolor sit amet 2",
+                                },
+                              ],
+                              "label": "Lorem ipsum dolor Parent",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
+                            aria-selected={true}
                             className="checkbox switch-nested"
+                            role="option"
                           >
                             <label>
                               <input
+                                aria-label="Deselect Lorem ipsum dolor Parent"
                                 checked={true}
                                 onChange={[Function]}
                                 type="checkbox"
@@ -906,20 +1096,26 @@ exports[`Items should render with nested items 1`] = `
                             >
                               <Action
                                 bsStyle="link"
+                                hideLabel={true}
                                 icon="talend-caret-down"
+                                label="Expand Lorem ipsum dolor Parent"
                                 onClick={[Function]}
                               >
                                 <Translate(ActionButton)
                                   bsStyle="link"
+                                  hideLabel={true}
                                   icon="talend-caret-down"
+                                  label="Expand Lorem ipsum dolor Parent"
                                   onClick={[Function]}
                                 >
                                   <I18n
                                     bindI18n="languageChanged loaded"
                                     bindStore="added removed"
                                     bsStyle="link"
+                                    hideLabel={true}
                                     i18n={Object {}}
                                     icon="talend-caret-down"
+                                    label="Expand Lorem ipsum dolor Parent"
                                     ns={
                                       Array [
                                         "tui-components",
@@ -936,64 +1132,74 @@ exports[`Items should render with nested items 1`] = `
                                       available={true}
                                       bsStyle="link"
                                       disabled={false}
+                                      hideLabel={true}
                                       i18n={Object {}}
                                       icon="talend-caret-down"
                                       inProgress={false}
+                                      label="Expand Lorem ipsum dolor Parent"
                                       loading={false}
                                       onClick={[Function]}
                                       t={[Function]}
                                       tReady={false}
                                       tooltipPlacement="top"
                                     >
-                                      <Button
-                                        active={false}
-                                        block={false}
-                                        bsClass="btn"
-                                        bsStyle="link"
-                                        className="btn-icon-only"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onMouseDown={[Function]}
-                                        role={null}
+                                      <TooltipTrigger
+                                        label="Expand Lorem ipsum dolor Parent"
+                                        tooltipPlacement="top"
                                       >
-                                        <button
-                                          className="btn-icon-only btn btn-link"
+                                        <Button
+                                          active={false}
+                                          aria-label="Expand Lorem ipsum dolor Parent"
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          className="btn-icon-only"
                                           disabled={false}
                                           onClick={[Function]}
+                                          onFocus={[Function]}
                                           onMouseDown={[Function]}
+                                          onMouseOver={[Function]}
                                           role={null}
-                                          type="button"
                                         >
-                                          <Icon
-                                            key="icon"
-                                            name="talend-caret-down"
+                                          <button
+                                            aria-label="Expand Lorem ipsum dolor Parent"
+                                            className="btn-icon-only btn btn-link"
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseDown={[Function]}
+                                            onMouseOver={[Function]}
+                                            role={null}
+                                            type="button"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
+                                            <Icon
+                                              key="icon"
                                               name="talend-caret-down"
-                                              title={null}
                                             >
-                                              <use
-                                                xlinkHref="#talend-caret-down"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                          <span
-                                            key="label"
-                                          />
-                                        </button>
-                                      </Button>
+                                              <svg
+                                                aria-hidden="true"
+                                                className="theme-tc-svg-icon tc-svg-icon"
+                                                focusable="false"
+                                                name="talend-caret-down"
+                                                title={null}
+                                              >
+                                                <use
+                                                  xlinkHref="#talend-caret-down"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </TooltipTrigger>
                                     </ActionButton>
                                   </I18n>
                                 </Translate(ActionButton)>
                               </Action>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
               </div>
@@ -1059,6 +1265,7 @@ exports[`Items should render with provided id 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={4}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -1107,7 +1314,7 @@ exports[`Items should render with provided id 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={4}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -1125,7 +1332,7 @@ exports[`Items should render with provided id 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -1196,7 +1403,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={0}
                 >
                   <div
-                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
                     key="0-0"
                     style={
                       Object {
@@ -1215,12 +1422,11 @@ exports[`Items should render with provided id 1`] = `
                         htmlFor="my-widget-toggle-all"
                       >
                         <input
-                          checked={false}
                           id="my-widget-toggle-all"
                           type="checkbox"
                         />
                         <strong>
-                          Toggle all
+                          Select all
                         </strong>
                       </label>
                     </div>
@@ -1266,7 +1472,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={1}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -1278,7 +1484,7 @@ exports[`Items should render with provided id 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       id="my-widget-1-item"
                       isSwitchBox={false}
                       item={
@@ -1289,19 +1495,52 @@ exports[`Items should render with provided id 1`] = `
                       key="my-widget-1-item"
                       measure={[Function]}
                     >
-                      <div
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
                         id="my-widget-1-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 0",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox-container"
+                        <Item
+                          i18n={Object {}}
+                          id="my-widget-1-item"
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
                             className="checkbox"
+                            id="my-widget-1-item"
+                            role="option"
                           >
                             <label
                               htmlFor="checkbox-my-widget-1-item"
                             >
                               <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
                                 id="checkbox-my-widget-1-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1313,9 +1552,9 @@ exports[`Items should render with provided id 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -1358,7 +1597,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={2}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -1370,7 +1609,7 @@ exports[`Items should render with provided id 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       id="my-widget-2-item"
                       isSwitchBox={false}
                       item={
@@ -1382,19 +1621,55 @@ exports[`Items should render with provided id 1`] = `
                       key="my-widget-2-item"
                       measure={[Function]}
                     >
-                      <div
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
                         id="my-widget-2-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "label": "Lorem ipsum dolor sit amet 1",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox-container"
+                        <Item
+                          i18n={Object {}}
+                          id="my-widget-2-item"
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
+                            aria-selected={true}
                             className="checkbox"
+                            id="my-widget-2-item"
+                            role="option"
                           >
                             <label
                               htmlFor="checkbox-my-widget-2-item"
                             >
                               <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                 checked={true}
                                 id="checkbox-my-widget-2-item"
                                 onChange={[Function]}
@@ -1407,9 +1682,9 @@ exports[`Items should render with provided id 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
                 <CellMeasurer
@@ -1452,7 +1727,7 @@ exports[`Items should render with provided id 1`] = `
                   rowIndex={3}
                 >
                   <div
-                    className="theme-tc-item-container theme-false tc-item-container"
+                    className="theme-tc-item-container tc-item-container"
                     key="3-0"
                     style={
                       Object {
@@ -1464,7 +1739,7 @@ exports[`Items should render with provided id 1`] = `
                       }
                     }
                   >
-                    <Item
+                    <Translate(Item)
                       id="my-widget-3-item"
                       isSwitchBox={false}
                       item={
@@ -1475,19 +1750,52 @@ exports[`Items should render with provided id 1`] = `
                       key="my-widget-3-item"
                       measure={[Function]}
                     >
-                      <div
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
                         id="my-widget-3-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 2",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox-container"
+                        <Item
+                          i18n={Object {}}
+                          id="my-widget-3-item"
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
                           <div
                             className="checkbox"
+                            id="my-widget-3-item"
+                            role="option"
                           >
                             <label
                               htmlFor="checkbox-my-widget-3-item"
                             >
                               <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
                                 id="checkbox-my-widget-3-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1499,9 +1807,9 @@ exports[`Items should render with provided id 1`] = `
                               </span>
                             </label>
                           </div>
-                        </div>
-                      </div>
-                    </Item>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
                   </div>
                 </CellMeasurer>
               </div>

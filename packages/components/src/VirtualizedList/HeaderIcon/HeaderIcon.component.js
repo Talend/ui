@@ -13,8 +13,10 @@ import theme from './HeaderIcon.scss';
 function HeaderIcon({ label, sortBy, dataKey, sortDirection, columnData }) {
 	return (
 		<div className={classnames(theme['tc-header-icon'], 'tc-header-icon')}>
-			{columnData.iconName && <Icon name={columnData.iconName} title={label} />}
-			{sortBy === dataKey && <SortIndicator sortDirection={sortDirection} />}
+			<span title={label} aria-label={label}>
+				{columnData.iconName && <Icon name={columnData.iconName} />}
+				{sortBy === dataKey && <SortIndicator sortDirection={sortDirection} />}
+			</span>
 		</div>
 	);
 }

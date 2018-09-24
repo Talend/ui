@@ -1,42 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Datalist component should render a typeahead 1`] = `
-<div
-  className="theme-tc-datalist"
->
-  <Typeahead
-    autoFocus={true}
-    caret={true}
-    disabled={false}
-    docked={false}
-    errorMessage="This should be correct"
-    focusedItemIndex={undefined}
-    focusedSectionIndex={undefined}
-    id="my-datalist"
-    isLoadingText="Loading..."
-    isValid={true}
-    items={null}
-    multiSection={false}
-    noResultText="there is nothing ..."
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onSelect={[Function]}
-    placeholder="Type here"
-    position="left"
-    readOnly={false}
-    searching={false}
-    searchingText="Searching for matches..."
-    theme={
-      Object {
-        "container": "theme-container tc-datalist-container",
-        "itemsContainer": "theme-items-container",
-        "itemsList": "theme-items",
-      }
+<Typeahead
+  autoFocus={true}
+  caret={true}
+  className="tc-datalist"
+  disabled={false}
+  docked={false}
+  errorMessage="This should be correct"
+  focusedItemIndex={undefined}
+  focusedSectionIndex={undefined}
+  id="my-datalist"
+  isLoadingText="Loading..."
+  isValid={true}
+  items={null}
+  multiSection={false}
+  noResultText="there is nothing ..."
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onSelect={[Function]}
+  placeholder="Type here"
+  position="left"
+  readOnly={false}
+  searching={false}
+  searchingText="Searching for matches..."
+  theme={
+    Object {
+      "container": "theme-container tc-datalist-container",
+      "itemsContainer": "theme-items-container",
+      "itemsList": "theme-items",
     }
-    title="My List"
-    value="foo"
-  />
-</div>
+  }
+  title="My List"
+  value="foo"
+/>
 `;

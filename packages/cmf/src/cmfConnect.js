@@ -214,7 +214,6 @@ export default function cmfConnect({
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
-				...WrappedComponent.propTypes,
 				...cmfConnect.propTypes,
 			};
 			static contextTypes = {

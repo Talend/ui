@@ -66,11 +66,8 @@ describe('gridrow', () => {
 	});
 
 	describe('#getColumnData', () => {
-		it('should return column data from field, enhanced with id from parent props', () => {
+		it('should return column data from field', () => {
 			// given
-			const parent = {
-				props: { id: 'my-id' },
-			};
 			const field = {
 				props: {
 					columnData: { info: 'lol' },
@@ -78,13 +75,10 @@ describe('gridrow', () => {
 			};
 
 			// when
-			const columnData = getColumnData(parent, field);
+			const columnData = getColumnData(field);
 
 			// then
-			expect(columnData).toEqual({
-				id: 'my-id',
-				info: 'lol',
-			});
+			expect(columnData).toEqual({ info: 'lol' });
 		});
 	});
 
@@ -149,7 +143,6 @@ describe('gridrow', () => {
 			const columnData = { custom: 'lol' };
 			const parent = {
 				props: {
-					id: 'my-item-id',
 					rowGetter: index => collection[index],
 				},
 			};
@@ -167,7 +160,7 @@ describe('gridrow', () => {
 
 			// then
 			expect(cellDataGetter).toBeCalledWith({
-				columnData: { id: 'my-item-id', custom: 'lol' },
+				columnData,
 				dataKey: 'name',
 				rowData: collection[1],
 			});

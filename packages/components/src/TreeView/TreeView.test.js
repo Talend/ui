@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ExportedTreeView from './index';
 import TreeView from './TreeView.component';
 
 const defaultProps = {
@@ -30,45 +29,47 @@ const defaultProps = {
 		},
 	],
 	headerText: 'some elements',
-	addAction: () => null,
+	addAction: jest.fn(),
 	addActionLabel: 'add element',
-	onSelect: () => null,
-	onClick: () => null,
+	onSelect: jest.fn(),
+	onToggle: jest.fn(),
+	onToggleAllSiblings: jest.fn(),
 };
 
 describe('TreeView', () => {
-	it('should be exported', () => {
-		expect(TreeView).toBe(ExportedTreeView);
+	it('should be wrapped by tree gesture HOC', () => {
+		expect(TreeView.displayName).toBe('TreeGesture(TreeView)');
 	});
-	it('should render normally with all buttons and custom labels', () => {
+
+	it('should render', () => {
+		// when
 		const wrapper = shallow(<TreeView {...defaultProps} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+
+		// then
+		expect(
+			wrapper
+				.find('TreeView')
+				.shallow()
+				.getElement(),
+		).toMatchSnapshot();
 	});
+
 	it('when a user click on the add Action it should call props.addAction', () => {
+		// given
 		const props = {
 			...defaultProps,
 			addAction: jest.fn(),
 		};
 		const wrapper = shallow(<TreeView {...props} />);
-		wrapper.find('Action').simulate('click');
-		expect(props.addAction).toHaveBeenCalled();
-	});
-	it('when a user click on a TreeViewItem it should call props.onClick', () => {
-		const props = {
-			...defaultProps,
-			onClick: jest.fn(),
-		};
-		const wrapper = shallow(<TreeView {...props} />);
-		wrapper.find('TreeViewItem').simulate('click');
-		expect(props.onClick).toHaveBeenCalled();
-	});
-	it('when a user select a TreeViewItem it should call onSelect', () => {
-		const props = {
-			...defaultProps,
-			onSelect: jest.fn(),
-		};
-		const wrapper = shallow(<TreeView {...props} />);
-		wrapper.find('TreeViewItem').simulate('select');
-		expect(props.onSelect).toHaveBeenCalled();
+		expect(props.addAction).not.toBeCalled();
+
+		// when
+		wrapper
+			.dive()
+			.find('Action')
+			.simulate('click');
+
+		// then
+		expect(props.addAction).toBeCalled();
 	});
 });

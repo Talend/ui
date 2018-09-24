@@ -1,3 +1,4 @@
+import AboutDialogExample from './ExampleAboutDialog';
 import ActionExample from './ExampleAction';
 import ActionBarExample from './ExampleActionBar';
 import ActionDropdown from './ExampleActionDropdown';
@@ -21,10 +22,12 @@ import SliderExample from './ExampleSlider';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 import SubHeaderBarExample from './ExampleSubHeaderBar';
+import EditableTextExample from './ExampleEditableText';
 import TabBarExample from './ExampleTabBar';
 import TypeaheadExample from './ExampleTypeahead';
 
 export default {
+	AboutDialogExample,
 	ActionExample,
 	ActionBarExample,
 	ActionDropdown,
@@ -47,6 +50,7 @@ export default {
 	SidePanelExample,
 	SliderExample,
 	SubHeaderBarExample,
+	EditableTextExample,
 	TabBarExample,
 	TreeViewExample,
 	TypeaheadExample,

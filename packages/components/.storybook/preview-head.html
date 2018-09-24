@@ -1,15 +1,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <!-- Storybook should have visible overflow since we have Action Logger -->
 <style>
-	body {
-		overflow-y: auto !important;
-		max-height: none !important;
-		min-height: 100vh;
-	}
-
 	html.focus-outline-hidden *:focus {
 		outline: none !important;
 	}
+
+    body {
+        min-height: 70vh;
+
+        /* Layout set style on body that disable the scroll. This restore the default so we can scroll in the story */
+        overflow: visible !important;
+        width: auto !important;
+    }
 
 	.tc-drawer.drawer-custom {
 		background-color: #000;

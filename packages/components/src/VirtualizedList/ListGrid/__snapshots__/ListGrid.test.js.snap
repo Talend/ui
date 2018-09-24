@@ -9,7 +9,6 @@ exports[`ListGrid should render noRows 1`] = `
   noRowsRenderer={[Function]}
   rowHeight={130}
   rowRenderer={[Function]}
-  selectionToggle={[Function]}
   width={1024}
 >
   <List
@@ -153,6 +152,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
+    width={0}
   />
   <Column
     cellDataGetter={[Function]}
@@ -164,6 +164,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     headerRenderer={[Function]}
     label="Name"
     style={Object {}}
+    width={0}
   />
   <Column
     cellDataGetter={[Function]}
@@ -175,6 +176,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
     headerRenderer={[Function]}
     label=""
     style={Object {}}
+    width={0}
   />
 </List>
 `;

@@ -5,8 +5,19 @@ import Badge from '../../Badge';
 /**
  * Cell renderer that displays a badge
  */
-function CellBadge({ columnData, cellData, rowIndex }) {
-	return <Badge id={`${rowIndex}`} label={cellData} selected={columnData.selected} />;
+class CellBadge extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		return (
+			this.props.cellData !== nextProps.cellData ||
+			this.props.columnData !== nextProps.columnData ||
+			this.props.rowIndex !== nextProps.rowIndex
+		);
+	}
+
+	render() {
+		const { columnData, cellData, rowIndex } = this.props;
+		return <Badge id={`${rowIndex}`} label={cellData} selected={columnData.selected} />;
+	}
 }
 
 CellBadge.displayName = 'VirtualizedList(CellBadge)';

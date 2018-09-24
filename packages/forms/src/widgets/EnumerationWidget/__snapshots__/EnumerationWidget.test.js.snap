@@ -514,8 +514,10 @@ exports[`EnumerationWidget delete all 1`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -523,8 +525,10 @@ exports[`EnumerationWidget delete all 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -533,9 +537,11 @@ exports[`EnumerationWidget delete all 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -558,6 +564,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -579,6 +586,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -589,6 +597,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -621,8 +630,10 @@ exports[`EnumerationWidget delete all 1`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -630,8 +641,10 @@ exports[`EnumerationWidget delete all 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -640,9 +653,11 @@ exports[`EnumerationWidget delete all 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -665,6 +680,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -686,6 +702,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -696,6 +713,7 @@ exports[`EnumerationWidget delete all 1`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -2106,8 +2124,10 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -2115,8 +2135,10 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -2125,9 +2147,11 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -2150,6 +2174,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -2171,6 +2196,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -2181,6 +2207,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -2213,8 +2240,10 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -2222,8 +2251,10 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -2232,9 +2263,11 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -2257,6 +2290,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -2278,6 +2312,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -2288,6 +2323,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -2954,8 +2990,10 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -2963,8 +3001,10 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -2973,9 +3013,11 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -2998,6 +3040,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -3019,6 +3062,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -3029,6 +3073,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -3061,8 +3106,10 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -3070,8 +3117,10 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -3080,9 +3129,11 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -3105,6 +3156,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -3126,6 +3178,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -3136,6 +3189,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -3888,8 +3942,10 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -3897,8 +3953,10 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -3907,9 +3965,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -3932,6 +3992,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -3953,6 +4014,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -3963,6 +4025,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -3995,8 +4058,10 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -4004,8 +4069,10 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -4014,9 +4081,11 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -4039,6 +4108,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -4060,6 +4130,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -4070,6 +4141,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -6173,8 +6245,10 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -6182,8 +6256,10 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -6192,9 +6268,11 @@ exports[`EnumerationWidget should delete an item 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -6217,6 +6295,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -6238,6 +6317,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -6248,6 +6328,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -6280,8 +6361,10 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -6289,8 +6372,10 @@ exports[`EnumerationWidget should delete an item 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -6299,9 +6384,11 @@ exports[`EnumerationWidget should delete an item 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -6324,6 +6411,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -6345,6 +6433,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -6355,6 +6444,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -7042,8 +7132,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -7051,8 +7143,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -7061,9 +7155,11 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -7086,6 +7182,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -7107,6 +7204,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -7117,6 +7215,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -7149,8 +7248,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -7158,8 +7259,10 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -7168,9 +7271,11 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -7193,6 +7298,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -7214,6 +7320,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -7224,6 +7331,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -10024,8 +10132,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -10033,8 +10143,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -10043,9 +10155,11 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -10068,6 +10182,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -10089,6 +10204,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -10099,6 +10215,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -10131,8 +10248,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     </Action>
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="1-enum-header-action"
                       label="Add item"
                       link={true}
@@ -10140,8 +10259,10 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -10150,9 +10271,11 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -10175,6 +10298,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -10196,6 +10320,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -10206,6 +10331,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -12102,8 +12228,10 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                       >
                         <Action
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           icon="talend-search"
+                          id="search"
                           key="0-enum-header-action"
                           label="Search for specific values"
                           link={true}
@@ -12111,8 +12239,10 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         >
                           <Translate(ActionButton)
                             btooltipPlacement="bottom"
+                            disabled={false}
                             hideLabel={true}
                             icon="talend-search"
+                            id="search"
                             label="Search for specific values"
                             link={true}
                             onClick={[Function]}
@@ -12121,9 +12251,11 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               bindI18n="languageChanged loaded"
                               bindStore="added removed"
                               btooltipPlacement="bottom"
+                              disabled={false}
                               hideLabel={true}
                               i18n={Object {}}
                               icon="talend-search"
+                              id="search"
                               label="Search for specific values"
                               link={true}
                               ns={
@@ -12146,6 +12278,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 hideLabel={true}
                                 i18n={Object {}}
                                 icon="talend-search"
+                                id="search"
                                 inProgress={false}
                                 label="Search for specific values"
                                 link={true}
@@ -12167,6 +12300,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     bsStyle="link"
                                     className="btn-icon-only"
                                     disabled={false}
+                                    id="search"
                                     onClick={[Function]}
                                     onFocus={[Function]}
                                     onMouseDown={[Function]}
@@ -12177,6 +12311,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                       aria-label="Search for specific values"
                                       className="btn-icon-only btn btn-link"
                                       disabled={false}
+                                      id="search"
                                       onClick={[Function]}
                                       onFocus={[Function]}
                                       onMouseDown={[Function]}
@@ -12209,8 +12344,10 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         </Action>
                         <Action
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           icon="talend-plus"
+                          id="add"
                           key="1-enum-header-action"
                           label="Add item"
                           link={true}
@@ -12218,8 +12355,10 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                         >
                           <Translate(ActionButton)
                             btooltipPlacement="bottom"
+                            disabled={false}
                             hideLabel={true}
                             icon="talend-plus"
+                            id="add"
                             label="Add item"
                             link={true}
                             onClick={[Function]}
@@ -12228,9 +12367,11 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                               bindI18n="languageChanged loaded"
                               bindStore="added removed"
                               btooltipPlacement="bottom"
+                              disabled={false}
                               hideLabel={true}
                               i18n={Object {}}
                               icon="talend-plus"
+                              id="add"
                               label="Add item"
                               link={true}
                               ns={
@@ -12253,6 +12394,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 hideLabel={true}
                                 i18n={Object {}}
                                 icon="talend-plus"
+                                id="add"
                                 inProgress={false}
                                 label="Add item"
                                 link={true}
@@ -12274,6 +12416,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                     bsStyle="link"
                                     className="btn-icon-only"
                                     disabled={false}
+                                    id="add"
                                     onClick={[Function]}
                                     onFocus={[Function]}
                                     onMouseDown={[Function]}
@@ -12284,6 +12427,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                       aria-label="Add item"
                                       className="btn-icon-only btn btn-link"
                                       disabled={false}
+                                      id="add"
                                       onClick={[Function]}
                                       onFocus={[Function]}
                                       onMouseDown={[Function]}
@@ -13080,8 +13224,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -13089,8 +13235,10 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -13099,9 +13247,11 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -13124,6 +13274,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -13145,6 +13296,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -13155,6 +13307,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -13185,8 +13338,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                         </I18n>
                       </Translate(ActionButton)>
                     </Action>
-                    <ActionDropdown
-                      bsStyle="default"
+                    <Translate(ActionDropdown)
                       btooltipPlacement="bottom"
                       data-feature="file.import"
                       displayMode="dropdown"
@@ -13215,283 +13367,365 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                       noCaret={true}
                       onClick={[Function]}
                       pullRight={true}
-                      tooltipPlacement="top"
                     >
-                      <TooltipTrigger
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        btooltipPlacement="bottom"
+                        data-feature="file.import"
+                        displayMode="dropdown"
+                        hideLabel={true}
+                        i18n={Object {}}
+                        icon="talend-download"
+                        id="upload"
+                        items={
+                          Array [
+                            Object {
+                              "data-feature": "file.add",
+                              "id": "append-uploding",
+                              "label": "Add values from a file",
+                              "onClick": [Function],
+                            },
+                            Object {
+                              "data-feature": "file.overwrite",
+                              "id": "append-uploding",
+                              "label": "Overwrite existing values",
+                              "onClick": [Function],
+                            },
+                          ]
+                        }
                         label="Import values from a file"
-                        tooltipPlacement="top"
+                        link={true}
+                        noCaret={true}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        onClick={[Function]}
+                        pullRight={true}
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <DropdownButton
-                          aria-label="Import values from a file"
-                          bsStyle="link"
+                        <ActionDropdown
+                          bsStyle="default"
                           btooltipPlacement="bottom"
-                          className="theme-tc-dropdown-button tc-dropdown-button"
                           data-feature="file.import"
                           displayMode="dropdown"
+                          hideLabel={true}
+                          i18n={Object {}}
+                          icon="talend-download"
                           id="upload"
-                          noCaret={true}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseOver={[Function]}
-                          onSelect={[Function]}
-                          onToggle={[Function]}
-                          pullRight={true}
-                          role="button"
-                          title={
+                          items={
                             Array [
-                              <Icon
-                                name="talend-download"
-                            />,
-                              null,
+                              Object {
+                                "data-feature": "file.add",
+                                "id": "append-uploding",
+                                "label": "Add values from a file",
+                                "onClick": [Function],
+                              },
+                              Object {
+                                "data-feature": "file.overwrite",
+                                "id": "append-uploding",
+                                "label": "Overwrite existing values",
+                                "onClick": [Function],
+                              },
                             ]
                           }
+                          label="Import values from a file"
+                          link={true}
+                          noCaret={true}
+                          onClick={[Function]}
+                          pullRight={true}
+                          t={[Function]}
+                          tReady={false}
+                          tooltipPlacement="top"
                         >
-                          <Uncontrolled(Dropdown)
-                            bsStyle="link"
-                            id="upload"
-                            onSelect={[Function]}
-                            onToggle={[Function]}
-                            pullRight={true}
-                            role="button"
+                          <TooltipTrigger
+                            label="Import values from a file"
+                            tooltipPlacement="top"
                           >
-                            <Dropdown
-                              bsClass="dropdown"
+                            <DropdownButton
+                              aria-label="Import values from a file"
                               bsStyle="link"
-                              componentClass={[Function]}
+                              btooltipPlacement="bottom"
+                              className="theme-tc-dropdown-button tc-dropdown-button"
+                              data-feature="file.import"
+                              displayMode="dropdown"
+                              i18n={Object {}}
                               id="upload"
+                              noCaret={true}
+                              onClick={[Function]}
+                              onFocus={[Function]}
+                              onMouseOver={[Function]}
                               onSelect={[Function]}
                               onToggle={[Function]}
                               pullRight={true}
                               role="button"
+                              title={
+                                Array [
+                                  <Icon
+                                    name="talend-download"
+                                />,
+                                  null,
+                                ]
+                              }
                             >
-                              <ButtonGroup
-                                block={false}
-                                bsClass="btn-group"
+                              <Uncontrolled(Dropdown)
                                 bsStyle="link"
-                                className="dropdown"
-                                justified={false}
-                                vertical={false}
+                                id="upload"
+                                onSelect={[Function]}
+                                onToggle={[Function]}
+                                pullRight={true}
+                                role="button"
                               >
-                                <div
-                                  className="dropdown btn-group btn-group-link"
+                                <Dropdown
+                                  bsClass="dropdown"
+                                  bsStyle="link"
+                                  componentClass={[Function]}
+                                  id="upload"
+                                  onSelect={[Function]}
+                                  onToggle={[Function]}
+                                  pullRight={true}
+                                  role="button"
                                 >
-                                  <DropdownToggle
-                                    aria-label="Import values from a file"
-                                    bsClass="dropdown-toggle"
-                                    bsRole="toggle"
+                                  <ButtonGroup
+                                    block={false}
+                                    bsClass="btn-group"
                                     bsStyle="link"
-                                    btooltipPlacement="bottom"
-                                    className="theme-tc-dropdown-button tc-dropdown-button"
-                                    data-feature="file.import"
-                                    displayMode="dropdown"
-                                    id="upload"
-                                    key=".0"
-                                    noCaret={true}
-                                    onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onKeyDown={[Function]}
-                                    onMouseOver={[Function]}
-                                    open={false}
-                                    role="button"
-                                    useAnchor={false}
+                                    className="dropdown"
+                                    justified={false}
+                                    vertical={false}
                                   >
-                                    <Button
-                                      active={false}
-                                      aria-expanded={false}
-                                      aria-haspopup={true}
-                                      aria-label="Import values from a file"
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="link"
-                                      btooltipPlacement="bottom"
-                                      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
-                                      data-feature="file.import"
-                                      disabled={false}
-                                      displayMode="dropdown"
-                                      id="upload"
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onKeyDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role="button"
+                                    <div
+                                      className="dropdown btn-group btn-group-link"
                                     >
-                                      <button
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
+                                      <DropdownToggle
                                         aria-label="Import values from a file"
+                                        bsClass="dropdown-toggle"
+                                        bsRole="toggle"
+                                        bsStyle="link"
                                         btooltipPlacement="bottom"
-                                        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+                                        className="theme-tc-dropdown-button tc-dropdown-button"
                                         data-feature="file.import"
-                                        disabled={false}
                                         displayMode="dropdown"
+                                        i18n={Object {}}
                                         id="upload"
+                                        key=".0"
+                                        noCaret={true}
                                         onClick={[Function]}
                                         onFocus={[Function]}
                                         onKeyDown={[Function]}
                                         onMouseOver={[Function]}
+                                        open={false}
                                         role="button"
-                                        type="button"
+                                        useAnchor={false}
                                       >
-                                        <Icon
-                                          key="icon"
-                                          name="talend-download"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-download"
-                                            title={null}
-                                          >
-                                            <use
-                                              xlinkHref="#talend-download"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                      </button>
-                                    </Button>
-                                  </DropdownToggle>
-                                  <DropdownMenu
-                                    bsClass="dropdown-menu"
-                                    bsRole="menu"
-                                    key=".1"
-                                    labelledBy="upload"
-                                    onClose={[Function]}
-                                    onSelect={[Function]}
-                                    pullRight={true}
-                                  >
-                                    <RootCloseWrapper
-                                      disabled={true}
-                                      event="click"
-                                      onRootClose={[Function]}
-                                    >
-                                      <ul
-                                        aria-labelledby="upload"
-                                        className="dropdown-menu dropdown-menu-right"
-                                        role="menu"
-                                      >
-                                        <MenuItem
-                                          bsClass="dropdown"
-                                          className="theme-tc-dropdown-item tc-dropdown-item"
-                                          data-feature="file.add"
+                                        <Button
+                                          active={false}
+                                          aria-expanded={false}
+                                          aria-haspopup={true}
+                                          aria-label="Import values from a file"
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          btooltipPlacement="bottom"
+                                          className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
+                                          data-feature="file.import"
                                           disabled={false}
-                                          divider={false}
-                                          eventKey={
-                                            Object {
-                                              "data-feature": "file.add",
-                                              "id": "append-uploding",
-                                              "label": "Add values from a file",
-                                              "onClick": [Function],
-                                            }
-                                          }
-                                          header={false}
-                                          id="append-uploding"
-                                          key=".2:$0"
-                                          label="Add values from a file"
+                                          displayMode="dropdown"
+                                          i18n={Object {}}
+                                          id="upload"
                                           onClick={[Function]}
+                                          onFocus={[Function]}
                                           onKeyDown={[Function]}
-                                          onSelect={[Function]}
-                                          title="Add values from a file"
+                                          onMouseOver={[Function]}
+                                          role="button"
                                         >
-                                          <li
-                                            className="theme-tc-dropdown-item tc-dropdown-item"
-                                            role="presentation"
+                                          <button
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            aria-label="Import values from a file"
+                                            btooltipPlacement="bottom"
+                                            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+                                            data-feature="file.import"
+                                            disabled={false}
+                                            displayMode="dropdown"
+                                            i18n={Object {}}
+                                            id="upload"
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onKeyDown={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="button"
+                                            type="button"
                                           >
-                                            <SafeAnchor
-                                              componentClass="a"
+                                            <Icon
+                                              key="icon"
+                                              name="talend-download"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                className="theme-tc-svg-icon tc-svg-icon"
+                                                focusable="false"
+                                                name="talend-download"
+                                                title={null}
+                                              >
+                                                <use
+                                                  xlinkHref="#talend-download"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </DropdownToggle>
+                                      <DropdownMenu
+                                        bsClass="dropdown-menu"
+                                        bsRole="menu"
+                                        key=".1"
+                                        labelledBy="upload"
+                                        onClose={[Function]}
+                                        onSelect={[Function]}
+                                        pullRight={true}
+                                      >
+                                        <RootCloseWrapper
+                                          disabled={true}
+                                          event="click"
+                                          onRootClose={[Function]}
+                                        >
+                                          <ul
+                                            aria-labelledby="upload"
+                                            className="dropdown-menu dropdown-menu-right"
+                                            role="menu"
+                                          >
+                                            <MenuItem
+                                              bsClass="dropdown"
+                                              className="theme-tc-dropdown-item tc-dropdown-item"
                                               data-feature="file.add"
+                                              disabled={false}
+                                              divider={false}
+                                              eventKey={
+                                                Object {
+                                                  "data-feature": "file.add",
+                                                  "id": "append-uploding",
+                                                  "label": "Add values from a file",
+                                                  "onClick": [Function],
+                                                }
+                                              }
+                                              header={false}
                                               id="append-uploding"
+                                              key=".2:$0"
                                               label="Add values from a file"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
-                                              role="menuitem"
-                                              tabIndex="-1"
+                                              onSelect={[Function]}
                                               title="Add values from a file"
                                             >
-                                              <a
-                                                data-feature="file.add"
-                                                href="#"
-                                                id="append-uploding"
-                                                label="Add values from a file"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                                title="Add values from a file"
+                                              <li
+                                                className="theme-tc-dropdown-item tc-dropdown-item"
+                                                role="presentation"
                                               >
-                                                Add values from a file
-                                              </a>
-                                            </SafeAnchor>
-                                          </li>
-                                        </MenuItem>
-                                        <MenuItem
-                                          bsClass="dropdown"
-                                          className="theme-tc-dropdown-item tc-dropdown-item"
-                                          data-feature="file.overwrite"
-                                          disabled={false}
-                                          divider={false}
-                                          eventKey={
-                                            Object {
-                                              "data-feature": "file.overwrite",
-                                              "id": "append-uploding",
-                                              "label": "Overwrite existing values",
-                                              "onClick": [Function],
-                                            }
-                                          }
-                                          header={false}
-                                          id="append-uploding"
-                                          key=".2:$1"
-                                          label="Overwrite existing values"
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          onSelect={[Function]}
-                                          title="Overwrite existing values"
-                                        >
-                                          <li
-                                            className="theme-tc-dropdown-item tc-dropdown-item"
-                                            role="presentation"
-                                          >
-                                            <SafeAnchor
-                                              componentClass="a"
+                                                <SafeAnchor
+                                                  componentClass="a"
+                                                  data-feature="file.add"
+                                                  id="append-uploding"
+                                                  label="Add values from a file"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="menuitem"
+                                                  tabIndex="-1"
+                                                  title="Add values from a file"
+                                                >
+                                                  <a
+                                                    data-feature="file.add"
+                                                    href="#"
+                                                    id="append-uploding"
+                                                    label="Add values from a file"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="menuitem"
+                                                    tabIndex="-1"
+                                                    title="Add values from a file"
+                                                  >
+                                                    Add values from a file
+                                                  </a>
+                                                </SafeAnchor>
+                                              </li>
+                                            </MenuItem>
+                                            <MenuItem
+                                              bsClass="dropdown"
+                                              className="theme-tc-dropdown-item tc-dropdown-item"
                                               data-feature="file.overwrite"
+                                              disabled={false}
+                                              divider={false}
+                                              eventKey={
+                                                Object {
+                                                  "data-feature": "file.overwrite",
+                                                  "id": "append-uploding",
+                                                  "label": "Overwrite existing values",
+                                                  "onClick": [Function],
+                                                }
+                                              }
+                                              header={false}
                                               id="append-uploding"
+                                              key=".2:$1"
                                               label="Overwrite existing values"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
-                                              role="menuitem"
-                                              tabIndex="-1"
+                                              onSelect={[Function]}
                                               title="Overwrite existing values"
                                             >
-                                              <a
-                                                data-feature="file.overwrite"
-                                                href="#"
-                                                id="append-uploding"
-                                                label="Overwrite existing values"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                                title="Overwrite existing values"
+                                              <li
+                                                className="theme-tc-dropdown-item tc-dropdown-item"
+                                                role="presentation"
                                               >
-                                                Overwrite existing values
-                                              </a>
-                                            </SafeAnchor>
-                                          </li>
-                                        </MenuItem>
-                                      </ul>
-                                    </RootCloseWrapper>
-                                  </DropdownMenu>
-                                </div>
-                              </ButtonGroup>
-                            </Dropdown>
-                          </Uncontrolled(Dropdown)>
-                        </DropdownButton>
-                      </TooltipTrigger>
-                    </ActionDropdown>
+                                                <SafeAnchor
+                                                  componentClass="a"
+                                                  data-feature="file.overwrite"
+                                                  id="append-uploding"
+                                                  label="Overwrite existing values"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="menuitem"
+                                                  tabIndex="-1"
+                                                  title="Overwrite existing values"
+                                                >
+                                                  <a
+                                                    data-feature="file.overwrite"
+                                                    href="#"
+                                                    id="append-uploding"
+                                                    label="Overwrite existing values"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="menuitem"
+                                                    tabIndex="-1"
+                                                    title="Overwrite existing values"
+                                                  >
+                                                    Overwrite existing values
+                                                  </a>
+                                                </SafeAnchor>
+                                              </li>
+                                            </MenuItem>
+                                          </ul>
+                                        </RootCloseWrapper>
+                                      </DropdownMenu>
+                                    </div>
+                                  </ButtonGroup>
+                                </Dropdown>
+                              </Uncontrolled(Dropdown)>
+                            </DropdownButton>
+                          </TooltipTrigger>
+                        </ActionDropdown>
+                      </I18n>
+                    </Translate(ActionDropdown)>
                     <Action
                       btooltipPlacement="bottom"
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="2-enum-header-action"
                       label="Add item"
                       link={true}
@@ -13501,6 +13735,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                         btooltipPlacement="bottom"
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -13512,6 +13747,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -13534,6 +13770,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -13555,6 +13792,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -13565,6 +13803,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -14315,6 +14554,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       btooltipPlacement="bottom"
                       hideLabel={true}
                       icon="talend-cross"
+                      id="loading"
                       inProgress={true}
                       key="0-enum-header-action"
                       label="Loading"
@@ -14325,6 +14565,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         btooltipPlacement="bottom"
                         hideLabel={true}
                         icon="talend-cross"
+                        id="loading"
                         inProgress={true}
                         label="Loading"
                         link={true}
@@ -14337,6 +14578,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-cross"
+                          id="loading"
                           inProgress={true}
                           label="Loading"
                           link={true}
@@ -14360,6 +14602,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-cross"
+                            id="loading"
                             inProgress={true}
                             label="Loading"
                             link={true}
@@ -14385,6 +14628,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   bsStyle="link"
                                   className="btn-icon-only theme-btn-disabled"
                                   disabled={true}
+                                  id="loading"
                                   onClick={[Function]}
                                   onMouseDown={[Function]}
                                   role="link"
@@ -14393,6 +14637,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     aria-label="Loading (in progress)"
                                     className="btn-icon-only theme-btn-disabled btn btn-link"
                                     disabled={true}
+                                    id="loading"
                                     onClick={[Function]}
                                     onMouseDown={[Function]}
                                     role="link"
@@ -16488,8 +16733,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   >
                     <Action
                       btooltipPlacement="bottom"
+                      disabled={false}
                       hideLabel={true}
                       icon="talend-search"
+                      id="search"
                       key="0-enum-header-action"
                       label="Search for specific values"
                       link={true}
@@ -16497,8 +16744,10 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                     >
                       <Translate(ActionButton)
                         btooltipPlacement="bottom"
+                        disabled={false}
                         hideLabel={true}
                         icon="talend-search"
+                        id="search"
                         label="Search for specific values"
                         link={true}
                         onClick={[Function]}
@@ -16507,9 +16756,11 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           bindI18n="languageChanged loaded"
                           bindStore="added removed"
                           btooltipPlacement="bottom"
+                          disabled={false}
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-search"
+                          id="search"
                           label="Search for specific values"
                           link={true}
                           ns={
@@ -16532,6 +16783,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-search"
+                            id="search"
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
@@ -16553,6 +16805,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="search"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -16563,6 +16816,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   aria-label="Search for specific values"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="search"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}
@@ -16593,8 +16847,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         </I18n>
                       </Translate(ActionButton)>
                     </Action>
-                    <ActionDropdown
-                      bsStyle="default"
+                    <Translate(ActionDropdown)
                       btooltipPlacement="bottom"
                       displayMode="dropdown"
                       hideLabel={true}
@@ -16622,273 +16875,353 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                       noCaret={true}
                       onClick={[Function]}
                       pullRight={true}
-                      tooltipPlacement="top"
                     >
-                      <TooltipTrigger
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        btooltipPlacement="bottom"
+                        displayMode="dropdown"
+                        hideLabel={true}
+                        i18n={Object {}}
+                        icon="talend-download"
+                        id="upload"
+                        items={
+                          Array [
+                            Object {
+                              "data-feature": undefined,
+                              "id": "append-uploding",
+                              "label": "Add values from a file",
+                              "onClick": [Function],
+                            },
+                            Object {
+                              "data-feature": undefined,
+                              "id": "append-uploding",
+                              "label": "Overwrite existing values",
+                              "onClick": [Function],
+                            },
+                          ]
+                        }
                         label="Import values from a file"
-                        tooltipPlacement="top"
+                        link={true}
+                        noCaret={true}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        onClick={[Function]}
+                        pullRight={true}
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <DropdownButton
-                          aria-label="Import values from a file"
-                          bsStyle="link"
+                        <ActionDropdown
+                          bsStyle="default"
                           btooltipPlacement="bottom"
-                          className="theme-tc-dropdown-button tc-dropdown-button"
                           displayMode="dropdown"
+                          hideLabel={true}
+                          i18n={Object {}}
+                          icon="talend-download"
                           id="upload"
-                          noCaret={true}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseOver={[Function]}
-                          onSelect={[Function]}
-                          onToggle={[Function]}
-                          pullRight={true}
-                          role="button"
-                          title={
+                          items={
                             Array [
-                              <Icon
-                                name="talend-download"
-                            />,
-                              null,
+                              Object {
+                                "data-feature": undefined,
+                                "id": "append-uploding",
+                                "label": "Add values from a file",
+                                "onClick": [Function],
+                              },
+                              Object {
+                                "data-feature": undefined,
+                                "id": "append-uploding",
+                                "label": "Overwrite existing values",
+                                "onClick": [Function],
+                              },
                             ]
                           }
+                          label="Import values from a file"
+                          link={true}
+                          noCaret={true}
+                          onClick={[Function]}
+                          pullRight={true}
+                          t={[Function]}
+                          tReady={false}
+                          tooltipPlacement="top"
                         >
-                          <Uncontrolled(Dropdown)
-                            bsStyle="link"
-                            id="upload"
-                            onSelect={[Function]}
-                            onToggle={[Function]}
-                            pullRight={true}
-                            role="button"
+                          <TooltipTrigger
+                            label="Import values from a file"
+                            tooltipPlacement="top"
                           >
-                            <Dropdown
-                              bsClass="dropdown"
+                            <DropdownButton
+                              aria-label="Import values from a file"
                               bsStyle="link"
-                              componentClass={[Function]}
+                              btooltipPlacement="bottom"
+                              className="theme-tc-dropdown-button tc-dropdown-button"
+                              displayMode="dropdown"
+                              i18n={Object {}}
                               id="upload"
+                              noCaret={true}
+                              onClick={[Function]}
+                              onFocus={[Function]}
+                              onMouseOver={[Function]}
                               onSelect={[Function]}
                               onToggle={[Function]}
                               pullRight={true}
                               role="button"
+                              title={
+                                Array [
+                                  <Icon
+                                    name="talend-download"
+                                />,
+                                  null,
+                                ]
+                              }
                             >
-                              <ButtonGroup
-                                block={false}
-                                bsClass="btn-group"
+                              <Uncontrolled(Dropdown)
                                 bsStyle="link"
-                                className="dropdown"
-                                justified={false}
-                                vertical={false}
+                                id="upload"
+                                onSelect={[Function]}
+                                onToggle={[Function]}
+                                pullRight={true}
+                                role="button"
                               >
-                                <div
-                                  className="dropdown btn-group btn-group-link"
+                                <Dropdown
+                                  bsClass="dropdown"
+                                  bsStyle="link"
+                                  componentClass={[Function]}
+                                  id="upload"
+                                  onSelect={[Function]}
+                                  onToggle={[Function]}
+                                  pullRight={true}
+                                  role="button"
                                 >
-                                  <DropdownToggle
-                                    aria-label="Import values from a file"
-                                    bsClass="dropdown-toggle"
-                                    bsRole="toggle"
+                                  <ButtonGroup
+                                    block={false}
+                                    bsClass="btn-group"
                                     bsStyle="link"
-                                    btooltipPlacement="bottom"
-                                    className="theme-tc-dropdown-button tc-dropdown-button"
-                                    displayMode="dropdown"
-                                    id="upload"
-                                    key=".0"
-                                    noCaret={true}
-                                    onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onKeyDown={[Function]}
-                                    onMouseOver={[Function]}
-                                    open={false}
-                                    role="button"
-                                    useAnchor={false}
+                                    className="dropdown"
+                                    justified={false}
+                                    vertical={false}
                                   >
-                                    <Button
-                                      active={false}
-                                      aria-expanded={false}
-                                      aria-haspopup={true}
-                                      aria-label="Import values from a file"
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="link"
-                                      btooltipPlacement="bottom"
-                                      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
-                                      disabled={false}
-                                      displayMode="dropdown"
-                                      id="upload"
-                                      onClick={[Function]}
-                                      onFocus={[Function]}
-                                      onKeyDown={[Function]}
-                                      onMouseOver={[Function]}
-                                      role="button"
+                                    <div
+                                      className="dropdown btn-group btn-group-link"
                                     >
-                                      <button
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
+                                      <DropdownToggle
                                         aria-label="Import values from a file"
+                                        bsClass="dropdown-toggle"
+                                        bsRole="toggle"
+                                        bsStyle="link"
                                         btooltipPlacement="bottom"
-                                        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-                                        disabled={false}
+                                        className="theme-tc-dropdown-button tc-dropdown-button"
                                         displayMode="dropdown"
+                                        i18n={Object {}}
                                         id="upload"
+                                        key=".0"
+                                        noCaret={true}
                                         onClick={[Function]}
                                         onFocus={[Function]}
                                         onKeyDown={[Function]}
                                         onMouseOver={[Function]}
+                                        open={false}
                                         role="button"
-                                        type="button"
+                                        useAnchor={false}
                                       >
-                                        <Icon
-                                          key="icon"
-                                          name="talend-download"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-download"
-                                            title={null}
-                                          >
-                                            <use
-                                              xlinkHref="#talend-download"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                      </button>
-                                    </Button>
-                                  </DropdownToggle>
-                                  <DropdownMenu
-                                    bsClass="dropdown-menu"
-                                    bsRole="menu"
-                                    key=".1"
-                                    labelledBy="upload"
-                                    onClose={[Function]}
-                                    onSelect={[Function]}
-                                    pullRight={true}
-                                  >
-                                    <RootCloseWrapper
-                                      disabled={true}
-                                      event="click"
-                                      onRootClose={[Function]}
-                                    >
-                                      <ul
-                                        aria-labelledby="upload"
-                                        className="dropdown-menu dropdown-menu-right"
-                                        role="menu"
-                                      >
-                                        <MenuItem
-                                          bsClass="dropdown"
-                                          className="theme-tc-dropdown-item tc-dropdown-item"
+                                        <Button
+                                          active={false}
+                                          aria-expanded={false}
+                                          aria-haspopup={true}
+                                          aria-label="Import values from a file"
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          btooltipPlacement="bottom"
+                                          className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
                                           disabled={false}
-                                          divider={false}
-                                          eventKey={
-                                            Object {
-                                              "data-feature": undefined,
-                                              "id": "append-uploding",
-                                              "label": "Add values from a file",
-                                              "onClick": [Function],
-                                            }
-                                          }
-                                          header={false}
-                                          id="append-uploding"
-                                          key=".2:$0"
-                                          label="Add values from a file"
+                                          displayMode="dropdown"
+                                          i18n={Object {}}
+                                          id="upload"
                                           onClick={[Function]}
+                                          onFocus={[Function]}
                                           onKeyDown={[Function]}
-                                          onSelect={[Function]}
-                                          title="Add values from a file"
+                                          onMouseOver={[Function]}
+                                          role="button"
                                         >
-                                          <li
-                                            className="theme-tc-dropdown-item tc-dropdown-item"
-                                            role="presentation"
+                                          <button
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            aria-label="Import values from a file"
+                                            btooltipPlacement="bottom"
+                                            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+                                            disabled={false}
+                                            displayMode="dropdown"
+                                            i18n={Object {}}
+                                            id="upload"
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onKeyDown={[Function]}
+                                            onMouseOver={[Function]}
+                                            role="button"
+                                            type="button"
                                           >
-                                            <SafeAnchor
-                                              componentClass="a"
+                                            <Icon
+                                              key="icon"
+                                              name="talend-download"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                className="theme-tc-svg-icon tc-svg-icon"
+                                                focusable="false"
+                                                name="talend-download"
+                                                title={null}
+                                              >
+                                                <use
+                                                  xlinkHref="#talend-download"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </DropdownToggle>
+                                      <DropdownMenu
+                                        bsClass="dropdown-menu"
+                                        bsRole="menu"
+                                        key=".1"
+                                        labelledBy="upload"
+                                        onClose={[Function]}
+                                        onSelect={[Function]}
+                                        pullRight={true}
+                                      >
+                                        <RootCloseWrapper
+                                          disabled={true}
+                                          event="click"
+                                          onRootClose={[Function]}
+                                        >
+                                          <ul
+                                            aria-labelledby="upload"
+                                            className="dropdown-menu dropdown-menu-right"
+                                            role="menu"
+                                          >
+                                            <MenuItem
+                                              bsClass="dropdown"
+                                              className="theme-tc-dropdown-item tc-dropdown-item"
+                                              disabled={false}
+                                              divider={false}
+                                              eventKey={
+                                                Object {
+                                                  "data-feature": undefined,
+                                                  "id": "append-uploding",
+                                                  "label": "Add values from a file",
+                                                  "onClick": [Function],
+                                                }
+                                              }
+                                              header={false}
                                               id="append-uploding"
+                                              key=".2:$0"
                                               label="Add values from a file"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
-                                              role="menuitem"
-                                              tabIndex="-1"
+                                              onSelect={[Function]}
                                               title="Add values from a file"
                                             >
-                                              <a
-                                                href="#"
-                                                id="append-uploding"
-                                                label="Add values from a file"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                                title="Add values from a file"
+                                              <li
+                                                className="theme-tc-dropdown-item tc-dropdown-item"
+                                                role="presentation"
                                               >
-                                                Add values from a file
-                                              </a>
-                                            </SafeAnchor>
-                                          </li>
-                                        </MenuItem>
-                                        <MenuItem
-                                          bsClass="dropdown"
-                                          className="theme-tc-dropdown-item tc-dropdown-item"
-                                          disabled={false}
-                                          divider={false}
-                                          eventKey={
-                                            Object {
-                                              "data-feature": undefined,
-                                              "id": "append-uploding",
-                                              "label": "Overwrite existing values",
-                                              "onClick": [Function],
-                                            }
-                                          }
-                                          header={false}
-                                          id="append-uploding"
-                                          key=".2:$1"
-                                          label="Overwrite existing values"
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          onSelect={[Function]}
-                                          title="Overwrite existing values"
-                                        >
-                                          <li
-                                            className="theme-tc-dropdown-item tc-dropdown-item"
-                                            role="presentation"
-                                          >
-                                            <SafeAnchor
-                                              componentClass="a"
+                                                <SafeAnchor
+                                                  componentClass="a"
+                                                  id="append-uploding"
+                                                  label="Add values from a file"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="menuitem"
+                                                  tabIndex="-1"
+                                                  title="Add values from a file"
+                                                >
+                                                  <a
+                                                    href="#"
+                                                    id="append-uploding"
+                                                    label="Add values from a file"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="menuitem"
+                                                    tabIndex="-1"
+                                                    title="Add values from a file"
+                                                  >
+                                                    Add values from a file
+                                                  </a>
+                                                </SafeAnchor>
+                                              </li>
+                                            </MenuItem>
+                                            <MenuItem
+                                              bsClass="dropdown"
+                                              className="theme-tc-dropdown-item tc-dropdown-item"
+                                              disabled={false}
+                                              divider={false}
+                                              eventKey={
+                                                Object {
+                                                  "data-feature": undefined,
+                                                  "id": "append-uploding",
+                                                  "label": "Overwrite existing values",
+                                                  "onClick": [Function],
+                                                }
+                                              }
+                                              header={false}
                                               id="append-uploding"
+                                              key=".2:$1"
                                               label="Overwrite existing values"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
-                                              role="menuitem"
-                                              tabIndex="-1"
+                                              onSelect={[Function]}
                                               title="Overwrite existing values"
                                             >
-                                              <a
-                                                href="#"
-                                                id="append-uploding"
-                                                label="Overwrite existing values"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                                title="Overwrite existing values"
+                                              <li
+                                                className="theme-tc-dropdown-item tc-dropdown-item"
+                                                role="presentation"
                                               >
-                                                Overwrite existing values
-                                              </a>
-                                            </SafeAnchor>
-                                          </li>
-                                        </MenuItem>
-                                      </ul>
-                                    </RootCloseWrapper>
-                                  </DropdownMenu>
-                                </div>
-                              </ButtonGroup>
-                            </Dropdown>
-                          </Uncontrolled(Dropdown)>
-                        </DropdownButton>
-                      </TooltipTrigger>
-                    </ActionDropdown>
+                                                <SafeAnchor
+                                                  componentClass="a"
+                                                  id="append-uploding"
+                                                  label="Overwrite existing values"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="menuitem"
+                                                  tabIndex="-1"
+                                                  title="Overwrite existing values"
+                                                >
+                                                  <a
+                                                    href="#"
+                                                    id="append-uploding"
+                                                    label="Overwrite existing values"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="menuitem"
+                                                    tabIndex="-1"
+                                                    title="Overwrite existing values"
+                                                  >
+                                                    Overwrite existing values
+                                                  </a>
+                                                </SafeAnchor>
+                                              </li>
+                                            </MenuItem>
+                                          </ul>
+                                        </RootCloseWrapper>
+                                      </DropdownMenu>
+                                    </div>
+                                  </ButtonGroup>
+                                </Dropdown>
+                              </Uncontrolled(Dropdown)>
+                            </DropdownButton>
+                          </TooltipTrigger>
+                        </ActionDropdown>
+                      </I18n>
+                    </Translate(ActionDropdown)>
                     <Action
                       btooltipPlacement="bottom"
                       hideLabel={true}
                       icon="talend-plus"
+                      id="add"
                       key="2-enum-header-action"
                       label="Add item"
                       link={true}
@@ -16898,6 +17231,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                         btooltipPlacement="bottom"
                         hideLabel={true}
                         icon="talend-plus"
+                        id="add"
                         label="Add item"
                         link={true}
                         onClick={[Function]}
@@ -16909,6 +17243,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           hideLabel={true}
                           i18n={Object {}}
                           icon="talend-plus"
+                          id="add"
                           label="Add item"
                           link={true}
                           ns={
@@ -16931,6 +17266,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             hideLabel={true}
                             i18n={Object {}}
                             icon="talend-plus"
+                            id="add"
                             inProgress={false}
                             label="Add item"
                             link={true}
@@ -16952,6 +17288,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 bsStyle="link"
                                 className="btn-icon-only"
                                 disabled={false}
+                                id="add"
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onMouseDown={[Function]}
@@ -16962,6 +17299,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                   aria-label="Add item"
                                   className="btn-icon-only btn btn-link"
                                   disabled={false}
+                                  id="add"
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onMouseDown={[Function]}

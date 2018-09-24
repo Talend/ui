@@ -9,6 +9,7 @@ export default {
 		values: PropTypes.arrayOf(PropTypes.string),
 		error: PropTypes.string,
 		icon: PropTypes.shape(Icon.propTypes),
+		className: PropTypes.string,
 		itemsProp: PropTypes.shape({
 			key: PropTypes.string,
 			onSubmitItem: PropTypes.func,

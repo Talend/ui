@@ -119,13 +119,18 @@ describe('actions.http', () => {
 			type: 'DONT_CARE',
 			onResponse: 'CALL_ME_BACK',
 		};
-		const newAction = http.onActionResponse(action, response);
+		const headers = {
+			'content-type': 'application/json'
+		};
+		const newAction = http.onActionResponse(action, response, headers);
 		expect(newAction.type).toBe('CALL_ME_BACK');
 		expect(newAction.response).toBe(response);
+		expect(newAction.headers).toBe(headers);
 
 		action.onResponse = jest.fn();
-		http.onActionResponse(action, response);
+		http.onActionResponse(action, response, headers);
 		expect(action.onResponse.mock.calls.length).toBe(1);
 		expect(action.onResponse.mock.calls[0][0]).toBe(response);
+		expect(action.onResponse.mock.calls[0][1]).toBe(headers);
 	});
 });

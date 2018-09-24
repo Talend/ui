@@ -27,6 +27,20 @@ describe('flatten', () => {
 		};
 		expect(flatten(foo)).toEqual({ 'root.array[0]': 'foo' });
 	});
+	it('should include objects and arrays in the flatten payload', () => {
+		const foo = {
+			root: {
+				array: ['foo'],
+			},
+		};
+		expect(flatten(foo, true)).toEqual({
+			root: {
+				array: ['foo'],
+			},
+			'root.array': ['foo'],
+			'root.array[0]': 'foo',
+		});
+	});
 	it('should skip function', () => {
 		const foo = {
 			root: {

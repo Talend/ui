@@ -44,7 +44,7 @@ export function sanitizeAvro(avro) {
 
 	return {
 		...avro,
-		type: avro.type.find(subType => subType !== 'null'),
+		type: avro.type.find(subType => subType.type !== 'null'),
 	};
 }
 

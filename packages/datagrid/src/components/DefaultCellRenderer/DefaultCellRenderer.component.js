@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Skeleton } from '@talend/react-components';
 
+import { AVRO_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import QualityIndicator from './QualityIndicator.component';
@@ -46,7 +47,7 @@ DefaultCellRenderer.propTypes = {
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
+				type: PropTypes.oneOf(AVRO_TYPES),
 			}),
 		}),
 	}),

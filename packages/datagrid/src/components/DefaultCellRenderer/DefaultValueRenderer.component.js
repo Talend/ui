@@ -9,7 +9,7 @@ import theme from './DefaultValueRenderer.scss';
 export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
 		className: PropTypes.object,
-		value: PropTypes.string,
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
 	};
 
 	constructor(props) {
@@ -39,12 +39,9 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	render() {
-		const hasWhiteSpace = hasWhiteSpaceCharacters(this.props.value);
-		const formattedContent = hasWhiteSpace ? (
-			<FormatValue value={this.props.value} />
-		) : (
-			this.props.value
-		);
+		const stringValue = String(this.props.value);
+		const hasWhiteSpace = hasWhiteSpaceCharacters(stringValue);
+		const formattedContent = hasWhiteSpace ? <FormatValue value={stringValue} /> : stringValue;
 
 		const content = (
 			<div

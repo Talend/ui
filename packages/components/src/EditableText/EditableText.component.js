@@ -9,30 +9,22 @@ import theme from './EditableText.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
+	const isDisabled = disabled || inProgress;
 	return (
-		<div>
-			<button
-				className={classNames(
-					theme['tc-editable-text-text-wording-button'],
-					'tc-editable-text-text-wording-button',
-					'btn',
-					'btn-link',
-				)}
-				onDoubleClick={onEdit}
-				disabled={disabled || inProgress}
+		<div className={theme['tc-editable-text-title']}>
+			<span
+				className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
+				onDoubleClick={isDisabled ? undefined : onEdit}
 			>
 				{text}
-			</button>
+			</span>
 			<Action
 				name="action-edit"
 				label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
 				icon="talend-pencil"
 				onClick={onEdit}
 				bsStyle="link"
-				className={classNames(
-					theme['tc-editable-text-text-pencil'],
-					'tc-editable-text-text-pencil',
-				)}
+				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil')}
 				disabled={disabled || inProgress}
 				hideLabel
 			/>
@@ -42,7 +34,7 @@ function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
 
 PlainTextTitle.propTypes = {
 	text: PropTypes.string.isRequired,
-	onEdit: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
 	disabled: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	t: PropTypes.func,
@@ -54,12 +46,20 @@ function EditableText({ editMode, loading, inProgress, ...rest }) {
 	}
 
 	const Component = editMode ? InlineForm : PlainTextTitle;
+	const allyProps = {};
+	if (inProgress) {
+		allyProps['aria-label'] = rest.t('EDITABLE_TEXT_IN_PROGRESS', {
+			defaultValue: 'Edit in progress',
+		});
+		allyProps['aria-busy'] = true;
+	}
 	return (
 		<div
 			className={classNames(theme['tc-editable-text'], 'tc-editable-text', {
 				[theme['tc-editable-text-blink']]: inProgress,
 				'tc-editable-text-blink': inProgress,
 			})}
+			{...allyProps}
 		>
 			<Component inProgress={inProgress} {...rest} />
 		</div>
@@ -73,7 +73,7 @@ EditableText.propTypes = {
 	editMode: PropTypes.bool,
 	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
-	onEdit: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
 	disabled: PropTypes.bool,
 	t: PropTypes.func,
 };
