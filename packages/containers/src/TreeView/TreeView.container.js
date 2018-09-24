@@ -78,7 +78,7 @@ export function transform(items, props, parent) {
 		const elem = {
 			...item,
 			id: item[props.idAttr],
-			isOpened: item.isOpened || opened.includes(item[props.idAttr]),
+			toggled: item.toggled || opened.includes(item[props.idAttr]),
 			name: item[props.nameAttr],
 			parent,
 		};
@@ -87,7 +87,7 @@ export function transform(items, props, parent) {
 
 		if (item[props.idAttr] === selectedId) {
 			for (let current = elem; current.parent; current = current.parent) {
-				current.parent.isOpened = true;
+				current.parent.toggled = true;
 			}
 		}
 
@@ -128,7 +128,7 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onSelect(event, data) {
+	onSelect(data) {
 		this.props.setState(prevState => selectWrapper(prevState, data[this.props.idAttr]));
 		if (this.props.onSelectActionCreator) {
 			this.props.dispatchActionCreator(
@@ -146,7 +146,7 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onToggle(event, data) {
+	onToggle(data) {
 		this.props.setState(prevState => toggleState(prevState, data, this.props.idAttr));
 		if (this.props.onClickActionCreator) {
 			this.props.dispatchActionCreator(
@@ -168,7 +168,7 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onToggleAllSiblings(event, data) {
+	onToggleAllSiblings(data) {
 		this.props.setState(prevState => openAllState(prevState, data, this.props.idAttr));
 	}
 

@@ -20,54 +20,45 @@ export function getAbsolutePath(index, key, flat) {
 	return `$[${index}]['${key}']`;
 }
 
-export function getHeaders(keys, isFlat, baseId) {
-	return keys.map(key => {
-		// This transforms $['id'][0]['foo'] into id[0].foo
-		const adaptedKey = isFlat
-			? key
-					.replace(/^\$\['/g, '')
-					.replace(/']\['/g, '.')
-					.replace(/]\['/g, '].')
-					.replace(/']\[/g, '[')
-					.replace(/']/g, '')
-			: key;
-		return {
-			id: `${baseId}-${adaptedKey}`,
-			key,
-			header: adaptedKey,
-		};
-	});
+export function getHeaders(keys, isFlat) {
+	if (isFlat) {
+		// $['id'][0]['foo'] -> id[0].foo
+		return keys.map(str =>
+			str
+				.replace(/^\$\['/g, '')
+				.replace(/']\['/g, '.')
+				.replace(/]\['/g, '].')
+				.replace(/']\[/g, '[')
+				.replace(/']/g, ''),
+		);
+	}
+	return keys;
 }
 
 /**
  * We construct the jsx dispayed for the header.
  * If there is a type we add it.
- * @param {array} headersDefinitions
- * @param {object} schema
+ * @param {array} headers
  */
-export function buildContentHeaders(headersDefinitions, schema) {
-	return headersDefinitions.map(({ header, id }, index) => {
+export function buildContentHeaders(headers, schema) {
+	return headers.map((key, index) => {
 		let type;
 		if (schema) {
-			type = schema.get(header);
+			type = schema.get(key);
 		}
 		if (!type) {
-			return (
-				<th key={index} id={id}>
-					{header}
-				</th>
-			);
+			return <td key={index}>{key}</td>;
 		}
 		return (
-			<th key={index} id={id}>
-				<div>{header}</div>
+			<td key={index}>
+				<div>{key}</div>
 				<div className={classNames('text-right')}>{type}</div>
-			</th>
+			</td>
 		);
 	});
 }
 
-function Table({ flat, data, title, ...props }) {
+function Table({ flat, data, ...props }) {
 	if (!Array.isArray(data) && !Array.isArray(data.dataset)) {
 		return null;
 	}
@@ -75,7 +66,7 @@ function Table({ flat, data, title, ...props }) {
 	// The datas can be an array or an array in an object. We assign the value correctly here.
 	const dataset = Array.isArray(data) ? data : data.dataset;
 	const keys = getKeys(dataset[0], flat);
-	const headers = getHeaders(keys, flat, props.id);
+	const headers = getHeaders(keys, flat, data.schema);
 	const tableClassName = classNames(
 		theme.table,
 		'tc-object-viewer',
@@ -83,8 +74,7 @@ function Table({ flat, data, title, ...props }) {
 	);
 
 	return (
-		<table className={tableClassName} id={props.id}>
-			<caption className="sr-only">{title}</caption>
+		<table className={tableClassName}>
 			<thead>
 				<tr>{buildContentHeaders(headers, data.schema)}</tr>
 			</thead>
@@ -93,10 +83,10 @@ function Table({ flat, data, title, ...props }) {
 					const flattenRow = flat ? toFlat(row) : row;
 					return (
 						<tr key={index}>
-							{headers.map(({ key, id }, j) => {
+							{keys.map((key, j) => {
 								const path = getAbsolutePath(index, key, flat);
 								return (
-									<td key={j} headers={id}>
+									<td key={j}>
 										<JSONLike
 											data={flattenRow[key]}
 											{...props}
@@ -113,10 +103,8 @@ function Table({ flat, data, title, ...props }) {
 		</table>
 	);
 }
-Table.displayName = 'Table';
+
 Table.propTypes = {
-	id: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
 	flat: PropTypes.bool,
 	data: PropTypes.oneOfType([
 		PropTypes.bool,

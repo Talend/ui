@@ -5,7 +5,6 @@ import { Action } from '../';
 import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
-import withTreeGesture from '../Tree/withTreeGesture';
 
 /**
  * A view component to display any tree structure, like folders or categories.
@@ -52,9 +51,9 @@ function TreeView(props) {
 		structure,
 		addAction,
 		addActionLabel,
-		onKeyDown,
 		onSelect,
 		onToggle,
+		onToggleAllSiblings,
 		noHeader,
 		className,
 		selectedId,
@@ -83,10 +82,10 @@ function TreeView(props) {
 					<TreeViewItem
 						id={id && `${id}-${i}`}
 						item={item}
-						siblings={structure}
-						onKeyDown={onKeyDown}
+						itemSiblings={structure}
 						onSelect={onSelect}
 						onToggle={onToggle}
+						onToggleAllSiblings={onToggleAllSiblings}
 						key={i}
 						index={i + 1}
 						selectedId={selectedId}
@@ -113,8 +112,8 @@ if (process.env.NODE_ENV !== 'production') {
 		structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 		addAction: PropTypes.func,
 		addActionLabel: PropTypes.string,
-		onKeyDown: PropTypes.func.isRequired,
 		onToggle: PropTypes.func.isRequired,
+		onToggleAllSiblings: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
 		noHeader: PropTypes.bool,
 		className: PropTypes.string,
@@ -123,4 +122,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTreeGesture(TreeView);
+export default TreeView;
