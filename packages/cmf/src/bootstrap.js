@@ -138,6 +138,10 @@ export default function bootstrap(options = {}) {
 	const store = bootstrapRedux(options);
 	runSaga();
 
+	if (options.beforeRender) {
+		options.beforeRender({ store, history });
+	}
+
 	render(
 		<App store={store} history={getStoreHistory(store)} loading={options.AppLoader}>
 			{rootComponent}
