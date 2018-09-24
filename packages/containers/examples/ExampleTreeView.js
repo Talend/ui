@@ -7,6 +7,7 @@ const ExampleTreeView = {
 		<div>
 			<IconsProvider />
 			<TreeView
+				id="my-treeview"
 				collection="with.data"
 				nameAttr="label"
 				onToggleActionCreator="object:view"
