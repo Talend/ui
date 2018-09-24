@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TreeView should render the data 1`] = `
-<TreeGesture(TreeView)
+<TreeView
+  addActionLabel="Add folder"
   childrenAttr="children"
   data={
     Immutable.List [
@@ -17,7 +18,8 @@ exports[`TreeView should render the data 1`] = `
       },
     ]
   }
-  id="my-treeview"
+  headerText="Folders"
+  id="tc-treeview"
   idAttr="id"
   nameAttr="name"
   onSelect={[Function]}
@@ -29,16 +31,16 @@ exports[`TreeView should render the data 1`] = `
       Object {
         "children": Array [],
         "id": 1,
-        "isOpened": false,
         "name": "foo",
         "parent": undefined,
+        "toggled": false,
       },
       Object {
         "children": Array [],
         "id": 2,
-        "isOpened": false,
         "name": "bar",
         "parent": undefined,
+        "toggled": false,
       },
     ]
   }

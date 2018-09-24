@@ -213,39 +213,53 @@ const data = [
 	},
 ];
 const primitiveArray = [1, 2, 3];
-const selectedJsonpath = "$[0]['attributes']";
-const showType = true;
-
-const callbacks = {
-	onSelect: action('onSelect'),
-	onSubmit: action('onSubmit'),
-	onChange: action('onChange'),
-	onToggle: action('onToggle'),
-	onToggleAllSiblings: action('onToggleAllSiblings'),
-};
 
 const handler = {
 	edited: ["$[0]['int']"],
 	opened: ['$', '$[0]', "$[0]['attributes']"],
-	...callbacks,
+	onClick: action('onClick'),
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
+
+let selectedJsonpath = "$[0]['attributes']";
+const showType = true;
 
 const handlerHighlight = {
 	edited: ["$[0]['int']"],
 	opened: ['$', '$[0]', "$[0]['attributes']"],
-	...callbacks,
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
+		selectedJsonpath = jsonpath;
+		action('onSelect');
+	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const openedNativeTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
-	...callbacks,
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
+		selectedJsonpath = jsonpath;
+		action('onSelect');
+	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const rootOpenedTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
-	...callbacks,
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => (selectedJsonpath = jsonpath),
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const withTagOnly = (
@@ -285,7 +299,14 @@ const handlerTags = {
 		"$[0]['null_value']": withTagOnly,
 		"$[0]['location']": withInfo,
 	},
-	...callbacks,
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
+		selectedJsonpath = jsonpath;
+		action('onSelect');
+	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const stories = storiesOf('ObjectViewer', module);
@@ -298,42 +319,31 @@ stories
 	.addWithInfo('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handlerHighlight} />
+			<ObjectViewer data={data} {...handlerHighlight} />
 		</div>
 	))
 	.addWithInfo('array tree with datetime', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer
-				id={'my-viewer'}
-				data={dateTimeData}
-				{...rootOpenedTypeHandler}
-				showType={showType}
-			/>
+			<ObjectViewer data={dateTimeData} {...rootOpenedTypeHandler} showType={showType} />
 		</div>
 	))
 	.addWithInfo('primitive array tree', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={primitiveArray} {...rootOpenedTypeHandler} />
+			<ObjectViewer data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.addWithInfo('tree with hightlighting', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer
-				id={'my-viewer'}
-				data={data}
-				{...handlerHighlight}
-				selectedJsonpath={selectedJsonpath}
-			/>
+			<ObjectViewer data={data} {...handlerHighlight} selectedJsonpath={selectedJsonpath} />
 		</div>
 	))
 	.addWithInfo('tree with hightlighting and type', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
 				data={data}
 				{...handlerHighlight}
 				selectedJsonpath={selectedJsonpath}
@@ -345,7 +355,6 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
 				data={data}
 				rootLabel="cafesDataset"
 				tupleLabel="Record"
@@ -357,14 +366,13 @@ stories
 	.addWithInfo('tree without rootLabel', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} tupleLabel="Record" />
+			<ObjectViewer data={data} tupleLabel="Record" />
 		</div>
 	))
 	.addWithInfo('tree with very large root label', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
-				id={'my-viewer'}
 				data={data}
 				rootLabel={veryLongDatasetLabel}
 				tupleLabel="Record"
@@ -376,38 +384,38 @@ stories
 		return (
 			<div>
 				<IconsProvider defaultIcons={icons} />
-				<ObjectViewer id={'my-viewer'} data={data} {...handlerTags} />
+				<ObjectViewer data={data} {...handlerTags} />
 			</div>
 		);
 	})
 	.addWithInfo('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handler} />
+			<ObjectViewer data={data} {...handler} />
 		</div>
 	))
 	.addWithInfo('list default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" />
+			<ObjectViewer data={data} displayMode="list" />
 		</div>
 	))
 	.addWithInfo('list with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" {...handler} />
+			<ObjectViewer data={data} displayMode="list" {...handler} />
 		</div>
 	))
 	.addWithInfo('table default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="table" />
+			<ObjectViewer data={data} displayMode="table" />
 		</div>
 	))
 	.addWithInfo('table with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="table" />
+			<ObjectViewer data={data} {...handler} displayMode="table" />
 		</div>
 	))
 	.addWithInfo('table with long text', () => {
@@ -418,25 +426,25 @@ stories
 		return (
 			<div>
 				<IconsProvider defaultIcons={icons} />
-				<ObjectViewer id={'my-viewer'} data={enhancedData} {...handler} displayMode="table" />
+				<ObjectViewer data={enhancedData} {...handler} displayMode="table" />
 			</div>
 		);
 	})
 	.addWithInfo('flat default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} displayMode="flat" />
+			<ObjectViewer data={data} displayMode="flat" />
 		</div>
 	))
 	.addWithInfo('flat default with schema', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={{ dataset: data, schema }} displayMode="flat" />
+			<ObjectViewer data={{ dataset: data, schema }} displayMode="flat" />
 		</div>
 	))
 	.addWithInfo('flat with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="flat" />
+			<ObjectViewer data={data} {...handler} displayMode="flat" />
 		</div>
 	));

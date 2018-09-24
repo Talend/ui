@@ -3,29 +3,26 @@
 exports[`ObjectViewer.List should render List with props data as an array 1`] = `
 <ul
   className="theme-container tc-object-viewer list-unstyled"
-  id="my-object-list"
 >
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <JSONLike
       data={
         Object {
           "field0": "header1",
         }
       }
       flat={true}
-      id="my-object-list"
       jsonpath="$[0]"
     />
   </li>
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <JSONLike
       data={
         Object {
           "field1": "header2",
         }
       }
       flat={true}
-      id="my-object-list"
       jsonpath="$[1]"
     />
   </li>
@@ -35,29 +32,26 @@ exports[`ObjectViewer.List should render List with props data as an array 1`] = 
 exports[`ObjectViewer.List should render List with props data as an object 1`] = `
 <ul
   className="theme-container tc-object-viewer list-unstyled"
-  id="my-object-list"
 >
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <JSONLike
       data={
         Object {
           "field0": "header1",
         }
       }
       flat={true}
-      id="my-object-list"
       jsonpath="$[0]"
     />
   </li>
   <li>
-    <Translate(TreeGesture(JSONLike))
+    <JSONLike
       data={
         Object {
           "field1": "header2",
         }
       }
       flat={true}
-      id="my-object-list"
       jsonpath="$[1]"
     />
   </li>

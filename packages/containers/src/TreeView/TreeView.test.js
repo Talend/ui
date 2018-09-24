@@ -25,10 +25,8 @@ describe('TreeView', () => {
 	});
 
 	it('should render the data', () => {
-		const wrapper = shallow(<TreeView.WrappedComponent id="my-treeview" data={data} />, {
-			context,
-		});
-		expect(wrapper.find('TreeGesture(TreeView)').getElement()).toMatchSnapshot();
+		const wrapper = shallow(<TreeView.WrappedComponent data={data} />, { context });
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should select element', () => {
@@ -43,7 +41,6 @@ describe('TreeView', () => {
 		const onSelect = jest.fn();
 		const onSelectActionCreator = 'my:action';
 		const props = {
-			id: 'my-treeview',
 			setState,
 			dispatchActionCreator,
 			data,
@@ -53,7 +50,7 @@ describe('TreeView', () => {
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
 
 		// when
-		wrapper.prop('onSelect')(null, data.get(0).toJS());
+		wrapper.prop('onSelect')(data.get(0).toJS());
 
 		// then
 		expect(setState).toHaveBeenCalled();
@@ -73,15 +70,11 @@ describe('TreeView', () => {
 		const setState = jest.fn(fn => {
 			prevState.state = fn(prevState);
 		});
-		const props = {
-			id: 'my-treeview',
-			setState,
-			data,
-		};
+		const props = { setState, data };
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
 
 		// when
-		wrapper.prop('onToggle')(null, data.get(0).toJS());
+		wrapper.prop('onToggle')(data.get(0).toJS());
 
 		// then
 		expect(setState).toHaveBeenCalled();
@@ -89,7 +82,7 @@ describe('TreeView', () => {
 		expect(prevState.state.get('opened').toJS()).toEqual([1]);
 
 		// when
-		wrapper.prop('onToggle')(null, data.get(0).toJS());
+		wrapper.prop('onToggle')(data.get(0).toJS());
 
 		// then
 		expect(setState.mock.calls.length).toBe(2);
@@ -107,7 +100,6 @@ describe('TreeView', () => {
 		const onSelect = jest.fn();
 		const onSelectActionCreator = 'my:action';
 		const props = {
-			id: 'my-treeview',
 			setState,
 			dispatchActionCreator,
 			data,
@@ -115,7 +107,7 @@ describe('TreeView', () => {
 			onSelectActionCreator,
 		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('select', null, data.get(0).toJS());
+		wrapper.simulate('select', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
@@ -127,7 +119,6 @@ describe('TreeView', () => {
 	});
 
 	it('should unselect onSelect twice', () => {
-		// given
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -135,27 +126,14 @@ describe('TreeView', () => {
 			prevState.state = fn(prevState);
 		});
 		const onSelect = jest.fn();
-		const props = {
-			id: 'my-treeview',
-			setState,
-			data,
-			onSelect,
-		};
+		const props = { setState, data, onSelect };
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-
-		// when
-		wrapper.prop('onSelect')(null, data.get(0).toJS());
-
-		// then
+		wrapper.simulate('select', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
 		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
-
-		// when
-		wrapper.prop('onSelect')(null, data.get(0).toJS());
-
-		// then
+		wrapper.simulate('select', data.get(0).toJS());
 		expect(prevState.state.get('selectedId')).toBe();
 	});
 });
@@ -206,9 +184,9 @@ describe('transform', () => {
 		];
 		const structure = transform(items, props);
 		expect(structure[0].id).toBe(1);
-		expect(structure[0].isOpened).toBe(true);
+		expect(structure[0].toggled).toBe(true);
 		expect(structure[0].children[0].id).toBe(11);
-		expect(structure[0].children[0].isOpened).toBe(true);
+		expect(structure[0].children[0].toggled).toBe(true);
 	});
 
 	it("should unfold selected's parents", () => {
@@ -238,9 +216,9 @@ describe('transform', () => {
 		];
 
 		const structure = transform(items, props);
-		expect(structure[0].isOpened).toBe(true);
-		expect(structure[0].children[0].isOpened).toBe(true);
-		expect(structure[0].children[0].children[0].isOpened).toBe(true);
-		expect(structure[1].isOpened).toBe(false);
+		expect(structure[0].toggled).toBe(true);
+		expect(structure[0].children[0].toggled).toBe(true);
+		expect(structure[0].children[0].children[0].toggled).toBe(true);
+		expect(structure[1].toggled).toBe(false);
 	});
 });

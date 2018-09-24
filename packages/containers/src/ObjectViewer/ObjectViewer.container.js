@@ -45,20 +45,8 @@ export function toggleState(prevState, data) {
 	return prevState;
 }
 
-export function openAllState(prevState, siblings) {
-	let openedIds = prevState.state.get('opened');
-
-	siblings.filter(({ data }) => typeof data === 'object').forEach(({ jsonpath }) => {
-		if (!openedIds.includes(jsonpath)) {
-			openedIds = openedIds.push(jsonpath);
-		}
-	});
-
-	return prevState.state.set('opened', openedIds);
-}
-
 export function selectWrapper(prevState, data) {
-	return select(data.jsonpath, prevState.state);
+	return select(data, prevState.state);
 }
 
 export function editWrapper(prevState, data) {
@@ -82,7 +70,6 @@ class ObjectViewer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
-		this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
 		this.onEdit = this.onEdit.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSelect = this.onSelect.bind(this);
@@ -90,10 +77,6 @@ class ObjectViewer extends React.Component {
 
 	onToggle(event, data) {
 		this.props.setState(prevState => toggleState(prevState, data));
-	}
-
-	onToggleAllSiblings(event, data) {
-		this.props.setState(prevState => openAllState(prevState, data));
 	}
 
 	onEdit(event, data) {
@@ -110,6 +93,8 @@ class ObjectViewer extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
+		// TODO: add support for mutate the data using modified state
+		// We need for that a better JSONPath support.
 		return (
 			<Component
 				{...this.props}
@@ -117,7 +102,6 @@ class ObjectViewer extends React.Component {
 				onSelect={this.onSelect}
 				onEdit={this.onEdit}
 				onToggle={this.onToggle}
-				onToggleAllSiblings={this.onToggleAllSiblings}
 				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}
