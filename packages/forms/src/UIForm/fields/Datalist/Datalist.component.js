@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
+import get from 'lodash/get';
+import { translate } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
-import callTrigger from './Datalist.trigger';
+import getDefaultT from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
+import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -43,7 +48,6 @@ class Datalist extends Component {
 	 */
 	onChange(event, payload) {
 		let mergedSchema = this.props.schema;
-
 		// with the possibility to have async suggestions, on restricted values inputs
 		// the validation doesn't have the enum list as it is not in the jsonSchema
 		// so we rebuild it with current titleMap from async call
@@ -73,23 +77,49 @@ class Datalist extends Component {
 	}
 
 	getTitleMap() {
-		const titleMap = this.state.titleMap || this.props.schema.titleMap || [];
+		const titleMap =
+			this.state.titleMap ||
+			get(this.props, 'schema.options.titleMap') ||
+			get(this.props, 'schema.titleMap') ||
+			[];
+		const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
+		const restricted = this.props.schema.restricted;
+		const type = this.props.schema.schema.type;
+		const propsValue = this.props.value;
 
-		if (!this.props.schema.restricted) {
-			const isMultiple = this.props.schema.schema.type === 'array';
-			const values = isMultiple ? this.props.value : [this.props.value];
+		let titleMapFind = titleMap;
+
+		if (!restricted) {
+			const isMultiple = type === 'array';
+			const values = isMultiple ? propsValue : [propsValue];
+
+			if (isMultiSection) {
+				titleMapFind = titleMap.reduce((prev, current) => {
+					prev.push(...current.suggestions);
+					return prev;
+				}, []);
+			}
+
 			const additionalOptions = values
-				.filter(value => value)
-				.filter(value => !titleMap.find(option => option.value === value))
-				.map(value => ({ name: this.props.resolveName(value), value }))
+				.filter(value => !titleMapFind.find(option => option.value === value))
+				.map(value => this.addCustomValue(value, isMultiSection))
 				.reduce((acc, titleMapEntry) => {
 					acc.push(titleMapEntry);
 					return acc;
 				}, []);
 			return titleMap.concat(additionalOptions);
 		}
-
 		return titleMap;
+	}
+
+	addCustomValue(value, isMultiSection) {
+		if (isMultiSection) {
+			return {
+				title: this.props.t('TF_DATALIST_CUSTOM_SECTION', { defaultValue: 'CUSTOM' }),
+				suggestions: [{ name: this.props.resolveName(value), value }],
+			};
+		}
+		return { name: this.props.resolveName(value), value };
 	}
 
 	callTrigger(event) {
@@ -104,26 +134,37 @@ class Datalist extends Component {
 
 	render() {
 		const props = omit(this.props, PROPS_TO_OMIT);
+		const descriptionId = generateDescriptionId(this.props.id);
+		const errorId = generateErrorId(this.props.id);
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
+				descriptionId={descriptionId}
+				errorId={errorId}
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
+				labelAfter
 			>
 				<DataListComponent
 					{...props}
 					{...this.state}
+					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
 					disabled={this.props.schema.disabled || false}
-					multiSection={false}
+					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap()}
+					inputProps={{
+						'aria-invalid': !this.props.isValid,
+						'aria-required': this.props.schema.required,
+						'aria-describedby': `${descriptionId} ${errorId}`,
+					}}
 				/>
 			</FieldTemplate>
 		);
@@ -134,6 +175,7 @@ Datalist.displayName = 'Datalist field';
 Datalist.defaultProps = {
 	resolveName: value => value,
 	value: '',
+	t: getDefaultT(),
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -170,9 +212,24 @@ if (process.env.NODE_ENV !== 'production') {
 					value: PropTypes.string.isRequired,
 				}),
 			),
+			options: PropTypes.shape({
+				isMultiSection: PropTypes.bool,
+				titleMap: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string.isRequired,
+						suggestions: PropTypes.arrayOf(
+							PropTypes.shape({
+								name: PropTypes.string.isRequired,
+								value: PropTypes.string.isRequired,
+							}),
+						),
+					}),
+				),
+			}),
 		}),
 		value: PropTypes.string,
+		t: PropTypes.func,
 	};
 }
 
-export default Datalist;
+export default translate(I18N_DOMAIN_FORMS)(Datalist);

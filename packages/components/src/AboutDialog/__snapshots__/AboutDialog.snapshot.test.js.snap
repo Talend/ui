@@ -9,17 +9,21 @@ exports[`AboutDialog should render 1`] = `
           Object {
             "bsStyle": "default btn-inverse",
             "label": "More",
-            "loading": false,
             "onClick": [Function],
           },
         ],
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
-  header="About my super product"
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -32,10 +36,12 @@ exports[`AboutDialog should render 1`] = `
   >
     <Text
       loading={false}
+      size="xlarge"
       text="Version: Summer 18"
     />
     <Text
       loading={false}
+      size="large"
       text="© 2018 Talend. All Rights Reserved"
     />
   </div>
@@ -51,17 +57,21 @@ exports[`AboutDialog should render in loading mode 1`] = `
           Object {
             "bsStyle": "default btn-inverse",
             "label": "More",
-            "loading": true,
             "onClick": [Function],
           },
         ],
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
-  header="About my super product"
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -74,10 +84,12 @@ exports[`AboutDialog should render in loading mode 1`] = `
   >
     <Text
       loading={true}
+      size="xlarge"
       text="Version: Summer 18"
     />
     <Text
       loading={true}
+      size="large"
       text="© 2018 Talend. All Rights Reserved"
     />
   </div>
@@ -93,17 +105,21 @@ exports[`AboutDialog should render services 1`] = `
           Object {
             "bsStyle": "default btn-inverse",
             "label": "Less",
-            "loading": false,
             "onClick": [Function],
           },
         ],
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
-  header="About my super product"
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -116,14 +132,17 @@ exports[`AboutDialog should render services 1`] = `
   >
     <Text
       loading={false}
+      size="xlarge"
       text="Version: Summer 18"
     />
     <Text
       loading={false}
+      size="large"
       text="© 2018 Talend. All Rights Reserved"
     />
   </div>
   <Table
+    loading={false}
     services={
       Array [
         Object {
@@ -162,17 +181,21 @@ exports[`AboutDialog should render with custom copyright 1`] = `
           Object {
             "bsStyle": "default btn-inverse",
             "label": "More",
-            "loading": false,
             "onClick": [Function],
           },
         ],
       },
     }
   }
+  autoFocus={true}
+  backdrop={true}
   className="theme-about-dialog about-dialog"
   closeButton={true}
-  header="About my super product"
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
   onHide={undefined}
+  restoreFocus={true}
   show={true}
   type="informative"
 >
@@ -185,10 +208,12 @@ exports[`AboutDialog should render with custom copyright 1`] = `
   >
     <Text
       loading={false}
+      size="xlarge"
       text="Version: Summer 18"
     />
     <Text
       loading={false}
+      size="large"
       text="custom copyrights"
     />
   </div>

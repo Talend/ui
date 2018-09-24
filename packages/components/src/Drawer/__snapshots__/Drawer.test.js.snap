@@ -225,48 +225,73 @@ exports[`Drawer should render with tabs 1`] = `
     <div
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
-      <nav
-        className="nav tc-tab-bar tc-drawer-tabs theme-tc-drawer-tabs theme-tc-tab-bar"
+      <div
+        className="tc-drawer-tabs theme-tc-drawer-tabs"
+        id="my-tabs"
+        onKeyDown={[Function]}
       >
         <ul
-          className="nav nav-tabs tc-tab-bar-actions"
+          className="tc-tab-bar nav nav-tabs"
+          role="tablist"
         >
           <li
-            className="tc-tab-bar-action"
+            className=""
+            role="presentation"
+            style={undefined}
           >
             <button
-              aria-label="Tab 1"
-              className="btn btn-link"
-              disabled={false}
+              aria-controls="my-tabs-pane-1"
+              aria-selected={false}
+              href="#"
+              id="my-tabs-tab-1"
+              label="Tab 1"
               onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={-1}
             >
-              <span>
-                Tab 1
-              </span>
+              Tab 1
             </button>
           </li>
           <li
-            className="tc-tab-bar-action active"
+            className="active"
+            role="presentation"
+            style={undefined}
           >
             <button
-              aria-label="Tab 2"
-              className="btn btn-link"
-              disabled={false}
+              aria-controls="my-tabs-pane-2"
+              aria-selected={true}
+              href="#"
+              id="my-tabs-tab-2"
+              label="Tab 2"
               onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={undefined}
             >
-              <span>
-                Tab 2
-              </span>
+              Tab 2
             </button>
           </li>
         </ul>
-      </nav>
+        <div
+          className="tab-content"
+        >
+          <div
+            aria-hidden={true}
+            aria-labelledby="my-tabs-tab-1"
+            className="tab-pane fade"
+            id="my-tabs-pane-1"
+            role="tabpanel"
+          />
+          <div
+            aria-hidden={false}
+            aria-labelledby="my-tabs-tab-2"
+            className="tab-pane active fade in"
+            id="my-tabs-pane-2"
+            role="tabpanel"
+          />
+        </div>
+      </div>
     </div>
     <div
       style={

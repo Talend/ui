@@ -25,6 +25,9 @@ describe('createTriggers', () => {
 	let triggers;
 	let response;
 	beforeEach(() => {
+		document.cookie = 'csrfToken=foo-token';
+		document.cookie = 'otherToken=other-token';
+		fetch.mockClear();
 		response = { body: { status: 'OK' } };
 		triggers = createTriggers({
 			url: '/foo',
@@ -33,12 +36,36 @@ describe('createTriggers', () => {
 			},
 		});
 	});
+	afterEach(() => {
+		document.cookie = 'csrfToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+		document.cookie = 'otherToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+	});
 	it('should be a function', () => {
 		expect(typeof triggers).toBe('function');
 	});
 	it('should call fetch and return the results', done => {
 		triggers({}, { trigger, schema, properties }).then(data => {
 			expect(data.errors).toEqual({});
+			expect(fetch).toHaveBeenCalled();
+			done();
+		});
+	});
+	it('should handle security by default', done => {
+		triggers({}, { trigger, schema, properties }).then(() => {
+			expect(fetch.mock.calls[0][1].headers['X-CSRF-Token']).toBe('foo-token');
+			done();
+		});
+	});
+	it('should handle security specified by config', done => {
+		triggers = createTriggers({
+			url: '/foo',
+			security: {
+				CSRFTokenCookieKey: 'otherToken',
+				CSRFTokenHeaderKey: 'X-CSRF-OTHER',
+			},
+		});
+		triggers({}, { trigger, schema, properties }).then(() => {
+			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
 			done();
 		});
 	});

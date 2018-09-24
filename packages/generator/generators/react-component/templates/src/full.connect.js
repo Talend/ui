@@ -9,7 +9,6 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 }
 
 export default cmfConnect({
-	componentId: '<%= props.name %>',  // can be a function
 	defaultState: DEFAULT_STATE,
 	mapStateToProps,
 })(Container);
