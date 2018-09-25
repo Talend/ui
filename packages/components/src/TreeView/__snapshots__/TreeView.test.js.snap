@@ -70,7 +70,12 @@ exports[`TreeView should render 1`] = `
           "toggled": true,
         }
       }
-      itemSiblings={
+      level={1}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      onToggle={[Function]}
+      selectedId={undefined}
+      siblings={
         Array [
           Object {
             "actions": Array [
@@ -111,11 +116,6 @@ exports[`TreeView should render 1`] = `
           },
         ]
       }
-      level={1}
-      onSelect={[Function]}
-      onToggle={[Function]}
-      onToggleAllSiblings={[Function]}
-      selectedId={undefined}
     />
   </ul>
 </div>
