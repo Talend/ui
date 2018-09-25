@@ -8,6 +8,7 @@ describe('Select field', () => {
 		autoFocus: true,
 		description: 'Select me',
 		placeholder: 'Please select a value',
+		required: true,
 		schema: {
 			enum: ['foo', 'bar', 'lol'],
 			type: 'string',

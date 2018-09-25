@@ -21,5 +21,6 @@ module.exports = ({ getUserConfig }) => {
 			],
 		},
 		plugins,
+		bail: true,
 	};
 };

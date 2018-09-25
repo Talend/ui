@@ -283,17 +283,8 @@ Those validations change the `errors` object accordingly.
 ### Conditional rendering
 
 It is possible to render parts of the forms defined in uiSchema, depending on properties values.
-The uiSchema accepts a `condition` property, which defines recursively all conditions to match to be rendered.
+The uiSchema accepts a `condition` property, which use [jsonLogic](http://jsonlogic.com). So please first go their and read the doc.
 
-| UISchema conditions property | Description |
-|---|---|
-| condition | Defines a condition to meet to be rendered. |
-| condition.path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
-| condition.values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
-| condition.strategy | Defines evaluation strategy, DEFAULT just takes the string value and LENGTH takes the length of arrays/strings. |
-| condition.shouldBe | Defines if the expected result of the equality test is true (default) or false. |
-| condition.children | Define an array of nested conditions composed with childrenOperator. |
-| condition.childrenOperator | How to combine the children conditions, can be OR or AND (default). |
 
 Let's take this example:
 ```json
@@ -336,8 +327,7 @@ We want
     {
       "widget": "fieldset",
       "condition": {
-        "path": "entity.kind",
-        "values": ["human", "animal"]
+        "in": [{ "var": "entity.kind"}, ["human", "animal"]]
       },
       "items": [
         {
@@ -345,8 +335,7 @@ We want
           "title": "Civility",
           "description": "This should be visible only for humans",
           "condition": {
-            "path": "entity.kind",
-            "values": ["human"]
+            "===": [{ "var": "entity.kind"}, "human"]
           }
         },
         {
@@ -449,7 +438,7 @@ So you need to synchronize the UIForm's state with your own stat system
 
 You can add new widgets, or override an existing widget by passing a widget dictionary to the form.
 
-```
+```javascript
 import React from 'react';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 
@@ -468,10 +457,10 @@ function MyComponent(props) {
 
 To develop a custom widget, you can use the following template
 
-```
+```javascript
 import PropTypes from 'prop-types';
 import React from 'react';
-import FieldTemplate from '@talend/react-forms/lib/UIForm/FieldTemplate';
+import FieldTemplate from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
 
 export default function MyWidget(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
@@ -542,7 +531,7 @@ Text.defaultProps = {
 
 UIForm accept a `displayMode` props. The value `text` will switch display to a definition list, following the ui specs.
 
-```
+```javascript
 import React from 'react';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 

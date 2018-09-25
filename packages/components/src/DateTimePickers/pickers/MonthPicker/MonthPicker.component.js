@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { chunk } from 'lodash';
+import chunk from 'lodash/chunk';
 import addMonths from 'date-fns/add_months';
 import format from 'date-fns/format';
 import theme from './MonthPicker.scss';

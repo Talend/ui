@@ -34,7 +34,7 @@ function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
 
 PlainTextTitle.propTypes = {
 	text: PropTypes.string.isRequired,
-	onEdit: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
 	disabled: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	t: PropTypes.func,
@@ -73,7 +73,7 @@ EditableText.propTypes = {
 	editMode: PropTypes.bool,
 	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
-	onEdit: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
 	disabled: PropTypes.bool,
 	t: PropTypes.func,
 };

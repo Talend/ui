@@ -1,6 +1,7 @@
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
 import { getValue } from '../utils/properties';
+import shouldValidate from '../utils/condition';
 
 /**
  * Adapt merged schema from jsfc with additional rules
@@ -175,13 +176,9 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
-		const subResults = validateSingle(
-			schema,
-			value,
-			properties,
-			customValidationFn,
-			true, // deep validation
-		);
+		const subResults = !shouldValidate(schema.condition, properties)
+			? true
+			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
 		Object.assign(results, subResults);
 	});
 	return results;

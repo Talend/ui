@@ -2,7 +2,7 @@
 
 exports[`three-columns 1`] = `
 <thead
-  className="tc-table-head theme-tc-table-head"
+  className="tc-table-head theme-tc-table-head sr-only"
 >
   <tr
     className="tc-table-head-row theme-tc-table-head-row"
@@ -43,7 +43,7 @@ exports[`three-columns 1`] = `
 
 exports[`three-columns-with-sorters 1`] = `
 <thead
-  className="tc-table-head theme-tc-table-head"
+  className="tc-table-head theme-tc-table-head sr-only"
 >
   <tr
     className="tc-table-head-row theme-tc-table-head-row"

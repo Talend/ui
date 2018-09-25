@@ -10,6 +10,18 @@ describe('#DefaultValueRenderer', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render DefaultValueRenderer with the other type', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={false} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render DefaultValueRenderer with the other type', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={undefined} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render DefaultValueRenderer (custom renderer)', () => {
 		const wrapper = shallow(<DefaultValueRenderer value=" loreum " />);
 

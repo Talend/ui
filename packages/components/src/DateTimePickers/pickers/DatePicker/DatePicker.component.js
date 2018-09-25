@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
-import { chunk } from 'lodash';
+import chunk from 'lodash/chunk';
 import format from 'date-fns/format';
 import endOfMonth from 'date-fns/end_of_month';
 import startOfWeek from 'date-fns/start_of_week';

@@ -46,19 +46,7 @@ ListView.defaultProps = {
 };
 
 function ItemsListView(props) {
-	return (
-		<Items
-			id={props.id}
-			items={props.items}
-			isSwitchBox={props.isSwitchBox}
-			searchCriteria={props.searchCriteria}
-			toggleAllChecked={props.toggleAllChecked}
-			onToggleAll={props.onToggleAll}
-			showToggleAll={props.showToggleAll}
-			getItemHeight={props.getItemHeight}
-			t={props.t}
-		/>
-	);
+	return <Items {...props} />;
 }
 
 ItemsListView.propTypes = {

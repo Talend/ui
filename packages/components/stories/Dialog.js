@@ -5,8 +5,6 @@ import { checkA11y } from '@storybook/addon-a11y';
 
 import { Dialog } from '../src/index';
 
-import './Dialog.css';
-
 const defaultProps = {
 	show: true,
 };
@@ -26,6 +24,16 @@ const subtitle = {
 	show: true,
 	header: 'Hello world',
 	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	onHide: action('onHide'),
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
+const bigTitle = {
+	show: true,
+	header: 'Hello world (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.)',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	onHide: action('onHide'),
 	action: {
 		label: 'OK',
@@ -114,6 +122,12 @@ storiesOf('Dialog', module)
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...subtitle}>{children}</Dialog>
+		</div>
+	))
+	.addWithInfo('with long title and subtitle', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...bigTitle}>{children}</Dialog>
 		</div>
 	))
 	.addWithInfo('with error', () => (

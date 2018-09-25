@@ -39,7 +39,7 @@ describe('Tabs widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Tabs schema={schema} errors={errors} />);
+		const wrapper = shallow(<Tabs.WrappedComponent schema={schema} errors={errors} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -80,9 +80,10 @@ describe('Tabs widget', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Tabs schema={schema} errors={errors} />);
+		const wrapper = shallow(<Tabs.WrappedComponent schema={schema} errors={errors} />);
+		const invalidItem = wrapper.prop('items')[0];
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(invalidItem.className).toBe('theme-has-error');
 	});
 });

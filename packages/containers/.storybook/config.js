@@ -196,6 +196,29 @@ function loadStories() {
 								author: 'Jacques',
 								created: '10/12/2013',
 								modified: '13/02/2015',
+								children: new List([
+									new Map({
+										id: 111,
+										label: 'sub sub foo',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+									new Map({
+										id: 112,
+										label: 'sub sub foo bar',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
+							}),
+							new Map({
+								id: 12,
+								label: 'sub foo bar',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
 							}),
 						]),
 					}),
@@ -288,6 +311,13 @@ function loadStories() {
 			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
+		actions['show:about'] = {
+			label: 'Show',
+			payload: {
+				type: 'ABOUT_DIALOG_SHOW',
+				url: 'https://tdp.us.cloud.talend.com/api/version',
+			},
+		};
 		actions['appheaderbar:logo'] = {
 			icon: 'talend-logo',
 		};

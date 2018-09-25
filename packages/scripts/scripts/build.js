@@ -17,7 +17,7 @@ module.exports = function build(env) {
 	// Run webpack dev server
 	return spawn.sync(
 		webpack,
-		['--config', hereRelative(__dirname, '../config/webpack.config.js')],
+		['--config', hereRelative(__dirname, '../config/webpack.config.js'), '--progress'],
 		{ stdio: 'inherit', env }
 	);
 };

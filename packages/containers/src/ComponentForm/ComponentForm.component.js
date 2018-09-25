@@ -42,21 +42,28 @@ export function toJS(immutableObject) {
  * @param value The input value
  */
 export function resolveNameForTitleMap({ schema, properties, value }) {
-	if (schema.titleMap) {
-		// Here we add a field side by side with the value
-		// to keep the title associated to the value
-		const info = schema.titleMap.find(titleMap => titleMap.value === value);
+	if (!schema.titleMap) {
+		return;
+	}
 
-		const parentKey = schema.key.slice();
-		const key = parentKey.pop();
-		const nameKey = `$${key}_name`;
-		const parentValue = getValue(properties, { key: parentKey });
+	// Here we add a field side by side with the value
+	// to keep the title associated to the value
+	const valueIsArray = Array.isArray(value);
+	const uniformValue = valueIsArray ? value : [value];
 
-		if (info) {
-			parentValue[nameKey] = info.name;
-		} else {
-			delete parentValue[nameKey];
-		}
+	const names = uniformValue
+		.map(nextValue => schema.titleMap.find(titleMap => titleMap.value === nextValue))
+		.map(entry => entry && entry.name);
+
+	const parentKey = schema.key.slice();
+	const key = parentKey.pop();
+	const nameKey = `$${key}_name`;
+	const parentValue = getValue(properties, { key: parentKey });
+
+	if (names.some(name => name !== undefined)) {
+		parentValue[nameKey] = valueIsArray ? names : names[0];
+	} else {
+		delete parentValue[nameKey];
 	}
 }
 
@@ -73,7 +80,6 @@ export class TCompForm extends React.Component {
 
 		this.getMemoizedJsonSchema = memoizeOne(toJS);
 		this.getMemoizedUiSchema = memoizeOne(toJS);
-		this.getMemoizedErrors = memoizeOne(toJS);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -134,11 +140,11 @@ export class TCompForm extends React.Component {
 			// need to rethink that, there are lots of potential issues :
 			// - race conditions,
 			// - trigger result that is does not fit user entry anymore,
-			// - ...
+			// - erase a good value put by the enduser
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
-			if (data.errors || data.jsonSchema || data.uiSchema) {
+			if (data.jsonSchema || data.uiSchema) {
 				this.props.setState(data);
 			}
 			return data;
@@ -165,6 +171,10 @@ export class TCompForm extends React.Component {
 			customRegistry: props.customTriggers,
 			headers: config.headers,
 			lang: props.lang,
+			security: {
+				CSRFTokenCookieKey: props.CSRFTokenCookieKey,
+				CSRFTokenHeaderKey: props.CSRFTokenHeaderKey,
+			},
 		});
 	}
 
@@ -196,12 +206,7 @@ export class TCompForm extends React.Component {
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
 
-		const errors = this.props.state.get('errors');
-		if (errors) {
-			props.errors = this.getMemoizedErrors(errors);
-		}
-
-		return <Form {...props} uiform />;
+		return <Form {...props} />;
 	}
 }
 
@@ -221,6 +226,8 @@ TCompForm.propTypes = {
 	lang: PropTypes.string,
 	customTriggers: PropTypes.object,
 	dispatchOnChange: PropTypes.bool,
+	CSRFTokenCookieKey: PropTypes.string,
+	CSRFTokenHeaderKey: PropTypes.string,
 };
 
 export default cmfConnect({
