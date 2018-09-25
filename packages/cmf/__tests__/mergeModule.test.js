@@ -76,4 +76,142 @@ describe('mergeModule', () => {
 		expect(config.actionCreators.foo).toBe(b.actionCreators.foo);
 		expect(config.actionCreators.bar).toBe(a.actionCreators.bar);
 	});
+	it('should throw an exeption on unknown keys', () => {
+		const toThrow = () => mergeModules({ foo: {} });
+		expect(toThrow).toThrow();
+	});
+	it('should throw an exeption if two config has appId', () => {
+		const toThrow = () => mergeModules({ appId: 'foo' }, { appId: 'bar' });
+		expect(toThrow).toThrow();
+	});
+	it('should get first appId in config', () => {
+		const left = mergeModules({ appId: 'foo' }, {}, {});
+		const right = mergeModules({}, {}, { appId: 'bar' });
+		expect(left.appId).toBe('foo');
+		expect(right.appId).toBe('bar');
+	});
+	it('should throw an exeption if two config has history', () => {
+		const toThrow = () => mergeModules({ history: 'foo' }, { history: 'bar' });
+		expect(toThrow).toThrow();
+	});
+	it('should throw an exeption if two config has history', () => {
+		const toThrow = () => mergeModules({ history: 'foo' }, { history: 'bar' });
+		expect(toThrow).toThrow();
+	});
+	it('should merge enahncer functions', () => {
+		const fn1 = jest.fn();
+		const fn2 = jest.fn();
+		const config = mergeModules({ enhancer: fn1 }, { enhancer: fn2 });
+		expect(typeof config.enhancer).toBe('function');
+		config.enhancer('foo');
+		expect(fn1).toHaveBeenCalledWith('foo');
+		expect(fn2).toHaveBeenCalledWith('foo');
+	});
+	it('should merge saga', () => {
+		const fn1 = jest.fn();
+		const fn2 = jest.fn();
+		const config = mergeModules({ saga: fn1 }, { saga: fn2 });
+		expect(typeof config.saga).toBe('function');
+		expect(config.saga).not.toBe(fn1);
+		expect(config.saga).not.toBe(fn2);
+	});
+	it('should merge middlewares', () => {
+		const mid1 = [jest.fn()];
+		const mid2 = [jest.fn()];
+		const config = mergeModules({ middlewares: mid1 }, { middlewares: mid2 });
+		expect(config.middlewares.length).toBe(2);
+		expect(config.middlewares[0]).toBe(mid1[0]);
+		expect(config.middlewares[1]).toBe(mid2[0]);
+	});
+	it('should merge storeCallback fns', () => {
+		const storeCallback1 = jest.fn();
+		const storeCallback2 = jest.fn();
+		const config = mergeModules(
+			{ storeCallback: storeCallback1 },
+			{ storeCallback: storeCallback2 },
+		);
+		expect(typeof config.storeCallback).toBe('function');
+		config.storeCallback('foo');
+		expect(storeCallback1).toHaveBeenCalledWith('foo');
+		expect(storeCallback2).toHaveBeenCalledWith('foo');
+	});
+	it('should merge reducer', () => {
+		const fn1 = jest.fn();
+		const fn2 = jest.fn();
+		const ob1 = { foo: jest.fn() };
+		const ob2 = { bar: jest.fn() };
+
+		let config = mergeModules(
+			{ reducer: fn1 },
+			{ reducer: fn2 },
+		);
+		expect(typeof config.reducer).toBe('function');
+		config.reducer('foo');
+		expect(fn1).toHaveBeenCalledWith('foo');
+		expect(fn2).toHaveBeenCalledWith('foo');
+
+		config = mergeModules(
+			{ reducer: fn1 },
+			{ reducer: ob2 },
+		);
+		expect(typeof config.reducer).toBe('object');
+		expect(config.reducer.app).toBe(fn1);
+
+		config = mergeModules(
+			{ reducer: ob1 },
+			{ reducer: fn2 },
+		);
+		expect(typeof config.reducer).toBe('object');
+		expect(config.reducer.app).toBe(fn2);
+
+		config = mergeModules(
+			{ reducer: ob1 },
+			{ reducer: ob2 },
+		);
+		expect(typeof config.reducer).toBe('object');
+		expect(config.reducer.foo).toBe(ob1.foo);
+		expect(config.reducer.bar).toBe(ob2.bar);
+	});
+	it('should merge preReducer', () => {
+		const fn1 = jest.fn();
+		const fn2 = jest.fn();
+		const array1 = [jest.fn()];
+		const array2 = [jest.fn()];
+
+		let config = mergeModules(
+			{ preReducer: fn1 },
+			{ preReducer: fn2 },
+		);
+		expect(typeof config.preReducer).toBe('function');
+		config.preReducer('foo');
+		expect(fn1).toHaveBeenCalledWith('foo');
+		expect(fn2).toHaveBeenCalledWith('foo');
+
+		config = mergeModules(
+			{ preReducer: fn1 },
+			{ preReducer: array2 },
+		);
+		expect(Array.isArray(config.reducer)).toBe(true);
+		expect(config.preReducer.length).toBe(2);
+		expect(config.preReducer[0]).toBe(fn1);
+		expect(config.preReducer[1]).toBe(array2[0]);
+
+		config = mergeModules(
+			{ preReducer: array1 },
+			{ preReducer: fn2 },
+		);
+		expect(Array.isArray(config.reducer)).toBe(true);
+		expect(config.preReducer.length).toBe(2);
+		expect(config.preReducer[0]).toBe(array1[0]);
+		expect(config.preReducer[1]).toBe(fn2);
+
+		config = mergeModules(
+			{ preReducer: array1 },
+			{ preReducer: array2 },
+		);
+		expect(Array.isArray(config.reducer)).toBe(true);
+		expect(config.preReducer.length).toBe(2);
+		expect(config.preReducer[0]).toBe(array1[0]);
+		expect(config.preReducer[1]).toBe(array2[1]);
+	});
 });

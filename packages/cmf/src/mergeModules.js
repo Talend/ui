@@ -162,16 +162,15 @@ const MERGE_FNS = {
 };
 
 function reduceConfig(acc, config) {
-	const res = Object.keys(config).reduce((subacc, key) => {
+	return Object.keys(config).reduce((subacc, key) => {
 		if (!MERGE_FNS[key]) {
 			throw new Error(`${key} is not supported`);
 		}
 		return {
 			...subacc,
-			[key]: MERGE_FNS[key](acc[key], config[key]),
+			[key]: MERGE_FNS[key](acc[key], config[key], key),
 		};
-	}, acc);
-	return res;
+	}, Object.assign({}, acc));
 }
 
 /**
