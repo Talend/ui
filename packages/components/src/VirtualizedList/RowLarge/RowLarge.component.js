@@ -21,6 +21,28 @@ const { LARGE } = listTypes;
  * Row renderer that displays a Large item
  */
 class RowLarge extends React.Component {
+	constructor(props) {
+		super(props);
+		this.renderKeyValue = this.renderKeyValue.bind(this);
+	}
+
+	renderKeyValue(field, fieldIndex) {
+		const { index, parent } = this.props;
+		const cellContent = renderCell(index, parent, field);
+		const tooltip = typeof cellContent === 'string' ? cellContent : null;
+		const label = getLabel(field);
+		return (
+			<div className={theme['field-group']} role="group" key={label || index}>
+				<dt key={fieldIndex} className={theme['field-label']}>
+					{label}
+				</dt>
+				<dd className={theme['field-value']} title={tooltip}>
+					{cellContent}
+				</dd>
+			</div>
+		);
+	}
+
 	render() {
 		const { className, index, onKeyDown, parent, style } = this.props;
 		const { titleField, selectionField, otherFields } = extractSpecialFields(parent);
@@ -70,21 +92,7 @@ class RowLarge extends React.Component {
 						{selectionCell}
 					</div>
 					<dl className={`tc-list-large-content ${theme.content}`} key="content">
-						{otherFields.map((field, fieldIndex) => {
-							const cellContent = renderCell(index, parent, field);
-							const tooltip = typeof cellContent === 'string' ? cellContent : null;
-							const label = getLabel(field);
-							return (
-								<div className={theme['field-group']} role="group" key={label || index}>
-									<dt key={fieldIndex} className={theme['field-label']}>
-										{label && `${label}:`}
-									</dt>
-									<dd className={theme['field-value']} title={tooltip}>
-										{cellContent}
-									</dd>
-								</div>
-							);
-						})}
+						{otherFields.map(this.renderKeyValue)}
 					</dl>
 				</div>
 			</div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import keycode from 'keycode';
-import omit from 'lodash/omit';
 
 function focusOn(event, element) {
 	if (element) {
@@ -72,12 +71,9 @@ function onKeyDown(event, ref) {
 
 export default function withListGesture(WrappedComponent) {
 	function ListGesture(props) {
-		return <WrappedComponent {...props} lol={'lol'} onKeyDown={onKeyDown} />;
+		return <WrappedComponent {...props} onKeyDown={onKeyDown} />;
 	}
 
-	ListGesture.propTypes = {
-		...omit(WrappedComponent.propTypes, 'onKeyDown'),
-	};
 	ListGesture.displayName = `ListGesture(${WrappedComponent.displayName})`;
 
 	return ListGesture;
