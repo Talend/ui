@@ -182,16 +182,16 @@ describe('mergeModule', () => {
 			{ preReducer: fn1 },
 			{ preReducer: fn2 },
 		);
-		expect(typeof config.preReducer).toBe('function');
-		config.preReducer('foo');
-		expect(fn1).toHaveBeenCalledWith('foo');
-		expect(fn2).toHaveBeenCalledWith('foo');
+		expect(Array.isArray(config.preReducer)).toBe(true);
+		expect(config.preReducer.length).toBe(2);
+		expect(config.preReducer[0]).toBe(fn1);
+		expect(config.preReducer[1]).toBe(fn2);
 
 		config = mergeModules(
 			{ preReducer: fn1 },
 			{ preReducer: array2 },
 		);
-		expect(Array.isArray(config.reducer)).toBe(true);
+		expect(Array.isArray(config.preReducer)).toBe(true);
 		expect(config.preReducer.length).toBe(2);
 		expect(config.preReducer[0]).toBe(fn1);
 		expect(config.preReducer[1]).toBe(array2[0]);
@@ -200,7 +200,7 @@ describe('mergeModule', () => {
 			{ preReducer: array1 },
 			{ preReducer: fn2 },
 		);
-		expect(Array.isArray(config.reducer)).toBe(true);
+		expect(Array.isArray(config.preReducer)).toBe(true);
 		expect(config.preReducer.length).toBe(2);
 		expect(config.preReducer[0]).toBe(array1[0]);
 		expect(config.preReducer[1]).toBe(fn2);
@@ -209,9 +209,9 @@ describe('mergeModule', () => {
 			{ preReducer: array1 },
 			{ preReducer: array2 },
 		);
-		expect(Array.isArray(config.reducer)).toBe(true);
+		expect(Array.isArray(config.preReducer)).toBe(true);
 		expect(config.preReducer.length).toBe(2);
 		expect(config.preReducer[0]).toBe(array1[0]);
-		expect(config.preReducer[1]).toBe(array2[1]);
+		expect(config.preReducer[1]).toBe(array2[0]);
 	});
 });

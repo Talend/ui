@@ -15,7 +15,7 @@ function mergeObjects(obj1, obj2, attr) {
 }
 
 function mergeFns(fn1, fn2) {
-	return (...args) => {
+	return function mergedFn(...args) {
 		fn1(...args);
 		fn2(...args);
 	};
@@ -76,11 +76,11 @@ function mergePreReducer(preReducer, newPreReducer) {
 			safePreReducer = [preReducer];
 		}
 		if (Array.isArray(newPreReducer)) {
-			safePreReducer = [...safePreReducer, ...newPreReducer];
+			return [...safePreReducer, ...newPreReducer];
 		} else if (typeof newPreReducer === 'function') {
-			safePreReducer.push(newPreReducer);
+			return safePreReducer.concat([newPreReducer]);
 		}
-		return safePreReducer;
+		return preReducer;
 	}
 	if (newPreReducer) {
 		return newPreReducer;
@@ -131,6 +131,9 @@ function mergeReducer(reducer, newReducer) {
 		}
 		if (typeof reducer === 'object' && typeof newReducer === 'function') {
 			return mergeObjects(reducer, { app: newReducer }, 'reducer');
+		}
+		if (typeof newReducer === 'object' && typeof reducer === 'function') {
+			return mergeObjects({ app: reducer }, newReducer, 'reducer');
 		}
 		// both are functions
 		return mergeFns(reducer, newReducer);
