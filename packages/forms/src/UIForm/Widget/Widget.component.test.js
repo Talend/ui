@@ -219,9 +219,7 @@ describe('Widget component', () => {
 				key: ['user', 'names', index, 'value'],
 				type: 'text',
 				condition: {
-					and: [
-						{ '==': [{ var: 'user.names[].value' }, ['Gary']] },
-					],
+					and: [{ '==': [{ var: 'user.names[].value' }, ['Gary']] }],
 				},
 			}),
 			properties: {
@@ -234,7 +232,7 @@ describe('Widget component', () => {
 							value: 'Moore',
 						},
 					],
-				}
+				},
 			},
 		};
 		const shouldRenderWidget = shallow(
@@ -273,7 +271,7 @@ describe('Widget component', () => {
 							},
 						},
 					],
-				}
+				},
 			},
 		};
 		const shouldRenderWidget = shallow(

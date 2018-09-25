@@ -78,12 +78,12 @@ function mapConditionVars(condition, key) {
 		case 'string':
 			return condition;
 
-	 	// an object so browse it recursively to replace var values
+		// an object so browse it recursively to replace var values
 		default:
 			return Object.keys(condition).reduce((acc, attribute) => {
 				const value = condition[attribute];
 				if (Array.isArray(value)) {
-					acc[attribute] = value.map(it =>	mapConditionItem(it, key));
+					acc[attribute] = value.map(it => mapConditionItem(it, key));
 				} else {
 					acc[attribute] = mapConditionItem(value, key);
 				}
