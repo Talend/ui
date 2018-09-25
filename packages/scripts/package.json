@@ -3,7 +3,6 @@
   "version": "0.4.0",
   "main": "index.js",
   "mainSrc": "index.js",
-  "version": "0.4.0",
   "bin": {
     "talend-scripts": "./index.js"
   },
