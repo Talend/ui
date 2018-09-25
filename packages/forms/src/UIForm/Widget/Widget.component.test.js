@@ -211,4 +211,80 @@ describe('Widget component', () => {
 		// then
 		expect(wrapper.getElement()).toBe(null);
 	});
+
+	it('should support to render under array condition with auto-populated indices', () => {
+		// when
+		const spec = {
+			schemaFactory: index => ({
+				key: ['user', 'names', index, 'value'],
+				type: 'text',
+				condition: {
+					and: [
+						{ '==': [{ var: 'user.names[].value' }, ['Gary']] },
+					],
+				},
+			}),
+			properties: {
+				user: {
+					names: [
+						{
+							value: 'Gary',
+						},
+						{
+							value: 'Moore',
+						},
+					],
+				}
+			},
+		};
+		const shouldRenderWidget = shallow(
+			<Widget schema={spec.schemaFactory(0)} properties={spec.properties} errors={errors} />,
+		);
+		const shouldNotRenderWidget = shallow(
+			<Widget schema={spec.schemaFactory(1)} properties={spec.properties} errors={errors} />,
+		);
+
+		// then
+		expect(shouldRenderWidget.getElement()).not.toBe(null);
+		expect(shouldNotRenderWidget.getElement()).toBe(null);
+	});
+
+	it('should support to render under array condition with auto-populated indices recursively', () => {
+		// when
+		const spec = {
+			schemaFactory: (idx1, idx2) => ({
+				key: ['user', 'names', idx1, 'primary', 'firstname', idx2],
+				type: 'text',
+				condition: {
+					'==': [{ var: 'user.names[].primary.firstname[]' }, 'Gary'],
+				},
+			}),
+			properties: {
+				user: {
+					names: [
+						{
+							primary: {
+								firstname: ['Gary'],
+							},
+						},
+						{
+							primary: {
+								firstname: ['Moore'],
+							},
+						},
+					],
+				}
+			},
+		};
+		const shouldRenderWidget = shallow(
+			<Widget schema={spec.schemaFactory(0, 0)} properties={spec.properties} errors={errors} />,
+		);
+		const shouldNotRenderWidget = shallow(
+			<Widget schema={spec.schemaFactory(1, 0)} properties={spec.properties} errors={errors} />,
+		);
+
+		// then
+		expect(shouldRenderWidget.getElement()).not.toBe(null);
+		expect(shouldNotRenderWidget.getElement()).toBe(null);
+	});
 });
