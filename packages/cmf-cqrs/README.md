@@ -96,10 +96,9 @@ const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
 	[...socketListener],
 	{ ...socketOptions },
 );
-cmf.bootstrap({
-	...cmfModule
+cmf.bootstrap(cmf.module.merge(cmfModule, {
 	middlewares: [websocketMiddleware]
-});
+}));
 ```
 
 the action listener recieve for each action
