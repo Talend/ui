@@ -219,7 +219,10 @@ class TreeViewItem extends React.Component {
 				aria-setsize={siblings.length}
 				aria-selected={this.isSelected()}
 				className={classNames('tc-treeview-item-li', css['tc-treeview-li'])}
-				onClick={e => onSelect(e, item)}
+				onClick={e => {
+					e.stopPropagation();
+					return onSelect(e, item);
+				}}
 				onKeyDown={e =>
 					onKeyDown(e, this.containerRef, {
 						...item,
@@ -246,7 +249,10 @@ class TreeViewItem extends React.Component {
 							icon="talend-caret-down"
 							iconTransform={isOpened ? undefined : 'rotate-270'}
 							id={id && `${id}-toggle`}
-							onClick={e => onToggle(e, item)}
+							onClick={e => {
+								e.stopPropagation();
+								return onToggle(e, item);
+							}}
 							label=""
 							aria-hidden
 							tabIndex="-1"
