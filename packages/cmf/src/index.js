@@ -15,7 +15,7 @@ import Inject from './Inject.component.js';
 import matchPath from './sagaRouter/matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
-import cmfModule from './cmfModule';
+import mergeModules from './mergeModules';
 
 // DEPRECATED APIs
 import action from './action';
@@ -90,7 +90,9 @@ export default {
 	router: {
 		matchPath,
 	},
-	module: cmfModule,
+	module: {
+		merge: mergeModules,
+	},
 	saga: sagas,
 	sagas,
 	selectors,
