@@ -9,5 +9,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:11  error  Trailing spaces not allowed                     no-trailing-spaces
   12:1   error  Line 12 exceeds the maximum line length of 100  max-len
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
+  34:4   error  Assignment to function parameter 'acc'              no-param-reassign
+  37:4   error  Assignment to function parameter 'acc'              no-param-reassign
+  40:4   error  Assignment to function parameter 'acc'              no-param-reassign
+  58:25  error  'mapConditionVars' was used before it was defined   no-use-before-define
+  60:9   error  'mapConditionVars' was used before it was defined   no-use-before-define
+  86:6   error  Assignment to property of function parameter 'acc'  no-param-reassign
+  88:6   error  Assignment to property of function parameter 'acc'  no-param-reassign
+
+✖ 10 problems (10 errors, 0 warnings)
 
