@@ -83,7 +83,7 @@ export function bootstrapSaga(options, history) {
 
 export function bootstrapRedux(options) {
 	assertTypeOf(options, 'settingsURL', 'string');
-	assertTypeOf(options, 'preReducer', 'function');
+	//assertTypeOf(options, 'preReducer', 'function');
 	assertTypeOf(options, 'httpMiddleware', 'function');
 	assertTypeOf(options, 'enhancer', 'function');
 	assertTypeOf(options, 'preloadedState', 'object');
