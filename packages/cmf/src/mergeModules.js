@@ -1,11 +1,5 @@
-import compose from 'redux';
 import { fork } from 'redux-saga/effects';
 import { assertTypeOf } from './assert';
-
-const counts = {
-	mergeObject: 0,
-	mergeConfig: 0,
-};
 
 function mergeObjects(obj1, obj2, attr) {
 	return Object.keys(obj2).reduce((acc, key) => {
@@ -13,12 +7,18 @@ function mergeObjects(obj1, obj2, attr) {
 			// eslint-disable-next-line no-console
 			console.warn(`override detected ${attr} ${key}`);
 		}
-		counts.mergeObject += 1;
 		return {
 			...acc,
 			[key]: obj2[key],
 		};
 	}, Object.assign({}, obj1));
+}
+
+function mergeFns(fn1, fn2) {
+	return (...args) => {
+		fn1(...args);
+		fn2(...args);
+	};
 }
 
 function throwIfBothExists(obj1, obj2, name) {
@@ -28,7 +28,7 @@ function throwIfBothExists(obj1, obj2, name) {
 }
 
 function getFirstOf(obj1, obj2, name) {
-	throwIfBothExists(obj1, obj2, name)
+	throwIfBothExists(obj1, obj2, name);
 	if (obj1) {
 		return obj1;
 	}
@@ -39,6 +39,7 @@ function getReduceRegistry(key, type) {
 	return (current, newOne) => {
 		assertTypeOf({ [key]: current }, key, type);
 		assertTypeOf({ [key]: newOne }, key, type);
+
 		if (current && newOne) {
 			return mergeObjects(current, newOne, key);
 		}
@@ -52,6 +53,7 @@ function getReduceRegistry(key, type) {
 function mergeSaga(saga, newSaga) {
 	assertTypeOf({ saga }, 'saga', 'function');
 	assertTypeOf({ saga: newSaga }, 'saga', 'function');
+
 	if (saga && newSaga) {
 		return function* mergedSaga() {
 			yield fork(saga);
@@ -89,11 +91,9 @@ function mergePreReducer(preReducer, newPreReducer) {
 function mergeEnhancer(enhancer, newEnhancer) {
 	assertTypeOf({ enhancer }, 'enhancer', 'function');
 	assertTypeOf({ enhancer: newEnhancer }, 'enhancer', 'function');
+
 	if (enhancer && newEnhancer) {
-		return compose(
-			enhancer,
-			newEnhancer,
-		);
+		return mergeFns(enhancer, newEnhancer);
 	}
 	if (newEnhancer) {
 		return newEnhancer;
@@ -104,6 +104,7 @@ function mergeEnhancer(enhancer, newEnhancer) {
 function mergeMiddlewares(middlewares, newMiddlewares) {
 	assertTypeOf({ middlewares }, 'middlewares', 'Array');
 	assertTypeOf({ middlewares: newMiddlewares }, 'middlewares', 'Array');
+
 	if (newMiddlewares && newMiddlewares.length) {
 		return (middlewares || []).concat(newMiddlewares);
 	}
@@ -113,25 +114,26 @@ function mergeMiddlewares(middlewares, newMiddlewares) {
 function mergeStoreCallback(storeCallback, newStoreCallback) {
 	assertTypeOf({ storeCallback }, 'storeCallback', 'function');
 	assertTypeOf({ storeCallback: newStoreCallback }, 'storeCallback', 'function');
-	if (newStoreCallback) {
-		return function mergedStoreCallback(store) {
-			if (storeCallback) {
-				storeCallback(store);
-			}
-			newStoreCallback(store);
-		};
+
+	if (storeCallback && newStoreCallback) {
+		return mergeFns(storeCallback, newStoreCallback);
 	}
-	return storeCallback;
+	return getFirstOf(storeCallback, newStoreCallback, 'storeCallback');
 }
 
 function mergeReducer(reducer, newReducer) {
 	assertTypeOf({ reducer }, 'reducer', ['object', 'function']);
 	assertTypeOf({ reducer: newReducer }, 'reducer', ['object', 'function']);
+
 	if (reducer && newReducer) {
 		if (typeof reducer === typeof newReducer && typeof reducer === 'object') {
 			return mergeObjects(reducer, newReducer, 'reducer');
-		} else if (typeof reducer === 'object') {
 		}
+		if (typeof reducer === 'object' && typeof newReducer === 'function') {
+			return mergeObjects(reducer, { app: newReducer }, 'reducer');
+		}
+		// both are functions
+		return mergeFns(reducer, newReducer);
 	}
 	if (newReducer) {
 		return newReducer;
@@ -160,18 +162,16 @@ const MERGE_FNS = {
 };
 
 function reduceConfig(acc, config) {
-	const start = new Date().getTime();
-	Object.keys(config).forEach(key => {
+	const res = Object.keys(config).reduce((subacc, key) => {
 		if (!MERGE_FNS[key]) {
 			throw new Error(`${key} is not supported`);
 		}
-		// eslint-disable-next-line no-param-reassign
-		acc[key] = MERGE_FNS[key](acc[key], config[key]);
-		counts.mergeConfig += 1;
-	});
-	// 59 {mergeObject: 130, mergeConfig: 14}  working
-	console.log(new Date().getTime() - start, counts, acc);
-	return acc;
+		return {
+			...subacc,
+			[key]: MERGE_FNS[key](acc[key], config[key]),
+		};
+	}, acc);
+	return res;
 }
 
 /**
