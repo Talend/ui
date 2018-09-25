@@ -43,3 +43,22 @@ exports[`#AvroRenderer should render AvroRenderer and load Injected Component st
   }
 />
 `;
+
+exports[`#AvroRenderer should render AvroRenderer and load default component when no renderer 1`] = `
+<DefaultRenderer
+  colDef={
+    Object {
+      "avro": Object {
+        "type": Object {
+          "type": "unknow",
+        },
+      },
+    }
+  }
+  data={
+    Object {
+      "value": "value",
+    }
+  }
+/>
+`;

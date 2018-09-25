@@ -146,7 +146,10 @@ export class LineItem extends React.Component {
 				aria-setsize={siblings ? siblings.length : 1}
 				aria-selected={isSelectedLine}
 				className={theme['list-item']}
-				onClick={e => onSelect(e, { jsonpath })}
+				onClick={e => {
+					e.stopPropagation();
+					onSelect(e, { jsonpath });
+				}}
 				onKeyDown={e => onKeyDown(e, this.ref, { data, hasChildren, isOpened, jsonpath, siblings })}
 				ref={ref => {
 					this.ref = ref;
@@ -319,7 +322,10 @@ export function ComplexItem(props) {
 					icon={'talend-caret-down'}
 					iconTransform={isOpened ? undefined : 'rotate-270'}
 					id={id && `${id}-toggle`}
-					onClick={e => props.onToggle(e, { data, isOpened, jsonpath })}
+					onClick={e => {
+						e.stopPropagation();
+						props.onToggle(e, { data, isOpened, jsonpath });
+					}}
 					label=""
 					aria-hidden
 					tabIndex="-1"
