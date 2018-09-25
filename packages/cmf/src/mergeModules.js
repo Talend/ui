@@ -144,6 +144,7 @@ function mergeReducer(reducer, newReducer) {
 const MERGE_FNS = {
 	appId: getFirstOf,
 	history: getFirstOf,
+	AppLoader: getFirstOf,
 	saga: mergeSaga,
 	httpMiddleware: getFirstOf,
 	preReducer: mergePreReducer,
