@@ -14,6 +14,7 @@ import { assertTypeOf } from './assert';
 import component from './component';
 import expression from './expression';
 import storeAPI from './store';
+import registry from './registry';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import { registerInternals } from './register';
@@ -27,7 +28,11 @@ export function bootstrapRegistry(options) {
 	assertTypeOf(options, 'components', 'object');
 	assertTypeOf(options, 'expressions', 'object');
 	assertTypeOf(options, 'actionCreators', 'object');
+	assertTypeOf(options, 'registry', 'object');
 	registerInternals();
+	if (options.registry) {
+		registry.registerMany(options.registry);
+	}
 	if (options.components) {
 		component.registerMany(options.components);
 	}
