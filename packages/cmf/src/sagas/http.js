@@ -80,7 +80,9 @@ export function handleHttpResponse(response) {
 	if (!testHTTPCode.isSuccess(response.status)) {
 		return Promise.reject(response);
 	}
-	if (response.status === HTTP_STATUS.NO_CONTENT) {
+
+	const length = parseInt(response.headers.get('content-length'), 10);
+	if (response.status === HTTP_STATUS.NO_CONTENT || length === 0) {
 		return Promise.resolve({
 			data: '',
 			response,
