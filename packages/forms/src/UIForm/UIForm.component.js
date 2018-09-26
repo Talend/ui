@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
 import { translate } from 'react-i18next';
-import get from 'lodash/get';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
