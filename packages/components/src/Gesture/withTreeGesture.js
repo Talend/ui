@@ -132,14 +132,7 @@ export default function withTreeGesture(WrappedComponent) {
 		}
 
 		render() {
-			return (
-				<WrappedComponent
-					{...this.props}
-					onKeyDown={this.onKeyDown}
-					onSelect={this.onSelect}
-					onToggle={this.onToggle}
-				/>
-			);
+			return <WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />;
 		}
 	}
 

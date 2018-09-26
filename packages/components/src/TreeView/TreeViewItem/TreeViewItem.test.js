@@ -115,12 +115,13 @@ describe('TreeView item', () => {
 			onToggle: jest.fn(),
 		};
 		const wrapper = shallow(<TreeViewItem {...props} />);
-		const event = { target: {} };
+		const event = { target: {}, stopPropagation: jest.fn() };
 
 		// when
 		wrapper.find(`#${props.id}-toggle`).simulate('click', event);
 
 		// then
+		expect(event.stopPropagation).toBeCalled();
 		expect(props.onToggle).toBeCalledWith(event, props.item);
 	});
 
@@ -131,12 +132,13 @@ describe('TreeView item', () => {
 			onSelect: jest.fn(),
 		};
 		const wrapper = shallow(<TreeViewItem {...props} />);
-		const event = { target: {} };
+		const event = { target: {}, stopPropagation: jest.fn() };
 
 		// when
 		wrapper.simulate('click', event);
 
 		// then
+		expect(event.stopPropagation).toBeCalled();
 		expect(props.onSelect).toBeCalledWith(event, props.item);
 	});
 });
