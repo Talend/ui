@@ -109,9 +109,10 @@ class LocalLibsWebpackPlugin {
 					return callback();
 				}
 				linkedLibs.forEach(lib => {
-					if (result.request.startsWith(lib.name)) {
+					if (result.request.startsWith(lib.name) && result.request[lib.name.length] === '/') {
 						// convert paths to use mainSrc (should also work on long import paths)
 						// Examples: '@talend/somelib', '@talend/somelib/some/path'
+						// '@talend/someLib2' must not match '@talend/someLib'
 						if (lib.mainSrc && lib.main) {
 							result.request = libToSrcPath(result.request, lib);
 						}
