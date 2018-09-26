@@ -37,6 +37,7 @@ export class DeleteResource extends React.Component {
 		resourceUri: PropTypes.string,
 		collectionId: PropTypes.string,
 		female: PropTypes.string,
+		onCancelRedirectUrl: PropTypes.string,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
@@ -50,6 +51,17 @@ export class DeleteResource extends React.Component {
 		super(props, context);
 		this.getLabelInfo = this.getLabelInfo.bind(this);
 		this.getResourceInfo = this.getResourceInfo.bind(this);
+		this.onHide = this.onHide.bind(this);
+	}
+
+	/**
+	 * onHide handler, called when click outside delete modal
+	 * @param event
+	 */
+	onHide(event) {
+		this.props.dispatchActionCreator('DeleteResource#cancel', event, {
+			model: this.getResourceInfo(),
+		});
 	}
 
 	/**
@@ -78,6 +90,7 @@ export class DeleteResource extends React.Component {
 			...this.getLabelInfo(),
 			id: this.props.resourceId,
 			redirectUrl: this.props.redirectUrl,
+			onCancelRedirectUrl: this.props.onCancelRedirectUrl,
 		};
 	}
 
@@ -86,7 +99,7 @@ export class DeleteResource extends React.Component {
 		const validateAction = {
 			componentId: this.props[CONSTANTS.VALIDATE_ACTION],
 			model: resourceInfo,
-			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'DELETE' }),
+			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'REMOVE' }),
 			bsStyle: 'danger',
 			onClickActionCreator: 'DeleteResource#validate',
 		};
@@ -94,6 +107,7 @@ export class DeleteResource extends React.Component {
 			componentId: this.props[CONSTANTS.CANCEL_ACTION],
 			model: resourceInfo,
 			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'CANCEL' }),
+			className: 'btn-inverse',
 			onClickActionCreator: 'DeleteResource#cancel',
 		};
 		return (
@@ -103,6 +117,7 @@ export class DeleteResource extends React.Component {
 				cancelAction={cancelAction}
 				validateAction={validateAction}
 				getComponent={this.props.getComponent}
+				onHide={this.onHide}
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {

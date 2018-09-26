@@ -1,118 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RowLarge should render large row 1`] = `
-<div
-  className="tc-list-item tc-list-large theme-tc-list-large theme-row"
-  onClick={undefined}
-  onDoubleClick={undefined}
-  role="button"
+<VirtualizedList(RowLarge)
+  className="my-class-names"
+  index={1}
+  onKeyDown={[Function]}
+  parent={
+    Object {
+      "props": Object {
+        "children": Array [
+          <Column
+            cellDataGetter={[Function]}
+            cellRenderer={[Function]}
+            dataKey="id"
+            defaultSortDirection="ASC"
+            flexGrow={0}
+            flexShrink={0}
+            headerRenderer={[Function]}
+            label="Id"
+            style={Object {}}
+            width={50}
+    />,
+          <Column
+            cellDataGetter={[Function]}
+            cellRenderer={[Function]}
+            cellType="title"
+            className="tc-list-title-cell"
+            columnData={
+                    Object {
+                            "actionsKey": "titleActions",
+                            "displayModeKey": "display",
+                            "iconKey": "icon",
+                          }
+            }
+            dataKey="name"
+            defaultSortDirection="ASC"
+            flexGrow={0}
+            flexShrink={0}
+            headerRenderer={[Function]}
+            label="Name"
+            style={Object {}}
+            width={350}
+    />,
+          <Column
+            cellDataGetter={[Function]}
+            cellRenderer={[Function]}
+            dataKey="name"
+            defaultSortDirection="ASC"
+            flexGrow={0}
+            flexShrink={0}
+            headerRenderer={[Function]}
+            label="Description"
+            style={Object {}}
+            width={350}
+    />,
+        ],
+        "collection": Array [
+          Object {
+            "description": "This comes from first element in collection",
+            "id": 0,
+            "name": "Title from first item",
+            "titleActions": Array [
+              Object {
+                "icon": "talend-pencil",
+                "label": "edit",
+                "onClick": [Function],
+              },
+              Object {
+                "icon": "talend-trash",
+                "label": "delete",
+                "onClick": [Function],
+              },
+            ],
+          },
+          Object {
+            "description": "This comes from second element in collection",
+            "id": 1,
+            "name": "Title from second item",
+            "titleActions": Array [
+              Object {
+                "icon": "talend-pencil",
+                "label": "edit",
+                "onClick": [Function],
+              },
+              Object {
+                "icon": "talend-trash",
+                "label": "delete",
+                "onClick": [Function],
+              },
+            ],
+          },
+        ],
+        "id": "my-list",
+        "rowGetter": [Function],
+      },
+    }
+  }
   style={
     Object {
       "background": "red",
     }
   }
->
-  <div
-    className="tc-list-large-row theme-inner-box my-class-names"
-    id="my-list-1"
-  >
-    <div
-      className="theme-header"
-    >
-      <div
-        className="tc-list-title theme-tc-list-title"
-        id="my-list-1-title-cell"
-      >
-        <CellTitleSelector
-          cellData="Title from second item"
-          className="theme-main-title"
-          columnData={Object {}}
-          displayMode="text"
-          id="my-list-1-title-cell"
-          onClick={undefined}
-          onEditCancel={undefined}
-          onEditSubmit={undefined}
-          rowData={
-            Object {
-              "description": "This comes from second element in collection",
-              "id": 1,
-              "name": "Title from second item",
-              "titleActions": Array [
-                Object {
-                  "icon": "talend-pencil",
-                  "label": "edit",
-                  "onClick": [Function],
-                },
-                Object {
-                  "icon": "talend-trash",
-                  "label": "delete",
-                  "onClick": [Function],
-                },
-              ],
-            }
-          }
-        />
-        <Translate(VirtualizedList(CellTitleActions))
-          actionsKey="titleActions"
-          displayMode="text"
-          getComponent={undefined}
-          id="my-list-1-title-actions"
-          persistentActionsKey={undefined}
-          rowData={
-            Object {
-              "description": "This comes from second element in collection",
-              "id": 1,
-              "name": "Title from second item",
-              "titleActions": Array [
-                Object {
-                  "icon": "talend-pencil",
-                  "label": "edit",
-                  "onClick": [Function],
-                },
-                Object {
-                  "icon": "talend-trash",
-                  "label": "delete",
-                  "onClick": [Function],
-                },
-              ],
-            }
-          }
-          type="LARGE"
-        />
-      </div>
-    </div>
-    <ul
-      className="theme-content"
-    >
-      <li>
-        <span
-          className="theme-field-label"
-        >
-          Id
-          : 
-        </span>
-        <span
-          className="theme-field-value"
-          title="1"
-        >
-          1
-        </span>
-      </li>
-      <li>
-        <span
-          className="theme-field-label"
-        >
-          Description
-          : 
-        </span>
-        <span
-          className="theme-field-value"
-          title="Title from second item"
-        >
-          Title from second item
-        </span>
-      </li>
-    </ul>
-  </div>
-</div>
+/>
 `;

@@ -37,7 +37,7 @@ function getLargeDisplayActions(actions, getComponent) {
 	);
 }
 
-function getDefaultDisplayActions(actions, t, getComponent) {
+function getDefaultDisplayActions(actions, getComponent, t, id) {
 	if (!actions || !actions.length) {
 		return null;
 	}
@@ -94,6 +94,7 @@ function getDefaultDisplayActions(actions, t, getComponent) {
 		// ellipsis dropdown
 		actionsBlocs.push(
 			<ActionDropdown
+				id={`${id}-ellispsis-actions`}
 				key={'ellipsis-actions'}
 				className={classNames('cell-title-actions-menu', theme['cell-title-actions-menu'])}
 				items={remainingActions}
@@ -106,7 +107,10 @@ function getDefaultDisplayActions(actions, t, getComponent) {
 	}
 
 	return (
-		<div className={classNames('cell-title-actions', theme['cell-title-actions'])}>
+		<div
+			key={'cell-title-actions'}
+			className={classNames('cell-title-actions', theme['cell-title-actions'])}
+		>
 			{actionsBlocs}
 		</div>
 	);
@@ -153,7 +157,7 @@ export function CellTitleActionsComponent({
 	if (type === LARGE) {
 		actions.push(getLargeDisplayActions(dataActions, getComponent));
 	} else {
-		actions.push(getDefaultDisplayActions(dataActions, t, getComponent));
+		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
 	}
 
 	actions.push(getPersistentActions(persistentActions, getComponent));
@@ -162,6 +166,9 @@ export function CellTitleActionsComponent({
 		<div
 			id={id}
 			className={classNames('main-title-actions-group', theme['main-title-actions-group'])}
+			onKeyDown={e => {
+				e.stopPropagation();
+			}}
 		>
 			{actions}
 		</div>
@@ -170,7 +177,7 @@ export function CellTitleActionsComponent({
 
 CellTitleActionsComponent.displayName = 'VirtualizedList(CellTitleActions)';
 CellTitleActionsComponent.propTypes = {
-	id: PropTypes.string,
+	id: PropTypes.string.isRequired,
 	// The actions property key. Actions = props.rowData[props.actionsKey]
 	actionsKey: PropTypes.string,
 	// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]

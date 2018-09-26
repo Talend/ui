@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { AutoSizer, List } from 'react-virtualized';
+import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -9,22 +9,9 @@ import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
-function listClasses() {
-	return classNames(theme['tc-list-items'], 'tc-list-items');
-}
-
-function itemsClasses() {
-	return classNames(theme['tc-listview-items'], 'tc-listview-items');
-}
-
-function itemContainer(additionalClassName) {
-	return classNames(
-		theme['tc-item-container'],
-		theme[additionalClassName],
-		'tc-item-container',
-		additionalClassName,
-	);
-}
+const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
+const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');
+const itemContainer = classNames(theme['tc-item-container'], 'tc-item-container');
 
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
@@ -37,6 +24,10 @@ export class ItemsComponent extends React.PureComponent {
 		this.renderToggleAll = this.renderToggleAll.bind(this);
 
 		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
+		this.cache = new CellMeasurerCache({
+			defaultHeight: props.getItemHeight(),
+			fixedWidth: true,
+		});
 	}
 
 	getItemByIndex(index) {
@@ -69,19 +60,31 @@ export class ItemsComponent extends React.PureComponent {
 		const isToggle = this.hasToggleAll && index === 0;
 		const currentItem = this.getItemByIndex(index);
 		return (
-			<div
-				className={classNames(itemContainer(isToggle && 'toggle'), {
-					expanded: currentItem && currentItem.expanded,
-				})}
+			<CellMeasurer
+				cache={this.cache}
+				columnIndex={0}
 				key={key}
-				style={style}
+				parent={this.list}
+				rowIndex={index}
 			>
-				{this.renderToggleAllOrItem(index)}
-			</div>
+				{({ measure }) => (
+					<div
+						className={classNames(itemContainer, {
+							[theme.toggle]: isToggle,
+							toggle: isToggle,
+							expanded: currentItem && currentItem.expanded,
+						})}
+						key={key}
+						style={style}
+					>
+						{this.renderToggleAllOrItem(index, measure)}
+					</div>
+				)}
+			</CellMeasurer>
 		);
 	}
 
-	renderToggleAllOrItem(index) {
+	renderToggleAllOrItem(index, measure) {
 		let computedIndex = index;
 
 		if (this.hasToggleAll) {
@@ -91,13 +94,17 @@ export class ItemsComponent extends React.PureComponent {
 			computedIndex = index - 1;
 		}
 
-		return this.renderItem(this.props.items[computedIndex], computedIndex);
+		return this.renderItem(this.props.items[computedIndex], computedIndex, measure);
 	}
 
 	renderToggleAll() {
 		const { id, isSwitchBox, toggleAllChecked, onToggleAll, t } = this.props;
 		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		const toggleAllSelector = isSwitchBox ? 'switch checkbox' : 'checkbox';
+		const label = toggleAllChecked
+			? t('LISTVIEW_ITEMS_DESELECT_ALL', { defaultValue: 'Deselect all' })
+			: t('LISTVIEW_ITEMS_SELECT_ALL', { defaultValue: 'Select all' });
+
 		return (
 			<div className={toggleAllSelector}>
 				<label htmlFor={toggleAllId}>
@@ -105,15 +112,15 @@ export class ItemsComponent extends React.PureComponent {
 						id={toggleAllId}
 						type="checkbox"
 						onChange={onToggleAll}
-						checked={!!toggleAllChecked}
+						checked={toggleAllChecked}
 					/>
-					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', { defaultValue: 'Toggle all' })}</strong>
+					<strong>{label}</strong>
 				</label>
 			</div>
 		);
 	}
 
-	renderItem(item, index) {
+	renderItem(item, index, measure) {
 		let computedId;
 		if (this.props.id) {
 			const computedIndex = this.hasToggleAll ? index + 1 : index;
@@ -123,6 +130,7 @@ export class ItemsComponent extends React.PureComponent {
 		return (
 			<Item
 				key={computedId}
+				measure={measure}
 				id={computedId}
 				item={item}
 				isSwitchBox={this.props.isSwitchBox && !item.children}
@@ -131,6 +139,7 @@ export class ItemsComponent extends React.PureComponent {
 				{item.children &&
 					item.children.map((nestedItem, nestedIndex) => (
 						<Item
+							measure={measure}
 							key={nestedIndex}
 							item={nestedItem}
 							parentItem={item}
@@ -143,7 +152,7 @@ export class ItemsComponent extends React.PureComponent {
 
 	render() {
 		return (
-			<div className={itemsClasses()}>
+			<div className={itemsClasses}>
 				<AutoSizer>
 					{({ height, width }) => (
 						<List
@@ -152,13 +161,16 @@ export class ItemsComponent extends React.PureComponent {
 							 * but only way to refresh component when items or actions change
 							 * See https://github.com/bvaughn/react-virtualized/#pure-components
 							 */
+							ref={node => (this.list = node)}
 							items={this.props.items}
-							className={listClasses()}
+							className={listClasses}
 							rowRenderer={this.rowRenderer}
 							width={width}
 							height={height}
 							rowCount={this.getRowCount()}
 							rowHeight={this.getRowHeight}
+							role="listbox"
+							containerProps={this.props.containerProps}
 						/>
 					)}
 				</AutoSizer>
@@ -168,6 +180,7 @@ export class ItemsComponent extends React.PureComponent {
 }
 
 ItemsComponent.propTypes = {
+	containerProps: PropTypes.object,
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({

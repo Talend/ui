@@ -1,0 +1,21 @@
+$tc-rich-error-icon-size: 3.6rem !default;
+
+.wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	width: $tc-rich-error-icon-size;
+	height: $tc-rich-error-icon-size;
+}
+
+.content {
+	margin-left: $padding-normal;
+
+	h4 {
+		margin: 0;
+		font-size: 12px;
+		font-weight: 400;
+	}
+}

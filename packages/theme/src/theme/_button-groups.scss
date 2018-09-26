@@ -17,34 +17,6 @@
 	display: inline-flex;
 
 	.btn {
-		.caret {
-			@include dropdown-caret-color($navbar-inverse-link-color);
-		}
-
-		&-default.btn-inverse .caret {
-			@include dropdown-caret-color($navbar-default-link-color);
-		}
-
-		&-primary.btn-inverse .caret {
-			@include dropdown-caret-color($btn-validation-bg);
-		}
-
-		&-success.btn-inverse .caret {
-			@include dropdown-caret-color($btn-success-bg);
-		}
-
-		&-info.btn-inverse .caret {
-			@include dropdown-caret-color($btn-info-bg);
-		}
-
-		&-warning.btn-inverse .caret {
-			@include dropdown-caret-color($btn-warning-bg);
-		}
-
-		&-danger.btn-inverse .caret {
-			@include dropdown-caret-color($btn-danger-bg);
-		}
-
 		+ .btn {
 			.caret.caret {
 				margin-left: 0;
@@ -64,9 +36,8 @@
 	}
 
 	> .dropdown-menu {
-		display: block;
+		display: none;
 		opacity: 0;
-		visibility: hidden;
 		transform: translateY(-15px);
 		transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), visibility 0s;
 		overflow-y: auto;
@@ -76,7 +47,7 @@
 		overflow: visible;
 
 		> .dropdown-menu {
-			visibility: visible;
+			display: block;
 			opacity: 1;
 			max-height: 320px;
 			transform: translateY(0);

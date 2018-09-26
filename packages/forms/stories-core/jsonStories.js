@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -22,8 +23,7 @@ function createCommonProps(tab) {
 		// onBlur: action('Blur'),
 		customValidation(schema, value, properties) {
 			action('customValidation')(schema, value, properties);
-			return value.length >= 5 &&
-				'Custom validation : The value should be less than 5 chars';
+			return value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
 		},
 		formName: `my-form-${tab}`,
 		onChange: action('Change'),
@@ -31,13 +31,86 @@ function createCommonProps(tab) {
 			action('Trigger')(event, payload);
 			const schema = payload.schema;
 			const key = schema.key && schema.key[schema.key.length - 1];
-			return key && key.includes('fail') ?
-				Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } }) :
-				Promise.resolve({});
+			if (key && key.includes('fail')) {
+				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
+			}
+			if (key && (key.includes('asyncTitleMap') || key.includes('AsyncTitleMap'))) {
+				return new Promise(resolve => {
+					setTimeout(
+						() =>
+							resolve({
+								titleMap: [
+									{ value: 'clafoutis', name: 'Clafoutis aux poires et aux fruits' },
+									{ value: 'conchiglioni-au-thon', name: 'Conchiglioni au thon' },
+									{ value: 'coquillettes-crevettes', name: 'coquillettes aux crevettes' },
+									{ value: 'crumble', name: 'Crumble a la danette' },
+									{ value: 'pomme-savane', name: 'Pomme savane' },
+									{ value: 'tarte-au-citron', name: 'Tarte  au citron' },
+								],
+							}),
+						3000,
+					);
+				});
+			}
+			return Promise.resolve({});
 		},
 		onReset: action('onReset'),
 		onSubmit: action('Submit'),
 	};
+}
+
+class DisplayModeForm extends React.Component {
+	static propTypes = {
+		category: PropTypes.string,
+		doc: PropTypes.string,
+	};
+
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.toggleDisplayModeText = this.toggleDisplayModeText.bind(this);
+	}
+
+	toggleDisplayModeText(event) {
+		this.setState({ displayMode: event.target.checked ? 'text' : undefined });
+	}
+
+	render() {
+		return (
+			<section>
+				<IconsProvider />
+				{this.props.doc && (
+					<a
+						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${
+							this.props.category
+						}/${this.props.doc}`}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Documentation
+					</a>
+				)}
+				<form>
+					<div className="form-group">
+						<div className="checkbox">
+							<label>
+								<input
+									type="checkbox"
+									checked={this.state.displayMode === 'text'}
+									onChange={this.toggleDisplayModeText}
+								/>
+								Text mode
+							</label>
+						</div>
+					</div>
+				</form>
+
+				<hr style={{ borderColor: 'black' }} />
+
+				<UIForm {...this.props} displayMode={this.state.displayMode} />
+			</section>
+		);
+	}
 }
 
 function createStory(category, sampleFilenames, filename) {
@@ -51,33 +124,31 @@ function createStory(category, sampleFilenames, filename) {
 		story() {
 			const { doc, ...data } = object(name, sampleFilenames(filename));
 			return (
-				<section>
-					<IconsProvider />
-					{doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
-					<UIForm
-						{...createCommonProps('state')}
-						data={data}
-					/>
-				</section>
+				<DisplayModeForm
+					{...createCommonProps('state')}
+					data={data}
+					doc={doc}
+					category={category}
+				/>
 			);
 		},
 	};
 }
 
-conceptsFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('concepts', conceptsFilenames, filename)); });
+conceptsFilenames.keys().forEach(filename => {
+	stories.push(createStory('concepts', conceptsFilenames, filename));
+});
 
-fieldsetsFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('fieldsets', fieldsetsFilenames, filename)); });
+fieldsetsFilenames.keys().forEach(filename => {
+	stories.push(createStory('fieldsets', fieldsetsFilenames, filename));
+});
 
-fieldsFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('fields', fieldsFilenames, filename)); });
+fieldsFilenames.keys().forEach(filename => {
+	stories.push(createStory('fields', fieldsFilenames, filename));
+});
 
-oldFilenames
-	.keys()
-	.forEach(filename => { stories.push(createStory('old', oldFilenames, filename)); });
+oldFilenames.keys().forEach(filename => {
+	stories.push(createStory('old', oldFilenames, filename));
+});
 
 export default stories;

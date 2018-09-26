@@ -12,17 +12,20 @@ const props = {
 	readOnly: false,
 	title: 'My List',
 	titleMap: [
-		{ name: 'foo', value: 'foo' },
+		{ name: 'foo', value: 'foo', description: 'foo description' },
 		{ name: 'bar', value: 'bar' },
-		{ name: 'foobar', value: 'foobar' },
+		{ name: 'foobar', value: 'foobar', description: 'foobar description' },
 		{ name: 'lol', value: 'lol' },
 	],
 };
 
 const multiSectionMap = [
-	{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }] },
+	{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }] },
 	{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
-	{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
+	{
+		title: 'cat 3',
+		suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }],
+	},
 	{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 ];
 
@@ -31,7 +34,7 @@ describe('Datalist component', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -51,7 +54,7 @@ describe('Datalist component', () => {
 		const wrapper = mount(
 			<Datalist
 				autoFocus
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection
 				errorMessage={'This should be correct'}
@@ -69,8 +72,14 @@ describe('Datalist component', () => {
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{ suggestions: [{ title: 'foo' }], title: 'cat 1' },
-			{ suggestions: [{ title: 'foobar' }], title: 'cat 3' },
+			{
+				suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }],
+				title: 'cat 1',
+			},
+			{
+				suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }],
+				title: 'cat 3',
+			},
 		]);
 	});
 
@@ -78,7 +87,7 @@ describe('Datalist component', () => {
 		const wrapper = mount(
 			<Datalist
 				autoFocus
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -108,7 +117,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -124,7 +133,10 @@ describe('Datalist component', () => {
 			.at(0)
 			.simulate('change', { target: { value: 'foo' } });
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ name: 'foo', value: 'foo', description: 'foo description' },
+			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
+		]);
 	});
 
 	it('should reset suggestions and change value on blur when value in suggestions', () => {
@@ -132,7 +144,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -159,7 +171,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -186,7 +198,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -212,7 +224,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -230,7 +242,12 @@ describe('Datalist component', () => {
 			.simulate('focus');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'bar', 'foobar', 'lol']);
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ name: 'foo', value: 'foo', description: 'foo description' },
+			{ name: 'bar', value: 'bar' },
+			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
+			{ name: 'lol', value: 'lol' },
+		]);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
 
@@ -238,7 +255,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -268,7 +285,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -294,7 +311,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -320,7 +337,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -346,7 +363,7 @@ describe('Datalist component', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -371,7 +388,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -395,7 +412,7 @@ describe('Datalist component', () => {
 		// given
 		const wrapper = shallow(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -418,11 +435,51 @@ describe('Datalist component', () => {
 		).toBe('bar');
 	});
 
+	it('should set new mapping and suggestions on titleMap props change', () => {
+		// given
+		const wrapper = shallow(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.onFocus({ target: { select() {} } });
+
+		expect(wrapper.state().titleMapping).toEqual({
+			bar: 'bar',
+			foo: 'foo',
+			foobar: 'foobar',
+			lol: 'lol',
+		});
+		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol'] });
+		expect(instance.updateSuggestions).toHaveBeenCalledTimes(1);
+
+		const titleMap = [
+			{ name: 'other', value: 'other' },
+			{ name: 'title', value: 'title' },
+			{ name: 'map', value: 'map' },
+		];
+
+		// when
+		wrapper.setProps({ titleMap });
+
+		// then
+		expect(wrapper.state().titleMapping).toEqual({ other: 'other', title: 'title', map: 'map' });
+		expect(instance.updateSuggestions).toHaveBeenCalledTimes(2);
+	});
+
 	it('should set proper focusedItemIndex single section display', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection={false}
 				errorMessage={'This should be correct'}
@@ -446,7 +503,7 @@ describe('Datalist component', () => {
 		const sectionProps = { ...props, titleMap: multiSectionMap };
 		const wrapper = mount(
 			<Datalist
-				id={'my-datalist'}
+				id="my-datalist"
 				isValid
 				multiSection
 				errorMessage={'This should be correct'}
@@ -464,5 +521,37 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().value).toBe('foobar');
 		expect(wrapper.find(Typeahead).props().focusedSectionIndex).toBe(2);
 		expect(wrapper.find(Typeahead).props().focusedItemIndex).toBe(0);
+	});
+
+	it('should call props.onFocus on instance focus', () => {
+		const onFocus = jest.fn();
+		const wrapper = shallow(<Datalist {...props} onFocus={onFocus} onChange={jest.fn()} />);
+
+		// when
+		const event = { type: 'foo', target: { select: jest.fn() } };
+		const instance = wrapper.instance();
+		instance.updateSuggestions = jest.fn();
+		instance.updateSelectedIndexes = jest.fn();
+		instance.onFocus(event);
+		expect(onFocus).toHaveBeenCalledWith(event);
+		expect(event.target.select).toHaveBeenCalled();
+		expect(instance.updateSuggestions).toHaveBeenCalled();
+		expect(instance.updateSelectedIndexes).toHaveBeenCalled();
+	});
+
+	it('should call onLiveChange when user type in the input', () => {
+		// given
+		const onLiveChange = jest.fn();
+		const wrapper = mount(
+			<Datalist id="my-datalist" isValid onLiveChange={onLiveChange} {...props} />,
+		);
+		const event = { target: { value: 'fo' } };
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', event);
+
+		// then
+		expect(onLiveChange).toBeCalledWith(expect.anything(), 'fo');
 	});
 });

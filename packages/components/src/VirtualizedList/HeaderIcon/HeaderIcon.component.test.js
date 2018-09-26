@@ -26,7 +26,7 @@ describe('HeaderIcon', () => {
 			label: 'test',
 			sortBy: 'test',
 			dataKey: 'test',
-			sortDirection: 'desc',
+			sortDirection: 'DESC',
 		};
 		// when
 		const wrapper = shallow(<HeaderIcon {...props} />);

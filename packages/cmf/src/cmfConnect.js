@@ -214,7 +214,6 @@ export default function cmfConnect({
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
-				...WrappedComponent.propTypes,
 				...cmfConnect.propTypes,
 			};
 			static contextTypes = {
@@ -356,7 +355,7 @@ cmfConnect.INJECTED_PROPS = CONST.INJECTED_PROPS;
 
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.map,
-	initialState: ImmutablePropTypes.map,
+	initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object]),
 	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,

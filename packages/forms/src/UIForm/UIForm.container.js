@@ -14,6 +14,7 @@ export default class UIForm extends React.Component {
 			this.state.errors = {};
 		}
 		this.onChange = this.onChange.bind(this);
+		this.onTrigger = this.onTrigger.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
 
@@ -48,6 +49,15 @@ export default class UIForm extends React.Component {
 		}
 	}
 
+	onTrigger(event, payload) {
+		return this.props.onTrigger(event, payload).then(data => {
+			if (data.errors) {
+				this.setErrors(event, data.errors);
+			}
+			return data;
+		});
+	}
+
 	/**
 	 * Set all fields validation in state
 	 * @param errors the validation errors
@@ -68,6 +78,7 @@ export default class UIForm extends React.Component {
 				{...this.state}
 				{...props}
 				onChange={this.onChange}
+				onTrigger={this.onTrigger}
 				setErrors={this.setErrors}
 			>
 				{this.props.children}
@@ -127,5 +138,7 @@ if (process.env.NODE_ENV !== 'production') {
 		templates: PropTypes.object,
 		/** Custom widgets */
 		widgets: PropTypes.object,
+		/** Display mode: example 'text' */
+		displayMode: PropTypes.string,
 	};
 }

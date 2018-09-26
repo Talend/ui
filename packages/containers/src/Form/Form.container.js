@@ -143,6 +143,7 @@ class Form extends React.Component {
 			language: this.props.language,
 			widgets: this.props.widgets,
 			getComponent: this.props.getComponent,
+			loading: this.props.loading,
 			...this.props.formProps,
 		};
 		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;

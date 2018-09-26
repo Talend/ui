@@ -155,7 +155,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
               isSelected={[Function]}
               noRowsRenderer={[Function]}
               onRowDoubleClick={[Function]}
-              selectionToggle={[Function]}
               sort={null}
               sortDirection="ASC"
               type="TABLE"
@@ -184,7 +183,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                 noRowsRenderer={[Function]}
                 onRowDoubleClick={[Function]}
                 rowHeight={50}
-                selectionToggle={[Function]}
                 sort={null}
                 sortDirection="ASC"
                 width={0}
@@ -259,9 +257,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 undefinedpx",
-                            "flex": "0 1 undefinedpx",
-                            "msFlex": "0 1 undefinedpx",
+                            "WebkitFlex": "0 1 -1px",
+                            "flex": "0 1 -1px",
+                            "msFlex": "0 1 -1px",
                           }
                         }
                       >
@@ -279,9 +277,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 undefinedpx",
-                            "flex": "0 1 undefinedpx",
-                            "msFlex": "0 1 undefinedpx",
+                            "WebkitFlex": "0 1 -1px",
+                            "flex": "0 1 -1px",
+                            "msFlex": "0 1 -1px",
                           }
                         }
                       >
@@ -770,6 +768,7 @@ exports[`List should render 1`] = `
                             role={null}
                           >
                             <NavDropdown
+                              aria-label="Change display mode. Current display mode: table."
                               id={42}
                               key=".0"
                               onSelect={[Function]}
@@ -797,6 +796,7 @@ exports[`List should render 1`] = `
                                     className="dropdown"
                                   >
                                     <DropdownToggle
+                                      aria-label="Change display mode. Current display mode: table."
                                       bsClass="dropdown-toggle"
                                       bsRole="toggle"
                                       id={42}
@@ -809,6 +809,7 @@ exports[`List should render 1`] = `
                                       <SafeAnchor
                                         aria-expanded={false}
                                         aria-haspopup={true}
+                                        aria-label="Change display mode. Current display mode: table."
                                         className="dropdown-toggle"
                                         componentClass="a"
                                         id={42}
@@ -819,6 +820,7 @@ exports[`List should render 1`] = `
                                         <a
                                           aria-expanded={false}
                                           aria-haspopup={true}
+                                          aria-label="Change display mode. Current display mode: table."
                                           className="dropdown-toggle"
                                           href="#"
                                           id={42}
@@ -868,6 +870,7 @@ exports[`List should render 1`] = `
                                           role="menu"
                                         >
                                           <MenuItem
+                                            aria-label="Set Table as current display mode."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -882,6 +885,7 @@ exports[`List should render 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Set Table as current display mode."
                                                 componentClass="a"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -889,6 +893,7 @@ exports[`List should render 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Set Table as current display mode."
                                                   href="#"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
@@ -916,6 +921,7 @@ exports[`List should render 1`] = `
                                             </li>
                                           </MenuItem>
                                           <MenuItem
+                                            aria-label="Set Expanded as current display mode."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -930,6 +936,7 @@ exports[`List should render 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Set Expanded as current display mode."
                                                 componentClass="a"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -937,6 +944,7 @@ exports[`List should render 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Set Expanded as current display mode."
                                                   href="#"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
@@ -1020,6 +1028,7 @@ exports[`List should render 1`] = `
                             role={null}
                           >
                             <NavDropdown
+                              aria-label="Change sort criteria. Current sort by Name."
                               className="theme-sort-by-items"
                               id={42}
                               key=".0"
@@ -1044,6 +1053,7 @@ exports[`List should render 1`] = `
                                     className="theme-sort-by-items dropdown"
                                   >
                                     <DropdownToggle
+                                      aria-label="Change sort criteria. Current sort by Name."
                                       bsClass="dropdown-toggle"
                                       bsRole="toggle"
                                       id={42}
@@ -1056,6 +1066,7 @@ exports[`List should render 1`] = `
                                       <SafeAnchor
                                         aria-expanded={false}
                                         aria-haspopup={true}
+                                        aria-label="Change sort criteria. Current sort by Name."
                                         className="dropdown-toggle"
                                         componentClass="a"
                                         id={42}
@@ -1066,6 +1077,7 @@ exports[`List should render 1`] = `
                                         <a
                                           aria-expanded={false}
                                           aria-haspopup={true}
+                                          aria-label="Change sort criteria. Current sort by Name."
                                           className="dropdown-toggle"
                                           href="#"
                                           id={42}
@@ -1101,6 +1113,7 @@ exports[`List should render 1`] = `
                                           role="menu"
                                         >
                                           <MenuItem
+                                            aria-label="Select Id as current sort criteria."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -1120,6 +1133,7 @@ exports[`List should render 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Select Id as current sort criteria."
                                                 componentClass="a"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -1127,6 +1141,7 @@ exports[`List should render 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Select Id as current sort criteria."
                                                   href="#"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
@@ -1139,6 +1154,7 @@ exports[`List should render 1`] = `
                                             </li>
                                           </MenuItem>
                                           <MenuItem
+                                            aria-label="Select Name as current sort criteria."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -1158,6 +1174,7 @@ exports[`List should render 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Select Name as current sort criteria."
                                                 componentClass="a"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -1165,6 +1182,7 @@ exports[`List should render 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Select Name as current sort criteria."
                                                   href="#"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
@@ -1185,6 +1203,7 @@ exports[`List should render 1`] = `
                             </NavDropdown>
                             <NavItem
                               active={false}
+                              aria-label="Change sort order. Current order: Ascending."
                               disabled={false}
                               key=".1"
                               onClick={[Function]}
@@ -1195,11 +1214,13 @@ exports[`List should render 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Change sort order. Current order: Ascending."
                                   componentClass="a"
                                   disabled={false}
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Change sort order. Current order: Ascending."
                                     href="#"
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
@@ -1242,6 +1263,7 @@ exports[`List should render 1`] = `
                         }
                         onChange={[Function]}
                         startIndex={6}
+                        t={[Function]}
                         totalResults={13}
                       >
                         <Nav
@@ -1478,6 +1500,7 @@ exports[`List should render 1`] = `
                             </NavDropdown>
                             <NavItem
                               active={false}
+                              aria-label="Go to first page."
                               className="btn-link"
                               disabled={false}
                               eventKey="first"
@@ -1489,11 +1512,13 @@ exports[`List should render 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to first page."
                                   componentClass="a"
                                   disabled={false}
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to first page."
                                     href="#"
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
@@ -1520,6 +1545,7 @@ exports[`List should render 1`] = `
                             </NavItem>
                             <NavItem
                               active={false}
+                              aria-label="Go to previous page. Current page: 2."
                               className="btn-link"
                               disabled={false}
                               eventKey="prev"
@@ -1531,11 +1557,13 @@ exports[`List should render 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to previous page. Current page: 2."
                                   componentClass="a"
                                   disabled={false}
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to previous page. Current page: 2."
                                     href="#"
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
@@ -1560,7 +1588,7 @@ exports[`List should render 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <div
+                            <li
                               className="theme-page-index"
                               key=".1:2"
                               onSelect={[Function]}
@@ -1568,9 +1596,10 @@ exports[`List should render 1`] = `
                               2
                               /
                               3
-                            </div>
+                            </li>
                             <NavItem
                               active={false}
+                              aria-label="Go to next page. Current page: 2."
                               className="btn-link"
                               disabled={false}
                               eventKey="next"
@@ -1582,11 +1611,13 @@ exports[`List should render 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to next page. Current page: 2."
                                   componentClass="a"
                                   disabled={false}
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to next page. Current page: 2."
                                     href="#"
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
@@ -1614,6 +1645,7 @@ exports[`List should render 1`] = `
                             </NavItem>
                             <NavItem
                               active={false}
+                              aria-label="Go to last page."
                               className="btn-link"
                               disabled={false}
                               eventKey="last"
@@ -1625,11 +1657,13 @@ exports[`List should render 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to last page."
                                   componentClass="a"
                                   disabled={false}
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to last page."
                                     href="#"
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
@@ -1707,6 +1741,7 @@ exports[`List should render 1`] = `
                               icon="talend-search"
                               label="Toggle filter"
                               onClick={[Function]}
+                              role="search"
                             >
                               <Translate(ActionButton)
                                 bsStyle="link"
@@ -1715,6 +1750,7 @@ exports[`List should render 1`] = `
                                 icon="talend-search"
                                 label="Toggle filter"
                                 onClick={[Function]}
+                                role="search"
                               >
                                 <I18n
                                   bindI18n="languageChanged loaded"
@@ -1732,6 +1768,7 @@ exports[`List should render 1`] = `
                                   }
                                   nsMode="default"
                                   onClick={[Function]}
+                                  role="search"
                                   translateFuncName="t"
                                   usePureComponent={false}
                                   wait={false}
@@ -1749,6 +1786,7 @@ exports[`List should render 1`] = `
                                     label="Toggle filter"
                                     loading={false}
                                     onClick={[Function]}
+                                    role="search"
                                     t={[Function]}
                                     tReady={false}
                                     tooltipPlacement="top"
@@ -1769,7 +1807,7 @@ exports[`List should render 1`] = `
                                         onFocus={[Function]}
                                         onMouseDown={[Function]}
                                         onMouseOver={[Function]}
-                                        role={null}
+                                        role="search"
                                       >
                                         <button
                                           aria-label="Toggle filter"
@@ -1779,7 +1817,7 @@ exports[`List should render 1`] = `
                                           onFocus={[Function]}
                                           onMouseDown={[Function]}
                                           onMouseOver={[Function]}
-                                          role={null}
+                                          role="search"
                                           type="button"
                                         >
                                           <Icon
@@ -1927,7 +1965,6 @@ exports[`List should render 1`] = `
               isSelected={[Function]}
               noRowsRenderer={[Function]}
               onRowDoubleClick={[Function]}
-              selectionToggle={[Function]}
               sort={null}
               sortDirection="ASC"
               type="TABLE"
@@ -1956,7 +1993,6 @@ exports[`List should render 1`] = `
                 noRowsRenderer={[Function]}
                 onRowDoubleClick={[Function]}
                 rowHeight={50}
-                selectionToggle={[Function]}
                 sort={null}
                 sortDirection="ASC"
                 width={0}
@@ -2031,9 +2067,9 @@ exports[`List should render 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 undefinedpx",
-                            "flex": "0 1 undefinedpx",
-                            "msFlex": "0 1 undefinedpx",
+                            "WebkitFlex": "0 1 -1px",
+                            "flex": "0 1 -1px",
+                            "msFlex": "0 1 -1px",
                           }
                         }
                       >
@@ -2051,9 +2087,9 @@ exports[`List should render 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 undefinedpx",
-                            "flex": "0 1 undefinedpx",
-                            "msFlex": "0 1 undefinedpx",
+                            "WebkitFlex": "0 1 -1px",
+                            "flex": "0 1 -1px",
+                            "msFlex": "0 1 -1px",
                           }
                         }
                       >
@@ -2553,6 +2589,7 @@ exports[`List should render id if provided 1`] = `
                             role={null}
                           >
                             <NavDropdown
+                              aria-label="Change display mode. Current display mode: table."
                               id="context-display-mode"
                               key=".0"
                               onSelect={[Function]}
@@ -2580,6 +2617,7 @@ exports[`List should render id if provided 1`] = `
                                     className="dropdown"
                                   >
                                     <DropdownToggle
+                                      aria-label="Change display mode. Current display mode: table."
                                       bsClass="dropdown-toggle"
                                       bsRole="toggle"
                                       id="context-display-mode"
@@ -2592,6 +2630,7 @@ exports[`List should render id if provided 1`] = `
                                       <SafeAnchor
                                         aria-expanded={false}
                                         aria-haspopup={true}
+                                        aria-label="Change display mode. Current display mode: table."
                                         className="dropdown-toggle"
                                         componentClass="a"
                                         id="context-display-mode"
@@ -2602,6 +2641,7 @@ exports[`List should render id if provided 1`] = `
                                         <a
                                           aria-expanded={false}
                                           aria-haspopup={true}
+                                          aria-label="Change display mode. Current display mode: table."
                                           className="dropdown-toggle"
                                           href="#"
                                           id="context-display-mode"
@@ -2651,6 +2691,7 @@ exports[`List should render id if provided 1`] = `
                                           role="menu"
                                         >
                                           <MenuItem
+                                            aria-label="Set Table as current display mode."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -2666,6 +2707,7 @@ exports[`List should render id if provided 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Set Table as current display mode."
                                                 componentClass="a"
                                                 id="context-display-mode-table"
                                                 onClick={[Function]}
@@ -2674,6 +2716,7 @@ exports[`List should render id if provided 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Set Table as current display mode."
                                                   href="#"
                                                   id="context-display-mode-table"
                                                   onClick={[Function]}
@@ -2702,6 +2745,7 @@ exports[`List should render id if provided 1`] = `
                                             </li>
                                           </MenuItem>
                                           <MenuItem
+                                            aria-label="Set Expanded as current display mode."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -2717,6 +2761,7 @@ exports[`List should render id if provided 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Set Expanded as current display mode."
                                                 componentClass="a"
                                                 id="context-display-mode-large"
                                                 onClick={[Function]}
@@ -2725,6 +2770,7 @@ exports[`List should render id if provided 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Set Expanded as current display mode."
                                                   href="#"
                                                   id="context-display-mode-large"
                                                   onClick={[Function]}
@@ -2813,6 +2859,7 @@ exports[`List should render id if provided 1`] = `
                             role={null}
                           >
                             <NavDropdown
+                              aria-label="Change sort criteria. Current sort by Name."
                               className="theme-sort-by-items"
                               id="context-sort-by"
                               key=".0"
@@ -2837,6 +2884,7 @@ exports[`List should render id if provided 1`] = `
                                     className="theme-sort-by-items dropdown"
                                   >
                                     <DropdownToggle
+                                      aria-label="Change sort criteria. Current sort by Name."
                                       bsClass="dropdown-toggle"
                                       bsRole="toggle"
                                       id="context-sort-by"
@@ -2849,6 +2897,7 @@ exports[`List should render id if provided 1`] = `
                                       <SafeAnchor
                                         aria-expanded={false}
                                         aria-haspopup={true}
+                                        aria-label="Change sort criteria. Current sort by Name."
                                         className="dropdown-toggle"
                                         componentClass="a"
                                         id="context-sort-by"
@@ -2859,6 +2908,7 @@ exports[`List should render id if provided 1`] = `
                                         <a
                                           aria-expanded={false}
                                           aria-haspopup={true}
+                                          aria-label="Change sort criteria. Current sort by Name."
                                           className="dropdown-toggle"
                                           href="#"
                                           id="context-sort-by"
@@ -2894,6 +2944,7 @@ exports[`List should render id if provided 1`] = `
                                           role="menu"
                                         >
                                           <MenuItem
+                                            aria-label="Select Id as current sort criteria."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -2914,6 +2965,7 @@ exports[`List should render id if provided 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Select Id as current sort criteria."
                                                 componentClass="a"
                                                 id="context-sort-by-item-id"
                                                 onClick={[Function]}
@@ -2922,6 +2974,7 @@ exports[`List should render id if provided 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Select Id as current sort criteria."
                                                   href="#"
                                                   id="context-sort-by-item-id"
                                                   onClick={[Function]}
@@ -2935,6 +2988,7 @@ exports[`List should render id if provided 1`] = `
                                             </li>
                                           </MenuItem>
                                           <MenuItem
+                                            aria-label="Select Name as current sort criteria."
                                             bsClass="dropdown"
                                             disabled={false}
                                             divider={false}
@@ -2955,6 +3009,7 @@ exports[`List should render id if provided 1`] = `
                                               role="presentation"
                                             >
                                               <SafeAnchor
+                                                aria-label="Select Name as current sort criteria."
                                                 componentClass="a"
                                                 id="context-sort-by-item-name"
                                                 onClick={[Function]}
@@ -2963,6 +3018,7 @@ exports[`List should render id if provided 1`] = `
                                                 tabIndex="-1"
                                               >
                                                 <a
+                                                  aria-label="Select Name as current sort criteria."
                                                   href="#"
                                                   id="context-sort-by-item-name"
                                                   onClick={[Function]}
@@ -2984,6 +3040,7 @@ exports[`List should render id if provided 1`] = `
                             </NavDropdown>
                             <NavItem
                               active={false}
+                              aria-label="Change sort order. Current order: Ascending."
                               disabled={false}
                               id="context-sort-order"
                               key=".1"
@@ -2995,12 +3052,14 @@ exports[`List should render id if provided 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Change sort order. Current order: Ascending."
                                   componentClass="a"
                                   disabled={false}
                                   id="context-sort-order"
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Change sort order. Current order: Ascending."
                                     href="#"
                                     id="context-sort-order"
                                     onClick={[Function]}
@@ -3048,6 +3107,7 @@ exports[`List should render id if provided 1`] = `
                         }
                         onChange={[Function]}
                         startIndex={6}
+                        t={[Function]}
                         totalResults={13}
                       >
                         <Nav
@@ -3284,6 +3344,7 @@ exports[`List should render id if provided 1`] = `
                             </NavDropdown>
                             <NavItem
                               active={false}
+                              aria-label="Go to first page."
                               className="btn-link"
                               disabled={false}
                               eventKey="first"
@@ -3296,12 +3357,14 @@ exports[`List should render id if provided 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to first page."
                                   componentClass="a"
                                   disabled={false}
                                   id="context-pagination-nav-to-first"
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to first page."
                                     href="#"
                                     id="context-pagination-nav-to-first"
                                     onClick={[Function]}
@@ -3329,6 +3392,7 @@ exports[`List should render id if provided 1`] = `
                             </NavItem>
                             <NavItem
                               active={false}
+                              aria-label="Go to previous page. Current page: 2."
                               className="btn-link"
                               disabled={false}
                               eventKey="prev"
@@ -3341,12 +3405,14 @@ exports[`List should render id if provided 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to previous page. Current page: 2."
                                   componentClass="a"
                                   disabled={false}
                                   id="context-pagination-nav-to-prev"
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to previous page. Current page: 2."
                                     href="#"
                                     id="context-pagination-nav-to-prev"
                                     onClick={[Function]}
@@ -3372,7 +3438,7 @@ exports[`List should render id if provided 1`] = `
                                 </SafeAnchor>
                               </li>
                             </NavItem>
-                            <div
+                            <li
                               className="theme-page-index"
                               key=".1:2"
                               onSelect={[Function]}
@@ -3380,9 +3446,10 @@ exports[`List should render id if provided 1`] = `
                               2
                               /
                               3
-                            </div>
+                            </li>
                             <NavItem
                               active={false}
+                              aria-label="Go to next page. Current page: 2."
                               className="btn-link"
                               disabled={false}
                               eventKey="next"
@@ -3395,12 +3462,14 @@ exports[`List should render id if provided 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to next page. Current page: 2."
                                   componentClass="a"
                                   disabled={false}
                                   id="context-pagination-nav-to-next"
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to next page. Current page: 2."
                                     href="#"
                                     id="context-pagination-nav-to-next"
                                     onClick={[Function]}
@@ -3429,6 +3498,7 @@ exports[`List should render id if provided 1`] = `
                             </NavItem>
                             <NavItem
                               active={false}
+                              aria-label="Go to last page."
                               className="btn-link"
                               disabled={false}
                               eventKey="last"
@@ -3441,12 +3511,14 @@ exports[`List should render id if provided 1`] = `
                                 role="presentation"
                               >
                                 <SafeAnchor
+                                  aria-label="Go to last page."
                                   componentClass="a"
                                   disabled={false}
                                   id="context-pagination-nav-to-last"
                                   onClick={[Function]}
                                 >
                                   <a
+                                    aria-label="Go to last page."
                                     href="#"
                                     id="context-pagination-nav-to-last"
                                     onClick={[Function]}
@@ -3529,6 +3601,7 @@ exports[`List should render id if provided 1`] = `
                               id="context-filter"
                               label="Toggle filter"
                               onClick={[Function]}
+                              role="search"
                             >
                               <Translate(ActionButton)
                                 bsStyle="link"
@@ -3538,6 +3611,7 @@ exports[`List should render id if provided 1`] = `
                                 id="context-filter"
                                 label="Toggle filter"
                                 onClick={[Function]}
+                                role="search"
                               >
                                 <I18n
                                   bindI18n="languageChanged loaded"
@@ -3556,6 +3630,7 @@ exports[`List should render id if provided 1`] = `
                                   }
                                   nsMode="default"
                                   onClick={[Function]}
+                                  role="search"
                                   translateFuncName="t"
                                   usePureComponent={false}
                                   wait={false}
@@ -3574,6 +3649,7 @@ exports[`List should render id if provided 1`] = `
                                     label="Toggle filter"
                                     loading={false}
                                     onClick={[Function]}
+                                    role="search"
                                     t={[Function]}
                                     tReady={false}
                                     tooltipPlacement="top"
@@ -3595,7 +3671,7 @@ exports[`List should render id if provided 1`] = `
                                         onFocus={[Function]}
                                         onMouseDown={[Function]}
                                         onMouseOver={[Function]}
-                                        role={null}
+                                        role="search"
                                       >
                                         <button
                                           aria-label="Toggle filter"
@@ -3606,7 +3682,7 @@ exports[`List should render id if provided 1`] = `
                                           onFocus={[Function]}
                                           onMouseDown={[Function]}
                                           onMouseOver={[Function]}
-                                          role={null}
+                                          role="search"
                                           type="button"
                                         >
                                           <Icon
@@ -3757,7 +3833,6 @@ exports[`List should render id if provided 1`] = `
               isSelected={[Function]}
               noRowsRenderer={[Function]}
               onRowDoubleClick={[Function]}
-              selectionToggle={[Function]}
               sort={null}
               sortDirection="ASC"
               type="TABLE"
@@ -3787,7 +3862,6 @@ exports[`List should render id if provided 1`] = `
                 noRowsRenderer={[Function]}
                 onRowDoubleClick={[Function]}
                 rowHeight={50}
-                selectionToggle={[Function]}
                 sort={null}
                 sortDirection="ASC"
                 width={0}
@@ -3864,9 +3938,9 @@ exports[`List should render id if provided 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 undefinedpx",
-                            "flex": "0 1 undefinedpx",
-                            "msFlex": "0 1 undefinedpx",
+                            "WebkitFlex": "0 1 -1px",
+                            "flex": "0 1 -1px",
+                            "msFlex": "0 1 -1px",
                           }
                         }
                       >
@@ -3884,9 +3958,9 @@ exports[`List should render id if provided 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 undefinedpx",
-                            "flex": "0 1 undefinedpx",
-                            "msFlex": "0 1 undefinedpx",
+                            "WebkitFlex": "0 1 -1px",
+                            "flex": "0 1 -1px",
+                            "msFlex": "0 1 -1px",
                           }
                         }
                       >

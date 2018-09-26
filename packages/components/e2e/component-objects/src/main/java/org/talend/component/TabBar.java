@@ -21,9 +21,9 @@ public class TabBar extends Component {
 
     static final String SELECTOR = ".tc-tab-bar";
 
-    static final String TAB_ITEMS_SELECTOR = SELECTOR + " .tc-tab-bar-action span";
+    static final String TAB_ITEMS_SELECTOR = SELECTOR + " li > *";
 
-    static final String TAB_ITEM_ACTIVE_SELECTOR = SELECTOR + " .tc-tab-bar-action.active span";
+    static final String TAB_ITEM_ACTIVE_SELECTOR = SELECTOR + " li.active > *";
 
     /**
      * SidePanel constructor
@@ -52,15 +52,33 @@ public class TabBar extends Component {
      * @return WebElement of tab item
      * @throws NotFoundException if no elements with this label are found
      */
-    public WebElement getTab(String label) throws NotFoundException {
-        Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(TAB_ITEMS_SELECTOR)).iterator();
+    public WebElement getTab(final String label) throws NotFoundException {
+        final Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(TAB_ITEMS_SELECTOR)).iterator();
         while (elements.hasNext()) {
             WebElement el = elements.next();
             if (el.getText().equals(label)) {
                 return el;
             }
         }
-        throw new NotFoundException(label);
+        throw new NotFoundException("Tab not found: " + label);
+    }
+
+    /**
+     * Get tab item from its index
+     *
+     * @param index item tab index
+     * @return WebElement of tab item
+     * @throws NotFoundException if no elements with this label are found
+     */
+    public WebElement getTab(final int index) throws NotFoundException {
+        final WebElement element = this.getElement()
+                .findElements(By.cssSelector(TAB_ITEMS_SELECTOR))
+                .get(index);
+
+        if (element == null) {
+            throw new NotFoundException("Tab not found at index: " + index);
+        }
+        return element;
     }
 
     /**
@@ -71,5 +89,15 @@ public class TabBar extends Component {
      */
     public WebElement getActiveTab() throws NotFoundException {
         return this.getElement().findElement(By.cssSelector(TAB_ITEM_ACTIVE_SELECTOR));
+    }
+
+    /**
+     * Select the tab identified by label
+     *
+     * @return WebElement of tab item
+     * @throws NotFoundException if no active element is find
+     */
+    public void selectTab(final int index) throws NotFoundException {
+        this.getTab(index).click();
     }
 }

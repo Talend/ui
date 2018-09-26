@@ -14,11 +14,11 @@ describe('PieChartButton container', () => {
 	it('should render', () => {
 		const initialState = Immutable.fromJS({
 			model: [
-				{ percentage: 10, color: 'red' },
-				{ percentage: 15, color: 'blue' },
-				{ percentage: 5, color: 'cyan' },
-				{ percentage: 20, color: 'yellow' },
-				{ percentage: 15, color: 'black' },
+				{ percentage: 10, color: 'rio-grande' },
+				{ percentage: 15, color: 'chestnut-rose' },
+				{ percentage: 5, color: 'lightning-yellow' },
+				{ percentage: 20, color: 'dove-gray' },
+				{ percentage: 15, color: 'silver-chalice' },
 			],
 		});
 		expect(
@@ -29,11 +29,11 @@ describe('PieChartButton container', () => {
 	it('should render not available pie chart button', () => {
 		const initialState = Immutable.fromJS({
 			model: [
-				{ percentage: 10, color: 'red' },
-				{ percentage: 15, color: 'blue' },
-				{ percentage: 5, color: 'cyan' },
-				{ percentage: 20, color: 'yellow' },
-				{ percentage: 15, color: 'black' },
+				{ percentage: 10, color: 'rio-grande' },
+				{ percentage: 15, color: 'chestnut-rose' },
+				{ percentage: 5, color: 'lightning-yellow' },
+				{ percentage: 20, color: 'dove-gray' },
+				{ percentage: 15, color: 'silver-chalice' },
 			],
 			available: false,
 		});
@@ -45,11 +45,11 @@ describe('PieChartButton container', () => {
 	it('should render loading pie chart button', () => {
 		const initialState = Immutable.fromJS({
 			model: [
-				{ percentage: 10, color: 'red' },
-				{ percentage: 15, color: 'blue' },
-				{ percentage: 5, color: 'cyan' },
-				{ percentage: 20, color: 'yellow' },
-				{ percentage: 15, color: 'black' },
+				{ percentage: 10, color: 'rio-grande' },
+				{ percentage: 15, color: 'chestnut-rose' },
+				{ percentage: 5, color: 'lightning-yellow' },
+				{ percentage: 20, color: 'dove-gray' },
+				{ percentage: 15, color: 'silver-chalice' },
 			],
 			loading: false,
 		});
@@ -63,11 +63,11 @@ describe('PieChartButton container', () => {
 	it('should render', () => {
 		const initialState = Immutable.fromJS({
 			model: [
-				{ percentage: 10, color: 'red' },
-				{ percentage: 15, color: 'blue' },
-				{ percentage: 5, color: 'cyan' },
-				{ percentage: 20, color: 'yellow' },
-				{ percentage: 15, color: 'black' },
+				{ percentage: 10, color: 'rio-grande' },
+				{ percentage: 15, color: 'chestnut-rose' },
+				{ percentage: 5, color: 'lightning-yellow' },
+				{ percentage: 20, color: 'dove-gray' },
+				{ percentage: 15, color: 'silver-chalice' },
 			],
 		});
 		expect(

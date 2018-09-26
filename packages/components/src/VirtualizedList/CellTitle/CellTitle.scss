@@ -6,16 +6,27 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	display: flex;
 	align-items: center;
 	position: relative;
+	height: 100%;
 
 	.icon {
+		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
 
-		+ form > input {
-			margin-left: $padding-normal;
-			width: auto;
+		+ .edit-form {
+			padding-left: $padding-normal;
+		}
+	}
+
+	.edit-form {
+		flex-grow: 1;
+		height: 100%;
+
+		> input {
+			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -28,6 +39,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		display: block;
 
 		padding: 0 $padding-normal;
+		height: 100%;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
@@ -47,6 +59,20 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		&:hover,
 		&:focus {
 			text-decoration: none;
+		}
+	}
+}
+
+.tc-list-title-filter {
+	&:hover,
+	&:global(.ally-focus-within) {
+		.icon {
+			color: $brand-primary;
+			filter: none;
+		}
+
+		.main-title {
+			color: $scooter;
 		}
 	}
 }

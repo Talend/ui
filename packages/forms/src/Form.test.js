@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
 
 // FIXME: Temporary fix only on tests while the issue
 // described on the following pull request isn't fixed.
@@ -13,10 +12,10 @@ import Action from '@talend/react-components/lib/Actions/Action';
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
+import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
+
 import Form, { renderActionIcon, renderActions } from './Form';
 import DatalistWidget from './widgets/DatalistWidget/DatalistWidget';
-
-import { data as dataUIForm, initProps } from '../__mocks__/data';
 
 const data = {
 	jsonSchema: {
@@ -142,13 +141,6 @@ describe('<Form/>', () => {
 
 	it('should have a displayName', () => {
 		expect(Form.displayName).toBe('TalendForm');
-	});
-
-	it('should render uiform', () => {
-		const props = initProps();
-		// when
-		wrapper = shallow(<Form data={dataUIForm} {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('render simple elements', () => {

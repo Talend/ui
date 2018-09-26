@@ -666,7 +666,7 @@ if (process.env.NODE_ENV !== 'production') {
 		TitleField: PropTypes.element,
 		title: PropTypes.string,
 		required: PropTypes.bool,
-		items: PropTypes.arrayOf(DefaultArrayItem.propTypes),
+		items: PropTypes.arrayOf(PropTypes.shape(DefaultArrayItem.propTypes)),
 		canAdd: PropTypes.bool,
 		onAddClick: PropTypes.func,
 		disabled: PropTypes.bool,

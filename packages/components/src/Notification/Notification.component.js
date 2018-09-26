@@ -2,11 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
 import { Action } from '../Actions';
 import theme from './Notification.scss';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import getDefaultT from '../translate';
 
-export function CloseButton({ notification, leaveFn }) {
+function CloseButtonComponent({ notification, leaveFn, t }) {
 	return (
 		<Action
 			onClick={() => leaveFn(notification)}
@@ -18,9 +21,19 @@ export function CloseButton({ notification, leaveFn }) {
 				theme['tc-notification-close'],
 				'.tc-notification-close',
 			)}
+			aria-label={t('NOTIFICATION_CLOSE', { defaultValue: 'Close notification' })}
 		/>
 	);
 }
+CloseButtonComponent.propTypes = {
+	notification: PropTypes.object,
+	leaveFn: PropTypes.func,
+	t: PropTypes.func,
+};
+CloseButtonComponent.defaultProps = {
+	t: getDefaultT(),
+};
+export const CloseButton = translate(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
 
 export function MessageAction({ action }) {
 	return (
@@ -67,27 +80,29 @@ export function TimerBar({ type, autoLeaveError }) {
 }
 
 export function Notification({ notification, leaveFn, ...props }) {
-	const notificationClasses = {
-		[theme['tc-notification']]: true,
-		'tc-notification': true,
-
+	const isError = notification.type === 'error';
+	const classes = classNames(theme['tc-notification'], 'tc-notification', {
 		[theme['tc-notification-info']]: !notification.type || notification.type === 'info',
 		'tc-notification-info': !notification.type || notification.type === 'info',
 
 		[theme['tc-notification-warning']]: notification.type === 'warning',
 		'tc-notification-warning': notification.type === 'warning',
 
-		[theme['tc-notification-error']]: notification.type === 'error',
-		'tc-notification-error': notification.type === 'error',
-	};
-	const classes = classNames(notificationClasses);
+		[theme['tc-notification-error']]: isError,
+		'tc-notification-error': isError,
+	});
+	const enterAction = event => props.onMouseEnter(event, notification);
+	const leaveAction = event => props.onMouseOut(event, notification);
+
 	return (
 		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
-			role="status"
+			role={isError ? 'alert' : 'status'}
 			className={classes}
-			onMouseEnter={event => props.onMouseEnter(event, notification)}
-			onMouseLeave={event => props.onMouseOut(event, notification)}
 			onClick={event => props.onClick(event, notification)}
+			onFocus={enterAction}
+			onMouseEnter={enterAction}
+			onMouseLeave={leaveAction}
+			tabIndex={0}
 		>
 			<CloseButton {...{ notification, leaveFn }} />
 			<Message notification={notification} />

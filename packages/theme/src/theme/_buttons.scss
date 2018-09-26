@@ -4,11 +4,9 @@
 ////
 
 .btn {
-	@include btn-colors;
-	@include btn-inverse-colors;
 	border: none;
 	font-size: $btn-font-size;
-	font-weight: 600;
+	font-weight: 500;
 	letter-spacing: 1px;
 	line-height: $btn-line-height;
 	min-height: $btn-line-height;
@@ -42,6 +40,11 @@
 		border-color: transparent;
 	}
 
+	&-default {
+		@include btn-colors;
+		@include btn-inverse-colors;
+	}
+
 	&-primary {
 		@include button-variant($btn-validation-color, $btn-validation-bg, $btn-validation-border);
 		@include btn-colors($btn-validation-bg);
@@ -71,14 +74,6 @@
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
-
-		&,
-		&:hover,
-		&:active {
-			background: none;
-			box-shadow: none;
-			border: none;
-		}
 	}
 
 	&-icon-only {

@@ -4,6 +4,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 <ConfirmDialog
   cancelAction={
     Object {
+      "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
       "label": "CANCEL",
       "model": Object {
@@ -11,6 +12,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
         "found": true,
         "id": undefined,
         "label": "myLabel",
+        "onCancelRedirectUrl": undefined,
         "redirectUrl": undefined,
         "resourceType": "myResourceType",
         "resourceTypeLabel": "resourceLabel",
@@ -21,17 +23,19 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   }
   getComponent={undefined}
   header="My header title"
+  onHide={[Function]}
   show={true}
   validateAction={
     Object {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
-      "label": "DELETE",
+      "label": "REMOVE",
       "model": Object {
         "collectionId": undefined,
         "found": true,
         "id": undefined,
         "label": "myLabel",
+        "onCancelRedirectUrl": undefined,
         "redirectUrl": undefined,
         "resourceType": "myResourceType",
         "resourceTypeLabel": "resourceLabel",
@@ -56,6 +60,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
 <ConfirmDialog
   cancelAction={
     Object {
+      "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
       "label": "CANCEL",
       "model": Object {
@@ -63,6 +68,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
         "found": false,
         "id": undefined,
         "label": "",
+        "onCancelRedirectUrl": undefined,
         "redirectUrl": undefined,
         "resourceType": "unknownResourceType",
         "resourceTypeLabel": "unknownResourceType",
@@ -73,17 +79,19 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   }
   getComponent={undefined}
   header="My header title"
+  onHide={[Function]}
   show={true}
   validateAction={
     Object {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
-      "label": "DELETE",
+      "label": "REMOVE",
       "model": Object {
         "collectionId": undefined,
         "found": false,
         "id": undefined,
         "label": "",
+        "onCancelRedirectUrl": undefined,
         "redirectUrl": undefined,
         "resourceType": "unknownResourceType",
         "resourceTypeLabel": "unknownResourceType",

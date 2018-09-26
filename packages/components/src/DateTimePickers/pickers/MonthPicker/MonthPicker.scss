@@ -1,0 +1,26 @@
+@import '../../shared/styles/variables';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	.row {
+		display: flex;
+		flex: 1;
+		border-bottom: $border-default;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.month {
+		flex: 1;
+		border-right: $border-default;
+
+		&:last-child {
+			border-right: none;
+		}
+	}
+}

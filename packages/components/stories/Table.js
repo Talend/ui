@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 import { DragDropContext as dndContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
-import { storiesOf } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
-import { action } from '@storybook/addon-actions';  // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import { checkA11y } from '@storybook/addon-a11y';
-import {
-	DraggableComponent as draggable,
-	IconsProvider,
-	Table,
-} from '../src/index';
+import { DraggableComponent as draggable, IconsProvider, Table } from '../src/index';
 
 const dataPrepSchema = {
 	id: 'd1fg158sc',
@@ -122,7 +118,7 @@ const salesForceAccountSchema = {
 		'Estimated annual revenue of the account.',
 		'The compound form of the billing address. Read-only. See Address Compound Fields for details on compound address fields.',
 		'Details for the billing address of this account. Maximum size is 40 characters.',
- 		'Details for the billing address of this account. Maximum size is 80 characters.',
+		'Details for the billing address of this account. Maximum size is 80 characters.',
 		'The ISO country code for the account’s billing address.',
 		'Accuracy level of the geocode for the billing address. See Compound Field Considerations and Limitations for details on geolocation compound fields.',
 		'Used with BillingLongitude to specify the precise geolocation of a billing address. Acceptable values are numbers between –90 and 90 with up to 15 decimal places. See Compound Field Considerations and Limitations for details on geolocation compound fields.',
@@ -210,8 +206,8 @@ function finalizeSchema(schema, size) {
 	if (size) {
 		sourceElements = schema.elements.slice(0, size);
 	}
-	const elements = sourceElements.map(
-		(elem, index) => buildElement(elem, index, schema.types, schema.descriptions, schema.mandatories)
+	const elements = sourceElements.map((elem, index) =>
+		buildElement(elem, index, schema.types, schema.descriptions, schema.mandatories),
 	);
 	result.elements = elements;
 	return result;
@@ -223,18 +219,22 @@ const schema3 = finalizeSchema(salesForceAccountSchema);
 
 const Columns = {
 	NAME: {
+		id: 'my-table-name',
 		key: 'name',
 		label: 'Name',
 	},
 	TYPE: {
+		id: 'my-table-type',
 		key: 'type',
 		label: 'Type',
 	},
 	DESC: {
+		id: 'my-table-desc',
 		key: 'description',
 		label: 'Description',
 	},
 	MANDATORY: {
+		id: 'my-table-mandatory',
 		key: 'mandatory',
 		label: '',
 	},
@@ -338,7 +338,6 @@ const columns6 = [
 ];
 
 class ConnectedTable extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -369,12 +368,7 @@ class ConnectedTable extends React.Component {
 	}
 
 	render() {
-		const {
-			elements,
-			columns,
-			withHeader,
-			onScroll,
-		} = this.props;
+		const { elements, columns, withHeader, onScroll } = this.props;
 		return (
 			<Table
 				elements={elements}
@@ -387,7 +381,6 @@ class ConnectedTable extends React.Component {
 			/>
 		);
 	}
-
 }
 
 ConnectedTable.propTypes = {
@@ -457,7 +450,7 @@ function createSorter() {
 	return {
 		direction: SortDirection.NONE,
 		icons: sorterIcons,
-	}
+	};
 }
 
 function createSorters(keys) {
@@ -509,7 +502,6 @@ function updateFilteredElements(elements, filters, id, active, params) {
 }
 
 function getCompare(key, direction) {
-
 	const coefs = {
 		none: 0,
 		ascending: 1,
@@ -541,11 +533,15 @@ function sort(elements, key, direction) {
 }
 
 function isActiveSorter(sorter) {
-	return sorter.direction === SortDirection.ASCENDING || sorter.direction === SortDirection.DESCENDING;
+	return (
+		sorter.direction === SortDirection.ASCENDING || sorter.direction === SortDirection.DESCENDING
+	);
 }
 
 function updateSortedElements(elements, sorters, columns) {
-	const sortedColumn = columns.find(col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]));
+	const sortedColumn = columns.find(
+		col => sorters && sorters[col.key] && isActiveSorter(sorters[col.key]),
+	);
 	if (sortedColumn) {
 		const sortedKey = sortedColumn.key;
 		return sort(elements, sortedKey, sorters[sortedKey].direction);
@@ -573,7 +569,6 @@ function updateSorters(sorters, columns, columnKey) {
 }
 
 class SortedFilteredTable extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -589,8 +584,18 @@ class SortedFilteredTable extends React.Component {
 	}
 
 	onFilterChange(id, active, params) {
-		const filteredElements = updateFilteredElements(this.state.elements, this.state.filters, id, active, params);
-		const sortedElements = updateSortedElements(filteredElements, this.state.sorters, this.state.columns);
+		const filteredElements = updateFilteredElements(
+			this.state.elements,
+			this.state.filters,
+			id,
+			active,
+			params,
+		);
+		const sortedElements = updateSortedElements(
+			filteredElements,
+			this.state.sorters,
+			this.state.columns,
+		);
 		this.setState(prevState => ({
 			filteredElements,
 			filters: updateFilters(prevState.filters, id, active, params),
@@ -602,7 +607,11 @@ class SortedFilteredTable extends React.Component {
 		const updatedSorters = updateSorters(this.state.sorters, this.state.columns, columnKey);
 		this.setState(prevState => ({
 			sorters: updatedSorters,
-			sortedElements: updateSortedElements(prevState.filteredElements, updatedSorters, prevState.columns),
+			sortedElements: updateSortedElements(
+				prevState.filteredElements,
+				updatedSorters,
+				prevState.columns,
+			),
 		}));
 	}
 
@@ -612,7 +621,7 @@ class SortedFilteredTable extends React.Component {
 				title={this.props.title}
 				elements={this.state.sortedElements}
 				columns={this.state.columns}
-				withHeader={true}
+				withHeader
 				filters={this.state.filters}
 				onFilterChange={this.onFilterChange}
 				sorters={this.state.sorters}
@@ -620,7 +629,6 @@ class SortedFilteredTable extends React.Component {
 			/>
 		);
 	}
-
 }
 
 SortedFilteredTable.propTypes = {
@@ -646,74 +654,58 @@ stories
 			{story()}
 		</div>
 	))
-	.addWithInfo('Table', () => {
-		return (
-			<div className="story-table" >
-				<Table
-				  elements={schema1.elements}
-		      columns={columns1}
-					withHeader={true}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Table (as list)', () => {
-		return (
-			<div className="default-table" >
-				<Table
-				  elements={schema2.elements}
-		      columns={columns2}
-		      onEnterRow={action('onEnterRow called!')}
-					onLeaveRow={action('onLeaveRow called!')}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Table with drag and drop', () => {
-		return (
-			<div className="table-with-dnd" >
-				<TableWithDND
-					elements={schema3.elements}
-					columns={columns3}
-					withHeader={true}
-					onScroll={action('onScroll called!')}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Table with filters', () => {
-		return (
-			<div className="filtered-table" >
-				<SortedFilteredTable
-					elements={schema3.elements}
-					columns={columns4}
-					filters={createFilters()}
-					title={schema3.name}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Table with sorters', () => {
-		return (
-			<div className="sorted-table" >
-				<SortedFilteredTable
-					elements={schema3.elements}
-					columns={columns5}
-					sorters={createSorters(sorterKeys)}
-				/>
-			</div>
-		);
-	})
-	.addWithInfo('Table with dnd, sorters & filters', () => {
-		return (
-			<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')} >
-				<SortedFilteredTableWithDND
-					elements={schema3.elements}
-					columns={columns6}
-					filters={createFilters()}
-					sorters={createSorters(sorterKeys)}
-					title={schema3.name}
-				/>
-			</div>
-		);
-	});
+	.addWithInfo('Table', () => (
+		<div className="story-table">
+			<Table elements={schema1.elements} columns={columns1} withHeader />
+		</div>
+		))
+	.addWithInfo('Table (as list)', () => (
+		<div className="default-table">
+			<Table
+				elements={schema2.elements}
+				columns={columns2}
+				onEnterRow={action('onEnterRow called!')}
+				onLeaveRow={action('onLeaveRow called!')}
+			/>
+		</div>
+		))
+	.addWithInfo('Table with drag and drop', () => (
+		<div className="table-with-dnd">
+			<TableWithDND
+				elements={schema3.elements}
+				columns={columns3}
+				withHeader
+				onScroll={action('onScroll called!')}
+			/>
+		</div>
+		))
+	.addWithInfo('Table with filters', () => (
+		<div className="filtered-table">
+			<SortedFilteredTable
+				elements={schema3.elements}
+				columns={columns4}
+				filters={createFilters()}
+				title={schema3.name}
+			/>
+		</div>
+		))
+	.addWithInfo('Table with sorters', () => (
+		<div className="sorted-table">
+			<SortedFilteredTable
+				elements={schema3.elements}
+				columns={columns5}
+				sorters={createSorters(sorterKeys)}
+			/>
+		</div>
+		))
+	.addWithInfo('Table with dnd, sorters & filters', () => (
+		<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')}>
+			<SortedFilteredTableWithDND
+				elements={schema3.elements}
+				columns={columns6}
+				filters={createFilters()}
+				sorters={createSorters(sorterKeys)}
+				title={schema3.name}
+			/>
+		</div>
+		));

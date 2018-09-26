@@ -19,13 +19,37 @@ export const DEFAULT_STATE = new Immutable.Map({
 	[SELECTED_ATTR]: undefined,
 });
 
-function toggleState(prevProps, id) {
+function itemHasChildId(data, idAttr, idToMatch) {
+	if (!data.children || !data.children.length) {
+		return false;
+	}
+	return data.children.some(
+		child => child[idAttr] === idToMatch || itemHasChildId(child, idAttr, idToMatch),
+	);
+}
+
+function toggleState(prevProps, data, idAttr) {
+	const id = data[idAttr];
 	const opened = prevProps.state.get(OPENED_ATTR);
 	const index = opened.indexOf(id);
 	if (index !== -1) {
-		return prevProps.state.set(OPENED_ATTR, opened.delete(index));
+		let nextState = prevProps.state.set(OPENED_ATTR, opened.delete(index));
+		const selectedId = nextState.get(SELECTED_ATTR);
+		if (selectedId !== undefined && itemHasChildId(data, idAttr, selectedId)) {
+			nextState = nextState.set(SELECTED_ATTR, undefined);
+		}
+
+		return nextState;
 	}
 	return prevProps.state.set(OPENED_ATTR, prevProps.state.get(OPENED_ATTR).push(id));
+}
+
+function openAllState(prevProps, data, idAttr) {
+	const nextOpened = data
+		.reduce((accu, item) => accu.add(item[idAttr]), prevProps.state.get(OPENED_ATTR).toSet())
+		.toList();
+
+	return prevProps.state.set(OPENED_ATTR, nextOpened);
 }
 
 function selectWrapper(prevProps, id) {
@@ -47,25 +71,23 @@ export function transform(items, props, parent) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = props[SELECTED_ATTR] || (state && state.get(SELECTED_ATTR));
-	const opened = state && state.get(OPENED_ATTR).toJS();
+	const selectedId = state.get(SELECTED_ATTR);
+	const opened = state.get(OPENED_ATTR);
 
 	return items.map(item => {
-		const selected = item[props.idAttr] === selectedId;
 		const elem = {
 			...item,
 			id: item[props.idAttr],
-			toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
+			isOpened: item.isOpened || opened.includes(item[props.idAttr]),
 			name: item[props.nameAttr],
-			selected,
 			parent,
 		};
 
 		elem.children = transform(item[props.childrenAttr], props, elem);
 
-		if (selected) {
+		if (item[props.idAttr] === selectedId) {
 			for (let current = elem; current.parent; current = current.parent) {
-				current.parent.toggled = true;
+				current.parent.isOpened = true;
 			}
 		}
 
@@ -79,10 +101,11 @@ export function transform(items, props, parent) {
 class TreeView extends React.Component {
 	static displayName = DISPLAY_NAME;
 	static propTypes = {
-		data: ImmutablePropTypes.List,
+		data: ImmutablePropTypes.list,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		onClick: PropTypes.func,
+		onToggle: PropTypes.func,
 		onSelect: PropTypes.func,
 		onClickActionCreator: PropTypes.string,
 		onSelectActionCreator: PropTypes.string,
@@ -94,10 +117,18 @@ class TreeView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
-		this.onClick = this.onClick.bind(this);
+		this.onToggle = this.onToggle.bind(this);
+		this.onToggleAllSiblings = this.onToggleAllSiblings.bind(this);
+
+		if (props.onClick && process.env.NODE_ENV !== 'production') {
+			// eslint-disable-next-line no-console
+			console.warn(
+				'Treeview container: props.onClick is deprecated please use onToggle that is way more explicit',
+			);
+		}
 	}
 
-	onSelect(data) {
+	onSelect(event, data) {
 		this.props.setState(prevState => selectWrapper(prevState, data[this.props.idAttr]));
 		if (this.props.onSelectActionCreator) {
 			this.props.dispatchActionCreator(
@@ -115,8 +146,8 @@ class TreeView extends React.Component {
 		}
 	}
 
-	onClick(data) {
-		this.props.setState(prevState => toggleState(prevState, data[this.props.idAttr]));
+	onToggle(event, data) {
+		this.props.setState(prevState => toggleState(prevState, data, this.props.idAttr));
 		if (this.props.onClickActionCreator) {
 			this.props.dispatchActionCreator(
 				this.props.onClickActionCreator,
@@ -128,9 +159,27 @@ class TreeView extends React.Component {
 				data,
 			);
 		}
+		if (this.props.onToggle) {
+			this.props.onToggle(data);
+		}
+		// deprecated
 		if (this.props.onClick) {
 			this.props.onClick(data);
 		}
+	}
+
+	onToggleAllSiblings(event, data) {
+		this.props.setState(prevState => openAllState(prevState, data, this.props.idAttr));
+	}
+
+	getSelectedId() {
+		const selectedId = this.props[SELECTED_ATTR];
+		if (selectedId !== undefined) {
+			return selectedId;
+		}
+
+		const state = this.props.state || DEFAULT_STATE;
+		return state.get(SELECTED_ATTR);
 	}
 
 	render() {
@@ -140,7 +189,14 @@ class TreeView extends React.Component {
 		const structure = transform(this.props.data.toJS(), this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
-			<Component {...props} structure={structure} onSelect={this.onSelect} onClick={this.onClick} />
+			<Component
+				{...props}
+				structure={structure}
+				onSelect={this.onSelect}
+				onToggle={this.onToggle}
+				onToggleAllSiblings={this.onToggleAllSiblings}
+				selectedId={this.getSelectedId()}
+			/>
 		);
 	}
 }
