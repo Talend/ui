@@ -282,7 +282,8 @@ describe('UIForm component', () => {
 			};
 			// props.errors.lastname =
 			const wrapper = shallow(
-				<UIFormComponent {...data} properties={dataProperties} errors={errors} {...props} />);
+				<UIFormComponent {...data} properties={dataProperties} errors={errors} {...props} />,
+			);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
