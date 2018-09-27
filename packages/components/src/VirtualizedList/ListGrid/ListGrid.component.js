@@ -41,6 +41,9 @@ function ListGrid(props) {
 			rowCount={collection.length}
 			rowRenderer={enhancedRowRenderer}
 			rowGetter={index => collection[index]}
+			role="group"
+			aria-label="list"
+			containerRole="list"
 			{...restProps}
 		/>
 	);
