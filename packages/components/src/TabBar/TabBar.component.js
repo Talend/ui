@@ -76,15 +76,16 @@ class TabBar extends React.Component {
 							</NavItem>
 						))}
 					</Nav>
-					{children && <Tab.Content>
-						{items.map(item => (
-							<Tab.Pane eventKey={item.key} key={item.key}>
-								{item.children}
-								{selectedKey === item.key ? children : null}
-							</Tab.Pane>
-						))}
-					</Tab.Content>
-					}
+					{children && (
+						<Tab.Content>
+							{items.map(item => (
+								<Tab.Pane eventKey={item.key} key={item.key}>
+									{item.children}
+									{selectedKey === item.key ? children : null}
+								</Tab.Pane>
+							))}
+						</Tab.Content>
+					)}
 				</div>
 			</Tab.Container>
 		);
