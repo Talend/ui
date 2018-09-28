@@ -4,7 +4,7 @@ This widget surprisingly allows you to render an InputDateTimePicker.
 
 ## Data conversion
 
-The underlying _InputDateTimePicker_ component handles a Date object and the form the final format, an iso string or a timestamp number. Thereby, a conversion need to be done, in both way, and [some errors can occurs](#error-handling).
+The underlying _InputDateTimePicker_ component handles a Date object and the form handles the final submited format, which can be an iso string or a timestamp number. Thereby, a conversion need to be done, in both way, and [some errors can occur](#error-handling).
 
 ### Procedure
 
@@ -20,7 +20,7 @@ It's a number of milliseconds since 01 January, 1970 UTC. [The range](https://ww
 
 It's a string of a specific format of the [ISO-8601 Extended format](https://fr.wikipedia.org/wiki/ISO_8601) defined in the [EcmaScript specification](https://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15). Only the UTC format (Z without timezone at the end) can be used, all the parts are mandatory up to the fraction of second which is delimited with the dot.
 
-Exemple : "2018-01-01T10:35:48.951Z"
+Example : "2018-01-01T10:35:48.951Z"
 
 ## Json Schema
 
