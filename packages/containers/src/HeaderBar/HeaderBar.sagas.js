@@ -33,8 +33,8 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
-	if ('uri' in action.payload) {
-		window.open(action.payload.uri, '_blank');
+	if ('url' in action.payload) {
+		window.open(action.payload.url, '_blank');
 	}
 }
 

@@ -53,7 +53,6 @@ class HeaderBar extends React.Component {
 			props.products = Object.assign({}, props.products || {}, {
 				items: productsItems.map(product => ({
 					label: product.name,
-					uri: product.url,
 					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
 				})),
