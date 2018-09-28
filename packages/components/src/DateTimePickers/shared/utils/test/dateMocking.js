@@ -23,33 +23,31 @@ function overrideStaticMethods(BaseDate, OverridenDate) {
 }
 
 function overridePrototypesMethods(NewDate) {
-	function overrideLocalToUtc(allMethods, methodsToOverride) {
-		allMethods
-			.map(method => {
-				const matches = method.match(/^(get|set)(?:UTC?)(.+)$/);
-
-				if (matches === null) {
-					return undefined;
-				}
-
-				const [, prefix, suffix] = matches;
-
-				return {
-					prefix,
-					suffix,
-				};
-			})
-			.filter(infos => infos !== undefined && methodsToOverride.includes(infos.suffix))
-			.forEach(({ prefix, suffix }) => {
-				const defaultMethod = `${prefix}${suffix}`;
-				const utcMethod = `${prefix}UTC${suffix}`;
-
-				// eslint-disable-next-line no-param-reassign
-				NewDate.prototype[defaultMethod] = NewDate.prototype[utcMethod];
-			});
-	}
 	const allMethods = Object.getOwnPropertyNames(NewDate.prototype);
-	overrideLocalToUtc(allMethods, METHODS_SUFFIX__OVERRIDE_TO_UTC);
+
+	allMethods
+		.map(method => {
+			const matches = method.match(/^(get|set)(?:UTC?)(.+)$/);
+
+			if (matches === null) {
+				return undefined;
+			}
+
+			const [, prefix, suffix] = matches;
+
+			return {
+				prefix,
+				suffix,
+			};
+		})
+		.filter(infos => infos !== undefined && METHODS_SUFFIX__OVERRIDE_TO_UTC.includes(infos.suffix))
+		.forEach(({ prefix, suffix }) => {
+			const defaultMethod = `${prefix}${suffix}`;
+			const utcMethod = `${prefix}UTC${suffix}`;
+
+			// eslint-disable-next-line no-param-reassign
+			NewDate.prototype[defaultMethod] = NewDate.prototype[utcMethod];
+		});
 }
 
 export function mockDate(mockingDate = new Date(0)) {
