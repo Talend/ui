@@ -38,7 +38,7 @@ in your app index.js file
 
 ```javascript
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import comtainersModule from '@talend/react-containers/lib/cmfModule';
+import containersModule from '@talend/react-containers';
 import cmf from '@talend/react-cmf';
 import components from './components';
 import expressions from './expressions';
@@ -48,7 +48,7 @@ const myAppModule = {
     expressions,
 	settingsURL: '/settings.json',
 };
-cmf.bootstrap(cmf.module.merge(comtainersModule, myAppModule));
+cmf.bootstrap(cmf.module.merge(containersModule, myAppModule));
 ```
 
 ## Architecture

@@ -1,7 +1,7 @@
 import cmf from '@talend/react-cmf';
-import cmfModule from './cmfModule';
+import containersCMFModule from './index';
 
 // eslint-disable-next-line import/prefer-default-export
 export function registerAllContainers() {
-	cmf.component.registerMany(cmfModule.components);
+	cmf.component.registerMany(containersCMFModule.components);
 }
