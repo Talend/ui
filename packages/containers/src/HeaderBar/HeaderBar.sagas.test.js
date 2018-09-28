@@ -76,8 +76,8 @@ describe('HeaderBar sagas', () => {
 			global.open.mockReset();
 		});
 
-		it("should open a product's page when an URI is provided", () => {
-			const action = { payload: { uri: 'productUri' } };
+		it("should open a product's page when an URL is provided", () => {
+			const action = { payload: { url: 'productUrl' } };
 
 			handleOpenProduct(action);
 			expect(global.open).toHaveBeenCalled();

@@ -11,6 +11,10 @@ export const DEFAULT_STATE = new Map({
 	productsFetchState: Constants.PRODUCTS_NOT_LOADED,
 });
 
+function sortProductsByLabel(a, b) {
+	return a.label > b.label ? 1 : -1;
+}
+
 class HeaderBar extends React.Component {
 	static displayName = 'Container(HeaderBar)';
 
@@ -51,13 +55,15 @@ class HeaderBar extends React.Component {
 			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
 
 		if (hasFetchedProducts && productsItems) {
-			props.products = Object.assign({}, props.products || {}, {
-				items: productsItems.map(product => ({
+			const items = productsItems
+				.map(product => ({
 					label: product.name,
 					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
-				})),
-			});
+				}))
+				.sort(sortProductsByLabel);
+
+			props.products = Object.assign({}, props.products || {}, { items });
 		}
 
 		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} />;
