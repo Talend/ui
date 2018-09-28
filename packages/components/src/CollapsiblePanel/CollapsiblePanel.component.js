@@ -206,7 +206,8 @@ function getTextualContent(content) {
 					const { label, tooltipPlacement, tooltipLabel, className } = item;
 					return (
 						<TooltipTrigger
-							key={index} label={tooltipLabel || label}
+							key={index}
+							label={tooltipLabel || label}
 							tooltipPlacement={tooltipPlacement}
 						>
 							<span className={className}>{label}</span>

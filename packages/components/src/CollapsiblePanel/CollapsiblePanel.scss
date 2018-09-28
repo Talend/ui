@@ -60,8 +60,8 @@ $tc-toggle-color: #555964 !default;
 
 .tc-collapsible-panel {
 	position: relative;
-	
-	&:hover {		
+
+	&:hover {
 		cursor: pointer;
 
 		.panel-heading {
@@ -95,7 +95,6 @@ $tc-toggle-color: #555964 !default;
 		:global(.tc-status-label) {
 			color: $brand-info;
 		}
-		
 	}
 
 	&.success {
@@ -104,7 +103,7 @@ $tc-toggle-color: #555964 !default;
 			color: $brand-success;
 		}
 	}
-	
+
 	&.danger {
 		border-left-color: $brand-danger;
 		:global(.tc-status-label) {
