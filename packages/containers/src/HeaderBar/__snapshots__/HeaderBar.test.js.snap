@@ -20,7 +20,6 @@ exports[`Container HeaderBar should render HeaderBar container with a list of it
             },
             "type": "HEADER_BAR_OPEN_PRODUCT",
           },
-          "uri": "http://foo",
         },
       ],
     }
