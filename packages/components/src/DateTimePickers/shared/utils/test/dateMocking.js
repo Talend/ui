@@ -14,7 +14,8 @@ const GET_METHODS_OVERRIDE_TO_UTC = SET_METHODS_OVERRIDE_TO_UTC.concat('Day');
 
 function overrideStaticMethods(BaseDate, OverridenDate) {
 	Object.getOwnPropertyNames(BaseDate)
-		.filter(key => !['name', 'length'].includes(key))
+		.filter(key => key !== 'name')
+		.filter(key => key !== 'length')
 		.map(key => [key, BaseDate[key]])
 		.forEach(([key, value]) => {
 			// eslint-disable-next-line no-param-reassign
