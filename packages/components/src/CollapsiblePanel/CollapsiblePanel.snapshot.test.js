@@ -80,7 +80,7 @@ const timeStamp = {
 };
 
 const customElement = {
-	element: (<span>Custom element</span>),
+	element: <span>Custom element</span>,
 	label: 'Custom',
 	tooltipPlacement: 'top',
 };
