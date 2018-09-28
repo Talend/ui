@@ -16,6 +16,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
 export const TYPE_BADGE = 'badge';
+export const TYPE_CUSTOM = 'custom';
 
 function getActionHandler(func, item) {
 	return function actionHandler(e) {
@@ -24,7 +25,7 @@ function getActionHandler(func, item) {
 	};
 }
 
-const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS];
+const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS, TYPE_CUSTOM];
 
 const statusPropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
@@ -41,8 +42,10 @@ const actionPropTypes = {
 const simplePropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
 	className: PropTypes.string,
+	element: PropTypes.string,
 	label: PropTypes.string,
 	bsStyle: PropTypes.string,
+	tooltipLabel: OverlayTrigger.propTypes.label,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
 
@@ -70,19 +73,27 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			);
 		}
 		case TYPE_BADGE: {
-			const { label, tooltipPlacement, ...rest } = headerItem;
+			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
 			return (
-				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
+				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					<Label {...rest} className={css[className]}>
 						{label}
 					</Label>
 				</TooltipTrigger>
 			);
 		}
-		default: {
-			const { label, tooltipPlacement } = headerItem;
+		case TYPE_CUSTOM: {
+			const { element, label, tooltipLabel, tooltipPlacement } = headerItem;
 			return (
-				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
+				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+					{element}
+				</TooltipTrigger>
+			);
+		}
+		default: {
+			const { label, tooltipLabel, tooltipPlacement } = headerItem;
+			return (
+				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 					<span className={css[className]}>{label}</span>
 				</TooltipTrigger>
 			);
@@ -109,13 +120,25 @@ function CollapsiblePanelHeader(props) {
 		if (Array.isArray(headerItem)) {
 			const elements = headerItem.map(renderHeaderItem);
 			return (
-				<div key={index} className={classNames(css.group, css[headerColumnClass])}>
+				<div
+					key={index}
+					className={classNames(css.group, css[headerColumnClass])}
+					onClick={onToggle}
+					role="button"
+					tabIndex="0"
+				>
 					{elements}
 				</div>
 			);
 		}
 		return (
-			<div key={index} className={classNames(css[headerItem.className], css[headerColumnClass])}>
+			<div
+				key={index}
+				className={classNames(css[headerItem.className], css[headerColumnClass])}
+				onClick={onToggle}
+				role="button"
+				tabIndex="0"
+			>
 				{renderHeaderItem(headerItem)}
 			</div>
 		);
@@ -180,9 +203,12 @@ function getTextualContent(content) {
 		<div className={css.content}>
 			<div className={css.head}>
 				{content.head.map((item, index) => {
-					const { label, tooltipPlacement, className } = item;
+					const { label, tooltipPlacement, tooltipLabel, className } = item;
 					return (
-						<TooltipTrigger key={index} label={label} tooltipPlacement={tooltipPlacement}>
+						<TooltipTrigger
+							key={index} label={tooltipLabel || label}
+							tooltipPlacement={tooltipPlacement}
+						>
 							<span className={className}>{label}</span>
 						</TooltipTrigger>
 					);

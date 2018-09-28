@@ -79,6 +79,12 @@ const timeStamp = {
 	tooltipPlacement: 'top',
 };
 
+const customElement = {
+	element: (<span>Custom element</span>),
+	label: 'Custom',
+	tooltipPlacement: 'top',
+};
+
 const propsDescriptivePanel = {
 	header: [[version1, readOnlyLabel], timeStamp],
 	content: {
@@ -115,6 +121,12 @@ const propsDescriptivePanelWithoutContent = {
 	onSelect: jest.fn(),
 	onToggle: jest.fn(),
 	selected: true,
+};
+
+const propsPanelWithCustomElement = {
+	header: [[version1, customElement], timeStamp],
+	onSelect: jest.fn(),
+	onToggle: jest.fn(),
 };
 
 describe('CollapsiblePanel', () => {
@@ -154,6 +166,16 @@ describe('CollapsiblePanel', () => {
 		// when
 		const wrapper = renderer
 			.create(<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />)
+			.toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render panel with custom element', () => {
+		// when
+		const wrapper = renderer
+			.create(<CollapsiblePanel {...propsPanelWithCustomElement} content={null} />)
 			.toJSON();
 
 		// then

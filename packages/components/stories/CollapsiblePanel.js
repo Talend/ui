@@ -65,12 +65,20 @@ const label3 = {
 	label: 'XML',
 	bsStyle: 'info',
 	tooltipPlacement: 'top',
+	tooltipLabel: 'Extensible Markup Language',
 };
 
 const label4 = {
 	label: 'on Hadoop Cluster',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+};
+
+const label5 = {
+	displayMode: 'custom',
+	tooltipPlacement: 'top',
+	tooltipLabel: 'Webhook job',
+	element: (<div className="custom-element">Custom element can be here</div>),
 };
 
 const propsPanel = {
@@ -170,6 +178,18 @@ const propsCanceledCollapsiblePanel = {
 		{ ...status, status: 'canceled', label: 'Canceled', icon: 'talend-cross' },
 		label1,
 		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+};
+
+const propsCollapsiblePanelWithCustomElement = {
+	header: [
+		{ ...status, status: 'successful', label: 'Successful', icon: 'talend-check' },
+		label1,
+		label5,
 		button,
 		label3,
 	],
@@ -357,6 +377,10 @@ storiesOf('CollapsiblePanel', module)
 			<p>CollapsiblePanel with status canceled:</p>
 			<div id="status-canceled">
 				<CollapsiblePanel {...propsCanceledCollapsiblePanel} status={'canceled'} />
+			</div>
+			<p>CollapsiblePanel with successful status and custom element:</p>
+			<div id="status-successful">
+				<CollapsiblePanel {...propsCollapsiblePanelWithCustomElement} status={'successful'} />
 			</div>
 		</div>
 	))

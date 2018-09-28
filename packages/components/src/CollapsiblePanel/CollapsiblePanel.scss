@@ -60,9 +60,21 @@ $tc-toggle-color: #555964 !default;
 
 .tc-collapsible-panel {
 	position: relative;
+	
+	&:hover {		
+		cursor: pointer;
+
+		.panel-heading {
+			background: $white;
+		}
+
+		:global(.tc-status-label) {
+			text-decoration: underline;
+		}
+	}
 
 	&.selected {
-		border-left: 4px solid $brand-primary;
+		border-left: 5px solid $brand-primary;
 		padding-left: 1px;
 	}
 
@@ -72,27 +84,46 @@ $tc-toggle-color: #555964 !default;
 	&.muted,
 	&.warning {
 		padding-left: 1px;
-		border-left: 4px solid;
+		border-left: 5px solid;
+		:global(.tc-status-label) {
+			font-weight: 600;
+		}
 	}
 
 	&.info {
 		border-left-color: $brand-info;
+		:global(.tc-status-label) {
+			color: $brand-info;
+		}
+		
 	}
 
 	&.success {
 		border-left-color: $brand-success;
+		:global(.tc-status-label) {
+			color: $brand-success;
+		}
 	}
-
+	
 	&.danger {
 		border-left-color: $brand-danger;
+		:global(.tc-status-label) {
+			color: $brand-danger;
+		}
 	}
 
 	&.muted {
 		border-left-color: $gray;
+		:global(.tc-status-label) {
+			color: $gray;
+		}
 	}
 
 	&.warning {
 		border-left-color: $brand-warning;
+		:global(.tc-status-label) {
+			color: $brand-warning;
+		}
 	}
 
 	.toggle svg {
