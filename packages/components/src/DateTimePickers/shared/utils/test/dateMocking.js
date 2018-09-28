@@ -1,7 +1,7 @@
 let OriginalDate;
 let currentMockingDate;
 
-const SET_METHODS_OVERRIDE_TO_UTC = [
+const METHODS_SUFFIX__OVERRIDE_TO_UTC = [
 	'Date',
 	'FullYear',
 	'Hours',
@@ -9,8 +9,8 @@ const SET_METHODS_OVERRIDE_TO_UTC = [
 	'Minutes',
 	'Month',
 	'Seconds',
+	'Day',
 ];
-const GET_METHODS_OVERRIDE_TO_UTC = SET_METHODS_OVERRIDE_TO_UTC.concat('Day');
 
 function overrideStaticMethods(BaseDate, OverridenDate) {
 	Object.getOwnPropertyNames(BaseDate)
@@ -49,8 +49,7 @@ function overridePrototypesMethods(NewDate) {
 			});
 	}
 	const allMethods = Object.getOwnPropertyNames(NewDate.prototype);
-	const methodsToOverride = [...GET_METHODS_OVERRIDE_TO_UTC, ...SET_METHODS_OVERRIDE_TO_UTC];
-	overrideLocalToUtc(allMethods, methodsToOverride);
+	overrideLocalToUtc(allMethods, METHODS_SUFFIX__OVERRIDE_TO_UTC);
 }
 
 export function mockDate(mockingDate = new Date(0)) {
