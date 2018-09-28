@@ -16,10 +16,9 @@ function overrideStaticMethods(BaseDate, OverridenDate) {
 	Object.getOwnPropertyNames(BaseDate)
 		.filter(key => key !== 'name')
 		.filter(key => key !== 'length')
-		.map(key => [key, BaseDate[key]])
-		.forEach(([key, value]) => {
+		.forEach(key => {
 			// eslint-disable-next-line no-param-reassign
-			OverridenDate[key] = value;
+			OverridenDate[key] = BaseDate[key];
 		});
 }
 
