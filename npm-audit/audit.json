@@ -178,6 +178,20 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
+# Run  npm update react-dev-utils --depth 2  to resolve 1 vulnerability
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ High          │ Remote Code Execution                                        │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ react-dev-utils                                              │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ @storybook/react                                             │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ @storybook/react > react-dev-utils                           │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/695                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                Manual Review                                 │
 │            Some vulnerabilities require your attention to resolve            │
@@ -224,6 +238,7 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 ├───────────────┼──────────────────────────────────────────────────────────────┤
 │ More info     │ https://nodesecurity.io/advisories/48                        │
 └───────────────┴──────────────────────────────────────────────────────────────┘
-found 16 vulnerabilities (13 low, 3 high) in 34514 scanned packages
+found 17 vulnerabilities (13 low, 4 high) in 34514 scanned packages
+  run `npm audit fix` to fix 1 of them.
   13 vulnerabilities require semver-major dependency updates.
   3 vulnerabilities require manual review. See the full report for details.
