@@ -47,7 +47,8 @@ class HeaderBar extends React.Component {
 	render() {
 		const { productsItems, ...props } = this.props;
 
-		const hasFetchedProducts = this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
+		const hasFetchedProducts =
+			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
 
 		if (hasFetchedProducts && productsItems) {
 			props.products = Object.assign({}, props.products || {}, {
