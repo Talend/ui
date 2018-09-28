@@ -26,6 +26,11 @@ const stringWithoutSpaceRegExp = /^\S+$/;
 
 const MAX_TIMESTAMP = 8640000000000000;
 
+function parseToValidDate(rawString) {
+	const date = new Date(rawString);
+	return !isNaN(date.getTime());
+}
+
 const customFormats = t => ({
 	email: fieldData => {
 		if (typeof fieldData === 'string' && !emailRegExp.test(fieldData)) {
@@ -77,20 +82,18 @@ const customFormats = t => ({
 		return null;
 	},
 	'iso-datetime': fieldData => {
-		if (typeof fieldData === 'string') {
-			if (isoDateTimeRegExp.test(fieldData)) {
-				const date = new Date(fieldData);
-				if (!isNaN(date.getTime())) {
-					return null;
-				}
-			}
-
-			return t('FORMAT_ISO_DATETIME', {
-				defaultValue: 'must be a valid ISO 8601 datetime (e.g.: 2018-01-01T00:00:00.000Z)',
-			});
+		if (typeof fieldData !== 'string') {
+			return null;
 		}
 
-		return null;
+		const formatMatches = isoDateTimeRegExp.test(fieldData);
+		if (formatMatches && parseToValidDate(fieldData)) {
+			return null;
+		}
+
+		return t('FORMAT_ISO_DATETIME', {
+			defaultValue: 'must be a valid ISO 8601 datetime (e.g.: 2018-01-01T00:00:00.000Z)',
+		});
 	},
 });
 
