@@ -16,7 +16,6 @@ class HeaderBar extends React.Component {
 
 	static propTypes = {
 		productsUrl: PropTypes.string,
-		productsLang: PropTypes.string,
 		productsItems: PropTypes.arrayOf(
 			PropTypes.shape({
 				icon: PropTypes.string,
@@ -28,7 +27,7 @@ class HeaderBar extends React.Component {
 	};
 
 	componentDidUpdate(props) {
-		const { productsUrl, productsLang } = props;
+		const { productsUrl } = props;
 
 		// Trigger product fetch when there's an URL and
 		// products URL has changed or products have not been loaded yet
@@ -40,7 +39,7 @@ class HeaderBar extends React.Component {
 		if (shouldFetchProducts) {
 			this.props.dispatch({
 				type: Constants.HEADER_BAR_FETCH_PRODUCTS,
-				payload: { url: productsUrl, lang: productsLang },
+				payload: { url: productsUrl },
 			});
 		}
 	}
@@ -48,14 +47,15 @@ class HeaderBar extends React.Component {
 	render() {
 		const { productsItems, ...props } = this.props;
 
-		if (
-			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS &&
-			productsItems
-		) {
+		const hasFetchedProducts = this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
+
+		if (hasFetchedProducts && productsItems) {
 			props.products = Object.assign({}, props.products || {}, {
 				items: productsItems.map(product => ({
+					label: product.name,
+					uri: product.url,
+					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
-					...product,
 				})),
 			});
 		}

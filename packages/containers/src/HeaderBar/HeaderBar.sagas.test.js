@@ -7,9 +7,8 @@ import Constants from './HeaderBar.constant';
 describe('HeaderBar sagas', () => {
 	describe('fetchProducts', () => {
 		const url = '/foo/bar';
-		const lang = 'en-EN';
 
-		const action = { payload: { url, lang } };
+		const action = { payload: { url } };
 
 		it('should fetch HeaderBar products', () => {
 			const data = 'foo';
@@ -25,7 +24,7 @@ describe('HeaderBar sagas', () => {
 			// HTTP call
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
-			expect(effect.CALL.args).toEqual([`${url}?lang=${lang}`]);
+			expect(effect.CALL.args).toEqual([url]);
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
@@ -56,7 +55,7 @@ describe('HeaderBar sagas', () => {
 			// HTTP call
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toEqual(cmf.sagas.http.get);
-			expect(effect.CALL.args).toEqual([`${url}?lang=${lang}`]);
+			expect(effect.CALL.args).toEqual([url]);
 
 			// Toggle fetching flag (enable)
 			effect = gen.next(httpResponse).value;
