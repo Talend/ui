@@ -117,30 +117,22 @@ function CollapsiblePanelHeader(props) {
 	const { header, content, onSelect, onToggle, expanded, t } = props;
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
-		if (Array.isArray(headerItem)) {
-			const elements = headerItem.map(renderHeaderItem);
-			return (
-				<div
-					key={index}
-					className={classNames(css.group, css[headerColumnClass])}
-					onClick={onToggle}
-					role="button"
-					tabIndex="0"
-				>
-					{elements}
-				</div>
-			);
-		}
+		const elements = Array.isArray(headerItem)
+			? headerItem.map(renderHeaderItem)
+			: renderHeaderItem(headerItem);
+
 		return (
+			/* eslint-disable jsx-a11y/no-static-element-interactions */
 			<div
 				key={index}
-				className={classNames(css[headerItem.className], css[headerColumnClass])}
+				className={classNames(css.group, css[headerColumnClass])}
 				onClick={onToggle}
+				onKeyPress={onToggle}
 				role="button"
-				tabIndex="0"
-			>
-				{renderHeaderItem(headerItem)}
-			</div>
+				tabIndex="-1"
+				children={elements}
+			/>
+			/* eslint-disable jsx-a11y/no-static-element-interactions */
 		);
 	});
 

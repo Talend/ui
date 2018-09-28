@@ -17,10 +17,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <div
             className="theme-tc-status tc-status theme-action"
@@ -86,10 +87,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </div>
         </div>
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <button
             aria-label="edit"
@@ -111,10 +113,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </button>
         </div>
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -127,8 +130,9 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         <div
           className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -222,10 +226,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <div
             className="theme-tc-status tc-status theme-action"
@@ -291,10 +296,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </div>
         </div>
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <button
             aria-label="edit"
@@ -316,10 +322,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </button>
         </div>
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -332,8 +339,9 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         <div
           className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -427,10 +435,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <div
             className="theme-tc-status tc-status theme-action"
@@ -496,10 +505,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </div>
         </div>
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <button
             aria-label="edit"
@@ -521,10 +531,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </button>
         </div>
         <div
-          className="theme-undefined theme-col-4"
+          className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -537,8 +548,9 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         <div
           className="theme-group theme-col-4"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -584,8 +596,9 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
         <div
           className="theme-group theme-col-2"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -603,10 +616,11 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
           </span>
         </div>
         <div
-          className="theme-undefined theme-col-2"
+          className="theme-group theme-col-2"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -645,8 +659,9 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         <div
           className="theme-group theme-col-2"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -664,10 +679,11 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           </span>
         </div>
         <div
-          className="theme-undefined theme-col-2"
+          className="theme-group theme-col-2"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -773,8 +789,9 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
         <div
           className="theme-group theme-col-2"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
@@ -792,10 +809,11 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           </span>
         </div>
         <div
-          className="theme-undefined theme-col-2"
+          className="theme-group theme-col-2"
           onClick={[Function]}
+          onKeyPress={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex="-1"
         >
           <span
             className="theme-undefined"
