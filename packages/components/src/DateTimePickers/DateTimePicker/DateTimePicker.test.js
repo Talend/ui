@@ -9,7 +9,7 @@ import MonthYearView from '../views/MonthYearView';
 
 function getSyntheticMockedEvent() {
 	return {
-		persist: () => {},
+		persist: jest.fn(),
 	};
 }
 
@@ -187,6 +187,7 @@ describe('DateTimePicker', () => {
 			date,
 			time,
 		});
+		expect(mockedEvent.persist).toHaveBeenCalledTimes(1);
 	});
 
 	it('should not submit if one of date and time is not selected', () => {
