@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { SORT_BY, listTypes } from './utils/constants';
+import { SORT_BY } from './utils/constants';
 
 export default {
 	// <VirtualizedList.Content> elements to configure the content fields
