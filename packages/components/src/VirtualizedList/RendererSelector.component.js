@@ -16,7 +16,6 @@ const { TABLE } = listTypes;
  * @param type The row renderer type
  */
 function getRowRenderer(type, renderers = {}) {
-	debugger;
 	const safeRenderer = { ...rowDictionary, ...renderers };
 	const rowRenderer = safeRenderer[type];
 	if (!rowRenderer) {
