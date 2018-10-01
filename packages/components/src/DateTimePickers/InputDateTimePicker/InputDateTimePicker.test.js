@@ -592,13 +592,15 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, {
+			const mockedEvent = {
+				whatever: 'prop',
+			};
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
 			});
 
-			expect(onChange).toHaveBeenCalled();
-			expect(isSameMinute(onChange.mock.calls[0][2], new Date(2015, 11, 30, 20, 50))).toBe(true);
+			expect(onChange).toHaveBeenCalledWith(mockedEvent, undefined, new Date(2015, 11, 30, 20, 50));
 		});
 
 		it('should not callback if datetime has not changed from undefined value', () => {
