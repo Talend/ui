@@ -68,7 +68,7 @@ function getTextDate(date, time) {
 	return `${dateText} ${timeText}`;
 }
 
-function getObjectDate(date, time) {
+function getDateTimeFrom(date, time) {
 	if (date === undefined || time === undefined) {
 		return undefined;
 	}
@@ -252,7 +252,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
-		const datetime = getObjectDate(date, time);
+		const datetime = getDateTimeFrom(date, time);
 		const errorMessage = undefined;
 
 		this.updateDatePartStateAndTriggerChange(event, {
@@ -290,7 +290,7 @@ class InputDateTimePicker extends React.Component {
 		const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
 		const [time, errorMessageTime] = extractTime(timeTextToParse);
 
-		const datetime = getObjectDate(date, time);
+		const datetime = getDateTimeFrom(date, time);
 		const errorMessage = canParseTextInput
 			? errorMessageDate || errorMessageTime
 			: 'DATETIME - INCORRECT FORMAT';
