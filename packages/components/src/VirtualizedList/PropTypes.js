@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { SORT_BY, listTypes } from './utils/constants';
 
-const { TABLE, LARGE } = listTypes;
-
 export default {
 	// <VirtualizedList.Content> elements to configure the content fields
 	children: PropTypes.arrayOf(PropTypes.element),
