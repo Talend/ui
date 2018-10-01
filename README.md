@@ -40,7 +40,7 @@ It execute the prepublish npm script in all sub packages.
 The stack has one entry point:
 
 ```
-yarn run watch
+npm run watch
 ```
 
 This watcher will trigger build and sync inside the stack for you.
@@ -49,11 +49,11 @@ For example if you modify a component, it will rebuild `components` into lib fol
 
 Be warned the [delete or rename are not taken into account](https://github.com/remy/nodemon/issues/656).
 
-### yarn start
+### npm start
 
 To start to dev on a package and see it in action just use one of the following
 
-- yarn start-components on localhost:6006
-- yarn start-containers on localhost:6007
-- yarn start-forms on localhost:6008
-- yarn start-theme on localhost:1337
+- npm run start-components on localhost:6006
+- npm run start-containers on localhost:6007
+- npm run start-forms on localhost:6008
+- npm run start-theme on localhost:1337
