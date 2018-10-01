@@ -945,7 +945,7 @@ describe('InputDateTimePicker', () => {
 		});
 	});
 
-	describe.only('callback onBlur', () => {
+	describe('callback onBlur', () => {
 		cases(
 			'should callback only with focus or click event outside the component and not inside',
 			({ eventType, isOutside, shouldBlur }) => {

@@ -2,27 +2,23 @@
 
 exports[`InputDateTimePicker render should render 1`] = `
 <div>
-  <div
-    className="theme-input-container"
-  >
-    <DebounceInput
-      className="form-control"
-      debounceTimeout={300}
-      element="input"
-      forceNotifyByEnter={true}
-      forceNotifyOnBlur={true}
-      id="DEFAULT_ID"
-      inputRef={undefined}
-      minLength={0}
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder="YYYY-MM-DD hh:mm"
-      type="text"
-      value="2017-04-04 15:27"
-    />
-  </div>
+  <DebounceInput
+    className="form-control"
+    debounceTimeout={300}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    id="DEFAULT_ID"
+    inputRef={undefined}
+    minLength={0}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+    placeholder="YYYY-MM-DD HH:mm"
+    type="text"
+    value="2017-04-04 15:27"
+  />
   <div
     className="theme-dropdown-wrapper"
   >
