@@ -411,19 +411,17 @@ class InputDateTimePicker extends React.Component {
 
 		return (
 			<div ref={this.setContainerRef}>
-				<div className={theme['input-container']}>
-					<DebounceInput
-						{...inputProps}
-						type="text"
-						onFocus={this.onFocusInput}
-						onBlur={this.onBlurInput}
-						placeholder={placeholder}
-						value={textInput}
-						debounceTimeout={DEBOUNCE_TIMEOUT}
-						onChange={this.onChangeInput}
-						className="form-control"
-					/>
-				</div>
+				<DebounceInput
+					{...inputProps}
+					type="text"
+					onFocus={this.onFocusInput}
+					onBlur={this.onBlurInput}
+					placeholder={placeholder}
+					value={textInput}
+					debounceTimeout={DEBOUNCE_TIMEOUT}
+					onChange={this.onChangeInput}
+					className="form-control"
+				/>
 				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
 						<Popover className={theme.popover} id={`${this.props.id}-popover`}>
