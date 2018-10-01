@@ -1034,8 +1034,6 @@ describe('InputDateTimePicker', () => {
 				time: 50,
 			});
 
-			wrapper.update();
-
 			expect(onBlur).toHaveBeenCalledTimes(1);
 		});
 	});
