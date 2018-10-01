@@ -53,8 +53,8 @@ class TestPickerWrapper extends React.Component {
 				<InputDateTimePicker
 					{...this.props}
 					selectedDateTime={this.state.selectedDateTime}
-					onChange={action('onChange (event, error message, dateTime)')}
-					onBlur={action('onBlur (event)')}
+					onChange={action('onChange')}
+					onBlur={action('onBlur')}
 					name="Datetime"
 				/>
 			</div>
@@ -71,7 +71,7 @@ storiesOf('DateTimePicker', module)
 			<div>
 				<TestPickerWrapper
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-					onChange={action('onChange (error message, dateTime)')}
+					onChange={action('onChange')}
 					name="Datetime"
 				/>
 			</div>
@@ -84,14 +84,14 @@ storiesOf('DateTimePicker', module)
 			<ul>
 				<li>Width is defined by the parent (here fixed to 320px) but is responsive </li>
 				<li>Height is responsive relatively to the default font-size</li>
-				<li>The outer border style (black) is here just as visual
-					shape indication, it's not part of the component rendered</li>
+				<li>
+					The outer border style (black) is here just as visual shape indication, it's not part of
+					the component rendered
+				</li>
 			</ul>
 
 			<div style={{ width: '320px', border: '1px solid black' }}>
-				<DateTimePicker
-					onSubmit={action('onSubmit (Date and time)')}
-				/>
+				<DateTimePicker onSubmit={action('onSubmit')} />
 			</div>
 		</div>
 	));
