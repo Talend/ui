@@ -44,8 +44,12 @@ describe('MonthPicker', () => {
 			.first()
 			.find('PickerAction');
 
-		juneAction.simulate('click');
+		const mockedEvent = {
+			whatever: 'prop',
+		};
 
-		expect(onSelect.mock.calls[0][1]).toEqual(monthIndexToSelect);
+		juneAction.simulate('click', mockedEvent);
+
+		expect(onSelect).toHaveBeenCalledWith(mockedEvent, monthIndexToSelect);
 	});
 });

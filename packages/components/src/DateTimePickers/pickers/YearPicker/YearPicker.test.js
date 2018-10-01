@@ -74,8 +74,12 @@ describe('YearPicker', () => {
 		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={onSelect} />);
 
 		const yearItem = wrapper.prop('items').find(item => item.id === yearToSelect);
-		wrapper.prop('onSelect')(null, yearItem);
 
-		expect(onSelect.mock.calls[0][1]).toEqual(yearToSelect);
+		const mockedEvent = {
+			whatever: 'prop',
+		};
+		wrapper.prop('onSelect')(mockedEvent, yearItem);
+
+		expect(onSelect).toHaveBeenCalledWith(mockedEvent, yearToSelect);
 	});
 });

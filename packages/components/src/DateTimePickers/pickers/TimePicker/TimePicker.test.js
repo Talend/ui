@@ -121,9 +121,13 @@ describe('TimePicker', () => {
 			);
 
 			const timeItem = wrapper.prop('items').find(item => item.id === timeToSelect);
-			wrapper.prop('onSelect')(null, timeItem);
 
-			expect(onSelect.mock.calls[0][1]).toEqual(timeToSelect);
+			const mockedEvent = {
+				whatever: 'prop',
+			};
+			wrapper.prop('onSelect')(mockedEvent, timeItem);
+
+			expect(onSelect).toHaveBeenCalledWith(mockedEvent, timeToSelect);
 		});
 	});
 });
