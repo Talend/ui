@@ -24,7 +24,7 @@ export default function Widget(props) {
 	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
 	const widgetId = widget || type;
 
-	if (widgetId === 'hidden' || !shouldRender(condition, props.properties)) {
+	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
 		return null;
 	}
 

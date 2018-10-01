@@ -9,5 +9,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   10:11  error  Trailing spaces not allowed                     no-trailing-spaces
   12:1   error  Line 12 exceeds the maximum line length of 100  max-len
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/condition.test.js
+  2:10  error  'shallow' is defined but never used                   no-unused-vars
+  2:25  error  Absolute imports should come before relative imports  import/imports-first
+
+✖ 5 problems (5 errors, 0 warnings)
 
