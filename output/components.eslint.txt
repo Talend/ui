@@ -12,11 +12,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:9   error  'TABLE' is assigned a value but never used  no-unused-vars
   4:16  error  'LARGE' is assigned a value but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.component.js
-  19:2  error  Unexpected 'debugger' statement  no-debugger
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 6 problems (5 errors, 1 warning)
+✖ 5 problems (4 errors, 1 warning)
 
