@@ -13,13 +13,14 @@ import isSameMinute from 'date-fns/is_same_minute';
 import startOfDay from 'date-fns/start_of_day';
 import startOfMinute from 'date-fns/start_of_minute';
 import format from 'date-fns/format';
-import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
 const DEBOUNCE_TIMEOUT = 300;
-const DEFAULT_PLACEHOLDER = 'YYYY-MM-DD hh:mm';
 const INVALID_PLACEHOLDER = 'INVALID DATE';
+
+const INPUT_FULL_FORMAT = 'YYYY-MM-DD HH:mm';
+const INPUT_DATE_ONLY_FORMAT = 'YYYY-MM-DD';
 
 /*
  * Split the date and time parts based on the middle space
@@ -54,18 +55,12 @@ function getTextDate(date, time) {
 		return '';
 	}
 
-	const dateText = format(date, 'YYYY-MM-DD');
-
 	if (time === undefined) {
-		return dateText;
+		return format(date, INPUT_DATE_ONLY_FORMAT);
 	}
 
-	const hours = Math.floor(time / 60);
-	const minutes = time % 60;
-
-	const timeText = `${twoDigits(hours)}:${twoDigits(minutes)}`;
-
-	return `${dateText} ${timeText}`;
+	const fullDate = setMinutes(date, time);
+	return format(fullDate, INPUT_FULL_FORMAT);
 }
 
 function getDateTimeFrom(date, time) {
@@ -415,7 +410,7 @@ class InputDateTimePicker extends React.Component {
 
 		const placeholder = needInvalidPlaceholder
 			? INVALID_PLACEHOLDER
-			: inputProps.placeholder || DEFAULT_PLACEHOLDER;
+			: inputProps.placeholder || INPUT_FULL_FORMAT;
 
 		const textInput = needInvalidPlaceholder ? '' : this.state.textInput;
 
