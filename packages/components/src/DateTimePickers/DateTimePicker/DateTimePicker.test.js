@@ -183,7 +183,7 @@ describe('DateTimePicker', () => {
 		const mockedEvent = getSyntheticMockedEvent();
 		dateTimeView.prop('onSelectTime')(mockedEvent, time);
 
-		expect(onSubmit.mock.calls[0][1]).toEqual({
+		expect(onSubmit).toHaveBeenCalledWith(mockedEvent, {
 			date,
 			time,
 		});
