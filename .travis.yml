@@ -1,7 +1,6 @@
 sudo: false
 
 cache:
-  yarn: true
   directories:
     - node_modules
     - $HOME/.m2
@@ -24,30 +23,30 @@ matrix:
         - '8'
       before_install:
         # this install is necessary to get version.js dependencies
-        - npm install commander
+        - npm i commander
         - ./versions/version.js
       script:
-        - yarn test
+        - npm run test
 
     - language: node_js
       env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
         - '10'
       script:
-        - yarn test
+        - npm run test
 
     - language: node_js
       node_js:
         - '10'
       env: NAME=analysis
       before_script:
-        - yarn global add prettier
+        - npm i -g prettier
         - .travis/before_script_icons.sh
       script:
-        - yarn install
+        - npm install
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
-        - yarn audit
+        - npm run audit
         - .travis/after_success_prettier.sh
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
@@ -59,9 +58,9 @@ matrix:
       before_install:
         - nvm install $NODE_VERSION
       before_script:
-        - yarn global add surge
-        - yarn install
-        - yarn test:demo
+        - npm i -g surge
+        - npm run install
+        - npm run test:demo
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
         - .travis/after_success_static.sh
         - .travis/after_success_demo.sh

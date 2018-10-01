@@ -5,9 +5,9 @@ if [ "$ACTION" == 'test:demo' ] && [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
     sleep 5
     echo "✓ Start static server"
 
-	#lerna exec --scope=@talend/react-components -- yarn run test:slimerjs
-	#echo "✓ Run yarn test:slimerjs script for components"
+	#lerna exec --scope=@talend/react-components -- npm run test:slimerjs
+	#echo "✓ Run npm test:slimerjs script for components"
 
-	lerna exec --scope=@talend/bootstrap-theme -- yarn run test:slimerjs
-	echo "✓ Run yarn test:slimerjs script for theme"
+	lerna exec --scope=@talend/bootstrap-theme -- npm run test:slimerjs
+	echo "✓ Run npm test:slimerjs script for theme"
 fi
