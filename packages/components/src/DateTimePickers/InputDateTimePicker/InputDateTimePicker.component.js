@@ -245,15 +245,12 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
-		const datetime = getDateTimeFrom(date, time);
-		const errorMessage = undefined;
-
 		this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: getTextDate(date, time),
-			datetime,
-			errorMessage,
+			datetime: getDateTimeFrom(date, time),
+			errorMessage: undefined,
 		});
 
 		this.switchDropdownVisibility(false);
