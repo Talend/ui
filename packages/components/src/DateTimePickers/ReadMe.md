@@ -13,7 +13,7 @@
   - the month
   - the year
 
-_/!\ Month and year pickers are used to defined what month calendar is displayed on the \*\*\_DateTimeView_\*\* view, not to define directly the final date /!\\\_
+_/!\ Month and year pickers are used to defined what month calendar is displayed on the **_DateTimeView_** view, not to define directly the final date /!\\_
 
 Each view displays the picker units (month, year, date, time, etc.) needed, findable in the **_pickers_** folder.
 
