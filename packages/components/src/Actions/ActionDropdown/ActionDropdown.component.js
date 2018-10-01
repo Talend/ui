@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import { translate } from 'react-i18next';
+import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -214,7 +215,7 @@ class ActionDropdown extends React.Component {
 				onSelect={onItemSelect}
 				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className)}
 				aria-label={tooltipLabel || label}
-				{...rest}
+				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
 				ref={ref => (this.ref = ref)}
 			>

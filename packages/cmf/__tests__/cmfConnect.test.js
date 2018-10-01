@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import bsonObjectid from 'bson-objectid';
+import omit from 'lodash/omit';
 import expression from '../src/expression';
 import mock from '../src/mock';
 import { mapStateToViewProps } from '../src/settings';
@@ -284,7 +285,10 @@ describe('cmfConnect', () => {
 			expect(action.cmf.componentState.componentState.get('foo')).toBe('baz');
 		});
 		it('should support no context in dispatchActionCreator', () => {
-			const TestComponent = props => <div className="test-component" {...props} />;
+			const TestComponent = props => {
+				const rest = Object.assign({}, omit(props, cmfConnect.INJECTED_PROPS));
+				return <div className="test-component" {...rest} />;
+			};
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
@@ -733,6 +737,29 @@ describe('cmfConnect', () => {
 			const CMFConnected = cmfConnect({})(Button);
 			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
 			expect(mounted.html()).toBeNull();
+		});
+
+		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {
+			const ComponentToWrap = ({ onClick, labelBase, labelSuffix }) => (
+				<button onClick={onClick}>
+					{labelBase}-{labelSuffix}
+				</button>
+			);
+			ComponentToWrap.propTypes = {
+				onClick: PropTypes.func,
+				labelBase: PropTypes.string.isRequired,
+				labelSuffix: PropTypes.string,
+			};
+			ComponentToWrap.defaultProps = {
+				onClick() {},
+			};
+			ComponentToWrap.displayName = 'ComponentToWrap';
+			const CMFConnected = cmfConnect({})(ComponentToWrap);
+
+			const CMFContainer = CMFConnected.CMFContainer;
+			expect(CMFContainer.propTypes.labelBase).toBeUndefined();
+			expect(CMFContainer.propTypes.labelSuffix).toBeUndefined();
+			expect(CMFContainer.defaultProps).toBeUndefined();
 		});
 	});
 });

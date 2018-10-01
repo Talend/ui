@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 
-function generateId(id, suffix) {
+export function generateId(id, suffix) {
 	if (id) {
 		return `${id}-${suffix}`;
 	}

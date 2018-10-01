@@ -59,11 +59,11 @@ function ConfirmDialog({
 	if (progressValue) {
 		progress = { percent: progressValue, tooltip: progressLabel };
 	}
-	function onHideHandler() {
-		if (cancelAction) {
+	function onHideHandler(event) {
+		if (cancelAction && cancelAction.onClick) {
 			cancelAction.onClick();
 		}
-		return onHide();
+		return onHide(event);
 	}
 	return (
 		<Dialog

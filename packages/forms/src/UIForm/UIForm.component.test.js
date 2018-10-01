@@ -273,6 +273,29 @@ describe('UIForm component', () => {
 			});
 		});
 
+		it('should validate all fields with existing errors', () => {
+			// given
+			const dataProperties = { lastname: 'dupont' };
+			const errors = {
+				lastname: 'String is too short (6 chars), minimum 10',
+				checked: 'error added via a trigger',
+			};
+			// props.errors.lastname =
+			const wrapper = shallow(
+				<UIFormComponent {...data} properties={dataProperties} errors={errors} {...props} />,
+			);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				checked: 'error added via a trigger',
+				firstname: 'Missing required field',
+				lastname: 'String is too short (6 chars), minimum 10',
+			});
+		});
+
 		it('should validate all fields with custom error messages', () => {
 			const props2 = {
 				...props,
