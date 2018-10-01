@@ -224,9 +224,7 @@ class InputDateTimePicker extends React.Component {
 		if (needDateTimeStateUpdate) {
 			const dateRelatedPartState = computeDateRelatedState(newSelectedDateTime);
 
-			this.setState({
-				...dateRelatedPartState,
-			});
+			this.setState(dateRelatedPartState);
 		}
 	}
 
