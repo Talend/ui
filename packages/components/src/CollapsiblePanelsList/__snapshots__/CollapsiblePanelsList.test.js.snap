@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollapsiblePanel should render collapsible panels list 1`] = `
+<div
+  className="theme-collapsible-panels-list"
+>
+  <VirtualizedList
+    collection={
+      Array [
+        Object {
+          "content": Array [
+            Object {
+              "description": "Description1",
+              "label": "Content1",
+            },
+            Object {
+              "description": "Description2",
+              "label": "Content2",
+            },
+          ],
+          "header": Array [
+            Object {
+              "actions": Array [],
+              "displayMode": "status",
+              "icon": "talend-check",
+              "label": "Successful",
+              "status": "successful",
+            },
+          ],
+        },
+        Object {
+          "content": Array [
+            Object {
+              "description": "Description1",
+              "label": "Content1",
+            },
+            Object {
+              "description": "Description2",
+              "label": "Content2",
+            },
+          ],
+          "header": Array [
+            Object {
+              "actions": Array [],
+              "displayMode": "status",
+              "icon": "talend-cross",
+              "label": "Canceled",
+              "status": "canceled",
+            },
+          ],
+        },
+        Object {
+          "content": Array [
+            Object {
+              "description": "Description1",
+              "label": "Content1",
+            },
+            Object {
+              "description": "Description2",
+              "label": "Content2",
+            },
+          ],
+          "header": Array [
+            Object {
+              "actions": Array [],
+              "displayMode": "status",
+              "icon": "talend-cross",
+              "label": "Failure",
+              "status": "failed",
+            },
+          ],
+        },
+      ]
+    }
+    defaultHeight={250}
+    disableHeader={true}
+    rowHeight={[Function]}
+  >
+    <Column
+      cellDataGetter={[Function]}
+      cellRenderer={[Function]}
+      defaultSortDirection="ASC"
+      flexGrow={0}
+      flexShrink={1}
+      headerRenderer={[Function]}
+      style={Object {}}
+    />
+  </VirtualizedList>
+</div>
+`;
