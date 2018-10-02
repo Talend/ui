@@ -26,6 +26,7 @@ matrix:
         # this install is necessary to get version.js dependencies
         - npm install commander
         - ./versions/version.js
+        - yarn cache clean
       script:
         - yarn test
 
