@@ -57,3 +57,7 @@ To start to dev on a package and see it in action just use one of the following
 - yarn start-containers on localhost:6007
 - yarn start-forms on localhost:6008
 - yarn start-theme on localhost:1337
+
+## Versions and breaking changes
+
+[See the wiki](https://github.com/Talend/ui/wiki/Workflow#major--breaking-change-aka-next)
