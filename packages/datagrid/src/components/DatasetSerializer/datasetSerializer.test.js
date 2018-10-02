@@ -395,7 +395,11 @@ describe('convertSample', () => {
 				name: 'field0',
 				doc: 'Nom de la gare',
 				type: [
-					'null',
+					{
+						type: 'null',
+						dqType: '',
+						dqTypeKey: '',
+					},
 					{
 						type: 'string',
 						dqType: 'FR Commune',

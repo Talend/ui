@@ -5,7 +5,7 @@ import { sfPath } from '@talend/json-schema-form-core';
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
-import shouldRender from './condition';
+import shouldRender from '../utils/condition';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -24,7 +24,7 @@ export default function Widget(props) {
 	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
 	const widgetId = widget || type;
 
-	if (widgetId === 'hidden' || !shouldRender(condition, props.properties)) {
+	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
 		return null;
 	}
 

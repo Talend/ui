@@ -226,6 +226,7 @@ exports[`Drawer should render with tabs 1`] = `
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
       <div
+        className="tc-drawer-tabs theme-tc-drawer-tabs"
         id="my-tabs"
         onKeyDown={[Function]}
       >
@@ -272,24 +273,6 @@ exports[`Drawer should render with tabs 1`] = `
             </button>
           </li>
         </ul>
-        <div
-          className="tab-content"
-        >
-          <div
-            aria-hidden={true}
-            aria-labelledby="my-tabs-tab-1"
-            className="tab-pane fade"
-            id="my-tabs-pane-1"
-            role="tabpanel"
-          />
-          <div
-            aria-hidden={false}
-            aria-labelledby="my-tabs-tab-2"
-            className="tab-pane active fade in"
-            id="my-tabs-pane-2"
-            role="tabpanel"
-          />
-        </div>
       </div>
     </div>
     <div

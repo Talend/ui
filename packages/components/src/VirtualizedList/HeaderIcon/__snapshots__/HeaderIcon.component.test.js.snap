@@ -27,7 +27,7 @@ exports[`HeaderIcon should render unchecked checkbox 1`] = `
       name="talend-test"
     />
     <SortIndicator
-      sortDirection="desc"
+      sortDirection="DESC"
     />
   </span>
 </div>

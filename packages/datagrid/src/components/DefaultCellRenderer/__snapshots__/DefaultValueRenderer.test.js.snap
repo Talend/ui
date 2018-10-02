@@ -33,6 +33,24 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom render
 </div>
 `;
 
+exports[`#DefaultValueRenderer should render DefaultValueRenderer with the other type 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  false
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer with the other type 2`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  undefined
+</div>
+`;
+
 exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in height 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"

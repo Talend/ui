@@ -45,8 +45,6 @@ export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 
 function getAvroRenderer(avroRenderer) {
 	return {
-		booleanCellRenderer: 'DefaultBooleanCellRenderer',
-		dateCellRenderer: 'DefaultDateCellRenderer',
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',
 		...avroRenderer,
