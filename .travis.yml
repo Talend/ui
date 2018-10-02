@@ -21,14 +21,13 @@ matrix:
     - language: node_js
       env: NAME=test_react_15 REACT_VERSION="^15.6.2"
       node_js:
-        - '8'
+      - '8'
       before_install:
-        # this install is necessary to get version.js dependencies
-        - npm install commander
-        - ./versions/version.js
-        - yarn cache clean
+      - yarn cache clean
+      - npm i -g commander
+      - ./versions/version.js
       script:
-        - yarn test
+      - yarn test
 
     - language: node_js
       env: NAME=test_react_16 REACT_VERSION="^16.0.0"
