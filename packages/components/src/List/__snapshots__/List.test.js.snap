@@ -713,7 +713,7 @@ exports[`List should render 1`] = `
                         t={[Function]}
                       >
                         <form
-                          className="navbar-form navbar-left"
+                          className="theme-container navbar-form navbar-left"
                         >
                           <div
                             className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
@@ -2528,7 +2528,7 @@ exports[`List should render id if provided 1`] = `
                         t={[Function]}
                       >
                         <form
-                          className="navbar-form navbar-left"
+                          className="theme-container navbar-form navbar-left"
                         >
                           <div
                             className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
