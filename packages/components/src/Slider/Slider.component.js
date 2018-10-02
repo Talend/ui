@@ -7,6 +7,7 @@ import rcSliderTheme from 'rc-slider/assets/index.css'; // eslint-disable-line n
 import range from 'lodash/range';
 import Icon from '../Icon';
 import theme from './Slider.scss';
+import Action from '../Actions/Action';
 
 const noFormat = value => value;
 
@@ -31,6 +32,27 @@ export function getSelectedIconPosition(icons, value, min, max) {
 	}
 	const interval = (max - min) / (icons.length - 1);
 	return Math.round(value / interval);
+}
+
+function getActions(actions, value, min, max) {
+	// if (isIconsAvailables(icons)) {
+	const position = getSelectedIconPosition(actions, value, min, max);
+	return (
+		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-icons')}>
+			{actions.map((action, index) => (
+				<Action
+					{...action}
+					className={classnames(
+						{ [theme.selected]: index === position },
+						{ selected: index === position },
+					)}
+					key={index}
+				/>
+			))}
+		</div>
+	);
+	// }
+	// return null;
 }
 
 /**
@@ -75,7 +97,9 @@ function getTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 		captions.push(max);
 		return (
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-text-captions')}>
-				{captions.map((caption, index) => <span key={index}>{captionsFormat(caption)}</span>)}
+				{captions.map((caption, index) => (
+					<span key={index}>{captionsFormat(caption)}</span>
+				))}
 			</div>
 		);
 	}
@@ -91,8 +115,18 @@ function getTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
  * @param {number} min min value of the slider
  * @param {number} max max value of the slider
  */
-function getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, min, max) {
-	if (captionIcons) {
+function getCaption(
+	captionActions,
+	captionIcons,
+	captionTextStepNumber,
+	captionsFormat,
+	value,
+	min,
+	max,
+) {
+	if (captionActions) {
+		return getActions(captionActions, value, min, max);
+	} else if (captionIcons) {
 		return getIcons(captionIcons, value, min, max);
 	} else if (captionTextStepNumber) {
 		return getTextCaptions(captionTextStepNumber, captionsFormat, min, max);
@@ -136,6 +170,7 @@ class Slider extends React.Component {
 		value: PropTypes.number,
 		onChange: PropTypes.func,
 		onAfterChange: PropTypes.func,
+		captionActions: PropTypes.array,
 		captionIcons: PropTypes.array,
 		captionTextStepNumber: PropTypes.number,
 		min: PropTypes.number.isRequired,
@@ -154,6 +189,7 @@ class Slider extends React.Component {
 		const {
 			id,
 			value,
+			captionActions,
 			captionIcons,
 			captionTextStepNumber,
 			captionsFormat,
@@ -173,7 +209,15 @@ class Slider extends React.Component {
 					className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
 					{...rest}
 				/>
-				{getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, min, max)}
+				{getCaption(
+					captionActions,
+					captionIcons,
+					captionTextStepNumber,
+					captionsFormat,
+					value,
+					min,
+					max,
+				)}
 			</span>
 		);
 	}

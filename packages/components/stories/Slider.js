@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from '@storybook/addon-a11y';
+import { action } from '@storybook/addon-actions';
 
 import Slider from '../src/Slider';
 import IconsProvider from '../src/IconsProvider';
@@ -16,6 +17,36 @@ const icons = [
 const style = {
 	padding: '20px',
 };
+
+const actions = [
+	{
+		id: 'icon1',
+		label: 'Click Me',
+		icon: 'talend-dataprep',
+		'data-feature': 'action',
+		onClick: action('action'),
+		link: true,
+		hideLabel: true,
+	},
+	{
+		id: 'icon2',
+		label: 'Click Me',
+		icon: 'talend-dataprep',
+		'data-feature': 'action',
+		onClick: action('action'),
+		link: true,
+		hideLabel: true,
+	},
+	{
+		id: 'icon3',
+		label: 'Click Me',
+		icon: 'talend-dataprep',
+		'data-feature': 'action',
+		onClick: action('action'),
+		link: true,
+		hideLabel: true,
+	},
+];
 
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => Math.floor(value);
@@ -42,6 +73,8 @@ storiesOf('Slider', module)
 				<Slider value={40} captionTextStepNumber={4} captionsFormat={functionFormatFloor} />
 				<p>with icon close to label</p>
 				<Slider value={96} />
+				<p>with icon buttons</p>
+				<Slider captionActions={actions} value={96} />
 			</div>
 		</section>
 	));
