@@ -94,6 +94,7 @@ const propsPanelWithActions = {
 		label3,
 	],
 	content,
+	id: 'panel-id-1',
 	onToggle: action('onToggle'),
 };
 
@@ -105,6 +106,7 @@ const propsPanelWithoutActions = {
 		{},
 		label3,
 	],
+	id: 'panel-id-2',
 };
 
 const propsCollapsiblePanel = {
@@ -116,6 +118,7 @@ const propsCollapsiblePanel = {
 		label3,
 	],
 	content,
+	id: 'panel-id-3',
 	onToggle: action('onToggle'),
 };
 
@@ -128,6 +131,7 @@ const propsCollapsiblePanelOnSelect = {
 		label3,
 	],
 	content,
+	id: 'panel-id-4',
 	onToggle: action('onToggle'),
 	onSelect: action('onSelect'),
 };
@@ -135,6 +139,7 @@ const propsCollapsiblePanelOnSelect = {
 const propsInProgressCollapsiblePanel = {
 	header: [status, label1, label4, button, label3],
 	content,
+	id: 'panel-id-5',
 	onToggle: action('onToggle'),
 };
 
@@ -147,6 +152,7 @@ const propsFailedCollapsiblePanel = {
 		label3,
 	],
 	content,
+	id: 'panel-id-6',
 	onToggle: action('onToggle'),
 };
 
@@ -159,6 +165,7 @@ const propsSuccessfulCollapsiblePanel = {
 		label3,
 	],
 	content,
+	id: 'panel-id-7',
 	onToggle: action('onToggle'),
 };
 const propsWarningCollapsiblePanel = {
@@ -170,6 +177,7 @@ const propsWarningCollapsiblePanel = {
 		label3,
 	],
 	content,
+	id: 'panel-id-8',
 	onToggle: action('onToggle'),
 };
 
@@ -182,6 +190,7 @@ const propsCanceledCollapsiblePanel = {
 		label3,
 	],
 	content,
+	id: 'panel-id-9',
 	onToggle: action('onToggle'),
 };
 
@@ -194,6 +203,7 @@ const propsCollapsiblePanelWithCustomElement = {
 		label3,
 	],
 	content,
+	id: 'panel-id-10',
 	onToggle: action('onToggle'),
 };
 
@@ -205,6 +215,7 @@ const propsCollapsiblePanelWithHeaderGroups = {
 		[button, label3],
 	],
 	content,
+	id: 'panel-id-11',
 	onToggle: action('onToggle'),
 	expanded: true,
 };
@@ -212,6 +223,7 @@ const propsCollapsiblePanelWithHeaderGroups = {
 const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
 	header: [{ ...status, progress: '70' }, label1, label4, [button, label3]],
 	content,
+	id: 'panel-id-12',
 	onToggle: action('onToggle'),
 	expanded: true,
 };
@@ -253,6 +265,7 @@ const propsCollapsibleSelectablePanel = {
 		],
 		description: `1 - First row, ...\n2 - Second row, ...\n3 - Third row, ...\nLast row, ...`,
 	},
+	id: 'panel-id-13',
 	onSelect: action('onselect'),
 	onToggle: action('onToggle'),
 	theme: 'descriptive-panel',
@@ -261,12 +274,14 @@ const propsCollapsibleSelectablePanel = {
 const propsCollapsibleSelectedPanel = {
 	...propsCollapsibleSelectablePanel,
 	expanded: true,
+	id: 'panel-id-14',
 	status: 'selected',
 	theme: 'descriptive-panel',
 };
 
 const propsSelectedPanelWithoutContent = {
 	header: [[version1, readOnlyLabel], timeStamp],
+	id: 'panel-id-15',
 	onSelect: action('onselect'),
 	onToggle: action('onToggle'),
 	expanded: true,
@@ -276,6 +291,7 @@ const propsSelectedPanelWithoutContent = {
 
 const propsCollapsibleSelectablePanelWithoutTag = {
 	...propsSelectedPanelWithoutContent,
+	id: 'panel-id-16',
 	header: [version1, timeStamp],
 	theme: 'descriptive-panel',
 };

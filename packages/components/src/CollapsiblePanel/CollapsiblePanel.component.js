@@ -114,7 +114,7 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 ]);
 
 function CollapsiblePanelHeader(props) {
-	const { header, content, onSelect, onToggle, expanded, t } = props;
+	const { header, content, id, onSelect, onToggle, expanded, t } = props;
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
 		const elements = Array.isArray(headerItem)
@@ -122,17 +122,9 @@ function CollapsiblePanelHeader(props) {
 			: renderHeaderItem(headerItem);
 
 		return (
-			/* eslint-disable jsx-a11y/no-static-element-interactions */
-			<div
-				key={index}
-				className={classNames(css.group, css[headerColumnClass])}
-				onClick={onToggle}
-				onKeyPress={onToggle}
-				role="button"
-				tabIndex="-1"
-				children={elements}
-			/>
-			/* eslint-disable jsx-a11y/no-static-element-interactions */
+			<div key={index} className={classNames(css.group, css[headerColumnClass])}>
+				{elements}
+			</div>
 		);
 	});
 
@@ -141,6 +133,7 @@ function CollapsiblePanelHeader(props) {
 		onSelect ? (
 			<Button
 				className={classNames(css['panel-title'], 'panel-title')}
+				blah="blah"
 				bsStyle="link"
 				key={1}
 				onClick={onSelect}
@@ -148,7 +141,16 @@ function CollapsiblePanelHeader(props) {
 				<div className={classNames(css['panel-title'], 'panel-title')}>{headerItems}</div>
 			</Button>
 		) : (
-			<div className={classNames(css['panel-title'], 'panel-title')} key={1}>
+			/* eslint-disable jsx-a11y/no-static-element-interactions */
+			<div
+				aria-controls={id}
+				className={classNames(css['panel-title'], 'panel-title')}
+				key={1}
+				onClick={onToggle}
+				onKeyPress={onToggle}
+				role="button"
+				tabIndex="-1"
+			>
 				{headerItems}
 			</div>
 		),
@@ -161,11 +163,13 @@ function CollapsiblePanelHeader(props) {
 
 		const defaultCaret = (
 			<Button
+				aria-controls={id}
 				className={classNames(css.toggle, 'toggle')}
 				bsStyle="link"
 				key={2}
 				onClick={onToggle}
 				title={caretText}
+				aria-expanded={expanded}
 			>
 				<Icon key={header.length} name="talend-caret-down" />
 			</Button>
@@ -231,7 +235,7 @@ function getTextualContent(content) {
  * <CollapsiblePanel {...props} />
  */
 function CollapsiblePanel(props) {
-	const { content, status, expanded, theme } = props;
+	const { content, id, status, expanded, theme } = props;
 	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
@@ -247,7 +251,7 @@ function CollapsiblePanel(props) {
 	return (
 		<div className={className}>
 			<CollapsiblePanelHeader {...props} />
-			<Panel collapsible={!!content || !!props.children} expanded={expanded}>
+			<Panel id={id} collapsible={!!content || !!props.children} expanded={expanded}>
 				{children}
 				{props.children}
 			</Panel>
@@ -276,6 +280,7 @@ if (process.env.NODE_ENV !== 'production') {
 		]),
 		expanded: PropTypes.bool,
 		header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
+		id: PropTypes.string.isRequired,
 		onSelect: PropTypes.func,
 		onToggle: PropTypes.func,
 		t: PropTypes.func.isRequired,
