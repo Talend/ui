@@ -1,4 +1,10 @@
+.container {
+	padding-left: 0;
+}
+
 .tc-list-toolbar-select-all {
+	margin-left: $padding-small;
+	padding-left: 0;
 	:global(label) {
 		margin-bottom: 0;
 		margin-left: 5px;
