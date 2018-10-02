@@ -97,6 +97,17 @@ describe('extractParameters', () => {
 			url: properties.obj.url,
 		});
 	});
+	it('should return extract complex values (object/array)', () => {
+		const parameters = [{ path: 'obj.myArray', key: 'lol-array' }];
+		const complexProperties = {
+			obj: {
+				myArray: ['lol'],
+			},
+		};
+		expect(extractParameters(parameters, complexProperties, {})).toEqual({
+			'lol-array': ['lol'],
+		});
+	});
 	it('should return empty object if no parameters', () => {
 		expect(extractParameters(undefined, properties, schema)).toEqual({});
 	});
