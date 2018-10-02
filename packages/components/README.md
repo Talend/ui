@@ -25,6 +25,9 @@ A set of stateless components which follows the [Talend Guidelines](http://guide
 Before 1.0, `@talend/react-components` does NOT follow semver in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
+Before 2.0, we will try not to introduce breaking changes, as possible.
+From 3.0, we will only introduce breaking changes in major releases, and follow semver.
+
 ## Conventions
 
 Please look at our [CONTRIBUTING](https://github.com/Talend/tools/blob/master/tools-root-github/CONTRIBUTING.md) first.

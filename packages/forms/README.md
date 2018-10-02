@@ -7,6 +7,9 @@
 Before 1.0, `@talend/react-forms` does NOT follow semver version in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
+Before 2.0, we will try not to introduce breaking changes, as possible.
+From 3.0, we will only introduce breaking changes in major releases, and follow semver.
+
 ## Introduction
 
 This library is designed to be used on top of [react-jsonschema-form](https://mozilla-services.github.io/react-jsonschema-form/), a React component for building Web forms from JSONSchema.

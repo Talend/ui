@@ -23,6 +23,9 @@ It provides a set of base APIs and patterns.
 Before 1.0, `@talend/react-cmf` does NOT follow semver version in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
+Before 2.0, we will try not to introduce breaking changes, as possible.
+From 3.0, we will only introduce breaking changes in major releases, and follow semver.
+
 ## Requirements
 
 Before trying CMF you must know:
@@ -207,14 +210,10 @@ you may change the following using simple props:
 
 ## ROADMAP
 
-For 1.0
+For 2.0
 
 * [ ] documentation review
 * [ ] provide an example OSS demo app
 * [ ] remove all deprecated code
 * [ ] update or remove react-router
 * [ ] move from peer dependencies to dependencies
-* [x] integrate redux-saga
-* [x] add a yeoman generator
-* [x] actionCreator should become first class
-* [x] embedable apps

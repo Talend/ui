@@ -14,6 +14,9 @@ A small library that provides a centralized error logger.
 Before 1.0, `@talend/log` does NOT follow semver version in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
+Before 2.0, we will try not to introduce breaking changes, as possible.
+From 3.0, we will only introduce breaking changes in major releases, and follow semver.
+
 #### Advanced config
 
 Look in ./src/errorTransformer.js for jsDoc on each parameter

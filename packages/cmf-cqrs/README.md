@@ -26,6 +26,9 @@ This is a library to help you to build configurable React App with CQRS pattern.
 Before 1.0, `@talend/react-cmf-cqrs` do NOT follow semver version in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
+Before 2.0, we will try not to introduce breaking changes, as possible.
+From 3.0, we will only introduce breaking changes in major releases, and follow semver.
+
 ## Content
 
 This package provides tools to deal with cqrs backend allowing websocket handling :
