@@ -28,7 +28,7 @@ const actions = [
 	{
 		id: 'icon1',
 		label: 'Click Me',
-		icon: 'talend-dataprep',
+		icon: 'talend-smiley-angry',
 		'data-feature': 'action',
 		onClick: action('action1'),
 		link: true,
@@ -37,7 +37,7 @@ const actions = [
 	{
 		id: 'icon2',
 		label: 'Click Me',
-		icon: 'talend-dataprep',
+		icon: 'talend-smiley-neutral',
 		'data-feature': 'action',
 		onClick: action('action2'),
 		link: true,
@@ -46,7 +46,7 @@ const actions = [
 	{
 		id: 'icon3',
 		label: 'Click Me',
-		icon: 'talend-dataprep',
+		icon: 'talend-smiley-satisfied',
 		'data-feature': 'action',
 		onClick: action('action3'),
 		link: true,
