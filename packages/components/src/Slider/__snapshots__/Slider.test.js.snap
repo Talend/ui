@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getActions should render some action 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <div
+    className="theme-tc-slider-captions tc-slider-captions"
+>
+    <Action
+        className=""
+        data-feature="action"
+        hideLabel={true}
+        icon="talend-smiley-angry"
+        id="icon1"
+        label="Click Me"
+        link={true}
+        onClick={[Function]}
+    />
+    <Action
+        className=""
+        data-feature="action"
+        hideLabel={true}
+        icon="talend-smiley-neutral"
+        id="icon2"
+        label="Click Me"
+        link={true}
+        onClick={[Function]}
+    />
+    <Action
+        className="theme-selected selected"
+        data-feature="action"
+        hideLabel={true}
+        icon="talend-smiley-satisfied"
+        id="icon3"
+        label="Click Me"
+        link={true}
+        onClick={[Function]}
+    />
+</div>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Action
+          className=""
+          data-feature="action"
+          hideLabel={true}
+          icon="talend-smiley-angry"
+          id="icon1"
+          label="Click Me"
+          link={true}
+          onClick={[Function]}
+/>,
+        <Action
+          className=""
+          data-feature="action"
+          hideLabel={true}
+          icon="talend-smiley-neutral"
+          id="icon2"
+          label="Click Me"
+          link={true}
+          onClick={[Function]}
+/>,
+        <Action
+          className="theme-selected selected"
+          data-feature="action"
+          hideLabel={true}
+          icon="talend-smiley-satisfied"
+          id="icon3"
+          label="Click Me"
+          link={true}
+          onClick={[Function]}
+/>,
+      ],
+      "className": "theme-tc-slider-captions tc-slider-captions",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "function",
+        "props": Object {
+          "className": "",
+          "data-feature": "action",
+          "hideLabel": true,
+          "icon": "talend-smiley-angry",
+          "id": "icon1",
+          "label": "Click Me",
+          "link": true,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "className": "",
+          "data-feature": "action",
+          "hideLabel": true,
+          "icon": "talend-smiley-neutral",
+          "id": "icon2",
+          "label": "Click Me",
+          "link": true,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "function",
+        "props": Object {
+          "className": "theme-selected selected",
+          "data-feature": "action",
+          "hideLabel": true,
+          "icon": "talend-smiley-satisfied",
+          "id": "icon3",
+          "label": "Click Me",
+          "link": true,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Action
+            className=""
+            data-feature="action"
+            hideLabel={true}
+            icon="talend-smiley-angry"
+            id="icon1"
+            label="Click Me"
+            link={true}
+            onClick={[Function]}
+/>,
+          <Action
+            className=""
+            data-feature="action"
+            hideLabel={true}
+            icon="talend-smiley-neutral"
+            id="icon2"
+            label="Click Me"
+            link={true}
+            onClick={[Function]}
+/>,
+          <Action
+            className="theme-selected selected"
+            data-feature="action"
+            hideLabel={true}
+            icon="talend-smiley-satisfied"
+            id="icon3"
+            label="Click Me"
+            link={true}
+            onClick={[Function]}
+/>,
+        ],
+        "className": "theme-tc-slider-captions tc-slider-captions",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "className": "",
+            "data-feature": "action",
+            "hideLabel": true,
+            "icon": "talend-smiley-angry",
+            "id": "icon1",
+            "label": "Click Me",
+            "link": true,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "className": "",
+            "data-feature": "action",
+            "hideLabel": true,
+            "icon": "talend-smiley-neutral",
+            "id": "icon2",
+            "label": "Click Me",
+            "link": true,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "function",
+          "props": Object {
+            "className": "theme-selected selected",
+            "data-feature": "action",
+            "hideLabel": true,
+            "icon": "talend-smiley-satisfied",
+            "id": "icon3",
+            "label": "Click Me",
+            "link": true,
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
