@@ -85,9 +85,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			const { element, label, tooltipLabel, tooltipPlacement } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<React.Fragment>
-						{element || label}
-					</React.Fragment>
+					<React.Fragment>{element || label}</React.Fragment>
 				</TooltipTrigger>
 			);
 		}
