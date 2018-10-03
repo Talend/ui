@@ -20,7 +20,7 @@ const properties = {
 		password: 'secret',
 	},
 };
-/*
+
 describe('createTriggers', () => {
 	let triggers;
 	let response;
@@ -90,7 +90,7 @@ describe('getPathWithArrayIndex', () => {
 		expect(getPathWithArrayIndex(specPath, arraySchema)).toBe(expectedPath);
 	});
 });
-*/
+
 describe('extractParameters', () => {
 	it('should return object with extracted value from properties', () => {
 		expect(extractParameters(trigger.parameters, properties, schema)).toEqual({
@@ -113,7 +113,7 @@ describe('extractParameters', () => {
 		expect(extractParameters(undefined, properties, schema)).toEqual({});
 	});
 });
-/*
+
 describe('createCacheKey', () => {
 	it('should return undefined if not suggestions', () => {
 		expect(createCacheKey({ type: 'foo' })).toBeUndefined();
@@ -159,4 +159,3 @@ describe('toQueryParam', () => {
 		expect(toQueryParam({ foo: 'foo space', bar: 'bar' })).toEqual('foo=foo%20space&bar=bar');
 	});
 });
-*/
