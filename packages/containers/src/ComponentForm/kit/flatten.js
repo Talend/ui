@@ -28,13 +28,13 @@ function step(anything, key, payload) {
 		if (Array.isArray(anything)) {
 			anything.forEach((item, index) => {
 				const itemKey = `[${index}]`;
-				step(item, itemKey, subPayload, false);
+				step(item, itemKey, subPayload);
 			});
 		} else {
 			Object.keys(anything).forEach(nextKey => {
-				const itemKey = key ? `.${nextKey}` : nextKey;
+				const itemKey = `.${nextKey}`;
 				const item = anything[nextKey];
-				step(item, itemKey, subPayload, false);
+				step(item, itemKey, subPayload);
 			});
 		}
 
@@ -57,7 +57,8 @@ function step(anything, key, payload) {
  * // { 'level1.level2': 'foo' }
  */
 export default function flatten(obj) {
-	const payload = {};
-	step(obj, '', payload);
-	return payload;
+	return Object.keys(obj).reduce((accu, key) => {
+		step(obj[key], key, accu);
+		return accu;
+	}, {});
 }
