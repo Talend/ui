@@ -73,6 +73,7 @@ export function ListToVirtualizedList(props) {
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
+			rowRenderers={props.rowRenderers}
 		>
 			{props.columns
 				.filter(item => !item.hidden)
@@ -136,6 +137,7 @@ ListToVirtualizedList.propTypes = {
 		presistentActionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
+	rowRenderers: PropTypes.object,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
