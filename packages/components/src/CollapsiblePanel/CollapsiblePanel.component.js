@@ -41,7 +41,7 @@ const actionPropTypes = {
 const simplePropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
 	className: PropTypes.string,
-	element: PropTypes.string,
+	element: PropTypes.element,
 	label: PropTypes.string,
 	bsStyle: PropTypes.string,
 	tooltipLabel: OverlayTrigger.propTypes.label,
