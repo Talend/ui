@@ -8,7 +8,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     className="theme-panel-heading panel-heading"
   >
     <button
-      blah="blah"
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -108,24 +107,12 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         <div
           className="theme-group theme-col-4"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </span>
+          by Charles
         </div>
         <div
           className="theme-group theme-col-4"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </span>
+          on TDP
           <span
             className="theme-undefined label label-default"
             onFocus={[Function]}
@@ -204,7 +191,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     className="theme-panel-heading panel-heading"
   >
     <button
-      blah="blah"
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -304,24 +290,12 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         <div
           className="theme-group theme-col-4"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </span>
+          by Charles
         </div>
         <div
           className="theme-group theme-col-4"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </span>
+          on TDP
           <span
             className="theme-undefined label label-default"
             onFocus={[Function]}
@@ -400,7 +374,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
     className="theme-panel-heading panel-heading"
   >
     <button
-      blah="blah"
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -500,24 +473,12 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         <div
           className="theme-group theme-col-4"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </span>
+          by Charles
         </div>
         <div
           className="theme-group theme-col-4"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </span>
+          on TDP
           <span
             className="theme-undefined label label-default"
             onFocus={[Function]}
@@ -544,7 +505,6 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
     className="theme-panel-heading panel-heading"
   >
     <button
-      blah="blah"
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -554,33 +514,21 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-group theme-col-2"
+          className="theme-group theme-col-3"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            Version 1 Version 1
-          </span>
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            Custom
+          Version 1 Version 1
+        </div>
+        <div
+          className="theme-group theme-col-3"
+        >
+          <span>
+            Custom element
           </span>
         </div>
         <div
-          className="theme-group theme-col-2"
+          className="theme-group theme-col-3"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            03/02/2017 14:44:55
-          </span>
+          03/02/2017 14:44:55
         </div>
       </div>
     </button>
@@ -600,7 +548,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
     className="theme-panel-heading panel-heading"
   >
     <button
-      blah="blah"
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -612,31 +559,13 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         <div
           className="theme-group theme-col-2"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            Version 1 Version 1
-          </span>
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            (Read Only)
-          </span>
+          Version 1 Version 1
+          (Read Only)
         </div>
         <div
           className="theme-group theme-col-2"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            03/02/2017 14:44:55
-          </span>
+          03/02/2017 14:44:55
         </div>
       </div>
     </button>
@@ -725,7 +654,6 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
     className="theme-panel-heading panel-heading"
   >
     <button
-      blah="blah"
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -737,31 +665,13 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
         <div
           className="theme-group theme-col-2"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            Version 1 Version 1
-          </span>
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            (Read Only)
-          </span>
+          Version 1 Version 1
+          (Read Only)
         </div>
         <div
           className="theme-group theme-col-2"
         >
-          <span
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            03/02/2017 14:44:55
-          </span>
+          03/02/2017 14:44:55
         </div>
       </div>
     </button>

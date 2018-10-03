@@ -75,7 +75,6 @@ const label4 = {
 };
 
 const label5 = {
-	displayMode: 'custom',
 	tooltipPlacement: 'top',
 	tooltipLabel: 'Webhook job',
 	element: (<div className="custom-element">Custom element can be here</div>),

@@ -16,7 +16,6 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 export const TYPE_STATUS = 'status';
 export const TYPE_ACTION = 'action';
 export const TYPE_BADGE = 'badge';
-export const TYPE_CUSTOM = 'custom';
 
 function getActionHandler(func, item) {
 	return function actionHandler(e) {
@@ -25,7 +24,7 @@ function getActionHandler(func, item) {
 	};
 }
 
-const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS, TYPE_CUSTOM];
+const displayModes = [TYPE_ACTION, TYPE_BADGE, TYPE_STATUS];
 
 const statusPropTypes = {
 	displayMode: PropTypes.oneOf(displayModes),
@@ -82,19 +81,13 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 				</TooltipTrigger>
 			);
 		}
-		case TYPE_CUSTOM: {
+		default: {
 			const { element, label, tooltipLabel, tooltipPlacement } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					{element}
-				</TooltipTrigger>
-			);
-		}
-		default: {
-			const { label, tooltipLabel, tooltipPlacement } = headerItem;
-			return (
-				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<span className={css[className]}>{label}</span>
+					<React.Fragment>
+						{element || label}
+					</React.Fragment>
 				</TooltipTrigger>
 			);
 		}
@@ -133,9 +126,8 @@ function CollapsiblePanelHeader(props) {
 		onSelect ? (
 			<Button
 				className={classNames(css['panel-title'], 'panel-title')}
-				blah="blah"
 				bsStyle="link"
-				key={1}
+				key="panel-toggle"
 				onClick={onSelect}
 			>
 				<div className={classNames(css['panel-title'], 'panel-title')}>{headerItems}</div>
@@ -143,13 +135,9 @@ function CollapsiblePanelHeader(props) {
 		) : (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
 			<div
-				aria-controls={id}
 				className={classNames(css['panel-title'], 'panel-title')}
-				key={1}
+				key="panel-toggle"
 				onClick={onToggle}
-				onKeyPress={onToggle}
-				role="button"
-				tabIndex="-1"
 			>
 				{headerItems}
 			</div>
@@ -166,7 +154,7 @@ function CollapsiblePanelHeader(props) {
 				aria-controls={id}
 				className={classNames(css.toggle, 'toggle')}
 				bsStyle="link"
-				key={2}
+				key="default-toggle"
 				onClick={onToggle}
 				title={caretText}
 				aria-expanded={expanded}

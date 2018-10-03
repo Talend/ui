@@ -124,7 +124,7 @@ const propsDescriptivePanelWithoutContent = {
 };
 
 const propsPanelWithCustomElement = {
-	header: [[version1, customElement], timeStamp],
+	header: [version1, customElement, timeStamp],
 	onSelect: jest.fn(),
 	onToggle: jest.fn(),
 };
