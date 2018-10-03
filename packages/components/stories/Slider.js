@@ -24,7 +24,7 @@ const actions = [
 		label: 'Click Me',
 		icon: 'talend-dataprep',
 		'data-feature': 'action',
-		onClick: action('action'),
+		onClick: action('action1'),
 		link: true,
 		hideLabel: true,
 	},
@@ -33,7 +33,7 @@ const actions = [
 		label: 'Click Me',
 		icon: 'talend-dataprep',
 		'data-feature': 'action',
-		onClick: action('action'),
+		onClick: action('action2'),
 		link: true,
 		hideLabel: true,
 	},
@@ -42,7 +42,7 @@ const actions = [
 		label: 'Click Me',
 		icon: 'talend-dataprep',
 		'data-feature': 'action',
-		onClick: action('action'),
+		onClick: action('action3'),
 		link: true,
 		hideLabel: true,
 	},
@@ -74,7 +74,7 @@ storiesOf('Slider', module)
 				<p>with icon close to label</p>
 				<Slider value={96} />
 				<p>with icon buttons</p>
-				<Slider captionActions={actions} value={96} />
+				<Slider captionActions={actions} value={100} />
 			</div>
 		</section>
 	));

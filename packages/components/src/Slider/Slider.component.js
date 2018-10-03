@@ -34,25 +34,29 @@ export function getSelectedIconPosition(icons, value, min, max) {
 	return Math.round(value / interval);
 }
 
-function getActions(actions, value, min, max) {
-	// if (isIconsAvailables(icons)) {
+/**
+ * This function allow to get the actions components
+ * @param {array} actions
+ * @param {number} value
+ * @param {number} min
+ * @param {number} max
+ */
+export function getActions(actions, value, min, max) {
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
-		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-icons')}>
+		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 			{actions.map((action, index) => (
 				<Action
 					{...action}
+					key={index}
 					className={classnames(
 						{ [theme.selected]: index === position },
 						{ selected: index === position },
 					)}
-					key={index}
 				/>
 			))}
 		</div>
 	);
-	// }
-	// return null;
 }
 
 /**
