@@ -33,6 +33,7 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
+		rowRenderers,
 	} = props;
 
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
@@ -70,6 +71,7 @@ function VirtualizedList(props) {
 					width={width}
 					disableHeader={disableHeader}
 					inProgress={inProgress}
+					rowRenderers={rowRenderers}
 				>
 					{columnDefinitions}
 				</RendererSelector>

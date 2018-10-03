@@ -10,7 +10,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
-
+import { MyCustomRow } from './VirtualizedList';
 /**
  * Cell renderer that displays hello + text
  */
@@ -512,6 +512,17 @@ storiesOf('List', module)
 			</p>
 			<pre>&lt;List displayMode="large" ... &gt;</pre>
 			<List {...props} rowHeight={140} displayMode="large" />
+		</div>
+	))
+	.add('Large display overrides by rowRenderers', () => (
+		<div style={{ height: '70vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list in large mode.<br />
+				You just need to pass the props displayMode.
+			</p>
+			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
+			<List {...props} rowHeight={116} displayMode="large" rowRenderers={{ LARGE: MyCustomRow }} />
 		</div>
 	))
 	.add('Large display with icons', () => {
