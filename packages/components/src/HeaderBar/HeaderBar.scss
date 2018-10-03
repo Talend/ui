@@ -98,7 +98,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 	}
 
 	.tc-header-bar-brand :global(.tc-dropdown-button-title-label) {
-		margin-left: 10px;
+		margin-left: $padding-small;
 	}
 
 	:global(.btn):global(.btn-link) {
