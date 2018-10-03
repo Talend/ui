@@ -2,6 +2,13 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.test.js
+  1:8  error  'createTriggers' is defined but never used         no-unused-vars
+  3:2  error  'createCacheKey' is defined but never used         no-unused-vars
+  4:2  error  'toJSON' is defined but never used                 no-unused-vars
+  5:2  error  'toQueryParam' is defined but never used           no-unused-vars
+  6:2  error  'getPathWithArrayIndex' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
@@ -17,5 +24,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-✖ 5 problems (5 errors, 0 warnings)
+✖ 10 problems (10 errors, 0 warnings)
 
