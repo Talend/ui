@@ -67,6 +67,6 @@ describe('getActions', () => {
 		// When
 		const wrapper = shallow(getActions(actions, 76, 0, 100));
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
