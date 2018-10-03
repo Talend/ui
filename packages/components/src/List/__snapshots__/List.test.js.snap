@@ -542,6 +542,7 @@ exports[`List should render 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         pagination={
           Object {
             "itemsPerPage": 5,
@@ -1711,6 +1712,7 @@ exports[`List should render 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onFilter={[Function]}
                           onToggle={[Function]}
                           t={[Function]}
@@ -1767,6 +1769,7 @@ exports[`List should render 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   onClick={[Function]}
                                   role="search"
                                   translateFuncName="t"
@@ -2355,6 +2358,7 @@ exports[`List should render id if provided 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         pagination={
           Object {
             "itemsPerPage": 5,
@@ -3569,6 +3573,7 @@ exports[`List should render id if provided 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onFilter={[Function]}
                           onToggle={[Function]}
                           t={[Function]}
@@ -3629,6 +3634,7 @@ exports[`List should render id if provided 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   onClick={[Function]}
                                   role="search"
                                   translateFuncName="t"

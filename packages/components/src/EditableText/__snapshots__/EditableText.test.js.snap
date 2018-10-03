@@ -3523,6 +3523,7 @@ exports[`EditableText should render 1`] = `
     ]
   }
   nsMode="default"
+  omitBoundRerender={true}
   onEdit={[Function]}
   onSubmit={[Function]}
   text="my text"
@@ -7059,6 +7060,7 @@ exports[`EditableText should render InlineForm 1`] = `
     ]
   }
   nsMode="default"
+  omitBoundRerender={true}
   onEdit={[Function]}
   onSubmit={[Function]}
   text="my text"
@@ -10595,6 +10597,7 @@ exports[`EditableText should render inProgress 1`] = `
     ]
   }
   nsMode="default"
+  omitBoundRerender={true}
   onEdit={[Function]}
   onSubmit={[Function]}
   text="my text"
@@ -14131,6 +14134,7 @@ exports[`EditableText should render skeleton 1`] = `
     ]
   }
   nsMode="default"
+  omitBoundRerender={true}
   onEdit={[Function]}
   onSubmit={[Function]}
   text="my text"
