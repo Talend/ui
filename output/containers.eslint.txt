@@ -2,8 +2,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/flatten.test.js
-  3:10  error  'noop' is defined but never used  no-unused-vars
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/flatten.js
+  23:1  error  Line 23 exceeds the maximum line length of 100  max-len
 
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
