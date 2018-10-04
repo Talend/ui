@@ -41,6 +41,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 		border-color: $brand-primary;
 		color: $white;
 
+		&:active,
 		&:hover {
 			background-color: $scooter;
 			border-color: $scooter;
