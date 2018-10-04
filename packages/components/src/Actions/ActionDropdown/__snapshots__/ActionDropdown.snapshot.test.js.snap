@@ -1539,6 +1539,7 @@ exports[`ActionDropdown should render loader item 1`] = `
                 ]
               }
               nsMode="default"
+              omitBoundRerender={true}
               translateFuncName="t"
               usePureComponent={false}
               wait={false}
@@ -1738,6 +1739,7 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
                 ]
               }
               nsMode="default"
+              omitBoundRerender={true}
               translateFuncName="t"
               usePureComponent={false}
               wait={false}

@@ -392,6 +392,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                   ]
                 }
                 nsMode="default"
+                omitBoundRerender={true}
                 translateFuncName="t"
                 usePureComponent={false}
                 wait={false}
