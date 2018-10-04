@@ -8,8 +8,6 @@ import { extractSpecialFields, getCellData, getId, getRowData } from '../utils/g
 import withListGesture from '../../Gesture/withListGesture';
 import css from './RowCollapsiblePanel.scss';
 
-const DEFAULT_HEIGHT = 50;
-
 /**
  * Row renderer that displays a Collapsible Panel
  */
@@ -58,7 +56,7 @@ class RowCollapsiblePanel extends React.Component {
 						aria-posinset={index + 1}
 						aria-setsize={parent.props.rowCount}
 						aria-label={titleField && getCellData(titleField, parent, index)}
-						style={{ ...style, maxHeight: rowData.expanded ? 'none' : `${DEFAULT_HEIGHT}px` }}
+						style={style}
 					>
 						<CollapsiblePanel
 							{...rowData}

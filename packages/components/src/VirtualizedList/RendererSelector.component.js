@@ -86,7 +86,7 @@ class RendererSelector extends React.Component {
 		};
 
 		let ListRenderer;
-		let customProps = {};
+		let customProps;
 
 		if (type === TABLE) {
 			ListRenderer = ListTable;
