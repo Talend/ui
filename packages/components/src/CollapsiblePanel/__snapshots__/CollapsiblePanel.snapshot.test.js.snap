@@ -17,7 +17,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <div
             className="theme-tc-status tc-status theme-action"
@@ -83,7 +83,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </div>
         </div>
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <button
             aria-label="edit"
@@ -105,7 +105,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </button>
         </div>
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <div
             className="theme-undefined"
@@ -212,7 +212,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <div
             className="theme-tc-status tc-status theme-action"
@@ -278,7 +278,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </div>
         </div>
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <button
             aria-label="edit"
@@ -300,7 +300,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </button>
         </div>
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <div
             className="theme-undefined"
@@ -407,7 +407,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <div
             className="theme-tc-status tc-status theme-action"
@@ -473,7 +473,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </div>
         </div>
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <button
             aria-label="edit"
@@ -495,7 +495,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </button>
         </div>
         <div
-          className="theme-group theme-col-4"
+          className="theme-undefined theme-col-4"
         >
           <div
             className="theme-undefined"
@@ -550,7 +550,7 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
         className="theme-panel-title panel-title"
       >
         <div
-          className="theme-group theme-col-3"
+          className="theme-undefined theme-col-3"
         >
           <div
             className="theme-undefined"
@@ -561,7 +561,7 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
           </div>
         </div>
         <div
-          className="theme-group theme-col-3"
+          className="theme-undefined theme-col-3"
         >
           <div
             className="theme-undefined"
@@ -574,7 +574,7 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
           </div>
         </div>
         <div
-          className="theme-group theme-col-3"
+          className="theme-undefined theme-col-3"
         >
           <div
             className="theme-undefined"
@@ -629,7 +629,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           </div>
         </div>
         <div
-          className="theme-group theme-col-2"
+          className="theme-undefined theme-col-2"
         >
           <div
             className="theme-undefined"
@@ -753,7 +753,7 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           </div>
         </div>
         <div
-          className="theme-group theme-col-2"
+          className="theme-undefined theme-col-2"
         >
           <div
             className="theme-undefined"
