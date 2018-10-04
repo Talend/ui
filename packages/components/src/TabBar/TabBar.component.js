@@ -77,7 +77,7 @@ class TabBar extends React.Component {
 							</NavItem>
 						))}
 					</Nav>
-					{hasChildren ? (
+					{hasChildren && (
 						<Tab.Content>
 							{items.map(item => (
 								<Tab.Pane eventKey={item.key} key={item.key}>
@@ -86,7 +86,7 @@ class TabBar extends React.Component {
 								</Tab.Pane>
 							))}
 						</Tab.Content>
-					) : null}
+					)}
 				</div>
 			</Tab.Container>
 		);
