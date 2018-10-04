@@ -129,9 +129,7 @@ describe('CollapsiblePanel', () => {
 			],
 		};
 
-		const panelInstance = (
-			<CollapsiblePanel {...propsPanelWithCustomElement} />
-		);
+		const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
 		// when
 		const wrapper = mount(panelInstance);
 
