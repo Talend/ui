@@ -5,7 +5,15 @@ import RowCollapsiblePanel from './RowCollapsiblePanel.component';
 
 const collection = [
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'successful',
+				label: 'Successful',
+				icon: 'talend-check',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -19,7 +27,15 @@ const collection = [
 		expanded: true,
 	},
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'canceled',
+				label: 'Canceled',
+				icon: 'talend-cross',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -33,7 +49,15 @@ const collection = [
 		expanded: true,
 	},
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'failed', label: 'Failure', icon: 'talend-cross' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'failed',
+				label: 'Failure',
+				icon: 'talend-cross',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',

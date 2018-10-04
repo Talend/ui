@@ -3,12 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { CellMeasurer } from 'react-virtualized';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
-import {
-	extractSpecialFields,
-	getCellData,
-	getId,
-	getRowData,
-} from '../utils/gridrow';
+import { extractSpecialFields, getCellData, getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
 import css from './RowCollapsiblePanel.scss';
@@ -51,11 +46,7 @@ class RowCollapsiblePanel extends React.Component {
 			>
 				{({ measure }) => (
 					<div
-						className={classNames(
-							css['tc-collapsible-row'],
-							rowData.className,
-							className,
-						)}
+						className={classNames(css['tc-collapsible-row'], rowData.className, className)}
 						id={id}
 						onDoubleClick={onRowDoubleClick}
 						onKeyDown={e => onKeyDown(e, this.ref)}
