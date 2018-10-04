@@ -43,7 +43,7 @@ function ListTable(props) {
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
 			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
-			headerHeight={35}
+			headerHeight={40}
 			id={id}
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
