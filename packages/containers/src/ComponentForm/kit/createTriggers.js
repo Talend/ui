@@ -80,7 +80,16 @@ export function extractParameters(parameters, properties, schema) {
 	const flattenProps = flatten(properties);
 	return parameters.reduce((acc, param) => {
 		const path = getPathWithArrayIndex(param.path, schema);
-		acc[param.key] = flattenProps[path];
+		const value = flattenProps[path];
+		if (typeof value === 'object') {
+			Object.keys(value)
+				.filter(key => typeof value[key] !== 'object')
+				.forEach(key => {
+					acc[`${param.key}${key}`] = value[key];
+				});
+		} else {
+			acc[param.key] = value;
+		}
 		return acc;
 	}, {});
 }
