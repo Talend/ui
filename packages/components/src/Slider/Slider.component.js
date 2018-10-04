@@ -44,9 +44,7 @@ export function getSelectedIconPosition(icons, value, min, max) {
  */
 export function renderActions(actions, value, min, max, onChange) {
 	const interval = (max - min) / (actions.length - 1);
-	// console.log({ interval })
 	const captions = range(min, max, interval);
-	// console.log({ captions })
 	captions.push(max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
@@ -55,7 +53,7 @@ export function renderActions(actions, value, min, max, onChange) {
 				<Action
 					{...action}
 					key={index}
-					onClick={onChange ? () => onChange(captions[index]) : () => {}}
+					onClick={() => onChange(captions[index])}
 					className={classnames(
 						{ [theme.selected]: index === position },
 						{ selected: index === position },
