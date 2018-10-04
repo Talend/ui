@@ -1,19 +1,12 @@
-$tc-list-large-hover-bg: $concrete !default;
+$tc-list-large-hover-bg: $white !default;
 $tc-list-large-field-label-color: $brand-primary-darker !default;
 $tc-list-large-field-value-color: $dove-gray !default;
 
 .tc-list-large {
 	padding: $padding-small;
 
-	&:hover,
-	&:focus,
-	&:global(.ally-focus-within) {
-		.inner-box {
-			background: $tc-list-large-hover-bg;
-		}
-	}
-
 	.inner-box {
+		background: $tc-list-large-hover-bg;
 		border: 1px solid $alto;
 		border-radius: 3px;
 		height: 100%;
