@@ -77,7 +77,7 @@ export function extractParameters(parameters, properties, schema) {
 	if (!parameters || !Array.isArray(parameters)) {
 		return {};
 	}
-	const flattenProps = flatten(properties);
+	const flattenProps = flatten(properties, { includeObjects: true });
 	return parameters.reduce((acc, param) => {
 		const path = getPathWithArrayIndex(param.path, schema);
 		const value = flattenProps[path];
