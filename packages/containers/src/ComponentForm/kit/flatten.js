@@ -20,7 +20,8 @@ function step(anything, key, payload, options = {}) {
 	if (typeof anything !== 'object') {
 		payload[key] = anything;
 	} else {
-		// for objects (including arrays), we flatten it. The we store it in 2 forms depending on options.
+		// for objects (including arrays), we flatten it.
+		// We store it in 2 forms depending on options.
 		// Let's say that we have a key 'my-object'.
 		// - Form 1: { 'my-object' : {<flattenedObject>} }
 		// - Form 2: { 'my-object.key1': value1, my-object.key2: value2, ... }
