@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { getSelectedIconPosition, getActions } from './Slider.component';
+import { getSelectedIconPosition, renderActions } from './Slider.component';
 
 describe('Slider component tests', () => {
 	describe('getSelectedIconPosition()', () => {
@@ -62,7 +62,7 @@ describe('getActions', () => {
 			},
 		];
 		// When
-		const wrapper = shallow(getActions(actions, 76, 0, 100));
+		const wrapper = shallow(renderActions(actions, 76, 0, 100));
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

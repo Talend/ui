@@ -41,7 +41,7 @@ export function getSelectedIconPosition(icons, value, min, max) {
  * @param {number} min
  * @param {number} max
  */
-export function getActions(actions, value, min, max, onChange) {
+export function renderActions(actions, value, min, max, onChange) {
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
 		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
@@ -67,7 +67,7 @@ export function getActions(actions, value, min, max, onChange) {
  * @param {number} min - minimum value of the slider
  * @param {number} max - maximum value of the slider
  */
-function getIcons(icons, value, min, max) {
+function renderIcons(icons, value, min, max) {
 	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
@@ -95,7 +95,7 @@ function getIcons(icons, value, min, max) {
  * @param {number} min min value of the slider
  * @param {number} max max value of the slider
  */
-function getTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
+function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
 		const interval = (max - min) / (captionTextStepNumber - 1);
 		const captions = range(min, max, interval);
@@ -131,11 +131,11 @@ function getCaption(
 	onChange,
 ) {
 	if (captionActions) {
-		return getActions(captionActions, value, min, max, onChange);
+		return renderActions(captionActions, value, min, max, onChange);
 	} else if (captionIcons) {
-		return getIcons(captionIcons, value, min, max);
+		return renderIcons(captionIcons, value, min, max);
 	} else if (captionTextStepNumber) {
-		return getTextCaptions(captionTextStepNumber, captionsFormat, min, max);
+		return renderTextCaptions(captionTextStepNumber, captionsFormat, min, max);
 	}
 	return null;
 }
