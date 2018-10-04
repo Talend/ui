@@ -41,7 +41,7 @@ export function getSelectedIconPosition(icons, value, min, max) {
  * @param {number} min
  * @param {number} max
  */
-export function getActions(actions, value, min, max) {
+export function getActions(actions, value, min, max, onChange) {
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
 		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
@@ -49,6 +49,7 @@ export function getActions(actions, value, min, max) {
 				<Action
 					{...action}
 					key={index}
+					onClick={() => onChange(value)}
 					className={classnames(
 						{ [theme.selected]: index === position },
 						{ selected: index === position },
@@ -127,9 +128,10 @@ function getCaption(
 	value,
 	min,
 	max,
+	onChange,
 ) {
 	if (captionActions) {
-		return getActions(captionActions, value, min, max);
+		return getActions(captionActions, value, min, max, onChange);
 	} else if (captionIcons) {
 		return getIcons(captionIcons, value, min, max);
 	} else if (captionTextStepNumber) {
@@ -199,6 +201,7 @@ class Slider extends React.Component {
 			captionsFormat,
 			min,
 			max,
+			onChange,
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
@@ -221,6 +224,7 @@ class Slider extends React.Component {
 					value,
 					min,
 					max,
+					onChange,
 				)}
 			</span>
 		);
