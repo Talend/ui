@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { checkA11y } from '@storybook/addon-a11y'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
@@ -16,6 +17,28 @@ function NoRowsRenderer() {
 		</span>
 	);
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export function MyCustomRow(props) {
+	return (
+		<div style={props.style}>
+			<h1 style={{ fontSize: 16 }}>{props.parent.props.collection[props.index].name}</h1>
+			<ul>
+				<li>style: {JSON.stringify(props.style)}</li>
+				<li>index: {props.index}</li>
+				<li>isScrolling: {props.isScrolling.toString()}</li>
+			</ul>
+		</div>
+	);
+}
+MyCustomRow.propTypes = {
+	index: PropTypes.number,
+	isScrolling: PropTypes.bool,
+	style: PropTypes.object,
+	parent: PropTypes.shape({
+		props: PropTypes.shape({ collection: PropTypes.array }),
+	}),
+};
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -717,6 +740,25 @@ storiesOf('Virtualized List', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={[]} id={'my-list'} noRowsRenderer={NoRowsRenderer}>
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > custom rowRenderers', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collectionWithTooltupLabel} id={'my-list'} type="custom" rowHeight={116} rowRenderers={{ custom: MyCustomRow }}>
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Description (non sortable)"

@@ -21,11 +21,6 @@ Simplifies merging of CMF settings files to serve your webpack bundles.
 [quality-badge]: http://npm.packagequality.com/shield/@talend/react-cmf-webpack-plugin.svg
 [quality-url]: http://packagequality.com/#?package=@talend/react-cmf-webpack-plugin
 
-## Breaking changes log
-
-Before 1.0, `@talend/react-cmf-webpack-plugin` does NOT follow semver in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 ## Content
 
 This package provides Webpack plugin to deal with several React CMF settings files.

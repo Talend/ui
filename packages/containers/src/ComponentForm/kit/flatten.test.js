@@ -14,9 +14,16 @@ describe('flatten', () => {
 			},
 		};
 		expect(flatten(foo)).toEqual({
-			'root.nest.string': 'foo',
-			'root.nest.number': 3,
+			root: {
+				'.nest': { '.bool': false, '.number': 3, '.string': 'foo' },
+				'.nest.bool': false,
+				'.nest.number': 3,
+				'.nest.string': 'foo',
+			},
+			'root.nest': { '.bool': false, '.number': 3, '.string': 'foo' },
 			'root.nest.bool': false,
+			'root.nest.number': 3,
+			'root.nest.string': 'foo',
 		});
 	});
 	it('should flat arrays', () => {
@@ -25,28 +32,10 @@ describe('flatten', () => {
 				array: ['foo'],
 			},
 		};
-		expect(flatten(foo)).toEqual({ 'root.array[0]': 'foo' });
-	});
-	it('should include objects and arrays in the flatten payload', () => {
-		const foo = {
-			root: {
-				array: ['foo'],
-			},
-		};
-		expect(flatten(foo, true)).toEqual({
-			root: {
-				array: ['foo'],
-			},
-			'root.array': ['foo'],
+		expect(flatten(foo)).toEqual({
+			root: { '.array': { '[0]': 'foo' }, '.array[0]': 'foo' },
+			'root.array': { '[0]': 'foo' },
 			'root.array[0]': 'foo',
 		});
-	});
-	it('should skip function', () => {
-		const foo = {
-			root: {
-				noop,
-			},
-		};
-		expect(flatten(foo)).toEqual({ 'root.noop': undefined });
 	});
 });
