@@ -152,7 +152,6 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
                 ]
               }
               nsMode="default"
-              omitBoundRerender={true}
               onClick={[Function]}
               translateFuncName="t"
               usePureComponent={false}
@@ -239,7 +238,6 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
                 ]
               }
               nsMode="default"
-              omitBoundRerender={true}
               onClick={[Function]}
               translateFuncName="t"
               usePureComponent={false}
@@ -347,7 +345,6 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
               ]
             }
             nsMode="default"
-            omitBoundRerender={true}
             onClick={[Function]}
             translateFuncName="t"
             usePureComponent={false}

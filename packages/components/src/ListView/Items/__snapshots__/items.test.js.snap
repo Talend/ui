@@ -297,7 +297,6 @@ exports[`Items should render 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -417,7 +416,6 @@ exports[`Items should render 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -538,7 +536,6 @@ exports[`Items should render 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -906,7 +903,6 @@ exports[`Items should render with nested items 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1047,7 +1043,6 @@ exports[`Items should render with nested items 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1127,7 +1122,6 @@ exports[`Items should render with nested items 1`] = `
                                       ]
                                     }
                                     nsMode="default"
-                                    omitBoundRerender={true}
                                     onClick={[Function]}
                                     translateFuncName="t"
                                     usePureComponent={false}
@@ -1519,7 +1513,6 @@ exports[`Items should render with provided id 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1647,7 +1640,6 @@ exports[`Items should render with provided id 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1776,7 +1768,6 @@ exports[`Items should render with provided id 1`] = `
                           ]
                         }
                         nsMode="default"
-                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
