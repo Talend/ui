@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from '@storybook/addon-a11y';
-import { action } from '@storybook/addon-actions';
 
 import Slider from '../src/Slider';
 import IconsProvider from '../src/IconsProvider';
@@ -30,7 +29,6 @@ const actions = [
 		label: 'Click Me',
 		icon: 'talend-smiley-angry',
 		'data-feature': 'action',
-		onClick: action('action1'),
 		link: true,
 		hideLabel: true,
 	},
@@ -39,7 +37,6 @@ const actions = [
 		label: 'Click Me',
 		icon: 'talend-smiley-neutral',
 		'data-feature': 'action',
-		onClick: action('action2'),
 		link: true,
 		hideLabel: true,
 	},
@@ -48,7 +45,6 @@ const actions = [
 		label: 'Click Me',
 		icon: 'talend-smiley-satisfied',
 		'data-feature': 'action',
-		onClick: action('action3'),
 		link: true,
 		hideLabel: true,
 	},

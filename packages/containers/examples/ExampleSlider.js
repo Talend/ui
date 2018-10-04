@@ -2,7 +2,6 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import { Map } from 'immutable';
 import Slider from '../src/Slider';
-import { action } from '@storybook/addon-actions';
 
 const icons = [
 	'talend-smiley-angry',
