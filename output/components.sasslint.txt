@@ -1,11 +1,18 @@
 > sass-lint -v -q
 
 
+src/CollapsiblePanelsList/CollapsiblePanelsList.scss
+  10:33  error  !important not allowed  no-important
+  11:26  error  !important not allowed  no-important
+  12:20  error  !important not allowed  no-important
+  13:15  error  !important not allowed  no-important
+  17:27  error  !important not allowed  no-important
+
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 7 problems (5 errors, 2 warnings)
 
