@@ -20,7 +20,6 @@ import Badge from './Badge';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
-import CollapsiblePanelsList from './CollapsiblePanelsList';
 import ConfirmDialog from './ConfirmDialog';
 import Datalist from './Datalist';
 import Dialog from './Dialog';
@@ -142,7 +141,6 @@ export {
 	Checkbox,
 	CircularProgress,
 	CollapsiblePanel,
-	CollapsiblePanelsList,
 	ConfirmDialog,
 	Datalist,
 	Dialog,

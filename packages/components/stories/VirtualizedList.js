@@ -311,6 +311,52 @@ const collectionWithTooltupLabel = collection.map(item => {
 	return item;
 });
 
+const collapsibleListCollection = [
+	{
+		header: [{ displayMode: 'status', actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+		content: [
+			{
+				label: 'Content1',
+				description: 'Description1',
+			},
+			{
+				label: 'Content2',
+				description: 'Description2',
+			},
+		],
+	},
+	{
+		header: [{ displayMode: 'status', actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' }],
+		content: [
+			{
+				label: 'Content1',
+				description: 'Description1',
+			},
+			{
+				label: 'Content2',
+				description: 'Description2',
+			},
+		],
+	},
+	{
+		header: [{ displayMode: 'status', actions: [], status: 'failed', label: 'Failure', icon: 'talend-cross' }],
+		content: [
+			{
+				label: 'Content1',
+				description: 'Description1',
+			},
+			{
+				label: 'Content2',
+				description: 'Description2',
+			},
+		],
+	}
+];
+
+const sourceItems = [...new Array(20000)]
+	.map((item, index) => collapsibleListCollection[index % collapsibleListCollection.length]);
+
+
 storiesOf('Virtualized List', module)
 	.addDecorator(checkA11y)
 	.add('List > Table', () => (
@@ -572,6 +618,21 @@ storiesOf('Virtualized List', module)
 					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
 					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
 				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > CollapsiblePanels', () => (
+		<div>
+			<h1>Virtualized List with Collapsible Panels</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList
+					collection={sourceItems}
+					onRowClick={action('onRowClick')}
+					onScroll={action('onScroll')}
+					id={'my-list'}
+					type={listTypes.COLLAPSIBLE_PANEL}
+				/>
 			</section>
 		</div>
 	))

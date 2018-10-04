@@ -11,7 +11,6 @@ import './AppLoader';
 import './Badge';
 import './Breadcrumbs';
 import './CircularProgress';
-import './CollapsiblePanelsList';
 import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Checkbox';

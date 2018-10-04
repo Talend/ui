@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { CellMeasurerCache } from 'react-virtualized';
 
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
@@ -9,7 +10,9 @@ import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
 import Loader from '../Loader';
 
-const { TABLE } = listTypes;
+const { TABLE, COLLAPSIBLE_PANEL } = listTypes;
+
+const cache = new CellMeasurerCache({ fixedWidth: true });
 
 /**
  * Select the ListGrid row renderer to use
@@ -53,6 +56,7 @@ class RendererSelector extends React.Component {
 			isActive,
 			onRowClick,
 			onRowDoubleClick,
+			onScroll,
 			rowHeight,
 			sort,
 			sortBy,
@@ -75,12 +79,13 @@ class RendererSelector extends React.Component {
 			noRowsRenderer: this.noRowsRenderer,
 			onRowClick,
 			onRowDoubleClick,
+			onScroll,
 			rowHeight,
 			width,
 		};
 
 		let ListRenderer;
-		let customProps;
+		let customProps = {};
 
 		if (type === TABLE) {
 			ListRenderer = ListTable;
@@ -93,6 +98,14 @@ class RendererSelector extends React.Component {
 		} else {
 			ListRenderer = ListGrid;
 			customProps = { rowRenderer: getRowRenderer(type) };
+
+			if (type === COLLAPSIBLE_PANEL) {
+				customProps = {
+					...customProps,
+					deferredMeasurementCache: cache,
+					rowHeight: cache.rowHeight,
+				};
+			}
 		}
 
 		return <ListRenderer {...commonProps} {...customProps} />;

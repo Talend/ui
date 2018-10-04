@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
+<VirtualizedList(RowCollapsiblePanel)
+  className="my-class-names"
+  index={1}
+  onKeyDown={[Function]}
+  parent={
+    Object {
+      "props": Object {
+        "children": Array [],
+        "collection": Array [
+          Object {
+            "content": Array [
+              Object {
+                "description": "Description1",
+                "label": "Content1",
+              },
+              Object {
+                "description": "Description2",
+                "label": "Content2",
+              },
+            ],
+            "expanded": true,
+            "header": Array [
+              Object {
+                "actions": Array [],
+                "displayMode": "status",
+                "icon": "talend-check",
+                "label": "Successful",
+                "status": "successful",
+              },
+            ],
+          },
+          Object {
+            "content": Array [
+              Object {
+                "description": "Description1",
+                "label": "Content1",
+              },
+              Object {
+                "description": "Description2",
+                "label": "Content2",
+              },
+            ],
+            "expanded": true,
+            "header": Array [
+              Object {
+                "actions": Array [],
+                "displayMode": "status",
+                "icon": "talend-cross",
+                "label": "Canceled",
+                "status": "canceled",
+              },
+            ],
+          },
+          Object {
+            "content": Array [
+              Object {
+                "description": "Description1",
+                "label": "Content1",
+              },
+              Object {
+                "description": "Description2",
+                "label": "Content2",
+              },
+            ],
+            "expanded": true,
+            "header": Array [
+              Object {
+                "actions": Array [],
+                "displayMode": "status",
+                "icon": "talend-cross",
+                "label": "Failure",
+                "status": "failed",
+              },
+            ],
+          },
+        ],
+        "id": "my-list",
+        "rowGetter": [Function],
+      },
+    }
+  }
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
+`;

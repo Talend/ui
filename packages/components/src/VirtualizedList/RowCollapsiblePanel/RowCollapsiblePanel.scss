@@ -1,0 +1,9 @@
+.tc-collapsible-row {
+	:global(.panel-collapse) {
+		transition-duration: 0s;
+	}
+	:global(.tc-collapsible-panel) {
+		margin-bottom: $padding-small;
+		margin-top: $padding-small;
+	}
+}
