@@ -108,11 +108,12 @@ function CollapsiblePanelHeader(props) {
 	const { header, content, id, onSelect, onToggle, expanded, t } = props;
 	const headerColumnClass = `col-${header.length}`;
 	const headerItems = header.map((headerItem, index) => {
-		const elements = Array.isArray(headerItem)
+		const isHeaderItemArray = Array.isArray(headerItem);
+		const elements = isHeaderItemArray
 			? headerItem.map(renderHeaderItem)
 			: renderHeaderItem(headerItem);
 
-		const selectors = Array.isArray(headerItem)
+		const selectors = isHeaderItemArray
 			? classNames(css.group, css[headerColumnClass])
 			: classNames(css[headerItem.className], css[headerColumnClass]);
 
