@@ -2,27 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import RowCollapsiblePanel from './RowCollapsiblePanel.component';
-import VirtualizedList from '../VirtualizedList.component';
-import CellTitle from '../CellTitle';
-
-const titleProps = {
-	actionsKey: 'titleActions',
-	displayModeKey: 'display',
-	iconKey: 'icon',
-};
-
-const titleActions = [
-	{
-		label: 'edit',
-		icon: 'talend-pencil',
-		onClick: jest.fn(),
-	},
-	{
-		label: 'delete',
-		icon: 'talend-trash',
-		onClick: jest.fn(),
-	},
-];
 
 const collection = [
 	{
