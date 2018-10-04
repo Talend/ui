@@ -20,11 +20,16 @@ function step(anything, key, payload, options = {}) {
 	if (typeof anything !== 'object') {
 		payload[key] = anything;
 	} else {
-		// for objects (including arrays), we flatten it.
+		// For objects (including arrays), we flatten it.
 		// We store it in 2 forms depending on options.
-		// Let's say that we have a key 'my-object'.
-		// - Form 1: { 'my-object' : {<flattenedObject>} }
-		// - Form 2: { 'my-object.key1': value1, my-object.key2: value2, ... }
+		//
+		// Let's say that we have an array { 'my-array': ['tata', 'toto'] }.
+		// - Form 1: { 'my-array' : { '[0]': 'tata', '[1]': 'toto' } }
+		// - Form 2: { 'my-array[0]': 'tata', 'my-array[1]': 'toto' }
+		//
+		// And for objects { 'my-object': { first: 'tata', second: 'toto' } }.
+		// - Form 1: { 'my-object' : { '.first': 'tata', '.second': 'toto' } }
+		// - Form 2: { 'my-object.first': 'tata', 'my-object.second': 'toto' }
 		const subPayload = {};
 		if (Array.isArray(anything)) {
 			anything.forEach((item, index) => {
