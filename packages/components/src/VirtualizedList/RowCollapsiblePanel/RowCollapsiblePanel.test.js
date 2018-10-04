@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
 import RowCollapsiblePanel from './RowCollapsiblePanel.component';
 
 const collection = [
@@ -94,7 +93,6 @@ describe('RowCollapsiblePanel', () => {
 			/>,
 		);
 
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.dive().getElement().props.children({ measure: jest.fn() })).toMatchSnapshot();
 	});
 });

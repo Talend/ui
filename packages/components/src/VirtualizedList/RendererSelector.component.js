@@ -98,15 +98,8 @@ class RendererSelector extends React.Component {
 			};
 		} else {
 			ListRenderer = ListGrid;
-			customProps = { rowRenderer: getRowRenderer(type, this.props.rowRenderers) };
-
-			if (type === COLLAPSIBLE_PANEL) {
-				customProps = {
-					...customProps,
-					deferredMeasurementCache: cache,
-					rowHeight: cache.rowHeight,
-				};
-			}
+			const rowRenderer = getRowRenderer(type, this.props.rowRenderers);
+			customProps = { rowRenderer, ...rowRenderer.options };
 		}
 
 		return <ListRenderer {...commonProps} {...customProps} />;

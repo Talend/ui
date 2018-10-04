@@ -1,52 +1,66 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import classNames from 'classnames';
-import { CellMeasurer } from 'react-virtualized';
+import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { extractSpecialFields, getCellData, getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
 import css from './RowCollapsiblePanel.scss';
 
+const cache = new CellMeasurerCache({ fixedWidth: true });
+const options = {
+	deferredMeasurementCache: cache,
+	rowHeight: cache.rowHeight,
+};
+
 /**
  * Row renderer that displays a Collapsible Panel
  */
+
+class PureCollapsiblePanel extends React.PureComponent {
+	render() {
+		const { rowData, onToggle, measure } = this.props;
+		return (
+			<CollapsiblePanel
+				{...rowData}
+				onToggle={event => onToggle(event, measure)}
+				expanded={rowData.expanded}
+				theme="panel-list"
+			/>
+		);
+	}
+}
+
 class RowCollapsiblePanel extends React.Component {
+	onToggle = (event, measure) => {
+		const { parent, index } = this.props;
+		if (parent.props.onRowClick) {
+			parent.props.onRowClick({ event, rowData: { ...getRowData(parent, index), index } });
+			setTimeout(measure, 0);
+		}
+	};
 	render() {
 		const { className, index, onKeyDown, parent, style } = this.props;
-		const { titleField } = extractSpecialFields(parent);
 
 		const parentId = getId(parent);
 		const id = parentId && `${parentId}-${index}`;
 		const rowData = getRowData(parent, index);
 
-		let onRowDoubleClick;
-
-		if (parent.props.onRowDoubleClick) {
-			onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
-		}
-
-		const onToggle = (event, measure) => {
-			if (parent.props.onRowClick) {
-				parent.props.onRowClick({ event, rowData: { ...rowData, index } });
-				setTimeout(measure, 0);
-			}
-		};
-
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<CellMeasurer
-				cache={parent.props.deferredMeasurementCache}
+				cache={options.deferredMeasurementCache}
 				columnIndex={0}
-				key={index}
-				parent={parent}
+				key={this.props.index}
+				parent={this.props.parent}
 				rowIndex={index}
 			>
 				{({ measure }) => (
 					<div
 						className={classNames(css['tc-collapsible-row'], rowData.className, className)}
 						id={id}
-						onDoubleClick={onRowDoubleClick}
 						onKeyDown={e => onKeyDown(e, this.ref)}
 						ref={ref => {
 							this.ref = ref;
@@ -55,15 +69,10 @@ class RowCollapsiblePanel extends React.Component {
 						tabIndex="0"
 						aria-posinset={index + 1}
 						aria-setsize={parent.props.rowCount}
-						aria-label={titleField && getCellData(titleField, parent, index)}
+						aria-label={get(rowData, 'header[0].label')}
 						style={style}
 					>
-						<CollapsiblePanel
-							{...rowData}
-							onToggle={event => onToggle(event, measure)}
-							expanded={rowData.expanded}
-							theme="panel-list"
-						/>
+						<PureCollapsiblePanel {...{ rowData, measure, onToggle: this.onToggle }} />
 					</div>
 				)}
 			</CellMeasurer>
@@ -85,4 +94,7 @@ RowCollapsiblePanel.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-export default withListGesture(RowCollapsiblePanel);
+const RowCollapsiblePanelWrapper = withListGesture(RowCollapsiblePanel);
+RowCollapsiblePanelWrapper.options = options;
+
+export default RowCollapsiblePanelWrapper;
