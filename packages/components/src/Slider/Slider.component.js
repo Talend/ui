@@ -40,8 +40,14 @@ export function getSelectedIconPosition(icons, value, min, max) {
  * @param {number} value
  * @param {number} min
  * @param {number} max
+ * @param {function} onChange
  */
 export function renderActions(actions, value, min, max, onChange) {
+	const interval = (max - min) / (actions.length - 1);
+	// console.log({ interval })
+	const captions = range(min, max, interval);
+	// console.log({ captions })
+	captions.push(max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
 		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
@@ -49,7 +55,7 @@ export function renderActions(actions, value, min, max, onChange) {
 				<Action
 					{...action}
 					key={index}
-					onClick={() => onChange(value)}
+					onClick={onChange ? () => onChange(captions[index]) : () => {}}
 					className={classnames(
 						{ [theme.selected]: index === position },
 						{ selected: index === position },
@@ -174,7 +180,7 @@ class Slider extends React.Component {
 	static propTypes = {
 		id: PropTypes.string,
 		value: PropTypes.number,
-		onChange: PropTypes.func,
+		onChange: PropTypes.func.isRequired,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
 		captionIcons: PropTypes.array,
@@ -214,6 +220,7 @@ class Slider extends React.Component {
 					max={max}
 					handle={noValue ? undefined : this.state.handle}
 					className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+					onChange={onChange}
 					{...rest}
 				/>
 				{getCaption(
