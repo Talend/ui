@@ -62,10 +62,9 @@ $tc-toggle-color: #555964 !default;
 	position: relative;
 
 	&:hover {
-		cursor: pointer;
-
 		.panel-heading {
 			background: $white;
+			cursor: pointer;
 		}
 
 		:global(.tc-status-label) {
