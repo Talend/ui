@@ -56,5 +56,7 @@
   "LISTVIEW_WIDGET_ABORT": "Abandonner",
   "LISTVIEW_WIDGET_SEARCH": "Rechercher",
   "MULTISELECTTAG_WIDGET_NONE": "Aucun(e)",
-  "TF_DATALIST_CUSTOM_SECTION": "PERSONNALISÉES"
+  "TF_CODE_ESCAPE": "Pour sortir de la zone d'édition, appuyez deux fois sur la touche Échap",
+  "TF_DATALIST_CUSTOM_SECTION": "PERSONNALISÉES",
+  "TF_TABS_HAS_ERRORS": "contient des erreurs"
 }

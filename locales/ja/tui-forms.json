@@ -56,5 +56,7 @@
   "LISTVIEW_WIDGET_ABORT": "中断",
   "LISTVIEW_WIDGET_SEARCH": "検索",
   "MULTISELECTTAG_WIDGET_NONE": "なし",
-  "TF_DATALIST_CUSTOM_SECTION": "[JA]CUSTOM"
+  "TF_CODE_ESCAPE": "[JA]To focus out of the editor, press ESC key twice.",
+  "TF_DATALIST_CUSTOM_SECTION": "[JA]CUSTOM",
+  "TF_TABS_HAS_ERRORS": "[JA]has errors"
 }
