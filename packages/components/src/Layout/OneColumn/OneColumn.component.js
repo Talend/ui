@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 
+
+import { cleanCmfProps } from '../../clean';
 import theme from './OneColumn.scss';
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
@@ -20,7 +22,7 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		flexDirection: 'column',
 	};
 	return (
-		<div role="main" className={container} {...props}>
+		<div role="main" className={container} {...cleanCmfProps(props)}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
 				<div style={style}>{children}</div>

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import { cleanCmfProps } from '../clean';
 import Inject from '../Inject';
 import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
@@ -63,7 +64,6 @@ function Layout({
 	const safeSubHeader = Inject.getReactElement(getComponent, subHeader);
 	const safeContent = Inject.getReactElement(getComponent, content);
 	const safeFooter = Inject.getReactElement(getComponent, footer);
-
 	return (
 		<div id={id} className={appCSS}>
 			{safeHeader && (
@@ -76,7 +76,13 @@ function Layout({
 					{safeSubHeader}
 				</div>
 			)}
-			<Component key="main" drawers={safeDrawers} tabs={tabs} getComponent={getComponent} {...rest}>
+			<Component
+				key="main"
+				drawers={safeDrawers}
+				tabs={tabs}
+				getComponent={getComponent}
+				{...cleanCmfProps(rest)}
+			>
 				{safeContent}
 				{children}
 			</Component>

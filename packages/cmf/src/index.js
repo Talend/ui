@@ -7,6 +7,7 @@ import actionCreator from './actionCreator';
 
 import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
+import cleanCmfProps from './cleanCmfProps';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
 import expression from './expression';
@@ -42,6 +43,7 @@ function registerInternals(context) {
 export {
 	App,
 	actions,
+	cleanCmfProps,
 	cmfConnect,
 	Dispatcher,
 	Inject,
@@ -79,6 +81,7 @@ export default {
 	actions,
 	actionCreator,
 	bootstrap,
+	cleanCmfProps,
 	component,
 	connect: cmfConnect,
 	expression,
