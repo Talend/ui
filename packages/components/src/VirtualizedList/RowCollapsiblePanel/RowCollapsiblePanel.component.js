@@ -3,8 +3,9 @@ import React from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
-import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
-import { extractSpecialFields, getCellData, getId, getRowData } from '../utils/gridrow';
+
+import PureCollapsiblePanel from './PureCollapsiblePanel';
+import { getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
 import css from './RowCollapsiblePanel.scss';
@@ -18,29 +19,18 @@ const options = {
 /**
  * Row renderer that displays a Collapsible Panel
  */
-
-class PureCollapsiblePanel extends React.PureComponent {
-	render() {
-		const { rowData, onToggle, measure } = this.props;
-		return (
-			<CollapsiblePanel
-				{...rowData}
-				onToggle={event => onToggle(event, measure)}
-				expanded={rowData.expanded}
-				theme="panel-list"
-			/>
-		);
-	}
-}
-
 class RowCollapsiblePanel extends React.Component {
-	onToggle = (event, measure) => {
+	constructor(props) {
+		super(props);
+		this.onToggle = this.onToggle.bind(this);
+	}
+	onToggle(event, measure) {
 		const { parent, index } = this.props;
 		if (parent.props.onRowClick) {
 			parent.props.onRowClick({ event, rowData: { ...getRowData(parent, index), index } });
 			setTimeout(measure, 0);
 		}
-	};
+	}
 	render() {
 		const { className, index, onKeyDown, parent, style } = this.props;
 
@@ -49,7 +39,6 @@ class RowCollapsiblePanel extends React.Component {
 		const rowData = getRowData(parent, index);
 
 		return (
-			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<CellMeasurer
 				cache={options.deferredMeasurementCache}
 				columnIndex={0}
@@ -58,6 +47,7 @@ class RowCollapsiblePanel extends React.Component {
 				rowIndex={index}
 			>
 				{({ measure }) => (
+					// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 					<div
 						className={classNames(css['tc-collapsible-row'], rowData.className, className)}
 						id={id}

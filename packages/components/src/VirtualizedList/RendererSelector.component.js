@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { CellMeasurerCache } from 'react-virtualized';
 
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
@@ -10,9 +9,7 @@ import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
 import Loader from '../Loader';
 
-const { TABLE, COLLAPSIBLE_PANEL } = listTypes;
-
-const cache = new CellMeasurerCache({ fixedWidth: true });
+const { TABLE } = listTypes;
 
 /**
  * Select the ListGrid row renderer to use
