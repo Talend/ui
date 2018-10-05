@@ -112,4 +112,28 @@ describe('CollapsiblePanel', () => {
 		// then
 		expect(wrapper.find('.panel-body').contains(customContent)).toBeTruthy();
 	});
+
+	it('should render custom element in panel header', () => {
+		// given
+		const customElement = <h3>Custom label</h3>;
+		const propsPanelWithCustomElement = {
+			...propsPanelWithActions,
+			header: [
+				{
+					element: customElement,
+					label: 'Custom',
+					tooltipLabel: 'Tooltip label',
+					className: 'custom-col',
+				},
+				...propsPanelWithActions.header,
+			],
+		};
+
+		const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
+		// when
+		const wrapper = mount(panelInstance);
+
+		// then
+		expect(wrapper.find('h3').getElement().props.children).toEqual('Custom label');
+	});
 });
