@@ -15,7 +15,7 @@ function isLerna(filePath) {
  * `mylib/lib/package.json` -> `mylib/lib`
  */
 
-function pathWithoutFilename(filePath) {
+function pathWithoutFilename(filePath = '') {
 	if (filePath.indexOf('/') > 0) {
 		return filePath.substr(0, filePath.lastIndexOf('/'));
 	}
