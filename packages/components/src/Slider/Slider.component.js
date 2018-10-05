@@ -35,6 +35,19 @@ export function getSelectedIconPosition(icons, value, min, max) {
 }
 
 /**
+ * Return an array with ranged values calculate on the length of the captions .
+ * @param {number} captionsLength
+ * @param {number} min
+ * @param {number} max
+ */
+export function getCaptionsValue(captionsLength, min, max) {
+	const interval = (max - min) / (captionsLength - 1);
+	const captionsValue = range(min, max, interval);
+	captionsValue.push(max);
+	return captionsValue;
+}
+
+/**
  * This function allow to get the actions components
  * @param {array} actions
  * @param {number} value
@@ -43,9 +56,7 @@ export function getSelectedIconPosition(icons, value, min, max) {
  * @param {function} onChange
  */
 export function renderActions(actions, value, min, max, onChange) {
-	const interval = (max - min) / (actions.length - 1);
-	const captions = range(min, max, interval);
-	captions.push(max);
+	const captions = getCaptionsValue(actions.length, min, max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
 		<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
@@ -101,9 +112,7 @@ function renderIcons(icons, value, min, max) {
  */
 function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
-		const interval = (max - min) / (captionTextStepNumber - 1);
-		const captions = range(min, max, interval);
-		captions.push(max);
+		const captions = getCaptionsValue(captionTextStepNumber, min, max);
 		return (
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-text-captions')}>
 				{captions.map((caption, index) => (

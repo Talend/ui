@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { getSelectedIconPosition, renderActions } from './Slider.component';
+import { getCaptionsValue, getSelectedIconPosition, renderActions } from './Slider.component';
 
 describe('Slider component tests', () => {
 	describe('getSelectedIconPosition()', () => {
@@ -65,5 +65,11 @@ describe('getActions', () => {
 		const wrapper = shallow(renderActions(actions, 76, 0, 100));
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+});
+
+describe('getCaptionsValue', () => {
+	it('should return the values based on the length of the captions', () => {
+		expect(getCaptionsValue(5, 0, 100)).toEqual([0, 25, 50, 75, 100]);
 	});
 });
