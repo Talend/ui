@@ -1,7 +1,5 @@
 import flatten from './flatten';
 
-function noop() {}
-
 describe('flatten', () => {
 	it('should flat nested data structure', () => {
 		const foo = {
@@ -14,25 +12,28 @@ describe('flatten', () => {
 			},
 		};
 		expect(flatten(foo)).toEqual({
-			root: {
-				'.nest': { '.bool': false, '.number': 3, '.string': 'foo' },
-				'.nest.bool': false,
-				'.nest.number': 3,
-				'.nest.string': 'foo',
-			},
-			'root.nest': { '.bool': false, '.number': 3, '.string': 'foo' },
 			'root.nest.bool': false,
 			'root.nest.number': 3,
 			'root.nest.string': 'foo',
 		});
 	});
-	it('should flat arrays', () => {
+	it('should flatten arrays', () => {
 		const foo = {
 			root: {
 				array: ['foo'],
 			},
 		};
 		expect(flatten(foo)).toEqual({
+			'root.array[0]': 'foo',
+		});
+	});
+	it('should include objects sub-flatten in payload', () => {
+		const foo = {
+			root: {
+				array: ['foo'],
+			},
+		};
+		expect(flatten(foo, { includeObjects: true })).toEqual({
 			root: { '.array': { '[0]': 'foo' }, '.array[0]': 'foo' },
 			'root.array': { '[0]': 'foo' },
 			'root.array[0]': 'foo',
