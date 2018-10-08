@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 
-
 import { cleanCmfProps } from '../../clean';
 import theme from './OneColumn.scss';
 import TabBar from '../../TabBar';
