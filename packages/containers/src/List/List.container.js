@@ -201,7 +201,6 @@ class List extends React.Component {
 				);
 			}
 		}
-
 		const cellDictionary = { ...connectedCellDictionary };
 		if (props.cellDictionary) {
 			Object.keys(props.cellDictionary).reduce((accumulator, key) => {
@@ -209,7 +208,7 @@ class List extends React.Component {
 				// eslint-disable-next-line no-param-reassign
 				accumulator[key] = {
 					...omit(current, ['component']),
-					cellRenderer: props.getComponent(current.component),
+					cellRenderer: this.props.getComponent(current.component),
 				};
 				return accumulator;
 			}, cellDictionary);
@@ -223,7 +222,7 @@ class List extends React.Component {
 					// eslint-disable-next-line no-param-reassign
 					accumulator[key] = {
 						...omit(current, ['component']),
-						headerRenderer: props.getComponent(current.component),
+						headerRenderer: this.props.getComponent(current.component),
 					};
 					return accumulator;
 				},
