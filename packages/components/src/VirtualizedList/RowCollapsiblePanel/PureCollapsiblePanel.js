@@ -11,7 +11,6 @@ class PureCollapsiblePanel extends React.PureComponent {
 				{...rowData}
 				onToggle={event => onToggle(event, measure)}
 				expanded={rowData.expanded}
-				theme="panel-list"
 			/>
 		);
 	}

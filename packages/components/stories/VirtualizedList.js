@@ -348,6 +348,7 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
+		children: <div>HELLO WORLDa</div>
 	},
 	{
 		header: [{ displayMode: 'status', actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' }],
@@ -774,41 +775,5 @@ storiesOf('Virtualized List', module)
 				</VirtualizedList>
 			</section>
 		</div>
-	))
-	.add('List > Debug Virtualized Collapsible list', () => {
-		class VirtualizedCollapsibleList extends React.Component {
-			state = {
-				list: sourceItems,
-			};
-
-			render() {
-				return (
-					<div className="virtualized-list">
-						<h1>Virtualized List</h1>
-						<IconsProvider defaultIcons={icons} />
-						<section style={{ height: '100vh' }}>
-							<VirtualizedList
-								collection={this.state.list}
-								id={'my-list'}
-								onScroll={action('onScroll')}
-								onRowClick={(res, data) => this.setState(
-									state => ({
-										list: [
-											...state.list.slice(0, data.index),
-											{
-												...state.list[data.index],
-												expanded: !state.list[data.index].expanded,
-											},
-											...state.list.slice(data.index + 1) ],
-									}))
-								}
-								type={listTypes.COLLAPSIBLE_PANEL}
-							/>
-						</section>
-					</div>
-				);
-			}
-		}
-		return <VirtualizedCollapsibleList/>;
-	}
+	)
 );

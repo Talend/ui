@@ -96,7 +96,8 @@ class RendererSelector extends React.Component {
 		} else {
 			ListRenderer = ListGrid;
 			const rowRenderer = getRowRenderer(type, this.props.rowRenderers);
-			customProps = { rowRenderer, ...rowRenderer.options };
+			const options = rowRenderer.options || {};
+			customProps = { rowRenderer, ...options };
 		}
 
 		return <ListRenderer {...commonProps} {...customProps} />;

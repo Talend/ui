@@ -8,7 +8,7 @@ import PureCollapsiblePanel from './PureCollapsiblePanel';
 import { getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
-import css from './RowCollapsiblePanel.scss';
+import './RowCollapsiblePanel.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {
@@ -49,7 +49,7 @@ class RowCollapsiblePanel extends React.Component {
 				{({ measure }) => (
 					// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 					<div
-						className={classNames(css['tc-collapsible-row'], rowData.className, className)}
+						className={classNames('tc-collapsible-row', rowData.className, className)}
 						id={id}
 						onKeyDown={e => onKeyDown(e, this.ref)}
 						ref={ref => {
