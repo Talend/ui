@@ -54,6 +54,7 @@ class RendererSelector extends React.Component {
 			isActive,
 			onRowClick,
 			onRowDoubleClick,
+			onScroll,
 			rowHeight,
 			sort,
 			sortBy,
@@ -76,6 +77,7 @@ class RendererSelector extends React.Component {
 			noRowsRenderer: this.noRowsRenderer,
 			onRowClick,
 			onRowDoubleClick,
+			onScroll,
 			rowHeight,
 			width,
 		};
@@ -93,7 +95,9 @@ class RendererSelector extends React.Component {
 			};
 		} else {
 			ListRenderer = ListGrid;
-			customProps = { rowRenderer: getRowRenderer(type, this.props.rowRenderers) };
+			const rowRenderer = getRowRenderer(type, this.props.rowRenderers);
+			const options = rowRenderer.options || {};
+			customProps = { rowRenderer, ...options };
 		}
 
 		return <ListRenderer {...commonProps} {...customProps} />;

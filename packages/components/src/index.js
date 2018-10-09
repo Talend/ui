@@ -155,7 +155,6 @@ export {
 	HttpError,
 	Icon,
 	IconsProvider,
-	Image,
 	Inject,
 	JSONSchemaRenderer,
 	Layout,
