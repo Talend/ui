@@ -4,7 +4,6 @@ import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import bsonObjectid from 'bson-objectid';
 import omit from 'lodash/omit';
-import component from '../src/component';
 import expression from '../src/expression';
 import mock from '../src/mock';
 import { mapStateToViewProps } from '../src/settings';
@@ -16,6 +15,7 @@ import cmfConnect, {
 	getDispatchToProps,
 	getMergeProps,
 } from '../src/cmfConnect';
+import component from '../src/component';
 
 jest.mock('bson-objectid');
 bsonObjectid.mockImplementation(() => 42);
