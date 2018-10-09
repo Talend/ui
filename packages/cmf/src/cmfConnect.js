@@ -34,7 +34,6 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import omit from 'lodash/omit';
 import bsonObjectid from 'bson-objectid';
 import actions from './actions';
 import actionCreator from './actionCreator';
@@ -44,6 +43,7 @@ import expression from './expression';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
+import omit from './omit';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -386,18 +386,10 @@ export default function cmfConnect({
 cmfConnect.INJECTED_PROPS = CONST.INJECTED_PROPS;
 cmfConnect.INJECTED_STATE_PROPS = CONST.INJECTED_STATE_PROPS;
 cmfConnect.INJECTED_ROUTER_PROPS = CONST.INJECTED_ROUTER_PROPS;
-cmfConnect.omit = (props, ...args) => {
-	const toOmit = args.reduce((acc, current) => {
-		if (Array.isArray(current)) {
-			return current.concat(acc);
-		}
-		if (typeof current === 'string') {
-			return acc.concat([current]);
-		}
-		throw new Error(`cant omit typeof ${current} ${current}`);
-	}, []);
-	return omit(props, toOmit);
-};
+cmfConnect.ALL_INJECTED_PROPS = CONST.INJECTED_PROPS.concat(['getComponent', 'componentId']);
+cmfConnect.omit = omit;
+cmfConnect.omitAllProps = props => cmfConnect.omit(props, cmfConnect.ALL_INJECTED_PROPS);
+
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.map,
 	initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object]),
