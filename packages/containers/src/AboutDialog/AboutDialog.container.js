@@ -41,7 +41,7 @@ class AboutDialog extends React.Component {
 				expanded={state.get('expanded')}
 				show={state.get('show')}
 				loading={state.get('loading')}
-				{...omit(props, cmfConnect.INJECTED_PROPS)}
+				{...cmfConnect.omitAllCMFProps(props)}
 			/>
 		);
 	}
