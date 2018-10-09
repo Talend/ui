@@ -190,8 +190,32 @@ export default function cmfConnect({
 	mapStateToProps,
 	mapDispatchToProps,
 	mergeProps,
+	omitCMFProps = false,  // will be removed and considered to true in 2.0.0
+	withState = false,
+	withComponentRegistry = false,
+	withDispatch = false,
+	withDispatchActionCreator = false,
+	withComponentId = false,
 	...rest
 }) {
+	const propsToOmit = [];
+	if (omitCMFProps) {
+		if (!withState) {
+			propsToOmit.push(...CONST.INJECTED_STATE_PROPS);
+		}
+		if (!withComponentRegistry) {
+			propsToOmit.push('getComponent');
+		}
+		if (!withComponentId) {
+			propsToOmit.push('componentId');
+		}
+		if (!withDispatch) {
+			propsToOmit.push('dispatch');
+		}
+		if (!withDispatchActionCreator) {
+			propsToOmit.push('dispatchActionCreator');
+		}
+	}
 	return function wrapWithCMF(WrappedComponent) {
 		if (!WrappedComponent.displayName) {
 			invariant(true, `${WrappedComponent.name} has no displayName`);
@@ -297,6 +321,11 @@ export default function cmfConnect({
 					return null;
 				}
 				const { toOmit, spreadCMFState, ...handlers } = this.getOnEventProps();
+				// remove all internal props already used by the container
+				toOmit.push(...CONST.CMF_PROPS, ...propsToOmit);
+				if (this.props.omitRouterProps) {
+					toOmit.push('omitRouterProps', ...CONST.INJECTED_ROUTER_PROPS);
+				}
 				let spreadedState = {};
 				if ((spreadCMFState || this.props.spreadCMFState) && this.props.state) {
 					spreadedState = this.props.state.toJS();
@@ -305,15 +334,18 @@ export default function cmfConnect({
 					...omit(this.props, toOmit),
 					...handlers,
 					...spreadedState,
-					dispatchActionCreator: this.dispatchActionCreator,
 				};
-				if (!props.state && defaultState) {
+				if (
+					props.dispatchActionCreator &&
+					props.dispatchActionCreator &&
+					toOmit.indexOf('dispatchActionCreator') === -1
+				) {
+					// override to inject CMFContainer context
+					props.dispatchActionCreator = this.dispatchActionCreator;
+				}
+				if (!props.state && defaultState && toOmit.indexOf('state') === -1) {
 					props.state = defaultState;
 				}
-				// remove all internal props already used by the container
-				CONST.CMF_PROPS.forEach(key => {
-					delete props[key];
-				});
 				return createElement(WrappedComponent, props);
 			}
 		}
@@ -352,7 +384,20 @@ export default function cmfConnect({
 }
 
 cmfConnect.INJECTED_PROPS = CONST.INJECTED_PROPS;
-
+cmfConnect.INJECTED_STATE_PROPS = CONST.INJECTED_STATE_PROPS;
+cmfConnect.INJECTED_ROUTER_PROPS = CONST.INJECTED_ROUTER_PROPS;
+cmfConnect.omit = (props, ...args) => {
+	const toOmit = args.reduce((acc, current) => {
+		if (Array.isArray(current)) {
+			return current.concat(acc);
+		}
+		if (typeof current === 'string') {
+			return acc.concat([current]);
+		}
+		throw new Error(`cant omit typeof ${current} ${current}`);
+	}, []);
+	return omit(props, toOmit);
+};
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.map,
 	initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object]),
