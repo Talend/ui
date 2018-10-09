@@ -190,7 +190,7 @@ export default function cmfConnect({
 	mapStateToProps,
 	mapDispatchToProps,
 	mergeProps,
-	omitCMFProps = false,  // will be removed and considered to true in 2.0.0
+	omitCMFProps = false, // will be removed and considered to true in 2.0.0
 	withState = false,
 	withComponentRegistry = false,
 	withDispatch = false,
