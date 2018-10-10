@@ -2,26 +2,34 @@
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
-* It injects a state management on top of redux
-* It injects dispatch function
-* It lets you map the state to props
-* It lets you use registered actionCreator
-* It lets you use the component registry
-* It lets you evaluate props using expression
+Some of the key features:
 
-Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
+* tools (props) to write maintainable code
+* configuration (every component try to get props from settings)
+* mapStateToProps outside of the component (more reuse)
+* build onEvent handler using registered actionCreator or simple dispatch
+* component registry available for composition
+
+Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux), [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options), [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
 ## API
 
 ```javascript
 cmfConnect({
-    componentId, // string or function(props) to compute the id in the store
-    defaultState, // the default state when the component is mount
-    keepComponent, // boolean, when the component is unmount, to keep its state in redux store
-    mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
-    ...rest, // the rest is applied to connect function
+	defaultState, // active the state management on top of redux (`props.state`, `props.setState`)
+	keepComponent, // boolean, when the component is unmount, to keep its state in redux store
+	mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
+	omitCMFProps: true, // default:false; will be true in 2.0
+	withDispatch, // to receive `props.dispatch`
+	withDispatchActionCreator, // to receive `props.dispatchActionCreator`
+	withComponentRegistry, // to receive `props.getComponent`
+	withComponentId, // to receive `props.componentId`
+	...rest, // the rest is applied to connect function
 })(Component);
 ```
+
+### omitCMFProps
+Note on  `omitCMFProps`: Because current version add all props to it was causing a lots of props warning/error in react 16. We dont want breaking change so to activeate the feature flag please add `omitCMFProps` option to true in all your component and activate only the feature your component needs.
 
 ## How to use component state
 
