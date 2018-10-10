@@ -68,7 +68,7 @@ function addOmitCMFProps(j, root) {
 
 /**
  * This codeshift find all cmfConnect calls to add all the new with properties to it.
- * You should start by apply it, and then remove all `with` options the component don t need
+ * You should start by apply it, and then remove all `with` options the component doesn't need
  * @example
 import { cmfConnect } from '@talend/react-cmf';
 cmfConnect({})(MyComponent);
