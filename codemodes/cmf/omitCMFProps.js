@@ -31,7 +31,7 @@ function addOmitCMFProps(j, root) {
 		j.objectProperty(j.identifier('withDispatchActionCreator'), j.booleanLiteral(true)),
 		j.objectProperty(j.identifier('withComponentId'), j.booleanLiteral(true)),
 	];
-	let calls;
+	let calls = [];
 	if (name.localName) {
 		calls = root.find(j.CallExpression, {
 			callee: { name: name.localName },
