@@ -29,10 +29,12 @@ cmfConnect({
 ```
 
 ### omitCMFProps
-Note on  `omitCMFProps`: Because current version add all props to it was causing a lots of props warning/error in react 16. We dont want breaking change so to activeate the feature flag please add `omitCMFProps` option to true in all your component and activate only the feature your component needs.
+
+Note on  `omitCMFProps`: Because current version add all props to it was causing a lots of props warning/error in react 16. We dont want breaking change so to activeate the feature flag please add `omitCMFProps` option to true in all your component and activate only the feature your component needs. You have a codemode available for that at https://github.com/Talend/ui/tree/master/codemodes/cmf/
+
+This is a new feature that let you pick the part of cmfConnect you want. We can see this as a feature flag that let you choose the props you will receive.
 
 ## How to use component state
-
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
