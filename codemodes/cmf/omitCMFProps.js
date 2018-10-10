@@ -1,7 +1,12 @@
+/**
+ * This function return names that let you access to cmfConnect.
+ * The source file can be of the following shapes
+@example
+import { cmfConnect } from '@talend/react-cmf';
+import { cmfConnect as connect } from '@talend/react-cmf';
+import cmf from '@talend/react-cmf'; cmf.connect;
+ */
 function getCMFConnectImport(j, root) {
-	// import { cmfConnect } from '@talend/react-cmf';
-	// import { cmfConnect as connect } from '@talend/react-cmf';
-	// import cmf from '@talend/react-cmf'; cmf.connect;
 	const cmfimports = root.find(j.ImportDeclaration, {
 		source: { value: '@talend/react-cmf' },
 	});
@@ -22,6 +27,9 @@ function getCMFConnectImport(j, root) {
 	return { localName, defaultName };
 }
 
+/**
+ * this function add the property to all cmfConnect calls
+ */
 function addOmitCMFProps(j, root) {
 	const name = getCMFConnectImport(j, root);
 	const omitProperties = [
@@ -59,7 +67,7 @@ function addOmitCMFProps(j, root) {
 }
 
 /**
- * This codeshift try to find all cmfConnect calls to add all props to it.
+ * This codeshift find all cmfConnect calls to add all the new with properties to it.
  * You should start by apply it, and then remove all `with` options the component don t need
  * @example
 import { cmfConnect } from '@talend/react-cmf';
