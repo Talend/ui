@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "jest",
+    "test": "TZ=Europe/Paris jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:slimerjs": "slimerjs stories/slimer.js",
