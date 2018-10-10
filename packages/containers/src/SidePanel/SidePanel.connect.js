@@ -48,9 +48,14 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default withRouter(
 	cmfConnect({
-		defaultState: DEFAULT_STATE,
-		keepComponentState: true,
-		mapStateToProps,
-		mergeProps,
+	    defaultState: DEFAULT_STATE,
+	    keepComponentState: true,
+	    mapStateToProps,
+	    mergeProps,
+	    omitCMFProps: true,
+	    withComponentRegistry: true,
+	    withDispatch: true,
+	    withDispatchActionCreator: true,
+	    withComponentId: true,
 	})(Container),
 );

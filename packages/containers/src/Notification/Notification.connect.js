@@ -33,7 +33,12 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 }
 
 export default cmfConnect({
-	componentId,
-	defaultState: DEFAULT_STATE,
-	mergeProps,
+    componentId,
+    defaultState: DEFAULT_STATE,
+    mergeProps,
+    omitCMFProps: true,
+    withComponentRegistry: true,
+    withDispatch: true,
+    withDispatchActionCreator: true,
+    withComponentId: true,
 })(Container);

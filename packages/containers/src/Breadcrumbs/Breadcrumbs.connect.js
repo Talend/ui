@@ -26,4 +26,9 @@ ContainerBreadcrumbs.propTypes = {
 
 export default cmfConnect({
 	defaultState: new Map({ items: [], maxItems: 10 }),
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(ContainerBreadcrumbs);

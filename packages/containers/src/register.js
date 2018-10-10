@@ -11,7 +11,10 @@ export function registerAllContainers() {
 
 	Object.keys(omit(components, alreadyRegistered)).forEach(key => {
 		if (components[key]) {
-			cmf.component.register(key, cmfConnect({})(components[key]));
+			cmf.component.register(key, cmfConnect({
+				omitCMFProps: true,
+				withComponentRegistry: true,
+			})(components[key]));
 		}
 	});
 }

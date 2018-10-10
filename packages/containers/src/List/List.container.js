@@ -15,7 +15,13 @@ import { cmfConnect } from '@talend/react-cmf';
 import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
 
-const ConnectedCellTitle = cmfConnect({})(CellTitle);
+const ConnectedCellTitle = cmfConnect({
+    omitCMFProps: true,
+    withComponentRegistry: true,
+    withDispatch: true,
+    withDispatchActionCreator: true,
+    withComponentId: true,
+})(CellTitle);
 export const connectedCellDictionary = {
 	[cellTitleType]: {
 		...CellTitleRenderer,

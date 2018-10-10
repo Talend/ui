@@ -40,7 +40,10 @@ import Typeahead from './Typeahead';
 import TabBar from './TabBar';
 
 // keep backward compat
-const Layout = cmfConnect({})(PureLayout);
+const Layout = cmfConnect({
+	omitCMFProps: true,
+	withComponentRegistry: true,
+})(PureLayout);
 
 export {
 	actionAPI,

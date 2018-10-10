@@ -31,6 +31,11 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default cmfConnect({
-	mapStateToProps,
-	defaultState: DEFAULT_STATE,
+    mapStateToProps,
+    defaultState: DEFAULT_STATE,
+    omitCMFProps: true,
+    withComponentRegistry: true,
+    withDispatch: true,
+    withDispatchActionCreator: true,
+    withComponentId: true,
 })(Container);
