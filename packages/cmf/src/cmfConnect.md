@@ -70,17 +70,19 @@ class Clock extends React.Component {
 	}
 
 	render() {
-		const state = this.props.state || DEFAULT_STATE;
 		return (
 			<div>
 				<h1>Hello, world!</h1>
-				<h2>It is {state.get(date, new Date()).toLocaleTimeString()}.</h2>
+				<h2>It is {this.props.state.get(date, new Date()).toLocaleTimeString()}.</h2>
 			</div>
 		);
 	}
 }
 
-export default cmfConnect({ defaultState: DEFAULT_STATE })(Clock);
+export default cmfConnect({
+	defaultState: DEFAULT_STATE,
+	omitCMFProps: true,
+})(Clock);
 
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
 ```
@@ -156,7 +158,11 @@ function mapStateToProps(state) {
     }
 }
 
-export default cmfConnect({ mapStateToProps })(SimpleButton);
+export default cmfConnect({
+	mapStateToProps,
+	omitCMFProps: true,
+	withDispatchActionCreator: true,
+})(SimpleButton);
 ```
 
 Here instead of having click handler dispatcher hard coded into that component, we can delegate it to dispatchActionCreator, a utility that get automaticaly injected into your component props by CMFConnect.
