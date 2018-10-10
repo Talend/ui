@@ -28,8 +28,11 @@ function Table({ services, loading, t }) {
 				</tr>
 			</thead>
 			<tbody>
-				{(loading ? [{}, {}, {}] : services).map(service => (
-					<tr>
+				{(loading
+					? [{ name: 'loading-first' }, { name: 'loading-second' }, { name: 'loading-third' }]
+					: services
+				).map(service => (
+					<tr key={service.name}>
 						<td>
 							<Text loading={loading} text={service.name} />
 						</td>
