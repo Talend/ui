@@ -1,5 +1,3 @@
-import get from 'lodash/get';
-
 function getCMFConnectImport(j, root) {
 	// import { cmfConnect } from '@talend/react-cmf';
 	// import { cmfConnect as connect } from '@talend/react-cmf';
@@ -8,9 +6,10 @@ function getCMFConnectImport(j, root) {
 		source: { value: '@talend/react-cmf' },
 	});
 	if (!cmfimports.length === 0) {
-		return;
+		return undefined;
 	}
-	let defaultName, localName;
+	let defaultName;
+	let localName;
 	cmfimports.forEach(imp => {
 		imp.value.specifiers.forEach(spec => {
 			if (spec.type === 'ImportDefaultSpecifier') {
@@ -20,68 +19,61 @@ function getCMFConnectImport(j, root) {
 			}
 		});
 	});
-	return {localName, defaultName};
+	return { localName, defaultName };
 }
-
-function updateImport(j, root) {
-	const cmfimports = root.find(j.ImportDeclaration, {
-		source: { value: '@talend/react-cmf' },
-	});
-	if (!cmfimports.length === 0) {
-		return;
-	}
-	let currentName = 'componentState';
-	cmfimports.forEach(i => {
-		let foundCState = false;
-		let foundCMFConnect = false;
-		let length = i.value.specifiers.length;
-		i.value.specifiers = i.value.specifiers.filter(spec => {
-			if (spec.imported.name === 'componentState') {
-				currentName = spec.local.name;
-				foundCState = true;
-				return false;
-			} else if (spec.imported.name === 'cmfConnect') {
-				foundCMFConnect = true;
-			}
-			return true;
-		});
-		if (foundCState && !foundCMFConnect) {
-			// add { cmfConnect }
-			i.value.specifiers.push(j.importSpecifier(j.identifier('cmfConnect')));
-		}
-	});
-	return currentName;
-}
-
-function renameIntoClass(j, root, name) {
-	root.find(j.SpreadElement)
-	.filter(property => get(property, 'value.argument.property.name') === 'propTypes')
-	.filter(property => get(property, 'value.argument.object.name') === name)
-	.forEach(property => {
-		property.value.argument.object.name = 'cmfConnect';
-	});
-}
-
-const omitProperties = [j.property()];
 
 function addOmitCMFProps(j, root) {
 	const name = getCMFConnectImport(j, root);
-	console.log(name);
+	const omitProperties = [
+		j.objectProperty(j.identifier('omitCMFProps'), j.booleanLiteral(true)),
+		j.objectProperty(j.identifier('withComponentRegistry'), j.booleanLiteral(true)),
+		j.objectProperty(j.identifier('withDispatch'), j.booleanLiteral(true)),
+		j.objectProperty(j.identifier('withDispatchActionCreator'), j.booleanLiteral(true)),
+		j.objectProperty(j.identifier('withComponentId'), j.booleanLiteral(true)),
+	];
+	let calls;
 	if (name.localName) {
-		root.find(j.CallExpression, {
-			callee: { name: name.localName }
-		}).forEach(call => {
-			console.log('found', call.value.arguments[0].properties);
-			const hasOmit = call.value.arguments[0].properties.find(prop => prop.key.name === 'omitCMFProps');
-			if (hasOmit) { return }
-			call.value.arguments[0].properties.push(...omitProperties)
+		calls = root.find(j.CallExpression, {
+			callee: { name: name.localName },
+		});
+	} else if (name.defaultName) {
+		calls = root.find(j.CallExpression, {
+			callee: {
+				type: 'MemberExpression',
+				object: { name: name.defaultName },
+				property: { name: 'connect' },
+			},
+		});
+	}
+	if (calls.length > 0) {
+		calls.forEach(call => {
+			const hasOmit = call.value.arguments[0].properties.find(
+				prop => prop.key.name === 'omitCMFProps',
+			);
+			if (hasOmit) {
+				return;
+			}
+			call.value.arguments[0].properties.push(...omitProperties);
 		});
 	}
 }
 
-module.exports = function transform(fileInfo, api, options) {
+/**
+ * This codeshift try to find all cmfConnect calls to add all props to it.
+ * You should start by apply it, and then remove all `with` options the component don t need
+ * @example
+import { cmfConnect } from '@talend/react-cmf';
+cmfConnect({})(MyComponent);
+ * @example
+import { cmfConnect as connect } from '@talend/react-cmf';
+connect({})(MyComponent);
+ * @example
+import cmf from '@talend/react-cmf';
+cmf.connect({})(MyComponent);
+ */
+module.exports = function transform(fileInfo, api) {
 	const j = api.jscodeshift;
 	const root = j(fileInfo.source);
 	addOmitCMFProps(j, root);
-	return root.toSource();
+	return root.toSource({ useTabs: true, quote: 'single', trailingComma: true });
 };
