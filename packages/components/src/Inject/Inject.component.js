@@ -124,7 +124,7 @@ Inject.getReactElement = function getReactElement(
 	} else if (data === null) {
 		return data;
 	} else if (typeof data === 'string') {
-		const props = {getComponent, component: data };
+		const props = { getComponent, component: data };
 		if (withKey) {
 			props.key = `${data}#default`;
 		}
@@ -132,11 +132,11 @@ Inject.getReactElement = function getReactElement(
 	} else if (React.isValidElement(data)) {
 		return data;
 	} else if (typeof data === 'object') {
-		const props = {getComponent, ...data };
+		const props = { getComponent, ...data };
 		if (withKey) {
 			props.key = `${data.component}#${data.componentId || 'default'}`;
 		}
-		return <CustomInject {...props} />
+		return <CustomInject {...props} />;
 	}
 	return data; // We do not throw anything, proptypes should do the job
 };
