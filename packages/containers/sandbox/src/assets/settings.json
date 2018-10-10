@@ -31,6 +31,26 @@
           "routerPush": "/tacokit/validation"
         }
       }
+    },
+    "menu:dssFieldSelector": {
+      "icon": "talend-burger",
+      "label": "DSS field selector",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/tacokit/fieldselector"
+        }
+      }
+    },
+    "menu:dssFieldSelectorv2": {
+      "icon": "talend-burger",
+      "label": "DSS field selector v2",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/tacokit/fieldselectorv2"
+        }
+      }
     }
   },
   "props": {
@@ -69,7 +89,9 @@
       "actionIds": [
         "menu:HeaderBar",
         "menu:tacokitTitleMap",
-        "menu:tacokitValidation"
+        "menu:tacokitValidation",
+        "menu:dssFieldSelector",
+        "menu:dssFieldSelectorv2"
       ]
     },
     "Layout#default": {
@@ -92,6 +114,18 @@
     },
     "ComponentForm#validation": {
       "definitionURL": "/api/v1/forms/validation",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
+    },
+    "ComponentForm#fieldselector": {
+      "definitionURL": "/api/v1/forms/fieldselector",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
+    },
+    "ComponentForm#fieldselectorv2": {
+      "definitionURL": "/api/v1/forms/fieldselectorv2",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "well"
@@ -122,6 +156,16 @@
             "path": "titleMap",
             "component": "ComponentForm",
             "componentId": "titleMap"
+          },
+          {
+            "path": "fieldselector",
+            "component": "ComponentForm",
+            "componentId": "fieldselector"
+          },
+          {
+            "path": "fieldselectorv2",
+            "component": "ComponentForm",
+            "componentId": "fieldselectorv2"
           }
         ]
       },

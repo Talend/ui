@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "children": [],
+    "id": "desert",
+    "label": "Desert",
+    "name": "desert",
+    "version": 0
+  },
+  "ui": {
+    "jsonSchema": {
+      "title": "",
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        }
+      }
+    },
+    "uiSchema": {
+      "title": "FieldSelector",
+      "ui:order": ["label", "description"],
+      "items": [
+        {
+          "key": "properties.label",
+          "title": "Label",
+          "widget": "text"
+        },
+        {
+          "key": "properties.description",
+          "title": "Description",
+          "widget": "text"
+        }
+      ]
+    },
+    "properties": {
+      "label": "Field Selector 1",
+      "description": ""
+    }
+  }
+}
