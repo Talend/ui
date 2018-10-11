@@ -54,6 +54,9 @@
         "itemWidget": "collapsibleFieldset",
         "itemTitle": "Create new selector",
         "key": "selectors",
+        "ui:options": {
+          "type":"selector"
+        },
         "items": [
           {
             "key": "selectors[].field",
