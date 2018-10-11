@@ -137,11 +137,12 @@ class InputDateTimePicker extends React.Component {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		onError: PropTypes.func,
+		id: PropTypes.string,
 	};
 
 	constructor(props) {
 		super(props);
-		this.popoverId = uuid.v4();
+		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 
 		if (!warnOnce.unstable) {
 			// eslint-disable-next-line
