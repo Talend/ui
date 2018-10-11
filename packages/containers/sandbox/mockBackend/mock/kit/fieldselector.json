@@ -1,46 +1,86 @@
 {
+  "doc": "Array/README.md",
   "metadata": {
     "children": [],
-    "id": "desert",
-    "label": "Desert",
-    "name": "desert",
+    "id": "fieldselector",
+    "label": "Field selector",
+    "name": "Field selector",
     "version": 0
   },
   "ui": {
     "jsonSchema": {
-      "title": "",
       "type": "object",
-      "required": ["label"],
+      "title": "Comment",
+      "label": {
+        "type": "string",
+        "title": "Label"
+      },
+      "description": {
+        "type": "string",
+        "title": "Description"
+      },
       "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "description": {
-          "type": "string",
-          "title": "Description"
+        "selectors": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "required": ["field", "path"],
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              }
+            }
+          }
         }
       }
     },
-    "uiSchema": {
-      "title": "FieldSelector",
-      "ui:order": ["label", "description"],
-      "items": [
-        {
-          "key": "properties.label",
-          "title": "Label",
-          "widget": "text"
+    "uiSchema": [
+      {
+        "key": "label",
+        "title": "Label",
+        "widget": "text"
+      },
+      {
+        "key": "description",
+        "title": "Description",
+        "widget": "text"
+      },
+      {
+        "itemWidget": "collapsibleFieldset",
+        "itemTitle": "Create new selector",
+        "key": "selectors",
+        "ui:options": {
+          "type":"selector"
         },
-        {
-          "key": "properties.description",
-          "title": "Description",
-          "widget": "text"
-        }
-      ]
-    },
+        "items": [
+          {
+            "key": "selectors[].field",
+            "title": "Field name",
+            "type": "select"
+          },
+          {
+            "key": "selectors[].path",
+            "title": "Path",
+            "type": "text"
+          }
+        ],
+        "type": "array"
+      }
+    ],
     "properties": {
       "label": "Field Selector 1",
-      "description": ""
+      "description": "",
+      "selectors": [
+        {
+          "field": "",
+          "path": ""
+        }
+      ]
     }
   }
 }

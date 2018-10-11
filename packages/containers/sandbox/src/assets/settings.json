@@ -41,16 +41,6 @@
           "routerPush": "/tacokit/fieldselector"
         }
       }
-    },
-    "menu:dssFieldSelectorv2": {
-      "icon": "talend-burger",
-      "label": "DSS field selector v2",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/fieldselectorv2"
-        }
-      }
     }
   },
   "props": {
@@ -90,8 +80,7 @@
         "menu:HeaderBar",
         "menu:tacokitTitleMap",
         "menu:tacokitValidation",
-        "menu:dssFieldSelector",
-        "menu:dssFieldSelectorv2"
+        "menu:dssFieldSelector"
       ]
     },
     "Layout#default": {
@@ -120,12 +109,6 @@
     },
     "ComponentForm#fieldselector": {
       "definitionURL": "/api/v1/forms/fieldselector",
-      "uiSpecPath": "ui",
-      "triggerURL": "/api/v1/application/action",
-      "className": "well"
-    },
-    "ComponentForm#fieldselectorv2": {
-      "definitionURL": "/api/v1/forms/fieldselectorv2",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "well"
@@ -161,11 +144,6 @@
             "path": "fieldselector",
             "component": "ComponentForm",
             "componentId": "fieldselector"
-          },
-          {
-            "path": "fieldselectorv2",
-            "component": "ComponentForm",
-            "componentId": "fieldselectorv2"
           }
         ]
       },

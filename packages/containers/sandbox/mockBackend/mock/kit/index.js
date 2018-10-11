@@ -3,5 +3,4 @@ module.exports = {
 	titleMap: require('./titleMap.json'),
 	validation: require('./validation.json'),
 	fieldselector: require('./fieldselector.json'),
-	fieldselectorv2: require('./fieldselectorv2.json'),
 };
