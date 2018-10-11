@@ -41,6 +41,16 @@
           "routerPush": "/tacokit/fieldselector"
         }
       }
+    },
+    "menu:dssTypeConverter": {
+      "icon": "talend-burger",
+      "label": "DSS type converter",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/tacokit/typeconverter"
+        }
+      }
     }
   },
   "props": {
@@ -80,7 +90,8 @@
         "menu:HeaderBar",
         "menu:tacokitTitleMap",
         "menu:tacokitValidation",
-        "menu:dssFieldSelector"
+        "menu:dssFieldSelector",
+        "menu:dssTypeConverter"
       ]
     },
     "Layout#default": {
@@ -109,6 +120,12 @@
     },
     "ComponentForm#fieldselector": {
       "definitionURL": "/api/v1/forms/fieldselector",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
+    },
+    "ComponentForm#typeconverter": {
+      "definitionURL": "/api/v1/forms/typeconverter",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "well"
@@ -144,6 +161,11 @@
             "path": "fieldselector",
             "component": "ComponentForm",
             "componentId": "fieldselector"
+          },
+          {
+            "path": "typeconverter",
+            "component": "ComponentForm",
+            "componentId": "typeconverter"
           }
         ]
       },
