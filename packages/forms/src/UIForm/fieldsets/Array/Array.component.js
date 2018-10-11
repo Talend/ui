@@ -7,7 +7,7 @@ import defaultWidgets from '../../utils/widgets';
 
 function adaptKeyWithIndex(keys, index) {
 	/*
-	2 cases : 
+	2 cases :
 	- key = ["my", "array", "", "nested"] for nested items fields
 	- key = ["my", "array"] : this defines array itself. Each item will receive a key ["my", "array", index]
 	To check that, we spot the first empty string in the key
@@ -61,6 +61,7 @@ function getArrayItemSchema(arraySchema, index) {
 		key,
 		items,
 		widget: arraySchema.itemWidget || 'fieldset',
+		title: arraySchema.itemTitle,
 	};
 }
 

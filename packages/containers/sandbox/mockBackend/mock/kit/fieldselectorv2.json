@@ -51,9 +51,9 @@
         "widget": "text"
       },
       {
-        "key": "selectors",
         "itemWidget": "collapsibleFieldset",
-        "title": "CREATE A NEW SELECTOR",
+        "itemTitle": "Create new selector",
+        "key": "selectors",
         "items": [
           {
             "key": "selectors[].field",
