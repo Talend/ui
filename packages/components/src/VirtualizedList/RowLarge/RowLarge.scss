@@ -24,6 +24,9 @@ $tc-list-large-field-value-color: $dove-gray !default;
 			flex-grow: 1;
 			flex-shrink: 1;
 		}
+		:global(.cell-title-actions) {
+			background: transparent;
+		}
 	}
 
 	.content {
