@@ -6,8 +6,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "TZ=Europe/Paris jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test:watch": "TZ=Europe/Paris jest --watch",
+    "test:cov": "TZ=Europe/Paris jest --coverage",
     "test:slimerjs": "slimerjs stories/slimer.js",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
