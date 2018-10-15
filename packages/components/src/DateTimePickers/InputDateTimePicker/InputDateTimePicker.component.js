@@ -13,11 +13,13 @@ import isSameMinute from 'date-fns/is_same_minute';
 import startOfDay from 'date-fns/start_of_day';
 import startOfMinute from 'date-fns/start_of_minute';
 import format from 'date-fns/format';
+import uuid from 'uuid';
 import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
 const DEBOUNCE_TIMEOUT = 300;
+const warnOnce = {};
 
 /*
  * Split the date and time parts based on the middle space
@@ -135,15 +137,20 @@ class InputDateTimePicker extends React.Component {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		onError: PropTypes.func,
+		id: PropTypes.string,
 	};
 
 	constructor(props) {
 		super(props);
+		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 
-		// eslint-disable-next-line
-		console.warn(
-			"UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
-		);
+		if (!warnOnce.unstable) {
+			// eslint-disable-next-line
+			console.warn(
+				"UNSTABLE WARNING: The 'InputDateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
+			);
+			warnOnce.unstable = true;
+		}
 
 		const selectedDateTime = this.props.selectedDateTime;
 		if (selectedDateTime !== undefined) {
@@ -320,7 +327,7 @@ class InputDateTimePicker extends React.Component {
 				/>
 				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
-						<Popover className={theme.popover}>
+						<Popover className={theme.popover} id={this.popoverId}>
 							<DateTimePicker
 								selection={{
 									date: this.state.date,

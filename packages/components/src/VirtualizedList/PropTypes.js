@@ -26,6 +26,8 @@ export default {
 	onRowClick: PropTypes.func,
 	// The row double click
 	onRowDoubleClick: PropTypes.func,
+	// The list scroll
+	onScroll: PropTypes.func,
 	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
 	/** Function to call on element selection
