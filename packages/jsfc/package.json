@@ -3,6 +3,7 @@
   "version": "1.0.0-alpha.4",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/module.js",
+  "mainSrc": "src/module.js",
   "scripts": {
     "prepublish": "babel -d dist ./src/ && rimraf dist/**/*.spec.js",
     "build": "webpack",

@@ -42,17 +42,17 @@ storiesOf('Action', module)
 			<Action id="default" {...myAction} />
 			<h3>Bootstrap style :</h3>
 			<Action id="bsStyle" {...myAction} bsStyle="primary" />
-			<Action id="bsStyle" {...myAction} bsStyle="primary btn-inverse" />
+			<Action id="bsStyle" {...myAction} className="btn-primary btn-inverse" />
 			<h3>With hideLabel option</h3>
 			<Action id="hidelabel" {...myAction} hideLabel />
 			<h3>In progress</h3>
 			<Action id="inprogress" {...myAction} inProgress />
 			<h3>Loading</h3>
-			<Action id="loading" loading />
+			<Action id="loading" loading label="loading" />
 			<h3>Icon button</h3>
 			<Action id="icon" {...myAction} link />
 			<h3>Loading Icon button</h3>
-			<Action id="icon" link label={'Click me'} loading />
+			<Action id="icon" link label="Click me" loading />
 			<h3>Disabled</h3>
 			<Action id="disabled" {...myAction} disabled />
 			<h3>Reverse display</h3>
@@ -66,6 +66,7 @@ storiesOf('Action', module)
 			<h3>Action with popover</h3>
 			<Action
 				id="hidelabel"
+				overlayId="hidelabel"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
 				tooltipPlacement="right"
@@ -75,7 +76,8 @@ storiesOf('Action', module)
 			<h3>Action in progress</h3>
 			<Action
 				id="hidelabel"
-				inProgress="true"
+				inProgress
+				overlayId="in-progress"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
 				tooltipPlacement="right"
@@ -99,6 +101,7 @@ storiesOf('Action', module)
 				<div className={theme['storybook-wrapped-action']}>
 					<Action
 						preventScrolling
+						overlayId="scroll"
 						overlayComponent={OverlayComponent}
 						overlayPlacement="bottom"
 						tooltipPlacement="right"
