@@ -113,17 +113,30 @@ Inject.getAll = function injectGetAll(getComponent, config) {
  * @param {function} getComponent
  * @param {object|string|React Element} data
  */
-Inject.getReactElement = function getReactElement(getComponent, data, CustomInject = Inject) {
+Inject.getReactElement = function getReactElement(
+	getComponent,
+	data,
+	CustomInject = Inject,
+	withKey,
+) {
 	if (Array.isArray(data)) {
-		return data.map(info => getReactElement(getComponent, info, CustomInject));
+		return data.map(info => getReactElement(getComponent, info, CustomInject, true));
 	} else if (data === null) {
 		return data;
 	} else if (typeof data === 'string') {
-		return <CustomInject getComponent={getComponent} component={data} />;
+		const props = { getComponent, component: data };
+		if (withKey) {
+			props.key = `${data}#default`;
+		}
+		return <CustomInject {...props} />;
 	} else if (React.isValidElement(data)) {
 		return data;
 	} else if (typeof data === 'object') {
-		return <CustomInject getComponent={getComponent} {...data} />;
+		const props = { getComponent, ...data };
+		if (withKey) {
+			props.key = `${data.component}#${data.componentId || 'default'}`;
+		}
+		return <CustomInject {...props} />;
 	}
 	return data; // We do not throw anything, proptypes should do the job
 };

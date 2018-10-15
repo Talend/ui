@@ -28,8 +28,11 @@ function Table({ services, loading, t }) {
 				</tr>
 			</thead>
 			<tbody>
-				{(loading ? [{}, {}, {}] : services).map(service => (
-					<tr>
+				{(loading
+					? [{ name: 'loading-first' }, { name: 'loading-second' }, { name: 'loading-third' }]
+					: services
+				).map(service => (
+					<tr key={service.name}>
 						<td>
 							<Text loading={loading} text={service.name} />
 						</td>
@@ -66,7 +69,7 @@ function AboutDialog({
 					label: expanded
 						? t('LESS', { defaultValue: 'Less' })
 						: t('MORE', { defaultValue: 'More' }),
-					bsStyle: 'default btn-inverse',
+					className: 'btn-default btn-inverse',
 					onClick: onToggle,
 				},
 			],
@@ -82,23 +85,25 @@ function AboutDialog({
 			actionbar={bar}
 			show={show}
 		>
-			<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
-			<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
-				<Text
-					text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version })}
-					size={Skeleton.SIZES.xlarge}
-					loading={loading}
-				/>
-				<Text
-					text={
-						copyrights ||
-						t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })
-					}
-					size={Skeleton.SIZES.large}
-					loading={loading}
-				/>
+			<div>
+				<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
+				<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
+					<Text
+						text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version })}
+						size={Skeleton.SIZES.xlarge}
+						loading={loading}
+					/>
+					<Text
+						text={
+							copyrights ||
+							t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })
+						}
+						size={Skeleton.SIZES.large}
+						loading={loading}
+					/>
+				</div>
+				{expanded && <Table t={t} loading={loading} services={services} />}
 			</div>
-			{expanded && <Table t={t} loading={loading} services={services} />}
 		</Dialog>
 	);
 }

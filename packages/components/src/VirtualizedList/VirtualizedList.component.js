@@ -26,6 +26,7 @@ function VirtualizedList(props) {
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
+		onScroll,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -63,6 +64,7 @@ function VirtualizedList(props) {
 					isSelected={isSelected}
 					onRowClick={onRowClick}
 					onRowDoubleClick={onRowDoubleClick}
+					onScroll={onScroll}
 					rowHeight={rowHeight}
 					sort={sort}
 					sortBy={sortBy}
