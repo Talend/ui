@@ -39,7 +39,7 @@ const footer = (
 			left: [
 				{
 					label: 'Cancel',
-					bsStyle: 'default btn-inverse',
+					className: 'btn-default btn-inverse',
 					onClick: action('footer.cancel.onClick'),
 				},
 			],
@@ -49,12 +49,12 @@ const footer = (
 					actions: [
 						{
 							label: 'Add',
-							bsStyle: 'default btn-inverse',
+							className: 'btn-default btn-inverse',
 							onClick: action('footer.add.onClick'),
 						},
 						{
 							label: 'Valid',
-							bsStyle: 'default btn-inverse',
+							className: 'btn-default btn-inverse',
 							onClick: action('footer.valid.onClick'),
 						},
 					],
