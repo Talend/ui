@@ -21,9 +21,9 @@ class FileWidget extends React.Component {
 		reader.onload = () => {
 			onChange(event, { schema, value: reader.result });
 			this.setState({ fileReplaceValue: file.name });
-		}
+		};
 		reader.readAsDataURL(file);
-	}
+	};
 
 	render() {
 		const { id, isValid, errorMessage, onChange, onFinish, schema, value } = this.props;
