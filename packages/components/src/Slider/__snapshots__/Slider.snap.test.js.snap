@@ -39,6 +39,78 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
 </span>
 `;
 
+exports[`Slider component snaps renderers should render Slider with captionActions 1`] = `
+<span
+  className="theme-tc-slider tc-slider"
+>
+  <ComponentEnhancer(undefined)
+    activeDotStyle={Object {}}
+    className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+    disabled={false}
+    dotStyle={Object {}}
+    dots={false}
+    handle={[Function]}
+    handleStyle={
+      Array [
+        Object {},
+      ]
+    }
+    id={undefined}
+    included={true}
+    marks={Object {}}
+    max={100}
+    min={0}
+    onAfterChange={[Function]}
+    onBeforeChange={[Function]}
+    onChange={[Function]}
+    prefixCls="rc-slider"
+    railStyle={Object {}}
+    step={1}
+    trackStyle={
+      Array [
+        Object {},
+      ]
+    }
+    value={76}
+    vertical={false}
+  />
+  <div
+    className="theme-tc-slider-captions tc-slider-captions"
+  >
+    <Action
+      className=""
+      data-feature="action"
+      hideLabel={true}
+      icon="talend-smiley-angry"
+      id="icon1"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className=""
+      data-feature="action"
+      hideLabel={true}
+      icon="talend-smiley-neutral"
+      id="icon2"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-selected selected"
+      data-feature="action"
+      hideLabel={true}
+      icon="talend-smiley-satisfied"
+      id="icon3"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+  </div>
+</span>
+`;
+
 exports[`Slider component snaps renderers should render Slider with captionTextStepNumber 1`] = `
 <span
   className="theme-tc-slider tc-slider"

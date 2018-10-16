@@ -1,6 +1,7 @@
 export const listTypes = {
 	TABLE: 'TABLE',
 	LARGE: 'LARGE',
+	COLLAPSIBLE_PANEL: 'COLLAPSIBLE_PANEL',
 };
 
 export const cellTitleDisplayModes = {

@@ -7,7 +7,7 @@ exports[`AboutDialog should render 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "bsStyle": "default btn-inverse",
+            "className": "btn-default btn-inverse",
             "label": "More",
             "onClick": [Function],
           },
@@ -27,23 +27,25 @@ exports[`AboutDialog should render 1`] = `
   show={true}
   type="informative"
 >
-  <Icon
-    className="theme-about-logo about-logo"
-    name="talend-tdp-colored"
-  />
-  <div
-    className="theme-about-excerpt about-excerpt"
-  >
-    <Text
-      loading={false}
-      size="xlarge"
-      text="Version: Summer 18"
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
     />
-    <Text
-      loading={false}
-      size="large"
-      text="© 2018 Talend. All Rights Reserved"
-    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={false}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={false}
+        size="large"
+        text="© 2018 Talend. All Rights Reserved"
+      />
+    </div>
   </div>
 </Dialog>
 `;
@@ -55,7 +57,7 @@ exports[`AboutDialog should render in loading mode 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "bsStyle": "default btn-inverse",
+            "className": "btn-default btn-inverse",
             "label": "More",
             "onClick": [Function],
           },
@@ -75,23 +77,25 @@ exports[`AboutDialog should render in loading mode 1`] = `
   show={true}
   type="informative"
 >
-  <Icon
-    className="theme-about-logo about-logo"
-    name="talend-tdp-colored"
-  />
-  <div
-    className="theme-about-excerpt about-excerpt"
-  >
-    <Text
-      loading={true}
-      size="xlarge"
-      text="Version: Summer 18"
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
     />
-    <Text
-      loading={true}
-      size="large"
-      text="© 2018 Talend. All Rights Reserved"
-    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={true}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={true}
+        size="large"
+        text="© 2018 Talend. All Rights Reserved"
+      />
+    </div>
   </div>
 </Dialog>
 `;
@@ -103,7 +107,7 @@ exports[`AboutDialog should render services 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "bsStyle": "default btn-inverse",
+            "className": "btn-default btn-inverse",
             "label": "Less",
             "onClick": [Function],
           },
@@ -123,52 +127,54 @@ exports[`AboutDialog should render services 1`] = `
   show={true}
   type="informative"
 >
-  <Icon
-    className="theme-about-logo about-logo"
-    name="talend-tdp-colored"
-  />
-  <div
-    className="theme-about-excerpt about-excerpt"
-  >
-    <Text
-      loading={false}
-      size="xlarge"
-      text="Version: Summer 18"
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
     />
-    <Text
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={false}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={false}
+        size="large"
+        text="© 2018 Talend. All Rights Reserved"
+      />
+    </div>
+    <Table
       loading={false}
-      size="large"
-      text="© 2018 Talend. All Rights Reserved"
+      services={
+        Array [
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "API",
+            "version": "2.8.0-SNAPSHOT",
+          },
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "Dataset",
+            "version": "2.8.0-SNAPSHOT",
+          },
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "Preparation",
+            "version": "2.8.0-SNAPSHOT",
+          },
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "Transformation",
+            "version": "2.8.0-SNAPSHOT",
+          },
+        ]
+      }
+      t={[Function]}
     />
   </div>
-  <Table
-    loading={false}
-    services={
-      Array [
-        Object {
-          "build": "87d0dcd-12e0d6f",
-          "name": "API",
-          "version": "2.8.0-SNAPSHOT",
-        },
-        Object {
-          "build": "87d0dcd-12e0d6f",
-          "name": "Dataset",
-          "version": "2.8.0-SNAPSHOT",
-        },
-        Object {
-          "build": "87d0dcd-12e0d6f",
-          "name": "Preparation",
-          "version": "2.8.0-SNAPSHOT",
-        },
-        Object {
-          "build": "87d0dcd-12e0d6f",
-          "name": "Transformation",
-          "version": "2.8.0-SNAPSHOT",
-        },
-      ]
-    }
-    t={[Function]}
-  />
 </Dialog>
 `;
 
@@ -179,7 +185,7 @@ exports[`AboutDialog should render with custom copyright 1`] = `
       "actions": Object {
         "center": Array [
           Object {
-            "bsStyle": "default btn-inverse",
+            "className": "btn-default btn-inverse",
             "label": "More",
             "onClick": [Function],
           },
@@ -199,23 +205,25 @@ exports[`AboutDialog should render with custom copyright 1`] = `
   show={true}
   type="informative"
 >
-  <Icon
-    className="theme-about-logo about-logo"
-    name="talend-tdp-colored"
-  />
-  <div
-    className="theme-about-excerpt about-excerpt"
-  >
-    <Text
-      loading={false}
-      size="xlarge"
-      text="Version: Summer 18"
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
     />
-    <Text
-      loading={false}
-      size="large"
-      text="custom copyrights"
-    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={false}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={false}
+        size="large"
+        text="custom copyrights"
+      />
+    </div>
   </div>
 </Dialog>
 `;
