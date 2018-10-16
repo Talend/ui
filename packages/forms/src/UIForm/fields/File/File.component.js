@@ -7,41 +7,78 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './File.scss';
 
+/**
+ * Extract the file name from the data url
+ * @param {String} value The base64 value of the file.
+ * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
+ * @return {String} The file name, for exemple: `test.xml`.
+ */
+const extractFileNameFromBase64 = value => {
+	if (value && value.indexOf(';name=') !== -1) {
+		return value.slice(value.indexOf(';name=') + 6, value.indexOf(';base64,'));
+	}
+	return '';
+};
+
+/**
+ * Add the file name to the data url.
+ * @param {String} value The base64 value of the file.
+ * Looks like `data:text/xml;base64,PD94bWwgdmVyc2l...`
+ * @param {String} fileName The file name, for exemple `test.xml`.
+ * @return {string} the base 64 encoding of the file with the file name within.
+ * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
+ */
+const addFileNameToBase64 = (value, fileName) => {
+	if (value && value.indexOf(';name=') === -1) {
+		const fileNamePos = value.indexOf(';base64,');
+		if (fileNamePos !== -1) {
+			return [value.slice(0, fileNamePos), ';name=', fileName, value.slice(fileNamePos)].join('');
+		}
+	}
+	return value;
+};
+
 class FileWidget extends React.Component {
 	constructor(props) {
 		super(props);
-		// Extract file name from value
-		if (props.value && props.value.indexOf(';name=') !== -1) {
-			const fileName = props.value.slice(props.value.indexOf(';name=') + 6, props.value.indexOf(';base64,'));
-			this.state = { fileReplaceValue: fileName };
-		} else {
-			this.state = { fileReplaceValue: '' };
-		}
+		this.onChange = this.onChange.bind(this);
+		// Extract file name from form properties
+		this.state = { fileReplaceValue: extractFileNameFromBase64(props.value) };
 	}
 
-	loadFileContent = (onChange, event, schema) => {
+	onChange = event => {
 		const fileList = event.target.files;
-		// TODO manage multiple files
-		const file = fileList[0];
-		const reader = new FileReader();
-		reader.onload = () => {
-			// Read data from the file
-			let data = reader.result;
-			// Add file name in the data
-			const fileNamePos = data.indexOf(';base64,');
-			if (fileNamePos !== -1) {
-				data = [data.slice(0, fileNamePos), ';name=', file.name, data.slice(fileNamePos)].join('');
-			}
-			// Call onChange with the base 64 value of the file
-			// and update the component state with the file name
-			onChange(event, { schema, value: data });
-			this.setState({ fileReplaceValue: file.name });
-		};
-		reader.readAsDataURL(file);
+		if (fileList.length > 0) {
+			const file = fileList[0];
+			const reader = new FileReader();
+			reader.onload = () => {
+				// Read data from the FileReader and add file name
+				const data = addFileNameToBase64(reader.result, file.name);
+				// Call onChange with the base 64 value of the file
+				// and update the component state with the file name
+				this.updateFileData(event, data, file.name);
+			};
+			reader.readAsDataURL(file);
+		} else {
+			this.updateFileData(event, '', '');
+		}
 	};
 
+	/**
+	 * Update file data on change (add or remove a file)
+	 * @param {Event} event The event
+	 * @param {String} data The base 64 representation of the file
+	 * @param {String} fileName The file name to add in the form field
+	 */
+	updateFileData(event, data, fileName) {
+		const schema = this.props.schema;
+		const onChange = this.props.onChange;
+		onChange(event, { schema, value: data });
+		this.setState({ fileReplaceValue: fileName });
+	}
+
 	render() {
-		const { id, isValid, errorMessage, onChange, onFinish, schema } = this.props;
+		const { id, isValid, errorMessage, onFinish, schema } = this.props;
 		const {
 			autoFocus,
 			description,
@@ -72,7 +109,7 @@ class FileWidget extends React.Component {
 						className="form-control"
 						disabled={disabled}
 						onBlur={event => onFinish(event, { schema })}
-						onChange={event => this.loadFileContent(onChange, event, schema)}
+						onChange={this.onChange}
 						placeholder={placeholder}
 						readOnly={readOnly}
 						type="file"
