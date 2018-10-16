@@ -75,7 +75,9 @@ if (process.env.NODE_ENV !== 'production') {
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
 		value: PropTypes.arrayOf(PropTypes.object).isRequired,
-		options: PropTypes.object,
+		options: PropTypes.shape({
+			btnLabel: PropTypes.string,
+		}),
 		t: PropTypes.func.isRequired,
 	};
 }

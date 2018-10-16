@@ -180,4 +180,4 @@ Custom Array Template props
 | renderItem | `function` | `renderItem(index)` function to call to render an element. |
 | schema | `object` | The merged schema. |
 | value | `any` | The array value. |
-| options | `object` | If you want to pass some custom props you can pass them in this object and use inside the component
+| options | `object` | If you want to pass some custom props you can pass them in this object and use inside the component. Currently only `btnLabel` option is supported, it changes label on button for adding new element
