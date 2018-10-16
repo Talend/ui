@@ -82,7 +82,7 @@ export function* deleteResourceValidate(
 		} else {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_ERROR,
-				model: result.data,
+				error: result.data,
 			});
 		}
 		yield call(redirect, get(action, 'data.model.redirectUrl'));

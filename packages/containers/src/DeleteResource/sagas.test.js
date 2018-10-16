@@ -187,7 +187,7 @@ describe('internals', () => {
 			gen.next(resource);
 			expect(gen.next(failedRequest).value).toEqual(put({
 				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_ERROR,
-				model: failedRequest.data,
+				error: failedRequest.data,
 			}));
 		})
 	});
