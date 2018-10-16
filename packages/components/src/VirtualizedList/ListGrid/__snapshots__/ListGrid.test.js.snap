@@ -14,7 +14,7 @@ exports[`ListGrid should render noRows 1`] = `
   <List
     aria-label="list"
     autoHeight={false}
-    className="theme-tc-list-list"
+    className="tc-list-list theme-tc-list-list"
     collection={Array []}
     containerRole="list"
     estimatedRowSize={30}
@@ -43,7 +43,7 @@ exports[`ListGrid should render noRows 1`] = `
       autoWidth={false}
       cellRangeRenderer={[Function]}
       cellRenderer={[Function]}
-      className="ReactVirtualized__List theme-tc-list-list"
+      className="ReactVirtualized__List tc-list-list theme-tc-list-list"
       collection={Array []}
       columnCount={1}
       columnWidth={1024}
@@ -80,7 +80,7 @@ exports[`ListGrid should render noRows 1`] = `
       <div
         aria-label="list"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-list"
+        className="ReactVirtualized__Grid ReactVirtualized__List tc-list-list theme-tc-list-list"
         id="my-list"
         onScroll={[Function]}
         role="group"
@@ -112,7 +112,7 @@ exports[`ListGrid should render react-virtualized list 1`] = `
 <List
   aria-label="list"
   autoHeight={false}
-  className="theme-tc-list-list"
+  className="tc-list-list theme-tc-list-list"
   collection={
     Array [
       Object {

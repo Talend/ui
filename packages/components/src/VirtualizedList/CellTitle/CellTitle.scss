@@ -78,7 +78,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 }
 
 // manage actions display on row hover
-:global(.tc-list-large-row),
+:global(.tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
@@ -91,7 +91,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
-:global(.tc-list-large-row.active),
+:global(.tc-list-large-row.active .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.active) {
 	&:hover,
 	&:focus,
@@ -102,7 +102,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
-:global(.tc-list-large-row.selected),
+:global(.tc-list-large-row.selected .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.selected) {
 	&:hover,
 	&:focus,

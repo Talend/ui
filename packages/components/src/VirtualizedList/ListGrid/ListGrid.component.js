@@ -33,7 +33,7 @@ function ListGrid(props) {
 
 	return (
 		<VirtualizedList
-			className={theme['tc-list-list']}
+			className={`tc-list-list ${theme['tc-list-list']}`}
 			collection={collection}
 			overscanRowCount={10}
 			onRowClick={decorateRowClick(onRowClick)}
