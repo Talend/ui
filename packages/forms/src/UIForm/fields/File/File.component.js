@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { translate } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './File.scss';
@@ -10,7 +10,13 @@ import theme from './File.scss';
 class FileWidget extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { fileReplaceValue: '' };
+		// Extract file name from value
+		if (props.value && props.value.indexOf(';name=') !== -1) {
+			const fileName = props.value.slice(props.value.indexOf(';name=') + 6, props.value.indexOf(';base64,'));
+			this.state = { fileReplaceValue: fileName };
+		} else {
+			this.state = { fileReplaceValue: '' };
+		}
 	}
 
 	loadFileContent = (onChange, event, schema) => {
@@ -19,14 +25,23 @@ class FileWidget extends React.Component {
 		const file = fileList[0];
 		const reader = new FileReader();
 		reader.onload = () => {
-			onChange(event, { schema, value: reader.result });
+			// Read data from the file
+			let data = reader.result;
+			// Add file name in the data
+			const fileNamePos = data.indexOf(';base64,');
+			if (fileNamePos !== -1) {
+				data = [data.slice(0, fileNamePos), ';name=', file.name, data.slice(fileNamePos)].join('');
+			}
+			// Call onChange with the base 64 value of the file
+			// and update the component state with the file name
+			onChange(event, { schema, value: data });
 			this.setState({ fileReplaceValue: file.name });
 		};
 		reader.readAsDataURL(file);
 	};
 
 	render() {
-		const { id, isValid, errorMessage, onChange, onFinish, schema, value } = this.props;
+		const { id, isValid, errorMessage, onChange, onFinish, schema } = this.props;
 		const {
 			autoFocus,
 			description,
