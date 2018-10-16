@@ -1,7 +1,6 @@
 @import '../colors';
 
-:global(.tc-list-table),
-:global(.tc-list-large) {
+:global(.tc-list-table) {
 	.row-selection.selected {
 		background: $tc-list-row-selected-bg;
 
@@ -19,3 +18,23 @@
 		}
 	}
 }
+
+:global(.tc-list-list) {
+	.row-selection.selected :global(.tc-list-large-inner-box) {
+		background: $tc-list-row-selected-bg;
+
+		&:hover,
+		&:focus {
+			background: $tc-list-row-selected-hover-bg;
+		}
+	}
+	.row-selection.active :global(.tc-list-large-inner-box) {
+		background: $tc-list-row-active-bg;
+
+		&:hover,
+		&:focus {
+			background: $tc-list-row-active-hover-bg;
+		}
+	}
+}
+
