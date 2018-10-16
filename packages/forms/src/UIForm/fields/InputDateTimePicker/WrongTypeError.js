@@ -14,3 +14,5 @@ export class WidgetUnexpectedTypeError extends Error {
 }
 
 export class WidgetTextEntryFormatError extends Error {}
+
+export class WidgetBadUsageError extends Error {}

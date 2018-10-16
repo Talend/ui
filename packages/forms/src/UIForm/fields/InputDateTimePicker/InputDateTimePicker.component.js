@@ -8,11 +8,11 @@ import {
 	WidgetUnhandleTypeError,
 	WidgetUnexpectedTypeError,
 	WidgetTextEntryFormatError,
+	WidgetBadUsageError,
 } from './WrongTypeError';
 
 export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
 
-const INVALID_DATE = new Date('');
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
 
 function isDateValid(date) {
@@ -21,6 +21,10 @@ function isDateValid(date) {
 	}
 
 	return date instanceof Date && !isNaN(date.getTime());
+}
+
+function generateInvalidDate() {
+	return new Date('');
 }
 
 function convertDateToTimestamp(date) {
@@ -37,7 +41,7 @@ function convertDateToString(date) {
 
 function convertStringToDate(str) {
 	if (!isoDateTimeRegExp.test(str)) {
-		return INVALID_DATE;
+		return generateInvalidDate();
 	}
 
 	return new Date(str);
@@ -53,7 +57,7 @@ function convertToDate(type, value) {
 	if (typeOfValue !== type) {
 		// eslint-disable-next-line no-console
 		console.error(new WidgetUnexpectedTypeError(type, typeOfValue));
-		return INVALID_DATE;
+		return generateInvalidDate();
 	}
 
 	switch (type) {
@@ -64,7 +68,7 @@ function convertToDate(type, value) {
 		default:
 			// eslint-disable-next-line no-console
 			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return INVALID_DATE;
+			return generateInvalidDate();
 	}
 }
 
@@ -82,7 +86,7 @@ function convertFromDate(type, date) {
 			const unhandleTypeError = new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
 			// eslint-disable-next-line no-console
 			console.error(unhandleTypeError);
-			return unhandleTypeError;
+			throw unhandleTypeError;
 		}
 	}
 }
@@ -104,12 +108,22 @@ class InputDateTimePicker extends React.Component {
 		const { schema } = this.props;
 		const type = schema.schema.type;
 
-		const hasError = errorMessage !== undefined;
+		const hasTextEntryError = errorMessage !== undefined;
+
+		let value;
+		let widgetError;
+		try {
+			value = hasTextEntryError ? date : convertFromDate(type, date);
+			widgetError = hasTextEntryError ? new WidgetTextEntryFormatError(errorMessage) : undefined;
+		} catch (e) {
+			value = generateInvalidDate();
+			widgetError = new WidgetBadUsageError('INTERNAL ERROR : Wrong field definition');
+		}
 
 		const payload = {
 			schema: this.props.schema,
-			value: hasError ? date : convertFromDate(type, date),
-			widgetError: hasError ? new WidgetTextEntryFormatError(errorMessage) : undefined,
+			value,
+			widgetError,
 		};
 		this.props.onChange(event, payload);
 	}
