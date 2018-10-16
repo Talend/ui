@@ -12,3 +12,5 @@ export class UnexpectedTypeError extends Error {
 		super(message);
 	}
 }
+
+export class WidgetTextEntryFormatError extends Error {}

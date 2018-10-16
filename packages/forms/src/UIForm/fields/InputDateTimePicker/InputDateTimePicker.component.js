@@ -4,7 +4,11 @@ import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
-import { UnhandleTypeError, UnexpectedTypeError } from './WrongTypeError';
+import {
+	UnhandleTypeError,
+	UnexpectedTypeError,
+	WidgetTextEntryFormatError,
+} from './WrongTypeError';
 
 export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
 
@@ -105,7 +109,7 @@ class InputDateTimePicker extends React.Component {
 		const payload = {
 			schema: this.props.schema,
 			value: hasError ? date : convertFromDate(type, date),
-			widgetError: errorMessage,
+			widgetError: hasError ? new WidgetTextEntryFormatError(errorMessage) : undefined,
 		};
 		this.props.onChange(event, payload);
 	}

@@ -48,8 +48,8 @@ export function adaptAdditionalRules(mergedSchema) {
  */
 export function validateValue(schema, value, properties, customValidationFn, widgetsErrors) {
 	const widgetError = widgetsErrors[schema.key];
-	if (widgetError !== undefined) {
-		return widgetError;
+	if (widgetError instanceof Error) {
+		return widgetError.message;
 	}
 
 	const validationSchema = adaptAdditionalRules(schema);
