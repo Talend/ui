@@ -72,7 +72,7 @@ Once your component is connected:
 * you can read data from the store using [expression](./src/expression.md)
 * you can dispatch actions using [onEvent handler](./src/onEvent.md)
 
-![diagram rendering cycle](./assets/diagram-cmfConnect.svg "Diagram rendering cycle")
+![diagram cmfConnect](./assets/diagram-cmfConnect.svg "Diagram on cmfConnect")
 
 Read more about [cmfConnect](./src/cmfConnect.md)
 
