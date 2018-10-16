@@ -5,8 +5,8 @@ import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimeP
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
 import {
-	UnhandleTypeError,
-	UnexpectedTypeError,
+	WidgetUnhandleTypeError,
+	WidgetUnexpectedTypeError,
 	WidgetTextEntryFormatError,
 } from './WrongTypeError';
 
@@ -52,7 +52,7 @@ function convertToDate(type, value) {
 
 	if (typeOfValue !== type) {
 		// eslint-disable-next-line no-console
-		console.error(new UnexpectedTypeError(type, typeOfValue));
+		console.error(new WidgetUnexpectedTypeError(type, typeOfValue));
 		return INVALID_DATE;
 	}
 
@@ -63,7 +63,7 @@ function convertToDate(type, value) {
 			return convertStringToDate(value);
 		default:
 			// eslint-disable-next-line no-console
-			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
+			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
 			return INVALID_DATE;
 	}
 }
@@ -79,7 +79,7 @@ function convertFromDate(type, date) {
 		case 'string':
 			return convertDateToString(date);
 		default: {
-			const unhandleTypeError = new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
+			const unhandleTypeError = new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
 			// eslint-disable-next-line no-console
 			console.error(unhandleTypeError);
 			return unhandleTypeError;
