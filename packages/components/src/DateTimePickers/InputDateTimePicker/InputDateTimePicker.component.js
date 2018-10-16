@@ -22,6 +22,7 @@ const INVALID_PLACEHOLDER = 'INVALID DATE';
 const INPUT_FULL_FORMAT = 'YYYY-MM-DD HH:mm';
 const INPUT_DATE_ONLY_FORMAT = 'YYYY-MM-DD';
 
+const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 /*
  * Split the date and time parts based on the middle space
  * ex: '  whatever   other-string  ' => ['whatever', 'other-string']
@@ -65,7 +66,7 @@ function getTextDate(date, time) {
 
 function getDateTimeFrom(date, time) {
 	if (date === undefined || time === undefined) {
-		return undefined;
+		return INTERNAL_INVALID_DATE;
 	}
 
 	return setMinutes(date, time);
@@ -401,7 +402,8 @@ class InputDateTimePicker extends React.Component {
 
 		const isDatetimeValid = isDateValid(this.state.datetime);
 		const inputFocused = this.state.inputFocused;
-		const needInvalidPlaceholder = !isDatetimeValid && !inputFocused;
+		const isInternalInvalidDate = this.state.datetime === INTERNAL_INVALID_DATE;
+		const needInvalidPlaceholder = !isDatetimeValid && !isInternalInvalidDate && !inputFocused;
 
 		const placeholder = needInvalidPlaceholder
 			? INVALID_PLACEHOLDER

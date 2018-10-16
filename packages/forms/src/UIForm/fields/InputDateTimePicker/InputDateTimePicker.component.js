@@ -123,7 +123,8 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const { schema } = this.props;
 		const type = schema.schema.type;
-		const datetime = this.convertToDate(type, this.props.value);
+		const isAlreadyADate = this.props.value instanceof Date;
+		const datetime = isAlreadyADate ? this.props.value : this.convertToDate(type, this.props.value);
 		const errorMessage = this.props.errorMessage;
 
 		return (
