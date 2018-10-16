@@ -5,9 +5,9 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test": "TZ=Europe/Paris jest",
+    "test:watch": "TZ=Europe/Paris jest --watch",
+    "test:cov": "TZ=Europe/Paris jest --coverage",
     "test:slimerjs": "slimerjs stories/slimer.js",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
@@ -66,8 +66,8 @@
     "@storybook/addon-info": "^3.4.7",
     "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^1.1.0",
-    "@talend/icons": "^1.1.0",
+    "@talend/bootstrap-theme": "^1.2.0",
+    "@talend/icons": "^1.2.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -124,8 +124,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^1.1.0",
-    "@talend/icons": "^1.1.0",
+    "@talend/bootstrap-theme": "^1.2.0",
+    "@talend/icons": "^1.2.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -163,5 +163,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.1.0"
+  "version": "1.2.0"
 }
