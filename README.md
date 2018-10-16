@@ -5,8 +5,8 @@ front-end stack.
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
 
-[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/ui
+[travis-ci-image]: https://travis-ci.com/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.com/Talend/ui
 
 ## Goals
 
