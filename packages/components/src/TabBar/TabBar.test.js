@@ -38,7 +38,7 @@ const tabProps = {
 };
 
 describe('TabBar component', () => {
-	it('should render', () => {
+	it('should render with selected children managed by user', () => {
 		// given
 
 		// when
@@ -48,7 +48,7 @@ describe('TabBar component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render items with defined children', () => {
+	it('should render with selected children from item definition', () => {
 		// given
 		const items = tabProps.items.map((item, index) => ({
 			...item,

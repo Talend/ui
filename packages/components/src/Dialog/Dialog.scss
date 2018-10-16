@@ -2,6 +2,19 @@
 	.modal-flex .modal-body {
 		display: flex;
 		flex-direction: column;
+		padding-top: $padding-larger;
+	}
+
+	.modal-body {
+		padding-top: $padding-larger;
+	}
+
+	.modal-footer {
+		padding-bottom: $padding-larger;
+	}
+
+	.tc-actionbar-container {
+		padding: 0;
 	}
 
 	.modal-content,
