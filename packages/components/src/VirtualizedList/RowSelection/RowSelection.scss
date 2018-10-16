@@ -5,7 +5,8 @@
 		background: $tc-list-row-selected-bg;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:global(.ally-focus-within) {
 			background: $tc-list-row-selected-hover-bg;
 		}
 	}
@@ -13,7 +14,8 @@
 		background: $tc-list-row-active-bg;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:global(.ally-focus-within) {
 			background: $tc-list-row-active-hover-bg;
 		}
 	}
@@ -24,7 +26,8 @@
 		background: $tc-list-row-selected-bg;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:global(.ally-focus-within) {
 			background: $tc-list-row-selected-hover-bg;
 		}
 	}
@@ -32,7 +35,8 @@
 		background: $tc-list-row-active-bg;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:global(.ally-focus-within) {
 			background: $tc-list-row-active-hover-bg;
 		}
 	}
