@@ -71,6 +71,7 @@ class FileWidget extends React.Component {
 						name={`input-${id}`}
 						className={`form-control ${theme['file-replace']}`}
 						value={this.state.fileReplaceValue}
+						placeholder={placeholder}
 					/>
 				</div>
 			</FieldTemplate>

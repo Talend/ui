@@ -16,10 +16,12 @@
     {
       "key": "file",
       "title": "Upload file",
+      "placeholder": "Select a file to upload",
       "widget": "file"
     }, {
       "key": "file2",
       "title": "Upload another file",
+      "placeholder": "Select a file to upload",
       "widget": "file"
     }
   ],
