@@ -214,10 +214,10 @@ class InputDateTimePicker extends React.Component {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
 		const selectedDateTimePropsUpdated = newSelectedDateTime !== this.props.selectedDateTime;
-		const selectedDateTimePropDivergedFromState = !isSameMinute(
-			newSelectedDateTime,
-			this.state.datetime,
-		);
+		const selectedDateTimePropDivergedFromState =
+			newSelectedDateTime !== this.state.datetime &&
+			!isSameMinute(newSelectedDateTime, this.state.datetime);
+
 		const needDateTimeStateUpdate =
 			selectedDateTimePropsUpdated && selectedDateTimePropDivergedFromState;
 
