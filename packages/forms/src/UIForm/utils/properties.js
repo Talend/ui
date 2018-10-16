@@ -61,3 +61,7 @@ function mutateValueFromKey(properties = {}, key, value) {
 export function mutateValue(properties, schema, value) {
 	return mutateValueFromKey(properties, schema.key, value);
 }
+
+export function mutateWidgetsErrors(widgetsErrors, schema, widgetError) {
+	return mutateValueFromKey(widgetsErrors, schema.key, widgetError);
+}

@@ -87,22 +87,9 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			value: props.value,
-		};
-
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const newValue = nextProps.value;
-		if (newValue !== this.state.value && !(newValue instanceof Error)) {
-			this.setState({
-				value: newValue,
-			});
-		}
 	}
 
 	/**
@@ -115,11 +102,10 @@ class InputDateTimePicker extends React.Component {
 
 		const hasError = errorMessage !== undefined;
 
-		const value = hasError ? new Error(errorMessage) : convertFromDate(type, date);
-
 		const payload = {
 			schema: this.props.schema,
-			value,
+			value: hasError ? date : convertFromDate(type, date),
+			widgetError: errorMessage,
 		};
 		this.props.onChange(event, payload);
 	}
@@ -133,10 +119,8 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const { schema } = this.props;
 		const type = schema.schema.type;
-		const datetime = this.convertToDate(type, this.state.value);
-		const isWidgetError = this.props.value instanceof Error;
-		const errorMessage =
-			isWidgetError || isDateValid(datetime) ? this.props.errorMessage : GENERIC_FORMAT_ERROR;
+		const datetime = this.convertToDate(type, this.props.value);
+		const errorMessage = this.props.errorMessage;
 
 		return (
 			<FieldTemplate
@@ -183,7 +167,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
-		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Error)]),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.any]),
 	};
 }
 

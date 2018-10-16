@@ -13,6 +13,11 @@ export default class UIForm extends React.Component {
 		if (!this.state.errors) {
 			this.state.errors = {};
 		}
+
+		if (!this.state.widgetsErrors) {
+			this.state.widgetsErrors = {};
+		}
+
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.setErrors = this.setErrors.bind(this);
@@ -42,6 +47,7 @@ export default class UIForm extends React.Component {
 	onChange(event, payload) {
 		this.setState({
 			properties: payload.properties,
+			widgetsErrors: payload.widgetsErrors,
 		});
 
 		if (this.props.onChange) {

@@ -10,7 +10,7 @@ import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
-import { getValue, mutateValue } from './utils/properties';
+import { getValue, mutateValue, mutateWidgetsErrors } from './utils/properties';
 import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 import customFormats from './customFormats';
@@ -83,13 +83,16 @@ export class UIFormComponent extends React.Component {
 	 * @param schema The payload field schema
 	 * @param value The payload new value
 	 */
-	onChange(event, { schema, value }) {
+	onChange(event, { schema, value, widgetError }) {
 		const newProperties = mutateValue(this.props.properties, schema, value);
+		const newWidgetsErrors = mutateWidgetsErrors(this.props.widgetsErrors, schema, widgetError);
 		this.props.onChange(event, {
 			schema,
 			value,
 			oldProperties: this.props.properties,
 			properties: newProperties,
+			oldWidgetsErrors: this.props.widgetsErrors,
+			widgetsErrors: newWidgetsErrors,
 			formData: newProperties,
 		});
 	}
@@ -122,6 +125,7 @@ export class UIFormComponent extends React.Component {
 			this.props.properties,
 			this.props.customValidation,
 			deepValidation,
+			this.props.widgetsErrors,
 		)[schema.key];
 
 		// update errors map
@@ -213,8 +217,8 @@ export class UIFormComponent extends React.Component {
 		}
 
 		const { mergedSchema } = this.state;
-		const { properties, customValidation } = this.props;
-		const errors = validateAll(mergedSchema, properties, customValidation);
+		const { properties, customValidation, widgetsErrors } = this.props;
+		const errors = validateAll(mergedSchema, properties, customValidation, widgetsErrors);
 		this.props.setErrors(event, errors);
 
 		const isValid = !Object.keys(errors).length;
@@ -310,7 +314,8 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-
+		/** The form widgets errors { [fieldKey]: widgetErrorMessage } */
+		widgetsErrors: PropTypes.object.isRequired,
 		/**
 		 * Actions buttons to display at the bottom of the form.
 		 * If not provided, a single submit button is displayed.

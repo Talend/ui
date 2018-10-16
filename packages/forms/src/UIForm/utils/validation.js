@@ -46,9 +46,10 @@ export function adaptAdditionalRules(mergedSchema) {
  * that is applied on schema.customValidation = true
  * @returns {object} The validation result.
  */
-export function validateValue(schema, value, properties, customValidationFn) {
-	if (typeof value === 'object' && value instanceof Error) {
-		return value.message;
+export function validateValue(schema, value, properties, customValidationFn, widgetsErrors) {
+	const widgetError = widgetsErrors[schema.key];
+	if (widgetError !== undefined) {
+		return widgetError;
 	}
 
 	const validationSchema = adaptAdditionalRules(schema);
@@ -69,7 +70,14 @@ export function validateValue(schema, value, properties, customValidationFn) {
  * @param deepValidation Validate the array values if set to true
  * @returns {object} The validation result.
  */
-export function validateArray(mergedSchema, value, properties, customValidationFn, deepValidation) {
+export function validateArray(
+	mergedSchema,
+	value,
+	properties,
+	customValidationFn,
+	deepValidation,
+	widgetsErrors,
+) {
 	const results = {};
 	const { key, items } = mergedSchema;
 
@@ -81,7 +89,13 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 			items: [],
 		},
 	};
-	const error = validateValue(schemaWithoutItems, value, properties, customValidationFn);
+	const error = validateValue(
+		schemaWithoutItems,
+		value,
+		properties,
+		customValidationFn,
+		widgetsErrors,
+	);
 	if (error) {
 		results[key] = error;
 	}
@@ -99,7 +113,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 				};
 			});
 			// eslint-disable-next-line no-use-before-define
-			const subResults = validateAll(indexedItems, properties, customValidationFn);
+			const subResults = validateAll(indexedItems, properties, customValidationFn, widgetsErrors);
 			Object.assign(results, subResults);
 		}
 	}
@@ -123,17 +137,18 @@ export function validateSimple(
 	properties,
 	customValidationFn,
 	deepValidation,
+	widgetsErrors,
 ) {
 	const results = {};
 	const { key, items } = mergedSchema;
 
-	const error = validateValue(mergedSchema, value, properties, customValidationFn);
+	const error = validateValue(mergedSchema, value, properties, customValidationFn, widgetsErrors);
 	if (error) {
 		results[key] = error;
 	}
 	if (deepValidation && items) {
 		// eslint-disable-next-line no-use-before-define
-		const subResults = validateAll(items, properties, customValidationFn);
+		const subResults = validateAll(items, properties, customValidationFn, widgetsErrors);
 		Object.assign(results, subResults);
 	}
 
@@ -156,12 +171,27 @@ export function validateSingle(
 	properties,
 	customValidationFn,
 	deepValidation,
+	widgetsErrors,
 ) {
 	if (mergedSchema.type === 'array') {
-		return validateArray(mergedSchema, value, properties, customValidationFn, deepValidation);
+		return validateArray(
+			mergedSchema,
+			value,
+			properties,
+			customValidationFn,
+			deepValidation,
+			widgetsErrors,
+		);
 	}
 
-	return validateSimple(mergedSchema, value, properties, customValidationFn, deepValidation);
+	return validateSimple(
+		mergedSchema,
+		value,
+		properties,
+		customValidationFn,
+		deepValidation,
+		widgetsErrors,
+	);
 }
 
 /**
@@ -172,13 +202,13 @@ export function validateSingle(
  * that is applied on schema.customValidation = true
  * @returns {object} The validation result by field.
  */
-export function validateAll(mergedSchema, properties, customValidationFn) {
+export function validateAll(mergedSchema, properties, customValidationFn, widgetsErrors) {
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
 		const subResults = !shouldValidate(schema.condition, properties)
 			? true
-			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
+			: validateSingle(schema, value, properties, customValidationFn, true, widgetsErrors);
 		Object.assign(results, subResults);
 	});
 	return results;
