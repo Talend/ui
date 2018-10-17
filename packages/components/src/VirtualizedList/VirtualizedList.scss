@@ -17,6 +17,16 @@
 				}
 			}
 		}
+
+		div[role=gridcell] {
+			> div {
+				min-width: 0;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+		}
+
 	}
 }
 

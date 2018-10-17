@@ -17,6 +17,7 @@ export const cellDictionary = {
 	[cellBadgeType]: CellBadgeRenderer,
 	[cellTextType]: CellTextIconRenderer,
 	[cellDatetimeType]: CellDatetimeRenderer,
+	default: 13,
 };
 
 /** Row renderers dictionary */
