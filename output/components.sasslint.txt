@@ -7,5 +7,8 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+src/Typeahead/Typeahead.scss
+  97:5  error  Nesting depth 4 greater than max of 3  nesting-depth
+
+✖ 3 problems (1 errors, 2 warnings)
 

@@ -32,7 +32,7 @@ export function renderInputComponent(props) {
 				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
 			)}
 			{hasIcon && (
-				<div className={theme['icon-cls']}>
+				<div className={classNames(theme['icon-cls'], caret && theme['icon-caret'])}>
 					{icon && <Icon {...icon} />}
 					{caret && <Icon name="talend-caret-down" />}
 				</div>
