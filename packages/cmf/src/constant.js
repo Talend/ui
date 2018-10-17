@@ -32,6 +32,8 @@ export default {
 		'initialState',
 		'renderIf',
 	],
+	INJECTED_STATE_PROPS: ['setState', 'deleteState', 'updateState', 'state', 'initState'],
+	INJECTED_ROUTER_PROPS: ['location', 'params', 'route', 'routeParams', 'router', 'routes'],
 	INJECTED_PROPS: [
 		'setState',
 		'deleteState',
@@ -39,7 +41,6 @@ export default {
 		'componentId',
 		'state',
 		'initState',
-		'getCollection',
 		'dispatch',
 		'dispatchActionCreator',
 	],

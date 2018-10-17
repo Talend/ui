@@ -51,6 +51,7 @@ describe('RendererSelector', () => {
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
+				onScroll={jest.fn()}
 				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
@@ -77,6 +78,7 @@ describe('RendererSelector', () => {
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
+				onScroll={jest.fn()}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
 				sortBy={'name'}
@@ -113,7 +115,7 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.prop('rowRenderer').displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.prop('rowRenderer').displayName).toBe('ListGesture(VirtualizedList(RowLarge))');
 	});
 
 	it('should render the table with the default NoRows', () => {
@@ -216,5 +218,35 @@ describe('RendererSelector', () => {
 
 		// then
 		expect(wrapper.contains(<NoRowsRenderer />)).toBe(true);
+	});
+	it('should render the grid with the rowRenders', () => {
+		// when
+		function Custom() {
+			return <span>Custom</span>;
+		}
+		const wrapper = shallow(
+			<RendererSelector
+				collection={collection}
+				height={600}
+				id={'my-list-id'}
+				isActive={jest.fn()}
+				isSelected={jest.fn()}
+				noRowsRenderer={NoRowsRenderer}
+				onRowClick={jest.fn()}
+				onRowDoubleClick={jest.fn()}
+				selectionToggle={jest.fn()}
+				sort={jest.fn()}
+				sortBy={'name'}
+				sortDirection={'DESC'}
+				type={'custom'}
+				rowRenderers={{ custom: Custom }}
+				width={1024}
+			>
+				{contentFields}
+			</RendererSelector>,
+		);
+
+		// then
+		expect(wrapper.prop('rowRenderer')).toBe(Custom);
 	});
 });

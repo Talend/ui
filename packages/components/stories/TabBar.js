@@ -110,6 +110,19 @@ function generateChildId(key, kind) {
 			</div>
 		</nav>
 	))
+	.addWithInfo('With existing content', () => (
+		<nav>
+			<h3>TabBar with custom content</h3>
+			<div id="customContent">
+				<TabBar {...tabProps} generateChildId={generateChildId} />
+				<div id="my-custom-id-1" style={{ display: 'none' }}>I'm the existing content of tab 1</div>
+				<div id="my-custom-id-2">I'm the existing content of tab 2</div>
+				<div id="my-custom-id-3" style={{ display: 'none' }}>I'm the existing content of tab 3</div>
+				<div id="my-custom-id-4" style={{ display: 'none' }}>I'm the existing content of tab 4</div>
+				<div id="my-custom-id-5" style={{ display: 'none' }}>I'm the existing content of tab 5</div>
+			</div>
+		</nav>
+	))
 	.addWithInfo('Fully interactive', () => (
 		<nav>
 			<h3>Interactive TabBar demo</h3>

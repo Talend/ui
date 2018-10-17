@@ -72,8 +72,8 @@ exports[`TreeView should render 1`] = `
       }
       level={1}
       onKeyDown={[Function]}
-      onSelect={undefined}
-      onToggle={undefined}
+      onSelect={[Function]}
+      onToggle={[Function]}
       selectedId={undefined}
       siblings={
         Array [

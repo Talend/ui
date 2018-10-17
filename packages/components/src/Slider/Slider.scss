@@ -31,6 +31,14 @@ $tc-slider-line-height: 24px;
 		margin-top: $padding-small;
 		color: $gray;
 		font-size: $tc-slider-font-size;
+		:global(.btn) {
+			padding: 0;
+			&.selected {
+				:global(.tc-svg-icon) {
+					fill: $brand-primary;
+				}
+			}
+		}
 		:global(svg) {
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;

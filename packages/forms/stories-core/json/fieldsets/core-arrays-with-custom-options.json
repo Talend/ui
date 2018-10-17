@@ -1,0 +1,29 @@
+{
+  "doc": "Array/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "required": [
+      "names"
+    ],
+    "properties": {
+      "names": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "names",
+      "options": {
+        "btnLabel": "Your custom title"
+      }
+    }
+  ],
+  "properties": {
+    "names": ["aze", "bslkdjf"]
+  }
+}

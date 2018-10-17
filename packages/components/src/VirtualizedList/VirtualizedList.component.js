@@ -26,6 +26,7 @@ function VirtualizedList(props) {
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
+		onScroll,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -33,6 +34,7 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
+		rowRenderers,
 	} = props;
 
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
@@ -62,6 +64,7 @@ function VirtualizedList(props) {
 					isSelected={isSelected}
 					onRowClick={onRowClick}
 					onRowDoubleClick={onRowDoubleClick}
+					onScroll={onScroll}
 					rowHeight={rowHeight}
 					sort={sort}
 					sortBy={sortBy}
@@ -70,6 +73,7 @@ function VirtualizedList(props) {
 					width={width}
 					disableHeader={disableHeader}
 					inProgress={inProgress}
+					rowRenderers={rowRenderers}
 				>
 					{columnDefinitions}
 				</RendererSelector>

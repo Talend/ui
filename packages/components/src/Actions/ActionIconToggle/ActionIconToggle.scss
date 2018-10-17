@@ -29,8 +29,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	padding: 0;
 
 	&:hover,
-	&:active,
-	&:focus {
+	&:active {
 		box-shadow: none;
 		background-color: $white;
 		border-color: $scooter;
@@ -43,8 +42,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 		color: $white;
 
 		&:hover,
-		&:active,
-		&:focus {
+		&:active {
 			background-color: $scooter;
 			border-color: $scooter;
 		}

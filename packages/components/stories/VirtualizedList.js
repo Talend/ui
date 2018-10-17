@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { checkA11y } from '@storybook/addon-a11y'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
@@ -16,6 +17,28 @@ function NoRowsRenderer() {
 		</span>
 	);
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export function MyCustomRow(props) {
+	return (
+		<div style={props.style}>
+			<h1 style={{ fontSize: 16 }}>{props.parent.props.collection[props.index].name}</h1>
+			<ul>
+				<li>style: {JSON.stringify(props.style)}</li>
+				<li>index: {props.index}</li>
+				<li>isScrolling: {props.isScrolling.toString()}</li>
+			</ul>
+		</div>
+	);
+}
+MyCustomRow.propTypes = {
+	index: PropTypes.number,
+	isScrolling: PropTypes.bool,
+	style: PropTypes.object,
+	parent: PropTypes.shape({
+		props: PropTypes.shape({ collection: PropTypes.array }),
+	}),
+};
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -311,6 +334,56 @@ const collectionWithTooltupLabel = collection.map(item => {
 	return item;
 });
 
+const collapsibleListCollection = [
+	{
+		header: [{ displayMode: 'status', actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+		content: [
+			{
+				label: 'Content1',
+				description: 'Description1',
+			},
+			{
+				label: 'Content2',
+				description: 'Description2',
+			},
+		],
+		expanded: true,
+		children: <div>HELLO WORLDa</div>
+	},
+	{
+		header: [{ displayMode: 'status', actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' }],
+		content: [
+			{
+				label: 'Content1',
+				description: 'Description1',
+			},
+			{
+				label: 'Content2',
+				description: 'Description2',
+			},
+		],
+		expanded: false,
+	},
+	{
+		header: [{ displayMode: 'status', actions: [], status: 'failed', label: 'Failure', icon: 'talend-cross' }],
+		content: [
+			{
+				label: 'Content1',
+				description: 'Description1',
+			},
+			{
+				label: 'Content2',
+				description: 'Description2',
+			},
+		],
+		expanded: true,
+	}
+];
+
+const sourceItems = [...new Array(20000)]
+	.map((item, index) => collapsibleListCollection[index % collapsibleListCollection.length]);
+
+
 storiesOf('Virtualized List', module)
 	.addDecorator(checkA11y)
 	.add('List > Table', () => (
@@ -575,6 +648,21 @@ storiesOf('Virtualized List', module)
 			</section>
 		</div>
 	))
+	.add('List > CollapsiblePanels', () => (
+		<div>
+			<h1>Virtualized List with Collapsible Panels</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList
+					collection={sourceItems}
+					onRowClick={action('onRowClick')}
+					onScroll={action('onScroll')}
+					id={'my-list'}
+					type={listTypes.COLLAPSIBLE_PANEL}
+				/>
+			</section>
+		</div>
+	))
 	.add('List > Table without header', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
@@ -668,4 +756,24 @@ storiesOf('Virtualized List', module)
 				</VirtualizedList>
 			</section>
 		</div>
-	));
+	))
+	.add('List > custom rowRenderers', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collectionWithTooltupLabel} id={'my-list'} type="custom" rowHeight={116} rowRenderers={{ custom: MyCustomRow }}>
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
+				</VirtualizedList>
+			</section>
+		</div>
+	)
+);
