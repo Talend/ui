@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
 
 
-function DefaultRenderer(props) {
-	return <div>{ props.cellData }</div>;
+function DefaultRenderer({ cellData }) {
+	return <div>{ cellData }</div>;
 }
 
 DefaultRenderer.propTypes = {
@@ -17,11 +17,11 @@ function Content(props) {
 }
 
 Content.propTypes = {
-	cellRenderer: PropTypes.func,
+	...Column.propTypes,
 };
 
 Content.defaultProps = {
-	cellRenderer: DefaultRenderer,
+	...Column.defaultProps,
 };
 
 
