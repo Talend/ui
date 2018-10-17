@@ -68,9 +68,11 @@ function Layout({
 
 	return (
 		<div id={id} className={appCSS}>
-			<SkipLinks />
+			<div className={theme['skip-links']}>
+				<SkipLinks />
+			</div>
 			{safeHeader && (
-				<header key="banner" role="banner" className={headerCSS}>
+				<header key="banner" role="banner" className={headerCSS} z-index="10">
 					{safeHeader}
 				</header>
 			)}
