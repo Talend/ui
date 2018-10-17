@@ -48,15 +48,12 @@
 	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
 	// so we change the line-height and the min-height to match 3.5rem ($btn-line-height) - borders
 	$border-width: 1.5px;
-	$btn-inverse-line-height: calc(#{$btn-line-height} - (2 * #{$border-width}));
 
 	&.btn-inverse {
 		background-color: transparent;
 		color: $btn-color;
 		box-shadow: none;
 		border: $border-width solid $btn-color;
-		line-height: $btn-inverse-line-height;
-		min-height: $btn-inverse-line-height;
 
 		&:active,
 		&.active,

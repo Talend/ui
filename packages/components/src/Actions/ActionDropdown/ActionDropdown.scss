@@ -2,6 +2,8 @@ $tc-dropdown-loader-padding: $padding-small !default;
 
 .tc-dropdown {
 	&-button:global(.btn-link) {
+		display: inline-block;
+
 		&:hover,
 		&:focus,
 		&:active {
