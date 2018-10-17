@@ -25,9 +25,9 @@ matrix:
       before_install:
         - which npm
         - which node
+        - npm config list -l
         - echo $NODE_PATH
         - npm install -g --verbose commander
-        - which commander
         - ./versions/version.js
       script:
         - yarn test
