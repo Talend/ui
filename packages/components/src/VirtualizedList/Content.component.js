@@ -11,7 +11,6 @@ DefaultRenderer.propTypes = {
 	cellData: PropTypes.string,
 };
 
-
 function Content(props) {
 	return <Column {...props} />;
 }
@@ -23,6 +22,5 @@ Content.propTypes = {
 Content.defaultProps = {
 	...Column.defaultProps,
 };
-
 
 export default Content;

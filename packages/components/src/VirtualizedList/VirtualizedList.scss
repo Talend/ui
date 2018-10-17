@@ -18,7 +18,7 @@
 			}
 		}
 
-		div[role=gridcell] {
+		div[role='gridcell'] {
 			> div {
 				min-width: 0;
 				text-overflow: ellipsis;
@@ -26,7 +26,6 @@
 				white-space: nowrap;
 			}
 		}
-
 	}
 }
 
