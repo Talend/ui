@@ -35,7 +35,8 @@ function getComponent(component) {
 }
 
 function forceRedrawRows(newProps, oldProps) {
-	return differenceBy(newProps.rowData, oldProps.rowData, 'loading').length;
+	return true;
+	//return differenceBy(newProps.rowData, oldProps.rowData, 'loading').length;
 }
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
@@ -163,46 +164,46 @@ storiesOf('Component Datagrid')
 			return {
 				loading: false,
 				value: {
-					field2: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
-					field8: {
-						value: random(0, 10000000),
-						quality: 0,
-					},
-					field5: {
-						value: random(0, 10000000),
-						quality: -1,
-					},
-					field4: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
-					field7: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
-					field3: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
-					field1: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
+					// field2: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
+					// field8: {
+					// 	value: random(0, 10000000),
+					// 	quality: 0,
+					// },
+					// field5: {
+					// 	value: random(0, 10000000),
+					// 	quality: -1,
+					// },
+					// field4: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
+					// field7: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
+					// field3: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
+					// field1: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
 					field0: {
 						value: `Aéroport ${random(0, 10000000)}`,
 						quality: 1,
 					},
-					field9: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
-					field6: {
-						value: random(0, 10000000),
-						quality: 1,
-					},
+					// field9: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
+					// field6: {
+					// 	value: random(0, 10000000),
+					// 	quality: 1,
+					// },
 				},
 				quality: 1,
 			};
@@ -227,6 +228,8 @@ storiesOf('Component Datagrid')
 						...new Array(ADD_ITEMS_NUMBER).fill().map(getItemWithRandomValue),
 					);
 
+					// datagridSample.data = [getItemWithRandomValue(), getItemWithRandomValue()];
+
 					return {
 						sample: datagridSample,
 						loading: !prevState.loading,
@@ -246,7 +249,7 @@ storiesOf('Component Datagrid')
 					loading: !prevState.loading,
 				}));
 
-				setTimeout(this.terminateItems, 10);
+				setTimeout(this.terminateItems, 1000);
 			}
 
 			render() {

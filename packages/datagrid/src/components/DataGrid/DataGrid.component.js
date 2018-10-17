@@ -92,7 +92,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
-			this.gridAPI.redrawRows();
+			this.gridAPI.refreshCells();
 		}
 	}
 
@@ -214,6 +214,11 @@ export default class DataGrid extends React.Component {
 					lockPinned: true,
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
+					equals: (olvValue, newValue) => {
+						console.log(olvValue);
+						console.log(newValue);
+						return false;
+					},
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
