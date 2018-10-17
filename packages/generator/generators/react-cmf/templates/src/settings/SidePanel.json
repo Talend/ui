@@ -1,0 +1,7 @@
+{
+  "props": {
+    "SidePanel#default" : {
+      "actionIds": ["menu:datastores", "menu:datasets"]
+    }
+  }
+}

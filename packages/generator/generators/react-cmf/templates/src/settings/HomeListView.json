@@ -1,0 +1,65 @@
+{
+  "props": {
+    "HomeListView#datasets": {
+      "didMountActionCreator": "componentDidMount",
+      "saga": "handleDatasetsList",
+      "sidepanel": {},
+      "list": {
+        "collectionId": "datasets",
+        "list": {
+          "columns": [
+            { "key": "id", "label": "ID" },
+            { "key": "label", "label": "Name" },
+            { "key": "created",  "label": "Created" },
+            { "key": "tags", "label": "Tags" }
+          ]
+        },
+        "toolbar": {
+          "filter": {
+            "placeholder": "Find a dataset"
+          },
+          "sort": {
+            "options": [
+              { "id": "label", "name": "Name" },
+              { "id": "created", "name": "Created" }
+            ]
+          }
+        },
+        "initialState": {
+          "sortOn": "label"
+        }
+      }
+    },
+    "HomeListView#datastores": {
+      "didMountActionCreator": "componentDidMount",
+      "saga": "handleDatastoresList",
+      "sidepanel": {},
+      "list": {
+        "collectionId": "datastores",
+        "list": {
+          "columns": [
+            { "key": "id", "label": "ID" },
+            { "key": "label", "label": "Name" },
+            { "key": "type",  "label": "Type" },
+            { "key": "datasets", "label": "Number of datasets" }
+          ]
+        },
+        "toolbar": {
+          "filter": {
+            "placeholder": "Find a datastore"
+          },
+          "sort": {
+            "options": [
+              { "id": "label", "name": "Name" },
+              { "id": "type", "name": "Type" },
+              { "id": "datasets", "name": "Number of datasets" }
+            ]
+          }
+        },
+        "initialState": {
+          "sortOn": "label"
+        }
+      }
+    }
+  }
+}

@@ -4,3 +4,4 @@
  */
 export * from './dataset';
 export * from './datastore';
+export const COMPONENT_DID_MOUNT = 'COMPONENT_DID_MOUNT';

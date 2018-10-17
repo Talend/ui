@@ -9,6 +9,8 @@ import { registerAllContainers } from '@talend/react-containers/lib/register';
 import actions from './actions';
 import components from './components';
 import reducer from './reducers';
+import sagas from './sagas';
+import saga from './saga';
 
 /**
  * This will register all containers in the CMF registry
@@ -27,6 +29,8 @@ registerAllContainers();
 cmf.bootstrap({
 	components,
 	reducer,
+	saga,
+	sagas,
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 });

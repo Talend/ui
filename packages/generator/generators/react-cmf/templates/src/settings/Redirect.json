@@ -1,0 +1,7 @@
+{
+  "props": {
+    "RedirectContainer#default": {
+      "path": "/datastores"
+    }
+  }
+}
