@@ -31,7 +31,7 @@ exports[`RendererSelector should render table list by default 1`] = `
   sortDirection="DESC"
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -43,7 +43,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     style={Object {}}
     width={50}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -55,7 +55,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     style={Object {}}
     width={350}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"
@@ -101,7 +101,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
   sortDirection="DESC"
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -113,7 +113,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     style={Object {}}
     width={50}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -125,7 +125,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     style={Object {}}
     width={350}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"
