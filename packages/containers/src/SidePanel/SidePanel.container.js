@@ -4,6 +4,7 @@ import { SidePanel as Component } from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
+import { ACTION_TYPE_LINK } from './constants';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
@@ -17,11 +18,6 @@ class SidePanel extends React.Component {
 	static displayName = 'Container(SidePanel)';
 	static propTypes = {
 		...cmfConnect.propTypes,
-	};
-	static contextTypes = {
-		store: PropTypes.object,
-		router: PropTypes.object,
-		registry: PropTypes.object,
 	};
 
 	constructor(props, context) {
@@ -48,4 +44,5 @@ class SidePanel extends React.Component {
 	}
 }
 
+SidePanel.ACTION_TYPE_LINK = ACTION_TYPE_LINK;
 export default SidePanel;

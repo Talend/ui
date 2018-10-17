@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import uuid from 'uuid';
 import cases from 'jest-in-case';
 import mock from '@talend/react-cmf/lib/mock';
 import SidePanel from './SidePanel.container';
@@ -20,55 +21,59 @@ describe('SidePanel', () => {
 });
 
 describe('SidePanel.mapStateToProps', () => {
+	let state;
+	beforeEach(() => {
+		state = mock.state();
+		state.routing = {
+			locationBeforeTransitions: {
+				pathname: '/test',
+			},
+		};
+	});
 	it('should check for each action if one goes to the current route', () => {
-		const state = mock.state();
 		const props = mapStateToProps(state, {
-			location: { pathname: '/test' },
 			actionIds: ['menu:routerReplace'],
 		});
 		expect(props.actions[0].active).toBe(true);
 
 		const notactive = mapStateToProps(state, {
-			location: { pathname: '/different' },
-			actionIds: ['menu:routerReplace'],
+			actionIds: ['menu:routerPush'],
 		});
 		expect(notactive.actions[0].active).toBeUndefined();
 
+		state.routing.locationBeforeTransitions.pathname = '/push';
 		const push = mapStateToProps(state, {
-			location: { pathname: '/push' },
 			actionIds: ['menu:routerPush'],
 		});
 		expect(push.actions[0].active).toBe(true);
 
+		state.routing.locationBeforeTransitions.pathname = '/href';
 		const href = mapStateToProps(state, {
-			location: { pathname: '/href' },
 			actionIds: ['menu:href'],
 		});
 		expect(href.actions[0].active).toBe(true);
 	});
 
 	xit('should handle actionCreator with href', () => {
-		const state = mock.state();
+		state.routing.locationBeforeTransitions.pathname = '/href';
 		const href = mapStateToProps(state, {
-			location: { pathname: '/href' },
 			actionIds: ['menu:href'],
 		});
 		expect(href.actions[0]).toBe();
 		expect(href.actions[0].href).toBe('/href');
 	});
 
-	describe('integrated menu item routing with "menuActions" prop', () => {
+	describe('integrated menu item routing with "actions" prop', () => {
 		it('should do nothing if prop not exists', () => {
-			const state = mock.state();
 			const props = mapStateToProps(state, {});
 			expect(props.actions).toBeUndefined();
 		});
 
-		it('should construct the actions based on the props given in "menuActions" elements', () => {
-			const state = mock.state();
-			const props = mapStateToProps(state, {
-				location: { pathname: '/whatever/current/path' },
-				menuActions: [
+		it('should construct the actions based on the props given in "actions" elements', () => {
+			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
+			const ownProps = {
+				componentId: uuid.v4(),
+				actions: [
 					{
 						whateverAction: 'prop',
 					},
@@ -76,29 +81,36 @@ describe('SidePanel.mapStateToProps', () => {
 						anotherRandomSpecificActionProp: 'other prop',
 					},
 				],
-			});
-			expect(props.actions[0].whateverAction).toBe('prop');
-			expect(props.actions[1].anotherRandomSpecificActionProp).toBe('other prop');
+			};
+			const props = mapStateToProps(state, ownProps);
+			expect(props.actions).not.toBe(ownProps.actions);
+			expect(props.actions.length).toBe(ownProps.actions.length);
+			expect(props.actions[0]).toBe(ownProps.actions[0]);
+			expect(props.actions[1]).toBe(ownProps.actions[1]);
 		});
 
-		it('should define the routing onClick for each "menuActions" item if "path" is specified', () => {
-			const state = mock.state();
+		it('should define the routing onClick for each "actions" item if "path" is specified', () => {
+			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
 			const props = mapStateToProps(state, {
-				location: { pathname: '/whatever/current/path' },
-				menuActions: [
+				componentId: uuid.v4(),
+				actions: [
 					{
 						whateverAction: 'prop',
-						path: 'whatever/path/to/route',
+						href: 'whatever/path/to/route',
 					},
 					{
 						anotherRandomSpecificActionProp: 'other prop',
 					},
 				],
 			});
-			expect(props.actions[0].onClickDispatch).toEqual({
-				type: 'MENU_LINK',
-				cmf: {
-					routerReplace: 'whatever/path/to/route',
+			expect(props.actions[0]).toMatchObject({
+				href: 'whatever/path/to/route',
+				onClick: expect.anything(),
+				onClickDispatch: {
+					type: 'MENU_LINK',
+					cmf: {
+						routerPush: 'whatever/path/to/route',
+					},
 				},
 			});
 			expect(props.actions[1].onClick).toBeUndefined();
@@ -107,18 +119,18 @@ describe('SidePanel.mapStateToProps', () => {
 		cases(
 			'should define "selected" action based on the same "menuActions" item "path"',
 			({ currentRoute, itemRoute, isMatching }) => {
-				const state = mock.state();
+				state.routing.locationBeforeTransitions.pathname = currentRoute;
 				const actionSelectable = {
 					identity: 'The one',
-					path: itemRoute,
+					href: itemRoute,
 				};
 
 				const props = mapStateToProps(state, {
-					location: { pathname: currentRoute },
-					menuActions: [
+					componentId: uuid.v4(),
+					actions: [
 						{
 							anotherRandomSpecificActionProp: 'other prop',
-							path: 'whatever/path/to/route',
+							href: 'whatever/path/to/route',
 						},
 						actionSelectable,
 					],
@@ -192,27 +204,25 @@ describe('SidePanel.mapStateToProps', () => {
 		);
 
 		it('should memoized "actions" and "selected" computed', () => {
-			const state = mock.state();
-
-			const menuActions = [
+			const actions = [
 				{
-					path: 'whatever/path/to/route',
+					href: 'whatever/path/to/route',
 				},
 				{
-					path: 'whatever/other/path/to/route',
+					href: 'whatever/other/path/to/route',
 				},
 			];
 
-			const currentRoute = 'whatever/path/to/route/somewhere';
-
+			state.routing.locationBeforeTransitions.pathname = 'whatever/path/to/route/somewhere';
+			const componentId = uuid.v4();
 			const propsStep1 = mapStateToProps(state, {
-				location: { pathname: currentRoute },
-				menuActions,
+				componentId,
+				actions,
 			});
 
 			const propsStep2 = mapStateToProps(state, {
-				location: { pathname: currentRoute },
-				menuActions,
+				componentId,
+				actions,
 			});
 
 			expect(propsStep1.actions).toBe(propsStep2.actions);
@@ -231,9 +241,5 @@ describe('SidePanel.mergeProps', () => {
 		expect(props.bar).toBe('bar');
 		expect(props.baz).toBe('baz');
 		expect(props.foo).toBe('foo');
-	});
-	it('should delete "menuActions"', () => {
-		const props = mergeProps({}, {}, { menuActions: [] });
-		expect(props.menuActions).toBeUndefined();
 	});
 });

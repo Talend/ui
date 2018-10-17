@@ -1,9 +1,10 @@
 import get from 'lodash/get';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 import zip from 'lodash/zip';
-import memoizeOne from 'memoize-one';
-import { withRouter } from 'react-router';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
+import { ACTION_TYPE_LINK } from './constants';
+
+const cache = {};
 
 function splitPath(path) {
 	return path.replace(/^(\/)/, '').split('/');
@@ -18,79 +19,74 @@ function isBasePathOf(pathToCheck, fullPath) {
 		.every(([pathToCheckPart, fullPathPart]) => pathToCheckPart === fullPathPart);
 }
 
-const getActionsWrapped = memoizeOne(menuActions =>
-	menuActions.map(menuAction => {
-		const { path, ...actionProps } = menuAction;
-		const action = {
-			...actionProps,
-		};
-
-		if (path) {
-			action.onClickDispatch = {
-				type: 'MENU_LINK',
-				cmf: {
-					routerReplace: path,
-				},
-			};
-		}
-
+const getActionsWrapped = actions => actions.map(action => {
+	if (!action.href) {
+		return action;  // do not change ref
+	}
+	if (action.href && !action.onClick && !action.onClickDispatch && !action.onClickActionCreator) {
 		return {
-			action,
-			menuAction,
+			...action,
+			onClick: event => {
+				event.preventDefault();
+				event.stopPropagation();
+			},
+			onClickDispatch: {
+				type: ACTION_TYPE_LINK,
+				cmf: {
+					routerPush: action.href,
+				},
+			},
 		};
-	}),
-);
-
-const getActionsFromWrapper = memoizeOne(actionsWrapped =>
-	actionsWrapped.map(({ action }) => action),
-);
-
-const getSelectedAction = memoizeOne((currentRoute, actionsWrapped) => {
-	const actionsSelected = actionsWrapped
-		.filter(({ menuAction }) => menuAction.path && isBasePathOf(menuAction.path, currentRoute))
-		.map(({ action }) => action);
-	return actionsSelected[0] || undefined;
+	}
+	return action;
 });
+
+const getSelectedAction = (currentRoute, actions) => actions
+	.find(action => action.href && isBasePathOf(action.href, currentRoute));
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
+	const currentRoute = cmf.selectors.router.getPath(state);
 	if (ownProps.actionIds) {
-		props.actions = ownProps.actionIds.map(id => {
-			const action = { actionId: id };
-			const info = cmf.action.getActionInfo(
-				{
-					registry: cmf.registry.getRegistry(),
-					store: {
-						getState: () => state,
+		const cacheKey = `${currentRoute}-${ownProps.actionIds.join('#')}`;
+		if (!cache[cacheKey]) {
+			cache[cacheKey] = ownProps.actionIds.map(id => {
+				const action = { actionId: id };
+				const info = cmf.action.getActionInfo(
+					{
+						registry: cmf.registry.getRegistry(),
+						store: {
+							getState: () => state,
+						},
 					},
-				},
-				id,
-			);
-			action.label = info.label;
-			action.id = info.id;
-			let route = get(info, 'payload.cmf.routerReplace');
-			if (!route) {
-				route = get(info, 'payload.cmf.routerPush');
-			}
-			if (!route) {
-				route = get(info, 'href');
-			}
-			if (route) {
-				const currentRoute = ownProps.location.pathname;
-				if (currentRoute.indexOf(route) !== -1) {
-					action.active = true;
+					id,
+				);
+				action.label = info.label;
+				action.id = info.id;
+				let route = get(info, 'payload.cmf.routerReplace');
+				if (!route) {
+					route = get(info, 'payload.cmf.routerPush');
 				}
-			}
-			return action;
-		});
-	} else if (ownProps.menuActions) {
-		const actionsWrapped = getActionsWrapped(ownProps.menuActions);
+				if (!route) {
+					route = get(info, 'href');
+				}
+				if (route) {
+					if (currentRoute.indexOf(route) !== -1) {
+						action.active = true;
+					}
+				}
+				return action;
+			});
+		}
+		props.actions = cache[cacheKey];
+	} else if (ownProps.actions) {
+		const cacheKey = ownProps.componentId || 'default';
+		if (!cache[cacheKey]) {
+			cache[cacheKey] = getActionsWrapped(ownProps.actions);
+		}
+		props.actions = cache[cacheKey];
 
-		props.actions = getActionsFromWrapper(actionsWrapped);
-
-		const currentRoute = ownProps.location.pathname;
-
-		props.selected = getSelectedAction(currentRoute, actionsWrapped);
+		props.selected = getSelectedAction(currentRoute, props.actions);
 	}
 	return props;
 }
@@ -100,17 +96,12 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	if (props.actionIds) {
 		delete props.actionIds;
 	}
-	if (props.menuActions) {
-		delete props.menuActions;
-	}
 	return props;
 }
 
-export default withRouter(
-	cmfConnect({
-		defaultState: DEFAULT_STATE,
-		keepComponentState: true,
-		mapStateToProps,
-		mergeProps,
-	})(Container),
-);
+export default cmfConnect({
+	defaultState: DEFAULT_STATE,
+	keepComponentState: true,
+	mapStateToProps,
+	mergeProps,
+})(Container);
