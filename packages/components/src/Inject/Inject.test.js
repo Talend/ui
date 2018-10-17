@@ -213,9 +213,10 @@ describe('Inject.getReactElement', () => {
 	});
 	it('should support element as Array', () => {
 		const getComponent = jest.fn();
-		const data = [{ component: 'what', extra: true }];
+		const data = [{ component: 'what', componentId: 'me', extra: true }, 'Foo'];
 		expect(Inject.getReactElement(getComponent, data)).toEqual([
-			<Inject getComponent={getComponent} component="what" extra />,
+			<Inject getComponent={getComponent} component="what" componentId="me" extra key="what#me" />,
+			<Inject getComponent={getComponent} component="Foo" key="Foo#default" />,
 		]);
 	});
 	it('should return undefined if data is undefined', () => {
