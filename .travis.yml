@@ -26,6 +26,7 @@ matrix:
         - which npm
         - which node
         - npm config list -l
+        - export NODE_PATH=$NODE_PATH:`npm root -g`
         - echo $NODE_PATH
         - npm install -g --verbose commander
         - ./versions/version.js
