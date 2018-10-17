@@ -4,7 +4,7 @@ import { Column } from 'react-virtualized';
 
 
 function DefaultRenderer({ cellData }) {
-	return <div>{ cellData }</div>;
+	return <div className={'tc-virtualizedlist-default-cell'}>{ cellData }</div>;
 }
 
 DefaultRenderer.propTypes = {

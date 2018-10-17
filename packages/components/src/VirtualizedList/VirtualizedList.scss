@@ -17,16 +17,14 @@
 				}
 			}
 		}
-
-		div[role='gridcell'] {
-			> div {
-				min-width: 0;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
-			}
-		}
 	}
+}
+
+:global(.tc-virtualizedlist-default-cell) {
+	min-width: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .tc-list-progress {
