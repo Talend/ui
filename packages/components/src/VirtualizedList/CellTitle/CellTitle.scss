@@ -97,6 +97,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
+			border: 1px solid blue;
 			background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
 		}
 	}
