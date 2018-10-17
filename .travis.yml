@@ -26,7 +26,7 @@ matrix:
         - which npm
         - which node
         - echo $NODE_PATH
-        - npm install --global --verbose commander
+        - npm install -g --verbose commander
         - which commander
         - ./versions/version.js
       script:
