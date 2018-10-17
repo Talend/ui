@@ -12,7 +12,6 @@ $tc-typeahead-item-description-color: #c0c0c0 !default;
 $tc-typeahead-section-border-color: #e0e0e0 !default;
 
 $tc-typeahead-icon-color: $gray !default;
-$tc-typeahead-icon-size: $svg-md-size !default;
 $tc-typeahead-only-icon-color: #ccc !default;
 $tc-typeahead-section-header-color: #63aebd !default;
 
@@ -86,15 +85,19 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		align-items: center;
 
 		.icon-cls {
-			position: absolute;
-			right: 0;
+			margin: -2em;
 			color: $tc-typeahead-icon-color;
 			pointer-events: none;
 
-			> svg {
-				height: $tc-typeahead-icon-size;
-				width: $tc-typeahead-icon-size;
-				margin: 0 0.6rem;
+			&.icon-caret {
+				position: absolute;
+				margin: 0;
+				right: 0;
+
+				> svg {
+					height: 0.8rem;
+					width: 0.8rem;
+				}
 			}
 		}
 	}
