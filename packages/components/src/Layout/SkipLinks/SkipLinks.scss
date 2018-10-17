@@ -1,0 +1,15 @@
+.tc-skip-links {
+	> li {
+		@extend .sr-only;
+		z-index: 20;
+
+		> a {
+			&:focus {
+				position: absolute;
+				height: $navbar-height;
+				visibility: visible;
+				background: $white;
+			}
+		}
+	}
+}

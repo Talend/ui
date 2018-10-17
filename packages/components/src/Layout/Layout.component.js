@@ -5,6 +5,8 @@ import Inject from '../Inject';
 import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
+import SkipLinks from './SkipLinks';
+
 import theme from './Layout.scss';
 import {
 	DISPLAY_MODES,
@@ -66,6 +68,7 @@ function Layout({
 
 	return (
 		<div id={id} className={appCSS}>
+			<SkipLinks />
 			{safeHeader && (
 				<header key="banner" role="banner" className={headerCSS}>
 					{safeHeader}
