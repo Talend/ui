@@ -45,15 +45,14 @@
 /// @access public
 /// @param {Color} $btn-color [$btn-default-bg] - button background color to tint
 @mixin btn-inverse-colors($btn-color: $btn-default-bg) {
-	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
-	// so we change the line-height and the min-height to match 3.5rem ($btn-line-height) - borders
-	$border-width: 1.5px;
+	$border-width: .15rem;
 
 	&.btn-inverse {
 		background-color: transparent;
 		color: $btn-color;
 		box-shadow: none;
 		border: $border-width solid $btn-color;
+		line-height: $btn-line-height - (2 * $border-width);
 
 		&:active,
 		&.active,

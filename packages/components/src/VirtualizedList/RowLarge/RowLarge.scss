@@ -26,7 +26,7 @@ $tc-list-large-field-value-color: $dove-gray !default;
 			flex-shrink: 1;
 		}
 		:global(.cell-title-actions) {
-			background: linear-gradient(to right, transparent, $tc-list-large-hover-bg 20px);
+			background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-large-hover-bg 20px);
 		}
 	}
 
