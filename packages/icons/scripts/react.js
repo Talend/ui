@@ -9,7 +9,15 @@ const buff = Object.keys(lib.svgs)
 		const svg = `${lib.svgs[key]}`.replace(/class/g, 'className').replace(/fill-rule/g, 'fillRule');
 		return `icons['talend-${key}'] = (${svg});`;
 	})
-	.concat(Object.keys(lib.filters).map(key => `filters['${key}'] = (${lib.filters[key]});`));
+	.concat(
+		Object.keys(lib.filters).map(key => {
+			const svg = `${lib.filters[key]}`.replace(
+				/color-interpolation-filters/g,
+				'colorInterpolationFilters',
+			);
+			return `filters['${key}'] = (${svg});`;
+		}),
+	);
 
 buff.unshift('');
 buff.unshift('const icons = {};');

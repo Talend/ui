@@ -90,7 +90,7 @@ exports[`Storyshots ActionList default 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="colormapping"
           >
             <feColorMatrix
@@ -113,7 +113,7 @@ exports[`Storyshots ActionList default 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -448,7 +448,7 @@ exports[`Storyshots ActionList single 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="colormapping"
           >
             <feColorMatrix
@@ -471,7 +471,7 @@ exports[`Storyshots ActionList single 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -646,7 +646,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="colormapping"
           >
             <feColorMatrix
@@ -669,7 +669,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
