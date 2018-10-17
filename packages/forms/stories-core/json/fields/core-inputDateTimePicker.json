@@ -39,45 +39,52 @@
     {
       "key": "propSimpleNumber",
       "title": "Basic with number type",
-      "widget": "inputDateTimePicker"
+      "widget": "inputDateTimePicker",
+      "validationMessage": "Invalid date format"
     },
     {
       "key": "propAutofocus",
       "title": "Autofocus input",
       "widget": "inputDateTimePicker",
       "autoFocus": true,
-      "placeholder": "Type the date here..."
+      "placeholder": "Type the date here...",
+      "validationMessage": "Invalid date format"
     },
     {
       "key": "propSimpleString",
       "title": "Basic with string type",
-      "widget": "inputDateTimePicker"
+      "widget": "inputDateTimePicker",
+      "validationMessage": "Invalid date format"
     },
     {
       "key": "propNumberInitWithError",
       "title": "Basic with number type",
       "description": "Initialised with a bad format",
-      "widget": "inputDateTimePicker"
+      "widget": "inputDateTimePicker",
+      "validationMessage": "Invalid date format"
     },
     {
       "key": "propStringInitWithError",
       "title": "Basic with string type",
       "description": "Initialised with a bad format",
-      "widget": "inputDateTimePicker"
+      "widget": "inputDateTimePicker",
+      "validationMessage": "Invalid date format"
     },
     {
       "key": "propDisabled",
       "title": "Disabled widget",
       "widget": "inputDateTimePicker",
       "description": "You can always try to click...",
-      "disabled": true
+      "disabled": true,
+      "validationMessage": "Invalid date format"
     },
     {
       "key": "propReadOnly",
       "title": "Readonly widget",
       "widget": "inputDateTimePicker",
       "description": "You can always try to change me",
-      "readOnly": true
+      "readOnly": true,
+      "validationMessage": "Invalid date format"
     }
   ],
   "properties": {

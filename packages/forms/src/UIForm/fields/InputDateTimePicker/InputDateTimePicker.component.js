@@ -6,18 +6,8 @@ import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
 import { UnhandleTypeError, UnexpectedTypeError } from './WrongTypeError';
 
-export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
-
 const INVALID_DATE = new Date('');
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
-
-function isDateValid(date) {
-	if (date === undefined) {
-		return true;
-	}
-
-	return date instanceof Date && !isNaN(date.getTime());
-}
 
 function convertDateToTimestamp(date) {
 	return date.getTime();
@@ -75,10 +65,9 @@ function convertFromDate(type, date) {
 		case 'string':
 			return convertDateToString(date);
 		default: {
-			const unhandleTypeError = new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
 			// eslint-disable-next-line no-console
-			console.error(unhandleTypeError);
-			return unhandleTypeError;
+			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
+			return INVALID_DATE;
 		}
 	}
 }
@@ -87,22 +76,9 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			value: props.value,
-		};
-
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const newValue = nextProps.value;
-		if (newValue !== this.state.value && !(newValue instanceof Error)) {
-			this.setState({
-				value: newValue,
-			});
-		}
 	}
 
 	/**
@@ -114,8 +90,7 @@ class InputDateTimePicker extends React.Component {
 		const type = schema.schema.type;
 
 		const hasError = errorMessage !== undefined;
-
-		const value = hasError ? new Error(errorMessage) : convertFromDate(type, date);
+		const value = hasError ? date : convertFromDate(type, date);
 
 		const payload = {
 			schema: this.props.schema,
@@ -133,15 +108,13 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const { schema } = this.props;
 		const type = schema.schema.type;
-		const datetime = this.convertToDate(type, this.state.value);
-		const isWidgetError = this.props.value instanceof Error;
-		const errorMessage =
-			isWidgetError || isDateValid(datetime) ? this.props.errorMessage : GENERIC_FORMAT_ERROR;
+		const isAlreadyADate = this.props.value instanceof Date;
+		const datetime = isAlreadyADate ? this.props.value : this.convertToDate(type, this.props.value);
 
 		return (
 			<FieldTemplate
 				description={schema.description}
-				errorMessage={errorMessage}
+				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={schema.title}
