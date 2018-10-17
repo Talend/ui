@@ -27,6 +27,7 @@ matrix:
         - which node
         - echo $NODE_PATH
         - npm install --global --verbose commander
+        - which commander
         - ./versions/version.js
       script:
         - yarn test
