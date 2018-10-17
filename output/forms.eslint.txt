@@ -10,3 +10,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   12:1   error  Line 12 exceeds the maximum line length of 100  max-len
 
 ✖ 3 problems (3 errors, 0 warnings)
+
