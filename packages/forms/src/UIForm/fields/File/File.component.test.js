@@ -3,25 +3,29 @@ import { shallow } from 'enzyme';
 import File from './File.component';
 
 describe('File field', () => {
+	const schema = {
+		autoFocus: false,
+		description: 'This is the file field',
+		placeholder: 'Select a file to upload',
+		disabled: false,
+		readOnly: false,
+		title: 'Upload file',
+	};
+
 	const props = {
 		id: 'my-file-field',
+		required: false,
 		isValid: true,
 		errorMessage: 'This is wrong',
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
-		schema: {
-			autoFocus: false,
-			description: 'This is the file field',
-			disabled: false,
-			readOnly: false,
-			title: 'File',
-		},
+		schema,
 		value: '',
 	};
 
 	it('should render default File', () => {
 		// when
-		const wrapper = shallow(<File {...props} />);
+		const wrapper = shallow(<File.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -35,9 +39,61 @@ describe('File field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<File {...valuedProps} />);
+		const wrapper = shallow(<File.WrappedComponent {...valuedProps} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should trigger onChange when user select file', () => {
+		// given
+		const wrapper = shallow(<File.WrappedComponent {...props} />);
+		expect(props.onChange).not.toBeCalled();
+		const testContent = { test: 'content' };
+		const blob = new Blob(
+			[JSON.stringify(testContent, null, 2)],
+			{ type: 'application/json', name: 'test.json' }
+		);
+		const event = {
+			preventDefault: jest.fn(),
+			target: {
+				files: [
+					blob,
+				],
+			},
+		};
+		const value = 'data:application/json;name=;base64,ewogICJ0ZXN0IjogImNvbnRlbnQiCn0=';
+
+		// when
+		const fileInput = wrapper.find('input[type="file"]');
+		fileInput.simulate('change', event);
+
+		// then
+		// Loading a file is asynchronous, so wait for the file to be loaded
+		setTimeout(() => {
+			expect(props.onChange).toHaveBeenCalledWith(event, { schema, value });
+		}, 500);
+	});
+
+	it('should trigger onChange when user cancel file', () => {
+		// given
+		const wrapper = shallow(<File.WrappedComponent {...props} />);
+		const event = {
+			preventDefault: jest.fn(),
+			target: {
+				files: [],
+			},
+		};
+		const value = 'data:application/json;name=;base64,ewogICJ0ZXN0IjogImNvbnRlbnQiCn0=';
+
+		// when
+		const fileInput = wrapper.find('input[type="file"]');
+		fileInput.simulate('change', event);
+
+		// then
+		// Loading a file is asynchronous, so wait for the file to be loaded
+		setTimeout(() => {
+			expect(props.onChange).toHaveBeenCalledWith(event, { schema, value });
+		}, 500);
 	});
 });
