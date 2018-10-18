@@ -19,30 +19,31 @@ function isBasePathOf(pathToCheck, fullPath) {
 		.every(([pathToCheckPart, fullPathPart]) => pathToCheckPart === fullPathPart);
 }
 
-const getActionsWrapped = actions => actions.map(action => {
-	if (!action.href) {
-		return action;  // do not change ref
-	}
-	if (action.href && !action.onClick && !action.onClickDispatch && !action.onClickActionCreator) {
-		return {
-			...action,
-			onClick: event => {
-				event.preventDefault();
-				event.stopPropagation();
-			},
-			onClickDispatch: {
-				type: ACTION_TYPE_LINK,
-				cmf: {
-					routerPush: action.href,
+const getActionsWrapped = actions =>
+	actions.map(action => {
+		if (!action.href) {
+			return action; // do not change ref
+		}
+		if (action.href && !action.onClick && !action.onClickDispatch && !action.onClickActionCreator) {
+			return {
+				...action,
+				onClick: event => {
+					event.preventDefault();
+					event.stopPropagation();
 				},
-			},
-		};
-	}
-	return action;
-});
+				onClickDispatch: {
+					type: ACTION_TYPE_LINK,
+					cmf: {
+						routerPush: action.href,
+					},
+				},
+			};
+		}
+		return action;
+	});
 
-const getSelectedAction = (currentRoute, actions) => actions
-	.find(action => action.href && isBasePathOf(action.href, currentRoute));
+const getSelectedAction = (currentRoute, actions) =>
+	actions.find(action => action.href && isBasePathOf(action.href, currentRoute));
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
