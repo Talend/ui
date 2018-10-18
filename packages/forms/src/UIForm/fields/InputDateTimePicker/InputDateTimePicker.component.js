@@ -79,6 +79,8 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.lastValueChanged = props.value;
+
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
@@ -99,13 +101,14 @@ class InputDateTimePicker extends React.Component {
 			schema: this.props.schema,
 			value,
 		};
+		this.lastValueChanged = value;
 		this.props.onChange(event, payload);
 	}
 
 	onBlur(event) {
-		// TODO: Forcer l'envoi des dernières données reçues lors du onChange pour s'assurer de valider les dernières données dans le formulaire
 		this.props.onFinish(event, {
 			schema: this.props.schema,
+			value: this.lastValueChanged,
 		});
 	}
 

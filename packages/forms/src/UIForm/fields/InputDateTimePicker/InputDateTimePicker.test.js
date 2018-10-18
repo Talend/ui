@@ -446,5 +446,32 @@ describe('InputDateTimePicker', () => {
 			expect(onFinishEvent).toBe(fakeEvent);
 			expect(onFinishPayload.schema).toBe(initialSchema);
 		});
+
+		it('should trigger onFinish with the latest onChange value particularly in synchronously calling onChange and onBlur', () => {
+			const initialValue = undefined;
+			const initialSchema = getSchema('number');
+			const fakeEvent = {
+				whatever: 'property',
+			};
+			const changedDate = new Date(2015, 10, 25, 19, 11);
+			const onFinish = jest.fn();
+			const wrapper = shallow(
+				<InputDateTimePicker
+					id="my-datepicker"
+					isValid
+					onChange={jest.fn()}
+					onFinish={onFinish}
+					schema={initialSchema}
+					value={initialValue}
+				/>,
+			);
+
+			const componentWrapper = wrapper.find('InputDateTimePicker');
+			componentWrapper.prop('onChange')(fakeEvent, undefined, changedDate);
+			componentWrapper.prop('onBlur')(fakeEvent);
+
+			const onFinishPayload = onFinish.mock.calls[0][1];
+			expect(onFinishPayload.value).toBe(changedDate.getTime());
+		});
 	});
 });
