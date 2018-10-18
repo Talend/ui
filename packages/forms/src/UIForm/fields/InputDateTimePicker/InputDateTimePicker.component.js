@@ -103,6 +103,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onBlur(event) {
+		// TODO: Forcer l'envoi des dernières données reçues lors du onChange pour s'assurer de valider les dernières données dans le formulaire
 		this.props.onFinish(event, {
 			schema: this.props.schema,
 		});

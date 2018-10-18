@@ -252,10 +252,10 @@ class InputDateTimePicker extends React.Component {
 			textInput: getTextDate(date, time),
 			datetime: getDateTimeFrom(date, time),
 			errorMessage: undefined,
+		}).then(() => {
+			this.switchDropdownVisibility(false);
+			this.triggerBlur(event);
 		});
-
-		this.switchDropdownVisibility(false);
-		this.triggerBlur(event);
 	}
 
 	onChangeInput(event) {
@@ -366,16 +366,19 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	updateDatePartStateAndTriggerChange(event, dateStatePart) {
-		const lastInfos = {
-			datetime: this.state.datetime,
-			errorMessage: this.state.errorMessage,
-		};
-		this.setState(dateStatePart, () => {
-			const newInfos = {
-				datetime: dateStatePart.datetime,
-				errorMessage: dateStatePart.errorMessage,
+		return new Promise(resolve => {
+			const lastInfos = {
+				datetime: this.state.datetime,
+				errorMessage: this.state.errorMessage,
 			};
-			this.triggerChange(event, lastInfos, newInfos);
+			this.setState(dateStatePart, () => {
+				const newInfos = {
+					datetime: dateStatePart.datetime,
+					errorMessage: dateStatePart.errorMessage,
+				};
+				this.triggerChange(event, lastInfos, newInfos);
+				resolve();
+			});
 		});
 	}
 
