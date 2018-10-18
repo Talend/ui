@@ -2,17 +2,21 @@
 
 This connected component give the possibility to handle the routing in the menu internally. In one hand the menu actions handle the change of route and in the other hand, it will define the currently selected/active action of the menu.
 
+
 ## props
 
-| name        |  description                    |
-| ----------- | ------------------------------- |
-| menuActions | An optional array of menuAction |
+| name    |  description                    |
+| ------- | ------------------------------- |
+| actions | A required array of Action props |
 
-A menuAction is an object of action props with some overloaded props used just at this layer :
+The sidepanel will parse theses props and will manage the selected item using `action.href` and the router current path.
 
-- `path` : If set, it will :
-  - create internally the onClickDispatch with a route change
-  - use this prop to match against the current route and define the `selected` action base on it
+The fact that you add href to the action props will
+
+- add the onClickDispatch that will change the route
+- It will render a link instead of a button but the UI is the same (not the UX)
+- use this prop to match against the current route and define the `selected` action base on it which is the props used by the pure component to make the corresponding <li> as the selected one
+
 
 ## Example of use
 
@@ -23,14 +27,14 @@ In a cmf setting :
 	"props": {
 		"SidePanel#main": {
 			"dockable": true,
-			"menuActions": [
+			"actions": [
 				{
 					"componentId": "menu:feature1",
-					"path": "/feature1"
+					"href": "/feature1"
 				},
 				{
 					"componentId": "menu:feature2",
-					"path": "/feature2"
+					"href": "/feature2"
 				}
 			]
 		},
