@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
+import uniq from 'lodash/uniq';
 import {
 	mockDate,
 	restoreDate,
@@ -375,6 +376,45 @@ describe('InputDateTimePicker', () => {
 				const componentWrapper = wrapper.find('InputDateTimePicker');
 				const selectedDateTime = componentWrapper.prop('selectedDateTime');
 				expect(selectedDateTime).toBe(formProperty);
+			});
+
+			it('should give a different InvalidDate for each error cases', () => {
+				function getSelectedDateTime(wrapper) {
+					const componentWrapper = wrapper.find('InputDateTimePicker');
+					return componentWrapper.prop('selectedDateTime');
+				}
+				const selectedDateTimes = [];
+				const wrapper = shallow(
+					<InputDateTimePicker
+						id="my-datepicker"
+						isValid
+						errorMessage="You've done something wrong"
+						onChange={jest.fn()}
+						onFinish={jest.fn()}
+						schema={getSchema('string')}
+						value={'whatever wrong data'}
+					/>,
+				);
+				// Bad string format
+				selectedDateTimes.push(getSelectedDateTime(wrapper));
+
+				// Bad type (number against string)
+				wrapper.setProps({
+					value: 545646456464564,
+				});
+				wrapper.update();
+				selectedDateTimes.push(getSelectedDateTime(wrapper));
+
+				// Unhandle type (boolean)
+				wrapper.setProps({
+					schema: getSchema('boolean'),
+				});
+				wrapper.update();
+				selectedDateTimes.push(getSelectedDateTime(wrapper));
+
+				const uniqSelectedDateTimes = uniq(selectedDateTimes);
+
+				expect(uniqSelectedDateTimes).toHaveLength(selectedDateTimes.length);
 			});
 		});
 	});

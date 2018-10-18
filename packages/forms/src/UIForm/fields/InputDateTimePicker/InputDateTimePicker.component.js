@@ -6,8 +6,11 @@ import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
 import { UnhandleTypeError, UnexpectedTypeError } from './WrongTypeError';
 
-const INVALID_DATE = new Date('');
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
+
+function generateInvalidDate() {
+	return new Date('');
+}
 
 function convertDateToTimestamp(date) {
 	return date.getTime();
@@ -23,7 +26,7 @@ function convertDateToString(date) {
 
 function convertStringToDate(str) {
 	if (!isoDateTimeRegExp.test(str)) {
-		return INVALID_DATE;
+		return generateInvalidDate();
 	}
 
 	return new Date(str);
@@ -39,7 +42,7 @@ function convertToDate(type, value) {
 	if (typeOfValue !== type) {
 		// eslint-disable-next-line no-console
 		console.error(new UnexpectedTypeError(type, typeOfValue));
-		return INVALID_DATE;
+		return generateInvalidDate();
 	}
 
 	switch (type) {
@@ -50,7 +53,7 @@ function convertToDate(type, value) {
 		default:
 			// eslint-disable-next-line no-console
 			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return INVALID_DATE;
+			return generateInvalidDate();
 	}
 }
 
@@ -67,7 +70,7 @@ function convertFromDate(type, date) {
 		default: {
 			// eslint-disable-next-line no-console
 			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return INVALID_DATE;
+			return generateInvalidDate();
 		}
 	}
 }
