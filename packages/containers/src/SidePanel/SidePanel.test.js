@@ -5,6 +5,7 @@ import cases from 'jest-in-case';
 import mock from '@talend/react-cmf/lib/mock';
 import SidePanel from './SidePanel.container';
 import { mapStateToProps, mergeProps } from './SidePanel.connect';
+import { ACTION_TYPE_LINK } from './constants';
 
 describe('SidePanel', () => {
 	it('should render', () => {
@@ -107,7 +108,7 @@ describe('SidePanel.mapStateToProps', () => {
 				href: 'whatever/path/to/route',
 				onClick: expect.anything(),
 				onClickDispatch: {
-					type: 'MENU_LINK',
+					type: ACTION_TYPE_LINK,
 					cmf: {
 						routerPush: 'whatever/path/to/route',
 					},
