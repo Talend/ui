@@ -30,9 +30,11 @@ exports[`File field should render File with data 1`] = `
       type="file"
     />
     <input
+      autoComplete="off"
       className="form-control theme-file-replace"
       name="input-filename-my-file-field"
       placeholder="Select a file to upload"
+      tabIndex="-1"
       type="text"
       value="test.xml"
     />
@@ -70,9 +72,11 @@ exports[`File field should render default File 1`] = `
       type="file"
     />
     <input
+      autoComplete="off"
       className="form-control theme-file-replace"
       name="input-filename-my-file-field"
       placeholder="Select a file to upload"
+      tabIndex="-1"
       type="text"
       value=""
     />
