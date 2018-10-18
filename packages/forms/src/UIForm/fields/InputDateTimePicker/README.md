@@ -4,13 +4,13 @@ This widget surprisingly allows you to render an InputDateTimePicker.
 
 ## Data conversion
 
-The underlying _InputDateTimePicker_ component handles a Date object and the form handles the final submited format, which can be an iso string or a timestamp number. Thereby, a conversion need to be done, in both way, and [some errors can occur](#error-handling).
+The underlying _InputDateTimePicker_ component handles a Date object and the form handles the final submited format, which can be an iso string or a timestamp number. Thereby, a conversion need to be done, in both way, and some errors can occur. In case of an error, an InvalidDate is generated and spread to the destination either to the form or to the component.
 
 ### Procedure
 
 The form give the value to the widget. It try to convert the value to a Date based on the form property type (number or string) and spread it to the _InputDateTimePicker_ component.
 
-In the other way, the widget give a Date object to the widget, which is converted to number or string (is still based on the form property type).
+In the other way, the widget give a Date object to the widget, which is converted to number or string (still based on the form property type).
 
 ### Timestamp format
 
@@ -65,6 +65,7 @@ Example : "2018-01-01T10:35:48.951Z"
 | disabled    | Disable the input                                              | `false` |
 | placeholder | Text to display as placeholder                                 |         |
 | readOnly    | Set the input as non modifiable and prevent datepicker to open | `false` |
+| validationMessage | Required to override all the technical error message not wanted to display for the user ||
 
 ```json
 [
@@ -75,23 +76,8 @@ Example : "2018-01-01T10:35:48.951Z"
 		"autoFocus": false,
 		"disabled": false,
 		"placeholder": "Type the date here...",
-		"readOnly": false
+		"readOnly": false,
+		"validationMessage": "The date is not valid"
 	}
 ]
 ```
-
-## Error handling
-
-### Widget error
-
-Those type of errors occur when the text input typed don't match the format required. An error message is sent to the widget, which wrap it in an Error object and spread it to the form as the value.
-
-The form interpret the Error object value as an error and extract the message before any other checks (require check, type check, custom check, etc.). The error is giving back to the widget in the normal path as the _errorMessage_. The last widget value held in widget state is spread to the component and not the Error object.
-
-### Form data error
-
-Those type of errors occur when the data is invalidated by the form.
-
-If the data has an invalid format and therefore is impossible to convert to a valid Date, an InvalidDate is spread to the component and the _widget generic format error_ is used as an override of the _form error message_ to display.
-
-If the data is a valid format and can be converted to a valid Date but some rule is not validated (like a range rule or a value required), the value is spread as is to the component and the _form error message_ is kept to display.
