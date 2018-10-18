@@ -19,7 +19,8 @@ const BASE64_PREFIX = ';base64,';
 function getFileName(value) {
 	if (value && value.indexOf(BASE64_NAME) !== -1) {
 		return value.slice(
-			value.indexOf(BASE64_NAME) + BASE64_NAME.length, value.indexOf(BASE64_PREFIX)
+			value.indexOf(BASE64_NAME) + BASE64_NAME.length,
+			value.indexOf(BASE64_PREFIX),
 		);
 	}
 	return '';
@@ -38,7 +39,9 @@ function getBase64(value, fileName) {
 	if (value && value.indexOf(BASE64_NAME) === -1) {
 		const fileNamePos = value.indexOf(BASE64_PREFIX);
 		if (fileNamePos !== -1) {
-			return [value.slice(0, fileNamePos), BASE64_NAME, fileName, value.slice(fileNamePos)].join('');
+			return [value.slice(0, fileNamePos), BASE64_NAME, fileName, value.slice(fileNamePos)].join(
+				'',
+			);
 		}
 	}
 	return value;
