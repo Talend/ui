@@ -120,6 +120,8 @@ class FileWidget extends React.Component {
 						value={this.state.fileName}
 						type="text"
 						placeholder={placeholder}
+						tabIndex="-1"
+						autoComplete="off"
 					/>
 				</div>
 			</FieldTemplate>
