@@ -77,26 +77,6 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toBe(null);
 		});
-
-		it('should return the error.message if the value is an Error object, without validating further', () => {
-			const schema = {
-				key: ['firstname'],
-				customValidation: true,
-				required: true,
-				schema: {
-					type: 'string',
-				},
-				type: 'text',
-			};
-			const errorMessage = 'This is a custom error message bubbling up from the widget';
-			const widgetError = new Error(errorMessage);
-			const value = widgetError;
-			const properties = { firstname: '' };
-
-			const errors = validateValue(schema, value, properties, customValidationFn);
-
-			expect(errors).toBe(widgetError.message);
-		});
 	});
 
 	describe('#validateArray', () => {

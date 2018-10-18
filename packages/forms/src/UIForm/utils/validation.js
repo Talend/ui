@@ -47,10 +47,6 @@ export function adaptAdditionalRules(mergedSchema) {
  * @returns {object} The validation result.
  */
 export function validateValue(schema, value, properties, customValidationFn) {
-	if (typeof value === 'object' && value instanceof Error) {
-		return value.message;
-	}
-
 	const validationSchema = adaptAdditionalRules(schema);
 	const staticResult = validate(validationSchema, value);
 	if (staticResult.valid && schema.customValidation && customValidationFn) {
