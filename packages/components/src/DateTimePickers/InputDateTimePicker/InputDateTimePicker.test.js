@@ -1136,12 +1136,14 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
-			pickerWrapper.prop('onSubmit')(null, {
-				date: new Date(2018, 0, 1),
-				time: 50,
-			});
-
-			expect(onBlur).toHaveBeenCalledTimes(1);
+			return pickerWrapper
+				.prop('onSubmit')(null, {
+					date: new Date(2018, 0, 1),
+					time: 50,
+				})
+				.then(() => {
+					expect(onBlur).toHaveBeenCalledTimes(1);
+				});
 		});
 	});
 
@@ -1266,15 +1268,17 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
-			pickerWrapper.prop('onSubmit')(null, {
-				date: new Date(2018, 0, 1),
-				time: 50,
-			});
+			return pickerWrapper
+				.prop('onSubmit')(null, {
+					date: new Date(2018, 0, 1),
+					time: 50,
+				})
+				.then(() => {
+					wrapper.update();
 
-			wrapper.update();
-
-			const overlayWrapperAfter = wrapper.find('Overlay').first();
-			expect(overlayWrapperAfter.prop('show')).toBe(false);
+					const overlayWrapperAfter = wrapper.find('Overlay').first();
+					expect(overlayWrapperAfter.prop('show')).toBe(false);
+				});
 		});
 	});
 

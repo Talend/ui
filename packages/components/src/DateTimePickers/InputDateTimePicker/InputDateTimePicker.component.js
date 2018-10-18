@@ -246,7 +246,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
-		this.updateDatePartStateAndTriggerChange(event, {
+		return this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: getTextDate(date, time),
