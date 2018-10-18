@@ -7,32 +7,38 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './File.scss';
 
+const BASE64_NAME = ';name=';
+const BASE64_PREFIX = ';base64,';
+
 /**
  * Extract the file name from the data url
- * @param {String} value The base64 value of the file.
+ * @param {string} value The base64 value of the file.
  * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
- * @return {String} The file name, for exemple: `test.xml`.
+ * @returns {string} The file name, for exemple: `test.xml`.
  */
 function getFileName(value) {
-	if (value && value.indexOf(';name=') !== -1) {
-		return value.slice(value.indexOf(';name=') + 6, value.indexOf(';base64,'));
+	if (value && value.indexOf(BASE64_NAME) !== -1) {
+		return value.slice(
+			value.indexOf(BASE64_NAME) + BASE64_NAME.length, value.indexOf(BASE64_PREFIX)
+		);
 	}
 	return '';
 }
 
 /**
  * Add the file name to the data url.
- * @param {String} value The base64 value of the file.
+ * @param {string} value The base64 value of the file.
  * Looks like `data:text/xml;base64,PD94bWwgdmVyc2l...`
- * @param {String} fileName The file name, for exemple `test.xml`.
- * @return {string} the base 64 encoding of the file with the file name within.
+ * @param {string} fileName The file name, for exemple `test.xml`.
+ * @returns {(string|undefined)} the base 64 encoding of the file with the file name within.
  * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
+ * Or undefined if value is undefined.
  */
 function getBase64(value, fileName) {
-	if (value && value.indexOf(';name=') === -1) {
-		const fileNamePos = value.indexOf(';base64,');
+	if (value && value.indexOf(BASE64_NAME) === -1) {
+		const fileNamePos = value.indexOf(BASE64_PREFIX);
 		if (fileNamePos !== -1) {
-			return [value.slice(0, fileNamePos), ';name=', fileName, value.slice(fileNamePos)].join('');
+			return [value.slice(0, fileNamePos), BASE64_NAME, fileName, value.slice(fileNamePos)].join('');
 		}
 	}
 	return value;
@@ -46,7 +52,7 @@ class FileWidget extends React.Component {
 		this.state = { fileName: getFileName(props.value) };
 	}
 
-	onChange = event => {
+	onChange(event) {
 		const fileList = event.target.files;
 		if (fileList.length > 0) {
 			const file = fileList[0];
@@ -59,7 +65,7 @@ class FileWidget extends React.Component {
 		} else {
 			this.updateFileData(event, '', '');
 		}
-	};
+	}
 
 	/**
 	 * call onChange and update value
