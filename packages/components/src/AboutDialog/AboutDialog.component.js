@@ -89,7 +89,11 @@ function AboutDialog({
 				<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
 				<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
 					<Text
-						text={t('ABOUT_VERSION_NAME', { defaultValue: 'Version: {{version}}', version, interpolation: { escapeValue: false } })}
+						text={t('ABOUT_VERSION_NAME', {
+							defaultValue: 'Version: {{version}}',
+							version,
+							interpolation: { escapeValue: false },
+						})}
 						size={Skeleton.SIZES.xlarge}
 						loading={loading}
 					/>
