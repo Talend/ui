@@ -13,12 +13,19 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 import DateTimePicker from '../DateTimePicker';
 import { mockDate, restoreDate } from '../shared/utils/test/dateMocking';
 
+const DEFAULT_ID = 'DEFAULT_ID';
+
 function getRootElement() {
 	const rootElement = document.createElement('div');
 	document.body.appendChild(rootElement);
 	return rootElement;
 }
-const DEFAULT_ID = 'DEFAULT_ID';
+
+function getSyntheticMockedEvent() {
+	return {
+		persist: jest.fn(),
+	};
+}
 
 describe('InputDateTimePicker', () => {
 	beforeAll(() => {
@@ -561,7 +568,8 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, {
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -581,7 +589,8 @@ describe('InputDateTimePicker', () => {
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, {
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -699,9 +708,7 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			const mockedEvent = {
-				whatever: 'prop',
-			};
+			const mockedEvent = getSyntheticMockedEvent();
 			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
@@ -773,7 +780,8 @@ describe('InputDateTimePicker', () => {
 			onChange.mockReset();
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
-			dateTimePickerWrapper.prop('onSubmit')(null, pickerIndenticalDatas);
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, pickerIndenticalDatas);
 
 			expect(onChange).not.toHaveBeenCalled();
 		});
@@ -1048,7 +1056,8 @@ describe('InputDateTimePicker', () => {
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, pickerDatas);
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, pickerDatas);
 
 			expect(onChange).not.toHaveBeenCalled();
 		});
@@ -1136,13 +1145,15 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
+			const mockedEvent = getSyntheticMockedEvent();
 			return pickerWrapper
-				.prop('onSubmit')(null, {
+				.prop('onSubmit')(mockedEvent, {
 					date: new Date(2018, 0, 1),
 					time: 50,
 				})
 				.then(() => {
 					expect(onBlur).toHaveBeenCalledTimes(1);
+					expect(mockedEvent.persist).toHaveBeenCalledTimes(1);
 				});
 		});
 	});
@@ -1268,8 +1279,10 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
+
+			const mockedEvent = getSyntheticMockedEvent();
 			return pickerWrapper
-				.prop('onSubmit')(null, {
+				.prop('onSubmit')(mockedEvent, {
 					date: new Date(2018, 0, 1),
 					time: 50,
 				})

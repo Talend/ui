@@ -246,6 +246,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
+		event.persist();
 		return this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
