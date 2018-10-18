@@ -20,9 +20,9 @@ exports[`File field should render File with data 1`] = `
       aria-invalid={false}
       aria-required={undefined}
       autoFocus={false}
-      className="form-control"
+      className="form-control theme-file-input"
       disabled={false}
-      id="my-file-field"
+      id="input-my-file-field"
       onBlur={[Function]}
       onChange={[Function]}
       placeholder="Select a file to upload"
@@ -31,9 +31,9 @@ exports[`File field should render File with data 1`] = `
     />
     <input
       className="form-control theme-file-replace"
-      id="input-my-file-field"
-      name="input-my-file-field"
+      name="input-filename-my-file-field"
       placeholder="Select a file to upload"
+      type="text"
       value="test.xml"
     />
   </div>
@@ -60,9 +60,9 @@ exports[`File field should render default File 1`] = `
       aria-invalid={false}
       aria-required={undefined}
       autoFocus={false}
-      className="form-control"
+      className="form-control theme-file-input"
       disabled={false}
-      id="my-file-field"
+      id="input-my-file-field"
       onBlur={[Function]}
       onChange={[Function]}
       placeholder="Select a file to upload"
@@ -71,9 +71,9 @@ exports[`File field should render default File 1`] = `
     />
     <input
       className="form-control theme-file-replace"
-      id="input-my-file-field"
-      name="input-my-file-field"
+      name="input-filename-my-file-field"
       placeholder="Select a file to upload"
+      type="text"
       value=""
     />
   </div>

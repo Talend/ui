@@ -13,12 +13,12 @@ import theme from './File.scss';
  * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
  * @return {String} The file name, for exemple: `test.xml`.
  */
-const extractFileNameFromBase64 = value => {
+function getFileName(value) {
 	if (value && value.indexOf(';name=') !== -1) {
 		return value.slice(value.indexOf(';name=') + 6, value.indexOf(';base64,'));
 	}
 	return '';
-};
+}
 
 /**
  * Add the file name to the data url.
@@ -28,7 +28,7 @@ const extractFileNameFromBase64 = value => {
  * @return {string} the base 64 encoding of the file with the file name within.
  * Looks like `data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2l...`
  */
-const addFileNameToBase64 = (value, fileName) => {
+function getBase64(value, fileName) {
 	if (value && value.indexOf(';name=') === -1) {
 		const fileNamePos = value.indexOf(';base64,');
 		if (fileNamePos !== -1) {
@@ -36,14 +36,14 @@ const addFileNameToBase64 = (value, fileName) => {
 		}
 	}
 	return value;
-};
+}
 
 class FileWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
 		// Extract file name from form properties
-		this.state = { fileReplaceValue: extractFileNameFromBase64(props.value) };
+		this.state = { fileName: getFileName(props.value) };
 	}
 
 	onChange = event => {
@@ -52,10 +52,7 @@ class FileWidget extends React.Component {
 			const file = fileList[0];
 			const reader = new FileReader();
 			reader.onload = () => {
-				// Read data from the FileReader and add file name
-				const data = addFileNameToBase64(reader.result, file.name);
-				// Call onChange with the base 64 value of the file
-				// and update the component state with the file name
+				const data = getBase64(reader.result, file.name);
 				this.updateFileData(event, data, file.name);
 			};
 			reader.readAsDataURL(file);
@@ -65,16 +62,15 @@ class FileWidget extends React.Component {
 	};
 
 	/**
-	 * Update file data on change (add or remove a file)
+	 * call onChange and update value
 	 * @param {Event} event The event
 	 * @param {String} data The base 64 representation of the file
 	 * @param {String} fileName The file name to add in the form field
 	 */
 	updateFileData(event, data, fileName) {
 		const schema = this.props.schema;
-		const onChange = this.props.onChange;
-		onChange(event, { schema, value: data });
-		this.setState({ fileReplaceValue: fileName });
+		this.props.onChange(event, { schema, value: data });
+		this.setState({ fileName });
 	}
 
 	render() {
@@ -104,9 +100,9 @@ class FileWidget extends React.Component {
 			>
 				<div className={theme.file}>
 					<input
-						id={id}
+						id={`input-${id}`}
 						autoFocus={autoFocus}
-						className="form-control"
+						className={`form-control ${theme['file-input']}`}
 						disabled={disabled}
 						onBlur={event => onFinish(event, { schema })}
 						onChange={this.onChange}
@@ -119,10 +115,10 @@ class FileWidget extends React.Component {
 						aria-describedby={`${descriptionId} ${errorId}`}
 					/>
 					<input
-						id={`input-${id}`}
-						name={`input-${id}`}
+						name={`input-filename-${id}`}
 						className={`form-control ${theme['file-replace']}`}
-						value={this.state.fileReplaceValue}
+						value={this.state.fileName}
+						type="text"
 						placeholder={placeholder}
 					/>
 				</div>
@@ -154,7 +150,6 @@ if (process.env.NODE_ENV !== 'production') {
 FileWidget.defaultProps = {
 	isValid: true,
 	schema: {},
-	value: '',
 };
 
 export { FileWidget };
